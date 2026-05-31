@@ -22943,6 +22943,14 @@ return {
 			},
 		},
 		["1007380041"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22999,6 +23007,14 @@ return {
 			},
 		},
 		["1022759479"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23057,6 +23073,14 @@ return {
 			},
 		},
 		["1039268420"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23187,6 +23211,14 @@ return {
 			},
 		},
 		["1087108135"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23196,6 +23228,14 @@ return {
 			},
 		},
 		["1087531620"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23222,6 +23262,14 @@ return {
 			},
 		},
 		["111835965"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23270,6 +23318,14 @@ return {
 			},
 		},
 		["1137305356"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23279,6 +23335,14 @@ return {
 			},
 		},
 		["1145481685"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23288,6 +23352,14 @@ return {
 			}, 
 		}, 
 		["1160637284"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23314,6 +23386,14 @@ return {
 			},
 		},
 		["1166140625"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23358,6 +23438,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1185341308"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23614,6 +23702,14 @@ return {
 			}, 
 		}, 
 		["1266413530"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23623,6 +23719,14 @@ return {
 			},
 		},
 		["127081978"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23632,6 +23736,14 @@ return {
 			},
 		},
 		["1285594161"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23672,6 +23784,14 @@ return {
 			},
 		},
 		["1309799717"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23732,6 +23852,14 @@ return {
 			},
 		},
 		["1320662475"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23741,6 +23869,14 @@ return {
 			}, 
 		}, 
 		["1321104829"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23750,6 +23886,14 @@ return {
 			},
 		},
 		["1323216174"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23759,6 +23903,14 @@ return {
 			},
 		},
 		["1337740333"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23768,6 +23920,14 @@ return {
 			}, 
 		}, 
 		["1352561456"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23873,6 +24033,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["138421180"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23916,6 +24084,14 @@ return {
 			},
 		},
 		["139889694"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23955,6 +24131,14 @@ return {
 			}, 
 		}, 
 		["1417267954"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23982,6 +24166,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1426522529"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23991,6 +24183,14 @@ return {
 			},
 		},
 		["1432756708"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24055,6 +24255,14 @@ return {
 			},
 		},
 		["147764878"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24064,6 +24272,14 @@ return {
 			}, 
 		}, 
 		["1494950893"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24073,6 +24289,14 @@ return {
 			},
 		},
 		["1495814176"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24082,6 +24306,14 @@ return {
 			},
 		},
 		["1505023559"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24140,6 +24372,14 @@ return {
 			}, 
 		}, 
 		["1514844108"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24209,6 +24449,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1552666713"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24346,6 +24594,14 @@ return {
 			},
 		},
 		["1590846356"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24398,6 +24654,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1602294220"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24424,6 +24688,14 @@ return {
 			}, 
 		}, 
 		["1653682082"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24621,6 +24893,14 @@ return {
 			},
 		},
 		["1756380435"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24628,6 +24908,7 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
+			["usePositiveSign"] = true,
 		},
 		["1772247089"] = {
 			["AnyJewel"] = {
@@ -24647,6 +24928,14 @@ return {
 			},
 		},
 		["1773308808"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24673,6 +24962,14 @@ return {
 			}, 
 		}, 
 		["1777421941"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24707,6 +25004,14 @@ return {
 			},
 		},
 		["179541474"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24733,6 +25038,14 @@ return {
 			},
 		},
 		["1800303440"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24789,6 +25102,14 @@ return {
 			},
 		},
 		["1834658952"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24836,6 +25157,14 @@ return {
 			}, 
 		}, 
 		["1846980580"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24843,8 +25172,17 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant # to Maximum Rage",
 				["type"] = "explicit",
 			},
+			["usePositiveSign"] = true,
 		},
 		["1852184471"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24988,6 +25326,14 @@ return {
 			},
 		},
 		["1892122971"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24997,6 +25343,14 @@ return {
 			},
 		},
 		["1896066427"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25072,6 +25426,14 @@ return {
 			},
 		},
 		["1944020877"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25112,6 +25474,14 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1994296038"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25201,6 +25571,14 @@ return {
 			}, 
 		}, 
 		["2056107438"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25210,6 +25588,14 @@ return {
 			},
 		},
 		["2066964205"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25219,6 +25605,14 @@ return {
 			}, 
 		}, 
 		["2077117738"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25324,6 +25718,14 @@ return {
 			},
 		},
 		["2107703111"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25333,6 +25735,14 @@ return {
 			},
 		},
 		["2108821127"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25385,6 +25795,14 @@ return {
 			},
 		},
 		["2131720304"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25408,6 +25826,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2149603090"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25494,6 +25920,14 @@ return {
 			}, 
 		}, 
 		["2202308025"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25503,6 +25937,14 @@ return {
 			},
 		},
 		["221701169"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25626,6 +26068,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2256120736"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25635,6 +26085,14 @@ return {
 			},
 		},
 		["2272980012"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25661,6 +26119,14 @@ return {
 			}, 
 		}, 
 		["2320654813"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25691,6 +26157,14 @@ return {
 			},
 		},
 		["2334956771"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25788,6 +26262,14 @@ return {
 			},
 		},
 		["2359002191"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25810,6 +26292,14 @@ return {
 			},
 		},
 		["2374711847"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25819,6 +26309,14 @@ return {
 			}, 
 		}, 
 		["2392824305"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25858,6 +26356,14 @@ return {
 			},
 		},
 		["2421151933"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25884,6 +26390,14 @@ return {
 			},
 		},
 		["2442527254"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25957,6 +26471,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2466785537"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26162,6 +26684,14 @@ return {
 			},
 		},
 		["2534359663"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26171,6 +26701,14 @@ return {
 			},
 		},
 		["253641217"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26210,6 +26748,14 @@ return {
 			},
 		},
 		["255840549"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26219,6 +26765,15 @@ return {
 			}, 
 		}, 
 		["2580617872"] = {
+			["AnyJewel"] = {
+				["max"] = -2,
+				["min"] = -5,
+			},
+			["RadiusJewel"] = {
+				["max"] = -2,
+				["min"] = -5,
+			},
+			["invertOnNegative"] = true,
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26256,6 +26811,14 @@ return {
 			},
 		},
 		["2610562860"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26282,6 +26845,14 @@ return {
 			},
 		},
 		["2638756573"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26317,6 +26888,14 @@ return {
 			},
 		},
 		["266564538"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26357,6 +26936,14 @@ return {
 			},
 		},
 		["2690740379"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26433,6 +27020,14 @@ return {
 			}, 
 		}, 
 		["2704905000"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26459,6 +27054,14 @@ return {
 			},
 		},
 		["2709646369"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26485,6 +27088,14 @@ return {
 			}, 
 		}, 
 		["2726713579"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26577,6 +27188,14 @@ return {
 			},
 		},
 		["2768899959"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26586,6 +27205,14 @@ return {
 			},
 		},
 		["2770044702"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26625,6 +27252,14 @@ return {
 			},
 		},
 		["2809428780"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26634,6 +27269,14 @@ return {
 			},
 		},
 		["2822644689"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26660,6 +27303,14 @@ return {
 			},
 		},
 		["2840989393"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26686,6 +27337,14 @@ return {
 			},
 		},
 		["2849546516"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26754,6 +27413,14 @@ return {
 			},
 		},
 		["288364275"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26847,6 +27514,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2907381231"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26856,6 +27531,14 @@ return {
 			},
 		},
 		["2912416697"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26944,6 +27627,14 @@ return {
 			}, 
 		}, 
 		["2954360902"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27003,6 +27694,14 @@ return {
 			},
 		},
 		["2969557004"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27066,6 +27765,14 @@ return {
 			},
 		},
 		["2976476845"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27324,6 +28031,14 @@ return {
 			},
 		},
 		["30438393"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27350,6 +28065,14 @@ return {
 			}, 
 		}, 
 		["3065378291"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27376,6 +28099,14 @@ return {
 			},
 		},
 		["3088348485"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27402,6 +28133,14 @@ return {
 			}, 
 		}, 
 		["3106718406"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27411,6 +28150,14 @@ return {
 			}, 
 		}, 
 		["3113764475"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27511,6 +28258,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3171212276"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27520,6 +28275,14 @@ return {
 			},
 		},
 		["3173882956"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27619,6 +28382,14 @@ return {
 			},
 		},
 		["3222402650"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27628,6 +28399,14 @@ return {
 			},
 		},
 		["3225608889"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27635,6 +28414,7 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to all Elemental Resistances",
 				["type"] = "explicit",
 			},
+			["usePositiveSign"] = true,
 		},
 		["3233599707"] = {
 			["specialCaseData"] = {
@@ -27655,6 +28435,14 @@ return {
 			}, 
 		}, 
 		["3256879910"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28255,6 +29043,14 @@ return {
 			}, 
 		}, 
 		["3386297724"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28264,6 +29060,14 @@ return {
 			},
 		},
 		["3391917254"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28273,6 +29077,14 @@ return {
 			}, 
 		}, 
 		["3394832998"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28282,6 +29094,14 @@ return {
 			},
 		},
 		["3395186672"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28325,6 +29145,14 @@ return {
 			}, 
 		}, 
 		["3409275777"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28351,6 +29179,14 @@ return {
 			},
 		},
 		["3419203492"] = {
+			["AnyJewel"] = {
+				["max"] = 25,
+				["min"] = 15,
+			},
+			["RadiusJewel"] = {
+				["max"] = 25,
+				["min"] = 15,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28438,6 +29274,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3513818125"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28514,6 +29358,14 @@ return {
 			},
 		},
 		["3579898587"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28578,6 +29430,14 @@ return {
 			}, 
 		}, 
 		["3628935286"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28673,6 +29533,14 @@ return {
 			},
 		},
 		["3641543553"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28682,6 +29550,14 @@ return {
 			}, 
 		}, 
 		["3665922113"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28691,6 +29567,14 @@ return {
 			},
 		},
 		["3666476747"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28717,6 +29601,14 @@ return {
 			},
 		},
 		["3669820740"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28830,6 +29722,14 @@ return {
 			},
 		},
 		["3700202631"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28886,6 +29786,14 @@ return {
 			},
 		},
 		["3752589831"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28946,6 +29854,14 @@ return {
 			},
 		},
 		["3774951878"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28989,6 +29905,14 @@ return {
 			},
 		},
 		["378796798"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29032,6 +29956,14 @@ return {
 			}, 
 		}, 
 		["3821543413"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29137,6 +30069,14 @@ return {
 			},
 		},
 		["3856744003"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29146,6 +30086,14 @@ return {
 			},
 		},
 		["3858398337"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29155,6 +30103,14 @@ return {
 			}, 
 		}, 
 		["3859848445"] = {
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 6,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29164,6 +30120,14 @@ return {
 			},
 		},
 		["3865605585"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29259,6 +30223,14 @@ return {
 			},
 		},
 		["391602279"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29297,6 +30269,14 @@ return {
 			},
 		},
 		["3936121440"] = {
+			["AnyJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 5,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29306,6 +30286,14 @@ return {
 			},
 		},
 		["394473632"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29536,6 +30524,14 @@ return {
 			},
 		},
 		["4032352472"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29712,6 +30708,14 @@ return {
 			},
 		},
 		["4089835882"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29721,6 +30725,14 @@ return {
 			},
 		},
 		["4092130601"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29773,6 +30785,14 @@ return {
 			},
 		},
 		["412709880"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29808,6 +30828,14 @@ return {
 			},
 		},
 		["4142814612"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29868,6 +30896,14 @@ return {
 			},
 		},
 		["4162678661"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29877,6 +30913,14 @@ return {
 			},
 		},
 		["4173554949"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -29886,6 +30930,14 @@ return {
 			},
 		},
 		["4180952808"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30053,6 +31105,14 @@ return {
 			}, 
 		}, 
 		["4258720395"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30113,6 +31173,14 @@ return {
 			},
 		},
 		["442393998"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30139,6 +31207,14 @@ return {
 			},
 		},
 		["455816363"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30165,6 +31241,14 @@ return {
 			},
 		},
 		["462424929"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30220,6 +31304,14 @@ return {
 			},
 		},
 		["473917671"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30229,6 +31321,14 @@ return {
 			},
 		},
 		["484792219"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30255,6 +31355,14 @@ return {
 			},
 		},
 		["504915064"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30264,6 +31372,14 @@ return {
 			},
 		},
 		["517664839"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30336,6 +31452,14 @@ return {
 			},
 		},
 		["525523040"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30375,6 +31499,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["533892981"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30518,6 +31650,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["593241812"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30527,6 +31667,14 @@ return {
 			},
 		},
 		["61644361"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["RadiusJewel"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30596,6 +31744,14 @@ return {
 			},
 		},
 		["654207792"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30785,6 +31941,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["693237939"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -30904,6 +32068,14 @@ return {
 			}, 
 		}, 
 		["715957346"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31313,6 +32485,14 @@ return {
 			},
 		},
 		["821948283"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31331,6 +32511,14 @@ return {
 			}, 
 		}, 
 		["830345042"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31340,6 +32528,14 @@ return {
 			},
 		},
 		["844449513"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31366,6 +32562,14 @@ return {
 			},
 		},
 		["868556494"] = {
+			["AnyJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31516,6 +32720,14 @@ return {
 			}, 
 		}, 
 		["942519401"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31525,6 +32737,14 @@ return {
 			},
 		},
 		["944643028"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31534,6 +32754,14 @@ return {
 			},
 		},
 		["945774314"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -31556,6 +32784,14 @@ return {
 			}, 
 		}, 
 		["980177976"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["RadiusJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -33036,7 +34272,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["101878827"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
@@ -33337,7 +34573,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1250712710"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 14,
 				["min"] = 14,
 			},
@@ -33728,7 +34964,7 @@ return {
 			}, 
 		}, 
 		["1574590649"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -33872,7 +35108,7 @@ return {
 			}, 
 		}, 
 		["1798257884"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
@@ -33938,7 +35174,7 @@ return {
 			}, 
 		}, 
 		["1998951374"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},
@@ -34572,7 +35808,7 @@ return {
 			}, 
 		}, 
 		["2854751904"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20.5,
 				["min"] = 20.5,
 			},
@@ -34611,7 +35847,7 @@ return {
 			}, 
 		}, 
 		["289128254"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},
@@ -35000,7 +36236,7 @@ return {
 			}, 
 		}, 
 		["3057012405"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 14,
 				["min"] = 14,
 			},
@@ -35787,7 +37023,7 @@ return {
 			}, 
 		}, 
 		["3742865955"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40,
 				["min"] = 40,
 			},
@@ -35809,12 +37045,16 @@ return {
 		}, 
 		["3759663284"] = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			["Bow"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
 =======
 			["2HWeapon"] = {
+=======
+			["Bow"] = {
+>>>>>>> 62bfc4a7b (Fix weight generation for radius jewels again)
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -35874,7 +37114,7 @@ return {
 			}, 
 		}, 
 		["3850614073"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},
@@ -35959,12 +37199,16 @@ return {
 		}, 
 		["3885405204"] = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			["Bow"] = {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
 =======
 			["2HWeapon"] = {
+=======
+			["Bow"] = {
+>>>>>>> 62bfc4a7b (Fix weight generation for radius jewels again)
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -36139,7 +37383,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["3984865854"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -36152,7 +37396,7 @@ return {
 			}, 
 		}, 
 		["4010677958"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},

@@ -191,17 +191,27 @@ local function writeMods(outName, condFunc)
 					-- the same stat as regular jewel mods. this means the
 					-- description will not include the also grant: prefix
 					local stats = copyTable(statEntry.stats)
+					-- radius jewels lack a proper stat descriptor and so we add it manually
+					local prefix
 					-- radius jewel mods:
 					-- notable
 					if mod.NodeType == 2 then
 						table.insert(stats, "local_jewel_mod_stats_added_to_notable_passives")
+						prefix = "Notable Passive Skills in Radius also grant "
 					-- small
 					elseif mod.NodeType and mod.NodeType == 1 then
 						table.insert(stats, "local_jewel_mod_stats_added_to_small_passives")
+						prefix = "Small Passive Skills in Radius also grant "
 					end
 
 
 					local description, _, _ = describeStats(currentStats)
+
+					if prefix then
+						for i, v in ipairs(description or {}) do
+							description[i] = prefix..v
+						end
+					end
 
 					local tradeHash = hashStats(stats)
 					tradeHashes[tradeHash] = description

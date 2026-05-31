@@ -153,10 +153,6 @@ function M.formatDatabaseText(text)
 	-- (123-124) -> #
 	text = text:gsub("%(%d+%-%d+%)", "#")
 	text = text:gsub("%d+", "#")
-	-- remove radius jewel text. the same description is used for regular and
-	-- radius jewels in the exports
-	text = text:gsub("^Notable Passive Skills in Radius also grant ", "")
-	text = text:gsub("^Small Passive Skills in Radius also grant ", "")
 	return text
 end
 
@@ -230,7 +226,7 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			end
 		end
 		-- most implicit and explicit applicable to the type
-	elseif modType ~= "implicit" or modType ~= "explicit" then
+	elseif modType == "implicit" or modType == "explicit" then
 		for _, dbMod in pairs(item.affixes) do
 			local tradeHashMaybe = findStat(dbMod)
 			if tradeHashMaybe then
