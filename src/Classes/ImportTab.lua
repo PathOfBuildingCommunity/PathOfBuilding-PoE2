@@ -1032,7 +1032,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.rarity = rarityMap[itemData.frameType]
 	if #itemData.name > 0 then
 		item.title = sanitiseText(itemData.name)
-		item.baseName = sanitiseText(itemData.typeLine):gsub("Synthesised ","")
+		item.baseName = sanitiseText(itemData.typeLine):gsub("Synthesised ",""):gsub("Runeforged ","")
 		item.name = item.title .. ", " .. item.baseName
 		if item.baseName == "Two-Toned Boots" then
 			-- Hack for Two-Toned Boots
@@ -1114,10 +1114,12 @@ function ImportTabClass:ImportItem(itemData, slotName)
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Runic Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
 				item.armourData = item.armourData or { }
+				local armourKey = property.name:gsub(" Rating", ""):gsub(" ", "")
+				if armourKey == "RunicWard" then armourKey = "Ward" end
 				for _, value in ipairs(property.values) do
-					item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] = (item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] or 0) + tonumber(value[1])
+					item.armourData[armourKey] = (item.armourData[armourKey] or 0) + tonumber(value[1])
 				end
 			end
 		end

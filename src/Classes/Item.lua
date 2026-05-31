@@ -579,7 +579,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 				elseif specName == "Talisman Tier" then
 					self.talismanTier = specToNumber(specVal)
-				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Ward" then
+				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Ward" or specName == "Runic Ward" then
 					if specName == "Evasion Rating" then
 						specName = "Evasion"
 						if self.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
@@ -594,6 +594,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							self.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 							self.base = data.itemBases[self.baseName]
 						end
+					elseif specName == "Runic Ward" then
+						specName = "Ward"
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
@@ -792,7 +794,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.name = self.name:gsub(" %(.+%)","")
 				end
 				if not baseName then
-					baseName = line:gsub("^Superior ", "")
+					baseName = line:gsub("^Superior ", ""):gsub("^Runeforged ", "")
 				end
 				if baseName == "Two-Toned Boots" then
 					baseName = "Two-Toned Boots (Armour/Energy Shield)"
