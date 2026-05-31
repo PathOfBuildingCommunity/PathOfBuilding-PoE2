@@ -41,7 +41,7 @@ itemBases["Lunar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(20-30) to maximum Energy Shield",
-	implicitModTypes = { { "energy_shield", "defences" }, },
+	implicitModTypes = { { "defences", "energy_shield" }, },
 	req = { level = 14, },
 }
 itemBases["Bloodstone Amulet"] = {
@@ -76,8 +76,67 @@ itemBases["Pearlescent Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 30, },
+}
+itemBases["Veridical Chain"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "+(30-40) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "+(30-40) to maximum Runic Ward\n+(2-3)% to Maximum Cold Resistance",
+	implicitModTypes = { { "runic_ward" }, { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "+(30-40) to maximum Runic Ward\n+(1-2) to Level of all Cold Skills",
+	implicitModTypes = { { "runic_ward" }, { "elemental", "cold", "gem" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "(15-20)% increased maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	req = { },
+}
+itemBases["Lament Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed",
+	implicit = "Grants Skill: Level (1-20) Arctic Armour",
+	implicitModTypes = { {  }, },
+	req = { level = 42, },
+}
+itemBases["Portent Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Suffix Modifier allowed",
+	implicit = "Grants Skill: Level (1-20) Wolf Pack",
+	implicitModTypes = { {  }, },
+	req = { level = 42, },
+}
+itemBases["Absent Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+	implicit = "Grants Skill: Level (1-20) Cast on Elemental Ailment",
+	implicitModTypes = { {  }, {  }, },
+	req = { level = 49, },
+}
+itemBases["Corona Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "This item gains bonuses from Socketed Items as though it was a Helmet",
+	implicitModTypes = { {  }, },
+	req = { level = 40, },
 }
 itemBases["Dusk Amulet"] = {
 	type = "Amulet",
@@ -107,10 +166,17 @@ itemBases["Tenebrous Amulet"] = {
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
+itemBases["Twisted Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed",
+	implicitModTypes = { {  }, },
+	req = { },
+}
 itemBases["Distorted Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
-	implicitModTypes = { {  }, {  }, },
+	implicit = "-1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, },
 	req = { },
 }

@@ -26,7 +26,7 @@ Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Gladiatorial Helm
+Runemastered Guarded Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
@@ -84,7 +84,7 @@ Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 ]],[[
 Evasion/Energy Shield Gloves
-Secured Wraps
+War Wraps
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -93,42 +93,42 @@ Prefix: IncreasedLife6
 -- Body Armour
 [[
 Armour Chest
-Glorious Plate
+Runeforged Conqueror Plate
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Evasion Chest
-Exquisite Vest
+Slipstrike Vest
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Energy Shield Chest
-Havoc Raiment
+Vile Robe
 Crafted: true
 Prefix: IncreasedLife9
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield10
 ]],[[
 Armour/Evasion Chest
-Slayer Armour
+Death Mail
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife9
 ]],[[
 Armour/Energy Shield Chest
-Zenith Vestments
+Wolfskin Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife9
 ]],[[
 Evasion/Energy Shield Chest
-Torment Jacket
+Sleek Jacket
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield5_
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -172,14 +172,14 @@ Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Blacksteel Sabatons
+Runemastered Stacked Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Armour/Energy Shield Boots
-Cryptic Leggings
+Pious Leggings
 Crafted: true
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6

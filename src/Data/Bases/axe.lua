@@ -8,7 +8,7 @@ itemBases["Dull Hatchet"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 4, PhysicalMax = 10, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 4, PhysicalMax = 10, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { },
 }
 itemBases["Hook Axe"] = {
@@ -18,7 +18,7 @@ itemBases["Hook Axe"] = {
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicit = "Grants 1 Rage on Hit",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 5, PhysicalMax = 14, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 5, PhysicalMax = 14, CritChanceBase = 5, AttackRateBase = 1.45, Range = 13, },
 	req = { str = 9, },
 }
 itemBases["Bearded Axe"] = {
@@ -27,7 +27,7 @@ itemBases["Bearded Axe"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 8, PhysicalMax = 21, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 8, PhysicalMax = 21, CritChanceBase = 5, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 10, str = 17, dex = 9, },
 }
 itemBases["Extended Cleaver"] = {
@@ -37,7 +37,7 @@ itemBases["Extended Cleaver"] = {
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicit = "Has no Accuracy Penalty from Range",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 8, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 8, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 16, str = 25, dex = 12, },
 }
 itemBases["Bandit Hatchet"] = {
@@ -46,7 +46,7 @@ itemBases["Bandit Hatchet"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 20, str = 30, dex = 14, },
 }
 itemBases["Crescent Axe"] = {
@@ -55,7 +55,7 @@ itemBases["Crescent Axe"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 18, PhysicalMax = 37, CritChanceBase = 6.5, AttackRateBase = 1.4, Range = 11, },
+	weapon = { PhysicalMin = 18, PhysicalMax = 37, CritChanceBase = 6.5, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 26, str = 38, dex = 17, },
 }
 itemBases["Carving Hatchet"] = {
@@ -64,7 +64,7 @@ itemBases["Carving Hatchet"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 19, PhysicalMax = 44, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 19, PhysicalMax = 44, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 33, str = 47, dex = 20, },
 }
 itemBases["Sacrificial Axe"] = {
@@ -74,7 +74,7 @@ itemBases["Sacrificial Axe"] = {
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
 	implicit = "Gain (28-35) Mana per enemy killed",
 	implicitModTypes = { { "resource", "mana" }, },
-	weapon = { PhysicalMin = 20, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 20, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 37, str = 52, dex = 22, },
 }
 itemBases["Boarding Hatchet"] = {
@@ -83,7 +83,7 @@ itemBases["Boarding Hatchet"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 24, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	weapon = { PhysicalMin = 24, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.55, Range = 13, },
 	req = { level = 45, str = 63, dex = 26, },
 }
 itemBases["Fury Cleaver"] = {
@@ -93,7 +93,7 @@ itemBases["Fury Cleaver"] = {
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicit = "10% increased Damage taken",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 30, PhysicalMax = 62, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	weapon = { PhysicalMin = 30, PhysicalMax = 62, CritChanceBase = 5, AttackRateBase = 1.55, Range = 13, },
 	req = { level = 48, str = 67, dex = 27, },
 }
 itemBases["Battle Axe"] = {
@@ -102,7 +102,7 @@ itemBases["Battle Axe"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 28, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 28, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 52, str = 72, dex = 29, },
 }
 itemBases["Profane Cleaver"] = {
@@ -111,7 +111,7 @@ itemBases["Profane Cleaver"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 26, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 26, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 54, str = 75, dex = 30, },
 }
 itemBases["Dread Hatchet"] = {
@@ -120,7 +120,7 @@ itemBases["Dread Hatchet"] = {
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 34, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 34, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 65, str = 89, dex = 36, },
 }
 
@@ -130,7 +130,7 @@ itemBases["Splitting Greataxe"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 8, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 8, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { },
 }
 itemBases["Light Halberd"] = {
@@ -139,7 +139,7 @@ itemBases["Light Halberd"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 10, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
+	weapon = { PhysicalMin = 10, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.25, Range = 15, },
 	req = { str = 9, },
 }
 itemBases["Executioner Greataxe"] = {
@@ -149,7 +149,7 @@ itemBases["Executioner Greataxe"] = {
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Culling Strike",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 10, PhysicalMax = 41, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 10, PhysicalMax = 41, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 10, str = 17, dex = 9, },
 }
 itemBases["Arched Greataxe"] = {
@@ -158,7 +158,7 @@ itemBases["Arched Greataxe"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 17, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
+	weapon = { PhysicalMin = 17, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.15, Range = 15, },
 	req = { level = 16, str = 25, dex = 12, },
 }
 itemBases["Elegant Glaive"] = {
@@ -167,7 +167,7 @@ itemBases["Elegant Glaive"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 19, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 19, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 20, str = 30, dex = 14, },
 }
 itemBases["Savage Greataxe"] = {
@@ -177,7 +177,7 @@ itemBases["Savage Greataxe"] = {
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Gain (34-43) Life per enemy killed",
 	implicitModTypes = { { "resource", "life" }, },
-	weapon = { PhysicalMin = 23, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 23, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 27, str = 39, dex = 17, },
 }
 itemBases["Rending Halberd"] = {
@@ -186,7 +186,7 @@ itemBases["Rending Halberd"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 27, PhysicalMax = 91, CritChanceBase = 6.5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 27, PhysicalMax = 91, CritChanceBase = 6.5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 33, str = 47, dex = 20, },
 }
 itemBases["Jagged Greataxe"] = {
@@ -196,7 +196,7 @@ itemBases["Jagged Greataxe"] = {
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicit = "(15-25)% chance to cause Bleeding on Hit",
 	implicitModTypes = { { "bleed", "physical", "attack", "ailment" }, },
-	weapon = { PhysicalMin = 43, PhysicalMax = 99, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
+	weapon = { PhysicalMin = 43, PhysicalMax = 99, CritChanceBase = 5, AttackRateBase = 1.15, Range = 15, },
 	req = { level = 40, str = 56, dex = 23, },
 }
 itemBases["Reaver Glaive"] = {
@@ -205,7 +205,7 @@ itemBases["Reaver Glaive"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 43, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 43, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 45, str = 63, dex = 26, },
 }
 itemBases["Ember Greataxe"] = {
@@ -214,7 +214,7 @@ itemBases["Ember Greataxe"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { FireMin = 58, FireMax = 154, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { FireMin = 58, FireMax = 154, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 50, str = 70, dex = 28, },
 }
 itemBases["Ceremonial Halberd"] = {
@@ -224,7 +224,7 @@ itemBases["Ceremonial Halberd"] = {
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Cannot use Projectile Attacks",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 53, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 53, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 52, str = 72, dex = 29, },
 }
 itemBases["Monument Greataxe"] = {
@@ -233,7 +233,7 @@ itemBases["Monument Greataxe"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 48, PhysicalMax = 143, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 48, PhysicalMax = 143, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 57, str = 79, dex = 32, },
 }
 itemBases["Vile Greataxe"] = {
@@ -242,6 +242,6 @@ itemBases["Vile Greataxe"] = {
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 59, PhysicalMax = 155, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { PhysicalMin = 59, PhysicalMax = 155, CritChanceBase = 5, AttackRateBase = 1.2, Range = 15, },
 	req = { level = 65, str = 89, dex = 36, },
 }
