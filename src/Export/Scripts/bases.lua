@@ -134,6 +134,7 @@ directiveTable.base = function(state, args, out)
 	out:write('},\n')
 	local implicitLines = { }
 	local implicitModTypes = { }
+	local variantList = { }
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
 		local modDesc = describeMod(mod)
 		for _, line in ipairs(modDesc) do
@@ -147,17 +148,31 @@ directiveTable.base = function(state, args, out)
 	if state.type == "Belt" then
 		table.insert(implicitLines, "Has (1-3) Charm Slots")
 	end
-	if #implicitLines > 0 then
-		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
-	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
-		local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
 		if #inherentSkillType.Skill > 1 then
-			print("Unhandled Instance - Inherent Skill number more than 1")
+			for index, skill in ipairs(inherentSkillType.Skill) do
+				local skillGem = dat("SkillGems"):GetRow("BaseItemType", skill.BaseItemType)
+				local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
+				local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+				table.insert(variantList, skillName)
+				table.insert(implicitLines, "{variant:" .. index .. "}Grants Skill: Level (1-20) " .. skillName)
+			end
+		else
+			local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
+			local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
+			table.insert(implicitLines, "Grants Skill: Level (1-20) " .. gemEffect.GrantedEffect.ActiveSkill.DisplayName)
 		end
-		out:write('\timplicit = "Grants Skill: Level (1-20) ', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')
+	end
+	if #variantList > 0 then
+		out:write('\tvariantList = { ')
+		for _, variant in ipairs(variantList) do
+			out:write('"', variant:gsub('"', '\\"'), '", ')
+		end
+		out:write('},\n')
+	end
+	if #implicitLines > 0 then
+		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
