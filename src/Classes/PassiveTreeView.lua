@@ -1301,7 +1301,7 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 		nodeName = "^xF8E6CA" .. node.dn
 	end
 	tooltip.center = true
-	tooltip:AddLine(24, nodeName..(launch.devModeAlt and " ["..node.id.."]" or ""), "FONTIN")
+	tooltip:AddLine(24, launch.devModeAlt and (node.iname .. " ["..node.id.."]") or nodeName, "FONTIN")
 	tooltip.center = false
 	if launch.devModeAlt and node.id > 65535 then
 		-- Decompose cluster node Id
