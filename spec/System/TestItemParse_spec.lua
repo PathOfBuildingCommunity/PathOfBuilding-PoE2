@@ -460,6 +460,20 @@ describe("TestItemParse", function()
 
 		assert.are.equals(6, item.jewelSocketCount)
 	end)
+
+	it("Runeforged prefix is stripped from base name", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Empyrean Shelter
+			Runeforged Serpentscale Coat
+			--------
+			Evasion Rating: 543
+			Runic Ward: 83
+			--------
+			Item Level: 36
+		]])
+		assert.are.equals("Serpentscale Coat", item.baseName)
+	end)
 end)
 
 describe("TestAdvancedItemParse #item", function()
