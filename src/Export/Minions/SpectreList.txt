@@ -9,7 +9,6 @@
 
 Metadata/Monsters/Monkeys/MonkeyJungle                                                    		----		Feral Primate
 Metadata/Monsters/BloodChieftain/MonkeyChiefJungle                                        		----		Alpha Primate
-Metadata/Monsters/InsectMinion/InsectTest                                                 		----		Testling
 Metadata/Monsters/Spiker/Spiker3_                                                         		----		Porcupine Goliath
 Metadata/Monsters/MudBurrower/BrambleBurrower                                             		----		Bramble Burrower
 Metadata/Monsters/StonebackRhoa/BrambleRhoa                                               		----		Bramble Rhoa
@@ -594,7 +593,6 @@ Metadata/Monsters/PrecursorCentipedeTrain/PrecursorCentipedeTrainHead           
 -- Spectres Not Yet Imported --
 -- These are either false spectres, or are disabled in game currently. This is not including duplicate names, just singular copy of a Spectre name.--
 
-Metadata/Monsters/InsectMinion/InsectTest                                                 		----		Testling
 Metadata/Monsters/CrowBell/CrowBellBossMinion1                                            		----		The Crowbell
 Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
 Metadata/Monsters/Wraith/Runemarked/WraithSpookyRunemarked                                		----		Tempest Wraith
@@ -617,30 +615,13 @@ Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1                           
 Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2                                     		----		Caedron, the Hyena Lord
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
-Metadata/Monsters/PitifulFabrications/PitifulFabrication02                                		----		Ribrattle
 Metadata/Monsters/TwilightOrderExcavationOverseer/Runemarked/TwilightOrderOverseerRunemarked		----		Twilight Overseer
-Metadata/Monsters/CorpseWheel/PlagueCorpseWheel                                           		----		The Punished
-Metadata/Monsters/BloodClan/BloodClanTrapper                                              		----		Sea-tribe Trapper
-Metadata/Monsters/BloodClan/BloodClanVillager                                             		----		Sea-tribe Villager
-Metadata/Monsters/BloodClan/BloodClanCaster                                               		----		Sea-tribe Caster
-Metadata/Monsters/BloodClan/BloodClanVaulter                                              		----		Sea-tribe Vaulter
 Metadata/Monsters/BloodClan/BloodClanDagger                                               		----		Sea-tribe Daggerbearer
-Metadata/Monsters/BloodClan/BloodClanKina                                                 		----		Sea-tribe Pouchbearer
-Metadata/Monsters/BloodClan/BloodClanHarpooner                                            		----		Sea-tribe Harpooner
-Metadata/Monsters/BloodClan/BloodClanBirdFisherman                                        		----		Sea-tribe Spearfisher
-Metadata/Monsters/BloodClan/BloodClanBird                                                 		----		Sea-tribe Avian
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion1                                          		----		Mighty Silverfist
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
 Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1                                       		----		The Abominable Yeti
 Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2                                       		----		The Frostborn Fiend
 Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
-Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey                               		----		Constructed Monkey
-Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead                           		----		Constructed Monkey Head
-Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion                     		----		Viper Servant
-Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion                            		----		Jaguar Familiar
-Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion                             		----		Serpentine Familiar
-Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_                           		----		Primal Familiar
-Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake                                     		----		Snake
 Metadata/Monsters/Pirates/CaptainRothBossCannon                                           		----		Ghost Cannon
 Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_		----		Skitter Mine
 Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1                                      		----		Great White One
@@ -668,13 +649,6 @@ Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                             
 Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2                                       		----		Thraeven, Wing of Winter
 Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_                       		----		Ashar, the Sand Mother
 Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2                        		----		Karash, The Dune Dweller
-Metadata/Monsters/LeagueDelirium/DeliriumMinion1                                          		----		Rage
-Metadata/Monsters/LeagueDelirium/DeliriumMinion2                                          		----		Spite
-Metadata/Monsters/LeagueDelirium/DeliriumMinion3                                          		----		Disgust
-Metadata/Monsters/LeagueDelirium/DeliriumMinion4                                          		----		Malice
-Metadata/Monsters/LeagueDelirium/DeliriumMinion5_                                         		----		Fury
-Metadata/Monsters/LeagueDelirium/DeliriumMinion6_                                         		----		Turmoil
-Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear                                		----		Manifested Demon
 Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleSummon                                  		----		Volatile Scarab
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp

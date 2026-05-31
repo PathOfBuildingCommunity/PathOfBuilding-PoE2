@@ -671,6 +671,10 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
+#spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication02
+#flags recommendedSpectre
+#emit
+
 #spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication03_
 #emit
 
@@ -1563,3 +1567,74 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatueSnakeExpedition
 #emit
 
+#spectre Metadata/Monsters/CorpseWheel/PlagueCorpseWheel
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanTrapper
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanVillager
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanCaster
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanVaulter
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanDagger
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanKina
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanHarpooner
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanBirdFisherman
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanBird
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_
+#emit
+
+#spectre Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion1
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion2
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion3
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion4
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion5_
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion6_
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear
+#emit

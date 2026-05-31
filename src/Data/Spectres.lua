@@ -7546,6 +7546,56 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 	},
 }
 
+minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
+	name = "Ribrattle",
+	monsterTags = { "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.59,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 19,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Arid Plains (Map)",
+		"Channel (Map)",
+		"Freythorn (Act 1)",
+		"Marrow (Map)",
+		"Mastodon Badlands (Act 2)",
+		"Oasis (Map)",
+		"Outlands (Map)",
+		"Penitentiary (Map)",
+		"Qimah (Act 6)",
+		"Sacred Reservoir (Map)",
+		"Sanctuary (Map)",
+		"Scorched Farmlands (Act 6)",
+		"Sel Khari Sanctuary  (Act 6)",
+		"Spring (Map)",
+		"The Bone Pits (Act 2)",
+		"Found in Maps",
+		"Wayward Isle (Map)",
+	},
+	skillList = {
+		"PitifulFabricationBuff",
+		"TBPitifulFabricationBuff",
+		"PitifulFabricationBuffTriggered",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
 minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 	name = "Spinesnatcher",
 	monsterTags = { "medium_movement", "melee", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", },
@@ -17793,3 +17843,728 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatueSn
 	},
 }
 
+minions["Metadata/Monsters/CorpseWheel/PlagueCorpseWheel"] = {
+	name = "The Punished",
+	monsterTags = { "2HBluntWood_onhit_audio", "bones", "medium_movement", "skeleton", "undead", },
+	life = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "One Hand Sword",
+	baseMovementSpeed = 30,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Dreadnought's Wake (Act 2)",
+	},
+	skillList = {
+		"CorpseWheelCharge",
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanTrapper"] = {
+	name = "Sea-tribe Trapper",
+	monsterTags = { "fast_movement", "humanoid", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 41,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWBloodClanTrapperBearTrap",
+		"SOBloodClanTrapperBearTrap",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanVillager"] = {
+	name = "Sea-tribe Villager",
+	monsterTags = { "fast_movement", "humanoid", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 41,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanCaster"] = {
+	name = "Sea-tribe Caster",
+	monsterTags = { "humanoid", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1.35,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 8,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGBloodClanCasterWave",
+		"EDSBloodClanCasterWave",
+		"MDSBloodClanWaterWall",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanVaulter"] = {
+	name = "Sea-tribe Vaulter",
+	monsterTags = { "humanoid", "not_int", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 28,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTBloodClanPoleVaultSingle",
+	},
+	modList = {
+	},
+}
+
+
+minions["Metadata/Monsters/BloodClan/BloodClanKina"] = {
+	name = "Sea-tribe Pouchbearer",
+	monsterTags = { "humanoid", "not_int", "not_str", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 0.9,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.13,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 12,
+	spectreReservation = 46,
+	companionReservation = 28.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MPWBloodClanKina",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanHarpooner"] = {
+	name = "Sea-tribe Harpooner",
+	monsterTags = { "fast_movement", "humanoid", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 17,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 41,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanBirdFisherman"] = {
+	name = "Sea-tribe Spearfisher",
+	monsterTags = { "humanoid", "medium_movement", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.49,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Warstaff",
+	baseMovementSpeed = 31,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASBirdFishermanBirdRelease",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodClan/BloodClanBird"] = {
+	name = "Sea-tribe Avian",
+	monsterTags = { "fast_movement", "humanoid", "not_int", "not_str", "red_blood", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 44,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"BirdEmerge",
+		"DTTBirdSwoopin",
+		"GABirdSwoopinDTT",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey"] = {
+	name = "Constructed Monkey",
+	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "is_unarmed", "medium_movement", "metal_armour", "not_dex", "vaal", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"MonsterWaitShort",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead"] = {
+	name = "Constructed Monkey Head",
+	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "immobile", "is_unarmed", "metal_armour", "not_dex", "vaal", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 0,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"GSMonkeyConstructFire",
+		"FaceLastTarget",
+		"MonsterWaitShort",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion"] = {
+	name = "Viper Servant",
+	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "reptile_beast", "Stab_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.67,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedChaos",
+		"CGEViperNapuatziSnakeGroundDegen",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion"] = {
+	name = "Jaguar Familiar",
+	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "melee", "not_int", "physical_affinity", "red_blood", },
+	life = 1.44,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.44,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 30,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTVaalJaguarMinionLeap",
+		"GAVaalJaguarMinionImpact",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion"] = {
+	name = "Serpentine Familiar",
+	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_"] = {
+	name = "Primal Familiar",
+	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "Claw_onhit_audio", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "small_height", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"ScavengerThrow",
+		"EASJungleMonkeyTaunt",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+	},
+}
+
+minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
+	name = "Snake",
+	monsterTags = { "beast", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", "very_slow_movement", },
+	life = 0.5,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 18,
+	spectreReservation = 29,
+	companionReservation = 21.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"EASSnakeSuitUp",
+		"EASSnakeRetreat",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion1"] = {
+	name = "Rage",
+	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.665,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 44,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DeliriumMinionLeapSlam",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion2"] = {
+	name = "Spite",
+	monsterTags = { "Claw_onhit_audio", "demon", "medium_movement", "not_dex", "not_str", },
+	life = 0.75,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.75,
+	damageSpread = 0.2,
+	attackTime = 1.32,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 40,
+	companionReservation = 26.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"DeliriumMinionDemonProjectile",
+		"DeceleratingProjectileDeliriumMinion",
+		"DeceleratingProjectileDeliriumMinionExplode",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion3"] = {
+	name = "Disgust",
+	monsterTags = { "Claw_onhit_audio", "demon", "very_slow_movement", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 10,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DeliriumMinionVomitile",
+		"DeliriumMinionKnockbackWave",
+		"GeometryTriggerDeliriumMinionVomit",
+		"DeliriumMinionVomitMortar",
+		"DeliriumNoodleMinionTriggerBeam",
+		"EASDeliriumNoodleBeams",
+		"DeliriumMinionNoodleImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.966, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3966]
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion4"] = {
+	name = "Malice",
+	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "not_int", "not_str", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 0.675,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DeliriumMinionSpikeExplosionGT",
+		"DeliriumSpikerDeathSpike",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion5_"] = {
+	name = "Fury",
+	monsterTags = { "demon", "medium_movement", "Unarmed_onhit_audio", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EmptyActionAttackDeliriumMinionTripleSlam",
+		"DeliriumMinionPhysSlamCircleSmall",
+		"DeliriumMinionPhysSlamCircleBig",
+		"DeliriumMinionPhysSlamCircleRectangle",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 4.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4033]
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion6_"] = {
+	name = "Turmoil",
+	monsterTags = { "Claw_onhit_audio", "demon", "medium_movement", },
+	life = 0.75,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.75,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 40,
+	companionReservation = 26.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear"] = {
+	name = "Manifested Demon",
+	monsterTags = { "affliction_daemon", "construct", "immobile", "Stab_onhit_audio", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 0,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"DeliriumDemonColdSpear",
+		"DeliriumDemonColdIceGround",
+		"EmptyActionSpellDeliriumDemonColdSpearToss",
+		"GAIceSpearGround",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_immune_to_cheats [set_immune_to_cheats = 1]
+		-- set_no_mana_cost [set_no_mana_cost = 1]
+		-- set_untargetable_by_monster_ai [set_untargetable_by_monster_ai = 1]
+		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_die [set_cannot_die = 1]
+		mod("CurseImmune", "FLAG", 1, 0, 0), -- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_entities [immune_to_auras_from_other_entities = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		mod("EnduranceChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_endurance_charges [set_max_endurance_charges = 0]
+		mod("FrenzyChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		mod("PowerChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_power_charges [set_max_power_charges = 0]
+		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_immune_to_status_ailments [set_immune_to_status_ailments = 1]
+		-- cannot_be_converted_or_dominated [cannot_be_converted_or_dominated = 1]
+		-- monster_slain_flask_charges_granted_+% [monster_slain_flask_charges_granted_+% = -100]
+		-- base_cannot_be_leeched_from [base_cannot_be_leeched_from = 1]
+		-- set_immune_vaal_lighting_warp [set_immune_vaal_lighting_warp = 1]
+		-- set_cannot_recover_life [set_cannot_recover_life = 1]
+		-- cannot_be_poisoned [cannot_be_poisoned = 1]
+		-- immune_to_bleeding [immune_to_bleeding = 1]
+		-- set_unaffected_by_life_modifiers [set_unaffected_by_life_modifiers = 1]
+		-- set_monster_no_additional_player_scaling [set_monster_no_additional_player_scaling = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- set_monster_no_beyond_portal [set_monster_no_beyond_portal = 1]
+		-- set_cannot_have_affliction_mods [set_cannot_have_affliction_mods = 1]
+		-- set_cannot_be_afflicted [set_cannot_be_afflicted = 1]
+	},
+}

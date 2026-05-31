@@ -1957,6 +1957,7 @@ worldAreas["G2_11"] = {
 		"Plague Swarm",
 		"Rasp Scavenger",
 		"Rhex",
+		"The Punished",
 	},
 }
 
