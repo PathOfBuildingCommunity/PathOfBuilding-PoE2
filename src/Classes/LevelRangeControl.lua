@@ -5,24 +5,24 @@
 --
 
 local LevelRangeClass = newClass("LevelRangeControl", "ControlHost", "Control", function(self, anchor, rect, set)
-    self.ControlHost()
-    self.Control(anchor, rect)
-    self.set = set
-    self.controls = {}
-    self.controls.minLevel = new("EditControl", {"TOPLEFT",self,"TOPLEFT"}, {0, 0, 150, 20}, set.levelMin or 0, "Level Min", "%D", 3, function(buf)
-        self.set.levelMin = tonumber(buf)
-    end)
-    self.controls.minLevel:SetPlaceholder("0")
-    self.controls.maxLevel = new("EditControl", {"TOPLEFT",self.controls.minLevel,"TOPRIGHT"}, {10, 0, 150, 20}, set.levelMax or 100, "Level Max", "%D", 3, function(buf)
-        self.set.levelMax = tonumber(buf)
-    end)
-    self.controls.maxLevel:SetPlaceholder("100")
+	self.ControlHost()
+	self.Control(anchor, rect)
+	self.set = set
+	self.controls = {}
+	self.controls.minLevel = new("EditControl", {"TOPLEFT",self,"TOPLEFT"}, {0, 0, 150, 20}, set.levelMin or 0, "Level Min", "%D", 3, function(buf)
+		self.set.levelMin = tonumber(buf)
+	end)
+	self.controls.minLevel:SetPlaceholder("0")
+	self.controls.maxLevel = new("EditControl", {"TOPLEFT",self.controls.minLevel,"TOPRIGHT"}, {10, 0, 150, 20}, set.levelMax or 100, "Level Max", "%D", 3, function(buf)
+		self.set.levelMax = tonumber(buf)
+	end)
+	self.controls.maxLevel:SetPlaceholder("100")
 end)
 
 function LevelRangeClass:LoadSet(set)
-    self.set = set
-    self.controls.minLevel.buf = tostring(set.levelMin or "")
-    self.controls.maxLevel.buf = tostring(set.levelMax or "")
+	self.set = set
+	self.controls.minLevel.buf = tostring(set.levelMin or "")
+	self.controls.maxLevel.buf = tostring(set.levelMax or "")
 end
 
 function LevelRangeClass:IsMouseOver()
@@ -43,5 +43,5 @@ function LevelRangeClass:OnKeyDown(key, doubleClick)
 end
 
 function LevelRangeClass:Draw()
-    self:DrawControls()
+	self:DrawControls()
 end
