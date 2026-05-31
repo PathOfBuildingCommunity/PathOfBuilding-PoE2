@@ -7,6 +7,27 @@ describe("TestSkills", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	local function selectActiveSkillById(socketGroup, skillId)
+		local socketGroupIndex
+		for index, group in ipairs(build.skillsTab.socketGroupList) do
+			if group == socketGroup then
+				socketGroupIndex = index
+				break
+			end
+		end
+		for index, activeSkill in ipairs(socketGroup.displaySkillList) do
+			if activeSkill.activeEffect.grantedEffect.id == skillId then
+				build.mainSocketGroup = socketGroupIndex
+				build.calcsTab.input.skill_number = socketGroupIndex
+				socketGroup.mainActiveSkill = index
+				socketGroup.mainActiveSkillCalcs = index
+				build.buildFlag = true
+				runCallback("OnFrame")
+				return activeSkill
+			end
+		end
+	end
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -343,6 +364,7 @@ describe("TestSkills", function()
 	it("Test corrupted blood config", function()
 		build.skillsTab:PasteSocketGroup("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
 		runCallback("OnFrame")
+		selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "TriggeredCorruptingCryPlayer")
 
 		local baseCorruptingCryDps = build.calcsTab.mainOutput.CorruptingBloodDPS -- placeholder/input is 10
 
@@ -355,6 +377,26 @@ describe("TestSkills", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
+	end)
+
+	it("support-granted active skills inherit the linked active skill level", function()
+		local function getCorruptingCryDps(socketGroupText)
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText)
+			runCallback("OnFrame")
+
+			local activeSkill = selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "TriggeredCorruptingCryPlayer")
+			assert.is_not_nil(activeSkill)
+			assert.are.equals(20, activeSkill.activeEffect.level)
+			assert.are.equals("TriggeredCorruptingCryPlayer", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.id)
+			return build.calcsTab.mainOutput.CorruptingBloodDPS
+		end
+
+		local warcryFirstDps = getCorruptingCryDps("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
+		local supportFirstDps = getCorruptingCryDps("Corrupting Cry I 1/0  1\nSeismic Cry 20/0  1")
+
+		assert.is_not_nil(warcryFirstDps)
+		assert.are.equals(warcryFirstDps, supportFirstDps)
 	end)
 
 	it("Flame Breath attack speed scales DPS and is not capped by its channel cooldown", function()
