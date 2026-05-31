@@ -48,6 +48,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.viewMode = "TREE"
 	self.characterLevel = m_min(m_max(main.defaultCharLevel or 1, 1), 100)
 	self.targetVersion = liveTargetVersion
+	-- Only genuinely new builds get a timeline (not loaded/imported/converted)
+	self.timelineEligible = not dbFileName and not buildXML and not convertBuild
 	self.characterLevelAutoMode = main.defaultCharLevel == 1 or main.defaultCharLevel == nil
 	-- List of loadouts by spec name. Updated on each SyncLoadouts() call.
 	self.loadoutsList = {}
@@ -995,6 +997,17 @@ function buildMode:ReorderLoadout(oldIndex, newIndex)
 
 	self.modFlag = true
 	self:SetActiveLoadout(self:GetLoadoutByName(activeTitle))
+end
+
+-- Character level for `points` passive points; caller pre-nets bonus/weapon-set points
+function buildMode:EstimateLevelForPoints(points)
+	if not self.acts or not self.acts[1] then return 1 end
+	local level, act = 1, 0
+	repeat
+		act = act + 1
+		level = m_min(m_max(points + 1 - self.acts[act].questPoints, self.acts[act].level), 100)
+	until act == self.maxActs or level <= self.acts[act + 1].level
+	return level
 end
 
 function buildMode:EstimatePlayerProgress()
@@ -2424,6 +2437,13 @@ end
 
 function buildMode:SaveDB(fileName)
 	local dbXML = { elem = "PathOfBuilding2" }
+
+	-- Scrub cursor is transient; persist the final tree
+	if self.treeTab then
+		for _, spec in ipairs(self.treeTab.specList) do
+			spec:Progression():ScrubToFinal()
+		end
+	end
 
 	-- Save Build section first
 	do

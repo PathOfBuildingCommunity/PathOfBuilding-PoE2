@@ -22,6 +22,26 @@ local legacyClassIdMap = {
 	["0_3"] = { [0] = 2, [1] = 8, [2] = 6, [3] = 9, [4] = 1, [5] = 7, [6] = 10 },
 }
 
+-- Nodes where points are actually spent (excludes class/ascend starts and free-allocate)
+local function isTimelineRelevant(node)
+	return node and node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and node.isFreeAllocate == nil
+end
+
+-- Snapshot weapon-set/mastery/override state (undo + scrub)
+local function captureTreeState(self)
+	local weaponSets = { }
+	for nodeId, node in pairs(self.allocNodes) do
+		if node.allocMode and node.allocMode ~= 0 then
+			weaponSets[nodeId] = node.allocMode
+		end
+	end
+	local masteryEffects = { }
+	for mastery, effect in pairs(self.masterySelections) do
+		masteryEffects[mastery] = effect
+	end
+	return weaponSets, masteryEffects, copyTable(self.hashOverrides, true)
+end
+
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion, convert)
 	self.UndoHandler()
 
@@ -97,12 +117,95 @@ function PassiveSpecClass:Init(treeVersion, convert)
 
 	-- Keys are node IDs, values are the replacement node
 	self.hashOverrides = { }
+
+	-- Init re-runs on tree-version change; keep the timeline. self.progression aliases its data.
+	if not self.progressionTimeline then
+		self.progressionTimeline = new("ProgressionTimeline", self)
+	end
+	self.progression = self.progressionTimeline.data
+end
+
+function PassiveSpecClass:SnapshotAllocIds()
+	local ids = { }
+	for nodeId, node in pairs(self.allocNodes) do
+		if isTimelineRelevant(node) then
+			ids[nodeId] = true
+		end
+	end
+	return ids
+end
+
+function PassiveSpecClass:IsTimelineRelevant(node)
+	return isTimelineRelevant(node)
+end
+
+function PassiveSpecClass:TimelineNode(id)
+	return self.nodes[id]
+end
+
+-- Allocated nodes the timeline doesn't track (a scrub keeps these as roots)
+function PassiveSpecClass:TimelineFixedAllocIds()
+	local ids = { }
+	for nodeId, node in pairs(self.allocNodes) do
+		if not isTimelineRelevant(node) then
+			t_insert(ids, nodeId)
+		end
+	end
+	return ids
+end
+
+-- Snapshot to survive a scrub; no progression deep-copy (runs per scrub frame)
+function PassiveSpecClass:CaptureTimelineSnapshot()
+	local weaponSets, masteryEffects, hashOverrides = captureTreeState(self)
+	return {
+		classId = self.curClassId,
+		ascendClassId = self.curAscendClassId,
+		secondaryAscendClassId = self.secondaryAscendClassId,
+		weaponSets = weaponSets,
+		hashOverrides = hashOverrides,
+		masteryEffects = masteryEffects,
+		treeVersion = self.treeVersion,
+	}
+end
+
+function PassiveSpecClass:ApplyTimelineState(state, hashList)
+	self.applyingScrub = true
+	self:ImportFromNodeList(nil, state.classId, state.ascendClassId, state.secondaryAscendClassId, hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, state.treeVersion)
+	self.applyingScrub = false
+end
+
+function PassiveSpecClass:IsApplyingTimelineState()
+	return self.applyingScrub == true
+end
+
+function PassiveSpecClass:IsTimelineEligible()
+	return self.build and self.build.timelineEligible or false
+end
+
+function PassiveSpecClass:RequestRecompute()
+	if self.build then
+		self.build.buildFlag = true
+	end
+end
+
+function PassiveSpecClass:Progression()
+	return self.progressionTimeline
+end
+
+-- Allocate a node and record it on the progression timeline (scrub-aware), as a tree click does.
+-- Mid-scrub this replaces the later progression from the cursor; Edit-history mode inserts instead.
+function PassiveSpecClass:AllocNodeRecorded(node, altPath)
+	local prog = self:Progression()
+	local truncate = not prog:IsEditHistory()
+	prog:CaptureScrubbed(prog:NodeAllocationOrder(node, altPath),
+		function() self:AllocNode(node, altPath) end, truncate)
 end
 
 function PassiveSpecClass:Load(xml, dbFileName)
 	self.title = xml.attrib.title
 	local weaponSets = {}
 	local url
+	local progEl
 	for _, node in pairs(xml) do
 		if type(node) == "table" then
 			if node.elem == "URL" then
@@ -143,6 +246,8 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				for nodeId in node.attrib.nodes:gmatch("%d+") do
 					weaponSets[tonumber(nodeId)] = weaponSet
 				end
+			elseif node.elem == "Progression" then
+				progEl = node
 			end
 		end
 	end
@@ -220,16 +325,30 @@ function PassiveSpecClass:Load(xml, dbFileName)
 	elseif url then
 		self:DecodeURL(url)
 	end
+
+	-- No <Progression> = legacy/imported build; only new eligible builds get a timeline
+	self.progressionTimeline:Deserialize(progEl)
 	self:ResetUndo()
 end
 
 function PassiveSpecClass:Save(xml)
+	-- Persist the final tree even if saved mid-scrub
+	local prog = self.progression
+	local saveNodeSet
+	if prog and prog.enabled and prog.scrubStage ~= nil then
+		saveNodeSet = { }
+		for nodeId, node in pairs(self.allocNodes) do
+			if not isTimelineRelevant(node) then saveNodeSet[nodeId] = true end
+		end
+		for id in pairs(self.progressionTimeline:StateAt(#prog.stages)) do saveNodeSet[id] = true end
+	end
 	local allocNodeIdList = { }
 	local weaponSets = {}
-	for nodeId in pairs(self.allocNodes) do
+	for nodeId in pairs(saveNodeSet or self.allocNodes) do
 		t_insert(allocNodeIdList, nodeId)
-		if self.nodes[nodeId].allocMode and self.nodes[nodeId].allocMode ~= 0 then
-			local weaponSet = self.nodes[nodeId].allocMode
+		local node = self.nodes[nodeId]
+		if node and node.allocMode and node.allocMode ~= 0 then
+			local weaponSet = node.allocMode
 			if not weaponSets[weaponSet] then
 				weaponSets[weaponSet] = { }
 			end
@@ -309,6 +428,11 @@ function PassiveSpecClass:Save(xml)
 	end
 	t_insert(xml, overrides)
 
+	local progEl = self.progressionTimeline:Serialize()
+	if progEl then
+		t_insert(xml, progEl)
+	end
+
 end
 
 function PassiveSpecClass:PostLoad()
@@ -346,6 +470,8 @@ function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, 
 			self:ReplaceNode(node, override)
 		end
 	end
+	local hashSet = { }
+	for _, id in pairs(hashList) do hashSet[id] = true end
 	for _, id in pairs(hashList) do
 		local node = self.nodes[id]
 		if node then
@@ -359,9 +485,10 @@ function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, 
 			t_insert(self.allocSubgraphNodes, id)
 		end
 	end
+	-- Only re-allocate subgraph nodes the requested set wants (scrub-safe); no-op in PoE2
 	for _, id in pairs(self.allocExtendedNodes) do
 		local node = self.nodes[id]
-		if node then
+		if node and hashSet[id] then
 			node.alloc = true
 			node.allocMode = weaponSets[id] or 0
 			self.allocNodes[id] = node
@@ -370,6 +497,11 @@ function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, 
 
 	-- Rebuild all the node paths and dependencies
 	self:BuildAllDependsAndPaths()
+
+	-- Resync timeline after rebuild; skipped mid-scrub and during Load
+	if not self.applyingScrub then
+		self.progressionTimeline:ReconcileFromTree()
+	end
 end
 
 function PassiveSpecClass:AllocateDecodedNodes(nodes, isCluster, endian)
@@ -1826,6 +1958,7 @@ function PassiveSpecClass:ReconnectNodeToClassStart(node)
 end
 
 function PassiveSpecClass:BuildClusterJewelGraphs()
+	-- No-op in PoE2 (no cluster jewels). TODO: record subgraph deltas in click order when added.
 	-- Remove old subgraphs
 	for id, subGraph in pairs(self.subGraphs) do
 		for _, node in ipairs(subGraph.nodes) do
@@ -1888,6 +2021,11 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 
 	-- Rebuild node search cache because the tree might have changed
 	self.build.treeTab.viewer.searchStrCached = ""
+
+	-- Heal timeline if a jewel edit changed the tracked set
+	if not self.applyingScrub then
+		self.progressionTimeline:Normalize()
+	end
 end
 
 function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importedNodes, importedGroups)
@@ -2314,17 +2452,10 @@ end
 
 function PassiveSpecClass:CreateUndoState()
 	local allocNodeIdList = { }
-	local weaponSets = { }
 	for nodeId in pairs(self.allocNodes) do
 		t_insert(allocNodeIdList, nodeId)
-		if self.nodes[nodeId].allocMode and self.nodes[nodeId].allocMode ~= 0 then
-			weaponSets[nodeId] = self.nodes[nodeId].allocMode
-		end
 	end
-	local selections = { }
-	for mastery, effect in pairs(self.masterySelections) do
-		selections[mastery] = effect
-	end
+	local weaponSets, masteryEffects, hashOverrides = captureTreeState(self)
 	local classInternalId = self.tree.classes[self.curClassId].integerId
 	local ascendancyInternalId = ""
 	if self.curAscendClassId and self.tree.classes[self.curClassId].classes[self.curAscendClassId] then
@@ -2340,13 +2471,17 @@ function PassiveSpecClass:CreateUndoState()
 		secondaryAscendClassId = self.secondaryAscendClassId,
 		hashList = allocNodeIdList,
 		weaponSets = weaponSets,
-		hashOverrides = copyTable(self.hashOverrides, true),
-		masteryEffects = selections,
-		treeVersion = self.treeVersion
+		hashOverrides = hashOverrides,
+		masteryEffects = masteryEffects,
+		treeVersion = self.treeVersion,
+		-- Deep copy: nested stages would otherwise be shared across undo states
+		progression = copyTable(self.progression)
 	}
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
+	-- Restore timeline before the rebuild so ImportFromNodeList's ReconcileFromTree sees it
+	self.progressionTimeline:AdoptUndoData(state.progression)
 	local classId = state.classId
 	local ascendClassId = state.ascendClassId
 	if treeVersion ~= nil and treeVersion ~= state.treeVersion then

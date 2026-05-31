@@ -746,6 +746,10 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
+	-- Imported character tree has no progression history
+	self.build.timelineEligible = false
+	self.build.spec:Progression():Disable()
+
 	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion)
 
 	-- workaround to update the ui to last option
