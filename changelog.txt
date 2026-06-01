@@ -1,3 +1,25 @@
+VERSION[0.17.0][2026/06/01]
+
+--- New to Path of Building ---
+* Add new 0.5 Data (LocalIdentity)
+* Add new runes from 0.5 (Blitz54)
+* Add support for Rapid Casting III (TarikBeentjes61)
+
+--- Fixed Crashes ---
+* Fix issue creating Loadouts with link identifiers (FenikSRT4)
+
+--- Fixed Calculations ---
+* Fix rangeless mods not getting pasted properly (Wires77)
+* Update quest rewards for 0.5 (rasmuskl)
+* Fix Amazon's Critical Strike (Peechey)
+
+--- Fixed Bugs ---
+* Fix various tree bugs by using patch data (trompetin17)
+
+--- Other changes ---
+* Fix showing hidden Unseen Path nodes on search (MrHB212)
+
+
 VERSION[0.16.0][2026/05/30]
 
 --- 0.5 Return of the Ancients ---

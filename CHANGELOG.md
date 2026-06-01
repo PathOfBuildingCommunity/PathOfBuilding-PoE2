@@ -1,5 +1,28 @@
 # Changelog
 
+## [v0.17.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.17.0) (2026/06/01)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.16.0...v0.17.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add new 0.5 Data [\#2035](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2035) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add new runes from 0.5 [\#2019](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2019) ([Blitz54](https://github.com/Blitz54))
+- Add support for Rapid Casting III [\#1965](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1965) ([TarikBeentjes61](https://github.com/TarikBeentjes61))
+### Fixed Crashes
+- Fix issue creating Loadouts with link identifiers [\#2038](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2038) ([FenikSRT4](https://github.com/FenikSRT4))
+### Fixed Calculations
+- Fix rangeless mods not getting pasted properly [\#2013](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2013) ([Wires77](https://github.com/Wires77))
+- Update quest rewards for 0.5 [\#2027](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2027) ([rasmuskl](https://github.com/rasmuskl))
+- Fix Amazon's Critical Strike [\#2039](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2039) ([Peechey](https://github.com/Peechey))
+### Fixed Bugs
+- Fix various tree bugs by using patch data [\#2018](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2018) ([trompetin17](https://github.com/justjuangui))
+### Other changes
+- Fix showing hidden Unseen Path nodes on search [\#2023](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2023) ([MrHB212](https://github.com/MrHB212))
+
+
+
 ## [v0.16.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.16.0) (2026/05/30)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.15.0...v0.16.0)
