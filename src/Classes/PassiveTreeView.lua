@@ -763,7 +763,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		local node2 = spec.nodes[connector.nodeId2]
 		if not node1.unlockConstraint and not node2.unlockConstraint  then
 			renderConnector(connector)
-		elseif checkUnlockConstraints(build, node1) and checkUnlockConstraints(build, node2) then
+		elseif self:checkUnlockConstraints(build, node1) and self:checkUnlockConstraints(build, node2) then
 			renderConnector(connector)
 		end
 	end
@@ -809,9 +809,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Update cached node data
-	if self.searchStrCached ~= self.searchStr or self.searchNeedsForceUpdate == true then
+	if self.searchStrCached ~= self.searchStr then
 		self.searchStrCached = self.searchStr
-		self.searchNeedsForceUpdate = false
 
 		local function prepSearch(search)
 			search = search:lower()
@@ -833,10 +832,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		for nodeId, node in pairs(spec.nodes) do
 			self.searchStrResults[nodeId] = #self.searchParams > 0 and self:DoesNodeMatchSearchParams(build, node)
 		end
-	end
-
-	function setSearchForceUpdate()
-		self.searchNeedsForceUpdate = true
 	end
 
 	if launch.devModeAlt and hoverNode then
@@ -927,7 +922,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				-- This is the icon that appears in the center of many groups
 				if not node.unlockConstraint then
 					base = tree:GetAssetByName(node.activeEffectImage)
-				elseif checkUnlockConstraints(build, node) then
+				elseif self:checkUnlockConstraints(build, node) then
 					base = tree:GetAssetByName(node.activeEffectImage)
 				end
 				SetDrawLayer(nil, 15)
@@ -937,7 +932,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if node.activeEffectImage then
 					if not node.unlockConstraint then
 						effect = tree:GetAssetByName(node.activeEffectImage)
-					elseif checkUnlockConstraints(build, node) then
+					elseif self:checkUnlockConstraints(build, node) then
 						effect = tree:GetAssetByName(node.activeEffectImage)
 					end
 				end
@@ -945,7 +940,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if not node.unlockConstraint then
 					base = tree:GetAssetByName(node.icon)
 					overlay = node.overlay[state]
-				elseif checkUnlockConstraints(build, node) then
+				elseif self:checkUnlockConstraints(build, node) then
 					base = tree:GetAssetByName(node.icon)
 					overlay = node.overlay[state]
 				end
@@ -1161,7 +1156,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 
 		end
-		if node == hoverNode and (not node.unlockConstraint or checkUnlockConstraints(build, node)) and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and not IsKeyDown("CTRL") and not main.popups[1] then
+		if node == hoverNode and (not node.unlockConstraint or self:checkUnlockConstraints(build, node)) and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and not IsKeyDown("CTRL") and not main.popups[1] then
 			-- Draw tooltip
 			SetDrawLayer(nil, 100)
 			local size = m_floor(node.size * scale)
@@ -1451,7 +1446,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 		return
 	end
 
-	if node.unlockConstraint and not checkUnlockConstraints(build, node) then
+	if node.unlockConstraint and not self:checkUnlockConstraints(build, node) then
 		return
 	end
 
@@ -2100,7 +2095,7 @@ function PassiveTreeViewClass:LessLuminance()
 end
 
 -- Checks if a node has unlockConstraint and if that node is allocated
-function checkUnlockConstraints(build, node)
+function PassiveTreeViewClass:checkUnlockConstraints(build, node)
 	if unseenPathHover and node.unlockConstraint and node.unlockConstraint.nodes[1] == 5571 then
 		return true
 	end

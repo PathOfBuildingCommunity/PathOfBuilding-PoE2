@@ -913,7 +913,7 @@ function PassiveSpecClass:GetEffectiveAllocationPath(node, altPath)
 end
 
 function PassiveSpecClass:AllocNode(node, altPath)
-	setSearchForceUpdate()
+	self.build.treeTab.viewer.searchStrCached = ""
 	if not node.path then
 		-- Node cannot be connected to the tree as there is no possible path
 		return
@@ -973,7 +973,7 @@ end
 
 -- Deallocate the given node, and all nodes which depend on it (i.e. which are only connected to the tree through this node)
 function PassiveSpecClass:DeallocNode(node)
-	setSearchForceUpdate()
+	self.build.treeTab.viewer.searchStrCached = ""
 	for _, depNode in ipairs(node.depends) do
 		-- reset any switched attribute nodes
 		if depNode.isAttribute then
