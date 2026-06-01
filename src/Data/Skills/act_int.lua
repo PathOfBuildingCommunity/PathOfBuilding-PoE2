@@ -3697,6 +3697,10 @@ skills["CometPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "comet",
+			statMap = {
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				area = true,
 				spell = true,
@@ -3767,6 +3771,10 @@ skills["CometPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "comet",
+			statMap = {
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				area = true,
 				spell = true,

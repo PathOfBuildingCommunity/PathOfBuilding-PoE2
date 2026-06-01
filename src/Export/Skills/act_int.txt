@@ -267,9 +267,17 @@ statMap = {
 #skill CometPlayer
 #set CometPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #set CometFireInfusionPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #skillEnd
 
