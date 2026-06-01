@@ -10948,137 +10948,137 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=30
+			width=40
 		},
 		[33]={
 			list=false,
 			name="LevelUpEffect",
 			refTo="MiscEffectPacks",
 			type="Key",
-			width=50
+			width=110
 		},
 		[34]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=50
+			width=40
 		},
 		[35]={
 			list=false,
 			name="PassiveTreeImage",
 			refTo="",
 			type="String",
-			width=30
+			width=150
 		},
 		[36]={
 			list=false,
-			name="PassiveTreeImage",
+			name="",
 			refTo="",
 			type="String",
-			width=150
+			width=40
 		},
 		[37]={
 			list=false,
 			name="AttrsAsId",
 			refTo="",
 			type="String",
-			width=50
+			width=90
 		},
 		[38]={
 			list=false,
 			name="LoginScreen",
 			refTo="",
 			type="String",
-			width=30
+			width=100
 		},
 		[39]={
-			list=false,
-			name="AttrsAsId",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[40]={
-			list=false,
-			name="LoginScreen",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[41]={
 			list=false,
 			name="PlayerCritter",
 			refTo="",
 			type="String",
 			width=150
 		},
-		[42]={
+		[40]={
 			list=false,
 			name="PlayerEffect",
-			refTo="MonsterVarieties",
-			type="Key",
+			refTo="",
+			type="String",
 			width=150
 		},
-		[43]={
+		[41]={
 			list=false,
 			name="AfterImage",
-			refTo="MonsterVarieties",
-			type="Key",
+			refTo="",
+			type="String",
 			width=150
 		},
-		[44]={
+		[42]={
 			list=false,
 			name="Mirage",
 			refTo="MonsterVarieties",
 			type="Key",
 			width=150
 		},
-		[45]={
+		[43]={
 			list=false,
 			name="CloneImmobile",
 			refTo="MonsterVarieties",
 			type="Key",
 			width=150
 		},
-		[46]={
+		[44]={
 			list=false,
 			name="ReplicateClone",
+			refTo="MonsterVarieties",
+			type="Key",
+			width=150
+		},
+		[45]={
+			list=false,
+			name="LightningClone",
+			refTo="MonsterVarieties",
+			type="Key",
+			width=150
+		},
+		[46]={
+			list=false,
+			name="",
 			refTo="",
 			type="Float",
-			width=150
+			width=40
 		},
 		[47]={
 			list=false,
-			name="LightningClone",
+			name="",
 			refTo="",
 			type="Float",
-			width=150
+			width=40
 		},
 		[48]={
 			list=false,
 			name="SkillTreeBackground",
 			refTo="",
 			type="String",
-			width=50
+			width=160
 		},
 		[49]={
 			list=false,
 			name="Clone",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=60
+			width=140
 		},
 		[50]={
 			list=true,
-			name="SkillTreeBackground",
+			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=40
 		},
 		[51]={
 			list=false,
-			name="Clone",
+			name="MirageWarrior",
 			refTo="MonsterVarieties",
 			type="Key",
 			width=150
@@ -11088,84 +11088,84 @@ return {
 			name="DoubleTwo",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=30
+			width=110
 		},
 		[53]={
 			list=false,
-			name="MirageWarrior",
+			name="DarkExile",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=150
+			width=170
 		},
 		[54]={
-			list=false,
-			name="DoubleTwo",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[55]={
-			list=false,
-			name="DarkExile",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[56]={
 			list=false,
 			name="Attr",
 			refTo="",
 			type="String",
-			width=150
+			width=70
+		},
+		[55]={
+			list=false,
+			name="AttrLowercase",
+			refTo="",
+			type="String",
+			width=110
+		},
+		[56]={
+			list=false,
+			name="Script",
+			refTo="",
+			type="String",
+			width=90
 		},
 		[57]={
 			list=false,
-			name="AttrLowercase",
+			name="GhostArmMtx",
 			refTo="MiscEffectPacks",
 			type="Key",
 			width=150
 		},
 		[58]={
 			list=false,
-			name="Script",
+			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[59]={
 			list=false,
 			name="",
 			refTo="",
 			type="Float",
-			width=150
+			width=40
 		},
 		[60]={
 			list=false,
 			name="",
 			refTo="",
 			type="Float",
-			width=50
+			width=40
 		},
 		[61]={
 			list=false,
 			name="",
 			refTo="",
 			type="Float",
-			width=50
+			width=40
 		},
 		[62]={
 			list=false,
 			name="BaseClass",
 			refTo="",
 			type="String",
-			width=50
+			width=100
 		},
 		[63]={
 			list=false,
 			name="StartingPassive",
 			refTo="StartingPassiveSkills",
 			type="Key",
-			width=50
+			width=110
 		},
 		[64]={
 			list=false,
@@ -11179,14 +11179,14 @@ return {
 			name="CreationIcons",
 			refTo="CharacterCreationIcons",
 			type="Key",
-			width=150
+			width=100
 		},
 		[66]={
 			list=false,
 			name="",
 			refTo="",
 			type="Float",
-			width=150
+			width=40
 		},
 		[67]={
 			list=false,
@@ -11200,37 +11200,9 @@ return {
 			name="Portrait",
 			refTo="NPCPortraits",
 			type="Key",
-			width=150
+			width=60
 		},
 		[69]={
-			list=false,
-			name="GemCuttingIcon1",
-			refTo="ItemVisualIdentity",
-			type="Key",
-			width=150
-		},
-		[70]={
-			list=false,
-			name="",
-			refTo="",
-			type="Float",
-			width=150
-		},
-		[71]={
-			list=false,
-			name="GemCuttingIcon1",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[72]={
-			list=false,
-			name="",
-			refTo="",
-			type="Key",
-			width=150
-		},
-		[73]={
 			list=false,
 			name="",
 			refTo="ItemVisualIdentity",
