@@ -49,8 +49,8 @@ function calcs.deflectChance(deflection, accuracy)
 	if deflection < 1 then
 		return 0
 	end
-	local rawChance = ( accuracy * 0.9 ) / ( accuracy + deflection * 0.2 ) * 100
-	return 100 - m_max(m_min(round(rawChance), 100), 0)
+	local chanceToNotDeflect = accuracy / ( accuracy + deflection * 0.12 ) * 150 - 50
+	return 100 - m_max(m_min(round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
@@ -1484,7 +1484,7 @@ function calcs.defence(env, actor)
 			end
 		end
 
-		output.DeflectionRating = (output.Evasion * modDB:Sum("BASE", nil, "EvasionGainAsDeflection") / 100 + output.Armour * modDB:Sum("BASE", nil, "ArmourGainAsDeflection") / 100) * calcLib.mod(modDB, nil, "DeflectionRating")
+		output.DeflectionRating = modDB:Sum("BASE", nil, "DeflectionRating") + (output.Evasion * modDB:Sum("BASE", nil, "EvasionGainAsDeflection") / 100 + output.Armour * modDB:Sum("BASE", nil, "ArmourGainAsDeflection") / 100) * calcLib.mod(modDB, nil, "DeflectionRating")
 		output.DeflectChance = calcs.deflectChance(output.DeflectionRating, enemyAccuracy)
 		if modDB:Flag(nil, "DeflectIsLucky") then
 			local notDeflect = 1 - output.DeflectChance / 100

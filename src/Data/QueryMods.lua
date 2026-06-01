@@ -9,7393 +9,778 @@
 
 return {
 	["AllocatesXEnchant"] = {
-		["10029"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10029", 
-				["text"] = "Allocates Repulsion", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10265"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10265", 
-				["text"] = "Allocates Javelin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10295"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10295", 
-				["text"] = "Allocates Overzealous", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10315"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10315", 
-				["text"] = "Allocates Easy Going", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10398"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10398", 
-				["text"] = "Allocates Sudden Escalation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10423"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10423", 
-				["text"] = "Allocates Exposed to the Inferno", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10499"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10499", 
-				["text"] = "Allocates Necromantic Ward", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10500"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10500", 
-				["text"] = "Allocates Dazing Blocks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10602"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10602", 
-				["text"] = "Allocates Reaving", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10612"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10612", 
-				["text"] = "Allocates Embodiment of Frost", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10681"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10681", 
-				["text"] = "Allocates Defensive Stance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10727"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10727", 
-				["text"] = "Allocates Emboldening Casts", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10772"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10772", 
-				["text"] = "Allocates Bloodthirsty", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10774"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10774", 
-				["text"] = "Allocates Unyielding", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1087"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1087", 
-				["text"] = "Allocates Shockwaves", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10873"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10873", 
-				["text"] = "Allocates Bestial Rage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["10998"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|10998", 
-				["text"] = "Allocates Strong Chin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1104"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1104", 
-				["text"] = "Allocates Lust for Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11366"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11366", 
-				["text"] = "Allocates Volcanic Skin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11376"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11376", 
-				["text"] = "Allocates Necrotic Touch", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11392"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11392", 
-				["text"] = "Allocates Molten Being", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11526"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11526", 
-				["text"] = "Allocates Sniper", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11578"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11578", 
-				["text"] = "Allocates Spreading Shocks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["116"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|116", 
-				["text"] = "Allocates Insightfulness", 
-				["type"] = "enchant", 
-			}, 
-		}, 
 		["1169"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1169", 
+				["id"] = "crafted.stat_2954116742|1169", 
 				["text"] = "Allocates Urgent Call", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["11774"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11774", 
+				["id"] = "crafted.stat_2954116742|11774", 
 				["text"] = "Allocates The Spring Hare", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["11826"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11826", 
+				["id"] = "crafted.stat_2954116742|11826", 
 				["text"] = "Allocates Heavy Ammunition", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11838"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11838", 
-				["text"] = "Allocates Dreamcatcher", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["11886"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|11886", 
-				["text"] = "Allocates Mauling Stuns", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12245"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12245", 
-				["text"] = "Allocates Arsonist", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12337"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12337", 
-				["text"] = "Allocates Flash Storm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12412"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12412", 
-				["text"] = "Allocates Temporal Mastery", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12611"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12611", 
-				["text"] = "Allocates Harness the Elements", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12661"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12661", 
-				["text"] = "Allocates Asceticism", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12750"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12750", 
-				["text"] = "Allocates Vale Shelter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12822"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12822", 
-				["text"] = "Allocates Adaptable Assault", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12906"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12906", 
-				["text"] = "Allocates Sitting Duck", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12964"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12964", 
-				["text"] = "Allocates Lone Warrior", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["12998"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|12998", 
-				["text"] = "Allocates Warm the Heart", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13407"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13407", 
-				["text"] = "Allocates Heartbreaking", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13457"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13457", 
-				["text"] = "Allocates Shadow Dancing", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["13482"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13482", 
+				["id"] = "crafted.stat_2954116742|13482", 
 				["text"] = "Allocates Punctured Lung", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["13515"] = {
+		["13844"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13515", 
-				["text"] = "Allocates Stormwalker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1352"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1352", 
-				["text"] = "Allocates Unbending", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13524"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13524", 
-				["text"] = "Allocates Everlasting Glory", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13542"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13542", 
-				["text"] = "Allocates Loose Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13708"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13708", 
-				["text"] = "Allocates Curved Weapon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13724"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13724", 
-				["text"] = "Allocates Deadly Force", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13738"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13738", 
-				["text"] = "Allocates Lightning Quick", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13823"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13823", 
-				["text"] = "Allocates Controlling Magic", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13895"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13895", 
-				["text"] = "Allocates Precise Point", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["13980"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|13980", 
-				["text"] = "Allocates Split the Earth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14211"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14211", 
-				["text"] = "Allocates Shredding Contraptions", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|13844", 
+				["text"] = "Allocates Growing Peril", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["14294"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14294", 
+				["id"] = "crafted.stat_2954116742|14294", 
 				["text"] = "Allocates Sacrificial Blood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14324"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14324", 
-				["text"] = "Allocates Arcane Blossom", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14343"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14343", 
-				["text"] = "Allocates Deterioration", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["14383"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14383", 
+				["id"] = "crafted.stat_2954116742|14383", 
 				["text"] = "Allocates Suffusion", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["14602"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14602", 
+				["id"] = "crafted.stat_2954116742|14602", 
 				["text"] = "Allocates Specialised Shots", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["14761"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14761", 
+				["id"] = "crafted.stat_2954116742|14761", 
 				["text"] = "Allocates Warlord Leader", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14777"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14777", 
-				["text"] = "Allocates Bravado", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14934"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14934", 
-				["text"] = "Allocates Spiral into Mania", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["14945"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|14945", 
-				["text"] = "Allocates Growing Swarm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1502"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1502", 
-				["text"] = "Allocates Draiocht Cleansing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15030"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15030", 
-				["text"] = "Allocates Consistent Intake", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1506"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1506", 
-				["text"] = "Allocates Remnant Attraction", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15083"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15083", 
-				["text"] = "Allocates Power Conduction", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15114"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15114", 
-				["text"] = "Allocates Boundless Growth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15374"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15374", 
-				["text"] = "Allocates Hale Heart", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15443"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15443", 
-				["text"] = "Allocates Endured Suffering", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1546"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1546", 
-				["text"] = "Allocates Spiral into Depression", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15606"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15606", 
-				["text"] = "Allocates Thrill of the Fight", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15617"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15617", 
-				["text"] = "Allocates Heavy Drinker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15644"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15644", 
-				["text"] = "Allocates Shedding Skin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15829"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15829", 
-				["text"] = "Allocates Siphon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15986"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15986", 
-				["text"] = "Allocates Building Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["15991"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|15991", 
-				["text"] = "Allocates Embodiment of Lightning", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1603"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1603", 
-				["text"] = "Allocates Storm Driven", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16142"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16142", 
-				["text"] = "Allocates Deep Freeze", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16150"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16150", 
-				["text"] = "Allocates Inspiring Ally", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16256"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16256", 
-				["text"] = "Allocates Ether Flow", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16466"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16466", 
-				["text"] = "Allocates Mental Alacrity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16499"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16499", 
-				["text"] = "Allocates Lingering Whispers", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16618"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16618", 
-				["text"] = "Allocates Jack of all Trades", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16626"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16626", 
-				["text"] = "Allocates Impact Area", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16790"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16790", 
-				["text"] = "Allocates Efficient Casting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["16816"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16816", 
-				["text"] = "Allocates Pinpoint Shot", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["16940"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|16940", 
+				["id"] = "crafted.stat_2954116742|16940", 
 				["text"] = "Allocates Arcane Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17029"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17029", 
-				["text"] = "Allocates Blade Catcher", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17150"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17150", 
-				["text"] = "Allocates General's Bindings", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["17229"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17229", 
+				["id"] = "crafted.stat_2954116742|17229", 
 				["text"] = "Allocates Silent Guardian", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17254"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17254", 
-				["text"] = "Allocates Spell Haste", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17260"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17260", 
-				["text"] = "Allocates Piercing Claw", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17303"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17303", 
-				["text"] = "Allocates Utility Ordnance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17330"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17330", 
-				["text"] = "Allocates Perforation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17340"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17340", 
-				["text"] = "Allocates Adrenaline Rush", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17372"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17372", 
-				["text"] = "Allocates Reaching Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17548"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17548", 
-				["text"] = "Allocates Moment of Truth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17600"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17600", 
-				["text"] = "Allocates Thirsting Ally", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17664"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17664", 
-				["text"] = "Allocates Decisive Retreat", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17725"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17725", 
-				["text"] = "Allocates Bonded Precision", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17762"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17762", 
-				["text"] = "Allocates Vengeance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17825"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17825", 
-				["text"] = "Allocates Tactical Retreat", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["17854"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17854", 
+				["id"] = "crafted.stat_2954116742|17854", 
 				["text"] = "Allocates Escape Velocity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17882"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17882", 
-				["text"] = "Allocates Volatile Grenades", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["17955"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|17955", 
-				["text"] = "Allocates Careful Consideration", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18086"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18086", 
-				["text"] = "Allocates Breath of Ice", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18157"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18157", 
-				["text"] = "Allocates Tempered Defences", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1823"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|1823", 
-				["text"] = "Allocates Illuminated Crown", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18308"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18308", 
-				["text"] = "Allocates Bleeding Out", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18397"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18397", 
-				["text"] = "Allocates Savoured Blood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18419"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18419", 
-				["text"] = "Allocates Ancestral Mending", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18485"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18485", 
-				["text"] = "Allocates Unstable Bond", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18496"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18496", 
-				["text"] = "Allocates Lasting Trauma", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18505"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18505", 
-				["text"] = "Allocates Crushing Verdict", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["18959"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|18959", 
-				["text"] = "Allocates Ruinic Helm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19044"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19044", 
-				["text"] = "Allocates Arcane Intensity", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["19125"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19125", 
+				["id"] = "crafted.stat_2954116742|19125", 
 				["text"] = "Allocates Potent Incantation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19156"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19156", 
-				["text"] = "Allocates Immaterial", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19236"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19236", 
-				["text"] = "Allocates Projectile Bulwark", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19249"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19249", 
-				["text"] = "Allocates Supportive Ancestors", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19337"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19337", 
-				["text"] = "Allocates Precision Salvo", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19442"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19442", 
-				["text"] = "Allocates Prolonged Assault", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19546"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19546", 
-				["text"] = "Allocates Favourable Odds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["19644"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19644", 
-				["text"] = "Allocates Left Hand of Darkness", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["19715"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19715", 
+				["id"] = "crafted.stat_2954116742|19715", 
 				["text"] = "Allocates Cremation", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["19722"] = {
+		["20495"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19722", 
-				["text"] = "Allocates Thin Ice", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|20495", 
+				["text"] = "Allocates Dark Entropy", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["19955"] = {
+		["20686"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|19955", 
-				["text"] = "Allocates Endless Blizzard", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20008"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20008", 
-				["text"] = "Allocates Unleash Fire", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20032"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20032", 
-				["text"] = "Allocates Erraticism", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2021"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2021", 
-				["text"] = "Allocates Wellspring", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20251"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20251", 
-				["text"] = "Allocates Splitting Ground", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20289"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20289", 
-				["text"] = "Allocates Frozen Claw", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20388"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20388", 
-				["text"] = "Allocates Regenerative Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20397"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20397", 
-				["text"] = "Allocates Authority", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20414"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20414", 
-				["text"] = "Allocates Reprisal", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20416"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20416", 
-				["text"] = "Allocates Grit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20511"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20511", 
-				["text"] = "Allocates Cremating Cries", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20558"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20558", 
-				["text"] = "Allocates Among the Hordes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20677"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20677", 
-				["text"] = "Allocates For the Jugular", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["20916"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|20916", 
-				["text"] = "Allocates Blinding Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2113"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2113", 
-				["text"] = "Allocates Martial Artistry", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21164"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21164", 
-				["text"] = "Allocates Fleshcrafting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21206"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21206", 
-				["text"] = "Allocates Explosive Impact", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2134"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2134", 
-				["text"] = "Allocates Toxic Tolerance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21349"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21349", 
-				["text"] = "Allocates The Cunning Fox", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2138"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2138", 
-				["text"] = "Allocates Spiral into Insanity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21380"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21380", 
-				["text"] = "Allocates Preemptive Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21453"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21453", 
-				["text"] = "Allocates Breakage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21537"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21537", 
-				["text"] = "Allocates Fervour", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21748"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21748", 
-				["text"] = "Allocates Impending Doom", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21784"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21784", 
-				["text"] = "Allocates Pack Encouragement", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["21935"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|21935", 
-				["text"] = "Allocates Calibration", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22532"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22532", 
-				["text"] = "Allocates Fearful Paralysis", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22626"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22626", 
-				["text"] = "Allocates Irreparable", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22811"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22811", 
-				["text"] = "Allocates The Wild Cat", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22817"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22817", 
-				["text"] = "Allocates Inevitable Rupture", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22864"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22864", 
-				["text"] = "Allocates Tainted Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["22967"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|22967", 
-				["text"] = "Allocates Vigilance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23078"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23078", 
-				["text"] = "Allocates Holy Protector", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23221"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23221", 
-				["text"] = "Allocates Trick Shot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23227"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23227", 
-				["text"] = "Allocates Initiative", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23244"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23244", 
-				["text"] = "Allocates Bounty Hunter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2335"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2335", 
-				["text"] = "Allocates Turn the Clock Forward", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23362"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23362", 
-				["text"] = "Allocates Slippery Ice", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|20686", 
+				["text"] = "Allocates Paragon", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["23427"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23427", 
+				["id"] = "crafted.stat_2954116742|23427", 
 				["text"] = "Allocates Chilled to the Bone", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2344"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2344", 
-				["text"] = "Allocates Dimensional Weakspot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23630"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23630", 
-				["text"] = "Allocates Self Immolation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23736"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23736", 
-				["text"] = "Allocates Spray and Pray", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["23738"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23738", 
+				["id"] = "crafted.stat_2954116742|23738", 
 				["text"] = "Allocates Madness in the Bones", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23764"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23764", 
-				["text"] = "Allocates Alternating Current", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23939"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23939", 
-				["text"] = "Allocates Glazed Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2394"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2394", 
-				["text"] = "Allocates Blade Flurry", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["23940"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|23940", 
-				["text"] = "Allocates Adamant Recovery", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2397"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2397", 
-				["text"] = "Allocates Last Stand", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24062"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24062", 
-				["text"] = "Allocates Immortal Infamy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24087"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24087", 
-				["text"] = "Allocates Everlasting Infusions", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["24120"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24120", 
+				["id"] = "crafted.stat_2954116742|24120", 
 				["text"] = "Allocates Mental Toughness", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["24240"] = {
+		["26214"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24240", 
-				["text"] = "Allocates Time Manipulation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24438"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24438", 
-				["text"] = "Allocates Hardened Wood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24483"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24483", 
-				["text"] = "Allocates Direct Approach", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24491"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24491", 
-				["text"] = "Allocates Invocated Echoes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24630"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24630", 
-				["text"] = "Allocates Fulmination", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24655"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24655", 
-				["text"] = "Allocates Breath of Fire", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24753"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24753", 
-				["text"] = "Allocates Determined Precision", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24764"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24764", 
-				["text"] = "Allocates Infusing Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["24766"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|24766", 
-				["text"] = "Allocates Paranoia", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2486"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2486", 
-				["text"] = "Allocates Stars Aligned", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2511"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2511", 
-				["text"] = "Allocates Sundering", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25211"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25211", 
-				["text"] = "Allocates Waning Hindrances", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25362"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25362", 
-				["text"] = "Allocates Chakra of Impact", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25482"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25482", 
-				["text"] = "Allocates Beef", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25513"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25513", 
-				["text"] = "Allocates Overwhelm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25619"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25619", 
-				["text"] = "Allocates Sand in the Eyes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25620"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25620", 
-				["text"] = "Allocates Meat Recycling", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25711"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25711", 
-				["text"] = "Allocates Thrill of Battle", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2575"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2575", 
-				["text"] = "Allocates Ancestral Alacrity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25753"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25753", 
-				["text"] = "Allocates Blazing Arms", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["25971"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|25971", 
-				["text"] = "Allocates Tenfold Attacks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26070"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26070", 
-				["text"] = "Allocates Bolstering Yell", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["261"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|261", 
-				["text"] = "Allocates Toxic Sludge", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26104"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26104", 
-				["text"] = "Allocates Spirit of the Wyvern", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26107"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26107", 
-				["text"] = "Allocates Kite Runner", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26291"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26291", 
-				["text"] = "Allocates Electrifying Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26331"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26331", 
-				["text"] = "Allocates Harsh Winter", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|26214", 
+				["text"] = "Allocates Dominion", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["26339"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26339", 
+				["id"] = "crafted.stat_2954116742|26339", 
 				["text"] = "Allocates Ancestral Artifice", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26356"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26356", 
-				["text"] = "Allocates Primed to Explode", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26447"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26447", 
-				["text"] = "Allocates Refocus", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2645"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2645", 
-				["text"] = "Allocates Skullcrusher", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26479"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26479", 
-				["text"] = "Allocates Steadfast Resolve", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26518"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26518", 
-				["text"] = "Allocates Cold Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["26563"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|26563", 
-				["text"] = "Allocates Bone Chains", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27009"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27009", 
-				["text"] = "Allocates Lust for Sacrifice", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27108"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27108", 
-				["text"] = "Allocates Mass Hysteria", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27176"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27176", 
-				["text"] = "Allocates The Power Within", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27303"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27303", 
-				["text"] = "Allocates Vulgar Methods", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27388"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27388", 
-				["text"] = "Allocates Aspiring Genius", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27434"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27434", 
-				["text"] = "Allocates Archon of the Storm", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2745"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2745", 
+				["id"] = "crafted.stat_2954116742|2745", 
 				["text"] = "Allocates The Noble Wolf", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27491"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27491", 
-				["text"] = "Allocates Heavy Buffer", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27513"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27513", 
-				["text"] = "Allocates Material Solidification", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27626"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27626", 
-				["text"] = "Allocates Touch the Arcane", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27687"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27687", 
-				["text"] = "Allocates Greatest Defence", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["27761"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27761", 
+				["id"] = "crafted.stat_2954116742|27761", 
 				["text"] = "Allocates Counterstancing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27875"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27875", 
-				["text"] = "Allocates General Electric", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["27950"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|27950", 
-				["text"] = "Allocates Polished Iron", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28044"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28044", 
-				["text"] = "Allocates Coming Calamity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2814"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2814", 
-				["text"] = "Allocates Engineered Blaze", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28267"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28267", 
-				["text"] = "Allocates Desensitisation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28329"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28329", 
-				["text"] = "Allocates Pressure Points", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28408"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28408", 
-				["text"] = "Allocates Invigorating Hate", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2843"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2843", 
-				["text"] = "Allocates Tolerant Equipment", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28441"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28441", 
-				["text"] = "Allocates Frantic Swings", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28482"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28482", 
-				["text"] = "Allocates Total Incineration", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28542"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28542", 
-				["text"] = "Allocates The Molten One's Gift", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28613"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28613", 
-				["text"] = "Allocates Roaring Cries", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2863"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2863", 
-				["text"] = "Allocates Perpetual Freeze", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28892"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28892", 
-				["text"] = "Allocates Primal Rage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28963"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28963", 
-				["text"] = "Allocates Chakra of Rhythm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["28975"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|28975", 
-				["text"] = "Allocates Pure Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29288"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29288", 
-				["text"] = "Allocates Deadly Invocations", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29306"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29306", 
-				["text"] = "Allocates Chakra of Thought", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29372"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29372", 
-				["text"] = "Allocates Sudden Infuriation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29514"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29514", 
-				["text"] = "Allocates Cluster Bombs", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29527"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29527", 
-				["text"] = "Allocates First Approach", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29762"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29762", 
-				["text"] = "Allocates Guttural Roar", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29800"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29800", 
-				["text"] = "Allocates Shocking Limit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29881"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29881", 
-				["text"] = "Allocates Surging Beast", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["29899"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|29899", 
-				["text"] = "Allocates Finish Them", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2999"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|2999", 
-				["text"] = "Allocates Final Barrage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30132"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30132", 
-				["text"] = "Allocates Wrapped Quiver", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30341"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30341", 
-				["text"] = "Allocates Master Fletching", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30392"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30392", 
-				["text"] = "Allocates Succour", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["30395"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30395", 
+				["id"] = "crafted.stat_2954116742|30395", 
 				["text"] = "Allocates Howling Beast", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30408"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30408", 
-				["text"] = "Allocates Efficient Contraptions", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30456"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30456", 
-				["text"] = "Allocates High Alert", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30523"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30523", 
-				["text"] = "Allocates Dead can Dance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30546"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30546", 
-				["text"] = "Allocates Electrified Claw", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["30562"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30562", 
+				["id"] = "crafted.stat_2954116742|30562", 
 				["text"] = "Allocates Inner Faith", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30720"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30720", 
-				["text"] = "Allocates Entropic Incarnation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["30748"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|30748", 
-				["text"] = "Allocates Controlled Chaos", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31129"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31129", 
-				["text"] = "Allocates Lifelong Friend", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31172"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31172", 
-				["text"] = "Allocates Falcon Technique", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31175"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31175", 
-				["text"] = "Allocates Grip of Evil", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31189"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31189", 
-				["text"] = "Allocates Unexpected Finesse", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31326"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31326", 
-				["text"] = "Allocates Slow Burn", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31364"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31364", 
-				["text"] = "Allocates Primal Protection", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["31373"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31373", 
+				["id"] = "crafted.stat_2954116742|31373", 
 				["text"] = "Allocates Vocal Empowerment", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["31433"] = {
+		["32128"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31433", 
-				["text"] = "Allocates Catalysis", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31724"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31724", 
-				["text"] = "Allocates Iron Slippers", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31745"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31745", 
-				["text"] = "Allocates Lockdown", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31773"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31773", 
-				["text"] = "Allocates Resurging Archon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31826"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31826", 
-				["text"] = "Allocates Long Distance Relationship", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3188"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3188", 
-				["text"] = "Allocates Revenge", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["31925"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|31925", 
-				["text"] = "Allocates Warding Fetish", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32071"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32071", 
-				["text"] = "Allocates Primal Growth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3215"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3215", 
-				["text"] = "Allocates Melding", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32151"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32151", 
-				["text"] = "Allocates Crystalline Resistance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32301"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32301", 
-				["text"] = "Allocates Frazzled", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32353"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32353", 
-				["text"] = "Allocates Swift Claw", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32354"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32354", 
-				["text"] = "Allocates Defiance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32448"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32448", 
-				["text"] = "Allocates Shockproof", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32507"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32507", 
-				["text"] = "Allocates Cut to the Bone", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32543"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32543", 
-				["text"] = "Allocates Unhindered", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32655"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32655", 
-				["text"] = "Allocates Hunting Companion", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32664"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32664", 
-				["text"] = "Allocates Chakra of Breathing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32721"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32721", 
-				["text"] = "Allocates Distracted Target", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32799"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32799", 
-				["text"] = "Allocates Captivating Companionship", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32858"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32858", 
-				["text"] = "Allocates Dread Engineer's Concoction", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32932"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32932", 
-				["text"] = "Allocates Ichlotl's Inferno", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32951"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32951", 
-				["text"] = "Allocates Preservation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["32976"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|32976", 
-				["text"] = "Allocates Gem Enthusiast", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33059"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33059", 
-				["text"] = "Allocates Back in Action", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33093"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33093", 
-				["text"] = "Allocates Effervescent", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33099"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33099", 
-				["text"] = "Allocates Hunter's Talisman", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33216"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33216", 
-				["text"] = "Allocates Deep Wounds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33229"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33229", 
-				["text"] = "Allocates Haemorrhaging Cuts", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33240"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33240", 
-				["text"] = "Allocates Lord of Horrors", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3348"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3348", 
-				["text"] = "Allocates Spirit of the Wolf", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33542"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33542", 
-				["text"] = "Allocates Quick Fingers", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33585"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33585", 
-				["text"] = "Allocates Unspoken Bond", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["336"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|336", 
-				["text"] = "Allocates Storm Swell", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33730"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33730", 
-				["text"] = "Allocates Focused Channel", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["338"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|338", 
-				["text"] = "Allocates Invocated Limit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33887"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33887", 
-				["text"] = "Allocates Full Salvo", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33922"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33922", 
-				["text"] = "Allocates Stripped Defences", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["33978"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|33978", 
-				["text"] = "Allocates Unstoppable Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34300"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34300", 
-				["text"] = "Allocates Conservative Casting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34308"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34308", 
-				["text"] = "Allocates Personal Touch", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34316"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34316", 
-				["text"] = "Allocates One with the River", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|32128", 
+				["text"] = "Allocates Flow of Time", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["34324"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34324", 
+				["id"] = "crafted.stat_2954116742|34324", 
 				["text"] = "Allocates Spectral Ward", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34340"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34340", 
-				["text"] = "Allocates Mass Rejuvenation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34425"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34425", 
-				["text"] = "Allocates Precise Volatility", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34473"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34473", 
-				["text"] = "Allocates Spaghettification", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["34531"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34531", 
+				["id"] = "crafted.stat_2954116742|34531", 
 				["text"] = "Allocates Hallowed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34541"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34541", 
-				["text"] = "Allocates Energising Deflection", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34543"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34543", 
-				["text"] = "Allocates The Frenzied Bear", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34553"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34553", 
-				["text"] = "Allocates Emboldening Lead", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["34908"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|34908", 
-				["text"] = "Allocates Staunch Deflection", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3492"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3492", 
-				["text"] = "Allocates Void", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35028"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35028", 
-				["text"] = "Allocates In the Thick of It", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35031"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35031", 
-				["text"] = "Allocates Chakra of Life", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35324"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35324", 
-				["text"] = "Allocates Burnout", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35369"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35369", 
-				["text"] = "Allocates Investing Energies", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35417"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35417", 
-				["text"] = "Allocates Wyvern's Breath", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35477"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35477", 
-				["text"] = "Allocates Far Sighted", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35560"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35560", 
-				["text"] = "Allocates At your Command", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35564"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35564", 
-				["text"] = "Allocates Turn the Clock Back", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35581"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35581", 
-				["text"] = "Allocates Near at Hand", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35618"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35618", 
-				["text"] = "Allocates Cold Coat", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3567"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3567", 
-				["text"] = "Allocates Raw Mana", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35739"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35739", 
-				["text"] = "Allocates Crushing Judgement", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35792"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35792", 
-				["text"] = "Allocates Blood of Rage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["35809"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35809", 
+				["id"] = "crafted.stat_2954116742|35809", 
 				["text"] = "Allocates Reinvigoration", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["35849"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35849", 
+				["id"] = "crafted.stat_2954116742|35849", 
 				["text"] = "Allocates Thickened Arteries", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35855"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35855", 
-				["text"] = "Allocates Fortifying Blood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35876"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35876", 
-				["text"] = "Allocates Admonisher", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35918"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35918", 
-				["text"] = "Allocates One For All", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["35966"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|35966", 
-				["text"] = "Allocates Heart Tissue", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["36085"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36085", 
+				["id"] = "crafted.stat_2954116742|36085", 
 				["text"] = "Allocates Serrated Edges", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36100"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36100", 
-				["text"] = "Allocates Molten Claw", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36333"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36333", 
-				["text"] = "Allocates Explosive Empowerment", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36341"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36341", 
-				["text"] = "Allocates Cull the Hordes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36364"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36364", 
-				["text"] = "Allocates Electrocution", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36507"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36507", 
-				["text"] = "Allocates Vile Mending", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36623"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36623", 
-				["text"] = "Allocates Convalescence", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36630"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36630", 
-				["text"] = "Allocates Incision", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36808"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36808", 
-				["text"] = "Allocates Spiked Shield", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3688"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3688", 
-				["text"] = "Allocates Dynamism", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36931"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36931", 
-				["text"] = "Allocates Concussive Attack", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["36976"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|36976", 
-				["text"] = "Allocates Marked for Death", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3698"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3698", 
-				["text"] = "Allocates Spike Pit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["372"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|372", 
-				["text"] = "Allocates Heatproof", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37244"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37244", 
-				["text"] = "Allocates Shield Expertise", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37266"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37266", 
-				["text"] = "Allocates Nourishing Ally", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37276"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37276", 
-				["text"] = "Allocates Battle Trance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37302"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37302", 
-				["text"] = "Allocates Kept at Bay", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37408"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37408", 
-				["text"] = "Allocates Staunching", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37458"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37458", 
-				["text"] = "Allocates Strong Links", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37514"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37514", 
-				["text"] = "Allocates Whirling Assault", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["37543"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37543", 
+				["id"] = "crafted.stat_2954116742|37543", 
 				["text"] = "Allocates Full Recovery", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["37742"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37742", 
+				["id"] = "crafted.stat_2954116742|37742", 
 				["text"] = "Allocates Manifold Method", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37806"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37806", 
-				["text"] = "Allocates Branching Bolts", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["37872"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|37872", 
-				["text"] = "Allocates Presence Present", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38053"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38053", 
-				["text"] = "Allocates Deafening Cries", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38111"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38111", 
-				["text"] = "Allocates Pliable Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38329"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38329", 
-				["text"] = "Allocates Biting Frost", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38342"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38342", 
-				["text"] = "Allocates Stupefy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38398"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38398", 
-				["text"] = "Allocates Apocalypse", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38459"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38459", 
-				["text"] = "Allocates Disorientation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38479"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38479", 
-				["text"] = "Allocates Close Confines", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["38532"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38532", 
+				["id"] = "crafted.stat_2954116742|38532", 
 				["text"] = "Allocates Thirst for Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38535"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38535", 
-				["text"] = "Allocates Stormcharged", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["38537"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38537", 
+				["id"] = "crafted.stat_2954116742|38537", 
 				["text"] = "Allocates Heartstopping", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38570"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38570", 
-				["text"] = "Allocates Demolitionist", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38614"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38614", 
-				["text"] = "Allocates Psychic Fragmentation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38628"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38628", 
-				["text"] = "Allocates Escalating Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38888"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38888", 
-				["text"] = "Allocates Unerring Impact", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38895"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38895", 
-				["text"] = "Allocates Crystal Elixir", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3894"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3894", 
+				["id"] = "crafted.stat_2954116742|3894", 
 				["text"] = "Allocates Eldritch Will", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38965"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38965", 
-				["text"] = "Allocates Infused Limits", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38969"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38969", 
-				["text"] = "Allocates Finesse", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["38972"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|38972", 
-				["text"] = "Allocates Restless Dead", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39050"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39050", 
-				["text"] = "Allocates Exploit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39083"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39083", 
-				["text"] = "Allocates Blood Rush", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3921"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3921", 
+				["id"] = "crafted.stat_2954116742|3921", 
 				["text"] = "Allocates Fate Finding", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39347"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39347", 
-				["text"] = "Allocates Breaking Blows", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39369"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39369", 
-				["text"] = "Allocates Struck Through", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39567"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39567", 
-				["text"] = "Allocates Ingenuity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3985"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|3985", 
-				["text"] = "Allocates Forces of Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39881"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39881", 
-				["text"] = "Allocates Staggering Palm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39884"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39884", 
-				["text"] = "Allocates Searing Heat", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["39990"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|39990", 
-				["text"] = "Allocates Chronomancy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40073"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40073", 
-				["text"] = "Allocates Drenched", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40117"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40117", 
-				["text"] = "Allocates Spiked Armour", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40166"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40166", 
-				["text"] = "Allocates Deep Trance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40213"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40213", 
-				["text"] = "Allocates Taste for Blood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40270"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40270", 
-				["text"] = "Allocates Frenetic", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40292"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40292", 
-				["text"] = "Allocates Nimble Strength", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4031"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4031", 
-				["text"] = "Allocates Icebreaker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40325"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40325", 
-				["text"] = "Allocates Resolution", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40345"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40345", 
-				["text"] = "Allocates Master of Hexes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40399"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40399", 
-				["text"] = "Allocates Energise", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40480"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40480", 
-				["text"] = "Allocates Harmonic Generator", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40687"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40687", 
-				["text"] = "Allocates Lead by Example", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40803"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40803", 
-				["text"] = "Allocates Sigil of Ice", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40985"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40985", 
-				["text"] = "Allocates Empowering Remnants", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["40990"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|40990", 
-				["text"] = "Allocates Exposed to the Storm", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["41033"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41033", 
+				["id"] = "crafted.stat_2954116742|41033", 
 				["text"] = "Allocates Utmost Offering", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["41394"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41394", 
+				["id"] = "crafted.stat_2954116742|41394", 
 				["text"] = "Allocates Invigorating Archon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41512"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41512", 
-				["text"] = "Allocates Heavy Weaponry", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41580"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41580", 
-				["text"] = "Allocates Maiming Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41620"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41620", 
-				["text"] = "Allocates Bear's Roar", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41753"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41753", 
-				["text"] = "Allocates Evocational Practitioner", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41811"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41811", 
-				["text"] = "Allocates Shatter Palm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41905"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41905", 
-				["text"] = "Allocates Gravedigger", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41935"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41935", 
-				["text"] = "Allocates Hide of the Bear", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["41972"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|41972", 
-				["text"] = "Allocates Glaciation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42032"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42032", 
-				["text"] = "Allocates Escalating Mayhem", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42036"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42036", 
-				["text"] = "Allocates Off-Balancing Retort", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42045"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42045", 
-				["text"] = "Allocates Archon of the Blizzard", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42065"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42065", 
-				["text"] = "Allocates Surging Currents", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42070"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42070", 
-				["text"] = "Allocates Saqawal's Guidance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42077"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42077", 
-				["text"] = "Allocates Essence Infusion", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42103"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42103", 
-				["text"] = "Allocates Enduring Deflection", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["42177"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42177", 
+				["id"] = "crafted.stat_2954116742|42177", 
 				["text"] = "Allocates Blurred Motion", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["42245"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42245", 
+				["id"] = "crafted.stat_2954116742|42245", 
 				["text"] = "Allocates Efficient Inscriptions", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42302"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42302", 
-				["text"] = "Allocates Split Shot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42347"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42347", 
-				["text"] = "Allocates Chakra of Sight", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42354"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42354", 
-				["text"] = "Allocates Blinding Flash", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["4238"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4238", 
+				["id"] = "crafted.stat_2954116742|4238", 
 				["text"] = "Allocates Versatile Arms", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42390"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42390", 
-				["text"] = "Allocates Overheating Blow", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["42660"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42660", 
+				["id"] = "crafted.stat_2954116742|42660", 
 				["text"] = "Allocates Commanding Rage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["42714"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42714", 
+				["id"] = "crafted.stat_2954116742|42714", 
 				["text"] = "Allocates Thousand Cuts", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42760"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42760", 
-				["text"] = "Allocates Chakra of Stability", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42813"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42813", 
-				["text"] = "Allocates Tides of Change", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4295"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4295", 
-				["text"] = "Allocates Adverse Growth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42959"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42959", 
-				["text"] = "Allocates Low Tolerance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["42981"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|42981", 
-				["text"] = "Allocates Cruel Methods", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43082"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43082", 
-				["text"] = "Allocates Acceleration", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43088"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43088", 
-				["text"] = "Allocates Agonising Calamity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43090"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43090", 
-				["text"] = "Allocates Electrotherapy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43139"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43139", 
-				["text"] = "Allocates Stormbreaker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43250"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43250", 
-				["text"] = "Allocates Adaptive Skin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4331"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4331", 
-				["text"] = "Allocates Guided Hand", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43396"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43396", 
-				["text"] = "Allocates Ancestral Reach", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43423"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43423", 
-				["text"] = "Allocates Emboldened Avatar", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43584"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43584", 
-				["text"] = "Allocates Flare", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43633"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43633", 
-				["text"] = "Allocates Energising Archon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43677"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43677", 
-				["text"] = "Allocates Crippling Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43711"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43711", 
-				["text"] = "Allocates Thornhide", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43791"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43791", 
-				["text"] = "Allocates Rallying Icon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43829"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43829", 
-				["text"] = "Allocates Advanced Munitions", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43854"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43854", 
-				["text"] = "Allocates All For One", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43939"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43939", 
-				["text"] = "Allocates Melting Flames", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["43944"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|43944", 
-				["text"] = "Allocates Instability", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["44005"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44005", 
+				["id"] = "crafted.stat_2954116742|44005", 
 				["text"] = "Allocates Casting Cascade", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["44293"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44293", 
+				["id"] = "crafted.stat_2954116742|44293", 
 				["text"] = "Allocates Hastening Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44299"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44299", 
-				["text"] = "Allocates Enhanced Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44330"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44330", 
-				["text"] = "Allocates Coated Arms", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44373"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44373", 
-				["text"] = "Allocates Wither Away", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4447"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4447", 
-				["text"] = "Allocates Pin their Motivation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44566"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44566", 
-				["text"] = "Allocates Lightning Rod", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44753"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44753", 
-				["text"] = "Allocates One With Flame", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44756"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44756", 
-				["text"] = "Allocates Marked Agility", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44765"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44765", 
-				["text"] = "Allocates Distracting Presence", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44917"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44917", 
-				["text"] = "Allocates Self Mortification", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44952"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44952", 
-				["text"] = "Allocates Made to Last", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["44974"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|44974", 
-				["text"] = "Allocates Hail", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45013"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45013", 
-				["text"] = "Allocates Finishing Blows", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["45177"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45177", 
+				["id"] = "crafted.stat_2954116742|45177", 
 				["text"] = "Allocates Strike True", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45244"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45244", 
-				["text"] = "Allocates Refills", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45329"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45329", 
-				["text"] = "Allocates Delayed Danger", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4534"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4534", 
-				["text"] = "Allocates Piercing Shot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45370"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45370", 
-				["text"] = "Allocates The Raging Ox", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["4544"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4544", 
+				["id"] = "crafted.stat_2954116742|4544", 
 				["text"] = "Allocates The Ancient Serpent", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["4547"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4547", 
+				["id"] = "crafted.stat_2954116742|4547", 
 				["text"] = "Allocates Unnatural Resilience", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45488"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45488", 
-				["text"] = "Allocates Cross Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45599"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45599", 
-				["text"] = "Allocates Lay Siege", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["45612"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45612", 
+				["id"] = "crafted.stat_2954116742|45612", 
 				["text"] = "Allocates Defensive Reflexes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45632"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45632", 
-				["text"] = "Allocates Mind Eraser", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45713"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45713", 
-				["text"] = "Allocates Savouring", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45751"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45751", 
-				["text"] = "Allocates Frightening Shield", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45777"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45777", 
-				["text"] = "Allocates Hidden Barb", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4579"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4579", 
-				["text"] = "Allocates Unbothering Cold", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["45874"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|45874", 
-				["text"] = "Allocates Proliferating Weeds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46024"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46024", 
-				["text"] = "Allocates Sigil of Lightning", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46060"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46060", 
-				["text"] = "Allocates Voracious", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46124"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46124", 
-				["text"] = "Allocates Arcane Remnants", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46182"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46182", 
-				["text"] = "Allocates Intense Dose", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46197"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46197", 
-				["text"] = "Allocates Careful Assassin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46224"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46224", 
-				["text"] = "Allocates Arcane Alchemy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4627"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4627", 
-				["text"] = "Allocates Climate Change", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46296"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46296", 
-				["text"] = "Allocates Short Shot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46365"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46365", 
-				["text"] = "Allocates Gigantic Following", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46384"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46384", 
-				["text"] = "Allocates Wide Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46499"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46499", 
-				["text"] = "Allocates Guts", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["4661"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4661", 
+				["id"] = "crafted.stat_2954116742|4661", 
 				["text"] = "Allocates Inspiring Leader", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["46683"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46683", 
+				["id"] = "crafted.stat_2954116742|46683", 
 				["text"] = "Allocates Inherited Strength ", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46692"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46692", 
-				["text"] = "Allocates Efficient Alchemy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46696"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46696", 
-				["text"] = "Allocates Impair", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46726"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46726", 
-				["text"] = "Allocates Reformed Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4673"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4673", 
-				["text"] = "Allocates Hulking Smash", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["46972"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|46972", 
-				["text"] = "Allocates Arcane Mixtures", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47088"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47088", 
-				["text"] = "Allocates Sic 'Em", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4709"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4709", 
-				["text"] = "Allocates Near Sighted", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4716"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4716", 
-				["text"] = "Allocates Afterimage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47270"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47270", 
-				["text"] = "Allocates Inescapable Cold", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47316"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47316", 
-				["text"] = "Allocates Goring", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["47363"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47363", 
+				["id"] = "crafted.stat_2954116742|47363", 
 				["text"] = "Allocates Colossal Weapon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47418"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47418", 
-				["text"] = "Allocates Warding Potions", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47420"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47420", 
-				["text"] = "Allocates Expendable Army", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47441"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47441", 
-				["text"] = "Allocates Stigmata", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47514"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47514", 
-				["text"] = "Allocates Dizzying Hits", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47560"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47560", 
-				["text"] = "Allocates Multi Shot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47635"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47635", 
-				["text"] = "Allocates Overload", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["47782"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|47782", 
-				["text"] = "Allocates Steady Footing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48006"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48006", 
-				["text"] = "Allocates Devastation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48014"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48014", 
-				["text"] = "Allocates Honourless", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4810"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4810", 
-				["text"] = "Allocates Sanguine Tolerance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48103"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48103", 
-				["text"] = "Allocates Forcewave", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48215"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48215", 
-				["text"] = "Allocates Headshot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48240"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48240", 
-				["text"] = "Allocates Quick Recovery", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48418"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48418", 
-				["text"] = "Allocates Hefty Unit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48524"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48524", 
-				["text"] = "Allocates Blood Transfusion", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48565"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48565", 
-				["text"] = "Allocates Bringer of Order", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48581"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48581", 
-				["text"] = "Allocates Exploit the Elements", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["48617"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48617", 
+				["id"] = "crafted.stat_2954116742|48617", 
 				["text"] = "Allocates Hunter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48649"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48649", 
-				["text"] = "Allocates Insulating Hide", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48658"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48658", 
-				["text"] = "Allocates Shattering", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["48699"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48699", 
+				["id"] = "crafted.stat_2954116742|48699", 
 				["text"] = "Allocates Frostwalker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48734"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48734", 
-				["text"] = "Allocates The Howling Primate", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48774"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48774", 
-				["text"] = "Allocates Taut Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48925"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48925", 
-				["text"] = "Allocates Blessing of the Moon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["48974"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|48974", 
-				["text"] = "Allocates Altered Brain Chemistry", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49088"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49088", 
-				["text"] = "Allocates Splintering Force", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49150"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49150", 
-				["text"] = "Allocates Precise Invocations", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49214"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49214", 
-				["text"] = "Allocates Blood of the Wolf", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4931"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4931", 
-				["text"] = "Allocates Dependable Ward", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["49550"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49550", 
+				["id"] = "crafted.stat_2954116742|49550", 
 				["text"] = "Allocates Prolonged Fury", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4959"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4959", 
-				["text"] = "Allocates Heavy Frost", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49618"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49618", 
-				["text"] = "Allocates Deadly Flourish", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49661"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49661", 
-				["text"] = "Allocates Perfectly Placed Knife", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49740"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49740", 
-				["text"] = "Allocates Shattered Crystal", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4985"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|4985", 
-				["text"] = "Allocates Flip the Script", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["49984"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|49984", 
-				["text"] = "Allocates Spellblade", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50023"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50023", 
-				["text"] = "Allocates Invigorating Grandeur", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50062"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50062", 
-				["text"] = "Allocates Reinforced Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5009"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5009", 
-				["text"] = "Allocates Seeing Stars", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50253"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50253", 
-				["text"] = "Allocates Aftershocks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50389"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50389", 
-				["text"] = "Allocates Twinned Tethers", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50392"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50392", 
-				["text"] = "Allocates Brute Strength", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50485"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50485", 
-				["text"] = "Allocates Zone of Control", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50562"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50562", 
-				["text"] = "Allocates Barbaric Strength", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50673"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50673", 
-				["text"] = "Allocates Avoiding Deflection", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["50687"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50687", 
+				["id"] = "crafted.stat_2954116742|50687", 
 				["text"] = "Allocates Coursing Energy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50715"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50715", 
-				["text"] = "Allocates Frozen Limit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50795"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50795", 
-				["text"] = "Allocates Careful Aim", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50884"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50884", 
-				["text"] = "Allocates Primal Sundering", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["50912"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|50912", 
-				["text"] = "Allocates Imbibed Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51105"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51105", 
-				["text"] = "Allocates Spirit Bond", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51129"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51129", 
-				["text"] = "Allocates Pile On", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51169"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51169", 
-				["text"] = "Allocates Soul Bloom", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["51213"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51213", 
+				["id"] = "crafted.stat_2954116742|51213", 
 				["text"] = "Allocates Wasting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51394"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51394", 
-				["text"] = "Allocates Unimpeded", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51446"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51446", 
-				["text"] = "Allocates Leather Bound Gauntlets", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51509"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51509", 
-				["text"] = "Allocates Waters of Life", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["51602"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51602", 
+				["id"] = "crafted.stat_2954116742|51602", 
 				["text"] = "Allocates Unsight", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51606"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51606", 
-				["text"] = "Allocates Freedom of Movement", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51707"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51707", 
-				["text"] = "Allocates Enhanced Reflexes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51820"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51820", 
-				["text"] = "Allocates Ancestral Conduits", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51867"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51867", 
-				["text"] = "Allocates Finality", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["51868"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51868", 
+				["id"] = "crafted.stat_2954116742|51868", 
 				["text"] = "Allocates Molten Carapace", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51871"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51871", 
-				["text"] = "Allocates Immortal Thirst", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51891"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51891", 
-				["text"] = "Allocates Lucidity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["51934"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|51934", 
-				["text"] = "Allocates Invocated Efficiency", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52180"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52180", 
-				["text"] = "Allocates Trained Deflection", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52191"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52191", 
-				["text"] = "Allocates Event Horizon", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["52199"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52199", 
+				["id"] = "crafted.stat_2954116742|52199", 
 				["text"] = "Allocates Overexposure", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52229"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52229", 
-				["text"] = "Allocates Secrets of the Orb", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52245"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52245", 
-				["text"] = "Allocates Distant Dreamer", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52257"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52257", 
-				["text"] = "Allocates Conductive Embrace", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5227"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5227", 
-				["text"] = "Allocates Escape Strategy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52348"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52348", 
-				["text"] = "Allocates Carved Earth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52392"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52392", 
-				["text"] = "Allocates Singular Purpose", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5257"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5257", 
-				["text"] = "Allocates Echoing Frost", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["52618"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52618", 
+				["id"] = "crafted.stat_2954116742|52618", 
 				["text"] = "Allocates Boon of the Beast", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["52684"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52684", 
-				["text"] = "Allocates Eroding Chains", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["52764"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52764", 
+				["id"] = "crafted.stat_2954116742|52764", 
 				["text"] = "Allocates Mystical Rage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["52803"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52803", 
+				["id"] = "crafted.stat_2954116742|52803", 
 				["text"] = "Allocates Hale Traveller", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5284"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5284", 
-				["text"] = "Allocates Shredding Force", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["52971"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|52971", 
-				["text"] = "Allocates Quick Response", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53030"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53030", 
-				["text"] = "Allocates Immolation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53131"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53131", 
-				["text"] = "Allocates Tukohama's Brew", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53150"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53150", 
-				["text"] = "Allocates Sharp Sight", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53185"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53185", 
-				["text"] = "Allocates The Winter Owl", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53187"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53187", 
-				["text"] = "Allocates Warlord Berserker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53265"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53265", 
-				["text"] = "Allocates Nature's Bite", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53294"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53294", 
-				["text"] = "Allocates Burn Away", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5332"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5332", 
-				["text"] = "Allocates Crystallised Immunities", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5335"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5335", 
-				["text"] = "Allocates Shimmering Mirage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53367"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53367", 
-				["text"] = "Allocates Symbol of Defiance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53527"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53527", 
-				["text"] = "Allocates Shattering Blow", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53566"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53566", 
-				["text"] = "Allocates Run and Gun", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53607"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53607", 
-				["text"] = "Allocates Fortified Location", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53683"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53683", 
-				["text"] = "Allocates Efficient Loading", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53823"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53823", 
-				["text"] = "Allocates Towering Shield", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53853"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53853", 
-				["text"] = "Allocates Backup Plan", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53921"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53921", 
-				["text"] = "Allocates Unbreaking", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53935"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53935", 
-				["text"] = "Allocates Briny Carapace", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["53941"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|53941", 
-				["text"] = "Allocates Shimmering", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54031"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54031", 
-				["text"] = "Allocates The Great Boar", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5410"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5410", 
-				["text"] = "Allocates Channelled Heritage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54148"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54148", 
-				["text"] = "Allocates Smoke Inhalation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54640"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54640", 
-				["text"] = "Allocates Constricting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54805"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54805", 
-				["text"] = "Allocates Hindered Capabilities", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54814"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54814", 
-				["text"] = "Allocates Profane Commander", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54911"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54911", 
-				["text"] = "Allocates Firestarter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54937"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54937", 
-				["text"] = "Allocates Vengeful Fury", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54990"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54990", 
-				["text"] = "Allocates Bloodletting", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["54998"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|54998", 
-				["text"] = "Allocates Protraction", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55", 
-				["text"] = "Allocates Fast Acting Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55060"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55060", 
-				["text"] = "Allocates Shrapnel", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55131"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55131", 
-				["text"] = "Allocates Light on your Feet", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55149"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55149", 
-				["text"] = "Allocates Pure Chaos", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55180"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55180", 
-				["text"] = "Allocates Relentless Fallen", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55193"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55193", 
-				["text"] = "Allocates Subterfuge Mask", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|52971", 
+				["text"] = "Allocates The Soul Meridian", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["55308"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55308", 
+				["id"] = "crafted.stat_2954116742|55308", 
 				["text"] = "Allocates Sling Shots", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55375"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55375", 
-				["text"] = "Allocates Licking Wounds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55450"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55450", 
-				["text"] = "Allocates Rallying Form", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55568"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55568", 
-				["text"] = "Allocates Forthcoming", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55708"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55708", 
-				["text"] = "Allocates Electric Amplification", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5580"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5580", 
-				["text"] = "Allocates Watchtowers", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55817"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55817", 
-				["text"] = "Allocates Alchemical Oil", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55835"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55835", 
-				["text"] = "Allocates Exposed to the Cosmos", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["55847"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|55847", 
-				["text"] = "Allocates Ice Walls", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5594"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5594", 
-				["text"] = "Allocates Decrepifying Curse", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56016"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56016", 
-				["text"] = "Allocates Passthrough Rounds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56063"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56063", 
-				["text"] = "Allocates Lingering Horror", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56112"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56112", 
-				["text"] = "Allocates Extinguishing Exhalation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56237"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56237", 
-				["text"] = "Allocates Enhancing Attacks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56265"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56265", 
-				["text"] = "Allocates Throatseeker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56388"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56388", 
-				["text"] = "Allocates Reinforced Rallying", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5642"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5642", 
-				["text"] = "Allocates Behemoth", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56453"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56453", 
-				["text"] = "Allocates Killer Instinct", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56488"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56488", 
-				["text"] = "Allocates Glancing Deflection", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56493"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56493", 
-				["text"] = "Allocates Agile Succession", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["56616"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56616", 
+				["id"] = "crafted.stat_2954116742|56616", 
 				["text"] = "Allocates Desperate Times", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5663"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5663", 
-				["text"] = "Allocates Endurance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56714"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56714", 
-				["text"] = "Allocates Swift Flight", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56767"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56767", 
-				["text"] = "Allocates Electrifying Daze", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56776"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56776", 
-				["text"] = "Allocates Cooked", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["56806"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56806", 
+				["id"] = "crafted.stat_2954116742|56806", 
 				["text"] = "Allocates Swift Blocking", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5686"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5686", 
-				["text"] = "Allocates Chillproof", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["56860"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56860", 
+				["id"] = "crafted.stat_2954116742|56860", 
 				["text"] = "Allocates Resolute Reprisal", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56893"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56893", 
-				["text"] = "Allocates Thicket Warding", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56988"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56988", 
-				["text"] = "Allocates Electric Blood", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56997"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56997", 
-				["text"] = "Allocates Heavy Contact", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["56999"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|56999", 
-				["text"] = "Allocates Locked On", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5703"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5703", 
-				["text"] = "Allocates Echoing Thunder", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57047"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57047", 
-				["text"] = "Allocates Polymathy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57097"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57097", 
-				["text"] = "Allocates Spirit Bonds", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57110"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57110", 
-				["text"] = "Allocates Infused Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57190"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57190", 
-				["text"] = "Allocates Doomsayer", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57204"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57204", 
-				["text"] = "Allocates Critical Exploit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5728"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5728", 
-				["text"] = "Allocates Ancient Aegis", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57379"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57379", 
-				["text"] = "Allocates In Your Face", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57388"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57388", 
-				["text"] = "Allocates Overwhelming Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57471"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57471", 
-				["text"] = "Allocates Hunker Down", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["57617"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57617", 
+				["id"] = "crafted.stat_2954116742|57617", 
 				["text"] = "Allocates Shifted Strikes", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["57785"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57785", 
+				["id"] = "crafted.stat_2954116742|57785", 
 				["text"] = "Allocates Trained Turrets", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57805"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57805", 
-				["text"] = "Allocates Clear Space", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["57921"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|57921", 
-				["text"] = "Allocates Wolf's Howl", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58016"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58016", 
-				["text"] = "Allocates All Natural", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["5802"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|5802", 
-				["text"] = "Allocates Stand and Deliver", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58096"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58096", 
-				["text"] = "Allocates Lasting Incantations", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58183"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58183", 
-				["text"] = "Allocates Blood Tearing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58198"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58198", 
-				["text"] = "Allocates Well of Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58215"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58215", 
-				["text"] = "Allocates Sanguimantic Rituals", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58397"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58397", 
-				["text"] = "Allocates Proficiency", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58426"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58426", 
-				["text"] = "Allocates Pocket Sand", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58714"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58714", 
-				["text"] = "Allocates Grenadier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58817"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58817", 
-				["text"] = "Allocates Artillery Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["58939"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|58939", 
-				["text"] = "Allocates Dispatch Foes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59070"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59070", 
-				["text"] = "Allocates Enduring Archon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59208"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59208", 
-				["text"] = "Allocates Frantic Fighter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59214"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59214", 
-				["text"] = "Allocates Fated End", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59303"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59303", 
-				["text"] = "Allocates Lucky Rabbit Foot", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59387"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59387", 
-				["text"] = "Allocates Infusion of Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59433"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59433", 
-				["text"] = "Allocates Thirst for Endurance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59541"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59541", 
-				["text"] = "Allocates Necrotised Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59589"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59589", 
-				["text"] = "Allocates Heavy Armour", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59596"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59596", 
-				["text"] = "Allocates Covering Ward", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59720"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59720", 
-				["text"] = "Allocates Beastial Skin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["59938"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|59938", 
-				["text"] = "Allocates Against the Elements", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["60034"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60034", 
+				["id"] = "crafted.stat_2954116742|60034", 
 				["text"] = "Allocates Falcon Dive", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60083"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60083", 
-				["text"] = "Allocates Pin and Run", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60138"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60138", 
-				["text"] = "Allocates Stylebender", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60269"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60269", 
-				["text"] = "Allocates Roil", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60273"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60273", 
-				["text"] = "Allocates Hindering Obstacles", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60404"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60404", 
-				["text"] = "Allocates Perfect Opportunity", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["60464"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60464", 
+				["id"] = "crafted.stat_2954116742|60464", 
 				["text"] = "Allocates Fan the Flames", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60619"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60619", 
-				["text"] = "Allocates Scales of the Wyvern", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60692"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60692", 
-				["text"] = "Allocates Echoing Flames", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60764"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60764", 
-				["text"] = "Allocates Feathered Fletching", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["60992"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|60992", 
-				["text"] = "Allocates Nurturing Guardian", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61026"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61026", 
-				["text"] = "Allocates Crystalline Flesh", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61104"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61104", 
-				["text"] = "Allocates Staggering Wounds", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["61112"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61112", 
+				["id"] = "crafted.stat_2954116742|61112", 
 				["text"] = "Allocates Roll and Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6133"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6133", 
-				["text"] = "Allocates Core of the Guardian", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61338"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61338", 
-				["text"] = "Allocates Breath of Lightning", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61354"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61354", 
-				["text"] = "Allocates Infernal Limit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61404"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61404", 
-				["text"] = "Allocates Equilibrium", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61444"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61444", 
-				["text"] = "Allocates Wasting Casts", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61493"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61493", 
-				["text"] = "Allocates Austerity Measures", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["61601"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61601", 
+				["id"] = "crafted.stat_2954116742|61601", 
 				["text"] = "Allocates True Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61703"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61703", 
-				["text"] = "Allocates Sharpened Claw", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["61741"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61741", 
-				["text"] = "Allocates Lasting Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6178"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6178", 
-				["text"] = "Allocates Power Shots", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["61921"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|61921", 
+				["id"] = "crafted.stat_2954116742|61921", 
 				["text"] = "Allocates Storm Surge", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62034"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62034", 
-				["text"] = "Allocates Prism Guard", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62185"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62185", 
-				["text"] = "Allocates Rattled", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62230"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62230", 
-				["text"] = "Allocates Patient Barrier", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6229"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6229", 
-				["text"] = "Allocates Push the Advantage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62310"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62310", 
-				["text"] = "Allocates Incendiary", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62455"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62455", 
-				["text"] = "Allocates Bannerman", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62609"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62609", 
-				["text"] = "Allocates Ancestral Unity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62803"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62803", 
-				["text"] = "Allocates Woodland Aspect", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62887"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62887", 
-				["text"] = "Allocates Living Death", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["62963"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|62963", 
-				["text"] = "Allocates Flamewalker", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63031"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63031", 
-				["text"] = "Allocates Glorious Anticipation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63037"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63037", 
-				["text"] = "Allocates Sigil of Fire", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["6304"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6304", 
+				["id"] = "crafted.stat_2954116742|6304", 
 				["text"] = "Allocates Stand Ground", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63074"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63074", 
-				["text"] = "Allocates Dark Entries", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63255"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63255", 
-				["text"] = "Allocates Savagery", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63400"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63400", 
-				["text"] = "Allocates Chakra of Elements", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63431"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63431", 
-				["text"] = "Allocates Leeching Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63451"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63451", 
-				["text"] = "Allocates Cranial Impact", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63541"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63541", 
-				["text"] = "Allocates Brush Off", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63579"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63579", 
-				["text"] = "Allocates Momentum", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63585"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63585", 
-				["text"] = "Allocates Thunderstruck", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63739"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63739", 
-				["text"] = "Allocates Vigorous Remnants", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63759"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63759", 
-				["text"] = "Allocates Stacking Toxins", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63830"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63830", 
-				["text"] = "Allocates Marked for Sickness", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["63981"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|63981", 
-				["text"] = "Allocates Deft Recovery", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["64050"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64050", 
+				["id"] = "crafted.stat_2954116742|64050", 
 				["text"] = "Allocates Marathon Runner", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64119"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64119", 
-				["text"] = "Allocates Rapid Reload", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64240"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64240", 
-				["text"] = "Allocates Battle Fever", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64415"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64415", 
-				["text"] = "Allocates Shattering Daze", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64443"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64443", 
-				["text"] = "Allocates Impact Force", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64525"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64525", 
-				["text"] = "Allocates Easy Target", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64543"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64543", 
-				["text"] = "Allocates Unbound Forces", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64650"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64650", 
-				["text"] = "Allocates Wary Dodging", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64659"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64659", 
-				["text"] = "Allocates Lasting Boons", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["64851"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|64851", 
-				["text"] = "Allocates Flashy Parrying", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65016"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65016", 
-				["text"] = "Allocates Intense Flames", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65023"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65023", 
-				["text"] = "Allocates Impenetrable Shell", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6514"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6514", 
-				["text"] = "Allocates Cacophony", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65160"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65160", 
-				["text"] = "Allocates Titanic", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65193"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65193", 
-				["text"] = "Allocates Viciousness", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["65204"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65204", 
+				["id"] = "crafted.stat_2954116742|65204", 
 				["text"] = "Allocates Overflowing Power", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65243"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65243", 
-				["text"] = "Allocates Enveloping Presence", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["65256"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65256", 
+				["id"] = "crafted.stat_2954116742|65256", 
 				["text"] = "Allocates Widespread Coverage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65265"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65265", 
-				["text"] = "Allocates Swift Interruption", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6544"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6544", 
-				["text"] = "Allocates Burning Strikes", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["65468"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|65468", 
-				["text"] = "Allocates Repeating Explosives", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["6655"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|6655", 
-				["text"] = "Allocates Aggravation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7062"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7062", 
-				["text"] = "Allocates Reusable Ammunition", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7128"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7128", 
-				["text"] = "Allocates Dangerous Blossom", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7163"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7163", 
-				["text"] = "Allocates Stimulants", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7275"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7275", 
-				["text"] = "Allocates Electrocuting Exposure", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7302"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7302", 
-				["text"] = "Allocates Echoing Pulse", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7338"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7338", 
-				["text"] = "Allocates Abasement", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7341"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7341", 
-				["text"] = "Allocates Ignore Pain", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7395"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7395", 
-				["text"] = "Allocates Retaliation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7449"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7449", 
-				["text"] = "Allocates Splinters", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["750"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|750", 
-				["text"] = "Allocates Tribal Fury", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7542"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7542", 
-				["text"] = "Allocates Encompassing Domain", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7604"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7604", 
-				["text"] = "Allocates Rapid Strike", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7651"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7651", 
-				["text"] = "Allocates Pierce the Heart", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7668"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7668", 
-				["text"] = "Allocates Internal Bleeding", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7777"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7777", 
-				["text"] = "Allocates Breaking Point", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7782"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7782", 
-				["text"] = "Allocates Rupturing Pins", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["7809"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7809", 
+				["id"] = "crafted.stat_2954116742|7809", 
 				["text"] = "Allocates Wild Storm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["7847"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|7847", 
-				["text"] = "Allocates The Fabled Stag", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8273"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8273", 
-				["text"] = "Allocates Endless Circuit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8397"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8397", 
-				["text"] = "Allocates Empowering Remains", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8483"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8483", 
-				["text"] = "Allocates Ruin", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8531"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8531", 
-				["text"] = "Allocates Leaping Ambush", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8554"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8554", 
-				["text"] = "Allocates Burning Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8607"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8607", 
-				["text"] = "Allocates Lavianga's Brew", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8660"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8660", 
-				["text"] = "Allocates Reverberation", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8782"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8782", 
-				["text"] = "Allocates Empowering Infusions", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8791"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8791", 
-				["text"] = "Allocates Sturdy Ally", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8810"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8810", 
-				["text"] = "Allocates Multitasking", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8827"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8827", 
-				["text"] = "Allocates Fast Metabolism", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["8831"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8831", 
+				["id"] = "crafted.stat_2954116742|8831", 
 				["text"] = "Allocates Tempered Mind", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8881"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8881", 
-				["text"] = "Allocates Unforgiving", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8896"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8896", 
-				["text"] = "Allocates Agile Sprinter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8904"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8904", 
-				["text"] = "Allocates Death from Afar", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8916"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8916", 
-				["text"] = "Allocates Bashing Beast", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["8957"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|8957", 
-				["text"] = "Allocates Right Hand of Darkness", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9009"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9009", 
-				["text"] = "Allocates Return to Nature", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9020"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9020", 
-				["text"] = "Allocates Giantslayer", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9187"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9187", 
-				["text"] = "Allocates Escalation", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["9226"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9226", 
+				["id"] = "crafted.stat_2954116742|9226", 
 				["text"] = "Allocates Mental Perseverance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9227"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9227", 
-				["text"] = "Allocates Focused Thrust", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["9290"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9290", 
+				["id"] = "crafted.stat_2954116742|9290", 
 				["text"] = "Allocates Rusted Pins", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
-		["9323"] = {
+		["9535"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9323", 
-				["text"] = "Allocates Craving Slaughter", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9328"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9328", 
-				["text"] = "Allocates Spirit of the Bear", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["934"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|934", 
-				["text"] = "Allocates Natural Immunity", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["94"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|94", 
-				["text"] = "Allocates Efficient Killing", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9421"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9421", 
-				["text"] = "Allocates Snowpiercer", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9444"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9444", 
-				["text"] = "Allocates One with the Storm", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9472"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9472", 
-				["text"] = "Allocates Catapult", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9604"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9604", 
-				["text"] = "Allocates Thirst of Kitava", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9652"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9652", 
-				["text"] = "Allocates Mending Deflection", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9736"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9736", 
-				["text"] = "Allocates Insulated Treads", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9896"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9896", 
-				["text"] = "Allocates Heartstopping Presence", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9908"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9908", 
-				["text"] = "Allocates Price of Freedom", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9928"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9928", 
-				["text"] = "Allocates Embracing Frost", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9968"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2954116742|9968", 
-				["text"] = "Allocates Feel the Earth", 
-				["type"] = "enchant", 
+				["id"] = "crafted.stat_2954116742|9535", 
+				["text"] = "Allocates Brinerot Ferocity", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 	}, 
@@ -7404,32 +789,18 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1004011302", 
+				["id"] = "crafted.stat_1004011302", 
 				["text"] = "#% increased Cooldown Recovery Rate", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
-		}, 
-		["1011760251"] = {
-			["Boots"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1011760251", 
-				["text"] = "#% to Maximum Lightning Resistance", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["101878827"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_101878827", 
+				["id"] = "crafted.stat_101878827", 
 				["text"] = "#% increased Presence Area of Effect", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1037193709"] = {
@@ -7476,9 +847,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1037193709", 
+				["id"] = "crafted.stat_1037193709", 
 				["text"] = "Adds # to # Cold Damage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1050105434"] = {
@@ -7497,9 +868,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1050105434", 
+				["id"] = "crafted.stat_1050105434", 
 				["text"] = "# to maximum Mana", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -7527,22 +898,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1062208444", 
+				["id"] = "crafted.stat_1062208444", 
 				["text"] = "#% increased Armour (Local)", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1102738251"] = {
-			["Amulet"] = {
-				["max"] = 0.17, 
-				["min"] = 0.08, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1102738251", 
-				["text"] = "Life Flasks gain # charges per Second", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["124859000"] = {
@@ -7569,73 +927,18 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_124859000", 
+				["id"] = "crafted.stat_124859000", 
 				["text"] = "#% increased Evasion Rating (Local)", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1315743832"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["Shield"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1315743832", 
-				["text"] = "#% increased Thorns damage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1316278494"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1316278494", 
+				["id"] = "crafted.stat_1316278494", 
 				["text"] = "#% increased Warcry Speed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1368271171"] = {
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Quiver"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Staff"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Wand"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1368271171", 
-				["text"] = "Gain # Mana per enemy killed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1436284579"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1436284579", 
-				["text"] = "Cannot be Blinded", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1444556985"] = {
@@ -7646,9 +949,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1444556985", 
+				["id"] = "crafted.stat_1444556985", 
 				["text"] = "#% of Damage taken Recouped as Life", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1509134228"] = {
@@ -7695,116 +998,20 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1509134228", 
+				["id"] = "crafted.stat_1509134228", 
 				["text"] = "#% increased Physical Damage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1515657623"] = {
-			["Belt"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1515657623", 
-				["text"] = "# to Maximum Endurance Charges", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1519615863"] = {
-			["1HMace"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["2HMace"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Flail"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1519615863", 
-				["text"] = "#% chance to cause Bleeding on Hit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1545858329"] = {
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1545858329", 
-				["text"] = "# to Level of all Lightning Spell Skills", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1600707273"] = {
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1600707273", 
-				["text"] = "# to Level of all Physical Spell Skills", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1658498488"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1658498488", 
-				["text"] = "Corrupted Blood cannot be inflicted on you", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1671376347"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -7813,77 +1020,18 @@ return {
 				["max"] = 25, 
 				["min"] = 20, 
 			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1671376347", 
+				["id"] = "crafted.stat_1671376347", 
 				["text"] = "#% to Lightning Resistance", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["1725749947"] = {
-			["1HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Flail"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Spear"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1725749947", 
-				["text"] = "Grants # Rage on Hit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1776411443"] = {
-			["Gloves"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1776411443", 
-				["text"] = "Break #% increased Armour", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1782086450"] = {
-			["Focus"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1782086450", 
-				["text"] = "#% faster start of Energy Shield Recharge", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["1798257884"] = {
 			["1HWeapon"] = {
@@ -7897,74 +1045,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1798257884", 
+				["id"] = "crafted.stat_1798257884", 
 				["text"] = "Allies in your Presence deal #% increased Damage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["185580205"] = {
-			["Amulet"] = {
-				["max"] = 0.17, 
-				["min"] = 0.08, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_185580205", 
-				["text"] = "Charms gain # charges per Second", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1967051901"] = {
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1967051901", 
-				["text"] = "Loads an additional bolt", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["1978899297"] = {
-			["Amulet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Chest"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1978899297", 
-				["text"] = "#% to all Maximum Elemental Resistances", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1998951374"] = {
-			["1HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_1998951374", 
-				["text"] = "Allies in your Presence have #% increased Attack Speed", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["1999113824"] = {
@@ -7987,9 +1070,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1999113824", 
+				["id"] = "crafted.stat_1999113824", 
 				["text"] = "#% increased Evasion and Energy Shield", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["210067635"] = {
@@ -8036,9 +1119,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_210067635", 
+				["id"] = "crafted.stat_210067635", 
 				["text"] = "#% increased Attack Speed (Local)", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2106365538"] = {
@@ -8049,39 +1132,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2106365538", 
+				["id"] = "crafted.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2122183138"] = {
-			["Shield"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2122183138", 
-				["text"] = "# Mana gained when you Block", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2154246560"] = {
-			["Quiver"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Ring"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2154246560", 
-				["text"] = "#% increased Damage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2162097452"] = {
@@ -8092,24 +1145,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2162097452", 
+				["id"] = "crafted.stat_2162097452", 
 				["text"] = "# to Level of all Minion Skills", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["2200293569"] = {
-			["Amulet"] = {
-				["max"] = 0.17, 
-				["min"] = 0.08, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2200293569", 
-				["text"] = "Mana Flasks gain # charges per Second", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["2223678961"] = {
 			["1HMace"] = {
@@ -8155,9 +1195,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2223678961", 
+				["id"] = "crafted.stat_2223678961", 
 				["text"] = "Adds # to # Chaos damage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2250533757"] = {
@@ -8168,92 +1208,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2250533757", 
+				["id"] = "crafted.stat_2250533757", 
 				["text"] = "#% increased Movement Speed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2254480358"] = {
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2254480358", 
-				["text"] = "# to Level of all Cold Spell Skills", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["227523295"] = {
-			["Helmet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_227523295", 
-				["text"] = "# to Maximum Power Charges", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["2301191210"] = {
-			["2HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Bow"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2301191210", 
-				["text"] = "#% chance to Blind Enemies on hit", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2321178454"] = {
-			["Quiver"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2321178454", 
-				["text"] = "#% chance to Pierce an Enemy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2353576063"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2353576063", 
-				["text"] = "#% increased Curse Magnitudes", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2451402625"] = {
@@ -8280,22 +1237,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2451402625", 
+				["id"] = "crafted.stat_2451402625", 
 				["text"] = "#% increased Armour and Evasion", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2481353198"] = {
-			["Shield"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2481353198", 
-				["text"] = "#% increased Block chance (Local)", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2482852589"] = {
@@ -8306,115 +1250,18 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2482852589", 
+				["id"] = "crafted.stat_2482852589", 
 				["text"] = "#% increased maximum Energy Shield", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2557965901"] = {
-			["Amulet"] = {
-				["max"] = 3, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2557965901", 
-				["text"] = "Leech #% of Physical Attack Damage as Life", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2653955271"] = {
-			["Gloves"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2653955271", 
-				["text"] = "Damage Penetrates #% Fire Resistance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2694482655"] = {
-			["1HMace"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["2HMace"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Bow"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Flail"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Spear"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Talisman"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2694482655", 
-				["text"] = "#% to Critical Damage Bonus", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["2763429652"] = {
-			["2HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Bow"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2763429652", 
-				["text"] = "#% chance to Maim on Hit", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["280731498"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_280731498", 
+				["id"] = "crafted.stat_280731498", 
 				["text"] = "#% increased Area of Effect", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2866361420"] = {
@@ -8425,9 +1272,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2866361420", 
+				["id"] = "crafted.stat_2866361420", 
 				["text"] = "#% increased Armour", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["2891184298"] = {
@@ -8450,51 +1297,28 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2891184298", 
+				["id"] = "crafted.stat_2891184298", 
 				["text"] = "#% increased Cast Speed", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
-		}, 
-		["289128254"] = {
-			["1HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_289128254", 
-				["text"] = "Allies in your Presence have #% increased Cast Speed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2901986750"] = {
-			["Amulet"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["Ring"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2901986750", 
-				["text"] = "#% to all Elemental Resistances", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["2923486259"] = {
+			["AnyJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
 			["Chest"] = {
 				["max"] = 19, 
 				["min"] = 13, 
 			}, 
+			["RadiusJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
 			["Ring"] = {
 				["max"] = 19, 
 				["min"] = 13, 
@@ -8502,61 +1326,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2923486259", 
+				["id"] = "crafted.stat_2923486259", 
 				["text"] = "#% to Chaos Resistance", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["293638271"] = {
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Staff"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Wand"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_293638271", 
-				["text"] = "#% increased chance to Shock", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["2968503605"] = {
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Staff"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Wand"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2968503605", 
-				["text"] = "#% increased Flammability Magnitude", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["2974417149"] = {
 			["1HWeapon"] = {
@@ -8582,26 +1356,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_2974417149", 
+				["id"] = "crafted.stat_2974417149", 
 				["text"] = "#% increased Spell Damage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3057012405"] = {
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3057012405", 
-				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3175163625"] = {
@@ -8612,18 +1369,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3175163625", 
+				["id"] = "crafted.stat_3175163625", 
 				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3233599707"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3233599707", 
-				["text"] = "#% increased Weapon Swap Speed", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3261801346"] = {
@@ -8631,9 +1379,21 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -8642,9 +1402,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3261801346", 
+				["id"] = "crafted.stat_3261801346", 
 				["text"] = "# to Dexterity", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8653,9 +1413,21 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -8664,9 +1436,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_328541901", 
+				["id"] = "crafted.stat_328541901", 
 				["text"] = "# to Intelligence", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8682,9 +1454,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3299347043", 
+				["id"] = "crafted.stat_3299347043", 
 				["text"] = "# to maximum Life", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8712,9 +1484,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3321629045", 
+				["id"] = "crafted.stat_3321629045", 
 				["text"] = "#% increased Armour and Energy Shield", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3336890334"] = {
@@ -8761,12 +1533,20 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3336890334", 
+				["id"] = "crafted.stat_3336890334", 
 				["text"] = "Adds # to # Lightning Damage", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3372524247"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -8775,12 +1555,16 @@ return {
 				["max"] = 25, 
 				["min"] = 20, 
 			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3372524247", 
+				["id"] = "crafted.stat_3372524247", 
 				["text"] = "#% to Fire Resistance", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8788,40 +1572,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3377888098", 
+				["id"] = "crafted.stat_3377888098", 
 				["text"] = "#% increased Skill Effect Duration", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3398787959"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3398787959", 
-				["text"] = "Gain #% of Damage as Extra Chaos Damage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3417711605"] = {
-			["Gloves"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3417711605", 
-				["text"] = "Damage Penetrates #% Cold Resistance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3429557654"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3429557654", 
-				["text"] = "Immune to Maim", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3556824919"] = {
@@ -8836,265 +1589,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3556824919", 
+				["id"] = "crafted.stat_3556824919", 
 				["text"] = "#% increased Critical Damage Bonus", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3639275092"] = {
-			["1HMace"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["2HMace"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Boots"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Bow"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Chest"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Flail"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Focus"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Gloves"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Helmet"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Sceptre"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Shield"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Spear"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Staff"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Talisman"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["Wand"] = {
-				["max"] = -10, 
-				["min"] = -20, 
-			}, 
-			["invertOnNegative"] = true, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3639275092", 
-				["text"] = "#% increased Attribute Requirements", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3650992555"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3650992555", 
-				["text"] = "Debuffs you inflict have #% increased Slow Magnitude", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3676141501"] = {
-			["Helmet"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3676141501", 
-				["text"] = "#% to Maximum Cold Resistance", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3695891184"] = {
-			["1HWeapon"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["Quiver"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["Staff"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["Wand"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3695891184", 
-				["text"] = "Gain # Life per enemy killed", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3771516363"] = {
-			["Chest"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3771516363", 
-				["text"] = "#% additional Physical Damage Reduction", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3780644166"] = {
-			["Boots"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3780644166", 
-				["text"] = "#% increased Freeze Threshold", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["387439868"] = {
-			["1HMace"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["Flail"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["Spear"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Talisman"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_387439868", 
-				["text"] = "#% increased Elemental Damage with Attacks", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3885405204"] = {
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Bow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-				["overrideModLineSingular"] = "Bow Attacks fire an additional Arrow", 
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3885405204", 
-				["text"] = "Bow Attacks fire # additional Arrows", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["3885634897"] = {
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["Spear"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3885634897", 
-				["text"] = "#% chance to Poison on Hit with this weapon", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3917489142"] = {
@@ -9109,9 +1606,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3917489142", 
+				["id"] = "crafted.stat_3917489142", 
 				["text"] = "#% increased Rarity of Items found", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["3981240776"] = {
@@ -9122,28 +1619,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_3981240776", 
+				["id"] = "crafted.stat_3981240776", 
 				["text"] = "# to Spirit", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["3984865854"] = {
-			["1HWeapon"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_3984865854", 
-				["text"] = "#% increased Spirit", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["4015621042"] = {
 			["Boots"] = {
@@ -9169,33 +1649,31 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_4015621042", 
+				["id"] = "crafted.stat_4015621042", 
 				["text"] = "#% increased Energy Shield", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
-		}, 
-		["4078695"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_4078695", 
-				["text"] = "# to Maximum Frenzy Charges", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["4080418644"] = {
 			["Amulet"] = {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -9204,24 +1682,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_4080418644", 
+				["id"] = "crafted.stat_4080418644", 
 				["text"] = "# to Strength", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["4081947835"] = {
-			["Quiver"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_4081947835", 
-				["text"] = "Projectiles have #% chance to Chain an additional time from terrain", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["4095671657"] = {
 			["Belt"] = {
@@ -9231,13 +1696,21 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_4095671657", 
+				["id"] = "crafted.stat_4095671657", 
 				["text"] = "#% to Maximum Fire Resistance", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["4220027924"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -9246,61 +1719,16 @@ return {
 				["max"] = 25, 
 				["min"] = 20, 
 			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_4220027924", 
+				["id"] = "crafted.stat_4220027924", 
 				["text"] = "#% to Cold Resistance", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["4226189338"] = {
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_4226189338", 
-				["text"] = "# to Level of all Chaos Spell Skills", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["4236566306"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_4236566306", 
-				["text"] = "Meta Skills gain #% increased Energy", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["4283407333"] = {
-			["Amulet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_4283407333", 
-				["text"] = "# to Level of all Skills", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9316,150 +1744,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_44972811", 
+				["id"] = "crafted.stat_44972811", 
 				["text"] = "#% increased Life Regeneration rate", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["472520716"] = {
-			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_472520716", 
-				["text"] = "#% of Damage taken Recouped as Mana", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["473429811"] = {
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Staff"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Wand"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_473429811", 
-				["text"] = "#% increased Freeze Buildup", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["480796730"] = {
-			["Shield"] = {
-				["max"] = 3, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_480796730", 
-				["text"] = "#% to maximum Block chance", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["548198834"] = {
-			["1HMace"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["2HMace"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["Flail"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["Spear"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_548198834", 
-				["text"] = "#% increased Melee Strike Range with this weapon", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["591105508"] = {
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_591105508", 
-				["text"] = "# to Level of all Fire Spell Skills", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["680068163"] = {
-			["Boots"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_680068163", 
-				["text"] = "#% increased Stun Threshold", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["707457662"] = {
-			["Amulet"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_707457662", 
-				["text"] = "Leech #% of Physical Attack Damage as Mana", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["709508406"] = {
@@ -9506,18 +1793,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_709508406", 
+				["id"] = "crafted.stat_709508406", 
 				["text"] = "Adds # to # Fire Damage", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["721014846"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_721014846", 
-				["text"] = "You cannot be Hindered", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["737908626"] = {
@@ -9540,22 +1818,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_737908626", 
+				["id"] = "crafted.stat_737908626", 
 				["text"] = "#% increased Critical Hit Chance for Spells", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["762600725"] = {
-			["Shield"] = {
-				["max"] = 25, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_762600725", 
-				["text"] = "# Life gained when you Block", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["789117908"] = {
@@ -9570,46 +1835,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_789117908", 
+				["id"] = "crafted.stat_789117908", 
 				["text"] = "#% increased Mana Regeneration Rate", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["791928121"] = {
-			["1HMace"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Flail"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Spear"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_791928121", 
-				["text"] = "Causes #% increased Stun Buildup", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 		["803737631"] = {
@@ -9624,45 +1852,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_803737631", 
+				["id"] = "crafted.stat_803737631", 
 				["text"] = "# to Accuracy Rating", 
-				["type"] = "enchant", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["818778753"] = {
-			["Gloves"] = {
-				["max"] = 15, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_818778753", 
-				["text"] = "Damage Penetrates #% Lightning Resistance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["836936635"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_836936635", 
-				["text"] = "Regenerate #% of maximum Life per second", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["9187492"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_9187492", 
-				["text"] = "# to Level of all Melee Skills", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9675,26 +1867,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_924253255", 
+				["id"] = "crafted.stat_924253255", 
 				["text"] = "#% increased Slowing Potency of Debuffs on You", 
-				["type"] = "enchant", 
-			}, 
-		}, 
-		["970213192"] = {
-			["Quiver"] = {
-				["max"] = 6, 
-				["min"] = 4, 
-			}, 
-			["Ring"] = {
-				["max"] = 6, 
-				["min"] = 4, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_970213192", 
-				["text"] = "#% increased Skill Speed", 
-				["type"] = "enchant", 
+				["type"] = "crafted", 
 			}, 
 		}, 
 	}, 
@@ -9715,6 +1890,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1002362373", 
 				["text"] = "#% increased Melee Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1002535626"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1002535626", 
+				["text"] = "#% increased Cold Damage if you've collected a Cold Infusion in the last 8 seconds", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -9766,6 +1950,15 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
+		["1014398896"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1014398896", 
+				["text"] = "#% increased Spell Damage during any Flask Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["101878827"] = {
 			["1HWeapon"] = {
 				["max"] = 80, 
@@ -9797,6 +1990,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1022759479", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cast Speed", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1028592286"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1028592286", 
+				["text"] = "#% chance to Chain an additional time", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1030153674"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1030153674", 
+				["text"] = "Recover #% of maximum Mana on Kill", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -9858,6 +2069,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1045789614"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1045789614", 
+				["text"] = "#% increased Critical Hit Chance against Marked Enemies", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1049080093"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1049080093", 
+				["text"] = "Attacks Gain #% of Damage as Extra Fire Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1050105434"] = {
 			["1HWeapon"] = {
 				["max"] = 164, 
@@ -9912,6 +2141,16 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1050105434", 
 				["text"] = "# to maximum Mana", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1058934731"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1058934731", 
+				["text"] = "Temporary Minion Skills have # to Limit of Minions summoned", 
 				["type"] = "explicit", 
 			}, 
 			["usePositiveSign"] = true, 
@@ -9994,6 +2233,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1087531620", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Freeze Buildup", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1102738251"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1102738251", 
+				["text"] = "Life Flasks gain # charges per Second", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -10080,6 +2328,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1158842087"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1158842087", 
+				["text"] = "Gain #% of Elemental Damage as Extra Cold Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1160637284"] = {
 			["specialCaseData"] = {
 			}, 
@@ -10115,6 +2372,28 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1177404658"] = {
+			["Amulet"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1177404658", 
+				["text"] = "#% increased Global Armour, Evasion and Energy Shield", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1180552088"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1180552088", 
+				["text"] = "#% increased effect of Archon Buffs on you", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1181419800"] = {
 			["AnyJewel"] = {
 				["max"] = 16, 
@@ -10134,11 +2413,11 @@ return {
 		}, 
 		["1181501418"] = {
 			["AnyJewel"] = {
-				["max"] = 1, 
+				["max"] = 2, 
 				["min"] = 1, 
 			}, 
 			["BaseJewel"] = {
-				["max"] = 1, 
+				["max"] = 2, 
 				["min"] = 1, 
 			}, 
 			["specialCaseData"] = {
@@ -10178,11 +2457,11 @@ return {
 		}, 
 		["1202301673"] = {
 			["1HWeapon"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 1, 
 			}, 
 			["Amulet"] = {
@@ -10190,19 +2469,19 @@ return {
 				["min"] = 1, 
 			}, 
 			["Bow"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 2, 
 			}, 
 			["Quiver"] = {
-				["max"] = 2, 
+				["max"] = 1, 
 				["min"] = 1, 
 			}, 
 			["Spear"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["specialCaseData"] = {
@@ -10406,6 +2685,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1265767008"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1265767008", 
+				["text"] = "Your Minions are Gigantic if they have Revived Recently", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1266413530"] = {
 			["specialCaseData"] = {
 			}, 
@@ -10533,6 +2821,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1321054058"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1321054058", 
+				["text"] = "Gain #% of Damage as Extra Fire Damage with Spells", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1321104829"] = {
 			["specialCaseData"] = {
 			}, 
@@ -10559,6 +2856,16 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant #% increased Melee Damage", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["1347539079"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1347539079", 
+				["text"] = "#% Surpassing chance to fire an additional Projectile", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["1352561456"] = {
 			["specialCaseData"] = {
@@ -10674,19 +2981,6 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["1389153006"] = {
-			["Amulet"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_1389153006", 
-				["text"] = "#% increased Global Defences", 
-				["type"] = "explicit", 
-			}, 
-		}, 
 		["1389754388"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -10747,6 +3041,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1416406066"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1416406066", 
+				["text"] = "#% increased Spirit", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1417267954"] = {
 			["specialCaseData"] = {
 			}, 
@@ -10792,6 +3095,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1443502073"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1443502073", 
+				["text"] = "#% increased Effect of Prefixes", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1444556985"] = {
 			["Amulet"] = {
 				["max"] = 24, 
@@ -10813,20 +3125,12 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["145497481"] = {
-			["AnyJewel"] = {
-				["max"] = 32, 
-				["min"] = 18, 
-			}, 
-			["BaseJewel"] = {
-				["max"] = 32, 
-				["min"] = 18, 
-			}, 
+		["145581225"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_145497481", 
-				["text"] = "#% increased Defences from Equipped Shield", 
+				["id"] = "explicit.stat_145581225", 
+				["text"] = "#% increased Cast Speed during any Flask Effect", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -10853,6 +3157,53 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_147764878", 
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Hits against Rare and Unique Enemies", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1484026495"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1484026495", 
+				["text"] = "+# maximum stacks of Puppet Master", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1484500028"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1484500028", 
+				["text"] = "Attacks Gain #% of Damage as Extra Cold Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1485480327"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1485480327", 
+				["text"] = "Minions have #% increased Immobilisation buildup", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1488650448"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1488650448", 
+				["text"] = "# to Ailment Threshold", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1493485657"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1493485657", 
+				["text"] = "Spells have #% increased Cooldown Recovery Rate", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -10932,6 +3283,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1509533589"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1509533589", 
+				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type amongyour Ailments on them", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1514844108"] = {
 			["specialCaseData"] = {
 			}, 
@@ -10975,6 +3335,23 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1544773869"] = {
+			["2HWeapon"] = {
+				["max"] = 40, 
+				["min"] = 4, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 40, 
+				["min"] = 4, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1544773869", 
+				["text"] = "#% increased Cooldown Recovery Rate for Grenade Skills", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1545858329"] = {
 			["1HWeapon"] = {
 				["max"] = 5, 
@@ -11007,6 +3384,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1552666713", 
 				["text"] = "Small Passive Skills in Radius also grant #% increased Energy Shield Recharge Rate", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1568848828"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1568848828", 
+				["text"] = "Recover # Runic Ward when you Block", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11216,6 +3602,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1615901249"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1615901249", 
+				["text"] = "Invocated skills have #% increased Maximum Energy", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1617268696"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1617268696", 
+				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing atenth of their maximum Life as Fire Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1653682082"] = {
 			["specialCaseData"] = {
 			}, 
@@ -11271,6 +3675,15 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
+		["1691403182"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1691403182", 
+				["text"] = "Minions have #% increased Cooldown Recovery Rate", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1692879867"] = {
 			["Chest"] = {
 				["max"] = -36, 
@@ -11297,8 +3710,8 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2653955271",
-				["text"] = "Damage Penetrates #% Fire Resistance",
+				["id"] = "explicit.stat_1697447343", 
+				["text"] = "#% increased Freeze Buildup with Quarterstaves", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11392,6 +3805,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["174664100"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_174664100", 
+				["text"] = "Minions have #% increased Movement Speed", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1754445556"] = {
 			["Gloves"] = {
 				["max"] = 37.5, 
@@ -11465,6 +3887,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1776945532"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1776945532", 
+				["text"] = "Enemies you kill have a #% chance to explode, dealing a quarter of their maximum Life as Chaos damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1777421941"] = {
 			["specialCaseData"] = {
 			}, 
@@ -11483,14 +3914,6 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
-			["Chest"] = {
-				["max"] = 55, 
-				["min"] = 26, 
-			}, 
-			["Focus"] = {
-				["max"] = 55, 
-				["min"] = 26, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11507,6 +3930,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Effect of your Mark Skills", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["1797815732"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1797815732", 
+				["text"] = "Minions have #% Surpassing chance to fire an additional Projectile", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["1798257884"] = {
 			["1HWeapon"] = {
@@ -11551,6 +3984,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1805633363"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1805633363", 
+				["text"] = "#% increased Reservation Efficiency of Minion Skills", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1811130680"] = {
 			["ManaFlask"] = {
 				["max"] = 100, 
@@ -11563,6 +4005,16 @@ return {
 				["text"] = "#% increased Mana Recovered", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["1823942939"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1823942939", 
+				["text"] = "# to maximum number of Summoned Ballista Totems", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["1829102168"] = {
 			["AnyJewel"] = {
@@ -11628,6 +4080,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1840985759"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1840985759", 
+				["text"] = "#% increased Area of Effect for Attacks", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1846980580"] = {
 			["specialCaseData"] = {
 			}, 
@@ -11677,6 +4138,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1854213750", 
 				["text"] = "Minions have #% increased Critical Damage Bonus", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["185580205"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_185580205", 
+				["text"] = "Charms gain # charge per Second", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11873,6 +4343,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["195270549"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_195270549", 
+				["text"] = "Minions Break Armour equal to #% of Physical damage dealt", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1967040409"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1967040409", 
+				["text"] = "Spell Skills have #% increased Area of Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1967051901"] = {
 			["2HWeapon"] = {
 				["max"] = 1, 
@@ -11890,6 +4378,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1972391381"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1972391381", 
+				["text"] = "#% increased Explicit Resistance Modifier magnitudes", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1978899297"] = {
 			["Shield"] = {
 				["max"] = 2, 
@@ -11900,6 +4397,33 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1978899297", 
 				["text"] = "#% to all Maximum Elemental Resistances", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1980802737"] = {
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1980802737", 
+				["text"] = "Grenade Skills Fire an additional Projectile", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1992191903"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1992191903", 
+				["text"] = "# to Level of all Mark Skills", 
 				["type"] = "explicit", 
 			}, 
 			["usePositiveSign"] = true, 
@@ -11993,6 +4517,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2039822488"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2039822488", 
+				["text"] = "#% to Maximum Quality", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["2056107438"] = {
 			["specialCaseData"] = {
 			}, 
@@ -12011,6 +4545,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2074866941"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2074866941", 
+				["text"] = "#% increased Exposure Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2077117738"] = {
 			["specialCaseData"] = {
 			}, 
@@ -12025,7 +4568,16 @@ return {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2081918629", 
-				["text"] = "#% increased effect of Socketed Items", 
+				["text"] = "#% increased effect of Socketed Augment Items", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2083058281"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2083058281", 
+				["text"] = "Enemies you Mark take #% increased Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12075,6 +4627,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_210067635", 
 				["text"] = "#% increased Attack Speed (Local)", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2101383955"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2101383955", 
+				["text"] = "Damage Penetrates #% Elemental Resistances", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2103650854"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2103650854", 
+				["text"] = "#% increased effect of Arcane Surge on you", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12188,7 +4758,7 @@ return {
 		}, 
 		["2144192055"] = {
 			["Ring"] = {
-				["max"] = 203, 
+				["max"] = 233, 
 				["min"] = 8, 
 			}, 
 			["specialCaseData"] = {
@@ -12206,6 +4776,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2149603090", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cooldown Recovery Rate", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2150661403"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2150661403", 
+				["text"] = "Skills have #% chance to not remove Elemental Infusions but still count as consuming them if you've lost an Archon Buff in the past 6 seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2158617060"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2158617060", 
+				["text"] = "#% increased Archon Buff duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12265,6 +4853,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2189073790"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2189073790", 
+				["text"] = "Projectiles have #% chance to Fork if you've dealt a Melee Hit in the past eight seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2194114101"] = {
 			["AnyJewel"] = {
 				["max"] = 16, 
@@ -12283,6 +4880,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2194114101", 
 				["text"] = "#% increased Critical Hit Chance for Attacks", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2200293569"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2200293569", 
+				["text"] = "Mana Flasks gain # charges per Second", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12392,6 +4998,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2250681686"] = {
+			["2HWeapon"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2250681686", 
+				["text"] = "Grenade Skills have +# Cooldown Use", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["2254480358"] = {
 			["1HWeapon"] = {
 				["max"] = 5, 
@@ -12453,6 +5077,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2319832234"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2319832234", 
+				["text"] = "#% of Damage Taken Recouped as Life, Mana and Energy Shield", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2320654813"] = {
 			["specialCaseData"] = {
 			}, 
@@ -12493,33 +5126,29 @@ return {
 			}, 
 		}, 
 		["2339757871"] = {
-			["AnyJewel"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
-			["BaseJewel"] = {
-				["max"] = 20, 
-				["min"] = 10, 
-			}, 
 			["Boots"] = {
-				["max"] = 45, 
-				["min"] = 26, 
+				["max"] = 19, 
+				["min"] = 16, 
+			}, 
+			["Chest"] = {
+				["max"] = 27, 
+				["min"] = 16, 
 			}, 
 			["Focus"] = {
-				["max"] = 55, 
-				["min"] = 26, 
+				["max"] = 27, 
+				["min"] = 16, 
 			}, 
 			["Gloves"] = {
-				["max"] = 45, 
-				["min"] = 26, 
+				["max"] = 19, 
+				["min"] = 16, 
 			}, 
 			["Helmet"] = {
-				["max"] = 45, 
-				["min"] = 26, 
+				["max"] = 19, 
+				["min"] = 16, 
 			}, 
 			["Shield"] = {
-				["max"] = 55, 
-				["min"] = 26, 
+				["max"] = 27, 
+				["min"] = 16, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -12608,6 +5237,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2374711847", 
 				["text"] = "Notable Passive Skills in Radius also grant Offering Skills have #% increased Duration", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2392260628"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2392260628", 
+				["text"] = "#% increased Runic Ward Regeneration Rate", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12714,6 +5352,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2456226238"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2456226238", 
+				["text"] = "Recover #% of your maximum Mana when an Enemy dies in your Presence", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2456523742"] = {
 			["AnyJewel"] = {
 				["max"] = 20, 
@@ -12740,6 +5387,10 @@ return {
 				["max"] = 200, 
 				["min"] = 25, 
 			}, 
+			["Quiver"] = {
+				["max"] = 60, 
+				["min"] = 25, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12755,6 +5406,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2466785537", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Spell Damage Bonus", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2475221757"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2475221757", 
+				["text"] = "#% increased Effect of Suffixes", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12937,6 +5597,23 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2523933828"] = {
+			["AnyJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2523933828", 
+				["text"] = "#% increased Armour, Evasion and Energy Shield from Equipped Shield", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2527686725"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -12988,11 +5665,11 @@ return {
 		["2557965901"] = {
 			["Gloves"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["Ring"] = {
 				["max"] = 7.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -13011,6 +5688,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2567751411"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2567751411", 
+				["text"] = "Warcry Skills have #% increased Area of Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2580617872"] = {
 			["specialCaseData"] = {
 			}, 
@@ -13019,6 +5705,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Slowing Potency of Debuffs on You", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["258119672"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_258119672", 
+				["text"] = "# metre to Dodge Roll distance", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["2582079000"] = {
 			["specialCaseData"] = {
@@ -13057,6 +5753,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["262946222"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_262946222", 
+				["text"] = "Allies in your Presence deal # to # added Attack Chaos Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2637470878"] = {
 			["AnyJewel"] = {
 				["max"] = 20, 
@@ -13089,6 +5794,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2639966148", 
 				["text"] = "Minions Revive #% faster", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2653231923"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2653231923", 
+				["text"] = "#% increased Mana Cost Efficiency of Spells", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13225,6 +5939,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2704225257"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2704225257", 
+				["text"] = "# to Spirit", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["2704905000"] = {
 			["specialCaseData"] = {
 			}, 
@@ -13260,6 +5984,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2714890129"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2714890129", 
+				["text"] = "Life Leech can Overflow Maximum Life", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["2720982137"] = {
 			["AnyJewel"] = {
 				["max"] = 25, 
@@ -13274,6 +6007,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2720982137", 
 				["text"] = "Banner Skills have #% increased Duration", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2723294374"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2723294374", 
+				["text"] = "Attacks have added Physical damage equal to #% of maximum Life", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13337,6 +6079,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2748665614", 
 				["text"] = "#% increased maximum Mana", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2749595652"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2749595652", 
+				["text"] = "#% chance for Skills to retain 40% of Glory on use", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13617,6 +6368,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["2897413282"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2897413282", 
+				["text"] = "# to all Attributes", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["2901986750"] = {
 			["Amulet"] = {
 				["max"] = 18, 
@@ -13733,6 +6494,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_293638271", 
 				["text"] = "#% increased chance to Shock", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2942439603"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2942439603", 
+				["text"] = "Skills have #% chance to not remove Charges but still count as consuming them", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["2951965588"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2951965588", 
+				["text"] = "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14047,56 +6826,56 @@ return {
 		}, 
 		["3035140377"] = {
 			["Bow"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 3, 
+				["min"] = 3, 
 			}, 
 			["Dagger"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["Flail"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["One Hand Axe"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["One Hand Mace"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["One Hand Sword"] = {
-				["max"] = 3, 
-				["min"] = 3, 
+				["max"] = 2, 
+				["min"] = 2, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Spear"] = {
 				["max"] = 3, 
 				["min"] = 3, 
 			}, 
+			["Spear"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
 			["Talisman"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 3, 
+				["min"] = 3, 
 			}, 
 			["Two Hand Axe"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 3, 
+				["min"] = 3, 
 			}, 
 			["Two Hand Mace"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 3, 
+				["min"] = 3, 
 			}, 
 			["Two Hand Sword"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 3, 
+				["min"] = 3, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -14139,6 +6918,16 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3057012405", 
 				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["30642521"] = {
+			["specialCaseData"] = {
+				["overrideModLineSingular"] = "You can apply an additional Curse", 
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_30642521", 
+				["text"] = "You can apply # additional Curses", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14194,12 +6983,30 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["310246444"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_310246444", 
+				["text"] = "#% increased Damage while Leeching", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3106718406"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3106718406", 
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Attack and Cast Speed", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3107707789"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3107707789", 
+				["text"] = "#% increased Movement Speed while Sprinting", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14229,6 +7036,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3120508478"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3120508478", 
+				["text"] = "#% increased Damage against Immobilised Enemies", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3121133045"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3121133045", 
+				["text"] = "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3141070085"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -14243,6 +7068,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3141070085", 
 				["text"] = "#% increased Elemental Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3143918757"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3143918757", 
+				["text"] = "#% increased Glory generation", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14385,6 +7219,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3191479793"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3191479793", 
+				["text"] = "Offering Skills have #% increased Buff effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3192728503"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -14438,12 +7281,39 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["323800555"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_323800555", 
+				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3243034867"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3243034867", 
 				["text"] = "Notable Passive Skills in Radius also grant Aura Skills have #% increased Magnitudes", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3249412463"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3249412463", 
+				["text"] = "Supported Minions' Strikes have Melee Splash", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["325171970"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_325171970", 
+				["text"] = "#% increased Attack Speed while missing Runic Ward", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14879,6 +7749,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3336230913"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3336230913", 
+				["text"] = "# to maximum Runic Ward", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["3336890334"] = {
 			["1HMace"] = {
 				["max"] = 123, 
@@ -15047,6 +7927,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3384867265"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3384867265", 
+				["text"] = "Sealed Skills have #% increased Seal gain frequency", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3386297724"] = {
 			["specialCaseData"] = {
 			}, 
@@ -15064,6 +7953,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Area of Effect", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["3393628375"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3393628375", 
+				["text"] = "#% to Cold and Chaos Resistances", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3394832998"] = {
 			["specialCaseData"] = {
@@ -15100,6 +7999,25 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3398787959"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3398787959", 
+				["text"] = "Gain #% of Damage as Extra Chaos Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3399401168"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3399401168", 
+				["text"] = "#% to Fire Spell Critical Hit Chance", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["3401186585"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -15114,6 +8032,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3401186585", 
 				["text"] = "#% increased Parried Debuff Duration", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3407849389"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3407849389", 
+				["text"] = "#% reduced effect of Curses on you", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -15152,6 +8079,43 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3422093970"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3422093970", 
+				["text"] = "#% chance for Remnants you pick up to count as picking up an additional Remnant", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3429148113"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3429148113", 
+				["text"] = "Notable Passive Skills in Radius also grant #% increased Armour, Evasion and Energy Shield from Equipped Shield", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3465022881"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3465022881", 
+				["text"] = "#% to Lightning and Chaos Resistances", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["3471443885"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3471443885", 
+				["text"] = "#% of Damage taken from Deflected Hits Recouped as Life", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3473929743"] = {
 			["AnyJewel"] = {
 				["max"] = 20, 
@@ -15169,26 +8133,35 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3482326075"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3482326075", 
+				["text"] = "Remnants can be collected from #% further away", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3484657501"] = {
 			["Boots"] = {
-				["max"] = 160, 
-				["min"] = 8, 
+				["max"] = 190, 
+				["min"] = 9, 
 			}, 
 			["Chest"] = {
-				["max"] = 276, 
-				["min"] = 4, 
+				["max"] = 310, 
+				["min"] = 3, 
 			}, 
 			["Gloves"] = {
-				["max"] = 160, 
-				["min"] = 8, 
+				["max"] = 190, 
+				["min"] = 9, 
 			}, 
 			["Helmet"] = {
-				["max"] = 202, 
-				["min"] = 8, 
+				["max"] = 221, 
+				["min"] = 9, 
 			}, 
 			["Shield"] = {
-				["max"] = 256, 
-				["min"] = 8, 
+				["max"] = 277, 
+				["min"] = 9, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -15239,6 +8212,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3518449420"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3518449420", 
+				["text"] = "#% chance to gain Nature's Archon when your Plants Overgrow", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3523867985"] = {
 			["Boots"] = {
 				["max"] = 110, 
@@ -15264,6 +8246,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3526763442"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3526763442", 
+				["text"] = "#% increased Minion Damage per different Command Skill used in the past 15 seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3544800472"] = {
 			["AnyJewel"] = {
 				["max"] = 20, 
@@ -15280,6 +8271,16 @@ return {
 				["text"] = "#% increased Elemental Ailment Threshold", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["3552135623"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3552135623", 
+				["text"] = "Prevent #% of Damage from Deflected Hits", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3556824919"] = {
 			["Amulet"] = {
@@ -15336,6 +8337,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3587953142"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3587953142", 
+				["text"] = "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3590792340"] = {
 			["AnyJewel"] = {
 				["max"] = 20, 
@@ -15367,6 +8377,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3596695232", 
 				["text"] = "#% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3621874554"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3621874554", 
+				["text"] = "#% increased Magnitude of Elemental Ailments you inflict with Spells", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3624940721"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3624940721", 
+				["text"] = "#% increased Explicit Lightning Modifier magnitudes", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -15473,6 +8501,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Bows", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["3655769732"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3655769732", 
+				["text"] = "#% to Quality of all Skills", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3665922113"] = {
 			["specialCaseData"] = {
@@ -15669,6 +8707,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3742865955"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3742865955", 
+				["text"] = "Minions deal #% increased Damage with Command Skills", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3749502527"] = {
 			["specialCaseData"] = {
 			}, 
@@ -15790,6 +8837,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["378817135"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_378817135", 
+				["text"] = "#% to Fire and Chaos Resistances", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["3791899485"] = {
 			["AnyJewel"] = {
 				["max"] = 15, 
@@ -15821,6 +8878,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3811191316", 
 				["text"] = "Minions have #% increased Area of Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3814876985"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3814876985", 
+				["text"] = "#% chance to gain a Power Charge on Critical Hit", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -15947,6 +9013,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["3858572996"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3858572996", 
+				["text"] = "#% increased Fire Damage if you've collected a Fire Infusion in the last 8 seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3859848445"] = {
 			["specialCaseData"] = {
 			}, 
@@ -15962,6 +9037,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3865605585", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Attacks", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["3868118796"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3868118796", 
+				["text"] = "Attacks Chain an additional time", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -16182,6 +9266,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 			["usePositiveSign"] = true, 
+		}, 
+		["3984146263"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3984146263", 
+				["text"] = "Tempest Bells are destroyed after an additional # Hits", 
+				["type"] = "explicit", 
+			}, 
 		}, 
 		["3984865854"] = {
 			["1HWeapon"] = {
@@ -16544,6 +9637,16 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
+		["4097212302"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4097212302", 
+				["text"] = "# to maximum number of Elemental Infusions", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["4101445926"] = {
 			["Focus"] = {
 				["max"] = 20, 
@@ -16608,6 +9711,16 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Area of Effect", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["4147510958"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4147510958", 
+				["text"] = "Sealed Skills have # to maximum Seals", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["4147897060"] = {
 			["AnyJewel"] = {
@@ -16828,6 +9941,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["4246007234"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4246007234", 
+				["text"] = "#% increased Attack Damage while on Low Life", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["4258000627"] = {
 			["AnyJewel"] = {
 				["max"] = 1, 
@@ -16845,12 +9967,39 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["4258524206"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4258524206", 
+				["text"] = "#% chance to build an additional Combo on Hit", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["4258720395"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_4258720395", 
 				["text"] = "Notable Passive Skills in Radius also grant Projectiles have #% chance for an additional Projectile when Forking", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["4259875040"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4259875040", 
+				["text"] = "#% increased Magnitude of Impales inflicted with Spells", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["4273473110"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4273473110", 
+				["text"] = "#% increased maximum Runic Ward", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -16873,18 +10022,27 @@ return {
 		}, 
 		["429143663"] = {
 			["AnyJewel"] = {
-				["max"] = 20, 
-				["min"] = 10, 
+				["max"] = 16, 
+				["min"] = 6, 
 			}, 
 			["BaseJewel"] = {
-				["max"] = 20, 
-				["min"] = 10, 
+				["max"] = 16, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_429143663", 
 				["text"] = "Banner Skills have #% increased Area of Effect", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["434750362"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_434750362", 
+				["text"] = "#% increased Area of Effect for Attacks per 10 Intelligence", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -17139,23 +10297,23 @@ return {
 		}, 
 		["53045048"] = {
 			["Boots"] = {
-				["max"] = 142, 
+				["max"] = 176, 
 				["min"] = 6, 
 			}, 
 			["Chest"] = {
-				["max"] = 251, 
-				["min"] = 3, 
+				["max"] = 300, 
+				["min"] = 2, 
 			}, 
 			["Gloves"] = {
-				["max"] = 142, 
+				["max"] = 176, 
 				["min"] = 6, 
 			}, 
 			["Helmet"] = {
-				["max"] = 181, 
+				["max"] = 207, 
 				["min"] = 6, 
 			}, 
 			["Shield"] = {
-				["max"] = 232, 
+				["max"] = 261, 
 				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
@@ -17193,46 +10351,82 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["541021467"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_541021467", 
+				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["54812069"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_54812069", 
+				["text"] = "#% of Damage from Hits is taken from your Spectres' Life before you", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["554145967"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_554145967", 
+				["text"] = "Recover # Runic Ward when a Charm is used", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["555706343"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_555706343", 
+				["text"] = "Spells Gain #% of Damage as extra Chaos Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["55876295"] = {
 			["1HMace"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["1HWeapon"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["2HMace"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["2HWeapon"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["Bow"] = {
-				["max"] = 8.9, 
-				["min"] = 5, 
+				["max"] = 9.9, 
+				["min"] = 6, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 8.9, 
-				["min"] = 5, 
+				["max"] = 9.9, 
+				["min"] = 6, 
 			}, 
 			["Flail"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["Quarterstaff"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["Spear"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["Talisman"] = {
 				["max"] = 9.9, 
-				["min"] = 5, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -17281,6 +10475,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_587431675", 
 				["text"] = "#% increased Critical Hit Chance", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["589361270"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_589361270", 
+				["text"] = "Gain #% of Damage as Extra Fire Damage while you are missing Runic Ward", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -17362,6 +10565,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["62849030"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_62849030", 
+				["text"] = "Critical Hits Poison the enemy", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["644456512"] = {
 			["Belt"] = {
 				["max"] = 25, 
@@ -17413,43 +10625,43 @@ return {
 		["669069897"] = {
 			["1HMace"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["1HWeapon"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["2HMace"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["2HWeapon"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["Bow"] = {
-				["max"] = 7.9, 
-				["min"] = 4, 
+				["max"] = 8.9, 
+				["min"] = 5, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 7.9, 
-				["min"] = 4, 
+				["max"] = 8.9, 
+				["min"] = 5, 
 			}, 
 			["Flail"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["Quarterstaff"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["Spear"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["Talisman"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -17607,11 +10819,11 @@ return {
 		["707457662"] = {
 			["Gloves"] = {
 				["max"] = 8.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["Ring"] = {
 				["max"] = 6.9, 
-				["min"] = 4, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -17687,21 +10899,21 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["713216632"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_713216632", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Defences from Equipped Shield", 
-				["type"] = "explicit", 
-			}, 
-		}, 
 		["715957346"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_715957346", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Crossbows", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["73032170"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_73032170", 
+				["text"] = "Minions have #% increased Skill Speed with Command Skills", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -17728,12 +10940,12 @@ return {
 				["min"] = 50, 
 			}, 
 			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
+				["max"] = 13, 
+				["min"] = 7, 
 			}, 
 			["BaseJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
+				["max"] = 13, 
+				["min"] = 7, 
 			}, 
 			["Focus"] = {
 				["max"] = 89, 
@@ -17834,6 +11046,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_748522257", 
 				["text"] = "#% increased Stun Duration", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["758893621"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_758893621", 
+				["text"] = "Gain #% of Physical Damage as Extra Cold Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -17978,6 +11199,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["797289402"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_797289402", 
+				["text"] = "#% increased Lightning Damage if you've collected a Lightning Infusion in the last 8 seconds", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["803737631"] = {
 			["Amulet"] = {
 				["max"] = 450, 
@@ -18010,7 +11240,7 @@ return {
 		}, 
 		["809229260"] = {
 			["Belt"] = {
-				["max"] = 255, 
+				["max"] = 351, 
 				["min"] = 12, 
 			}, 
 			["specialCaseData"] = {
@@ -18114,12 +11344,30 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["825116955"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_825116955", 
+				["text"] = "Gain #% of Damage as Extra Cold Damage with Spells", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["828533480"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_828533480", 
 				["text"] = "#% Chance to gain a Charge when you kill an enemy", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["830161081"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_830161081", 
+				["text"] = "#% increased Runic Ward", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -18242,19 +11490,19 @@ return {
 		}, 
 		["9187492"] = {
 			["1HMace"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["2HMace"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 2, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 2, 
 			}, 
 			["Amulet"] = {
@@ -18262,7 +11510,7 @@ return {
 				["min"] = 1, 
 			}, 
 			["Flail"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["Gloves"] = {
@@ -18270,15 +11518,15 @@ return {
 				["min"] = 1, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 2, 
 			}, 
 			["Spear"] = {
-				["max"] = 5, 
+				["max"] = 4, 
 				["min"] = 1, 
 			}, 
 			["Talisman"] = {
-				["max"] = 7, 
+				["max"] = 5, 
 				["min"] = 2, 
 			}, 
 			["specialCaseData"] = {
@@ -18305,6 +11553,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_924253255", 
 				["text"] = "#% increased Slowing Potency of Debuffs on You", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["933355817"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_933355817", 
+				["text"] = "#% to gain Archon of Undeath when you create an Offering", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -18335,6 +11592,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["953593695"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_953593695", 
+				["text"] = "Minions have #% increased Magnitude of Damaging Ailments", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["959641748"] = {
 			["ManaFlask"] = {
 				["max"] = 15, 
@@ -18347,6 +11613,16 @@ return {
 				["text"] = "Removes #% of Mana Recovered from Life when used", 
 				["type"] = "explicit", 
 			}, 
+		}, 
+		["971590056"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_971590056", 
+				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies", 
+				["type"] = "explicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["980177976"] = {
 			["specialCaseData"] = {
@@ -18402,23 +11678,6 @@ return {
 		}, 
 	}, 
 	["Implicit"] = {
-		["1028592286"] = {
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1028592286", 
-				["text"] = "#% chance to Chain an additional time", 
-				["type"] = "implicit", 
-			}, 
-		}, 
 		["1050105434"] = {
 			["Ring"] = {
 				["max"] = 30, 
@@ -18449,24 +11708,6 @@ return {
 				["text"] = "Unblockable", 
 				["type"] = "implicit", 
 			}, 
-		}, 
-		["1181501418"] = {
-			["2HWeapon"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Talisman"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1181501418", 
-				["text"] = "# to Maximum Rage", 
-				["type"] = "implicit", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["1207554355"] = {
 			["Quiver"] = {
@@ -18529,6 +11770,19 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["1416292992"] = {
+			["Belt"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1416292992", 
+				["text"] = "Has # Charm Slot", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["1434716233"] = {
 			["2HMace"] = {
 				["max"] = 1, 
@@ -18573,6 +11827,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1451444093", 
 				["text"] = "Bifurcates Critical Hits", 
+				["type"] = "implicit", 
+			}, 
+		}, 
+		["1458343515"] = {
+			["Amulet"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1458343515", 
+				["text"] = "This item gains bonuses from Socketed Items as though it was a Helmet", 
 				["type"] = "implicit", 
 			}, 
 		}, 
@@ -18687,15 +11954,11 @@ return {
 		["1702195217"] = {
 			["2HWeapon"] = {
 				["max"] = 18, 
-				["min"] = 10, 
+				["min"] = 12, 
 			}, 
 			["Quarterstaff"] = {
 				["max"] = 18, 
 				["min"] = 12, 
-			}, 
-			["Talisman"] = {
-				["max"] = 15, 
-				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -18716,19 +11979,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1745952865", 
 				["text"] = "#% reduced Elemental Ailment Duration on you", 
-				["type"] = "implicit", 
-			}, 
-		}, 
-		["1782086450"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1782086450", 
-				["text"] = "#% faster start of Energy Shield Recharge", 
 				["type"] = "implicit", 
 			}, 
 		}, 
@@ -18772,6 +12022,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1836676211", 
 				["text"] = "#% increased Flask Charges gained", 
+				["type"] = "implicit", 
+			}, 
+		}, 
+		["1856590738"] = {
+			["Ring"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1856590738", 
+				["text"] = "This item gains bonuses from Socketed Items as though it was Gloves", 
 				["type"] = "implicit", 
 			}, 
 		}, 
@@ -18876,6 +12139,10 @@ return {
 			}, 
 		}, 
 		["2250533757"] = {
+			["Boots"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Chest"] = {
 				["max"] = 5, 
 				["min"] = 5, 
@@ -18956,12 +12223,12 @@ return {
 		}, 
 		["2527686725"] = {
 			["2HWeapon"] = {
-				["max"] = 25, 
-				["min"] = 15, 
+				["max"] = 30, 
+				["min"] = 20, 
 			}, 
 			["Talisman"] = {
-				["max"] = 25, 
-				["min"] = 15, 
+				["max"] = 30, 
+				["min"] = 20, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -19002,16 +12269,16 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["275498888"] = {
-			["Ring"] = {
-				["max"] = 40, 
-				["min"] = 40, 
+		["2733960806"] = {
+			["Belt"] = {
+				["max"] = 1, 
+				["min"] = 1, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "implicit.stat_275498888", 
-				["text"] = "Maximum Quality is #%", 
+				["id"] = "implicit.stat_2733960806", 
+				["text"] = "This item gains bonuses from Socketed Items as though it was Boots", 
 				["type"] = "implicit", 
 			}, 
 		}, 
@@ -19314,20 +12581,6 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002", 
-				["text"] = "# to maximum Energy Shield", 
-				["type"] = "implicit", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40, 
@@ -19488,10 +12741,31 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["4077843608"] = {
+			["1HMace"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_4077843608", 
+				["text"] = "Has 1 Socket", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["4080418644"] = {
 			["Amulet"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["Belt"] = {
+				["max"] = 20, 
+				["min"] = 15, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -19724,20 +12998,6 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["809229260"] = {
-			["Belt"] = {
-				["max"] = 140, 
-				["min"] = 100, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_809229260", 
-				["text"] = "# to Armour", 
-				["type"] = "implicit", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
 		["821241191"] = {
 			["Belt"] = {
 				["max"] = 30, 
@@ -19795,8 +13055,8 @@ return {
 	["Rune"] = {
 		["1004011302"] = {
 			["Focus"] = {
-				["max"] = 10, 
-				["min"] = 10, 
+				["max"] = 12, 
+				["min"] = 12, 
 			}, 
 			["Helmet"] = {
 				["max"] = 8, 
@@ -19805,9 +13065,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1004011302", 
+				["id"] = "enchant.stat_1004011302", 
 				["text"] = "#% increased Cooldown Recovery Rate", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1011760251"] = {
@@ -19818,469 +13078,172 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1011760251", 
+				["id"] = "enchant.stat_1011760251", 
 				["text"] = "#% to Maximum Lightning Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["101878827"] = {
 			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 30, 
+				["max"] = 50, 
+				["min"] = -40, 
 			}, 
+			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_101878827", 
+				["id"] = "enchant.stat_101878827", 
 				["text"] = "#% increased Presence Area of Effect", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1030153674"] = {
-			["1HMace"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["2HMace"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Bow"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Claw"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Flail"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Spear"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Talisman"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1030153674", 
-				["text"] = "Recover #% of maximum Mana on Kill", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1037193709"] = {
 			["1HMace"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["2HMace"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Bow"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Claw"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Flail"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Spear"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["Talisman"] = {
-				["max"] = 23.5, 
+				["max"] = 18, 
 				["min"] = 4, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1037193709", 
+				["id"] = "enchant.stat_1037193709", 
 				["text"] = "Adds # to # Cold Damage", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1050105434"] = {
+			["1HWeapon"] = {
+				["max"] = 90, 
+				["min"] = 45, 
+			}, 
 			["Boots"] = {
-				["max"] = 35, 
-				["min"] = 15, 
+				["max"] = 50, 
+				["min"] = 20, 
 			}, 
 			["Chest"] = {
-				["max"] = 35, 
-				["min"] = 15, 
+				["max"] = 50, 
+				["min"] = 20, 
 			}, 
 			["Focus"] = {
-				["max"] = 35, 
-				["min"] = 15, 
+				["max"] = 50, 
+				["min"] = 20, 
 			}, 
 			["Gloves"] = {
-				["max"] = 35, 
-				["min"] = 15, 
+				["max"] = 50, 
+				["min"] = 20, 
 			}, 
 			["Helmet"] = {
-				["max"] = 35, 
-				["min"] = 15, 
-			}, 
-			["Shield"] = {
-				["max"] = 35, 
-				["min"] = 15, 
-			}, 
-			["Staff"] = {
 				["max"] = 50, 
-				["min"] = 30, 
-			}, 
-			["Wand"] = {
-				["max"] = 50, 
-				["min"] = 30, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1050105434", 
-				["text"] = "# to maximum Mana", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1181501418"] = {
-			["Helmet"] = {
-				["max"] = 4, 
-				["min"] = 4, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1181501418", 
-				["text"] = "# to Maximum Rage", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1197632982"] = {
-			["Chest"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1197632982", 
-				["text"] = "# to Armour per 1 Spirit", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1228682002"] = {
-			["1HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Staff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Talisman"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Wand"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1228682002", 
-				["text"] = "#% chance when you gain an Endurance Charge to gain an additional Endurance Charge", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1238227257"] = {
-			["Boots"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["Chest"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["Focus"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["Gloves"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["Helmet"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["Shield"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1238227257", 
-				["text"] = "Debuffs on you expire #% faster", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["124131830"] = {
-			["Staff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Wand"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_124131830", 
-				["text"] = "# to Level of all Spell Skills", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1250712710"] = {
-			["1HWeapon"] = {
-				["max"] = 14, 
-				["min"] = 14, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1250712710", 
-				["text"] = "Allies in your Presence have #% increased Critical Hit Chance", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1368271171"] = {
-			["1HMace"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["2HMace"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Bow"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Claw"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Flail"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Spear"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["Talisman"] = {
-				["max"] = 24, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1368271171", 
-				["text"] = "Gain # Mana per enemy killed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1374654984"] = {
-			["Chest"] = {
-				["max"] = 10, 
 				["min"] = 10, 
 			}, 
-			["specialCaseData"] = {
+			["Quarterstaff"] = {
+				["max"] = 90, 
+				["min"] = 45, 
 			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1374654984", 
-				["text"] = "#% of Physical Damage prevented Recouped as Life", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1381474422"] = {
-			["Gloves"] = {
-				["max"] = 20, 
+			["Shield"] = {
+				["max"] = 50, 
 				["min"] = 20, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1381474422", 
-				["text"] = "#% increased Magnitude of Damaging Ailments you inflict", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_1050105434", 
+				["text"] = "# to maximum Mana", 
+				["type"] = "enchant", 
 			}, 
+			["usePositiveSign"] = true, 
 		}, 
-		["1382805233"] = {
-			["Boots"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1382805233", 
-				["text"] = "#% increased Deflection Rating while moving", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1433756169"] = {
+		["1368271171"] = {
 			["1HMace"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["2HMace"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Bow"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Claw"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Flail"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Spear"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["Talisman"] = {
-				["max"] = 10, 
+				["max"] = 40, 
 				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1433756169", 
-				["text"] = "Minions gain #% of their Physical Damage as Extra Lightning Damage", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_1368271171", 
+				["text"] = "Gain # Mana per enemy killed", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1444556985"] = {
@@ -20291,99 +13254,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1444556985", 
+				["id"] = "enchant.stat_1444556985", 
 				["text"] = "#% of Damage taken Recouped as Life", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1480688478"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1480688478", 
-				["text"] = "One of your Persistent Minions revives when an Offering expires", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1496740334"] = {
-			["1HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Boots"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Claw"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Flail"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Focus"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Helmet"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Shield"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Spear"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Talisman"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1496740334", 
-				["text"] = "Convert #% of Requirements to Dexterity", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1519615863"] = {
@@ -20434,486 +13307,95 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1519615863", 
+				["id"] = "enchant.stat_1519615863", 
 				["text"] = "#% chance to cause Bleeding on Hit", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1556124492"] = {
-			["1HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Boots"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Claw"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Flail"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Focus"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Helmet"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Shield"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Spear"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Talisman"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1556124492", 
-				["text"] = "Convert #% of Requirements to Strength", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1574590649"] = {
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1574590649", 
-				["text"] = "Allies in your Presence deal # to # added Attack Physical Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1585886916"] = {
-			["Boots"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1585886916", 
-				["text"] = "Sacrifice #% of maximum Life to gain that much Guard when you Dodge Roll", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1671376347"] = {
 			["Boots"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Chest"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Focus"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Gloves"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Helmet"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Shield"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1671376347", 
+				["id"] = "enchant.stat_1671376347", 
 				["text"] = "#% to Lightning Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["1755296234"] = {
-			["1HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Bow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Claw"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Flail"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Spear"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["Talisman"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1755296234", 
-				["text"] = "Targets can be affected by # of your Poisons at the same time", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["1772929282"] = {
-			["Helmet"] = {
-				["max"] = -5, 
-				["min"] = -5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1772929282", 
-				["text"] = "Enemies you Curse have #% to Chaos Resistance", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1782086450"] = {
-			["Chest"] = {
-				["max"] = 30, 
-				["min"] = 30, 
-			}, 
-			["Focus"] = {
-				["max"] = 30, 
-				["min"] = 30, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1782086450", 
-				["text"] = "#% faster start of Energy Shield Recharge", 
-				["type"] = "augment", 
-			}, 
 		}, 
 		["1798257884"] = {
 			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 30, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1798257884", 
-				["text"] = "Allies in your Presence deal #% increased Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1805633363"] = {
-			["Helmet"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1805633363", 
-				["text"] = "#% increased Reservation Efficiency of Minion Skills", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1937310173"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_1937310173", 
-				["text"] = "You Recoup #% of Damage taken by your Offerings as Life", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["1947060170"] = {
-			["Helmet"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1947060170", 
-				["text"] = "#% of Armour also applies to Cold Damage", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_1798257884", 
+				["text"] = "Allies in your Presence deal #% increased Damage", 
+				["type"] = "enchant", 
 			}, 
-			["usePositiveSign"] = true, 
 		}, 
-		["1984310483"] = {
+		["185580205"] = {
 			["Helmet"] = {
-				["max"] = 6, 
-				["min"] = 6, 
+				["max"] = 1, 
+				["min"] = 1, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1984310483", 
-				["text"] = "Enemies you Curse take #% increased Damage", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_185580205", 
+				["text"] = "Charms gain # charge per Second", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1978899297"] = {
+			["Chest"] = {
+				["max"] = -10, 
+				["min"] = -10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1978899297", 
+				["text"] = "#% to all Maximum Elemental Resistances", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1998951374"] = {
 			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 8, 
+				["max"] = 10, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1998951374", 
+				["id"] = "enchant.stat_1998951374", 
 				["text"] = "Allies in your Presence have #% increased Attack Speed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2011656677"] = {
-			["1HMace"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["2HMace"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Boots"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Bow"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Claw"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Crossbow"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Flail"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Spear"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["Talisman"] = {
-				["max"] = -25, 
-				["min"] = -25, 
-			}, 
-			["invertOnNegative"] = true, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2011656677", 
-				["text"] = "#% increased Poison Duration", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2023107756"] = {
-			["1HMace"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["2HMace"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Bow"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Claw"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Flail"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Spear"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["Talisman"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2023107756", 
-				["text"] = "Recover #% of maximum Life on Kill", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2074866941"] = {
-			["Helmet"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2074866941", 
-				["text"] = "#% increased Exposure Effect", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2077615515"] = {
-			["1HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Talisman"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2077615515", 
-				["text"] = "#% increased Attack Damage against Rare or Unique Enemies", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["210067635"] = {
@@ -20930,7 +13412,7 @@ return {
 				["min"] = 5, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 5, 
+				["max"] = 50, 
 				["min"] = 5, 
 			}, 
 			["Bow"] = {
@@ -20964,51 +13446,10 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_210067635", 
+				["id"] = "enchant.stat_210067635", 
 				["text"] = "#% increased Attack Speed (Local)", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
-		}, 
-		["2103650854"] = {
-			["Gloves"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2103650854", 
-				["text"] = "#% increased effect of Arcane Surge on you", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2191621386"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2191621386", 
-				["text"] = "#% of Armour also applies to Chaos Damage while on full Energy Shield", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["2200571612"] = {
-			["Boots"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2200571612", 
-				["text"] = "#% of Armour also applies to Lightning Damage", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["2223678961"] = {
 			["1HMace"] = {
@@ -21058,35 +13499,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2223678961", 
+				["id"] = "enchant.stat_2223678961", 
 				["text"] = "Adds # to # Chaos damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2231410646"] = {
-			["Helmet"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2231410646", 
-				["text"] = "A random Skill that requires Glory generates #% of its maximum Glory when your Mark Activates", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2241849004"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2241849004", 
-				["text"] = "Energy Shield Recharge starts after spending a total of 2000 Mana, no more than once every 2 seconds", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2250533757"] = {
@@ -21097,145 +13512,49 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2250533757", 
+				["id"] = "enchant.stat_2250533757", 
 				["text"] = "#% increased Movement Speed", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
-		["2310741722"] = {
-			["Boots"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Chest"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Focus"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Gloves"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Helmet"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["Shield"] = {
-				["max"] = 12, 
-				["min"] = 8, 
+		["227523295"] = {
+			["1HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2310741722", 
-				["text"] = "#% increased Life and Mana Recovery from Flasks", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_227523295", 
+				["text"] = "# to Maximum Power Charges", 
+				["type"] = "enchant", 
 			}, 
-		}, 
-		["2339757871"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Staff"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Wand"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2339757871", 
-				["text"] = "#% increased Energy Shield Recharge Rate", 
-				["type"] = "augment", 
-			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["2353576063"] = {
 			["Gloves"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 8, 
+				["min"] = 8, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2353576063", 
+				["id"] = "enchant.stat_2353576063", 
 				["text"] = "#% increased Curse Magnitudes", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2363593824"] = {
-			["Boots"] = {
-				["max"] = 12, 
-				["min"] = 12, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2363593824", 
-				["text"] = "#% increased speed of Recoup Effects", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2481353198"] = {
 			["Shield"] = {
-				["max"] = 10, 
-				["min"] = 10, 
+				["max"] = 15, 
+				["min"] = 15, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2481353198", 
+				["id"] = "enchant.stat_2481353198", 
 				["text"] = "#% increased Block chance (Local)", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2505884597"] = {
-			["Staff"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["Wand"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2505884597", 
-				["text"] = "Gain #% of Damage as Extra Cold Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["263495202"] = {
-			["Helmet"] = {
-				["max"] = 12, 
-				["min"] = 12, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_263495202", 
-				["text"] = "#% increased Cost Efficiency", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2663359259"] = {
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2663359259", 
-				["text"] = "#% increased total Power counted by Warcries", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2694482655"] = {
@@ -21286,102 +13605,23 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2694482655", 
+				["id"] = "enchant.stat_2694482655", 
 				["text"] = "#% to Critical Damage Bonus", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["2703838669"] = {
-			["Boots"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2703838669", 
-				["text"] = "#% increased Movement Speed per 15 Spirit, up to a maximum of 40%Other Modifiers to Movement Speed except for Sprinting do not apply", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2709367754"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2709367754", 
-				["text"] = "Gain # Rage on Melee Hit", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2748665614"] = {
-			["Helmet"] = {
-				["max"] = 3, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2748665614", 
-				["text"] = "#% increased maximum Mana", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["280497929"] = {
-			["Helmet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_280497929", 
-				["text"] = "# to maximum Mana per 2 Item Energy Shield on Equipped Helmet", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["280731498"] = {
 			["Helmet"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_280731498", 
-				["text"] = "#% increased Area of Effect", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2854751904"] = {
-			["1HWeapon"] = {
-				["max"] = 20.5, 
-				["min"] = 20.5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2854751904", 
-				["text"] = "Allies in your Presence deal # to # added Attack Lightning Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2876843277"] = {
-			["Boots"] = {
 				["max"] = 15, 
-				["min"] = 15, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2876843277", 
-				["text"] = "#% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_280731498", 
+				["text"] = "#% increased Area of Effect", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2891184298"] = {
@@ -21392,22 +13632,22 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2891184298", 
+				["id"] = "enchant.stat_2891184298", 
 				["text"] = "#% increased Cast Speed", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["289128254"] = {
 			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 8, 
+				["max"] = 10, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_289128254", 
+				["id"] = "enchant.stat_289128254", 
 				["text"] = "Allies in your Presence have #% increased Cast Speed", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2901986750"] = {
@@ -21416,7 +13656,7 @@ return {
 				["min"] = 5, 
 			}, 
 			["Chest"] = {
-				["max"] = 5, 
+				["max"] = 20, 
 				["min"] = 5, 
 			}, 
 			["Focus"] = {
@@ -21438,166 +13678,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2901986750", 
+				["id"] = "enchant.stat_2901986750", 
 				["text"] = "#% to all Elemental Resistances", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["2910761524"] = {
-			["Staff"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["Wand"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2910761524", 
-				["text"] = "#% chance for Spell Skills to fire 2 additional Projectiles", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2913012734"] = {
-			["1HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Boots"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Claw"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Flail"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Focus"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Helmet"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Shield"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Spear"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Talisman"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2913012734", 
-				["text"] = "Convert #% of Requirements to Intelligence", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["2916861134"] = {
-			["1HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Staff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Talisman"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Wand"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_2916861134", 
-				["text"] = "#% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge", 
-				["type"] = "augment", 
-			}, 
 		}, 
 		["2923486259"] = {
 			["Boots"] = {
@@ -21627,9 +13712,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2923486259", 
+				["id"] = "enchant.stat_2923486259", 
 				["text"] = "#% to Chaos Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -21681,9 +13766,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_293638271", 
+				["id"] = "enchant.stat_293638271", 
 				["text"] = "#% increased chance to Shock", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2968503605"] = {
@@ -21734,108 +13819,39 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2968503605", 
+				["id"] = "enchant.stat_2968503605", 
 				["text"] = "#% increased Flammability Magnitude", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2974417149"] = {
-			["Staff"] = {
-				["max"] = 30, 
+			["1HWeapon"] = {
+				["max"] = 35, 
 				["min"] = 20, 
 			}, 
-			["Wand"] = {
-				["max"] = 30, 
+			["Quarterstaff"] = {
+				["max"] = 35, 
 				["min"] = 20, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_2974417149", 
+				["id"] = "enchant.stat_2974417149", 
 				["text"] = "#% increased Spell Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3015669065"] = {
-			["Staff"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["Wand"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3015669065", 
-				["text"] = "Gain #% of Damage as Extra Fire Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3032590688"] = {
-			["Gloves"] = {
-				["max"] = 8.5, 
-				["min"] = 8.5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3032590688", 
-				["text"] = "Adds # to # Physical Damage to Attacks", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3057012405"] = {
 			["1HWeapon"] = {
-				["max"] = 14, 
-				["min"] = 14, 
+				["max"] = 20, 
+				["min"] = 20, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3057012405", 
+				["id"] = "enchant.stat_3057012405", 
 				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3107707789"] = {
-			["Boots"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3107707789", 
-				["text"] = "#% increased Movement Speed while Sprinting", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["310945763"] = {
-			["Gloves"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_310945763", 
-				["text"] = "#% increased Life Cost Efficiency", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3166958180"] = {
-			["Gloves"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3166958180", 
-				["text"] = "#% increased Magnitude of Bleeding you inflict", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3175163625"] = {
@@ -21846,318 +13862,353 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3175163625", 
+				["id"] = "enchant.stat_3175163625", 
 				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3261801346"] = {
 			["1HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Boots"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Bow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Chest"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Claw"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Flail"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Focus"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Gloves"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Helmet"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Shield"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Spear"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Staff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Talisman"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Wand"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3261801346", 
+				["id"] = "enchant.stat_3261801346", 
 				["text"] = "# to Dexterity", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["3278136794"] = {
-			["Staff"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["Wand"] = {
-				["max"] = 10, 
-				["min"] = 6, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3278136794", 
-				["text"] = "Gain #% of Damage as Extra Lightning Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
 		["328541901"] = {
 			["1HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Boots"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Bow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Chest"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Claw"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Flail"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Focus"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Gloves"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Helmet"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Shield"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Spear"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Staff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Talisman"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Wand"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_328541901", 
+				["id"] = "enchant.stat_328541901", 
 				["text"] = "# to Intelligence", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["3299347043"] = {
+			["1HMace"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["2HMace"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
 			["Boots"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 30, 
+			}, 
+			["Bow"] = {
+				["max"] = 80, 
+				["min"] = 80, 
 			}, 
 			["Chest"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 30, 
+			}, 
+			["Claw"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["Flail"] = {
+				["max"] = 80, 
+				["min"] = 80, 
 			}, 
 			["Focus"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 30, 
 			}, 
 			["Gloves"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 30, 
 			}, 
 			["Helmet"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 10, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 80, 
+				["min"] = 80, 
 			}, 
 			["Shield"] = {
-				["max"] = 40, 
-				["min"] = 20, 
+				["max"] = 75, 
+				["min"] = 30, 
+			}, 
+			["Spear"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["Staff"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["Talisman"] = {
+				["max"] = 80, 
+				["min"] = 80, 
+			}, 
+			["Wand"] = {
+				["max"] = 80, 
+				["min"] = 80, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3299347043", 
+				["id"] = "enchant.stat_3299347043", 
 				["text"] = "# to maximum Life", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["3336890334"] = {
 			["1HMace"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["2HMace"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Bow"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Claw"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Flail"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Spear"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["Talisman"] = {
-				["max"] = 30.5, 
+				["max"] = 20.5, 
 				["min"] = 5.5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3336890334", 
+				["id"] = "enchant.stat_3336890334", 
 				["text"] = "Adds # to # Lightning Damage", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3372524247"] = {
 			["Boots"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Chest"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Focus"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Gloves"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Helmet"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Shield"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3372524247", 
+				["id"] = "enchant.stat_3372524247", 
 				["text"] = "#% to Fire Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -22169,9 +14220,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3377888098", 
+				["id"] = "enchant.stat_3377888098", 
 				["text"] = "#% increased Skill Effect Duration", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3398787959"] = {
@@ -22215,242 +14266,16 @@ return {
 				["max"] = 13, 
 				["min"] = 13, 
 			}, 
-			["Staff"] = {
-				["max"] = 13, 
-				["min"] = 13, 
-			}, 
 			["Talisman"] = {
-				["max"] = 13, 
-				["min"] = 13, 
-			}, 
-			["Wand"] = {
 				["max"] = 13, 
 				["min"] = 13, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3398787959", 
+				["id"] = "enchant.stat_3398787959", 
 				["text"] = "Gain #% of Damage as Extra Chaos Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3407849389"] = {
-			["Chest"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3407849389", 
-				["text"] = "#% reduced effect of Curses on you", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3473409233"] = {
-			["Boots"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3473409233", 
-				["text"] = "Lose #% of maximum Life per second while Sprinting", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3489782002"] = {
-			["Staff"] = {
-				["max"] = 35, 
-				["min"] = 25, 
-			}, 
-			["Wand"] = {
-				["max"] = 35, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3489782002", 
-				["text"] = "# to maximum Energy Shield", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3523867985"] = {
-			["Boots"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["Chest"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["Focus"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["Gloves"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["Helmet"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["Shield"] = {
-				["max"] = 18, 
-				["min"] = 14, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3523867985", 
-				["text"] = "#% increased Armour, Evasion and Energy Shield", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3537994888"] = {
-			["1HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Staff"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Talisman"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["Wand"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3537994888", 
-				["text"] = "#% chance when you gain a Power Charge to gain an additional Power Charge", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3544800472"] = {
-			["Boots"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3544800472", 
-				["text"] = "#% increased Elemental Ailment Threshold", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3552135623"] = {
-			["Chest"] = {
-				["max"] = 3, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3552135623", 
-				["text"] = "Prevent #% of Damage from Deflected Hits", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3570773271"] = {
-			["Helmet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3570773271", 
-				["text"] = "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3585532255"] = {
-			["Helmet"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3585532255", 
-				["text"] = "#% increased Charm Charges gained", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3655769732"] = {
-			["Chest"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3655769732", 
-				["text"] = "#% to Quality of all Skills", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3666934677"] = {
-			["Helmet"] = {
-				["max"] = 2, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3666934677", 
-				["text"] = "#% increased Experience gain", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3676141501"] = {
@@ -22461,227 +14286,63 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3676141501", 
+				["id"] = "enchant.stat_3676141501", 
 				["text"] = "#% to Maximum Cold Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["3678845069"] = {
-			["1HMace"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["2HMace"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Bow"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Claw"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Flail"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Spear"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Talisman"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3678845069", 
-				["text"] = "Attacks with this Weapon have #% chance to inflict Exposure", 
-				["type"] = "augment", 
-			}, 
-		}, 
 		["3695891184"] = {
 			["1HMace"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["2HMace"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Bow"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Claw"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Flail"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Spear"] = {
-				["max"] = 30, 
-				["min"] = 10, 
+				["max"] = 45, 
+				["min"] = 15, 
 			}, 
 			["Talisman"] = {
-				["max"] = 30, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3695891184", 
-				["text"] = "Gain # Life per enemy killed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3742865955"] = {
-			["1HWeapon"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["Staff"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["Wand"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3742865955", 
-				["text"] = "Minions deal #% increased Damage with Command Skills", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3759663284"] = {
-			["Bow"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3759663284", 
-				["text"] = "#% increased Projectile Speed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3801067695"] = {
-			["Boots"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Chest"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Focus"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Gloves"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Helmet"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Shield"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3801067695", 
-				["text"] = "#% reduced effect of Shock on you", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3824372849"] = {
-			["Boots"] = {
-				["max"] = 15, 
+				["max"] = 45, 
 				["min"] = 15, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3824372849", 
-				["text"] = "#% increased Curse Duration", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3850614073"] = {
-			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3850614073", 
-				["text"] = "Allies in your Presence have #% to all Elemental Resistances", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3855016469"] = {
-			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Shield"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3855016469", 
-				["text"] = "Hits against you have #% reduced Critical Damage Bonus", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_3695891184", 
+				["text"] = "Gain # Life per enemy killed", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["387439868"] = {
@@ -22732,13 +14393,13 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_387439868", 
+				["id"] = "enchant.stat_387439868", 
 				["text"] = "#% increased Elemental Damage with Attacks", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3885405204"] = {
-			["Bow"] = {
+			["2HWeapon"] = {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
@@ -22746,9 +14407,9 @@ return {
 				["overrideModLineSingular"] = "Bow Attacks fire an additional Arrow", 
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3885405204", 
+				["id"] = "enchant.stat_3885405204", 
 				["text"] = "Bow Attacks fire # additional Arrows", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3885634897"] = {
@@ -22799,62 +14460,26 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3885634897", 
+				["id"] = "enchant.stat_3885634897", 
 				["text"] = "#% chance to Poison on Hit with this weapon", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3897831687"] = {
-			["Gloves"] = {
-				["max"] = 40, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3897831687", 
-				["text"] = "#% of Armour also applies to Fire Damage", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["3903510399"] = {
-			["Helmet"] = {
-				["max"] = 25, 
-				["min"] = 25, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3903510399", 
-				["text"] = "Gain Armour equal to #% of Life Lost from Hits in the past 8 seconds", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3917489142"] = {
 			["Chest"] = {
-				["max"] = 5, 
-				["min"] = 5, 
+				["max"] = 12, 
+				["min"] = 12, 
+			}, 
+			["Helmet"] = {
+				["max"] = 10, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3917489142", 
+				["id"] = "enchant.stat_3917489142", 
 				["text"] = "#% increased Rarity of Items found", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["3973629633"] = {
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_3973629633", 
-				["text"] = "#% increased Withered Magnitude", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["3981240776"] = {
@@ -22905,174 +14530,108 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3981240776", 
+				["id"] = "enchant.stat_3981240776", 
 				["text"] = "# to Spirit", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
 		["3984865854"] = {
 			["1HWeapon"] = {
-				["max"] = 10, 
-				["min"] = 10, 
+				["max"] = 15, 
+				["min"] = 15, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_3984865854", 
+				["id"] = "enchant.stat_3984865854", 
 				["text"] = "#% increased Spirit", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["4010677958"] = {
-			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_4010677958", 
-				["text"] = "Allies in your Presence Regenerate # Life per second", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["4064396395"] = {
-			["1HMace"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["2HMace"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Bow"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Claw"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Flail"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Spear"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["Talisman"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_4064396395", 
-				["text"] = "Attacks with this Weapon Penetrate #% Elemental Resistances", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["4080418644"] = {
 			["1HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HMace"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Boots"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Bow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Chest"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Claw"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Flail"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Focus"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Gloves"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Helmet"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Shield"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Spear"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Staff"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Talisman"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["Wand"] = {
-				["max"] = 10, 
+				["max"] = 15, 
 				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_4080418644", 
+				["id"] = "enchant.stat_4080418644", 
 				["text"] = "# to Strength", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -23084,60 +14643,43 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_4095671657", 
+				["id"] = "enchant.stat_4095671657", 
 				["text"] = "#% to Maximum Fire Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["416040624"] = {
-			["Staff"] = {
-				["max"] = 14, 
-				["min"] = 10, 
-			}, 
-			["Wand"] = {
-				["max"] = 14, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_416040624", 
-				["text"] = "Gain additional Stun Threshold equal to #% of maximum Energy Shield", 
-				["type"] = "augment", 
-			}, 
-		}, 
 		["4220027924"] = {
 			["Boots"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Chest"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Focus"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Gloves"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Helmet"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["Shield"] = {
-				["max"] = 14, 
+				["max"] = 22, 
 				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_4220027924", 
+				["id"] = "enchant.stat_4220027924", 
 				["text"] = "#% to Cold Resistance", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -23189,48 +14731,22 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_4236566306", 
+				["id"] = "enchant.stat_4236566306", 
 				["text"] = "Meta Skills gain #% increased Energy", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
-		["426207520"] = {
-			["Gloves"] = {
-				["max"] = 10, 
-				["min"] = 10, 
+		["44972811"] = {
+			["Shield"] = {
+				["max"] = 50, 
+				["min"] = 50, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_426207520", 
-				["text"] = "Each Runic Inscription from your Curse Skills causes you to Regenerate Mana per second equal to #% of that Skill's Mana Cost", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["4282982513"] = {
-			["Boots"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_4282982513", 
-				["text"] = "Increases and Reductions to Movement Speed also apply to Energy Shield Recharge Rate", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["458438597"] = {
-			["Chest"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_458438597", 
-				["text"] = "#% of Damage is taken from Mana before Life", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_44972811", 
+				["text"] = "#% increased Life Regeneration rate", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["473429811"] = {
@@ -23281,673 +14797,238 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_473429811", 
+				["id"] = "enchant.stat_473429811", 
 				["text"] = "#% increased Freeze Buildup", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
-		}, 
-		["554899692"] = {
-			["Chest"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_554899692", 
-				["text"] = "# Charm Slot (Global)", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["55876295"] = {
-			["1HMace"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["2HMace"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Bow"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Claw"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Flail"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Spear"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["Talisman"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_55876295", 
-				["text"] = "Leeches #% of Physical Damage as Life", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["594547430"] = {
-			["Helmet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_594547430", 
-				["text"] = "Remove a Damaging Ailment when you use a Command Skill", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["624954515"] = {
-			["Gloves"] = {
-				["max"] = 15, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_624954515", 
-				["text"] = "#% increased Accuracy Rating", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["649025131"] = {
-			["Boots"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_649025131", 
-				["text"] = "#% increased Movement Speed when on Low Life", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["669069897"] = {
-			["1HMace"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["2HMace"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Bow"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Claw"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Flail"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Spear"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["Talisman"] = {
-				["max"] = 2.5, 
-				["min"] = 1.5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_669069897", 
-				["text"] = "Leeches #% of Physical Damage as Mana", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["681332047"] = {
-			["Gloves"] = {
-				["max"] = 8, 
-				["min"] = 8, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_681332047", 
-				["text"] = "#% increased Attack Speed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["687156079"] = {
-			["Helmet"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_687156079", 
-				["text"] = "# to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
-		["691932474"] = {
-			["1HMace"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Talisman"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_691932474", 
-				["text"] = "# to Accuracy Rating (Local)", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["709508406"] = {
 			["1HMace"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["2HMace"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Bow"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Claw"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Flail"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Spear"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["Talisman"] = {
-				["max"] = 28.5, 
+				["max"] = 18.5, 
 				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_709508406", 
+				["id"] = "enchant.stat_709508406", 
 				["text"] = "Adds # to # Fire Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["731403740"] = {
-			["1HMace"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["2HMace"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Bow"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Claw"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Flail"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Spear"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Staff"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Talisman"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Wand"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_731403740", 
-				["text"] = "Gain #% of Damage as Extra Damage of all Elements", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["737908626"] = {
-			["Staff"] = {
-				["max"] = 24, 
+			["1HWeapon"] = {
+				["max"] = 28, 
 				["min"] = 16, 
 			}, 
-			["Wand"] = {
-				["max"] = 24, 
+			["Quarterstaff"] = {
+				["max"] = 28, 
 				["min"] = 16, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_737908626", 
+				["id"] = "enchant.stat_737908626", 
 				["text"] = "#% increased Critical Hit Chance for Spells", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
-		["757050353"] = {
+		["789117908"] = {
+			["1HWeapon"] = {
+				["max"] = 35, 
+				["min"] = 20, 
+			}, 
 			["Boots"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
+				["max"] = 21, 
+				["min"] = 12, 
 			}, 
 			["Chest"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
+				["max"] = 21, 
+				["min"] = 12, 
 			}, 
 			["Focus"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
+				["max"] = 21, 
+				["min"] = 12, 
 			}, 
 			["Gloves"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
+				["max"] = 21, 
+				["min"] = 12, 
 			}, 
 			["Helmet"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
+				["max"] = 21, 
+				["min"] = 12, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 35, 
+				["min"] = 20, 
 			}, 
 			["Shield"] = {
-				["max"] = 50.5, 
-				["min"] = 50.5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_757050353", 
-				["text"] = "# to # Lightning Thorns damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["770672621"] = {
-			["Helmet"] = {
-				["max"] = 12, 
+				["max"] = 21, 
 				["min"] = 12, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_770672621", 
-				["text"] = "Minions have #% increased maximum Life", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_789117908", 
+				["text"] = "#% increased Mana Regeneration Rate", 
+				["type"] = "enchant", 
 			}, 
 		}, 
-		["782230869"] = {
-			["Gloves"] = {
+		["791928121"] = {
+			["1HMace"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["2HMace"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Bow"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Claw"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Flail"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Spear"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
+				["max"] = 50, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_791928121", 
+				["text"] = "Causes #% increased Stun Buildup", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["803737631"] = {
+			["Helmet"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_782230869", 
-				["text"] = "#% increased Magnitude of Non-Damaging Ailments you inflict", 
-				["type"] = "augment", 
+				["id"] = "enchant.stat_803737631", 
+				["text"] = "# to Accuracy Rating", 
+				["type"] = "enchant", 
 			}, 
-		}, 
-		["789117908"] = {
-			["Boots"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Chest"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Focus"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Gloves"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Helmet"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Shield"] = {
-				["max"] = 18, 
-				["min"] = 12, 
-			}, 
-			["Staff"] = {
-				["max"] = 24, 
-				["min"] = 16, 
-			}, 
-			["Wand"] = {
-				["max"] = 24, 
-				["min"] = 16, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_789117908", 
-				["text"] = "#% increased Mana Regeneration Rate", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["791928121"] = {
-			["1HMace"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HMace"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Bow"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Claw"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Flail"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Spear"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["Talisman"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_791928121", 
-				["text"] = "Causes #% increased Stun Buildup", 
-				["type"] = "augment", 
-			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["836936635"] = {
 			["Boots"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
+				["max"] = 0.5, 
+				["min"] = 0.35, 
 			}, 
 			["Chest"] = {
 				["max"] = 1.5, 
-				["min"] = 0.25, 
+				["min"] = 0.35, 
 			}, 
 			["Focus"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
+				["max"] = 0.5, 
+				["min"] = 0.35, 
 			}, 
 			["Gloves"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
+				["max"] = 0.5, 
+				["min"] = 0.35, 
 			}, 
 			["Helmet"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
+				["max"] = 0.5, 
+				["min"] = 0.35, 
 			}, 
 			["Shield"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
+				["max"] = 0.5, 
+				["min"] = 0.35, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_836936635", 
+				["id"] = "enchant.stat_836936635", 
 				["text"] = "Regenerate #% of maximum Life per second", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
-		}, 
-		["889552744"] = {
-			["Boots"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Chest"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Focus"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Gloves"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Helmet"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["Shield"] = {
-				["max"] = 10, 
-				["min"] = 10, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_889552744", 
-				["text"] = "Minions take #% of Physical Damage as Lightning Damage", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["915264788"] = {
-			["Helmet"] = {
-				["max"] = 50, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_915264788", 
-				["text"] = "#% increased Thorns Critical Hit Chance", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["915769802"] = {
-			["Boots"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["Chest"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["Focus"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["Gloves"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["Helmet"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["Shield"] = {
-				["max"] = 80, 
-				["min"] = 40, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_915769802", 
-				["text"] = "# to Stun Threshold", 
-				["type"] = "augment", 
-			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["924253255"] = {
 			["Boots"] = {
 				["max"] = -15, 
 				["min"] = -15, 
 			}, 
+			["Chest"] = {
+				["max"] = -50, 
+				["min"] = -50, 
+			}, 
 			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_924253255", 
+				["id"] = "enchant.stat_924253255", 
 				["text"] = "#% increased Slowing Potency of Debuffs on You", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["935518591"] = {
-			["Gloves"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_935518591", 
-				["text"] = "Critical Hit chance is Lucky against Parried enemies", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["970213192"] = {
@@ -23998,22 +15079,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_970213192", 
+				["id"] = "enchant.stat_970213192", 
 				["text"] = "#% increased Skill Speed", 
-				["type"] = "augment", 
-			}, 
-		}, 
-		["983749596"] = {
-			["Chest"] = {
-				["max"] = 3, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_983749596", 
-				["text"] = "#% increased maximum Life", 
-				["type"] = "augment", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 	}, 

@@ -278,7 +278,7 @@ Gain (4-6) Mana per enemy killed
 Enemies in your Presence killed by anyone count as being killed by you instead
 ]],[[
 The Prisoner's Manacles
-Verisium Cuffs
+Kalguuran Cuffs
 League: Dawn of the Hunt
 (200-300)% increased Armour and Energy Shield
 +100 to maximum Life

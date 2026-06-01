@@ -265,6 +265,11 @@ local function doActorAttribsConditions(env, actor)
 				condList["Channelling"] = true
 			end
 		end
+
+		if env.configInput.conditionShapeshifted then
+			condList["Shapeshifted"] = true
+		end
+		
 		if actor.mainSkill.skillTypes[SkillType.Bear] then
 			condList["Shapeshifted"] = true
 			condList["BearForm"] = true
@@ -1001,6 +1006,7 @@ function calcs.perform(env, skipEHP)
 		env.minion.modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 		env.minion.modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.monsterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
 		env.minion.modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.monsterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
+		env.minion.modDB:NewMod("Damage", "MORE", env.minion.hiddenDamageFixup * 100, "Hidden Level Scaling")
 		for _, mod in ipairs(env.minion.minionData.modList) do
 			env.minion.modDB:AddMod(mod)
 		end
@@ -1100,6 +1106,7 @@ function calcs.perform(env, skipEHP)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
+	local maxPurpleFlameChaosGain = 0
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1231,12 +1238,9 @@ function calcs.perform(env, skipEHP)
 			modDB:NewMod("Condition:HaveCompanion", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 		end
 		if env.mode_buffs and skillFlags.warcry then
-			if activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") and not modDB:Flag(nil, "RallyingActive") then
-				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))
-				modDB:NewMod("RallyingActive", "FLAG", true) -- Prevents effect from applying multiple times
-			elseif activeSkill.activeEffect.grantedEffect.name == "Seismic Cry" and not modDB:Flag(nil, "SeismicActive") then
-				env.player.modDB:NewMod("SeismicMoreAoE", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "SeismicAoEMoreMultiplier"))
-				modDB:NewMod("SeismicActive", "FLAG", true) -- Prevents effect from applying multiple times
+			if activeSkill.activeEffect.grantedEffect.name == "Infernal Cry" and not modDB:Flag(nil, "InfernalActive") then
+				env.player.modDB:NewMod("InfernalExtraFireDamage", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "InfernalExtraFireDamageMultiplier"))
+				modDB:NewMod("InfernalActive", "FLAG", true) -- Prevents effect from applying multiple times
 			end
 		end
 		if activeSkill.skillData.triggeredOnDeath and not skillFlags.minion then
@@ -1250,11 +1254,25 @@ function calcs.perform(env, skipEHP)
 			-- Set trigger time to 1 min in ms ( == 6000 ). Technically any large value would do.
 			activeSkill.skillData.triggerTime = 60 * 1000
 		end
+		-- Into the Breach: only purple flames get calculated
+		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" and not modDB:Flag(nil, "BreachFlameOnlyRed") and not modDB:Flag(nil, "BreachFlameOnlyBlue") then
+			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
+			if baseChaosGain > 0 then
+				local remnantEffectMod = calcLib.mod(activeSkill.skillModList, nil, "RemnantEffect")
+				local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
+				local chaosGainPerFlame = m_floor(baseChaosGain * remnantEffectMod * doubled)
+				maxPurpleFlameChaosGain = m_max(maxPurpleFlameChaosGain, chaosGainPerFlame)
+			end
+		end
 		-- The Saviour
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
 			activeSkill.infoTrigger = "Saviour"
 		end
+	end
+	local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
+	if purpleFlameCount > 0 and maxPurpleFlameChaosGain > 0 then
+		modDB:NewMod("DamageGainAsChaos", "BASE", maxPurpleFlameChaosGain * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff", effectName = "Into the Breach" })
 	end
 
 	-- Stat sorting category calcs
@@ -1970,19 +1988,22 @@ function calcs.perform(env, skipEHP)
 				if env.mode_buffs then
 					local skillCfg = skillCfg
 					local modStore = skillModList or modDB
+					local warcryPower = modDB:Override(nil, "WarcryPower") or m_max((modDB:Sum("BASE", nil, "WarcryPower") or 0) * (1 + (modDB:Sum("INC", nil, "WarcryPower") or 0)/100), (modDB:Sum("BASE", nil, "MinimumWarcryPower") or 0))
+					local powerCap = skillModList:Sum("BASE", nil, "WarcryPowerCap")
+					local powerPer = skillModList:Sum("BASE", nil, "WarcryPowerPer")
+					local baseEmpowers = m_floor(m_min(warcryPower, powerCap) / powerPer)
 					local warcryName = buff.name:gsub(" Cry", ""):gsub("'s",""):gsub(" ","")
-					local baseExerts = modStore:Sum("BASE", env.player.mainSkill.skillCfg, warcryName.."ExertedAttacks")
-					if baseExerts > 0 then
-						local extraExertions = modStore:Sum("BASE", nil, "ExtraExertedAttacks") or 0
-						local exertMultiplier = modStore:More(nil, "ExtraExertedAttacks")
-						env.player.modDB:NewMod("Num"..warcryName.."Exerts", "BASE", m_floor((baseExerts + extraExertions) * exertMultiplier))
+					local baseEmpowers = modStore:Sum("BASE", env.player.mainSkill.skillCfg, warcryName.."EmpoweredAttacks") + baseEmpowers
+					if baseEmpowers > 0 then
+						local extraEmpowers = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
+						local EmpowerMultiplier = modStore:More(nil, "ExtraEmpoweredAttacks")
+						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier))
 						if not warcryList[buff.name] then
-							env.player.modDB:NewMod("Multiplier:ExertingWarcryCount", "BASE", 1, buff.name)
+							env.player.modDB:NewMod("Multiplier:EmpoweringWarcryCount", "BASE", 1, buff.name)
 							warcryList[buff.name] = true
 						end
 					end
 					if not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") then
-						local warcryPower = modDB:Override(nil, "WarcryPower") or m_max((modDB:Sum("BASE", nil, "WarcryPower") or 0) * (1 + (modDB:Sum("INC", nil, "WarcryPower") or 0)/100), (modDB:Sum("BASE", nil, "MinimumWarcryPower") or 0))
 						for _, warcryBuff in ipairs(buff.modList) do
 							if warcryBuff[1] and warcryBuff[1].effectType == "Warcry" and warcryBuff[1].div then
 								warcryBuff[1].warcryPowerBonus = m_floor((warcryBuff[1].limit and m_min(warcryPower, warcryBuff[1].limit) or warcryPower) / warcryBuff[1].div)
@@ -3358,9 +3379,10 @@ function calcs.perform(env, skipEHP)
 			local baseLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemLevel")
 			local totalItemLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemItemLevel")
 			local totalSupportLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportLevel")
+			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
 			output.GemHasLevel = true
-			output.GemLevel = baseLevel + totalSupportLevel + totalItemLevel
+			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
 			
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
@@ -3370,6 +3392,11 @@ function calcs.perform(env, skipEHP)
 				end
 				if totalItemLevel > 0 then
 					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+				end
+				if totalCorruptionLevel > 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+				elseif totalCorruptionLevel < 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
 			end

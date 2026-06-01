@@ -6,7 +6,28 @@ describe("TestSkills", function()
 	teardown(function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
-	
+
+	local function selectActiveSkillById(socketGroup, skillId)
+		local socketGroupIndex
+		for index, group in ipairs(build.skillsTab.socketGroupList) do
+			if group == socketGroup then
+				socketGroupIndex = index
+				break
+			end
+		end
+		for index, activeSkill in ipairs(socketGroup.displaySkillList) do
+			if activeSkill.activeEffect.grantedEffect.id == skillId then
+				build.mainSocketGroup = socketGroupIndex
+				build.calcsTab.input.skill_number = socketGroupIndex
+				socketGroup.mainActiveSkill = index
+				socketGroup.mainActiveSkillCalcs = index
+				build.buildFlag = true
+				runCallback("OnFrame")
+				return activeSkill
+			end
+		end
+	end
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -37,6 +58,27 @@ describe("TestSkills", function()
 		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
 	end)
 
+	it("applies minion skill stat set selections to the selected minion skill only", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		runCallback("OnFrame")
+
+		local srcInstance = build.skillsTab.socketGroupList[1].gemList[1]
+		srcInstance.skillMinionSkill = 2
+		srcInstance.skillMinionSkillCalcs = 2
+		srcInstance.skillMinionSkillStatSetIndexLookup = { SummonSkeletalSnipersPlayer = { [2] = 3 } }
+		srcInstance.skillMinionSkillStatSetIndexLookupCalcs = { SummonSkeletalSnipersPlayer = { [2] = 3 } }
+		build.buildFlag = true
+		build.modFlag = true
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		local minionSkills = build.calcsTab.mainEnv.minion.activeSkillList
+		assert.are.equals("Basic Attack", minionSkills[1].activeEffect.statSet.statSet.label)
+		assert.are.equals("Explosion", minionSkills[2].activeEffect.statSet.statSet.label)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
@@ -46,7 +88,7 @@ describe("TestSkills", function()
 
 		newBuild()
 
-		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nFlammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nTemporal Chains 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
@@ -92,7 +134,7 @@ describe("TestSkills", function()
 	it("Test cost efficiency with cost modifiers", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
-		
+
 		-- Add cost multiplier and efficiency
 		build.configTab.input.customMods = "50% increased Mana Cost\n50% increased Mana Cost Efficiency"
 		build.configTab:BuildModList()
@@ -100,6 +142,28 @@ describe("TestSkills", function()
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+	end)
+
+	it("Test socket group pasting with corruption levels and count", function()
+		build.skillsTab:PasteSocketGroup("Wave of Frost 20/0  3 C+1\n Culmination I 1/0  1")
+		assert.are.equals(3, build.skillsTab.socketGroupList[1].gemList[1].count)
+
+		runCallback("OnFrame")
+
+		assert.are.equals(3, build.skillsTab.socketGroupList[1].gemList[1].count)
+		assert.are.equals(true, build.skillsTab.socketGroupList[1].gemList[1].corrupted)
+		assert.are.equals(1, build.skillsTab.socketGroupList[1].gemList[1].corruptLevel)
+
+		newBuild()
+		-- Support gem first this time, with negative corruption value.
+		build.skillsTab:PasteSocketGroup("Culmination I 1/0  1\nWave of Frost 20/20  2 C-1")
+		assert.are.equals(2, build.skillsTab.socketGroupList[1].gemList[2].count)
+
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.skillsTab.socketGroupList[1].gemList[2].count)
+		assert.are.equals(true, build.skillsTab.socketGroupList[1].gemList[2].corrupted)
+		assert.are.equals(-1, build.skillsTab.socketGroupList[1].gemList[2].corruptLevel)
 	end)
 
 	it("Fractional skill count scales Full DPS", function()
@@ -124,7 +188,7 @@ describe("TestSkills", function()
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
-		
+
 		-- Add efficiency
 		build.configTab.input.customMods = "36% increased Mana Cost Efficiency"
 		build.configTab:BuildModList()
@@ -182,7 +246,7 @@ describe("TestSkills", function()
 		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
 	end)
 
-	it("Test 'every rage also grants you' for minion mods and minion apply to you mods #run", function()
+	it("Test 'every rage also grants you' for minion mods and minion apply to you mods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Fanatic Greathammer
@@ -242,6 +306,17 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
+	it("applies minion offensive multiplier to all attack damage", function()
+		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
+		runCallback("OnFrame")
+
+		local minion = build.calcsTab.mainEnv.minion
+		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+
+		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
+	end)
+
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -289,6 +364,7 @@ describe("TestSkills", function()
 	it("Test corrupted blood config", function()
 		build.skillsTab:PasteSocketGroup("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
 		runCallback("OnFrame")
+		selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "TriggeredCorruptingCryPlayer")
 
 		local baseCorruptingCryDps = build.calcsTab.mainOutput.CorruptingBloodDPS -- placeholder/input is 10
 
@@ -301,6 +377,26 @@ describe("TestSkills", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
+	end)
+
+	it("support-granted active skills inherit the linked active skill level", function()
+		local function getCorruptingCryDps(socketGroupText)
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText)
+			runCallback("OnFrame")
+
+			local activeSkill = selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "TriggeredCorruptingCryPlayer")
+			assert.is_not_nil(activeSkill)
+			assert.are.equals(20, activeSkill.activeEffect.level)
+			assert.are.equals("TriggeredCorruptingCryPlayer", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.id)
+			return build.calcsTab.mainOutput.CorruptingBloodDPS
+		end
+
+		local warcryFirstDps = getCorruptingCryDps("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
+		local supportFirstDps = getCorruptingCryDps("Corrupting Cry I 1/0  1\nSeismic Cry 20/0  1")
+
+		assert.is_not_nil(warcryFirstDps)
+		assert.are.equals(warcryFirstDps, supportFirstDps)
 	end)
 
 	it("Flame Breath attack speed scales DPS and is not capped by its channel cooldown", function()
@@ -330,11 +426,11 @@ describe("TestSkills", function()
 
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
-		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Despair 20/0  1\n")
 		runCallback("OnFrame")
 
 		local curseList = build.calcsTab.calcsOutput.CurseList
-		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
+		assert.True(curseList:match("Despair") ~= nil and curseList:match("Elemental Weakness") ~= nil)
 	end)
 
 	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable
@@ -388,7 +484,7 @@ describe("TestSkills", function()
 
 		assert.is_not_nil(arcSkill)
 		assert.are.equals(2, arcSkill.skillModList:GetMultiplier("SupportCount", arcSkill.skillCfg))
-		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
+		assert.are.equals(2, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
 	end)
 
 	it("Test Elemental Conflux element selection", function()
@@ -554,7 +650,7 @@ describe("TestSkills", function()
 		-- if one works they all do, surely
 		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
 	end)
-	
+
 	it("Test Minion Pact damage requires a minion in your presence", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -822,5 +918,73 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		-- Heightened Charges should increased the buff effect, therefore Fireball should have more damage than base Pinnacle of Power
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > basePinnacleDamage)
+	end)
+
+	it("Flame Wall Projectile Buff", function()
+		build.skillsTab:PasteSocketGroup("Flame Wall 20/0  1")
+
+		build.configTab.input.flameWallAddedDamage = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- validate Flame Wall buff appears even when the Wall/default skillPart is active
+		assert.are.equals("Flame Wall", build.calcsTab.calcsOutput.BuffList)
+	end)
+
+	it("Test Ancestral Call - Ancestral Boost calcs", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Boneshatter 20/0  1\nAncestral Call I 1/0  1")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.calcsOutput.AvgAncestralCallDamageEffect ~= nil)
+		assert.True(build.calcsTab.calcsOutput.AncestralCallUptimeRatio ~= nil)
+		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
+	end)
+
+	it("Test Combined Ancestral Boosts - Ancestral Empowerment and Fist of War", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War I 1/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local fistOfWarOneMaxDmgEffect = build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect
+
+		-- test that we are using the calcCombinedAncestralBoost function and the calcSection triggers are correct
+		assert.True(build.calcsTab.calcsOutput.AncestralEmpowermentCombinedUptimeRatio ~= nil)
+		assert.True(build.calcsTab.calcsOutput.AncestralEmpowermentUptimeRatio == nil)
+		assert.True(build.calcsTab.calcsOutput.FistOfWarUptimeRatio == nil)
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War III 1/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- test doubled effects of Fist of War III with Ancestral Empowerment
+		assert.True(fistOfWarOneMaxDmgEffect < build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect)
+		local expectedAverageEffect = 1 + (build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect - 1) * build.calcsTab.calcsOutput.AncestralEmpowermentCombinedUptimeRatio / 100
+		assert.are.equals(round(expectedAverageEffect, 4), round(build.calcsTab.calcsOutput.AvgAncestralEmpowermentCombinedDamageEffect, 4))
 	end)
 end)

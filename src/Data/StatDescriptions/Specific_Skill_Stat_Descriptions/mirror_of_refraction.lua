@@ -15,6 +15,39 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="A Mirror appears in your Presence every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="A Mirror appears in your Presence every {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_cooldown_modifiable_repeat_interval_ms"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -37,7 +70,7 @@ return {
 			[1]="base_mirror_of_refraction_limit"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				["gem_quality"]=true,
@@ -82,7 +115,7 @@ return {
 			[1]="base_number_of_projectiles"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				[1]={
@@ -102,66 +135,58 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="mirror_of_refraction_limit"
-		}
-	},
 	[7]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="A Mirror appears in your Presence every second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="A Mirror appears in your Presence every {0} seconds"
+				text="Modifiers to Cooldown Recovery Rate also apply to\nMirror appearance frequency"
 			}
 		},
 		stats={
-			[1]="mirror_of_refraction_placement_interval_ms"
+			[1]="cooldown_recovery_modifiers_also_apply_to_repeat_interval"
 		}
 	},
 	[8]={
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="mirror_of_refraction_limit"
 		}
 	},
 	[9]={
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="skill_effect_duration"
 		}
 	},
-	["base_mirror_of_refraction_limit"]=3,
-	["base_number_of_projectiles"]=4,
-	["base_skill_effect_duration"]=5,
-	["mirror_of_refraction_limit"]=6,
-	["mirror_of_refraction_placement_interval_ms"]=7,
+	[10]={
+		[1]={
+		},
+		stats={
+			[1]="total_number_of_projectiles_to_fire_from_stats"
+		}
+	},
+	[11]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_cooldown_modifiable_repeat_interval_ms"
+		}
+	},
+	["base_cooldown_modifiable_repeat_interval_ms"]=3,
+	["base_mirror_of_refraction_limit"]=4,
+	["base_number_of_projectiles"]=5,
+	["base_skill_effect_duration"]=6,
+	["cooldown_recovery_modifiers_also_apply_to_repeat_interval"]=7,
+	["mirror_of_refraction_limit"]=8,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=8,
-	["total_number_of_projectiles_to_fire"]=9
+	["skill_effect_duration"]=9,
+	["total_number_of_projectiles_to_fire_from_stats"]=10,
+	["virtual_cooldown_modifiable_repeat_interval_ms"]=11
 }

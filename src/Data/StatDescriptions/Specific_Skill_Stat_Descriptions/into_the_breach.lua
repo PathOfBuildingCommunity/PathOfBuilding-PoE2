@@ -37,12 +37,59 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Flame of Chayula within 5m of you are revealed"
+			}
+		},
+		stats={
+			[1]="breach_flame_spawn_radius"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Flames of Chayula have {0}% increased effect"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Flames of Chayula have {0}% reduced effect"
+			}
+		},
+		stats={
+			[1]="remnant_effect_+%"
+		}
+	},
+	[4]={
+		[1]={
 		},
 		stats={
 			[1]="virtual_remnant_duration_ms"
 		}
 	},
 	["base_remnant_duration_ms"]=1,
+	["breach_flame_spawn_radius"]=2,
 	parent="skill_stat_descriptions",
-	["virtual_remnant_duration_ms"]=2
+	["remnant_effect_+%"]=3,
+	["virtual_remnant_duration_ms"]=4
 }

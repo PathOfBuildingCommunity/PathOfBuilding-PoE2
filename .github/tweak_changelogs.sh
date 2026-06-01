@@ -37,6 +37,7 @@ sed -i 's/\[learn2draw/\[Lexy/' temp_change.md
 sed -i 's/\[Voronoff/\[Tom Clancy Is Dead/' temp_change.md
 sed -i 's/\[PJacek/\[TPlant/' temp_change.md
 sed -i 's/\[justjuangui/\[trompetin17/' temp_change.md
+sed -i 's/\[krryan/\[DragoonWraith/' temp_change.md
 
 cp temp_change.md changelog_temp.txt
 # Append existing CHANGELOG.md content (excluding first line) to temp_change.md

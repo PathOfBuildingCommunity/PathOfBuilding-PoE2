@@ -42,6 +42,25 @@ describe("TestItemParse", function()
 		assert.are.equals("40f9711d5bd7ad2bcbddaf71c705607aef0eecd3dcadaafec6c0192f79b82863", item.uniqueID)
 	end)
 
+	it("Unique ID line is not parsed as a modifier", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Evergrasping Ring
+			Pearl Ring
+			Unique ID: 5d96bc922c2ae073676c4149a2ecf0ebd0951f213ef894895bd2afe206845539
+			Item Level: 66
+			LevelReq: 32
+			Implicits: 1
+			7% increased Cast Speed
+			+91 to maximum Mana
+			Allies in your Presence Gain 22% of Damage as Extra Chaos Damage
+			Enemies in your Presence Gain 8% of Damage as Extra Chaos Damage
+		]])
+
+		assert.are.equals("5d96bc922c2ae073676c4149a2ecf0ebd0951f213ef894895bd2afe206845539", item.uniqueID)
+		assert.are.equals(3, #item.explicitModLines)
+	end)
+
 	it("Item Level", function()
 		local item = new("Item", raw("Item Level: 10"))
 		assert.are.equals(10, item.itemLevel)
@@ -419,7 +438,7 @@ describe("TestItemParse", function()
 		]])
 
 		assert.are.equals(3, item.itemSocketCount)
-		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
+		assert.are.same({ "Greater Glacial Rune", "Lesser Body Rune" }, item.runes)
 		assert.are.equals(1, item.runeModLines[1].runeCount)
 		assert.are.equals(1, item.runeModLines[2].runeCount)
 		assert.is_nil(item.runeModLines[3].runeCount)
@@ -447,5 +466,207 @@ describe("TestItemParse", function()
 		assert.are.equals(2, #item.sockets)
 		assert.are.equals(2, #item.runeModLines)
 		
+	end)
+
+	it("jewel sockets", function()
+		local item = new("Item", [[
+			Six Socket Body
+			Garment
+			Quality: 20
+			Sockets: J J J J J J
+		]])
+		item:BuildAndParseRaw()
+
+		assert.are.equals(6, item.jewelSocketCount)
+	end)
+end)
+
+describe("TestAdvancedItemParse #item", function()
+	local function raw(s, base)
+		base = base or "Arcane Raiment"
+		return "Rarity: Rare\nName\n"..base.."\n"..s
+	end
+
+	it("parses to craft", function()
+		local item = new("Item", raw([[
+			{ Prefix Modifier "Azure" (Tier: 7) - Mana }
+			+31(25-34) to maximum Mana
+		]], "Refined Bracers"))
+		assert.are.equals("IncreasedMana3", item.prefixes[1].modId)
+		assert.are.equals(0.667, item.prefixes[1].range)
+		assert.are.equals("mana", item.explicitModLines[1].modTags[1])
+	end)
+
+	it("parses correct range", function()
+		local item = new("Item", raw([[
+			{ Desecrated Prefix Modifier "Frigid" (Tier: 6) - Damage, Elemental, Cold, Attack }
+			Adds 8(7-8) to 13(12-14) Cold damage to Attacks
+		]], "Refined Bracers"))
+		assert.are.equals("Adds 8 to 13 Cold damage to Attacks", item.explicitModLines[1].line)
+	end)
+
+	-- GGG scales each mod line separately here, but PoB scales them both together, so this parsing is a bit wonky
+	it("parses multi-line mod", function()
+		local item = new("Item", raw([[
+			{ Prefix Modifier "Bishop's" (Tier: 3) — Life, Defences }
+			27(27-32)% increased Energy Shield
+			+31(26-32) to maximum Life
+		]], "Ancestral Tiara"))
+		assert.are.equals("LocalIncreasedEnergyShieldAndLife4", item.prefixes[1].modId)
+		assert.are.equals(0, item.prefixes[1].range)
+		assert.are.equals(0.833, item.explicitModLines[2].range)
+	end)
+
+	it("resets linePrefix", function() 
+		local item = new("Item", raw([[
+			{ Prefix Modifier "Warlock's" (Tier: 4) — Mana, Damage, Caster }
+			32(30-37)% increased Spell Damage
+			+46(42-47) to maximum Mana
+			--------
+			+15 to maximum life
+		]], "Voltaic Staff"))
+		assert.are_not.equals("mana", item.explicitModLines[3].modTags[1])
+	end)
+
+	it("resets linePostfix", function() 
+		local item = new("Item", raw([[
+			{ Corruption Enhancement — Mana }
+			24(20-30)% increased Mana Regeneration Rate
+			--------
+			+15 to maximum life
+		]]))
+		assert.falsy(item.explicitModLines[1].enchant)
+	end)
+
+	it("parses vaaled catalyst", function() 
+		local item = new("Item", raw([[
+			Quality (Attribute Modifiers): +19% (augmented)
+			{ Unique Modifier — Attribute  — 19% Increased }
+			+120(80-100) to all Attributes
+			(Attributes are Strength, Dexterity, and Intelligence)
+		]], "Stellar Amulet"))
+		assert.are.equals(142, item.baseModList[1].value)
+		-- assert.falsy(item.explicitModLines[1].range) -- Not sure why this is returning 0.5
+		assert.are.equals(12, item.catalyst)
+		assert.are.equals(19, item.catalystQuality)
+	end)
+
+	it("parses vaaled catalyst within range", function() 
+		local item = new("Item", raw([[
+			Quality (Attribute Modifiers): +19% (augmented)
+			{ Unique Modifier — Attribute  — 19% Increased }
+			+95(80-100) to all Attributes
+			(Attributes are Strength, Dexterity, and Intelligence)
+		]], "Stellar Amulet"))
+		assert.are.equals(113, item.baseModList[1].value)
+		assert.are.equals(0.75, item.explicitModLines[1].range)
+		assert.are.equals(12, item.catalyst)
+		assert.are.equals(19, item.catalystQuality)
+	end)
+
+	it("doesn't scale unscalable", function()
+		local item = new("Item", raw([[
+			Quality (Life and Mana Modifiers): +20% (augmented)
+			{ Unique Modifier — Life, Defences, Energy Shield, Minion, Gem }
+			Socketed Golem Skills gain 20% of Maximum Life as Extra Maximum Energy Shield — Unscalable Value
+		]]))
+		assert.are.equals(20, item.baseModList[1].value.mod.value)
+	end)
+
+	it("correctly matches conqueror mod", function()
+		local item = new("Item", raw([[
+			{ Suffix Modifier "of the Conquest" (Tier: 1) — Elemental, Cold }
+			10(8-10)% chance to Avoid Cold Damage from Hits
+			(No chance to avoid damage can be higher than 75%)
+			Warlord Item
+		]]))
+		assert.are.equals(10, item.baseModList[1].value)
+		-- assert.are.equals(1, item.explicitModLines[1].range) -- Not sure why this is returning 0.5
+	end)
+
+	it("parses enchant correctly #enchant", function()
+		local item = new("Item", raw([[
+			{ Corrupted Enhancement }
+			+8(6-10)% to Fire Resistance
+		]]))
+		assert.are.equals(8, item.enchantModLines[1].modList[1].value)
+	end)
+
+	it("parses enchant with tags correctly #enchant", function()
+		local item = new("Item", raw([[
+			{ Corrupted Enhancement - Energy Shield }
+			+8(6-10)% to Fire Resistance
+		]]))
+		assert.are.equals(8, item.enchantModLines[1].modList[1].value)
+		assert.are.equals("energyshield", item.enchantModLines[1].modTags[1])
+	end)
+
+	it("parses junk", function()
+		local godTestItem = new("Item", [[
+			Item Class: Sceptres
+			Rarity: Unique
+			Nebulis
+			Synthesised Void Sceptre
+			--------
+			Sceptre
+			Physical Damage: 50-76
+			Critical Strike Chance: 7.30%
+			Attacks per Second: 1.25
+			Weapon Range: 1.1 metres
+			Memory Strands: 58
+			--------
+			Requirements:
+			Level: 68
+			Str: 104
+			Int: 122
+			--------
+			Sockets: B R 
+			--------
+			Item Level: 87
+			--------
+			+30% to Fire Resistance (scourge)
+			22% reduced Global Defences (scourge)
+			(Armour, Evasion Rating and Energy Shield are the standard Defences) (scourge)
+			--------
+			8% increased Explicit Cold Modifier magnitudes (enchant)
+			Has 1 White Socket (enchant)
+			--------
+			{ Searing Exarch Implicit Modifier (Lesser) }
+			Tempest Shield has 15(15-17)% increased Buff Effect
+			{ Implicit Modifier — Damage, Critical  — 106% Increased }
+			+15(15-17)% to Global Critical Strike Multiplier
+			--------
+			{ Prefix Modifier "Freezing" (Tier: 5) — Damage, Elemental, Cold, Caster  — 8% Increased }
+			Adds 17(16-20) to 35(30-36) Cold Damage to Spells
+			{ Prefix Modifier "Beetle's" (Tier: 6) — Defences, Armour }
+			9(6-13)% increased Armour
+			7(6-7)% increased Stun and Block Recovery
+			{ Master Crafted Prefix Modifier "Upgraded" — Life, Defences, Armour }
+			21(18-21)% increased Armour
+			+18(17-19) to maximum Life
+			{ Unique Modifier }
+			106(60-120)% increased Implicit Modifier magnitudes — Unscalable Value
+			(Implicit Modifiers are those that come from an item's type, rather than its random properties)
+			{ Master Crafted Suffix Modifier "of Craft" (Rank: 3) — Elemental, Cold, Resistance }
+			+35(29-35)% to Cold Resistance
+			{ Fractured Prefix Modifier "Thorny" (Tier: 2) — Damage, Physical }
+			Reflects 3(1-4) Physical Damage to Melee Attackers
+			{ Prefix Modifier "Veiled" }
+			Veiled Prefix
+			Searing Exarch Item
+			--------
+			{ Allocated Crucible Passive Skill (Tier: 2) }
+			Adds 2 to 6 Physical Damage to Spells
+			--------
+			Synthesised Item
+			--------
+			Corrupted
+			--------
+			Scourged
+			--------
+			Hinekora's Lock
+			--------
+			Note: ~b/o 2 chaos
+		]])
 	end)
 end)

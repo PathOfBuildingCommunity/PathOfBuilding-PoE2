@@ -44,6 +44,27 @@ describe("TestPassiveSpec", function()
 		assert.is_true(ok, err)
 	end)
 
+	it("remaps legacy class ids only for trees before 0.4", function()
+		local function loadClass(treeVersion, classId)
+			local spec = new("PassiveSpec", build, latestTreeVersion)
+			spec.treeVersion = treeVersion
+			spec:Load({
+				attrib = {
+					title = "Legacy Class Test",
+					classId = tostring(classId),
+					ascendClassId = "0",
+					nodes = "",
+				}
+			}, "legacy_class.xml")
+			return spec.curClassName
+		end
+
+		assert.are.equals("Witch", loadClass("0_1", 3))
+		assert.are.equals("Huntress", loadClass("0_2", 1))
+		assert.are.equals("Monk", loadClass("0_3", 6))
+		assert.are.equals("Witch", loadClass("0_4", 1))
+	end)
+
 	local function allocNode(spec, nodeId, allocMode)
 		local node = spec.nodes[nodeId]
 		spec.allocMode = allocMode

@@ -5,11 +5,12 @@
 --
 local ipairs = ipairs
 local t_insert = table.insert
-local t_remove = table.remove
 local b_rshift = bit.rshift
 local band = bit.band
 local m_max = math.max
 local dkjson = require "dkjson"
+
+local tradeHelpers = LoadModule("Classes/TradeHelpers")
 
 local realmList = {
 	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
@@ -646,39 +647,57 @@ end
 
 function ImportTabClass:ImportQuestRewardConfig(questStats)
 	local configTab = self.build.configTab
-	local statLines = {}
+
+	-- Reduce a stat line to a numberless key + value (e.g. "+30 to [Spirit|Spirit]" -> "+# to spirit", 30)
+	local function statKey(text)
+		text = escapeGGGString(text):lower():gsub("^%s+", ""):gsub("%s+$", "")
+		return tradeHelpers.modLineTemplate(text), tradeHelpers.modLineValue(text) or 0
+	end
+
+	local statTotals = {}
 	for _, stat in ipairs(questStats) do
-		t_insert(statLines, escapeGGGString(stat):lower())
+		local key, value = statKey(stat)
+		statTotals[key] = (statTotals[key] or 0) + value
+	end
+
+	-- Stats shared by 3+ quests can't be split greedily (two +30 Spirit quests make 40/70 ambiguous),
+	-- so resolve those by exact total then zero their totals.
+	local disambiguation = {
+		["+# to spirit"] = {
+			[30] = { "King In The Mists" },
+			[40] = { "Lythara" },
+			[60] = { "King In The Mists", "Ignagduk" },
+			[70] = { "King In The Mists", "Lythara" },
+			[100] = { "King In The Mists", "Ignagduk", "Lythara" },
+		},
+	}
+	local resolved = {}
+	for stat, byTotal in pairs(disambiguation) do
+		local taken = byTotal[statTotals[stat] or 0]
+		if taken then
+			for _, info in ipairs(taken) do resolved[info] = true end
+			statTotals[stat] = 0
+		end
 	end
 
 	local function splitLine(text)
 		local out = {}
-		for line in text:gmatch("[^\r\n]+") do
-			line = line:gsub("^%s+", ""):lower()
-			t_insert(out, line)
+		for line in tostring(text):gmatch("[^\r\n]+") do
+			local key, value = statKey(line)
+			t_insert(out, { key = key, value = value })
 		end
 		return out
 	end
 
-	-- Ensure all required lines exist, then remove them so they can't match again
+	-- True if the totals still hold every line of the reward; consume them so a later quest can't reclaim it
 	local function matchQuest(requiredLines)
-		local indices = {}
-		for _, needed in ipairs(requiredLines) do
-			local found
-			for idx, line in ipairs(statLines) do
-				if line == needed then
-					found = idx
-					break
-				end
-			end
-			if not found then
+		for _, line in ipairs(requiredLines) do
+			if (statTotals[line.key] or 0) < line.value then
 				return false
 			end
-			t_insert(indices, found)
 		end
-		table.sort(indices, function(a, b) return a > b end)
-		for _, idx in ipairs(indices) do
-			t_remove(statLines, idx)
+		for _, line in ipairs(requiredLines) do
+			statTotals[line.key] = statTotals[line.key] - line.value
 		end
 		return true
 	end
@@ -688,7 +707,7 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
 			if quest.Stat then
-				local matches = matchQuest(splitLine(quest.Stat))
+				local matches = resolved[quest.Info] or matchQuest(splitLine(quest.Stat))
 				if configTab.input[var] ~= matches then
 					configTab.input[var] = matches
 					updated = true
@@ -863,6 +882,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.support = skillData.support
+			gemInstance.corrupted = skillData.corrupted
 
 			local spectreList = data.spectres
 			if typeLine:sub(1, 8) == "Spectre:" then
@@ -918,8 +938,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 					else
 						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
 					end
-					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
-						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
+					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption") then
+						gemInstance.corruptLevel = tonumber(skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption"))
+					else
+						gemInstance.corruptLevel = 0
 					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
@@ -1001,7 +1023,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	return charData -- For the wrapper
 end
 
-local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC" }
+local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC", [13] = "RARE" }
 local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt", ["IncursionArmLeft"] = "Arm 2", ["IncursionArmRight"] = "Arm 1", ["IncursionLegLeft"] = "Leg 2", ["IncursionLegRight"] = "Leg 1" }
 
 function ImportTabClass:ImportItem(itemData, slotName)
@@ -1129,9 +1151,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
+		item.jewelSocketCount = 0
 		for i, socket in pairs(itemData.sockets) do
-			item.sockets[i] = { }
-			item.itemSocketCount = item.itemSocketCount + 1
+			if socket.type == "jewel" then
+				item.jewelSocketCount = item.jewelSocketCount + 1
+			else
+				item.sockets[i] = { }
+				item.itemSocketCount = item.itemSocketCount + 1
+			end
 		end
 	end
 
@@ -1283,7 +1310,11 @@ end
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 	-- Build socket group list
 	for _, socketedItem in ipairs(socketedItems) do
-		t_insert(item.runes, socketedItem.baseType)
+		if isValueInTable({ "Diamond", "Emerald", "Ruby", "Sapphire" }, socketedItem.baseType) then
+			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..socketedItem.socket + 1)
+		else
+			t_insert(item.runes, socketedItem.baseType)
+		end
 	end
 end
 
