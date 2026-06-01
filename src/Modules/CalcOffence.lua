@@ -400,6 +400,10 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Calculate armour break
 	output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
+	-- Ward-sourced armour break: attack hits break X% of player's max ward as armour
+	if (actor.output.WardAttackHitPercent or 0) > 0 then
+		output.ArmourBreakPerHit = output.ArmourBreakPerHit + (actor.output.Ward or 0) * actor.output.WardAttackHitPercent / 100
+	end
 
 	local function getSkillNameFromFlag(skillModList, flag)
 		local sourceMod = skillModList:Tabulate("FLAG", nil, flag)

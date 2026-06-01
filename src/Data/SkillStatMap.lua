@@ -3095,4 +3095,10 @@ return {
 ["recover_x_ward_on_charm_use"] = {
 	mod("WardRecoverOnCharmUse", "BASE"),
 },
+["ward_regeneration_rate_+%"] = {
+	mod("WardRegen", "INC"),
+},
+["ward_rune_maximum_ward_+%_final"] = {
+	mod("Ward", "MORE"),
+},
 }

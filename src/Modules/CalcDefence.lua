@@ -566,10 +566,13 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				resourcesLostToTypeDamage[damageType].sharedGuard = tempDamage >= 1 and tempDamage or nil
 			end
 			if ward > 0 then
-				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100), ward)
-				ward = ward - tempDamage
-				damageRemainder = damageRemainder - tempDamage
-				resourcesLostToTypeDamage[damageType].ward = tempDamage >= 1 and tempDamage or nil
+				local wardBypassFraction = (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100
+				local runeWardDrainMult = 1 + (output.RuneWardDamageTaken or 0) / 100
+				-- Player is shielded for absorbedByPlayer; ward pool loses absorbedByPlayer * drainMult
+				local absorbedByPlayer = m_min(damageRemainder * (1 - wardBypassFraction), ward / runeWardDrainMult)
+				ward = ward - absorbedByPlayer * runeWardDrainMult
+				damageRemainder = damageRemainder - absorbedByPlayer
+				resourcesLostToTypeDamage[damageType].ward = absorbedByPlayer >= 1 and absorbedByPlayer or nil
 			end
 			damageRemaindersBeforeES[damageType] = damageRemainder > 0 and damageRemainder or nil
 		end
@@ -3144,6 +3147,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit * (gainMult - 1), gainMult * (output.LifeRecoverable or 0))
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1), gainMult * (output.ManaUnreserved or 0))
 				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1), gainMult * output.EnergyShieldRecoveryCap)
+				poolTable.Ward = m_min((poolTable.Ward or 0) + (DamageIn.WardWhenHit or 0) * (gainMult - 1), gainMult * (output.Ward or 0))
 			end
 			poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
 
@@ -3155,6 +3159,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.ManaUnreserved or 0)
 				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit, output.EnergyShieldRecoveryCap)
+				poolTable.Ward = m_min((poolTable.Ward or 0) + (DamageIn.WardWhenHit or 0), output.Ward or 0)
 			end
 			iterationMultiplier = 1
 			-- to speed it up, run recursively but accelerated
@@ -3173,6 +3178,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
 					Damage.ManaWhenHit = DamageIn.ManaWhenHit
 					Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
+					Damage.WardWhenHit = DamageIn.WardWhenHit
 				end
 				Damage["cycles"] = DamageIn["cycles"] * speedUp
 				Damage["iterations"] = DamageIn["iterations"]
@@ -3239,6 +3245,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.LifeWhenHit = output.LifeOnBlock * BlockChance
 				DamageIn.ManaWhenHit = output.ManaOnBlock * BlockChance
 				DamageIn.EnergyShieldWhenHit = output.EnergyShieldOnBlock * BlockChance
+				DamageIn.WardWhenHit = (output.WardRecoverOnBlock or 0) * BlockChance
 				if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
 					DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock * BlockChance
 				elseif damageCategoryConfig == "Average" then
@@ -3270,13 +3277,15 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			-- gain when hit (currently just gain on block/suppress)
 			if not env.configInput.DisableEHPGainOnBlock then
-				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0 or DamageIn.EnergyShieldWhenHit ~= 0 then
+				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0
+						or (DamageIn.EnergyShieldWhenHit or 0) ~= 0 or (DamageIn.WardWhenHit or 0) ~= 0 then
 					DamageIn.GainWhenHit = true
 				end
 			else
 				DamageIn.LifeWhenHit = 0
 				DamageIn.ManaWhenHit = 0
 				DamageIn.EnergyShieldWhenHit = 0
+				DamageIn.WardWhenHit = 0
 			end
 			for _, damageType in ipairs(dmgTypeList) do
 				 -- Emperor's Vigilance (this needs to fail with divine flesh as it can't override it, hence the check for high bypass)
@@ -3972,7 +3981,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetLifeRegen = output.NetLifeRegen - totalLifeDegen
 			output.NetManaRegen = output.NetManaRegen - totalManaDegen
 			output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
-			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
+			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen + (output.WardRegen or 0)
 			if breakdown then
 				t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
 				t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
@@ -3987,6 +3996,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					s_format("Net Life Regen: %.1f", output.NetLifeRegen),
 					s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
 					s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
+					output.WardRegen and output.WardRegen > 0 and s_format("+ Ward Regen: %.1f", output.WardRegen) or nil,
 					s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
 				}
 			end
@@ -4214,7 +4224,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				output.ComprehensiveNetLifeRegen = output.ComprehensiveNetLifeRegen + (output.LifeRecoupRecoveryAvg or 0) - totalLifeDegen - (output.LifeLossLostAvg or 0)
 				output.ComprehensiveNetManaRegen = output.ComprehensiveNetManaRegen + (output.ManaRecoupRecoveryAvg or 0) - totalManaDegen
 				output.ComprehensiveNetEnergyShieldRegen = output.ComprehensiveNetEnergyShieldRegen + (output.EnergyShieldRecoupRecoveryAvg or 0) - totalEnergyShieldDegen
-				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetEnergyShieldRegen
+				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetEnergyShieldRegen + (output.WardRegen or 0)
 				if breakdown then
 					t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
 					if (output.LifeRecoupRecoveryAvg or 0) ~= 0 then
@@ -4241,6 +4251,7 @@ function calcs.buildDefenceEstimations(env, actor)
 						s_format("Net Life Regen: %.1f", output.ComprehensiveNetLifeRegen),
 						s_format("+ Net Mana Regen: %.1f", output.ComprehensiveNetManaRegen),
 						s_format("+ Net Energy Shield Regen: %.1f", output.ComprehensiveNetEnergyShieldRegen),
+						output.WardRegen and output.WardRegen > 0 and s_format("+ Ward Regen: %.1f", output.WardRegen) or nil,
 						s_format("= Total Net Regen: %.1f", output.ComprehensiveTotalNetRegen)
 					}
 				end
