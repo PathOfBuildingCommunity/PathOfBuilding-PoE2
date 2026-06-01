@@ -93,7 +93,7 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_herald_of_blood_bleeding_enemies_explode_for_%_blood_loss_as_unscalable_physical_damage",
+			[1]="skill_herald_bleeding_enemies_explode_for_%_blood_loss_as_unscalable_physical_damage",
 			[2]="quality_display_herald_of_blood_is_gem"
 		}
 	},
@@ -119,6 +119,6 @@ return {
 	["display_herald_of_blood_behaviour"]=4,
 	parent="skill_stat_descriptions",
 	["quality_display_herald_of_blood_is_gem"]=5,
-	["skill_herald_of_blood_bleeding_enemies_explode_for_%_blood_loss_as_unscalable_physical_damage"]=5,
+	["skill_herald_bleeding_enemies_explode_for_%_blood_loss_as_unscalable_physical_damage"]=5,
 	["skill_herald_of_blood_explosion_aggravate_bleeding_chance_%"]=6
 }

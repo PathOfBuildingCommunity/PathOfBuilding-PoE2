@@ -134,7 +134,7 @@ directiveTable.skill = function(state, args, out)
 	local secondaryEffect
 	if not gemEffect then
 		gemEffect = dat("GemEffects"):GetRow("AdditionalGrantedEffects", granted)
-		if gemEffect then 
+		if gemEffect then
 			secondaryEffect = true
 		end
 	end
@@ -180,7 +180,7 @@ directiveTable.skill = function(state, args, out)
 			gemLevels = 1
 		else
 			skill.displayName = secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
-			out:write('\tname = "', skill.displayName, '",\n')
+			out:write('\tname = "', sanitiseText(skill.displayName), '",\n')
 			-- Hybrid gems (e.g. Vaal gems) use the display name of the active skill e.g. Vaal Summon Skeletons of Sorcery
 			out:write('\tbaseTypeName = "', granted.ActiveSkill.DisplayName, '",\n')
 		end
@@ -188,9 +188,12 @@ directiveTable.skill = function(state, args, out)
 		if displayName == args and not granted.IsSupport then
 			displayName = gemEffect and trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
 		end
-		skill.displayName = displayName
+		skill.displayName = sanitiseText(displayName)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
+	end
+	if granted.ActiveSkill and granted.ActiveSkill.Icon then
+		out:write('\ticon = "', granted.ActiveSkill.Icon, '",\n')
 	end
 	if state.fromSpec then
 		out:write('\tfrom' .. state.fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
@@ -457,7 +460,7 @@ directiveTable.skillEnd = function(state, args, out)
 end
 
 -- #set <GrantedEffectStatSetsId>
--- Initialises the statSet data and emits information pertaining to statSet 
+-- Initialises the statSet data and emits information pertaining to statSet
 directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
@@ -493,25 +496,25 @@ directiveTable.set = function(state, args, out)
 		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
 		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
 		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
-		
+
 		if grantedEffectStatSet.BaseEffectiveness == 1 then
-			grantedEffectStatSet.BaseEffectiveness = skill.baseGrantedEffectStatSet.BaseEffectiveness 
+			grantedEffectStatSet.BaseEffectiveness = skill.baseGrantedEffectStatSet.BaseEffectiveness
 		end
 		if grantedEffectStatSet.IncrementalEffectiveness == 0 then
-			grantedEffectStatSet.IncrementalEffectiveness = skill.baseGrantedEffectStatSet.IncrementalEffectiveness 
+			grantedEffectStatSet.IncrementalEffectiveness = skill.baseGrantedEffectStatSet.IncrementalEffectiveness
 		end
 		if grantedEffectStatSet.DamageIncrementalEffectiveness == 0 then
-			grantedEffectStatSet.DamageIncrementalEffectiveness = skill.baseGrantedEffectStatSet.DamageIncrementalEffectiveness 
+			grantedEffectStatSet.DamageIncrementalEffectiveness = skill.baseGrantedEffectStatSet.DamageIncrementalEffectiveness
 		end
 	end
-	
+
 	local statMap = { }
 	local statMapOrder = {}
 
 	for indx = 1, #statsPerLevel do
 		local statRow = statsPerLevel[indx]
 		local baseStatRow = skill.baseStatRow[indx]
-		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 } 
+		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 }
 		level.level = statRow.GemLevel
 		-- stat based level info
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then

@@ -51,7 +51,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% of repeated Skill's cast time is added to this skill's cooldown"
+				text="{0}% of Empowered Skill's cast time is added to this Skill's cooldown"
 			}
 		},
 		stats={
@@ -67,7 +67,7 @@ return {
 						[2]=1
 					}
 				},
-				text="Empowered Spell repeats an additional time"
+				text="Empowered Spell Repeats {0} additional time"
 			},
 			[2]={
 				limit={
@@ -76,7 +76,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Empowered Spell repeats {0} times"
+				text="Empowered Spell Repeats {0} times"
 			}
 		},
 		stats={

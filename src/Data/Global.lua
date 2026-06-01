@@ -10,7 +10,8 @@ colorCodes = {
 	RARE = "^xFFFF77",
 	UNIQUE = "^xAF6025",
 	RELIC = "^x60C060",
-	GEM = "^x1AA29B",
+	GEM = "^x74CABF",
+	GEMINFO = "^x6F9A98",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
 	ENCHANTED = "^xB8DAF1",
@@ -111,10 +112,10 @@ function OR64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- OR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -122,15 +123,15 @@ function OR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform OR operation on both parts
         local high = bit.bor(ah, bh)
         local low = bit.bor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -139,10 +140,10 @@ function AND64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- AND with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -150,15 +151,15 @@ function AND64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform AND operation on both parts
         local high = bit.band(ah, bh)
         local low = bit.band(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -167,10 +168,10 @@ function XOR64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- XOR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -178,15 +179,15 @@ function XOR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform XOR operation on both parts
         local high = bit.bxor(ah, bh)
         local low = bit.bxor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -194,15 +195,15 @@ function NOT64(a)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
     local al = a % 0x100000000
-    
+
     -- Perform NOT operation on both parts
     local high = bit.bnot(ah)
     local low = bit.bnot(al)
-    
+
     -- Convert negative numbers to their unsigned equivalents
     if high < 0 then high = high + 0x100000000 end
     if low < 0 then low = low + 0x100000000 end
-    
+
     -- Use bit operations to combine the results
     -- This avoids potential floating-point precision issues
     return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
@@ -212,7 +213,7 @@ function strHex64(value)
     -- Split into high and low 32-bit parts
     local high = math.floor(value / 0x100000000)
     local low = value % 0x100000000
-    
+
     -- Stringify as two 8-digit hex values
     return string.format("0x%08X%08X", high, low)
 end
@@ -224,6 +225,7 @@ ModFlag.Spell =		 0x0000000000000002
 ModFlag.Hit =		 0x0000000000000004
 ModFlag.Dot =		 0x0000000000000008
 ModFlag.Cast =		 0x0000000000000010
+ModFlag.Thorns =	 0x0000000000000020
 -- Damage sources
 ModFlag.Melee =		 0x0000000000000100
 ModFlag.Area =		 0x0000000000000200
@@ -338,7 +340,7 @@ function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 end
 
 -- Active skill types, used in ActiveSkills.dat and GrantedEffects.dat
--- Names taken from ActiveSkillType.dat as of PoE 3.17
+-- Names taken from ActiveSkillType.dat
 SkillType = {
 	Attack = 1,
 	Spell = 2,
@@ -423,7 +425,7 @@ SkillType = {
 	CanHaveBlessing = 81,
 	ProjectilesNotFromUser = 82,
 	AttackInPlace = 83,
-	AttackInPlaceIsDefault = 83,
+	AttackInPlaceIsDefault = 84,
 	Nova = 85,
 	InstantNoRepeatWhenHeld = 86,
 	InstantShiftAttackForLeftMouse = 87,
@@ -473,61 +475,61 @@ SkillType = {
 	ConsumesCharges = 131,
 	ManualCooldownConsumption = 132,
 	SupportedByHourglass = 133,
-	ConsumesFullyBrokenArmour = 134,
-	SkillConsumesFreeze = 135,
-	SkillConsumesIgnite = 136,
-	SkillConsumesShock = 137,
-	Wall = 138,
-	Persistent = 139,
-	UsableWhileMoving = 140,
-	CanBecomeArrowRain = 141,
-	MultipleReservation = 142,
-	SupportedByElementalDischarge = 143,
-	Limit = 144,
-	Singular = 145,
-	GeneratesCharges = 146,
-	EmpowersOtherSkill = 147,
-	PerformsFinalStrike = 148,
-	PerfectTiming = 149,
-	CanHaveMultipleOngoingSkillInstances = 150,
-	Sustained = 151,
-	ComboStacking = 152,
-	SupportedByComboFinisher = 153,
-	Offering = 154,
-	Retaliation = 155,
-	Shapeshift = 156,
-	Invocation = 157,
-	Grenade = 158,
-	NoDualWield = 159,
-	QuarterstaffSkill = 160,
-	SupportedByFountains = 161,
-	Jumping = 162,
-	CannotChain = 163,
-	CreatesGroundRune = 164,
-	CreatesFissure = 165,
-	SummonsAttackTotem = 166,
-	NonWeaponAttack = 167,
-	CreatesGroundEffect = 168,
-	SupportedByComboMastery = 169,
-	IceCrystal = 170,
-	SkillConsumesPowerChargesOnUse = 171,
-	SkillConsumesFrenzyChargesOnUse = 172,
-	SkillConsumesEnduranceChargesOnUse = 173,
-	SupportedByFerocity = 174,
-	SupportedByPotential = 175,
-	ProjectileNoCollision = 176,
-	SupportedByExcise = 177,
-	SupportedByExpanse = 178,
-	SupportedByExecrate = 179,
-	IsBlasphemy = 180,
-	PersistentShowsCastTime = 181,
-	GeneratesEnergy = 182,
-	GeneratesRemnants = 183,
-	CommandableMinion = 184,
-	Bow = 185,
-	AffectsPresence = 186,
-	GainsStages = 187,
-	HasSeals = 188,
+	SupportedByBreachlordsAmalgam = 134,
+	ConsumesFullyBrokenArmour = 135,
+	SkillConsumesFreeze = 136,
+	SkillConsumesIgnite = 137,
+	SkillConsumesShock = 138,
+	Wall = 139,
+	Persistent = 140,
+	UsableWhileMoving = 141,
+	CanBecomeArrowRain = 142,
+	MultipleReservation = 143,
+	SupportedByElementalDischarge = 144,
+	Limit = 145,
+	Singlular = 146,
+	GeneratesCharges = 147,
+	EmpowersOtherSkill = 148,
+	PerformsFinalStrike = 149,
+	PerfectTiming = 150,
+	CanHaveMultipleOngoingSkillInstances = 151,
+	Sustained = 152,
+	ComboStacking = 153,
+	SupportedByComboFinisher = 154,
+	Offering = 155,
+	Retaliation = 156,
+	Shapeshift = 157,
+	Invocation = 158,
+	Grenade = 159,
+	NoDualWield = 160,
+	Jumping = 161,
+	CannotChain = 162,
+	CreatesGroundRune = 163,
+	CreatesFissure = 164,
+	SummonsAttackTotem = 165,
+	NonWeaponAttack = 166,
+	CreatesGroundEffect = 167,
+	SupportedByComboMastery = 168,
+	IceCrystal = 169,
+	SkillConsumesPowerChargesOnUse = 170,
+	SkillConsumesFrenzyChargesOnUse = 171,
+	SkillConsumesEnduranceChargesOnUse = 172,
+	SupportedByFerocity = 173,
+	SupportedByPotential = 174,
+	ProjectileNoCollision = 175,
+	SupportedByExcise = 176,
+	SupportedByExpanse = 177,
+	SupportedByExecrate = 178,
+	IsBlasphemy = 179,
+	PersistentShowsCastTime = 180,
+	GeneratesEnergy = 181,
+	GeneratesRemnants = 182,
+	CommandableMinion = 183,
+	Bow = 184,
+	AffectsPresence = 185,
+	GainsStages = 186,
+	HasSeals = 187,
+	SupportedByExpand = 188,
 	SupportedByUnleash = 189,
 	SupportedBySalvo = 190,
 	Spear = 191,
@@ -581,24 +583,43 @@ SkillType = {
 	FrozenSpite = 239,
 	ObjectDurability = 240,
 	Detonator = 241,
-	SupportedByOverabundanceThree = 242,
-	UnlimitedTotems = 243,
-	SupportedByHaemoCrystals = 244,
-	SupportedByFlamePillar = 245,
-	CanCreateStoneElementals = 246,
-	RemnantCannotBeShared = 247,
-	GamepadDoNotForceSkillAtLocation = 248,
-	GamepadDeflectable = 249,
-	GamepadForceAllowInteraction = 250,
-	Wyvern = 251,
-	Plant = 252,
-	Wind = 253,
-	SupportedByHayoxi = 254,
-	Storm = 255,
-	DisableUpdateActionLocationAfterRelease = 256,
-	InteractsWithElementalGround = 257,
-	SupportedByNovaProjectiles = 258,
-	Proxy = 259,
+	UnlimitedTotems = 242,
+	SupportedByHaemoCrystals = 243,
+	SupportedByFlamePillar = 244,
+	CanCreateStoneElementals = 245,
+	RemnantCannotBeShared = 246,
+	GamepadDoNotForceSkillAtLocation = 247,
+	GamepadDeflectable = 248,
+	GamepadForceAllowInteraction = 249,
+	Wyvern = 250,
+	Plant = 251,
+	Wind = 252,
+	SupportedByHayoxi = 253,
+	Storm = 254,
+	DisableUpdateActionLocationAfterRelease = 255,
+	InteractsWithElementalGround = 256,
+	SupportedByNovaProjectiles = 257,
+	UsedByProxy = 258,
+	SupportedByEchoingCry = 259,
+	SpecialAncestralBoost = 260,
+	Runic = 261,
+	ActiveBlock = 262,
+	SupportedByVruunsInevitablity = 263,
+	SupportedByTulsAvalanche = 264,
+	IndeterminateEmpowermentAmount = 265,
+	GamepadDoNotChannelSkillAtLocation = 266,
+	AffectedByCooldownRate = 267,
+	UsedByClone = 268,
+	SupportedByAncestralWarriorTotem = 269,
+	SupportedBySpellTotem = 270,
+	SupportedByBallistaTotem = 271,
+	SupportedByMortarTotem = 272,
+	SupportedByFeralInvocation = 273,
+	SupportedByMirageArcher = 274,
+	SupportedByMirageDeadeye = 275,
+	SupportedByHollowForm = 276,
+	SupportedByAnimusSplinters = 277,
+	HasNoCost = 278,
 }
 
 -- build reverse lookup
@@ -607,7 +628,7 @@ for k, v in pairs(SkillType) do
   SkillTypeName[v] = k
 end
 
-GlobalCache = { 
+GlobalCache = {
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 }
 

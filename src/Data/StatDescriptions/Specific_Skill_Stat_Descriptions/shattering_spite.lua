@@ -112,22 +112,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life Leech from Explosions with at least 15 Bloodstone Lances is instant"
-			}
-		},
-		stats={
-			[1]="skill_specific_stat_description_mode"
-		}
-	},
-	[7]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Bloodstone Lances are shattered based on {0}% of your Presence area"
 			}
 		},
@@ -139,8 +123,7 @@ return {
 	["active_skill_base_area_of_effect_radius"]=2,
 	["damage_per_bloodstone_lance_+%_final"]=3,
 	parent="skill_stat_descriptions",
-	["shattering_spite_%_of_presence_radius"]=7,
+	["shattering_spite_%_of_presence_radius"]=6,
 	["shattering_spite_area_+%_per_lance_with_at_least_5_lances"]=4,
-	["shattering_spite_life_leech_%_with_10_lances"]=5,
-	["skill_specific_stat_description_mode"]=6
+	["shattering_spite_life_leech_%_with_10_lances"]=5
 }

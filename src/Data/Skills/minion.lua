@@ -9,6 +9,7 @@ local skills, mod, flag, skill = ...
 skills["MeleeAtAnimationSpeed"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -42,6 +43,7 @@ skills["MeleeAtAnimationSpeed"] = {
 skills["MinionMelee"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -73,6 +75,7 @@ skills["MinionMelee"] = {
 skills["MinionMeleeStep"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -107,6 +110,7 @@ skills["MinionMeleeStep"] = {
 skills["MinionMeleeBow"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -143,10 +147,12 @@ skills["MinionMeleeBow"] = {
 skills["GasShotSkeletonSniperMinion"] = {
 	name = "Gas Arrow",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WitchArcherSkeleton.dds",
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.MirageArcherCanUse] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0.001 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -248,6 +254,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 skills["BoneshatterBruteMinion"] = {
 	name = "Bonebreaker",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BruteBoneshatter.dds",
 	description = "A Strike that causes a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -264,6 +271,7 @@ skills["BoneshatterBruteMinion"] = {
 			baseFlags = {
 				attack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_range_+", 2 },
@@ -271,6 +279,7 @@ skills["BoneshatterBruteMinion"] = {
 			},
 			stats = {
 				"crushing_blow",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -302,6 +311,7 @@ skills["BoneshatterBruteMinion"] = {
 skills["ShatteringRoarSkeletalBruteMinion"] = {
 	name = "Shattering Roar",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WitchBruteSkeleton.dds",
 	description = "Command a Skeletal Brute to use a Warcry, Intimidating nearby enemies and Consuming Freeze on enemies and allies to deal damage in an Area around them.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Minion] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillConsumesFreeze] = true, },
 	castTime = 1,
@@ -384,6 +394,7 @@ skills["ShatteringRoarSkeletalBruteMinion"] = {
 skills["ArcSkeletonMageMinion"] = {
 	name = "Arc",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressArc.dds",
 	description = "An arc of Lightning stretches from the caster to a targeted enemy and Chains on to other nearby enemies. Shocked enemies Hit release damaging pulses.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, },
 	castTime = 1.25,
@@ -429,6 +440,7 @@ skills["ArcSkeletonMageMinion"] = {
 skills["DeathStormSkeletonStormMageMinion"] = {
 	name = "Death Storm",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WitchStormSkeleton.dds",
 	description = "Lightning bolts strike all fallen Skeletons in the area, creating Shocked Ground around them.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 2,
@@ -477,6 +489,7 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 skills["FrostBoltSkeletonMageMinion"] = {
 	name = "Ice Shard",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/FreezingBolts.dds",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
@@ -557,6 +570,7 @@ skills["FrostBoltSkeletonMageMinion"] = {
 skills["IceArmourSkeletonMageMinion"] = {
 	name = "Ice Armour",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WitchFrostSkeleton.dds",
 	description = "Command a Skeletal Frost Mage to target a location or Minion and apply Ice Armour to Minions in an area, reducing damage taken from Hits, causing damage to enemies that Hit them, and counting as Frozen for other effects.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 1,
@@ -634,6 +648,7 @@ skills["IceArmourSkeletonMageMinion"] = {
 skills["HealSkeletonClericMinion"] = {
 	name = "Heal Buff",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -703,6 +718,7 @@ skills["HealSkeletonClericMinion"] = {
 skills["FireBombSkeletonMinion"] = {
 	name = "Fire Bomb",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ExplosiveGrenade.dds",
 	description = "Attacks with a bouncing bomb that explodes on hit.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -769,6 +785,7 @@ skills["FireBombSkeletonMinion"] = {
 skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	name = "Explosive Demise",
 	baseTypeName = "Explosive Demise",
+	icon = "Art/2DArt/SkillIcons/WitchArsonistSkeleton.dds",
 	color = 2,
 	description = "Detonate an allied Minion whose current Life is below a threshold, dealing heavy Attack damage to nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, },
@@ -890,6 +907,7 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 skills["EnrageSkeletonReaverMinion"] = {
 	name = "Enrage",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WitchReaverSkeleton.dds",
 	description = "Enrage all Skeletal Reavers, causing them to lose life over time and gain Rage on hit.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -928,6 +946,7 @@ skills["EnrageSkeletonReaverMinion"] = {
 skills["GAAncestralJadeHulkLeapImpact"] = {
 	name = "Leap Slam",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -956,6 +975,7 @@ skills["GAAncestralJadeHulkLeapImpact"] = {
 skills["TCAncestralLeagueKaruiHulk"] = {
 	name = "Shield Charge",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconshieldcharge.dds",
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
@@ -999,6 +1019,7 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 	name = "Projectile Spell",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/passives/MaceNotable2.dds",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
@@ -1075,6 +1096,7 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 skills["GAAnimateWeaponMaceSlam"] = {
 	name = "Mace Slam",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1104,6 +1126,7 @@ skills["GAAnimateWeaponMaceSlam"] = {
 skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 	name = "Spear Dash",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1134,6 +1157,7 @@ skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 skills["GAAnimateWeaponQuarterstaffSweep"] = {
 	name = "Quarterstaff Sweep",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1163,6 +1187,7 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 skills["RavenousSwarmAttack"] = {
 	name = "Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1270,6 +1295,7 @@ skills["RavenousSwarmAttack"] = {
 skills["LivingLightningZap"] = {
 	name = "Zap",
 	hidden = true,
+	icon = "",
 	description = "Teleport to a target, dealing Lightning Attack Damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.CannotTerrainChain] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1308,7 +1334,8 @@ skills["LivingLightningZap"] = {
 skills["DeathFromAboveDaemonMinion"] = {
 	name = "Death From Above",
 	hidden = true,
-	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	icon = "Art/2DArt/SkillIcons/TacticianDeathFromAboveSkillIcon.dds",
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one, then launches a series of arrow volleys centred around the flare.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1346,7 +1373,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
-				"modifiers_to_projectile_count_do_not_apply",
+				"base_modifiers_to_projectile_count_do_not_apply",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1357,6 +1384,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 skills["HyenaCompanionMelee"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1391,6 +1419,7 @@ skills["HyenaCompanionMelee"] = {
 skills["MeleeAtAnimationSpeedWolfCompanion"] = {
 	name = "Basic Attack",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1424,6 +1453,7 @@ skills["MeleeAtAnimationSpeedWolfCompanion"] = {
 skills["WolfLeapAttackMinion"] = {
 	name = "Leap Slam",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BruteLeapSlam.dds",
 	description = "Jump into the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
@@ -1468,6 +1498,7 @@ skills["WolfLeapAttackMinion"] = {
 skills["CorpseBeetleExplode"] = {
 	name = "Sandblast",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSandDjinnCorpseBeetles.dds",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1514,6 +1545,7 @@ skills["CorpseBeetleExplode"] = {
 skills["WaterBubbleWaterDjinn"] = {
 	name = "Navira's Embrace",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSummonWaterDjinn.dds",
 	description = "Command Navira to create a bubble shield which absorbs a portion of the damage dealt by enemies standing outside the shield. The maximum amount of damage that can be absorbed is based on your maximum Mana. If the shield is destroyed by damage, it collapses into a patch of Chilled Ground.",
 	skillTypes = { [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
@@ -1560,6 +1592,7 @@ skills["WaterBubbleWaterDjinn"] = {
 skills["ChilledGroundBurstWaterDjinn"] = {
 	name = "Navira's Fracturing",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressWaterDjinnChiilldedGroundBurst.dds",
 	description = "Command Navira to fracture all nearby areas of Chilled Ground that have enemies standing on them, doing high Spell damage with extreme Freeze potential.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
@@ -1607,6 +1640,7 @@ skills["ChilledGroundBurstWaterDjinn"] = {
 skills["ESRechargeForceRestartWaterDjinn"] = {
 	name = "Navira's Well",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressWaterDjinnESRechargeCommand.dds",
 	description = "Command Navira to bolster your Energy Shield, causing it to begin Recharging immediately and granting you increased Energy Shield Recharge Rate for a duration.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.1,
@@ -1643,6 +1677,7 @@ skills["ESRechargeForceRestartWaterDjinn"] = {
 skills["ChilledGroundOasisConvertWaterDjinn"] = {
 	name = "Navira's Oasis",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressWaterDjinnCommandOasis.dds",
 	description = "Command Navira to turn nearby Chilled Ground into Navira's Oasis, a mirage which grants you and Allies standing in it Flask charges and damage Recouped as Life and Mana. Plants in the area become Overgrown.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.8,
@@ -1683,6 +1718,7 @@ skills["ChilledGroundOasisConvertWaterDjinn"] = {
 skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 	name = "Navira's Calming",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSummonWaterDjinn.dds",
 	description = "When you Command Navira to use a Skill, she also emits a restorative wave that grants you and any other Allies it touches increased Mana Regeneration for a short duration.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
@@ -1708,6 +1744,7 @@ skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 			stats = {
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"monster_skill_triggered_by_geal",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1719,6 +1756,7 @@ skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 skills["LivingBombFireDjinn"] = {
 	name = "Ruzhan's Brand",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSummonFireDjinn.dds",
 	description = "Command Ruzhan to place a fiery brand on an enemy. After a delay or when Detonated, the brand explodes, dealing Spell damage to enemies caught in the blast.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Fire] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Limit] = true, },
 	castTime = 0.6,
@@ -1767,6 +1805,7 @@ skills["LivingBombFireDjinn"] = {
 skills["FireRuneFireDjinn"] = {
 	name = "Ruzhan's Trap",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressFireDjinnFlameRunes.dds",
 	description = "Command Ruzhan to hurl his greatsword, spreading hazardous runes on the ground where it lands. If an enemy steps on a rune, it erupts in a fiery tornado that deals Spell damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Hazard] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.SingleMainProjectile] = true, [SkillType.CannotChain] = true, [SkillType.CannotTerrainChain] = true, [SkillType.Limit] = true, },
 	castTime = 1,
@@ -1891,6 +1930,7 @@ skills["FireRuneFireDjinn"] = {
 skills["MeteorFireDjinn"] = {
 	name = "Ruzhan's Reckoning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressFireDjinnMeteoricSlam.dds",
 	description = "Command Ruzhan to teleport to the target location. Upon arrival, the Djinn deals Spell damage to enemies around him then slams his blazing sword into the ground, creating a wave of lava that also deals Spell damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Cooldown] = true, [SkillType.Cascadable] = true, [SkillType.Detonator] = true, },
 	castTime = 2.3,
@@ -1969,6 +2009,7 @@ skills["MeteorFireDjinn"] = {
 skills["MassFusilladeFireDjinn"] = {
 	name = "Ruzhan's Fury",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressFireDjinnEmberSlash.dds",
 	description = "Command Ruzhan to conjure two volleys of flaming embers and fire them forward. The embers explode on impact, dealing Spell damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Spell] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, },
 	castTime = 2.3,
@@ -2054,6 +2095,7 @@ skills["MassFusilladeFireDjinn"] = {
 skills["FlameSliceFireDjinn"] = {
 	name = "Ruzhan's Zealotry",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSummonFireDjinn.dds",
 	description = "When you use a damaging Skill, Ruzhan emerges to Strike enemies near your target with zealous fervour, inflicting Exposure.",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cooldown] = true, [SkillType.MeleeSingleTarget] = true, },
 	castTime = 1,
@@ -2093,6 +2135,7 @@ skills["FlameSliceFireDjinn"] = {
 skills["KnifeThrowSandDjinn"] = {
 	name = "Kelari's Brutality",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSummonSandDjinn.dds",
 	description = "Command Kelari to throw a volley of knives at the target location. The knives burrow into the ground, then erupt into the air after a short delay, dealing Spell damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.Projectile] = true, [SkillType.CannotChain] = true, [SkillType.GroundTargetedProjectile] = true, },
 	castTime = 0.8,
@@ -2178,6 +2221,7 @@ skills["KnifeThrowSandDjinn"] = {
 skills["ExplosiveTeleportSandDjinn"] = {
 	name = "Kelari's Deception",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSandDjinnExplosiveTeleport.dds",
 	description = "Command Kelari to create a blast at the target location that deals Spell damage, and leave behind a clone that persists for a short duration. This skill can store multiple charges, and using it again while a clone from a previous use is still alive causes that clone to explode, dealing even more damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.8,
@@ -2260,6 +2304,7 @@ skills["ExplosiveTeleportSandDjinn"] = {
 skills["HandSlamSandDjinn"] = {
 	name = "Kelari's Judgment",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressSandDjinnDaggerslamSkill.dds",
 	description = "Channel and Command Kelari to Channel alongside you, creating blades that hang over the target location. The longer you Channel, the more blades Kelari will create. Upon release, his blades plunge into the ground and create shockwaves that deal Spell damage.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, [SkillType.GainsStages] = true, },
 	castTime = 0.5,
@@ -2305,6 +2350,135 @@ skills["HandSlamSandDjinn"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ApplyTangmazuSwarmAuraPlayer"] = {
+	name = "Winged Entropy",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	description = "The Flock damages enemies around you.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Winged Entropy",
+			baseEffectiveness = 7.1999998092651,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "apply_tangmazu_swarm_aura",
+			statMap = {
+				["flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+				["flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+			},
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "skill_desired_amount_override", 1 },
+				{ "flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"base_chaos_damage_to_deal_per_minute",
+				"base_physical_damage_to_deal_per_minute",
+				"display_statset_no_hit_damage",
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { 26.666667660077, 6.6666669150194, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TangmazuMadFlightMinion"] = {
+	name = "Mad Flight",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RoostOfTheRavenKingCommand.dds",
+	description = "Command part of your flock to leave and crash through a set of illusory mirrors, Attacking enemies in the area between the mirrors with frequent Hits.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 5.5, cooldown = 10, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mad Flight",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tangmazu_mad_flight",
+			baseFlags = {
+				attack = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 22 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 70 },
+				{ "base_skill_effect_duration", 5000 },
+				{ "tangmazu_mad_flight_damage_tick_delay_ms", 120 },
+				{ "display_commanded_skill_ravens_expended", 10 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 70 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"is_area_damage",
+				"skill_does_not_pathfind",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
