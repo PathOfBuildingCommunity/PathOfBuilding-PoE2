@@ -1908,16 +1908,24 @@ function ItemsTabClass:UpdateRuneControls()
 	for _, rune in pairs(runeModLines) do
 		local subType = item.base.subType and item.base.subType:lower()
 		local itemType = item.base.type:lower()
-		if rune.slot == "None" or -- Needed "None" for Items Tab
-			(subType == "warstaff" and rune.slot == "warstaff") or
-			(itemType == "shield" and subType == "evasion" and rune.slot == "buckler") or
-			(subType and subType ~= "warstaff" and not (itemType == "shield" and subType == "evasion") and (
-				item.base.type:lower() == rune.slot or
-				item.base.type == rune.slot
-			)) or
-			item.base.weapon and rune.slot == "weapon" or
-			item.base.armour and rune.slot == "armour" or
-			(item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre) and rune.slot == "caster" then
+		local function isRuneValidForSlot(runeSlot)
+			if runeSlot == "None" then
+				return true
+			elseif runeSlot == "warstaff" then
+				return subType == "warstaff"
+			elseif runeSlot == "buckler" then
+				return itemType == "shield" and subType == "evasion"
+			elseif runeSlot == "weapon" then
+				return item.base.weapon
+			elseif runeSlot == "armour" then
+				return item.base.armour
+			elseif runeSlot == "caster" then
+				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
+			else
+				return itemType == runeSlot
+			end
+		end
+		if isRuneValidForSlot(rune.slot) then
 				if item.title == "Atziri's Splendour" then
 					if rune.slot == "None" or rune.type == "SoulCore" then
 						table.insert(runes, rune)
