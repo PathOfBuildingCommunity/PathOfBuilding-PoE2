@@ -20,7 +20,7 @@ from typing import Any, Optional
 
 GUI_HOST = "127.0.0.1"
 GUI_PORT = 12321
-GUI_CONNECT_TIMEOUT = 0.3   # seconds to wait when probing for GUI
+GUI_CONNECT_TIMEOUT = 1.5   # seconds to wait when probing for GUI
 GUI_LOAD_WAIT = 0.7         # seconds to wait after load_xml in GUI mode
 
 
@@ -89,6 +89,7 @@ class _GUITransport:
 
 def _try_connect_gui() -> Optional[_GUITransport]:
     """Try to connect to a running PoB GUI bridge. Returns None if not available."""
+    sock = None
     try:
         sock = _socket.socket(_socket.AF_INET, _socket.SOCK_STREAM)
         sock.settimeout(GUI_CONNECT_TIMEOUT)
@@ -102,11 +103,17 @@ def _try_connect_gui() -> Optional[_GUITransport]:
             sys.stderr.write("[pob-mcp] Connected to PoB GUI bridge (live mode)\n")
             sys.stderr.flush()
             return transport
-        sock.close()
+        if sock:
+            sock.close()
         return None
     except Exception as _e:
         sys.stderr.write(f"[pob-mcp] _try_connect_gui failed: {_e!r}\n")
         sys.stderr.flush()
+        if sock:
+            try:
+                sock.close()
+            except Exception:
+                pass
         return None
 
 
@@ -170,12 +177,12 @@ class EngineClient:
             transport = self._ensure_gui()
             try:
                 return transport.request(cmd, **args)
-            except EngineError:
-                raise
             except Exception as exc:
-                sys.stderr.write(f"[pob-mcp] GUI connection lost: {exc}\n")
+                sys.stderr.write(f"[pob-mcp] GUI request failed: {exc}\n")
                 sys.stderr.flush()
                 self._drop_gui()
+                if isinstance(exc, EngineError):
+                    raise
                 raise EngineError(f"GUI connection lost: {exc}") from exc
 
     def load_xml(self, xml: str, name: str = "MCP build") -> Any:
@@ -187,12 +194,12 @@ class EngineClient:
                 if result and result.get("pending"):
                     time.sleep(GUI_LOAD_WAIT)
                 return result
-            except EngineError:
-                raise
             except Exception as exc:
                 sys.stderr.write(f"[pob-mcp] GUI load failed: {exc}\n")
                 sys.stderr.flush()
                 self._drop_gui()
+                if isinstance(exc, EngineError):
+                    raise
                 raise EngineError(f"GUI load failed: {exc}") from exc
 
     @property

@@ -1,0 +1,195 @@
+[2026-05-26 19:15:02] GUI bridge loaded successfully! Listening on port 12321
+[2026-05-26 19:15:03] First pobMcpTick called!
+[2026-05-26 19:15:12] Accepted client connection!
+[2026-05-26 19:15:12] Handshake sent: ok=true, err=nil
+[2026-05-26 19:15:12] Disconnected client: ok=true, err=closed
+[2026-05-26 19:15:12] Accepted client connection!
+[2026-05-26 19:15:12] Handshake sent: ok=true, err=nil
+[2026-05-26 19:15:12] Disconnected client: ok=true, err=closed
+[2026-05-26 19:15:20] Accepted client connection!
+[2026-05-26 19:15:20] Handshake sent: ok=true, err=nil
+[2026-05-26 19:15:20] Disconnected client: ok=true, err=closed
+[2026-05-26 19:15:26] Accepted client connection!
+[2026-05-26 19:15:26] Handshake sent: ok=true, err=nil
+[2026-05-26 19:15:26] Disconnected client: ok=true, err=closed
+[2026-05-26 19:15:30] Accepted client connection!
+[2026-05-26 19:15:30] Handshake sent: ok=true, err=nil
+[2026-05-26 19:15:30] Disconnected client: ok=true, err=closed
+[2026-05-26 19:16:25] Accepted client connection!
+[2026-05-26 19:16:25] Handshake sent: ok=true, err=nil
+[2026-05-26 19:16:30] Disconnected client: ok=true, err=closed
+[2026-05-26 19:16:40] Accepted client connection!
+[2026-05-26 19:16:40] Handshake sent: ok=true, err=nil
+[2026-05-26 19:16:42] Disconnected client: ok=true, err=closed
+[2026-05-26 19:16:54] Accepted client connection!
+[2026-05-26 19:16:54] Handshake sent: ok=true, err=nil
+[2026-05-26 19:16:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:17:13] Accepted client connection!
+[2026-05-26 19:17:13] Handshake sent: ok=true, err=nil
+[2026-05-26 19:17:16] Disconnected client: ok=true, err=closed
+[2026-05-26 19:17:27] Accepted client connection!
+[2026-05-26 19:17:27] Handshake sent: ok=true, err=nil
+[2026-05-26 19:17:27] Disconnected client: ok=true, err=closed
+[2026-05-26 19:17:36] Accepted client connection!
+[2026-05-26 19:17:36] Handshake sent: ok=true, err=nil
+[2026-05-26 19:17:36] Disconnected client: ok=true, err=closed
+[2026-05-26 19:17:42] Accepted client connection!
+[2026-05-26 19:17:42] Handshake sent: ok=true, err=nil
+[2026-05-26 19:17:42] Disconnected client: ok=true, err=closed
+[2026-05-26 19:18:47] Accepted client connection!
+[2026-05-26 19:18:47] Handshake sent: ok=true, err=nil
+[2026-05-26 19:18:47] Disconnected client: ok=true, err=closed
+[2026-05-26 19:18:47] Accepted client connection!
+[2026-05-26 19:18:47] Handshake sent: ok=true, err=nil
+[2026-05-26 19:18:47] Disconnected client: ok=true, err=closed
+[2026-05-26 19:18:53] Accepted client connection!
+[2026-05-26 19:18:53] Handshake sent: ok=true, err=nil
+[2026-05-26 19:18:53] Disconnected client: ok=true, err=closed
+[2026-05-26 19:18:53] Accepted client connection!
+[2026-05-26 19:18:53] Handshake sent: ok=true, err=nil
+[2026-05-26 19:18:53] Disconnected client: ok=true, err=closed
+[2026-05-26 19:18:58] Accepted client connection!
+[2026-05-26 19:18:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:19:02] Disconnected client: ok=true, err=closed
+[2026-05-26 19:19:13] Accepted client connection!
+[2026-05-26 19:19:13] Handshake sent: ok=true, err=nil
+[2026-05-26 19:19:14] Disconnected client: ok=true, err=closed
+[2026-05-26 19:19:24] Accepted client connection!
+[2026-05-26 19:19:24] Handshake sent: ok=true, err=nil
+[2026-05-26 19:19:25] Disconnected client: ok=true, err=closed
+[2026-05-26 19:19:34] Accepted client connection!
+[2026-05-26 19:19:34] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:57] Accepted client connection!
+[2026-05-26 19:20:57] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:57] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:57] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:57] Accepted client connection!
+[2026-05-26 19:20:57] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:57] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:57] Accepted client connection!
+[2026-05-26 19:20:57] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:57] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:57] Accepted client connection!
+[2026-05-26 19:20:57] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:57] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:20:58] Disconnected client: ok=true, err=closed
+[2026-05-26 19:20:58] Accepted client connection!
+[2026-05-26 19:20:58] Handshake sent: ok=true, err=nil
+[2026-05-26 19:21:03] Disconnected client: ok=true, err=closed
+[2026-05-26 19:21:13] Accepted client connection!
+[2026-05-26 19:21:13] Handshake sent: ok=true, err=nil
+[2026-05-26 19:21:15] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:08] Accepted client connection!
+[2026-05-26 19:28:08] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:08] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 19:28:09] Accepted client connection!
+[2026-05-26 19:28:09] Handshake sent: ok=true, err=nil
+[2026-05-26 19:28:09] Disconnected client: ok=true, err=closed
+[2026-05-26 21:08:34] GUI bridge loaded successfully! Listening on port 12321
+[2026-05-26 21:08:36] First pobMcpTick called!
+[2026-06-01 18:43:43] GUI bridge loaded successfully! Listening on port 12321
+[2026-06-01 18:43:44] First pobMcpTick called!

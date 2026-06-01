@@ -47,3 +47,4 @@ runtime/imgui.ini
 src/poe_api_response.json
 /.claude/
 .mcp.json
+/pob-mcp/server/__pycache__/
