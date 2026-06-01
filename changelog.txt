@@ -5,6 +5,9 @@ VERSION[0.17.0][2026/06/01]
 * Add new runes from 0.5 (Blitz54)
 * Add support for Rapid Casting III (TarikBeentjes61)
 
+--- User Interface ---
+* Fix showing hidden Unseen Path nodes on search (MrHB212)
+
 --- Fixed Crashes ---
 * Fix issue creating Loadouts with link identifiers (FenikSRT4)
 
@@ -15,9 +18,6 @@ VERSION[0.17.0][2026/06/01]
 
 --- Fixed Bugs ---
 * Fix various tree bugs by using patch data (trompetin17)
-
---- Other changes ---
-* Fix showing hidden Unseen Path nodes on search (MrHB212)
 
 
 VERSION[0.16.0][2026/05/30]

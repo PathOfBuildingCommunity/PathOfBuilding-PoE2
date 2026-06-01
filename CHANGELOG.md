@@ -10,6 +10,8 @@
 - Add new 0.5 Data [\#2035](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2035) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add new runes from 0.5 [\#2019](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2019) ([Blitz54](https://github.com/Blitz54))
 - Add support for Rapid Casting III [\#1965](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1965) ([TarikBeentjes61](https://github.com/TarikBeentjes61))
+### User Interface
+- Fix showing hidden Unseen Path nodes on search [\#2023](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2023) ([MrHB212](https://github.com/MrHB212))
 ### Fixed Crashes
 - Fix issue creating Loadouts with link identifiers [\#2038](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2038) ([FenikSRT4](https://github.com/FenikSRT4))
 ### Fixed Calculations
@@ -18,8 +20,6 @@
 - Fix Amazon's Critical Strike [\#2039](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2039) ([Peechey](https://github.com/Peechey))
 ### Fixed Bugs
 - Fix various tree bugs by using patch data [\#2018](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2018) ([trompetin17](https://github.com/justjuangui))
-### Other changes
-- Fix showing hidden Unseen Path nodes on search [\#2023](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2023) ([MrHB212](https://github.com/MrHB212))
 
 
 
