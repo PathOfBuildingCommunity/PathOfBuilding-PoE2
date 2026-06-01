@@ -123,33 +123,8 @@ return {
 			[1]="molten_crash_max_number_of_fissures"
 		}
 	},
-	[7]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Limit {0} Fissure"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
-				text="Limit {0} Fissures"
-			}
-		},
-		stats={
-			[1]="molten_crash_max_number_of_fissures"
-		}
-	},
 	["base_skill_effect_duration"]=5,
-	["molten_crash_max_number_of_fissures"]=7,
+	["molten_crash_max_number_of_fissures"]=6,
 	["molten_crash_number_of_additional_fissures_from_rage_consumption"]=3,
 	["molten_crash_optionally_consume_X_rage_for_fissures"]=4,
 	parent="skill_stat_descriptions",

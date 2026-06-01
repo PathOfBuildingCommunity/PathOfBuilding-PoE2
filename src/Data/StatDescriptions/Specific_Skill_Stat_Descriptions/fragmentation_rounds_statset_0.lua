@@ -33,14 +33,36 @@ return {
 					[2]={
 						[1]="#",
 						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Fires {0} fragments per shot"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Fires {0:+d} fragments per shot"
 			}
 		},
 		stats={
 			[1]="base_number_of_projectiles",
-			[2]="skill_can_fire_arrows"
+			[2]="skill_can_fire_arrows",
+			[3]="quality_display_base_number_of_projectiles_is_gem"
 		}
 	},
 	[6]={
@@ -78,6 +100,6 @@ return {
 	parent="skill_stat_descriptions",
 	["projectile_base_number_of_targets_to_pierce"]=6,
 	["projectiles_can_shotgun"]=4,
-	["quality_display_base_number_of_projectiles_is_gem"]=2,
+	["quality_display_base_number_of_projectiles_is_gem"]=5,
 	["skill_can_fire_arrows"]=5
 }

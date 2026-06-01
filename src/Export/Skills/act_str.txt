@@ -127,7 +127,7 @@ statMap = {
 
 #skill BoneshatterPlayer
 #set BoneshatterPlayer
-#flags attack melee
+#flags attack melee area
 #mods
 #set BoneshatterShockwavePlayer
 #flags attack melee area
@@ -765,7 +765,7 @@ statMap = {
 
 #skill WolfLunarBlessingBeamAttackPlayer
 #set WolfLunarBlessingBeamAttackPlayer
-#flags attack melee area
+#flags attack area
 #mods
 #skillEnd
 
@@ -876,8 +876,8 @@ end,
 #mods
 #skillEnd
 
-#skill SupportCrossSlashPlayer
-#set SupportCrossSlashPlayer
+#skill SupportWolfPouncePlayer
+#set SupportWolfPouncePlayer
 #mods
 #skillEnd
 
@@ -888,8 +888,8 @@ end,
 #skillEnd
 
 #minionList WolfMinion
-#skill WolfCrossSlashWolfPlayer
-#set WolfCrossSlashWolfPlayer
+#skill WolfPounceSummonWolfPlayer
+#set WolfPounceSummonWolfPlayer
 #flags minion
 #mods
 #skillEnd

@@ -67,7 +67,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["base_number_of_allowed_bone_storm_projectiles"]=2,
@@ -75,5 +75,5 @@ return {
 	["base_skill_effect_duration"]=3,
 	parent="skill_stat_descriptions",
 	["skill_effect_duration"]=4,
-	["total_number_of_projectiles_to_fire"]=5
+	["total_number_of_projectiles_to_fire_from_stats"]=5
 }

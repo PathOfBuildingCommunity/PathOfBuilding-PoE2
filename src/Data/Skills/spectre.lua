@@ -241,6 +241,7 @@ skills["AzmeriPictBowRainOfSpores"] = {
 				"cannot_pierce",
 				"action_attack_or_cast_time_uses_animation_length",
 				"base_cannot_be_blocked",
+				"skill_allow_base_use_time_when_using_anim_length",
 			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
@@ -577,7 +578,7 @@ skills["CultistBeastSunder"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.75, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.4, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -587,6 +588,11 @@ skills["CultistBeastSunder"] = {
 			baseFlags = {
 				triggerable = true,
 				attack = true,
+			},
+			constantStats = {
+				{ "apply_X_armour_break_on_hit", 10000 },
+				{ "maim_on_hit_%", 50 },
+				{ "voll_slam_damage_+%_final_at_centre", 30 },
 			},
 			stats = {
 				"is_area_damage",
@@ -971,20 +977,19 @@ skills["ExpeditionGroundLaser"] = {
 				{ "spell_maximum_action_distance_+%", -65 },
 			},
 			stats = {
-				"spell_minimum_base_fire_damage",
-				"spell_maximum_base_fire_damage",
-				"active_skill_ignite_effect_+%_final",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 				"cannot_stun",
 				"disable_visual_hit_effect",
 			},
 			notMinionStat = {
-				"spell_minimum_base_fire_damage",
-				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, 50, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
-				[2] = { 0.80000001192093, 1.2000000476837, 200, statInterpolation = { 3, 3, 1, }, actorLevel = 68, },
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[2] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 68, },
 			},
 		},
 	}
@@ -2436,7 +2441,7 @@ skills["GPSPaleWalkerWave"] = {
 	name = "Wave",
 	hidden = true,
 	icon = "",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2453,6 +2458,7 @@ skills["GPSPaleWalkerWave"] = {
 			baseFlags = {
 				triggerable = true,
 				hit = true,
+				spell = true,
 			},
 			constantStats = {
 				{ "knockback_distance_+%", 175 },
@@ -3593,7 +3599,6 @@ skills["MMSBaneSapling"] = {
 			},
 			constantStats = {
 				{ "projectile_spread_radius", 5 },
-				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 40 },
 				{ "spell_maximum_action_distance_+%", -40 },
 				{ "monster_projectile_variation", 1340 },
 			},
@@ -3605,6 +3610,7 @@ skills["MMSBaneSapling"] = {
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
 				"projectile_ballistic_angle_from_target_distance",
+				"base_deal_no_damage",
 			},
 			notMinionStat = {
 				"spell_minimum_base_physical_damage",
@@ -3724,7 +3730,7 @@ skills["MMSVaalGuardGrenade"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/ExplosiveGrenade.dds",
 	description = "Fire a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.Detonator] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.Detonator] = true, [SkillType.MirageArcherCanUse] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -3771,7 +3777,7 @@ skills["MMSVaalGuardOilTrap"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/OilGrenade.dds",
 	description = "Fire a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.MirageArcherCanUse] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -4267,8 +4273,8 @@ skills["MPSArmourCasterBasic"] = {
 				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
-				"spell_minimum_base_fire_damage",
-				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
@@ -4276,11 +4282,11 @@ skills["MPSArmourCasterBasic"] = {
 				"distribute_projectiles_over_contact_points",
 			},
 			notMinionStat = {
-				"spell_minimum_base_fire_damage",
-				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -4638,6 +4644,7 @@ skills["MPSBreachEliteBoneProjectile"] = {
 			constantStats = {
 				{ "monster_projectile_variation", 1361 },
 				{ "spell_maximum_action_distance_+%", -30 },
+				{ "monster_breaks_brequel_npc_concentration", 1 },
 			},
 			stats = {
 				"spell_minimum_base_cold_damage",
@@ -4686,6 +4693,7 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 				{ "monster_projectile_variation", 1360 },
 				{ "number_of_additional_projectiles", 5 },
 				{ "projectile_spread_radius", 12 },
+				{ "projectile_ballistic_angle_override", 1 },
 			},
 			stats = {
 				"spell_minimum_base_chaos_damage",
@@ -4694,9 +4702,8 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 				"projectile_uses_contact_position",
 				"maintain_projectile_direction_when_using_contact_position",
 				"action_attack_or_cast_time_uses_animation_length",
-				"projectile_ballistic_angle_from_reference_event",
-				"ballistic_projectiles_always_bounce",
 				"distribute_projectiles_over_contact_points",
+				"ballistic_projectiles_always_bounce",
 			},
 			notMinionStat = {
 				"spell_minimum_base_chaos_damage",
@@ -6260,7 +6267,7 @@ skills["ShellMonsterSprayMortar"] = {
 				"projectile_uses_contact_direction",
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
-				"no_additional_projectiles",
+				"number_of_projectiles_cannot_be_modified",
 			},
 			notMinionStat = {
 				"spell_minimum_base_fire_damage",
@@ -6324,11 +6331,10 @@ skills["ShellMonsterSprayMortarPoison"] = {
 	}
 }
 skills["SkelemancerSkelenado"] = {
-	name = "Spark",
+	name = "",
 	hidden = true,
-	icon = "Art/2DArt/SkillIcons/SorceressSpark.dds",
-	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
+	icon = "",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6337,11 +6343,11 @@ skills["SkelemancerSkelenado"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Spark",
+			label = "",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "spark_statset_0",
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -6886,7 +6892,7 @@ skills["VaalHumanoidShockRifle"] = {
 	statSets = {
 		[1] = {
 			label = "Shock Rifle",
-			baseEffectiveness = 5,
+			baseEffectiveness = 4.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -6900,6 +6906,7 @@ skills["VaalHumanoidShockRifle"] = {
 				{ "spectral_throw_deceleration_override", 100 },
 				{ "spell_maximum_action_distance_+%", -45 },
 				{ "base_skill_effect_duration", 200 },
+				{ "active_skill_cast_speed_+%_final", -12 },
 			},
 			stats = {
 				"spell_minimum_base_lightning_damage",
@@ -6920,9 +6927,8 @@ skills["VaalHumanoidShockRifle"] = {
 skills["VaalZealotLightningSpark"] = {
 	name = "Spark",
 	hidden = true,
-	icon = "Art/2DArt/SkillIcons/SorceressSpark.dds",
-	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
+	icon = "",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
 	qualityStats = {
 	},
@@ -6935,7 +6941,7 @@ skills["VaalZealotLightningSpark"] = {
 			baseEffectiveness = 2.8499999046326,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "spark_statset_0",
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -6971,9 +6977,8 @@ skills["VaalZealotLightningSpark"] = {
 skills["VaalZealotLightningSparkNova"] = {
 	name = "Spark Nova",
 	hidden = true,
-	icon = "Art/2DArt/SkillIcons/SorceressSpark.dds",
-	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
+	icon = "",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6986,7 +6991,7 @@ skills["VaalZealotLightningSparkNova"] = {
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "spark_statset_0",
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -7438,7 +7443,7 @@ skills["TBExcavatorSceptreErraticBeam"] = {
 	statSets = {
 		[1] = {
 			label = "Beam",
-			baseEffectiveness = 1.25,
+			baseEffectiveness = 0.55000001192093,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",

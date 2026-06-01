@@ -9,7 +9,7 @@ return {
 	},
 	[2]={
 		stats={
-			[1]="ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"
+			[1]="hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"
 		}
 	},
 	[3]={
@@ -190,7 +190,7 @@ return {
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
 	["base_knockback_distance"]=1,
-	["ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"]=2,
+	["hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"]=2,
 	parent="skill_stat_descriptions",
 	["permafrost_shard_arming_time_ms"]=5,
 	["permafrost_shard_bonus_damage_delay_ms"]=6,

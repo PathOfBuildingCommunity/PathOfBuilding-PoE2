@@ -27,28 +27,28 @@ itemBases["Ruby Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Fire Resistance",
-	implicitModTypes = { { "elemental", "fire", "resistance" }, },
+	implicitModTypes = { { "elemental_resistance", "fire_resistance", "elemental", "fire", "resistance" }, },
 	req = { level = 8, },
 }
 itemBases["Sapphire Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Cold Resistance",
-	implicitModTypes = { { "elemental", "cold", "resistance" }, },
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
 	req = { level = 12, },
 }
 itemBases["Topaz Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Lightning Resistance",
-	implicitModTypes = { { "elemental", "lightning", "resistance" }, },
+	implicitModTypes = { { "elemental_resistance", "lightning_resistance", "elemental", "lightning", "resistance" }, },
 	req = { level = 16, },
 }
 itemBases["Amethyst Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
-	implicitModTypes = { { "chaos", "resistance" }, },
+	implicitModTypes = { { "chaos_resistance", "chaos", "resistance" }, },
 	req = { level = 20, },
 }
 itemBases["Emerald Ring"] = {
@@ -62,14 +62,14 @@ itemBases["Pearl Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "(7-10)% increased Cast Speed",
-	implicitModTypes = { { "caster", "speed" }, },
+	implicitModTypes = { { "caster_speed", "caster", "speed" }, },
 	req = { level = 32, },
 }
 itemBases["Prismatic Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 35, },
 }
 itemBases["Gold Ring"] = {
@@ -92,6 +92,69 @@ itemBases["Abyssal Signet"] = {
 	implicit = "Inflict Abyssal Wasting on Hit",
 	implicitModTypes = { {  }, },
 	req = { },
+}
+itemBases["Two-Stone Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "+(12-16)% to Fire and Cold Resistances",
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "elemental", "fire", "cold", "resistance" }, },
+	req = { },
+}
+itemBases["Two-Stone Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "+(12-16)% to Fire and Lightning Resistances",
+	implicitModTypes = { { "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "lightning", "resistance" }, },
+	req = { },
+}
+itemBases["Two-Stone Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "+(12-16)% to Cold and Lightning Resistances",
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "lightning_resistance", "elemental", "cold", "lightning", "resistance" }, },
+	req = { },
+}
+itemBases["Biostatic Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "+1% to all maximum Resistances",
+	implicitModTypes = { { "resistance" }, },
+	req = { level = 52, },
+}
+itemBases["Vitalic Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "(4-6)% increased maximum Life",
+	implicitModTypes = { { "resource", "life" }, },
+	req = { level = 40, },
+}
+itemBases["Mnemonic Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "(4-6)% increased maximum Mana",
+	implicitModTypes = { { "resource", "mana" }, },
+	req = { level = 40, },
+}
+itemBases["Kinetic Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "Adds (6-9) to (11-15) Physical Damage to Attacks",
+	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
+	req = { level = 40, },
+}
+itemBases["Oneiric Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "(11-23)% increased Chaos Damage",
+	implicitModTypes = { { "chaos_damage", "damage", "chaos" }, },
+	req = { level = 47, },
+}
+itemBases["Grasping Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "This item gains bonuses from Socketed Items as though it was Gloves",
+	implicitModTypes = { {  }, },
+	req = { level = 40, },
 }
 itemBases["Ring"] = {
 	type = "Ring",
@@ -130,7 +193,14 @@ itemBases["Tenebrous Ring"] = {
 itemBases["Breach Ring"] = {
 	type = "Ring",
 	tags = { default = true, ring = true, },
-	implicit = "Maximum Quality is 40%",
+	implicit = "+20% to Maximum Quality",
+	implicitModTypes = { {  }, },
+	req = { level = 40, },
+}
+itemBases["Refined Breach Ring"] = {
+	type = "Ring",
+	tags = { default = true, ring = true, },
+	implicit = "+25% to Maximum Quality",
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }

@@ -131,24 +131,15 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="{0} vine grows per cast time"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="{0} vines grow per cast time"
+				text="Time between vine growths is {0}% of this Skill's Cast Time"
 			}
 		},
 		stats={
-			[1]="awakened_forest_spawn_X_vines_per_cast_time"
+			[1]="awakened_forest_spawn_vines_per_X%_cast_time"
 		}
 	},
 	[7]={
@@ -264,7 +255,7 @@ return {
 	["active_skill_base_tertiary_area_of_effect_radius"]=3,
 	["active_skill_tertiary_area_of_effect_radius"]=4,
 	["awakened_forest_area_of_effect_+%_final_when_wet"]=5,
-	["awakened_forest_spawn_X_vines_per_cast_time"]=6,
+	["awakened_forest_spawn_vines_per_X%_cast_time"]=6,
 	["base_number_of_awakened_forests_allowed"]=7,
 	["base_skill_effect_duration"]=8,
 	["number_of_awakened_forests_allowed"]=9,

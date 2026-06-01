@@ -153,7 +153,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["base_secondary_skill_effect_duration"]=1,
@@ -164,5 +164,5 @@ return {
 	["quality_display_ember_fusilade_is_gem"]=4,
 	["secondary_skill_effect_duration"]=5,
 	["skill_effect_duration"]=6,
-	["total_number_of_projectiles_to_fire"]=7
+	["total_number_of_projectiles_to_fire_from_stats"]=7
 }

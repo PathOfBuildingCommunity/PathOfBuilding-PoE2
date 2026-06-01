@@ -1763,14 +1763,6 @@ return {
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]=59,
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]=60
 		},
-		["monster-categories_36_36_BC7.dds.zst"]={
-			Beast=1,
-			Construct=2,
-			Demon=3,
-			Eldritch=4,
-			Humanoid=5,
-			Undead=6
-		},
 		["oils_108_108_RGBA.dds.zst"]={
 			Contempt=11,
 			Despair=7,
@@ -1785,9 +1777,6 @@ return {
 			Melancholy=13,
 			Paranoia=10,
 			Suffering=3
-		},
-		["skills-disabled_-1723783960_-163230_<unknown>.dds.zst"]={
-			[""]=1
 		},
 		["skills-disabled_128_128_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]=1,
@@ -2324,9 +2313,6 @@ return {
 			["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]=172,
 			["Art/2DArt/SkillIcons/passives/trapdamage.dds"]=173,
 			["Art/2DArt/SkillIcons/passives/trapsmax.dds"]=174
-		},
-		["skills_0_0_<unknown>.dds.zst"]={
-			[""]=1
 		},
 		["skills_128_128_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]=1,

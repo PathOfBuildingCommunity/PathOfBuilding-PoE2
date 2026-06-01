@@ -214,7 +214,9 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
-				supportEffect.activeSkillLevel = activeEffect.srcInstance.level
+				if supportEffect.srcInstance ~= activeEffect.srcInstance or not (activeEffect.gemData and activeEffect.gemData.grantedEffect.support) then
+					supportEffect.activeSkillLevel = activeEffect.level
+				end
 			end
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
@@ -384,6 +386,15 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	else
 		activeStatSet = activeEffect.statSet.statSet
 		skillFlags = activeEffect.statSet.skillFlags
+	end
+	-- Active skills granted by support gems inherit the level of the skill that support applied to.
+	if activeEffect.gemData and activeEffect.gemData.grantedEffect.support then
+		for _, supportEffect in ipairs(activeSkill.supportList) do
+			if supportEffect.srcInstance == activeEffect.srcInstance and supportEffect.activeSkillLevel then
+				activeEffect.level = supportEffect.activeSkillLevel
+				break
+			end
+		end
 	end
 	local effectiveRange = 0
 

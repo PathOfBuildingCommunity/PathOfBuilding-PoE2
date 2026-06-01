@@ -27,72 +27,90 @@ return {
 		Divisor = 1,
 	},
 	[5] = {
+		Resource = "Ward",
+		Stat = "base_ward_cost",
+		ResourceString = "{0} Ward",
+		Divisor = 1,
+	},
+	[6] = {
 		Resource = "ManaPercent",
 		Stat = "base_mana_cost_%",
 		ResourceString = "{0}% Mana",
 		Divisor = 1,
 	},
-	[6] = {
+	[7] = {
 		Resource = "LifePercent",
 		Stat = "base_life_cost_%",
 		ResourceString = "{0}% Life",
 		Divisor = 1,
 	},
-	[7] = {
+	[8] = {
+		Resource = "WardPercent",
+		Stat = "base_ward_cost_%",
+		ResourceString = "{0}% Ward",
+		Divisor = 1,
+	},
+	[9] = {
 		Resource = "UnreservedManaPercent",
 		Stat = "base_unreserved_mana_cost_%",
 		ResourceString = "{0}% Unreserved Mana ",
 		Divisor = 1,
 	},
-	[8] = {
+	[10] = {
 		Resource = "ManaPerMinute",
 		Stat = "base_mana_cost_per_minute",
 		ResourceString = "{0} Mana per second",
 		Divisor = 60,
 	},
-	[9] = {
+	[11] = {
 		Resource = "LifePerMinute",
 		Stat = "base_life_cost_per_minute",
 		ResourceString = "{0} Life per second",
 		Divisor = 60,
 	},
-	[10] = {
+	[12] = {
 		Resource = "ManaPercentPerMinute",
 		Stat = "base_mana_cost_%_per_minute",
 		ResourceString = "{0}% Mana per second",
 		Divisor = 60,
 	},
-	[11] = {
+	[13] = {
 		Resource = "LifePercentPerMinute",
 		Stat = "base_life_cost_%_per_minute",
 		ResourceString = "{0}% Life per second",
 		Divisor = 60,
 	},
-	[12] = {
+	[14] = {
 		Resource = "ESPerMinute",
 		Stat = "base_es_cost_per_minute",
 		ResourceString = "{0} Energy Shield per second",
 		Divisor = 60,
 	},
-	[13] = {
+	[15] = {
 		Resource = "ESPercentPerMinute",
 		Stat = "base_es_cost_%_per_minute",
 		ResourceString = "{0}% Energy Shield per second",
 		Divisor = 60,
 	},
-	[14] = {
+	[16] = {
 		Resource = "ESPercent",
 		Stat = "base_es_cost_%",
 		ResourceString = "{0}% Energy Shield",
 		Divisor = 1,
 	},
-	[15] = {
+	[17] = {
 		Resource = "RagePerMinute",
 		Stat = "base_rage_cost_per_minute",
 		ResourceString = "{0} Rage per second",
 		Divisor = 60,
 	},
-	[16] = {
+	[18] = {
+		Resource = "WardPerMinute",
+		Stat = "base_ward_cost_per_minute",
+		ResourceString = "{0} Ward per second",
+		Divisor = 60,
+	},
+	[19] = {
 		Resource = "Soul",
 		Stat = " ",
 		ResourceString = "{0} Souls Per Use",

@@ -511,6 +511,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			if specName then
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
+					goto continue
 				elseif specName == "Item Level" then
 					self.itemLevel = specToNumber(specVal)
 				elseif specName == "Requires Class" then

@@ -104,14 +104,11 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
 					}
 				},
 				text="Parried Debuff lasts for an additional {0:+d} seconds"
@@ -125,10 +122,6 @@ return {
 					[1]={
 						[1]=1000,
 						[2]=1000
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
 					}
 				},
 				text="Parried Debuff duration is {0} second"
@@ -142,18 +135,13 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
 					}
 				},
 				text="Parried Debuff duration is {0} seconds"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration",
-			[2]="quality_display_base_skill_effect_duration_is_gem"
+			[1]="base_parry_duration_ms"
 		}
 	},
 	[5]={
@@ -209,13 +197,13 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="virtual_parry_duration_ms"
 		}
 	},
 	["base_maximum_active_block_distance_for_non_projectiles"]=1,
 	["base_maximum_active_block_distance_for_projectiles"]=2,
 	["base_parry_buff_damage_taken_+%_final_to_apply"]=3,
-	["base_skill_effect_duration"]=4,
+	["base_parry_duration_ms"]=4,
 	["maximum_active_block_distance_for_non_projectiles"]=5,
 	["maximum_active_block_distance_for_projectiles"]=6,
 	["off_hand_maximum_added_physical_damage_per_5_shield_evasion_rating"]=7,
@@ -223,6 +211,5 @@ return {
 	parent="skill_stat_descriptions",
 	["parry_buff_attack_damage_taken_+%_final_magnitude_to_apply"]=8,
 	["parry_buff_spell_damage_taken_+%_final_magnitude_to_apply"]=9,
-	["quality_display_base_skill_effect_duration_is_gem"]=4,
-	["skill_effect_duration"]=10
+	["virtual_parry_duration_ms"]=10
 }

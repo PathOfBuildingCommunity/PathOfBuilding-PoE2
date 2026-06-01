@@ -43,7 +43,7 @@ local skills, mod, flag, skill = ...
 
 #skill BoneshatterBruteMinion
 #set BoneshatterBruteMinion
-#flags attack melee
+#flags attack melee area
 #mods
 #set BoneshatterShockwaveBruteMinion
 #flags attack area
@@ -332,5 +332,25 @@ statMap = {
 #skill HandSlamSandDjinn
 #set HandSlamSandDjinn
 #flags spell area
+#mods
+#skillEnd
+
+#skill ApplyTangmazuSwarmAuraPlayer
+#set ApplyTangmazuSwarmAuraPlayer
+#flags spell area
+statMap = {
+	["flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+		mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+	},
+	["flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+		mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill TangmazuMadFlightMinion
+#set TangmazuMadFlightMinion
+#flags attack area duration
 #mods
 #skillEnd

@@ -36,6 +36,16 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} to Limit of Tornadoes"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -44,7 +54,7 @@ return {
 				},
 				text="Limit {0} Tornado"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
@@ -205,7 +215,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[12]={
@@ -228,6 +238,6 @@ return {
 	["tornado_shot_number_of_hits_allowed"]=8,
 	["tornado_shot_projectile_damage_+%_final"]=9,
 	["tornado_shot_projectile_range"]=10,
-	["total_number_of_projectiles_to_fire"]=11,
+	["total_number_of_projectiles_to_fire_from_stats"]=11,
 	["virtual_tornado_shot_number_of_hits_allowed"]=12
 }

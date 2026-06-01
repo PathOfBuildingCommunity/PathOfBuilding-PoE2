@@ -9,7 +9,7 @@ return {
 	},
 	[2]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[3]={
@@ -126,5 +126,5 @@ return {
 	["bone_spear_power_charged_aoe_+"]=7,
 	["bone_spear_power_charged_aoe_+%_final_per_additional_power_charge"]=6,
 	parent="specific_skill_stat_descriptions/bonestorm_statset_0",
-	["total_number_of_projectiles_to_fire"]=2
+	["total_number_of_projectiles_to_fire_from_stats"]=2
 }

@@ -4,9 +4,29 @@
 return {
 	[1]={
 		[1]={
+		},
+		stats={
+			[1]="active_skill_area_of_effect_radius"
+		}
+	},
+	[2]={
+		[1]={
 			[1]={
 				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					}
+				},
+				text="Backlash radius is {0} metre"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
 				limit={
@@ -15,14 +35,47 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT-UNUSED Minimum of {0} second between each backlash"
+				text="Backlash radius is {0} metres"
+			}
+		},
+		stats={
+			[1]="active_skill_base_area_of_effect_radius"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Can backlash once every {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Can backlash once every {0} seconds"
 			}
 		},
 		stats={
 			[1]="runic_tempering_backlash_cooldown_ms"
 		}
 	},
-	[2]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -31,7 +84,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT-UNUSED {0}% increase Damage taken while you have runes"
+				text="You take {0}% more Damage from Hits while you have Runic Plates"
 			},
 			[2]={
 				[1]={
@@ -44,14 +97,14 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT-UNUSED {0}% decrease Damage taken while you have runes"
+				text="You take {0}% less Damage from Hits while you have Runic Plates"
 			}
 		},
 		stats={
-			[1]="runic_tempering_damage_taken_+%"
+			[1]="runic_tempering_damage_taken_+%_final"
 		}
 	},
-	[3]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -60,7 +113,7 @@ return {
 						[2]=1
 					}
 				},
-				text="DNT-UNUSED Each rune can backlash {0} time"
+				text="A Runic Plate is lost for every {0} backlash"
 			},
 			[2]={
 				limit={
@@ -69,32 +122,53 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT-UNUSED Each rune can backlash {0} times"
+				text="A Runic Plate is lost for every {0} backlashes"
 			}
 		},
 		stats={
 			[1]="runic_tempering_hit_per_rune"
 		}
 	},
-	[4]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT-UNUSED Maximum {0} Runes"
+				text="Maximum {0} Runic Plate"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Maximum {0} Runic Plates"
 			}
 		},
 		stats={
-			[1]="runic_tempering_max_runes"
+			[1]="runic_tempering_max_runes",
+			[2]="runic_tempering_stacks"
 		}
 	},
+	["active_skill_area_of_effect_radius"]=1,
+	["active_skill_base_area_of_effect_radius"]=2,
 	parent="skill_stat_descriptions",
-	["runic_tempering_backlash_cooldown_ms"]=1,
-	["runic_tempering_damage_taken_+%"]=2,
-	["runic_tempering_hit_per_rune"]=3,
-	["runic_tempering_max_runes"]=4
+	["runic_tempering_backlash_cooldown_ms"]=3,
+	["runic_tempering_damage_taken_+%_final"]=4,
+	["runic_tempering_hit_per_rune"]=5,
+	["runic_tempering_max_runes"]=6,
+	["runic_tempering_stacks"]=6
 }
