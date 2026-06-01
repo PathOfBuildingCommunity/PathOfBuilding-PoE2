@@ -664,4 +664,30 @@ describe("TestAdvancedItemParse #item", function()
 			Note: ~b/o 2 chaos
 		]])
 	end)
+
+	it("Has +N to Evasion Rating per player level parses to BASE Evasion with Level multiplier", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Striker's Grip
+			Fists of Stone
+			--------
+			Implicits: 3
+			Has +2 to Evasion Rating per player level (implicit)
+			Has +1 to maximum Energy Shield per player level (implicit)
+			Has +1 to maximum Runic Ward per player level (implicit)
+		]])
+		-- All three implicit mod lines should be parsed (no extra/unsupported flag)
+		assert.are.equals(3, #item.implicitModLines)
+		assert.is_nil(item.implicitModLines[1].extra)
+		assert.is_nil(item.implicitModLines[2].extra)
+		assert.is_nil(item.implicitModLines[3].extra)
+		-- Check raw mod values
+		assert.are.equals(2, item.baseModList[1].value)
+		assert.are.equals(1, item.baseModList[2].value)
+		assert.are.equals(1, item.baseModList[3].value)
+		-- Check mod names map to correct stats
+		assert.are.equals("Evasion", item.baseModList[1].name)
+		assert.are.equals("EnergyShield", item.baseModList[2].name)
+		assert.are.equals("Ward", item.baseModList[3].name)
+	end)
 end)

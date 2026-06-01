@@ -1701,6 +1701,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
+		local ignoreGlovesAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirementsForGloves")
 		local strengthSatisfiesMeleeFlag = modDB:Flag(nil, "StrengthSatisfiesMeleeWeaponsAndSkills")
 		for _, attr in ipairs(attrTable) do
 			local breakdownAttr = attr
@@ -1736,7 +1737,10 @@ function calcs.perform(env, skipEHP)
 						and ((reqSource.source == "Item" and reqSource.sourceItem.base.weapon and env.data.weaponTypeInfo[reqSource.sourceItem.base.type].melee)
 						or (reqSource.source == "Gem" and reqSource.sourceGem.gemData.tags.melee))
 					local satisfyingAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val
-					if req > (strengthSatisfiesMelee and attr ~= "Str" and m_max(satisfyingAttributeValue, output["Str"]) or satisfyingAttributeValue) then
+					local ignoreThisReq = ignoreGlovesAttrReq
+						and reqSource.source == "Item"
+						and reqSource.sourceSlot == "Gloves"
+					if not ignoreThisReq and req > (strengthSatisfiesMelee and attr ~= "Str" and m_max(satisfyingAttributeValue, output["Str"]) or satisfyingAttributeValue) then
 						out.val = req
 						out.source = reqSource
 					end
@@ -3173,6 +3177,41 @@ function calcs.perform(env, skipEHP)
 		enemyDB:NewMod("DamageTaken", "INC", enemyDB:Sum("INC", nil, "DamageTakenConsecratedGround") * effect, "Consecrated Ground")
 	end
 
+	-- Way of the Stonefist: transform glove base type for this calc pass only
+	if modDB:Flag(nil, "GloveBaseTypeTransform") then
+		local gloveItem = env.player.itemList["Gloves"]
+		if gloveItem and gloveItem.armourData and gloveItem.baseName ~= "Fists of Stone" then
+			local fistsOfStone = env.data.itemBases["Fists of Stone"]
+			if fistsOfStone then
+				local qualityMult = 1 + (gloveItem.quality or 0) / 100
+				local origBase = gloveItem.base
+				local origBaseName = gloveItem.baseName
+				local origArmour = gloveItem.armourData.Armour
+				local origEvasion = gloveItem.armourData.Evasion
+				local origES = gloveItem.armourData.EnergyShield
+				gloveItem.base = fistsOfStone
+				gloveItem.baseName = "Fists of Stone"
+				gloveItem.armourData.Armour = m_floor((fistsOfStone.armour.Armour or 0) * qualityMult)
+				gloveItem.armourData.Evasion = m_floor((fistsOfStone.armour.Evasion or 0) * qualityMult)
+				gloveItem.armourData.EnergyShield = m_floor((fistsOfStone.armour.EnergyShield or 0) * qualityMult)
+				-- Inject Fists of Stone implicit mods (per-level scaling); modDB is ephemeral per calc pass
+				modDB:NewMod("Evasion", "BASE", 2, "Fists of Stone Implicit", { type = "Multiplier", var = "Level" })
+				modDB:NewMod("EnergyShield", "BASE", 1, "Fists of Stone Implicit", { type = "Multiplier", var = "Level" })
+				modDB:NewMod("Ward", "BASE", 1, "Fists of Stone Implicit", { type = "Multiplier", var = "Level" })
+				env.stonefistRestore = {
+					item = gloveItem,
+					base = origBase, baseName = origBaseName,
+					Armour = origArmour, Evasion = origEvasion, EnergyShield = origES
+				}
+			end
+		end
+	end
+
+	-- Way of the Stonefist: explicit mod transformation (requires ModEquivalencies data)
+	-- GloveExplicitModTransform is not yet implemented; the mapping data must be generated
+	-- by running src/Export/Scripts/modequivalencies.lua via the PoB export tool first.
+	-- When src/Data/ModEquivalencies.lua exists, load it here and remap glove explicit mods.
+
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
 	local function getSkillExposureEffect(source, element)
@@ -3422,4 +3461,15 @@ function calcs.perform(env, skipEHP)
 
 	-- Cache skill data
 	cacheData(cacheSkillUUID(env.player.mainSkill, env), env)
+
+	-- Restore glove item mutated by GloveBaseTypeTransform
+	if env.stonefistRestore then
+		local r = env.stonefistRestore
+		r.item.base = r.base
+		r.item.baseName = r.baseName
+		r.item.armourData.Armour = r.Armour
+		r.item.armourData.Evasion = r.Evasion
+		r.item.armourData.EnergyShield = r.EnergyShield
+		env.stonefistRestore = nil
+	end
 end
