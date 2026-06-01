@@ -278,7 +278,7 @@ UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
 ]],[[
 The Prisoner's Manacles
-Verisium Cuffs
+Kalguuran Cuffs
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield21
 UniqueIncreasedLife54
