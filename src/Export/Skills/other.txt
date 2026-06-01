@@ -1156,7 +1156,7 @@ statMap = {
 #from item
 #skill TheStarsAnswerPlayer
 #set TheStarsAnswerPlayer
-#flags spell duraton
+#flags spell duration
 #mods
 #skillEnd
 

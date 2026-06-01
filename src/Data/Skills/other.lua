@@ -17128,7 +17128,7 @@ skills["TheStarsAnswerPlayer"] = {
 			statDescriptionScope = "the_stars_answer",
 			baseFlags = {
 				spell = true,
-				duraton = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 80 },
