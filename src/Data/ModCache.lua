@@ -6453,8 +6453,6 @@ c["Used when you take Fire damage from a Hit 40% increased Charges"]={nil,"Used 
 c["Used when you take Lightning damage from a Hit"]={nil,"Used when you take Lightning damage from a Hit "}
 c["Used when you take Lightning damage from a Hit 40% increased Charges gained"]={nil,"Used when you take Lightning damage from a Hit 40% increased Charges gained "}
 c["Vaal Pact"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Vaal Pact"}},nil}
-c["Verisium Cuffs"]={nil,"Verisium Cuffs "}
-c["Verisium Cuffs League: Dawn of the Hunt"]={nil,"Verisium Cuffs League: Dawn of the Hunt "}
 c["Vivid Stags leap towards enemies"]={nil,"Vivid Stags leap towards enemies "}
 c["Vivid Stags leap towards enemies Central Projectile of Owl Feather-Empowered Skills leaves a trail of Soaring Ground"]={nil,"Vivid Stags leap towards enemies Central Projectile of Owl Feather-Empowered Skills leaves a trail of Soaring Ground "}
 c["Volatile Power also grants 1% increased Critical Hit chance per Volatility exploded"]={nil,"Volatile Power also grants 1% increased Critical Hit chance per Volatility exploded "}
