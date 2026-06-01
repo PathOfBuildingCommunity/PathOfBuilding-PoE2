@@ -37,11 +37,7 @@ local _tradeStats
 ---@return table? tradeStats
 function M.getTradeStats()
 	if _tradeStats then return _tradeStats end
-	local file = io.open("./Data/trade_site_stats.json")
-	if not file then return nil end
-	local fileContents = file:read("*a")
-	local parsed = dkjson.decode(fileContents)
-	_tradeStats = parsed and parsed.result
+	_tradeStats = LoadModule("Data/TradeSiteStats")
 	return _tradeStats
 end
 

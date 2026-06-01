@@ -360,6 +360,27 @@ function TradeQueryGeneratorClass:InitMods()
 		return
 	end
 
+	-- download stats JSON from GGG API
+	launch:DownloadPage("https://www.pathofexile.com/api/trade2/data/stats",
+		function(response, errMsg)
+			if errMsg then
+				error("Error while downloading stats.json: "..errMsg)
+			end
+			local body = dkjson.decode(response.body)
+
+			if body.error then
+				error("Error received from api/trade2/data/stats: "..body.error.message)
+			end
+
+			local f = io.open("./Data/TradeSiteStats.lua", "w")
+			if not f then
+				error("Could not open file for writing trade stat data")
+			end
+			f:write("return " .. stringify(body.result))
+			f:close()
+		end
+	)
+
 	self.modData = {
 		["Explicit"] = { },
 		["Implicit"] = { },
