@@ -8269,10 +8269,6 @@ return {
 			},
 		},
 		["1782086450"] = {
-			["Focus"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -10114,6 +10110,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1002535626"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1002535626",
+				["text"] = "#% increased Cold Damage if you've collected a Cold Infusion in the last 8 seconds",
+				["type"] = "explicit",
+			},
+		},
 		["1004011302"] = {
 			["AnyJewel"] = {
 				["max"] = 5,
@@ -10170,6 +10175,15 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["1014398896"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1014398896",
+				["text"] = "#% increased Spell Damage during any Flask Effect",
+				["type"] = "explicit",
+			},
+		},
 		["101878827"] = {
 			["1HWeapon"] = {
 				["max"] = 80,
@@ -10209,6 +10223,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1022759479",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cast Speed",
+				["type"] = "explicit",
+			},
+		},
+		["1028592286"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1028592286",
+				["text"] = "#% chance to Chain an additional time",
+				["type"] = "explicit",
+			},
+		},
+		["1030153674"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1030153674",
+				["text"] = "Recover #% of maximum Mana on Kill",
 				["type"] = "explicit",
 			},
 		},
@@ -10278,6 +10310,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1045789614"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1045789614",
+				["text"] = "#% increased Critical Hit Chance against Marked Enemies",
+				["type"] = "explicit",
+			},
+		},
+		["1049080093"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1049080093",
+				["text"] = "Attacks Gain #% of Damage as Extra Fire Damage",
+				["type"] = "explicit",
+			},
+		},
 		["1050105434"] = {
 			["1HWeapon"] = {
 				["max"] = 164,
@@ -10332,6 +10382,16 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1050105434",
 				["text"] = "# to maximum Mana",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1058934731"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1058934731",
+				["text"] = "Temporary Minion Skills have # to Limit of Minions summoned",
 				["type"] = "explicit",
 			},
 			["usePositiveSign"] = true,
@@ -10430,6 +10490,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1087531620",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Freeze Buildup",
+				["type"] = "explicit",
+			},
+		},
+		["1102738251"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1102738251",
+				["text"] = "Life Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
 		},
@@ -10540,6 +10609,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1158842087"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1158842087",
+				["text"] = "Gain #% of Elemental Damage as Extra Cold Damage",
+				["type"] = "explicit",
+			},
+		},
 		["1160637284"] = {
 			["AnyJewel"] = {
 				["max"] = 3,
@@ -10591,6 +10669,28 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1177404658"] = {
+			["Amulet"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1177404658",
+				["text"] = "#% increased Global Armour, Evasion and Energy Shield",
+				["type"] = "explicit",
+			},
+		},
+		["1180552088"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1180552088",
+				["text"] = "#% increased effect of Archon Buffs on you",
+				["type"] = "explicit",
+			},
+		},
 		["1181419800"] = {
 			["AnyJewel"] = {
 				["max"] = 16,
@@ -10610,11 +10710,11 @@ return {
 		},
 		["1181501418"] = {
 			["AnyJewel"] = {
-				["max"] = 1,
+				["max"] = 2,
 				["min"] = 1,
 			},
 			["BaseJewel"] = {
-				["max"] = 1,
+				["max"] = 2,
 				["min"] = 1,
 			},
 			["specialCaseData"] = {
@@ -10662,11 +10762,11 @@ return {
 		},
 		["1202301673"] = {
 			["1HWeapon"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["2HWeapon"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 1,
 			},
 			["Amulet"] = {
@@ -10674,19 +10774,19 @@ return {
 				["min"] = 1,
 			},
 			["Bow"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["Crossbow"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 2,
 			},
 			["Quiver"] = {
-				["max"] = 2,
+				["max"] = 1,
 				["min"] = 1,
 			},
 			["Spear"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["specialCaseData"] = {
@@ -10890,6 +10990,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1265767008"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1265767008",
+				["text"] = "Your Minions are Gigantic if they have Revived Recently",
+				["type"] = "explicit",
+			},
+		},
 		["1266413530"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -11057,6 +11166,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1321054058"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1321054058",
+				["text"] = "Gain #% of Damage as Extra Fire Damage with Spells",
+				["type"] = "explicit",
+			},
+		},
 		["1321104829"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -11091,6 +11209,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1335369947"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1335369947",
+				["text"] = "#% increased Explicit Physical Modifier magnitudes",
+				["type"] = "explicit",
+			},
+		},
 		["1337740333"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -11107,6 +11234,16 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant #% increased Melee Damage",
 				["type"] = "explicit",
 			},
+		},
+		["1347539079"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1347539079",
+				["text"] = "#% Surpassing chance to fire an additional Projectile",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["1352561456"] = {
 			["AnyJewel"] = {
@@ -11306,6 +11443,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1416406066"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1416406066",
+				["text"] = "#% increased Spirit",
+				["type"] = "explicit",
+			},
+		},
 		["1417267954"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -11375,6 +11521,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1443502073"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1443502073",
+				["text"] = "#% increased Effect of Prefixes",
+				["type"] = "explicit",
+			},
+		},
 		["1444556985"] = {
 			["Amulet"] = {
 				["max"] = 24,
@@ -11393,6 +11548,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1444556985",
 				["text"] = "#% of Damage taken Recouped as Life",
+				["type"] = "explicit",
+			},
+		},
+		["145581225"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_145581225",
+				["text"] = "#% increased Cast Speed during any Flask Effect",
 				["type"] = "explicit",
 			},
 		},
@@ -11427,6 +11591,53 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_147764878",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Hits against Rare and Unique Enemies",
+				["type"] = "explicit",
+			},
+		},
+		["1484026495"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1484026495",
+				["text"] = "+# maximum stacks of Puppet Master",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1484500028"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1484500028",
+				["text"] = "Attacks Gain #% of Damage as Extra Cold Damage",
+				["type"] = "explicit",
+			},
+		},
+		["1485480327"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1485480327",
+				["text"] = "Minions have #% increased Immobilisation buildup",
+				["type"] = "explicit",
+			},
+		},
+		["1488650448"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1488650448",
+				["text"] = "# to Ailment Threshold",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1493485657"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1493485657",
+				["text"] = "Spells have #% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
 		},
@@ -11530,6 +11741,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1509533589"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1509533589",
+				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type amongyour Ailments on them",
+				["type"] = "explicit",
+			},
+		},
 		["1514844108"] = {
 			["AnyJewel"] = {
 				["max"] = 10,
@@ -11581,6 +11801,23 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1544773869"] = {
+			["2HWeapon"] = {
+				["max"] = 40,
+				["min"] = 4,
+			},
+			["Crossbow"] = {
+				["max"] = 40,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1544773869",
+				["text"] = "#% increased Cooldown Recovery Rate for Grenade Skills",
+				["type"] = "explicit",
+			},
+		},
 		["1545858329"] = {
 			["1HWeapon"] = {
 				["max"] = 5,
@@ -11608,19 +11845,20 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1552666713"] = {
-			["AnyJewel"] = {
-				["max"] = 3,
-				["min"] = 2,
-			},
-			["RadiusJewel"] = {
-				["max"] = 3,
-				["min"] = 2,
-			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1552666713",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Energy Shield Recharge Rate",
+				["type"] = "explicit",
+			},
+		},
+		["1568848828"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1568848828",
+				["text"] = "Recover # Runic Ward when you Block",
 				["type"] = "explicit",
 			},
 		},
@@ -11846,6 +12084,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1615901249"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1615901249",
+				["text"] = "Invocated skills have #% increased Maximum Energy",
+				["type"] = "explicit",
+			},
+		},
+		["1617268696"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1617268696",
+				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing atenth of their maximum Life as Fire Damage",
+				["type"] = "explicit",
+			},
+		},
 		["1653682082"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -11908,6 +12164,25 @@ return {
 				["type"] = "explicit",
 			},
 			["usePositiveSign"] = true,
+		},
+		["1687542781"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1687542781",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Lightning Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1691403182"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1691403182",
+				["text"] = "Minions have #% increased Cooldown Recovery Rate",
+				["type"] = "explicit",
+			},
 		},
 		["1692879867"] = {
 			["Chest"] = {
@@ -12030,6 +12305,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["174664100"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_174664100",
+				["text"] = "Minions have #% increased Movement Speed",
+				["type"] = "explicit",
+			},
+		},
 		["1754445556"] = {
 			["Gloves"] = {
 				["max"] = 37.5,
@@ -12120,6 +12404,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1776945532"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1776945532",
+				["text"] = "Enemies you kill have a #% chance to explode, dealing a quarter of their maximum Life as Chaos damage",
+				["type"] = "explicit",
+			},
+		},
 		["1777421941"] = {
 			["AnyJewel"] = {
 				["max"] = 3,
@@ -12146,14 +12439,6 @@ return {
 				["max"] = 15,
 				["min"] = 10,
 			},
-			["Chest"] = {
-				["max"] = 55,
-				["min"] = 26,
-			},
-			["Focus"] = {
-				["max"] = 55,
-				["min"] = 26,
-			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -12178,6 +12463,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Effect of your Mark Skills",
 				["type"] = "explicit",
 			},
+		},
+		["1797815732"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1797815732",
+				["text"] = "Minions have #% Surpassing chance to fire an additional Projectile",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["1798257884"] = {
 			["1HWeapon"] = {
@@ -12230,6 +12525,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1805633363"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1805633363",
+				["text"] = "#% increased Reservation Efficiency of Minion Skills",
+				["type"] = "explicit",
+			},
+		},
 		["1811130680"] = {
 			["ManaFlask"] = {
 				["max"] = 100,
@@ -12242,6 +12546,16 @@ return {
 				["text"] = "#% increased Mana Recovered",
 				["type"] = "explicit",
 			},
+		},
+		["1823942939"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1823942939",
+				["text"] = "# to maximum number of Summoned Ballista Totems",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["1829102168"] = {
 			["AnyJewel"] = {
@@ -12315,6 +12629,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1840985759"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1840985759",
+				["text"] = "#% increased Area of Effect for Attacks",
+				["type"] = "explicit",
+			},
+		},
 		["1846980580"] = {
 			["AnyJewel"] = {
 				["max"] = 1,
@@ -12381,6 +12704,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1854213750",
 				["text"] = "Minions have #% increased Critical Damage Bonus",
+				["type"] = "explicit",
+			},
+		},
+		["185580205"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_185580205",
+				["text"] = "Charms gain # charge per Second",
 				["type"] = "explicit",
 			},
 		},
@@ -12601,6 +12933,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["195270549"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_195270549",
+				["text"] = "Minions Break Armour equal to #% of Physical damage dealt",
+				["type"] = "explicit",
+			},
+		},
+		["1967040409"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1967040409",
+				["text"] = "Spell Skills have #% increased Area of Effect",
+				["type"] = "explicit",
+			},
+		},
 		["1967051901"] = {
 			["2HWeapon"] = {
 				["max"] = 1,
@@ -12618,6 +12968,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1972391381"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1972391381",
+				["text"] = "#% increased Explicit Resistance Modifier magnitudes",
+				["type"] = "explicit",
+			},
+		},
 		["1978899297"] = {
 			["Shield"] = {
 				["max"] = 2,
@@ -12628,6 +12987,33 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1978899297",
 				["text"] = "#% to all Maximum Elemental Resistances",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1980802737"] = {
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Crossbow"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1980802737",
+				["text"] = "Grenade Skills Fire an additional Projectile",
+				["type"] = "explicit",
+			},
+		},
+		["1992191903"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1992191903",
+				["text"] = "# to Level of all Mark Skills",
 				["type"] = "explicit",
 			},
 			["usePositiveSign"] = true,
@@ -12729,6 +13115,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2039822488"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2039822488",
+				["text"] = "#% to Maximum Quality",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["2056107438"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -12763,6 +13159,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2074866941"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2074866941",
+				["text"] = "#% increased Exposure Effect",
+				["type"] = "explicit",
+			},
+		},
 		["2077117738"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -12786,6 +13191,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2081918629",
 				["text"] = "#% increased effect of Socketed Augment Items",
+				["type"] = "explicit",
+			},
+		},
+		["2083058281"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2083058281",
+				["text"] = "Enemies you Mark take #% increased Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -12835,6 +13249,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_210067635",
 				["text"] = "#% increased Attack Speed (Local)",
+				["type"] = "explicit",
+			},
+		},
+		["2101383955"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2101383955",
+				["text"] = "Damage Penetrates #% Elemental Resistances",
+				["type"] = "explicit",
+			},
+		},
+		["2103650854"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2103650854",
+				["text"] = "#% increased effect of Arcane Surge on you",
 				["type"] = "explicit",
 			},
 		},
@@ -12972,7 +13404,7 @@ return {
 		},
 		["2144192055"] = {
 			["Ring"] = {
-				["max"] = 203,
+				["max"] = 233,
 				["min"] = 8,
 			},
 			["specialCaseData"] = {
@@ -12998,6 +13430,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2149603090",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cooldown Recovery Rate",
+				["type"] = "explicit",
+			},
+		},
+		["2150661403"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2150661403",
+				["text"] = "Skills have #% chance to not remove Elemental Infusions but still count as consuming them if you've lost an Archon Buff in the past 6 seconds",
+				["type"] = "explicit",
+			},
+		},
+		["2158617060"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2158617060",
+				["text"] = "#% increased Archon Buff duration",
 				["type"] = "explicit",
 			},
 		},
@@ -13057,6 +13507,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2189073790"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2189073790",
+				["text"] = "Projectiles have #% chance to Fork if you've dealt a Melee Hit in the past eight seconds",
+				["type"] = "explicit",
+			},
+		},
 		["2194114101"] = {
 			["AnyJewel"] = {
 				["max"] = 16,
@@ -13075,6 +13534,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2194114101",
 				["text"] = "#% increased Critical Hit Chance for Attacks",
+				["type"] = "explicit",
+			},
+		},
+		["2200293569"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2200293569",
+				["text"] = "Mana Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
 		},
@@ -13200,6 +13668,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2250681686"] = {
+			["2HWeapon"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["Crossbow"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2250681686",
+				["text"] = "Grenade Skills have +# Cooldown Use",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["2254480358"] = {
 			["1HWeapon"] = {
 				["max"] = 5,
@@ -13277,6 +13763,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["231689132"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_231689132",
+				["text"] = "#% increased Explicit Elemental Damage Modifier magnitudes",
+				["type"] = "explicit",
+			},
+		},
+		["2319832234"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2319832234",
+				["text"] = "#% of Damage Taken Recouped as Life, Mana and Energy Shield",
+				["type"] = "explicit",
+			},
+		},
 		["2320654813"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -13333,33 +13837,29 @@ return {
 			},
 		},
 		["2339757871"] = {
-			["AnyJewel"] = {
-				["max"] = 20,
-				["min"] = 10,
-			},
-			["BaseJewel"] = {
-				["max"] = 20,
-				["min"] = 10,
-			},
 			["Boots"] = {
-				["max"] = 45,
-				["min"] = 26,
+				["max"] = 19,
+				["min"] = 16,
+			},
+			["Chest"] = {
+				["max"] = 27,
+				["min"] = 16,
 			},
 			["Focus"] = {
-				["max"] = 55,
-				["min"] = 26,
+				["max"] = 27,
+				["min"] = 16,
 			},
 			["Gloves"] = {
-				["max"] = 45,
-				["min"] = 26,
+				["max"] = 19,
+				["min"] = 16,
 			},
 			["Helmet"] = {
-				["max"] = 45,
-				["min"] = 26,
+				["max"] = 19,
+				["min"] = 16,
 			},
 			["Shield"] = {
-				["max"] = 55,
-				["min"] = 26,
+				["max"] = 27,
+				["min"] = 16,
 			},
 			["specialCaseData"] = {
 			},
@@ -13467,6 +13967,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2392260628"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2392260628",
+				["text"] = "#% increased Runic Ward Regeneration Rate",
+				["type"] = "explicit",
+			},
+		},
 		["2392824305"] = {
 			["AnyJewel"] = {
 				["max"] = 12,
@@ -13498,6 +14007,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_239367161",
 				["text"] = "#% increased Stun Buildup",
+				["type"] = "explicit",
+			},
+		},
+		["2416650879"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2416650879",
+				["text"] = "#% increased Rage Cost Efficiency",
 				["type"] = "explicit",
 			},
 		},
@@ -13594,6 +14112,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2456226238"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2456226238",
+				["text"] = "Recover #% of your maximum Mana when an Enemy dies in your Presence",
+				["type"] = "explicit",
+			},
+		},
 		["2456523742"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -13620,6 +14147,10 @@ return {
 				["max"] = 200,
 				["min"] = 25,
 			},
+			["Quiver"] = {
+				["max"] = 60,
+				["min"] = 25,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13643,6 +14174,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2466785537",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Spell Damage Bonus",
+				["type"] = "explicit",
+			},
+		},
+		["2475221757"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2475221757",
+				["text"] = "#% increased Effect of Suffixes",
 				["type"] = "explicit",
 			},
 		},
@@ -13825,6 +14365,23 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2523933828"] = {
+			["AnyJewel"] = {
+				["max"] = 32,
+				["min"] = 18,
+			},
+			["BaseJewel"] = {
+				["max"] = 32,
+				["min"] = 18,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2523933828",
+				["text"] = "#% increased Armour, Evasion and Energy Shield from Equipped Shield",
+				["type"] = "explicit",
+			},
+		},
 		["2527686725"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -13892,11 +14449,11 @@ return {
 		["2557965901"] = {
 			["Gloves"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Ring"] = {
 				["max"] = 7.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["specialCaseData"] = {
 			},
@@ -13923,6 +14480,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2567751411"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2567751411",
+				["text"] = "Warcry Skills have #% increased Area of Effect",
+				["type"] = "explicit",
+			},
+		},
 		["2580617872"] = {
 			["AnyJewel"] = {
 				["max"] = -2,
@@ -13940,6 +14506,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Slowing Potency of Debuffs on You",
 				["type"] = "explicit",
 			},
+		},
+		["258119672"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_258119672",
+				["text"] = "# metre to Dodge Roll distance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2582079000"] = {
 			["specialCaseData"] = {
@@ -13986,6 +14562,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["262946222"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_262946222",
+				["text"] = "Allies in your Presence deal # to # added Attack Chaos Damage",
+				["type"] = "explicit",
+			},
+		},
 		["2637470878"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -14026,6 +14611,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2639966148",
 				["text"] = "Minions Revive #% faster",
+				["type"] = "explicit",
+			},
+		},
+		["2653231923"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2653231923",
+				["text"] = "#% increased Mana Cost Efficiency of Spells",
 				["type"] = "explicit",
 			},
 		},
@@ -14178,6 +14772,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2704225257"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2704225257",
+				["text"] = "# to Spirit",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["2704905000"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -14229,6 +14833,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2714890129"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2714890129",
+				["text"] = "Life Leech can Overflow Maximum Life",
+				["type"] = "explicit",
+			},
+		},
 		["2720982137"] = {
 			["AnyJewel"] = {
 				["max"] = 25,
@@ -14243,6 +14856,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2720982137",
 				["text"] = "Banner Skills have #% increased Duration",
+				["type"] = "explicit",
+			},
+		},
+		["2723294374"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2723294374",
+				["text"] = "Attacks have added Physical damage equal to #% of maximum Life",
 				["type"] = "explicit",
 			},
 		},
@@ -14314,6 +14936,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
+				["type"] = "explicit",
+			},
+		},
+		["2749595652"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2749595652",
+				["text"] = "#% chance for Skills to retain 40% of Glory on use",
 				["type"] = "explicit",
 			},
 		},
@@ -14650,6 +15281,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2897413282"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2897413282",
+				["text"] = "# to all Attributes",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["2901986750"] = {
 			["Amulet"] = {
 				["max"] = 18,
@@ -14782,6 +15423,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_293638271",
 				["text"] = "#% increased chance to Shock",
+				["type"] = "explicit",
+			},
+		},
+		["2942439603"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2942439603",
+				["text"] = "Skills have #% chance to not remove Charges but still count as consuming them",
+				["type"] = "explicit",
+			},
+		},
+		["2951965588"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2951965588",
+				["text"] = "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
 				["type"] = "explicit",
 			},
 		},
@@ -15120,56 +15779,56 @@ return {
 		},
 		["3035140377"] = {
 			["Bow"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["Crossbow"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 3,
+				["min"] = 3,
 			},
 			["Dagger"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["Flail"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["One Hand Axe"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["One Hand Mace"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["One Hand Sword"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["Quarterstaff"] = {
-				["max"] = 5,
-				["min"] = 5,
-			},
-			["Spear"] = {
 				["max"] = 3,
 				["min"] = 3,
 			},
+			["Spear"] = {
+				["max"] = 2,
+				["min"] = 2,
+			},
 			["Talisman"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 3,
+				["min"] = 3,
 			},
 			["Two Hand Axe"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 3,
+				["min"] = 3,
 			},
 			["Two Hand Mace"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 3,
+				["min"] = 3,
 			},
 			["Two Hand Sword"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 3,
+				["min"] = 3,
 			},
 			["specialCaseData"] = {
 			},
@@ -15220,6 +15879,16 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3057012405",
 				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus",
+				["type"] = "explicit",
+			},
+		},
+		["30642521"] = {
+			["specialCaseData"] = {
+				["overrideModLineSingular"] = "You can apply an additional Curse",
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_30642521",
+				["text"] = "You can apply # additional Curses",
 				["type"] = "explicit",
 			},
 		},
@@ -15291,6 +15960,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["310246444"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_310246444",
+				["text"] = "#% increased Damage while Leeching",
+				["type"] = "explicit",
+			},
+		},
 		["3106718406"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -15305,6 +15983,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3106718406",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Attack and Cast Speed",
+				["type"] = "explicit",
+			},
+		},
+		["3107707789"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3107707789",
+				["text"] = "#% increased Movement Speed while Sprinting",
 				["type"] = "explicit",
 			},
 		},
@@ -15342,6 +16029,24 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3120508478"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3120508478",
+				["text"] = "#% increased Damage against Immobilised Enemies",
+				["type"] = "explicit",
+			},
+		},
+		["3121133045"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3121133045",
+				["text"] = "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
+				["type"] = "explicit",
+			},
+		},
 		["3141070085"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -15356,6 +16061,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3141070085",
 				["text"] = "#% increased Elemental Damage",
+				["type"] = "explicit",
+			},
+		},
+		["3143918757"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3143918757",
+				["text"] = "#% increased Glory generation",
 				["type"] = "explicit",
 			},
 		},
@@ -15514,6 +16228,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3191479793"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3191479793",
+				["text"] = "Offering Skills have #% increased Buff effect",
+				["type"] = "explicit",
+			},
+		},
 		["3192728503"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -15584,12 +16307,39 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["323800555"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_323800555",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
+				["type"] = "explicit",
+			},
+		},
 		["3243034867"] = {
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3243034867",
 				["text"] = "Notable Passive Skills in Radius also grant Aura Skills have #% increased Magnitudes",
+				["type"] = "explicit",
+			},
+		},
+		["3249412463"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3249412463",
+				["text"] = "Supported Minions' Strikes have Melee Splash",
+				["type"] = "explicit",
+			},
+		},
+		["325171970"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_325171970",
+				["text"] = "#% increased Attack Speed while missing Runic Ward",
 				["type"] = "explicit",
 			},
 		},
@@ -16033,6 +16783,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3336230913"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3336230913",
+				["text"] = "# to maximum Runic Ward",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3336890334"] = {
 			["1HMace"] = {
 				["max"] = 123,
@@ -16201,6 +16961,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3384867265"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3384867265",
+				["text"] = "Sealed Skills have #% increased Seal gain frequency",
+				["type"] = "explicit",
+			},
+		},
 		["3386297724"] = {
 			["AnyJewel"] = {
 				["max"] = 3,
@@ -16234,6 +17003,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Area of Effect",
 				["type"] = "explicit",
 			},
+		},
+		["3393628375"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3393628375",
+				["text"] = "#% to Cold and Chaos Resistances",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["3394832998"] = {
 			["AnyJewel"] = {
@@ -16286,6 +17065,25 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3398787959"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3398787959",
+				["text"] = "Gain #% of Damage as Extra Chaos Damage",
+				["type"] = "explicit",
+			},
+		},
+		["3399401168"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3399401168",
+				["text"] = "#% to Fire Spell Critical Hit Chance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3401186585"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -16300,6 +17098,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3401186585",
 				["text"] = "#% increased Parried Debuff Duration",
+				["type"] = "explicit",
+			},
+		},
+		["3407849389"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3407849389",
+				["text"] = "#% reduced effect of Curses on you",
 				["type"] = "explicit",
 			},
 		},
@@ -16354,6 +17161,51 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3422093970"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3422093970",
+				["text"] = "#% chance for Remnants you pick up to count as picking up an additional Remnant",
+				["type"] = "explicit",
+			},
+		},
+		["3429148113"] = {
+			["AnyJewel"] = {
+				["max"] = 15,
+				["min"] = 8,
+			},
+			["RadiusJewel"] = {
+				["max"] = 15,
+				["min"] = 8,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3429148113",
+				["text"] = "Notable Passive Skills in Radius also grant #% increased Armour, Evasion and Energy Shield from Equipped Shield",
+				["type"] = "explicit",
+			},
+		},
+		["3465022881"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3465022881",
+				["text"] = "#% to Lightning and Chaos Resistances",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["3471443885"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3471443885",
+				["text"] = "#% of Damage taken from Deflected Hits Recouped as Life",
+				["type"] = "explicit",
+			},
+		},
 		["3473929743"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -16371,26 +17223,35 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3482326075"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3482326075",
+				["text"] = "Remnants can be collected from #% further away",
+				["type"] = "explicit",
+			},
+		},
 		["3484657501"] = {
 			["Boots"] = {
-				["max"] = 160,
-				["min"] = 8,
+				["max"] = 190,
+				["min"] = 9,
 			},
 			["Chest"] = {
-				["max"] = 276,
-				["min"] = 4,
+				["max"] = 310,
+				["min"] = 3,
 			},
 			["Gloves"] = {
-				["max"] = 160,
-				["min"] = 8,
+				["max"] = 190,
+				["min"] = 9,
 			},
 			["Helmet"] = {
-				["max"] = 202,
-				["min"] = 8,
+				["max"] = 221,
+				["min"] = 9,
 			},
 			["Shield"] = {
-				["max"] = 256,
-				["min"] = 8,
+				["max"] = 277,
+				["min"] = 9,
 			},
 			["specialCaseData"] = {
 			},
@@ -16449,6 +17310,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3518449420"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3518449420",
+				["text"] = "#% chance to gain Nature's Archon when your Plants Overgrow",
+				["type"] = "explicit",
+			},
+		},
 		["3523867985"] = {
 			["Boots"] = {
 				["max"] = 110,
@@ -16474,6 +17344,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3526763442"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3526763442",
+				["text"] = "#% increased Minion Damage per different Command Skill used in the past 15 seconds",
+				["type"] = "explicit",
+			},
+		},
 		["3544800472"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -16490,6 +17369,16 @@ return {
 				["text"] = "#% increased Elemental Ailment Threshold",
 				["type"] = "explicit",
 			},
+		},
+		["3552135623"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3552135623",
+				["text"] = "Prevent #% of Damage from Deflected Hits",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["3556824919"] = {
 			["Amulet"] = {
@@ -16513,6 +17402,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3556824919",
 				["text"] = "#% increased Critical Damage Bonus",
+				["type"] = "explicit",
+			},
+		},
+		["3574578302"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3574578302",
+				["text"] = "#% increased Explicit Fire Modifier magnitudes",
 				["type"] = "explicit",
 			},
 		},
@@ -16554,6 +17452,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3587953142"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3587953142",
+				["text"] = "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree",
+				["type"] = "explicit",
+			},
+		},
 		["3590792340"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -16585,6 +17492,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3596695232",
 				["text"] = "#% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds",
+				["type"] = "explicit",
+			},
+		},
+		["3621874554"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3621874554",
+				["text"] = "#% increased Magnitude of Elemental Ailments you inflict with Spells",
+				["type"] = "explicit",
+			},
+		},
+		["3624940721"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3624940721",
+				["text"] = "#% increased Explicit Lightning Modifier magnitudes",
 				["type"] = "explicit",
 			},
 		},
@@ -16707,6 +17632,16 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Bows",
 				["type"] = "explicit",
 			},
+		},
+		["3655769732"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3655769732",
+				["text"] = "#% to Quality of all Skills",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["3665922113"] = {
 			["AnyJewel"] = {
@@ -16935,6 +17870,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3742865955"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3742865955",
+				["text"] = "Minions deal #% increased Damage with Command Skills",
+				["type"] = "explicit",
+			},
+		},
 		["3749502527"] = {
 			["specialCaseData"] = {
 			},
@@ -17080,6 +18024,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["378817135"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_378817135",
+				["text"] = "#% to Fire and Chaos Resistances",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3791899485"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -17111,6 +18065,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3811191316",
 				["text"] = "Minions have #% increased Area of Effect",
+				["type"] = "explicit",
+			},
+		},
+		["3814876985"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3814876985",
+				["text"] = "#% chance to gain a Power Charge on Critical Hit",
 				["type"] = "explicit",
 			},
 		},
@@ -17261,6 +18224,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3858572996"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3858572996",
+				["text"] = "#% increased Fire Damage if you've collected a Fire Infusion in the last 8 seconds",
+				["type"] = "explicit",
+			},
+		},
 		["3859848445"] = {
 			["AnyJewel"] = {
 				["max"] = 6,
@@ -17292,6 +18264,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3865605585",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Attacks",
+				["type"] = "explicit",
+			},
+		},
+		["3868118796"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3868118796",
+				["text"] = "Attacks Chain an additional time",
 				["type"] = "explicit",
 			},
 		},
@@ -17536,6 +18517,15 @@ return {
 				["type"] = "explicit",
 			},
 			["usePositiveSign"] = true,
+		},
+		["3984146263"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3984146263",
+				["text"] = "Tempest Bells are destroyed after an additional # Hits",
+				["type"] = "explicit",
+			},
 		},
 		["3984865854"] = {
 			["1HWeapon"] = {
@@ -17922,6 +18912,16 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["4097212302"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4097212302",
+				["text"] = "# to maximum number of Elemental Infusions",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["4101445926"] = {
 			["Focus"] = {
 				["max"] = 20,
@@ -18002,6 +19002,16 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
+		},
+		["4147510958"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4147510958",
+				["text"] = "Sealed Skills have # to maximum Seals",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["4147897060"] = {
 			["AnyJewel"] = {
@@ -18246,6 +19256,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["4246007234"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4246007234",
+				["text"] = "#% increased Attack Damage while on Low Life",
+				["type"] = "explicit",
+			},
+		},
 		["4258000627"] = {
 			["AnyJewel"] = {
 				["max"] = 1,
@@ -18263,6 +19282,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["4258524206"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4258524206",
+				["text"] = "#% chance to build an additional Combo on Hit",
+				["type"] = "explicit",
+			},
+		},
 		["4258720395"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -18277,6 +19305,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_4258720395",
 				["text"] = "Notable Passive Skills in Radius also grant Projectiles have #% chance for an additional Projectile when Forking",
+				["type"] = "explicit",
+			},
+		},
+		["4259875040"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4259875040",
+				["text"] = "#% increased Magnitude of Impales inflicted with Spells",
+				["type"] = "explicit",
+			},
+		},
+		["4273473110"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4273473110",
+				["text"] = "#% increased maximum Runic Ward",
 				["type"] = "explicit",
 			},
 		},
@@ -18299,18 +19345,27 @@ return {
 		},
 		["429143663"] = {
 			["AnyJewel"] = {
-				["max"] = 20,
-				["min"] = 10,
+				["max"] = 16,
+				["min"] = 6,
 			},
 			["BaseJewel"] = {
-				["max"] = 20,
-				["min"] = 10,
+				["max"] = 16,
+				["min"] = 6,
 			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_429143663",
 				["text"] = "Banner Skills have #% increased Area of Effect",
+				["type"] = "explicit",
+			},
+		},
+		["434750362"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_434750362",
+				["text"] = "#% increased Area of Effect for Attacks per 10 Intelligence",
 				["type"] = "explicit",
 			},
 		},
@@ -18629,23 +19684,23 @@ return {
 		},
 		["53045048"] = {
 			["Boots"] = {
-				["max"] = 142,
+				["max"] = 176,
 				["min"] = 6,
 			},
 			["Chest"] = {
-				["max"] = 251,
-				["min"] = 3,
+				["max"] = 300,
+				["min"] = 2,
 			},
 			["Gloves"] = {
-				["max"] = 142,
+				["max"] = 176,
 				["min"] = 6,
 			},
 			["Helmet"] = {
-				["max"] = 181,
+				["max"] = 207,
 				["min"] = 6,
 			},
 			["Shield"] = {
-				["max"] = 232,
+				["max"] = 261,
 				["min"] = 6,
 			},
 			["specialCaseData"] = {
@@ -18691,46 +19746,82 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["541021467"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_541021467",
+				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
+				["type"] = "explicit",
+			},
+		},
+		["54812069"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_54812069",
+				["text"] = "#% of Damage from Hits is taken from your Spectres' Life before you",
+				["type"] = "explicit",
+			},
+		},
+		["554145967"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_554145967",
+				["text"] = "Recover # Runic Ward when a Charm is used",
+				["type"] = "explicit",
+			},
+		},
+		["555706343"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_555706343",
+				["text"] = "Spells Gain #% of Damage as extra Chaos Damage",
+				["type"] = "explicit",
+			},
+		},
 		["55876295"] = {
 			["1HMace"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["1HWeapon"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["2HMace"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["2HWeapon"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Bow"] = {
-				["max"] = 8.9,
-				["min"] = 5,
+				["max"] = 9.9,
+				["min"] = 6,
 			},
 			["Crossbow"] = {
-				["max"] = 8.9,
-				["min"] = 5,
+				["max"] = 9.9,
+				["min"] = 6,
 			},
 			["Flail"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Quarterstaff"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Spear"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Talisman"] = {
 				["max"] = 9.9,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["specialCaseData"] = {
 			},
@@ -18779,6 +19870,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_587431675",
 				["text"] = "#% increased Critical Hit Chance",
+				["type"] = "explicit",
+			},
+		},
+		["589361270"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_589361270",
+				["text"] = "Gain #% of Damage as Extra Fire Damage while you are missing Runic Ward",
 				["type"] = "explicit",
 			},
 		},
@@ -18876,6 +19976,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["62849030"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_62849030",
+				["text"] = "Critical Hits Poison the enemy",
+				["type"] = "explicit",
+			},
+		},
 		["644456512"] = {
 			["Belt"] = {
 				["max"] = 25,
@@ -18935,43 +20044,43 @@ return {
 		["669069897"] = {
 			["1HMace"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["1HWeapon"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["2HMace"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["2HWeapon"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["Bow"] = {
-				["max"] = 7.9,
-				["min"] = 4,
+				["max"] = 8.9,
+				["min"] = 5,
 			},
 			["Crossbow"] = {
-				["max"] = 7.9,
-				["min"] = 4,
+				["max"] = 8.9,
+				["min"] = 5,
 			},
 			["Flail"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["Quarterstaff"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["Spear"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["Talisman"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -19137,11 +20246,11 @@ return {
 		["707457662"] = {
 			["Gloves"] = {
 				["max"] = 8.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["Ring"] = {
 				["max"] = 6.9,
-				["min"] = 4,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -19234,6 +20343,25 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["718638445"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_718638445",
+				["text"] = "# Suffix Modifier allowed",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["73032170"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_73032170",
+				["text"] = "Minions have #% increased Skill Speed with Command Skills",
+				["type"] = "explicit",
+			},
+		},
 		["734614379"] = {
 			["Amulet"] = {
 				["max"] = 10,
@@ -19257,12 +20385,12 @@ return {
 				["min"] = 50,
 			},
 			["AnyJewel"] = {
-				["max"] = 12,
-				["min"] = 6,
+				["max"] = 13,
+				["min"] = 7,
 			},
 			["BaseJewel"] = {
-				["max"] = 12,
-				["min"] = 6,
+				["max"] = 13,
+				["min"] = 7,
 			},
 			["Focus"] = {
 				["max"] = 89,
@@ -19363,6 +20491,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_748522257",
 				["text"] = "#% increased Stun Duration",
+				["type"] = "explicit",
+			},
+		},
+		["758893621"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_758893621",
+				["text"] = "Gain #% of Physical Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -19507,6 +20644,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["797289402"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_797289402",
+				["text"] = "#% increased Lightning Damage if you've collected a Lightning Infusion in the last 8 seconds",
+				["type"] = "explicit",
+			},
+		},
 		["803737631"] = {
 			["Amulet"] = {
 				["max"] = 450,
@@ -19539,7 +20685,7 @@ return {
 		},
 		["809229260"] = {
 			["Belt"] = {
-				["max"] = 255,
+				["max"] = 351,
 				["min"] = 12,
 			},
 			["specialCaseData"] = {
@@ -19651,12 +20797,30 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["825116955"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_825116955",
+				["text"] = "Gain #% of Damage as Extra Cold Damage with Spells",
+				["type"] = "explicit",
+			},
+		},
 		["828533480"] = {
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_828533480",
 				["text"] = "#% Chance to gain a Charge when you kill an enemy",
+				["type"] = "explicit",
+			},
+		},
+		["830161081"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_830161081",
+				["text"] = "#% increased Runic Ward",
 				["type"] = "explicit",
 			},
 		},
@@ -19803,19 +20967,19 @@ return {
 		},
 		["9187492"] = {
 			["1HMace"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["1HWeapon"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["2HMace"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 2,
 			},
 			["2HWeapon"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 2,
 			},
 			["Amulet"] = {
@@ -19823,7 +20987,7 @@ return {
 				["min"] = 1,
 			},
 			["Flail"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["Gloves"] = {
@@ -19831,15 +20995,15 @@ return {
 				["min"] = 1,
 			},
 			["Quarterstaff"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 2,
 			},
 			["Spear"] = {
-				["max"] = 5,
+				["max"] = 4,
 				["min"] = 1,
 			},
 			["Talisman"] = {
-				["max"] = 7,
+				["max"] = 5,
 				["min"] = 2,
 			},
 			["specialCaseData"] = {
@@ -19866,6 +21030,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
+				["type"] = "explicit",
+			},
+		},
+		["933355817"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_933355817",
+				["text"] = "#% to gain Archon of Undeath when you create an Offering",
 				["type"] = "explicit",
 			},
 		},
@@ -19920,6 +21093,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["953593695"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_953593695",
+				["text"] = "Minions have #% increased Magnitude of Damaging Ailments",
+				["type"] = "explicit",
+			},
+		},
 		["959641748"] = {
 			["ManaFlask"] = {
 				["max"] = 15,
@@ -19932,6 +21114,16 @@ return {
 				["text"] = "Removes #% of Mana Recovered from Life when used",
 				["type"] = "explicit",
 			},
+		},
+		["971590056"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_971590056",
+				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["980177976"] = {
 			["AnyJewel"] = {
@@ -19995,6 +21187,23 @@ return {
 		},
 	},
 	["Implicit"] = {
+		["1028592286"] = {
+			["2HWeapon"] = {
+				["max"] = 35,
+				["min"] = 25,
+			},
+			["Bow"] = {
+				["max"] = 35,
+				["min"] = 25,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1028592286",
+				["text"] = "#% chance to Chain an additional time",
+				["type"] = "implicit",
+			},
+		},
 		["1050105434"] = {
 			["Ring"] = {
 				["max"] = 30,
@@ -20025,6 +21234,24 @@ return {
 				["text"] = "Unblockable",
 				["type"] = "implicit",
 			},
+		},
+		["1181501418"] = {
+			["2HWeapon"] = {
+				["max"] = 10,
+				["min"] = 7,
+			},
+			["Talisman"] = {
+				["max"] = 10,
+				["min"] = 7,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1181501418",
+				["text"] = "# to Maximum Rage",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["1207554355"] = {
 			["Quiver"] = {
@@ -20087,19 +21314,6 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["1416292992"] = {
-			["Belt"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1416292992",
-				["text"] = "Has # Charm Slot",
-				["type"] = "implicit",
-			},
-		},
 		["1434716233"] = {
 			["2HMace"] = {
 				["max"] = 1,
@@ -20157,6 +21371,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1458343515",
 				["text"] = "This item gains bonuses from Socketed Items as though it was a Helmet",
+				["type"] = "implicit",
+			},
+		},
+		["1459321413"] = {
+			["2HMace"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["2HWeapon"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1459321413",
+				["text"] = "#% increased Bleeding Duration",
 				["type"] = "implicit",
 			},
 		},
@@ -20222,11 +21453,11 @@ return {
 		},
 		["1589917703"] = {
 			["2HWeapon"] = {
-				["max"] = 50,
+				["max"] = 100,
 				["min"] = 30,
 			},
 			["Talisman"] = {
-				["max"] = 50,
+				["max"] = 100,
 				["min"] = 30,
 			},
 			["specialCaseData"] = {
@@ -20277,6 +21508,10 @@ return {
 				["max"] = 18,
 				["min"] = 12,
 			},
+			["Talisman"] = {
+				["max"] = 18,
+				["min"] = 14,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -20296,6 +21531,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1745952865",
 				["text"] = "#% reduced Elemental Ailment Duration on you",
+				["type"] = "implicit",
+			},
+		},
+		["1754445556"] = {
+			["Belt"] = {
+				["max"] = 15.5,
+				["min"] = 10.5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1754445556",
+				["text"] = "Adds # to # Lightning damage to Attacks",
 				["type"] = "implicit",
 			},
 		},
@@ -20342,6 +21590,23 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["1840985759"] = {
+			["1HMace"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["1HWeapon"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1840985759",
+				["text"] = "#% increased Area of Effect for Attacks",
+				["type"] = "implicit",
+			},
+		},
 		["1856590738"] = {
 			["Ring"] = {
 				["max"] = 1,
@@ -20352,6 +21617,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1856590738",
 				["text"] = "This item gains bonuses from Socketed Items as though it was Gloves",
+				["type"] = "implicit",
+			},
+		},
+		["1879206848"] = {
+			["1HMace"] = {
+				["max"] = 40,
+				["min"] = 30,
+			},
+			["1HWeapon"] = {
+				["max"] = 40,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1879206848",
+				["text"] = "#% increased effect of Fully Broken Armour",
 				["type"] = "implicit",
 			},
 		},
@@ -20415,6 +21697,20 @@ return {
 				["text"] = "Used when you take Lightning damage from a Hit",
 				["type"] = "implicit",
 			},
+		},
+		["2039822488"] = {
+			["Ring"] = {
+				["max"] = 25,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2039822488",
+				["text"] = "#% to Maximum Quality",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2055966527"] = {
 			["Quiver"] = {
@@ -20507,6 +21803,32 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["2339757871"] = {
+			["Chest"] = {
+				["max"] = 25,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2339757871",
+				["text"] = "#% increased Energy Shield Recharge Rate",
+				["type"] = "implicit",
+			},
+		},
+		["2392260628"] = {
+			["Chest"] = {
+				["max"] = 40,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2392260628",
+				["text"] = "#% increased Runic Ward Regeneration Rate",
+				["type"] = "implicit",
+			},
+		},
 		["239367161"] = {
 			["Quiver"] = {
 				["max"] = 40,
@@ -20555,6 +21877,19 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["254952842"] = {
+			["Chest"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_254952842",
+				["text"] = "Catalysts can be applied to this item",
+				["type"] = "implicit",
+			},
+		},
 		["2646093132"] = {
 			["Ring"] = {
 				["max"] = 1,
@@ -20599,6 +21934,19 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["2748665614"] = {
+			["Ring"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2748665614",
+				["text"] = "#% increased maximum Mana",
+				["type"] = "implicit",
+			},
+		},
 		["2778646494"] = {
 			["Charm"] = {
 				["max"] = 1,
@@ -20626,6 +21974,10 @@ return {
 			},
 		},
 		["2891184298"] = {
+			["Belt"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["Ring"] = {
 				["max"] = 10,
 				["min"] = 7,
@@ -20751,7 +22103,7 @@ return {
 				["min"] = 2,
 			},
 			["Ring"] = {
-				["max"] = 2.5,
+				["max"] = 12,
 				["min"] = 2.5,
 			},
 			["specialCaseData"] = {
@@ -20852,6 +22204,32 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["3336230913"] = {
+			["1HMace"] = {
+				["max"] = 150,
+				["min"] = 100,
+			},
+			["1HWeapon"] = {
+				["max"] = 300,
+				["min"] = 100,
+			},
+			["Amulet"] = {
+				["max"] = 40,
+				["min"] = 30,
+			},
+			["Wand"] = {
+				["max"] = 300,
+				["min"] = 300,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3336230913",
+				["text"] = "# to maximum Runic Ward",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3362812763"] = {
 			["Chest"] = {
 				["max"] = 25,
@@ -20924,6 +22302,23 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["3663551379"] = {
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Crossbow"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3663551379",
+				["text"] = "Cannot load or fire Ammunition",
+				["type"] = "implicit",
+			},
+		},
 		["3675300253"] = {
 			["2HMace"] = {
 				["max"] = 1,
@@ -20964,6 +22359,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_3699444296",
 				["text"] = "Used when you become Shocked",
+				["type"] = "implicit",
+			},
+		},
+		["3791899485"] = {
+			["Helmet"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3791899485",
+				["text"] = "#% increased Ignite Magnitude",
 				["type"] = "implicit",
 			},
 		},
@@ -21124,6 +22532,33 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["4273473110"] = {
+			["Amulet"] = {
+				["max"] = 20,
+				["min"] = 15,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_4273473110",
+				["text"] = "#% increased maximum Runic Ward",
+				["type"] = "implicit",
+			},
+		},
+		["4277795662"] = {
+			["Ring"] = {
+				["max"] = 16,
+				["min"] = 12,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_4277795662",
+				["text"] = "#% to Cold and Lightning Resistances",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["458438597"] = {
 			["Chest"] = {
 				["max"] = 10,
@@ -21166,6 +22601,20 @@ return {
 				["text"] = "#% increased Melee Strike Range with this weapon",
 				["type"] = "implicit",
 			},
+		},
+		["569299859"] = {
+			["Ring"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_569299859",
+				["text"] = "#% to all maximum Resistances",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["585126960"] = {
 			["Charm"] = {
@@ -21256,7 +22705,7 @@ return {
 		},
 		["731781020"] = {
 			["Belt"] = {
-				["max"] = 0.17,
+				["max"] = 1,
 				["min"] = 0.17,
 			},
 			["specialCaseData"] = {
@@ -21266,6 +22715,33 @@ return {
 				["text"] = "Flasks gain # charges per Second",
 				["type"] = "implicit",
 			},
+		},
+		["736967255"] = {
+			["Ring"] = {
+				["max"] = 23,
+				["min"] = 11,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_736967255",
+				["text"] = "#% increased Chaos Damage",
+				["type"] = "implicit",
+			},
+		},
+		["774059442"] = {
+			["Chest"] = {
+				["max"] = 1000,
+				["min"] = 750,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_774059442",
+				["text"] = "# to maximum Runic Ward",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["789117908"] = {
 			["Amulet"] = {
@@ -21311,6 +22787,20 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_803737631",
 				["text"] = "# to Accuracy Rating",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["809229260"] = {
+			["Belt"] = {
+				["max"] = 180,
+				["min"] = 140,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_809229260",
+				["text"] = "# to Armour",
 				["type"] = "implicit",
 			},
 			["usePositiveSign"] = true,
@@ -21365,6 +22855,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_958696139",
 				["text"] = "Grants 1 additional Skill Slot",
+				["type"] = "implicit",
+			},
+		},
+		["983749596"] = {
+			["Ring"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_983749596",
+				["text"] = "#% increased maximum Life",
 				["type"] = "implicit",
 			},
 		},
