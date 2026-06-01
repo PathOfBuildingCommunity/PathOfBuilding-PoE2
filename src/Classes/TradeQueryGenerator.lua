@@ -376,7 +376,22 @@ function TradeQueryGeneratorClass:InitMods()
 			if not f then
 				error("Could not open file for writing trade stat data")
 			end
-			f:write("return " .. stringify(body.result))
+
+			for catIdx, _ in ipairs(body.result) do
+				table.sort(body.result[catIdx].entries, function(a, b)
+					return a.text < b.text
+				end)
+			end
+
+
+				local template = [[-- This file is automatically downloaded, do not edit!
+-- Trade site stat data (c) Grinding Gear Games
+-- https://www.pathofexile.com/api/trade2/data/stats
+-- spell-checker: disable
+return %s
+-- spell-checker: enable]]
+			f:write(s_format(template, stringify(body.result)))
+
 			f:close()
 		end
 	)

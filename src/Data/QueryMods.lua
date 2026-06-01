@@ -20898,6 +20898,20 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["3489782002"] = {
+			["Amulet"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3489782002",
+				["text"] = "# to maximum Energy Shield",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40,
@@ -21402,7 +21416,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["101878827"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 50,
 				["min"] = -40,
 			},
@@ -21552,10 +21566,6 @@ return {
 			},
 		},
 		["1050105434"] = {
-			["1HWeapon"] = {
-				["max"] = 90,
-				["min"] = 45,
-			},
 			["Boots"] = {
 				["max"] = 50,
 				["min"] = 20,
@@ -21576,11 +21586,15 @@ return {
 				["max"] = 50,
 				["min"] = 10,
 			},
+			["Quarterstaff"] = {
+				["max"] = 90,
+				["min"] = 45,
+			},
 			["Shield"] = {
 				["max"] = 50,
 				["min"] = 20,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 90,
 				["min"] = 45,
 			},
@@ -21670,11 +21684,11 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Staff"] = {
+			["Talisman"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Talisman"] = {
+			["Wand"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -21720,12 +21734,12 @@ return {
 			},
 		},
 		["124131830"] = {
-			["1HWeapon"] = {
-				["max"] = 2,
+			["Quarterstaff"] = {
+				["max"] = 1,
 				["min"] = 1,
 			},
-			["Staff"] = {
-				["max"] = 1,
+			["Wand"] = {
+				["max"] = 2,
 				["min"] = 1,
 			},
 			["specialCaseData"] = {
@@ -21738,7 +21752,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1250712710"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 14,
 				["min"] = 14,
 			},
@@ -21751,7 +21765,7 @@ return {
 			},
 		},
 		["1323701627"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -22152,7 +22166,7 @@ return {
 			},
 		},
 		["1539508682"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = -20,
 				["min"] = -20,
 			},
@@ -22268,7 +22282,7 @@ return {
 			},
 		},
 		["1574590649"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -22556,7 +22570,7 @@ return {
 			},
 		},
 		["1779262102"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -22569,7 +22583,7 @@ return {
 			},
 		},
 		["1798257884"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40,
 				["min"] = 40,
 			},
@@ -22582,7 +22596,7 @@ return {
 			},
 		},
 		["1805182458"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -22621,7 +22635,7 @@ return {
 			},
 		},
 		["1911097163"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 0.5,
 				["min"] = 0.5,
 			},
@@ -22897,7 +22911,7 @@ return {
 			},
 		},
 		["1998951374"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -22910,15 +22924,15 @@ return {
 			},
 		},
 		["1999910726"] = {
-			["1HWeapon"] = {
-				["max"] = -25,
-				["min"] = -25,
-			},
 			["Helmet"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
-			["Staff"] = {
+			["Quarterstaff"] = {
+				["max"] = -25,
+				["min"] = -25,
+			},
+			["Wand"] = {
 				["max"] = -25,
 				["min"] = -25,
 			},
@@ -23056,7 +23070,7 @@ return {
 			},
 		},
 		["2045949233"] = {
-			["2HMace"] = {
+			["2HWeapon"] = {
 				["max"] = 25,
 				["min"] = 10,
 			},
@@ -23148,11 +23162,11 @@ return {
 				["min"] = 5,
 			},
 			["2HWeapon"] = {
-				["max"] = 5,
+				["max"] = 50,
 				["min"] = 5,
 			},
 			["Bow"] = {
-				["max"] = 50,
+				["max"] = 5,
 				["min"] = 5,
 			},
 			["Claw"] = {
@@ -23354,7 +23368,7 @@ return {
 			},
 		},
 		["2328443419"] = {
-			["Staff"] = {
+			["Quarterstaff"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
@@ -23367,15 +23381,15 @@ return {
 			},
 		},
 		["2339757871"] = {
-			["1HWeapon"] = {
-				["max"] = 12,
-				["min"] = 6,
-			},
 			["Chest"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
-			["Staff"] = {
+			["Quarterstaff"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["Wand"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -23388,7 +23402,7 @@ return {
 			},
 		},
 		["234296660"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
@@ -23534,7 +23548,7 @@ return {
 			},
 		},
 		["2463230181"] = {
-			["Bow"] = {
+			["2HWeapon"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -23552,11 +23566,7 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
-			["2HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Talisman"] = {
+			["2HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -23582,11 +23592,11 @@ return {
 			},
 		},
 		["2505884597"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -23612,7 +23622,7 @@ return {
 			},
 		},
 		["2579974553"] = {
-			["1HWeapon"] = {
+			["Wand"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -23709,11 +23719,7 @@ return {
 			},
 		},
 		["2616640048"] = {
-			["Bow"] = {
-				["max"] = 32,
-				["min"] = 32,
-			},
-			["Crossbow"] = {
+			["2HWeapon"] = {
 				["max"] = 32,
 				["min"] = 32,
 			},
@@ -23730,7 +23736,7 @@ return {
 			},
 		},
 		["262946222"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -23756,7 +23762,7 @@ return {
 			},
 		},
 		["2652394701"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -23782,11 +23788,11 @@ return {
 			},
 		},
 		["267552601"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -23799,7 +23805,7 @@ return {
 			},
 		},
 		["2681952497"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -23981,7 +23987,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2829985691"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40,
 				["min"] = 40,
 			},
@@ -24008,7 +24014,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2854751904"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20.5,
 				["min"] = 20.5,
 			},
@@ -24034,7 +24040,7 @@ return {
 			},
 		},
 		["2882351629"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -24073,7 +24079,7 @@ return {
 			},
 		},
 		["289128254"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -24134,11 +24140,11 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2910761524"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -24272,11 +24278,11 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Staff"] = {
+			["Talisman"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Talisman"] = {
+			["Wand"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -24455,11 +24461,11 @@ return {
 			},
 		},
 		["2974417149"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 35,
 				["min"] = 20,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 35,
 				["min"] = 20,
 			},
@@ -24472,11 +24478,11 @@ return {
 			},
 		},
 		["3015669065"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -24581,7 +24587,7 @@ return {
 			},
 		},
 		["3057012405"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -24607,7 +24613,7 @@ return {
 			},
 		},
 		["3091578504"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},
@@ -24689,7 +24695,7 @@ return {
 			},
 		},
 		["3151560620"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -24702,7 +24708,7 @@ return {
 			},
 		},
 		["315791320"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -24754,7 +24760,7 @@ return {
 			},
 		},
 		["3257561708"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -24853,11 +24859,11 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3278136794"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -25095,7 +25101,7 @@ return {
 			},
 		},
 		["3353733343"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -25230,11 +25236,11 @@ return {
 				["max"] = 13,
 				["min"] = 13,
 			},
-			["Staff"] = {
+			["Talisman"] = {
 				["max"] = 13,
 				["min"] = 13,
 			},
-			["Talisman"] = {
+			["Wand"] = {
 				["max"] = 13,
 				["min"] = 13,
 			},
@@ -25260,7 +25266,7 @@ return {
 			},
 		},
 		["3444646646"] = {
-			["Talisman"] = {
+			["2HWeapon"] = {
 				["max"] = 2,
 				["min"] = 2,
 			},
@@ -25286,11 +25292,11 @@ return {
 			},
 		},
 		["3482326075"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -25317,11 +25323,11 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3489782002"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 60,
 				["min"] = 30,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 60,
 				["min"] = 30,
 			},
@@ -25335,7 +25341,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3515226849"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 3,
 				["min"] = 3,
 			},
@@ -25425,11 +25431,11 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Staff"] = {
+			["Talisman"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Talisman"] = {
+			["Wand"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -25695,14 +25701,14 @@ return {
 		},
 		["3742865955"] = {
 			["1HWeapon"] = {
-				["max"] = 40,
-				["min"] = 40,
-			},
-			["Sceptre"] = {
 				["max"] = 60,
 				["min"] = 40,
 			},
-			["Staff"] = {
+			["Quarterstaff"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Wand"] = {
 				["max"] = 40,
 				["min"] = 40,
 			},
@@ -25715,7 +25721,7 @@ return {
 			},
 		},
 		["3759663284"] = {
-			["Bow"] = {
+			["2HWeapon"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -25761,7 +25767,7 @@ return {
 			},
 		},
 		["3814102597"] = {
-			["1HWeapon"] = {
+			["Wand"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -25787,7 +25793,7 @@ return {
 			},
 		},
 		["3837707023"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -25801,7 +25807,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3850614073"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 12,
 				["min"] = 12,
 			},
@@ -25906,7 +25912,7 @@ return {
 			},
 		},
 		["3885405204"] = {
-			["Bow"] = {
+			["2HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -26031,13 +26037,13 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3973629633"] = {
-			["1HWeapon"] = {
-				["max"] = 25,
-				["min"] = 25,
-			},
 			["Gloves"] = {
 				["max"] = 20,
 				["min"] = 20,
+			},
+			["Wand"] = {
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["specialCaseData"] = {
 			},
@@ -26102,7 +26108,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3984865854"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -26325,10 +26331,6 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["416040624"] = {
-			["1HWeapon"] = {
-				["max"] = 16,
-				["min"] = 10,
-			},
 			["Chest"] = {
 				["max"] = 15,
 				["min"] = 15,
@@ -26337,7 +26339,11 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
-			["Staff"] = {
+			["Quarterstaff"] = {
+				["max"] = 16,
+				["min"] = 10,
+			},
+			["Wand"] = {
 				["max"] = 16,
 				["min"] = 10,
 			},
@@ -26350,7 +26356,7 @@ return {
 			},
 		},
 		["4200448078"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -26556,7 +26562,7 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["538981065"] = {
-			["Crossbow"] = {
+			["2HWeapon"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -26569,7 +26575,7 @@ return {
 			},
 		},
 		["540694930"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -26582,7 +26588,7 @@ return {
 			},
 		},
 		["553018427"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = -30,
 				["min"] = -30,
 			},
@@ -26833,7 +26839,7 @@ return {
 			},
 		},
 		["632743438"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8,
 				["min"] = 8,
 			},
@@ -26859,7 +26865,7 @@ return {
 			},
 		},
 		["666077204"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 12,
 				["min"] = 12,
 			},
@@ -27198,11 +27204,11 @@ return {
 				["max"] = 5,
 				["min"] = 5,
 			},
-			["Staff"] = {
+			["Talisman"] = {
 				["max"] = 5,
 				["min"] = 5,
 			},
-			["Talisman"] = {
+			["Wand"] = {
 				["max"] = 5,
 				["min"] = 5,
 			},
@@ -27251,10 +27257,6 @@ return {
 				["max"] = 0.2,
 				["min"] = 0.2,
 			},
-			["Sceptre"] = {
-				["max"] = 0.2,
-				["min"] = 0.2,
-			},
 			["Spear"] = {
 				["max"] = 0.2,
 				["min"] = 0.2,
@@ -27280,11 +27282,11 @@ return {
 			},
 		},
 		["737908626"] = {
-			["1HWeapon"] = {
+			["Quarterstaff"] = {
 				["max"] = 28,
 				["min"] = 16,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 28,
 				["min"] = 16,
 			},
@@ -27407,10 +27409,6 @@ return {
 			},
 		},
 		["789117908"] = {
-			["1HWeapon"] = {
-				["max"] = 35,
-				["min"] = 20,
-			},
 			["Boots"] = {
 				["max"] = 21,
 				["min"] = 12,
@@ -27431,11 +27429,15 @@ return {
 				["max"] = 21,
 				["min"] = 12,
 			},
+			["Quarterstaff"] = {
+				["max"] = 35,
+				["min"] = 20,
+			},
 			["Shield"] = {
 				["max"] = 21,
 				["min"] = 12,
 			},
-			["Staff"] = {
+			["Wand"] = {
 				["max"] = 35,
 				["min"] = 20,
 			},
