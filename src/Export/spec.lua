@@ -5898,7 +5898,7 @@ return {
 			name="FlavourTextKey",
 			refTo="FlavourText",
 			type="Key",
-			width=100
+			width=120
 		},
 		[9]={
 			list=true,

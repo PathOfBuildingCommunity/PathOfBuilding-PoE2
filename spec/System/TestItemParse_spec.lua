@@ -438,7 +438,7 @@ describe("TestItemParse", function()
 		]])
 
 		assert.are.equals(3, item.itemSocketCount)
-		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
+		assert.are.same({ "Greater Glacial Rune", "Lesser Body Rune" }, item.runes)
 		assert.are.equals(1, item.runeModLines[1].runeCount)
 		assert.are.equals(1, item.runeModLines[2].runeCount)
 		assert.is_nil(item.runeModLines[3].runeCount)

@@ -60,7 +60,7 @@ end
 local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 	if raw then
 		self:ParseRaw(sanitiseText(raw), rarity, highQuality)
-	end	
+	end
 end)
 
 local lineFlags = {
@@ -395,7 +395,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local linePrefix = ""
 	local linePostfix = ""
 
-	while self.rawLines[l] do	
+	while self.rawLines[l] do
 		local line = self.rawLines[l]
 		if flaskBuffLines and flaskBuffLines[line] then
 			flaskBuffLines[line] = nil
@@ -687,8 +687,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.requirements[specName:sub(1,3):lower()] = specToNumber(specVal)
 				elseif specName == "Critical Hit Range" or specName == "Attacks per Second" or specName == "Weapon Range" or
 				       specName == "Critical Hit Chance" or specName == "Physical Damage" or specName == "Elemental Damage" or
-				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or 
-					   specName == "Reload Time" or specName == "Chance to Block" or specName == "Block chance" or 
+				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or
+					   specName == "Reload Time" or specName == "Chance to Block" or specName == "Block chance" or
 					   specName == "Armour" or specName == "Energy Shield" or specName == "Evasion" or specName == "Requires" then
 					self.hidden_specs = true
 				-- Anything else is an explicit with a colon in it (Fortress Covenant, Pure Talent, etc) unless it's part of the custom name
@@ -869,7 +869,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 									self.pendingAffixList = { pendingAffix }
 									break
 								end
-							end	
+							end
 						end
 					end
 					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
@@ -894,7 +894,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
 					local bestPrecisionDelta = -1
 					local bestPrecisionRange = -1
-					
+
 					-- Replace non-number ranges as unsupported
 					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
 
@@ -1128,7 +1128,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 					if result then -- we have found a valid combo for that rune category
 						remainingRunes = remainingRunes - numRunes
-						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
+						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
 						modLine.soulCore = groupedRunes[1].name:match("Soul Core") ~= nil
 						modLine.runeCount = numRunes
@@ -1149,7 +1149,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.runes = { }
 		end
 	end
-	
+
 	if self.base and not self.requirements.level then
 		if importedLevelReq and #self.sockets == 0 then
 			-- Requirements on imported items can only be trusted for items with no sockets
@@ -1173,7 +1173,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	self.affixLimit = 0
 	if self.crafted then
-		if not self.affixes then 
+		if not self.affixes then
 			self.crafted = false
 		elseif self.rarity == "MAGIC" then
 			if self.prefixes.limit or self.suffixes.limit then
@@ -1255,7 +1255,7 @@ function ItemClass:NormaliseQuality()
 		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
 			self.quality = main.defaultItemQuality
 		end
-	end	
+	end
 end
 
 function ItemClass:GetModSpawnWeight(mod, includeTags, excludeTags)
@@ -1389,7 +1389,7 @@ function ItemClass:BuildRaw()
 			if baseLine.variantList then
 				writeModLine(baseLine)
 			end
-		end	
+		end
 		if self.hasAltVariant then
 			t_insert(rawLines, "Has Alt Variant: true")
 			t_insert(rawLines, "Selected Alt Variant: " .. self.variantAlt)
@@ -1483,7 +1483,7 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType) 
+	local getModRunesForTypes = function(runeName, baseType, specificType)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1492,7 +1492,7 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[baseType])
 				-- end
 			end
-			if rune[specificType] then 
+			if rune[specificType] then
 				-- for _, mod in pairs(rune[specificType]) do
 					t_insert(gatheredRuneMods, rune[specificType])
 				-- end
@@ -1500,13 +1500,18 @@ function ItemClass:UpdateRunes()
 		end
 		return gatheredRuneMods
 	end
-	
+
 	local statOrder = {}
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster"
-			local specificType = self.base.type:lower()
+			local subType = self.base.subType and self.base.subType:lower()
+			local itemType = self.base.type:lower()
+			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
+			local specificType =
+				(subType == "warstaff" and "warstaff") or
+				(itemType == "shield" and subType == "evasion" and "buckler") or
+				itemType
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
@@ -1528,12 +1533,11 @@ function ItemClass:UpdateRunes()
 							end
 						end
 						statOrder[order] = modLine
-					end	
+					end
 				end
 			end
 		end
 	end
-
 end
 
 -- Rebuild explicit modifiers using the item's affixes
@@ -1586,7 +1590,7 @@ function ItemClass:Craft()
 							end
 						end
 						statOrder[order] = modLine
-					end	
+					end
 				end
 			end
 		end
@@ -1601,7 +1605,7 @@ function ItemClass:Craft()
 end
 
 function ItemClass:CheckModLineVariant(modLine)
-	return not modLine.variantList 
+	return not modLine.variantList
 		or modLine.variantList[self.variant]
 		or (self.hasAltVariant and modLine.variantList[self.variantAlt])
 		or (self.hasAltVariant2 and modLine.variantList[self.variantAlt2])
@@ -1718,7 +1722,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		weaponData.AttackRate = round(self.base.weapon.AttackRateBase * (1 + weaponData.AttackSpeedInc / 100), 2)
 		weaponData.rangeBonus = calcLocal(modList, "WeaponRange", "BASE", 0) + 10 * calcLocal(modList, "WeaponRangeMetre", "BASE", 0) + m_floor(self.quality / 10 * calcLocal(modList, "AlternateQualityLocalWeaponRangePer10Quality", "BASE", 0))
 		weaponData.range = self.base.weapon.Range + weaponData.rangeBonus
-		if self.base.weapon.ReloadTimeBase then 
+		if self.base.weapon.ReloadTimeBase then
 			weaponData.ReloadSpeedInc = calcLocal(modList, "ReloadSpeed", "INC", ModFlag.Attack) + weaponData.AttackSpeedInc
 			weaponData.ReloadTime = round(self.base.weapon.ReloadTimeBase / (1 + weaponData.ReloadSpeedInc / 100), 2)
 		end
@@ -1898,11 +1902,11 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			if jewelData.clusterJewelSkill and not self.clusterJewel.skills[jewelData.clusterJewelSkill] then
 				jewelData.clusterJewelSkill = nil
 			end
-			jewelData.clusterJewelValid = jewelData.clusterJewelKeystone 
-				or ((jewelData.clusterJewelSkill or jewelData.clusterJewelSmallsAreNothingness) and jewelData.clusterJewelNodeCount) 
+			jewelData.clusterJewelValid = jewelData.clusterJewelKeystone
+				or ((jewelData.clusterJewelSkill or jewelData.clusterJewelSmallsAreNothingness) and jewelData.clusterJewelNodeCount)
 				or (jewelData.clusterJewelSocketCountOverride and jewelData.clusterJewelNothingnessCount)
 		end
-	end	
+	end
 	return { unpack(modList) }
 end
 
@@ -1947,7 +1951,7 @@ function ItemClass:BuildModList()
 				if modLine.range then
 					-- Check if line actually has a range
 					if modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
-						local strippedModeLine = modLine.line:gsub("\n"," ")						
+						local strippedModeLine = modLine.line:gsub("\n"," ")
 						local catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
 						-- Put the modified value into the string
 						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar, modLine.corruptedRange)
@@ -2058,9 +2062,9 @@ function ItemClass:BuildModList()
 		self.requirements.dexMod = 0
 		self.requirements.intMod = 0
 	elseif calcLocal(baseList, "AttributeRequirementsConverted", "FLAG", 0) then
-		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100  
-		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100 
-		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100 
+		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100
+		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100
+		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100
 		self.requirements.intBase = intConversion * (self.requirements.str + self.requirements.dex) + (self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) - self.requirements.int * (strConversion + dexConversion)
 		self.requirements.intMod = m_floor(self.requirements.intBase * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
 		self.requirements.dexBase = dexConversion * (self.requirements.str + self.requirements.int) + (self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) - self.requirements.dex * (strConversion + intConversion)
