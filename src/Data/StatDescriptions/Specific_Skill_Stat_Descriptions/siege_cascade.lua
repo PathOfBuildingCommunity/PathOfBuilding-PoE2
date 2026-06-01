@@ -4,7 +4,7 @@
 return {
 	[1]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[2]={
@@ -91,5 +91,5 @@ return {
 	["active_skill_secondary_area_of_effect_radius"]=7,
 	["never_freeze"]=3,
 	parent="skill_stat_descriptions",
-	["total_number_of_projectiles_to_fire"]=1
+	["total_number_of_projectiles_to_fire_from_stats"]=1
 }

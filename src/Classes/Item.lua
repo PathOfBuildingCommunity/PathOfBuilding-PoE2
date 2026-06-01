@@ -461,7 +461,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if #self.pendingAffixList == 0 and #backupAffixList > 0 then
 					self.pendingAffixList = backupAffixList
 				end
-				if #self.pendingAffixList == 0 and #backupAffixList == 0 then
+				if #self.pendingAffixList == 0 then
 					-- Could be a veiled, temple, or other custom mod, so just keep it around
 					linePrefix = "{custom}"
 				end
@@ -511,6 +511,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			if specName then
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
+					goto continue
 				elseif specName == "Item Level" then
 					self.itemLevel = specToNumber(specVal)
 				elseif specName == "Requires Class" then
@@ -853,12 +854,17 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				if self.pendingAffixList and #self.pendingAffixList > 0 then
 					if #self.pendingAffixList > 1 then
-						-- Probably a conqueror mod since the mod name is the same for all of them
+						-- Probably a conqueror or Essence mod since the mod name is the same for all of them
 						-- Try to match the line against one of the mods there
 						local valueStrippedLine = line:gsub("%-?%d+%.?%d*%(", "("):gsub("%-?%d+%.?%d*", "#")
 						for _, pendingAffix in ipairs(self.pendingAffixList) do
 							local modData = self.affixes[pendingAffix.modId]
 							for _, modDataLine in ipairs(modData) do
+								-- Prefer the exact match
+								if line == modDataLine then
+									self.pendingAffixList = { pendingAffix }
+									break
+								end
 								if valueStrippedLine == modDataLine:gsub("%-?%d+%.?%d*", "#") then
 									self.pendingAffixList = { pendingAffix }
 									break
@@ -881,7 +887,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					t_insert(self.pendingAffixList[1].table, {
 						modId = self.pendingAffixList[1].modId,
-						range = tonumber(bestPrecisionRange),
+						range = bestPrecisionRange >= 0 and bestPrecisionRange <= 1 and bestPrecisionRange or 0.5,
 					})
 					self.pendingAffixList = {}
 				else
@@ -906,7 +912,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						end
 					end
 					if bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
-						modLine.range = tonumber(bestPrecisionRange)
+						modLine.range = bestPrecisionRange
 					end
 				end
 				local rangedLine = itemLib.applyRange(line, 1, catalystScalar, modLine.corruptedRange)

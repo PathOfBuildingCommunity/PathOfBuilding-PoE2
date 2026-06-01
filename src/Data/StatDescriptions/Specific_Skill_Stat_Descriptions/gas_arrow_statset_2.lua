@@ -19,12 +19,12 @@ return {
 	},
 	[4]={
 		stats={
-			[1]="total_number_of_arrows_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["active_skill_area_of_effect_description_mode"]=1,
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=2,
 	parent="specific_skill_stat_descriptions/gas_arrow_statset_0",
-	["total_number_of_arrows_to_fire"]=4
+	["total_number_of_projectiles_to_fire_from_stats"]=4
 }

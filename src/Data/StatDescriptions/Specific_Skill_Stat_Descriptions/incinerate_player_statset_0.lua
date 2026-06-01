@@ -153,6 +153,20 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} seconds of Maximum fuel"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]=1000,
@@ -161,7 +175,7 @@ return {
 				},
 				text="Can store up to {0} second of fuel"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

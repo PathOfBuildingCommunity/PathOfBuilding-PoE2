@@ -133,6 +133,35 @@ return {
 	},
 	[6]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Targets with attached Rods take {0}% increased damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Targets with attached Rods take {0}% reduced damage"
+			}
+		},
+		stats={
+			[1]="electrocuting_arrow_damage_taken_+%"
+		}
+	},
+	[7]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -143,7 +172,8 @@ return {
 	["base_skill_effect_duration"]=5,
 	["cannot_pierce"]=3,
 	["electrocuting_arrow_%_damage_gained_as_extra_lightning_on_debuffed_target"]=4,
+	["electrocuting_arrow_damage_taken_+%"]=6,
 	parent="skill_stat_descriptions",
 	["quality_display_base_skill_effect_duration_is_gem"]=5,
-	["skill_effect_duration"]=6
+	["skill_effect_duration"]=7
 }

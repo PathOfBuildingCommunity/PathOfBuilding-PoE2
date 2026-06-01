@@ -4,7 +4,7 @@
 return {
 	[1]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[2]={
@@ -69,5 +69,5 @@ return {
 	["active_skill_base_area_of_effect_radius"]=4,
 	["blazing_cluster_maximum_number_of_projectiles_allowed"]=2,
 	parent="skill_stat_descriptions",
-	["total_number_of_projectiles_to_fire"]=1
+	["total_number_of_projectiles_to_fire_from_stats"]=1
 }

@@ -587,6 +587,10 @@ local configSettings = {
 	{ var = "configSpectralWolfCount", type = "count", label = "# of Active Spectral Wolves:", ifSkill = "Summon Spectral Wolf", tooltip = "Sets the number of active Spectral Wolves.\nThe maximum number of Spectral Wolves is 10.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SpectralWolfCount", "BASE", m_min(val, 10), "Config")
 	end },
+	{ label = "Spiraling Conspiracy:", ifSkill = "Spiraling Conspiracy" },
+	{ var = "configMistRavenCount", type = "count", label = "# of Active Mist Ravens:", ifSkill = "Spiraling Conspiracy", tooltip = "Sets the number of active Spiraling Conspiracy.\nThe maximum number of Spiraling Conspiracy is 30.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:MistRavenCount", "BASE", m_min(val, 30), "Config")
+	end },
 	{ label = "Stance Skills:", ifSkill = { "Blood and Sand", "Flesh and Stone", "Lacerate", "Bladestorm", "Perforate", "Perforate of Duality" } },
 	{ var = "bloodSandStance", type = "list", label = "Stance:", ifSkill = { "Blood and Sand", "Flesh and Stone", "Lacerate", "Bladestorm", "Perforate", "Perforate of Duality" }, list = {{val="BLOOD",label="Blood Stance"},{val="SAND",label="Sand Stance"}}, apply = function(val, modList, enemyModList)
 		if val == "SAND" then
@@ -1853,6 +1857,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyLightningExposure", type = "check", label = "Is the enemy Exposed to ^xADAA47Lightning?", ifFlag = "Condition:CanApplyLightningExposure", tooltip = "This applies -20% ^xADAA47Lightning Resistance ^7to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("LightningExposure", "BASE", 20, "Config", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanApplyLightningExposure" })
+	end },
+	{ var = "conditionEnemyIsolated", type = "check", label = "Is the enemy Isolated?", ifEnemyCond = "Isolated", tooltip = "A target is Isolated if none of its allies are within 6m of it.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Isolated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyIntimidated", type = "check", label = "Is the enemy Intimidated?", tooltip = "Intimidate is a Debuff that inflicts 10% increased damage taken and 10% reduced damage dealt.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Intimidated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

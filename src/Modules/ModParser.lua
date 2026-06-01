@@ -5521,7 +5521,7 @@ local specialModList = {
 	["count as having maximum number of frenzy charges"] = { flag("HaveMaximumFrenzyCharges") },
 	["count as having maximum number of endurance charges"] = { flag("HaveMaximumEnduranceCharges") },
 	["quarterstaff skills that consume power charges count as consuming an additional power charge"] = {
-		mod("Multiplier:ExtraConsumablePowerCharges", "BASE", 1, 0, 0, { type = "SkillType", skillType = SkillType.QuarterstaffSkill })
+		mod("Multiplier:ExtraConsumablePowerCharges", "BASE", 1, nil, ModFlag.Attack, 0, { type = "Condition", var = "UsingStaff" })
 	},
 	["leftmost (%d+) magic utility flasks constantly apply their flask effects to you"] = function(num) return { mod("ActiveMagicUtilityFlasks", "BASE", num) } end,
 	["marauder: melee skills have (%d+)%% increased area of effect"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "ConnectedToMarauderStart" }, { type = "SkillType", skillType = SkillType.Melee }) } end,

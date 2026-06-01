@@ -428,6 +428,11 @@ statMap = {
 
 #skill SupportPietysMercyPlayer
 #set SupportPietysMercyPlayer
+statMap = {
+	["support_dominus_grasp_chain_count_+%_final"] = {
+		mod("ChainCountMax", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -438,6 +443,25 @@ statMap = {
 
 #skill SupportElectrocutePlayer
 #set SupportElectrocutePlayer
+#mods
+#skillEnd
+
+#skill SupportEonyrsThunderPlayer
+#set SupportEonyrsThunderPlayer
+#mods
+#skillEnd
+
+#skill TriggeredLightningDetonateDeadPlayer
+#set TriggeredLightningDetonateDeadPlayer
+#flags area hit
+statMap = {
+	["skill_specific_stat_description_mode"] = {
+		skill("corpseExplosionLifeMultiplier", nil),
+		div = 100,
+	},
+},
+#baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Lightning")
 #mods
 #skillEnd
 

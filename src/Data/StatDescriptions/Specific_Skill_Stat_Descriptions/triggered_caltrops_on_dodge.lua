@@ -26,13 +26,13 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
 	["active_skill_secondary_area_of_effect_radius"]=4,
 	["base_number_of_projectiles"]=1,
 	parent="specific_skill_stat_descriptions/triggered_caltrops",
-	["total_number_of_projectiles_to_fire"]=5,
+	["total_number_of_projectiles_to_fire_from_stats"]=5,
 	["triggered_by_generic_ongoing_trigger"]=2
 }
