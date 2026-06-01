@@ -2273,6 +2273,9 @@ return {
 ["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
 	mod("SealGainFrequency", "BASE", nil),
 },
+["support_%_of_total_cast_time_as_base_skill_seal_gain_interval"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
 ["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
 	mod("SealRepeatPenalty", "MORE", nil),
 },
