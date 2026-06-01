@@ -2836,10 +2836,10 @@ return {
 	["Warding Rune of Disintegration"] = {
 		["weapon"] = {
 				type = "Rune",
-				"Break Armour equal to 15% of maximum Runic Ward",
+				"Attacks Break Armour equal to 15% of maximum Runic Ward",
 				"Bonded: Break 10% increased Armour",
 				statOrder = { 5003, 4397 },
-				tradeHashes = { [2608793552] = { "Break Armour equal to 15% of maximum Runic Ward" },  },
+				tradeHashes = { [2608793552] = { "Attacks Break Armour equal to 15% of maximum Runic Ward" },  },
 				rank = { 15 },
 		},
 	},
