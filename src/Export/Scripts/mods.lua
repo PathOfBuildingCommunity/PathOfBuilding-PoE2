@@ -4,7 +4,7 @@ end
 local statDescriptions = getStatDescriptors("stat_descriptions.csd")
 loadStatFile("stat_descriptions.csd")
 
--- not comprehensive. see moddomains table in export tool and enums.lua
+-- not comprehensive. see mod domains table in export tool and enums.lua
 local Domains = {
 	GenericMod = 1,
 	FlaskCharm = 2,
@@ -156,7 +156,7 @@ local function writeMods(outName, condFunc)
 					-- hashed with them. we don't want to hash e.g. the lower
 					-- and upper range of # to # damage modifiers separately.
 					if statsHashed[stat.Id] then
-						goto innercontinue
+						goto innerContinue
 					end
 
 					-- tincture stat descriptions are in a separate file
@@ -170,7 +170,7 @@ local function writeMods(outName, condFunc)
 					-- skip stats that are missing fields. these are most likely
 					-- hidden stats or e.g. map stats
 					if not statEntry or not statEntry.stats or not statEntry[1] then
-						goto innercontinue
+						goto innerContinue
 					end
 
 					-- match stats to the stat values on the mod and save them
@@ -215,7 +215,7 @@ local function writeMods(outName, condFunc)
 
 					local tradeHash = hashStats(stats)
 					tradeHashes[tradeHash] = description
-					::innercontinue::
+					::innerContinue::
 				end
 				out:write("tradeHashes = { ")
 				for hash, desc in pairs(tradeHashes) do
