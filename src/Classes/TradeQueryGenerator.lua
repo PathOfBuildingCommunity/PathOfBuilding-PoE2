@@ -510,20 +510,17 @@ return %s
 					self:ProcessMod(mod, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
 				else
 					-- Mod is slot specific, try to match against a value in tradeCategoryNames
-					local matchedCategory = nil
+					local matchedCategories = {}
 					for category, categoryOptions in pairs(tradeCategoryNames) do
-						for i, opt in pairs(categoryOptions) do
-							if opt:lower():match("^"..slotType) then
-								matchedCategory = category
-								break
+						for _, opt in ipairs(categoryOptions) do
+							-- warstaves have inconsistent naming and need special handling
+							if opt:lower() == slotType or ((opt == "Staff: Warstaff") and (slotType == "warstaff")) then
+								matchedCategories[category] = true
 							end
 						end
-						if matchedCategory then
-							break
-						end
 					end
-					if matchedCategory then
-						self:ProcessMod(mod, regularItemMask, { [matchedCategory] = true })
+					if next(matchedCategories) then
+						self:ProcessMod(mod, regularItemMask, matchedCategories)
 					else
 						ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
 					end

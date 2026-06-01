@@ -252,263 +252,263 @@ return {
 				["type"] = "explicit",
 			},
 			[13] = {
+				["id"] = "explicit.stat_718638445",
+				["text"] = "# Suffix Modifier allowed",
+				["type"] = "explicit",
+			},
+			[14] = {
 				["id"] = "explicit.stat_243380454",
 				["text"] = "# additional Rare Monsters are spawned from Abysses",
 				["type"] = "explicit",
 			},
-			[14] = {
+			[15] = {
 				["id"] = "explicit.stat_258119672",
 				["text"] = "# metre to Dodge Roll distance",
 				["type"] = "explicit",
 			},
-			[15] = {
+			[16] = {
 				["id"] = "explicit.stat_3350232544",
 				["text"] = "# metre to Dodge Roll distance if you haven't Dodge Rolled Recently",
 				["type"] = "explicit",
 			},
-			[16] = {
+			[17] = {
 				["id"] = "explicit.stat_57896763",
 				["text"] = "# metre to Dodge Roll distance if you've Dodge Rolled Recently",
 				["type"] = "explicit",
 			},
-			[17] = {
+			[18] = {
 				["id"] = "explicit.stat_3273962791",
 				["text"] = "# metres to Melee Strike Range while Unarmed",
 				["type"] = "explicit",
 			},
-			[18] = {
+			[19] = {
 				["id"] = "explicit.stat_4186798932",
 				["text"] = "# to # Added Attack Fire Damage per 25 Strength",
 				["type"] = "explicit",
 			},
-			[19] = {
+			[20] = {
 				["id"] = "explicit.stat_1515531208",
 				["text"] = "# to # Cold Thorns damage",
 				["type"] = "explicit",
 			},
-			[20] = {
+			[21] = {
 				["id"] = "explicit.stat_1993950627",
 				["text"] = "# to # Fire Thorns damage",
 				["type"] = "explicit",
 			},
-			[21] = {
+			[22] = {
 				["id"] = "explicit.stat_287294012",
 				["text"] = "# to # Fire Thorns damage per 100 maximum Life",
 				["type"] = "explicit",
 			},
-			[22] = {
+			[23] = {
 				["id"] = "explicit.stat_2881298780",
 				["text"] = "# to # Physical Thorns damage",
 				["type"] = "explicit",
 			},
-			[23] = {
+			[24] = {
 				["id"] = "explicit.stat_3926910174",
 				["text"] = "# to # added Physical Thorns damage per Runic Plate",
 				["type"] = "explicit",
 			},
-			[24] = {
+			[25] = {
 				["id"] = "explicit.stat_803737631",
 				["text"] = "# to Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[25] = {
+			[26] = {
 				["id"] = "explicit.stat_691932474",
 				["text"] = "# to Accuracy Rating (Local)",
 				["type"] = "explicit",
 			},
-			[26] = {
+			[27] = {
 				["id"] = "explicit.stat_1488650448",
 				["text"] = "# to Ailment Threshold",
 				["type"] = "explicit",
 			},
-			[27] = {
+			[28] = {
 				["id"] = "explicit.stat_809229260",
 				["text"] = "# to Armour",
 				["type"] = "explicit",
 			},
-			[28] = {
+			[29] = {
 				["id"] = "explicit.stat_3484657501",
 				["text"] = "# to Armour (Local)",
 				["type"] = "explicit",
 			},
-			[29] = {
+			[30] = {
 				["id"] = "explicit.stat_1207006772",
 				["text"] = "# to Deflection Rating per 50 missing Energy Shield",
 				["type"] = "explicit",
 			},
-			[30] = {
+			[31] = {
 				["id"] = "explicit.stat_3261801346",
 				["text"] = "# to Dexterity",
 				["type"] = "explicit",
 			},
-			[31] = {
+			[32] = {
 				["id"] = "explicit.stat_2300185227",
 				["text"] = "# to Dexterity and Intelligence",
 				["type"] = "explicit",
 			},
-			[32] = {
+			[33] = {
 				["id"] = "explicit.stat_2144192055",
 				["text"] = "# to Evasion Rating",
 				["type"] = "explicit",
 			},
-			[33] = {
+			[34] = {
 				["id"] = "explicit.stat_53045048",
 				["text"] = "# to Evasion Rating (Local)",
 				["type"] = "explicit",
 			},
-			[34] = {
+			[35] = {
 				["id"] = "explicit.stat_3470876581",
 				["text"] = "# to Evasion Rating while on Low Life",
 				["type"] = "explicit",
 			},
-			[35] = {
+			[36] = {
 				["id"] = "explicit.stat_328541901",
 				["text"] = "# to Intelligence",
 				["type"] = "explicit",
 			},
-			[36] = {
+			[37] = {
 				["id"] = "explicit.stat_2157870819",
 				["text"] = "# to Level of Despair Skills",
 				["type"] = "explicit",
 			},
-			[37] = {
+			[38] = {
 				["id"] = "explicit.stat_3709513762",
 				["text"] = "# to Level of Elemental Weakness Skills",
 				["type"] = "explicit",
 			},
-			[38] = {
+			[39] = {
 				["id"] = "explicit.stat_3948285912",
 				["text"] = "# to Level of Enfeeble Skills",
 				["type"] = "explicit",
 			},
-			[39] = {
+			[40] = {
 				["id"] = "explicit.stat_1042153418",
 				["text"] = "# to Level of Temporal Chains Skills",
 				["type"] = "explicit",
 			},
-			[40] = {
+			[41] = {
 				["id"] = "explicit.stat_3507701584",
 				["text"] = "# to Level of Vulnerability Skills",
 				["type"] = "explicit",
 			},
-			[41] = {
+			[42] = {
 				["id"] = "explicit.stat_3035140377",
 				["text"] = "# to Level of all Attack Skills",
 				["type"] = "explicit",
 			},
-			[42] = {
+			[43] = {
 				["id"] = "explicit.stat_67169579",
 				["text"] = "# to Level of all Chaos Skills",
 				["type"] = "explicit",
 			},
-			[43] = {
+			[44] = {
 				["id"] = "explicit.stat_4226189338",
 				["text"] = "# to Level of all Chaos Spell Skills",
 				["type"] = "explicit",
 			},
-			[44] = {
+			[45] = {
 				["id"] = "explicit.stat_1078455967",
 				["text"] = "# to Level of all Cold Skills",
 				["type"] = "explicit",
 			},
-			[45] = {
+			[46] = {
 				["id"] = "explicit.stat_2254480358",
 				["text"] = "# to Level of all Cold Spell Skills",
 				["type"] = "explicit",
 			},
-			[46] = {
+			[47] = {
 				["id"] = "explicit.stat_2061237517",
 				["text"] = "# to Level of all Corrupted Spell Skill Gems",
 				["type"] = "explicit",
 			},
-			[47] = {
+			[48] = {
 				["id"] = "explicit.stat_805298720",
 				["text"] = "# to Level of all Curse Skills",
 				["type"] = "explicit",
 			},
-			[48] = {
+			[49] = {
 				["id"] = "explicit.stat_2901213448",
 				["text"] = "# to Level of all Elemental Skills",
 				["type"] = "explicit",
 			},
-			[49] = {
+			[50] = {
 				["id"] = "explicit.stat_599749213",
 				["text"] = "# to Level of all Fire Skills",
 				["type"] = "explicit",
 			},
-			[50] = {
+			[51] = {
 				["id"] = "explicit.stat_591105508",
 				["text"] = "# to Level of all Fire Spell Skills",
 				["type"] = "explicit",
 			},
-			[51] = {
+			[52] = {
 				["id"] = "explicit.stat_1147690586",
 				["text"] = "# to Level of all Lightning Skills",
 				["type"] = "explicit",
 			},
-			[52] = {
+			[53] = {
 				["id"] = "explicit.stat_1545858329",
 				["text"] = "# to Level of all Lightning Spell Skills",
 				["type"] = "explicit",
 			},
-			[53] = {
+			[54] = {
 				["id"] = "explicit.stat_1992191903",
 				["text"] = "# to Level of all Mark Skills",
 				["type"] = "explicit",
 			},
-			[54] = {
+			[55] = {
 				["id"] = "explicit.stat_9187492",
 				["text"] = "# to Level of all Melee Skills",
 				["type"] = "explicit",
 			},
-			[55] = {
+			[56] = {
 				["id"] = "explicit.stat_2162097452",
 				["text"] = "# to Level of all Minion Skills",
 				["type"] = "explicit",
 			},
-			[56] = {
+			[57] = {
 				["id"] = "explicit.stat_1600707273",
 				["text"] = "# to Level of all Physical Spell Skills",
 				["type"] = "explicit",
 			},
-			[57] = {
+			[58] = {
 				["id"] = "explicit.stat_1202301673",
 				["text"] = "# to Level of all Projectile Skills",
 				["type"] = "explicit",
 			},
-			[58] = {
+			[59] = {
 				["id"] = "explicit.stat_4283407333",
 				["text"] = "# to Level of all Skills",
 				["type"] = "explicit",
 			},
-			[59] = {
+			[60] = {
 				["id"] = "explicit.stat_124131830",
 				["text"] = "# to Level of all Spell Skills",
 				["type"] = "explicit",
 			},
-			[60] = {
+			[61] = {
 				["id"] = "explicit.stat_1515657623",
 				["text"] = "# to Maximum Endurance Charges",
 				["type"] = "explicit",
 			},
-			[61] = {
+			[62] = {
 				["id"] = "explicit.stat_4078695",
 				["text"] = "# to Maximum Frenzy Charges",
 				["type"] = "explicit",
 			},
-			[62] = {
+			[63] = {
 				["id"] = "explicit.stat_227523295",
 				["text"] = "# to Maximum Power Charges",
 				["type"] = "explicit",
 			},
-			[63] = {
+			[64] = {
 				["id"] = "explicit.stat_1181501418",
 				["text"] = "# to Maximum Rage",
-				["type"] = "explicit",
-			},
-			[64] = {
-				["id"] = "explicit.stat_3981240776",
-				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
 			[65] = {
@@ -517,48 +517,48 @@ return {
 				["type"] = "explicit",
 			},
 			[66] = {
+				["id"] = "explicit.stat_3981240776",
+				["text"] = "# to Spirit",
+				["type"] = "explicit",
+			},
+			[67] = {
 				["id"] = "explicit.stat_2694614739",
 				["text"] = "# to Spirit while you have at least 200 Dexterity",
 				["type"] = "explicit",
 			},
-			[67] = {
+			[68] = {
 				["id"] = "explicit.stat_1282318918",
 				["text"] = "# to Spirit while you have at least 200 Intelligence",
 				["type"] = "explicit",
 			},
-			[68] = {
+			[69] = {
 				["id"] = "explicit.stat_3044685077",
 				["text"] = "# to Spirit while you have at least 200 Strength",
 				["type"] = "explicit",
 			},
-			[69] = {
+			[70] = {
 				["id"] = "explicit.stat_4080418644",
 				["text"] = "# to Strength",
 				["type"] = "explicit",
 			},
-			[70] = {
+			[71] = {
 				["id"] = "explicit.stat_538848803",
 				["text"] = "# to Strength and Dexterity",
 				["type"] = "explicit",
 			},
-			[71] = {
+			[72] = {
 				["id"] = "explicit.stat_1535626285",
 				["text"] = "# to Strength and Intelligence",
 				["type"] = "explicit",
 			},
-			[72] = {
+			[73] = {
 				["id"] = "explicit.stat_915769802",
 				["text"] = "# to Stun Threshold",
 				["type"] = "explicit",
 			},
-			[73] = {
+			[74] = {
 				["id"] = "explicit.stat_3679769182",
 				["text"] = "# to Stun Threshold per Socket filled",
-				["type"] = "explicit",
-			},
-			[74] = {
-				["id"] = "explicit.stat_1379411836",
-				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
 			[75] = {
@@ -567,1173 +567,1173 @@ return {
 				["type"] = "explicit",
 			},
 			[76] = {
+				["id"] = "explicit.stat_1379411836",
+				["text"] = "# to all Attributes",
+				["type"] = "explicit",
+			},
+			[77] = {
 				["id"] = "explicit.stat_2333085568",
 				["text"] = "# to all Attributes per Level",
 				["type"] = "explicit",
 			},
-			[77] = {
+			[78] = {
 				["id"] = "explicit.stat_3474271079",
 				["text"] = "# to all Attributes per Socket filled",
 				["type"] = "explicit",
 			},
-			[78] = {
+			[79] = {
 				["id"] = "explicit.stat_3489782002",
 				["text"] = "# to maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[79] = {
+			[80] = {
 				["id"] = "explicit.stat_4052037485",
 				["text"] = "# to maximum Energy Shield (Local)",
 				["type"] = "explicit",
 			},
-			[80] = {
+			[81] = {
 				["id"] = "explicit.stat_3299347043",
 				["text"] = "# to maximum Life",
 				["type"] = "explicit",
 			},
-			[81] = {
+			[82] = {
 				["id"] = "explicit.stat_150391334",
 				["text"] = "# to maximum Life per Socket filled",
 				["type"] = "explicit",
 			},
-			[82] = {
+			[83] = {
 				["id"] = "explicit.stat_1050105434",
 				["text"] = "# to maximum Mana",
 				["type"] = "explicit",
 			},
-			[83] = {
+			[84] = {
 				["id"] = "explicit.stat_1036267537",
 				["text"] = "# to maximum Mana per Socket filled",
 				["type"] = "explicit",
 			},
-			[84] = {
+			[85] = {
 				["id"] = "explicit.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
-			[85] = {
+			[86] = {
 				["id"] = "explicit.stat_774059442",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
-			[86] = {
+			[87] = {
 				["id"] = "explicit.stat_1896726125",
 				["text"] = "# to maximum Valour",
 				["type"] = "explicit",
 			},
-			[87] = {
+			[88] = {
 				["id"] = "explicit.stat_4097212302",
 				["text"] = "# to maximum number of Elemental Infusions",
 				["type"] = "explicit",
 			},
-			[88] = {
+			[89] = {
 				["id"] = "explicit.stat_1823942939",
 				["text"] = "# to maximum number of Summoned Ballista Totems",
 				["type"] = "explicit",
 			},
-			[89] = {
+			[90] = {
 				["id"] = "explicit.stat_429867172",
 				["text"] = "# to maximum number of Summoned Totems",
 				["type"] = "explicit",
 			},
-			[90] = {
+			[91] = {
 				["id"] = "explicit.stat_828533480",
 				["text"] = "#% Chance to gain a Charge when you kill an enemy",
 				["type"] = "explicit",
 			},
-			[91] = {
+			[92] = {
 				["id"] = "explicit.stat_2221570601",
 				["text"] = "#% Global chance to Blind Enemies on Hit",
 				["type"] = "explicit",
 			},
-			[92] = {
+			[93] = {
 				["id"] = "explicit.stat_2840930496",
 				["text"] = "#% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
 				["type"] = "explicit",
 			},
-			[93] = {
+			[94] = {
 				["id"] = "explicit.stat_2463230181",
 				["text"] = "#% Surpassing chance to fire an additional Arrow",
 				["type"] = "explicit",
 			},
-			[94] = {
+			[95] = {
 				["id"] = "explicit.stat_1347539079",
 				["text"] = "#% Surpassing chance to fire an additional Projectile",
 				["type"] = "explicit",
 			},
-			[95] = {
+			[96] = {
 				["id"] = "explicit.stat_3771516363",
 				["text"] = "#% additional Physical Damage Reduction",
 				["type"] = "explicit",
 			},
-			[96] = {
+			[97] = {
 				["id"] = "explicit.stat_501873429",
 				["text"] = "#% chance for Charms you use to not consume Charges",
 				["type"] = "explicit",
 			},
-			[97] = {
+			[98] = {
 				["id"] = "explicit.stat_1618482990",
 				["text"] = "#% chance for Energy Shield Recharge to start when you Kill an Enemy",
 				["type"] = "explicit",
 			},
-			[98] = {
+			[99] = {
 				["id"] = "explicit.stat_311641062",
 				["text"] = "#% chance for Flasks you use to not consume Charges",
 				["type"] = "explicit",
 			},
-			[99] = {
+			[100] = {
 				["id"] = "explicit.stat_2466011626",
 				["text"] = "#% chance for Lightning Damage with Hits to be Lucky",
 				["type"] = "explicit",
 			},
-			[100] = {
+			[101] = {
 				["id"] = "explicit.stat_3950000557",
 				["text"] = "#% chance for Mace Slam Skills you use yourself to cause an additional Aftershock",
 				["type"] = "explicit",
 			},
-			[101] = {
+			[102] = {
 				["id"] = "explicit.stat_3422093970",
 				["text"] = "#% chance for Remnants you pick up to count as picking up an additional Remnant",
 				["type"] = "explicit",
 			},
-			[102] = {
+			[103] = {
 				["id"] = "explicit.stat_2749595652",
 				["text"] = "#% chance for Skills to retain 40% of Glory on use",
 				["type"] = "explicit",
 			},
-			[103] = {
+			[104] = {
 				["id"] = "explicit.stat_1157523820",
 				["text"] = "#% chance for Slam Skills to cause an additional Aftershock",
 				["type"] = "explicit",
 			},
-			[104] = {
+			[105] = {
 				["id"] = "explicit.stat_2045949233",
 				["text"] = "#% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				["type"] = "explicit",
 			},
-			[105] = {
+			[106] = {
 				["id"] = "explicit.stat_1133346493",
 				["text"] = "#% chance for Spell Damage with Critical Hits to be Lucky",
 				["type"] = "explicit",
 			},
-			[106] = {
+			[107] = {
 				["id"] = "explicit.stat_2910761524",
 				["text"] = "#% chance for Spell Skills to fire 2 additional Projectiles",
 				["type"] = "explicit",
 			},
-			[107] = {
+			[108] = {
 				["id"] = "explicit.stat_4224832423",
 				["text"] = "#% chance for Spell Skills to fire 8 additional Projectiles in a circle",
 				["type"] = "explicit",
 			},
-			[108] = {
+			[109] = {
 				["id"] = "explicit.stat_599320227",
 				["text"] = "#% chance for Trigger skills to refund half of Energy Spent",
 				["type"] = "explicit",
 			},
-			[109] = {
+			[110] = {
 				["id"] = "explicit.stat_2710292678",
 				["text"] = "#% chance that if you would gain Rage on Hit, you instead gain up to your maximum Rage",
 				["type"] = "explicit",
 			},
-			[110] = {
+			[111] = {
 				["id"] = "explicit.stat_1009412152",
 				["text"] = "#% chance to Aggravate Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[111] = {
+			[112] = {
 				["id"] = "explicit.stat_2438634449",
 				["text"] = "#% chance to Aggravate Bleeding on targets you Critically Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[112] = {
+			[113] = {
 				["id"] = "explicit.stat_2705185939",
 				["text"] = "#% chance to Aggravate Bleeding on targets you Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[113] = {
+			[114] = {
 				["id"] = "explicit.stat_1563503803",
 				["text"] = "#% chance to Avoid Chaos Damage from Hits",
 				["type"] = "explicit",
 			},
-			[114] = {
+			[115] = {
 				["id"] = "explicit.stat_3743375737",
 				["text"] = "#% chance to Avoid Cold Damage from Hits",
 				["type"] = "explicit",
 			},
-			[115] = {
+			[116] = {
 				["id"] = "explicit.stat_1689729380",
 				["text"] = "#% chance to Avoid Death from Hits",
 				["type"] = "explicit",
 			},
-			[116] = {
+			[117] = {
 				["id"] = "explicit.stat_42242677",
 				["text"] = "#% chance to Avoid Fire Damage from Hits",
 				["type"] = "explicit",
 			},
-			[117] = {
+			[118] = {
 				["id"] = "explicit.stat_2889664727",
 				["text"] = "#% chance to Avoid Lightning Damage from Hits",
 				["type"] = "explicit",
 			},
-			[118] = {
+			[119] = {
 				["id"] = "explicit.stat_2415497478",
 				["text"] = "#% chance to Avoid Physical Damage from Hits",
 				["type"] = "explicit",
 			},
-			[119] = {
+			[120] = {
 				["id"] = "explicit.stat_318953428",
 				["text"] = "#% chance to Blind Enemies on Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[120] = {
+			[121] = {
 				["id"] = "explicit.stat_1028592286",
 				["text"] = "#% chance to Chain an additional time",
 				["type"] = "explicit",
 			},
-			[121] = {
+			[122] = {
 				["id"] = "explicit.stat_3830953767",
 				["text"] = "#% chance to Curse Enemies with Enfeeble on Block",
 				["type"] = "explicit",
 			},
-			[122] = {
+			[123] = {
 				["id"] = "explicit.stat_446027070",
 				["text"] = "#% chance to Gain Arcane Surge when you deal a Critical Hit",
 				["type"] = "explicit",
 			},
-			[123] = {
+			[124] = {
 				["id"] = "explicit.stat_78985352",
 				["text"] = "#% chance to Intimidate Enemies for 4 seconds on Hit",
 				["type"] = "explicit",
 			},
-			[124] = {
+			[125] = {
 				["id"] = "explicit.stat_2321178454",
 				["text"] = "#% chance to Pierce an Enemy",
 				["type"] = "explicit",
 			},
-			[125] = {
+			[126] = {
 				["id"] = "explicit.stat_795138349",
 				["text"] = "#% chance to Poison on Hit",
 				["type"] = "explicit",
 			},
-			[126] = {
+			[127] = {
 				["id"] = "explicit.stat_3954735777",
 				["text"] = "#% chance to Poison on Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[127] = {
+			[128] = {
 				["id"] = "explicit.stat_1493211587",
 				["text"] = "#% chance to Poison on Hit with Spell Damage",
 				["type"] = "explicit",
 			},
-			[128] = {
+			[129] = {
 				["id"] = "explicit.stat_3885634897",
 				["text"] = "#% chance to Poison on Hit with this weapon",
 				["type"] = "explicit",
 			},
-			[129] = {
+			[130] = {
 				["id"] = "explicit.stat_3452269808",
 				["text"] = "#% chance to avoid Projectiles",
 				["type"] = "explicit",
 			},
-			[130] = {
+			[131] = {
 				["id"] = "explicit.stat_4250009622",
 				["text"] = "#% chance to be Poisoned",
 				["type"] = "explicit",
 			},
-			[131] = {
+			[132] = {
 				["id"] = "explicit.stat_3423694372",
 				["text"] = "#% chance to be inflicted with Bleeding when Hit",
 				["type"] = "explicit",
 			},
-			[132] = {
+			[133] = {
 				["id"] = "explicit.stat_4258524206",
 				["text"] = "#% chance to build an additional Combo on Hit",
 				["type"] = "explicit",
 			},
-			[133] = {
+			[134] = {
 				["id"] = "explicit.stat_1519615863",
 				["text"] = "#% chance to cause Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[134] = {
+			[135] = {
 				["id"] = "explicit.stat_2880019685",
 				["text"] = "#% chance to deal your Thorns Damage to Enemies you Hit with Melee Attacks",
 				["type"] = "explicit",
 			},
-			[135] = {
+			[136] = {
 				["id"] = "explicit.stat_3518449420",
 				["text"] = "#% chance to gain Nature's Archon when your Plants Overgrow",
 				["type"] = "explicit",
 			},
-			[136] = {
+			[137] = {
 				["id"] = "explicit.stat_1881230714",
 				["text"] = "#% chance to gain Onslaught on Killing Hits with this Weapon",
 				["type"] = "explicit",
 			},
-			[137] = {
+			[138] = {
 				["id"] = "explicit.stat_3749502527",
 				["text"] = "#% chance to gain Volatility on Kill",
 				["type"] = "explicit",
 			},
-			[138] = {
+			[139] = {
 				["id"] = "explicit.stat_3814876985",
 				["text"] = "#% chance to gain a Power Charge on Critical Hit",
 				["type"] = "explicit",
 			},
-			[139] = {
+			[140] = {
 				["id"] = "explicit.stat_1453197917",
 				["text"] = "#% chance to gain a Power Charge on Hit",
 				["type"] = "explicit",
 			},
-			[140] = {
+			[141] = {
 				["id"] = "explicit.stat_504210122",
 				["text"] = "#% chance to gain an additional random Charge when you gain a Charge",
 				["type"] = "explicit",
 			},
-			[141] = {
+			[142] = {
 				["id"] = "explicit.stat_2174054121",
 				["text"] = "#% chance to inflict Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[142] = {
+			[143] = {
 				["id"] = "explicit.stat_3602667353",
 				["text"] = "#% chance to inflict Exposure on Hit",
 				["type"] = "explicit",
 			},
-			[143] = {
+			[144] = {
 				["id"] = "explicit.stat_3823990000",
 				["text"] = "#% chance to load a bolt into all Crossbow skills on Kill",
 				["type"] = "explicit",
 			},
-			[144] = {
+			[145] = {
 				["id"] = "explicit.stat_965913123",
 				["text"] = "#% chance to not destroy Corpses when Consuming Corpses",
 				["type"] = "explicit",
 			},
-			[145] = {
+			[146] = {
 				["id"] = "explicit.stat_1949851472",
 				["text"] = "#% chance when a Charm is used to use another Charm without consuming Charges",
 				["type"] = "explicit",
 			},
-			[146] = {
+			[147] = {
 				["id"] = "explicit.stat_3927679277",
 				["text"] = "#% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type",
 				["type"] = "explicit",
 			},
-			[147] = {
+			[148] = {
 				["id"] = "explicit.stat_2760344900",
 				["text"] = "#% chance when you Reload a Crossbow to be immediate",
 				["type"] = "explicit",
 			},
-			[148] = {
+			[149] = {
 				["id"] = "explicit.stat_1555237944",
 				["text"] = "#% chance when you gain a Charge to gain an additional Charge",
 				["type"] = "explicit",
 			},
-			[149] = {
+			[150] = {
 				["id"] = "explicit.stat_3537994888",
 				["text"] = "#% chance when you gain a Power Charge to gain an additional Power Charge",
 				["type"] = "explicit",
 			},
-			[150] = {
+			[151] = {
 				["id"] = "explicit.stat_1104825894",
 				["text"] = "#% faster Curse Activation",
 				["type"] = "explicit",
 			},
-			[151] = {
+			[152] = {
 				["id"] = "explicit.stat_504054855",
 				["text"] = "#% faster Dodge Roll",
 				["type"] = "explicit",
 			},
-			[152] = {
+			[153] = {
 				["id"] = "explicit.stat_1782086450",
 				["text"] = "#% faster start of Energy Shield Recharge",
 				["type"] = "explicit",
 			},
-			[153] = {
+			[154] = {
 				["id"] = "explicit.stat_624954515",
 				["text"] = "#% increased Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[154] = {
+			[155] = {
 				["id"] = "explicit.stat_4255854327",
 				["text"] = "#% increased Accuracy Rating against Enemies affected by Abyssal Wasting",
 				["type"] = "explicit",
 			},
-			[155] = {
+			[156] = {
 				["id"] = "explicit.stat_169946467",
 				["text"] = "#% increased Accuracy Rating with Bows",
 				["type"] = "explicit",
 			},
-			[156] = {
+			[157] = {
 				["id"] = "explicit.stat_700317374",
 				["text"] = "#% increased Amount Recovered",
 				["type"] = "explicit",
 			},
-			[157] = {
+			[158] = {
 				["id"] = "explicit.stat_2158617060",
 				["text"] = "#% increased Archon Buff duration",
 				["type"] = "explicit",
 			},
-			[158] = {
+			[159] = {
 				["id"] = "explicit.stat_280731498",
 				["text"] = "#% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[159] = {
+			[160] = {
 				["id"] = "explicit.stat_1840985759",
 				["text"] = "#% increased Area of Effect for Attacks",
 				["type"] = "explicit",
 			},
-			[160] = {
+			[161] = {
 				["id"] = "explicit.stat_434750362",
 				["text"] = "#% increased Area of Effect for Attacks per 10 Intelligence",
 				["type"] = "explicit",
 			},
-			[161] = {
+			[162] = {
 				["id"] = "explicit.stat_3481736410",
 				["text"] = "#% increased Area of Effect if you've Killed Recently",
 				["type"] = "explicit",
 			},
-			[162] = {
+			[163] = {
 				["id"] = "explicit.stat_153777645",
 				["text"] = "#% increased Area of Effect of Curses",
 				["type"] = "explicit",
 			},
-			[163] = {
+			[164] = {
 				["id"] = "explicit.stat_2866361420",
 				["text"] = "#% increased Armour",
 				["type"] = "explicit",
 			},
-			[164] = {
+			[165] = {
 				["id"] = "explicit.stat_1062208444",
 				["text"] = "#% increased Armour (Local)",
 				["type"] = "explicit",
 			},
-			[165] = {
+			[166] = {
 				["id"] = "explicit.stat_2637470878",
 				["text"] = "#% increased Armour Break Duration",
 				["type"] = "explicit",
 			},
-			[166] = {
+			[167] = {
 				["id"] = "explicit.stat_3321629045",
 				["text"] = "#% increased Armour and Energy Shield",
 				["type"] = "explicit",
 			},
-			[167] = {
+			[168] = {
 				["id"] = "explicit.stat_2451402625",
 				["text"] = "#% increased Armour and Evasion",
 				["type"] = "explicit",
 			},
-			[168] = {
+			[169] = {
 				["id"] = "explicit.stat_1015576579",
 				["text"] = "#% increased Armour from Equipped Body Armour",
 				["type"] = "explicit",
 			},
-			[169] = {
+			[170] = {
 				["id"] = "explicit.stat_3523867985",
 				["text"] = "#% increased Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[170] = {
+			[171] = {
 				["id"] = "explicit.stat_2523933828",
 				["text"] = "#% increased Armour, Evasion and Energy Shield from Equipped Shield",
 				["type"] = "explicit",
 			},
-			[171] = {
+			[172] = {
 				["id"] = "explicit.stat_1207554355",
 				["text"] = "#% increased Arrow Speed",
 				["type"] = "explicit",
 			},
-			[172] = {
+			[173] = {
 				["id"] = "explicit.stat_2843214518",
 				["text"] = "#% increased Attack Damage",
 				["type"] = "explicit",
 			},
-			[173] = {
+			[174] = {
 				["id"] = "explicit.stat_2879725899",
 				["text"] = "#% increased Attack Damage while Surrounded",
 				["type"] = "explicit",
 			},
-			[174] = {
+			[175] = {
 				["id"] = "explicit.stat_2462683918",
 				["text"] = "#% increased Attack Damage while not on Low Mana",
 				["type"] = "explicit",
 			},
-			[175] = {
+			[176] = {
 				["id"] = "explicit.stat_4246007234",
 				["text"] = "#% increased Attack Damage while on Low Life",
 				["type"] = "explicit",
 			},
-			[176] = {
+			[177] = {
 				["id"] = "explicit.stat_681332047",
 				["text"] = "#% increased Attack Speed",
 				["type"] = "explicit",
 			},
-			[177] = {
+			[178] = {
 				["id"] = "explicit.stat_210067635",
 				["text"] = "#% increased Attack Speed (Local)",
 				["type"] = "explicit",
 			},
-			[178] = {
+			[179] = {
 				["id"] = "explicit.stat_889691035",
 				["text"] = "#% increased Attack Speed per 10 Dexterity",
 				["type"] = "explicit",
 			},
-			[179] = {
+			[180] = {
 				["id"] = "explicit.stat_720908147",
 				["text"] = "#% increased Attack Speed per 20 Dexterity",
 				["type"] = "explicit",
 			},
-			[180] = {
+			[181] = {
 				["id"] = "explicit.stat_324579579",
 				["text"] = "#% increased Attack Speed per 20 Spirit",
 				["type"] = "explicit",
 			},
-			[181] = {
+			[182] = {
 				["id"] = "explicit.stat_2241560081",
 				["text"] = "#% increased Attack Speed per 25 Dexterity",
 				["type"] = "explicit",
 			},
-			[182] = {
+			[183] = {
 				["id"] = "explicit.stat_314741699",
 				["text"] = "#% increased Attack Speed while a Rare or Unique Enemy is in your Presence",
 				["type"] = "explicit",
 			},
-			[183] = {
+			[184] = {
 				["id"] = "explicit.stat_325171970",
 				["text"] = "#% increased Attack Speed while missing Runic Ward",
 				["type"] = "explicit",
 			},
-			[184] = {
+			[185] = {
 				["id"] = "explicit.stat_4145314483",
 				["text"] = "#% increased Attack Speed while on Full Mana",
 				["type"] = "explicit",
 			},
-			[185] = {
+			[186] = {
 				["id"] = "explicit.stat_299996",
 				["text"] = "#% increased Attack Speed while your Companion is in your Presence",
 				["type"] = "explicit",
 			},
-			[186] = {
+			[187] = {
 				["id"] = "explicit.stat_3759735052",
 				["text"] = "#% increased Attack Speed with Bows",
 				["type"] = "explicit",
 			},
-			[187] = {
+			[188] = {
 				["id"] = "explicit.stat_1135928777",
 				["text"] = "#% increased Attack Speed with Crossbows",
 				["type"] = "explicit",
 			},
-			[188] = {
+			[189] = {
 				["id"] = "explicit.stat_3283482523",
 				["text"] = "#% increased Attack Speed with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[189] = {
+			[190] = {
 				["id"] = "explicit.stat_1165163804",
 				["text"] = "#% increased Attack Speed with Spears",
 				["type"] = "explicit",
 			},
-			[190] = {
+			[191] = {
 				["id"] = "explicit.stat_2672805335",
 				["text"] = "#% increased Attack and Cast Speed",
 				["type"] = "explicit",
 			},
-			[191] = {
+			[192] = {
 				["id"] = "explicit.stat_3910614548",
 				["text"] = "#% increased Attack and Cast Speed if you've summoned a Totem Recently",
 				["type"] = "explicit",
 			},
-			[192] = {
+			[193] = {
 				["id"] = "explicit.stat_3639275092",
 				["text"] = "#% increased Attribute Requirements",
 				["type"] = "explicit",
 			},
-			[193] = {
+			[194] = {
 				["id"] = "explicit.stat_3143208761",
 				["text"] = "#% increased Attributes",
 				["type"] = "explicit",
 			},
-			[194] = {
+			[195] = {
 				["id"] = "explicit.stat_2513318031",
 				["text"] = "#% increased Attributes per Socket filled",
 				["type"] = "explicit",
 			},
-			[195] = {
+			[196] = {
 				["id"] = "explicit.stat_1459321413",
 				["text"] = "#% increased Bleeding Duration",
 				["type"] = "explicit",
 			},
-			[196] = {
+			[197] = {
 				["id"] = "explicit.stat_1585769763",
 				["text"] = "#% increased Blind Effect",
 				["type"] = "explicit",
 			},
-			[197] = {
+			[198] = {
 				["id"] = "explicit.stat_4147897060",
 				["text"] = "#% increased Block chance",
 				["type"] = "explicit",
 			},
-			[198] = {
+			[199] = {
 				["id"] = "explicit.stat_2481353198",
 				["text"] = "#% increased Block chance (Local)",
 				["type"] = "explicit",
 			},
-			[199] = {
+			[200] = {
 				["id"] = "explicit.stat_3583542124",
 				["text"] = "#% increased Block chance against Projectiles",
 				["type"] = "explicit",
 			},
-			[200] = {
+			[201] = {
 				["id"] = "explicit.stat_2531622767",
 				["text"] = "#% increased Block chance per 100 total Item Armour on Equipped Armour Items",
 				["type"] = "explicit",
 			},
-			[201] = {
+			[202] = {
 				["id"] = "explicit.stat_2891184298",
 				["text"] = "#% increased Cast Speed",
 				["type"] = "explicit",
 			},
-			[202] = {
+			[203] = {
 				["id"] = "explicit.stat_145581225",
 				["text"] = "#% increased Cast Speed during any Flask Effect",
 				["type"] = "explicit",
 			},
-			[203] = {
+			[204] = {
 				["id"] = "explicit.stat_1518586897",
 				["text"] = "#% increased Cast Speed for each different Non-Instant Spell you've Cast Recently",
 				["type"] = "explicit",
 			},
-			[204] = {
+			[205] = {
 				["id"] = "explicit.stat_1174076861",
 				["text"] = "#% increased Cast Speed if you've dealt a Critical Hit Recently",
 				["type"] = "explicit",
 			},
-			[205] = {
+			[206] = {
 				["id"] = "explicit.stat_34174842",
 				["text"] = "#% increased Cast Speed per 20 Spirit",
 				["type"] = "explicit",
 			},
-			[206] = {
+			[207] = {
 				["id"] = "explicit.stat_656291658",
 				["text"] = "#% increased Cast Speed when on Full Life",
 				["type"] = "explicit",
 			},
-			[207] = {
+			[208] = {
 				["id"] = "explicit.stat_1136768410",
 				["text"] = "#% increased Cast Speed when on Low Life",
 				["type"] = "explicit",
 			},
-			[208] = {
+			[209] = {
 				["id"] = "explicit.stat_1914226331",
 				["text"] = "#% increased Cast Speed while on Full Mana",
 				["type"] = "explicit",
 			},
-			[209] = {
+			[210] = {
 				["id"] = "explicit.stat_892489594",
 				["text"] = "#% increased Chance to be afflicted by Ailments when Hit",
 				["type"] = "explicit",
 			},
-			[210] = {
+			[211] = {
 				["id"] = "explicit.stat_736967255",
 				["text"] = "#% increased Chaos Damage",
 				["type"] = "explicit",
 			},
-			[211] = {
+			[212] = {
 				["id"] = "explicit.stat_1366840608",
 				["text"] = "#% increased Charges",
 				["type"] = "explicit",
 			},
-			[212] = {
+			[213] = {
 				["id"] = "explicit.stat_3196823591",
 				["text"] = "#% increased Charges gained",
 				["type"] = "explicit",
 			},
-			[213] = {
+			[214] = {
 				["id"] = "explicit.stat_388617051",
 				["text"] = "#% increased Charges per use",
 				["type"] = "explicit",
 			},
-			[214] = {
+			[215] = {
 				["id"] = "explicit.stat_3585532255",
 				["text"] = "#% increased Charm Charges gained",
 				["type"] = "explicit",
 			},
-			[215] = {
+			[216] = {
 				["id"] = "explicit.stat_1389754388",
 				["text"] = "#% increased Charm Effect Duration",
 				["type"] = "explicit",
 			},
-			[216] = {
+			[217] = {
 				["id"] = "explicit.stat_3485067555",
 				["text"] = "#% increased Chill Duration on Enemies",
 				["type"] = "explicit",
 			},
-			[217] = {
+			[218] = {
 				["id"] = "explicit.stat_3291658075",
 				["text"] = "#% increased Cold Damage",
 				["type"] = "explicit",
 			},
-			[218] = {
+			[219] = {
 				["id"] = "explicit.stat_1002535626",
 				["text"] = "#% increased Cold Damage if you've collected a Cold Infusion in the last 8 seconds",
 				["type"] = "explicit",
 			},
-			[219] = {
+			[220] = {
 				["id"] = "explicit.stat_1004011302",
 				["text"] = "#% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[220] = {
+			[221] = {
 				["id"] = "explicit.stat_1544773869",
 				["text"] = "#% increased Cooldown Recovery Rate for Grenade Skills",
 				["type"] = "explicit",
 			},
-			[221] = {
+			[222] = {
 				["id"] = "explicit.stat_1571268546",
 				["text"] = "#% increased Corrupted Charms effect duration",
 				["type"] = "explicit",
 			},
-			[222] = {
+			[223] = {
 				["id"] = "explicit.stat_263495202",
 				["text"] = "#% increased Cost Efficiency",
 				["type"] = "explicit",
 			},
-			[223] = {
+			[224] = {
 				["id"] = "explicit.stat_3350279336",
 				["text"] = "#% increased Cost Efficiency of Attacks",
 				["type"] = "explicit",
 			},
-			[224] = {
+			[225] = {
 				["id"] = "explicit.stat_2369495153",
 				["text"] = "#% increased Cost Efficiency of Skills if you've consumed a Power Charge Recently",
 				["type"] = "explicit",
 			},
-			[225] = {
+			[226] = {
 				["id"] = "explicit.stat_2650053239",
 				["text"] = "#% increased Cost of Skills for each 200 total Mana Spent Recently",
 				["type"] = "explicit",
 			},
-			[226] = {
+			[227] = {
 				["id"] = "explicit.stat_3556824919",
 				["text"] = "#% increased Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[227] = {
+			[228] = {
 				["id"] = "explicit.stat_3714003708",
 				["text"] = "#% increased Critical Damage Bonus for Attack Damage",
 				["type"] = "explicit",
 			},
-			[228] = {
+			[229] = {
 				["id"] = "explicit.stat_23669307",
 				["text"] = "#% increased Critical Damage Bonus if you've consumed a Power Charge Recently",
 				["type"] = "explicit",
 			},
-			[229] = {
+			[230] = {
 				["id"] = "explicit.stat_4164870816",
 				["text"] = "#% increased Critical Damage Bonus per Power Charge",
 				["type"] = "explicit",
 			},
-			[230] = {
+			[231] = {
 				["id"] = "explicit.stat_2408983956",
 				["text"] = "#% increased Critical Damage Bonus while Shocked",
 				["type"] = "explicit",
 			},
-			[231] = {
+			[232] = {
 				["id"] = "explicit.stat_2456523742",
 				["text"] = "#% increased Critical Damage Bonus with Spears",
 				["type"] = "explicit",
 			},
-			[232] = {
+			[233] = {
 				["id"] = "explicit.stat_587431675",
 				["text"] = "#% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[233] = {
+			[234] = {
 				["id"] = "explicit.stat_1045789614",
 				["text"] = "#% increased Critical Hit Chance against Marked Enemies",
 				["type"] = "explicit",
 			},
-			[234] = {
+			[235] = {
 				["id"] = "explicit.stat_2194114101",
 				["text"] = "#% increased Critical Hit Chance for Attacks",
 				["type"] = "explicit",
 			},
-			[235] = {
+			[236] = {
 				["id"] = "explicit.stat_737908626",
 				["text"] = "#% increased Critical Hit Chance for Spells",
 				["type"] = "explicit",
 			},
-			[236] = {
+			[237] = {
 				["id"] = "explicit.stat_2856328513",
 				["text"] = "#% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently",
 				["type"] = "explicit",
 			},
-			[237] = {
+			[238] = {
 				["id"] = "explicit.stat_274716455",
 				["text"] = "#% increased Critical Spell Damage Bonus",
 				["type"] = "explicit",
 			},
-			[238] = {
+			[239] = {
 				["id"] = "explicit.stat_2972244965",
 				["text"] = "#% increased Critical Spell Damage Bonus per Critical Hit you've dealt with Spells Recently",
 				["type"] = "explicit",
 			},
-			[239] = {
+			[240] = {
 				["id"] = "explicit.stat_3192728503",
 				["text"] = "#% increased Crossbow Reload Speed",
 				["type"] = "explicit",
 			},
-			[240] = {
+			[241] = {
 				["id"] = "explicit.stat_3563080185",
 				["text"] = "#% increased Culling Strike Threshold",
 				["type"] = "explicit",
 			},
-			[241] = {
+			[242] = {
 				["id"] = "explicit.stat_3824372849",
 				["text"] = "#% increased Curse Duration",
 				["type"] = "explicit",
 			},
-			[242] = {
+			[243] = {
 				["id"] = "explicit.stat_2353576063",
 				["text"] = "#% increased Curse Magnitudes",
 				["type"] = "explicit",
 			},
-			[243] = {
+			[244] = {
 				["id"] = "explicit.stat_2154246560",
 				["text"] = "#% increased Damage",
 				["type"] = "explicit",
 			},
-			[244] = {
+			[245] = {
 				["id"] = "explicit.stat_2301718443",
 				["text"] = "#% increased Damage against Enemies with Fully Broken Armour",
 				["type"] = "explicit",
 			},
-			[245] = {
+			[246] = {
 				["id"] = "explicit.stat_3120508478",
 				["text"] = "#% increased Damage against Immobilised Enemies",
 				["type"] = "explicit",
 			},
-			[246] = {
+			[247] = {
 				["id"] = "explicit.stat_2118708619",
 				["text"] = "#% increased Damage if you have Consumed a Corpse Recently",
 				["type"] = "explicit",
 			},
-			[247] = {
+			[248] = {
 				["id"] = "explicit.stat_3399499561",
 				["text"] = "#% increased Damage per Minion",
 				["type"] = "explicit",
 			},
-			[248] = {
+			[249] = {
 				["id"] = "explicit.stat_310246444",
 				["text"] = "#% increased Damage while Leeching",
 				["type"] = "explicit",
 			},
-			[249] = {
+			[250] = {
 				["id"] = "explicit.stat_2440073079",
 				["text"] = "#% increased Damage while Shapeshifted",
 				["type"] = "explicit",
 			},
-			[250] = {
+			[251] = {
 				["id"] = "explicit.stat_2543331226",
 				["text"] = "#% increased Damage while you have a Totem",
 				["type"] = "explicit",
 			},
-			[251] = {
+			[252] = {
 				["id"] = "explicit.stat_627767961",
 				["text"] = "#% increased Damage while you have an active Charm",
 				["type"] = "explicit",
 			},
-			[252] = {
+			[253] = {
 				["id"] = "explicit.stat_693180608",
 				["text"] = "#% increased Damage while your Companion is in your Presence",
 				["type"] = "explicit",
 			},
-			[253] = {
+			[254] = {
 				["id"] = "explicit.stat_1241625305",
 				["text"] = "#% increased Damage with Bow Skills",
 				["type"] = "explicit",
 			},
-			[254] = {
+			[255] = {
 				["id"] = "explicit.stat_4188894176",
 				["text"] = "#% increased Damage with Bows",
 				["type"] = "explicit",
 			},
-			[255] = {
+			[256] = {
 				["id"] = "explicit.stat_427684353",
 				["text"] = "#% increased Damage with Crossbows",
 				["type"] = "explicit",
 			},
-			[256] = {
+			[257] = {
 				["id"] = "explicit.stat_1852872083",
 				["text"] = "#% increased Damage with Hits against Rare and Unique Enemies",
 				["type"] = "explicit",
 			},
-			[257] = {
+			[258] = {
 				["id"] = "explicit.stat_4015438188",
 				["text"] = "#% increased Damage with Hits against targets in your Presence",
 				["type"] = "explicit",
 			},
-			[258] = {
+			[259] = {
 				["id"] = "explicit.stat_1181419800",
 				["text"] = "#% increased Damage with Maces",
 				["type"] = "explicit",
 			},
-			[259] = {
+			[260] = {
 				["id"] = "explicit.stat_2518900926",
 				["text"] = "#% increased Damage with Plant Skills",
 				["type"] = "explicit",
 			},
-			[260] = {
+			[261] = {
 				["id"] = "explicit.stat_4045894391",
 				["text"] = "#% increased Damage with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[261] = {
+			[262] = {
 				["id"] = "explicit.stat_2696027455",
 				["text"] = "#% increased Damage with Spears",
 				["type"] = "explicit",
 			},
-			[262] = {
+			[263] = {
 				["id"] = "explicit.stat_1594812856",
 				["text"] = "#% increased Damage with Warcries",
 				["type"] = "explicit",
 			},
-			[263] = {
+			[264] = {
 				["id"] = "explicit.stat_1949833742",
 				["text"] = "#% increased Daze Buildup",
 				["type"] = "explicit",
 			},
-			[264] = {
+			[265] = {
 				["id"] = "explicit.stat_3040571529",
 				["text"] = "#% increased Deflection Rating",
 				["type"] = "explicit",
 			},
-			[265] = {
+			[266] = {
 				["id"] = "explicit.stat_1382805233",
 				["text"] = "#% increased Deflection Rating while moving",
 				["type"] = "explicit",
 			},
-			[266] = {
+			[267] = {
 				["id"] = "explicit.stat_586037801",
 				["text"] = "#% increased Desecrated Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[267] = {
+			[268] = {
 				["id"] = "explicit.stat_4139681126",
 				["text"] = "#% increased Dexterity",
 				["type"] = "explicit",
 			},
-			[268] = {
+			[269] = {
 				["id"] = "explicit.stat_2541588185",
 				["text"] = "#% increased Duration (Charm)",
 				["type"] = "explicit",
 			},
-			[269] = {
+			[270] = {
 				["id"] = "explicit.stat_1256719186",
 				["text"] = "#% increased Duration (Flask)",
 				["type"] = "explicit",
 			},
-			[270] = {
+			[271] = {
 				["id"] = "explicit.stat_1692879867",
 				["text"] = "#% increased Duration of Bleeding on You",
 				["type"] = "explicit",
 			},
-			[271] = {
+			[272] = {
 				["id"] = "explicit.stat_2920970371",
 				["text"] = "#% increased Duration of Curses on you",
 				["type"] = "explicit",
 			},
-			[272] = {
+			[273] = {
 				["id"] = "explicit.stat_1829102168",
 				["text"] = "#% increased Duration of Damaging Ailments on Enemies",
 				["type"] = "explicit",
 			},
-			[273] = {
+			[274] = {
 				["id"] = "explicit.stat_2604619892",
 				["text"] = "#% increased Duration of Elemental Ailments on Enemies",
 				["type"] = "explicit",
 			},
-			[274] = {
+			[275] = {
 				["id"] = "explicit.stat_1062710370",
 				["text"] = "#% increased Duration of Ignite, Shock and Chill on Enemies",
 				["type"] = "explicit",
 			},
-			[275] = {
+			[276] = {
 				["id"] = "explicit.stat_3841138199",
 				["text"] = "#% increased Duration of Poisons you inflict when you've consumed a Frenzy Charge Recently",
 				["type"] = "explicit",
 			},
-			[276] = {
+			[277] = {
 				["id"] = "explicit.stat_461663422",
 				["text"] = "#% increased Effect of Jewel Socket Passive Skillscontaining Corrupted Magic Jewels",
 				["type"] = "explicit",
 			},
-			[277] = {
+			[278] = {
 				["id"] = "explicit.stat_3128077011",
 				["text"] = "#% increased Effect of Jewel Socket Passive Skillscontaining Corrupted Rare Jewels",
 				["type"] = "explicit",
 			},
-			[278] = {
+			[279] = {
 				["id"] = "explicit.stat_4234573345",
 				["text"] = "#% increased Effect of Notable Passive Skills in Radius",
 				["type"] = "explicit",
 			},
-			[279] = {
+			[280] = {
 				["id"] = "explicit.stat_1443502073",
 				["text"] = "#% increased Effect of Prefixes",
 				["type"] = "explicit",
 			},
-			[280] = {
+			[281] = {
 				["id"] = "explicit.stat_3078574625",
 				["text"] = "#% increased Effect of Remnants in Area",
 				["type"] = "explicit",
 			},
-			[281] = {
+			[282] = {
 				["id"] = "explicit.stat_3078574625",
 				["text"] = "#% increased Effect of Remnants in your Maps",
 				["type"] = "explicit",
 			},
-			[282] = {
+			[283] = {
 				["id"] = "explicit.stat_1060572482",
 				["text"] = "#% increased Effect of Small Passive Skills in Radius",
 				["type"] = "explicit",
 			},
-			[283] = {
+			[284] = {
 				["id"] = "explicit.stat_2475221757",
 				["text"] = "#% increased Effect of Suffixes",
 				["type"] = "explicit",
 			},
-			[284] = {
+			[285] = {
 				["id"] = "explicit.stat_712554801",
 				["text"] = "#% increased Effect of your Mark Skills",
 				["type"] = "explicit",
 			},
-			[285] = {
+			[286] = {
 				["id"] = "explicit.stat_2065500219",
 				["text"] = "#% increased Effectiveness of Monsters in your Maps",
 				["type"] = "explicit",
 			},
-			[286] = {
+			[287] = {
 				["id"] = "explicit.stat_2895378479",
 				["text"] = "#% increased Effectiveness of Rare Breach Monsters",
 				["type"] = "explicit",
 			},
-			[287] = {
+			[288] = {
 				["id"] = "explicit.stat_3544800472",
 				["text"] = "#% increased Elemental Ailment Threshold",
 				["type"] = "explicit",
 			},
-			[288] = {
+			[289] = {
 				["id"] = "explicit.stat_3141070085",
 				["text"] = "#% increased Elemental Damage",
 				["type"] = "explicit",
 			},
-			[289] = {
+			[290] = {
 				["id"] = "explicit.stat_387439868",
 				["text"] = "#% increased Elemental Damage with Attacks",
 				["type"] = "explicit",
 			},
-			[290] = {
+			[291] = {
 				["id"] = "explicit.stat_1170174456",
 				["text"] = "#% increased Endurance Charge Duration",
 				["type"] = "explicit",
 			},
-			[291] = {
+			[292] = {
 				["id"] = "explicit.stat_2839036860",
 				["text"] = "#% increased Endurance, Frenzy and Power Charge Duration",
 				["type"] = "explicit",
 			},
-			[292] = {
+			[293] = {
 				["id"] = "explicit.stat_4015621042",
 				["text"] = "#% increased Energy Shield",
 				["type"] = "explicit",
 			},
-			[293] = {
+			[294] = {
 				["id"] = "explicit.stat_2339757871",
 				["text"] = "#% increased Energy Shield Recharge Rate",
 				["type"] = "explicit",
 			},
-			[294] = {
+			[295] = {
 				["id"] = "explicit.stat_1079292660",
 				["text"] = "#% increased Energy Shield Recharge Rate if you've Blocked Recently",
 				["type"] = "explicit",
 			},
-			[295] = {
+			[296] = {
 				["id"] = "explicit.stat_2408276841",
 				["text"] = "#% increased Energy Shield Recharge Rate per 4 Strength",
 				["type"] = "explicit",
 			},
-			[296] = {
+			[297] = {
 				["id"] = "explicit.stat_988575597",
 				["text"] = "#% increased Energy Shield Recovery rate",
 				["type"] = "explicit",
 			},
-			[297] = {
+			[298] = {
 				["id"] = "explicit.stat_1195319608",
 				["text"] = "#% increased Energy Shield from Equipped Body Armour",
 				["type"] = "explicit",
 			},
-			[298] = {
+			[299] = {
 				["id"] = "explicit.stat_3174700878",
 				["text"] = "#% increased Energy Shield from Equipped Focus",
 				["type"] = "explicit",
 			},
-			[299] = {
+			[300] = {
 				["id"] = "explicit.stat_2106365538",
 				["text"] = "#% increased Evasion Rating",
 				["type"] = "explicit",
 			},
-			[300] = {
+			[301] = {
 				["id"] = "explicit.stat_124859000",
 				["text"] = "#% increased Evasion Rating (Local)",
 				["type"] = "explicit",
 			},
-			[301] = {
+			[302] = {
 				["id"] = "explicit.stat_3509362078",
 				["text"] = "#% increased Evasion Rating from Equipped Body Armour",
 				["type"] = "explicit",
 			},
-			[302] = {
+			[303] = {
 				["id"] = "explicit.stat_1073310669",
 				["text"] = "#% increased Evasion Rating if you have been Hit Recently",
 				["type"] = "explicit",
 			},
-			[303] = {
+			[304] = {
 				["id"] = "explicit.stat_1040569494",
 				["text"] = "#% increased Evasion Rating if you've Dodge Rolled Recently",
 				["type"] = "explicit",
 			},
-			[304] = {
+			[305] = {
 				["id"] = "explicit.stat_88817332",
 				["text"] = "#% increased Evasion Rating when on Full Life",
 				["type"] = "explicit",
 			},
-			[305] = {
+			[306] = {
 				["id"] = "explicit.stat_1586136369",
 				["text"] = "#% increased Evasion Rating while Sprinting",
 				["type"] = "explicit",
 			},
-			[306] = {
+			[307] = {
 				["id"] = "explicit.stat_1999113824",
 				["text"] = "#% increased Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[307] = {
+			[308] = {
 				["id"] = "explicit.stat_1539368271",
 				["text"] = "#% increased Expedition Explosive Placement Range",
 				["type"] = "explicit",
 			},
-			[308] = {
+			[309] = {
 				["id"] = "explicit.stat_3289828378",
 				["text"] = "#% increased Expedition Explosive Radius",
-				["type"] = "explicit",
-			},
-			[309] = {
-				["id"] = "explicit.stat_3666934677",
-				["text"] = "#% increased Experience gain",
 				["type"] = "explicit",
 			},
 			[310] = {
@@ -1742,2318 +1742,2318 @@ return {
 				["type"] = "explicit",
 			},
 			[311] = {
+				["id"] = "explicit.stat_3666934677",
+				["text"] = "#% increased Experience gain",
+				["type"] = "explicit",
+			},
+			[312] = {
 				["id"] = "explicit.stat_57434274",
 				["text"] = "#% increased Experience gain in your Maps",
 				["type"] = "explicit",
 			},
-			[312] = {
+			[313] = {
 				["id"] = "explicit.stat_231689132",
 				["text"] = "#% increased Explicit Elemental Damage Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[313] = {
+			[314] = {
 				["id"] = "explicit.stat_3574578302",
 				["text"] = "#% increased Explicit Fire Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[314] = {
+			[315] = {
 				["id"] = "explicit.stat_3624940721",
 				["text"] = "#% increased Explicit Lightning Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[315] = {
+			[316] = {
 				["id"] = "explicit.stat_1335369947",
 				["text"] = "#% increased Explicit Physical Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[316] = {
+			[317] = {
 				["id"] = "explicit.stat_1972391381",
 				["text"] = "#% increased Explicit Resistance Modifier magnitudes",
 				["type"] = "explicit",
 			},
-			[317] = {
+			[318] = {
 				["id"] = "explicit.stat_2074866941",
 				["text"] = "#% increased Exposure Effect",
 				["type"] = "explicit",
 			},
-			[318] = {
+			[319] = {
 				["id"] = "explicit.stat_3962278098",
 				["text"] = "#% increased Fire Damage",
 				["type"] = "explicit",
 			},
-			[319] = {
+			[320] = {
 				["id"] = "explicit.stat_3858572996",
 				["text"] = "#% increased Fire Damage if you've collected a Fire Infusion in the last 8 seconds",
 				["type"] = "explicit",
 			},
-			[320] = {
+			[321] = {
 				["id"] = "explicit.stat_2968503605",
 				["text"] = "#% increased Flammability Magnitude",
 				["type"] = "explicit",
 			},
-			[321] = {
+			[322] = {
 				["id"] = "explicit.stat_1836676211",
 				["text"] = "#% increased Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[322] = {
+			[323] = {
 				["id"] = "explicit.stat_3741323227",
 				["text"] = "#% increased Flask Effect Duration",
 				["type"] = "explicit",
 			},
-			[323] = {
+			[324] = {
 				["id"] = "explicit.stat_51994685",
 				["text"] = "#% increased Flask Life Recovery rate",
 				["type"] = "explicit",
 			},
-			[324] = {
+			[325] = {
 				["id"] = "explicit.stat_1412217137",
 				["text"] = "#% increased Flask Mana Recovery rate",
 				["type"] = "explicit",
 			},
-			[325] = {
+			[326] = {
 				["id"] = "explicit.stat_551040294",
 				["text"] = "#% increased Fracturing Mirrors manifested within Delirium Fog",
 				["type"] = "explicit",
 			},
-			[326] = {
+			[327] = {
 				["id"] = "explicit.stat_473429811",
 				["text"] = "#% increased Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[327] = {
+			[328] = {
 				["id"] = "explicit.stat_232701452",
 				["text"] = "#% increased Freeze Buildup if you've consumed an Power Charge Recently",
 				["type"] = "explicit",
 			},
-			[328] = {
+			[329] = {
 				["id"] = "explicit.stat_1697447343",
 				["text"] = "#% increased Freeze Buildup with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[329] = {
+			[330] = {
 				["id"] = "explicit.stat_1073942215",
 				["text"] = "#% increased Freeze Duration on Enemies",
 				["type"] = "explicit",
 			},
-			[330] = {
+			[331] = {
 				["id"] = "explicit.stat_3780644166",
 				["text"] = "#% increased Freeze Threshold",
 				["type"] = "explicit",
 			},
-			[331] = {
+			[332] = {
 				["id"] = "explicit.stat_1177404658",
 				["text"] = "#% increased Global Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[332] = {
+			[333] = {
 				["id"] = "explicit.stat_933768533",
 				["text"] = "#% increased Global Armour, Evasion and Energy Shield per Socket filled",
 				["type"] = "explicit",
 			},
-			[333] = {
+			[334] = {
 				["id"] = "explicit.stat_2695354435",
 				["text"] = "#% increased Global Evasion Rating when on Low Life",
 				["type"] = "explicit",
 			},
-			[334] = {
+			[335] = {
 				["id"] = "explicit.stat_1310194496",
 				["text"] = "#% increased Global Physical Damage",
 				["type"] = "explicit",
 			},
-			[335] = {
+			[336] = {
 				["id"] = "explicit.stat_3143918757",
 				["text"] = "#% increased Glory generation",
 				["type"] = "explicit",
 			},
-			[336] = {
+			[337] = {
 				["id"] = "explicit.stat_1869147066",
 				["text"] = "#% increased Glory generation for Banner Skills",
 				["type"] = "explicit",
 			},
-			[337] = {
+			[338] = {
 				["id"] = "explicit.stat_1133965702",
 				["text"] = "#% increased Gold found in this Area",
 				["type"] = "explicit",
 			},
-			[338] = {
+			[339] = {
 				["id"] = "explicit.stat_1276056105",
 				["text"] = "#% increased Gold found in this Area (Gold Piles)",
 				["type"] = "explicit",
 			},
-			[339] = {
+			[340] = {
 				["id"] = "explicit.stat_1133965702",
 				["text"] = "#% increased Gold found in your Maps",
 				["type"] = "explicit",
 			},
-			[340] = {
+			[341] = {
 				["id"] = "explicit.stat_1276056105",
 				["text"] = "#% increased Gold found in your Maps (Gold Piles)",
 				["type"] = "explicit",
 			},
-			[341] = {
+			[342] = {
 				["id"] = "explicit.stat_3131442032",
 				["text"] = "#% increased Grenade Damage",
 				["type"] = "explicit",
 			},
-			[342] = {
+			[343] = {
 				["id"] = "explicit.stat_1365232741",
 				["text"] = "#% increased Grenade Duration",
 				["type"] = "explicit",
 			},
-			[343] = {
+			[344] = {
 				["id"] = "explicit.stat_1697951953",
 				["text"] = "#% increased Hazard Damage",
 				["type"] = "explicit",
 			},
-			[344] = {
+			[345] = {
 				["id"] = "explicit.stat_3274422940",
 				["text"] = "#% increased Ice Crystal Life",
 				["type"] = "explicit",
 			},
-			[345] = {
+			[346] = {
 				["id"] = "explicit.stat_1086147743",
 				["text"] = "#% increased Ignite Duration on Enemies",
 				["type"] = "explicit",
 			},
-			[346] = {
+			[347] = {
 				["id"] = "explicit.stat_3791899485",
 				["text"] = "#% increased Ignite Magnitude",
 				["type"] = "explicit",
 			},
-			[347] = {
+			[348] = {
 				["id"] = "explicit.stat_330530785",
 				["text"] = "#% increased Immobilisation buildup",
 				["type"] = "explicit",
 			},
-			[348] = {
+			[349] = {
 				["id"] = "explicit.stat_656461285",
 				["text"] = "#% increased Intelligence",
 				["type"] = "explicit",
 			},
-			[349] = {
+			[350] = {
 				["id"] = "explicit.stat_565784293",
 				["text"] = "#% increased Knockback Distance",
 				["type"] = "explicit",
 			},
-			[350] = {
+			[351] = {
 				["id"] = "explicit.stat_310945763",
 				["text"] = "#% increased Life Cost Efficiency",
 				["type"] = "explicit",
 			},
-			[351] = {
+			[352] = {
 				["id"] = "explicit.stat_4009879772",
 				["text"] = "#% increased Life Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[352] = {
+			[353] = {
 				["id"] = "explicit.stat_1261982764",
 				["text"] = "#% increased Life Recovered",
 				["type"] = "explicit",
 			},
-			[353] = {
+			[354] = {
 				["id"] = "explicit.stat_821241191",
 				["text"] = "#% increased Life Recovery from Flasks",
 				["type"] = "explicit",
 			},
-			[354] = {
+			[355] = {
 				["id"] = "explicit.stat_3240073117",
 				["text"] = "#% increased Life Recovery rate",
 				["type"] = "explicit",
 			},
-			[355] = {
+			[356] = {
 				["id"] = "explicit.stat_2116424886",
 				["text"] = "#% increased Life Regeneration Rate while moving",
 				["type"] = "explicit",
 			},
-			[356] = {
+			[357] = {
 				["id"] = "explicit.stat_44972811",
 				["text"] = "#% increased Life Regeneration rate",
 				["type"] = "explicit",
 			},
-			[357] = {
+			[358] = {
 				["id"] = "explicit.stat_1261076060",
 				["text"] = "#% increased Life Regeneration rate during Effect of any Life Flask",
 				["type"] = "explicit",
 			},
-			[358] = {
+			[359] = {
 				["id"] = "explicit.stat_3084372306",
 				["text"] = "#% increased Life Regeneration rate while Surrounded",
 				["type"] = "explicit",
 			},
-			[359] = {
+			[360] = {
 				["id"] = "explicit.stat_2310741722",
 				["text"] = "#% increased Life and Mana Recovery from Flasks",
 				["type"] = "explicit",
 			},
-			[360] = {
+			[361] = {
 				["id"] = "explicit.stat_1263695895",
 				["text"] = "#% increased Light Radius",
 				["type"] = "explicit",
 			},
-			[361] = {
+			[362] = {
 				["id"] = "explicit.stat_2231156303",
 				["text"] = "#% increased Lightning Damage",
 				["type"] = "explicit",
 			},
-			[362] = {
+			[363] = {
 				["id"] = "explicit.stat_797289402",
 				["text"] = "#% increased Lightning Damage if you've collected a Lightning Infusion in the last 8 seconds",
 				["type"] = "explicit",
 			},
-			[363] = {
+			[364] = {
 				["id"] = "explicit.stat_3873704640",
 				["text"] = "#% increased Magic Monsters",
 				["type"] = "explicit",
 			},
-			[364] = {
+			[365] = {
 				["id"] = "explicit.stat_1714706956",
 				["text"] = "#% increased Magic Pack Size",
 				["type"] = "explicit",
 			},
-			[365] = {
+			[366] = {
 				["id"] = "explicit.stat_4043376133",
 				["text"] = "#% increased Magnitude of Abyssal Wasting you inflict",
 				["type"] = "explicit",
 			},
-			[366] = {
+			[367] = {
 				["id"] = "explicit.stat_1303248024",
 				["text"] = "#% increased Magnitude of Ailments you inflict",
 				["type"] = "explicit",
 			},
-			[367] = {
+			[368] = {
 				["id"] = "explicit.stat_3166958180",
 				["text"] = "#% increased Magnitude of Bleeding you inflict",
 				["type"] = "explicit",
 			},
-			[368] = {
+			[369] = {
 				["id"] = "explicit.stat_828179689",
 				["text"] = "#% increased Magnitude of Chill you inflict",
 				["type"] = "explicit",
 			},
-			[369] = {
+			[370] = {
 				["id"] = "explicit.stat_1381474422",
 				["text"] = "#% increased Magnitude of Damaging Ailments you inflict",
 				["type"] = "explicit",
 			},
-			[370] = {
+			[371] = {
 				["id"] = "explicit.stat_440490623",
 				["text"] = "#% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
 				["type"] = "explicit",
 			},
-			[371] = {
+			[372] = {
 				["id"] = "explicit.stat_3621874554",
 				["text"] = "#% increased Magnitude of Elemental Ailments you inflict with Spells",
 				["type"] = "explicit",
 			},
-			[372] = {
+			[373] = {
 				["id"] = "explicit.stat_916833363",
 				["text"] = "#% increased Magnitude of Ignite if you've consumed an Endurance Charge Recently",
 				["type"] = "explicit",
 			},
-			[373] = {
+			[374] = {
 				["id"] = "explicit.stat_4259875040",
 				["text"] = "#% increased Magnitude of Impales inflicted with Spells",
 				["type"] = "explicit",
 			},
-			[374] = {
+			[375] = {
 				["id"] = "explicit.stat_2487305362",
 				["text"] = "#% increased Magnitude of Poison you inflict",
 				["type"] = "explicit",
 			},
-			[375] = {
+			[376] = {
 				["id"] = "explicit.stat_1864159246",
 				["text"] = "#% increased Magnitude of Poison you inflict on targets that are not Poisoned",
 				["type"] = "explicit",
 			},
-			[376] = {
+			[377] = {
 				["id"] = "explicit.stat_120969026",
 				["text"] = "#% increased Magnitude of Poison you inflict while Poisoned",
 				["type"] = "explicit",
 			},
-			[377] = {
+			[378] = {
 				["id"] = "explicit.stat_324210709",
 				["text"] = "#% increased Magnitude of Shock if you've consumed a Frenzy Charge Recently",
 				["type"] = "explicit",
 			},
-			[378] = {
+			[379] = {
 				["id"] = "explicit.stat_2527686725",
 				["text"] = "#% increased Magnitude of Shock you inflict",
 				["type"] = "explicit",
 			},
-			[379] = {
+			[380] = {
 				["id"] = "explicit.stat_2725205297",
 				["text"] = "#% increased Magnitude of Unholy Might buffs you grant",
 				["type"] = "explicit",
 			},
-			[380] = {
+			[381] = {
 				["id"] = "explicit.stat_4101445926",
 				["text"] = "#% increased Mana Cost Efficiency",
 				["type"] = "explicit",
 			},
-			[381] = {
+			[382] = {
 				["id"] = "explicit.stat_3396435291",
 				["text"] = "#% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
 				["type"] = "explicit",
 			},
-			[382] = {
+			[383] = {
 				["id"] = "explicit.stat_2653231923",
 				["text"] = "#% increased Mana Cost Efficiency of Spells",
 				["type"] = "explicit",
 			},
-			[383] = {
+			[384] = {
 				["id"] = "explicit.stat_3590792340",
 				["text"] = "#% increased Mana Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[384] = {
+			[385] = {
 				["id"] = "explicit.stat_1811130680",
 				["text"] = "#% increased Mana Recovered",
 				["type"] = "explicit",
 			},
-			[385] = {
+			[386] = {
 				["id"] = "explicit.stat_2222186378",
 				["text"] = "#% increased Mana Recovery from Flasks",
 				["type"] = "explicit",
 			},
-			[386] = {
+			[387] = {
 				["id"] = "explicit.stat_789117908",
 				["text"] = "#% increased Mana Regeneration Rate",
 				["type"] = "explicit",
 			},
-			[387] = {
+			[388] = {
 				["id"] = "explicit.stat_1659564104",
 				["text"] = "#% increased Mana Regeneration Rate if you've dealt a Critical Hit Recently",
 				["type"] = "explicit",
 			},
-			[388] = {
+			[389] = {
 				["id"] = "explicit.stat_344174146",
 				["text"] = "#% increased Mana Regeneration Rate per Fragile Regrowth",
 				["type"] = "explicit",
 			},
-			[389] = {
+			[390] = {
 				["id"] = "explicit.stat_1895238057",
 				["text"] = "#% increased Mana Regeneration Rate while Surrounded",
 				["type"] = "explicit",
 			},
-			[390] = {
+			[391] = {
 				["id"] = "explicit.stat_1327522346",
 				["text"] = "#% increased Mana Regeneration Rate while moving",
 				["type"] = "explicit",
 			},
-			[391] = {
+			[392] = {
 				["id"] = "explicit.stat_3308030688",
 				["text"] = "#% increased Mana Regeneration Rate while stationary",
 				["type"] = "explicit",
 			},
-			[392] = {
+			[393] = {
 				["id"] = "explicit.stat_2702182380",
 				["text"] = "#% increased Maximum Life per Socket filled",
 				["type"] = "explicit",
 			},
-			[393] = {
+			[394] = {
 				["id"] = "explicit.stat_332217711",
 				["text"] = "#% increased Maximum Life per socketed Grand Spectrum",
 				["type"] = "explicit",
 			},
-			[394] = {
+			[395] = {
 				["id"] = "explicit.stat_911712882",
 				["text"] = "#% increased Maximum Mana per Socket filled",
 				["type"] = "explicit",
 			},
-			[395] = {
+			[396] = {
 				["id"] = "explicit.stat_1002362373",
 				["text"] = "#% increased Melee Damage",
 				["type"] = "explicit",
 			},
-			[396] = {
+			[397] = {
 				["id"] = "explicit.stat_2677352961",
 				["text"] = "#% increased Melee Damage against Heavy Stunned enemies",
 				["type"] = "explicit",
 			},
-			[397] = {
+			[398] = {
 				["id"] = "explicit.stat_3028809864",
 				["text"] = "#% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
 				["type"] = "explicit",
 			},
-			[398] = {
+			[399] = {
 				["id"] = "explicit.stat_548198834",
 				["text"] = "#% increased Melee Strike Range with this weapon",
 				["type"] = "explicit",
 			},
-			[399] = {
+			[400] = {
 				["id"] = "explicit.stat_1718147982",
 				["text"] = "#% increased Minion Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[400] = {
+			[401] = {
 				["id"] = "explicit.stat_3526763442",
 				["text"] = "#% increased Minion Damage per different Command Skill used in the past 15 seconds",
 				["type"] = "explicit",
 			},
-			[401] = {
+			[402] = {
 				["id"] = "explicit.stat_1913583994",
 				["text"] = "#% increased Monster Attack Speed",
 				["type"] = "explicit",
 			},
-			[402] = {
+			[403] = {
 				["id"] = "explicit.stat_2488361432",
 				["text"] = "#% increased Monster Cast Speed",
 				["type"] = "explicit",
 			},
-			[403] = {
+			[404] = {
 				["id"] = "explicit.stat_1890519597",
 				["text"] = "#% increased Monster Damage",
 				["type"] = "explicit",
 			},
-			[404] = {
+			[405] = {
 				["id"] = "explicit.stat_2306522833",
 				["text"] = "#% increased Monster Movement Speed",
 				["type"] = "explicit",
 			},
-			[405] = {
+			[406] = {
 				["id"] = "explicit.stat_2250533757",
 				["text"] = "#% increased Movement Speed",
 				["type"] = "explicit",
 			},
-			[406] = {
+			[407] = {
 				["id"] = "explicit.stat_2590797182",
 				["text"] = "#% increased Movement Speed Penalty from using Skills while moving",
 				["type"] = "explicit",
 			},
-			[407] = {
+			[408] = {
 				["id"] = "explicit.stat_1541516339",
 				["text"] = "#% increased Movement Speed per Frenzy Charge",
 				["type"] = "explicit",
 			},
-			[408] = {
+			[409] = {
 				["id"] = "explicit.stat_3393547195",
 				["text"] = "#% increased Movement Speed when on Full Life",
 				["type"] = "explicit",
 			},
-			[409] = {
+			[410] = {
 				["id"] = "explicit.stat_3107707789",
 				["text"] = "#% increased Movement Speed while Sprinting",
 				["type"] = "explicit",
 			},
-			[410] = {
+			[411] = {
 				["id"] = "explicit.stat_610276769",
 				["text"] = "#% increased Movement Speed while affected by an Ailment",
 				["type"] = "explicit",
 			},
-			[411] = {
+			[412] = {
 				["id"] = "explicit.stat_2017682521",
 				["text"] = "#% increased Pack Size",
 				["type"] = "explicit",
 			},
-			[412] = {
+			[413] = {
 				["id"] = "explicit.stat_3401186585",
 				["text"] = "#% increased Parried Debuff Duration",
 				["type"] = "explicit",
 			},
-			[413] = {
+			[414] = {
 				["id"] = "explicit.stat_818877178",
 				["text"] = "#% increased Parried Debuff Magnitude",
 				["type"] = "explicit",
 			},
-			[414] = {
+			[415] = {
 				["id"] = "explicit.stat_1569159338",
 				["text"] = "#% increased Parry Damage",
 				["type"] = "explicit",
 			},
-			[415] = {
+			[416] = {
 				["id"] = "explicit.stat_1509134228",
 				["text"] = "#% increased Physical Damage",
 				["type"] = "explicit",
 			},
-			[416] = {
+			[417] = {
 				["id"] = "explicit.stat_3473929743",
 				["text"] = "#% increased Pin Buildup",
 				["type"] = "explicit",
 			},
-			[417] = {
+			[418] = {
 				["id"] = "explicit.stat_2011656677",
 				["text"] = "#% increased Poison Duration",
 				["type"] = "explicit",
 			},
-			[418] = {
+			[419] = {
 				["id"] = "explicit.stat_3301100256",
 				["text"] = "#% increased Poison Duration on you",
 				["type"] = "explicit",
 			},
-			[419] = {
+			[420] = {
 				["id"] = "explicit.stat_3872306017",
 				["text"] = "#% increased Power Charge Duration",
 				["type"] = "explicit",
 			},
-			[420] = {
+			[421] = {
 				["id"] = "explicit.stat_101878827",
 				["text"] = "#% increased Presence Area of Effect",
 				["type"] = "explicit",
 			},
-			[421] = {
+			[422] = {
 				["id"] = "explicit.stat_1839076647",
 				["text"] = "#% increased Projectile Damage",
 				["type"] = "explicit",
 			},
-			[422] = {
+			[423] = {
 				["id"] = "explicit.stat_3596695232",
 				["text"] = "#% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds",
 				["type"] = "explicit",
 			},
-			[423] = {
+			[424] = {
 				["id"] = "explicit.stat_3759663284",
 				["text"] = "#% increased Projectile Speed",
 				["type"] = "explicit",
 			},
-			[424] = {
+			[425] = {
 				["id"] = "explicit.stat_3359797958",
 				["text"] = "#% increased Projectile Speed for Spell Skills",
 				["type"] = "explicit",
 			},
-			[425] = {
+			[426] = {
 				["id"] = "explicit.stat_535217483",
 				["text"] = "#% increased Projectile Speed with this Weapon",
 				["type"] = "explicit",
 			},
-			[426] = {
+			[427] = {
 				["id"] = "explicit.stat_624534143",
 				["text"] = "#% increased Quantity of Breach Splinters dropped by Breach Monsters in Area",
 				["type"] = "explicit",
 			},
-			[427] = {
+			[428] = {
 				["id"] = "explicit.stat_624534143",
 				["text"] = "#% increased Quantity of Breach Splinters dropped by Breach Monsters in your Maps",
 				["type"] = "explicit",
 			},
-			[428] = {
+			[429] = {
 				["id"] = "explicit.stat_1083387327",
 				["text"] = "#% increased Quantity of Expedition Logbooks dropped by Runic Monsters",
 				["type"] = "explicit",
 			},
-			[429] = {
+			[430] = {
 				["id"] = "explicit.stat_1083387327",
 				["text"] = "#% increased Quantity of Expedition Logbooks dropped by Runic Monsters in your Maps",
 				["type"] = "explicit",
 			},
-			[430] = {
+			[431] = {
 				["id"] = "explicit.stat_3175163625",
 				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies",
 				["type"] = "explicit",
 			},
-			[431] = {
+			[432] = {
 				["id"] = "explicit.stat_3119172063",
 				["text"] = "#% increased Quantity of Items dropped by Map Bosses",
 				["type"] = "explicit",
 			},
-			[432] = {
+			[433] = {
 				["id"] = "explicit.stat_2390685262",
 				["text"] = "#% increased Quantity of Items found",
 				["type"] = "explicit",
 			},
-			[433] = {
+			[434] = {
 				["id"] = "explicit.stat_1457896329",
 				["text"] = "#% increased Quantity of Waystones dropped by Map Bosses",
 				["type"] = "explicit",
 			},
-			[434] = {
+			[435] = {
 				["id"] = "explicit.stat_2777224821",
 				["text"] = "#% increased Quantity of Waystones found",
 				["type"] = "explicit",
 			},
-			[435] = {
+			[436] = {
 				["id"] = "explicit.stat_472809816",
 				["text"] = "#% increased Quantity of Wombgifts found",
 				["type"] = "explicit",
 			},
-			[436] = {
+			[437] = {
 				["id"] = "explicit.stat_2416650879",
 				["text"] = "#% increased Rage Cost Efficiency",
 				["type"] = "explicit",
 			},
-			[437] = {
+			[438] = {
 				["id"] = "explicit.stat_3793155082",
 				["text"] = "#% increased Rare Monsters",
 				["type"] = "explicit",
 			},
-			[438] = {
+			[439] = {
 				["id"] = "explicit.stat_21824003",
 				["text"] = "#% increased Rarity of Items Dropped by Enemies killed with a Critical Hit",
 				["type"] = "explicit",
 			},
-			[439] = {
+			[440] = {
 				["id"] = "explicit.stat_4255069232",
 				["text"] = "#% increased Rarity of Items dropped by Map Bosses",
 				["type"] = "explicit",
 			},
-			[440] = {
+			[441] = {
 				["id"] = "explicit.stat_2306002879",
 				["text"] = "#% increased Rarity of Items found",
 				["type"] = "explicit",
 			},
-			[441] = {
+			[442] = {
 				["id"] = "explicit.stat_3917489142",
 				["text"] = "#% increased Rarity of Items found",
 				["type"] = "explicit",
 			},
-			[442] = {
+			[443] = {
 				["id"] = "explicit.stat_1602191394",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
-			[443] = {
+			[444] = {
 				["id"] = "explicit.stat_313223231",
 				["text"] = "#% increased Rarity of Items found per Socket filled",
 				["type"] = "explicit",
 			},
-			[444] = {
+			[445] = {
 				["id"] = "explicit.stat_2929867083",
 				["text"] = "#% increased Rarity of Items found when on Low Life",
 				["type"] = "explicit",
 			},
-			[445] = {
+			[446] = {
 				["id"] = "explicit.stat_173226756",
 				["text"] = "#% increased Recovery rate",
 				["type"] = "explicit",
 			},
-			[446] = {
+			[447] = {
 				["id"] = "explicit.stat_710476746",
 				["text"] = "#% increased Reload Speed",
 				["type"] = "explicit",
 			},
-			[447] = {
+			[448] = {
 				["id"] = "explicit.stat_3413635271",
 				["text"] = "#% increased Reservation Efficiency of Companion Skills",
 				["type"] = "explicit",
 			},
-			[448] = {
+			[449] = {
 				["id"] = "explicit.stat_1697191405",
 				["text"] = "#% increased Reservation Efficiency of Herald Skills",
 				["type"] = "explicit",
 			},
-			[449] = {
+			[450] = {
 				["id"] = "explicit.stat_1805633363",
 				["text"] = "#% increased Reservation Efficiency of Minion Skills",
 				["type"] = "explicit",
 			},
-			[450] = {
+			[451] = {
 				["id"] = "explicit.stat_1350127730",
 				["text"] = "#% increased Reservation Efficiency of Remnant Skills",
 				["type"] = "explicit",
 			},
-			[451] = {
+			[452] = {
 				["id"] = "explicit.stat_2308632835",
 				["text"] = "#% increased Reservation Efficiency of Skills which create Undead Minions",
 				["type"] = "explicit",
 			},
-			[452] = {
+			[453] = {
 				["id"] = "explicit.stat_830161081",
 				["text"] = "#% increased Runic Ward",
 				["type"] = "explicit",
 			},
-			[453] = {
+			[454] = {
 				["id"] = "explicit.stat_2392260628",
 				["text"] = "#% increased Runic Ward Regeneration Rate",
 				["type"] = "explicit",
 			},
-			[454] = {
+			[455] = {
 				["id"] = "explicit.stat_3668351662",
 				["text"] = "#% increased Shock Duration",
 				["type"] = "explicit",
 			},
-			[455] = {
+			[456] = {
 				["id"] = "explicit.stat_3377888098",
 				["text"] = "#% increased Skill Effect Duration",
 				["type"] = "explicit",
 			},
-			[456] = {
+			[457] = {
 				["id"] = "explicit.stat_970213192",
 				["text"] = "#% increased Skill Speed",
 				["type"] = "explicit",
 			},
-			[457] = {
+			[458] = {
 				["id"] = "explicit.stat_3313255158",
 				["text"] = "#% increased Skill Speed if you've consumed a Frenzy Charge Recently",
 				["type"] = "explicit",
 			},
-			[458] = {
+			[459] = {
 				["id"] = "explicit.stat_918325986",
 				["text"] = "#% increased Skill Speed while Shapeshifted",
 				["type"] = "explicit",
 			},
-			[459] = {
+			[460] = {
 				["id"] = "explicit.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
 				["type"] = "explicit",
 			},
-			[460] = {
+			[461] = {
 				["id"] = "explicit.stat_2974417149",
 				["text"] = "#% increased Spell Damage",
 				["type"] = "explicit",
 			},
-			[461] = {
+			[462] = {
 				["id"] = "explicit.stat_1014398896",
 				["text"] = "#% increased Spell Damage during any Flask Effect",
 				["type"] = "explicit",
 			},
-			[462] = {
+			[463] = {
 				["id"] = "explicit.stat_2818518881",
 				["text"] = "#% increased Spell Damage per 10 Intelligence",
 				["type"] = "explicit",
 			},
-			[463] = {
+			[464] = {
 				["id"] = "explicit.stat_2412053423",
 				["text"] = "#% increased Spell Damage per 10 Spirit",
 				["type"] = "explicit",
 			},
-			[464] = {
+			[465] = {
 				["id"] = "explicit.stat_3491815140",
 				["text"] = "#% increased Spell Damage per 100 Maximum Life",
 				["type"] = "explicit",
 			},
-			[465] = {
+			[466] = {
 				["id"] = "explicit.stat_1850249186",
 				["text"] = "#% increased Spell Damage per 100 maximum Mana",
 				["type"] = "explicit",
 			},
-			[466] = {
+			[467] = {
 				["id"] = "explicit.stat_3176481473",
 				["text"] = "#% increased Spell Damage while on Full Energy Shield",
 				["type"] = "explicit",
 			},
-			[467] = {
+			[468] = {
 				["id"] = "explicit.stat_4136346606",
 				["text"] = "#% increased Spell Damage while wielding a Melee Weapon",
 				["type"] = "explicit",
 			},
-			[468] = {
+			[469] = {
 				["id"] = "explicit.stat_1373860425",
 				["text"] = "#% increased Spell Damage with Spells that cost Life",
 				["type"] = "explicit",
 			},
-			[469] = {
+			[470] = {
 				["id"] = "explicit.stat_2768835289",
 				["text"] = "#% increased Spell Physical Damage",
 				["type"] = "explicit",
 			},
-			[470] = {
+			[471] = {
 				["id"] = "explicit.stat_347220474",
 				["text"] = "#% increased Spell damage for each 200 total Mana you have Spent Recently",
 				["type"] = "explicit",
 			},
-			[471] = {
+			[472] = {
 				["id"] = "explicit.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
-			[472] = {
+			[473] = {
 				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
-			[473] = {
+			[474] = {
 				["id"] = "explicit.stat_53386210",
 				["text"] = "#% increased Spirit Reservation Efficiency",
 				["type"] = "explicit",
 			},
-			[474] = {
+			[475] = {
 				["id"] = "explicit.stat_3581035970",
 				["text"] = "#% increased Spirit Reservation Efficiency of Buff Skills per 100 Maximum Life",
 				["type"] = "explicit",
 			},
-			[475] = {
+			[476] = {
 				["id"] = "explicit.stat_1430165758",
 				["text"] = "#% increased Spirit per socketed Grand Spectrum",
 				["type"] = "explicit",
 			},
-			[476] = {
+			[477] = {
 				["id"] = "explicit.stat_3836551197",
 				["text"] = "#% increased Stack size of Simulacrum Splinters found in Area",
 				["type"] = "explicit",
 			},
-			[477] = {
+			[478] = {
 				["id"] = "explicit.stat_3836551197",
 				["text"] = "#% increased Stack size of Simulacrum Splinters found in your Maps",
 				["type"] = "explicit",
 			},
-			[478] = {
+			[479] = {
 				["id"] = "explicit.stat_734614379",
 				["text"] = "#% increased Strength",
 				["type"] = "explicit",
 			},
-			[479] = {
+			[480] = {
 				["id"] = "explicit.stat_295075366",
 				["text"] = "#% increased Strength Requirement",
 				["type"] = "explicit",
 			},
-			[480] = {
+			[481] = {
 				["id"] = "explicit.stat_239367161",
 				["text"] = "#% increased Stun Buildup",
 				["type"] = "explicit",
 			},
-			[481] = {
+			[482] = {
 				["id"] = "explicit.stat_872504239",
 				["text"] = "#% increased Stun Buildup with Maces",
 				["type"] = "explicit",
 			},
-			[482] = {
+			[483] = {
 				["id"] = "explicit.stat_748522257",
 				["text"] = "#% increased Stun Duration",
 				["type"] = "explicit",
 			},
-			[483] = {
+			[484] = {
 				["id"] = "explicit.stat_2511217560",
 				["text"] = "#% increased Stun Recovery",
 				["type"] = "explicit",
 			},
-			[484] = {
+			[485] = {
 				["id"] = "explicit.stat_680068163",
 				["text"] = "#% increased Stun Threshold",
 				["type"] = "explicit",
 			},
-			[485] = {
+			[486] = {
 				["id"] = "explicit.stat_1405298142",
 				["text"] = "#% increased Stun Threshold if you haven't been Stunned Recently",
 				["type"] = "explicit",
 			},
-			[486] = {
+			[487] = {
 				["id"] = "explicit.stat_1911237468",
 				["text"] = "#% increased Stun Threshold while Parrying",
 				["type"] = "explicit",
 			},
-			[487] = {
+			[488] = {
 				["id"] = "explicit.stat_909236563",
 				["text"] = "#% increased Surrounded Area of Effect",
 				["type"] = "explicit",
 			},
-			[488] = {
+			[489] = {
 				["id"] = "explicit.stat_1315743832",
 				["text"] = "#% increased Thorns damage",
 				["type"] = "explicit",
 			},
-			[489] = {
+			[490] = {
 				["id"] = "explicit.stat_806994543",
 				["text"] = "#% increased Thorns damage if you've consumed an Endurance Charge Recently",
 				["type"] = "explicit",
 			},
-			[490] = {
+			[491] = {
 				["id"] = "explicit.stat_3851254963",
 				["text"] = "#% increased Totem Damage",
 				["type"] = "explicit",
 			},
-			[491] = {
+			[492] = {
 				["id"] = "explicit.stat_2639983772",
 				["text"] = "#% increased Totem Damage per Curse on you",
 				["type"] = "explicit",
 			},
-			[492] = {
+			[493] = {
 				["id"] = "explicit.stat_2357996603",
 				["text"] = "#% increased Totem Duration",
 				["type"] = "explicit",
 			},
-			[493] = {
+			[494] = {
 				["id"] = "explicit.stat_686254215",
 				["text"] = "#% increased Totem Life",
 				["type"] = "explicit",
 			},
-			[494] = {
+			[495] = {
 				["id"] = "explicit.stat_3374165039",
 				["text"] = "#% increased Totem Placement speed",
 				["type"] = "explicit",
 			},
-			[495] = {
+			[496] = {
 				["id"] = "explicit.stat_3037553757",
 				["text"] = "#% increased Warcry Buff Effect",
 				["type"] = "explicit",
 			},
-			[496] = {
+			[497] = {
 				["id"] = "explicit.stat_4159248054",
 				["text"] = "#% increased Warcry Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[497] = {
+			[498] = {
 				["id"] = "explicit.stat_1316278494",
 				["text"] = "#% increased Warcry Speed",
 				["type"] = "explicit",
 			},
-			[498] = {
+			[499] = {
 				["id"] = "explicit.stat_1791136590",
 				["text"] = "#% increased Weapon Damage per 10 Strength",
 				["type"] = "explicit",
 			},
-			[499] = {
+			[500] = {
 				["id"] = "explicit.stat_3233599707",
 				["text"] = "#% increased Weapon Swap Speed",
 				["type"] = "explicit",
 			},
-			[500] = {
+			[501] = {
 				["id"] = "explicit.stat_3973629633",
 				["text"] = "#% increased Withered Magnitude",
 				["type"] = "explicit",
 			},
-			[501] = {
+			[502] = {
 				["id"] = "explicit.stat_2112395885",
 				["text"] = "#% increased amount of Life Leeched",
 				["type"] = "explicit",
 			},
-			[502] = {
+			[503] = {
 				["id"] = "explicit.stat_3843204146",
 				["text"] = "#% increased amount of Life Leeched if you've consumed a Frenzy Charge Recently",
 				["type"] = "explicit",
 			},
-			[503] = {
+			[504] = {
 				["id"] = "explicit.stat_2898517796",
 				["text"] = "#% increased amount of Magic Chests",
 				["type"] = "explicit",
 			},
-			[504] = {
+			[505] = {
 				["id"] = "explicit.stat_2839066308",
 				["text"] = "#% increased amount of Mana Leeched",
 				["type"] = "explicit",
 			},
-			[505] = {
+			[506] = {
 				["id"] = "explicit.stat_798469000",
 				["text"] = "#% increased amount of Rare Chests",
 				["type"] = "explicit",
 			},
-			[506] = {
+			[507] = {
 				["id"] = "explicit.stat_1200678966",
 				["text"] = "#% increased bonuses gained from Equipped Quiver",
 				["type"] = "explicit",
 			},
-			[507] = {
+			[508] = {
 				["id"] = "explicit.stat_2793222406",
 				["text"] = "#% increased bonuses gained from Equipped Rings",
 				["type"] = "explicit",
 			},
-			[508] = {
+			[509] = {
 				["id"] = "explicit.stat_513747733",
 				["text"] = "#% increased bonuses gained from left Equipped Ring",
 				["type"] = "explicit",
 			},
-			[509] = {
+			[510] = {
 				["id"] = "explicit.stat_3885501357",
 				["text"] = "#% increased bonuses gained from right Equipped Ring",
 				["type"] = "explicit",
 			},
-			[510] = {
+			[511] = {
 				["id"] = "explicit.stat_632698321",
 				["text"] = "#% increased chance Vaal Beacons summon additional Monsters",
 				["type"] = "explicit",
 			},
-			[511] = {
+			[512] = {
 				["id"] = "explicit.stat_2789248444",
 				["text"] = "#% increased chance for Abyssal monsters to have Abyssal Modifiers",
 				["type"] = "explicit",
 			},
-			[512] = {
+			[513] = {
 				["id"] = "explicit.stat_3815617979",
 				["text"] = "#% increased chance of Azmeri Spirits",
 				["type"] = "explicit",
 			},
-			[513] = {
+			[514] = {
 				["id"] = "explicit.stat_1825943485",
 				["text"] = "#% increased chance of Essences",
 				["type"] = "explicit",
 			},
-			[514] = {
+			[515] = {
 				["id"] = "explicit.stat_1352729973",
 				["text"] = "#% increased chance of Rogue Exiles",
 				["type"] = "explicit",
 			},
-			[515] = {
+			[516] = {
 				["id"] = "explicit.stat_689816330",
 				["text"] = "#% increased chance of Shrines",
 				["type"] = "explicit",
 			},
-			[516] = {
+			[517] = {
 				["id"] = "explicit.stat_4279535856",
 				["text"] = "#% increased chance of Strongboxes",
 				["type"] = "explicit",
 			},
-			[517] = {
+			[518] = {
 				["id"] = "explicit.stat_267210597",
 				["text"] = "#% increased chance of Summoning Circles",
 				["type"] = "explicit",
 			},
-			[518] = {
+			[519] = {
 				["id"] = "explicit.stat_3481083201",
 				["text"] = "#% increased chance to Poison",
 				["type"] = "explicit",
 			},
-			[519] = {
+			[520] = {
 				["id"] = "explicit.stat_293638271",
 				["text"] = "#% increased chance to Shock",
 				["type"] = "explicit",
 			},
-			[520] = {
+			[521] = {
 				["id"] = "explicit.stat_1710200734",
 				["text"] = "#% increased chance to find Desecrated Currency",
 				["type"] = "explicit",
 			},
-			[521] = {
+			[522] = {
 				["id"] = "explicit.stat_1772247089",
 				["text"] = "#% increased chance to inflict Ailments",
 				["type"] = "explicit",
 			},
-			[522] = {
+			[523] = {
 				["id"] = "explicit.stat_2760643568",
 				["text"] = "#% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting",
 				["type"] = "explicit",
 			},
-			[523] = {
+			[524] = {
 				["id"] = "explicit.stat_242637938",
 				["text"] = "#% increased chance to inflict Bleeding",
 				["type"] = "explicit",
 			},
-			[524] = {
+			[525] = {
 				["id"] = "explicit.stat_3962960008",
 				["text"] = "#% increased chance to manifest additional Unique Boss Shards within Delirium Fog",
 				["type"] = "explicit",
 			},
-			[525] = {
+			[526] = {
 				["id"] = "explicit.stat_2103650854",
 				["text"] = "#% increased effect of Arcane Surge on you",
 				["type"] = "explicit",
 			},
-			[526] = {
+			[527] = {
 				["id"] = "explicit.stat_1180552088",
 				["text"] = "#% increased effect of Archon Buffs on you",
 				["type"] = "explicit",
 			},
-			[527] = {
+			[528] = {
 				["id"] = "explicit.stat_2081918629",
 				["text"] = "#% increased effect of Socketed Augment Items",
 				["type"] = "explicit",
 			},
-			[528] = {
+			[529] = {
 				["id"] = "explicit.stat_4065505214",
 				["text"] = "#% increased effect of Socketed Soul Cores",
 				["type"] = "explicit",
 			},
-			[529] = {
+			[530] = {
 				["id"] = "explicit.stat_878697053",
 				["text"] = "#% increased maximum Divinity",
 				["type"] = "explicit",
 			},
-			[530] = {
+			[531] = {
 				["id"] = "explicit.stat_2189090852",
 				["text"] = "#% increased maximum Divinity per Corrupted Item Equipped",
 				["type"] = "explicit",
 			},
-			[531] = {
+			[532] = {
 				["id"] = "explicit.stat_2482852589",
 				["text"] = "#% increased maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[532] = {
+			[533] = {
 				["id"] = "explicit.stat_983749596",
 				["text"] = "#% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[533] = {
+			[534] = {
 				["id"] = "explicit.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
 				["type"] = "explicit",
 			},
-			[534] = {
+			[535] = {
 				["id"] = "explicit.stat_4273473110",
 				["text"] = "#% increased maximum Runic Ward",
 				["type"] = "explicit",
 			},
-			[535] = {
+			[536] = {
 				["id"] = "explicit.stat_2624927319",
 				["text"] = "#% increased number of Monster Packs",
 				["type"] = "explicit",
 			},
-			[536] = {
+			[537] = {
 				["id"] = "explicit.stat_2624927319",
 				["text"] = "#% increased number of Monster Packs in your Maps",
 				["type"] = "explicit",
 			},
-			[537] = {
+			[538] = {
 				["id"] = "explicit.stat_2694800111",
 				["text"] = "#% increased number of Rare Expedition Monsters",
 				["type"] = "explicit",
 			},
-			[538] = {
+			[539] = {
 				["id"] = "explicit.stat_2694800111",
 				["text"] = "#% increased number of Rare Expedition Monsters in Area",
 				["type"] = "explicit",
 			},
-			[539] = {
+			[540] = {
 				["id"] = "explicit.stat_1640965354",
 				["text"] = "#% increased number of Runic Monster Markers",
 				["type"] = "explicit",
 			},
-			[540] = {
+			[541] = {
 				["id"] = "explicit.stat_4219583418",
 				["text"] = "#% increased quantity of Artifacts dropped by Monsters",
 				["type"] = "explicit",
 			},
-			[541] = {
+			[542] = {
 				["id"] = "explicit.stat_4219583418",
 				["text"] = "#% increased quantity of Artifacts dropped by Monsters in your Maps",
 				["type"] = "explicit",
 			},
-			[542] = {
+			[543] = {
 				["id"] = "explicit.stat_2363593824",
 				["text"] = "#% increased speed of Recoup Effects",
 				["type"] = "explicit",
 			},
-			[543] = {
+			[544] = {
 				["id"] = "explicit.stat_1803659985",
 				["text"] = "#% less Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[544] = {
+			[545] = {
 				["id"] = "explicit.stat_1274947822",
 				["text"] = "#% less Damage",
 				["type"] = "explicit",
 			},
-			[545] = {
+			[546] = {
 				["id"] = "explicit.stat_67637087",
 				["text"] = "#% less Damage taken if you have not been Hit Recently",
 				["type"] = "explicit",
 			},
-			[546] = {
+			[547] = {
 				["id"] = "explicit.stat_3749630567",
 				["text"] = "#% less Flask Charges used",
 				["type"] = "explicit",
 			},
-			[547] = {
+			[548] = {
 				["id"] = "explicit.stat_2146799605",
 				["text"] = "#% less Movement Speed",
 				["type"] = "explicit",
 			},
-			[548] = {
+			[549] = {
 				["id"] = "explicit.stat_3156445245",
 				["text"] = "#% less Movement and Skill Speed per Dodge Roll in the past 20 seconds",
 				["type"] = "explicit",
 			},
-			[549] = {
+			[550] = {
 				["id"] = "explicit.stat_537850431",
 				["text"] = "#% less Spirit",
 				["type"] = "explicit",
 			},
-			[550] = {
+			[551] = {
 				["id"] = "explicit.stat_3796523155",
 				["text"] = "#% less effect of Curses on Monsters",
 				["type"] = "explicit",
 			},
-			[551] = {
+			[552] = {
 				["id"] = "explicit.stat_1633735772",
 				["text"] = "#% less maximum Life",
 				["type"] = "explicit",
 			},
-			[552] = {
+			[553] = {
 				["id"] = "explicit.stat_3045154261",
 				["text"] = "#% less maximum Mana",
 				["type"] = "explicit",
 			},
-			[553] = {
+			[554] = {
 				["id"] = "explicit.stat_2423248184",
 				["text"] = "#% less minimum Physical Attack Damage",
 				["type"] = "explicit",
 			},
-			[554] = {
+			[555] = {
 				["id"] = "explicit.stat_3376488707",
 				["text"] = "#% maximum Player Resistances",
 				["type"] = "explicit",
 			},
-			[555] = {
+			[556] = {
 				["id"] = "explicit.stat_412462523",
 				["text"] = "#% more Attack Damage",
 				["type"] = "explicit",
 			},
-			[556] = {
+			[557] = {
 				["id"] = "explicit.stat_2939415499",
 				["text"] = "#% more Curse Magnitudes",
 				["type"] = "explicit",
 			},
-			[557] = {
+			[558] = {
 				["id"] = "explicit.stat_1972661424",
 				["text"] = "#% more Life Flask Recovery",
 				["type"] = "explicit",
 			},
-			[558] = {
+			[559] = {
 				["id"] = "explicit.stat_1726753705",
 				["text"] = "#% more Life Recovered",
 				["type"] = "explicit",
 			},
-			[559] = {
+			[560] = {
 				["id"] = "explicit.stat_95249895",
 				["text"] = "#% more Monster Life",
 				["type"] = "explicit",
 			},
-			[560] = {
+			[561] = {
 				["id"] = "explicit.stat_886931978",
 				["text"] = "#% more Recovery if used while on Low Life",
 				["type"] = "explicit",
 			},
-			[561] = {
+			[562] = {
 				["id"] = "explicit.stat_3276224428",
 				["text"] = "#% more Recovery if used while on Low Mana",
 				["type"] = "explicit",
 			},
-			[562] = {
+			[563] = {
 				["id"] = "explicit.stat_3735888493",
 				["text"] = "#% more maximum Physical Attack Damage",
 				["type"] = "explicit",
 			},
-			[563] = {
+			[564] = {
 				["id"] = "explicit.stat_3972229254",
 				["text"] = "#% of Armour also applies to Chaos Damage",
 				["type"] = "explicit",
 			},
-			[564] = {
+			[565] = {
 				["id"] = "explicit.stat_3362812763",
 				["text"] = "#% of Armour also applies to Elemental Damage",
 				["type"] = "explicit",
 			},
-			[565] = {
+			[566] = {
 				["id"] = "explicit.stat_2678930256",
 				["text"] = "#% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect",
 				["type"] = "explicit",
 			},
-			[566] = {
+			[567] = {
 				["id"] = "explicit.stat_2369960685",
 				["text"] = "#% of Charges consumed by used Charms are granted to your Life Flasks",
 				["type"] = "explicit",
 			},
-			[567] = {
+			[568] = {
 				["id"] = "explicit.stat_2020463573",
 				["text"] = "#% of Charges consumed by used Life Flasks are granted to your Charms",
 				["type"] = "explicit",
 			},
-			[568] = {
+			[569] = {
 				["id"] = "explicit.stat_1686824704",
 				["text"] = "#% of Cold Damage Converted to Lightning Damage",
 				["type"] = "explicit",
 			},
-			[569] = {
+			[570] = {
 				["id"] = "explicit.stat_3679418014",
 				["text"] = "#% of Cold Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[570] = {
+			[571] = {
 				["id"] = "explicit.stat_2342939473",
 				["text"] = "#% of Current Energy Shield also grants Elemental Damage reduction",
 				["type"] = "explicit",
 			},
-			[571] = {
+			[572] = {
 				["id"] = "explicit.stat_2319832234",
 				["text"] = "#% of Damage Taken Recouped as Life, Mana and Energy Shield",
 				["type"] = "explicit",
 			},
-			[572] = {
+			[573] = {
 				["id"] = "explicit.stat_3918757604",
 				["text"] = "#% of Damage from Deflected Hits is taken from Damageable Companion's Life before you",
 				["type"] = "explicit",
 			},
-			[573] = {
+			[574] = {
 				["id"] = "explicit.stat_1150343007",
 				["text"] = "#% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				["type"] = "explicit",
 			},
-			[574] = {
+			[575] = {
 				["id"] = "explicit.stat_54812069",
 				["text"] = "#% of Damage from Hits is taken from your Spectres' Life before you",
 				["type"] = "explicit",
 			},
-			[575] = {
+			[576] = {
 				["id"] = "explicit.stat_458438597",
 				["text"] = "#% of Damage is taken from Mana before Life",
 				["type"] = "explicit",
 			},
-			[576] = {
+			[577] = {
 				["id"] = "explicit.stat_679019978",
 				["text"] = "#% of Damage is taken from Mana before Life while not on Low Mana",
 				["type"] = "explicit",
 			},
-			[577] = {
+			[578] = {
 				["id"] = "explicit.stat_1444556985",
 				["text"] = "#% of Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[578] = {
+			[579] = {
 				["id"] = "explicit.stat_472520716",
 				["text"] = "#% of Damage taken Recouped as Mana",
 				["type"] = "explicit",
 			},
-			[579] = {
+			[580] = {
 				["id"] = "explicit.stat_2448633171",
 				["text"] = "#% of Damage taken bypasses Energy Shield",
 				["type"] = "explicit",
 			},
-			[580] = {
+			[581] = {
 				["id"] = "explicit.stat_3598623697",
 				["text"] = "#% of Damage taken during effect Recouped as Life",
 				["type"] = "explicit",
 			},
-			[581] = {
+			[582] = {
 				["id"] = "explicit.stat_3471443885",
 				["text"] = "#% of Damage taken from Deflected Hits Recouped as Life",
 				["type"] = "explicit",
 			},
-			[582] = {
+			[583] = {
 				["id"] = "explicit.stat_1311130924",
 				["text"] = "#% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
 				["type"] = "explicit",
 			},
-			[583] = {
+			[584] = {
 				["id"] = "explicit.stat_2295988214",
 				["text"] = "#% of Elemental Damage Converted to Chaos Damage",
 				["type"] = "explicit",
 			},
-			[584] = {
+			[585] = {
 				["id"] = "explicit.stat_210092264",
 				["text"] = "#% of Elemental Damage Converted to Cold Damage",
 				["type"] = "explicit",
 			},
-			[585] = {
+			[586] = {
 				["id"] = "explicit.stat_40154188",
 				["text"] = "#% of Elemental Damage Converted to Fire Damage",
 				["type"] = "explicit",
 			},
-			[586] = {
+			[587] = {
 				["id"] = "explicit.stat_289540902",
 				["text"] = "#% of Elemental Damage Converted to Lightning Damage",
 				["type"] = "explicit",
 			},
-			[587] = {
+			[588] = {
 				["id"] = "explicit.stat_2896115339",
 				["text"] = "#% of Elemental Damage taken Recouped as Energy Shield",
 				["type"] = "explicit",
 			},
-			[588] = {
+			[589] = {
 				["id"] = "explicit.stat_1175213674",
 				["text"] = "#% of Elemental damage from Hits taken as Chaos damage",
 				["type"] = "explicit",
 			},
-			[589] = {
+			[590] = {
 				["id"] = "explicit.stat_3503160529",
 				["text"] = "#% of Fire Damage Converted to Cold Damage",
 				["type"] = "explicit",
 			},
-			[590] = {
+			[591] = {
 				["id"] = "explicit.stat_3205239847",
 				["text"] = "#% of Fire Damage from Hits taken as Physical Damage",
 				["type"] = "explicit",
 			},
-			[591] = {
+			[592] = {
 				["id"] = "explicit.stat_1742651309",
 				["text"] = "#% of Fire Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[592] = {
+			[593] = {
 				["id"] = "explicit.stat_2772033465",
 				["text"] = "#% of Fire damage Converted to Lightning damage",
 				["type"] = "explicit",
 			},
-			[593] = {
+			[594] = {
 				["id"] = "explicit.stat_4108426433",
 				["text"] = "#% of Fire damage taken as Cold damage",
 				["type"] = "explicit",
 			},
-			[594] = {
+			[595] = {
 				["id"] = "explicit.stat_3561837752",
 				["text"] = "#% of Leech is Instant",
 				["type"] = "explicit",
 			},
-			[595] = {
+			[596] = {
 				["id"] = "explicit.stat_3658708511",
 				["text"] = "#% of Life Leeched from targets affected by Abyssal Wasting is Instant",
 				["type"] = "explicit",
 			},
-			[596] = {
+			[597] = {
 				["id"] = "explicit.stat_2109189637",
 				["text"] = "#% of Lightning Damage Converted to Chaos Damage",
 				["type"] = "explicit",
 			},
-			[597] = {
+			[598] = {
 				["id"] = "explicit.stat_3627052716",
 				["text"] = "#% of Lightning Damage Converted to Cold Damage",
 				["type"] = "explicit",
 			},
-			[598] = {
+			[599] = {
 				["id"] = "explicit.stat_2970621759",
 				["text"] = "#% of Lightning Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[599] = {
+			[600] = {
 				["id"] = "explicit.stat_3198708642",
 				["text"] = "#% of Lightning damage taken as Cold damage",
 				["type"] = "explicit",
 			},
-			[600] = {
+			[601] = {
 				["id"] = "explicit.stat_546201303",
 				["text"] = "#% of Mana Leeched from targets affected by Abyssal Wasting is Instant",
 				["type"] = "explicit",
 			},
-			[601] = {
+			[602] = {
 				["id"] = "explicit.stat_2458962764",
 				["text"] = "#% of Maximum Life Converted to Energy Shield",
 				["type"] = "explicit",
 			},
-			[602] = {
+			[603] = {
 				["id"] = "explicit.stat_1092987622",
 				["text"] = "#% of Melee Physical Damage taken reflected to Attacker",
 				["type"] = "explicit",
 			},
-			[603] = {
+			[604] = {
 				["id"] = "explicit.stat_2089152298",
 				["text"] = "#% of Parry Physical Damage Converted to Cold Damage",
 				["type"] = "explicit",
 			},
-			[604] = {
+			[605] = {
 				["id"] = "explicit.stat_4129825612",
 				["text"] = "#% of Physical Damage from Hits taken as Chaos Damage",
 				["type"] = "explicit",
 			},
-			[605] = {
+			[606] = {
 				["id"] = "explicit.stat_1374654984",
 				["text"] = "#% of Physical Damage prevented Recouped as Life",
 				["type"] = "explicit",
 			},
-			[606] = {
+			[607] = {
 				["id"] = "explicit.stat_1004468512",
 				["text"] = "#% of Physical Damage taken as Fire Damage",
 				["type"] = "explicit",
 			},
-			[607] = {
+			[608] = {
 				["id"] = "explicit.stat_321970274",
 				["text"] = "#% of Physical Damage taken as Lightning while your Shield is raised",
 				["type"] = "explicit",
 			},
-			[608] = {
+			[609] = {
 				["id"] = "explicit.stat_70760090",
 				["text"] = "#% of Physical damage dealt by your Hits causes Blood Loss",
 				["type"] = "explicit",
 			},
-			[609] = {
+			[610] = {
 				["id"] = "explicit.stat_425242359",
 				["text"] = "#% of Physical damage from Hits taken as Lightning damage",
 				["type"] = "explicit",
 			},
-			[610] = {
+			[611] = {
 				["id"] = "explicit.stat_2503377690",
 				["text"] = "#% of Recovery applied Instantly",
 				["type"] = "explicit",
 			},
-			[611] = {
+			[612] = {
 				["id"] = "explicit.stat_2480498143",
 				["text"] = "#% of Skill Mana Costs Converted to Life Costs",
 				["type"] = "explicit",
 			},
-			[612] = {
+			[613] = {
 				["id"] = "explicit.stat_782941180",
 				["text"] = "#% of Spell Damage Leeched as Life",
 				["type"] = "explicit",
 			},
-			[613] = {
+			[614] = {
 				["id"] = "explicit.stat_3544050945",
 				["text"] = "#% of Spell Mana Cost Converted to Life Cost",
 				["type"] = "explicit",
 			},
-			[614] = {
+			[615] = {
 				["id"] = "explicit.stat_1753977518",
 				["text"] = "#% of Thorns Damage Leeched as Life",
 				["type"] = "explicit",
 			},
-			[615] = {
+			[616] = {
 				["id"] = "explicit.stat_3190121041",
 				["text"] = "#% of Volatility Physical Damage Taken as Cold Damage",
 				["type"] = "explicit",
 			},
-			[616] = {
+			[617] = {
 				["id"] = "explicit.stat_3175722882",
 				["text"] = "#% of maximum Life Regenerated per second per Fragile Regrowth",
 				["type"] = "explicit",
 			},
-			[617] = {
+			[618] = {
 				["id"] = "explicit.stat_4287671144",
 				["text"] = "#% of your Base Life Regeneration is granted to Allies in your Presence",
 				["type"] = "explicit",
 			},
-			[618] = {
+			[619] = {
 				["id"] = "explicit.stat_1570770415",
 				["text"] = "#% reduced Charm Charges used",
 				["type"] = "explicit",
 			},
-			[619] = {
+			[620] = {
 				["id"] = "explicit.stat_1874553720",
 				["text"] = "#% reduced Chill Duration on you",
 				["type"] = "explicit",
 			},
-			[620] = {
+			[621] = {
 				["id"] = "explicit.stat_1478653032",
 				["text"] = "#% reduced Effect of Chill on you",
 				["type"] = "explicit",
 			},
-			[621] = {
+			[622] = {
 				["id"] = "explicit.stat_644456512",
 				["text"] = "#% reduced Flask Charges used",
 				["type"] = "explicit",
 			},
-			[622] = {
+			[623] = {
 				["id"] = "explicit.stat_2160282525",
 				["text"] = "#% reduced Freeze Duration on you",
 				["type"] = "explicit",
 			},
-			[623] = {
+			[624] = {
 				["id"] = "explicit.stat_986397080",
 				["text"] = "#% reduced Ignite Duration on you",
 				["type"] = "explicit",
 			},
-			[624] = {
+			[625] = {
 				["id"] = "explicit.stat_1269971728",
 				["text"] = "#% reduced Magnitude of Ignite on you",
 				["type"] = "explicit",
 			},
-			[625] = {
+			[626] = {
 				["id"] = "explicit.stat_474294393",
 				["text"] = "#% reduced Mana Cost of Skills",
 				["type"] = "explicit",
 			},
-			[626] = {
+			[627] = {
 				["id"] = "explicit.stat_99927264",
 				["text"] = "#% reduced Shock duration on you",
 				["type"] = "explicit",
 			},
-			[627] = {
+			[628] = {
 				["id"] = "explicit.stat_3839676903",
 				["text"] = "#% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently",
 				["type"] = "explicit",
 			},
-			[628] = {
+			[629] = {
 				["id"] = "explicit.stat_3407849389",
 				["text"] = "#% reduced effect of Curses on you",
 				["type"] = "explicit",
 			},
-			[629] = {
+			[630] = {
 				["id"] = "explicit.stat_3801067695",
 				["text"] = "#% reduced effect of Shock on you",
 				["type"] = "explicit",
 			},
-			[630] = {
+			[631] = {
 				["id"] = "explicit.stat_3122852693",
 				["text"] = "#% to Block Chance while holding a Focus",
 				["type"] = "explicit",
 			},
-			[631] = {
+			[632] = {
 				["id"] = "explicit.stat_1702195217",
 				["text"] = "#% to Block chance",
 				["type"] = "explicit",
 			},
-			[632] = {
+			[633] = {
 				["id"] = "explicit.stat_2923486259",
 				["text"] = "#% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[633] = {
+			[634] = {
 				["id"] = "explicit.stat_1123023256",
 				["text"] = "#% to Chaos Resistance per Socket filled",
 				["type"] = "explicit",
 			},
-			[634] = {
+			[635] = {
 				["id"] = "explicit.stat_4220027924",
 				["text"] = "#% to Cold Resistance",
 				["type"] = "explicit",
 			},
-			[635] = {
+			[636] = {
 				["id"] = "explicit.stat_3393628375",
 				["text"] = "#% to Cold and Chaos Resistances",
 				["type"] = "explicit",
 			},
-			[636] = {
+			[637] = {
 				["id"] = "explicit.stat_4277795662",
 				["text"] = "#% to Cold and Lightning Resistances",
 				["type"] = "explicit",
 			},
-			[637] = {
+			[638] = {
 				["id"] = "explicit.stat_2381897042",
 				["text"] = "#% to Cold and Lightning Resistances per Equipped Item with a Fire Resistance Modifier",
 				["type"] = "explicit",
 			},
-			[638] = {
+			[639] = {
 				["id"] = "explicit.stat_2694482655",
 				["text"] = "#% to Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[639] = {
+			[640] = {
 				["id"] = "explicit.stat_518292764",
 				["text"] = "#% to Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[640] = {
+			[641] = {
 				["id"] = "explicit.stat_3372524247",
 				["text"] = "#% to Fire Resistance",
 				["type"] = "explicit",
 			},
-			[641] = {
+			[642] = {
 				["id"] = "explicit.stat_38301299",
 				["text"] = "#% to Fire Resistance while on Low Life",
 				["type"] = "explicit",
 			},
-			[642] = {
+			[643] = {
 				["id"] = "explicit.stat_3399401168",
 				["text"] = "#% to Fire Spell Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[643] = {
+			[644] = {
 				["id"] = "explicit.stat_378817135",
 				["text"] = "#% to Fire and Chaos Resistances",
 				["type"] = "explicit",
 			},
-			[644] = {
+			[645] = {
 				["id"] = "explicit.stat_2915988346",
 				["text"] = "#% to Fire and Cold Resistances",
 				["type"] = "explicit",
 			},
-			[645] = {
+			[646] = {
 				["id"] = "explicit.stat_4032948616",
 				["text"] = "#% to Fire and Cold Resistances per Equipped Item with a Lightning Resistance Modifier",
 				["type"] = "explicit",
 			},
-			[646] = {
+			[647] = {
 				["id"] = "explicit.stat_3441501978",
 				["text"] = "#% to Fire and Lightning Resistances",
 				["type"] = "explicit",
 			},
-			[647] = {
+			[648] = {
 				["id"] = "explicit.stat_3753008264",
 				["text"] = "#% to Fire and Lightning Resistances per Equipped Item with a Cold Resistance Modifier",
 				["type"] = "explicit",
 			},
-			[648] = {
+			[649] = {
 				["id"] = "explicit.stat_1671376347",
 				["text"] = "#% to Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[649] = {
+			[650] = {
 				["id"] = "explicit.stat_3465022881",
 				["text"] = "#% to Lightning and Chaos Resistances",
 				["type"] = "explicit",
 			},
-			[650] = {
+			[651] = {
 				["id"] = "explicit.stat_1301765461",
 				["text"] = "#% to Maximum Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[651] = {
+			[652] = {
 				["id"] = "explicit.stat_3676141501",
 				["text"] = "#% to Maximum Cold Resistance",
 				["type"] = "explicit",
 			},
-			[652] = {
+			[653] = {
 				["id"] = "explicit.stat_4095671657",
 				["text"] = "#% to Maximum Fire Resistance",
 				["type"] = "explicit",
 			},
-			[653] = {
+			[654] = {
 				["id"] = "explicit.stat_1011760251",
 				["text"] = "#% to Maximum Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[654] = {
+			[655] = {
 				["id"] = "explicit.stat_2039822488",
 				["text"] = "#% to Maximum Quality",
 				["type"] = "explicit",
 			},
-			[655] = {
+			[656] = {
 				["id"] = "explicit.stat_3655769732",
 				["text"] = "#% to Quality of all Skills",
 				["type"] = "explicit",
 			},
-			[656] = {
+			[657] = {
 				["id"] = "explicit.stat_2715190555",
 				["text"] = "#% to Thorns Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[657] = {
+			[658] = {
 				["id"] = "explicit.stat_3613173483",
 				["text"] = "#% to Unarmed Melee Attack Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[658] = {
+			[659] = {
 				["id"] = "explicit.stat_2901986750",
 				["text"] = "#% to all Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[659] = {
+			[660] = {
 				["id"] = "explicit.stat_2593644209",
 				["text"] = "#% to all Elemental Resistances per Power Charge",
 				["type"] = "explicit",
 			},
-			[660] = {
+			[661] = {
 				["id"] = "explicit.stat_242161915",
 				["text"] = "#% to all Elemental Resistances per socketed Grand Spectrum",
 				["type"] = "explicit",
 			},
-			[661] = {
+			[662] = {
 				["id"] = "explicit.stat_1978899297",
 				["text"] = "#% to all Maximum Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[662] = {
+			[663] = {
 				["id"] = "explicit.stat_569299859",
 				["text"] = "#% to all maximum Resistances",
 				["type"] = "explicit",
 			},
-			[663] = {
+			[664] = {
 				["id"] = "explicit.stat_933355817",
 				["text"] = "#% to gain Archon of Undeath when you create an Offering",
 				["type"] = "explicit",
 			},
-			[664] = {
+			[665] = {
 				["id"] = "explicit.stat_480796730",
 				["text"] = "#% to maximum Block chance",
 				["type"] = "explicit",
 			},
-			[665] = {
+			[666] = {
 				["id"] = "explicit.stat_233359425",
 				["text"] = "+# maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds, up to 5 times",
 				["type"] = "explicit",
 			},
-			[666] = {
+			[667] = {
 				["id"] = "explicit.stat_3302775221",
 				["text"] = "+# maximum Rage if you've used a Skill that Requires Glory in the past 20 seconds",
 				["type"] = "explicit",
 			},
-			[667] = {
+			[668] = {
 				["id"] = "explicit.stat_1484026495",
 				["text"] = "+# maximum stacks of Puppet Master",
 				["type"] = "explicit",
 			},
-			[668] = {
+			[669] = {
 				["id"] = "explicit.stat_448592698|8",
 				["text"] = "+# to Level of all Alchemist's Boon Skills",
 				["type"] = "explicit",
 			},
-			[669] = {
+			[670] = {
 				["id"] = "explicit.stat_448592698|208",
 				["text"] = "+# to Level of all Ancestral Cry Skills",
 				["type"] = "explicit",
 			},
-			[670] = {
+			[671] = {
 				["id"] = "explicit.stat_448592698|21",
 				["text"] = "+# to Level of all Ancestral Warrior Totem Skills",
 				["type"] = "explicit",
 			},
-			[671] = {
+			[672] = {
 				["id"] = "explicit.stat_448592698|98",
 				["text"] = "+# to Level of all Arc Skills",
 				["type"] = "explicit",
 			},
-			[672] = {
+			[673] = {
 				["id"] = "explicit.stat_448592698|11",
 				["text"] = "+# to Level of all Archmage Skills",
 				["type"] = "explicit",
 			},
-			[673] = {
+			[674] = {
 				["id"] = "explicit.stat_448592698|119",
 				["text"] = "+# to Level of all Arctic Armour Skills",
 				["type"] = "explicit",
 			},
-			[674] = {
+			[675] = {
 				["id"] = "explicit.stat_448592698|237",
 				["text"] = "+# to Level of all Arctic Howl Skills",
 				["type"] = "explicit",
 			},
-			[675] = {
+			[676] = {
 				["id"] = "explicit.stat_448592698|135",
 				["text"] = "+# to Level of all Armour Breaker Skills",
 				["type"] = "explicit",
 			},
-			[676] = {
+			[677] = {
 				["id"] = "explicit.stat_448592698|174",
 				["text"] = "+# to Level of all Armour Piercing Rounds Skills",
 				["type"] = "explicit",
 			},
-			[677] = {
+			[678] = {
 				["id"] = "explicit.stat_448592698|86",
 				["text"] = "+# to Level of all Artillery Ballista Skills",
 				["type"] = "explicit",
 			},
-			[678] = {
+			[679] = {
 				["id"] = "explicit.stat_448592698|5",
 				["text"] = "+# to Level of all Attrition Skills",
 				["type"] = "explicit",
 			},
-			[679] = {
+			[680] = {
 				["id"] = "explicit.stat_448592698|30",
 				["text"] = "+# to Level of all Ball Lightning Skills",
 				["type"] = "explicit",
 			},
-			[680] = {
+			[681] = {
 				["id"] = "explicit.stat_448592698|242",
 				["text"] = "+# to Level of all Barkskin Skills",
 				["type"] = "explicit",
 			},
-			[681] = {
+			[682] = {
 				["id"] = "explicit.stat_448592698|100",
 				["text"] = "+# to Level of all Barrage Skills",
 				["type"] = "explicit",
 			},
-			[682] = {
+			[683] = {
 				["id"] = "explicit.stat_448592698|67",
 				["text"] = "+# to Level of all Barrier Invocation Skills",
 				["type"] = "explicit",
 			},
-			[683] = {
+			[684] = {
 				["id"] = "explicit.stat_448592698|12",
 				["text"] = "+# to Level of all Berserk Skills",
 				["type"] = "explicit",
 			},
-			[684] = {
+			[685] = {
 				["id"] = "explicit.stat_448592698|63",
 				["text"] = "+# to Level of all Blasphemy Skills",
 				["type"] = "explicit",
 			},
-			[685] = {
+			[686] = {
 				["id"] = "explicit.stat_448592698|3",
 				["text"] = "+# to Level of all Blink Skills",
 				["type"] = "explicit",
 			},
-			[686] = {
+			[687] = {
 				["id"] = "explicit.stat_448592698|178",
 				["text"] = "+# to Level of all Blood Hunt Skills",
 				["type"] = "explicit",
 			},
-			[687] = {
+			[688] = {
 				["id"] = "explicit.stat_448592698|192",
 				["text"] = "+# to Level of all Bloodhound's Mark Skills",
 				["type"] = "explicit",
 			},
-			[688] = {
+			[689] = {
 				["id"] = "explicit.stat_448592698|145",
 				["text"] = "+# to Level of all Bone Cage Skills",
 				["type"] = "explicit",
 			},
-			[689] = {
+			[690] = {
 				["id"] = "explicit.stat_448592698|31",
 				["text"] = "+# to Level of all Bone Offering Skills",
 				["type"] = "explicit",
 			},
-			[690] = {
+			[691] = {
 				["id"] = "explicit.stat_448592698|163",
 				["text"] = "+# to Level of all Boneshatter Skills",
 				["type"] = "explicit",
 			},
-			[691] = {
+			[692] = {
 				["id"] = "explicit.stat_448592698|107",
 				["text"] = "+# to Level of all Bonestorm Skills",
 				["type"] = "explicit",
 			},
-			[692] = {
+			[693] = {
 				["id"] = "explicit.stat_448592698|238",
 				["text"] = "+# to Level of all Briarpatch Skills",
 				["type"] = "explicit",
 			},
-			[693] = {
+			[694] = {
 				["id"] = "explicit.stat_448592698|1",
 				["text"] = "+# to Level of all Cast on Critical Skills",
 				["type"] = "explicit",
 			},
-			[694] = {
+			[695] = {
 				["id"] = "explicit.stat_448592698|2",
 				["text"] = "+# to Level of all Cast on Dodge Skills",
 				["type"] = "explicit",
 			},
-			[695] = {
+			[696] = {
 				["id"] = "explicit.stat_448592698|215",
 				["text"] = "+# to Level of all Cast on Elemental Ailment Skills",
 				["type"] = "explicit",
 			},
-			[696] = {
+			[697] = {
 				["id"] = "explicit.stat_448592698|65",
 				["text"] = "+# to Level of all Cast on Freeze Skills",
 				["type"] = "explicit",
 			},
-			[697] = {
+			[698] = {
 				["id"] = "explicit.stat_448592698|66",
 				["text"] = "+# to Level of all Cast on Ignite Skills",
 				["type"] = "explicit",
 			},
-			[698] = {
+			[699] = {
 				["id"] = "explicit.stat_448592698|69",
 				["text"] = "+# to Level of all Cast on Minion Death Skills",
 				["type"] = "explicit",
 			},
-			[699] = {
+			[700] = {
 				["id"] = "explicit.stat_448592698|64",
 				["text"] = "+# to Level of all Cast on Shock Skills",
 				["type"] = "explicit",
 			},
-			[700] = {
+			[701] = {
 				["id"] = "explicit.stat_448592698|7",
 				["text"] = "+# to Level of all Charge Regulation Skills",
 				["type"] = "explicit",
 			},
-			[701] = {
+			[702] = {
 				["id"] = "explicit.stat_448592698|55",
 				["text"] = "+# to Level of all Charged Staff Skills",
 				["type"] = "explicit",
 			},
-			[702] = {
+			[703] = {
 				["id"] = "explicit.stat_448592698|26",
 				["text"] = "+# to Level of all Cluster Grenade Skills",
 				["type"] = "explicit",
 			},
-			[703] = {
+			[704] = {
 				["id"] = "explicit.stat_448592698|76",
 				["text"] = "+# to Level of all Combat Frenzy Skills",
 				["type"] = "explicit",
 			},
-			[704] = {
+			[705] = {
 				["id"] = "explicit.stat_448592698|37",
 				["text"] = "+# to Level of all Comet Skills",
 				["type"] = "explicit",
 			},
-			[705] = {
+			[706] = {
 				["id"] = "explicit.stat_448592698|82",
 				["text"] = "+# to Level of all Conductivity Skills",
 				["type"] = "explicit",
 			},
-			[706] = {
+			[707] = {
 				["id"] = "explicit.stat_448592698|159",
 				["text"] = "+# to Level of all Contagion Skills",
 				["type"] = "explicit",
 			},
-			[707] = {
+			[708] = {
 				["id"] = "explicit.stat_448592698|202",
 				["text"] = "+# to Level of all Convalescence Skills",
 				["type"] = "explicit",
 			},
-			[708] = {
+			[709] = {
 				["id"] = "explicit.stat_448592698|232",
 				["text"] = "+# to Level of all Cross Slash Skills",
 				["type"] = "explicit",
 			},
-			[709] = {
+			[710] = {
 				["id"] = "explicit.stat_448592698|203",
 				["text"] = "+# to Level of all Cull The Weak Skills",
 				["type"] = "explicit",
 			},
-			[710] = {
+			[711] = {
 				["id"] = "explicit.stat_448592698|58",
 				["text"] = "+# to Level of all Dark Effigy Skills",
 				["type"] = "explicit",
 			},
-			[711] = {
+			[712] = {
 				["id"] = "explicit.stat_448592698|70",
 				["text"] = "+# to Level of all Defiance Banner Skills",
 				["type"] = "explicit",
 			},
-			[712] = {
+			[713] = {
 				["id"] = "explicit.stat_448592698|46",
 				["text"] = "+# to Level of all Despair Skills",
 				["type"] = "explicit",
 			},
-			[713] = {
+			[714] = {
 				["id"] = "explicit.stat_448592698|78",
 				["text"] = "+# to Level of all Detonate Dead Skills",
 				["type"] = "explicit",
 			},
-			[714] = {
+			[715] = {
 				["id"] = "explicit.stat_448592698|56",
 				["text"] = "+# to Level of all Detonating Arrow Skills",
 				["type"] = "explicit",
 			},
-			[715] = {
+			[716] = {
 				["id"] = "explicit.stat_448592698|234",
 				["text"] = "+# to Level of all Devour Skills",
 				["type"] = "explicit",
 			},
-			[716] = {
+			[717] = {
 				["id"] = "explicit.stat_448592698|177",
 				["text"] = "+# to Level of all Disengage Skills",
 				["type"] = "explicit",
 			},
-			[717] = {
+			[718] = {
 				["id"] = "explicit.stat_448592698|4",
 				["text"] = "+# to Level of all Dread Banner Skills",
 				["type"] = "explicit",
 			},
-			[718] = {
+			[719] = {
 				["id"] = "explicit.stat_448592698|158",
 				["text"] = "+# to Level of all Earthquake Skills",
 				["type"] = "explicit",
 			},
-			[719] = {
+			[720] = {
 				["id"] = "explicit.stat_448592698|84",
 				["text"] = "+# to Level of all Earthshatter Skills",
 				["type"] = "explicit",
 			},
-			[720] = {
+			[721] = {
 				["id"] = "explicit.stat_448592698|110",
 				["text"] = "+# to Level of all Electrocuting Arrow Skills",
 				["type"] = "explicit",
 			},
-			[721] = {
+			[722] = {
 				["id"] = "explicit.stat_448592698|6",
 				["text"] = "+# to Level of all Elemental Conflux Skills",
 				["type"] = "explicit",
 			},
-			[722] = {
+			[723] = {
 				["id"] = "explicit.stat_448592698|72",
 				["text"] = "+# to Level of all Elemental Invocation Skills",
 				["type"] = "explicit",
 			},
-			[723] = {
+			[724] = {
 				["id"] = "explicit.stat_448592698|196",
 				["text"] = "+# to Level of all Elemental Sundering Skills",
 				["type"] = "explicit",
 			},
-			[724] = {
+			[725] = {
 				["id"] = "explicit.stat_448592698|216",
 				["text"] = "+# to Level of all Elemental Weakness Skills",
 				["type"] = "explicit",
 			},
-			[725] = {
+			[726] = {
 				["id"] = "explicit.stat_448592698|149",
 				["text"] = "+# to Level of all Ember Fusillade Skills",
 				["type"] = "explicit",
 			},
-			[726] = {
+			[727] = {
 				["id"] = "explicit.stat_448592698|43",
 				["text"] = "+# to Level of all Emergency Reload Skills",
 				["type"] = "explicit",
 			},
-			[727] = {
+			[728] = {
 				["id"] = "explicit.stat_448592698|134",
 				["text"] = "+# to Level of all Enfeeble Skills",
 				["type"] = "explicit",
 			},
-			[728] = {
+			[729] = {
 				["id"] = "explicit.stat_448592698|230",
 				["text"] = "+# to Level of all Entangle Skills",
 				["type"] = "explicit",
 			},
-			[729] = {
+			[730] = {
 				["id"] = "explicit.stat_448592698|165",
 				["text"] = "+# to Level of all Escape Shot Skills",
 				["type"] = "explicit",
 			},
-			[730] = {
+			[731] = {
 				["id"] = "explicit.stat_448592698|139",
 				["text"] = "+# to Level of all Essence Drain Skills",
 				["type"] = "explicit",
 			},
-			[731] = {
+			[732] = {
 				["id"] = "explicit.stat_448592698|239",
 				["text"] = "+# to Level of all Eternal Rage Skills",
 				["type"] = "explicit",
 			},
-			[732] = {
+			[733] = {
 				["id"] = "explicit.stat_448592698|168",
 				["text"] = "+# to Level of all Explosive Grenade Skills",
 				["type"] = "explicit",
 			},
-			[733] = {
+			[734] = {
 				["id"] = "explicit.stat_448592698|92",
 				["text"] = "+# to Level of all Explosive Shot Skills",
 				["type"] = "explicit",
 			},
-			[734] = {
+			[735] = {
 				["id"] = "explicit.stat_448592698|184",
 				["text"] = "+# to Level of all Explosive Spear Skills",
 				["type"] = "explicit",
 			},
-			[735] = {
+			[736] = {
 				["id"] = "explicit.stat_448592698|18",
 				["text"] = "+# to Level of all Eye of Winter Skills",
 				["type"] = "explicit",
 			},
-			[736] = {
+			[737] = {
 				["id"] = "explicit.stat_448592698|155",
 				["text"] = "+# to Level of all Falling Thunder Skills",
 				["type"] = "explicit",
 			},
-			[737] = {
+			[738] = {
 				["id"] = "explicit.stat_448592698|189",
 				["text"] = "+# to Level of all Fangs of Frost Skills",
 				["type"] = "explicit",
 			},
-			[738] = {
+			[739] = {
 				["id"] = "explicit.stat_448592698|243",
 				["text"] = "+# to Level of all Feral Invocation Skills",
 				["type"] = "explicit",
 			},
-			[739] = {
+			[740] = {
 				["id"] = "explicit.stat_448592698|225",
 				["text"] = "+# to Level of all Ferocious Roar Skills",
 				["type"] = "explicit",
 			},
-			[740] = {
+			[741] = {
 				["id"] = "explicit.stat_448592698|57",
 				["text"] = "+# to Level of all Fireball Skills",
 				["type"] = "explicit",
 			},
-			[741] = {
+			[742] = {
 				["id"] = "explicit.stat_448592698|29",
 				["text"] = "+# to Level of all Firestorm Skills",
 				["type"] = "explicit",
 			},
-			[742] = {
+			[743] = {
 				["id"] = "explicit.stat_448592698|229",
 				["text"] = "+# to Level of all Flame Breath Skills",
 				["type"] = "explicit",
 			},
-			[743] = {
+			[744] = {
 				["id"] = "explicit.stat_448592698|162",
 				["text"] = "+# to Level of all Flame Wall Skills",
 				["type"] = "explicit",
 			},
-			[744] = {
+			[745] = {
 				["id"] = "explicit.stat_448592698|15",
 				["text"] = "+# to Level of all Flameblast Skills",
 				["type"] = "explicit",
 			},
-			[745] = {
+			[746] = {
 				["id"] = "explicit.stat_448592698|80",
 				["text"] = "+# to Level of all Flammability Skills",
 				["type"] = "explicit",
 			},
-			[746] = {
+			[747] = {
 				["id"] = "explicit.stat_448592698|142",
 				["text"] = "+# to Level of all Flash Grenade Skills",
 				["type"] = "explicit",
 			},
-			[747] = {
+			[748] = {
 				["id"] = "explicit.stat_448592698|13",
 				["text"] = "+# to Level of all Flicker Strike Skills",
 				["type"] = "explicit",
 			},
-			[748] = {
+			[749] = {
 				["id"] = "explicit.stat_448592698|207",
 				["text"] = "+# to Level of all Forge Hammer Skills",
 				["type"] = "explicit",
 			},
-			[749] = {
+			[750] = {
 				["id"] = "explicit.stat_448592698|206",
 				["text"] = "+# to Level of all Fortifying Cry Skills",
 				["type"] = "explicit",
 			},
-			[750] = {
+			[751] = {
 				["id"] = "explicit.stat_448592698|173",
 				["text"] = "+# to Level of all Fragmentation Rounds Skills",
 				["type"] = "explicit",
 			},
-			[751] = {
+			[752] = {
 				["id"] = "explicit.stat_448592698|95",
 				["text"] = "+# to Level of all Freezing Mark Skills",
 				["type"] = "explicit",
 			},
-			[752] = {
+			[753] = {
 				["id"] = "explicit.stat_448592698|118",
 				["text"] = "+# to Level of all Freezing Salvo Skills",
 				["type"] = "explicit",
 			},
-			[753] = {
+			[754] = {
 				["id"] = "explicit.stat_448592698|157",
 				["text"] = "+# to Level of all Frost Bomb Skills",
 				["type"] = "explicit",
 			},
-			[754] = {
+			[755] = {
 				["id"] = "explicit.stat_448592698|211",
 				["text"] = "+# to Level of all Frost Darts Skills",
 				["type"] = "explicit",
 			},
-			[755] = {
+			[756] = {
 				["id"] = "explicit.stat_448592698|45",
 				["text"] = "+# to Level of all Frost Wall Skills",
 				["type"] = "explicit",
 			},
-			[756] = {
+			[757] = {
 				["id"] = "explicit.stat_448592698|140",
 				["text"] = "+# to Level of all Frostbolt Skills",
 				["type"] = "explicit",
 			},
-			[757] = {
+			[758] = {
 				["id"] = "explicit.stat_448592698|169",
 				["text"] = "+# to Level of all Frozen Locus Skills",
 				["type"] = "explicit",
 			},
-			[758] = {
+			[759] = {
 				["id"] = "explicit.stat_448592698|224",
 				["text"] = "+# to Level of all Furious Slam Skills",
 				["type"] = "explicit",
 			},
-			[759] = {
+			[760] = {
 				["id"] = "explicit.stat_448592698|231",
 				["text"] = "+# to Level of all Fury of the Mountain Skills",
 				["type"] = "explicit",
 			},
-			[760] = {
+			[761] = {
 				["id"] = "explicit.stat_448592698|117",
 				["text"] = "+# to Level of all Galvanic Shards Skills",
 				["type"] = "explicit",
 			},
-			[761] = {
+			[762] = {
 				["id"] = "explicit.stat_448592698|89",
 				["text"] = "+# to Level of all Gas Arrow Skills",
 				["type"] = "explicit",
 			},
-			[762] = {
+			[763] = {
 				["id"] = "explicit.stat_448592698|104",
 				["text"] = "+# to Level of all Gas Grenade Skills",
 				["type"] = "explicit",
 			},
-			[763] = {
+			[764] = {
 				["id"] = "explicit.stat_448592698|28",
 				["text"] = "+# to Level of all Gathering Storm Skills",
 				["type"] = "explicit",
 			},
-			[764] = {
+			[765] = {
 				["id"] = "explicit.stat_448592698|124",
 				["text"] = "+# to Level of all Ghost Dance Skills",
 				["type"] = "explicit",
 			},
-			[765] = {
+			[766] = {
 				["id"] = "explicit.stat_448592698|93",
 				["text"] = "+# to Level of all Glacial Bolt Skills",
 				["type"] = "explicit",
 			},
-			[766] = {
+			[767] = {
 				["id"] = "explicit.stat_448592698|166",
 				["text"] = "+# to Level of all Glacial Cascade Skills",
 				["type"] = "explicit",
 			},
-			[767] = {
+			[768] = {
 				["id"] = "explicit.stat_448592698|182",
 				["text"] = "+# to Level of all Glacial Lance Skills",
 				["type"] = "explicit",
 			},
-			[768] = {
+			[769] = {
 				["id"] = "explicit.stat_448592698|129",
 				["text"] = "+# to Level of all Grim Feast Skills",
 				["type"] = "explicit",
 			},
-			[769] = {
+			[770] = {
 				["id"] = "explicit.stat_448592698|40",
 				["text"] = "+# to Level of all Hailstorm Rounds Skills",
 				["type"] = "explicit",
 			},
-			[770] = {
+			[771] = {
 				["id"] = "explicit.stat_448592698|23",
 				["text"] = "+# to Level of all Hammer of the Gods Skills",
 				["type"] = "explicit",
 			},
-			[771] = {
+			[772] = {
 				["id"] = "explicit.stat_448592698|62",
 				["text"] = "+# to Level of all Hand of Chayula Skills",
 				["type"] = "explicit",
 			},
-			[772] = {
+			[773] = {
 				["id"] = "explicit.stat_448592698|120",
 				["text"] = "+# to Level of all Herald of Ash Skills",
-				["type"] = "explicit",
-			},
-			[773] = {
-				["id"] = "explicit.stat_448592698|199",
-				["text"] = "+# to Level of all Herald of Blood Skills",
 				["type"] = "explicit",
 			},
 			[774] = {
@@ -4062,403 +4062,403 @@ return {
 				["type"] = "explicit",
 			},
 			[775] = {
+				["id"] = "explicit.stat_448592698|199",
+				["text"] = "+# to Level of all Herald of Blood Skills",
+				["type"] = "explicit",
+			},
+			[776] = {
 				["id"] = "explicit.stat_448592698|121",
 				["text"] = "+# to Level of all Herald of Ice Skills",
 				["type"] = "explicit",
 			},
-			[776] = {
+			[777] = {
 				["id"] = "explicit.stat_448592698|75",
 				["text"] = "+# to Level of all Herald of Plague Skills",
 				["type"] = "explicit",
 			},
-			[777] = {
+			[778] = {
 				["id"] = "explicit.stat_448592698|122",
 				["text"] = "+# to Level of all Herald of Thunder Skills",
 				["type"] = "explicit",
 			},
-			[778] = {
+			[779] = {
 				["id"] = "explicit.stat_448592698|34",
 				["text"] = "+# to Level of all Hexblast Skills",
 				["type"] = "explicit",
 			},
-			[779] = {
+			[780] = {
 				["id"] = "explicit.stat_448592698|150",
 				["text"] = "+# to Level of all High Velocity Rounds Skills",
 				["type"] = "explicit",
 			},
-			[780] = {
+			[781] = {
 				["id"] = "explicit.stat_448592698|81",
 				["text"] = "+# to Level of all Hypothermia Skills",
 				["type"] = "explicit",
 			},
-			[781] = {
+			[782] = {
 				["id"] = "explicit.stat_448592698|153",
 				["text"] = "+# to Level of all Ice Nova Skills",
 				["type"] = "explicit",
 			},
-			[782] = {
+			[783] = {
 				["id"] = "explicit.stat_448592698|116",
 				["text"] = "+# to Level of all Ice Shards Skills",
 				["type"] = "explicit",
 			},
-			[783] = {
+			[784] = {
 				["id"] = "explicit.stat_448592698|61",
 				["text"] = "+# to Level of all Ice Shot Skills",
 				["type"] = "explicit",
 			},
-			[784] = {
+			[785] = {
 				["id"] = "explicit.stat_448592698|103",
 				["text"] = "+# to Level of all Ice Strike Skills",
 				["type"] = "explicit",
 			},
-			[785] = {
+			[786] = {
 				["id"] = "explicit.stat_448592698|210",
 				["text"] = "+# to Level of all Ice-Tipped Arrows Skills",
 				["type"] = "explicit",
 			},
-			[786] = {
+			[787] = {
 				["id"] = "explicit.stat_448592698|151",
 				["text"] = "+# to Level of all Incendiary Shot Skills",
 				["type"] = "explicit",
 			},
-			[787] = {
+			[788] = {
 				["id"] = "explicit.stat_448592698|99",
 				["text"] = "+# to Level of all Incinerate Skills",
 				["type"] = "explicit",
 			},
-			[788] = {
+			[789] = {
 				["id"] = "explicit.stat_448592698|137",
 				["text"] = "+# to Level of all Infernal Cry Skills",
 				["type"] = "explicit",
 			},
-			[789] = {
+			[790] = {
 				["id"] = "explicit.stat_448592698|205",
 				["text"] = "+# to Level of all Iron Ward Skills",
 				["type"] = "explicit",
 			},
-			[790] = {
+			[791] = {
 				["id"] = "explicit.stat_448592698|167",
 				["text"] = "+# to Level of all Killing Palm Skills",
 				["type"] = "explicit",
 			},
-			[791] = {
+			[792] = {
 				["id"] = "explicit.stat_448592698|77",
 				["text"] = "+# to Level of all Leap Slam Skills",
 				["type"] = "explicit",
 			},
-			[792] = {
+			[793] = {
 				["id"] = "explicit.stat_448592698|156",
 				["text"] = "+# to Level of all Lightning Arrow Skills",
 				["type"] = "explicit",
 			},
-			[793] = {
+			[794] = {
 				["id"] = "explicit.stat_448592698|19",
 				["text"] = "+# to Level of all Lightning Conduit Skills",
 				["type"] = "explicit",
 			},
-			[794] = {
+			[795] = {
 				["id"] = "explicit.stat_448592698|172",
 				["text"] = "+# to Level of all Lightning Rod Skills",
 				["type"] = "explicit",
 			},
-			[795] = {
+			[796] = {
 				["id"] = "explicit.stat_448592698|181",
 				["text"] = "+# to Level of all Lightning Spear Skills",
 				["type"] = "explicit",
 			},
-			[796] = {
+			[797] = {
 				["id"] = "explicit.stat_448592698|47",
 				["text"] = "+# to Level of all Lightning Warp Skills",
 				["type"] = "explicit",
 			},
-			[797] = {
+			[798] = {
 				["id"] = "explicit.stat_448592698|68",
 				["text"] = "+# to Level of all Lingering Illusion Skills",
 				["type"] = "explicit",
 			},
-			[798] = {
+			[799] = {
 				["id"] = "explicit.stat_448592698|244",
 				["text"] = "+# to Level of all Living Bomb Skills",
 				["type"] = "explicit",
 			},
-			[799] = {
+			[800] = {
 				["id"] = "explicit.stat_448592698|233",
 				["text"] = "+# to Level of all Lunar Assault Skills",
 				["type"] = "explicit",
 			},
-			[800] = {
+			[801] = {
 				["id"] = "explicit.stat_448592698|236",
 				["text"] = "+# to Level of all Lunar Blessing Skills",
 				["type"] = "explicit",
 			},
-			[801] = {
+			[802] = {
 				["id"] = "explicit.stat_448592698|126",
 				["text"] = "+# to Level of all Magma Barrier Skills",
 				["type"] = "explicit",
 			},
-			[802] = {
+			[803] = {
 				["id"] = "explicit.stat_448592698|27",
 				["text"] = "+# to Level of all Magnetic Salvo Skills",
 				["type"] = "explicit",
 			},
-			[803] = {
+			[804] = {
 				["id"] = "explicit.stat_448592698|125",
 				["text"] = "+# to Level of all Mana Remnants Skills",
 				["type"] = "explicit",
 			},
-			[804] = {
+			[805] = {
 				["id"] = "explicit.stat_448592698|53",
 				["text"] = "+# to Level of all Mana Tempest Skills",
 				["type"] = "explicit",
 			},
-			[805] = {
+			[806] = {
 				["id"] = "explicit.stat_448592698|60",
 				["text"] = "+# to Level of all Mantra of Destruction Skills",
 				["type"] = "explicit",
 			},
-			[806] = {
+			[807] = {
 				["id"] = "explicit.stat_448592698|213",
 				["text"] = "+# to Level of all Mirage Archer Skills",
 				["type"] = "explicit",
 			},
-			[807] = {
+			[808] = {
 				["id"] = "explicit.stat_448592698|114",
 				["text"] = "+# to Level of all Molten Blast Skills",
 				["type"] = "explicit",
 			},
-			[808] = {
+			[809] = {
 				["id"] = "explicit.stat_448592698|212",
 				["text"] = "+# to Level of all Mortar Cannon Skills",
 				["type"] = "explicit",
 			},
-			[809] = {
+			[810] = {
 				["id"] = "explicit.stat_448592698|228",
 				["text"] = "+# to Level of all Oil Barrage Skills",
 				["type"] = "explicit",
 			},
-			[810] = {
+			[811] = {
 				["id"] = "explicit.stat_448592698|54",
 				["text"] = "+# to Level of all Oil Grenade Skills",
 				["type"] = "explicit",
 			},
-			[811] = {
+			[812] = {
 				["id"] = "explicit.stat_448592698|138",
 				["text"] = "+# to Level of all Orb of Storms Skills",
 				["type"] = "explicit",
 			},
-			[812] = {
+			[813] = {
 				["id"] = "explicit.stat_448592698|74",
 				["text"] = "+# to Level of all Overwhelming Presence Skills",
 				["type"] = "explicit",
 			},
-			[813] = {
+			[814] = {
 				["id"] = "explicit.stat_448592698|105",
 				["text"] = "+# to Level of all Pain Offering Skills",
 				["type"] = "explicit",
 			},
-			[814] = {
+			[815] = {
 				["id"] = "explicit.stat_448592698|112",
 				["text"] = "+# to Level of all Perfect Strike Skills",
 				["type"] = "explicit",
 			},
-			[815] = {
+			[816] = {
 				["id"] = "explicit.stat_448592698|175",
 				["text"] = "+# to Level of all Permafrost Bolts Skills",
 				["type"] = "explicit",
 			},
-			[816] = {
+			[817] = {
 				["id"] = "explicit.stat_448592698|123",
 				["text"] = "+# to Level of all Plague Bearer Skills",
 				["type"] = "explicit",
 			},
-			[817] = {
+			[818] = {
 				["id"] = "explicit.stat_448592698|25",
 				["text"] = "+# to Level of all Plasma Blast Skills",
 				["type"] = "explicit",
 			},
-			[818] = {
+			[819] = {
 				["id"] = "explicit.stat_448592698|171",
 				["text"] = "+# to Level of all Poisonburst Arrow Skills",
 				["type"] = "explicit",
 			},
-			[819] = {
+			[820] = {
 				["id"] = "explicit.stat_448592698|221",
 				["text"] = "+# to Level of all Pounce Skills",
 				["type"] = "explicit",
 			},
-			[820] = {
+			[821] = {
 				["id"] = "explicit.stat_448592698|188",
 				["text"] = "+# to Level of all Primal Strikes Skills",
 				["type"] = "explicit",
 			},
-			[821] = {
+			[822] = {
 				["id"] = "explicit.stat_448592698|90",
 				["text"] = "+# to Level of all Profane Ritual Skills",
 				["type"] = "explicit",
 			},
-			[822] = {
+			[823] = {
 				["id"] = "explicit.stat_448592698|127",
 				["text"] = "+# to Level of all Raging Spirits Skills",
 				["type"] = "explicit",
 			},
-			[823] = {
+			[824] = {
 				["id"] = "explicit.stat_448592698|48",
 				["text"] = "+# to Level of all Rain of Arrows Skills",
 				["type"] = "explicit",
 			},
-			[824] = {
+			[825] = {
 				["id"] = "explicit.stat_448592698|97",
 				["text"] = "+# to Level of all Raise Zombie Skills",
 				["type"] = "explicit",
 			},
-			[825] = {
+			[826] = {
 				["id"] = "explicit.stat_448592698|191",
 				["text"] = "+# to Level of all Rake Skills",
 				["type"] = "explicit",
 			},
-			[826] = {
+			[827] = {
 				["id"] = "explicit.stat_448592698|222",
 				["text"] = "+# to Level of all Rampage Skills",
 				["type"] = "explicit",
 			},
-			[827] = {
+			[828] = {
 				["id"] = "explicit.stat_448592698|176",
 				["text"] = "+# to Level of all Rapid Assault Skills",
 				["type"] = "explicit",
 			},
-			[828] = {
+			[829] = {
 				["id"] = "explicit.stat_448592698|115",
 				["text"] = "+# to Level of all Rapid Shot Skills",
 				["type"] = "explicit",
 			},
-			[829] = {
+			[830] = {
 				["id"] = "explicit.stat_448592698|204",
 				["text"] = "+# to Level of all Ravenous Swarm Skills",
 				["type"] = "explicit",
 			},
-			[830] = {
+			[831] = {
 				["id"] = "explicit.stat_448592698|9",
 				["text"] = "+# to Level of all Reaper's Invocation Skills",
 				["type"] = "explicit",
 			},
-			[831] = {
+			[832] = {
 				["id"] = "explicit.stat_448592698|113",
 				["text"] = "+# to Level of all Resonating Shield Skills",
 				["type"] = "explicit",
 			},
-			[832] = {
+			[833] = {
 				["id"] = "explicit.stat_448592698|217",
 				["text"] = "+# to Level of all Rolling Magma Skills",
 				["type"] = "explicit",
 			},
-			[833] = {
+			[834] = {
 				["id"] = "explicit.stat_448592698|164",
 				["text"] = "+# to Level of all Rolling Slam Skills",
 				["type"] = "explicit",
 			},
-			[834] = {
+			[835] = {
 				["id"] = "explicit.stat_448592698|10",
 				["text"] = "+# to Level of all Sacrifice Skills",
 				["type"] = "explicit",
 			},
-			[835] = {
+			[836] = {
 				["id"] = "explicit.stat_448592698|240",
 				["text"] = "+# to Level of all Savage Fury Skills",
 				["type"] = "explicit",
 			},
-			[836] = {
+			[837] = {
 				["id"] = "explicit.stat_448592698|130",
 				["text"] = "+# to Level of all Scavenged Plating Skills",
 				["type"] = "explicit",
 			},
-			[837] = {
+			[838] = {
 				["id"] = "explicit.stat_448592698|33",
 				["text"] = "+# to Level of all Seismic Cry Skills",
 				["type"] = "explicit",
 			},
-			[838] = {
+			[839] = {
 				["id"] = "explicit.stat_448592698|73",
 				["text"] = "+# to Level of all Shard Scavenger Skills",
 				["type"] = "explicit",
 			},
-			[839] = {
+			[840] = {
 				["id"] = "explicit.stat_448592698|38",
 				["text"] = "+# to Level of all Shattering Palm Skills",
 				["type"] = "explicit",
 			},
-			[840] = {
+			[841] = {
 				["id"] = "explicit.stat_448592698|133",
 				["text"] = "+# to Level of all Shield Charge Skills",
 				["type"] = "explicit",
 			},
-			[841] = {
+			[842] = {
 				["id"] = "explicit.stat_448592698|91",
 				["text"] = "+# to Level of all Shield Wall Skills",
 				["type"] = "explicit",
 			},
-			[842] = {
+			[843] = {
 				["id"] = "explicit.stat_448592698|41",
 				["text"] = "+# to Level of all Shockburst Rounds Skills",
 				["type"] = "explicit",
 			},
-			[843] = {
+			[844] = {
 				["id"] = "explicit.stat_448592698|42",
 				["text"] = "+# to Level of all Shockchain Arrow Skills",
 				["type"] = "explicit",
 			},
-			[844] = {
+			[845] = {
 				["id"] = "explicit.stat_448592698|136",
 				["text"] = "+# to Level of all Shockwave Totem Skills",
 				["type"] = "explicit",
 			},
-			[845] = {
+			[846] = {
 				["id"] = "explicit.stat_448592698|51",
 				["text"] = "+# to Level of all Siege Ballista Skills",
 				["type"] = "explicit",
 			},
-			[846] = {
+			[847] = {
 				["id"] = "explicit.stat_448592698|24",
 				["text"] = "+# to Level of all Siege Cascade Skills",
 				["type"] = "explicit",
 			},
-			[847] = {
+			[848] = {
 				["id"] = "explicit.stat_448592698|214",
 				["text"] = "+# to Level of all Siphon Elements Skills",
 				["type"] = "explicit",
 			},
-			[848] = {
+			[849] = {
 				["id"] = "explicit.stat_448592698|88",
 				["text"] = "+# to Level of all Siphoning Strike Skills",
 				["type"] = "explicit",
 			},
-			[849] = {
+			[850] = {
 				["id"] = "explicit.stat_448592698|141",
 				["text"] = "+# to Level of all Skeletal Arsonist Skills",
 				["type"] = "explicit",
 			},
-			[850] = {
+			[851] = {
 				["id"] = "explicit.stat_448592698|16",
 				["text"] = "+# to Level of all Skeletal Brute Skills",
 				["type"] = "explicit",
 			},
-			[851] = {
+			[852] = {
 				["id"] = "explicit.stat_448592698|17",
 				["text"] = "+# to Level of all Skeletal Cleric Skills",
 				["type"] = "explicit",
 			},
-			[852] = {
+			[853] = {
 				["id"] = "explicit.stat_448592698|101",
 				["text"] = "+# to Level of all Skeletal Frost Mage Skills",
 				["type"] = "explicit",
 			},
-			[853] = {
+			[854] = {
 				["id"] = "explicit.stat_448592698|50",
 				["text"] = "+# to Level of all Skeletal Reaver Skills",
-				["type"] = "explicit",
-			},
-			[854] = {
-				["id"] = "explicit.stat_448592698|160",
-				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
 			[855] = {
@@ -4467,5808 +4467,5808 @@ return {
 				["type"] = "explicit",
 			},
 			[856] = {
+				["id"] = "explicit.stat_448592698|160",
+				["text"] = "+# to Level of all Skeletal Sniper Skills",
+				["type"] = "explicit",
+			},
+			[857] = {
 				["id"] = "explicit.stat_448592698|32",
 				["text"] = "+# to Level of all Skeletal Storm Mage Skills",
 				["type"] = "explicit",
 			},
-			[857] = {
+			[858] = {
 				["id"] = "explicit.stat_448592698|111",
 				["text"] = "+# to Level of all Snap Skills",
 				["type"] = "explicit",
 			},
-			[858] = {
+			[859] = {
 				["id"] = "explicit.stat_448592698|147",
 				["text"] = "+# to Level of all Snipe Skills",
 				["type"] = "explicit",
 			},
-			[859] = {
+			[860] = {
 				["id"] = "explicit.stat_448592698|79",
 				["text"] = "+# to Level of all Sniper's Mark Skills",
 				["type"] = "explicit",
 			},
-			[860] = {
+			[861] = {
 				["id"] = "explicit.stat_448592698|109",
 				["text"] = "+# to Level of all Solar Orb Skills",
 				["type"] = "explicit",
 			},
-			[861] = {
+			[862] = {
 				["id"] = "explicit.stat_448592698|22",
 				["text"] = "+# to Level of all Soul Offering Skills",
 				["type"] = "explicit",
 			},
-			[862] = {
+			[863] = {
 				["id"] = "explicit.stat_448592698|154",
 				["text"] = "+# to Level of all Spark Skills",
 				["type"] = "explicit",
 			},
-			[863] = {
+			[864] = {
 				["id"] = "explicit.stat_448592698|194",
 				["text"] = "+# to Level of all Spear of Solaris Skills",
 				["type"] = "explicit",
 			},
-			[864] = {
+			[865] = {
 				["id"] = "explicit.stat_448592698|180",
 				["text"] = "+# to Level of all Spearfield Skills",
 				["type"] = "explicit",
 			},
-			[865] = {
+			[866] = {
 				["id"] = "explicit.stat_448592698|226",
 				["text"] = "+# to Level of all Spell Totem Skills",
 				["type"] = "explicit",
 			},
-			[866] = {
+			[867] = {
 				["id"] = "explicit.stat_448592698|20",
 				["text"] = "+# to Level of all Spiral Volley Skills",
 				["type"] = "explicit",
 			},
-			[867] = {
+			[868] = {
 				["id"] = "explicit.stat_448592698|143",
 				["text"] = "+# to Level of all Staggering Palm Skills",
 				["type"] = "explicit",
 			},
-			[868] = {
+			[869] = {
 				["id"] = "explicit.stat_448592698|39",
 				["text"] = "+# to Level of all Stampede Skills",
 				["type"] = "explicit",
 			},
-			[869] = {
+			[870] = {
 				["id"] = "explicit.stat_448592698|195",
 				["text"] = "+# to Level of all Storm Lance Skills",
 				["type"] = "explicit",
 			},
-			[870] = {
+			[871] = {
 				["id"] = "explicit.stat_448592698|94",
 				["text"] = "+# to Level of all Storm Wave Skills",
 				["type"] = "explicit",
 			},
-			[871] = {
+			[872] = {
 				["id"] = "explicit.stat_448592698|59",
 				["text"] = "+# to Level of all Stormblast Bolts Skills",
 				["type"] = "explicit",
 			},
-			[872] = {
+			[873] = {
 				["id"] = "explicit.stat_448592698|146",
 				["text"] = "+# to Level of all Stormcaller Arrow Skills",
 				["type"] = "explicit",
 			},
-			[873] = {
+			[874] = {
 				["id"] = "explicit.stat_448592698|200",
 				["text"] = "+# to Level of all Summon Spectre Skills",
 				["type"] = "explicit",
 			},
-			[874] = {
+			[875] = {
 				["id"] = "explicit.stat_448592698|49",
 				["text"] = "+# to Level of all Sunder Skills",
 				["type"] = "explicit",
 			},
-			[875] = {
+			[876] = {
 				["id"] = "explicit.stat_448592698|36",
 				["text"] = "+# to Level of all Supercharged Slam Skills",
 				["type"] = "explicit",
 			},
-			[876] = {
+			[877] = {
 				["id"] = "explicit.stat_448592698|201",
 				["text"] = "+# to Level of all Tamed Companion Skills",
 				["type"] = "explicit",
 			},
-			[877] = {
+			[878] = {
 				["id"] = "explicit.stat_448592698|193",
 				["text"] = "+# to Level of all Tamed Companion Skills",
 				["type"] = "explicit",
 			},
-			[878] = {
+			[879] = {
 				["id"] = "explicit.stat_448592698|144",
 				["text"] = "+# to Level of all Tempest Bell Skills",
 				["type"] = "explicit",
 			},
-			[879] = {
+			[880] = {
 				["id"] = "explicit.stat_448592698|106",
 				["text"] = "+# to Level of all Tempest Flurry Skills",
 				["type"] = "explicit",
 			},
-			[880] = {
+			[881] = {
 				["id"] = "explicit.stat_448592698|14",
 				["text"] = "+# to Level of all Temporal Chains Skills",
 				["type"] = "explicit",
 			},
-			[881] = {
+			[882] = {
 				["id"] = "explicit.stat_448592698|235",
 				["text"] = "+# to Level of all Thrashing Vines Skills",
 				["type"] = "explicit",
 			},
-			[882] = {
+			[883] = {
 				["id"] = "explicit.stat_448592698|185",
 				["text"] = "+# to Level of all Thunderous Leap Skills",
 				["type"] = "explicit",
 			},
-			[883] = {
+			[884] = {
 				["id"] = "explicit.stat_448592698|223",
 				["text"] = "+# to Level of all Thunderstorm Skills",
 				["type"] = "explicit",
 			},
-			[884] = {
+			[885] = {
 				["id"] = "explicit.stat_448592698|71",
 				["text"] = "+# to Level of all Time of Need Skills",
 				["type"] = "explicit",
 			},
-			[885] = {
+			[886] = {
 				["id"] = "explicit.stat_448592698|44",
 				["text"] = "+# to Level of all Tornado Shot Skills",
 				["type"] = "explicit",
 			},
-			[886] = {
+			[887] = {
 				["id"] = "explicit.stat_448592698|218",
 				["text"] = "+# to Level of all Tornado Skills",
 				["type"] = "explicit",
 			},
-			[887] = {
+			[888] = {
 				["id"] = "explicit.stat_448592698|209",
 				["text"] = "+# to Level of all Toxic Domain Skills",
 				["type"] = "explicit",
 			},
-			[888] = {
+			[889] = {
 				["id"] = "explicit.stat_448592698|108",
 				["text"] = "+# to Level of all Toxic Growth Skills",
 				["type"] = "explicit",
 			},
-			[889] = {
+			[890] = {
 				["id"] = "explicit.stat_448592698|198",
 				["text"] = "+# to Level of all Trail of Caltrops Skills",
 				["type"] = "explicit",
 			},
-			[890] = {
+			[891] = {
 				["id"] = "explicit.stat_448592698|197",
 				["text"] = "+# to Level of all Trinity Skills",
 				["type"] = "explicit",
 			},
-			[891] = {
+			[892] = {
 				["id"] = "explicit.stat_448592698|183",
 				["text"] = "+# to Level of all Twister Skills",
 				["type"] = "explicit",
 			},
-			[892] = {
+			[893] = {
 				["id"] = "explicit.stat_448592698|170",
 				["text"] = "+# to Level of all Unearth Skills",
 				["type"] = "explicit",
 			},
-			[893] = {
+			[894] = {
 				["id"] = "explicit.stat_448592698|152",
 				["text"] = "+# to Level of all Vaulting Impact Skills",
 				["type"] = "explicit",
 			},
-			[894] = {
+			[895] = {
 				["id"] = "explicit.stat_448592698|148",
 				["text"] = "+# to Level of all Vine Arrow Skills",
 				["type"] = "explicit",
 			},
-			[895] = {
+			[896] = {
 				["id"] = "explicit.stat_448592698|52",
 				["text"] = "+# to Level of all Volcanic Fissure Skills",
 				["type"] = "explicit",
 			},
-			[896] = {
+			[897] = {
 				["id"] = "explicit.stat_448592698|219",
 				["text"] = "+# to Level of all Volcano Skills",
 				["type"] = "explicit",
 			},
-			[897] = {
+			[898] = {
 				["id"] = "explicit.stat_448592698|87",
 				["text"] = "+# to Level of all Voltaic Grenade Skills",
 				["type"] = "explicit",
 			},
-			[898] = {
+			[899] = {
 				["id"] = "explicit.stat_448592698|96",
 				["text"] = "+# to Level of all Voltaic Mark Skills",
 				["type"] = "explicit",
 			},
-			[899] = {
+			[900] = {
 				["id"] = "explicit.stat_448592698|83",
 				["text"] = "+# to Level of all Vulnerability Skills",
 				["type"] = "explicit",
 			},
-			[900] = {
+			[901] = {
 				["id"] = "explicit.stat_448592698|241",
 				["text"] = "+# to Level of all Walking Calamity Skills",
 				["type"] = "explicit",
 			},
-			[901] = {
+			[902] = {
 				["id"] = "explicit.stat_448592698|131",
 				["text"] = "+# to Level of all War Banner Skills",
 				["type"] = "explicit",
 			},
-			[902] = {
+			[903] = {
 				["id"] = "explicit.stat_448592698|85",
 				["text"] = "+# to Level of all Wave of Frost Skills",
 				["type"] = "explicit",
 			},
-			[903] = {
+			[904] = {
 				["id"] = "explicit.stat_448592698|35",
 				["text"] = "+# to Level of all Whirling Assault Skills",
 				["type"] = "explicit",
 			},
-			[904] = {
+			[905] = {
 				["id"] = "explicit.stat_448592698|179",
 				["text"] = "+# to Level of all Whirling Slash Skills",
 				["type"] = "explicit",
 			},
-			[905] = {
+			[906] = {
 				["id"] = "explicit.stat_448592698|187",
 				["text"] = "+# to Level of all Whirlwind Lance Skills",
 				["type"] = "explicit",
 			},
-			[906] = {
+			[907] = {
 				["id"] = "explicit.stat_448592698|102",
 				["text"] = "+# to Level of all Wind Blast Skills",
 				["type"] = "explicit",
 			},
-			[907] = {
+			[908] = {
 				["id"] = "explicit.stat_448592698|128",
 				["text"] = "+# to Level of all Wind Dancer Skills",
 				["type"] = "explicit",
 			},
-			[908] = {
+			[909] = {
 				["id"] = "explicit.stat_448592698|190",
 				["text"] = "+# to Level of all Wind Serpent's Fury Skills",
 				["type"] = "explicit",
 			},
-			[909] = {
+			[910] = {
 				["id"] = "explicit.stat_448592698|227",
 				["text"] = "+# to Level of all Wing Blast Skills",
 				["type"] = "explicit",
 			},
-			[910] = {
+			[911] = {
 				["id"] = "explicit.stat_448592698|132",
 				["text"] = "+# to Level of all Withering Presence Skills",
 				["type"] = "explicit",
 			},
-			[911] = {
+			[912] = {
 				["id"] = "explicit.stat_448592698|220",
 				["text"] = "+# to Level of all Wolf Pack Skills",
 				["type"] = "explicit",
 			},
-			[912] = {
+			[913] = {
 				["id"] = "explicit.stat_4163415912",
 				["text"] = "+# to Spirit per Socket filled",
 				["type"] = "explicit",
 			},
-			[913] = {
+			[914] = {
 				["id"] = "explicit.stat_1054098949",
 				["text"] = "+#% Monster Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[914] = {
+			[915] = {
 				["id"] = "explicit.stat_2593651571",
 				["text"] = "+#% to all Elemental Resistances per Socket filled",
 				["type"] = "explicit",
 			},
-			[915] = {
+			[916] = {
 				["id"] = "explicit.stat_1291132817",
 				["text"] = "+1 to Armour per Strength",
 				["type"] = "explicit",
 			},
-			[916] = {
+			[917] = {
 				["id"] = "explicit.stat_1345486764",
 				["text"] = "+1 to Maximum Spirit per # Maximum Life",
 				["type"] = "explicit",
 			},
-			[917] = {
+			[918] = {
 				["id"] = "explicit.stat_2134207902",
 				["text"] = "+100% of Armour also applies to Lightning Damage",
 				["type"] = "explicit",
 			},
-			[918] = {
+			[919] = {
 				["id"] = "explicit.stat_3452816629",
 				["text"] = "1% more Unarmed Damage per # Strength",
 				["type"] = "explicit",
 			},
-			[919] = {
+			[920] = {
 				["id"] = "explicit.stat_1388221282",
 				["text"] = "Abyss Cracks have #% chance to spawn all Monsters as at least Magic",
 				["type"] = "explicit",
 			},
-			[920] = {
+			[921] = {
 				["id"] = "explicit.stat_2975078312",
 				["text"] = "Abyss Monsters in your Maps grant #% increased Experience",
 				["type"] = "explicit",
 			},
-			[921] = {
+			[922] = {
 				["id"] = "explicit.stat_4157613372",
 				["text"] = "Abyss Pits have #% chance to spawn all Monsters as at least Magic",
 				["type"] = "explicit",
 			},
-			[922] = {
+			[923] = {
 				["id"] = "explicit.stat_4256531808",
 				["text"] = "Abyss Pits in Area are twice as likely to have Rewards",
 				["type"] = "explicit",
 			},
-			[923] = {
+			[924] = {
 				["id"] = "explicit.stat_2975078312",
 				["text"] = "Abyssal Monsters grant #% increased Experience",
 				["type"] = "explicit",
 			},
-			[924] = {
+			[925] = {
 				["id"] = "explicit.stat_664606484",
 				["text"] = "Abyssal Monsters have #% increased Effectiveness for each closed Pit, up to 100%",
 				["type"] = "explicit",
 			},
-			[925] = {
+			[926] = {
 				["id"] = "explicit.stat_360553763",
 				["text"] = "Abyssal Monsters have increased Difficulty and Reward for each closed Pit",
 				["type"] = "explicit",
 			},
-			[926] = {
+			[927] = {
 				["id"] = "explicit.stat_3979226081",
 				["text"] = "Abyssal Wasting also applies #% to Cold Resistance",
 				["type"] = "explicit",
 			},
-			[927] = {
+			[928] = {
 				["id"] = "explicit.stat_2991563371",
 				["text"] = "Abyssal Wasting also applies #% to Fire Resistance",
 				["type"] = "explicit",
 			},
-			[928] = {
+			[929] = {
 				["id"] = "explicit.stat_1726353460",
 				["text"] = "Abyssal Wasting also applies #% to Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[929] = {
+			[930] = {
 				["id"] = "explicit.stat_1679776108",
 				["text"] = "Abyssal Wasting you inflict has Infinite Duration",
 				["type"] = "explicit",
 			},
-			[930] = {
+			[931] = {
 				["id"] = "explicit.stat_2722831300",
 				["text"] = "Abysses have #% increased chance to lead to an Abyssal Depths",
 				["type"] = "explicit",
 			},
-			[931] = {
+			[932] = {
 				["id"] = "explicit.stat_2890355696",
 				["text"] = "Abysses have a #% chance to contain 4 additional Pits",
 				["type"] = "explicit",
 			},
-			[932] = {
+			[933] = {
 				["id"] = "explicit.stat_2722831300",
 				["text"] = "Abysses in Area have #% increased chance to lead to an Abyssal Depths",
 				["type"] = "explicit",
 			},
-			[933] = {
+			[934] = {
 				["id"] = "explicit.stat_2399592398",
 				["text"] = "Abysses lead to an Abyssal Boss",
 				["type"] = "explicit",
 			},
-			[934] = {
+			[935] = {
 				["id"] = "explicit.stat_2278777540",
 				["text"] = "Abysses lead to an Abyssal Depths",
 				["type"] = "explicit",
 			},
-			[935] = {
+			[936] = {
 				["id"] = "explicit.stat_944630113",
 				["text"] = "Abysses spawn #% increased Monsters",
 				["type"] = "explicit",
 			},
-			[936] = {
+			[937] = {
 				["id"] = "explicit.stat_2161347476",
 				["text"] = "Accuracy Rating is Doubled",
 				["type"] = "explicit",
 			},
-			[937] = {
+			[938] = {
 				["id"] = "explicit.stat_674553446",
 				["text"] = "Adds # to # Chaos Damage to Attacks",
 				["type"] = "explicit",
 			},
-			[938] = {
+			[939] = {
 				["id"] = "explicit.stat_2223678961",
 				["text"] = "Adds # to # Chaos damage",
 				["type"] = "explicit",
 			},
-			[939] = {
+			[940] = {
 				["id"] = "explicit.stat_1037193709",
 				["text"] = "Adds # to # Cold Damage",
 				["type"] = "explicit",
 			},
-			[940] = {
+			[941] = {
 				["id"] = "explicit.stat_4067062424",
 				["text"] = "Adds # to # Cold damage to Attacks",
 				["type"] = "explicit",
 			},
-			[941] = {
+			[942] = {
 				["id"] = "explicit.stat_709508406",
 				["text"] = "Adds # to # Fire Damage",
 				["type"] = "explicit",
 			},
-			[942] = {
+			[943] = {
 				["id"] = "explicit.stat_1573130764",
 				["text"] = "Adds # to # Fire damage to Attacks",
 				["type"] = "explicit",
 			},
-			[943] = {
+			[944] = {
 				["id"] = "explicit.stat_3336890334",
 				["text"] = "Adds # to # Lightning Damage",
 				["type"] = "explicit",
 			},
-			[944] = {
+			[945] = {
 				["id"] = "explicit.stat_3111921451",
 				["text"] = "Adds # to # Lightning Damage to Attacks per 20 Intelligence",
 				["type"] = "explicit",
 			},
-			[945] = {
+			[946] = {
 				["id"] = "explicit.stat_3835522656",
 				["text"] = "Adds # to # Lightning Damage to Unarmed Melee Hits",
 				["type"] = "explicit",
 			},
-			[946] = {
+			[947] = {
 				["id"] = "explicit.stat_1754445556",
 				["text"] = "Adds # to # Lightning damage to Attacks",
 				["type"] = "explicit",
 			},
-			[947] = {
+			[948] = {
 				["id"] = "explicit.stat_1940865751",
 				["text"] = "Adds # to # Physical Damage",
 				["type"] = "explicit",
 			},
-			[948] = {
+			[949] = {
 				["id"] = "explicit.stat_3032590688",
 				["text"] = "Adds # to # Physical Damage to Attacks",
 				["type"] = "explicit",
 			},
-			[949] = {
+			[950] = {
 				["id"] = "explicit.stat_874646180",
 				["text"] = "Aggravate Bleeding on Enemies when they Enter your Presence",
 				["type"] = "explicit",
 			},
-			[950] = {
+			[951] = {
 				["id"] = "explicit.stat_2312741059",
 				["text"] = "Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target",
 				["type"] = "explicit",
 			},
-			[951] = {
+			[952] = {
 				["id"] = "explicit.stat_1952324525",
 				["text"] = "All Attacks count as Empowered Attacks",
 				["type"] = "explicit",
 			},
-			[952] = {
+			[953] = {
 				["id"] = "explicit.stat_4012215578",
 				["text"] = "All Damage from Hits Contributes to Poison Magnitude",
 				["type"] = "explicit",
 			},
-			[953] = {
+			[954] = {
 				["id"] = "explicit.stat_1717295693",
 				["text"] = "All Damage from Hits against Bleeding targets Contributes to Chill Magnitude",
 				["type"] = "explicit",
 			},
-			[954] = {
+			[955] = {
 				["id"] = "explicit.stat_1375667591",
 				["text"] = "All Damage from Hits against Poisoned targets Contributes to Chill Magnitude",
 				["type"] = "explicit",
 			},
-			[955] = {
+			[956] = {
 				["id"] = "explicit.stat_2156230257",
 				["text"] = "All Damage from Hits with this Weapon Contributes to Chill Magnitude",
 				["type"] = "explicit",
 			},
-			[956] = {
+			[957] = {
 				["id"] = "explicit.stat_3761294489",
 				["text"] = "All Damage from Hits with this Weapon Contributes to Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[957] = {
+			[958] = {
 				["id"] = "explicit.stat_4142786792",
 				["text"] = "All Damage from Hits with this Weapon Contributes to Pin Buildup",
 				["type"] = "explicit",
 			},
-			[958] = {
+			[959] = {
 				["id"] = "explicit.stat_1705072014",
 				["text"] = "All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you",
 				["type"] = "explicit",
 			},
-			[959] = {
+			[960] = {
 				["id"] = "explicit.stat_2420248029",
 				["text"] = "All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you",
 				["type"] = "explicit",
 			},
-			[960] = {
+			[961] = {
 				["id"] = "explicit.stat_1291285202",
 				["text"] = "All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you",
 				["type"] = "explicit",
 			},
-			[961] = {
+			[962] = {
 				["id"] = "explicit.stat_3874491706",
 				["text"] = "All Mage's Legacies have #% increased effect per duplicate Mage's Legacy you have",
 				["type"] = "explicit",
 			},
-			[962] = {
+			[963] = {
 				["id"] = "explicit.stat_1910743684",
 				["text"] = "All damage with this Weapon causes Electrocution buildup",
 				["type"] = "explicit",
 			},
-			[963] = {
+			[964] = {
 				["id"] = "explicit.stat_4258251165",
 				["text"] = "Allies in your Presence Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[964] = {
+			[965] = {
 				["id"] = "explicit.stat_2173791158",
 				["text"] = "Allies in your Presence Gain #% of Damage as Extra Fire Damage",
 				["type"] = "explicit",
 			},
-			[965] = {
+			[966] = {
 				["id"] = "explicit.stat_4010677958",
 				["text"] = "Allies in your Presence Regenerate # Life per second",
 				["type"] = "explicit",
 			},
-			[966] = {
+			[967] = {
 				["id"] = "explicit.stat_3081479811",
 				["text"] = "Allies in your Presence Regenerate #% of their Maximum Life per second",
 				["type"] = "explicit",
 			},
-			[967] = {
+			[968] = {
 				["id"] = "explicit.stat_262946222",
 				["text"] = "Allies in your Presence deal # to # added Attack Chaos Damage",
 				["type"] = "explicit",
 			},
-			[968] = {
+			[969] = {
 				["id"] = "explicit.stat_2347036682",
 				["text"] = "Allies in your Presence deal # to # added Attack Cold Damage",
 				["type"] = "explicit",
 			},
-			[969] = {
+			[970] = {
 				["id"] = "explicit.stat_849987426",
 				["text"] = "Allies in your Presence deal # to # added Attack Fire Damage",
 				["type"] = "explicit",
 			},
-			[970] = {
+			[971] = {
 				["id"] = "explicit.stat_2854751904",
 				["text"] = "Allies in your Presence deal # to # added Attack Lightning Damage",
 				["type"] = "explicit",
 			},
-			[971] = {
+			[972] = {
 				["id"] = "explicit.stat_1574590649",
 				["text"] = "Allies in your Presence deal # to # added Attack Physical Damage",
 				["type"] = "explicit",
 			},
-			[972] = {
+			[973] = {
 				["id"] = "explicit.stat_1798257884",
 				["text"] = "Allies in your Presence deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[973] = {
+			[974] = {
 				["id"] = "explicit.stat_3169585282",
 				["text"] = "Allies in your Presence have # to Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[974] = {
+			[975] = {
 				["id"] = "explicit.stat_1998951374",
 				["text"] = "Allies in your Presence have #% increased Attack Speed",
 				["type"] = "explicit",
 			},
-			[975] = {
+			[976] = {
 				["id"] = "explicit.stat_289128254",
 				["text"] = "Allies in your Presence have #% increased Cast Speed",
 				["type"] = "explicit",
 			},
-			[976] = {
+			[977] = {
 				["id"] = "explicit.stat_3057012405",
 				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[977] = {
+			[978] = {
 				["id"] = "explicit.stat_1250712710",
 				["text"] = "Allies in your Presence have #% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[978] = {
+			[979] = {
 				["id"] = "explicit.stat_3850614073",
 				["text"] = "Allies in your Presence have #% to all Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[979] = {
+			[980] = {
 				["id"] = "explicit.stat_1361645249",
 				["text"] = "Allies in your Presence have Block Chance equal to yours",
 				["type"] = "explicit",
 			},
-			[980] = {
+			[981] = {
 				["id"] = "explicit.stat_3929993388",
 				["text"] = "Allocates # Sinister Jewel sockets",
 				["type"] = "explicit",
 			},
-			[981] = {
+			[982] = {
 				["id"] = "explicit.stat_2954116742|7338",
 				["text"] = "Allocates Abasement",
 				["type"] = "explicit",
 			},
-			[982] = {
+			[983] = {
 				["id"] = "explicit.stat_2954116742|43082",
 				["text"] = "Allocates Acceleration",
 				["type"] = "explicit",
 			},
-			[983] = {
+			[984] = {
 				["id"] = "explicit.stat_2954116742|12822",
 				["text"] = "Allocates Adaptable Assault",
 				["type"] = "explicit",
 			},
-			[984] = {
+			[985] = {
 				["id"] = "explicit.stat_2954116742|43250",
 				["text"] = "Allocates Adaptive Skin",
 				["type"] = "explicit",
 			},
-			[985] = {
+			[986] = {
 				["id"] = "explicit.stat_2954116742|35876",
 				["text"] = "Allocates Admonisher",
 				["type"] = "explicit",
 			},
-			[986] = {
+			[987] = {
 				["id"] = "explicit.stat_2954116742|17340",
 				["text"] = "Allocates Adrenaline Rush",
 				["type"] = "explicit",
 			},
-			[987] = {
+			[988] = {
 				["id"] = "explicit.stat_2954116742|43829",
 				["text"] = "Allocates Advanced Munitions",
 				["type"] = "explicit",
 			},
-			[988] = {
+			[989] = {
 				["id"] = "explicit.stat_2954116742|4295",
 				["text"] = "Allocates Adverse Growth",
 				["type"] = "explicit",
 			},
-			[989] = {
+			[990] = {
 				["id"] = "explicit.stat_2954116742|4716",
 				["text"] = "Allocates Afterimage",
 				["type"] = "explicit",
 			},
-			[990] = {
+			[991] = {
 				["id"] = "explicit.stat_2954116742|50253",
 				["text"] = "Allocates Aftershocks",
 				["type"] = "explicit",
 			},
-			[991] = {
+			[992] = {
 				["id"] = "explicit.stat_2954116742|59938",
 				["text"] = "Allocates Against the Elements",
 				["type"] = "explicit",
 			},
-			[992] = {
+			[993] = {
 				["id"] = "explicit.stat_2954116742|6655",
 				["text"] = "Allocates Aggravation",
 				["type"] = "explicit",
 			},
-			[993] = {
+			[994] = {
 				["id"] = "explicit.stat_2954116742|8896",
 				["text"] = "Allocates Agile Sprinter",
 				["type"] = "explicit",
 			},
-			[994] = {
+			[995] = {
 				["id"] = "explicit.stat_2954116742|56493",
 				["text"] = "Allocates Agile Succession",
 				["type"] = "explicit",
 			},
-			[995] = {
+			[996] = {
 				["id"] = "explicit.stat_2954116742|43088",
 				["text"] = "Allocates Agonising Calamity",
 				["type"] = "explicit",
 			},
-			[996] = {
+			[997] = {
 				["id"] = "explicit.stat_2954116742|55817",
 				["text"] = "Allocates Alchemical Oil",
 				["type"] = "explicit",
 			},
-			[997] = {
+			[998] = {
 				["id"] = "explicit.stat_2954116742|43854",
 				["text"] = "Allocates All For One",
 				["type"] = "explicit",
 			},
-			[998] = {
+			[999] = {
 				["id"] = "explicit.stat_2954116742|58016",
 				["text"] = "Allocates All Natural",
 				["type"] = "explicit",
 			},
-			[999] = {
+			[1000] = {
 				["id"] = "explicit.stat_2954116742|48974",
 				["text"] = "Allocates Altered Brain Chemistry",
 				["type"] = "explicit",
 			},
-			[1000] = {
+			[1001] = {
 				["id"] = "explicit.stat_2954116742|23764",
 				["text"] = "Allocates Alternating Current",
 				["type"] = "explicit",
 			},
-			[1001] = {
+			[1002] = {
 				["id"] = "explicit.stat_2954116742|20558",
 				["text"] = "Allocates Among the Hordes",
 				["type"] = "explicit",
 			},
-			[1002] = {
+			[1003] = {
 				["id"] = "explicit.stat_2954116742|2575",
 				["text"] = "Allocates Ancestral Alacrity",
 				["type"] = "explicit",
 			},
-			[1003] = {
+			[1004] = {
 				["id"] = "explicit.stat_2954116742|26339",
 				["text"] = "Allocates Ancestral Artifice",
 				["type"] = "explicit",
 			},
-			[1004] = {
+			[1005] = {
 				["id"] = "explicit.stat_2954116742|51820",
 				["text"] = "Allocates Ancestral Conduits",
 				["type"] = "explicit",
 			},
-			[1005] = {
+			[1006] = {
 				["id"] = "explicit.stat_2954116742|18419",
 				["text"] = "Allocates Ancestral Mending",
 				["type"] = "explicit",
 			},
-			[1006] = {
+			[1007] = {
 				["id"] = "explicit.stat_2954116742|43396",
 				["text"] = "Allocates Ancestral Reach",
 				["type"] = "explicit",
 			},
-			[1007] = {
+			[1008] = {
 				["id"] = "explicit.stat_2954116742|62609",
 				["text"] = "Allocates Ancestral Unity",
 				["type"] = "explicit",
 			},
-			[1008] = {
+			[1009] = {
 				["id"] = "explicit.stat_2954116742|5728",
 				["text"] = "Allocates Ancient Aegis",
 				["type"] = "explicit",
 			},
-			[1009] = {
+			[1010] = {
 				["id"] = "explicit.stat_2954116742|38398",
 				["text"] = "Allocates Apocalypse",
 				["type"] = "explicit",
 			},
-			[1010] = {
+			[1011] = {
 				["id"] = "explicit.stat_2954116742|46224",
 				["text"] = "Allocates Arcane Alchemy",
 				["type"] = "explicit",
 			},
-			[1011] = {
+			[1012] = {
 				["id"] = "explicit.stat_2954116742|14324",
 				["text"] = "Allocates Arcane Blossom",
 				["type"] = "explicit",
 			},
-			[1012] = {
+			[1013] = {
 				["id"] = "explicit.stat_2954116742|19044",
 				["text"] = "Allocates Arcane Intensity",
 				["type"] = "explicit",
 			},
-			[1013] = {
+			[1014] = {
 				["id"] = "explicit.stat_2954116742|46972",
 				["text"] = "Allocates Arcane Mixtures",
 				["type"] = "explicit",
 			},
-			[1014] = {
+			[1015] = {
 				["id"] = "explicit.stat_2954116742|16940",
 				["text"] = "Allocates Arcane Nature",
 				["type"] = "explicit",
 			},
-			[1015] = {
+			[1016] = {
 				["id"] = "explicit.stat_2954116742|46124",
 				["text"] = "Allocates Arcane Remnants",
 				["type"] = "explicit",
 			},
-			[1016] = {
+			[1017] = {
 				["id"] = "explicit.stat_2954116742|42045",
 				["text"] = "Allocates Archon of the Blizzard",
 				["type"] = "explicit",
 			},
-			[1017] = {
+			[1018] = {
 				["id"] = "explicit.stat_2954116742|27434",
 				["text"] = "Allocates Archon of the Storm",
 				["type"] = "explicit",
 			},
-			[1018] = {
+			[1019] = {
 				["id"] = "explicit.stat_2954116742|12245",
 				["text"] = "Allocates Arsonist",
 				["type"] = "explicit",
 			},
-			[1019] = {
+			[1020] = {
 				["id"] = "explicit.stat_2954116742|58817",
 				["text"] = "Allocates Artillery Strike",
 				["type"] = "explicit",
 			},
-			[1020] = {
+			[1021] = {
 				["id"] = "explicit.stat_2954116742|12661",
 				["text"] = "Allocates Asceticism",
 				["type"] = "explicit",
 			},
-			[1021] = {
+			[1022] = {
 				["id"] = "explicit.stat_2954116742|27388",
 				["text"] = "Allocates Aspiring Genius",
 				["type"] = "explicit",
 			},
-			[1022] = {
+			[1023] = {
 				["id"] = "explicit.stat_2954116742|35560",
 				["text"] = "Allocates At your Command",
 				["type"] = "explicit",
 			},
-			[1023] = {
+			[1024] = {
 				["id"] = "explicit.stat_2954116742|20397",
 				["text"] = "Allocates Authority",
 				["type"] = "explicit",
 			},
-			[1024] = {
+			[1025] = {
 				["id"] = "explicit.stat_2954116742|50673",
 				["text"] = "Allocates Avoiding Deflection",
 				["type"] = "explicit",
 			},
-			[1025] = {
+			[1026] = {
 				["id"] = "explicit.stat_2954116742|33059",
 				["text"] = "Allocates Back in Action",
 				["type"] = "explicit",
 			},
-			[1026] = {
+			[1027] = {
 				["id"] = "explicit.stat_2954116742|53853",
 				["text"] = "Allocates Backup Plan",
 				["type"] = "explicit",
 			},
-			[1027] = {
+			[1028] = {
 				["id"] = "explicit.stat_2954116742|62455",
 				["text"] = "Allocates Bannerman",
 				["type"] = "explicit",
 			},
-			[1028] = {
+			[1029] = {
 				["id"] = "explicit.stat_2954116742|50562",
 				["text"] = "Allocates Barbaric Strength",
 				["type"] = "explicit",
 			},
-			[1029] = {
+			[1030] = {
 				["id"] = "explicit.stat_2954116742|50062",
 				["text"] = "Allocates Barrier of Venarius",
 				["type"] = "explicit",
 			},
-			[1030] = {
+			[1031] = {
 				["id"] = "explicit.stat_2954116742|8916",
 				["text"] = "Allocates Bashing Beast",
 				["type"] = "explicit",
 			},
-			[1031] = {
+			[1032] = {
 				["id"] = "explicit.stat_2954116742|64240",
 				["text"] = "Allocates Battle Fever",
 				["type"] = "explicit",
 			},
-			[1032] = {
+			[1033] = {
 				["id"] = "explicit.stat_2954116742|37276",
 				["text"] = "Allocates Battle Trance",
 				["type"] = "explicit",
 			},
-			[1033] = {
+			[1034] = {
 				["id"] = "explicit.stat_2954116742|41620",
 				["text"] = "Allocates Bear's Roar",
 				["type"] = "explicit",
 			},
-			[1034] = {
+			[1035] = {
 				["id"] = "explicit.stat_2954116742|59720",
 				["text"] = "Allocates Beastial Skin",
 				["type"] = "explicit",
 			},
-			[1035] = {
+			[1036] = {
 				["id"] = "explicit.stat_2954116742|25482",
 				["text"] = "Allocates Beef",
 				["type"] = "explicit",
 			},
-			[1036] = {
+			[1037] = {
 				["id"] = "explicit.stat_2954116742|5642",
 				["text"] = "Allocates Behemoth",
 				["type"] = "explicit",
 			},
-			[1037] = {
+			[1038] = {
 				["id"] = "explicit.stat_2954116742|10873",
 				["text"] = "Allocates Bestial Rage",
 				["type"] = "explicit",
 			},
-			[1038] = {
+			[1039] = {
 				["id"] = "explicit.stat_2954116742|38329",
 				["text"] = "Allocates Biting Frost",
 				["type"] = "explicit",
 			},
-			[1039] = {
+			[1040] = {
 				["id"] = "explicit.stat_2954116742|17029",
 				["text"] = "Allocates Blade Catcher",
 				["type"] = "explicit",
 			},
-			[1040] = {
+			[1041] = {
 				["id"] = "explicit.stat_2954116742|2394",
 				["text"] = "Allocates Blade Flurry",
 				["type"] = "explicit",
 			},
-			[1041] = {
+			[1042] = {
 				["id"] = "explicit.stat_2954116742|25753",
 				["text"] = "Allocates Blazing Arms",
 				["type"] = "explicit",
 			},
-			[1042] = {
+			[1043] = {
 				["id"] = "explicit.stat_2954116742|18308",
 				["text"] = "Allocates Bleeding Out",
 				["type"] = "explicit",
 			},
-			[1043] = {
+			[1044] = {
 				["id"] = "explicit.stat_2954116742|48925",
 				["text"] = "Allocates Blessing of the Moon",
 				["type"] = "explicit",
 			},
-			[1044] = {
+			[1045] = {
 				["id"] = "explicit.stat_2954116742|42354",
 				["text"] = "Allocates Blinding Flash",
 				["type"] = "explicit",
 			},
-			[1045] = {
+			[1046] = {
 				["id"] = "explicit.stat_2954116742|20916",
 				["text"] = "Allocates Blinding Strike",
 				["type"] = "explicit",
 			},
-			[1046] = {
+			[1047] = {
 				["id"] = "explicit.stat_2954116742|39083",
 				["text"] = "Allocates Blood Rush",
 				["type"] = "explicit",
 			},
-			[1047] = {
+			[1048] = {
 				["id"] = "explicit.stat_2954116742|58183",
 				["text"] = "Allocates Blood Tearing",
 				["type"] = "explicit",
 			},
-			[1048] = {
+			[1049] = {
 				["id"] = "explicit.stat_2954116742|48524",
 				["text"] = "Allocates Blood Transfusion",
 				["type"] = "explicit",
 			},
-			[1049] = {
+			[1050] = {
 				["id"] = "explicit.stat_2954116742|35792",
 				["text"] = "Allocates Blood of Rage",
 				["type"] = "explicit",
 			},
-			[1050] = {
+			[1051] = {
 				["id"] = "explicit.stat_2954116742|49214",
 				["text"] = "Allocates Blood of the Wolf",
 				["type"] = "explicit",
 			},
-			[1051] = {
+			[1052] = {
 				["id"] = "explicit.stat_2954116742|54990",
 				["text"] = "Allocates Bloodletting",
 				["type"] = "explicit",
 			},
-			[1052] = {
+			[1053] = {
 				["id"] = "explicit.stat_2954116742|10772",
 				["text"] = "Allocates Bloodthirsty",
 				["type"] = "explicit",
 			},
-			[1053] = {
+			[1054] = {
 				["id"] = "explicit.stat_2954116742|42177",
 				["text"] = "Allocates Blurred Motion",
 				["type"] = "explicit",
 			},
-			[1054] = {
+			[1055] = {
 				["id"] = "explicit.stat_2954116742|26070",
 				["text"] = "Allocates Bolstering Yell",
 				["type"] = "explicit",
 			},
-			[1055] = {
+			[1056] = {
 				["id"] = "explicit.stat_2954116742|17725",
 				["text"] = "Allocates Bonded Precision",
 				["type"] = "explicit",
 			},
-			[1056] = {
+			[1057] = {
 				["id"] = "explicit.stat_2954116742|26563",
 				["text"] = "Allocates Bone Chains",
 				["type"] = "explicit",
 			},
-			[1057] = {
+			[1058] = {
 				["id"] = "explicit.stat_2954116742|52618",
 				["text"] = "Allocates Boon of the Beast",
 				["type"] = "explicit",
 			},
-			[1058] = {
+			[1059] = {
 				["id"] = "explicit.stat_2954116742|15114",
 				["text"] = "Allocates Boundless Growth",
 				["type"] = "explicit",
 			},
-			[1059] = {
+			[1060] = {
 				["id"] = "explicit.stat_2954116742|23244",
 				["text"] = "Allocates Bounty Hunter",
 				["type"] = "explicit",
 			},
-			[1060] = {
+			[1061] = {
 				["id"] = "explicit.stat_2954116742|37806",
 				["text"] = "Allocates Branching Bolts",
 				["type"] = "explicit",
 			},
-			[1061] = {
+			[1062] = {
 				["id"] = "explicit.stat_2954116742|14777",
 				["text"] = "Allocates Bravado",
 				["type"] = "explicit",
 			},
-			[1062] = {
+			[1063] = {
 				["id"] = "explicit.stat_2954116742|21453",
 				["text"] = "Allocates Breakage",
 				["type"] = "explicit",
 			},
-			[1063] = {
+			[1064] = {
 				["id"] = "explicit.stat_2954116742|39347",
 				["text"] = "Allocates Breaking Blows",
 				["type"] = "explicit",
 			},
-			[1064] = {
+			[1065] = {
 				["id"] = "explicit.stat_2954116742|7777",
 				["text"] = "Allocates Breaking Point",
 				["type"] = "explicit",
 			},
-			[1065] = {
+			[1066] = {
 				["id"] = "explicit.stat_2954116742|24655",
 				["text"] = "Allocates Breath of Fire",
 				["type"] = "explicit",
 			},
-			[1066] = {
+			[1067] = {
 				["id"] = "explicit.stat_2954116742|18086",
 				["text"] = "Allocates Breath of Ice",
 				["type"] = "explicit",
 			},
-			[1067] = {
+			[1068] = {
 				["id"] = "explicit.stat_2954116742|61338",
 				["text"] = "Allocates Breath of Lightning",
 				["type"] = "explicit",
 			},
-			[1068] = {
+			[1069] = {
 				["id"] = "explicit.stat_2954116742|9535",
 				["text"] = "Allocates Brinerot Ferocity",
 				["type"] = "explicit",
 			},
-			[1069] = {
+			[1070] = {
 				["id"] = "explicit.stat_2954116742|48565",
 				["text"] = "Allocates Bringer of Order",
 				["type"] = "explicit",
 			},
-			[1070] = {
+			[1071] = {
 				["id"] = "explicit.stat_2954116742|53935",
 				["text"] = "Allocates Briny Carapace",
 				["type"] = "explicit",
 			},
-			[1071] = {
+			[1072] = {
 				["id"] = "explicit.stat_2954116742|63541",
 				["text"] = "Allocates Brush Off",
 				["type"] = "explicit",
 			},
-			[1072] = {
+			[1073] = {
 				["id"] = "explicit.stat_2954116742|50392",
 				["text"] = "Allocates Brute Strength",
 				["type"] = "explicit",
 			},
-			[1073] = {
+			[1074] = {
 				["id"] = "explicit.stat_2954116742|15986",
 				["text"] = "Allocates Building Toxins",
 				["type"] = "explicit",
 			},
-			[1074] = {
+			[1075] = {
 				["id"] = "explicit.stat_2954116742|53294",
 				["text"] = "Allocates Burn Away",
 				["type"] = "explicit",
 			},
-			[1075] = {
+			[1076] = {
 				["id"] = "explicit.stat_2954116742|8554",
 				["text"] = "Allocates Burning Nature",
 				["type"] = "explicit",
 			},
-			[1076] = {
+			[1077] = {
 				["id"] = "explicit.stat_2954116742|6544",
 				["text"] = "Allocates Burning Strikes",
 				["type"] = "explicit",
 			},
-			[1077] = {
+			[1078] = {
 				["id"] = "explicit.stat_2954116742|35324",
 				["text"] = "Allocates Burnout",
 				["type"] = "explicit",
 			},
-			[1078] = {
+			[1079] = {
 				["id"] = "explicit.stat_2954116742|6514",
 				["text"] = "Allocates Cacophony",
 				["type"] = "explicit",
 			},
-			[1079] = {
+			[1080] = {
 				["id"] = "explicit.stat_2954116742|32799",
 				["text"] = "Allocates Captivating Companionship",
 				["type"] = "explicit",
 			},
-			[1080] = {
+			[1081] = {
 				["id"] = "explicit.stat_2954116742|50795",
 				["text"] = "Allocates Careful Aim",
 				["type"] = "explicit",
 			},
-			[1081] = {
+			[1082] = {
 				["id"] = "explicit.stat_2954116742|46197",
 				["text"] = "Allocates Careful Assassin",
 				["type"] = "explicit",
 			},
-			[1082] = {
+			[1083] = {
 				["id"] = "explicit.stat_2954116742|17955",
 				["text"] = "Allocates Careful Consideration",
 				["type"] = "explicit",
 			},
-			[1083] = {
+			[1084] = {
 				["id"] = "explicit.stat_2954116742|52348",
 				["text"] = "Allocates Carved Earth",
 				["type"] = "explicit",
 			},
-			[1084] = {
+			[1085] = {
 				["id"] = "explicit.stat_2954116742|44005",
 				["text"] = "Allocates Casting Cascade",
 				["type"] = "explicit",
 			},
-			[1085] = {
+			[1086] = {
 				["id"] = "explicit.stat_2954116742|31433",
 				["text"] = "Allocates Catalysis",
 				["type"] = "explicit",
 			},
-			[1086] = {
+			[1087] = {
 				["id"] = "explicit.stat_2954116742|9472",
 				["text"] = "Allocates Catapult",
 				["type"] = "explicit",
 			},
-			[1087] = {
+			[1088] = {
 				["id"] = "explicit.stat_2954116742|32664",
 				["text"] = "Allocates Chakra of Breathing",
 				["type"] = "explicit",
 			},
-			[1088] = {
+			[1089] = {
 				["id"] = "explicit.stat_2954116742|63400",
 				["text"] = "Allocates Chakra of Elements",
 				["type"] = "explicit",
 			},
-			[1089] = {
+			[1090] = {
 				["id"] = "explicit.stat_2954116742|25362",
 				["text"] = "Allocates Chakra of Impact",
 				["type"] = "explicit",
 			},
-			[1090] = {
+			[1091] = {
 				["id"] = "explicit.stat_2954116742|35031",
 				["text"] = "Allocates Chakra of Life",
 				["type"] = "explicit",
 			},
-			[1091] = {
+			[1092] = {
 				["id"] = "explicit.stat_2954116742|28963",
 				["text"] = "Allocates Chakra of Rhythm",
 				["type"] = "explicit",
 			},
-			[1092] = {
+			[1093] = {
 				["id"] = "explicit.stat_2954116742|42347",
 				["text"] = "Allocates Chakra of Sight",
 				["type"] = "explicit",
 			},
-			[1093] = {
+			[1094] = {
 				["id"] = "explicit.stat_2954116742|42760",
 				["text"] = "Allocates Chakra of Stability",
 				["type"] = "explicit",
 			},
-			[1094] = {
+			[1095] = {
 				["id"] = "explicit.stat_2954116742|29306",
 				["text"] = "Allocates Chakra of Thought",
 				["type"] = "explicit",
 			},
-			[1095] = {
+			[1096] = {
 				["id"] = "explicit.stat_2954116742|5410",
 				["text"] = "Allocates Channelled Heritage",
 				["type"] = "explicit",
 			},
-			[1096] = {
+			[1097] = {
 				["id"] = "explicit.stat_2954116742|23427",
 				["text"] = "Allocates Chilled to the Bone",
 				["type"] = "explicit",
 			},
-			[1097] = {
+			[1098] = {
 				["id"] = "explicit.stat_2954116742|5686",
 				["text"] = "Allocates Chillproof",
 				["type"] = "explicit",
 			},
-			[1098] = {
+			[1099] = {
 				["id"] = "explicit.stat_2954116742|39990",
 				["text"] = "Allocates Chronomancy",
 				["type"] = "explicit",
 			},
-			[1099] = {
+			[1100] = {
 				["id"] = "explicit.stat_2954116742|57805",
 				["text"] = "Allocates Clear Space",
 				["type"] = "explicit",
 			},
-			[1100] = {
+			[1101] = {
 				["id"] = "explicit.stat_2954116742|4627",
 				["text"] = "Allocates Climate Change",
 				["type"] = "explicit",
 			},
-			[1101] = {
+			[1102] = {
 				["id"] = "explicit.stat_2954116742|38479",
 				["text"] = "Allocates Close Confines",
 				["type"] = "explicit",
 			},
-			[1102] = {
+			[1103] = {
 				["id"] = "explicit.stat_2954116742|29514",
 				["text"] = "Allocates Cluster Bombs",
 				["type"] = "explicit",
 			},
-			[1103] = {
+			[1104] = {
 				["id"] = "explicit.stat_2954116742|44330",
 				["text"] = "Allocates Coated Arms",
 				["type"] = "explicit",
 			},
-			[1104] = {
+			[1105] = {
 				["id"] = "explicit.stat_2954116742|35618",
 				["text"] = "Allocates Cold Coat",
 				["type"] = "explicit",
 			},
-			[1105] = {
+			[1106] = {
 				["id"] = "explicit.stat_2954116742|26518",
 				["text"] = "Allocates Cold Nature",
 				["type"] = "explicit",
 			},
-			[1106] = {
+			[1107] = {
 				["id"] = "explicit.stat_2954116742|47363",
 				["text"] = "Allocates Colossal Weapon",
 				["type"] = "explicit",
 			},
-			[1107] = {
+			[1108] = {
 				["id"] = "explicit.stat_2954116742|28044",
 				["text"] = "Allocates Coming Calamity",
 				["type"] = "explicit",
 			},
-			[1108] = {
+			[1109] = {
 				["id"] = "explicit.stat_2954116742|42660",
 				["text"] = "Allocates Commanding Rage",
 				["type"] = "explicit",
 			},
-			[1109] = {
+			[1110] = {
 				["id"] = "explicit.stat_2954116742|36931",
 				["text"] = "Allocates Concussive Attack",
 				["type"] = "explicit",
 			},
-			[1110] = {
+			[1111] = {
 				["id"] = "explicit.stat_2954116742|52257",
 				["text"] = "Allocates Conductive Embrace",
 				["type"] = "explicit",
 			},
-			[1111] = {
+			[1112] = {
 				["id"] = "explicit.stat_2954116742|34300",
 				["text"] = "Allocates Conservative Casting",
 				["type"] = "explicit",
 			},
-			[1112] = {
+			[1113] = {
 				["id"] = "explicit.stat_2954116742|15030",
 				["text"] = "Allocates Consistent Intake",
 				["type"] = "explicit",
 			},
-			[1113] = {
+			[1114] = {
 				["id"] = "explicit.stat_2954116742|54640",
 				["text"] = "Allocates Constricting",
 				["type"] = "explicit",
 			},
-			[1114] = {
+			[1115] = {
 				["id"] = "explicit.stat_2954116742|30748",
 				["text"] = "Allocates Controlled Chaos",
 				["type"] = "explicit",
 			},
-			[1115] = {
+			[1116] = {
 				["id"] = "explicit.stat_2954116742|13823",
 				["text"] = "Allocates Controlling Magic",
 				["type"] = "explicit",
 			},
-			[1116] = {
+			[1117] = {
 				["id"] = "explicit.stat_2954116742|36623",
 				["text"] = "Allocates Convalescence",
 				["type"] = "explicit",
 			},
-			[1117] = {
+			[1118] = {
 				["id"] = "explicit.stat_2954116742|56776",
 				["text"] = "Allocates Cooked",
 				["type"] = "explicit",
 			},
-			[1118] = {
+			[1119] = {
 				["id"] = "explicit.stat_2954116742|6133",
 				["text"] = "Allocates Core of the Guardian",
 				["type"] = "explicit",
 			},
-			[1119] = {
+			[1120] = {
 				["id"] = "explicit.stat_2954116742|27761",
 				["text"] = "Allocates Counterstancing",
 				["type"] = "explicit",
 			},
-			[1120] = {
+			[1121] = {
 				["id"] = "explicit.stat_2954116742|50687",
 				["text"] = "Allocates Coursing Energy",
 				["type"] = "explicit",
 			},
-			[1121] = {
+			[1122] = {
 				["id"] = "explicit.stat_2954116742|63451",
 				["text"] = "Allocates Cranial Impact",
 				["type"] = "explicit",
 			},
-			[1122] = {
+			[1123] = {
 				["id"] = "explicit.stat_2954116742|9323",
 				["text"] = "Allocates Craving Slaughter",
 				["type"] = "explicit",
 			},
-			[1123] = {
+			[1124] = {
 				["id"] = "explicit.stat_2954116742|20511",
 				["text"] = "Allocates Cremating Cries",
 				["type"] = "explicit",
 			},
-			[1124] = {
+			[1125] = {
 				["id"] = "explicit.stat_2954116742|19715",
 				["text"] = "Allocates Cremation",
 				["type"] = "explicit",
 			},
-			[1125] = {
+			[1126] = {
 				["id"] = "explicit.stat_2954116742|43677",
 				["text"] = "Allocates Crippling Toxins",
 				["type"] = "explicit",
 			},
-			[1126] = {
+			[1127] = {
 				["id"] = "explicit.stat_2954116742|57204",
 				["text"] = "Allocates Critical Exploit",
 				["type"] = "explicit",
 			},
-			[1127] = {
+			[1128] = {
 				["id"] = "explicit.stat_2954116742|45488",
 				["text"] = "Allocates Cross Strike",
 				["type"] = "explicit",
 			},
-			[1128] = {
+			[1129] = {
 				["id"] = "explicit.stat_2954116742|42981",
 				["text"] = "Allocates Cruel Methods",
 				["type"] = "explicit",
 			},
-			[1129] = {
+			[1130] = {
 				["id"] = "explicit.stat_2954116742|35739",
 				["text"] = "Allocates Crushing Judgement",
 				["type"] = "explicit",
 			},
-			[1130] = {
+			[1131] = {
 				["id"] = "explicit.stat_2954116742|18505",
 				["text"] = "Allocates Crushing Verdict",
 				["type"] = "explicit",
 			},
-			[1131] = {
+			[1132] = {
 				["id"] = "explicit.stat_2954116742|38895",
 				["text"] = "Allocates Crystal Elixir",
 				["type"] = "explicit",
 			},
-			[1132] = {
+			[1133] = {
 				["id"] = "explicit.stat_2954116742|61026",
 				["text"] = "Allocates Crystalline Flesh",
 				["type"] = "explicit",
 			},
-			[1133] = {
+			[1134] = {
 				["id"] = "explicit.stat_2954116742|32151",
 				["text"] = "Allocates Crystalline Resistance",
 				["type"] = "explicit",
 			},
-			[1134] = {
+			[1135] = {
 				["id"] = "explicit.stat_2954116742|5332",
 				["text"] = "Allocates Crystallised Immunities",
 				["type"] = "explicit",
 			},
-			[1135] = {
+			[1136] = {
 				["id"] = "explicit.stat_2954116742|36341",
 				["text"] = "Allocates Cull the Hordes",
 				["type"] = "explicit",
 			},
-			[1136] = {
+			[1137] = {
 				["id"] = "explicit.stat_2954116742|13708",
 				["text"] = "Allocates Curved Weapon",
 				["type"] = "explicit",
 			},
-			[1137] = {
+			[1138] = {
 				["id"] = "explicit.stat_2954116742|32507",
 				["text"] = "Allocates Cut to the Bone",
 				["type"] = "explicit",
 			},
-			[1138] = {
+			[1139] = {
 				["id"] = "explicit.stat_2954116742|7128",
 				["text"] = "Allocates Dangerous Blossom",
 				["type"] = "explicit",
 			},
-			[1139] = {
+			[1140] = {
 				["id"] = "explicit.stat_2954116742|63074",
 				["text"] = "Allocates Dark Entries",
 				["type"] = "explicit",
 			},
-			[1140] = {
+			[1141] = {
 				["id"] = "explicit.stat_2954116742|20495",
 				["text"] = "Allocates Dark Entropy",
 				["type"] = "explicit",
 			},
-			[1141] = {
+			[1142] = {
 				["id"] = "explicit.stat_2954116742|10500",
 				["text"] = "Allocates Dazing Blocks",
 				["type"] = "explicit",
 			},
-			[1142] = {
+			[1143] = {
 				["id"] = "explicit.stat_2954116742|30523",
 				["text"] = "Allocates Dead can Dance",
 				["type"] = "explicit",
 			},
-			[1143] = {
+			[1144] = {
 				["id"] = "explicit.stat_2954116742|49618",
 				["text"] = "Allocates Deadly Flourish",
 				["type"] = "explicit",
 			},
-			[1144] = {
+			[1145] = {
 				["id"] = "explicit.stat_2954116742|13724",
 				["text"] = "Allocates Deadly Force",
 				["type"] = "explicit",
 			},
-			[1145] = {
+			[1146] = {
 				["id"] = "explicit.stat_2954116742|29288",
 				["text"] = "Allocates Deadly Invocations",
 				["type"] = "explicit",
 			},
-			[1146] = {
+			[1147] = {
 				["id"] = "explicit.stat_2954116742|38053",
 				["text"] = "Allocates Deafening Cries",
 				["type"] = "explicit",
 			},
-			[1147] = {
+			[1148] = {
 				["id"] = "explicit.stat_2954116742|8904",
 				["text"] = "Allocates Death from Afar",
 				["type"] = "explicit",
 			},
-			[1148] = {
+			[1149] = {
 				["id"] = "explicit.stat_2954116742|17664",
 				["text"] = "Allocates Decisive Retreat",
 				["type"] = "explicit",
 			},
-			[1149] = {
+			[1150] = {
 				["id"] = "explicit.stat_2954116742|5594",
 				["text"] = "Allocates Decrepifying Curse",
 				["type"] = "explicit",
 			},
-			[1150] = {
+			[1151] = {
 				["id"] = "explicit.stat_2954116742|16142",
 				["text"] = "Allocates Deep Freeze",
 				["type"] = "explicit",
 			},
-			[1151] = {
+			[1152] = {
 				["id"] = "explicit.stat_2954116742|40166",
 				["text"] = "Allocates Deep Trance",
 				["type"] = "explicit",
 			},
-			[1152] = {
+			[1153] = {
 				["id"] = "explicit.stat_2954116742|33216",
 				["text"] = "Allocates Deep Wounds",
 				["type"] = "explicit",
 			},
-			[1153] = {
+			[1154] = {
 				["id"] = "explicit.stat_2954116742|45612",
 				["text"] = "Allocates Defensive Reflexes",
 				["type"] = "explicit",
 			},
-			[1154] = {
+			[1155] = {
 				["id"] = "explicit.stat_2954116742|10681",
 				["text"] = "Allocates Defensive Stance",
 				["type"] = "explicit",
 			},
-			[1155] = {
+			[1156] = {
 				["id"] = "explicit.stat_2954116742|32354",
 				["text"] = "Allocates Defiance",
 				["type"] = "explicit",
 			},
-			[1156] = {
+			[1157] = {
 				["id"] = "explicit.stat_2954116742|45329",
 				["text"] = "Allocates Delayed Danger",
 				["type"] = "explicit",
 			},
-			[1157] = {
+			[1158] = {
 				["id"] = "explicit.stat_2954116742|38570",
 				["text"] = "Allocates Demolitionist",
 				["type"] = "explicit",
 			},
-			[1158] = {
+			[1159] = {
 				["id"] = "explicit.stat_2954116742|4931",
 				["text"] = "Allocates Dependable Ward",
 				["type"] = "explicit",
 			},
-			[1159] = {
+			[1160] = {
 				["id"] = "explicit.stat_2954116742|28267",
 				["text"] = "Allocates Desensitisation",
 				["type"] = "explicit",
 			},
-			[1160] = {
+			[1161] = {
 				["id"] = "explicit.stat_2954116742|56616",
 				["text"] = "Allocates Desperate Times",
 				["type"] = "explicit",
 			},
-			[1161] = {
+			[1162] = {
 				["id"] = "explicit.stat_2954116742|14343",
 				["text"] = "Allocates Deterioration",
 				["type"] = "explicit",
 			},
-			[1162] = {
+			[1163] = {
 				["id"] = "explicit.stat_2954116742|24753",
 				["text"] = "Allocates Determined Precision",
 				["type"] = "explicit",
 			},
-			[1163] = {
+			[1164] = {
 				["id"] = "explicit.stat_2954116742|48006",
 				["text"] = "Allocates Devastation",
 				["type"] = "explicit",
 			},
-			[1164] = {
+			[1165] = {
 				["id"] = "explicit.stat_2954116742|2344",
 				["text"] = "Allocates Dimensional Weakspot",
 				["type"] = "explicit",
 			},
-			[1165] = {
+			[1166] = {
 				["id"] = "explicit.stat_2954116742|24483",
 				["text"] = "Allocates Direct Approach",
 				["type"] = "explicit",
 			},
-			[1166] = {
+			[1167] = {
 				["id"] = "explicit.stat_2954116742|38459",
 				["text"] = "Allocates Disorientation",
 				["type"] = "explicit",
 			},
-			[1167] = {
+			[1168] = {
 				["id"] = "explicit.stat_2954116742|58939",
 				["text"] = "Allocates Dispatch Foes",
 				["type"] = "explicit",
 			},
-			[1168] = {
+			[1169] = {
 				["id"] = "explicit.stat_2954116742|52245",
 				["text"] = "Allocates Distant Dreamer",
 				["type"] = "explicit",
 			},
-			[1169] = {
+			[1170] = {
 				["id"] = "explicit.stat_2954116742|32721",
 				["text"] = "Allocates Distracted Target",
 				["type"] = "explicit",
 			},
-			[1170] = {
+			[1171] = {
 				["id"] = "explicit.stat_2954116742|44765",
 				["text"] = "Allocates Distracting Presence",
 				["type"] = "explicit",
 			},
-			[1171] = {
+			[1172] = {
 				["id"] = "explicit.stat_2954116742|47514",
 				["text"] = "Allocates Dizzying Hits",
 				["type"] = "explicit",
 			},
-			[1172] = {
+			[1173] = {
 				["id"] = "explicit.stat_2954116742|1420",
 				["text"] = "Allocates Dizzying Sweep",
 				["type"] = "explicit",
 			},
-			[1173] = {
+			[1174] = {
 				["id"] = "explicit.stat_2954116742|26214",
 				["text"] = "Allocates Dominion",
 				["type"] = "explicit",
 			},
-			[1174] = {
+			[1175] = {
 				["id"] = "explicit.stat_2954116742|57190",
 				["text"] = "Allocates Doomsayer",
 				["type"] = "explicit",
 			},
-			[1175] = {
+			[1176] = {
 				["id"] = "explicit.stat_2954116742|1502",
 				["text"] = "Allocates Draiocht Cleansing",
 				["type"] = "explicit",
 			},
-			[1176] = {
+			[1177] = {
 				["id"] = "explicit.stat_2954116742|32858",
 				["text"] = "Allocates Dread Engineer's Concoction",
 				["type"] = "explicit",
 			},
-			[1177] = {
+			[1178] = {
 				["id"] = "explicit.stat_2954116742|11838",
 				["text"] = "Allocates Dreamcatcher",
 				["type"] = "explicit",
 			},
-			[1178] = {
+			[1179] = {
 				["id"] = "explicit.stat_2954116742|40073",
 				["text"] = "Allocates Drenched",
 				["type"] = "explicit",
 			},
-			[1179] = {
+			[1180] = {
 				["id"] = "explicit.stat_2954116742|3688",
 				["text"] = "Allocates Dynamism",
 				["type"] = "explicit",
 			},
-			[1180] = {
+			[1181] = {
 				["id"] = "explicit.stat_2954116742|10315",
 				["text"] = "Allocates Easy Going",
 				["type"] = "explicit",
 			},
-			[1181] = {
+			[1182] = {
 				["id"] = "explicit.stat_2954116742|64525",
 				["text"] = "Allocates Easy Target",
 				["type"] = "explicit",
 			},
-			[1182] = {
+			[1183] = {
 				["id"] = "explicit.stat_2954116742|60692",
 				["text"] = "Allocates Echoing Flames",
 				["type"] = "explicit",
 			},
-			[1183] = {
+			[1184] = {
 				["id"] = "explicit.stat_2954116742|5257",
 				["text"] = "Allocates Echoing Frost",
 				["type"] = "explicit",
 			},
-			[1184] = {
+			[1185] = {
 				["id"] = "explicit.stat_2954116742|7302",
 				["text"] = "Allocates Echoing Pulse",
 				["type"] = "explicit",
 			},
-			[1185] = {
+			[1186] = {
 				["id"] = "explicit.stat_2954116742|5703",
 				["text"] = "Allocates Echoing Thunder",
 				["type"] = "explicit",
 			},
-			[1186] = {
+			[1187] = {
 				["id"] = "explicit.stat_2954116742|33093",
 				["text"] = "Allocates Effervescent",
 				["type"] = "explicit",
 			},
-			[1187] = {
+			[1188] = {
 				["id"] = "explicit.stat_2954116742|46692",
 				["text"] = "Allocates Efficient Alchemy",
 				["type"] = "explicit",
 			},
-			[1188] = {
+			[1189] = {
 				["id"] = "explicit.stat_2954116742|16790",
 				["text"] = "Allocates Efficient Casting",
 				["type"] = "explicit",
 			},
-			[1189] = {
+			[1190] = {
 				["id"] = "explicit.stat_2954116742|30408",
 				["text"] = "Allocates Efficient Contraptions",
 				["type"] = "explicit",
 			},
-			[1190] = {
+			[1191] = {
 				["id"] = "explicit.stat_2954116742|42245",
 				["text"] = "Allocates Efficient Inscriptions",
 				["type"] = "explicit",
 			},
-			[1191] = {
+			[1192] = {
 				["id"] = "explicit.stat_2954116742|94",
 				["text"] = "Allocates Efficient Killing",
 				["type"] = "explicit",
 			},
-			[1192] = {
+			[1193] = {
 				["id"] = "explicit.stat_2954116742|53683",
 				["text"] = "Allocates Efficient Loading",
 				["type"] = "explicit",
 			},
-			[1193] = {
+			[1194] = {
 				["id"] = "explicit.stat_2954116742|3894",
 				["text"] = "Allocates Eldritch Will",
 				["type"] = "explicit",
 			},
-			[1194] = {
+			[1195] = {
 				["id"] = "explicit.stat_2954116742|55708",
 				["text"] = "Allocates Electric Amplification",
 				["type"] = "explicit",
 			},
-			[1195] = {
+			[1196] = {
 				["id"] = "explicit.stat_2954116742|56988",
 				["text"] = "Allocates Electric Blood",
 				["type"] = "explicit",
 			},
-			[1196] = {
+			[1197] = {
 				["id"] = "explicit.stat_2954116742|30546",
 				["text"] = "Allocates Electrified Claw",
 				["type"] = "explicit",
 			},
-			[1197] = {
+			[1198] = {
 				["id"] = "explicit.stat_2954116742|56767",
 				["text"] = "Allocates Electrifying Daze",
 				["type"] = "explicit",
 			},
-			[1198] = {
+			[1199] = {
 				["id"] = "explicit.stat_2954116742|26291",
 				["text"] = "Allocates Electrifying Nature",
 				["type"] = "explicit",
 			},
-			[1199] = {
+			[1200] = {
 				["id"] = "explicit.stat_2954116742|7275",
 				["text"] = "Allocates Electrocuting Exposure",
 				["type"] = "explicit",
 			},
-			[1200] = {
+			[1201] = {
 				["id"] = "explicit.stat_2954116742|36364",
 				["text"] = "Allocates Electrocution",
 				["type"] = "explicit",
 			},
-			[1201] = {
+			[1202] = {
 				["id"] = "explicit.stat_2954116742|43090",
 				["text"] = "Allocates Electrotherapy",
 				["type"] = "explicit",
 			},
-			[1202] = {
+			[1203] = {
 				["id"] = "explicit.stat_2954116742|10612",
 				["text"] = "Allocates Embodiment of Frost",
 				["type"] = "explicit",
 			},
-			[1203] = {
+			[1204] = {
 				["id"] = "explicit.stat_2954116742|15991",
 				["text"] = "Allocates Embodiment of Lightning",
 				["type"] = "explicit",
 			},
-			[1204] = {
+			[1205] = {
 				["id"] = "explicit.stat_2954116742|43423",
 				["text"] = "Allocates Emboldened Avatar",
 				["type"] = "explicit",
 			},
-			[1205] = {
+			[1206] = {
 				["id"] = "explicit.stat_2954116742|10727",
 				["text"] = "Allocates Emboldening Casts",
 				["type"] = "explicit",
 			},
-			[1206] = {
+			[1207] = {
 				["id"] = "explicit.stat_2954116742|34553",
 				["text"] = "Allocates Emboldening Lead",
 				["type"] = "explicit",
 			},
-			[1207] = {
+			[1208] = {
 				["id"] = "explicit.stat_2954116742|9928",
 				["text"] = "Allocates Embracing Frost",
 				["type"] = "explicit",
 			},
-			[1208] = {
+			[1209] = {
 				["id"] = "explicit.stat_2954116742|8782",
 				["text"] = "Allocates Empowering Infusions",
 				["type"] = "explicit",
 			},
-			[1209] = {
+			[1210] = {
 				["id"] = "explicit.stat_2954116742|8397",
 				["text"] = "Allocates Empowering Remains",
 				["type"] = "explicit",
 			},
-			[1210] = {
+			[1211] = {
 				["id"] = "explicit.stat_2954116742|40985",
 				["text"] = "Allocates Empowering Remnants",
 				["type"] = "explicit",
 			},
-			[1211] = {
+			[1212] = {
 				["id"] = "explicit.stat_2954116742|7542",
 				["text"] = "Allocates Encompassing Domain",
 				["type"] = "explicit",
 			},
-			[1212] = {
+			[1213] = {
 				["id"] = "explicit.stat_2954116742|19955",
 				["text"] = "Allocates Endless Blizzard",
 				["type"] = "explicit",
 			},
-			[1213] = {
+			[1214] = {
 				["id"] = "explicit.stat_2954116742|8273",
 				["text"] = "Allocates Endless Circuit",
 				["type"] = "explicit",
 			},
-			[1214] = {
+			[1215] = {
 				["id"] = "explicit.stat_2954116742|5663",
 				["text"] = "Allocates Endurance",
 				["type"] = "explicit",
 			},
-			[1215] = {
+			[1216] = {
 				["id"] = "explicit.stat_2954116742|15443",
 				["text"] = "Allocates Endured Suffering",
 				["type"] = "explicit",
 			},
-			[1216] = {
+			[1217] = {
 				["id"] = "explicit.stat_2954116742|59070",
 				["text"] = "Allocates Enduring Archon",
 				["type"] = "explicit",
 			},
-			[1217] = {
+			[1218] = {
 				["id"] = "explicit.stat_2954116742|42103",
 				["text"] = "Allocates Enduring Deflection",
 				["type"] = "explicit",
 			},
-			[1218] = {
+			[1219] = {
 				["id"] = "explicit.stat_2954116742|40399",
 				["text"] = "Allocates Energise",
 				["type"] = "explicit",
 			},
-			[1219] = {
+			[1220] = {
 				["id"] = "explicit.stat_2954116742|43633",
 				["text"] = "Allocates Energising Archon",
 				["type"] = "explicit",
 			},
-			[1220] = {
+			[1221] = {
 				["id"] = "explicit.stat_2954116742|34541",
 				["text"] = "Allocates Energising Deflection",
 				["type"] = "explicit",
 			},
-			[1221] = {
+			[1222] = {
 				["id"] = "explicit.stat_2954116742|2814",
 				["text"] = "Allocates Engineered Blaze",
 				["type"] = "explicit",
 			},
-			[1222] = {
+			[1223] = {
 				["id"] = "explicit.stat_2954116742|44299",
 				["text"] = "Allocates Enhanced Barrier",
 				["type"] = "explicit",
 			},
-			[1223] = {
+			[1224] = {
 				["id"] = "explicit.stat_2954116742|51707",
 				["text"] = "Allocates Enhanced Reflexes",
 				["type"] = "explicit",
 			},
-			[1224] = {
+			[1225] = {
 				["id"] = "explicit.stat_2954116742|56237",
 				["text"] = "Allocates Enhancing Attacks",
 				["type"] = "explicit",
 			},
-			[1225] = {
+			[1226] = {
 				["id"] = "explicit.stat_2954116742|30720",
 				["text"] = "Allocates Entropic Incarnation",
 				["type"] = "explicit",
 			},
-			[1226] = {
+			[1227] = {
 				["id"] = "explicit.stat_2954116742|65243",
 				["text"] = "Allocates Enveloping Presence",
 				["type"] = "explicit",
 			},
-			[1227] = {
+			[1228] = {
 				["id"] = "explicit.stat_2954116742|61404",
 				["text"] = "Allocates Equilibrium",
 				["type"] = "explicit",
 			},
-			[1228] = {
+			[1229] = {
 				["id"] = "explicit.stat_2954116742|52684",
 				["text"] = "Allocates Eroding Chains",
 				["type"] = "explicit",
 			},
-			[1229] = {
+			[1230] = {
 				["id"] = "explicit.stat_2954116742|20032",
 				["text"] = "Allocates Erraticism",
 				["type"] = "explicit",
 			},
-			[1230] = {
+			[1231] = {
 				["id"] = "explicit.stat_2954116742|42032",
 				["text"] = "Allocates Escalating Mayhem",
 				["type"] = "explicit",
 			},
-			[1231] = {
+			[1232] = {
 				["id"] = "explicit.stat_2954116742|38628",
 				["text"] = "Allocates Escalating Toxins",
 				["type"] = "explicit",
 			},
-			[1232] = {
+			[1233] = {
 				["id"] = "explicit.stat_2954116742|9187",
 				["text"] = "Allocates Escalation",
 				["type"] = "explicit",
 			},
-			[1233] = {
+			[1234] = {
 				["id"] = "explicit.stat_2954116742|5227",
 				["text"] = "Allocates Escape Strategy",
 				["type"] = "explicit",
 			},
-			[1234] = {
+			[1235] = {
 				["id"] = "explicit.stat_2954116742|17854",
 				["text"] = "Allocates Escape Velocity",
 				["type"] = "explicit",
 			},
-			[1235] = {
+			[1236] = {
 				["id"] = "explicit.stat_2954116742|42077",
 				["text"] = "Allocates Essence Infusion",
 				["type"] = "explicit",
 			},
-			[1236] = {
+			[1237] = {
 				["id"] = "explicit.stat_2954116742|16256",
 				["text"] = "Allocates Ether Flow",
 				["type"] = "explicit",
 			},
-			[1237] = {
+			[1238] = {
 				["id"] = "explicit.stat_2954116742|52191",
 				["text"] = "Allocates Event Horizon",
 				["type"] = "explicit",
 			},
-			[1238] = {
+			[1239] = {
 				["id"] = "explicit.stat_2954116742|13524",
 				["text"] = "Allocates Everlasting Glory",
 				["type"] = "explicit",
 			},
-			[1239] = {
+			[1240] = {
 				["id"] = "explicit.stat_2954116742|24087",
 				["text"] = "Allocates Everlasting Infusions",
 				["type"] = "explicit",
 			},
-			[1240] = {
+			[1241] = {
 				["id"] = "explicit.stat_2954116742|41753",
 				["text"] = "Allocates Evocational Practitioner",
 				["type"] = "explicit",
 			},
-			[1241] = {
+			[1242] = {
 				["id"] = "explicit.stat_2954116742|47420",
 				["text"] = "Allocates Expendable Army",
 				["type"] = "explicit",
 			},
-			[1242] = {
+			[1243] = {
 				["id"] = "explicit.stat_2954116742|39050",
 				["text"] = "Allocates Exploit",
 				["type"] = "explicit",
 			},
-			[1243] = {
+			[1244] = {
 				["id"] = "explicit.stat_2954116742|48581",
 				["text"] = "Allocates Exploit the Elements",
 				["type"] = "explicit",
 			},
-			[1244] = {
+			[1245] = {
 				["id"] = "explicit.stat_2954116742|36333",
 				["text"] = "Allocates Explosive Empowerment",
 				["type"] = "explicit",
 			},
-			[1245] = {
+			[1246] = {
 				["id"] = "explicit.stat_2954116742|21206",
 				["text"] = "Allocates Explosive Impact",
 				["type"] = "explicit",
 			},
-			[1246] = {
+			[1247] = {
 				["id"] = "explicit.stat_2954116742|55835",
 				["text"] = "Allocates Exposed to the Cosmos",
 				["type"] = "explicit",
 			},
-			[1247] = {
+			[1248] = {
 				["id"] = "explicit.stat_2954116742|10423",
 				["text"] = "Allocates Exposed to the Inferno",
 				["type"] = "explicit",
 			},
-			[1248] = {
+			[1249] = {
 				["id"] = "explicit.stat_2954116742|40990",
 				["text"] = "Allocates Exposed to the Storm",
 				["type"] = "explicit",
 			},
-			[1249] = {
+			[1250] = {
 				["id"] = "explicit.stat_2954116742|56112",
 				["text"] = "Allocates Extinguishing Exhalation",
 				["type"] = "explicit",
 			},
-			[1250] = {
+			[1251] = {
 				["id"] = "explicit.stat_2954116742|60034",
 				["text"] = "Allocates Falcon Dive",
 				["type"] = "explicit",
 			},
-			[1251] = {
+			[1252] = {
 				["id"] = "explicit.stat_2954116742|31172",
 				["text"] = "Allocates Falcon Technique",
 				["type"] = "explicit",
 			},
-			[1252] = {
+			[1253] = {
 				["id"] = "explicit.stat_2954116742|60464",
 				["text"] = "Allocates Fan the Flames",
 				["type"] = "explicit",
 			},
-			[1253] = {
+			[1254] = {
 				["id"] = "explicit.stat_2954116742|35477",
 				["text"] = "Allocates Far Sighted",
 				["type"] = "explicit",
 			},
-			[1254] = {
+			[1255] = {
 				["id"] = "explicit.stat_2954116742|55",
 				["text"] = "Allocates Fast Acting Toxins",
 				["type"] = "explicit",
 			},
-			[1255] = {
+			[1256] = {
 				["id"] = "explicit.stat_2954116742|8827",
 				["text"] = "Allocates Fast Metabolism",
 				["type"] = "explicit",
 			},
-			[1256] = {
+			[1257] = {
 				["id"] = "explicit.stat_2954116742|3921",
 				["text"] = "Allocates Fate Finding",
 				["type"] = "explicit",
 			},
-			[1257] = {
+			[1258] = {
 				["id"] = "explicit.stat_2954116742|59214",
 				["text"] = "Allocates Fated End",
 				["type"] = "explicit",
 			},
-			[1258] = {
+			[1259] = {
 				["id"] = "explicit.stat_2954116742|19546",
 				["text"] = "Allocates Favourable Odds",
 				["type"] = "explicit",
 			},
-			[1259] = {
+			[1260] = {
 				["id"] = "explicit.stat_2954116742|22532",
 				["text"] = "Allocates Fearful Paralysis",
 				["type"] = "explicit",
 			},
-			[1260] = {
+			[1261] = {
 				["id"] = "explicit.stat_2954116742|60764",
 				["text"] = "Allocates Feathered Fletching",
 				["type"] = "explicit",
 			},
-			[1261] = {
+			[1262] = {
 				["id"] = "explicit.stat_2954116742|9968",
 				["text"] = "Allocates Feel the Earth",
 				["type"] = "explicit",
 			},
-			[1262] = {
+			[1263] = {
 				["id"] = "explicit.stat_2954116742|21537",
 				["text"] = "Allocates Fervour",
 				["type"] = "explicit",
 			},
-			[1263] = {
+			[1264] = {
 				["id"] = "explicit.stat_2954116742|2999",
 				["text"] = "Allocates Final Barrage",
 				["type"] = "explicit",
 			},
-			[1264] = {
+			[1265] = {
 				["id"] = "explicit.stat_2954116742|51867",
 				["text"] = "Allocates Finality",
 				["type"] = "explicit",
 			},
-			[1265] = {
+			[1266] = {
 				["id"] = "explicit.stat_2954116742|38969",
 				["text"] = "Allocates Finesse",
 				["type"] = "explicit",
 			},
-			[1266] = {
+			[1267] = {
 				["id"] = "explicit.stat_2954116742|29899",
 				["text"] = "Allocates Finish Them",
 				["type"] = "explicit",
 			},
-			[1267] = {
+			[1268] = {
 				["id"] = "explicit.stat_2954116742|45013",
 				["text"] = "Allocates Finishing Blows",
 				["type"] = "explicit",
 			},
-			[1268] = {
+			[1269] = {
 				["id"] = "explicit.stat_2954116742|54911",
 				["text"] = "Allocates Firestarter",
 				["type"] = "explicit",
 			},
-			[1269] = {
+			[1270] = {
 				["id"] = "explicit.stat_2954116742|29527",
 				["text"] = "Allocates First Approach",
 				["type"] = "explicit",
 			},
-			[1270] = {
+			[1271] = {
 				["id"] = "explicit.stat_2954116742|62963",
 				["text"] = "Allocates Flamewalker",
 				["type"] = "explicit",
 			},
-			[1271] = {
+			[1272] = {
 				["id"] = "explicit.stat_2954116742|43584",
 				["text"] = "Allocates Flare",
 				["type"] = "explicit",
 			},
-			[1272] = {
+			[1273] = {
 				["id"] = "explicit.stat_2954116742|12337",
 				["text"] = "Allocates Flash Storm",
 				["type"] = "explicit",
 			},
-			[1273] = {
+			[1274] = {
 				["id"] = "explicit.stat_2954116742|64851",
 				["text"] = "Allocates Flashy Parrying",
 				["type"] = "explicit",
 			},
-			[1274] = {
+			[1275] = {
 				["id"] = "explicit.stat_2954116742|21164",
 				["text"] = "Allocates Fleshcrafting",
 				["type"] = "explicit",
 			},
-			[1275] = {
+			[1276] = {
 				["id"] = "explicit.stat_2954116742|4985",
 				["text"] = "Allocates Flip the Script",
 				["type"] = "explicit",
 			},
-			[1276] = {
+			[1277] = {
 				["id"] = "explicit.stat_2954116742|32128",
 				["text"] = "Allocates Flow of Time",
 				["type"] = "explicit",
 			},
-			[1277] = {
+			[1278] = {
 				["id"] = "explicit.stat_2954116742|33730",
 				["text"] = "Allocates Focused Channel",
 				["type"] = "explicit",
 			},
-			[1278] = {
+			[1279] = {
 				["id"] = "explicit.stat_2954116742|9227",
 				["text"] = "Allocates Focused Thrust",
 				["type"] = "explicit",
 			},
-			[1279] = {
+			[1280] = {
 				["id"] = "explicit.stat_2954116742|20677",
 				["text"] = "Allocates For the Jugular",
 				["type"] = "explicit",
 			},
-			[1280] = {
+			[1281] = {
 				["id"] = "explicit.stat_2954116742|3985",
 				["text"] = "Allocates Forces of Nature",
 				["type"] = "explicit",
 			},
-			[1281] = {
+			[1282] = {
 				["id"] = "explicit.stat_2954116742|48103",
 				["text"] = "Allocates Forcewave",
 				["type"] = "explicit",
 			},
-			[1282] = {
+			[1283] = {
 				["id"] = "explicit.stat_2954116742|55568",
 				["text"] = "Allocates Forthcoming",
 				["type"] = "explicit",
 			},
-			[1283] = {
+			[1284] = {
 				["id"] = "explicit.stat_2954116742|23940",
 				["text"] = "Allocates Fortified Aegis",
 				["type"] = "explicit",
 			},
-			[1284] = {
+			[1285] = {
 				["id"] = "explicit.stat_2954116742|53607",
 				["text"] = "Allocates Fortified Location",
 				["type"] = "explicit",
 			},
-			[1285] = {
+			[1286] = {
 				["id"] = "explicit.stat_2954116742|35855",
 				["text"] = "Allocates Fortifying Blood",
 				["type"] = "explicit",
 			},
-			[1286] = {
+			[1287] = {
 				["id"] = "explicit.stat_2954116742|59208",
 				["text"] = "Allocates Frantic Fighter",
 				["type"] = "explicit",
 			},
-			[1287] = {
+			[1288] = {
 				["id"] = "explicit.stat_2954116742|28441",
 				["text"] = "Allocates Frantic Swings",
 				["type"] = "explicit",
 			},
-			[1288] = {
+			[1289] = {
 				["id"] = "explicit.stat_2954116742|32301",
 				["text"] = "Allocates Frazzled",
 				["type"] = "explicit",
 			},
-			[1289] = {
+			[1290] = {
 				["id"] = "explicit.stat_2954116742|51606",
 				["text"] = "Allocates Freedom of Movement",
 				["type"] = "explicit",
 			},
-			[1290] = {
+			[1291] = {
 				["id"] = "explicit.stat_2954116742|40270",
 				["text"] = "Allocates Frenetic",
 				["type"] = "explicit",
 			},
-			[1291] = {
+			[1292] = {
 				["id"] = "explicit.stat_2954116742|45751",
 				["text"] = "Allocates Frightening Shield",
 				["type"] = "explicit",
 			},
-			[1292] = {
+			[1293] = {
 				["id"] = "explicit.stat_2954116742|48699",
 				["text"] = "Allocates Frostwalker",
 				["type"] = "explicit",
 			},
-			[1293] = {
+			[1294] = {
 				["id"] = "explicit.stat_2954116742|20289",
 				["text"] = "Allocates Frozen Claw",
 				["type"] = "explicit",
 			},
-			[1294] = {
+			[1295] = {
 				["id"] = "explicit.stat_2954116742|50715",
 				["text"] = "Allocates Frozen Limit",
 				["type"] = "explicit",
 			},
-			[1295] = {
+			[1296] = {
 				["id"] = "explicit.stat_2954116742|37543",
 				["text"] = "Allocates Full Recovery",
 				["type"] = "explicit",
 			},
-			[1296] = {
+			[1297] = {
 				["id"] = "explicit.stat_2954116742|33887",
 				["text"] = "Allocates Full Salvo",
 				["type"] = "explicit",
 			},
-			[1297] = {
+			[1298] = {
 				["id"] = "explicit.stat_2954116742|24630",
 				["text"] = "Allocates Fulmination",
 				["type"] = "explicit",
 			},
-			[1298] = {
+			[1299] = {
 				["id"] = "explicit.stat_2954116742|32976",
 				["text"] = "Allocates Gem Enthusiast",
 				["type"] = "explicit",
 			},
-			[1299] = {
+			[1300] = {
 				["id"] = "explicit.stat_2954116742|27875",
 				["text"] = "Allocates General Electric",
 				["type"] = "explicit",
 			},
-			[1300] = {
+			[1301] = {
 				["id"] = "explicit.stat_2954116742|17150",
 				["text"] = "Allocates General's Bindings",
 				["type"] = "explicit",
 			},
-			[1301] = {
+			[1302] = {
 				["id"] = "explicit.stat_2954116742|9020",
 				["text"] = "Allocates Giantslayer",
 				["type"] = "explicit",
 			},
-			[1302] = {
+			[1303] = {
 				["id"] = "explicit.stat_2954116742|46365",
 				["text"] = "Allocates Gigantic Following",
 				["type"] = "explicit",
 			},
-			[1303] = {
+			[1304] = {
 				["id"] = "explicit.stat_2954116742|41972",
 				["text"] = "Allocates Glaciation",
 				["type"] = "explicit",
 			},
-			[1304] = {
+			[1305] = {
 				["id"] = "explicit.stat_2954116742|56488",
 				["text"] = "Allocates Glancing Deflection",
 				["type"] = "explicit",
 			},
-			[1305] = {
+			[1306] = {
 				["id"] = "explicit.stat_2954116742|23939",
 				["text"] = "Allocates Glazed Flesh",
 				["type"] = "explicit",
 			},
-			[1306] = {
+			[1307] = {
 				["id"] = "explicit.stat_2954116742|63031",
 				["text"] = "Allocates Glorious Anticipation",
 				["type"] = "explicit",
 			},
-			[1307] = {
+			[1308] = {
 				["id"] = "explicit.stat_2954116742|47316",
 				["text"] = "Allocates Goring",
 				["type"] = "explicit",
 			},
-			[1308] = {
+			[1309] = {
 				["id"] = "explicit.stat_2954116742|41905",
 				["text"] = "Allocates Gravedigger",
 				["type"] = "explicit",
 			},
-			[1309] = {
+			[1310] = {
 				["id"] = "explicit.stat_2954116742|27687",
 				["text"] = "Allocates Greatest Defence",
 				["type"] = "explicit",
 			},
-			[1310] = {
+			[1311] = {
 				["id"] = "explicit.stat_2954116742|58714",
 				["text"] = "Allocates Grenadier",
 				["type"] = "explicit",
 			},
-			[1311] = {
+			[1312] = {
 				["id"] = "explicit.stat_2954116742|31175",
 				["text"] = "Allocates Grip of Evil",
 				["type"] = "explicit",
 			},
-			[1312] = {
+			[1313] = {
 				["id"] = "explicit.stat_2954116742|20416",
 				["text"] = "Allocates Grit",
 				["type"] = "explicit",
 			},
-			[1313] = {
+			[1314] = {
 				["id"] = "explicit.stat_2954116742|13844",
 				["text"] = "Allocates Growing Peril",
 				["type"] = "explicit",
 			},
-			[1314] = {
+			[1315] = {
 				["id"] = "explicit.stat_2954116742|14945",
 				["text"] = "Allocates Growing Swarm",
 				["type"] = "explicit",
 			},
-			[1315] = {
+			[1316] = {
 				["id"] = "explicit.stat_2954116742|4331",
 				["text"] = "Allocates Guided Hand",
 				["type"] = "explicit",
 			},
-			[1316] = {
+			[1317] = {
 				["id"] = "explicit.stat_2954116742|46499",
 				["text"] = "Allocates Guts",
 				["type"] = "explicit",
 			},
-			[1317] = {
+			[1318] = {
 				["id"] = "explicit.stat_2954116742|29762",
 				["text"] = "Allocates Guttural Roar",
 				["type"] = "explicit",
 			},
-			[1318] = {
+			[1319] = {
 				["id"] = "explicit.stat_2954116742|33229",
 				["text"] = "Allocates Haemorrhaging Cuts",
 				["type"] = "explicit",
 			},
-			[1319] = {
+			[1320] = {
 				["id"] = "explicit.stat_2954116742|44974",
 				["text"] = "Allocates Hail",
 				["type"] = "explicit",
 			},
-			[1320] = {
+			[1321] = {
 				["id"] = "explicit.stat_2954116742|15374",
 				["text"] = "Allocates Hale Heart",
 				["type"] = "explicit",
 			},
-			[1321] = {
+			[1322] = {
 				["id"] = "explicit.stat_2954116742|52803",
 				["text"] = "Allocates Hale Traveller",
 				["type"] = "explicit",
 			},
-			[1322] = {
+			[1323] = {
 				["id"] = "explicit.stat_2954116742|34531",
 				["text"] = "Allocates Hallowed",
 				["type"] = "explicit",
 			},
-			[1323] = {
+			[1324] = {
 				["id"] = "explicit.stat_2954116742|24438",
 				["text"] = "Allocates Hardened Wood",
 				["type"] = "explicit",
 			},
-			[1324] = {
+			[1325] = {
 				["id"] = "explicit.stat_2954116742|40480",
 				["text"] = "Allocates Harmonic Generator",
 				["type"] = "explicit",
 			},
-			[1325] = {
+			[1326] = {
 				["id"] = "explicit.stat_2954116742|12611",
 				["text"] = "Allocates Harness the Elements",
 				["type"] = "explicit",
 			},
-			[1326] = {
+			[1327] = {
 				["id"] = "explicit.stat_2954116742|26331",
 				["text"] = "Allocates Harsh Winter",
 				["type"] = "explicit",
 			},
-			[1327] = {
+			[1328] = {
 				["id"] = "explicit.stat_2954116742|44293",
 				["text"] = "Allocates Hastening Barrier",
 				["type"] = "explicit",
 			},
-			[1328] = {
+			[1329] = {
 				["id"] = "explicit.stat_2954116742|48215",
 				["text"] = "Allocates Headshot",
 				["type"] = "explicit",
 			},
-			[1329] = {
+			[1330] = {
 				["id"] = "explicit.stat_2954116742|35966",
 				["text"] = "Allocates Heart Tissue",
 				["type"] = "explicit",
 			},
-			[1330] = {
+			[1331] = {
 				["id"] = "explicit.stat_2954116742|13407",
 				["text"] = "Allocates Heartbreaking",
 				["type"] = "explicit",
 			},
-			[1331] = {
+			[1332] = {
 				["id"] = "explicit.stat_2954116742|38537",
 				["text"] = "Allocates Heartstopping",
 				["type"] = "explicit",
 			},
-			[1332] = {
+			[1333] = {
 				["id"] = "explicit.stat_2954116742|9896",
 				["text"] = "Allocates Heartstopping Presence",
 				["type"] = "explicit",
 			},
-			[1333] = {
+			[1334] = {
 				["id"] = "explicit.stat_2954116742|372",
 				["text"] = "Allocates Heatproof",
 				["type"] = "explicit",
 			},
-			[1334] = {
+			[1335] = {
 				["id"] = "explicit.stat_2954116742|11826",
 				["text"] = "Allocates Heavy Ammunition",
 				["type"] = "explicit",
 			},
-			[1335] = {
+			[1336] = {
 				["id"] = "explicit.stat_2954116742|59589",
 				["text"] = "Allocates Heavy Armour",
 				["type"] = "explicit",
 			},
-			[1336] = {
+			[1337] = {
 				["id"] = "explicit.stat_2954116742|27491",
 				["text"] = "Allocates Heavy Buffer",
 				["type"] = "explicit",
 			},
-			[1337] = {
+			[1338] = {
 				["id"] = "explicit.stat_2954116742|56997",
 				["text"] = "Allocates Heavy Contact",
 				["type"] = "explicit",
 			},
-			[1338] = {
+			[1339] = {
 				["id"] = "explicit.stat_2954116742|15617",
 				["text"] = "Allocates Heavy Drinker",
 				["type"] = "explicit",
 			},
-			[1339] = {
+			[1340] = {
 				["id"] = "explicit.stat_2954116742|4959",
 				["text"] = "Allocates Heavy Frost",
 				["type"] = "explicit",
 			},
-			[1340] = {
+			[1341] = {
 				["id"] = "explicit.stat_2954116742|41512",
 				["text"] = "Allocates Heavy Weaponry",
 				["type"] = "explicit",
 			},
-			[1341] = {
+			[1342] = {
 				["id"] = "explicit.stat_2954116742|48418",
 				["text"] = "Allocates Hefty Unit",
 				["type"] = "explicit",
 			},
-			[1342] = {
+			[1343] = {
 				["id"] = "explicit.stat_2954116742|45777",
 				["text"] = "Allocates Hidden Barb",
 				["type"] = "explicit",
 			},
-			[1343] = {
+			[1344] = {
 				["id"] = "explicit.stat_2954116742|41935",
 				["text"] = "Allocates Hide of the Bear",
 				["type"] = "explicit",
 			},
-			[1344] = {
+			[1345] = {
 				["id"] = "explicit.stat_2954116742|30456",
 				["text"] = "Allocates High Alert",
 				["type"] = "explicit",
 			},
-			[1345] = {
+			[1346] = {
 				["id"] = "explicit.stat_2954116742|54805",
 				["text"] = "Allocates Hindered Capabilities",
 				["type"] = "explicit",
 			},
-			[1346] = {
+			[1347] = {
 				["id"] = "explicit.stat_2954116742|60273",
 				["text"] = "Allocates Hindering Obstacles",
 				["type"] = "explicit",
 			},
-			[1347] = {
+			[1348] = {
 				["id"] = "explicit.stat_2954116742|23078",
 				["text"] = "Allocates Holy Protector",
 				["type"] = "explicit",
 			},
-			[1348] = {
+			[1349] = {
 				["id"] = "explicit.stat_2954116742|48014",
 				["text"] = "Allocates Honourless",
 				["type"] = "explicit",
 			},
-			[1349] = {
+			[1350] = {
 				["id"] = "explicit.stat_2954116742|30395",
 				["text"] = "Allocates Howling Beast",
 				["type"] = "explicit",
 			},
-			[1350] = {
+			[1351] = {
 				["id"] = "explicit.stat_2954116742|4673",
 				["text"] = "Allocates Hulking Smash",
 				["type"] = "explicit",
 			},
-			[1351] = {
+			[1352] = {
 				["id"] = "explicit.stat_2954116742|57471",
 				["text"] = "Allocates Hunker Down",
 				["type"] = "explicit",
 			},
-			[1352] = {
+			[1353] = {
 				["id"] = "explicit.stat_2954116742|48617",
 				["text"] = "Allocates Hunter",
 				["type"] = "explicit",
 			},
-			[1353] = {
+			[1354] = {
 				["id"] = "explicit.stat_2954116742|33099",
 				["text"] = "Allocates Hunter's Talisman",
 				["type"] = "explicit",
 			},
-			[1354] = {
+			[1355] = {
 				["id"] = "explicit.stat_2954116742|32655",
 				["text"] = "Allocates Hunting Companion",
 				["type"] = "explicit",
 			},
-			[1355] = {
+			[1356] = {
 				["id"] = "explicit.stat_2954116742|55847",
 				["text"] = "Allocates Ice Walls",
 				["type"] = "explicit",
 			},
-			[1356] = {
+			[1357] = {
 				["id"] = "explicit.stat_2954116742|4031",
 				["text"] = "Allocates Icebreaker",
 				["type"] = "explicit",
 			},
-			[1357] = {
+			[1358] = {
 				["id"] = "explicit.stat_2954116742|32932",
 				["text"] = "Allocates Ichlotl's Inferno",
 				["type"] = "explicit",
 			},
-			[1358] = {
+			[1359] = {
 				["id"] = "explicit.stat_2954116742|7341",
 				["text"] = "Allocates Ignore Pain",
 				["type"] = "explicit",
 			},
-			[1359] = {
+			[1360] = {
 				["id"] = "explicit.stat_2954116742|1823",
 				["text"] = "Allocates Illuminated Crown",
 				["type"] = "explicit",
 			},
-			[1360] = {
+			[1361] = {
 				["id"] = "explicit.stat_2954116742|50912",
 				["text"] = "Allocates Imbibed Power",
 				["type"] = "explicit",
 			},
-			[1361] = {
+			[1362] = {
 				["id"] = "explicit.stat_2954116742|19156",
 				["text"] = "Allocates Immaterial",
 				["type"] = "explicit",
 			},
-			[1362] = {
+			[1363] = {
 				["id"] = "explicit.stat_2954116742|53030",
 				["text"] = "Allocates Immolation",
 				["type"] = "explicit",
 			},
-			[1363] = {
+			[1364] = {
 				["id"] = "explicit.stat_2954116742|24062",
 				["text"] = "Allocates Immortal Infamy",
 				["type"] = "explicit",
 			},
-			[1364] = {
+			[1365] = {
 				["id"] = "explicit.stat_2954116742|51871",
 				["text"] = "Allocates Immortal Thirst",
 				["type"] = "explicit",
 			},
-			[1365] = {
+			[1366] = {
 				["id"] = "explicit.stat_2954116742|16626",
 				["text"] = "Allocates Impact Area",
 				["type"] = "explicit",
 			},
-			[1366] = {
+			[1367] = {
 				["id"] = "explicit.stat_2954116742|64443",
 				["text"] = "Allocates Impact Force",
 				["type"] = "explicit",
 			},
-			[1367] = {
+			[1368] = {
 				["id"] = "explicit.stat_2954116742|46696",
 				["text"] = "Allocates Impair",
 				["type"] = "explicit",
 			},
-			[1368] = {
+			[1369] = {
 				["id"] = "explicit.stat_2954116742|21748",
 				["text"] = "Allocates Impending Doom",
 				["type"] = "explicit",
 			},
-			[1369] = {
+			[1370] = {
 				["id"] = "explicit.stat_2954116742|65023",
 				["text"] = "Allocates Impenetrable Shell",
 				["type"] = "explicit",
 			},
-			[1370] = {
+			[1371] = {
 				["id"] = "explicit.stat_2954116742|57379",
 				["text"] = "Allocates In Your Face",
 				["type"] = "explicit",
 			},
-			[1371] = {
+			[1372] = {
 				["id"] = "explicit.stat_2954116742|35028",
 				["text"] = "Allocates In the Thick of It",
 				["type"] = "explicit",
 			},
-			[1372] = {
+			[1373] = {
 				["id"] = "explicit.stat_2954116742|62310",
 				["text"] = "Allocates Incendiary",
 				["type"] = "explicit",
 			},
-			[1373] = {
+			[1374] = {
 				["id"] = "explicit.stat_2954116742|36630",
 				["text"] = "Allocates Incision",
 				["type"] = "explicit",
 			},
-			[1374] = {
+			[1375] = {
 				["id"] = "explicit.stat_2954116742|47270",
 				["text"] = "Allocates Inescapable Cold",
 				["type"] = "explicit",
 			},
-			[1375] = {
+			[1376] = {
 				["id"] = "explicit.stat_2954116742|22817",
 				["text"] = "Allocates Inevitable Rupture",
 				["type"] = "explicit",
 			},
-			[1376] = {
+			[1377] = {
 				["id"] = "explicit.stat_2954116742|61354",
 				["text"] = "Allocates Infernal Limit",
 				["type"] = "explicit",
 			},
-			[1377] = {
+			[1378] = {
 				["id"] = "explicit.stat_2954116742|57110",
 				["text"] = "Allocates Infused Flesh",
 				["type"] = "explicit",
 			},
-			[1378] = {
+			[1379] = {
 				["id"] = "explicit.stat_2954116742|38965",
 				["text"] = "Allocates Infused Limits",
 				["type"] = "explicit",
 			},
-			[1379] = {
+			[1380] = {
 				["id"] = "explicit.stat_2954116742|24764",
 				["text"] = "Allocates Infusing Power",
 				["type"] = "explicit",
 			},
-			[1380] = {
+			[1381] = {
 				["id"] = "explicit.stat_2954116742|59387",
 				["text"] = "Allocates Infusion of Power",
 				["type"] = "explicit",
 			},
-			[1381] = {
+			[1382] = {
 				["id"] = "explicit.stat_2954116742|39567",
 				["text"] = "Allocates Ingenuity",
 				["type"] = "explicit",
 			},
-			[1382] = {
+			[1383] = {
 				["id"] = "explicit.stat_2954116742|46683",
 				["text"] = "Allocates Inherited Strength ",
 				["type"] = "explicit",
 			},
-			[1383] = {
+			[1384] = {
 				["id"] = "explicit.stat_2954116742|23227",
 				["text"] = "Allocates Initiative",
 				["type"] = "explicit",
 			},
-			[1384] = {
+			[1385] = {
 				["id"] = "explicit.stat_2954116742|30562",
 				["text"] = "Allocates Inner Faith",
 				["type"] = "explicit",
 			},
-			[1385] = {
+			[1386] = {
 				["id"] = "explicit.stat_2954116742|116",
 				["text"] = "Allocates Insightfulness",
 				["type"] = "explicit",
 			},
-			[1386] = {
+			[1387] = {
 				["id"] = "explicit.stat_2954116742|16150",
 				["text"] = "Allocates Inspiring Ally",
 				["type"] = "explicit",
 			},
-			[1387] = {
+			[1388] = {
 				["id"] = "explicit.stat_2954116742|4661",
 				["text"] = "Allocates Inspiring Leader",
 				["type"] = "explicit",
 			},
-			[1388] = {
+			[1389] = {
 				["id"] = "explicit.stat_2954116742|43944",
 				["text"] = "Allocates Instability",
 				["type"] = "explicit",
 			},
-			[1389] = {
+			[1390] = {
 				["id"] = "explicit.stat_2954116742|9736",
 				["text"] = "Allocates Insulated Treads",
 				["type"] = "explicit",
 			},
-			[1390] = {
+			[1391] = {
 				["id"] = "explicit.stat_2954116742|48649",
 				["text"] = "Allocates Insulating Hide",
 				["type"] = "explicit",
 			},
-			[1391] = {
+			[1392] = {
 				["id"] = "explicit.stat_2954116742|46182",
 				["text"] = "Allocates Intense Dose",
 				["type"] = "explicit",
 			},
-			[1392] = {
+			[1393] = {
 				["id"] = "explicit.stat_2954116742|65016",
 				["text"] = "Allocates Intense Flames",
 				["type"] = "explicit",
 			},
-			[1393] = {
+			[1394] = {
 				["id"] = "explicit.stat_2954116742|7668",
 				["text"] = "Allocates Internal Bleeding",
 				["type"] = "explicit",
 			},
-			[1394] = {
+			[1395] = {
 				["id"] = "explicit.stat_2954116742|35369",
 				["text"] = "Allocates Investing Energies",
 				["type"] = "explicit",
 			},
-			[1395] = {
+			[1396] = {
 				["id"] = "explicit.stat_2954116742|41394",
 				["text"] = "Allocates Invigorating Archon",
 				["type"] = "explicit",
 			},
-			[1396] = {
+			[1397] = {
 				["id"] = "explicit.stat_2954116742|50023",
 				["text"] = "Allocates Invigorating Grandeur",
 				["type"] = "explicit",
 			},
-			[1397] = {
+			[1398] = {
 				["id"] = "explicit.stat_2954116742|28408",
 				["text"] = "Allocates Invigorating Hate",
 				["type"] = "explicit",
 			},
-			[1398] = {
+			[1399] = {
 				["id"] = "explicit.stat_2954116742|24491",
 				["text"] = "Allocates Invocated Echoes",
 				["type"] = "explicit",
 			},
-			[1399] = {
+			[1400] = {
 				["id"] = "explicit.stat_2954116742|51934",
 				["text"] = "Allocates Invocated Efficiency",
 				["type"] = "explicit",
 			},
-			[1400] = {
+			[1401] = {
 				["id"] = "explicit.stat_2954116742|338",
 				["text"] = "Allocates Invocated Limit",
 				["type"] = "explicit",
 			},
-			[1401] = {
+			[1402] = {
 				["id"] = "explicit.stat_2954116742|31724",
 				["text"] = "Allocates Iron Slippers",
 				["type"] = "explicit",
 			},
-			[1402] = {
+			[1403] = {
 				["id"] = "explicit.stat_2954116742|22626",
 				["text"] = "Allocates Irreparable",
 				["type"] = "explicit",
 			},
-			[1403] = {
+			[1404] = {
 				["id"] = "explicit.stat_2954116742|16618",
 				["text"] = "Allocates Jack of all Trades",
 				["type"] = "explicit",
 			},
-			[1404] = {
+			[1405] = {
 				["id"] = "explicit.stat_2954116742|10265",
 				["text"] = "Allocates Javelin",
 				["type"] = "explicit",
 			},
-			[1405] = {
+			[1406] = {
 				["id"] = "explicit.stat_2954116742|37302",
 				["text"] = "Allocates Kept at Bay",
 				["type"] = "explicit",
 			},
-			[1406] = {
+			[1407] = {
 				["id"] = "explicit.stat_2954116742|56453",
 				["text"] = "Allocates Killer Instinct",
 				["type"] = "explicit",
 			},
-			[1407] = {
+			[1408] = {
 				["id"] = "explicit.stat_2954116742|26107",
 				["text"] = "Allocates Kite Runner",
 				["type"] = "explicit",
 			},
-			[1408] = {
+			[1409] = {
 				["id"] = "explicit.stat_2954116742|2397",
 				["text"] = "Allocates Last Stand",
 				["type"] = "explicit",
 			},
-			[1409] = {
+			[1410] = {
 				["id"] = "explicit.stat_2954116742|64659",
 				["text"] = "Allocates Lasting Boons",
 				["type"] = "explicit",
 			},
-			[1410] = {
+			[1411] = {
 				["id"] = "explicit.stat_2954116742|58096",
 				["text"] = "Allocates Lasting Incantations",
 				["type"] = "explicit",
 			},
-			[1411] = {
+			[1412] = {
 				["id"] = "explicit.stat_2954116742|61741",
 				["text"] = "Allocates Lasting Toxins",
 				["type"] = "explicit",
 			},
-			[1412] = {
+			[1413] = {
 				["id"] = "explicit.stat_2954116742|18496",
 				["text"] = "Allocates Lasting Trauma",
 				["type"] = "explicit",
 			},
-			[1413] = {
+			[1414] = {
 				["id"] = "explicit.stat_2954116742|8607",
 				["text"] = "Allocates Lavianga's Brew",
 				["type"] = "explicit",
 			},
-			[1414] = {
+			[1415] = {
 				["id"] = "explicit.stat_2954116742|45599",
 				["text"] = "Allocates Lay Siege",
 				["type"] = "explicit",
 			},
-			[1415] = {
+			[1416] = {
 				["id"] = "explicit.stat_2954116742|40687",
 				["text"] = "Allocates Lead by Example",
 				["type"] = "explicit",
 			},
-			[1416] = {
+			[1417] = {
 				["id"] = "explicit.stat_2954116742|8531",
 				["text"] = "Allocates Leaping Ambush",
 				["type"] = "explicit",
 			},
-			[1417] = {
+			[1418] = {
 				["id"] = "explicit.stat_2954116742|51446",
 				["text"] = "Allocates Leather Bound Gauntlets",
 				["type"] = "explicit",
 			},
-			[1418] = {
+			[1419] = {
 				["id"] = "explicit.stat_2954116742|63431",
 				["text"] = "Allocates Leeching Toxins",
 				["type"] = "explicit",
 			},
-			[1419] = {
+			[1420] = {
 				["id"] = "explicit.stat_2954116742|19644",
 				["text"] = "Allocates Left Hand of Darkness",
 				["type"] = "explicit",
 			},
-			[1420] = {
+			[1421] = {
 				["id"] = "explicit.stat_2954116742|55375",
 				["text"] = "Allocates Licking Wounds",
 				["type"] = "explicit",
 			},
-			[1421] = {
+			[1422] = {
 				["id"] = "explicit.stat_2954116742|31129",
 				["text"] = "Allocates Lifelong Friend",
 				["type"] = "explicit",
 			},
-			[1422] = {
+			[1423] = {
 				["id"] = "explicit.stat_2954116742|55131",
 				["text"] = "Allocates Light on your Feet",
 				["type"] = "explicit",
 			},
-			[1423] = {
+			[1424] = {
 				["id"] = "explicit.stat_2954116742|13738",
 				["text"] = "Allocates Lightning Quick",
 				["type"] = "explicit",
 			},
-			[1424] = {
+			[1425] = {
 				["id"] = "explicit.stat_2954116742|44566",
 				["text"] = "Allocates Lightning Rod",
 				["type"] = "explicit",
 			},
-			[1425] = {
+			[1426] = {
 				["id"] = "explicit.stat_2954116742|56063",
 				["text"] = "Allocates Lingering Horror",
 				["type"] = "explicit",
 			},
-			[1426] = {
+			[1427] = {
 				["id"] = "explicit.stat_2954116742|16499",
 				["text"] = "Allocates Lingering Whispers",
 				["type"] = "explicit",
 			},
-			[1427] = {
+			[1428] = {
 				["id"] = "explicit.stat_2954116742|62887",
 				["text"] = "Allocates Living Death",
 				["type"] = "explicit",
 			},
-			[1428] = {
+			[1429] = {
 				["id"] = "explicit.stat_2954116742|31745",
 				["text"] = "Allocates Lockdown",
 				["type"] = "explicit",
 			},
-			[1429] = {
+			[1430] = {
 				["id"] = "explicit.stat_2954116742|56999",
 				["text"] = "Allocates Locked On",
 				["type"] = "explicit",
 			},
-			[1430] = {
+			[1431] = {
 				["id"] = "explicit.stat_2954116742|12964",
 				["text"] = "Allocates Lone Warrior",
 				["type"] = "explicit",
 			},
-			[1431] = {
+			[1432] = {
 				["id"] = "explicit.stat_2954116742|31826",
 				["text"] = "Allocates Long Distance Relationship",
 				["type"] = "explicit",
 			},
-			[1432] = {
+			[1433] = {
 				["id"] = "explicit.stat_2954116742|13542",
 				["text"] = "Allocates Loose Flesh",
 				["type"] = "explicit",
 			},
-			[1433] = {
+			[1434] = {
 				["id"] = "explicit.stat_2954116742|33240",
 				["text"] = "Allocates Lord of Horrors",
 				["type"] = "explicit",
 			},
-			[1434] = {
+			[1435] = {
 				["id"] = "explicit.stat_2954116742|42959",
 				["text"] = "Allocates Low Tolerance",
 				["type"] = "explicit",
 			},
-			[1435] = {
+			[1436] = {
 				["id"] = "explicit.stat_2954116742|51891",
 				["text"] = "Allocates Lucidity",
 				["type"] = "explicit",
 			},
-			[1436] = {
+			[1437] = {
 				["id"] = "explicit.stat_2954116742|59303",
 				["text"] = "Allocates Lucky Rabbit Foot",
 				["type"] = "explicit",
 			},
-			[1437] = {
+			[1438] = {
 				["id"] = "explicit.stat_2954116742|1104",
 				["text"] = "Allocates Lust for Power",
 				["type"] = "explicit",
 			},
-			[1438] = {
+			[1439] = {
 				["id"] = "explicit.stat_2954116742|27009",
 				["text"] = "Allocates Lust for Sacrifice",
 				["type"] = "explicit",
 			},
-			[1439] = {
+			[1440] = {
 				["id"] = "explicit.stat_2954116742|44952",
 				["text"] = "Allocates Made to Last",
 				["type"] = "explicit",
 			},
-			[1440] = {
+			[1441] = {
 				["id"] = "explicit.stat_2954116742|23738",
 				["text"] = "Allocates Madness in the Bones",
 				["type"] = "explicit",
 			},
-			[1441] = {
+			[1442] = {
 				["id"] = "explicit.stat_2954116742|41580",
 				["text"] = "Allocates Maiming Strike",
 				["type"] = "explicit",
 			},
-			[1442] = {
+			[1443] = {
 				["id"] = "explicit.stat_2954116742|37742",
 				["text"] = "Allocates Manifold Method",
 				["type"] = "explicit",
 			},
-			[1443] = {
+			[1444] = {
 				["id"] = "explicit.stat_2954116742|64050",
 				["text"] = "Allocates Marathon Runner",
 				["type"] = "explicit",
 			},
-			[1444] = {
+			[1445] = {
 				["id"] = "explicit.stat_2954116742|44756",
 				["text"] = "Allocates Marked Agility",
 				["type"] = "explicit",
 			},
-			[1445] = {
+			[1446] = {
 				["id"] = "explicit.stat_2954116742|36976",
 				["text"] = "Allocates Marked for Death",
 				["type"] = "explicit",
 			},
-			[1446] = {
+			[1447] = {
 				["id"] = "explicit.stat_2954116742|63830",
 				["text"] = "Allocates Marked for Sickness",
 				["type"] = "explicit",
 			},
-			[1447] = {
+			[1448] = {
 				["id"] = "explicit.stat_2954116742|2113",
 				["text"] = "Allocates Martial Artistry",
 				["type"] = "explicit",
 			},
-			[1448] = {
+			[1449] = {
 				["id"] = "explicit.stat_2954116742|27108",
 				["text"] = "Allocates Mass Hysteria",
 				["type"] = "explicit",
 			},
-			[1449] = {
+			[1450] = {
 				["id"] = "explicit.stat_2954116742|34340",
 				["text"] = "Allocates Mass Rejuvenation",
 				["type"] = "explicit",
 			},
-			[1450] = {
+			[1451] = {
 				["id"] = "explicit.stat_2954116742|30341",
 				["text"] = "Allocates Master Fletching",
 				["type"] = "explicit",
 			},
-			[1451] = {
+			[1452] = {
 				["id"] = "explicit.stat_2954116742|40345",
 				["text"] = "Allocates Master of Hexes",
 				["type"] = "explicit",
 			},
-			[1452] = {
+			[1453] = {
 				["id"] = "explicit.stat_2954116742|27513",
 				["text"] = "Allocates Material Solidification",
 				["type"] = "explicit",
 			},
-			[1453] = {
+			[1454] = {
 				["id"] = "explicit.stat_2954116742|11886",
 				["text"] = "Allocates Mauling Stuns",
 				["type"] = "explicit",
 			},
-			[1454] = {
+			[1455] = {
 				["id"] = "explicit.stat_2954116742|25620",
 				["text"] = "Allocates Meat Recycling",
 				["type"] = "explicit",
 			},
-			[1455] = {
+			[1456] = {
 				["id"] = "explicit.stat_2954116742|3215",
 				["text"] = "Allocates Melding",
 				["type"] = "explicit",
 			},
-			[1456] = {
+			[1457] = {
 				["id"] = "explicit.stat_2954116742|43939",
 				["text"] = "Allocates Melting Flames",
 				["type"] = "explicit",
 			},
-			[1457] = {
+			[1458] = {
 				["id"] = "explicit.stat_2954116742|9652",
 				["text"] = "Allocates Mending Deflection",
 				["type"] = "explicit",
 			},
-			[1458] = {
+			[1459] = {
 				["id"] = "explicit.stat_2954116742|16466",
 				["text"] = "Allocates Mental Alacrity",
 				["type"] = "explicit",
 			},
-			[1459] = {
+			[1460] = {
 				["id"] = "explicit.stat_2954116742|9226",
 				["text"] = "Allocates Mental Perseverance",
 				["type"] = "explicit",
 			},
-			[1460] = {
+			[1461] = {
 				["id"] = "explicit.stat_2954116742|24120",
 				["text"] = "Allocates Mental Toughness",
 				["type"] = "explicit",
 			},
-			[1461] = {
+			[1462] = {
 				["id"] = "explicit.stat_2954116742|45632",
 				["text"] = "Allocates Mind Eraser",
 				["type"] = "explicit",
 			},
-			[1462] = {
+			[1463] = {
 				["id"] = "explicit.stat_2954116742|11392",
 				["text"] = "Allocates Molten Being",
 				["type"] = "explicit",
 			},
-			[1463] = {
+			[1464] = {
 				["id"] = "explicit.stat_2954116742|51868",
 				["text"] = "Allocates Molten Carapace",
 				["type"] = "explicit",
 			},
-			[1464] = {
+			[1465] = {
 				["id"] = "explicit.stat_2954116742|36100",
 				["text"] = "Allocates Molten Claw",
 				["type"] = "explicit",
 			},
-			[1465] = {
+			[1466] = {
 				["id"] = "explicit.stat_2954116742|17548",
 				["text"] = "Allocates Moment of Truth",
 				["type"] = "explicit",
 			},
-			[1466] = {
+			[1467] = {
 				["id"] = "explicit.stat_2954116742|63579",
 				["text"] = "Allocates Momentum",
 				["type"] = "explicit",
 			},
-			[1467] = {
+			[1468] = {
 				["id"] = "explicit.stat_2954116742|47560",
 				["text"] = "Allocates Multi Shot",
 				["type"] = "explicit",
 			},
-			[1468] = {
+			[1469] = {
 				["id"] = "explicit.stat_2954116742|8810",
 				["text"] = "Allocates Multitasking",
 				["type"] = "explicit",
 			},
-			[1469] = {
+			[1470] = {
 				["id"] = "explicit.stat_2954116742|52764",
 				["text"] = "Allocates Mystical Rage",
 				["type"] = "explicit",
 			},
-			[1470] = {
+			[1471] = {
 				["id"] = "explicit.stat_2954116742|934",
 				["text"] = "Allocates Natural Immunity",
 				["type"] = "explicit",
 			},
-			[1471] = {
+			[1472] = {
 				["id"] = "explicit.stat_2954116742|53265",
 				["text"] = "Allocates Nature's Bite",
 				["type"] = "explicit",
 			},
-			[1472] = {
+			[1473] = {
 				["id"] = "explicit.stat_2954116742|4709",
 				["text"] = "Allocates Near Sighted",
 				["type"] = "explicit",
 			},
-			[1473] = {
+			[1474] = {
 				["id"] = "explicit.stat_2954116742|35581",
 				["text"] = "Allocates Near at Hand",
 				["type"] = "explicit",
 			},
-			[1474] = {
+			[1475] = {
 				["id"] = "explicit.stat_2954116742|10499",
 				["text"] = "Allocates Necromantic Ward",
 				["type"] = "explicit",
 			},
-			[1475] = {
+			[1476] = {
 				["id"] = "explicit.stat_2954116742|11376",
 				["text"] = "Allocates Necrotic Touch",
 				["type"] = "explicit",
 			},
-			[1476] = {
+			[1477] = {
 				["id"] = "explicit.stat_2954116742|59541",
 				["text"] = "Allocates Necrotised Flesh",
 				["type"] = "explicit",
 			},
-			[1477] = {
+			[1478] = {
 				["id"] = "explicit.stat_2954116742|40292",
 				["text"] = "Allocates Nimble Strength",
 				["type"] = "explicit",
 			},
-			[1478] = {
+			[1479] = {
 				["id"] = "explicit.stat_2954116742|37266",
 				["text"] = "Allocates Nourishing Ally",
 				["type"] = "explicit",
 			},
-			[1479] = {
+			[1480] = {
 				["id"] = "explicit.stat_2954116742|60992",
 				["text"] = "Allocates Nurturing Guardian",
 				["type"] = "explicit",
 			},
-			[1480] = {
+			[1481] = {
 				["id"] = "explicit.stat_2954116742|42036",
 				["text"] = "Allocates Off-Balancing Retort",
 				["type"] = "explicit",
 			},
-			[1481] = {
+			[1482] = {
 				["id"] = "explicit.stat_2954116742|35918",
 				["text"] = "Allocates One For All",
 				["type"] = "explicit",
 			},
-			[1482] = {
+			[1483] = {
 				["id"] = "explicit.stat_2954116742|44753",
 				["text"] = "Allocates One With Flame",
 				["type"] = "explicit",
 			},
-			[1483] = {
+			[1484] = {
 				["id"] = "explicit.stat_2954116742|34316",
 				["text"] = "Allocates One with the River",
 				["type"] = "explicit",
 			},
-			[1484] = {
+			[1485] = {
 				["id"] = "explicit.stat_2954116742|9444",
 				["text"] = "Allocates One with the Storm",
 				["type"] = "explicit",
 			},
-			[1485] = {
+			[1486] = {
 				["id"] = "explicit.stat_2954116742|52199",
 				["text"] = "Allocates Overexposure",
 				["type"] = "explicit",
 			},
-			[1486] = {
+			[1487] = {
 				["id"] = "explicit.stat_2954116742|65204",
 				["text"] = "Allocates Overflowing Power",
 				["type"] = "explicit",
 			},
-			[1487] = {
+			[1488] = {
 				["id"] = "explicit.stat_2954116742|42390",
 				["text"] = "Allocates Overheating Blow",
 				["type"] = "explicit",
 			},
-			[1488] = {
+			[1489] = {
 				["id"] = "explicit.stat_2954116742|47635",
 				["text"] = "Allocates Overload",
 				["type"] = "explicit",
 			},
-			[1489] = {
+			[1490] = {
 				["id"] = "explicit.stat_2954116742|25513",
 				["text"] = "Allocates Overwhelm",
 				["type"] = "explicit",
 			},
-			[1490] = {
+			[1491] = {
 				["id"] = "explicit.stat_2954116742|57388",
 				["text"] = "Allocates Overwhelming Strike",
 				["type"] = "explicit",
 			},
-			[1491] = {
+			[1492] = {
 				["id"] = "explicit.stat_2954116742|10295",
 				["text"] = "Allocates Overzealous",
 				["type"] = "explicit",
 			},
-			[1492] = {
+			[1493] = {
 				["id"] = "explicit.stat_2954116742|21784",
 				["text"] = "Allocates Pack Encouragement",
 				["type"] = "explicit",
 			},
-			[1493] = {
+			[1494] = {
 				["id"] = "explicit.stat_2954116742|20686",
 				["text"] = "Allocates Paragon",
 				["type"] = "explicit",
 			},
-			[1494] = {
+			[1495] = {
 				["id"] = "explicit.stat_2954116742|24766",
 				["text"] = "Allocates Paranoia",
 				["type"] = "explicit",
 			},
-			[1495] = {
+			[1496] = {
 				["id"] = "explicit.stat_2954116742|56016",
 				["text"] = "Allocates Passthrough Rounds",
 				["type"] = "explicit",
 			},
-			[1496] = {
+			[1497] = {
 				["id"] = "explicit.stat_2954116742|62230",
 				["text"] = "Allocates Patient Barrier",
 				["type"] = "explicit",
 			},
-			[1497] = {
+			[1498] = {
 				["id"] = "explicit.stat_2954116742|60404",
 				["text"] = "Allocates Perfect Opportunity",
 				["type"] = "explicit",
 			},
-			[1498] = {
+			[1499] = {
 				["id"] = "explicit.stat_2954116742|49661",
 				["text"] = "Allocates Perfectly Placed Knife",
 				["type"] = "explicit",
 			},
-			[1499] = {
+			[1500] = {
 				["id"] = "explicit.stat_2954116742|17330",
 				["text"] = "Allocates Perforation",
 				["type"] = "explicit",
 			},
-			[1500] = {
+			[1501] = {
 				["id"] = "explicit.stat_2954116742|2863",
 				["text"] = "Allocates Perpetual Freeze",
 				["type"] = "explicit",
 			},
-			[1501] = {
+			[1502] = {
 				["id"] = "explicit.stat_2954116742|34308",
 				["text"] = "Allocates Personal Touch",
 				["type"] = "explicit",
 			},
-			[1502] = {
+			[1503] = {
 				["id"] = "explicit.stat_2954116742|7651",
 				["text"] = "Allocates Pierce the Heart",
 				["type"] = "explicit",
 			},
-			[1503] = {
+			[1504] = {
 				["id"] = "explicit.stat_2954116742|17260",
 				["text"] = "Allocates Piercing Claw",
 				["type"] = "explicit",
 			},
-			[1504] = {
+			[1505] = {
 				["id"] = "explicit.stat_2954116742|4534",
 				["text"] = "Allocates Piercing Shot",
 				["type"] = "explicit",
 			},
-			[1505] = {
+			[1506] = {
 				["id"] = "explicit.stat_2954116742|51129",
 				["text"] = "Allocates Pile On",
 				["type"] = "explicit",
 			},
-			[1506] = {
+			[1507] = {
 				["id"] = "explicit.stat_2954116742|60083",
 				["text"] = "Allocates Pin and Run",
 				["type"] = "explicit",
 			},
-			[1507] = {
+			[1508] = {
 				["id"] = "explicit.stat_2954116742|4447",
 				["text"] = "Allocates Pin their Motivation",
 				["type"] = "explicit",
 			},
-			[1508] = {
+			[1509] = {
 				["id"] = "explicit.stat_2954116742|16816",
 				["text"] = "Allocates Pinpoint Shot",
 				["type"] = "explicit",
 			},
-			[1509] = {
+			[1510] = {
 				["id"] = "explicit.stat_2954116742|38111",
 				["text"] = "Allocates Pliable Flesh",
 				["type"] = "explicit",
 			},
-			[1510] = {
+			[1511] = {
 				["id"] = "explicit.stat_2954116742|58426",
 				["text"] = "Allocates Pocket Sand",
 				["type"] = "explicit",
 			},
-			[1511] = {
+			[1512] = {
 				["id"] = "explicit.stat_2954116742|27950",
 				["text"] = "Allocates Polished Iron",
 				["type"] = "explicit",
 			},
-			[1512] = {
+			[1513] = {
 				["id"] = "explicit.stat_2954116742|57047",
 				["text"] = "Allocates Polymathy",
 				["type"] = "explicit",
 			},
-			[1513] = {
+			[1514] = {
 				["id"] = "explicit.stat_2954116742|19125",
 				["text"] = "Allocates Potent Incantation",
 				["type"] = "explicit",
 			},
-			[1514] = {
+			[1515] = {
 				["id"] = "explicit.stat_2954116742|15083",
 				["text"] = "Allocates Power Conduction",
 				["type"] = "explicit",
 			},
-			[1515] = {
+			[1516] = {
 				["id"] = "explicit.stat_2954116742|6178",
 				["text"] = "Allocates Power Shots",
 				["type"] = "explicit",
 			},
-			[1516] = {
+			[1517] = {
 				["id"] = "explicit.stat_2954116742|49150",
 				["text"] = "Allocates Precise Invocations",
 				["type"] = "explicit",
 			},
-			[1517] = {
+			[1518] = {
 				["id"] = "explicit.stat_2954116742|13895",
 				["text"] = "Allocates Precise Point",
 				["type"] = "explicit",
 			},
-			[1518] = {
+			[1519] = {
 				["id"] = "explicit.stat_2954116742|34425",
 				["text"] = "Allocates Precise Volatility",
 				["type"] = "explicit",
 			},
-			[1519] = {
+			[1520] = {
 				["id"] = "explicit.stat_2954116742|19337",
 				["text"] = "Allocates Precision Salvo",
 				["type"] = "explicit",
 			},
-			[1520] = {
+			[1521] = {
 				["id"] = "explicit.stat_2954116742|21380",
 				["text"] = "Allocates Preemptive Strike",
 				["type"] = "explicit",
 			},
-			[1521] = {
+			[1522] = {
 				["id"] = "explicit.stat_2954116742|37872",
 				["text"] = "Allocates Presence Present",
 				["type"] = "explicit",
 			},
-			[1522] = {
+			[1523] = {
 				["id"] = "explicit.stat_2954116742|32951",
 				["text"] = "Allocates Preservation",
 				["type"] = "explicit",
 			},
-			[1523] = {
+			[1524] = {
 				["id"] = "explicit.stat_2954116742|28329",
 				["text"] = "Allocates Pressure Points",
 				["type"] = "explicit",
 			},
-			[1524] = {
+			[1525] = {
 				["id"] = "explicit.stat_2954116742|9908",
 				["text"] = "Allocates Price of Freedom",
 				["type"] = "explicit",
 			},
-			[1525] = {
+			[1526] = {
 				["id"] = "explicit.stat_2954116742|32071",
 				["text"] = "Allocates Primal Growth",
 				["type"] = "explicit",
 			},
-			[1526] = {
+			[1527] = {
 				["id"] = "explicit.stat_2954116742|31364",
 				["text"] = "Allocates Primal Protection",
 				["type"] = "explicit",
 			},
-			[1527] = {
+			[1528] = {
 				["id"] = "explicit.stat_2954116742|28892",
 				["text"] = "Allocates Primal Rage",
 				["type"] = "explicit",
 			},
-			[1528] = {
+			[1529] = {
 				["id"] = "explicit.stat_2954116742|50884",
 				["text"] = "Allocates Primal Sundering",
 				["type"] = "explicit",
 			},
-			[1529] = {
+			[1530] = {
 				["id"] = "explicit.stat_2954116742|26356",
 				["text"] = "Allocates Primed to Explode",
 				["type"] = "explicit",
 			},
-			[1530] = {
+			[1531] = {
 				["id"] = "explicit.stat_2954116742|62034",
 				["text"] = "Allocates Prism Guard",
 				["type"] = "explicit",
 			},
-			[1531] = {
+			[1532] = {
 				["id"] = "explicit.stat_2954116742|54814",
 				["text"] = "Allocates Profane Commander",
 				["type"] = "explicit",
 			},
-			[1532] = {
+			[1533] = {
 				["id"] = "explicit.stat_2954116742|58397",
 				["text"] = "Allocates Proficiency",
 				["type"] = "explicit",
 			},
-			[1533] = {
+			[1534] = {
 				["id"] = "explicit.stat_2954116742|19236",
 				["text"] = "Allocates Projectile Bulwark",
 				["type"] = "explicit",
 			},
-			[1534] = {
+			[1535] = {
 				["id"] = "explicit.stat_2954116742|45874",
 				["text"] = "Allocates Proliferating Weeds",
 				["type"] = "explicit",
 			},
-			[1535] = {
+			[1536] = {
 				["id"] = "explicit.stat_2954116742|19442",
 				["text"] = "Allocates Prolonged Assault",
 				["type"] = "explicit",
 			},
-			[1536] = {
+			[1537] = {
 				["id"] = "explicit.stat_2954116742|49550",
 				["text"] = "Allocates Prolonged Fury",
 				["type"] = "explicit",
 			},
-			[1537] = {
+			[1538] = {
 				["id"] = "explicit.stat_2954116742|54998",
 				["text"] = "Allocates Protraction",
 				["type"] = "explicit",
 			},
-			[1538] = {
+			[1539] = {
 				["id"] = "explicit.stat_2954116742|38614",
 				["text"] = "Allocates Psychic Fragmentation",
 				["type"] = "explicit",
 			},
-			[1539] = {
+			[1540] = {
 				["id"] = "explicit.stat_2954116742|13482",
 				["text"] = "Allocates Punctured Lung",
 				["type"] = "explicit",
 			},
-			[1540] = {
+			[1541] = {
 				["id"] = "explicit.stat_2954116742|55149",
 				["text"] = "Allocates Pure Chaos",
 				["type"] = "explicit",
 			},
-			[1541] = {
+			[1542] = {
 				["id"] = "explicit.stat_2954116742|28975",
 				["text"] = "Allocates Pure Power",
 				["type"] = "explicit",
 			},
-			[1542] = {
+			[1543] = {
 				["id"] = "explicit.stat_2954116742|6229",
 				["text"] = "Allocates Push the Advantage",
 				["type"] = "explicit",
 			},
-			[1543] = {
+			[1544] = {
 				["id"] = "explicit.stat_2954116742|33542",
 				["text"] = "Allocates Quick Fingers",
 				["type"] = "explicit",
 			},
-			[1544] = {
+			[1545] = {
 				["id"] = "explicit.stat_2954116742|48240",
 				["text"] = "Allocates Quick Recovery",
 				["type"] = "explicit",
 			},
-			[1545] = {
+			[1546] = {
 				["id"] = "explicit.stat_2954116742|55450",
 				["text"] = "Allocates Rallying Form",
 				["type"] = "explicit",
 			},
-			[1546] = {
+			[1547] = {
 				["id"] = "explicit.stat_2954116742|43791",
 				["text"] = "Allocates Rallying Icon",
 				["type"] = "explicit",
 			},
-			[1547] = {
+			[1548] = {
 				["id"] = "explicit.stat_2954116742|64119",
 				["text"] = "Allocates Rapid Reload",
 				["type"] = "explicit",
 			},
-			[1548] = {
+			[1549] = {
 				["id"] = "explicit.stat_2954116742|7604",
 				["text"] = "Allocates Rapid Strike",
 				["type"] = "explicit",
 			},
-			[1549] = {
+			[1550] = {
 				["id"] = "explicit.stat_2954116742|62185",
 				["text"] = "Allocates Rattled",
 				["type"] = "explicit",
 			},
-			[1550] = {
+			[1551] = {
 				["id"] = "explicit.stat_2954116742|3567",
 				["text"] = "Allocates Raw Mana",
 				["type"] = "explicit",
 			},
-			[1551] = {
+			[1552] = {
 				["id"] = "explicit.stat_2954116742|17372",
 				["text"] = "Allocates Reaching Strike",
 				["type"] = "explicit",
 			},
-			[1552] = {
+			[1553] = {
 				["id"] = "explicit.stat_2954116742|10602",
 				["text"] = "Allocates Reaving",
 				["type"] = "explicit",
 			},
-			[1553] = {
+			[1554] = {
 				["id"] = "explicit.stat_2954116742|45244",
 				["text"] = "Allocates Refills",
 				["type"] = "explicit",
 			},
-			[1554] = {
+			[1555] = {
 				["id"] = "explicit.stat_2954116742|26447",
 				["text"] = "Allocates Refocus",
 				["type"] = "explicit",
 			},
-			[1555] = {
+			[1556] = {
 				["id"] = "explicit.stat_2954116742|20388",
 				["text"] = "Allocates Regenerative Flesh",
 				["type"] = "explicit",
 			},
-			[1556] = {
+			[1557] = {
 				["id"] = "explicit.stat_2954116742|56388",
 				["text"] = "Allocates Reinforced Rallying",
 				["type"] = "explicit",
 			},
-			[1557] = {
+			[1558] = {
 				["id"] = "explicit.stat_2954116742|35809",
 				["text"] = "Allocates Reinvigoration",
 				["type"] = "explicit",
 			},
-			[1558] = {
+			[1559] = {
 				["id"] = "explicit.stat_2954116742|55180",
 				["text"] = "Allocates Relentless Fallen",
 				["type"] = "explicit",
 			},
-			[1559] = {
+			[1560] = {
 				["id"] = "explicit.stat_2954116742|1506",
 				["text"] = "Allocates Remnant Attraction",
 				["type"] = "explicit",
 			},
-			[1560] = {
+			[1561] = {
 				["id"] = "explicit.stat_2954116742|65468",
 				["text"] = "Allocates Repeating Explosives",
 				["type"] = "explicit",
 			},
-			[1561] = {
+			[1562] = {
 				["id"] = "explicit.stat_2954116742|20414",
 				["text"] = "Allocates Reprisal",
 				["type"] = "explicit",
 			},
-			[1562] = {
+			[1563] = {
 				["id"] = "explicit.stat_2954116742|10029",
 				["text"] = "Allocates Repulsion",
 				["type"] = "explicit",
 			},
-			[1563] = {
+			[1564] = {
 				["id"] = "explicit.stat_2954116742|56860",
 				["text"] = "Allocates Resolute Reprisal",
 				["type"] = "explicit",
 			},
-			[1564] = {
+			[1565] = {
 				["id"] = "explicit.stat_2954116742|40325",
 				["text"] = "Allocates Resolution",
 				["type"] = "explicit",
 			},
-			[1565] = {
+			[1566] = {
 				["id"] = "explicit.stat_2954116742|38972",
 				["text"] = "Allocates Restless Dead",
 				["type"] = "explicit",
 			},
-			[1566] = {
+			[1567] = {
 				["id"] = "explicit.stat_2954116742|31773",
 				["text"] = "Allocates Resurging Archon",
 				["type"] = "explicit",
 			},
-			[1567] = {
+			[1568] = {
 				["id"] = "explicit.stat_2954116742|7395",
 				["text"] = "Allocates Retaliation",
 				["type"] = "explicit",
 			},
-			[1568] = {
+			[1569] = {
 				["id"] = "explicit.stat_2954116742|9009",
 				["text"] = "Allocates Return to Nature",
 				["type"] = "explicit",
 			},
-			[1569] = {
+			[1570] = {
 				["id"] = "explicit.stat_2954116742|7062",
 				["text"] = "Allocates Reusable Ammunition",
 				["type"] = "explicit",
 			},
-			[1570] = {
+			[1571] = {
 				["id"] = "explicit.stat_2954116742|3188",
 				["text"] = "Allocates Revenge",
 				["type"] = "explicit",
 			},
-			[1571] = {
+			[1572] = {
 				["id"] = "explicit.stat_2954116742|8660",
 				["text"] = "Allocates Reverberation",
 				["type"] = "explicit",
 			},
-			[1572] = {
+			[1573] = {
 				["id"] = "explicit.stat_2954116742|8957",
 				["text"] = "Allocates Right Hand of Darkness",
 				["type"] = "explicit",
 			},
-			[1573] = {
+			[1574] = {
 				["id"] = "explicit.stat_2954116742|28613",
 				["text"] = "Allocates Roaring Cries",
 				["type"] = "explicit",
 			},
-			[1574] = {
+			[1575] = {
 				["id"] = "explicit.stat_2954116742|60269",
 				["text"] = "Allocates Roil",
 				["type"] = "explicit",
 			},
-			[1575] = {
+			[1576] = {
 				["id"] = "explicit.stat_2954116742|61112",
 				["text"] = "Allocates Roll and Strike",
 				["type"] = "explicit",
 			},
-			[1576] = {
+			[1577] = {
 				["id"] = "explicit.stat_2954116742|8483",
 				["text"] = "Allocates Ruin",
 				["type"] = "explicit",
 			},
-			[1577] = {
+			[1578] = {
 				["id"] = "explicit.stat_2954116742|18959",
 				["text"] = "Allocates Ruinic Helm",
 				["type"] = "explicit",
 			},
-			[1578] = {
+			[1579] = {
 				["id"] = "explicit.stat_2954116742|53566",
 				["text"] = "Allocates Run and Gun",
 				["type"] = "explicit",
 			},
-			[1579] = {
+			[1580] = {
 				["id"] = "explicit.stat_2954116742|7782",
 				["text"] = "Allocates Rupturing Pins",
 				["type"] = "explicit",
 			},
-			[1580] = {
+			[1581] = {
 				["id"] = "explicit.stat_2954116742|9290",
 				["text"] = "Allocates Rusted Pins",
 				["type"] = "explicit",
 			},
-			[1581] = {
+			[1582] = {
 				["id"] = "explicit.stat_2954116742|14294",
 				["text"] = "Allocates Sacrificial Blood",
 				["type"] = "explicit",
 			},
-			[1582] = {
+			[1583] = {
 				["id"] = "explicit.stat_2954116742|25619",
 				["text"] = "Allocates Sand in the Eyes",
 				["type"] = "explicit",
 			},
-			[1583] = {
+			[1584] = {
 				["id"] = "explicit.stat_2954116742|58215",
 				["text"] = "Allocates Sanguimantic Rituals",
 				["type"] = "explicit",
 			},
-			[1584] = {
+			[1585] = {
 				["id"] = "explicit.stat_2954116742|4810",
 				["text"] = "Allocates Sanguine Tolerance",
 				["type"] = "explicit",
 			},
-			[1585] = {
+			[1586] = {
 				["id"] = "explicit.stat_2954116742|42070",
 				["text"] = "Allocates Saqawal's Guidance",
 				["type"] = "explicit",
 			},
-			[1586] = {
+			[1587] = {
 				["id"] = "explicit.stat_2954116742|63255",
 				["text"] = "Allocates Savagery",
 				["type"] = "explicit",
 			},
-			[1587] = {
+			[1588] = {
 				["id"] = "explicit.stat_2954116742|18397",
 				["text"] = "Allocates Savoured Blood",
 				["type"] = "explicit",
 			},
-			[1588] = {
+			[1589] = {
 				["id"] = "explicit.stat_2954116742|45713",
 				["text"] = "Allocates Savouring",
 				["type"] = "explicit",
 			},
-			[1589] = {
+			[1590] = {
 				["id"] = "explicit.stat_2954116742|60619",
 				["text"] = "Allocates Scales of the Wyvern",
 				["type"] = "explicit",
 			},
-			[1590] = {
+			[1591] = {
 				["id"] = "explicit.stat_2954116742|39884",
 				["text"] = "Allocates Searing Heat",
 				["type"] = "explicit",
 			},
-			[1591] = {
+			[1592] = {
 				["id"] = "explicit.stat_2954116742|52229",
 				["text"] = "Allocates Secrets of the Orb",
 				["type"] = "explicit",
 			},
-			[1592] = {
+			[1593] = {
 				["id"] = "explicit.stat_2954116742|5009",
 				["text"] = "Allocates Seeing Stars",
 				["type"] = "explicit",
 			},
-			[1593] = {
+			[1594] = {
 				["id"] = "explicit.stat_2954116742|23630",
 				["text"] = "Allocates Self Immolation",
 				["type"] = "explicit",
 			},
-			[1594] = {
+			[1595] = {
 				["id"] = "explicit.stat_2954116742|44917",
 				["text"] = "Allocates Self Mortification",
 				["type"] = "explicit",
 			},
-			[1595] = {
+			[1596] = {
 				["id"] = "explicit.stat_2954116742|36085",
 				["text"] = "Allocates Serrated Edges",
 				["type"] = "explicit",
 			},
-			[1596] = {
+			[1597] = {
 				["id"] = "explicit.stat_2954116742|13457",
 				["text"] = "Allocates Shadow Dancing",
 				["type"] = "explicit",
 			},
-			[1597] = {
+			[1598] = {
 				["id"] = "explicit.stat_2954116742|53150",
 				["text"] = "Allocates Sharp Sight",
 				["type"] = "explicit",
 			},
-			[1598] = {
+			[1599] = {
 				["id"] = "explicit.stat_2954116742|61703",
 				["text"] = "Allocates Sharpened Claw",
 				["type"] = "explicit",
 			},
-			[1599] = {
+			[1600] = {
 				["id"] = "explicit.stat_2954116742|41811",
 				["text"] = "Allocates Shatter Palm",
 				["type"] = "explicit",
 			},
-			[1600] = {
+			[1601] = {
 				["id"] = "explicit.stat_2954116742|49740",
 				["text"] = "Allocates Shattered Crystal",
 				["type"] = "explicit",
 			},
-			[1601] = {
+			[1602] = {
 				["id"] = "explicit.stat_2954116742|48658",
 				["text"] = "Allocates Shattering",
 				["type"] = "explicit",
 			},
-			[1602] = {
+			[1603] = {
 				["id"] = "explicit.stat_2954116742|53527",
 				["text"] = "Allocates Shattering Blow",
 				["type"] = "explicit",
 			},
-			[1603] = {
+			[1604] = {
 				["id"] = "explicit.stat_2954116742|64415",
 				["text"] = "Allocates Shattering Daze",
 				["type"] = "explicit",
 			},
-			[1604] = {
+			[1605] = {
 				["id"] = "explicit.stat_2954116742|15644",
 				["text"] = "Allocates Shedding Skin",
 				["type"] = "explicit",
 			},
-			[1605] = {
+			[1606] = {
 				["id"] = "explicit.stat_2954116742|37244",
 				["text"] = "Allocates Shield Expertise",
 				["type"] = "explicit",
 			},
-			[1606] = {
+			[1607] = {
 				["id"] = "explicit.stat_2954116742|57617",
 				["text"] = "Allocates Shifted Strikes",
 				["type"] = "explicit",
 			},
-			[1607] = {
+			[1608] = {
 				["id"] = "explicit.stat_2954116742|53941",
 				["text"] = "Allocates Shimmering",
 				["type"] = "explicit",
 			},
-			[1608] = {
+			[1609] = {
 				["id"] = "explicit.stat_2954116742|5335",
 				["text"] = "Allocates Shimmering Mirage",
 				["type"] = "explicit",
 			},
-			[1609] = {
+			[1610] = {
 				["id"] = "explicit.stat_2954116742|29800",
 				["text"] = "Allocates Shocking Limit",
 				["type"] = "explicit",
 			},
-			[1610] = {
+			[1611] = {
 				["id"] = "explicit.stat_2954116742|32448",
 				["text"] = "Allocates Shockproof",
 				["type"] = "explicit",
 			},
-			[1611] = {
+			[1612] = {
 				["id"] = "explicit.stat_2954116742|1087",
 				["text"] = "Allocates Shockwaves",
 				["type"] = "explicit",
 			},
-			[1612] = {
+			[1613] = {
 				["id"] = "explicit.stat_2954116742|46296",
 				["text"] = "Allocates Short Shot",
 				["type"] = "explicit",
 			},
-			[1613] = {
+			[1614] = {
 				["id"] = "explicit.stat_2954116742|55060",
 				["text"] = "Allocates Shrapnel",
 				["type"] = "explicit",
 			},
-			[1614] = {
+			[1615] = {
 				["id"] = "explicit.stat_2954116742|14211",
 				["text"] = "Allocates Shredding Contraptions",
 				["type"] = "explicit",
 			},
-			[1615] = {
+			[1616] = {
 				["id"] = "explicit.stat_2954116742|5284",
 				["text"] = "Allocates Shredding Force",
 				["type"] = "explicit",
 			},
-			[1616] = {
+			[1617] = {
 				["id"] = "explicit.stat_2954116742|47088",
 				["text"] = "Allocates Sic 'Em",
 				["type"] = "explicit",
 			},
-			[1617] = {
+			[1618] = {
 				["id"] = "explicit.stat_2954116742|63037",
 				["text"] = "Allocates Sigil of Fire",
 				["type"] = "explicit",
 			},
-			[1618] = {
+			[1619] = {
 				["id"] = "explicit.stat_2954116742|40803",
 				["text"] = "Allocates Sigil of Ice",
 				["type"] = "explicit",
 			},
-			[1619] = {
+			[1620] = {
 				["id"] = "explicit.stat_2954116742|46024",
 				["text"] = "Allocates Sigil of Lightning",
 				["type"] = "explicit",
 			},
-			[1620] = {
+			[1621] = {
 				["id"] = "explicit.stat_2954116742|17229",
 				["text"] = "Allocates Silent Guardian",
 				["type"] = "explicit",
 			},
-			[1621] = {
+			[1622] = {
 				["id"] = "explicit.stat_2954116742|52392",
 				["text"] = "Allocates Singular Purpose",
 				["type"] = "explicit",
 			},
-			[1622] = {
+			[1623] = {
 				["id"] = "explicit.stat_2954116742|15829",
 				["text"] = "Allocates Siphon",
 				["type"] = "explicit",
 			},
-			[1623] = {
+			[1624] = {
 				["id"] = "explicit.stat_2954116742|12906",
 				["text"] = "Allocates Sitting Duck",
 				["type"] = "explicit",
 			},
-			[1624] = {
+			[1625] = {
 				["id"] = "explicit.stat_2954116742|2645",
 				["text"] = "Allocates Skullcrusher",
 				["type"] = "explicit",
 			},
-			[1625] = {
+			[1626] = {
 				["id"] = "explicit.stat_2954116742|55308",
 				["text"] = "Allocates Sling Shots",
 				["type"] = "explicit",
 			},
-			[1626] = {
+			[1627] = {
 				["id"] = "explicit.stat_2954116742|23362",
 				["text"] = "Allocates Slippery Ice",
 				["type"] = "explicit",
 			},
-			[1627] = {
+			[1628] = {
 				["id"] = "explicit.stat_2954116742|31326",
 				["text"] = "Allocates Slow Burn",
 				["type"] = "explicit",
 			},
-			[1628] = {
+			[1629] = {
 				["id"] = "explicit.stat_2954116742|54148",
 				["text"] = "Allocates Smoke Inhalation",
 				["type"] = "explicit",
 			},
-			[1629] = {
+			[1630] = {
 				["id"] = "explicit.stat_2954116742|11526",
 				["text"] = "Allocates Sniper",
 				["type"] = "explicit",
 			},
-			[1630] = {
+			[1631] = {
 				["id"] = "explicit.stat_2954116742|9421",
 				["text"] = "Allocates Snowpiercer",
 				["type"] = "explicit",
 			},
-			[1631] = {
+			[1632] = {
 				["id"] = "explicit.stat_2954116742|51169",
 				["text"] = "Allocates Soul Bloom",
 				["type"] = "explicit",
 			},
-			[1632] = {
+			[1633] = {
 				["id"] = "explicit.stat_2954116742|34473",
 				["text"] = "Allocates Spaghettification",
 				["type"] = "explicit",
 			},
-			[1633] = {
+			[1634] = {
 				["id"] = "explicit.stat_2954116742|14602",
 				["text"] = "Allocates Specialised Shots",
 				["type"] = "explicit",
 			},
-			[1634] = {
+			[1635] = {
 				["id"] = "explicit.stat_2954116742|34324",
 				["text"] = "Allocates Spectral Ward",
 				["type"] = "explicit",
 			},
-			[1635] = {
+			[1636] = {
 				["id"] = "explicit.stat_2954116742|17254",
 				["text"] = "Allocates Spell Haste",
 				["type"] = "explicit",
 			},
-			[1636] = {
+			[1637] = {
 				["id"] = "explicit.stat_2954116742|49984",
 				["text"] = "Allocates Spellblade",
 				["type"] = "explicit",
 			},
-			[1637] = {
+			[1638] = {
 				["id"] = "explicit.stat_2954116742|3698",
 				["text"] = "Allocates Spike Pit",
 				["type"] = "explicit",
 			},
-			[1638] = {
+			[1639] = {
 				["id"] = "explicit.stat_2954116742|40117",
 				["text"] = "Allocates Spiked Armour",
 				["type"] = "explicit",
 			},
-			[1639] = {
+			[1640] = {
 				["id"] = "explicit.stat_2954116742|36808",
 				["text"] = "Allocates Spiked Shield",
 				["type"] = "explicit",
 			},
-			[1640] = {
+			[1641] = {
 				["id"] = "explicit.stat_2954116742|1546",
 				["text"] = "Allocates Spiral into Depression",
 				["type"] = "explicit",
 			},
-			[1641] = {
+			[1642] = {
 				["id"] = "explicit.stat_2954116742|2138",
 				["text"] = "Allocates Spiral into Insanity",
 				["type"] = "explicit",
 			},
-			[1642] = {
+			[1643] = {
 				["id"] = "explicit.stat_2954116742|14934",
 				["text"] = "Allocates Spiral into Mania",
 				["type"] = "explicit",
 			},
-			[1643] = {
+			[1644] = {
 				["id"] = "explicit.stat_2954116742|51105",
 				["text"] = "Allocates Spirit Bond",
 				["type"] = "explicit",
 			},
-			[1644] = {
+			[1645] = {
 				["id"] = "explicit.stat_2954116742|9328",
 				["text"] = "Allocates Spirit of the Bear",
 				["type"] = "explicit",
 			},
-			[1645] = {
+			[1646] = {
 				["id"] = "explicit.stat_2954116742|3348",
 				["text"] = "Allocates Spirit of the Wolf",
 				["type"] = "explicit",
 			},
-			[1646] = {
+			[1647] = {
 				["id"] = "explicit.stat_2954116742|26104",
 				["text"] = "Allocates Spirit of the Wyvern",
 				["type"] = "explicit",
 			},
-			[1647] = {
+			[1648] = {
 				["id"] = "explicit.stat_2954116742|49088",
 				["text"] = "Allocates Splintering Force",
 				["type"] = "explicit",
 			},
-			[1648] = {
+			[1649] = {
 				["id"] = "explicit.stat_2954116742|7449",
 				["text"] = "Allocates Splinters",
 				["type"] = "explicit",
 			},
-			[1649] = {
+			[1650] = {
 				["id"] = "explicit.stat_2954116742|42302",
 				["text"] = "Allocates Split Shot",
 				["type"] = "explicit",
 			},
-			[1650] = {
+			[1651] = {
 				["id"] = "explicit.stat_2954116742|13980",
 				["text"] = "Allocates Split the Earth",
 				["type"] = "explicit",
 			},
-			[1651] = {
+			[1652] = {
 				["id"] = "explicit.stat_2954116742|20251",
 				["text"] = "Allocates Splitting Ground",
 				["type"] = "explicit",
 			},
-			[1652] = {
+			[1653] = {
 				["id"] = "explicit.stat_2954116742|23736",
 				["text"] = "Allocates Spray and Pray",
 				["type"] = "explicit",
 			},
-			[1653] = {
+			[1654] = {
 				["id"] = "explicit.stat_2954116742|11578",
 				["text"] = "Allocates Spreading Shocks",
 				["type"] = "explicit",
 			},
-			[1654] = {
+			[1655] = {
 				["id"] = "explicit.stat_2954116742|63759",
 				["text"] = "Allocates Stacking Toxins",
 				["type"] = "explicit",
 			},
-			[1655] = {
+			[1656] = {
 				["id"] = "explicit.stat_2954116742|39881",
 				["text"] = "Allocates Staggering Palm",
 				["type"] = "explicit",
 			},
-			[1656] = {
+			[1657] = {
 				["id"] = "explicit.stat_2954116742|61104",
 				["text"] = "Allocates Staggering Wounds",
 				["type"] = "explicit",
 			},
-			[1657] = {
+			[1658] = {
 				["id"] = "explicit.stat_2954116742|6304",
 				["text"] = "Allocates Stand Ground",
 				["type"] = "explicit",
 			},
-			[1658] = {
+			[1659] = {
 				["id"] = "explicit.stat_2954116742|5802",
 				["text"] = "Allocates Stand and Deliver",
 				["type"] = "explicit",
 			},
-			[1659] = {
+			[1660] = {
 				["id"] = "explicit.stat_2954116742|2486",
 				["text"] = "Allocates Stars Aligned",
 				["type"] = "explicit",
 			},
-			[1660] = {
+			[1661] = {
 				["id"] = "explicit.stat_2954116742|34908",
 				["text"] = "Allocates Staunch Deflection",
 				["type"] = "explicit",
 			},
-			[1661] = {
+			[1662] = {
 				["id"] = "explicit.stat_2954116742|37408",
 				["text"] = "Allocates Staunching",
 				["type"] = "explicit",
 			},
-			[1662] = {
+			[1663] = {
 				["id"] = "explicit.stat_2954116742|26479",
 				["text"] = "Allocates Steadfast Resolve",
 				["type"] = "explicit",
 			},
-			[1663] = {
+			[1664] = {
 				["id"] = "explicit.stat_2954116742|47782",
 				["text"] = "Allocates Steady Footing",
 				["type"] = "explicit",
 			},
-			[1664] = {
+			[1665] = {
 				["id"] = "explicit.stat_2954116742|47441",
 				["text"] = "Allocates Stigmata",
 				["type"] = "explicit",
 			},
-			[1665] = {
+			[1666] = {
 				["id"] = "explicit.stat_2954116742|7163",
 				["text"] = "Allocates Stimulants",
 				["type"] = "explicit",
 			},
-			[1666] = {
+			[1667] = {
 				["id"] = "explicit.stat_2954116742|1603",
 				["text"] = "Allocates Storm Driven",
 				["type"] = "explicit",
 			},
-			[1667] = {
+			[1668] = {
 				["id"] = "explicit.stat_2954116742|61921",
 				["text"] = "Allocates Storm Surge",
 				["type"] = "explicit",
 			},
-			[1668] = {
+			[1669] = {
 				["id"] = "explicit.stat_2954116742|336",
 				["text"] = "Allocates Storm Swell",
 				["type"] = "explicit",
 			},
-			[1669] = {
+			[1670] = {
 				["id"] = "explicit.stat_2954116742|43139",
 				["text"] = "Allocates Stormbreaker",
 				["type"] = "explicit",
 			},
-			[1670] = {
+			[1671] = {
 				["id"] = "explicit.stat_2954116742|38535",
 				["text"] = "Allocates Stormcharged",
 				["type"] = "explicit",
 			},
-			[1671] = {
+			[1672] = {
 				["id"] = "explicit.stat_2954116742|13515",
 				["text"] = "Allocates Stormwalker",
 				["type"] = "explicit",
 			},
-			[1672] = {
+			[1673] = {
 				["id"] = "explicit.stat_2954116742|45177",
 				["text"] = "Allocates Strike True",
 				["type"] = "explicit",
 			},
-			[1673] = {
+			[1674] = {
 				["id"] = "explicit.stat_2954116742|33922",
 				["text"] = "Allocates Stripped Defences",
 				["type"] = "explicit",
 			},
-			[1674] = {
+			[1675] = {
 				["id"] = "explicit.stat_2954116742|10998",
 				["text"] = "Allocates Strong Chin",
 				["type"] = "explicit",
 			},
-			[1675] = {
+			[1676] = {
 				["id"] = "explicit.stat_2954116742|39369",
 				["text"] = "Allocates Struck Through",
 				["type"] = "explicit",
 			},
-			[1676] = {
+			[1677] = {
 				["id"] = "explicit.stat_2954116742|38342",
 				["text"] = "Allocates Stupefy",
 				["type"] = "explicit",
 			},
-			[1677] = {
+			[1678] = {
 				["id"] = "explicit.stat_2954116742|8791",
 				["text"] = "Allocates Sturdy Ally",
 				["type"] = "explicit",
 			},
-			[1678] = {
+			[1679] = {
 				["id"] = "explicit.stat_2954116742|60138",
 				["text"] = "Allocates Stylebender",
 				["type"] = "explicit",
 			},
-			[1679] = {
+			[1680] = {
 				["id"] = "explicit.stat_2954116742|55193",
 				["text"] = "Allocates Subterfuge Mask",
 				["type"] = "explicit",
 			},
-			[1680] = {
+			[1681] = {
 				["id"] = "explicit.stat_2954116742|30392",
 				["text"] = "Allocates Succour",
 				["type"] = "explicit",
 			},
-			[1681] = {
+			[1682] = {
 				["id"] = "explicit.stat_2954116742|10398",
 				["text"] = "Allocates Sudden Escalation",
 				["type"] = "explicit",
 			},
-			[1682] = {
+			[1683] = {
 				["id"] = "explicit.stat_2954116742|29372",
 				["text"] = "Allocates Sudden Infuriation",
 				["type"] = "explicit",
 			},
-			[1683] = {
+			[1684] = {
 				["id"] = "explicit.stat_2954116742|14383",
 				["text"] = "Allocates Suffusion",
 				["type"] = "explicit",
 			},
-			[1684] = {
+			[1685] = {
 				["id"] = "explicit.stat_2954116742|2511",
 				["text"] = "Allocates Sundering",
 				["type"] = "explicit",
 			},
-			[1685] = {
+			[1686] = {
 				["id"] = "explicit.stat_2954116742|19249",
 				["text"] = "Allocates Supportive Ancestors",
 				["type"] = "explicit",
 			},
-			[1686] = {
+			[1687] = {
 				["id"] = "explicit.stat_2954116742|29881",
 				["text"] = "Allocates Surging Beast",
 				["type"] = "explicit",
 			},
-			[1687] = {
+			[1688] = {
 				["id"] = "explicit.stat_2954116742|42065",
 				["text"] = "Allocates Surging Currents",
 				["type"] = "explicit",
 			},
-			[1688] = {
+			[1689] = {
 				["id"] = "explicit.stat_2954116742|56806",
 				["text"] = "Allocates Swift Blocking",
 				["type"] = "explicit",
 			},
-			[1689] = {
+			[1690] = {
 				["id"] = "explicit.stat_2954116742|32353",
 				["text"] = "Allocates Swift Claw",
 				["type"] = "explicit",
 			},
-			[1690] = {
+			[1691] = {
 				["id"] = "explicit.stat_2954116742|56714",
 				["text"] = "Allocates Swift Flight",
 				["type"] = "explicit",
 			},
-			[1691] = {
+			[1692] = {
 				["id"] = "explicit.stat_2954116742|65265",
 				["text"] = "Allocates Swift Interruption",
 				["type"] = "explicit",
 			},
-			[1692] = {
+			[1693] = {
 				["id"] = "explicit.stat_2954116742|53367",
 				["text"] = "Allocates Symbol of Defiance",
 				["type"] = "explicit",
 			},
-			[1693] = {
+			[1694] = {
 				["id"] = "explicit.stat_2954116742|17825",
 				["text"] = "Allocates Tactical Retreat",
 				["type"] = "explicit",
 			},
-			[1694] = {
+			[1695] = {
 				["id"] = "explicit.stat_2954116742|22864",
 				["text"] = "Allocates Tainted Strike",
 				["type"] = "explicit",
 			},
-			[1695] = {
+			[1696] = {
 				["id"] = "explicit.stat_2954116742|40213",
 				["text"] = "Allocates Taste for Blood",
 				["type"] = "explicit",
 			},
-			[1696] = {
+			[1697] = {
 				["id"] = "explicit.stat_2954116742|48774",
 				["text"] = "Allocates Taut Flesh",
 				["type"] = "explicit",
 			},
-			[1697] = {
+			[1698] = {
 				["id"] = "explicit.stat_2954116742|18157",
 				["text"] = "Allocates Tempered Defences",
 				["type"] = "explicit",
 			},
-			[1698] = {
+			[1699] = {
 				["id"] = "explicit.stat_2954116742|8831",
 				["text"] = "Allocates Tempered Mind",
 				["type"] = "explicit",
 			},
-			[1699] = {
+			[1700] = {
 				["id"] = "explicit.stat_2954116742|12412",
 				["text"] = "Allocates Temporal Mastery",
 				["type"] = "explicit",
 			},
-			[1700] = {
+			[1701] = {
 				["id"] = "explicit.stat_2954116742|25971",
 				["text"] = "Allocates Tenfold Attacks",
 				["type"] = "explicit",
 			},
-			[1701] = {
+			[1702] = {
 				["id"] = "explicit.stat_2954116742|4544",
 				["text"] = "Allocates The Ancient Serpent",
 				["type"] = "explicit",
 			},
-			[1702] = {
+			[1703] = {
 				["id"] = "explicit.stat_2954116742|7847",
 				["text"] = "Allocates The Fabled Stag",
 				["type"] = "explicit",
 			},
-			[1703] = {
+			[1704] = {
 				["id"] = "explicit.stat_2954116742|34543",
 				["text"] = "Allocates The Frenzied Bear",
 				["type"] = "explicit",
 			},
-			[1704] = {
+			[1705] = {
 				["id"] = "explicit.stat_2954116742|54031",
 				["text"] = "Allocates The Great Boar",
 				["type"] = "explicit",
 			},
-			[1705] = {
+			[1706] = {
 				["id"] = "explicit.stat_2954116742|48734",
 				["text"] = "Allocates The Howling Primate",
 				["type"] = "explicit",
 			},
-			[1706] = {
+			[1707] = {
 				["id"] = "explicit.stat_2954116742|28542",
 				["text"] = "Allocates The Molten One's Gift",
 				["type"] = "explicit",
 			},
-			[1707] = {
+			[1708] = {
 				["id"] = "explicit.stat_2954116742|2745",
 				["text"] = "Allocates The Noble Wolf",
 				["type"] = "explicit",
 			},
-			[1708] = {
+			[1709] = {
 				["id"] = "explicit.stat_2954116742|27176",
 				["text"] = "Allocates The Power Within",
 				["type"] = "explicit",
 			},
-			[1709] = {
+			[1710] = {
 				["id"] = "explicit.stat_2954116742|21349",
 				["text"] = "Allocates The Quick Fox",
 				["type"] = "explicit",
 			},
-			[1710] = {
+			[1711] = {
 				["id"] = "explicit.stat_2954116742|45370",
 				["text"] = "Allocates The Raging Ox",
 				["type"] = "explicit",
 			},
-			[1711] = {
+			[1712] = {
 				["id"] = "explicit.stat_2954116742|52971",
 				["text"] = "Allocates The Soul Meridian",
 				["type"] = "explicit",
 			},
-			[1712] = {
+			[1713] = {
 				["id"] = "explicit.stat_2954116742|11774",
 				["text"] = "Allocates The Spring Hare",
 				["type"] = "explicit",
 			},
-			[1713] = {
+			[1714] = {
 				["id"] = "explicit.stat_2954116742|22811",
 				["text"] = "Allocates The Wild Cat",
 				["type"] = "explicit",
 			},
-			[1714] = {
+			[1715] = {
 				["id"] = "explicit.stat_2954116742|53185",
 				["text"] = "Allocates The Winter Owl",
 				["type"] = "explicit",
 			},
-			[1715] = {
+			[1716] = {
 				["id"] = "explicit.stat_2954116742|35849",
 				["text"] = "Allocates Thickened Arteries",
 				["type"] = "explicit",
 			},
-			[1716] = {
+			[1717] = {
 				["id"] = "explicit.stat_2954116742|56893",
 				["text"] = "Allocates Thicket Warding",
 				["type"] = "explicit",
 			},
-			[1717] = {
+			[1718] = {
 				["id"] = "explicit.stat_2954116742|19722",
 				["text"] = "Allocates Thin Ice",
 				["type"] = "explicit",
 			},
-			[1718] = {
+			[1719] = {
 				["id"] = "explicit.stat_2954116742|59433",
 				["text"] = "Allocates Thirst for Endurance",
 				["type"] = "explicit",
 			},
-			[1719] = {
+			[1720] = {
 				["id"] = "explicit.stat_2954116742|38532",
 				["text"] = "Allocates Thirst for Power",
 				["type"] = "explicit",
 			},
-			[1720] = {
+			[1721] = {
 				["id"] = "explicit.stat_2954116742|17600",
 				["text"] = "Allocates Thirsting Ally",
 				["type"] = "explicit",
 			},
-			[1721] = {
+			[1722] = {
 				["id"] = "explicit.stat_2954116742|43711",
 				["text"] = "Allocates Thornhide",
 				["type"] = "explicit",
 			},
-			[1722] = {
+			[1723] = {
 				["id"] = "explicit.stat_2954116742|42714",
 				["text"] = "Allocates Thousand Cuts",
 				["type"] = "explicit",
 			},
-			[1723] = {
+			[1724] = {
 				["id"] = "explicit.stat_2954116742|25711",
 				["text"] = "Allocates Thrill of Battle",
 				["type"] = "explicit",
 			},
-			[1724] = {
+			[1725] = {
 				["id"] = "explicit.stat_2954116742|15606",
 				["text"] = "Allocates Thrill of the Fight",
 				["type"] = "explicit",
 			},
-			[1725] = {
+			[1726] = {
 				["id"] = "explicit.stat_2954116742|56265",
 				["text"] = "Allocates Throatseeker",
 				["type"] = "explicit",
 			},
-			[1726] = {
+			[1727] = {
 				["id"] = "explicit.stat_2954116742|63585",
 				["text"] = "Allocates Thunderstruck",
 				["type"] = "explicit",
 			},
-			[1727] = {
+			[1728] = {
 				["id"] = "explicit.stat_2954116742|42813",
 				["text"] = "Allocates Tides of Change",
 				["type"] = "explicit",
 			},
-			[1728] = {
+			[1729] = {
 				["id"] = "explicit.stat_2954116742|24240",
 				["text"] = "Allocates Time Manipulation",
 				["type"] = "explicit",
 			},
-			[1729] = {
+			[1730] = {
 				["id"] = "explicit.stat_2954116742|65160",
 				["text"] = "Allocates Titanic",
 				["type"] = "explicit",
 			},
-			[1730] = {
+			[1731] = {
 				["id"] = "explicit.stat_2954116742|2843",
 				["text"] = "Allocates Tolerant Equipment",
 				["type"] = "explicit",
 			},
-			[1731] = {
+			[1732] = {
 				["id"] = "explicit.stat_2954116742|28482",
 				["text"] = "Allocates Total Incineration",
 				["type"] = "explicit",
 			},
-			[1732] = {
+			[1733] = {
 				["id"] = "explicit.stat_2954116742|27626",
 				["text"] = "Allocates Touch the Arcane",
 				["type"] = "explicit",
 			},
-			[1733] = {
+			[1734] = {
 				["id"] = "explicit.stat_2954116742|53823",
 				["text"] = "Allocates Towering Shield",
 				["type"] = "explicit",
 			},
-			[1734] = {
+			[1735] = {
 				["id"] = "explicit.stat_2954116742|261",
 				["text"] = "Allocates Toxic Sludge",
 				["type"] = "explicit",
 			},
-			[1735] = {
+			[1736] = {
 				["id"] = "explicit.stat_2954116742|2134",
 				["text"] = "Allocates Toxic Tolerance",
 				["type"] = "explicit",
 			},
-			[1736] = {
+			[1737] = {
 				["id"] = "explicit.stat_2954116742|52180",
 				["text"] = "Allocates Trained Deflection",
 				["type"] = "explicit",
 			},
-			[1737] = {
+			[1738] = {
 				["id"] = "explicit.stat_2954116742|57785",
 				["text"] = "Allocates Trained Turrets",
 				["type"] = "explicit",
 			},
-			[1738] = {
+			[1739] = {
 				["id"] = "explicit.stat_2954116742|750",
 				["text"] = "Allocates Tribal Fury",
 				["type"] = "explicit",
 			},
-			[1739] = {
+			[1740] = {
 				["id"] = "explicit.stat_2954116742|23221",
 				["text"] = "Allocates Trick Shot",
 				["type"] = "explicit",
 			},
-			[1740] = {
+			[1741] = {
 				["id"] = "explicit.stat_2954116742|61601",
 				["text"] = "Allocates True Strike",
 				["type"] = "explicit",
 			},
-			[1741] = {
+			[1742] = {
 				["id"] = "explicit.stat_2954116742|53131",
 				["text"] = "Allocates Tukohama's Brew",
 				["type"] = "explicit",
 			},
-			[1742] = {
+			[1743] = {
 				["id"] = "explicit.stat_2954116742|35564",
 				["text"] = "Allocates Turn the Clock Back",
 				["type"] = "explicit",
 			},
-			[1743] = {
+			[1744] = {
 				["id"] = "explicit.stat_2954116742|2335",
 				["text"] = "Allocates Turn the Clock Forward",
 				["type"] = "explicit",
 			},
-			[1744] = {
+			[1745] = {
 				["id"] = "explicit.stat_2954116742|1352",
 				["text"] = "Allocates Unbending",
 				["type"] = "explicit",
 			},
-			[1745] = {
+			[1746] = {
 				["id"] = "explicit.stat_2954116742|4579",
 				["text"] = "Allocates Unbothering Cold",
 				["type"] = "explicit",
 			},
-			[1746] = {
+			[1747] = {
 				["id"] = "explicit.stat_2954116742|64543",
 				["text"] = "Allocates Unbound Forces",
 				["type"] = "explicit",
 			},
-			[1747] = {
+			[1748] = {
 				["id"] = "explicit.stat_2954116742|53921",
 				["text"] = "Allocates Unbreaking",
 				["type"] = "explicit",
 			},
-			[1748] = {
+			[1749] = {
 				["id"] = "explicit.stat_2954116742|38888",
 				["text"] = "Allocates Unerring Impact",
 				["type"] = "explicit",
 			},
-			[1749] = {
+			[1750] = {
 				["id"] = "explicit.stat_2954116742|31189",
 				["text"] = "Allocates Unexpected Finesse",
 				["type"] = "explicit",
 			},
-			[1750] = {
+			[1751] = {
 				["id"] = "explicit.stat_2954116742|8881",
 				["text"] = "Allocates Unforgiving",
 				["type"] = "explicit",
 			},
-			[1751] = {
+			[1752] = {
 				["id"] = "explicit.stat_2954116742|32543",
 				["text"] = "Allocates Unhindered",
 				["type"] = "explicit",
 			},
-			[1752] = {
+			[1753] = {
 				["id"] = "explicit.stat_2954116742|51394",
 				["text"] = "Allocates Unimpeded",
 				["type"] = "explicit",
 			},
-			[1753] = {
+			[1754] = {
 				["id"] = "explicit.stat_2954116742|20008",
 				["text"] = "Allocates Unleash Fire",
 				["type"] = "explicit",
 			},
-			[1754] = {
+			[1755] = {
 				["id"] = "explicit.stat_2954116742|4547",
 				["text"] = "Allocates Unnatural Resilience",
 				["type"] = "explicit",
 			},
-			[1755] = {
+			[1756] = {
 				["id"] = "explicit.stat_2954116742|51602",
 				["text"] = "Allocates Unsight",
 				["type"] = "explicit",
 			},
-			[1756] = {
+			[1757] = {
 				["id"] = "explicit.stat_2954116742|33585",
 				["text"] = "Allocates Unspoken Bond",
 				["type"] = "explicit",
 			},
-			[1757] = {
+			[1758] = {
 				["id"] = "explicit.stat_2954116742|18485",
 				["text"] = "Allocates Unstable Bond",
 				["type"] = "explicit",
 			},
-			[1758] = {
+			[1759] = {
 				["id"] = "explicit.stat_2954116742|33978",
 				["text"] = "Allocates Unstoppable Barrier",
 				["type"] = "explicit",
 			},
-			[1759] = {
+			[1760] = {
 				["id"] = "explicit.stat_2954116742|10774",
 				["text"] = "Allocates Unyielding",
 				["type"] = "explicit",
 			},
-			[1760] = {
+			[1761] = {
 				["id"] = "explicit.stat_2954116742|1169",
 				["text"] = "Allocates Urgent Call",
 				["type"] = "explicit",
 			},
-			[1761] = {
+			[1762] = {
 				["id"] = "explicit.stat_2954116742|17303",
 				["text"] = "Allocates Utility Ordnance",
 				["type"] = "explicit",
 			},
-			[1762] = {
+			[1763] = {
 				["id"] = "explicit.stat_2954116742|41033",
 				["text"] = "Allocates Utmost Offering",
 				["type"] = "explicit",
 			},
-			[1763] = {
+			[1764] = {
 				["id"] = "explicit.stat_2954116742|12750",
 				["text"] = "Allocates Vale Shelter",
 				["type"] = "explicit",
 			},
-			[1764] = {
+			[1765] = {
 				["id"] = "explicit.stat_2954116742|17762",
 				["text"] = "Allocates Vengeance",
 				["type"] = "explicit",
 			},
-			[1765] = {
+			[1766] = {
 				["id"] = "explicit.stat_2954116742|54937",
 				["text"] = "Allocates Vengeful Fury",
 				["type"] = "explicit",
 			},
-			[1766] = {
+			[1767] = {
 				["id"] = "explicit.stat_2954116742|4238",
 				["text"] = "Allocates Versatile Arms",
 				["type"] = "explicit",
 			},
-			[1767] = {
+			[1768] = {
 				["id"] = "explicit.stat_2954116742|65193",
 				["text"] = "Allocates Viciousness",
 				["type"] = "explicit",
 			},
-			[1768] = {
+			[1769] = {
 				["id"] = "explicit.stat_2954116742|22967",
 				["text"] = "Allocates Vigilance",
 				["type"] = "explicit",
 			},
-			[1769] = {
+			[1770] = {
 				["id"] = "explicit.stat_2954116742|63739",
 				["text"] = "Allocates Vigorous Remnants",
 				["type"] = "explicit",
 			},
-			[1770] = {
+			[1771] = {
 				["id"] = "explicit.stat_2954116742|36507",
 				["text"] = "Allocates Vile Mending",
 				["type"] = "explicit",
 			},
-			[1771] = {
+			[1772] = {
 				["id"] = "explicit.stat_2954116742|31373",
 				["text"] = "Allocates Vocal Empowerment",
 				["type"] = "explicit",
 			},
-			[1772] = {
+			[1773] = {
 				["id"] = "explicit.stat_2954116742|3492",
 				["text"] = "Allocates Void",
 				["type"] = "explicit",
 			},
-			[1773] = {
+			[1774] = {
 				["id"] = "explicit.stat_2954116742|17882",
 				["text"] = "Allocates Volatile Grenades",
 				["type"] = "explicit",
 			},
-			[1774] = {
+			[1775] = {
 				["id"] = "explicit.stat_2954116742|11366",
 				["text"] = "Allocates Volcanic Skin",
 				["type"] = "explicit",
 			},
-			[1775] = {
+			[1776] = {
 				["id"] = "explicit.stat_2954116742|46060",
 				["text"] = "Allocates Voracious",
 				["type"] = "explicit",
 			},
-			[1776] = {
+			[1777] = {
 				["id"] = "explicit.stat_2954116742|27303",
 				["text"] = "Allocates Vulgar Methods",
 				["type"] = "explicit",
 			},
-			[1777] = {
+			[1778] = {
 				["id"] = "explicit.stat_2954116742|25211",
 				["text"] = "Allocates Waning Hindrances",
 				["type"] = "explicit",
 			},
-			[1778] = {
+			[1779] = {
 				["id"] = "explicit.stat_2954116742|31925",
 				["text"] = "Allocates Warding Fetish",
 				["type"] = "explicit",
 			},
-			[1779] = {
+			[1780] = {
 				["id"] = "explicit.stat_2954116742|47418",
 				["text"] = "Allocates Warding Potions",
 				["type"] = "explicit",
 			},
-			[1780] = {
+			[1781] = {
 				["id"] = "explicit.stat_2954116742|53187",
 				["text"] = "Allocates Warlord Berserker",
 				["type"] = "explicit",
 			},
-			[1781] = {
+			[1782] = {
 				["id"] = "explicit.stat_2954116742|14761",
 				["text"] = "Allocates Warlord Leader",
 				["type"] = "explicit",
 			},
-			[1782] = {
+			[1783] = {
 				["id"] = "explicit.stat_2954116742|12998",
 				["text"] = "Allocates Warm the Heart",
 				["type"] = "explicit",
 			},
-			[1783] = {
+			[1784] = {
 				["id"] = "explicit.stat_2954116742|64650",
 				["text"] = "Allocates Wary Dodging",
 				["type"] = "explicit",
 			},
-			[1784] = {
+			[1785] = {
 				["id"] = "explicit.stat_2954116742|51213",
 				["text"] = "Allocates Wasting",
 				["type"] = "explicit",
 			},
-			[1785] = {
+			[1786] = {
 				["id"] = "explicit.stat_2954116742|61444",
 				["text"] = "Allocates Wasting Casts",
 				["type"] = "explicit",
 			},
-			[1786] = {
+			[1787] = {
 				["id"] = "explicit.stat_2954116742|5580",
 				["text"] = "Allocates Watchtowers",
 				["type"] = "explicit",
 			},
-			[1787] = {
+			[1788] = {
 				["id"] = "explicit.stat_2954116742|51509",
 				["text"] = "Allocates Waters of Life",
 				["type"] = "explicit",
 			},
-			[1788] = {
+			[1789] = {
 				["id"] = "explicit.stat_2954116742|58198",
 				["text"] = "Allocates Well of Power",
 				["type"] = "explicit",
 			},
-			[1789] = {
+			[1790] = {
 				["id"] = "explicit.stat_2954116742|2021",
 				["text"] = "Allocates Wellspring",
 				["type"] = "explicit",
 			},
-			[1790] = {
+			[1791] = {
 				["id"] = "explicit.stat_2954116742|37514",
 				["text"] = "Allocates Whirling Assault",
 				["type"] = "explicit",
 			},
-			[1791] = {
+			[1792] = {
 				["id"] = "explicit.stat_2954116742|46384",
 				["text"] = "Allocates Wide Barrier",
 				["type"] = "explicit",
 			},
-			[1792] = {
+			[1793] = {
 				["id"] = "explicit.stat_2954116742|65256",
 				["text"] = "Allocates Widespread Coverage",
 				["type"] = "explicit",
 			},
-			[1793] = {
+			[1794] = {
 				["id"] = "explicit.stat_2954116742|7809",
 				["text"] = "Allocates Wild Storm",
 				["type"] = "explicit",
 			},
-			[1794] = {
+			[1795] = {
 				["id"] = "explicit.stat_2954116742|44373",
 				["text"] = "Allocates Wither Away",
 				["type"] = "explicit",
 			},
-			[1795] = {
+			[1796] = {
 				["id"] = "explicit.stat_2954116742|57921",
 				["text"] = "Allocates Wolf's Howl",
 				["type"] = "explicit",
 			},
-			[1796] = {
+			[1797] = {
 				["id"] = "explicit.stat_2954116742|62803",
 				["text"] = "Allocates Woodland Aspect",
 				["type"] = "explicit",
 			},
-			[1797] = {
+			[1798] = {
 				["id"] = "explicit.stat_2954116742|30132",
 				["text"] = "Allocates Wrapped Quiver",
 				["type"] = "explicit",
 			},
-			[1798] = {
+			[1799] = {
 				["id"] = "explicit.stat_2954116742|35417",
 				["text"] = "Allocates Wyvern's Breath",
 				["type"] = "explicit",
 			},
-			[1799] = {
+			[1800] = {
 				["id"] = "explicit.stat_2954116742|50485",
 				["text"] = "Allocates Zone of Control",
 				["type"] = "explicit",
 			},
-			[1800] = {
+			[1801] = {
 				["id"] = "explicit.stat_2676834156",
 				["text"] = "Also grants # Guard",
 				["type"] = "explicit",
 			},
-			[1801] = {
+			[1802] = {
 				["id"] = "explicit.stat_258955603",
 				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
 				["type"] = "explicit",
 			},
-			[1802] = {
+			[1803] = {
 				["id"] = "explicit.stat_4126210832",
 				["text"] = "Always Hits",
 				["type"] = "explicit",
 			},
-			[1803] = {
+			[1804] = {
 				["id"] = "explicit.stat_2214130968",
 				["text"] = "Always deals Critical Hits against Heavy Stunned Enemies",
 				["type"] = "explicit",
 			},
-			[1804] = {
+			[1805] = {
 				["id"] = "explicit.stat_3831171903|1",
 				["text"] = "Ancestral Bond",
 				["type"] = "explicit",
 			},
-			[1805] = {
+			[1806] = {
 				["id"] = "explicit.stat_4021234281",
 				["text"] = "Any number of Poisons from this Weapon can affect a target at the same time",
 				["type"] = "explicit",
 			},
-			[1806] = {
+			[1807] = {
 				["id"] = "explicit.stat_2586152168",
 				["text"] = "Archon recovery period expires #% faster",
 				["type"] = "explicit",
 			},
-			[1807] = {
+			[1808] = {
 				["id"] = "explicit.stat_3490187949",
 				["text"] = "Area contains # additional Abysses",
 				["type"] = "explicit",
 			},
-			[1808] = {
+			[1809] = {
 				["id"] = "explicit.stat_358129101",
 				["text"] = "Area contains # additional Azmeri Spirit",
 				["type"] = "explicit",
 			},
-			[1809] = {
+			[1810] = {
 				["id"] = "explicit.stat_3757259819",
 				["text"] = "Area contains # additional packs of Beasts",
 				["type"] = "explicit",
 			},
-			[1810] = {
+			[1811] = {
 				["id"] = "explicit.stat_3309089125",
 				["text"] = "Area contains # additional packs of Bramble Monsters",
 				["type"] = "explicit",
 			},
-			[1811] = {
+			[1812] = {
 				["id"] = "explicit.stat_1436812886",
 				["text"] = "Area contains # additional packs of Ezomyte Monsters",
 				["type"] = "explicit",
 			},
-			[1812] = {
+			[1813] = {
 				["id"] = "explicit.stat_4130878258",
 				["text"] = "Area contains # additional packs of Faridun Monsters",
 				["type"] = "explicit",
 			},
-			[1813] = {
+			[1814] = {
 				["id"] = "explicit.stat_2949706590",
 				["text"] = "Area contains # additional packs of Iron Guards",
 				["type"] = "explicit",
 			},
-			[1814] = {
+			[1815] = {
 				["id"] = "explicit.stat_3592067990",
 				["text"] = "Area contains # additional packs of Plagued Monsters",
 				["type"] = "explicit",
 			},
-			[1815] = {
+			[1816] = {
 				["id"] = "explicit.stat_1689473577",
 				["text"] = "Area contains # additional packs of Transcended Monsters",
 				["type"] = "explicit",
 			},
-			[1816] = {
+			[1817] = {
 				["id"] = "explicit.stat_240445958",
 				["text"] = "Area contains # additional packs of Undead",
 				["type"] = "explicit",
 			},
-			[1817] = {
+			[1818] = {
 				["id"] = "explicit.stat_4181857719",
 				["text"] = "Area contains # additional packs of Vaal Monsters",
 				["type"] = "explicit",
 			},
-			[1818] = {
+			[1819] = {
 				["id"] = "explicit.stat_1640965354",
 				["text"] = "Area contains #% increased number of Runic Monster Markers",
 				["type"] = "explicit",
 			},
-			[1819] = {
+			[1820] = {
 				["id"] = "explicit.stat_1070816711",
 				["text"] = "Area contains an additional Abyss",
 				["type"] = "explicit",
 			},
-			[1820] = {
+			[1821] = {
 				["id"] = "explicit.stat_395808938",
 				["text"] = "Area contains an additional Essence",
 				["type"] = "explicit",
 			},
-			[1821] = {
+			[1822] = {
 				["id"] = "explicit.stat_1827854662",
 				["text"] = "Area contains an additional Incubator Queen",
 				["type"] = "explicit",
 			},
-			[1822] = {
+			[1823] = {
 				["id"] = "explicit.stat_2396719220",
 				["text"] = "Area contains an additional Magic Chest",
 				["type"] = "explicit",
 			},
-			[1823] = {
+			[1824] = {
 				["id"] = "explicit.stat_231864447",
 				["text"] = "Area contains an additional Rare Chest",
 				["type"] = "explicit",
 			},
-			[1824] = {
+			[1825] = {
 				["id"] = "explicit.stat_1468737867",
 				["text"] = "Area contains an additional Shrine",
 				["type"] = "explicit",
 			},
-			[1825] = {
+			[1826] = {
 				["id"] = "explicit.stat_3240183538",
 				["text"] = "Area contains an additional Strongbox",
 				["type"] = "explicit",
 			},
-			[1826] = {
+			[1827] = {
 				["id"] = "explicit.stat_2839545956",
 				["text"] = "Area contains an additional Summoning Circle",
 				["type"] = "explicit",
 			},
-			[1827] = {
+			[1828] = {
 				["id"] = "explicit.stat_2571125745",
 				["text"] = "Area has #% chance to contain a Shrine",
 				["type"] = "explicit",
 			},
-			[1828] = {
+			[1829] = {
 				["id"] = "explicit.stat_2388936716",
 				["text"] = "Area has #% chance to contain a Strongbox",
 				["type"] = "explicit",
 			},
-			[1829] = {
+			[1830] = {
 				["id"] = "explicit.stat_4098286334",
 				["text"] = "Area has #% chance to contain an Essence",
 				["type"] = "explicit",
 			},
-			[1830] = {
+			[1831] = {
 				["id"] = "explicit.stat_2890355696",
 				["text"] = "Area has #% chance to contain four additional Abysses",
 				["type"] = "explicit",
 			},
-			[1831] = {
+			[1832] = {
 				["id"] = "explicit.stat_3815617979",
 				["text"] = "Area has #% increased chance to contain Azmeri Spirits",
 				["type"] = "explicit",
 			},
-			[1832] = {
+			[1833] = {
 				["id"] = "explicit.stat_1825943485",
 				["text"] = "Area has #% increased chance to contain Essences",
 				["type"] = "explicit",
 			},
-			[1833] = {
+			[1834] = {
 				["id"] = "explicit.stat_1352729973",
 				["text"] = "Area has #% increased chance to contain Rogue Exiles",
 				["type"] = "explicit",
 			},
-			[1834] = {
+			[1835] = {
 				["id"] = "explicit.stat_689816330",
 				["text"] = "Area has #% increased chance to contain Shrines",
 				["type"] = "explicit",
 			},
-			[1835] = {
+			[1836] = {
 				["id"] = "explicit.stat_4279535856",
 				["text"] = "Area has #% increased chance to contain Strongboxes",
 				["type"] = "explicit",
 			},
-			[1836] = {
+			[1837] = {
 				["id"] = "explicit.stat_267210597",
 				["text"] = "Area has #% increased chance to contain a Summoning Circle",
 				["type"] = "explicit",
 			},
-			[1837] = {
+			[1838] = {
 				["id"] = "explicit.stat_349586058",
 				["text"] = "Area has patches of Chilled Ground",
 				["type"] = "explicit",
 			},
-			[1838] = {
+			[1839] = {
 				["id"] = "explicit.stat_133340941",
 				["text"] = "Area has patches of Ignited Ground",
 				["type"] = "explicit",
 			},
-			[1839] = {
+			[1840] = {
 				["id"] = "explicit.stat_3190283174",
 				["text"] = "Area has patches of Mana Siphoning Ground",
 				["type"] = "explicit",
 			},
-			[1840] = {
+			[1841] = {
 				["id"] = "explicit.stat_3477720557",
 				["text"] = "Area has patches of Shocked Ground",
 				["type"] = "explicit",
 			},
-			[1841] = {
+			[1842] = {
 				["id"] = "explicit.stat_3550168289",
 				["text"] = "Area is inhabited by # additional Rogue Exile",
 				["type"] = "explicit",
 			},
-			[1842] = {
+			[1843] = {
 				["id"] = "explicit.stat_2741291867",
 				["text"] = "Area is overrun by the Abyssal",
 				["type"] = "explicit",
 			},
-			[1843] = {
+			[1844] = {
 				["id"] = "explicit.stat_3049505189",
 				["text"] = "Areas which contain Breaches have #% chance to contain an additional Breach",
 				["type"] = "explicit",
 			},
-			[1844] = {
+			[1845] = {
 				["id"] = "explicit.stat_2440265466",
 				["text"] = "Areas which contain Breaches have #% chance to contain three additional Breaches",
 				["type"] = "explicit",
 			},
-			[1845] = {
+			[1846] = {
 				["id"] = "explicit.stat_3042527515",
 				["text"] = "Areas with Map Powerful Map Bosses contain an additional Shrine",
 				["type"] = "explicit",
 			},
-			[1846] = {
+			[1847] = {
 				["id"] = "explicit.stat_775597083",
 				["text"] = "Areas with Powerful Map Bosses contain an additional Azmeri Spirit",
 				["type"] = "explicit",
 			},
-			[1847] = {
+			[1848] = {
 				["id"] = "explicit.stat_2162684861",
 				["text"] = "Areas with Powerful Map Bosses contain an additional Essence",
 				["type"] = "explicit",
 			},
-			[1848] = {
+			[1849] = {
 				["id"] = "explicit.stat_3042527515",
 				["text"] = "Areas with Powerful Map Bosses contain an additional Shrine",
 				["type"] = "explicit",
 			},
-			[1849] = {
+			[1850] = {
 				["id"] = "explicit.stat_3040603554",
 				["text"] = "Areas with Powerful Map Bosses contain an additional Strongbox",
 				["type"] = "explicit",
 			},
-			[1850] = {
+			[1851] = {
 				["id"] = "explicit.stat_713266390",
 				["text"] = "Armour is increased by Uncapped Fire Resistance",
 				["type"] = "explicit",
 			},
-			[1851] = {
+			[1852] = {
 				["id"] = "explicit.stat_2421436896",
 				["text"] = "Arrows Fork",
 				["type"] = "explicit",
 			},
-			[1852] = {
+			[1853] = {
 				["id"] = "explicit.stat_2138799639",
 				["text"] = "Arrows Pierce all targets after Forking",
 				["type"] = "explicit",
 			},
-			[1853] = {
+			[1854] = {
 				["id"] = "explicit.stat_3423006863",
 				["text"] = "Arrows Pierce an additional Target",
 				["type"] = "explicit",
 			},
-			[1854] = {
+			[1855] = {
 				["id"] = "explicit.stat_1243721142",
 				["text"] = "Arrows Return if they have Pierced a target which had Fully Broken Armour",
 				["type"] = "explicit",
 			},
-			[1855] = {
+			[1856] = {
 				["id"] = "explicit.stat_300723956",
 				["text"] = "Attack Hits apply Incision",
 				["type"] = "explicit",
 			},
-			[1856] = {
+			[1857] = {
 				["id"] = "explicit.stat_33298888",
 				["text"] = "Attack Hits inflict Spectral Fire for # seconds",
 				["type"] = "explicit",
 			},
-			[1857] = {
+			[1858] = {
 				["id"] = "explicit.stat_2720781168",
 				["text"] = "Attack Projectiles Return if they Pierced at least # times",
 				["type"] = "explicit",
 			},
-			[1858] = {
+			[1859] = {
 				["id"] = "explicit.stat_3868118796",
 				["text"] = "Attacks Chain an additional time",
 				["type"] = "explicit",
 			},
-			[1859] = {
+			[1860] = {
 				["id"] = "explicit.stat_1484500028",
 				["text"] = "Attacks Gain #% of Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
-			[1860] = {
+			[1861] = {
 				["id"] = "explicit.stat_1049080093",
 				["text"] = "Attacks Gain #% of Damage as Extra Fire Damage",
 				["type"] = "explicit",
 			},
-			[1861] = {
+			[1862] = {
 				["id"] = "explicit.stat_261503687",
 				["text"] = "Attacks Gain #% of Physical Damage as extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[1862] = {
+			[1863] = {
 				["id"] = "explicit.stat_3550545679",
 				["text"] = "Attacks consume an Endurance Charge to Critically Hit",
 				["type"] = "explicit",
 			},
-			[1863] = {
+			[1864] = {
 				["id"] = "explicit.stat_2157692677",
 				["text"] = "Attacks cost an additional #% of your maximum Mana",
 				["type"] = "explicit",
 			},
-			[1864] = {
+			[1865] = {
 				["id"] = "explicit.stat_3258071686",
 				["text"] = "Attacks have Added maximum Lightning Damage equal to #% of maximum Mana",
 				["type"] = "explicit",
 			},
-			[1865] = {
+			[1866] = {
 				["id"] = "explicit.stat_2723294374",
 				["text"] = "Attacks have added Physical damage equal to #% of maximum Life",
 				["type"] = "explicit",
 			},
-			[1866] = {
+			[1867] = {
 				["id"] = "explicit.stat_1740229525",
 				["text"] = "Attacks with this Weapon Penetrate #% Cold Resistance",
 				["type"] = "explicit",
 			},
-			[1867] = {
+			[1868] = {
 				["id"] = "explicit.stat_3398283493",
 				["text"] = "Attacks with this Weapon Penetrate #% Fire Resistance",
 				["type"] = "explicit",
 			},
-			[1868] = {
+			[1869] = {
 				["id"] = "explicit.stat_2387539034",
 				["text"] = "Attacks with this Weapon Penetrate #% Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[1869] = {
+			[1870] = {
 				["id"] = "explicit.stat_3620731914",
 				["text"] = "Attacks with this Weapon gain #% of Physical damage as Extra damage of each Element",
 				["type"] = "explicit",
 			},
-			[1870] = {
+			[1871] = {
 				["id"] = "explicit.stat_566086661",
 				["text"] = "Attacks with this Weapon have Added Cold Damage equal to #% to #% of maximum Mana",
 				["type"] = "explicit",
 			},
-			[1871] = {
+			[1872] = {
 				["id"] = "explicit.stat_315791320",
 				["text"] = "Aura Skills have #% increased Magnitudes",
 				["type"] = "explicit",
 			},
-			[1872] = {
+			[1873] = {
 				["id"] = "explicit.stat_3831171903|4",
 				["text"] = "Avatar of Fire",
 				["type"] = "explicit",
 			},
-			[1873] = {
+			[1874] = {
 				["id"] = "explicit.stat_429143663",
 				["text"] = "Banner Skills have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[1874] = {
+			[1875] = {
 				["id"] = "explicit.stat_2720982137",
 				["text"] = "Banner Skills have #% increased Duration",
 				["type"] = "explicit",
 			},
-			[1875] = {
+			[1876] = {
 				["id"] = "explicit.stat_1761741119",
 				["text"] = "Banners always have maximum Valour",
 				["type"] = "explicit",
 			},
-			[1876] = {
+			[1877] = {
 				["id"] = "explicit.stat_2635559734",
 				["text"] = "Base Critical Hit Chance for Attacks with Weapons is #%",
 				["type"] = "explicit",
 			},
-			[1877] = {
+			[1878] = {
 				["id"] = "explicit.stat_4287372938",
 				["text"] = "Bear Skills Convert #% of Physical Damage to Fire Damage",
 				["type"] = "explicit",
 			},
-			[1878] = {
+			[1879] = {
 				["id"] = "explicit.stat_335885735",
 				["text"] = "Bears the Mark of the Abyssal Lord",
 				["type"] = "explicit",
 			},
-			[1879] = {
+			[1880] = {
 				["id"] = "explicit.stat_1451444093",
 				["text"] = "Bifurcates Critical Hits",
 				["type"] = "explicit",
 			},
-			[1880] = {
+			[1881] = {
 				["id"] = "explicit.stat_3831171903|28",
 				["text"] = "Blackflame Covenant",
 				["type"] = "explicit",
 			},
-			[1881] = {
+			[1882] = {
 				["id"] = "explicit.stat_1016759424",
 				["text"] = "Bleeding you inflict deals Fire Damage instead of Physical Damage",
 				["type"] = "explicit",
 			},
-			[1882] = {
+			[1883] = {
 				["id"] = "explicit.stat_841429130",
 				["text"] = "Bleeding you inflict is Aggravated",
 				["type"] = "explicit",
 			},
-			[1883] = {
+			[1884] = {
 				["id"] = "explicit.stat_3450276548",
 				["text"] = "Blind Chilled enemies on Hit",
 				["type"] = "explicit",
 			},
-			[1884] = {
+			[1885] = {
 				["id"] = "explicit.stat_3587953142",
 				["text"] = "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree",
 				["type"] = "explicit",
 			},
-			[1885] = {
+			[1886] = {
 				["id"] = "explicit.stat_60826109",
 				["text"] = "Blind Targets when you Poison them",
 				["type"] = "explicit",
 			},
-			[1886] = {
+			[1887] = {
 				["id"] = "explicit.stat_4195198267",
 				["text"] = "Blocking Damage Poisons the Enemy as though dealing # Base Chaos Damage",
 				["type"] = "explicit",
 			},
-			[1887] = {
+			[1888] = {
 				["id"] = "explicit.stat_3831171903|5",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
-			[1888] = {
+			[1889] = {
 				["id"] = "explicit.stat_2801937280",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
-			[1889] = {
+			[1890] = {
 				["id"] = "explicit.stat_842299438",
 				["text"] = "Bolts fired by Crossbow Attacks have #% chance to notexpend Ammunition if you've Reloaded Recently",
 				["type"] = "explicit",
 			},
-			[1890] = {
+			[1891] = {
 				["id"] = "explicit.stat_3893788785",
 				["text"] = "Bow Attacks consume #% of your maximum Life Flask Charges if possible to deal added Physical damage equal to #% of Flask's Life Recovery amount",
 				["type"] = "explicit",
 			},
-			[1891] = {
+			[1892] = {
 				["id"] = "explicit.stat_3885405204",
 				["text"] = "Bow Attacks fire # additional Arrows",
 				["type"] = "explicit",
 			},
-			[1892] = {
+			[1893] = {
 				["id"] = "explicit.stat_2734787892",
 				["text"] = "Breach Hives have an additional wave of Hiveborn Monsters",
 				["type"] = "explicit",
 			},
-			[1893] = {
+			[1894] = {
 				["id"] = "explicit.stat_1217651243",
 				["text"] = "Breaches expand to at least # metre in radiusBreaches remain open while there are alive Breach Monsters",
 				["type"] = "explicit",
 			},
-			[1894] = {
+			[1895] = {
 				["id"] = "explicit.stat_1210760818",
 				["text"] = "Breaches have #% increased Monster density",
 				["type"] = "explicit",
 			},
-			[1895] = {
+			[1896] = {
 				["id"] = "explicit.stat_2224050171",
 				["text"] = "Breaches in Area contain # additional Clasped Hand",
 				["type"] = "explicit",
 			},
-			[1896] = {
+			[1897] = {
 				["id"] = "explicit.stat_1090596078",
 				["text"] = "Breaches in Area spawn #% increased Magic Monsters",
 				["type"] = "explicit",
 			},
-			[1897] = {
+			[1898] = {
 				["id"] = "explicit.stat_1653625239",
 				["text"] = "Breaches in Area spawn an additional Rare Monster",
 				["type"] = "explicit",
 			},
-			[1898] = {
+			[1899] = {
 				["id"] = "explicit.stat_2224050171",
 				["text"] = "Breaches in your Maps contain # additional Clasped Hand",
 				["type"] = "explicit",
 			},
-			[1899] = {
+			[1900] = {
 				["id"] = "explicit.stat_1217651243",
 				["text"] = "Breaches in your Maps expand to at least # metre in radiusBreaches in your Maps remain open while there are alive Breach Monsters",
 				["type"] = "explicit",
 			},
-			[1900] = {
+			[1901] = {
 				["id"] = "explicit.stat_2504358770",
 				["text"] = "Breaches in your Maps open and close #% faster",
 				["type"] = "explicit",
 			},
-			[1901] = {
+			[1902] = {
 				["id"] = "explicit.stat_1090596078",
 				["text"] = "Breaches in your Maps spawn #% increased Magic Monsters",
 				["type"] = "explicit",
 			},
-			[1902] = {
+			[1903] = {
 				["id"] = "explicit.stat_1653625239",
 				["text"] = "Breaches in your Maps spawn an additional Rare Monster",
 				["type"] = "explicit",
 			},
-			[1903] = {
+			[1904] = {
 				["id"] = "explicit.stat_2504358770",
 				["text"] = "Breaches open and close #% faster",
 				["type"] = "explicit",
 			},
-			[1904] = {
+			[1905] = {
 				["id"] = "explicit.stat_1776411443",
 				["text"] = "Break #% increased Armour",
 				["type"] = "explicit",
 			},
-			[1905] = {
+			[1906] = {
 				["id"] = "explicit.stat_1103616075",
 				["text"] = "Break Armour equal to #% of Physical Damage dealt",
 				["type"] = "explicit",
 			},
-			[1906] = {
+			[1907] = {
 				["id"] = "explicit.stat_1286199571",
 				["text"] = "Break Armour on Critical Hit with Spells equal to #% of Physical Damage dealt",
 				["type"] = "explicit",
 			},
-			[1907] = {
+			[1908] = {
 				["id"] = "explicit.stat_949573361",
 				["text"] = "Breaks Armour equal to #% of damage from Hits with this weapon",
 				["type"] = "explicit",
 			},
-			[1908] = {
+			[1909] = {
 				["id"] = "explicit.stat_3831171903|24",
 				["text"] = "Bulwark",
 				["type"] = "explicit",
 			},
-			[1909] = {
+			[1910] = {
 				["id"] = "explicit.stat_1617268696",
 				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing atenth of their maximum Life as Fire Damage",
 				["type"] = "explicit",
 			},
-			[1910] = {
+			[1911] = {
 				["id"] = "explicit.stat_738592688",
 				["text"] = "Can Allocate Passive Skills from the Mercenary's starting point",
 				["type"] = "explicit",
 			},
-			[1911] = {
+			[1912] = {
 				["id"] = "explicit.stat_3116298775",
 				["text"] = "Can Allocate Passive Skills from the Ranger's starting point",
 				["type"] = "explicit",
 			},
-			[1912] = {
+			[1913] = {
 				["id"] = "explicit.stat_2218479786",
 				["text"] = "Can Allocate Passive Skills from the Shadow's starting point",
 				["type"] = "explicit",
 			},
-			[1913] = {
+			[1914] = {
 				["id"] = "explicit.stat_3359496001",
 				["text"] = "Can Allocate Passive Skills from the Sorceress's starting point",
 				["type"] = "explicit",
 			},
-			[1914] = {
+			[1915] = {
 				["id"] = "explicit.stat_1688294122",
 				["text"] = "Can Allocate Passive Skills from the Templar's starting point",
 				["type"] = "explicit",
 			},
-			[1915] = {
+			[1916] = {
 				["id"] = "explicit.stat_1359862146",
 				["text"] = "Can Allocate Passive Skills from the Warrior's starting point",
 				["type"] = "explicit",
 			},
-			[1916] = {
+			[1917] = {
 				["id"] = "explicit.stat_627896047",
 				["text"] = "Can Attack as though using a One Handed Mace while both of your hand slots are emptyUnarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage",
 				["type"] = "explicit",
 			},
-			[1917] = {
+			[1918] = {
 				["id"] = "explicit.stat_2500154144",
 				["text"] = "Can Reroll Favours at Ritual Altars in your Maps twice as many times",
 				["type"] = "explicit",
 			},
-			[1918] = {
+			[1919] = {
 				["id"] = "explicit.stat_1161337167",
 				["text"] = "Can be modified while Corrupted",
 				["type"] = "explicit",
 			},
-			[1919] = {
+			[1920] = {
 				["id"] = "explicit.stat_1135194732",
 				["text"] = "Can have # additional Instilled Modifiers",
 				["type"] = "explicit",
 			},
-			[1920] = {
+			[1921] = {
 				["id"] = "explicit.stat_3418590244",
 				["text"] = "Can only be applied to Precursor Tower MapsCompleting the Tower makes all nearby Maps accessible",
 				["type"] = "explicit",
 			},
-			[1921] = {
+			[1922] = {
 				["id"] = "explicit.stat_4007482102",
 				["text"] = "Can't use Body Armour",
 				["type"] = "explicit",
 			},
-			[1922] = {
+			[1923] = {
 				["id"] = "explicit.stat_64726306",
 				["text"] = "Can't use other Rings",
 				["type"] = "explicit",
 			},
-			[1923] = {
+			[1924] = {
 				["id"] = "explicit.stat_1465760952",
 				["text"] = "Cannot Block",
 				["type"] = "explicit",
 			},
-			[1924] = {
+			[1925] = {
 				["id"] = "explicit.stat_474452755",
 				["text"] = "Cannot Evade Enemy Attacks",
 				["type"] = "explicit",
 			},
-			[1925] = {
+			[1926] = {
 				["id"] = "explicit.stat_4062529591",
 				["text"] = "Cannot Immobilise enemies",
 				["type"] = "explicit",
 			},
-			[1926] = {
+			[1927] = {
 				["id"] = "explicit.stat_1458880585",
 				["text"] = "Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently",
 				["type"] = "explicit",
 			},
-			[1927] = {
+			[1928] = {
 				["id"] = "explicit.stat_1436284579",
 				["text"] = "Cannot be Blinded",
 				["type"] = "explicit",
 			},
-			[1928] = {
+			[1929] = {
 				["id"] = "explicit.stat_331731406",
 				["text"] = "Cannot be Ignited",
 				["type"] = "explicit",
 			},
-			[1929] = {
+			[1930] = {
 				["id"] = "explicit.stat_1000739259",
 				["text"] = "Cannot be Light Stunned",
 				["type"] = "explicit",
 			},
-			[1930] = {
+			[1931] = {
 				["id"] = "explicit.stat_2252419505",
 				["text"] = "Cannot be Light Stunned by Deflected Hits",
 				["type"] = "explicit",
 			},
-			[1931] = {
+			[1932] = {
 				["id"] = "explicit.stat_3835551335",
 				["text"] = "Cannot be Poisoned",
 				["type"] = "explicit",
 			},
-			[1932] = {
+			[1933] = {
 				["id"] = "explicit.stat_491899612",
 				["text"] = "Cannot be Shocked",
 				["type"] = "explicit",
 			},
-			[1933] = {
+			[1934] = {
 				["id"] = "explicit.stat_1237409891",
 				["text"] = "Cannot be Used manually",
 				["type"] = "explicit",
 			},
-			[1934] = {
+			[1935] = {
 				["id"] = "explicit.stat_398335579",
 				["text"] = "Cannot be used while Manifested",
 				["type"] = "explicit",
 			},
-			[1935] = {
+			[1936] = {
 				["id"] = "explicit.stat_410952253",
 				["text"] = "Cannot have Energy Shield",
 				["type"] = "explicit",
 			},
-			[1936] = {
+			[1937] = {
 				["id"] = "explicit.stat_4056809290",
 				["text"] = "Cannot inflict Elemental Ailments",
 				["type"] = "explicit",
 			},
-			[1937] = {
+			[1938] = {
 				["id"] = "explicit.stat_1580426064",
 				["text"] = "Cannot use Life FlasksNon-Unique Life Flasks apply their Effects constantlyRecovery from Life Flasks cannot be InstantRecovery from your Life Flasks cannot be applied to anything other than you",
 				["type"] = "explicit",
 			},
-			[1938] = {
+			[1939] = {
 				["id"] = "explicit.stat_1961849903",
 				["text"] = "Cannot use Projectile Attacks",
 				["type"] = "explicit",
 			},
-			[1939] = {
+			[1940] = {
 				["id"] = "explicit.stat_65135897",
 				["text"] = "Cannot use Shield Skills",
 				["type"] = "explicit",
 			},
-			[1940] = {
+			[1941] = {
 				["id"] = "explicit.stat_2598171606",
 				["text"] = "Cannot use Warcries",
 				["type"] = "explicit",
 			},
-			[1941] = {
+			[1942] = {
 				["id"] = "explicit.stat_791928121",
 				["text"] = "Causes #% increased Stun Buildup",
 				["type"] = "explicit",
 			},
-			[1942] = {
+			[1943] = {
 				["id"] = "explicit.stat_2091621414",
 				["text"] = "Causes Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[1943] = {
+			[1944] = {
 				["id"] = "explicit.stat_1559935218",
 				["text"] = "Causes Daze buildup equal to #% of Damage dealt",
 				["type"] = "explicit",
 			},
-			[1944] = {
+			[1945] = {
 				["id"] = "explicit.stat_769129523",
 				["text"] = "Causes Double Stun Buildup",
 				["type"] = "explicit",
 			},
-			[1945] = {
+			[1946] = {
 				["id"] = "explicit.stat_2957287092",
 				["text"] = "Chance to Block Damage is Lucky",
 				["type"] = "explicit",
 			},
-			[1946] = {
+			[1947] = {
 				["id"] = "explicit.stat_1675120891",
 				["text"] = "Chance to Deflect is Lucky while on Low Life",
 				["type"] = "explicit",
 			},
-			[1947] = {
+			[1948] = {
 				["id"] = "explicit.stat_2315177528",
 				["text"] = "Chaos Damage from Hits also Contributes to Electrocute Buildup",
 				["type"] = "explicit",
 			},
-			[1948] = {
+			[1949] = {
 				["id"] = "explicit.stat_2973498992",
 				["text"] = "Chaos Damage from Hits also Contributes to Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[1949] = {
+			[1950] = {
 				["id"] = "explicit.stat_2418601510",
 				["text"] = "Chaos Damage from Hits also Contributes to Shock Chance",
 				["type"] = "explicit",
 			},
-			[1950] = {
+			[1951] = {
 				["id"] = "explicit.stat_3831171903|8",
 				["text"] = "Chaos Inoculation",
 				["type"] = "explicit",
 			},
-			[1951] = {
+			[1952] = {
 				["id"] = "explicit.stat_2439129490",
 				["text"] = "Chaos Resistance is zero",
 				["type"] = "explicit",
 			},
-			[1952] = {
+			[1953] = {
 				["id"] = "explicit.stat_3480095574",
 				["text"] = "Charms applied to you have #% increased Effect",
 				["type"] = "explicit",
 			},
-			[1953] = {
+			[1954] = {
 				["id"] = "explicit.stat_185580205",
 				["text"] = "Charms gain # charge per Second",
 				["type"] = "explicit",
 			},
-			[1954] = {
+			[1955] = {
 				["id"] = "explicit.stat_2620375641",
 				["text"] = "Charms use no Charges",
 				["type"] = "explicit",
 			},
-			[1955] = {
+			[1956] = {
 				["id"] = "explicit.stat_1261612903",
 				["text"] = "Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[1956] = {
+			[1957] = {
 				["id"] = "explicit.stat_4207433208",
 				["text"] = "Cold Resistance is unaffected by Area Penalties",
 				["type"] = "explicit",
 			},
-			[1957] = {
+			[1958] = {
 				["id"] = "explicit.stat_234296660",
 				["text"] = "Companions deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[1958] = {
+			[1959] = {
 				["id"] = "explicit.stat_1067622524",
 				["text"] = "Companions deal #% increased damage to your Marked targets",
 				["type"] = "explicit",
 			},
-			[1959] = {
+			[1960] = {
 				["id"] = "explicit.stat_666077204",
 				["text"] = "Companions have #% increased Attack Speed",
 				["type"] = "explicit",
 			},
-			[1960] = {
+			[1961] = {
 				["id"] = "explicit.stat_1805182458",
 				["text"] = "Companions have #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[1961] = {
+			[1962] = {
 				["id"] = "explicit.stat_3831171903|13",
 				["text"] = "Conduit",
 				["type"] = "explicit",
 			},
-			[1962] = {
+			[1963] = {
 				["id"] = "explicit.stat_1938221597",
 				["text"] = "Conquered Attribute Passive Skills also grant # to Dexterity",
 				["type"] = "explicit",
 			},
-			[1963] = {
+			[1964] = {
 				["id"] = "explicit.stat_3116427713",
 				["text"] = "Conquered Attribute Passive Skills also grant # to Intelligence",
 				["type"] = "explicit",
 			},
-			[1964] = {
+			[1965] = {
 				["id"] = "explicit.stat_3871530702",
 				["text"] = "Conquered Attribute Passive Skills also grant # to Strength",
 				["type"] = "explicit",
 			},
-			[1965] = {
+			[1966] = {
 				["id"] = "explicit.stat_1119086588",
 				["text"] = "Conquered Attribute Passive Skills also grant # to Tribute",
 				["type"] = "explicit",
 			},
-			[1966] = {
+			[1967] = {
 				["id"] = "explicit.stat_2552484522",
 				["text"] = "Conquered Attribute Passive Skills also grant # to all Attributes",
 				["type"] = "explicit",
 			},
-			[1967] = {
+			[1968] = {
 				["id"] = "explicit.stat_970480050",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Armour",
 				["type"] = "explicit",
 			},
-			[1968] = {
+			[1969] = {
 				["id"] = "explicit.stat_8816597",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Attack damage",
 				["type"] = "explicit",
 			},
-			[1969] = {
+			[1970] = {
 				["id"] = "explicit.stat_2601021356",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Chaos damage",
 				["type"] = "explicit",
 			},
-			[1970] = {
+			[1971] = {
 				["id"] = "explicit.stat_1283490138",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Elemental Ailment Threshold",
 				["type"] = "explicit",
 			},
-			[1971] = {
+			[1972] = {
 				["id"] = "explicit.stat_4240116297",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Elemental Damage",
 				["type"] = "explicit",
 			},
-			[1972] = {
+			[1973] = {
 				["id"] = "explicit.stat_2780670304",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Energy Shield",
 				["type"] = "explicit",
 			},
-			[1973] = {
+			[1974] = {
 				["id"] = "explicit.stat_468694293",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Evasion Rating",
 				["type"] = "explicit",
 			},
-			[1974] = {
+			[1975] = {
 				["id"] = "explicit.stat_4264952559",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Life Regeneration rate",
 				["type"] = "explicit",
 			},
-			[1975] = {
+			[1976] = {
 				["id"] = "explicit.stat_1818915622",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Mana Regeneration rate",
 				["type"] = "explicit",
 			},
-			[1976] = {
+			[1977] = {
 				["id"] = "explicit.stat_1829333149",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Physical damage",
 				["type"] = "explicit",
 			},
-			[1977] = {
+			[1978] = {
 				["id"] = "explicit.stat_3038857426",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Spell damage",
 				["type"] = "explicit",
 			},
-			[1978] = {
+			[1979] = {
 				["id"] = "explicit.stat_2475870935",
 				["text"] = "Conquered Small Passive Skills also grant #% increased Stun Threshold",
 				["type"] = "explicit",
 			},
-			[1979] = {
+			[1980] = {
 				["id"] = "explicit.stat_3343033032",
 				["text"] = "Conquered Small Passive Skills also grant Minions deal #% increased damage",
 				["type"] = "explicit",
 			},
-			[1980] = {
+			[1981] = {
 				["id"] = "explicit.stat_1683568809",
 				["text"] = "Convert #% of Fire Damage with Mace Skills to Cold Damage",
 				["type"] = "explicit",
 			},
-			[1981] = {
+			[1982] = {
 				["id"] = "explicit.stat_4274637468",
 				["text"] = "Convert #% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%",
 				["type"] = "explicit",
 			},
-			[1982] = {
+			[1983] = {
 				["id"] = "explicit.stat_2896801635",
 				["text"] = "Convert 100% of maximum Energy Shield to maximum Divinity",
 				["type"] = "explicit",
 			},
-			[1983] = {
+			[1984] = {
 				["id"] = "explicit.stat_3351912431",
 				["text"] = "Convert All Armour to Evasion Rating",
 				["type"] = "explicit",
 			},
-			[1984] = {
+			[1985] = {
 				["id"] = "explicit.stat_885925163",
 				["text"] = "Copy a random Modifier from each enemy in your Presence whenyou Shapeshift to an Animal formModifiers gained this way are lost after # seconds or when you next Shapeshift",
 				["type"] = "explicit",
 			},
-			[1985] = {
+			[1986] = {
 				["id"] = "explicit.stat_1658498488",
 				["text"] = "Corrupted Blood cannot be inflicted on you",
 				["type"] = "explicit",
 			},
-			[1986] = {
+			[1987] = {
 				["id"] = "explicit.stat_891466814",
 				["text"] = "Create a Fragment of Divinity in your Presence every 4 seconds",
 				["type"] = "explicit",
 			},
-			[1987] = {
+			[1988] = {
 				["id"] = "explicit.stat_3849649145",
 				["text"] = "Creates Consecrated Ground on use",
 				["type"] = "explicit",
 			},
-			[1988] = {
+			[1989] = {
 				["id"] = "explicit.stat_39209842",
 				["text"] = "Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to #% of your maximum Life",
 				["type"] = "explicit",
 			},
-			[1989] = {
+			[1990] = {
 				["id"] = "explicit.stat_3831171903|26",
 				["text"] = "Crimson Assault",
 				["type"] = "explicit",
 			},
-			[1990] = {
+			[1991] = {
 				["id"] = "explicit.stat_1289045485",
 				["text"] = "Critical Hits Ignore Enemy Monster Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[1991] = {
+			[1992] = {
 				["id"] = "explicit.stat_62849030",
 				["text"] = "Critical Hits Poison the enemy",
 				["type"] = "explicit",
 			},
-			[1992] = {
+			[1993] = {
 				["id"] = "explicit.stat_3414998042",
 				["text"] = "Critical Hits cannot Extract Impale",
 				["type"] = "explicit",
 			},
-			[1993] = {
+			[1994] = {
 				["id"] = "explicit.stat_1094937621",
 				["text"] = "Critical Hits ignore Enemy Monster Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[1994] = {
+			[1995] = {
 				["id"] = "explicit.stat_3058238353",
 				["text"] = "Critical Hits inflict Impale",
 				["type"] = "explicit",
 			},
-			[1995] = {
+			[1996] = {
 				["id"] = "explicit.stat_1550131834",
 				["text"] = "Critical Hits with Spells apply # Stack of Critical Weakness",
 				["type"] = "explicit",
 			},
-			[1996] = {
+			[1997] = {
 				["id"] = "explicit.stat_2524254339",
 				["text"] = "Culling Strike",
 				["type"] = "explicit",
 			},
-			[1997] = {
+			[1998] = {
 				["id"] = "explicit.stat_1158324489",
 				["text"] = "Culling Strike against Frozen Enemies",
 				["type"] = "explicit",
 			},
-			[1998] = {
+			[1999] = {
 				["id"] = "explicit.stat_2378065031",
 				["text"] = "Curse Skills have #% increased Cast Speed",
 				["type"] = "explicit",
 			},
-			[1999] = {
+			[2000] = {
 				["id"] = "explicit.stat_3751072557",
 				["text"] = "Curses have no Activation Delay",
 				["type"] = "explicit",
 			},
-			[2000] = {
+			[2001] = {
 				["id"] = "explicit.stat_4275855121",
 				["text"] = "Curses you inflict are reflected back to you",
 				["type"] = "explicit",
 			},
-			[2001] = {
+			[2002] = {
 				["id"] = "explicit.stat_1367119630",
 				["text"] = "Curses you inflict can affect Hexproof Enemies",
 				["type"] = "explicit",
 			},
-			[2002] = {
+			[2003] = {
 				["id"] = "explicit.stat_2609822974",
 				["text"] = "Curses you inflict have infinite Duration",
 				["type"] = "explicit",
 			},
-			[2003] = {
+			[2004] = {
 				["id"] = "explicit.stat_1793470535",
 				["text"] = "Curses you inflict ignore Curse limit",
 				["type"] = "explicit",
 			},
-			[2004] = {
+			[2005] = {
 				["id"] = "explicit.stat_986616727",
 				["text"] = "Curses you inflict spread to enemies within 3 metres when Cursed enemy dies",
 				["type"] = "explicit",
 			},
-			[2005] = {
+			[2006] = {
 				["id"] = "explicit.stat_2875218423",
 				["text"] = "Damage Blocked is Recouped as Mana",
 				["type"] = "explicit",
 			},
-			[2006] = {
+			[2007] = {
 				["id"] = "explicit.stat_3417711605",
 				["text"] = "Damage Penetrates #% Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2007] = {
+			[2008] = {
 				["id"] = "explicit.stat_2101383955",
 				["text"] = "Damage Penetrates #% Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2008] = {
+			[2009] = {
 				["id"] = "explicit.stat_2653955271",
 				["text"] = "Damage Penetrates #% Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2009] = {
+			[2010] = {
 				["id"] = "explicit.stat_818778753",
 				["text"] = "Damage Penetrates #% Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2010] = {
+			[2011] = {
 				["id"] = "explicit.stat_3753748365",
 				["text"] = "Damage of Enemies Hitting you is Unlucky while you are on Low Life",
 				["type"] = "explicit",
 			},
-			[2011] = {
+			[2012] = {
 				["id"] = "explicit.stat_2894895028",
 				["text"] = "Damage over Time bypasses your Energy ShieldWhile not on Full Life, Sacrifice #% of maximum Mana per Second to Recover that much Life",
 				["type"] = "explicit",
 			},
-			[2012] = {
+			[2013] = {
 				["id"] = "explicit.stat_2886108529",
 				["text"] = "Damage over Time cannot bypass your Energy Shield",
 				["type"] = "explicit",
 			},
-			[2013] = {
+			[2014] = {
 				["id"] = "explicit.stat_2432200638",
 				["text"] = "Damage taken Recouped as Life is also Recouped as Energy Shield",
 				["type"] = "explicit",
 			},
-			[2014] = {
+			[2015] = {
 				["id"] = "explicit.stat_538241406",
 				["text"] = "Damaging Ailments deal damage #% faster",
 				["type"] = "explicit",
 			},
-			[2015] = {
+			[2016] = {
 				["id"] = "explicit.stat_3831171903|17",
 				["text"] = "Dance With Death",
-				["type"] = "explicit",
-			},
-			[2016] = {
-				["id"] = "explicit.stat_2933846633",
-				["text"] = "Dazes on Hit",
 				["type"] = "explicit",
 			},
 			[2017] = {
@@ -10277,118 +10277,118 @@ return {
 				["type"] = "explicit",
 			},
 			[2018] = {
+				["id"] = "explicit.stat_2933846633",
+				["text"] = "Dazes on Hit",
+				["type"] = "explicit",
+			},
+			[2019] = {
 				["id"] = "explicit.stat_4258409981",
 				["text"] = "Deal #% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
 				["type"] = "explicit",
 			},
-			[2019] = {
+			[2020] = {
 				["id"] = "explicit.stat_2301852600",
 				["text"] = "Deal #% of Overkill damage to enemies within 2 metres of the enemy killed",
 				["type"] = "explicit",
 			},
-			[2020] = {
+			[2021] = {
 				["id"] = "explicit.stat_2998305364",
 				["text"] = "Deal no Elemental Damage",
 				["type"] = "explicit",
 			},
-			[2021] = {
+			[2022] = {
 				["id"] = "explicit.stat_2107791433",
 				["text"] = "Deal your Thorns Damage to Enemies you Stun with Melee Attacks",
 				["type"] = "explicit",
 			},
-			[2022] = {
+			[2023] = {
 				["id"] = "explicit.stat_3311259821",
 				["text"] = "Deals #% of current Mana as Chaos Damage to you when Effect ends",
 				["type"] = "explicit",
 			},
-			[2023] = {
+			[2024] = {
 				["id"] = "explicit.stat_541021467",
 				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
 				["type"] = "explicit",
 			},
-			[2024] = {
+			[2025] = {
 				["id"] = "explicit.stat_1238227257",
 				["text"] = "Debuffs on you expire #% faster",
 				["type"] = "explicit",
 			},
-			[2025] = {
+			[2026] = {
 				["id"] = "explicit.stat_3650992555",
 				["text"] = "Debuffs you inflict have #% increased Slow Magnitude",
 				["type"] = "explicit",
 			},
-			[2026] = {
+			[2027] = {
 				["id"] = "explicit.stat_3872034802",
 				["text"] = "Decimating Strike",
 				["type"] = "explicit",
 			},
-			[2027] = {
+			[2028] = {
 				["id"] = "explicit.stat_679087890",
 				["text"] = "Defend against Hits as though you had #% more Armour per 1% current Energy Shield",
 				["type"] = "explicit",
 			},
-			[2028] = {
+			[2029] = {
 				["id"] = "explicit.stat_1539671749",
 				["text"] = "Defend with #% of Armour while you have Energy Shield",
 				["type"] = "explicit",
 			},
-			[2029] = {
+			[2030] = {
 				["id"] = "explicit.stat_3387008487",
 				["text"] = "Defend with 200% of Armour",
 				["type"] = "explicit",
 			},
-			[2030] = {
+			[2031] = {
 				["id"] = "explicit.stat_3138344128",
 				["text"] = "Defend with 200% of Armour during effect",
 				["type"] = "explicit",
 			},
-			[2031] = {
+			[2032] = {
 				["id"] = "explicit.stat_1345835998",
 				["text"] = "Deferring Favours at Ritual Altars in Area costs #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2032] = {
+			[2033] = {
 				["id"] = "explicit.stat_1345835998",
 				["text"] = "Deferring Favours at Ritual Altars in your Maps costs #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2033] = {
+			[2034] = {
 				["id"] = "explicit.stat_3428124128",
 				["text"] = "Delirious Monsters Killed in Area provide #% increased Reward Progress",
 				["type"] = "explicit",
 			},
-			[2034] = {
+			[2035] = {
 				["id"] = "explicit.stat_3428124128",
 				["text"] = "Delirious Monsters killed in your Maps provide #% increased Reward Progress",
 				["type"] = "explicit",
 			},
-			[2035] = {
+			[2036] = {
 				["id"] = "explicit.stat_3962960008",
 				["text"] = "Delirium Encounters in Area are #% more likely to spawn Unique Bosses",
 				["type"] = "explicit",
 			},
-			[2036] = {
+			[2037] = {
 				["id"] = "explicit.stat_1770833858",
 				["text"] = "Delirium Encounters in Area have #% chance to generate an additional Reward",
 				["type"] = "explicit",
 			},
-			[2037] = {
+			[2038] = {
 				["id"] = "explicit.stat_1770833858",
 				["text"] = "Delirium Encounters in your Maps have #% chance to generate an additional Reward",
 				["type"] = "explicit",
 			},
-			[2038] = {
+			[2039] = {
 				["id"] = "explicit.stat_3350944114",
 				["text"] = "Delirium Fog dissipates #% faster",
 				["type"] = "explicit",
 			},
-			[2039] = {
+			[2040] = {
 				["id"] = "explicit.stat_3350944114",
 				["text"] = "Delirium Fog in Area dissipates #% faster",
-				["type"] = "explicit",
-			},
-			[2040] = {
-				["id"] = "explicit.stat_3226351972",
-				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			[2041] = {
@@ -10397,1123 +10397,1123 @@ return {
 				["type"] = "explicit",
 			},
 			[2042] = {
+				["id"] = "explicit.stat_3226351972",
+				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
+				["type"] = "explicit",
+			},
+			[2043] = {
 				["id"] = "explicit.stat_551040294",
 				["text"] = "Delirium Fog in Area spawns #% increased Fracturing Mirrors",
 				["type"] = "explicit",
 			},
-			[2043] = {
+			[2044] = {
 				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in your Maps lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
-			[2044] = {
+			[2045] = {
 				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in your Maps lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
-			[2045] = {
+			[2046] = {
 				["id"] = "explicit.stat_1084853859",
 				["text"] = "Delirium Fog in your Maps never dissipates",
 				["type"] = "explicit",
 			},
-			[2046] = {
+			[2047] = {
 				["id"] = "explicit.stat_3465791711",
 				["text"] = "Delirium Monsters in Area have #% increased Pack Size",
 				["type"] = "explicit",
 			},
-			[2047] = {
+			[2048] = {
 				["id"] = "explicit.stat_3465791711",
 				["text"] = "Delirium Monsters in your Maps have #% increased Pack Size",
 				["type"] = "explicit",
 			},
-			[2048] = {
+			[2049] = {
 				["id"] = "explicit.stat_1769611692",
 				["text"] = "Delirium in Area increases #% faster with distance from the mirror",
 				["type"] = "explicit",
 			},
-			[2049] = {
+			[2050] = {
 				["id"] = "explicit.stat_1769611692",
 				["text"] = "Delirium in your Maps increases #% faster with distance from the mirror",
 				["type"] = "explicit",
 			},
-			[2050] = {
+			[2051] = {
 				["id"] = "explicit.stat_2971398565",
 				["text"] = "Divine Flight",
 				["type"] = "explicit",
 			},
-			[2051] = {
+			[2052] = {
 				["id"] = "explicit.stat_3518087336",
 				["text"] = "Dodge Roll avoids all Hits",
 				["type"] = "explicit",
 			},
-			[2052] = {
+			[2053] = {
 				["id"] = "explicit.stat_1298316550",
 				["text"] = "Dodge Roll passes through Enemies",
 				["type"] = "explicit",
 			},
-			[2053] = {
+			[2054] = {
 				["id"] = "explicit.stat_3686997387",
 				["text"] = "Double Stun Threshold while Shield is Raised",
 				["type"] = "explicit",
 			},
-			[2054] = {
+			[2055] = {
 				["id"] = "explicit.stat_2356156926",
 				["text"] = "Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to #% of your maximum Life",
 				["type"] = "explicit",
 			},
-			[2055] = {
+			[2056] = {
 				["id"] = "explicit.stat_65133983",
 				["text"] = "Drop Shocked Ground while moving, lasting 8 seconds",
 				["type"] = "explicit",
 			},
-			[2056] = {
+			[2057] = {
 				["id"] = "explicit.stat_3891922348",
 				["text"] = "Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow",
 				["type"] = "explicit",
 			},
-			[2057] = {
+			[2058] = {
 				["id"] = "explicit.stat_2103621252",
 				["text"] = "Eat a Soul when you Hit a Unique Enemy, no more than once every second",
 				["type"] = "explicit",
 			},
-			[2058] = {
+			[2059] = {
 				["id"] = "explicit.stat_2932359713",
 				["text"] = "Effect is not removed when Unreserved Life is Filled",
 				["type"] = "explicit",
 			},
-			[2059] = {
+			[2060] = {
 				["id"] = "explicit.stat_3969608626",
 				["text"] = "Effect is not removed when Unreserved Mana is Filled",
 				["type"] = "explicit",
 			},
-			[2060] = {
+			[2061] = {
 				["id"] = "explicit.stat_3831171903|9",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
-			[2061] = {
+			[2062] = {
 				["id"] = "explicit.stat_2262736444",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
-			[2062] = {
+			[2063] = {
 				["id"] = "explicit.stat_1000566389",
 				["text"] = "Elemental Ailment Threshold is increased by Uncapped Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2063] = {
+			[2064] = {
 				["id"] = "explicit.stat_1370804479",
 				["text"] = "Elemental Ailments other than Freeze you inflict are Reflected to you",
 				["type"] = "explicit",
 			},
-			[2064] = {
+			[2065] = {
 				["id"] = "explicit.stat_2678924815",
 				["text"] = "Elemental Damage from Hits Contributes to Flammability, Ignite, and Chill Magnitudes, Freeze Buildup, and Shock Chance",
 				["type"] = "explicit",
 			},
-			[2065] = {
+			[2066] = {
 				["id"] = "explicit.stat_3831171903|23",
 				["text"] = "Elemental Equilibrium",
 				["type"] = "explicit",
 			},
-			[2066] = {
+			[2067] = {
 				["id"] = "explicit.stat_1569101201",
 				["text"] = "Empowered Attacks deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2067] = {
+			[2068] = {
 				["id"] = "explicit.stat_3119292058",
 				["text"] = "Enemies Chilled by your Hits can be Shattered as though Frozen",
 				["type"] = "explicit",
 			},
-			[2068] = {
+			[2069] = {
 				["id"] = "explicit.stat_1816894864",
 				["text"] = "Enemies Chilled by your Hits increase damage taken by Chill Magnitude",
 				["type"] = "explicit",
 			},
-			[2069] = {
+			[2070] = {
 				["id"] = "explicit.stat_849085925",
 				["text"] = "Enemies Frozen by you take #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2070] = {
+			[2071] = {
 				["id"] = "explicit.stat_1746561819",
 				["text"] = "Enemies Hindered by you take #% increased Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2071] = {
+			[2072] = {
 				["id"] = "explicit.stat_212649958",
 				["text"] = "Enemies Hindered by you take #% increased Elemental Damage",
 				["type"] = "explicit",
 			},
-			[2072] = {
+			[2073] = {
 				["id"] = "explicit.stat_359357545",
 				["text"] = "Enemies Hindered by you take #% increased Physical Damage",
 				["type"] = "explicit",
 			},
-			[2073] = {
+			[2074] = {
 				["id"] = "explicit.stat_1613322341",
 				["text"] = "Enemies Immobilised by you take #% less Damage",
 				["type"] = "explicit",
 			},
-			[2074] = {
+			[2075] = {
 				["id"] = "explicit.stat_381470861",
 				["text"] = "Enemies are Culled on Block",
 				["type"] = "explicit",
 			},
-			[2075] = {
+			[2076] = {
 				["id"] = "explicit.stat_3868746097",
 				["text"] = "Enemies have an Accuracy Penalty against you based on Distance",
 				["type"] = "explicit",
 			},
-			[2076] = {
+			[2077] = {
 				["id"] = "explicit.stat_1224838456",
 				["text"] = "Enemies in your Presence Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2077] = {
+			[2078] = {
 				["id"] = "explicit.stat_2786852525",
 				["text"] = "Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance",
 				["type"] = "explicit",
 			},
-			[2078] = {
+			[2079] = {
 				["id"] = "explicit.stat_2080373320",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
-			[2079] = {
+			[2080] = {
 				["id"] = "explicit.stat_1464727508",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
-			[2080] = {
+			[2081] = {
 				["id"] = "explicit.stat_2890401248",
 				["text"] = "Enemies in your Presence are Hindered",
 				["type"] = "explicit",
 			},
-			[2081] = {
+			[2082] = {
 				["id"] = "explicit.stat_1433051415",
 				["text"] = "Enemies in your Presence are Ignited as though dealt # Base Fire Damage",
 				["type"] = "explicit",
 			},
-			[2082] = {
+			[2083] = {
 				["id"] = "explicit.stat_3491722585",
 				["text"] = "Enemies in your Presence are Intimidated",
 				["type"] = "explicit",
 			},
-			[2083] = {
+			[2084] = {
 				["id"] = "explicit.stat_1285684287",
 				["text"] = "Enemies in your Presence count as being on Low Life",
 				["type"] = "explicit",
 			},
-			[2084] = {
+			[2085] = {
 				["id"] = "explicit.stat_2836928993",
 				["text"] = "Enemies in your Presence count as having double Power",
 				["type"] = "explicit",
 			},
-			[2085] = {
+			[2086] = {
 				["id"] = "explicit.stat_3628041050",
 				["text"] = "Enemies in your Presence gain 1 Gruelling Madness each second",
 				["type"] = "explicit",
 			},
-			[2086] = {
+			[2087] = {
 				["id"] = "explicit.stat_990363519",
 				["text"] = "Enemies in your Presence have #% to Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2087] = {
+			[2088] = {
 				["id"] = "explicit.stat_724806967",
 				["text"] = "Enemies in your Presence have Exposure",
 				["type"] = "explicit",
 			},
-			[2088] = {
+			[2089] = {
 				["id"] = "explicit.stat_1546580830",
 				["text"] = "Enemies in your Presence have Lightning Resistance equal to yours",
 				["type"] = "explicit",
 			},
-			[2089] = {
+			[2090] = {
 				["id"] = "explicit.stat_1827379101",
 				["text"] = "Enemies in your Presence have additional Power equal to their Gruelling Madness",
 				["type"] = "explicit",
 			},
-			[2090] = {
+			[2091] = {
 				["id"] = "explicit.stat_1953536251",
 				["text"] = "Enemies in your Presence have at least #% of Life Reserved",
 				["type"] = "explicit",
 			},
-			[2091] = {
+			[2092] = {
 				["id"] = "explicit.stat_83011992",
 				["text"] = "Enemies in your Presence have no Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2092] = {
+			[2093] = {
 				["id"] = "explicit.stat_1576794517",
 				["text"] = "Enemies in your Presence killed by anyone count as being killed by you instead",
 				["type"] = "explicit",
 			},
-			[2093] = {
+			[2094] = {
 				["id"] = "explicit.stat_1509533589",
 				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type amongyour Ailments on them",
 				["type"] = "explicit",
 			},
-			[2094] = {
+			[2095] = {
 				["id"] = "explicit.stat_1772929282",
 				["text"] = "Enemies you Curse have #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2095] = {
+			[2096] = {
 				["id"] = "explicit.stat_2083058281",
 				["text"] = "Enemies you Mark take #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2096] = {
+			[2097] = {
 				["id"] = "explicit.stat_1776945532",
 				["text"] = "Enemies you kill have a #% chance to explode, dealing a quarter of their maximum Life as Chaos damage",
 				["type"] = "explicit",
 			},
-			[2097] = {
+			[2098] = {
 				["id"] = "explicit.stat_793801176",
 				["text"] = "Energy Generation is doubled",
 				["type"] = "explicit",
 			},
-			[2098] = {
+			[2099] = {
 				["id"] = "explicit.stat_1419390131",
 				["text"] = "Energy Shield Recharge is not interrupted by Damage if Recharge began Recently",
 				["type"] = "explicit",
 			},
-			[2099] = {
+			[2100] = {
 				["id"] = "explicit.stat_1056492907",
 				["text"] = "Energy Shield Recharge starts on use",
 				["type"] = "explicit",
 			},
-			[2100] = {
+			[2101] = {
 				["id"] = "explicit.stat_2402413437",
 				["text"] = "Energy Shield Recharge starts when you use a Mana Flask",
 				["type"] = "explicit",
 			},
-			[2101] = {
+			[2102] = {
 				["id"] = "explicit.stat_2147773348",
 				["text"] = "Energy Shield is increased by Uncapped Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2102] = {
+			[2103] = {
 				["id"] = "explicit.stat_752930724",
 				["text"] = "Equipment and Skill Gems have #% increased Attribute Requirements",
 				["type"] = "explicit",
 			},
-			[2103] = {
+			[2104] = {
 				["id"] = "explicit.stat_2480151124",
 				["text"] = "Equipment has no Attribute Requirements",
 				["type"] = "explicit",
 			},
-			[2104] = {
+			[2105] = {
 				["id"] = "explicit.stat_3831171903|15",
 				["text"] = "Eternal Youth",
 				["type"] = "explicit",
 			},
-			[2105] = {
+			[2106] = {
 				["id"] = "explicit.stat_1272938854",
 				["text"] = "Evasion Rating is doubled if you have not been Hit Recently",
 				["type"] = "explicit",
 			},
-			[2106] = {
+			[2107] = {
 				["id"] = "explicit.stat_419098854",
 				["text"] = "Evasion Rating is increased by Uncapped Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2107] = {
+			[2108] = {
 				["id"] = "explicit.stat_145598447",
 				["text"] = "Everlasting Sacrifice",
 				["type"] = "explicit",
 			},
-			[2108] = {
+			[2109] = {
 				["id"] = "explicit.stat_2625554454",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
-			[2109] = {
+			[2110] = {
 				["id"] = "explicit.stat_2879778895",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
-			[2110] = {
+			[2111] = {
 				["id"] = "explicit.stat_1910039112",
 				["text"] = "Every 3 seconds during Effect, deal #% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres",
 				["type"] = "explicit",
 			},
-			[2111] = {
+			[2112] = {
 				["id"] = "explicit.stat_3764198549",
 				["text"] = "Every 3 seconds, Consume a nearby Corpse to Recover #% of maximum Life",
 				["type"] = "explicit",
 			},
-			[2112] = {
+			[2113] = {
 				["id"] = "explicit.stat_1457411584",
 				["text"] = "Every 4 seconds, Recover 1 Life for every # Life Recovery per second from Regeneration",
 				["type"] = "explicit",
 			},
-			[2113] = {
+			[2114] = {
 				["id"] = "explicit.stat_1895552497",
 				["text"] = "Every 5 Rage also grants #% of Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[2114] = {
+			[2115] = {
 				["id"] = "explicit.stat_2995914769",
 				["text"] = "Every Rage also grants #% increased Armour",
 				["type"] = "explicit",
 			},
-			[2115] = {
+			[2116] = {
 				["id"] = "explicit.stat_352044736",
 				["text"] = "Every Rage also grants #% increased Stun Threshold",
 				["type"] = "explicit",
 			},
-			[2116] = {
+			[2117] = {
 				["id"] = "explicit.stat_2224139044",
 				["text"] = "Every second Slam Skill you use while Shapeshifted is Ancestrally BoostedEvery second Strike Skill you use while Shapeshifted is Ancestrally Boosted",
 				["type"] = "explicit",
 			},
-			[2117] = {
+			[2118] = {
 				["id"] = "explicit.stat_1052498387",
 				["text"] = "Every second, inflicts Critical Weakness on enemies in your Presence for # second",
 				["type"] = "explicit",
 			},
-			[2118] = {
+			[2119] = {
 				["id"] = "explicit.stat_636464211",
 				["text"] = "Excess Life Recovery added as Guard for # seconds",
 				["type"] = "explicit",
 			},
-			[2119] = {
+			[2120] = {
 				["id"] = "explicit.stat_999436592",
 				["text"] = "Excess Life Recovery from Leech is applied to Energy Shield",
 				["type"] = "explicit",
 			},
-			[2120] = {
+			[2121] = {
 				["id"] = "explicit.stat_144770454",
 				["text"] = "Expedition Monsters in your Maps spawn with half of their Life missing",
 				["type"] = "explicit",
 			},
-			[2121] = {
+			[2122] = {
 				["id"] = "explicit.stat_3753446846",
 				["text"] = "Expeditions in Area have # Remnants",
 				["type"] = "explicit",
 			},
-			[2122] = {
+			[2123] = {
 				["id"] = "explicit.stat_3753446846",
 				["text"] = "Expeditions in your Maps have # Remnant",
 				["type"] = "explicit",
 			},
-			[2123] = {
+			[2124] = {
 				["id"] = "explicit.stat_28208665",
 				["text"] = "Favours Deferred at Ritual Altars in Area reappear #% sooner",
 				["type"] = "explicit",
 			},
-			[2124] = {
+			[2125] = {
 				["id"] = "explicit.stat_28208665",
 				["text"] = "Favours Deferred at Ritual Altars in your Maps reappear #% sooner",
 				["type"] = "explicit",
 			},
-			[2125] = {
+			[2126] = {
 				["id"] = "explicit.stat_937291386",
 				["text"] = "Favours Rerolled at Ritual Altars in Area have #% chance to cost no Tribute",
 				["type"] = "explicit",
 			},
-			[2126] = {
+			[2127] = {
 				["id"] = "explicit.stat_937291386",
 				["text"] = "Favours Rerolled at Ritual Altars in your Maps have #% chance to cost no Tribute",
 				["type"] = "explicit",
 			},
-			[2127] = {
+			[2128] = {
 				["id"] = "explicit.stat_1228222525",
 				["text"] = "Favours at Ritual Altars in Area costs #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2128] = {
+			[2129] = {
 				["id"] = "explicit.stat_1221641885",
 				["text"] = "Fire Damage also Contributes to Bleeding Magnitude",
 				["type"] = "explicit",
 			},
-			[2129] = {
+			[2130] = {
 				["id"] = "explicit.stat_2949096603",
 				["text"] = "Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes",
 				["type"] = "explicit",
 			},
-			[2130] = {
+			[2131] = {
 				["id"] = "explicit.stat_3247805335",
 				["text"] = "Fire Resistance is unaffected by Area Penalties",
 				["type"] = "explicit",
 			},
-			[2131] = {
+			[2132] = {
 				["id"] = "explicit.stat_1540254896",
 				["text"] = "Flammability Magnitude is doubled",
 				["type"] = "explicit",
 			},
-			[2132] = {
+			[2133] = {
 				["id"] = "explicit.stat_265717301",
 				["text"] = "Flasks do not recover Life",
 				["type"] = "explicit",
 			},
-			[2133] = {
+			[2134] = {
 				["id"] = "explicit.stat_2260055669",
 				["text"] = "Freezes Enemies that are on Full Life",
 				["type"] = "explicit",
 			},
-			[2134] = {
+			[2135] = {
 				["id"] = "explicit.stat_3278008231",
 				["text"] = "Fully Armour Broken enemies you kill with Hits Shatter",
 				["type"] = "explicit",
 			},
-			[2135] = {
+			[2136] = {
 				["id"] = "explicit.stat_3841984913",
 				["text"] = "Gain # Fragile Regrowth each second",
 				["type"] = "explicit",
 			},
-			[2136] = {
+			[2137] = {
 				["id"] = "explicit.stat_2443032293",
 				["text"] = "Gain # Guard for 0.5 seconds per Combo expended when using Skills",
 				["type"] = "explicit",
 			},
-			[2137] = {
+			[2138] = {
 				["id"] = "explicit.stat_2797971005",
 				["text"] = "Gain # Life per Enemy Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[2138] = {
+			[2139] = {
 				["id"] = "explicit.stat_3695891184",
 				["text"] = "Gain # Life per enemy killed",
 				["type"] = "explicit",
 			},
-			[2139] = {
+			[2140] = {
 				["id"] = "explicit.stat_820939409",
 				["text"] = "Gain # Mana per Enemy Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[2140] = {
+			[2141] = {
 				["id"] = "explicit.stat_1368271171",
 				["text"] = "Gain # Mana per enemy killed",
 				["type"] = "explicit",
 			},
-			[2141] = {
+			[2142] = {
 				["id"] = "explicit.stat_2258007247",
 				["text"] = "Gain # Rage on Hit",
 				["type"] = "explicit",
 			},
-			[2142] = {
+			[2143] = {
 				["id"] = "explicit.stat_2709367754",
 				["text"] = "Gain # Rage on Melee Hit",
 				["type"] = "explicit",
 			},
-			[2143] = {
+			[2144] = {
 				["id"] = "explicit.stat_1466716929",
 				["text"] = "Gain # Rage when Critically Hit by an Enemy",
 				["type"] = "explicit",
 			},
-			[2144] = {
+			[2145] = {
 				["id"] = "explicit.stat_3292710273",
 				["text"] = "Gain # Rage when Hit by an Enemy",
 				["type"] = "explicit",
 			},
-			[2145] = {
+			[2146] = {
 				["id"] = "explicit.stat_555311715",
 				["text"] = "Gain # Rage when Hit by an Enemy during effect",
 				["type"] = "explicit",
 			},
-			[2146] = {
+			[2147] = {
 				["id"] = "explicit.stat_2469544361",
 				["text"] = "Gain #% of Cold damage as Extra Fire damage per 1% Chill Magnitude on enemy",
 				["type"] = "explicit",
 			},
-			[2147] = {
+			[2148] = {
 				["id"] = "explicit.stat_997343726",
 				["text"] = "Gain #% of Damage as Chaos Damage per Undead Minion",
 				["type"] = "explicit",
 			},
-			[2148] = {
+			[2149] = {
 				["id"] = "explicit.stat_3398787959",
 				["text"] = "Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2149] = {
+			[2150] = {
 				["id"] = "explicit.stat_2505884597",
 				["text"] = "Gain #% of Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
-			[2150] = {
+			[2151] = {
 				["id"] = "explicit.stat_825116955",
 				["text"] = "Gain #% of Damage as Extra Cold Damage with Spells",
 				["type"] = "explicit",
 			},
-			[2151] = {
+			[2152] = {
 				["id"] = "explicit.stat_3015669065",
 				["text"] = "Gain #% of Damage as Extra Fire Damage",
 				["type"] = "explicit",
 			},
-			[2152] = {
+			[2153] = {
 				["id"] = "explicit.stat_589361270",
 				["text"] = "Gain #% of Damage as Extra Fire Damage while you are missing Runic Ward",
 				["type"] = "explicit",
 			},
-			[2153] = {
+			[2154] = {
 				["id"] = "explicit.stat_1321054058",
 				["text"] = "Gain #% of Damage as Extra Fire Damage with Spells",
 				["type"] = "explicit",
 			},
-			[2154] = {
+			[2155] = {
 				["id"] = "explicit.stat_3278136794",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage",
 				["type"] = "explicit",
 			},
-			[2155] = {
+			[2156] = {
 				["id"] = "explicit.stat_323800555",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
 				["type"] = "explicit",
 			},
-			[2156] = {
+			[2157] = {
 				["id"] = "explicit.stat_4019237939",
 				["text"] = "Gain #% of Damage as Extra Physical Damage",
 				["type"] = "explicit",
 			},
-			[2157] = {
+			[2158] = {
 				["id"] = "explicit.stat_1158842087",
 				["text"] = "Gain #% of Elemental Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
-			[2158] = {
+			[2159] = {
 				["id"] = "explicit.stat_701564564",
 				["text"] = "Gain #% of Elemental Damage as Extra Fire Damage",
 				["type"] = "explicit",
 			},
-			[2159] = {
+			[2160] = {
 				["id"] = "explicit.stat_3550887155",
 				["text"] = "Gain #% of Elemental Damage as Extra Lightning Damage",
 				["type"] = "explicit",
 			},
-			[2160] = {
+			[2161] = {
 				["id"] = "explicit.stat_1546604934",
 				["text"] = "Gain #% of Evasion Rating as extra Armour",
 				["type"] = "explicit",
 			},
-			[2161] = {
+			[2162] = {
 				["id"] = "explicit.stat_514290151",
 				["text"] = "Gain #% of Maximum Mana as Armour",
 				["type"] = "explicit",
 			},
-			[2162] = {
+			[2163] = {
 				["id"] = "explicit.stat_758893621",
 				["text"] = "Gain #% of Physical Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
-			[2163] = {
+			[2164] = {
 				["id"] = "explicit.stat_915546383",
 				["text"] = "Gain #% of Physical Damage as Extra Damage of a random Element",
 				["type"] = "explicit",
 			},
-			[2164] = {
+			[2165] = {
 				["id"] = "explicit.stat_1228337241",
 				["text"] = "Gain #% of maximum Life as Extra maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2165] = {
+			[2166] = {
 				["id"] = "explicit.stat_3027830452",
 				["text"] = "Gain #% of maximum Mana as Extra maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2166] = {
+			[2167] = {
 				["id"] = "explicit.stat_796381300",
 				["text"] = "Gain 0% to #% increased Movement Speed at random when Hit, until Hit again",
 				["type"] = "explicit",
 			},
-			[2167] = {
+			[2168] = {
 				["id"] = "explicit.stat_2482970488",
 				["text"] = "Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence",
 				["type"] = "explicit",
 			},
-			[2168] = {
+			[2169] = {
 				["id"] = "explicit.stat_1273508088",
 				["text"] = "Gain 1 Druidic Prowess for every 20 total Rage spent",
 				["type"] = "explicit",
 			},
-			[2169] = {
+			[2170] = {
 				["id"] = "explicit.stat_4128965096",
 				["text"] = "Gain 1 Explosive Rhythm every # time you use a Grenade SkillRemove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds",
 				["type"] = "explicit",
 			},
-			[2170] = {
+			[2171] = {
 				["id"] = "explicit.stat_3775736880",
 				["text"] = "Gain 1 Fear Incarnate when you Cull a target",
 				["type"] = "explicit",
 			},
-			[2171] = {
+			[2172] = {
 				["id"] = "explicit.stat_343703314",
 				["text"] = "Gain 1 Runefather's Boast per Power of targets affected by Runefather's Challenge you kill",
 				["type"] = "explicit",
 			},
-			[2172] = {
+			[2173] = {
 				["id"] = "explicit.stat_3492740640",
 				["text"] = "Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 secondsLose all Runic Bindings when you Shapeshift to gain that much Unbound Potential",
 				["type"] = "explicit",
 			},
-			[2173] = {
+			[2174] = {
 				["id"] = "explicit.stat_3170380905",
 				["text"] = "Gain 1% of damage as Fire damage per #% Chance to Block",
 				["type"] = "explicit",
 			},
-			[2174] = {
+			[2175] = {
 				["id"] = "explicit.stat_3625518318",
 				["text"] = "Gain Arcane Surge when a Minion Dies",
 				["type"] = "explicit",
 			},
-			[2175] = {
+			[2176] = {
 				["id"] = "explicit.stat_1435496528",
 				["text"] = "Gain Cold Thorns Damage equal to #% of your maximum Mana",
 				["type"] = "explicit",
 			},
-			[2176] = {
+			[2177] = {
 				["id"] = "explicit.stat_1752419596",
 				["text"] = "Gain Deflection Rating equal to #% of Armour",
 				["type"] = "explicit",
 			},
-			[2177] = {
+			[2178] = {
 				["id"] = "explicit.stat_3033371881",
 				["text"] = "Gain Deflection Rating equal to #% of Evasion Rating",
 				["type"] = "explicit",
 			},
-			[2178] = {
+			[2179] = {
 				["id"] = "explicit.stat_4010198893",
 				["text"] = "Gain Finality for # seconds per Combo expended when using Skills",
 				["type"] = "explicit",
 			},
-			[2179] = {
+			[2180] = {
 				["id"] = "explicit.stat_469006068",
 				["text"] = "Gain Guard equal to #% of missing Energy Shield for 4 seconds when you Dodge Roll",
 				["type"] = "explicit",
 			},
-			[2180] = {
+			[2181] = {
 				["id"] = "explicit.stat_3605616594",
 				["text"] = "Gain Onslaught for 4 seconds when a Minion Dies",
 				["type"] = "explicit",
 			},
-			[2181] = {
+			[2182] = {
 				["id"] = "explicit.stat_2148576938",
 				["text"] = "Gain Overencumbrance for 4 seconds when you Dodge Roll",
 				["type"] = "explicit",
 			},
-			[2182] = {
+			[2183] = {
 				["id"] = "explicit.stat_2163764037",
 				["text"] = "Gain Physical Thorns damage equal to #% - #% of maximum Life",
 				["type"] = "explicit",
 			},
-			[2183] = {
+			[2184] = {
 				["id"] = "explicit.stat_1793740180",
 				["text"] = "Gain Physical Thorns damage equal to #% of Item Armour on Equipped Body Armour",
 				["type"] = "explicit",
 			},
-			[2184] = {
+			[2185] = {
 				["id"] = "explicit.stat_2459662130",
 				["text"] = "Gain Tailwind on Critical Hit, no more than once per second",
 				["type"] = "explicit",
 			},
-			[2185] = {
+			[2186] = {
 				["id"] = "explicit.stat_2931872063",
 				["text"] = "Gain Volatility on Critical Hit",
 				["type"] = "explicit",
 			},
-			[2186] = {
+			[2187] = {
 				["id"] = "explicit.stat_1099200124",
 				["text"] = "Gain a Power Charge every Second if you haven't lost Power Charges Recently",
 				["type"] = "explicit",
 			},
-			[2187] = {
+			[2188] = {
 				["id"] = "explicit.stat_2284588585",
 				["text"] = "Gain a random Charge on reaching Maximum Rage, no more than once every # seconds",
 				["type"] = "explicit",
 			},
-			[2188] = {
+			[2189] = {
 				["id"] = "explicit.stat_3398301358",
 				["text"] = "Gain additional Ailment Threshold equal to #% of maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2189] = {
+			[2190] = {
 				["id"] = "explicit.stat_416040624",
 				["text"] = "Gain additional Stun Threshold equal to #% of maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2190] = {
+			[2191] = {
 				["id"] = "explicit.stat_4187571952",
 				["text"] = "Gain no inherent bonus from Intelligence",
 				["type"] = "explicit",
 			},
-			[2191] = {
+			[2192] = {
 				["id"] = "explicit.stat_1873752457",
 				["text"] = "Gains # Charges per Second",
 				["type"] = "explicit",
 			},
-			[2192] = {
+			[2193] = {
 				["id"] = "explicit.stat_1875158664",
 				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
-			[2193] = {
+			[2194] = {
 				["id"] = "explicit.stat_3831171903|2",
 				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
-			[2194] = {
+			[2195] = {
 				["id"] = "explicit.stat_3831171903|22",
 				["text"] = "Glancing Blows",
 				["type"] = "explicit",
 			},
-			[2195] = {
+			[2196] = {
 				["id"] = "explicit.stat_4266776872",
 				["text"] = "Glancing Blows",
 				["type"] = "explicit",
 			},
-			[2196] = {
+			[2197] = {
 				["id"] = "explicit.stat_3418580811|24",
 				["text"] = "Glorifying the defilement of # souls in tribute to AmanamuPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
 				["type"] = "explicit",
 			},
-			[2197] = {
+			[2198] = {
 				["id"] = "explicit.stat_3418580811|25",
 				["text"] = "Glorifying the defilement of # souls in tribute to KulemakPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
 				["type"] = "explicit",
 			},
-			[2198] = {
+			[2199] = {
 				["id"] = "explicit.stat_3418580811|26",
 				["text"] = "Glorifying the defilement of # souls in tribute to KurgalPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
 				["type"] = "explicit",
 			},
-			[2199] = {
+			[2200] = {
 				["id"] = "explicit.stat_3418580811|27",
 				["text"] = "Glorifying the defilement of # souls in tribute to TecrodPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
 				["type"] = "explicit",
 			},
-			[2200] = {
+			[2201] = {
 				["id"] = "explicit.stat_3418580811|28",
 				["text"] = "Glorifying the defilement of # souls in tribute to UlamanPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
 				["type"] = "explicit",
 			},
-			[2201] = {
+			[2202] = {
 				["id"] = "explicit.stat_821021828",
 				["text"] = "Grants # Life per Enemy Hit",
 				["type"] = "explicit",
 			},
-			[2202] = {
+			[2203] = {
 				["id"] = "explicit.stat_2416869319",
 				["text"] = "Grants #% of Life Recovery to Minions",
 				["type"] = "explicit",
 			},
-			[2203] = {
+			[2204] = {
 				["id"] = "explicit.stat_618665892",
 				["text"] = "Grants Onslaught during effect",
 				["type"] = "explicit",
 			},
-			[2204] = {
+			[2205] = {
 				["id"] = "explicit.stat_280890192",
 				["text"] = "Grants a Frenzy Charge on use",
 				["type"] = "explicit",
 			},
-			[2205] = {
+			[2206] = {
 				["id"] = "explicit.stat_2566921799",
 				["text"] = "Grants a Power Charge on use",
 				["type"] = "explicit",
 			},
-			[2206] = {
+			[2207] = {
 				["id"] = "explicit.stat_3742268652",
 				["text"] = "Grants effect of Dreaming Gloom Shrine",
 				["type"] = "explicit",
 			},
-			[2207] = {
+			[2208] = {
 				["id"] = "explicit.stat_234657505",
 				["text"] = "Grants effect of Guided Freezing Shrine",
 				["type"] = "explicit",
 			},
-			[2208] = {
+			[2209] = {
 				["id"] = "explicit.stat_3917429943",
 				["text"] = "Grants effect of Guided Meteoric Shrine",
 				["type"] = "explicit",
 			},
-			[2209] = {
+			[2210] = {
 				["id"] = "explicit.stat_2800412928",
 				["text"] = "Grants effect of Guided Tempest Shrine",
 				["type"] = "explicit",
 			},
-			[2210] = {
+			[2211] = {
 				["id"] = "explicit.stat_1509210032",
 				["text"] = "Grants up to your maximum Rage on use",
 				["type"] = "explicit",
 			},
-			[2211] = {
+			[2212] = {
 				["id"] = "explicit.stat_1980802737",
 				["text"] = "Grenade Skills Fire an additional Projectile",
 				["type"] = "explicit",
 			},
-			[2212] = {
+			[2213] = {
 				["id"] = "explicit.stat_2250681686",
 				["text"] = "Grenade Skills have +# Cooldown Use",
 				["type"] = "explicit",
 			},
-			[2213] = {
+			[2214] = {
 				["id"] = "explicit.stat_538981065",
 				["text"] = "Grenades have #% chance to activate a second time",
 				["type"] = "explicit",
 			},
-			[2214] = {
+			[2215] = {
 				["id"] = "explicit.stat_1416292992",
 				["text"] = "Has # Charm Slot",
 				["type"] = "explicit",
 			},
-			[2215] = {
+			[2216] = {
 				["id"] = "explicit.stat_1955786041",
 				["text"] = "Has # to # Physical damage, # to # per Boss's Face Broken",
 				["type"] = "explicit",
 			},
-			[2216] = {
+			[2217] = {
 				["id"] = "explicit.stat_2739148464",
 				["text"] = "Has no Attribute Requirements",
 				["type"] = "explicit",
 			},
-			[2217] = {
+			[2218] = {
 				["id"] = "explicit.stat_3831171903|18",
 				["text"] = "Heartstopper",
 				["type"] = "explicit",
 			},
-			[2218] = {
+			[2219] = {
 				["id"] = "explicit.stat_668076381",
 				["text"] = "Heavy Stuns Enemies that are on Full Life",
 				["type"] = "explicit",
 			},
-			[2219] = {
+			[2220] = {
 				["id"] = "explicit.stat_21071013",
 				["text"] = "Herald Skills deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2220] = {
+			[2221] = {
 				["id"] = "explicit.stat_3787436548",
 				["text"] = "Historic",
 				["type"] = "explicit",
 			},
-			[2221] = {
+			[2222] = {
 				["id"] = "explicit.stat_289086688",
 				["text"] = "Hits Break # Armour",
 				["type"] = "explicit",
 			},
-			[2222] = {
+			[2223] = {
 				["id"] = "explicit.stat_3923947492",
 				["text"] = "Hits against you have #% increased Critical Hit Chance while you are Chilled",
 				["type"] = "explicit",
 			},
-			[2223] = {
+			[2224] = {
 				["id"] = "explicit.stat_3855016469",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2224] = {
+			[2225] = {
 				["id"] = "explicit.stat_701923421",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus per Socket filled",
 				["type"] = "explicit",
 			},
-			[2225] = {
+			[2226] = {
 				["id"] = "explicit.stat_3593401321",
 				["text"] = "Hits have #% chance to treat Enemy Monster Elemental Resistance values as inverted",
 				["type"] = "explicit",
 			},
-			[2226] = {
+			[2227] = {
 				["id"] = "explicit.stat_4270096386",
 				["text"] = "Hits have #% increased Critical Hit Chance against you",
 				["type"] = "explicit",
 			},
-			[2227] = {
+			[2228] = {
 				["id"] = "explicit.stat_1689748350",
 				["text"] = "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour",
 				["type"] = "explicit",
 			},
-			[2228] = {
+			[2229] = {
 				["id"] = "explicit.stat_1867725690",
 				["text"] = "Hits with this Weapon have #% chance to Trigger Molten Shower per 25 Strength",
 				["type"] = "explicit",
 			},
-			[2229] = {
+			[2230] = {
 				["id"] = "explicit.stat_2558253923",
 				["text"] = "Hits with this Weapon have Culling Strike against Bleeding Enemies",
 				["type"] = "explicit",
 			},
-			[2230] = {
+			[2231] = {
 				["id"] = "explicit.stat_1508661598",
 				["text"] = "Hits with this Weapon have no Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2231] = {
+			[2232] = {
 				["id"] = "explicit.stat_2526112819",
 				["text"] = "Hits with this Weapon inflict # Gruelling Madness",
 				["type"] = "explicit",
 			},
-			[2232] = {
+			[2233] = {
 				["id"] = "explicit.stat_2036307261",
 				["text"] = "Hits with this weapon have # to # Added Physical Damage per 1% Block Chance",
 				["type"] = "explicit",
 			},
-			[2233] = {
+			[2234] = {
 				["id"] = "explicit.stat_3831171903|27",
 				["text"] = "Hollow Palm Technique",
 				["type"] = "explicit",
 			},
-			[2234] = {
+			[2235] = {
 				["id"] = "explicit.stat_740421489",
 				["text"] = "Ice Crystals have #% increased maximum Life per 5% Cold Resistance you have",
 				["type"] = "explicit",
 			},
-			[2235] = {
+			[2236] = {
 				["id"] = "explicit.stat_2371108370",
 				["text"] = "If Map was not previously Irradiated, completing Map adds Irradiation instead",
 				["type"] = "explicit",
 			},
-			[2236] = {
+			[2237] = {
 				["id"] = "explicit.stat_983582600",
 				["text"] = "Ignite you inflict deals Chaos Damage instead of Fire Damage",
 				["type"] = "explicit",
 			},
-			[2237] = {
+			[2238] = {
 				["id"] = "explicit.stat_3314057862",
 				["text"] = "Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second",
 				["type"] = "explicit",
 			},
-			[2238] = {
+			[2239] = {
 				["id"] = "explicit.stat_4238331303",
 				["text"] = "Immobilise enemies at #% buildup instead of 100%",
 				["type"] = "explicit",
 			},
-			[2239] = {
+			[2240] = {
 				["id"] = "explicit.stat_3881997959",
 				["text"] = "Increases Movement Speed by 25%, plus 1% per # Evasion Rating, up to a maximum of 75%Other Modifiers to Movement Speed except for Sprinting do not apply",
 				["type"] = "explicit",
 			},
-			[2240] = {
+			[2241] = {
 				["id"] = "explicit.stat_1138742368",
 				["text"] = "Increases and Reductions to Light Radius also apply to Area of Effect at #% of their value",
 				["type"] = "explicit",
 			},
-			[2241] = {
+			[2242] = {
 				["id"] = "explicit.stat_3407300125",
 				["text"] = "Increases and Reductions to Mana Regeneration Rate alsoapply to Energy Shield Recharge Rate",
 				["type"] = "explicit",
 			},
-			[2242] = {
+			[2243] = {
 				["id"] = "explicit.stat_2293111154",
 				["text"] = "Increases and Reductions to Minion Attack Speed also affect you",
 				["type"] = "explicit",
 			},
-			[2243] = {
+			[2244] = {
 				["id"] = "explicit.stat_1631928082",
 				["text"] = "Increases and Reductions to Minion Damage also affect you",
 				["type"] = "explicit",
 			},
-			[2244] = {
+			[2245] = {
 				["id"] = "explicit.stat_414821772",
 				["text"] = "Increases and Reductions to Projectile Speed also apply to Damage with Bows",
 				["type"] = "explicit",
 			},
-			[2245] = {
+			[2246] = {
 				["id"] = "explicit.stat_3811649872",
 				["text"] = "Increases and Reductions to Spell damage also apply to Attacks",
 				["type"] = "explicit",
 			},
-			[2246] = {
+			[2247] = {
 				["id"] = "explicit.stat_1076031760",
 				["text"] = "Infinite Parry Range",
 				["type"] = "explicit",
 			},
-			[2247] = {
+			[2248] = {
 				["id"] = "explicit.stat_971590056",
 				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "explicit",
 			},
-			[2248] = {
+			[2249] = {
 				["id"] = "explicit.stat_3005701891",
 				["text"] = "Inflict Cold Exposure on Hit",
 				["type"] = "explicit",
 			},
-			[2249] = {
+			[2250] = {
 				["id"] = "explicit.stat_3314536008",
 				["text"] = "Inflict Cold Exposure on Igniting an Enemy",
 				["type"] = "explicit",
 			},
-			[2250] = {
+			[2251] = {
 				["id"] = "explicit.stat_1695767482",
 				["text"] = "Inflict Corrupted Blood for # second on Block, dealing #% ofyour maximum Life as Physical damage per second",
 				["type"] = "explicit",
 			},
-			[2251] = {
+			[2252] = {
 				["id"] = "explicit.stat_533542952",
 				["text"] = "Inflict Elemental Exposure on Hit",
 				["type"] = "explicit",
 			},
-			[2252] = {
+			[2253] = {
 				["id"] = "explicit.stat_2951965588",
 				["text"] = "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
 				["type"] = "explicit",
 			},
-			[2253] = {
+			[2254] = {
 				["id"] = "explicit.stat_223138829",
 				["text"] = "Inflict Elemental Exposure to Enemies 3 metres in front of youfor 4 seconds, every 0.25 seconds while raised",
 				["type"] = "explicit",
 			},
-			[2254] = {
+			[2255] = {
 				["id"] = "explicit.stat_1538879632",
 				["text"] = "Inflict Fire Exposure on Shocking an Enemy",
 				["type"] = "explicit",
 			},
-			[2255] = {
+			[2256] = {
 				["id"] = "explicit.stat_2665488635",
 				["text"] = "Inflict Lightning Exposure on Critical Hit",
 				["type"] = "explicit",
 			},
-			[2256] = {
+			[2257] = {
 				["id"] = "explicit.stat_359380213",
 				["text"] = "Inflicts Elemental Exposure when this Weapon Fully Breaks Armour",
 				["type"] = "explicit",
 			},
-			[2257] = {
+			[2258] = {
 				["id"] = "explicit.stat_774222208",
 				["text"] = "Inflicts Runefather's Challenge on enemies # metres in front of you when raised, no more than once every 2 seconds",
 				["type"] = "explicit",
 			},
-			[2258] = {
+			[2259] = {
 				["id"] = "explicit.stat_2918129907",
 				["text"] = "Inflicts a random Curse on you when your Totems die, ignoring Curse limit",
 				["type"] = "explicit",
 			},
-			[2259] = {
+			[2260] = {
 				["id"] = "explicit.stat_1526933524",
 				["text"] = "Instant Recovery",
 				["type"] = "explicit",
 			},
-			[2260] = {
+			[2261] = {
 				["id"] = "explicit.stat_3703496511",
 				["text"] = "Intimidate Enemies on Block for # second",
 				["type"] = "explicit",
 			},
-			[2261] = {
+			[2262] = {
 				["id"] = "explicit.stat_1078309513",
 				["text"] = "Invocated Spells deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2262] = {
+			[2263] = {
 				["id"] = "explicit.stat_3711973554",
 				["text"] = "Invocated Spells have #% chance to consume half as much Energy",
 				["type"] = "explicit",
 			},
-			[2263] = {
+			[2264] = {
 				["id"] = "explicit.stat_1615901249",
 				["text"] = "Invocated skills have #% increased Maximum Energy",
 				["type"] = "explicit",
 			},
-			[2264] = {
+			[2265] = {
 				["id"] = "explicit.stat_3528245713",
 				["text"] = "Iron Grip",
-				["type"] = "explicit",
-			},
-			[2265] = {
-				["id"] = "explicit.stat_326965591",
-				["text"] = "Iron Reflexes",
 				["type"] = "explicit",
 			},
 			[2266] = {
@@ -11522,1403 +11522,1403 @@ return {
 				["type"] = "explicit",
 			},
 			[2267] = {
+				["id"] = "explicit.stat_326965591",
+				["text"] = "Iron Reflexes",
+				["type"] = "explicit",
+			},
+			[2268] = {
 				["id"] = "explicit.stat_281311123",
 				["text"] = "Iron Will",
 				["type"] = "explicit",
 			},
-			[2268] = {
+			[2269] = {
 				["id"] = "explicit.stat_281201999",
 				["text"] = "Knockback direction is reversed",
 				["type"] = "explicit",
 			},
-			[2269] = {
+			[2270] = {
 				["id"] = "explicit.stat_3739186583",
 				["text"] = "Knocks Back Enemies on Hit",
 				["type"] = "explicit",
 			},
-			[2270] = {
+			[2271] = {
 				["id"] = "explicit.stat_2557965901",
 				["text"] = "Leech #% of Physical Attack Damage as Life",
 				["type"] = "explicit",
 			},
-			[2271] = {
+			[2272] = {
 				["id"] = "explicit.stat_707457662",
 				["text"] = "Leech #% of Physical Attack Damage as Mana",
 				["type"] = "explicit",
 			},
-			[2272] = {
+			[2273] = {
 				["id"] = "explicit.stat_1570501432",
 				["text"] = "Leech Life #% faster",
 				["type"] = "explicit",
 			},
-			[2273] = {
+			[2274] = {
 				["id"] = "explicit.stat_3389184522",
 				["text"] = "Leech from Critical Hits is instant",
 				["type"] = "explicit",
 			},
-			[2274] = {
+			[2275] = {
 				["id"] = "explicit.stat_55876295",
 				["text"] = "Leeches #% of Physical Damage as Life",
 				["type"] = "explicit",
 			},
-			[2275] = {
+			[2276] = {
 				["id"] = "explicit.stat_669069897",
 				["text"] = "Leeches #% of Physical Damage as Mana",
 				["type"] = "explicit",
 			},
-			[2276] = {
+			[2277] = {
 				["id"] = "explicit.stat_335699483",
 				["text"] = "Leeches #% of maximum Life when you Cast a Spell",
 				["type"] = "explicit",
 			},
-			[2277] = {
+			[2278] = {
 				["id"] = "explicit.stat_3605721598",
 				["text"] = "Leeching Life from your Hits causes Allies in your Presence to also Leech the same amount of Life",
 				["type"] = "explicit",
 			},
-			[2278] = {
+			[2279] = {
 				["id"] = "explicit.stat_2437476305",
 				["text"] = "Left ring slot: Projectiles from Spells Fork",
 				["type"] = "explicit",
 			},
-			[2279] = {
+			[2280] = {
 				["id"] = "explicit.stat_3647242059",
 				["text"] = "Left ring slot: Projectiles from Spells cannot Chain",
 				["type"] = "explicit",
 			},
-			[2280] = {
+			[2281] = {
 				["id"] = "explicit.stat_264262054|1",
 				["text"] = "Legacy of Amethyst",
 				["type"] = "explicit",
 			},
-			[2281] = {
+			[2282] = {
 				["id"] = "explicit.stat_264262054|2",
 				["text"] = "Legacy of Basalt",
 				["type"] = "explicit",
 			},
-			[2282] = {
+			[2283] = {
 				["id"] = "explicit.stat_264262054|3",
 				["text"] = "Legacy of Bismuth",
 				["type"] = "explicit",
 			},
-			[2283] = {
+			[2284] = {
 				["id"] = "explicit.stat_264262054|4",
 				["text"] = "Legacy of Diamond",
 				["type"] = "explicit",
 			},
-			[2284] = {
+			[2285] = {
 				["id"] = "explicit.stat_264262054|5",
 				["text"] = "Legacy of Gold",
 				["type"] = "explicit",
 			},
-			[2285] = {
+			[2286] = {
 				["id"] = "explicit.stat_264262054|6",
 				["text"] = "Legacy of Granite",
 				["type"] = "explicit",
 			},
-			[2286] = {
+			[2287] = {
 				["id"] = "explicit.stat_264262054|7",
 				["text"] = "Legacy of Jade",
 				["type"] = "explicit",
 			},
-			[2287] = {
+			[2288] = {
 				["id"] = "explicit.stat_264262054|8",
 				["text"] = "Legacy of Quicksilver",
 				["type"] = "explicit",
 			},
-			[2288] = {
+			[2289] = {
 				["id"] = "explicit.stat_264262054|9",
 				["text"] = "Legacy of Ruby",
 				["type"] = "explicit",
 			},
-			[2289] = {
+			[2290] = {
 				["id"] = "explicit.stat_264262054|10",
 				["text"] = "Legacy of Sapphire",
 				["type"] = "explicit",
 			},
-			[2290] = {
+			[2291] = {
 				["id"] = "explicit.stat_264262054|11",
 				["text"] = "Legacy of Silver",
 				["type"] = "explicit",
 			},
-			[2291] = {
+			[2292] = {
 				["id"] = "explicit.stat_264262054|12",
 				["text"] = "Legacy of Stibnite",
 				["type"] = "explicit",
 			},
-			[2292] = {
+			[2293] = {
 				["id"] = "explicit.stat_264262054|13",
 				["text"] = "Legacy of Sulphur",
 				["type"] = "explicit",
 			},
-			[2293] = {
+			[2294] = {
 				["id"] = "explicit.stat_264262054|14",
 				["text"] = "Legacy of Topaz",
 				["type"] = "explicit",
 			},
-			[2294] = {
+			[2295] = {
 				["id"] = "explicit.stat_1102738251",
 				["text"] = "Life Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
-			[2295] = {
+			[2296] = {
 				["id"] = "explicit.stat_1200347828",
 				["text"] = "Life Flasks used while on Low Life apply Recovery Instantly",
 				["type"] = "explicit",
 			},
-			[2296] = {
+			[2297] = {
 				["id"] = "explicit.stat_2714890129",
 				["text"] = "Life Leech can Overflow Maximum Life",
 				["type"] = "explicit",
 			},
-			[2297] = {
+			[2298] = {
 				["id"] = "explicit.stat_3314050176",
 				["text"] = "Life Leech is Converted to Energy Shield Leech",
 				["type"] = "explicit",
 			},
-			[2298] = {
+			[2299] = {
 				["id"] = "explicit.stat_825825364",
 				["text"] = "Life Leech recovers based on your Chaos damage instead of Physical damage",
 				["type"] = "explicit",
 			},
-			[2299] = {
+			[2300] = {
 				["id"] = "explicit.stat_1092555766",
 				["text"] = "Life Leech recovers based on your Lightning damage as well as Physical damage",
 				["type"] = "explicit",
 			},
-			[2300] = {
+			[2301] = {
 				["id"] = "explicit.stat_3971919056",
 				["text"] = "Life Recharges",
 				["type"] = "explicit",
 			},
-			[2301] = {
+			[2302] = {
 				["id"] = "explicit.stat_2812872407",
 				["text"] = "Life Recovery from Flasks also applies to Energy Shield",
 				["type"] = "explicit",
 			},
-			[2302] = {
+			[2303] = {
 				["id"] = "explicit.stat_1245896889",
 				["text"] = "Life Recovery from Flasks can Overflow Maximum Life",
 				["type"] = "explicit",
 			},
-			[2303] = {
+			[2304] = {
 				["id"] = "explicit.stat_720388959",
 				["text"] = "Life Recovery from Flasks is instant",
 				["type"] = "explicit",
 			},
-			[2304] = {
+			[2305] = {
 				["id"] = "explicit.stat_3947672598",
 				["text"] = "Life Recovery from Regeneration is not applied",
 				["type"] = "explicit",
 			},
-			[2305] = {
+			[2306] = {
 				["id"] = "explicit.stat_451403019",
 				["text"] = "Life Recovery other than Flasks cannot Recover Life to above Low Life",
 				["type"] = "explicit",
 			},
-			[2306] = {
+			[2307] = {
 				["id"] = "explicit.stat_632761194",
 				["text"] = "Life Regeneration is applied to Energy Shield instead",
 				["type"] = "explicit",
 			},
-			[2307] = {
+			[2308] = {
 				["id"] = "explicit.stat_932866937",
 				["text"] = "Life and Mana Flasks can be equipped in either slot",
 				["type"] = "explicit",
 			},
-			[2308] = {
+			[2309] = {
 				["id"] = "explicit.stat_1777740627",
 				["text"] = "Life that would be lost by taking Damage is instead Reserveduntil you take no Damage to Life for # second",
 				["type"] = "explicit",
 			},
-			[2309] = {
+			[2310] = {
 				["id"] = "explicit.stat_1011772129",
 				["text"] = "Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance",
 				["type"] = "explicit",
 			},
-			[2310] = {
+			[2311] = {
 				["id"] = "explicit.stat_3121133045",
 				["text"] = "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
 				["type"] = "explicit",
 			},
-			[2311] = {
+			[2312] = {
 				["id"] = "explicit.stat_4224965099",
 				["text"] = "Lightning Damage of Enemies Hitting you is Lucky",
 				["type"] = "explicit",
 			},
-			[2312] = {
+			[2313] = {
 				["id"] = "explicit.stat_3246948616",
 				["text"] = "Lightning Damage of Enemies Hitting you is Lucky during effect",
 				["type"] = "explicit",
 			},
-			[2313] = {
+			[2314] = {
 				["id"] = "explicit.stat_3999959974",
 				["text"] = "Lightning Resistance does not affect Lightning damage taken",
 				["type"] = "explicit",
 			},
-			[2314] = {
+			[2315] = {
 				["id"] = "explicit.stat_3631920880",
 				["text"] = "Lightning Resistance is unaffected by Area Penalties",
 				["type"] = "explicit",
 			},
-			[2315] = {
+			[2316] = {
 				["id"] = "explicit.stat_4123841473",
 				["text"] = "Lightning Skills Chain # times",
 				["type"] = "explicit",
 			},
-			[2316] = {
+			[2317] = {
 				["id"] = "explicit.stat_1017648537",
 				["text"] = "Lightning damage from Hits Contributes to Electrocution Buildup",
 				["type"] = "explicit",
 			},
-			[2317] = {
+			[2318] = {
 				["id"] = "explicit.stat_1967051901",
 				["text"] = "Loads an additional bolt",
 				["type"] = "explicit",
 			},
-			[2318] = {
+			[2319] = {
 				["id"] = "explicit.stat_3831171903|31",
 				["text"] = "Lord of the Wilds",
 				["type"] = "explicit",
 			},
-			[2319] = {
+			[2320] = {
 				["id"] = "explicit.stat_1902409192",
 				["text"] = "Lose # Life when you use a Skill",
 				["type"] = "explicit",
 			},
-			[2320] = {
+			[2321] = {
 				["id"] = "explicit.stat_1147913864",
 				["text"] = "Lose #% Life per second while you have no Runic Ward during Effect",
 				["type"] = "explicit",
 			},
-			[2321] = {
+			[2322] = {
 				["id"] = "explicit.stat_1661347488",
 				["text"] = "Lose #% of maximum Life per second",
 				["type"] = "explicit",
 			},
-			[2322] = {
+			[2323] = {
 				["id"] = "explicit.stat_1306791873",
 				["text"] = "Lose all Fragile Regrowth when Hit",
 				["type"] = "explicit",
 			},
-			[2323] = {
+			[2324] = {
 				["id"] = "explicit.stat_2135899247",
 				["text"] = "Lose all Power Charges on reaching maximum Power Charges",
 				["type"] = "explicit",
 			},
-			[2324] = {
+			[2325] = {
 				["id"] = "explicit.stat_3851480592",
 				["text"] = "Lose all Rage on reaching Maximum Rage",
 				["type"] = "explicit",
 			},
-			[2325] = {
+			[2326] = {
 				["id"] = "explicit.stat_367897259",
 				["text"] = "Lose all Tailwind when Hit",
 				["type"] = "explicit",
 			},
-			[2326] = {
+			[2327] = {
 				["id"] = "explicit.stat_2895144208",
 				["text"] = "Maim on Critical Hit",
 				["type"] = "explicit",
 			},
-			[2327] = {
+			[2328] = {
 				["id"] = "explicit.stat_2200293569",
 				["text"] = "Mana Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
-			[2328] = {
+			[2329] = {
 				["id"] = "explicit.stat_1839832419",
 				["text"] = "Mana Flasks used while on Low Mana apply Recovery Instantly",
 				["type"] = "explicit",
 			},
-			[2329] = {
+			[2330] = {
 				["id"] = "explicit.stat_4100842845",
 				["text"] = "Mana Recovery from Flasks can Overflow maximum Mana during Effect",
 				["type"] = "explicit",
 			},
-			[2330] = {
+			[2331] = {
 				["id"] = "explicit.stat_3593063598",
 				["text"] = "Mana Recovery other than Regeneration cannot Recover Mana",
 				["type"] = "explicit",
 			},
-			[2331] = {
+			[2332] = {
 				["id"] = "explicit.stat_1414945937",
 				["text"] = "Manifested Dancing Dervishes die when Rampage ends",
 				["type"] = "explicit",
 			},
-			[2332] = {
+			[2333] = {
 				["id"] = "explicit.stat_1314787770",
 				["text"] = "Map Boss has +#% chance to drop a Waystone of the current tier or higher",
 				["type"] = "explicit",
 			},
-			[2333] = {
+			[2334] = {
 				["id"] = "explicit.stat_2588474575",
 				["text"] = "Map Bosses are Hunted by Azmeri Spirits",
 				["type"] = "explicit",
 			},
-			[2334] = {
+			[2335] = {
 				["id"] = "explicit.stat_3860150265",
 				["text"] = "Map Bosses grant #% increased Experience",
 				["type"] = "explicit",
 			},
-			[2335] = {
+			[2336] = {
 				["id"] = "explicit.stat_1458461453",
 				["text"] = "Map Bosses have # additional Modifier",
 				["type"] = "explicit",
 			},
-			[2336] = {
+			[2337] = {
 				["id"] = "explicit.stat_588512487",
 				["text"] = "Map has # additional random Modifier",
 				["type"] = "explicit",
 			},
-			[2337] = {
+			[2338] = {
 				["id"] = "explicit.stat_2594634307",
 				["text"] = "Mark Skills have #% increased Skill Effect Duration",
 				["type"] = "explicit",
 			},
-			[2338] = {
+			[2339] = {
 				["id"] = "explicit.stat_1714971114",
 				["text"] = "Mark Skills have #% increased Use Speed",
 				["type"] = "explicit",
 			},
-			[2339] = {
+			[2340] = {
 				["id"] = "explicit.stat_1173537953",
 				["text"] = "Maximum # Fragile Regrowth",
 				["type"] = "explicit",
 			},
-			[2340] = {
+			[2341] = {
 				["id"] = "explicit.stat_1500744699",
 				["text"] = "Maximum Chance to Evade is 50%",
 				["type"] = "explicit",
 			},
-			[2341] = {
+			[2342] = {
 				["id"] = "explicit.stat_2104359366",
 				["text"] = "Maximum Energy Shield cannot be Converted",
 				["type"] = "explicit",
 			},
-			[2342] = {
+			[2343] = {
 				["id"] = "explicit.stat_3960211755",
 				["text"] = "Maximum Physical Damage Reduction is 50%",
 				["type"] = "explicit",
 			},
-			[2343] = {
+			[2344] = {
 				["id"] = "explicit.stat_275498888",
 				["text"] = "Maximum Quality is #%",
 				["type"] = "explicit",
 			},
-			[2344] = {
+			[2345] = {
 				["id"] = "explicit.stat_1338406168",
 				["text"] = "Maximum amount of Guard is based on maximum Energy Shield instead",
 				["type"] = "explicit",
 			},
-			[2345] = {
+			[2346] = {
 				["id"] = "explicit.stat_2013356568",
 				["text"] = "Melee Attack Skills have # to maximum number of Summoned Totems",
 				["type"] = "explicit",
 			},
-			[2346] = {
+			[2347] = {
 				["id"] = "explicit.stat_2889807051",
 				["text"] = "Melee Hits count as Rampage KillsRampage",
 				["type"] = "explicit",
 			},
-			[2347] = {
+			[2348] = {
 				["id"] = "explicit.stat_4236566306",
 				["text"] = "Meta Skills gain #% increased Energy",
 				["type"] = "explicit",
 			},
-			[2348] = {
+			[2349] = {
 				["id"] = "explicit.stat_173471035",
 				["text"] = "Meta Skills gain #% increased Energy while on Full Mana",
 				["type"] = "explicit",
 			},
-			[2349] = {
+			[2350] = {
 				["id"] = "explicit.stat_3831171903|10",
 				["text"] = "Mind Over Matter",
 				["type"] = "explicit",
 			},
-			[2350] = {
+			[2351] = {
 				["id"] = "explicit.stat_195270549",
 				["text"] = "Minions Break Armour equal to #% of Physical damage dealt",
 				["type"] = "explicit",
 			},
-			[2351] = {
+			[2352] = {
 				["id"] = "explicit.stat_2479683456",
 				["text"] = "Minions Regenerate #% of maximum Life per second",
 				["type"] = "explicit",
 			},
-			[2352] = {
+			[2353] = {
 				["id"] = "explicit.stat_2639966148",
 				["text"] = "Minions Revive #% faster",
 				["type"] = "explicit",
 			},
-			[2353] = {
+			[2354] = {
 				["id"] = "explicit.stat_4046380260",
 				["text"] = "Minions cannot Die while affected by a Life Flask",
 				["type"] = "explicit",
 			},
-			[2354] = {
+			[2355] = {
 				["id"] = "explicit.stat_1589917703",
 				["text"] = "Minions deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2355] = {
+			[2356] = {
 				["id"] = "explicit.stat_2337295272",
 				["text"] = "Minions deal #% increased Damage if you've Hit Recently",
 				["type"] = "explicit",
 			},
-			[2356] = {
+			[2357] = {
 				["id"] = "explicit.stat_3742865955",
 				["text"] = "Minions deal #% increased Damage with Command Skills",
 				["type"] = "explicit",
 			},
-			[2357] = {
+			[2358] = {
 				["id"] = "explicit.stat_943702197",
 				["text"] = "Minions gain #% of their maximum Life as Extra maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2358] = {
+			[2359] = {
 				["id"] = "explicit.stat_1797815732",
 				["text"] = "Minions have #% Surpassing chance to fire an additional Projectile",
 				["type"] = "explicit",
 			},
-			[2359] = {
+			[2360] = {
 				["id"] = "explicit.stat_3119612865",
 				["text"] = "Minions have #% additional Physical Damage Reduction",
 				["type"] = "explicit",
 			},
-			[2360] = {
+			[2361] = {
 				["id"] = "explicit.stat_1486714289",
 				["text"] = "Minions have #% chance to inflict Gruelling Madness on Hit",
 				["type"] = "explicit",
 			},
-			[2361] = {
+			[2362] = {
 				["id"] = "explicit.stat_3811191316",
 				["text"] = "Minions have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2362] = {
+			[2363] = {
 				["id"] = "explicit.stat_3091578504",
 				["text"] = "Minions have #% increased Attack and Cast Speed",
 				["type"] = "explicit",
 			},
-			[2363] = {
+			[2364] = {
 				["id"] = "explicit.stat_1691403182",
 				["text"] = "Minions have #% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2364] = {
+			[2365] = {
 				["id"] = "explicit.stat_1854213750",
 				["text"] = "Minions have #% increased Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2365] = {
+			[2366] = {
 				["id"] = "explicit.stat_491450213",
 				["text"] = "Minions have #% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[2366] = {
+			[2367] = {
 				["id"] = "explicit.stat_1485480327",
 				["text"] = "Minions have #% increased Immobilisation buildup",
 				["type"] = "explicit",
 			},
-			[2367] = {
+			[2368] = {
 				["id"] = "explicit.stat_953593695",
 				["text"] = "Minions have #% increased Magnitude of Damaging Ailments",
 				["type"] = "explicit",
 			},
-			[2368] = {
+			[2369] = {
 				["id"] = "explicit.stat_174664100",
 				["text"] = "Minions have #% increased Movement Speed",
 				["type"] = "explicit",
 			},
-			[2369] = {
+			[2370] = {
 				["id"] = "explicit.stat_73032170",
 				["text"] = "Minions have #% increased Skill Speed with Command Skills",
 				["type"] = "explicit",
 			},
-			[2370] = {
+			[2371] = {
 				["id"] = "explicit.stat_770672621",
 				["text"] = "Minions have #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[2371] = {
+			[2372] = {
 				["id"] = "explicit.stat_3837707023",
 				["text"] = "Minions have #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2372] = {
+			[2373] = {
 				["id"] = "explicit.stat_1423639565",
 				["text"] = "Minions have #% to all Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2373] = {
+			[2374] = {
 				["id"] = "explicit.stat_3893509584",
 				["text"] = "Minions have Unholy Might",
 				["type"] = "explicit",
 			},
-			[2374] = {
+			[2375] = {
 				["id"] = "explicit.stat_3045072899",
 				["text"] = "Minions' Resistances are equal to yours",
 				["type"] = "explicit",
 			},
-			[2375] = {
+			[2376] = {
 				["id"] = "explicit.stat_3679696791",
 				["text"] = "Modifiers to Maximum Block Chance instead apply to Maximum Resistances",
 				["type"] = "explicit",
 			},
-			[2376] = {
+			[2377] = {
 				["id"] = "explicit.stat_3201111383",
 				["text"] = "Modifiers to Stun Buildup apply to Freeze Buildup instead for Parry",
 				["type"] = "explicit",
 			},
-			[2377] = {
+			[2378] = {
 				["id"] = "explicit.stat_1898978455",
 				["text"] = "Monster Damage Penetrates #% Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2378] = {
+			[2379] = {
 				["id"] = "explicit.stat_1138708335",
 				["text"] = "Monster Damage penetrates #% of Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2379] = {
+			[2380] = {
 				["id"] = "explicit.stat_3588388638",
 				["text"] = "Monster Damage penetrates #% of Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2380] = {
+			[2381] = {
 				["id"] = "explicit.stat_3093465148",
 				["text"] = "Monster Damage penetrates #% of Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2381] = {
+			[2382] = {
 				["id"] = "explicit.stat_3877264671",
 				["text"] = "Monster have #% increased Elemental Ailment Application",
 				["type"] = "explicit",
 			},
-			[2382] = {
+			[2383] = {
 				["id"] = "explicit.stat_1879340377",
 				["text"] = "Monsters Break Armour equal to #% of Physical Damage dealt",
 				["type"] = "explicit",
 			},
-			[2383] = {
+			[2384] = {
 				["id"] = "explicit.stat_159726667",
 				["text"] = "Monsters Sacrificed at Ritual Altars grant #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2384] = {
+			[2385] = {
 				["id"] = "explicit.stat_159726667",
 				["text"] = "Monsters Sacrificed at Ritual Altars in Area grant #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2385] = {
+			[2386] = {
 				["id"] = "explicit.stat_2539290279",
 				["text"] = "Monsters are Armoured",
 				["type"] = "explicit",
 			},
-			[2386] = {
+			[2387] = {
 				["id"] = "explicit.stat_2570249991",
 				["text"] = "Monsters are Evasive",
 				["type"] = "explicit",
 			},
-			[2387] = {
+			[2388] = {
 				["id"] = "explicit.stat_2200661314",
 				["text"] = "Monsters deal #% of Damage as Extra Chaos",
 				["type"] = "explicit",
 			},
-			[2388] = {
+			[2389] = {
 				["id"] = "explicit.stat_211727",
 				["text"] = "Monsters deal #% of Damage as Extra Cold",
 				["type"] = "explicit",
 			},
-			[2389] = {
+			[2390] = {
 				["id"] = "explicit.stat_92381065",
 				["text"] = "Monsters deal #% of Damage as Extra Fire",
 				["type"] = "explicit",
 			},
-			[2390] = {
+			[2391] = {
 				["id"] = "explicit.stat_512071314",
 				["text"] = "Monsters deal #% of Damage as Extra Lightning",
 				["type"] = "explicit",
 			},
-			[2391] = {
+			[2392] = {
 				["id"] = "explicit.stat_1309819744",
 				["text"] = "Monsters fire # additional Projectiles",
 				["type"] = "explicit",
 			},
-			[2392] = {
+			[2393] = {
 				["id"] = "explicit.stat_2887760183",
 				["text"] = "Monsters gain #% of maximum Life as Extra maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2393] = {
+			[2394] = {
 				["id"] = "explicit.stat_57326096",
 				["text"] = "Monsters have #% Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2394] = {
+			[2395] = {
 				["id"] = "explicit.stat_95221307",
 				["text"] = "Monsters have #% chance to Poison on Hit",
 				["type"] = "explicit",
 			},
-			[2395] = {
+			[2396] = {
 				["id"] = "explicit.stat_2506820610",
 				["text"] = "Monsters have #% chance to inflict Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[2396] = {
+			[2397] = {
 				["id"] = "explicit.stat_3222482040",
 				["text"] = "Monsters have #% chance to steal Power, Frenzy and Endurance charges on Hit",
 				["type"] = "explicit",
 			},
-			[2397] = {
+			[2398] = {
 				["id"] = "explicit.stat_1588049749",
 				["text"] = "Monsters have #% increased Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[2398] = {
+			[2399] = {
 				["id"] = "explicit.stat_1994551050",
 				["text"] = "Monsters have #% increased Ailment Threshold",
 				["type"] = "explicit",
 			},
-			[2399] = {
+			[2400] = {
 				["id"] = "explicit.stat_1708461270",
 				["text"] = "Monsters have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2400] = {
+			[2401] = {
 				["id"] = "explicit.stat_3906866585",
 				["text"] = "Monsters have #% increased Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2401] = {
+			[2402] = {
 				["id"] = "explicit.stat_3909654181",
 				["text"] = "Monsters have #% increased Attack, Cast and Movement Speed",
 				["type"] = "explicit",
 			},
-			[2402] = {
+			[2403] = {
 				["id"] = "explicit.stat_2753083623",
 				["text"] = "Monsters have #% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[2403] = {
+			[2404] = {
 				["id"] = "explicit.stat_3998863698",
 				["text"] = "Monsters have #% increased Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[2404] = {
+			[2405] = {
 				["id"] = "explicit.stat_1984618452",
 				["text"] = "Monsters have #% increased Shock Chance",
 				["type"] = "explicit",
 			},
-			[2405] = {
+			[2406] = {
 				["id"] = "explicit.stat_115425161",
 				["text"] = "Monsters have #% increased Stun Buildup",
 				["type"] = "explicit",
 			},
-			[2406] = {
+			[2407] = {
 				["id"] = "explicit.stat_4101943684",
 				["text"] = "Monsters have #% increased Stun Threshold",
 				["type"] = "explicit",
 			},
-			[2407] = {
+			[2408] = {
 				["id"] = "explicit.stat_1751584857",
 				["text"] = "Monsters inflict # Grasping Vine on Hit",
 				["type"] = "explicit",
 			},
-			[2408] = {
+			[2409] = {
 				["id"] = "explicit.stat_2508044078",
 				["text"] = "Monsters inflict #% increased Flammability Magnitude",
 				["type"] = "explicit",
 			},
-			[2409] = {
+			[2410] = {
 				["id"] = "explicit.stat_337935900",
 				["text"] = "Monsters take #% reduced Extra Damage from Critical Hits",
 				["type"] = "explicit",
 			},
-			[2410] = {
+			[2411] = {
 				["id"] = "explicit.stat_4112450013",
 				["text"] = "Moving while Bleeding doesn't cause you to take extra damage",
 				["type"] = "explicit",
 			},
-			[2411] = {
+			[2412] = {
 				["id"] = "explicit.stat_1266185101",
 				["text"] = "Natural Rare Monsters in Area Eat the Souls of slain Monsters in their Presence",
 				["type"] = "explicit",
 			},
-			[2412] = {
+			[2413] = {
 				["id"] = "explicit.stat_1168851547",
 				["text"] = "Natural Rare Monsters in Area have # extra Abyssal Modifier",
 				["type"] = "explicit",
 			},
-			[2413] = {
+			[2414] = {
 				["id"] = "explicit.stat_3831171903|12",
 				["text"] = "Necromantic Talisman",
 				["type"] = "explicit",
 			},
-			[2414] = {
+			[2415] = {
 				["id"] = "explicit.stat_4163076972",
 				["text"] = "No Inherent loss of Rage",
 				["type"] = "explicit",
 			},
-			[2415] = {
+			[2416] = {
 				["id"] = "explicit.stat_3464644319",
 				["text"] = "No Inherent loss of Rage during effect",
 				["type"] = "explicit",
 			},
-			[2416] = {
+			[2417] = {
 				["id"] = "explicit.stat_585231074",
 				["text"] = "No Movement Speed Penalty while Shield is Raised",
 				["type"] = "explicit",
 			},
-			[2417] = {
+			[2418] = {
 				["id"] = "explicit.stat_1920747151",
 				["text"] = "Non-Channelling Spells cost an additional #% of your maximum Life",
 				["type"] = "explicit",
 			},
-			[2418] = {
+			[2419] = {
 				["id"] = "explicit.stat_1027889455",
 				["text"] = "Non-Channelling Spells deal #% increased Damage per 100 maximum Life",
 				["type"] = "explicit",
 			},
-			[2419] = {
+			[2420] = {
 				["id"] = "explicit.stat_3843734793",
 				["text"] = "Non-Channelling Spells deal #% increased Damage per 100 maximum Mana",
 				["type"] = "explicit",
 			},
-			[2420] = {
+			[2421] = {
 				["id"] = "explicit.stat_170426423",
 				["text"] = "Non-Channelling Spells have #% increased Critical Hit Chance per 100 maximum Life",
 				["type"] = "explicit",
 			},
-			[2421] = {
+			[2422] = {
 				["id"] = "explicit.stat_1367999357",
 				["text"] = "Non-Channelling Spells have #% increased Critical Hit Chance per 100 maximum Mana",
 				["type"] = "explicit",
 			},
-			[2422] = {
+			[2423] = {
 				["id"] = "explicit.stat_4245905059",
 				["text"] = "Non-Channelling Spells have #% increased Magnitude of Ailments per 100 maximum Life",
 				["type"] = "explicit",
 			},
-			[2423] = {
+			[2424] = {
 				["id"] = "explicit.stat_1846980580",
 				["text"] = "Notable Passive Skills in Radius also grant # to Maximum Rage",
 				["type"] = "explicit",
 			},
-			[2424] = {
+			[2425] = {
 				["id"] = "explicit.stat_3991877392",
 				["text"] = "Notable Passive Skills in Radius also grant # to Spirit",
 				["type"] = "explicit",
 			},
-			[2425] = {
+			[2426] = {
 				["id"] = "explicit.stat_1800303440",
 				["text"] = "Notable Passive Skills in Radius also grant #% chance to Pierce an Enemy",
 				["type"] = "explicit",
 			},
-			[2426] = {
+			[2427] = {
 				["id"] = "explicit.stat_4225700219",
 				["text"] = "Notable Passive Skills in Radius also grant #% chance to gain Volatility on Kill",
 				["type"] = "explicit",
 			},
-			[2427] = {
+			[2428] = {
 				["id"] = "explicit.stat_3394832998",
 				["text"] = "Notable Passive Skills in Radius also grant #% faster start of Energy Shield Recharge",
 				["type"] = "explicit",
 			},
-			[2428] = {
+			[2429] = {
 				["id"] = "explicit.stat_3391917254",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2429] = {
+			[2430] = {
 				["id"] = "explicit.stat_3859848445",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Area of Effect of Curses",
 				["type"] = "explicit",
 			},
-			[2430] = {
+			[2431] = {
 				["id"] = "explicit.stat_504915064",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Armour Break Duration",
 				["type"] = "explicit",
 			},
-			[2431] = {
+			[2432] = {
 				["id"] = "explicit.stat_3429148113",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Armour, Evasion and Energy Shield from Equipped Shield",
 				["type"] = "explicit",
 			},
-			[2432] = {
+			[2433] = {
 				["id"] = "explicit.stat_2822644689",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed",
 				["type"] = "explicit",
 			},
-			[2433] = {
+			[2434] = {
 				["id"] = "explicit.stat_3641543553",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Bows",
 				["type"] = "explicit",
 			},
-			[2434] = {
+			[2435] = {
 				["id"] = "explicit.stat_715957346",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Crossbows",
 				["type"] = "explicit",
 			},
-			[2435] = {
+			[2436] = {
 				["id"] = "explicit.stat_111835965",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[2436] = {
+			[2437] = {
 				["id"] = "explicit.stat_1266413530",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Spears",
 				["type"] = "explicit",
 			},
-			[2437] = {
+			[2438] = {
 				["id"] = "explicit.stat_1505023559",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Bleeding Duration",
 				["type"] = "explicit",
 			},
-			[2438] = {
+			[2439] = {
 				["id"] = "explicit.stat_2912416697",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Blind Effect",
 				["type"] = "explicit",
 			},
-			[2439] = {
+			[2440] = {
 				["id"] = "explicit.stat_3821543413",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Block chance",
 				["type"] = "explicit",
 			},
-			[2440] = {
+			[2441] = {
 				["id"] = "explicit.stat_1022759479",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cast Speed",
 				["type"] = "explicit",
 			},
-			[2441] = {
+			[2442] = {
 				["id"] = "explicit.stat_2320654813",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Charm Charges gained",
 				["type"] = "explicit",
 			},
-			[2442] = {
+			[2443] = {
 				["id"] = "explicit.stat_61644361",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Chill Duration on Enemies",
 				["type"] = "explicit",
 			},
-			[2443] = {
+			[2444] = {
 				["id"] = "explicit.stat_2149603090",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2444] = {
+			[2445] = {
 				["id"] = "explicit.stat_2359002191",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2445] = {
+			[2446] = {
 				["id"] = "explicit.stat_1352561456",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Damage Bonus for Attack Damage",
 				["type"] = "explicit",
 			},
-			[2446] = {
+			[2447] = {
 				["id"] = "explicit.stat_138421180",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Damage Bonus with Spears",
 				["type"] = "explicit",
 			},
-			[2447] = {
+			[2448] = {
 				["id"] = "explicit.stat_2077117738",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[2448] = {
+			[2449] = {
 				["id"] = "explicit.stat_3865605585",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Attacks",
 				["type"] = "explicit",
 			},
-			[2449] = {
+			[2450] = {
 				["id"] = "explicit.stat_2704905000",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Spells",
 				["type"] = "explicit",
 			},
-			[2450] = {
+			[2451] = {
 				["id"] = "explicit.stat_2466785537",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Spell Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2451] = {
+			[2452] = {
 				["id"] = "explicit.stat_3856744003",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Crossbow Reload Speed",
 				["type"] = "explicit",
 			},
-			[2452] = {
+			[2453] = {
 				["id"] = "explicit.stat_2770044702",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Curse Magnitudes",
 				["type"] = "explicit",
 			},
-			[2453] = {
+			[2454] = {
 				["id"] = "explicit.stat_2717786748",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Dexterity",
 				["type"] = "explicit",
 			},
-			[2454] = {
+			[2455] = {
 				["id"] = "explicit.stat_2272980012",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Duration of Damaging Ailments on Enemies",
 				["type"] = "explicit",
 			},
-			[2455] = {
+			[2456] = {
 				["id"] = "explicit.stat_1323216174",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Duration of Ignite, Shock and Chill on Enemies",
 				["type"] = "explicit",
 			},
-			[2456] = {
+			[2457] = {
 				["id"] = "explicit.stat_179541474",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Effect of your Mark Skills",
 				["type"] = "explicit",
 			},
-			[2457] = {
+			[2458] = {
 				["id"] = "explicit.stat_3419203492",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Energy Shield from Equipped Focus",
 				["type"] = "explicit",
 			},
-			[2458] = {
+			[2459] = {
 				["id"] = "explicit.stat_2066964205",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[2459] = {
+			[2460] = {
 				["id"] = "explicit.stat_1087531620",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[2460] = {
+			[2461] = {
 				["id"] = "explicit.stat_127081978",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Freeze Buildup with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[2461] = {
+			[2462] = {
 				["id"] = "explicit.stat_2783157569",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Global Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2462] = {
+			[2463] = {
 				["id"] = "explicit.stat_2907381231",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Glory generation for Banner Skills",
 				["type"] = "explicit",
 			},
-			[2463] = {
+			[2464] = {
 				["id"] = "explicit.stat_253641217",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Ignite Magnitude",
 				["type"] = "explicit",
 			},
-			[2464] = {
+			[2465] = {
 				["id"] = "explicit.stat_40618390",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Intelligence",
 				["type"] = "explicit",
 			},
-			[2465] = {
+			[2466] = {
 				["id"] = "explicit.stat_2976476845",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Knockback Distance",
 				["type"] = "explicit",
 			},
-			[2466] = {
+			[2467] = {
 				["id"] = "explicit.stat_942519401",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Life Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[2467] = {
+			[2468] = {
 				["id"] = "explicit.stat_1185341308",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Life Regeneration rate",
 				["type"] = "explicit",
 			},
-			[2468] = {
+			[2469] = {
 				["id"] = "explicit.stat_1321104829",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Ailments you inflict",
 				["type"] = "explicit",
 			},
-			[2469] = {
+			[2470] = {
 				["id"] = "explicit.stat_391602279",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Bleeding you inflict",
 				["type"] = "explicit",
 			},
-			[2470] = {
+			[2471] = {
 				["id"] = "explicit.stat_4092130601",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
 				["type"] = "explicit",
 			},
-			[2471] = {
+			[2472] = {
 				["id"] = "explicit.stat_462424929",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Poison you inflict",
 				["type"] = "explicit",
 			},
-			[2472] = {
+			[2473] = {
 				["id"] = "explicit.stat_1166140625",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Shock you inflict",
 				["type"] = "explicit",
 			},
-			[2473] = {
+			[2474] = {
 				["id"] = "explicit.stat_4257790560",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Mana Cost Efficiency",
 				["type"] = "explicit",
 			},
-			[2474] = {
+			[2475] = {
 				["id"] = "explicit.stat_3171212276",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Mana Flask Charges gained",
 				["type"] = "explicit",
 			},
-			[2475] = {
+			[2476] = {
 				["id"] = "explicit.stat_844449513",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Movement Speed",
 				["type"] = "explicit",
 			},
-			[2476] = {
+			[2477] = {
 				["id"] = "explicit.stat_1514844108",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Parried Debuff Duration",
 				["type"] = "explicit",
 			},
-			[2477] = {
+			[2478] = {
 				["id"] = "explicit.stat_1944020877",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Pin Buildup",
 				["type"] = "explicit",
 			},
-			[2478] = {
+			[2479] = {
 				["id"] = "explicit.stat_221701169",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Poison Duration",
 				["type"] = "explicit",
 			},
-			[2479] = {
+			[2480] = {
 				["id"] = "explicit.stat_4032352472",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Presence Area of Effect",
 				["type"] = "explicit",
 			},
-			[2480] = {
+			[2481] = {
 				["id"] = "explicit.stat_1777421941",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Projectile Speed",
 				["type"] = "explicit",
 			},
-			[2481] = {
+			[2482] = {
 				["id"] = "explicit.stat_3113764475",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Skill Effect Duration",
 				["type"] = "explicit",
 			},
-			[2482] = {
+			[2483] = {
 				["id"] = "explicit.stat_3579898587",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Skill Speed while Shapeshifted",
 				["type"] = "explicit",
 			},
-			[2483] = {
+			[2484] = {
 				["id"] = "explicit.stat_2580617872",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Slowing Potency of Debuffs on You",
 				["type"] = "explicit",
 			},
-			[2484] = {
+			[2485] = {
 				["id"] = "explicit.stat_1842384813",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Strength",
 				["type"] = "explicit",
 			},
-			[2485] = {
+			[2486] = {
 				["id"] = "explicit.stat_4173554949",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Stun Buildup",
 				["type"] = "explicit",
 			},
-			[2486] = {
+			[2487] = {
 				["id"] = "explicit.stat_2392824305",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Stun Buildup with Maces",
 				["type"] = "explicit",
 			},
-			[2487] = {
+			[2488] = {
 				["id"] = "explicit.stat_1495814176",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Stun Threshold while Parrying",
 				["type"] = "explicit",
 			},
-			[2488] = {
+			[2489] = {
 				["id"] = "explicit.stat_2675129731",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Warcry Buff Effect",
 				["type"] = "explicit",
 			},
-			[2489] = {
+			[2490] = {
 				["id"] = "explicit.stat_2056107438",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Warcry Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2490] = {
+			[2491] = {
 				["id"] = "explicit.stat_3936121440",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Withered Magnitude",
 				["type"] = "explicit",
 			},
-			[2491] = {
+			[2492] = {
 				["id"] = "explicit.stat_4180952808",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased bonuses gained from Equipped Quiver",
 				["type"] = "explicit",
 			},
-			[2492] = {
+			[2493] = {
 				["id"] = "explicit.stat_412709880",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased chance to inflict Ailments",
 				["type"] = "explicit",
 			},
-			[2493] = {
+			[2494] = {
 				["id"] = "explicit.stat_160888068",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[2494] = {
+			[2495] = {
 				["id"] = "explicit.stat_2589572664",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased maximum Mana",
 				["type"] = "explicit",
 			},
-			[2495] = {
+			[2496] = {
 				["id"] = "explicit.stat_2709646369",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Damage is taken from Mana before Life",
 				["type"] = "explicit",
 			},
-			[2496] = {
+			[2497] = {
 				["id"] = "explicit.stat_3669820740",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Damage taken Recouped as Life",
 				["type"] = "explicit",
 			},
-			[2497] = {
+			[2498] = {
 				["id"] = "explicit.stat_85367160",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Damage taken Recouped as Mana",
 				["type"] = "explicit",
 			},
-			[2498] = {
+			[2499] = {
 				["id"] = "explicit.stat_3386297724",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Skill Mana Costs Converted to Life Costs",
 				["type"] = "explicit",
 			},
-			[2499] = {
+			[2500] = {
 				["id"] = "explicit.stat_1687542781",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2500] = {
+			[2501] = {
 				["id"] = "explicit.stat_1731760476",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2501] = {
+			[2502] = {
 				["id"] = "explicit.stat_1862508014",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2502] = {
+			[2503] = {
 				["id"] = "explicit.stat_4151994709",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2503] = {
+			[2504] = {
 				["id"] = "explicit.stat_2217513089",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2504] = {
+			[2505] = {
 				["id"] = "explicit.stat_3243034867",
 				["text"] = "Notable Passive Skills in Radius also grant Aura Skills have #% increased Magnitudes",
 				["type"] = "explicit",
 			},
-			[2505] = {
+			[2506] = {
 				["id"] = "explicit.stat_1034611536",
 				["text"] = "Notable Passive Skills in Radius also grant Charms gain # charge per Second",
 				["type"] = "explicit",
 			},
-			[2506] = {
+			[2507] = {
 				["id"] = "explicit.stat_3173882956",
 				["text"] = "Notable Passive Skills in Radius also grant Damaging Ailments deal damage #% faster",
 				["type"] = "explicit",
 			},
-			[2507] = {
+			[2508] = {
 				["id"] = "explicit.stat_2256120736",
 				["text"] = "Notable Passive Skills in Radius also grant Debuffs on you expire #% faster",
 				["type"] = "explicit",
 			},
-			[2508] = {
+			[2509] = {
 				["id"] = "explicit.stat_2969557004",
 				["text"] = "Notable Passive Skills in Radius also grant Gain # Rage on Melee Hit",
 				["type"] = "explicit",
 			},
-			[2509] = {
+			[2510] = {
 				["id"] = "explicit.stat_2131720304",
 				["text"] = "Notable Passive Skills in Radius also grant Gain # Rage when Hit by an Enemy",
 				["type"] = "explicit",
 			},
-			[2510] = {
+			[2511] = {
 				["id"] = "explicit.stat_2603051299",
 				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2511] = {
+			[2512] = {
 				["id"] = "explicit.stat_833138896",
 				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Cold Damage",
 				["type"] = "explicit",
 			},
-			[2512] = {
+			[2513] = {
 				["id"] = "explicit.stat_338620903",
 				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Fire Damage",
 				["type"] = "explicit",
 			},
-			[2513] = {
+			[2514] = {
 				["id"] = "explicit.stat_852470634",
 				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Lightning Damage",
 				["type"] = "explicit",
 			},
-			[2514] = {
+			[2515] = {
 				["id"] = "explicit.stat_2135541924",
 				["text"] = "Notable Passive Skills in Radius also grant Hits have #% increased Critical Hit Chance against you",
 				["type"] = "explicit",
 			},
-			[2515] = {
+			[2516] = {
 				["id"] = "explicit.stat_1148433552",
 				["text"] = "Notable Passive Skills in Radius also grant Life Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
-			[2516] = {
+			[2517] = {
 				["id"] = "explicit.stat_3939216292",
 				["text"] = "Notable Passive Skills in Radius also grant Mana Flasks gain # charges per Second",
 				["type"] = "explicit",
 			},
-			[2517] = {
+			[2518] = {
 				["id"] = "explicit.stat_2849546516",
 				["text"] = "Notable Passive Skills in Radius also grant Meta Skills gain #% increased Energy",
 				["type"] = "explicit",
 			},
-			[2518] = {
+			[2519] = {
 				["id"] = "explicit.stat_2534359663",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2519] = {
+			[2520] = {
 				["id"] = "explicit.stat_3106718406",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Attack and Cast Speed",
 				["type"] = "explicit",
 			},
-			[2520] = {
+			[2521] = {
 				["id"] = "explicit.stat_593241812",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2521] = {
+			[2522] = {
 				["id"] = "explicit.stat_3628935286",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Critical Hit Chance",
 				["type"] = "explicit",
 			},
-			[2522] = {
+			[2523] = {
 				["id"] = "explicit.stat_2374711847",
 				["text"] = "Notable Passive Skills in Radius also grant Offering Skills have #% increased Duration",
 				["type"] = "explicit",
 			},
-			[2523] = {
+			[2524] = {
 				["id"] = "explicit.stat_4258720395",
 				["text"] = "Notable Passive Skills in Radius also grant Projectiles have #% chance for an additional Projectile when Forking",
 				["type"] = "explicit",
 			},
-			[2524] = {
+			[2525] = {
 				["id"] = "explicit.stat_2334956771",
 				["text"] = "Notable Passive Skills in Radius also grant Projectiles have #% chance to Chain an additional time from terrain",
 				["type"] = "explicit",
 			},
-			[2525] = {
+			[2526] = {
 				["id"] = "explicit.stat_2726713579",
 				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Life on Kill",
 				["type"] = "explicit",
 			},
-			[2526] = {
+			[2527] = {
 				["id"] = "explicit.stat_525523040",
 				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Mana on Kill",
 				["type"] = "explicit",
 			},
-			[2527] = {
+			[2528] = {
 				["id"] = "explicit.stat_3566150527",
 				["text"] = "Notable Passive Skills in Radius also grant Regenerate #% of maximum Life per second",
 				["type"] = "explicit",
 			},
-			[2528] = {
+			[2529] = {
 				["id"] = "explicit.stat_3831171903|19",
 				["text"] = "Oasis",
 				["type"] = "explicit",
 			},
-			[2529] = {
+			[2530] = {
 				["id"] = "explicit.stat_3430033313",
 				["text"] = "Off-hand Hits inflict Runefather's Challenge",
 				["type"] = "explicit",
 			},
-			[2530] = {
+			[2531] = {
 				["id"] = "explicit.stat_3191479793",
 				["text"] = "Offering Skills have #% increased Buff effect",
 				["type"] = "explicit",
 			},
-			[2531] = {
+			[2532] = {
 				["id"] = "explicit.stat_2957407601",
 				["text"] = "Offering Skills have #% increased Duration",
 				["type"] = "explicit",
 			},
-			[2532] = {
+			[2533] = {
 				["id"] = "explicit.stat_3787460122",
 				["text"] = "Offerings have #% increased Maximum Life",
 				["type"] = "explicit",
 			},
-			[2533] = {
+			[2534] = {
 				["id"] = "explicit.stat_4215035940",
 				["text"] = "On Corruption, Item gains two Enchantments",
 				["type"] = "explicit",
 			},
-			[2534] = {
+			[2535] = {
 				["id"] = "explicit.stat_3538915253",
 				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal tothe enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "explicit",
 			},
-			[2535] = {
+			[2536] = {
 				["id"] = "explicit.stat_259470957",
 				["text"] = "On-Kill Effects happen twice",
 				["type"] = "explicit",
 			},
-			[2536] = {
+			[2537] = {
 				["id"] = "explicit.stat_250458861",
 				["text"] = "Only Soul Cores can be Socketed in this item",
 				["type"] = "explicit",
 			},
-			[2537] = {
+			[2538] = {
 				["id"] = "explicit.stat_3642528642|6",
 				["text"] = "Only affects Passives in Large Ring",
 				["type"] = "explicit",
 			},
-			[2538] = {
+			[2539] = {
 				["id"] = "explicit.stat_3642528642|8",
 				["text"] = "Only affects Passives in Massive Ring",
 				["type"] = "explicit",
 			},
-			[2539] = {
+			[2540] = {
 				["id"] = "explicit.stat_3642528642|4",
 				["text"] = "Only affects Passives in Medium Ring",
 				["type"] = "explicit",
 			},
-			[2540] = {
+			[2541] = {
 				["id"] = "explicit.stat_3642528642|5",
 				["text"] = "Only affects Passives in Medium-Large Ring",
 				["type"] = "explicit",
 			},
-			[2541] = {
+			[2542] = {
 				["id"] = "explicit.stat_3642528642|3",
 				["text"] = "Only affects Passives in Medium-Small Ring",
 				["type"] = "explicit",
 			},
-			[2542] = {
+			[2543] = {
 				["id"] = "explicit.stat_3642528642|2",
 				["text"] = "Only affects Passives in Small Ring",
 				["type"] = "explicit",
 			},
-			[2543] = {
+			[2544] = {
 				["id"] = "explicit.stat_3642528642|7",
 				["text"] = "Only affects Passives in Very Large Ring",
 				["type"] = "explicit",
 			},
-			[2544] = {
+			[2545] = {
 				["id"] = "explicit.stat_3642528642|1",
 				["text"] = "Only affects Passives in Very Small Ring",
 				["type"] = "explicit",
 			},
-			[2545] = {
+			[2546] = {
 				["id"] = "explicit.stat_1520059289",
 				["text"] = "Onslaught",
-				["type"] = "explicit",
-			},
-			[2546] = {
-				["id"] = "explicit.stat_3831171903|7",
-				["text"] = "Pain Attunement",
 				["type"] = "explicit",
 			},
 			[2547] = {
@@ -12927,2092 +12927,2097 @@ return {
 				["type"] = "explicit",
 			},
 			[2548] = {
+				["id"] = "explicit.stat_3831171903|7",
+				["text"] = "Pain Attunement",
+				["type"] = "explicit",
+			},
+			[2549] = {
 				["id"] = "explicit.stat_3488640354",
 				["text"] = "Parried enemies take more Spell Damage instead of more Attack Damage",
 				["type"] = "explicit",
 			},
-			[2549] = {
+			[2550] = {
 				["id"] = "explicit.stat_2104138899",
 				["text"] = "Parrying applies # Stack of Critical Weakness",
 				["type"] = "explicit",
 			},
-			[2550] = {
+			[2551] = {
 				["id"] = "explicit.stat_4077035099",
 				["text"] = "Passives in Radius can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2551] = {
+			[2552] = {
 				["id"] = "explicit.stat_2422708892|45202",
 				["text"] = "Passives in Radius of Ancestral Bond can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2552] = {
+			[2553] = {
 				["id"] = "explicit.stat_2422708892|18684",
 				["text"] = "Passives in Radius of Avatar of Fire can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2553] = {
+			[2554] = {
 				["id"] = "explicit.stat_2422708892|42680",
 				["text"] = "Passives in Radius of Blackflame Covenant can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2554] = {
+			[2555] = {
 				["id"] = "explicit.stat_2422708892|51749",
 				["text"] = "Passives in Radius of Blood Magic can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2555] = {
+			[2556] = {
 				["id"] = "explicit.stat_2422708892|56605",
 				["text"] = "Passives in Radius of Bulwark can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2556] = {
+			[2557] = {
 				["id"] = "explicit.stat_2422708892|56349",
 				["text"] = "Passives in Radius of Chaos Inoculation can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2557] = {
+			[2558] = {
 				["id"] = "explicit.stat_2422708892|33979",
 				["text"] = "Passives in Radius of Conduit can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2558] = {
+			[2559] = {
 				["id"] = "explicit.stat_2422708892|9085",
 				["text"] = "Passives in Radius of Crimson Assault can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2559] = {
+			[2560] = {
 				["id"] = "explicit.stat_2422708892|14226",
 				["text"] = "Passives in Radius of Dance with Death can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2560] = {
+			[2561] = {
 				["id"] = "explicit.stat_2422708892|57513",
 				["text"] = "Passives in Radius of Eldritch Battery can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2561] = {
+			[2562] = {
 				["id"] = "explicit.stat_2422708892|46742",
 				["text"] = "Passives in Radius of Elemental Equilibrium can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2562] = {
+			[2563] = {
 				["id"] = "explicit.stat_2422708892|33404",
 				["text"] = "Passives in Radius of Eternal Youth can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2563] = {
+			[2564] = {
 				["id"] = "explicit.stat_2422708892|32349",
 				["text"] = "Passives in Radius of Giant's Blood can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2564] = {
+			[2565] = {
 				["id"] = "explicit.stat_2422708892|19288",
 				["text"] = "Passives in Radius of Glancing Blows can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2565] = {
+			[2566] = {
 				["id"] = "explicit.stat_2422708892|34497",
 				["text"] = "Passives in Radius of Heartstopper can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2566] = {
+			[2567] = {
 				["id"] = "explicit.stat_2422708892|64601",
 				["text"] = "Passives in Radius of Hollow Palm Technique can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2567] = {
+			[2568] = {
 				["id"] = "explicit.stat_2422708892|28492",
 				["text"] = "Passives in Radius of Iron Reflexes can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2568] = {
+			[2569] = {
 				["id"] = "explicit.stat_2422708892|61942",
 				["text"] = "Passives in Radius of Lord of the Wilds can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2569] = {
+			[2570] = {
 				["id"] = "explicit.stat_2422708892|45918",
 				["text"] = "Passives in Radius of Mind Over Matter can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2570] = {
+			[2571] = {
 				["id"] = "explicit.stat_2422708892|39935",
 				["text"] = "Passives in Radius of Necromantic Talisman can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2571] = {
+			[2572] = {
 				["id"] = "explicit.stat_2422708892|25100",
 				["text"] = "Passives in Radius of Oasis can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2572] = {
+			[2573] = {
 				["id"] = "explicit.stat_2422708892|55048",
 				["text"] = "Passives in Radius of Pain Attunement can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2573] = {
+			[2574] = {
 				["id"] = "explicit.stat_2422708892|37484",
 				["text"] = "Passives in Radius of Primal Hunger can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2574] = {
+			[2575] = {
 				["id"] = "explicit.stat_2422708892|44017",
 				["text"] = "Passives in Radius of Resolute Technique can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2575] = {
+			[2576] = {
 				["id"] = "explicit.stat_2422708892|25520",
 				["text"] = "Passives in Radius of Resonance can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2576] = {
+			[2577] = {
 				["id"] = "explicit.stat_2422708892|11230",
 				["text"] = "Passives in Radius of Ritual Cadence can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2577] = {
+			[2578] = {
 				["id"] = "explicit.stat_2422708892|49547",
 				["text"] = "Passives in Radius of Scarred Faith can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2578] = {
+			[2579] = {
 				["id"] = "explicit.stat_2422708892|41861",
 				["text"] = "Passives in Radius of Trusted Kinship can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2579] = {
+			[2580] = {
 				["id"] = "explicit.stat_2422708892|14540",
 				["text"] = "Passives in Radius of Unwavering Stance can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2580] = {
+			[2581] = {
 				["id"] = "explicit.stat_2422708892|33369",
 				["text"] = "Passives in Radius of Vaal Pact can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2581] = {
+			[2582] = {
 				["id"] = "explicit.stat_2422708892|47759",
 				["text"] = "Passives in Radius of Whispers of Doom can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2582] = {
+			[2583] = {
 				["id"] = "explicit.stat_2422708892|49363",
 				["text"] = "Passives in Radius of Wildsurge Incantation can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2583] = {
+			[2584] = {
 				["id"] = "explicit.stat_2422708892|52",
 				["text"] = "Passives in Radius of Zealot's Oath can be Allocatedwithout being connected to your tree",
 				["type"] = "explicit",
 			},
-			[2584] = {
+			[2585] = {
 				["id"] = "explicit.stat_2930706364",
 				["text"] = "Permanently Intimidate enemies on Block",
 				["type"] = "explicit",
 			},
-			[2585] = {
+			[2586] = {
 				["id"] = "explicit.stat_2041668411",
 				["text"] = "Physical Damage is Pinning",
 				["type"] = "explicit",
 			},
-			[2586] = {
+			[2587] = {
 				["id"] = "explicit.stat_2424163939",
 				["text"] = "Physical Damage of Enemies Hitting you is Lucky",
 				["type"] = "explicit",
 			},
-			[2587] = {
+			[2588] = {
 				["id"] = "explicit.stat_905072977",
 				["text"] = "Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup",
 				["type"] = "explicit",
 			},
-			[2588] = {
+			[2589] = {
 				["id"] = "explicit.stat_3063814459",
 				["text"] = "Pin Enemies which are Primed for Pinning",
 				["type"] = "explicit",
 			},
-			[2589] = {
+			[2590] = {
 				["id"] = "explicit.stat_2408625104",
 				["text"] = "Players and their Minions deal no damage for 3 out of every 10 seconds",
 				["type"] = "explicit",
 			},
-			[2590] = {
+			[2591] = {
 				["id"] = "explicit.stat_558910024",
 				["text"] = "Players are Cursed with Elemental Weakness",
 				["type"] = "explicit",
 			},
-			[2591] = {
+			[2592] = {
 				["id"] = "explicit.stat_4103440490",
 				["text"] = "Players are Cursed with Enfeeble",
 				["type"] = "explicit",
 			},
-			[2592] = {
+			[2593] = {
 				["id"] = "explicit.stat_2326202293",
 				["text"] = "Players are Cursed with Temporal Chains",
 				["type"] = "explicit",
 			},
-			[2593] = {
+			[2594] = {
 				["id"] = "explicit.stat_436406826",
 				["text"] = "Players are Marked for Death for # secondsafter killing a Rare or Unique monster",
 				["type"] = "explicit",
 			},
-			[2594] = {
+			[2595] = {
 				["id"] = "explicit.stat_554690751",
 				["text"] = "Players are periodically Cursed with Elemental Weakness",
 				["type"] = "explicit",
 			},
-			[2595] = {
+			[2596] = {
 				["id"] = "explicit.stat_2029171424",
 				["text"] = "Players are periodically Cursed with Enfeeble",
 				["type"] = "explicit",
 			},
-			[2596] = {
+			[2597] = {
 				["id"] = "explicit.stat_1629357380",
 				["text"] = "Players are periodically Cursed with Temporal Chains",
 				["type"] = "explicit",
 			},
-			[2597] = {
+			[2598] = {
 				["id"] = "explicit.stat_2549889921",
 				["text"] = "Players gain #% reduced Flask Charges",
 				["type"] = "explicit",
 			},
-			[2598] = {
+			[2599] = {
 				["id"] = "explicit.stat_4181072906",
 				["text"] = "Players have #% less Recovery Rate of Life and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2599] = {
+			[2600] = {
 				["id"] = "explicit.stat_3510648768",
 				["text"] = "Players have #% more Armour, Evasion and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2600] = {
+			[2601] = {
 				["id"] = "explicit.stat_941368244",
 				["text"] = "Players have #% more Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2601] = {
+			[2602] = {
 				["id"] = "explicit.stat_4274247770",
 				["text"] = "Players have #% more Movement and Skill Speed for each time they've used a Skill Recently",
 				["type"] = "explicit",
 			},
-			[2602] = {
+			[2603] = {
 				["id"] = "explicit.stat_1310597900",
 				["text"] = "Players have #% more Recovery Rate of Life, Mana and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2603] = {
+			[2604] = {
 				["id"] = "explicit.stat_3119282240",
 				["text"] = "Players have #% more maximum Life and Energy Shield",
 				["type"] = "explicit",
 			},
-			[2604] = {
+			[2605] = {
 				["id"] = "explicit.stat_1365079333",
 				["text"] = "Players steal the Eaten Souls of Slain Rare Monsters in Area",
 				["type"] = "explicit",
 			},
-			[2605] = {
+			[2606] = {
 				["id"] = "explicit.stat_3403424702",
 				["text"] = "Possessed by Spirit Of The Bear for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2606] = {
+			[2607] = {
 				["id"] = "explicit.stat_1685559578",
 				["text"] = "Possessed by Spirit Of The Boar for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2607] = {
+			[2608] = {
 				["id"] = "explicit.stat_2839557359",
 				["text"] = "Possessed by Spirit Of The Cat for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2608] = {
+			[2609] = {
 				["id"] = "explicit.stat_300107724",
 				["text"] = "Possessed by Spirit Of The Owl for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2609] = {
+			[2610] = {
 				["id"] = "explicit.stat_3463873033",
 				["text"] = "Possessed by Spirit Of The Ox for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2610] = {
+			[2611] = {
 				["id"] = "explicit.stat_3763491818",
 				["text"] = "Possessed by Spirit Of The Primate for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2611] = {
+			[2612] = {
 				["id"] = "explicit.stat_3181677174",
 				["text"] = "Possessed by Spirit Of The Serpent for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2612] = {
+			[2613] = {
 				["id"] = "explicit.stat_3685424517",
 				["text"] = "Possessed by Spirit Of The Stag for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2613] = {
+			[2614] = {
 				["id"] = "explicit.stat_3504441212",
 				["text"] = "Possessed by Spirit Of The Wolf for # seconds on use",
 				["type"] = "explicit",
 			},
-			[2614] = {
+			[2615] = {
 				["id"] = "explicit.stat_1810907437",
 				["text"] = "Presence Radius is doubled",
 				["type"] = "explicit",
 			},
-			[2615] = {
+			[2616] = {
 				["id"] = "explicit.stat_3552135623",
 				["text"] = "Prevent #% of Damage from Deflected Hits",
 				["type"] = "explicit",
 			},
-			[2616] = {
+			[2617] = {
 				["id"] = "explicit.stat_3831171903|16",
 				["text"] = "Primal Hunger",
 				["type"] = "explicit",
 			},
-			[2617] = {
+			[2618] = {
 				["id"] = "explicit.stat_3932115504",
 				["text"] = "Projectile Attacks have a #% chance to fire two additional Projectiles while moving",
 				["type"] = "explicit",
 			},
-			[2618] = {
+			[2619] = {
 				["id"] = "explicit.stat_2214228141",
 				["text"] = "Projectiles Pierce all Ignited enemies",
 				["type"] = "explicit",
 			},
-			[2619] = {
+			[2620] = {
 				["id"] = "explicit.stat_3464380325",
 				["text"] = "Projectiles Split towards # targets",
 				["type"] = "explicit",
 			},
-			[2620] = {
+			[2621] = {
 				["id"] = "explicit.stat_2825946427",
 				["text"] = "Projectiles deal #% increased Damage with Hits against Enemies further than 6m",
 				["type"] = "explicit",
 			},
-			[2621] = {
+			[2622] = {
 				["id"] = "explicit.stat_2468595624",
 				["text"] = "Projectiles deal #% increased Damage with Hits against Enemies within 2m",
 				["type"] = "explicit",
 			},
-			[2622] = {
+			[2623] = {
 				["id"] = "explicit.stat_883169830",
 				["text"] = "Projectiles deal #% increased Damage with Hits for each time they have Pierced",
 				["type"] = "explicit",
 			},
-			[2623] = {
+			[2624] = {
 				["id"] = "explicit.stat_3826125995",
 				["text"] = "Projectiles from Spells cannot Pierce",
 				["type"] = "explicit",
 			},
-			[2624] = {
+			[2625] = {
 				["id"] = "explicit.stat_3003542304",
 				["text"] = "Projectiles have #% chance for an additional Projectile when Forking",
 				["type"] = "explicit",
 			},
-			[2625] = {
+			[2626] = {
 				["id"] = "explicit.stat_4081947835",
 				["text"] = "Projectiles have #% chance to Chain an additional time from terrain",
 				["type"] = "explicit",
 			},
-			[2626] = {
+			[2627] = {
 				["id"] = "explicit.stat_2189073790",
 				["text"] = "Projectiles have #% chance to Fork if you've dealt a Melee Hit in the past eight seconds",
 				["type"] = "explicit",
 			},
-			[2627] = {
+			[2628] = {
 				["id"] = "explicit.stat_2573406169",
 				["text"] = "Projectiles have #% increased Critical Damage Bonus against Enemies within 2m",
 				["type"] = "explicit",
 			},
-			[2628] = {
+			[2629] = {
 				["id"] = "explicit.stat_2706625504",
 				["text"] = "Projectiles have #% increased Critical Hit Chance against Enemies further than 6m",
 				["type"] = "explicit",
 			},
-			[2629] = {
+			[2630] = {
 				["id"] = "explicit.stat_1163615092",
 				["text"] = "Projectiles have #% increased Critical Hit chance for each time they have Pierced",
 				["type"] = "explicit",
 			},
-			[2630] = {
+			[2631] = {
 				["id"] = "explicit.stat_2550456553",
 				["text"] = "Rare Monsters have # additional Modifier",
 				["type"] = "explicit",
 			},
-			[2631] = {
+			[2632] = {
 				["id"] = "explicit.stat_3732878551",
 				["text"] = "Rare Monsters have a #% Surpassing chance to have an additional Modifier",
 				["type"] = "explicit",
 			},
-			[2632] = {
+			[2633] = {
 				["id"] = "explicit.stat_2550456553",
 				["text"] = "Rare Monsters in your Maps have # additional Modifier",
 				["type"] = "explicit",
 			},
-			[2633] = {
+			[2634] = {
 				["id"] = "explicit.stat_3732878551",
 				["text"] = "Rare Monsters in your Maps have a #% Surpassing chance to have an additional Modifier",
 				["type"] = "explicit",
 			},
-			[2634] = {
+			[2635] = {
 				["id"] = "explicit.stat_3198163869",
 				["text"] = "Raven-Touched",
 				["type"] = "explicit",
 			},
-			[2635] = {
+			[2636] = {
 				["id"] = "explicit.stat_2365392475",
 				["text"] = "Recover # Life when Used",
 				["type"] = "explicit",
 			},
-			[2636] = {
+			[2637] = {
 				["id"] = "explicit.stat_1120862500",
 				["text"] = "Recover # Mana when Used",
 				["type"] = "explicit",
 			},
-			[2637] = {
+			[2638] = {
 				["id"] = "explicit.stat_554145967",
 				["text"] = "Recover # Runic Ward when a Charm is used",
 				["type"] = "explicit",
 			},
-			[2638] = {
+			[2639] = {
 				["id"] = "explicit.stat_1568848828",
 				["text"] = "Recover # Runic Ward when you Block",
 				["type"] = "explicit",
 			},
-			[2639] = {
+			[2640] = {
 				["id"] = "explicit.stat_4033618138",
 				["text"] = "Recover #% of Maximum Life when you expend at least 10 Combo",
 				["type"] = "explicit",
 			},
-			[2640] = {
+			[2641] = {
 				["id"] = "explicit.stat_2991045011",
 				["text"] = "Recover #% of Maximum Mana when you expend at least 10 Combo",
 				["type"] = "explicit",
 			},
-			[2641] = {
+			[2642] = {
 				["id"] = "explicit.stat_1990472846",
 				["text"] = "Recover #% of Missing Life before being Hit by an Enemy",
 				["type"] = "explicit",
 			},
-			[2642] = {
+			[2643] = {
 				["id"] = "explicit.stat_939832726",
 				["text"] = "Recover #% of maximum Life for each Endurance Charge consumed",
 				["type"] = "explicit",
 			},
-			[2643] = {
+			[2644] = {
 				["id"] = "explicit.stat_2023107756",
 				["text"] = "Recover #% of maximum Life on Kill",
 				["type"] = "explicit",
 			},
-			[2644] = {
+			[2645] = {
 				["id"] = "explicit.stat_1781372024",
 				["text"] = "Recover #% of maximum Life on Killing a Poisoned Enemy",
 				["type"] = "explicit",
 			},
-			[2645] = {
+			[2646] = {
 				["id"] = "explicit.stat_2535713562",
 				["text"] = "Recover #% of maximum Life per Poison affecting Enemies you Kill",
 				["type"] = "explicit",
 			},
-			[2646] = {
+			[2647] = {
 				["id"] = "explicit.stat_2442647190",
 				["text"] = "Recover #% of maximum Life when you Block",
 				["type"] = "explicit",
 			},
-			[2647] = {
+			[2648] = {
 				["id"] = "explicit.stat_1030153674",
 				["text"] = "Recover #% of maximum Mana on Kill",
 				["type"] = "explicit",
 			},
-			[2648] = {
+			[2649] = {
 				["id"] = "explicit.stat_1604736568",
 				["text"] = "Recover #% of maximum Mana on Kill (Jewel)",
 				["type"] = "explicit",
 			},
-			[2649] = {
+			[2650] = {
 				["id"] = "explicit.stat_4121454694",
 				["text"] = "Recover #% of maximum Mana when a Charm is used",
 				["type"] = "explicit",
 			},
-			[2650] = {
+			[2651] = {
 				["id"] = "explicit.stat_346374719",
 				["text"] = "Recover #% of maximum Mana when you consume a Power Charge",
 				["type"] = "explicit",
 			},
-			[2651] = {
+			[2652] = {
 				["id"] = "explicit.stat_3503117295",
 				["text"] = "Recover #% of your maximum Life when an Enemy dies in your Presence",
 				["type"] = "explicit",
 			},
-			[2652] = {
+			[2653] = {
 				["id"] = "explicit.stat_2456226238",
 				["text"] = "Recover #% of your maximum Mana when an Enemy dies in your Presence",
 				["type"] = "explicit",
 			},
-			[2653] = {
+			[2654] = {
 				["id"] = "explicit.stat_2716923832",
 				["text"] = "Recover Life equal to #% of Mana Flask's Recovery Amount when used",
 				["type"] = "explicit",
 			},
-			[2654] = {
+			[2655] = {
 				["id"] = "explicit.stat_3891350097",
 				["text"] = "Recover Mana equal to #% of Life Flask's Recovery Amount when used",
 				["type"] = "explicit",
 			},
-			[2655] = {
+			[2656] = {
 				["id"] = "explicit.stat_1002973905",
 				["text"] = "Recover all Mana when Used",
 				["type"] = "explicit",
 			},
-			[2656] = {
+			[2657] = {
 				["id"] = "explicit.stat_746505085",
 				["text"] = "Reflects opposite Ring",
 				["type"] = "explicit",
 			},
-			[2657] = {
+			[2658] = {
 				["id"] = "explicit.stat_1312381104",
 				["text"] = "Regenerate # Life per second for every 10 Intelligence",
 				["type"] = "explicit",
 			},
-			[2658] = {
+			[2659] = {
 				["id"] = "explicit.stat_3276271783",
 				["text"] = "Regenerate # Life per second per Maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2659] = {
+			[2660] = {
 				["id"] = "explicit.stat_2853314994",
 				["text"] = "Regenerate # Rage per second",
 				["type"] = "explicit",
 			},
-			[2660] = {
+			[2661] = {
 				["id"] = "explicit.stat_3161573445",
 				["text"] = "Regenerate #% of maximum Life per Second if you've used a Life Flask in the past 10 seconds",
 				["type"] = "explicit",
 			},
-			[2661] = {
+			[2662] = {
 				["id"] = "explicit.stat_836936635",
 				["text"] = "Regenerate #% of maximum Life per second",
 				["type"] = "explicit",
 			},
-			[2662] = {
+			[2663] = {
 				["id"] = "explicit.stat_2201614328",
 				["text"] = "Regenerate #% of maximum Life per second if you have been Hit Recently",
 				["type"] = "explicit",
 			},
-			[2663] = {
+			[2664] = {
 				["id"] = "explicit.stat_302024054",
 				["text"] = "Regenerate #% of maximum Life per second while Ignited",
 				["type"] = "explicit",
 			},
-			[2664] = {
+			[2665] = {
 				["id"] = "explicit.stat_2002533190",
 				["text"] = "Regenerate #% of maximum Life per second while Surrounded",
 				["type"] = "explicit",
 			},
-			[2665] = {
+			[2666] = {
 				["id"] = "explicit.stat_3942946753",
 				["text"] = "Regenerate #% of maximum Life per second while on Low Life",
 				["type"] = "explicit",
 			},
-			[2666] = {
+			[2667] = {
 				["id"] = "explicit.stat_3418580811|22",
 				["text"] = "Remembrancing # songworthy deeds by the line of MedvedPassives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
-			[2667] = {
+			[2668] = {
 				["id"] = "explicit.stat_3418580811|23",
 				["text"] = "Remembrancing # songworthy deeds by the line of OlrothPassives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
-			[2668] = {
+			[2669] = {
 				["id"] = "explicit.stat_3418580811|21",
 				["text"] = "Remembrancing # songworthy deeds by the line of VoranaPassives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
-			[2669] = {
+			[2670] = {
 				["id"] = "explicit.stat_3482326075",
 				["text"] = "Remnants can be collected from #% further away",
 				["type"] = "explicit",
 			},
-			[2670] = {
+			[2671] = {
 				["id"] = "explicit.stat_315717203",
 				["text"] = "Remnants you create affect Allies in your Presence as well as you when collected",
 				["type"] = "explicit",
 			},
-			[2671] = {
+			[2672] = {
 				["id"] = "explicit.stat_1999910726",
 				["text"] = "Remnants you create have #% increased effect",
 				["type"] = "explicit",
 			},
-			[2672] = {
+			[2673] = {
 				["id"] = "explicit.stat_1394184789",
 				["text"] = "Remove Bleeding when you use a Life Flask",
 				["type"] = "explicit",
 			},
-			[2673] = {
+			[2674] = {
 				["id"] = "explicit.stat_648019518",
 				["text"] = "Removes #% of Life Recovered from Mana when used",
 				["type"] = "explicit",
 			},
-			[2674] = {
+			[2675] = {
 				["id"] = "explicit.stat_959641748",
 				["text"] = "Removes #% of Mana Recovered from Life when used",
 				["type"] = "explicit",
 			},
-			[2675] = {
+			[2676] = {
 				["id"] = "explicit.stat_2306588612",
 				["text"] = "Repeatable Attacks with this Bow Repeat # time if no enemies are in your Presence",
 				["type"] = "explicit",
 			},
-			[2676] = {
+			[2677] = {
 				["id"] = "explicit.stat_2267564181",
 				["text"] = "Require # additional enemies to be Surrounded",
 				["type"] = "explicit",
 			},
-			[2677] = {
+			[2678] = {
 				["id"] = "explicit.stat_2282052746",
 				["text"] = "Rerolling Favours at Ritual Altars costs #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2678] = {
+			[2679] = {
 				["id"] = "explicit.stat_2282052746",
 				["text"] = "Rerolling Favours at Ritual Altars in Area costs #% increased Tribute",
 				["type"] = "explicit",
 			},
-			[2679] = {
+			[2680] = {
 				["id"] = "explicit.stat_3831171903|6",
 				["text"] = "Resolute Technique",
 				["type"] = "explicit",
 			},
-			[2680] = {
+			[2681] = {
 				["id"] = "explicit.stat_3831171903|14",
 				["text"] = "Resonance",
 				["type"] = "explicit",
 			},
-			[2681] = {
+			[2682] = {
 				["id"] = "explicit.stat_1031644647",
 				["text"] = "Revived Monsters from Ritual Altars have #% increased chance to be Magic",
 				["type"] = "explicit",
 			},
-			[2682] = {
+			[2683] = {
 				["id"] = "explicit.stat_3979184174",
 				["text"] = "Revived Monsters from Ritual Altars have #% increased chance to be Rare",
 				["type"] = "explicit",
 			},
-			[2683] = {
+			[2684] = {
 				["id"] = "explicit.stat_1031644647",
 				["text"] = "Revived Monsters from Ritual Altars in Area have #% increased chance to be Magic",
 				["type"] = "explicit",
 			},
-			[2684] = {
+			[2685] = {
 				["id"] = "explicit.stat_3979184174",
 				["text"] = "Revived Monsters from Ritual Altars in Area have #% increased chance to be Rare",
 				["type"] = "explicit",
 			},
-			[2685] = {
+			[2686] = {
 				["id"] = "explicit.stat_1555918911",
 				["text"] = "Right ring slot: Projectiles from Spells Chain +# times",
 				["type"] = "explicit",
 			},
-			[2686] = {
+			[2687] = {
 				["id"] = "explicit.stat_2933024469",
 				["text"] = "Right ring slot: Projectiles from Spells cannot Fork",
 				["type"] = "explicit",
 			},
-			[2687] = {
+			[2688] = {
 				["id"] = "explicit.stat_120737942",
 				["text"] = "Ritual Altars allow rerolling Favours an additional time",
 				["type"] = "explicit",
 			},
-			[2688] = {
+			[2689] = {
 				["id"] = "explicit.stat_120737942",
 				["text"] = "Ritual Altars in Area allow rerolling Favours an additional time",
 				["type"] = "explicit",
 			},
-			[2689] = {
+			[2690] = {
 				["id"] = "explicit.stat_3831171903|29",
 				["text"] = "Ritual Cadence",
 				["type"] = "explicit",
 			},
-			[2690] = {
+			[2691] = {
 				["id"] = "explicit.stat_4219853180",
 				["text"] = "Ritual Favours in Area have #% increased chance to be Omens",
 				["type"] = "explicit",
 			},
-			[2691] = {
+			[2692] = {
 				["id"] = "explicit.stat_4219853180",
 				["text"] = "Ritual Favours in your Maps have #% increased chance to be Omens",
 				["type"] = "explicit",
 			},
-			[2692] = {
+			[2693] = {
 				["id"] = "explicit.stat_3108672983",
 				["text"] = "Rolls only the minimum or maximum Damage value for each Damage Type",
 				["type"] = "explicit",
 			},
-			[2693] = {
+			[2694] = {
 				["id"] = "explicit.stat_2816104578",
 				["text"] = "Runic Monsters in your Maps are Duplicated",
 				["type"] = "explicit",
 			},
-			[2694] = {
+			[2695] = {
 				["id"] = "explicit.stat_76982026",
 				["text"] = "Sacrifice # Life to not consume the last bolt when firing",
 				["type"] = "explicit",
 			},
-			[2695] = {
+			[2696] = {
 				["id"] = "explicit.stat_613752285",
 				["text"] = "Sacrifice #% of maximum Life to gain that much Energy Shield when you Cast a Spell",
 				["type"] = "explicit",
 			},
-			[2696] = {
+			[2697] = {
 				["id"] = "explicit.stat_3076483222|49977",
 				["text"] = "Sacrifice up to 10 Chaos Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2697] = {
+			[2698] = {
 				["id"] = "explicit.stat_3076483222|53954",
 				["text"] = "Sacrifice up to 10 Gemcutter's Prisms to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2698] = {
+			[2699] = {
 				["id"] = "explicit.stat_3076483222|8084",
 				["text"] = "Sacrifice up to 10 Greater Exalted Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2699] = {
+			[2700] = {
 				["id"] = "explicit.stat_3076483222|30874",
 				["text"] = "Sacrifice up to 10 Greater Regal Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2700] = {
+			[2701] = {
 				["id"] = "explicit.stat_3076483222|20358",
 				["text"] = "Sacrifice up to 10 Orbs of Alchemy to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2701] = {
+			[2702] = {
 				["id"] = "explicit.stat_3076483222|64921",
 				["text"] = "Sacrifice up to 10 Vaal Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2702] = {
+			[2703] = {
 				["id"] = "explicit.stat_3076483222|38303",
 				["text"] = "Sacrifice up to 20 Arcanist's Etchers to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2703] = {
+			[2704] = {
 				["id"] = "explicit.stat_3076483222|4897",
 				["text"] = "Sacrifice up to 20 Armourer's Scraps to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2704] = {
+			[2705] = {
 				["id"] = "explicit.stat_3076483222|19846",
 				["text"] = "Sacrifice up to 20 Artificer's Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2705] = {
+			[2706] = {
 				["id"] = "explicit.stat_3076483222|32821",
 				["text"] = "Sacrifice up to 20 Blacksmith's Whetstones to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2706] = {
+			[2707] = {
 				["id"] = "explicit.stat_3076483222|62634",
 				["text"] = "Sacrifice up to 20 Exalted Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2707] = {
+			[2708] = {
 				["id"] = "explicit.stat_3076483222|136",
 				["text"] = "Sacrifice up to 20 Glassblower's Baubles to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2708] = {
+			[2709] = {
 				["id"] = "explicit.stat_3076483222|54496",
 				["text"] = "Sacrifice up to 20 Regal Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2709] = {
+			[2710] = {
 				["id"] = "explicit.stat_3076483222|61382",
 				["text"] = "Sacrifice up to 3 Divine Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2710] = {
+			[2711] = {
 				["id"] = "explicit.stat_3076483222|19854",
 				["text"] = "Sacrifice up to 3 Orb of Annulments to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2711] = {
+			[2712] = {
 				["id"] = "explicit.stat_3076483222|45026",
 				["text"] = "Sacrifice up to 3 Orbs of Chance to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2712] = {
+			[2713] = {
 				["id"] = "explicit.stat_3076483222|56025",
 				["text"] = "Sacrifice up to 3 Perfect Chaos Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2713] = {
+			[2714] = {
 				["id"] = "explicit.stat_3076483222|6774",
 				["text"] = "Sacrifice up to 3 Perfect Exalted Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2714] = {
+			[2715] = {
 				["id"] = "explicit.stat_3076483222|51981",
 				["text"] = "Sacrifice up to 3 Perfect Regal Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2715] = {
+			[2716] = {
 				["id"] = "explicit.stat_3076483222|42106",
 				["text"] = "Sacrifice up to 5 Greater Chaos Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
-			[2716] = {
+			[2717] = {
 				["id"] = "explicit.stat_3831171903|30",
 				["text"] = "Scarred Faith",
 				["type"] = "explicit",
 			},
-			[2717] = {
+			[2718] = {
 				["id"] = "explicit.stat_4147510958",
 				["text"] = "Sealed Skills have # to maximum Seals",
 				["type"] = "explicit",
 			},
-			[2718] = {
+			[2719] = {
 				["id"] = "explicit.stat_3384867265",
 				["text"] = "Sealed Skills have #% increased Seal gain frequency",
 				["type"] = "explicit",
 			},
-			[2719] = {
+			[2720] = {
 				["id"] = "explicit.stat_2535267021",
 				["text"] = "Share Charges with Allies in your Presence",
 				["type"] = "explicit",
 			},
-			[2720] = {
+			[2721] = {
 				["id"] = "explicit.stat_4256314560",
 				["text"] = "Shocks you when you reach maximum Power Charges",
 				["type"] = "explicit",
 			},
-			[2721] = {
+			[2722] = {
 				["id"] = "explicit.stat_4245256219",
 				["text"] = "Skill Gems have no Attribute Requirements",
 				["type"] = "explicit",
 			},
-			[2722] = {
+			[2723] = {
 				["id"] = "explicit.stat_467146530",
 				["text"] = "Skills Cost Divinity instead of Mana or Life",
 				["type"] = "explicit",
 			},
-			[2723] = {
+			[2724] = {
 				["id"] = "explicit.stat_3605834869",
 				["text"] = "Skills Gain #% of Mana Cost as Extra Life Cost",
 				["type"] = "explicit",
 			},
-			[2724] = {
+			[2725] = {
 				["id"] = "explicit.stat_2638381947",
 				["text"] = "Skills from Corrupted Gems have #% increased Cost Efficiency during any Flask Effect",
 				["type"] = "explicit",
 			},
-			[2725] = {
+			[2726] = {
 				["id"] = "explicit.stat_2035336006",
 				["text"] = "Skills from Corrupted Gems have #% of Mana Costs Converted to Life Costs",
 				["type"] = "explicit",
 			},
-			[2726] = {
+			[2727] = {
 				["id"] = "explicit.stat_4117005593",
 				["text"] = "Skills gain #% of Damage as Chaos Damage per 3 Life Cost",
 				["type"] = "explicit",
 			},
-			[2727] = {
+			[2728] = {
 				["id"] = "explicit.stat_396200591",
 				["text"] = "Skills have # seconds to Cooldown",
 				["type"] = "explicit",
 			},
-			[2728] = {
+			[2729] = {
 				["id"] = "explicit.stat_2942439603",
 				["text"] = "Skills have #% chance to not remove Charges but still count as consuming them",
 				["type"] = "explicit",
 			},
-			[2729] = {
+			[2730] = {
 				["id"] = "explicit.stat_3024873336",
 				["text"] = "Skills have #% chance to not remove Elemental Infusions but still count as consuming them",
 				["type"] = "explicit",
 			},
-			[2730] = {
+			[2731] = {
 				["id"] = "explicit.stat_2150661403",
 				["text"] = "Skills have #% chance to not remove Elemental Infusions but still count as consuming them if you've lost an Archon Buff in the past 6 seconds",
 				["type"] = "explicit",
 			},
-			[2731] = {
+			[2732] = {
 				["id"] = "explicit.stat_3982604001",
 				["text"] = "Skills have #% longer Perfect Timing window during effect",
 				["type"] = "explicit",
 			},
-			[2732] = {
+			[2733] = {
 				["id"] = "explicit.stat_2942704390",
 				["text"] = "Skills have +# to Limit",
 				["type"] = "explicit",
 			},
-			[2733] = {
+			[2734] = {
 				["id"] = "explicit.stat_3200877707",
 				["text"] = "Skills have a #% chance to not consume Glory",
 				["type"] = "explicit",
 			},
-			[2734] = {
+			[2735] = {
 				["id"] = "explicit.stat_1373370443",
 				["text"] = "Skills have a #% longer Perfect Timing window",
 				["type"] = "explicit",
 			},
-			[2735] = {
+			[2736] = {
 				["id"] = "explicit.stat_2838161567",
 				["text"] = "Skills reserve 50% less Spirit",
 				["type"] = "explicit",
 			},
-			[2736] = {
+			[2737] = {
 				["id"] = "explicit.stat_2538411280",
 				["text"] = "Skills which Empower an Attack have #% chance to not count that Attack",
 				["type"] = "explicit",
 			},
-			[2737] = {
+			[2738] = {
 				["id"] = "explicit.stat_2544540062",
 				["text"] = "Skills which create Fissures have a #% chance to create an additional Fissure",
 				["type"] = "explicit",
 			},
-			[2738] = {
+			[2739] = {
 				["id"] = "explicit.stat_2480962043",
 				["text"] = "Skills which require Glory generate # Glory every 2 seconds",
 				["type"] = "explicit",
 			},
-			[2739] = {
+			[2740] = {
 				["id"] = "explicit.stat_2323782229",
 				["text"] = "Slaying Rare Monsters in Area pauses the Delirium Mirror Timer for 1 second",
 				["type"] = "explicit",
 			},
-			[2740] = {
+			[2741] = {
 				["id"] = "explicit.stat_2323782229",
 				["text"] = "Slaying Rare Monsters in your Maps pauses the Delirium Mirror Timer for 1 second",
 				["type"] = "explicit",
 			},
-			[2741] = {
+			[2742] = {
 				["id"] = "explicit.stat_1316656343",
 				["text"] = "Small Passive Skills in Radius also grant # to maximum Life",
 				["type"] = "explicit",
 			},
-			[2742] = {
+			[2743] = {
 				["id"] = "explicit.stat_1294464552",
 				["text"] = "Small Passive Skills in Radius also grant # to maximum Mana",
 				["type"] = "explicit",
 			},
-			[2743] = {
+			[2744] = {
 				["id"] = "explicit.stat_2610562860",
 				["text"] = "Small Passive Skills in Radius also grant #% chance to Blind Enemies on Hit with Attacks",
 				["type"] = "explicit",
 			},
-			[2744] = {
+			[2745] = {
 				["id"] = "explicit.stat_2840989393",
 				["text"] = "Small Passive Skills in Radius also grant #% chance to Poison on Hit",
 				["type"] = "explicit",
 			},
-			[2745] = {
+			[2746] = {
 				["id"] = "explicit.stat_944643028",
 				["text"] = "Small Passive Skills in Radius also grant #% chance to inflict Bleeding on Hit",
 				["type"] = "explicit",
 			},
-			[2746] = {
+			[2747] = {
 				["id"] = "explicit.stat_533892981",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[2747] = {
+			[2748] = {
 				["id"] = "explicit.stat_1285594161",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Accuracy Rating with Bows",
 				["type"] = "explicit",
 			},
-			[2748] = {
+			[2749] = {
 				["id"] = "explicit.stat_3858398337",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Armour",
 				["type"] = "explicit",
 			},
-			[2749] = {
+			[2750] = {
 				["id"] = "explicit.stat_1426522529",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Attack Damage",
 				["type"] = "explicit",
 			},
-			[2750] = {
+			[2751] = {
 				["id"] = "explicit.stat_1309799717",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2751] = {
+			[2752] = {
 				["id"] = "explicit.stat_3088348485",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Charm Effect Duration",
 				["type"] = "explicit",
 			},
-			[2752] = {
+			[2753] = {
 				["id"] = "explicit.stat_2442527254",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Cold Damage",
 				["type"] = "explicit",
 			},
-			[2753] = {
+			[2754] = {
 				["id"] = "explicit.stat_1087108135",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Curse Duration",
 				["type"] = "explicit",
 			},
-			[2754] = {
+			[2755] = {
 				["id"] = "explicit.stat_1834658952",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage against Enemies with Fully Broken Armour",
 				["type"] = "explicit",
 			},
-			[2755] = {
+			[2756] = {
 				["id"] = "explicit.stat_1892122971",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage if you have Consumed a Corpse Recently",
 				["type"] = "explicit",
 			},
-			[2756] = {
+			[2757] = {
 				["id"] = "explicit.stat_266564538",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage while Shapeshifted",
 				["type"] = "explicit",
 			},
-			[2757] = {
+			[2758] = {
 				["id"] = "explicit.stat_3752589831",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage while you have an active Charm",
 				["type"] = "explicit",
 			},
-			[2758] = {
+			[2759] = {
 				["id"] = "explicit.stat_945774314",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Bows",
 				["type"] = "explicit",
 			},
-			[2759] = {
+			[2760] = {
 				["id"] = "explicit.stat_517664839",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Crossbows",
 				["type"] = "explicit",
 			},
-			[2760] = {
+			[2761] = {
 				["id"] = "explicit.stat_147764878",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Hits against Rare and Unique Enemies",
 				["type"] = "explicit",
 			},
-			[2761] = {
+			[2762] = {
 				["id"] = "explicit.stat_1852184471",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Maces",
 				["type"] = "explicit",
 			},
-			[2762] = {
+			[2763] = {
 				["id"] = "explicit.stat_1590846356",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Plant Skills",
 				["type"] = "explicit",
 			},
-			[2763] = {
+			[2764] = {
 				["id"] = "explicit.stat_821948283",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Quarterstaves",
 				["type"] = "explicit",
 			},
-			[2764] = {
+			[2765] = {
 				["id"] = "explicit.stat_2809428780",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Spears",
 				["type"] = "explicit",
 			},
-			[2765] = {
+			[2766] = {
 				["id"] = "explicit.stat_1160637284",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Warcries",
 				["type"] = "explicit",
 			},
-			[2766] = {
+			[2767] = {
 				["id"] = "explicit.stat_3409275777",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Elemental Ailment Threshold",
 				["type"] = "explicit",
 			},
-			[2767] = {
+			[2768] = {
 				["id"] = "explicit.stat_3222402650",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Elemental Damage",
 				["type"] = "explicit",
 			},
-			[2768] = {
+			[2769] = {
 				["id"] = "explicit.stat_1552666713",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Energy Shield Recharge Rate",
 				["type"] = "explicit",
 			},
-			[2769] = {
+			[2770] = {
 				["id"] = "explicit.stat_1994296038",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Evasion Rating",
 				["type"] = "explicit",
 			},
-			[2770] = {
+			[2771] = {
 				["id"] = "explicit.stat_139889694",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Fire Damage",
 				["type"] = "explicit",
 			},
-			[2771] = {
+			[2772] = {
 				["id"] = "explicit.stat_394473632",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Flammability Magnitude",
 				["type"] = "explicit",
 			},
-			[2772] = {
+			[2773] = {
 				["id"] = "explicit.stat_1773308808",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Flask Effect Duration",
 				["type"] = "explicit",
 			},
-			[2773] = {
+			[2774] = {
 				["id"] = "explicit.stat_830345042",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Freeze Threshold",
 				["type"] = "explicit",
 			},
-			[2774] = {
+			[2775] = {
 				["id"] = "explicit.stat_1417267954",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Global Physical Damage",
 				["type"] = "explicit",
 			},
-			[2775] = {
+			[2776] = {
 				["id"] = "explicit.stat_255840549",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Hazard Damage",
 				["type"] = "explicit",
 			},
-			[2776] = {
+			[2777] = {
 				["id"] = "explicit.stat_980177976",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Life Recovery from Flasks",
 				["type"] = "explicit",
 			},
-			[2777] = {
+			[2778] = {
 				["id"] = "explicit.stat_2768899959",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Lightning Damage",
 				["type"] = "explicit",
 			},
-			[2778] = {
+			[2779] = {
 				["id"] = "explicit.stat_3774951878",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Mana Recovery from Flasks",
 				["type"] = "explicit",
 			},
-			[2779] = {
+			[2780] = {
 				["id"] = "explicit.stat_3256879910",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Mana Regeneration Rate",
 				["type"] = "explicit",
 			},
-			[2780] = {
+			[2781] = {
 				["id"] = "explicit.stat_1337740333",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Melee Damage",
 				["type"] = "explicit",
 			},
-			[2781] = {
+			[2782] = {
 				["id"] = "explicit.stat_2421151933",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
 				["type"] = "explicit",
 			},
-			[2782] = {
+			[2783] = {
 				["id"] = "explicit.stat_793875384",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Minion Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[2783] = {
+			[2784] = {
 				["id"] = "explicit.stat_1007380041",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Parry Damage",
 				["type"] = "explicit",
 			},
-			[2784] = {
+			[2785] = {
 				["id"] = "explicit.stat_455816363",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Projectile Damage",
 				["type"] = "explicit",
 			},
-			[2785] = {
+			[2786] = {
 				["id"] = "explicit.stat_288364275",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds",
 				["type"] = "explicit",
 			},
-			[2786] = {
+			[2787] = {
 				["id"] = "explicit.stat_3513818125",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Shock Duration",
 				["type"] = "explicit",
 			},
-			[2787] = {
+			[2788] = {
 				["id"] = "explicit.stat_1137305356",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Spell Damage",
 				["type"] = "explicit",
 			},
-			[2788] = {
+			[2789] = {
 				["id"] = "explicit.stat_484792219",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Stun Threshold",
 				["type"] = "explicit",
 			},
-			[2789] = {
+			[2790] = {
 				["id"] = "explicit.stat_654207792",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Stun Threshold if you haven't been Stunned Recently",
 				["type"] = "explicit",
 			},
-			[2790] = {
+			[2791] = {
 				["id"] = "explicit.stat_1320662475",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Thorns damage",
 				["type"] = "explicit",
 			},
-			[2791] = {
+			[2792] = {
 				["id"] = "explicit.stat_2108821127",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Totem Damage",
 				["type"] = "explicit",
 			},
-			[2792] = {
+			[2793] = {
 				["id"] = "explicit.stat_442393998",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Totem Life",
 				["type"] = "explicit",
 			},
-			[2793] = {
+			[2794] = {
 				["id"] = "explicit.stat_1145481685",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Totem Placement speed",
 				["type"] = "explicit",
 			},
-			[2794] = {
+			[2795] = {
 				["id"] = "explicit.stat_1602294220",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Warcry Speed",
 				["type"] = "explicit",
 			},
-			[2795] = {
+			[2796] = {
 				["id"] = "explicit.stat_1129429646",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Weapon Swap Speed",
 				["type"] = "explicit",
 			},
-			[2796] = {
+			[2797] = {
 				["id"] = "explicit.stat_3666476747",
 				["text"] = "Small Passive Skills in Radius also grant #% increased amount of Life Leeched",
 				["type"] = "explicit",
 			},
-			[2797] = {
+			[2798] = {
 				["id"] = "explicit.stat_3700202631",
 				["text"] = "Small Passive Skills in Radius also grant #% increased amount of Mana Leeched",
 				["type"] = "explicit",
 			},
-			[2798] = {
+			[2799] = {
 				["id"] = "explicit.stat_1039268420",
 				["text"] = "Small Passive Skills in Radius also grant #% increased chance to Shock",
 				["type"] = "explicit",
 			},
-			[2799] = {
+			[2800] = {
 				["id"] = "explicit.stat_3665922113",
 				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2800] = {
+			[2801] = {
 				["id"] = "explicit.stat_1809641701",
 				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[2801] = {
+			[2802] = {
 				["id"] = "explicit.stat_1247628870",
 				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Mana",
 				["type"] = "explicit",
 			},
-			[2802] = {
+			[2803] = {
 				["id"] = "explicit.stat_860443350",
 				["text"] = "Small Passive Skills in Radius also grant #% reduced Freeze Duration on you",
 				["type"] = "explicit",
 			},
-			[2803] = {
+			[2804] = {
 				["id"] = "explicit.stat_3474941090",
 				["text"] = "Small Passive Skills in Radius also grant #% reduced Ignite Duration on you",
 				["type"] = "explicit",
 			},
-			[2804] = {
+			[2805] = {
 				["id"] = "explicit.stat_1627878766",
 				["text"] = "Small Passive Skills in Radius also grant #% reduced Shock duration on you",
 				["type"] = "explicit",
 			},
-			[2805] = {
+			[2806] = {
 				["id"] = "explicit.stat_2264240911",
 				["text"] = "Small Passive Skills in Radius also grant #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2806] = {
+			[2807] = {
 				["id"] = "explicit.stat_2884937919",
 				["text"] = "Small Passive Skills in Radius also grant #% to Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2807] = {
+			[2808] = {
 				["id"] = "explicit.stat_2948688907",
 				["text"] = "Small Passive Skills in Radius also grant #% to Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2808] = {
+			[2809] = {
 				["id"] = "explicit.stat_3994876825",
 				["text"] = "Small Passive Skills in Radius also grant #% to Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2809] = {
+			[2810] = {
 				["id"] = "explicit.stat_318092306",
 				["text"] = "Small Passive Skills in Radius also grant Attack Hits apply Incision",
 				["type"] = "explicit",
 			},
-			[2810] = {
+			[2811] = {
 				["id"] = "explicit.stat_4142814612",
 				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2811] = {
+			[2812] = {
 				["id"] = "explicit.stat_2690740379",
 				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Duration",
 				["type"] = "explicit",
 			},
-			[2812] = {
+			[2813] = {
 				["id"] = "explicit.stat_4089835882",
 				["text"] = "Small Passive Skills in Radius also grant Break #% increased Armour",
 				["type"] = "explicit",
 			},
-			[2813] = {
+			[2814] = {
 				["id"] = "explicit.stat_1494950893",
 				["text"] = "Small Passive Skills in Radius also grant Companions deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2814] = {
+			[2815] = {
 				["id"] = "explicit.stat_2638756573",
 				["text"] = "Small Passive Skills in Radius also grant Companions have #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[2815] = {
+			[2816] = {
 				["id"] = "explicit.stat_1896066427",
 				["text"] = "Small Passive Skills in Radius also grant Damage Penetrates #% Cold Resistance",
 				["type"] = "explicit",
 			},
-			[2816] = {
+			[2817] = {
 				["id"] = "explicit.stat_1432756708",
 				["text"] = "Small Passive Skills in Radius also grant Damage Penetrates #% Fire Resistance",
 				["type"] = "explicit",
 			},
-			[2817] = {
+			[2818] = {
 				["id"] = "explicit.stat_868556494",
 				["text"] = "Small Passive Skills in Radius also grant Damage Penetrates #% Lightning Resistance",
 				["type"] = "explicit",
 			},
-			[2818] = {
+			[2819] = {
 				["id"] = "explicit.stat_4258000627",
 				["text"] = "Small Passive Skills in Radius also grant Dazes on Hit",
 				["type"] = "explicit",
 			},
-			[2819] = {
+			[2820] = {
 				["id"] = "explicit.stat_3395186672",
 				["text"] = "Small Passive Skills in Radius also grant Empowered Attacks deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2820] = {
+			[2821] = {
 				["id"] = "explicit.stat_693237939",
 				["text"] = "Small Passive Skills in Radius also grant Gain additional Ailment Threshold equal to #% of maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2821] = {
+			[2822] = {
 				["id"] = "explicit.stat_1653682082",
 				["text"] = "Small Passive Skills in Radius also grant Gain additional Stun Threshold equal to #% of maximum Energy Shield",
 				["type"] = "explicit",
 			},
-			[2822] = {
+			[2823] = {
 				["id"] = "explicit.stat_3065378291",
 				["text"] = "Small Passive Skills in Radius also grant Herald Skills deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2823] = {
+			[2824] = {
 				["id"] = "explicit.stat_4162678661",
 				["text"] = "Small Passive Skills in Radius also grant Mark Skills have #% increased Skill Effect Duration",
 				["type"] = "explicit",
 			},
-			[2824] = {
+			[2825] = {
 				["id"] = "explicit.stat_2202308025",
 				["text"] = "Small Passive Skills in Radius also grant Mark Skills have #% increased Use Speed",
 				["type"] = "explicit",
 			},
-			[2825] = {
+			[2826] = {
 				["id"] = "explicit.stat_2954360902",
 				["text"] = "Small Passive Skills in Radius also grant Minions deal #% increased Damage",
 				["type"] = "explicit",
 			},
-			[2826] = {
+			[2827] = {
 				["id"] = "explicit.stat_30438393",
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% additional Physical Damage Reduction",
 				["type"] = "explicit",
 			},
-			[2827] = {
+			[2828] = {
 				["id"] = "explicit.stat_378796798",
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% increased maximum Life",
 				["type"] = "explicit",
 			},
-			[2828] = {
+			[2829] = {
 				["id"] = "explicit.stat_1756380435",
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2829] = {
+			[2830] = {
 				["id"] = "explicit.stat_3225608889",
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to all Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2830] = {
+			[2831] = {
 				["id"] = "explicit.stat_2107703111",
 				["text"] = "Small Passive Skills in Radius also grant Offerings have #% increased Maximum Life",
 				["type"] = "explicit",
 			},
-			[2831] = {
+			[2832] = {
 				["id"] = "explicit.stat_473917671",
 				["text"] = "Small Passive Skills in Radius also grant Triggered Spells deal #% increased Spell Damage",
 				["type"] = "explicit",
 			},
-			[2832] = {
+			[2833] = {
 				["id"] = "explicit.stat_1404607671",
 				["text"] = "Soul Eater",
 				["type"] = "explicit",
 			},
-			[2833] = {
+			[2834] = {
 				["id"] = "explicit.stat_4106787208",
 				["text"] = "Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target",
 				["type"] = "explicit",
 			},
-			[2834] = {
+			[2835] = {
 				["id"] = "explicit.stat_2653175601",
 				["text"] = "Spell Hits Gain #% of Damage as Extra Chaos Damage per Curse on target",
 				["type"] = "explicit",
 			},
-			[2835] = {
+			[2836] = {
 				["id"] = "explicit.stat_1548338404",
 				["text"] = "Spell Hits Gain #% of Damage as Extra Physical Damage per Curse on target",
 				["type"] = "explicit",
 			},
-			[2836] = {
+			[2837] = {
 				["id"] = "explicit.stat_2474424958",
 				["text"] = "Spell Skills have # to maximum number of Summoned Totems",
 				["type"] = "explicit",
 			},
-			[2837] = {
+			[2838] = {
 				["id"] = "explicit.stat_1967040409",
 				["text"] = "Spell Skills have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2838] = {
+			[2839] = {
 				["id"] = "explicit.stat_555706343",
 				["text"] = "Spells Gain #% of Damage as extra Chaos Damage",
 				["type"] = "explicit",
 			},
-			[2839] = {
+			[2840] = {
 				["id"] = "explicit.stat_1013492127",
 				["text"] = "Spells fire # additional ProjectilesSpells fire Projectiles in a circle",
 				["type"] = "explicit",
 			},
-			[2840] = {
+			[2841] = {
 				["id"] = "explicit.stat_1493485657",
 				["text"] = "Spells have #% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2841] = {
+			[2842] = {
 				["id"] = "explicit.stat_2348696937",
 				["text"] = "Spells have a #% chance to inflict Withered for 4 seconds on Hit",
 				["type"] = "explicit",
 			},
-			[2842] = {
+			[2843] = {
 				["id"] = "explicit.stat_1088082880",
 				["text"] = "Spells which cost Life Gain #% of Damage as Extra Physical Damage",
 				["type"] = "explicit",
 			},
-			[2843] = {
+			[2844] = {
 				["id"] = "explicit.stat_2230687504",
 				["text"] = "Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills",
 				["type"] = "explicit",
 			},
-			[2844] = {
+			[2845] = {
 				["id"] = "explicit.stat_3675300253",
 				["text"] = "Strikes deal Splash Damage",
 				["type"] = "explicit",
 			},
-			[2845] = {
+			[2846] = {
 				["id"] = "explicit.stat_3249412463",
 				["text"] = "Supported Minions' Strikes have Melee Splash",
 				["type"] = "explicit",
 			},
-			[2846] = {
+			[2847] = {
 				["id"] = "explicit.stat_3164544692",
 				["text"] = "Take # Chaos damage per second per Endurance Charge",
 				["type"] = "explicit",
 			},
-			[2847] = {
+			[2848] = {
 				["id"] = "explicit.stat_2518598473",
 				["text"] = "Take # Fire Damage when you Ignite an Enemy",
 				["type"] = "explicit",
 			},
-			[2848] = {
+			[2849] = {
 				["id"] = "explicit.stat_3181887481",
 				["text"] = "Take #% of Mana Costs you pay for Skills as Physical Damage",
 				["type"] = "explicit",
 			},
-			[2849] = {
+			[2850] = {
 				["id"] = "explicit.stat_4294267596",
 				["text"] = "Take no Extra Damage from Critical Hits",
 				["type"] = "explicit",
 			},
-			[2850] = {
+			[2851] = {
 				["id"] = "explicit.stat_1755296234",
 				["text"] = "Targets can be affected by # of your Poisons at the same time",
 				["type"] = "explicit",
 			},
-			[2851] = {
+			[2852] = {
 				["id"] = "explicit.stat_3984146263",
 				["text"] = "Tempest Bells are destroyed after an additional # Hits",
 				["type"] = "explicit",
 			},
-			[2852] = {
+			[2853] = {
 				["id"] = "explicit.stat_1058934731",
 				["text"] = "Temporary Minion Skills have # to Limit of Minions summoned",
 				["type"] = "explicit",
 			},
-			[2853] = {
+			[2854] = {
 				["id"] = "explicit.stat_3783473032",
 				["text"] = "The Bodach haunts your Presence",
 				["type"] = "explicit",
 			},
-			[2854] = {
+			[2855] = {
 				["id"] = "explicit.stat_1010703902",
 				["text"] = "The Effect of Blind on you is reversed",
 				["type"] = "explicit",
 			},
-			[2855] = {
+			[2856] = {
 				["id"] = "explicit.stat_2955966707",
 				["text"] = "The Effect of Chill on you is reversed",
 				["type"] = "explicit",
 			},
-			[2856] = {
+			[2857] = {
 				["id"] = "explicit.stat_2980117882",
 				["text"] = "This Flask cannot be Used but applies its Effect constantly",
 				["type"] = "explicit",
 			},
-			[2857] = {
+			[2858] = {
 				["id"] = "explicit.stat_3384885789",
 				["text"] = "This Weapon's Critical Hit Chance is #%",
 				["type"] = "explicit",
 			},
-			[2858] = {
+			[2859] = {
 				["id"] = "explicit.stat_2733960806",
 				["text"] = "This item gains bonuses from Socketed Items as though it was Boots",
 				["type"] = "explicit",
 			},
-			[2859] = {
+			[2860] = {
 				["id"] = "explicit.stat_1856590738",
 				["text"] = "This item gains bonuses from Socketed Items as though it was Gloves",
 				["type"] = "explicit",
 			},
-			[2860] = {
+			[2861] = {
 				["id"] = "explicit.stat_1087787187",
 				["text"] = "This item gains bonuses from Socketed Items as though it was a Body Armour",
 				["type"] = "explicit",
 			},
-			[2861] = {
+			[2862] = {
 				["id"] = "explicit.stat_1458343515",
 				["text"] = "This item gains bonuses from Socketed Items as though it was a Helmet",
 				["type"] = "explicit",
 			},
-			[2862] = {
+			[2863] = {
 				["id"] = "explicit.stat_2044810874",
 				["text"] = "This item gains bonuses from Socketed Items as though it was a Shield",
 				["type"] = "explicit",
 			},
-			[2863] = {
+			[2864] = {
 				["id"] = "explicit.stat_150590298",
 				["text"] = "This item gains bonuses from Socketed Soul Cores as though it was also Boots",
 				["type"] = "explicit",
 			},
-			[2864] = {
+			[2865] = {
 				["id"] = "explicit.stat_3915618954",
 				["text"] = "This item gains bonuses from Socketed Soul Cores as though it was also Gloves",
 				["type"] = "explicit",
 			},
-			[2865] = {
+			[2866] = {
 				["id"] = "explicit.stat_3773763721",
 				["text"] = "This item gains bonuses from Socketed Soul Cores as though it was also a Helmet",
 				["type"] = "explicit",
 			},
-			[2866] = {
+			[2867] = {
 				["id"] = "explicit.stat_231726304",
 				["text"] = "This item gains bonuses from Socketed Soul Cores as though it was also a Shield",
 				["type"] = "explicit",
 			},
-			[2867] = {
+			[2868] = {
 				["id"] = "explicit.stat_3414243317",
 				["text"] = "Thorns can Retaliate against all Hits",
 				["type"] = "explicit",
 			},
-			[2868] = {
+			[2869] = {
 				["id"] = "explicit.stat_3371943724",
 				["text"] = "Trigger Decompose every 1.2 metres travelled",
 				["type"] = "explicit",
 			},
-			[2869] = {
+			[2870] = {
 				["id"] = "explicit.stat_826162720",
 				["text"] = "Trigger Ember Fusillade Skill on casting a Spell",
 				["type"] = "explicit",
 			},
-			[2870] = {
+			[2871] = {
 				["id"] = "explicit.stat_704919631",
 				["text"] = "Trigger Lightning Bolt Skill on Critical Hit",
 				["type"] = "explicit",
 			},
-			[2871] = {
+			[2872] = {
 				["id"] = "explicit.stat_811217923",
 				["text"] = "Trigger Spark Skill on killing a Shocked Enemy",
 				["type"] = "explicit",
 			},
-			[2872] = {
+			[2873] = {
 				["id"] = "explicit.stat_3067892458",
 				["text"] = "Triggered Spells deal #% increased Spell Damage",
 				["type"] = "explicit",
 			},
-			[2873] = {
+			[2874] = {
 				["id"] = "explicit.stat_4007938693",
 				["text"] = "Triggers Level # Manifest Dancing Dervishes on Rampage",
 				["type"] = "explicit",
 			},
-			[2874] = {
+			[2875] = {
 				["id"] = "explicit.stat_3831171903|25",
 				["text"] = "Trusted Kinship",
 				["type"] = "explicit",
 			},
-			[2875] = {
+			[2876] = {
 				["id"] = "explicit.stat_1176947534",
 				["text"] = "Undead Minions have #% reduced Reservation",
 				["type"] = "explicit",
 			},
-			[2876] = {
+			[2877] = {
 				["id"] = "explicit.stat_3371085671",
 				["text"] = "Unique Monsters have # additional Rare Modifier",
 				["type"] = "explicit",
 			},
-			[2877] = {
+			[2878] = {
 				["id"] = "explicit.stat_3371085671",
 				["text"] = "Unique Monsters in your Maps have # additional Rare Modifier",
 				["type"] = "explicit",
 			},
-			[2878] = {
+			[2879] = {
 				["id"] = "explicit.stat_2433436306",
 				["text"] = "Unstable Breaches have #% increased chance to contain Vruun, Marshal of Xesht",
 				["type"] = "explicit",
 			},
-			[2879] = {
+			[2880] = {
 				["id"] = "explicit.stat_3762913035",
 				["text"] = "Unstable Breaches spawn an additional Rare Monster when Stabilised",
 				["type"] = "explicit",
 			},
-			[2880] = {
+			[2881] = {
 				["id"] = "explicit.stat_4104094246",
 				["text"] = "Unstable Breaches take an additional second to collapse after timer is filled",
 				["type"] = "explicit",
 			},
-			[2881] = {
+			[2882] = {
 				["id"] = "explicit.stat_3831171903|3",
 				["text"] = "Unwavering Stance",
 				["type"] = "explicit",
 			},
-			[2882] = {
+			[2883] = {
 				["id"] = "explicit.stat_1683578560",
 				["text"] = "Unwavering Stance",
 				["type"] = "explicit",
 			},
-			[2883] = {
+			[2884] = {
 				["id"] = "explicit.stat_3891355829|2",
 				["text"] = "Upgrades Radius to Large",
 				["type"] = "explicit",
 			},
-			[2884] = {
+			[2885] = {
 				["id"] = "explicit.stat_3891355829|1",
 				["text"] = "Upgrades Radius to Medium",
 				["type"] = "explicit",
 			},
-			[2885] = {
+			[2886] = {
 				["id"] = "explicit.stat_3891355829|3",
 				["text"] = "Upgrades Radius to Very Large",
 				["type"] = "explicit",
 			},
-			[2886] = {
+			[2887] = {
 				["id"] = "explicit.stat_3832076641",
 				["text"] = "Used when you release a skill with Perfect Timing",
 				["type"] = "explicit",
 			},
-			[2887] = {
+			[2888] = {
 				["id"] = "explicit.stat_2777675751",
 				["text"] = "Using a Mana Flask grants Guard equal to #% of Flask's recovery amount for 4 seconds",
 				["type"] = "explicit",
 			},
-			[2888] = {
+			[2889] = {
 				["id"] = "explicit.stat_3831171903|20",
 				["text"] = "Vaal Pact",
 				["type"] = "explicit",
 			},
-			[2889] = {
+			[2890] = {
 				["id"] = "explicit.stat_2257118425",
 				["text"] = "Vaal Pact",
 				["type"] = "explicit",
 			},
-			[2890] = {
+			[2891] = {
 				["id"] = "explicit.stat_1132041585",
 				["text"] = "Virtuous",
 				["type"] = "explicit",
 			},
-			[2891] = {
+			[2892] = {
 				["id"] = "explicit.stat_1434716233",
 				["text"] = "Warcries Empower an additional Attack",
 				["type"] = "explicit",
 			},
-			[2892] = {
+			[2893] = {
 				["id"] = "explicit.stat_11014011",
 				["text"] = "Warcries Explode Corpses dealing #% of their Life as Physical Damage",
 				["type"] = "explicit",
 			},
-			[2893] = {
+			[2894] = {
 				["id"] = "explicit.stat_2567751411",
 				["text"] = "Warcry Skills have #% increased Area of Effect",
 				["type"] = "explicit",
 			},
-			[2894] = {
+			[2895] = {
 				["id"] = "explicit.stat_603021645",
 				["text"] = "When a Party Member in your Presence Casts a Spell, youSacrifice #% of Mana and they Leech that Mana",
 				["type"] = "explicit",
 			},
-			[2895] = {
+			[2896] = {
 				["id"] = "explicit.stat_447757144",
 				["text"] = "When you Consume a Charge Trigger Chaotic Surge to gain # Chaos Surge",
 				["type"] = "explicit",
 			},
-			[2896] = {
+			[2897] = {
 				["id"] = "explicit.stat_2913235441",
 				["text"] = "When you kill a Rare monster, you gain its Modifiers for 60 seconds",
 				["type"] = "explicit",
 			},
-			[2897] = {
+			[2898] = {
 				["id"] = "explicit.stat_331648983",
 				["text"] = "When you reload, triggers Gemini Surge to alternatelygain # Cold Surge or # Fire Surge",
 				["type"] = "explicit",
 			},
-			[2898] = {
+			[2899] = {
 				["id"] = "explicit.stat_3831171903|11",
 				["text"] = "Whispers of Doom",
 				["type"] = "explicit",
 			},
-			[2899] = {
+			[2900] = {
 				["id"] = "explicit.stat_3831171903|32",
 				["text"] = "Wildsurge Incantation",
 				["type"] = "explicit",
 			},
-			[2900] = {
+			[2901] = {
 				["id"] = "explicit.stat_2626360934",
 				["text"] = "Wind Skills which can be boosted by Elemental Ground Surfaces countas being boosted by Chilled Ground",
 				["type"] = "explicit",
 			},
-			[2901] = {
+			[2902] = {
 				["id"] = "explicit.stat_279110104",
 				["text"] = "Withered does not expire on Enemies Ignited by you",
 				["type"] = "explicit",
 			},
-			[2902] = {
+			[2903] = {
 				["id"] = "explicit.stat_1910297038",
 				["text"] = "Withered you inflict also increases Fire Damage taken",
 				["type"] = "explicit",
 			},
-			[2903] = {
+			[2904] = {
 				["id"] = "explicit.stat_1354656031",
 				["text"] = "Withered you inflict has infinite Duration",
 				["type"] = "explicit",
 			},
-			[2904] = {
+			[2905] = {
 				["id"] = "explicit.stat_2889272422",
 				["text"] = "Wombgifts have #% chance to drop one Level higher",
 				["type"] = "explicit",
 			},
-			[2905] = {
+			[2906] = {
 				["id"] = "explicit.stat_3429986699",
 				["text"] = "You and Allies in your Presence have #% increased Accuracy Rating",
 				["type"] = "explicit",
 			},
-			[2906] = {
+			[2907] = {
 				["id"] = "explicit.stat_3408222535",
 				["text"] = "You and Allies in your Presence have #% increased Attack Speed",
 				["type"] = "explicit",
 			},
-			[2907] = {
+			[2908] = {
 				["id"] = "explicit.stat_281990982",
 				["text"] = "You and Allies in your Presence have #% increased Cast Speed",
 				["type"] = "explicit",
 			},
-			[2908] = {
+			[2909] = {
 				["id"] = "explicit.stat_36954843",
 				["text"] = "You and Allies in your Presence have #% increased Cooldown Recovery Rate",
 				["type"] = "explicit",
 			},
-			[2909] = {
+			[2910] = {
 				["id"] = "explicit.stat_1404134612",
 				["text"] = "You and Allies in your Presence have #% to Chaos Resistance",
 				["type"] = "explicit",
 			},
-			[2910] = {
+			[2911] = {
 				["id"] = "explicit.stat_3774577097",
 				["text"] = "You are Blind",
 				["type"] = "explicit",
 			},
-			[2911] = {
+			[2912] = {
 				["id"] = "explicit.stat_356835700",
 				["text"] = "You are considered on Low Life while at #% of maximum Life or below instead",
 				["type"] = "explicit",
 			},
-			[2912] = {
+			[2913] = {
 				["id"] = "explicit.stat_664024640",
 				["text"] = "You can Socket an additional copy of each Lineage Support Gem, in different Skills",
 				["type"] = "explicit",
 			},
-			[2913] = {
+			[2914] = {
 				["id"] = "explicit.stat_30642521",
 				["text"] = "You can apply # additional Curses",
 				["type"] = "explicit",
 			},
-			[2914] = {
+			[2915] = {
 				["id"] = "explicit.stat_603573028",
 				["text"] = "You can have any number of Companions of different types",
 				["type"] = "explicit",
 			},
-			[2915] = {
+			[2916] = {
 				["id"] = "explicit.stat_1888024332",
 				["text"] = "You can have two Companions of different types",
 				["type"] = "explicit",
 			},
-			[2916] = {
+			[2917] = {
 				["id"] = "explicit.stat_3598729471",
 				["text"] = "You can only Socket Emerald Jewels in this item",
 				["type"] = "explicit",
 			},
-			[2917] = {
+			[2918] = {
 				["id"] = "explicit.stat_4031148736",
 				["text"] = "You can only Socket Ruby Jewels in this item",
 				["type"] = "explicit",
 			},
-			[2918] = {
+			[2919] = {
 				["id"] = "explicit.stat_21302430",
 				["text"] = "You can only Socket Sapphire Jewels in this item",
 				["type"] = "explicit",
 			},
-			[2919] = {
+			[2920] = {
 				["id"] = "explicit.stat_3635316831",
 				["text"] = "You can wield Two-Handed Axes, Maces and Swords in one hand",
 				["type"] = "explicit",
 			},
-			[2920] = {
+			[2921] = {
 				["id"] = "explicit.stat_1536107934",
 				["text"] = "You cannot Sprint",
 				["type"] = "explicit",
 			},
-			[2921] = {
+			[2922] = {
 				["id"] = "explicit.stat_2306924373",
 				["text"] = "You cannot be Chilled for # second after being Chilled",
 				["type"] = "explicit",
 			},
-			[2922] = {
+			[2923] = {
 				["id"] = "explicit.stat_2996245527",
 				["text"] = "You cannot be Chilled or Frozen",
 				["type"] = "explicit",
 			},
-			[2923] = {
+			[2924] = {
 				["id"] = "explicit.stat_3612464552",
 				["text"] = "You cannot be Frozen for # second after being Frozen",
 				["type"] = "explicit",
 			},
-			[2924] = {
+			[2925] = {
 				["id"] = "explicit.stat_947072590",
 				["text"] = "You cannot be Ignited for # second after being Ignited",
 				["type"] = "explicit",
 			},
-			[2925] = {
+			[2926] = {
 				["id"] = "explicit.stat_215346464",
 				["text"] = "You cannot be Shocked for # second after being Shocked",
 				["type"] = "explicit",
 			},
-			[2926] = {
+			[2927] = {
 				["id"] = "explicit.stat_423304126",
 				["text"] = "You count as on Full Mana while at #% of maximum Mana or above",
 				["type"] = "explicit",
 			},
-			[2927] = {
+			[2928] = {
 				["id"] = "explicit.stat_3154256486",
 				["text"] = "You count as on Low Life while at #% of maximum Mana or below",
 				["type"] = "explicit",
 			},
-			[2928] = {
+			[2929] = {
 				["id"] = "explicit.stat_1143240184",
 				["text"] = "You count as on Low Mana while at #% of maximum Life or below",
 				["type"] = "explicit",
 			},
-			[2929] = {
+			[2930] = {
 				["id"] = "explicit.stat_1195849808",
 				["text"] = "You gain Onslaught for # seconds on Kill",
 				["type"] = "explicit",
 			},
-			[2930] = {
+			[2931] = {
 				["id"] = "explicit.stat_1736538865",
 				["text"] = "You have Consecrated Ground around you while stationary",
 				["type"] = "explicit",
 			},
-			[2931] = {
+			[2932] = {
 				["id"] = "explicit.stat_3007552094",
 				["text"] = "You have Unholy Might",
 				["type"] = "explicit",
 			},
-			[2932] = {
+			[2933] = {
 				["id"] = "explicit.stat_2592455368",
 				["text"] = "You have a Smoke Cloud around you while stationary",
 				["type"] = "explicit",
 			},
-			[2933] = {
+			[2934] = {
 				["id"] = "explicit.stat_3070990531",
 				["text"] = "You have no Accuracy Penalty at Distance",
 				["type"] = "explicit",
 			},
-			[2934] = {
+			[2935] = {
 				["id"] = "explicit.stat_4058681894",
 				["text"] = "You have no Critical Damage Bonus",
 				["type"] = "explicit",
 			},
-			[2935] = {
+			[2936] = {
 				["id"] = "explicit.stat_1776968075",
 				["text"] = "You have no Elemental Resistances",
 				["type"] = "explicit",
 			},
-			[2936] = {
+			[2937] = {
 				["id"] = "explicit.stat_854225133",
 				["text"] = "You have no Life Regeneration",
 				["type"] = "explicit",
 			},
-			[2937] = {
+			[2938] = {
 				["id"] = "explicit.stat_3148264775",
 				["text"] = "You have no Spirit",
 				["type"] = "explicit",
 			},
-			[2938] = {
+			[2939] = {
 				["id"] = "explicit.stat_2350411833",
 				["text"] = "You lose #% of maximum Energy Shield per second",
 				["type"] = "explicit",
 			},
-			[2939] = {
+			[2940] = {
 				["id"] = "explicit.stat_2905515354",
 				["text"] = "You take #% of damage from Blocked Hits",
 				["type"] = "explicit",
 			},
-			[2940] = {
+			[2941] = {
 				["id"] = "explicit.stat_3694078435",
 				["text"] = "You take #% of damage from Blocked Hits with a raised Shield",
 				["type"] = "explicit",
 			},
-			[2941] = {
+			[2942] = {
 				["id"] = "explicit.stat_2022332470",
 				["text"] = "You take Fire Damage instead of Physical Damage from Bleeding",
 				["type"] = "explicit",
 			},
-			[2942] = {
+			[2943] = {
 				["id"] = "explicit.stat_2516303866",
 				["text"] = "Your Critical Damage Bonus is 250%",
 				["type"] = "explicit",
 			},
-			[2943] = {
+			[2944] = {
 				["id"] = "explicit.stat_4159551976",
 				["text"] = "Your Critical Hit Chance cannot be Rerolled",
 				["type"] = "explicit",
 			},
-			[2944] = {
+			[2945] = {
 				["id"] = "explicit.stat_886088880",
 				["text"] = "Your Heavy Stun buildup empties #% faster",
 				["type"] = "explicit",
 			},
-			[2945] = {
+			[2946] = {
 				["id"] = "explicit.stat_2890792988",
 				["text"] = "Your Hits can Penetrate Elemental Resistances down to a minimum of -50%",
 				["type"] = "explicit",
 			},
-			[2946] = {
+			[2947] = {
 				["id"] = "explicit.stat_2397460217",
 				["text"] = "Your Life Flask also applies to your Minions",
 				["type"] = "explicit",
 			},
-			[2947] = {
+			[2948] = {
 				["id"] = "explicit.stat_3550168289",
 				["text"] = "Your Maps are inhabited by # additional Rogue Exile",
 				["type"] = "explicit",
 			},
-			[2948] = {
+			[2949] = {
 				["id"] = "explicit.stat_3240183538",
 				["text"] = "Your Maps contain # additional Strongboxes",
 				["type"] = "explicit",
 			},
-			[2949] = {
+			[2950] = {
 				["id"] = "explicit.stat_1070816711",
 				["text"] = "Your Maps contain an additional Abyss",
 				["type"] = "explicit",
 			},
-			[2950] = {
+			[2951] = {
 				["id"] = "explicit.stat_395808938",
 				["text"] = "Your Maps contain an additional Essence",
 				["type"] = "explicit",
 			},
-			[2951] = {
+			[2952] = {
 				["id"] = "explicit.stat_231864447",
 				["text"] = "Your Maps contain an additional Rare Chest",
 				["type"] = "explicit",
 			},
-			[2952] = {
+			[2953] = {
 				["id"] = "explicit.stat_1468737867",
 				["text"] = "Your Maps contain an additional Shrine",
 				["type"] = "explicit",
 			},
-			[2953] = {
+			[2954] = {
 				["id"] = "explicit.stat_588512487",
 				["text"] = "Your Maps have # additional random Modifier",
 				["type"] = "explicit",
 			},
-			[2954] = {
+			[2955] = {
 				["id"] = "explicit.stat_2571125745",
 				["text"] = "Your Maps have #% chance to contain a Shrine",
 				["type"] = "explicit",
 			},
-			[2955] = {
+			[2956] = {
 				["id"] = "explicit.stat_2388936716",
 				["text"] = "Your Maps have #% chance to contain a Strongbox",
 				["type"] = "explicit",
 			},
-			[2956] = {
+			[2957] = {
 				["id"] = "explicit.stat_4098286334",
 				["text"] = "Your Maps have #% chance to contain an Essence",
 				["type"] = "explicit",
 			},
-			[2957] = {
+			[2958] = {
 				["id"] = "explicit.stat_3049505189",
 				["text"] = "Your Maps which contain Breaches have #% chance to contain an additional Breach",
 				["type"] = "explicit",
 			},
-			[2958] = {
+			[2959] = {
 				["id"] = "explicit.stat_2440265466",
 				["text"] = "Your Maps which contain Breaches have #% chance to contain three additional Breaches",
 				["type"] = "explicit",
 			},
-			[2959] = {
+			[2960] = {
 				["id"] = "explicit.stat_1265767008",
 				["text"] = "Your Minions are Gigantic if they have Revived Recently",
 				["type"] = "explicit",
 			},
-			[2960] = {
+			[2961] = {
 				["id"] = "explicit.stat_3091132047",
 				["text"] = "Your base Energy Shield Recharge Delay is # second",
 				["type"] = "explicit",
 			},
-			[2961] = {
+			[2962] = {
 				["id"] = "explicit.stat_758226825",
 				["text"] = "Your maximum Energy Shield is equal to #% of your Strength",
 				["type"] = "explicit",
 			},
-			[2962] = {
+			[2963] = {
 				["id"] = "explicit.stat_3128773415",
 				["text"] = "Your speed is Unaffected by Slows while Sprinting",
 				["type"] = "explicit",
 			},
-			[2963] = {
+			[2964] = {
 				["id"] = "explicit.stat_50721145",
 				["text"] = "Your speed is unaffected by Slows",
 				["type"] = "explicit",
 			},
-			[2964] = {
-				["id"] = "explicit.stat_1315418254",
+			[2965] = {
+				["id"] = "explicit.stat_3831171903|33",
 				["text"] = "Zealot's Oath",
 				["type"] = "explicit",
 			},
-			[2965] = {
-				["id"] = "explicit.stat_3831171903|33",
+			[2966] = {
+				["id"] = "explicit.stat_1315418254",
 				["text"] = "Zealot's Oath",
 				["type"] = "explicit",
 			},
@@ -15108,12 +15113,12 @@ return {
 				["type"] = "implicit",
 			},
 			[18] = {
-				["id"] = "implicit.stat_774059442",
+				["id"] = "implicit.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "implicit",
 			},
 			[19] = {
-				["id"] = "implicit.stat_3336230913",
+				["id"] = "implicit.stat_774059442",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "implicit",
 			},
@@ -21335,1426 +21340,1446 @@ return {
 	[5] = {
 		["entries"] = {
 			[1] = {
+				["id"] = "crafted.stat_718638445",
+				["text"] = "# Suffix Modifier allowed",
+				["type"] = "crafted",
+			},
+			[2] = {
 				["id"] = "crafted.stat_803737631",
 				["text"] = "# to Accuracy Rating",
 				["type"] = "crafted",
 			},
-			[2] = {
+			[3] = {
 				["id"] = "crafted.stat_691932474",
 				["text"] = "# to Accuracy Rating (Local)",
 				["type"] = "crafted",
 			},
-			[3] = {
+			[4] = {
 				["id"] = "crafted.stat_3261801346",
 				["text"] = "# to Dexterity",
 				["type"] = "crafted",
 			},
-			[4] = {
+			[5] = {
 				["id"] = "crafted.stat_328541901",
 				["text"] = "# to Intelligence",
 				["type"] = "crafted",
 			},
-			[5] = {
+			[6] = {
 				["id"] = "crafted.stat_3035140377",
 				["text"] = "# to Level of all Attack Skills",
 				["type"] = "crafted",
 			},
-			[6] = {
+			[7] = {
 				["id"] = "crafted.stat_2162097452",
 				["text"] = "# to Level of all Minion Skills",
 				["type"] = "crafted",
 			},
-			[7] = {
+			[8] = {
 				["id"] = "crafted.stat_124131830",
 				["text"] = "# to Level of all Spell Skills",
 				["type"] = "crafted",
 			},
-			[8] = {
+			[9] = {
 				["id"] = "crafted.stat_1181501418",
 				["text"] = "# to Maximum Rage",
 				["type"] = "crafted",
 			},
-			[9] = {
+			[10] = {
 				["id"] = "crafted.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "crafted",
 			},
-			[10] = {
+			[11] = {
 				["id"] = "crafted.stat_4080418644",
 				["text"] = "# to Strength",
 				["type"] = "crafted",
 			},
-			[11] = {
+			[12] = {
 				["id"] = "crafted.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "crafted",
 			},
-			[12] = {
+			[13] = {
 				["id"] = "crafted.stat_3299347043",
 				["text"] = "# to maximum Life",
 				["type"] = "crafted",
 			},
-			[13] = {
+			[14] = {
 				["id"] = "crafted.stat_1050105434",
 				["text"] = "# to maximum Mana",
 				["type"] = "crafted",
 			},
-			[14] = {
+			[15] = {
 				["id"] = "crafted.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "crafted",
 			},
-			[15] = {
+			[16] = {
 				["id"] = "crafted.stat_4097212302",
 				["text"] = "# to maximum number of Elemental Infusions",
 				["type"] = "crafted",
 			},
-			[16] = {
+			[17] = {
 				["id"] = "crafted.stat_1823942939",
 				["text"] = "# to maximum number of Summoned Ballista Totems",
 				["type"] = "crafted",
 			},
-			[17] = {
+			[18] = {
 				["id"] = "crafted.stat_2840930496",
 				["text"] = "#% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
 				["type"] = "crafted",
 			},
-			[18] = {
+			[19] = {
 				["id"] = "crafted.stat_2749595652",
 				["text"] = "#% chance for Skills to retain 40% of Glory on use",
 				["type"] = "crafted",
 			},
-			[19] = {
+			[20] = {
 				["id"] = "crafted.stat_1028592286",
 				["text"] = "#% chance to Chain an additional time",
 				["type"] = "crafted",
 			},
-			[20] = {
+			[21] = {
 				["id"] = "crafted.stat_3518449420",
 				["text"] = "#% chance to gain Nature's Archon when your Plants Overgrow",
 				["type"] = "crafted",
 			},
-			[21] = {
+			[22] = {
 				["id"] = "crafted.stat_1881230714",
 				["text"] = "#% chance to gain Onslaught on Killing Hits with this Weapon",
 				["type"] = "crafted",
 			},
-			[22] = {
+			[23] = {
 				["id"] = "crafted.stat_2158617060",
 				["text"] = "#% increased Archon Buff duration",
 				["type"] = "crafted",
 			},
-			[23] = {
+			[24] = {
 				["id"] = "crafted.stat_280731498",
 				["text"] = "#% increased Area of Effect",
 				["type"] = "crafted",
 			},
-			[24] = {
+			[25] = {
 				["id"] = "crafted.stat_1840985759",
 				["text"] = "#% increased Area of Effect for Attacks",
 				["type"] = "crafted",
 			},
-			[25] = {
+			[26] = {
 				["id"] = "crafted.stat_2866361420",
 				["text"] = "#% increased Armour",
 				["type"] = "crafted",
 			},
-			[26] = {
+			[27] = {
 				["id"] = "crafted.stat_1062208444",
 				["text"] = "#% increased Armour (Local)",
 				["type"] = "crafted",
 			},
-			[27] = {
+			[28] = {
 				["id"] = "crafted.stat_3321629045",
 				["text"] = "#% increased Armour and Energy Shield",
 				["type"] = "crafted",
 			},
-			[28] = {
+			[29] = {
 				["id"] = "crafted.stat_2451402625",
 				["text"] = "#% increased Armour and Evasion",
 				["type"] = "crafted",
 			},
-			[29] = {
+			[30] = {
 				["id"] = "crafted.stat_2843214518",
 				["text"] = "#% increased Attack Damage",
 				["type"] = "crafted",
 			},
-			[30] = {
+			[31] = {
 				["id"] = "crafted.stat_681332047",
 				["text"] = "#% increased Attack Speed",
 				["type"] = "crafted",
 			},
-			[31] = {
+			[32] = {
 				["id"] = "crafted.stat_210067635",
 				["text"] = "#% increased Attack Speed (Local)",
 				["type"] = "crafted",
 			},
-			[32] = {
+			[33] = {
 				["id"] = "crafted.stat_325171970",
 				["text"] = "#% increased Attack Speed while missing Runic Ward",
 				["type"] = "crafted",
 			},
-			[33] = {
+			[34] = {
 				["id"] = "crafted.stat_2891184298",
 				["text"] = "#% increased Cast Speed",
 				["type"] = "crafted",
 			},
-			[34] = {
+			[35] = {
 				["id"] = "crafted.stat_736967255",
 				["text"] = "#% increased Chaos Damage",
 				["type"] = "crafted",
 			},
-			[35] = {
+			[36] = {
 				["id"] = "crafted.stat_3291658075",
 				["text"] = "#% increased Cold Damage",
 				["type"] = "crafted",
 			},
-			[36] = {
+			[37] = {
 				["id"] = "crafted.stat_1002535626",
 				["text"] = "#% increased Cold Damage if you've collected a Cold Infusion in the last 8 seconds",
 				["type"] = "crafted",
 			},
-			[37] = {
+			[38] = {
 				["id"] = "crafted.stat_1004011302",
 				["text"] = "#% increased Cooldown Recovery Rate",
 				["type"] = "crafted",
 			},
-			[38] = {
+			[39] = {
 				["id"] = "crafted.stat_3556824919",
 				["text"] = "#% increased Critical Damage Bonus",
 				["type"] = "crafted",
 			},
-			[39] = {
+			[40] = {
 				["id"] = "crafted.stat_3714003708",
 				["text"] = "#% increased Critical Damage Bonus for Attack Damage",
 				["type"] = "crafted",
 			},
-			[40] = {
+			[41] = {
 				["id"] = "crafted.stat_2194114101",
 				["text"] = "#% increased Critical Hit Chance for Attacks",
 				["type"] = "crafted",
 			},
-			[41] = {
+			[42] = {
 				["id"] = "crafted.stat_737908626",
 				["text"] = "#% increased Critical Hit Chance for Spells",
 				["type"] = "crafted",
 			},
-			[42] = {
+			[43] = {
 				["id"] = "crafted.stat_274716455",
 				["text"] = "#% increased Critical Spell Damage Bonus",
 				["type"] = "crafted",
 			},
-			[43] = {
+			[44] = {
 				["id"] = "crafted.stat_1241625305",
 				["text"] = "#% increased Damage with Bow Skills",
 				["type"] = "crafted",
 			},
-			[44] = {
+			[45] = {
 				["id"] = "crafted.stat_4139681126",
 				["text"] = "#% increased Dexterity",
 				["type"] = "crafted",
 			},
-			[45] = {
+			[46] = {
 				["id"] = "crafted.stat_1829102168",
 				["text"] = "#% increased Duration of Damaging Ailments on Enemies",
 				["type"] = "crafted",
 			},
-			[46] = {
+			[47] = {
 				["id"] = "crafted.stat_1443502073",
 				["text"] = "#% increased Effect of Prefixes",
 				["type"] = "crafted",
 			},
-			[47] = {
+			[48] = {
 				["id"] = "crafted.stat_2475221757",
 				["text"] = "#% increased Effect of Suffixes",
 				["type"] = "crafted",
 			},
-			[48] = {
+			[49] = {
 				["id"] = "crafted.stat_712554801",
 				["text"] = "#% increased Effect of your Mark Skills",
 				["type"] = "crafted",
 			},
-			[49] = {
+			[50] = {
 				["id"] = "crafted.stat_3141070085",
 				["text"] = "#% increased Elemental Damage",
 				["type"] = "crafted",
 			},
-			[50] = {
+			[51] = {
 				["id"] = "crafted.stat_4015621042",
 				["text"] = "#% increased Energy Shield",
 				["type"] = "crafted",
 			},
-			[51] = {
+			[52] = {
+				["id"] = "crafted.stat_2339757871",
+				["text"] = "#% increased Energy Shield Recharge Rate",
+				["type"] = "crafted",
+			},
+			[53] = {
 				["id"] = "crafted.stat_2106365538",
 				["text"] = "#% increased Evasion Rating",
 				["type"] = "crafted",
 			},
-			[52] = {
+			[54] = {
 				["id"] = "crafted.stat_124859000",
 				["text"] = "#% increased Evasion Rating (Local)",
 				["type"] = "crafted",
 			},
-			[53] = {
+			[55] = {
 				["id"] = "crafted.stat_1999113824",
 				["text"] = "#% increased Evasion and Energy Shield",
 				["type"] = "crafted",
 			},
-			[54] = {
+			[56] = {
 				["id"] = "crafted.stat_1972391381",
 				["text"] = "#% increased Explicit Resistance Modifier magnitudes",
 				["type"] = "crafted",
 			},
-			[55] = {
+			[57] = {
 				["id"] = "crafted.stat_2074866941",
 				["text"] = "#% increased Exposure Effect",
 				["type"] = "crafted",
 			},
-			[56] = {
+			[58] = {
 				["id"] = "crafted.stat_3962278098",
 				["text"] = "#% increased Fire Damage",
 				["type"] = "crafted",
 			},
-			[57] = {
+			[59] = {
 				["id"] = "crafted.stat_1177404658",
 				["text"] = "#% increased Global Armour, Evasion and Energy Shield",
 				["type"] = "crafted",
 			},
-			[58] = {
+			[60] = {
 				["id"] = "crafted.stat_1310194496",
 				["text"] = "#% increased Global Physical Damage",
 				["type"] = "crafted",
 			},
-			[59] = {
+			[61] = {
 				["id"] = "crafted.stat_656461285",
 				["text"] = "#% increased Intelligence",
 				["type"] = "crafted",
 			},
-			[60] = {
+			[62] = {
 				["id"] = "crafted.stat_44972811",
 				["text"] = "#% increased Life Regeneration rate",
 				["type"] = "crafted",
 			},
-			[61] = {
+			[63] = {
 				["id"] = "crafted.stat_2231156303",
 				["text"] = "#% increased Lightning Damage",
 				["type"] = "crafted",
 			},
-			[62] = {
+			[64] = {
 				["id"] = "crafted.stat_797289402",
 				["text"] = "#% increased Lightning Damage if you've collected a Lightning Infusion in the last 8 seconds",
 				["type"] = "crafted",
 			},
-			[63] = {
+			[65] = {
 				["id"] = "crafted.stat_1303248024",
 				["text"] = "#% increased Magnitude of Ailments you inflict",
 				["type"] = "crafted",
 			},
-			[64] = {
+			[66] = {
 				["id"] = "crafted.stat_3621874554",
 				["text"] = "#% increased Magnitude of Elemental Ailments you inflict with Spells",
 				["type"] = "crafted",
 			},
-			[65] = {
+			[67] = {
 				["id"] = "crafted.stat_4101445926",
 				["text"] = "#% increased Mana Cost Efficiency",
 				["type"] = "crafted",
 			},
-			[66] = {
+			[68] = {
 				["id"] = "crafted.stat_789117908",
 				["text"] = "#% increased Mana Regeneration Rate",
 				["type"] = "crafted",
 			},
-			[67] = {
+			[69] = {
 				["id"] = "crafted.stat_3526763442",
 				["text"] = "#% increased Minion Damage per different Command Skill used in the past 15 seconds",
 				["type"] = "crafted",
 			},
-			[68] = {
+			[70] = {
 				["id"] = "crafted.stat_2250533757",
 				["text"] = "#% increased Movement Speed",
 				["type"] = "crafted",
 			},
-			[69] = {
+			[71] = {
 				["id"] = "crafted.stat_1509134228",
 				["text"] = "#% increased Physical Damage",
 				["type"] = "crafted",
 			},
-			[70] = {
+			[72] = {
 				["id"] = "crafted.stat_101878827",
 				["text"] = "#% increased Presence Area of Effect",
 				["type"] = "crafted",
 			},
-			[71] = {
+			[73] = {
 				["id"] = "crafted.stat_3175163625",
 				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies",
 				["type"] = "crafted",
 			},
-			[72] = {
+			[74] = {
 				["id"] = "crafted.stat_3917489142",
 				["text"] = "#% increased Rarity of Items found",
 				["type"] = "crafted",
 			},
-			[73] = {
+			[75] = {
 				["id"] = "crafted.stat_1805633363",
 				["text"] = "#% increased Reservation Efficiency of Minion Skills",
 				["type"] = "crafted",
 			},
-			[74] = {
+			[76] = {
 				["id"] = "crafted.stat_830161081",
 				["text"] = "#% increased Runic Ward",
 				["type"] = "crafted",
 			},
-			[75] = {
+			[77] = {
 				["id"] = "crafted.stat_2392260628",
 				["text"] = "#% increased Runic Ward Regeneration Rate",
 				["type"] = "crafted",
 			},
-			[76] = {
+			[78] = {
 				["id"] = "crafted.stat_3377888098",
 				["text"] = "#% increased Skill Effect Duration",
 				["type"] = "crafted",
 			},
-			[77] = {
+			[79] = {
 				["id"] = "crafted.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
 				["type"] = "crafted",
 			},
-			[78] = {
+			[80] = {
 				["id"] = "crafted.stat_2974417149",
 				["text"] = "#% increased Spell Damage",
 				["type"] = "crafted",
 			},
-			[79] = {
+			[81] = {
 				["id"] = "crafted.stat_734614379",
 				["text"] = "#% increased Strength",
 				["type"] = "crafted",
 			},
-			[80] = {
+			[82] = {
 				["id"] = "crafted.stat_1316278494",
 				["text"] = "#% increased Warcry Speed",
 				["type"] = "crafted",
 			},
-			[81] = {
+			[83] = {
 				["id"] = "crafted.stat_1180552088",
 				["text"] = "#% increased effect of Archon Buffs on you",
 				["type"] = "crafted",
 			},
-			[82] = {
+			[84] = {
 				["id"] = "crafted.stat_2081918629",
 				["text"] = "#% increased effect of Socketed Augment Items",
 				["type"] = "crafted",
 			},
-			[83] = {
+			[85] = {
 				["id"] = "crafted.stat_2482852589",
 				["text"] = "#% increased maximum Energy Shield",
 				["type"] = "crafted",
 			},
-			[84] = {
+			[86] = {
 				["id"] = "crafted.stat_983749596",
 				["text"] = "#% increased maximum Life",
 				["type"] = "crafted",
 			},
-			[85] = {
+			[87] = {
 				["id"] = "crafted.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
 				["type"] = "crafted",
 			},
-			[86] = {
+			[88] = {
 				["id"] = "crafted.stat_4273473110",
 				["text"] = "#% increased maximum Runic Ward",
 				["type"] = "crafted",
 			},
-			[87] = {
+			[89] = {
 				["id"] = "crafted.stat_3679418014",
 				["text"] = "#% of Cold Damage taken Recouped as Life",
 				["type"] = "crafted",
 			},
-			[88] = {
+			[90] = {
 				["id"] = "crafted.stat_54812069",
 				["text"] = "#% of Damage from Hits is taken from your Spectres' Life before you",
 				["type"] = "crafted",
 			},
-			[89] = {
+			[91] = {
 				["id"] = "crafted.stat_1444556985",
 				["text"] = "#% of Damage taken Recouped as Life",
 				["type"] = "crafted",
 			},
-			[90] = {
+			[92] = {
 				["id"] = "crafted.stat_1742651309",
 				["text"] = "#% of Fire Damage taken Recouped as Life",
 				["type"] = "crafted",
 			},
-			[91] = {
+			[93] = {
 				["id"] = "crafted.stat_2970621759",
 				["text"] = "#% of Lightning Damage taken Recouped as Life",
 				["type"] = "crafted",
 			},
-			[92] = {
+			[94] = {
 				["id"] = "crafted.stat_4129825612",
 				["text"] = "#% of Physical Damage from Hits taken as Chaos Damage",
 				["type"] = "crafted",
 			},
-			[93] = {
+			[95] = {
 				["id"] = "crafted.stat_2480498143",
 				["text"] = "#% of Skill Mana Costs Converted to Life Costs",
 				["type"] = "crafted",
 			},
-			[94] = {
+			[96] = {
 				["id"] = "crafted.stat_2923486259",
 				["text"] = "#% to Chaos Resistance",
 				["type"] = "crafted",
 			},
-			[95] = {
+			[97] = {
 				["id"] = "crafted.stat_4220027924",
 				["text"] = "#% to Cold Resistance",
 				["type"] = "crafted",
 			},
-			[96] = {
+			[98] = {
 				["id"] = "crafted.stat_518292764",
 				["text"] = "#% to Critical Hit Chance",
 				["type"] = "crafted",
 			},
-			[97] = {
+			[99] = {
 				["id"] = "crafted.stat_3372524247",
 				["text"] = "#% to Fire Resistance",
 				["type"] = "crafted",
 			},
-			[98] = {
+			[100] = {
 				["id"] = "crafted.stat_3399401168",
 				["text"] = "#% to Fire Spell Critical Hit Chance",
 				["type"] = "crafted",
 			},
-			[99] = {
+			[101] = {
 				["id"] = "crafted.stat_1671376347",
 				["text"] = "#% to Lightning Resistance",
 				["type"] = "crafted",
 			},
-			[100] = {
+			[102] = {
 				["id"] = "crafted.stat_4095671657",
 				["text"] = "#% to Maximum Fire Resistance",
 				["type"] = "crafted",
 			},
-			[101] = {
+			[103] = {
 				["id"] = "crafted.stat_2039822488",
 				["text"] = "#% to Maximum Quality",
 				["type"] = "crafted",
 			},
-			[102] = {
+			[104] = {
 				["id"] = "crafted.stat_933355817",
 				["text"] = "#% to gain Archon of Undeath when you create an Offering",
 				["type"] = "crafted",
 			},
-			[103] = {
+			[105] = {
 				["id"] = "crafted.stat_1484026495",
 				["text"] = "+# maximum stacks of Puppet Master",
 				["type"] = "crafted",
 			},
-			[104] = {
+			[106] = {
 				["id"] = "crafted.stat_2223678961",
 				["text"] = "Adds # to # Chaos damage",
 				["type"] = "crafted",
 			},
-			[105] = {
+			[107] = {
 				["id"] = "crafted.stat_1037193709",
 				["text"] = "Adds # to # Cold Damage",
 				["type"] = "crafted",
 			},
-			[106] = {
+			[108] = {
 				["id"] = "crafted.stat_709508406",
 				["text"] = "Adds # to # Fire Damage",
 				["type"] = "crafted",
 			},
-			[107] = {
+			[109] = {
 				["id"] = "crafted.stat_3336890334",
 				["text"] = "Adds # to # Lightning Damage",
 				["type"] = "crafted",
 			},
-			[108] = {
+			[110] = {
 				["id"] = "crafted.stat_1940865751",
 				["text"] = "Adds # to # Physical Damage",
 				["type"] = "crafted",
 			},
-			[109] = {
+			[111] = {
 				["id"] = "crafted.stat_1798257884",
 				["text"] = "Allies in your Presence deal #% increased Damage",
 				["type"] = "crafted",
 			},
-			[110] = {
+			[112] = {
+				["id"] = "crafted.stat_2954116742|43829",
+				["text"] = "Allocates Advanced Munitions",
+				["type"] = "crafted",
+			},
+			[113] = {
 				["id"] = "crafted.stat_2954116742|56493",
 				["text"] = "Allocates Agile Succession",
 				["type"] = "crafted",
 			},
-			[111] = {
+			[114] = {
 				["id"] = "crafted.stat_2954116742|26339",
 				["text"] = "Allocates Ancestral Artifice",
 				["type"] = "crafted",
 			},
-			[112] = {
+			[115] = {
+				["id"] = "crafted.stat_2954116742|5728",
+				["text"] = "Allocates Ancient Aegis",
+				["type"] = "crafted",
+			},
+			[116] = {
 				["id"] = "crafted.stat_2954116742|16940",
 				["text"] = "Allocates Arcane Nature",
 				["type"] = "crafted",
 			},
-			[113] = {
+			[117] = {
 				["id"] = "crafted.stat_2954116742|41620",
 				["text"] = "Allocates Bear's Roar",
 				["type"] = "crafted",
 			},
-			[114] = {
+			[118] = {
 				["id"] = "crafted.stat_2954116742|42177",
 				["text"] = "Allocates Blurred Motion",
 				["type"] = "crafted",
 			},
-			[115] = {
+			[119] = {
 				["id"] = "crafted.stat_2954116742|52618",
 				["text"] = "Allocates Boon of the Beast",
 				["type"] = "crafted",
 			},
-			[116] = {
+			[120] = {
 				["id"] = "crafted.stat_2954116742|9535",
 				["text"] = "Allocates Brinerot Ferocity",
 				["type"] = "crafted",
 			},
-			[117] = {
+			[121] = {
 				["id"] = "crafted.stat_2954116742|44005",
 				["text"] = "Allocates Casting Cascade",
 				["type"] = "crafted",
 			},
-			[118] = {
+			[122] = {
 				["id"] = "crafted.stat_2954116742|35031",
 				["text"] = "Allocates Chakra of Life",
 				["type"] = "crafted",
 			},
-			[119] = {
+			[123] = {
 				["id"] = "crafted.stat_2954116742|23427",
 				["text"] = "Allocates Chilled to the Bone",
 				["type"] = "crafted",
 			},
-			[120] = {
+			[124] = {
 				["id"] = "crafted.stat_2954116742|47363",
 				["text"] = "Allocates Colossal Weapon",
 				["type"] = "crafted",
 			},
-			[121] = {
+			[125] = {
 				["id"] = "crafted.stat_2954116742|42660",
 				["text"] = "Allocates Commanding Rage",
 				["type"] = "crafted",
 			},
-			[122] = {
+			[126] = {
 				["id"] = "crafted.stat_2954116742|27761",
 				["text"] = "Allocates Counterstancing",
 				["type"] = "crafted",
 			},
-			[123] = {
+			[127] = {
 				["id"] = "crafted.stat_2954116742|50687",
 				["text"] = "Allocates Coursing Energy",
 				["type"] = "crafted",
 			},
-			[124] = {
+			[128] = {
 				["id"] = "crafted.stat_2954116742|19715",
 				["text"] = "Allocates Cremation",
 				["type"] = "crafted",
 			},
-			[125] = {
+			[129] = {
 				["id"] = "crafted.stat_2954116742|18505",
 				["text"] = "Allocates Crushing Verdict",
 				["type"] = "crafted",
 			},
-			[126] = {
+			[130] = {
 				["id"] = "crafted.stat_2954116742|20495",
 				["text"] = "Allocates Dark Entropy",
 				["type"] = "crafted",
 			},
-			[127] = {
+			[131] = {
 				["id"] = "crafted.stat_2954116742|45612",
 				["text"] = "Allocates Defensive Reflexes",
 				["type"] = "crafted",
 			},
-			[128] = {
+			[132] = {
 				["id"] = "crafted.stat_2954116742|56616",
 				["text"] = "Allocates Desperate Times",
 				["type"] = "crafted",
 			},
-			[129] = {
+			[133] = {
 				["id"] = "crafted.stat_2954116742|1420",
 				["text"] = "Allocates Dizzying Sweep",
 				["type"] = "crafted",
 			},
-			[130] = {
+			[134] = {
 				["id"] = "crafted.stat_2954116742|26214",
 				["text"] = "Allocates Dominion",
 				["type"] = "crafted",
 			},
-			[131] = {
+			[135] = {
 				["id"] = "crafted.stat_2954116742|42245",
 				["text"] = "Allocates Efficient Inscriptions",
 				["type"] = "crafted",
 			},
-			[132] = {
+			[136] = {
 				["id"] = "crafted.stat_2954116742|3894",
 				["text"] = "Allocates Eldritch Will",
 				["type"] = "crafted",
 			},
-			[133] = {
+			[137] = {
 				["id"] = "crafted.stat_2954116742|43633",
 				["text"] = "Allocates Energising Archon",
 				["type"] = "crafted",
 			},
-			[134] = {
+			[138] = {
 				["id"] = "crafted.stat_2954116742|17854",
 				["text"] = "Allocates Escape Velocity",
 				["type"] = "crafted",
 			},
-			[135] = {
+			[139] = {
 				["id"] = "crafted.stat_2954116742|60034",
 				["text"] = "Allocates Falcon Dive",
 				["type"] = "crafted",
 			},
-			[136] = {
+			[140] = {
 				["id"] = "crafted.stat_2954116742|60464",
 				["text"] = "Allocates Fan the Flames",
 				["type"] = "crafted",
 			},
-			[137] = {
+			[141] = {
 				["id"] = "crafted.stat_2954116742|3921",
 				["text"] = "Allocates Fate Finding",
 				["type"] = "crafted",
 			},
-			[138] = {
+			[142] = {
 				["id"] = "crafted.stat_2954116742|32128",
 				["text"] = "Allocates Flow of Time",
 				["type"] = "crafted",
 			},
-			[139] = {
+			[143] = {
 				["id"] = "crafted.stat_2954116742|48699",
 				["text"] = "Allocates Frostwalker",
 				["type"] = "crafted",
 			},
-			[140] = {
+			[144] = {
 				["id"] = "crafted.stat_2954116742|37543",
 				["text"] = "Allocates Full Recovery",
 				["type"] = "crafted",
 			},
-			[141] = {
+			[145] = {
 				["id"] = "crafted.stat_2954116742|58714",
 				["text"] = "Allocates Grenadier",
 				["type"] = "crafted",
 			},
-			[142] = {
+			[146] = {
 				["id"] = "crafted.stat_2954116742|13844",
 				["text"] = "Allocates Growing Peril",
 				["type"] = "crafted",
 			},
-			[143] = {
+			[147] = {
 				["id"] = "crafted.stat_2954116742|52803",
 				["text"] = "Allocates Hale Traveller",
 				["type"] = "crafted",
 			},
-			[144] = {
+			[148] = {
 				["id"] = "crafted.stat_2954116742|34531",
 				["text"] = "Allocates Hallowed",
 				["type"] = "crafted",
 			},
-			[145] = {
+			[149] = {
 				["id"] = "crafted.stat_2954116742|40480",
 				["text"] = "Allocates Harmonic Generator",
 				["type"] = "crafted",
 			},
-			[146] = {
+			[150] = {
 				["id"] = "crafted.stat_2954116742|44293",
 				["text"] = "Allocates Hastening Barrier",
 				["type"] = "crafted",
 			},
-			[147] = {
+			[151] = {
 				["id"] = "crafted.stat_2954116742|13407",
 				["text"] = "Allocates Heartbreaking",
 				["type"] = "crafted",
 			},
-			[148] = {
+			[152] = {
 				["id"] = "crafted.stat_2954116742|38537",
 				["text"] = "Allocates Heartstopping",
 				["type"] = "crafted",
 			},
-			[149] = {
+			[153] = {
 				["id"] = "crafted.stat_2954116742|11826",
 				["text"] = "Allocates Heavy Ammunition",
 				["type"] = "crafted",
 			},
-			[150] = {
+			[154] = {
 				["id"] = "crafted.stat_2954116742|30395",
 				["text"] = "Allocates Howling Beast",
 				["type"] = "crafted",
 			},
-			[151] = {
+			[155] = {
 				["id"] = "crafted.stat_2954116742|48617",
 				["text"] = "Allocates Hunter",
 				["type"] = "crafted",
 			},
-			[152] = {
+			[156] = {
 				["id"] = "crafted.stat_2954116742|46683",
 				["text"] = "Allocates Inherited Strength ",
 				["type"] = "crafted",
 			},
-			[153] = {
+			[157] = {
 				["id"] = "crafted.stat_2954116742|30562",
 				["text"] = "Allocates Inner Faith",
 				["type"] = "crafted",
 			},
-			[154] = {
+			[158] = {
 				["id"] = "crafted.stat_2954116742|4661",
 				["text"] = "Allocates Inspiring Leader",
 				["type"] = "crafted",
 			},
-			[155] = {
+			[159] = {
 				["id"] = "crafted.stat_2954116742|41394",
 				["text"] = "Allocates Invigorating Archon",
 				["type"] = "crafted",
 			},
-			[156] = {
+			[160] = {
 				["id"] = "crafted.stat_2954116742|18496",
 				["text"] = "Allocates Lasting Trauma",
 				["type"] = "crafted",
 			},
-			[157] = {
+			[161] = {
 				["id"] = "crafted.stat_2954116742|31745",
 				["text"] = "Allocates Lockdown",
 				["type"] = "crafted",
 			},
-			[158] = {
+			[162] = {
 				["id"] = "crafted.stat_2954116742|23738",
 				["text"] = "Allocates Madness in the Bones",
 				["type"] = "crafted",
 			},
-			[159] = {
+			[163] = {
 				["id"] = "crafted.stat_2954116742|37742",
 				["text"] = "Allocates Manifold Method",
 				["type"] = "crafted",
 			},
-			[160] = {
+			[164] = {
 				["id"] = "crafted.stat_2954116742|64050",
 				["text"] = "Allocates Marathon Runner",
 				["type"] = "crafted",
 			},
-			[161] = {
+			[165] = {
 				["id"] = "crafted.stat_2954116742|9226",
 				["text"] = "Allocates Mental Perseverance",
 				["type"] = "crafted",
 			},
-			[162] = {
+			[166] = {
 				["id"] = "crafted.stat_2954116742|24120",
 				["text"] = "Allocates Mental Toughness",
 				["type"] = "crafted",
 			},
-			[163] = {
+			[167] = {
 				["id"] = "crafted.stat_2954116742|51868",
 				["text"] = "Allocates Molten Carapace",
 				["type"] = "crafted",
 			},
-			[164] = {
+			[168] = {
 				["id"] = "crafted.stat_2954116742|52764",
 				["text"] = "Allocates Mystical Rage",
 				["type"] = "crafted",
 			},
-			[165] = {
+			[169] = {
 				["id"] = "crafted.stat_2954116742|11376",
 				["text"] = "Allocates Necrotic Touch",
 				["type"] = "crafted",
 			},
-			[166] = {
+			[170] = {
 				["id"] = "crafted.stat_2954116742|60992",
 				["text"] = "Allocates Nurturing Guardian",
 				["type"] = "crafted",
 			},
-			[167] = {
+			[171] = {
 				["id"] = "crafted.stat_2954116742|52199",
 				["text"] = "Allocates Overexposure",
 				["type"] = "crafted",
 			},
-			[168] = {
+			[172] = {
 				["id"] = "crafted.stat_2954116742|65204",
 				["text"] = "Allocates Overflowing Power",
 				["type"] = "crafted",
 			},
-			[169] = {
+			[173] = {
 				["id"] = "crafted.stat_2954116742|20686",
 				["text"] = "Allocates Paragon",
 				["type"] = "crafted",
 			},
-			[170] = {
+			[174] = {
 				["id"] = "crafted.stat_2954116742|17260",
 				["text"] = "Allocates Piercing Claw",
 				["type"] = "crafted",
 			},
-			[171] = {
+			[175] = {
 				["id"] = "crafted.stat_2954116742|19125",
 				["text"] = "Allocates Potent Incantation",
 				["type"] = "crafted",
 			},
-			[172] = {
+			[176] = {
 				["id"] = "crafted.stat_2954116742|6178",
 				["text"] = "Allocates Power Shots",
 				["type"] = "crafted",
 			},
-			[173] = {
+			[177] = {
 				["id"] = "crafted.stat_2954116742|49550",
 				["text"] = "Allocates Prolonged Fury",
 				["type"] = "crafted",
 			},
-			[174] = {
+			[178] = {
 				["id"] = "crafted.stat_2954116742|13482",
 				["text"] = "Allocates Punctured Lung",
 				["type"] = "crafted",
 			},
-			[175] = {
+			[179] = {
 				["id"] = "crafted.stat_2954116742|62185",
 				["text"] = "Allocates Rattled",
 				["type"] = "crafted",
 			},
-			[176] = {
+			[180] = {
 				["id"] = "crafted.stat_2954116742|35809",
 				["text"] = "Allocates Reinvigoration",
 				["type"] = "crafted",
 			},
-			[177] = {
+			[181] = {
 				["id"] = "crafted.stat_2954116742|20414",
 				["text"] = "Allocates Reprisal",
 				["type"] = "crafted",
 			},
-			[178] = {
+			[182] = {
 				["id"] = "crafted.stat_2954116742|56860",
 				["text"] = "Allocates Resolute Reprisal",
 				["type"] = "crafted",
 			},
-			[179] = {
+			[183] = {
 				["id"] = "crafted.stat_2954116742|38972",
 				["text"] = "Allocates Restless Dead",
 				["type"] = "crafted",
 			},
-			[180] = {
+			[184] = {
 				["id"] = "crafted.stat_2954116742|61112",
 				["text"] = "Allocates Roll and Strike",
 				["type"] = "crafted",
 			},
-			[181] = {
+			[185] = {
 				["id"] = "crafted.stat_2954116742|9290",
 				["text"] = "Allocates Rusted Pins",
 				["type"] = "crafted",
 			},
-			[182] = {
+			[186] = {
 				["id"] = "crafted.stat_2954116742|14294",
 				["text"] = "Allocates Sacrificial Blood",
 				["type"] = "crafted",
 			},
-			[183] = {
+			[187] = {
 				["id"] = "crafted.stat_2954116742|4810",
 				["text"] = "Allocates Sanguine Tolerance",
 				["type"] = "crafted",
 			},
-			[184] = {
+			[188] = {
 				["id"] = "crafted.stat_2954116742|36085",
 				["text"] = "Allocates Serrated Edges",
 				["type"] = "crafted",
 			},
-			[185] = {
+			[189] = {
 				["id"] = "crafted.stat_2954116742|57617",
 				["text"] = "Allocates Shifted Strikes",
 				["type"] = "crafted",
 			},
-			[186] = {
+			[190] = {
 				["id"] = "crafted.stat_2954116742|17229",
 				["text"] = "Allocates Silent Guardian",
 				["type"] = "crafted",
 			},
-			[187] = {
+			[191] = {
 				["id"] = "crafted.stat_2954116742|55308",
 				["text"] = "Allocates Sling Shots",
 				["type"] = "crafted",
 			},
-			[188] = {
+			[192] = {
 				["id"] = "crafted.stat_2954116742|14602",
 				["text"] = "Allocates Specialised Shots",
 				["type"] = "crafted",
 			},
-			[189] = {
+			[193] = {
 				["id"] = "crafted.stat_2954116742|34324",
 				["text"] = "Allocates Spectral Ward",
 				["type"] = "crafted",
 			},
-			[190] = {
+			[194] = {
 				["id"] = "crafted.stat_2954116742|26104",
 				["text"] = "Allocates Spirit of the Wyvern",
 				["type"] = "crafted",
 			},
-			[191] = {
+			[195] = {
 				["id"] = "crafted.stat_2954116742|11578",
 				["text"] = "Allocates Spreading Shocks",
 				["type"] = "crafted",
 			},
-			[192] = {
+			[196] = {
 				["id"] = "crafted.stat_2954116742|6304",
 				["text"] = "Allocates Stand Ground",
 				["type"] = "crafted",
 			},
-			[193] = {
+			[197] = {
 				["id"] = "crafted.stat_2954116742|7163",
 				["text"] = "Allocates Stimulants",
 				["type"] = "crafted",
 			},
-			[194] = {
+			[198] = {
 				["id"] = "crafted.stat_2954116742|61921",
 				["text"] = "Allocates Storm Surge",
 				["type"] = "crafted",
 			},
-			[195] = {
+			[199] = {
 				["id"] = "crafted.stat_2954116742|45177",
 				["text"] = "Allocates Strike True",
 				["type"] = "crafted",
 			},
-			[196] = {
+			[200] = {
 				["id"] = "crafted.stat_2954116742|14383",
 				["text"] = "Allocates Suffusion",
 				["type"] = "crafted",
 			},
-			[197] = {
+			[201] = {
 				["id"] = "crafted.stat_2954116742|56806",
 				["text"] = "Allocates Swift Blocking",
 				["type"] = "crafted",
 			},
-			[198] = {
+			[202] = {
 				["id"] = "crafted.stat_2954116742|8831",
 				["text"] = "Allocates Tempered Mind",
 				["type"] = "crafted",
 			},
-			[199] = {
+			[203] = {
 				["id"] = "crafted.stat_2954116742|4544",
 				["text"] = "Allocates The Ancient Serpent",
 				["type"] = "crafted",
 			},
-			[200] = {
+			[204] = {
 				["id"] = "crafted.stat_2954116742|2745",
 				["text"] = "Allocates The Noble Wolf",
 				["type"] = "crafted",
 			},
-			[201] = {
+			[205] = {
 				["id"] = "crafted.stat_2954116742|52971",
 				["text"] = "Allocates The Soul Meridian",
 				["type"] = "crafted",
 			},
-			[202] = {
+			[206] = {
 				["id"] = "crafted.stat_2954116742|11774",
 				["text"] = "Allocates The Spring Hare",
 				["type"] = "crafted",
 			},
-			[203] = {
+			[207] = {
 				["id"] = "crafted.stat_2954116742|35849",
 				["text"] = "Allocates Thickened Arteries",
 				["type"] = "crafted",
 			},
-			[204] = {
+			[208] = {
 				["id"] = "crafted.stat_2954116742|38532",
 				["text"] = "Allocates Thirst for Power",
 				["type"] = "crafted",
 			},
-			[205] = {
+			[209] = {
 				["id"] = "crafted.stat_2954116742|42714",
 				["text"] = "Allocates Thousand Cuts",
 				["type"] = "crafted",
 			},
-			[206] = {
+			[210] = {
 				["id"] = "crafted.stat_2954116742|57785",
 				["text"] = "Allocates Trained Turrets",
 				["type"] = "crafted",
 			},
-			[207] = {
+			[211] = {
 				["id"] = "crafted.stat_2954116742|61601",
 				["text"] = "Allocates True Strike",
 				["type"] = "crafted",
 			},
-			[208] = {
+			[212] = {
 				["id"] = "crafted.stat_2954116742|20008",
 				["text"] = "Allocates Unleash Fire",
 				["type"] = "crafted",
 			},
-			[209] = {
+			[213] = {
 				["id"] = "crafted.stat_2954116742|4547",
 				["text"] = "Allocates Unnatural Resilience",
 				["type"] = "crafted",
 			},
-			[210] = {
+			[214] = {
 				["id"] = "crafted.stat_2954116742|51602",
 				["text"] = "Allocates Unsight",
 				["type"] = "crafted",
 			},
-			[211] = {
+			[215] = {
 				["id"] = "crafted.stat_2954116742|1169",
 				["text"] = "Allocates Urgent Call",
 				["type"] = "crafted",
 			},
-			[212] = {
+			[216] = {
 				["id"] = "crafted.stat_2954116742|41033",
 				["text"] = "Allocates Utmost Offering",
 				["type"] = "crafted",
 			},
-			[213] = {
+			[217] = {
 				["id"] = "crafted.stat_2954116742|17762",
 				["text"] = "Allocates Vengeance",
 				["type"] = "crafted",
 			},
-			[214] = {
+			[218] = {
 				["id"] = "crafted.stat_2954116742|4238",
 				["text"] = "Allocates Versatile Arms",
 				["type"] = "crafted",
 			},
-			[215] = {
+			[219] = {
 				["id"] = "crafted.stat_2954116742|31373",
 				["text"] = "Allocates Vocal Empowerment",
 				["type"] = "crafted",
 			},
-			[216] = {
+			[220] = {
 				["id"] = "crafted.stat_2954116742|14761",
 				["text"] = "Allocates Warlord Leader",
 				["type"] = "crafted",
 			},
-			[217] = {
+			[221] = {
 				["id"] = "crafted.stat_2954116742|51213",
 				["text"] = "Allocates Wasting",
 				["type"] = "crafted",
 			},
-			[218] = {
+			[222] = {
 				["id"] = "crafted.stat_2954116742|65256",
 				["text"] = "Allocates Widespread Coverage",
 				["type"] = "crafted",
 			},
-			[219] = {
+			[223] = {
 				["id"] = "crafted.stat_2954116742|7809",
 				["text"] = "Allocates Wild Storm",
 				["type"] = "crafted",
 			},
-			[220] = {
+			[224] = {
 				["id"] = "crafted.stat_315791320",
 				["text"] = "Aura Skills have #% increased Magnitudes",
 				["type"] = "crafted",
 			},
-			[221] = {
+			[225] = {
 				["id"] = "crafted.stat_335885735",
 				["text"] = "Bears the Mark of the Abyssal Lord",
 				["type"] = "crafted",
 			},
-			[222] = {
+			[226] = {
 				["id"] = "crafted.stat_3587953142",
 				["text"] = "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree",
 				["type"] = "crafted",
 			},
-			[223] = {
+			[227] = {
 				["id"] = "crafted.stat_2101383955",
 				["text"] = "Damage Penetrates #% Elemental Resistances",
 				["type"] = "crafted",
 			},
-			[224] = {
+			[228] = {
 				["id"] = "crafted.stat_541021467",
 				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
 				["type"] = "crafted",
 			},
-			[225] = {
+			[229] = {
 				["id"] = "crafted.stat_2709367754",
 				["text"] = "Gain # Rage on Melee Hit",
 				["type"] = "crafted",
 			},
-			[226] = {
+			[230] = {
 				["id"] = "crafted.stat_2505884597",
 				["text"] = "Gain #% of Damage as Extra Cold Damage",
 				["type"] = "crafted",
 			},
-			[227] = {
+			[231] = {
 				["id"] = "crafted.stat_825116955",
 				["text"] = "Gain #% of Damage as Extra Cold Damage with Spells",
 				["type"] = "crafted",
 			},
-			[228] = {
+			[232] = {
 				["id"] = "crafted.stat_3015669065",
 				["text"] = "Gain #% of Damage as Extra Fire Damage",
 				["type"] = "crafted",
 			},
-			[229] = {
+			[233] = {
 				["id"] = "crafted.stat_589361270",
 				["text"] = "Gain #% of Damage as Extra Fire Damage while you are missing Runic Ward",
 				["type"] = "crafted",
 			},
-			[230] = {
+			[234] = {
 				["id"] = "crafted.stat_3278136794",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage",
 				["type"] = "crafted",
 			},
-			[231] = {
+			[235] = {
 				["id"] = "crafted.stat_323800555",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
 				["type"] = "crafted",
 			},
-			[232] = {
+			[236] = {
 				["id"] = "crafted.stat_4019237939",
 				["text"] = "Gain #% of Damage as Extra Physical Damage",
 				["type"] = "crafted",
 			},
-			[233] = {
+			[237] = {
 				["id"] = "crafted.stat_1158842087",
 				["text"] = "Gain #% of Elemental Damage as Extra Cold Damage",
 				["type"] = "crafted",
 			},
-			[234] = {
+			[238] = {
 				["id"] = "crafted.stat_758893621",
 				["text"] = "Gain #% of Physical Damage as Extra Cold Damage",
 				["type"] = "crafted",
 			},
-			[235] = {
+			[239] = {
 				["id"] = "crafted.stat_3855016469",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus",
 				["type"] = "crafted",
 			},
-			[236] = {
+			[240] = {
 				["id"] = "crafted.stat_971590056",
 				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "crafted",
 			},
-			[237] = {
+			[241] = {
 				["id"] = "crafted.stat_2951965588",
 				["text"] = "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
 				["type"] = "crafted",
 			},
-			[238] = {
+			[242] = {
 				["id"] = "crafted.stat_1615901249",
 				["text"] = "Invocated skills have #% increased Maximum Energy",
 				["type"] = "crafted",
 			},
-			[239] = {
+			[243] = {
 				["id"] = "crafted.stat_3121133045",
 				["text"] = "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
 				["type"] = "crafted",
 			},
-			[240] = {
+			[244] = {
 				["id"] = "crafted.stat_195270549",
 				["text"] = "Minions Break Armour equal to #% of Physical damage dealt",
 				["type"] = "crafted",
 			},
-			[241] = {
+			[245] = {
 				["id"] = "crafted.stat_1797815732",
 				["text"] = "Minions have #% Surpassing chance to fire an additional Projectile",
 				["type"] = "crafted",
 			},
-			[242] = {
+			[246] = {
 				["id"] = "crafted.stat_1691403182",
 				["text"] = "Minions have #% increased Cooldown Recovery Rate",
 				["type"] = "crafted",
 			},
-			[243] = {
+			[247] = {
 				["id"] = "crafted.stat_953593695",
 				["text"] = "Minions have #% increased Magnitude of Damaging Ailments",
 				["type"] = "crafted",
 			},
-			[244] = {
+			[248] = {
 				["id"] = "crafted.stat_73032170",
 				["text"] = "Minions have #% increased Skill Speed with Command Skills",
 				["type"] = "crafted",
 			},
-			[245] = {
+			[249] = {
 				["id"] = "crafted.stat_1846980580",
 				["text"] = "Notable Passive Skills in Radius also grant # to Maximum Rage",
 				["type"] = "crafted",
 			},
-			[246] = {
+			[250] = {
 				["id"] = "crafted.stat_3391917254",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Area of Effect",
 				["type"] = "crafted",
 			},
-			[247] = {
+			[251] = {
 				["id"] = "crafted.stat_2822644689",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed",
 				["type"] = "crafted",
 			},
-			[248] = {
+			[252] = {
 				["id"] = "crafted.stat_1022759479",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cast Speed",
 				["type"] = "crafted",
 			},
-			[249] = {
+			[253] = {
 				["id"] = "crafted.stat_2149603090",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Cooldown Recovery Rate",
 				["type"] = "crafted",
 			},
-			[250] = {
+			[254] = {
 				["id"] = "crafted.stat_1352561456",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Damage Bonus for Attack Damage",
 				["type"] = "crafted",
 			},
-			[251] = {
+			[255] = {
 				["id"] = "crafted.stat_3865605585",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Attacks",
 				["type"] = "crafted",
 			},
-			[252] = {
+			[256] = {
 				["id"] = "crafted.stat_2704905000",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Hit Chance for Spells",
 				["type"] = "crafted",
 			},
-			[253] = {
+			[257] = {
 				["id"] = "crafted.stat_2466785537",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Spell Damage Bonus",
 				["type"] = "crafted",
 			},
-			[254] = {
+			[258] = {
 				["id"] = "crafted.stat_1185341308",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Life Regeneration rate",
 				["type"] = "crafted",
 			},
-			[255] = {
+			[259] = {
 				["id"] = "crafted.stat_844449513",
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Movement Speed",
 				["type"] = "crafted",
 			},
-			[256] = {
+			[260] = {
 				["id"] = "crafted.stat_1687542781",
 				["text"] = "Notable Passive Skills in Radius also grant #% to Lightning Resistance",
 				["type"] = "crafted",
 			},
-			[257] = {
+			[261] = {
 				["id"] = "crafted.stat_2969557004",
 				["text"] = "Notable Passive Skills in Radius also grant Gain # Rage on Melee Hit",
 				["type"] = "crafted",
 			},
-			[258] = {
+			[262] = {
 				["id"] = "crafted.stat_2726713579",
 				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Life on Kill",
 				["type"] = "crafted",
 			},
-			[259] = {
+			[263] = {
 				["id"] = "crafted.stat_525523040",
 				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Mana on Kill",
 				["type"] = "crafted",
 			},
-			[260] = {
+			[264] = {
 				["id"] = "crafted.stat_3191479793",
 				["text"] = "Offering Skills have #% increased Buff effect",
 				["type"] = "crafted",
 			},
-			[261] = {
+			[265] = {
 				["id"] = "crafted.stat_4215035940",
 				["text"] = "On Corruption, Item gains two Enchantments",
 				["type"] = "crafted",
 			},
-			[262] = {
+			[266] = {
 				["id"] = "crafted.stat_554145967",
 				["text"] = "Recover # Runic Ward when a Charm is used",
 				["type"] = "crafted",
 			},
-			[263] = {
+			[267] = {
 				["id"] = "crafted.stat_1568848828",
 				["text"] = "Recover # Runic Ward when you Block",
 				["type"] = "crafted",
 			},
-			[264] = {
+			[268] = {
 				["id"] = "crafted.stat_2023107756",
 				["text"] = "Recover #% of maximum Life on Kill",
 				["type"] = "crafted",
 			},
-			[265] = {
+			[269] = {
 				["id"] = "crafted.stat_1604736568",
 				["text"] = "Recover #% of maximum Mana on Kill (Jewel)",
 				["type"] = "crafted",
 			},
-			[266] = {
+			[270] = {
 				["id"] = "crafted.stat_3482326075",
 				["text"] = "Remnants can be collected from #% further away",
 				["type"] = "crafted",
 			},
-			[267] = {
+			[271] = {
 				["id"] = "crafted.stat_4147510958",
 				["text"] = "Sealed Skills have # to maximum Seals",
 				["type"] = "crafted",
 			},
-			[268] = {
+			[272] = {
 				["id"] = "crafted.stat_3858398337",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Armour",
 				["type"] = "crafted",
 			},
-			[269] = {
+			[273] = {
 				["id"] = "crafted.stat_1426522529",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Attack Damage",
 				["type"] = "crafted",
 			},
-			[270] = {
+			[274] = {
 				["id"] = "crafted.stat_1309799717",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Chaos Damage",
 				["type"] = "crafted",
 			},
-			[271] = {
+			[275] = {
 				["id"] = "crafted.stat_2442527254",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Cold Damage",
 				["type"] = "crafted",
 			},
-			[272] = {
+			[276] = {
 				["id"] = "crafted.stat_3222402650",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Elemental Damage",
 				["type"] = "crafted",
 			},
-			[273] = {
+			[277] = {
 				["id"] = "crafted.stat_1994296038",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Evasion Rating",
 				["type"] = "crafted",
 			},
-			[274] = {
+			[278] = {
 				["id"] = "crafted.stat_139889694",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Fire Damage",
 				["type"] = "crafted",
 			},
-			[275] = {
+			[279] = {
 				["id"] = "crafted.stat_1417267954",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Global Physical Damage",
 				["type"] = "crafted",
 			},
-			[276] = {
+			[280] = {
 				["id"] = "crafted.stat_2768899959",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Lightning Damage",
 				["type"] = "crafted",
 			},
-			[277] = {
+			[281] = {
 				["id"] = "crafted.stat_1137305356",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Spell Damage",
 				["type"] = "crafted",
 			},
-			[278] = {
+			[282] = {
 				["id"] = "crafted.stat_3665922113",
 				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Energy Shield",
 				["type"] = "crafted",
 			},
-			[279] = {
+			[283] = {
 				["id"] = "crafted.stat_1967040409",
 				["text"] = "Spell Skills have #% increased Area of Effect",
 				["type"] = "crafted",
 			},
-			[280] = {
+			[284] = {
 				["id"] = "crafted.stat_555706343",
 				["text"] = "Spells Gain #% of Damage as extra Chaos Damage",
 				["type"] = "crafted",
 			},
-			[281] = {
+			[285] = {
 				["id"] = "crafted.stat_3249412463",
 				["text"] = "Supported Minions' Strikes have Melee Splash",
 				["type"] = "crafted",
 			},
-			[282] = {
+			[286] = {
 				["id"] = "crafted.stat_3984146263",
 				["text"] = "Tempest Bells are destroyed after an additional # Hits",
 				["type"] = "crafted",
 			},
-			[283] = {
+			[287] = {
 				["id"] = "crafted.stat_1058934731",
 				["text"] = "Temporary Minion Skills have # to Limit of Minions summoned",
 				["type"] = "crafted",
 			},
-			[284] = {
+			[288] = {
 				["id"] = "crafted.stat_3891355829|3",
 				["text"] = "Upgrades Radius to Very Large",
 				["type"] = "crafted",
 			},
-			[285] = {
+			[289] = {
 				["id"] = "crafted.stat_1265767008",
 				["text"] = "Your Minions are Gigantic if they have Revived Recently",
 				["type"] = "crafted",
@@ -28922,961 +28947,966 @@ return {
 				["type"] = "augment",
 			},
 			[240] = {
+				["id"] = "rune.stat_3126632036",
+				["text"] = "Bonded: #% increased Parry Range",
+				["type"] = "augment",
+			},
+			[241] = {
 				["id"] = "rune.stat_2418344131",
 				["text"] = "Bonded: #% increased Projectile Damage",
 				["type"] = "augment",
 			},
-			[241] = {
+			[242] = {
 				["id"] = "rune.stat_1631975646",
 				["text"] = "Bonded: #% increased Projectile Speed",
 				["type"] = "augment",
 			},
-			[242] = {
+			[243] = {
 				["id"] = "rune.stat_3898665772",
 				["text"] = "Bonded: #% increased Quantity of Gold Dropped by Slain Enemies",
 				["type"] = "augment",
 			},
-			[243] = {
+			[244] = {
 				["id"] = "rune.stat_2729035954",
 				["text"] = "Bonded: #% increased Reservation Efficiency of Companion Skills",
 				["type"] = "augment",
 			},
-			[244] = {
+			[245] = {
 				["id"] = "rune.stat_1299166504",
 				["text"] = "Bonded: #% increased Reservation Efficiency of Herald Skills",
 				["type"] = "augment",
 			},
-			[245] = {
+			[246] = {
 				["id"] = "rune.stat_1342402057",
 				["text"] = "Bonded: #% increased Reservation Efficiency of Minion Skills",
 				["type"] = "augment",
 			},
-			[246] = {
+			[247] = {
 				["id"] = "rune.stat_1751756891",
 				["text"] = "Bonded: #% increased Runic Ward Cost Efficiency",
 				["type"] = "augment",
 			},
-			[247] = {
+			[248] = {
 				["id"] = "rune.stat_1396011622",
 				["text"] = "Bonded: #% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently",
 				["type"] = "augment",
 			},
-			[248] = {
+			[249] = {
 				["id"] = "rune.stat_2530800730",
 				["text"] = "Bonded: #% increased Skill Effect Duration with Plant Skills",
 				["type"] = "augment",
 			},
-			[249] = {
+			[250] = {
 				["id"] = "rune.stat_144568384",
 				["text"] = "Bonded: #% increased Skill Speed while Shapeshifted",
 				["type"] = "augment",
 			},
-			[250] = {
+			[251] = {
 				["id"] = "rune.stat_165746512",
 				["text"] = "Bonded: #% increased Slowing Potency of Debuffs on You",
 				["type"] = "augment",
 			},
-			[251] = {
+			[252] = {
 				["id"] = "rune.stat_2012253422",
 				["text"] = "Bonded: #% increased Spirit",
 				["type"] = "augment",
 			},
-			[252] = {
+			[253] = {
 				["id"] = "rune.stat_3435915371",
 				["text"] = "Bonded: #% increased Spirit Reservation Efficiency",
 				["type"] = "augment",
 			},
-			[253] = {
+			[254] = {
 				["id"] = "rune.stat_3038857346",
 				["text"] = "Bonded: #% increased Stun Buildup",
 				["type"] = "augment",
 			},
-			[254] = {
+			[255] = {
 				["id"] = "rune.stat_1756854510",
 				["text"] = "Bonded: #% increased Stun Recovery",
 				["type"] = "augment",
 			},
-			[255] = {
+			[256] = {
 				["id"] = "rune.stat_466741396",
 				["text"] = "Bonded: #% increased Stun Threshold",
 				["type"] = "augment",
 			},
-			[256] = {
+			[257] = {
 				["id"] = "rune.stat_597420223",
 				["text"] = "Bonded: #% increased Stun buildup while Shapeshifted",
 				["type"] = "augment",
 			},
-			[257] = {
+			[258] = {
 				["id"] = "rune.stat_3266426611",
 				["text"] = "Bonded: #% increased Thorns damage",
 				["type"] = "augment",
 			},
-			[258] = {
+			[259] = {
 				["id"] = "rune.stat_542243093",
 				["text"] = "Bonded: #% increased Warcry Cooldown Recovery Rate",
 				["type"] = "augment",
 			},
-			[259] = {
+			[260] = {
 				["id"] = "rune.stat_1984345909",
 				["text"] = "Bonded: #% increased Withered Magnitude",
 				["type"] = "augment",
 			},
-			[260] = {
+			[261] = {
 				["id"] = "rune.stat_3331247603",
 				["text"] = "Bonded: #% increased amount of Life Leeched",
 				["type"] = "augment",
 			},
-			[261] = {
+			[262] = {
 				["id"] = "rune.stat_1236190486",
 				["text"] = "Bonded: #% increased effect of Archon Buffs on you",
 				["type"] = "augment",
 			},
-			[262] = {
+			[263] = {
 				["id"] = "rune.stat_1039491398",
 				["text"] = "Bonded: #% increased effect of Fully Broken Armour",
 				["type"] = "augment",
 			},
-			[263] = {
+			[264] = {
 				["id"] = "rune.stat_3745435177",
 				["text"] = "Bonded: #% increased maximum Energy Shield if you've consumed a Power Charge Recently",
 				["type"] = "augment",
 			},
-			[264] = {
+			[265] = {
 				["id"] = "rune.stat_2246411426",
 				["text"] = "Bonded: #% increased maximum Life",
 				["type"] = "augment",
 			},
-			[265] = {
+			[266] = {
 				["id"] = "rune.stat_1586906534",
 				["text"] = "Bonded: #% increased maximum Mana",
 				["type"] = "augment",
 			},
-			[266] = {
+			[267] = {
 				["id"] = "rune.stat_3634438849",
 				["text"] = "Bonded: #% increased maximum Runic Ward",
 				["type"] = "augment",
 			},
-			[267] = {
+			[268] = {
 				["id"] = "rune.stat_826685275",
 				["text"] = "Bonded: #% of Armour also applies to Elemental Damage while Shapeshifted",
 				["type"] = "augment",
 			},
-			[268] = {
+			[269] = {
 				["id"] = "rune.stat_264750496",
 				["text"] = "Bonded: #% of Damage taken Recouped as Life",
 				["type"] = "augment",
 			},
-			[269] = {
+			[270] = {
 				["id"] = "rune.stat_2100249038",
 				["text"] = "Bonded: #% of Maximum Life Converted to Energy Shield",
 				["type"] = "augment",
 			},
-			[270] = {
+			[271] = {
 				["id"] = "rune.stat_2561960218",
 				["text"] = "Bonded: #% of Skill Mana Costs Converted to Life Costs",
 				["type"] = "augment",
 			},
-			[271] = {
+			[272] = {
 				["id"] = "rune.stat_1441491952",
 				["text"] = "Bonded: #% reduced Shock duration on you",
 				["type"] = "augment",
 			},
-			[272] = {
+			[273] = {
 				["id"] = "rune.stat_3351086592",
 				["text"] = "Bonded: #% to Chaos Resistance",
 				["type"] = "augment",
 			},
-			[273] = {
+			[274] = {
 				["id"] = "rune.stat_3448627618",
 				["text"] = "Bonded: #% to Cold Resistance",
 				["type"] = "augment",
 			},
-			[274] = {
+			[275] = {
 				["id"] = "rune.stat_3294435116",
 				["text"] = "Bonded: #% to Lightning Resistance",
 				["type"] = "augment",
 			},
-			[275] = {
+			[276] = {
 				["id"] = "rune.stat_4042480703",
 				["text"] = "Bonded: #% to Maximum Cold Resistance",
 				["type"] = "augment",
 			},
-			[276] = {
+			[277] = {
 				["id"] = "rune.stat_408302348",
 				["text"] = "Bonded: #% to Maximum Fire Resistance",
 				["type"] = "augment",
 			},
-			[277] = {
+			[278] = {
 				["id"] = "rune.stat_3788647247",
 				["text"] = "Bonded: #% to Maximum Lightning Resistance",
 				["type"] = "augment",
 			},
-			[278] = {
+			[279] = {
 				["id"] = "rune.stat_1134865274",
 				["text"] = "Bonded: #% to Quality of all Skills",
 				["type"] = "augment",
 			},
-			[279] = {
+			[280] = {
 				["id"] = "rune.stat_953010920",
 				["text"] = "Bonded: #% to all Elemental Resistances",
 				["type"] = "augment",
 			},
-			[280] = {
+			[281] = {
 				["id"] = "rune.stat_1404850498",
 				["text"] = "Bonded: #% to all Maximum Elemental Resistances while on full Runic Ward",
 				["type"] = "augment",
 			},
-			[281] = {
+			[282] = {
 				["id"] = "rune.stat_859452080",
 				["text"] = "Bonded: #% to maximum Block chance",
 				["type"] = "augment",
 			},
-			[282] = {
+			[283] = {
 				["id"] = "rune.stat_103837384",
 				["text"] = "Bonded: 1% more Runic Ward Regeneration rate per #% of maximum Runic Ward lost from Hits Recently, up to 100% more",
 				["type"] = "augment",
 			},
-			[283] = {
+			[284] = {
 				["id"] = "rune.stat_3308150554",
 				["text"] = "Bonded: Adds # to # Fire damage to Attacks",
 				["type"] = "augment",
 			},
-			[284] = {
+			[285] = {
 				["id"] = "rune.stat_3738367433",
 				["text"] = "Bonded: Adds # to # Physical Damage to Attacks",
 				["type"] = "augment",
 			},
-			[285] = {
+			[286] = {
 				["id"] = "rune.stat_858934954",
 				["text"] = "Bonded: Allies in your Presence Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "augment",
 			},
-			[286] = {
+			[287] = {
 				["id"] = "rune.stat_1799351208",
 				["text"] = "Bonded: Allies in your Presence Regenerate #% of your Maximum Life per second",
 				["type"] = "augment",
 			},
-			[287] = {
+			[288] = {
 				["id"] = "rune.stat_975988108",
 				["text"] = "Bonded: Archon recovery period expires #% faster",
 				["type"] = "augment",
 			},
-			[288] = {
+			[289] = {
 				["id"] = "rune.stat_859085781",
 				["text"] = "Bonded: Attacks have #% to Critical Hit Chance",
 				["type"] = "augment",
 			},
-			[289] = {
+			[290] = {
 				["id"] = "rune.stat_4012965551",
 				["text"] = "Bonded: Banner Skills have #% increased Aura Magnitudes",
 				["type"] = "augment",
 			},
-			[290] = {
+			[291] = {
 				["id"] = "rune.stat_1083521623",
 				["text"] = "Bonded: Break #% increased Armour",
 				["type"] = "augment",
 			},
-			[291] = {
+			[292] = {
 				["id"] = "rune.stat_3990135792",
 				["text"] = "Bonded: Break Armour on Critical Hit with Spells equal to #% of Physical Damage dealt",
 				["type"] = "augment",
 			},
-			[292] = {
+			[293] = {
 				["id"] = "rune.stat_2804691275",
 				["text"] = "Bonded: Buffs on you expire #% faster",
 				["type"] = "augment",
 			},
-			[293] = {
+			[294] = {
 				["id"] = "rune.stat_1568578715",
 				["text"] = "Bonded: Charms gain # charge per Second",
 				["type"] = "augment",
 			},
-			[294] = {
+			[295] = {
 				["id"] = "rune.stat_1816212773",
 				["text"] = "Bonded: Companions have #% increased Area of Effect",
 				["type"] = "augment",
 			},
-			[295] = {
+			[296] = {
 				["id"] = "rune.stat_750452124",
 				["text"] = "Bonded: Companions have #% increased maximum Life",
 				["type"] = "augment",
 			},
-			[296] = {
+			[297] = {
 				["id"] = "rune.stat_2342427527",
 				["text"] = "Bonded: Companions in your Presence have #% to Chaos Resistance",
 				["type"] = "augment",
 			},
-			[297] = {
+			[298] = {
 				["id"] = "rune.stat_2691854696",
 				["text"] = "Bonded: Damage of Enemies Hitting you is Unlucky ifyour Runic Ward has been damaged Recently",
 				["type"] = "augment",
 			},
-			[298] = {
+			[299] = {
 				["id"] = "rune.stat_807013157",
 				["text"] = "Bonded: Every Rage also grants #% increased Spell Damage",
 				["type"] = "augment",
 			},
-			[299] = {
+			[300] = {
 				["id"] = "rune.stat_1482283017",
 				["text"] = "Bonded: Fissure Skills have +# to Limit",
 				["type"] = "augment",
 			},
-			[300] = {
+			[301] = {
 				["id"] = "rune.stat_3816212813",
 				["text"] = "Bonded: Gain # Rage on Melee Hit",
 				["type"] = "augment",
 			},
-			[301] = {
+			[302] = {
 				["id"] = "rune.stat_635535560",
 				["text"] = "Bonded: Gain #% of Damage as Extra Physical Damage",
 				["type"] = "augment",
 			},
-			[302] = {
+			[303] = {
 				["id"] = "rune.stat_1570901920",
 				["text"] = "Bonded: Gain #% of Physical Damage as extra Chaos Damage",
 				["type"] = "augment",
 			},
-			[303] = {
+			[304] = {
 				["id"] = "rune.stat_2269618934",
 				["text"] = "Bonded: Gain #% of maximum Life as Extra maximum Runic Ward",
 				["type"] = "augment",
 			},
-			[304] = {
+			[305] = {
 				["id"] = "rune.stat_1419386315",
 				["text"] = "Bonded: Gain additional Ailment Threshold equal to #% of maximum Energy Shield",
 				["type"] = "augment",
 			},
-			[305] = {
+			[306] = {
 				["id"] = "rune.stat_2001460689",
 				["text"] = "Bonded: Gain additional Stun Threshold equal to #% of maximum Energy Shield",
 				["type"] = "augment",
 			},
-			[306] = {
+			[307] = {
 				["id"] = "rune.stat_1256853273",
 				["text"] = "Bonded: Hits against you have #% reduced Critical Damage Bonus",
 				["type"] = "augment",
 			},
-			[307] = {
+			[308] = {
 				["id"] = "rune.stat_4058552370",
 				["text"] = "Bonded: Invocated Spells have #% chance to consume half as much Energy",
 				["type"] = "augment",
 			},
-			[308] = {
+			[309] = {
 				["id"] = "rune.stat_1773391344",
 				["text"] = "Bonded: Invocated skills have #% increased Maximum Energy",
 				["type"] = "augment",
 			},
-			[309] = {
+			[310] = {
 				["id"] = "rune.stat_4254029169",
 				["text"] = "Bonded: Meta Skills have #% increased Reservation Efficiency",
 				["type"] = "augment",
 			},
-			[310] = {
+			[311] = {
 				["id"] = "rune.stat_839375491",
 				["text"] = "Bonded: Minions Revive #% faster",
 				["type"] = "augment",
 			},
-			[311] = {
+			[312] = {
 				["id"] = "rune.stat_1728593484",
 				["text"] = "Bonded: Minions deal #% increased Damage",
 				["type"] = "augment",
 			},
-			[312] = {
+			[313] = {
 				["id"] = "rune.stat_129783399",
 				["text"] = "Bonded: Minions have #% additional Physical Damage Reduction",
 				["type"] = "augment",
 			},
-			[313] = {
+			[314] = {
 				["id"] = "rune.stat_3449499156",
 				["text"] = "Bonded: Minions have #% increased Area of Effect",
 				["type"] = "augment",
 			},
-			[314] = {
+			[315] = {
 				["id"] = "rune.stat_1611856026",
 				["text"] = "Bonded: Minions have #% increased Cooldown Recovery Rate for Command Skills",
 				["type"] = "augment",
 			},
-			[315] = {
+			[316] = {
 				["id"] = "rune.stat_834058335",
 				["text"] = "Bonded: Minions have #% increased Movement Speed",
 				["type"] = "augment",
 			},
-			[316] = {
+			[317] = {
 				["id"] = "rune.stat_901007505",
 				["text"] = "Bonded: Minions have #% to all Elemental Resistances",
 				["type"] = "augment",
 			},
-			[317] = {
+			[318] = {
 				["id"] = "rune.stat_3793026369",
 				["text"] = "Bonded: Plants have a #% chance to immediately Overgrow when they enter your Presence for the first time",
 				["type"] = "augment",
 			},
-			[318] = {
+			[319] = {
 				["id"] = "rune.stat_1597408611",
 				["text"] = "Bonded: Prevent #% of Damage from Deflected Hits",
 				["type"] = "augment",
 			},
-			[319] = {
+			[320] = {
 				["id"] = "rune.stat_1528013281",
 				["text"] = "Bonded: Projectiles have #% chance for an additional Projectile when Forking",
 				["type"] = "augment",
 			},
-			[320] = {
+			[321] = {
 				["id"] = "rune.stat_2905013875",
 				["text"] = "Bonded: Recover #% of Maximum Mana when you collect a Remnant",
 				["type"] = "augment",
 			},
-			[321] = {
+			[322] = {
 				["id"] = "rune.stat_1823959929",
 				["text"] = "Bonded: Recover #% of maximum Life when one of your Minions is Revived",
 				["type"] = "augment",
 			},
-			[322] = {
+			[323] = {
 				["id"] = "rune.stat_2420303482",
 				["text"] = "Bonded: Regenerate # Runic Ward per second",
 				["type"] = "augment",
 			},
-			[323] = {
+			[324] = {
 				["id"] = "rune.stat_3134782172",
 				["text"] = "Bonded: Regenerate #% of maximum Energy Shield per second",
 				["type"] = "augment",
 			},
-			[324] = {
+			[325] = {
 				["id"] = "rune.stat_1981392722",
 				["text"] = "Bonded: Regenerate #% of maximum Life per second",
 				["type"] = "augment",
 			},
-			[325] = {
+			[326] = {
 				["id"] = "rune.stat_3373098634",
 				["text"] = "Bonded: Remnants can be collected from #% further away",
 				["type"] = "augment",
 			},
-			[326] = {
+			[327] = {
 				["id"] = "rune.stat_3227486464",
 				["text"] = "Bonded: Remnants you create have #% increased effect",
 				["type"] = "augment",
 			},
-			[327] = {
+			[328] = {
 				["id"] = "rune.stat_3286003349",
 				["text"] = "Bonded: Storm Skills have +# to Limit",
 				["type"] = "augment",
 			},
-			[328] = {
+			[329] = {
 				["id"] = "rune.stat_864484981",
 				["text"] = "Bonded: Temporary Minion Skills have # to Limit of Minions summoned",
 				["type"] = "augment",
 			},
-			[329] = {
+			[330] = {
 				["id"] = "rune.stat_2248594298",
 				["text"] = "Bonded: When Volatility on you explodes, you regain an equivalent amount of Volatility",
 				["type"] = "augment",
 			},
-			[330] = {
+			[331] = {
 				["id"] = "rune.stat_3885405204",
 				["text"] = "Bow Attacks fire # additional Arrows",
 				["type"] = "augment",
 			},
-			[331] = {
+			[332] = {
 				["id"] = "rune.stat_1963398329",
 				["text"] = "Can have # additional Crafted Modifier",
 				["type"] = "augment",
 			},
-			[332] = {
+			[333] = {
 				["id"] = "rune.stat_1770091046",
 				["text"] = "Can roll Berserking modifiers",
 				["type"] = "augment",
 			},
-			[333] = {
+			[334] = {
 				["id"] = "rune.stat_3132681620",
 				["text"] = "Can roll Chronomancy modifiers",
 				["type"] = "augment",
 			},
-			[334] = {
+			[335] = {
 				["id"] = "rune.stat_2547063279",
 				["text"] = "Can roll Decay modifiers",
 				["type"] = "augment",
 			},
-			[335] = {
+			[336] = {
 				["id"] = "rune.stat_1676950499",
 				["text"] = "Can roll Destruction modifiers",
 				["type"] = "augment",
 			},
-			[336] = {
+			[337] = {
 				["id"] = "rune.stat_201332984",
 				["text"] = "Can roll Marksman modifiers",
 				["type"] = "augment",
 			},
-			[337] = {
+			[338] = {
 				["id"] = "rune.stat_1927467683",
 				["text"] = "Can roll Soul modifiers",
 				["type"] = "augment",
 			},
-			[338] = {
+			[339] = {
 				["id"] = "rune.stat_791928121",
 				["text"] = "Causes #% increased Stun Buildup",
 				["type"] = "augment",
 			},
-			[339] = {
+			[340] = {
 				["id"] = "rune.stat_234296660",
 				["text"] = "Companions deal #% increased Damage",
 				["type"] = "augment",
 			},
-			[340] = {
+			[341] = {
 				["id"] = "rune.stat_2882351629",
 				["text"] = "Companions deal #% more Damage for each different type of dead Companion you have",
 				["type"] = "augment",
 			},
-			[341] = {
+			[342] = {
 				["id"] = "rune.stat_666077204",
 				["text"] = "Companions have #% increased Attack Speed",
 				["type"] = "augment",
 			},
-			[342] = {
+			[343] = {
 				["id"] = "rune.stat_1805182458",
 				["text"] = "Companions have #% increased maximum Life",
 				["type"] = "augment",
 			},
-			[343] = {
+			[344] = {
 				["id"] = "rune.stat_4200448078",
 				["text"] = "Companions in your Presence Gain #% of Damage as Extra Damage of a random Element",
 				["type"] = "augment",
 			},
-			[344] = {
+			[345] = {
 				["id"] = "rune.stat_2652394701",
 				["text"] = "Companions in your Presence gain # Rage on hit",
 				["type"] = "augment",
 			},
-			[345] = {
+			[346] = {
 				["id"] = "rune.stat_1539508682",
 				["text"] = "Companions in your Presence have #% to all Elemental Resistances",
 				["type"] = "augment",
 			},
-			[346] = {
+			[347] = {
 				["id"] = "rune.stat_1496740334",
 				["text"] = "Convert #% of Requirements to Dexterity",
 				["type"] = "augment",
 			},
-			[347] = {
+			[348] = {
 				["id"] = "rune.stat_2913012734",
 				["text"] = "Convert #% of Requirements to Intelligence",
 				["type"] = "augment",
 			},
-			[348] = {
+			[349] = {
 				["id"] = "rune.stat_1556124492",
 				["text"] = "Convert #% of Requirements to Strength",
 				["type"] = "augment",
 			},
-			[349] = {
+			[350] = {
 				["id"] = "rune.stat_935518591",
 				["text"] = "Critical Hit chance is Lucky against Parried enemies",
 				["type"] = "augment",
 			},
-			[350] = {
+			[351] = {
 				["id"] = "rune.stat_1238227257",
 				["text"] = "Debuffs on you expire #% faster",
 				["type"] = "augment",
 			},
-			[351] = {
+			[352] = {
 				["id"] = "rune.stat_1933674044",
 				["text"] = "Destroys all Augment Sockets on the item to create a Jewel Socket",
 				["type"] = "augment",
 			},
-			[352] = {
+			[353] = {
 				["id"] = "rune.stat_426207520",
 				["text"] = "Each Runic Inscription from your Curse Skills causes you to Regenerate Mana per second equal to #% of that Skill's Mana Cost",
 				["type"] = "augment",
 			},
-			[353] = {
+			[354] = {
 				["id"] = "rune.stat_25786091",
 				["text"] = "Enemies have no Critical Damage Bonus for # seconds after you Blind them",
 				["type"] = "augment",
 			},
-			[354] = {
+			[355] = {
 				["id"] = "rune.stat_3370077792",
 				["text"] = "Enemies you Critically Hit get #% increased Life Regeneration Rate for 4 seconds",
 				["type"] = "augment",
 			},
-			[355] = {
+			[356] = {
 				["id"] = "rune.stat_1772929282",
 				["text"] = "Enemies you Curse have #% to Chaos Resistance",
 				["type"] = "augment",
 			},
-			[356] = {
+			[357] = {
 				["id"] = "rune.stat_1984310483",
 				["text"] = "Enemies you Curse take #% increased Damage",
 				["type"] = "augment",
 			},
-			[357] = {
+			[358] = {
 				["id"] = "rune.stat_2241849004",
 				["text"] = "Energy Shield Recharge starts after spending a total of 2000 Mana, no more than once every 2 seconds",
 				["type"] = "augment",
 			},
-			[358] = {
+			[359] = {
 				["id"] = "rune.stat_1963589548",
 				["text"] = "Every 4 seconds, gain Guard equal to #% of maximum Runic Ward for 2 seconds",
 				["type"] = "augment",
 			},
-			[359] = {
+			[360] = {
 				["id"] = "rune.stat_731781020",
 				["text"] = "Flasks gain # charges per Second",
 				["type"] = "augment",
 			},
-			[360] = {
+			[361] = {
 				["id"] = "rune.stat_3444646646",
 				["text"] = "Gain # Druidic Prowess when you Heavy Stun a Rare or Unique Enemy",
 				["type"] = "augment",
 			},
-			[361] = {
+			[362] = {
 				["id"] = "rune.stat_2797971005",
 				["text"] = "Gain # Life per Enemy Hit with Attacks",
 				["type"] = "augment",
 			},
-			[362] = {
+			[363] = {
 				["id"] = "rune.stat_3695891184",
 				["text"] = "Gain # Life per enemy killed",
 				["type"] = "augment",
 			},
-			[363] = {
+			[364] = {
 				["id"] = "rune.stat_820939409",
 				["text"] = "Gain # Mana per Enemy Hit with Attacks",
 				["type"] = "augment",
 			},
-			[364] = {
+			[365] = {
 				["id"] = "rune.stat_1368271171",
 				["text"] = "Gain # Mana per enemy killed",
 				["type"] = "augment",
 			},
-			[365] = {
+			[366] = {
 				["id"] = "rune.stat_2709367754",
 				["text"] = "Gain # Rage on Melee Hit",
 				["type"] = "augment",
 			},
-			[366] = {
+			[367] = {
 				["id"] = "rune.stat_3398787959",
 				["text"] = "Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "augment",
 			},
-			[367] = {
+			[368] = {
 				["id"] = "rune.stat_2505884597",
 				["text"] = "Gain #% of Damage as Extra Cold Damage",
 				["type"] = "augment",
 			},
-			[368] = {
+			[369] = {
 				["id"] = "rune.stat_3617669804",
 				["text"] = "Gain #% of Damage as Extra Damage of a random Element",
 				["type"] = "augment",
 			},
-			[369] = {
+			[370] = {
 				["id"] = "rune.stat_3557924960",
 				["text"] = "Gain #% of Damage as Extra Damage of a random Element perRune Socketed in Equipped Items",
 				["type"] = "augment",
 			},
-			[370] = {
+			[371] = {
 				["id"] = "rune.stat_731403740",
 				["text"] = "Gain #% of Damage as Extra Damage of all Elements",
 				["type"] = "augment",
 			},
-			[371] = {
+			[372] = {
 				["id"] = "rune.stat_3015669065",
 				["text"] = "Gain #% of Damage as Extra Fire Damage",
 				["type"] = "augment",
 			},
-			[372] = {
+			[373] = {
 				["id"] = "rune.stat_3278136794",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage",
 				["type"] = "augment",
 			},
-			[373] = {
+			[374] = {
 				["id"] = "rune.stat_1693515857",
 				["text"] = "Gain #% of Damage as Extra Physical Damage per ten percent missing Mana",
 				["type"] = "augment",
 			},
-			[374] = {
+			[375] = {
 				["id"] = "rune.stat_386720106",
 				["text"] = "Gain #% of maximum Life as Extra maximum Runic Ward",
 				["type"] = "augment",
 			},
-			[375] = {
+			[376] = {
 				["id"] = "rune.stat_901336307",
 				["text"] = "Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
 				["type"] = "augment",
 			},
-			[376] = {
+			[377] = {
 				["id"] = "rune.stat_3903510399",
 				["text"] = "Gain Armour equal to #% of Life Lost from Hits in the past 8 seconds",
 				["type"] = "augment",
 			},
-			[377] = {
+			[378] = {
 				["id"] = "rune.stat_3033371881",
 				["text"] = "Gain Deflection Rating equal to #% of Evasion Rating",
 				["type"] = "augment",
 			},
-			[378] = {
+			[379] = {
 				["id"] = "rune.stat_3863682550",
 				["text"] = "Gain Guard equal to #% of maximum Life for 4 seconds on taking Savage Hit",
 				["type"] = "augment",
 			},
-			[379] = {
+			[380] = {
 				["id"] = "rune.stat_1811977226",
 				["text"] = "Gain Onslaught for # seconds when your Marks Activate",
 				["type"] = "augment",
 			},
-			[380] = {
+			[381] = {
 				["id"] = "rune.stat_3398301358",
 				["text"] = "Gain additional Ailment Threshold equal to #% of maximum Energy Shield",
 				["type"] = "augment",
 			},
-			[381] = {
+			[382] = {
 				["id"] = "rune.stat_416040624",
 				["text"] = "Gain additional Stun Threshold equal to #% of maximum Energy Shield",
 				["type"] = "augment",
 			},
-			[382] = {
+			[383] = {
 				["id"] = "rune.stat_1995345015",
 				["text"] = "Gain maximum Runic Ward equal to #% of this Weapon's maximum damage",
 				["type"] = "augment",
 			},
-			[383] = {
+			[384] = {
 				["id"] = "rune.stat_538981065",
 				["text"] = "Grenades have #% chance to activate a second time",
 				["type"] = "augment",
 			},
-			[384] = {
+			[385] = {
 				["id"] = "rune.stat_3855016469",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus",
 				["type"] = "augment",
 			},
-			[385] = {
+			[386] = {
 				["id"] = "rune.stat_726496846",
 				["text"] = "Idols socketed in this item gain the benefits of their Bonded modifiers",
 				["type"] = "augment",
 			},
-			[386] = {
+			[387] = {
 				["id"] = "rune.stat_3570773271",
 				["text"] = "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				["type"] = "augment",
 			},
-			[387] = {
+			[388] = {
 				["id"] = "rune.stat_4282982513",
 				["text"] = "Increases and Reductions to Movement Speed also apply to Energy Shield Recharge Rate",
 				["type"] = "augment",
 			},
-			[388] = {
+			[389] = {
 				["id"] = "rune.stat_55876295",
 				["text"] = "Leeches #% of Physical Damage as Life",
 				["type"] = "augment",
 			},
-			[389] = {
+			[390] = {
 				["id"] = "rune.stat_669069897",
 				["text"] = "Leeches #% of Physical Damage as Mana",
 				["type"] = "augment",
 			},
-			[390] = {
+			[391] = {
 				["id"] = "rune.stat_3473409233",
 				["text"] = "Lose #% of maximum Life per second while Sprinting",
 				["type"] = "augment",
 			},
-			[391] = {
+			[392] = {
 				["id"] = "rune.stat_3145796865",
 				["text"] = "Mana Recovery from Regeneration is also applied to Runic Ward",
 				["type"] = "augment",
 			},
-			[392] = {
+			[393] = {
 				["id"] = "rune.stat_4236566306",
 				["text"] = "Meta Skills gain #% increased Energy",
 				["type"] = "augment",
 			},
-			[393] = {
+			[394] = {
 				["id"] = "rune.stat_3742865955",
 				["text"] = "Minions deal #% increased Damage with Command Skills",
 				["type"] = "augment",
 			},
-			[394] = {
+			[395] = {
 				["id"] = "rune.stat_1433756169",
 				["text"] = "Minions gain #% of their Physical Damage as Extra Lightning Damage",
 				["type"] = "augment",
 			},
-			[395] = {
+			[396] = {
 				["id"] = "rune.stat_3091578504",
 				["text"] = "Minions have #% increased Attack and Cast Speed",
 				["type"] = "augment",
 			},
-			[396] = {
+			[397] = {
 				["id"] = "rune.stat_770672621",
 				["text"] = "Minions have #% increased maximum Life",
 				["type"] = "augment",
 			},
-			[397] = {
+			[398] = {
 				["id"] = "rune.stat_3837707023",
 				["text"] = "Minions have #% to Chaos Resistance",
 				["type"] = "augment",
 			},
-			[398] = {
+			[399] = {
 				["id"] = "rune.stat_540694930",
 				["text"] = "Minions in your Presence have Onslaught while you are on Low Runic Ward",
 				["type"] = "augment",
 			},
-			[399] = {
+			[400] = {
 				["id"] = "rune.stat_889552744",
 				["text"] = "Minions take #% of Physical Damage as Lightning Damage",
 				["type"] = "augment",
 			},
-			[400] = {
+			[401] = {
 				["id"] = "rune.stat_2616640048",
 				["text"] = "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "augment",
 			},
-			[401] = {
+			[402] = {
 				["id"] = "rune.stat_1480688478",
 				["text"] = "One of your Persistent Minions revives when an Offering expires",
 				["type"] = "augment",
 			},
-			[402] = {
+			[403] = {
 				["id"] = "rune.stat_2681952497",
 				["text"] = "Plants have a #% chance to immediately Overgrow when they enter your Presence for the first time",
 				["type"] = "augment",
 			},
-			[403] = {
+			[404] = {
 				["id"] = "rune.stat_3552135623",
 				["text"] = "Prevent #% of Damage from Deflected Hits",
 				["type"] = "augment",
 			},
-			[404] = {
+			[405] = {
 				["id"] = "rune.stat_1549287843",
 				["text"] = "Projectiles have #% chance to Fork",
 				["type"] = "augment",
 			},
-			[405] = {
+			[406] = {
 				["id"] = "rune.stat_1678831767",
 				["text"] = "Recover # Life when you Block",
 				["type"] = "augment",
 			},
-			[406] = {
+			[407] = {
 				["id"] = "rune.stat_2023107756",
 				["text"] = "Recover #% of maximum Life on Kill",
 				["type"] = "augment",
 			},
-			[407] = {
+			[408] = {
 				["id"] = "rune.stat_1030153674",
 				["text"] = "Recover #% of maximum Mana on Kill",
 				["type"] = "augment",
 			},
-			[408] = {
+			[409] = {
 				["id"] = "rune.stat_3515226849",
 				["text"] = "Recover #% of maximum Runic Ward when one of your Reviving Minions is Killed",
 				["type"] = "augment",
 			},
-			[409] = {
+			[410] = {
 				["id"] = "rune.stat_836936635",
 				["text"] = "Regenerate #% of maximum Life per second",
 				["type"] = "augment",
 			},
-			[410] = {
+			[411] = {
 				["id"] = "rune.stat_3482326075",
 				["text"] = "Remnants can be collected from #% further away",
 				["type"] = "augment",
 			},
-			[411] = {
+			[412] = {
 				["id"] = "rune.stat_1999910726",
 				["text"] = "Remnants you create have #% increased effect",
 				["type"] = "augment",
 			},
-			[412] = {
+			[413] = {
 				["id"] = "rune.stat_594547430",
 				["text"] = "Remove a Damaging Ailment when you use a Command Skill",
 				["type"] = "augment",
 			},
-			[413] = {
+			[414] = {
 				["id"] = "rune.stat_103706408",
 				["text"] = "Rolls only the minimum or maximum Damage value for Physical Damage",
 				["type"] = "augment",
 			},
-			[414] = {
+			[415] = {
 				["id"] = "rune.stat_2579974553",
 				["text"] = "Runic Ward Regeneration Rate is doubled",
 				["type"] = "augment",
 			},
-			[415] = {
+			[416] = {
 				["id"] = "rune.stat_1585886916",
 				["text"] = "Sacrifice #% of maximum Life to gain that much Guard when you Dodge Roll",
 				["type"] = "augment",
 			},
-			[416] = {
+			[417] = {
 				["id"] = "rune.stat_2942439603",
 				["text"] = "Skills have #% chance to not remove Charges but still count as consuming them",
 				["type"] = "augment",
 			},
-			[417] = {
+			[418] = {
 				["id"] = "rune.stat_267552601",
 				["text"] = "Spell damage Penetrates #% of enemy Elemental Resistances while on Low Runic Ward",
 				["type"] = "augment",
 			},
-			[418] = {
+			[419] = {
 				["id"] = "rune.stat_1755296234",
 				["text"] = "Targets can be affected by # of your Poisons at the same time",
 				["type"] = "augment",
 			},
-			[419] = {
+			[420] = {
 				["id"] = "rune.stat_2889034188",
 				["text"] = "Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
 				["type"] = "augment",
 			},
-			[420] = {
+			[421] = {
 				["id"] = "rune.stat_602344904",
 				["text"] = "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
 				["type"] = "augment",
 			},
-			[421] = {
+			[422] = {
 				["id"] = "rune.stat_1433896639",
 				["text"] = "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
 				["type"] = "augment",
 			},
-			[422] = {
+			[423] = {
 				["id"] = "rune.stat_1624833382",
 				["text"] = "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
 				["type"] = "augment",
 			},
-			[423] = {
+			[424] = {
 				["id"] = "rune.stat_2390027291",
 				["text"] = "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				["type"] = "augment",
 			},
-			[424] = {
+			[425] = {
 				["id"] = "rune.stat_3353733343",
 				["text"] = "When you generate a Frenzy Charge, Allies in your Presence generate that Charge instead",
 				["type"] = "augment",
 			},
-			[425] = {
+			[426] = {
 				["id"] = "rune.stat_1323701627",
 				["text"] = "When you generate a Power Charge, Allies in your Presence generate that Charge instead",
 				["type"] = "augment",
 			},
-			[426] = {
+			[427] = {
 				["id"] = "rune.stat_3257561708",
 				["text"] = "When you generate an Endurance Charge, Allies in your Presence generate that Charge instead",
 				["type"] = "augment",
 			},
-			[427] = {
+			[428] = {
 				["id"] = "rune.stat_293832783",
 				["text"] = "When you stop Sprinting, gain Guard equal to #% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds",
 				["type"] = "augment",
 			},
-			[428] = {
+			[429] = {
 				["id"] = "rune.stat_1937310173",
 				["text"] = "You Recoup #% of Damage taken by your Offerings as Life",
 				["type"] = "augment",
 			},
-			[429] = {
+			[430] = {
 				["id"] = "rune.stat_4058681894",
 				["text"] = "You have no Critical Damage Bonus",
 				["type"] = "augment",
 			},
-			[430] = {
+			[431] = {
 				["id"] = "rune.stat_1919509054",
 				["text"] = "Your Energy Shield Recharge starts when your Minions are Reformed",
 				["type"] = "augment",
 			},
-			[431] = {
+			[432] = {
 				["id"] = "rune.stat_3128773415",
 				["text"] = "Your speed is Unaffected by Slows while Sprinting",
 				["type"] = "augment",
@@ -30018,12 +30048,12 @@ return {
 				["type"] = "desecrated",
 			},
 			[27] = {
-				["id"] = "desecrated.stat_3981240776",
+				["id"] = "desecrated.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
 			[28] = {
-				["id"] = "desecrated.stat_2704225257",
+				["id"] = "desecrated.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
@@ -34370,12 +34400,12 @@ return {
 				["type"] = "skill",
 			},
 			[11] = {
-				["id"] = "skill.blink",
+				["id"] = "skill.blink_reservation",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
 			[12] = {
-				["id"] = "skill.blink_reservation",
+				["id"] = "skill.blink",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
@@ -34480,12 +34510,12 @@ return {
 				["type"] = "skill",
 			},
 			[33] = {
-				["id"] = "skill.corpse_cloud_triggered",
+				["id"] = "skill.corpse_cloud",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},
 			[34] = {
-				["id"] = "skill.corpse_cloud",
+				["id"] = "skill.corpse_cloud_triggered",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},

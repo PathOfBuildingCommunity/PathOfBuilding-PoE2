@@ -17376,8 +17376,8 @@ return {
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3891355829|1",
-				["text"] = "Upgrades Radius to Medium",
+				["id"] = "explicit.stat_3891355829|2",
+				["text"] = "Upgrades Radius to Large",
 				["type"] = "explicit",
 			},
 		},
@@ -20898,20 +20898,6 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002",
-				["text"] = "# to maximum Energy Shield",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
-		},
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40,
@@ -21420,6 +21406,10 @@ return {
 				["max"] = 50,
 				["min"] = -40,
 			},
+			["Sceptre"] = {
+				["max"] = 50,
+				["min"] = -40,
+			},
 			["invertOnNegative"] = true,
 			["specialCaseData"] = {
 			},
@@ -21504,6 +21494,18 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Quarterstaff"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -21566,6 +21568,14 @@ return {
 			},
 		},
 		["1050105434"] = {
+			["1HWeapon"] = {
+				["max"] = 90,
+				["min"] = 45,
+			},
+			["2HWeapon"] = {
+				["max"] = 90,
+				["min"] = 45,
+			},
 			["Boots"] = {
 				["max"] = 50,
 				["min"] = 20,
@@ -21586,13 +21596,13 @@ return {
 				["max"] = 50,
 				["min"] = 10,
 			},
-			["Quarterstaff"] = {
-				["max"] = 90,
-				["min"] = 45,
-			},
 			["Shield"] = {
 				["max"] = 50,
 				["min"] = 20,
+			},
+			["Staff"] = {
+				["max"] = 90,
+				["min"] = 45,
 			},
 			["Wand"] = {
 				["max"] = 90,
@@ -21608,9 +21618,21 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1181501418"] = {
+			["1HWeapon"] = {
+				["max"] = -10,
+				["min"] = -10,
+			},
+			["2HWeapon"] = {
+				["max"] = -10,
+				["min"] = -10,
+			},
 			["Helmet"] = {
 				["max"] = 4,
 				["min"] = 4,
+			},
+			["Quarterstaff"] = {
+				["max"] = -10,
+				["min"] = -10,
 			},
 			["Spear"] = {
 				["max"] = -10,
@@ -21684,6 +21706,10 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
+			["Staff"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
 			["Talisman"] = {
 				["max"] = 50,
 				["min"] = 50,
@@ -21734,7 +21760,15 @@ return {
 			},
 		},
 		["124131830"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 2,
+				["min"] = 1,
+			},
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Staff"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -21756,6 +21790,10 @@ return {
 				["max"] = 14,
 				["min"] = 14,
 			},
+			["Sceptre"] = {
+				["max"] = 14,
+				["min"] = 14,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -21766,6 +21804,10 @@ return {
 		},
 		["1323701627"] = {
 			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -21840,19 +21882,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1374654984",
 				["text"] = "#% of Physical Damage prevented Recouped as Life",
-				["type"] = "augment",
-			},
-		},
-		["1381474422"] = {
-			["Gloves"] = {
-				["max"] = 20,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1381474422",
-				["text"] = "#% increased Magnitude of Damaging Ailments you inflict",
 				["type"] = "augment",
 			},
 		},
@@ -22009,19 +22038,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["1480688478"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1480688478",
-				["text"] = "One of your Persistent Minions revives when an Offering expires",
-				["type"] = "augment",
-			},
-		},
 		["1496740334"] = {
 			["1HMace"] = {
 				["max"] = 20,
@@ -22170,6 +22186,10 @@ return {
 				["max"] = -20,
 				["min"] = -20,
 			},
+			["Sceptre"] = {
+				["max"] = -20,
+				["min"] = -20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22192,6 +22212,10 @@ return {
 			},
 		},
 		["1555237944"] = {
+			["1HWeapon"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
 			["Spear"] = {
 				["max"] = 30,
 				["min"] = 30,
@@ -22283,6 +22307,10 @@ return {
 		},
 		["1574590649"] = {
 			["1HWeapon"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Sceptre"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -22574,6 +22602,10 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
+			["Sceptre"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22587,6 +22619,10 @@ return {
 				["max"] = 40,
 				["min"] = 40,
 			},
+			["Sceptre"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22597,6 +22633,10 @@ return {
 		},
 		["1805182458"] = {
 			["1HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["Sceptre"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -22626,6 +22666,10 @@ return {
 				["max"] = 40,
 				["min"] = 40,
 			},
+			["1HWeapon"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22639,24 +22683,15 @@ return {
 				["max"] = 0.5,
 				["min"] = 0.5,
 			},
+			["Sceptre"] = {
+				["max"] = 0.5,
+				["min"] = 0.5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_1911097163",
 				["text"] = "Allies in your Presence Regenerate #% of your Maximum Life per second",
-				["type"] = "augment",
-			},
-		},
-		["1919509054"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1919509054",
-				["text"] = "Your Energy Shield Recharge starts when your Minions are Reformed",
 				["type"] = "augment",
 			},
 		},
@@ -22670,19 +22705,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1927467683",
 				["text"] = "Can roll Soul modifiers",
-				["type"] = "augment",
-			},
-		},
-		["1933674044"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1933674044",
-				["text"] = "Destroys all Augment Sockets on the item to create a Jewel Socket",
 				["type"] = "augment",
 			},
 		},
@@ -22915,6 +22937,10 @@ return {
 				["max"] = 10,
 				["min"] = 10,
 			},
+			["Sceptre"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22924,11 +22950,19 @@ return {
 			},
 		},
 		["1999910726"] = {
+			["1HWeapon"] = {
+				["max"] = -25,
+				["min"] = -25,
+			},
+			["2HWeapon"] = {
+				["max"] = -25,
+				["min"] = -25,
+			},
 			["Helmet"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
-			["Quarterstaff"] = {
+			["Staff"] = {
 				["max"] = -25,
 				["min"] = -25,
 			},
@@ -23003,19 +23037,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["201332984"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_201332984",
-				["text"] = "Can roll Marksman modifiers",
-				["type"] = "augment",
-			},
-		},
 		["2023107756"] = {
 			["1HMace"] = {
 				["max"] = 2,
@@ -23070,6 +23091,10 @@ return {
 			},
 		},
 		["2045949233"] = {
+			["2HMace"] = {
+				["max"] = 25,
+				["min"] = 10,
+			},
 			["2HWeapon"] = {
 				["max"] = 25,
 				["min"] = 10,
@@ -23166,7 +23191,7 @@ return {
 				["min"] = 5,
 			},
 			["Bow"] = {
-				["max"] = 5,
+				["max"] = 50,
 				["min"] = 5,
 			},
 			["Claw"] = {
@@ -23198,19 +23223,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_210067635",
 				["text"] = "#% increased Attack Speed (Local)",
-				["type"] = "augment",
-			},
-		},
-		["2103650854"] = {
-			["Gloves"] = {
-				["max"] = 40,
-				["min"] = 40,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2103650854",
-				["text"] = "#% increased effect of Arcane Surge on you",
 				["type"] = "augment",
 			},
 		},
@@ -23308,19 +23320,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["2241849004"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2241849004",
-				["text"] = "Energy Shield Recharge starts after spending a total of 2000 Mana, no more than once every 2 seconds",
-				["type"] = "augment",
-			},
-		},
 		["2250533757"] = {
 			["Boots"] = {
 				["max"] = 5,
@@ -23368,7 +23367,11 @@ return {
 			},
 		},
 		["2328443419"] = {
-			["Quarterstaff"] = {
+			["2HWeapon"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["Staff"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
@@ -23381,11 +23384,19 @@ return {
 			},
 		},
 		["2339757871"] = {
+			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["2HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
 			["Chest"] = {
 				["max"] = 30,
 				["min"] = 30,
 			},
-			["Quarterstaff"] = {
+			["Staff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -23406,24 +23417,15 @@ return {
 				["max"] = 30,
 				["min"] = 30,
 			},
+			["Sceptre"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_234296660",
 				["text"] = "Companions deal #% increased Damage",
-				["type"] = "augment",
-			},
-		},
-		["2353576063"] = {
-			["Gloves"] = {
-				["max"] = 8,
-				["min"] = 8,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2353576063",
-				["text"] = "#% increased Curse Magnitudes",
 				["type"] = "augment",
 			},
 		},
@@ -23552,6 +23554,10 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
+			["Bow"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23566,7 +23572,19 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
+			["1HWeapon"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["2HMace"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
 			["2HWeapon"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Talisman"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -23592,7 +23610,15 @@ return {
 			},
 		},
 		["2505884597"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["2HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["Staff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -23608,20 +23634,11 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["2547063279"] = {
-			["Gloves"] = {
+		["2579974553"] = {
+			["1HWeapon"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2547063279",
-				["text"] = "Can roll Decay modifiers",
-				["type"] = "augment",
-			},
-		},
-		["2579974553"] = {
 			["Wand"] = {
 				["max"] = 1,
 				["min"] = 1,
@@ -23719,7 +23736,19 @@ return {
 			},
 		},
 		["2616640048"] = {
+			["1HWeapon"] = {
+				["max"] = 32,
+				["min"] = 32,
+			},
 			["2HWeapon"] = {
+				["max"] = 32,
+				["min"] = 32,
+			},
+			["Bow"] = {
+				["max"] = 32,
+				["min"] = 32,
+			},
+			["Crossbow"] = {
 				["max"] = 32,
 				["min"] = 32,
 			},
@@ -23737,6 +23766,10 @@ return {
 		},
 		["262946222"] = {
 			["1HWeapon"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["Sceptre"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -23766,6 +23799,10 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23788,7 +23825,15 @@ return {
 			},
 		},
 		["267552601"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["2HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["Staff"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -23806,6 +23851,10 @@ return {
 		},
 		["2681952497"] = {
 			["1HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["Sceptre"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -23899,13 +23948,21 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2709367754"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
+			["1HWeapon"] = {
+				["max"] = 4,
+				["min"] = 4,
+			},
+			["2HWeapon"] = {
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Helmet"] = {
 				["max"] = 1,
 				["min"] = 1,
+			},
+			["Quarterstaff"] = {
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Spear"] = {
 				["max"] = 4,
@@ -23929,19 +23986,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
-				["type"] = "augment",
-			},
-		},
-		["2797971005"] = {
-			["Gloves"] = {
-				["max"] = 3,
-				["min"] = 3,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2797971005",
-				["text"] = "Gain # Life per Enemy Hit with Attacks",
 				["type"] = "augment",
 			},
 		},
@@ -23991,6 +24035,10 @@ return {
 				["max"] = 40,
 				["min"] = 40,
 			},
+			["Sceptre"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24015,6 +24063,10 @@ return {
 		},
 		["2854751904"] = {
 			["1HWeapon"] = {
+				["max"] = 20.5,
+				["min"] = 20.5,
+			},
+			["Sceptre"] = {
 				["max"] = 20.5,
 				["min"] = 20.5,
 			},
@@ -24044,6 +24096,10 @@ return {
 				["max"] = 10,
 				["min"] = 10,
 			},
+			["Sceptre"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24065,21 +24121,12 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["2891184298"] = {
-			["Gloves"] = {
-				["max"] = 8,
-				["min"] = 8,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2891184298",
-				["text"] = "#% increased Cast Speed",
-				["type"] = "augment",
-			},
-		},
 		["289128254"] = {
 			["1HWeapon"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
+			["Sceptre"] = {
 				["max"] = 10,
 				["min"] = 10,
 			},
@@ -24140,7 +24187,15 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2910761524"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["2HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["Staff"] = {
 				["max"] = 25,
 				["min"] = 25,
 			},
@@ -24266,15 +24321,15 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
-			["Gloves"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
 			["Quarterstaff"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
 			["Spear"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["Staff"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -24461,7 +24516,15 @@ return {
 			},
 		},
 		["2974417149"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 35,
+				["min"] = 20,
+			},
+			["2HWeapon"] = {
+				["max"] = 35,
+				["min"] = 20,
+			},
+			["Staff"] = {
 				["max"] = 35,
 				["min"] = 20,
 			},
@@ -24478,7 +24541,15 @@ return {
 			},
 		},
 		["3015669065"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["2HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["Staff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -24491,19 +24562,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3015669065",
 				["text"] = "Gain #% of Damage as Extra Fire Damage",
-				["type"] = "augment",
-			},
-		},
-		["3032590688"] = {
-			["Gloves"] = {
-				["max"] = 8.5,
-				["min"] = 8.5,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3032590688",
-				["text"] = "Adds # to # Physical Damage to Attacks",
 				["type"] = "augment",
 			},
 		},
@@ -24591,6 +24649,10 @@ return {
 				["max"] = 20,
 				["min"] = 20,
 			},
+			["Sceptre"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24617,6 +24679,10 @@ return {
 				["max"] = 8,
 				["min"] = 8,
 			},
+			["Sceptre"] = {
+				["max"] = 8,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24638,19 +24704,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["310945763"] = {
-			["Gloves"] = {
-				["max"] = 25,
-				["min"] = 25,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_310945763",
-				["text"] = "#% increased Life Cost Efficiency",
-				["type"] = "augment",
-			},
-		},
 		["3132681620"] = {
 			["Boots"] = {
 				["max"] = 1,
@@ -24661,19 +24714,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3132681620",
 				["text"] = "Can roll Chronomancy modifiers",
-				["type"] = "augment",
-			},
-		},
-		["3143918757"] = {
-			["Gloves"] = {
-				["max"] = 50,
-				["min"] = 50,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3143918757",
-				["text"] = "#% increased Glory generation",
 				["type"] = "augment",
 			},
 		},
@@ -24699,6 +24739,10 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
+			["Sceptre"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24712,37 +24756,15 @@ return {
 				["max"] = 25,
 				["min"] = 25,
 			},
+			["Sceptre"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_315791320",
 				["text"] = "Aura Skills have #% increased Magnitudes",
-				["type"] = "augment",
-			},
-		},
-		["3166958180"] = {
-			["Gloves"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3166958180",
-				["text"] = "#% increased Magnitude of Bleeding you inflict",
-				["type"] = "augment",
-			},
-		},
-		["3175163625"] = {
-			["Gloves"] = {
-				["max"] = 10,
-				["min"] = 10,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3175163625",
-				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies",
 				["type"] = "augment",
 			},
 		},
@@ -24761,6 +24783,10 @@ return {
 		},
 		["3257561708"] = {
 			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
 				["max"] = 1,
 				["min"] = 1,
 			},
@@ -24859,7 +24885,15 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3278136794"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["2HWeapon"] = {
+				["max"] = 12,
+				["min"] = 6,
+			},
+			["Staff"] = {
 				["max"] = 12,
 				["min"] = 6,
 			},
@@ -25105,6 +25139,10 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25236,6 +25274,10 @@ return {
 				["max"] = 13,
 				["min"] = 13,
 			},
+			["Staff"] = {
+				["max"] = 13,
+				["min"] = 13,
+			},
 			["Talisman"] = {
 				["max"] = 13,
 				["min"] = 13,
@@ -25270,6 +25312,10 @@ return {
 				["max"] = 2,
 				["min"] = 2,
 			},
+			["Talisman"] = {
+				["max"] = 2,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25292,7 +25338,15 @@ return {
 			},
 		},
 		["3482326075"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["Staff"] = {
 				["max"] = 50,
 				["min"] = 50,
 			},
@@ -25323,7 +25377,15 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3489782002"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 60,
+				["min"] = 30,
+			},
+			["2HWeapon"] = {
+				["max"] = 60,
+				["min"] = 30,
+			},
+			["Staff"] = {
 				["max"] = 60,
 				["min"] = 30,
 			},
@@ -25342,6 +25404,10 @@ return {
 		},
 		["3515226849"] = {
 			["1HWeapon"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["Sceptre"] = {
 				["max"] = 3,
 				["min"] = 3,
 			},
@@ -25431,6 +25497,10 @@ return {
 				["max"] = 50,
 				["min"] = 50,
 			},
+			["Staff"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
 			["Talisman"] = {
 				["max"] = 50,
 				["min"] = 50,
@@ -25473,19 +25543,6 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
-		},
-		["3557924960"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3557924960",
-				["text"] = "Gain #% of Damage as Extra Damage of a random Element perRune Socketed in Equipped Items",
-				["type"] = "augment",
-			},
 		},
 		["3570773271"] = {
 			["Helmet"] = {
@@ -25704,7 +25761,15 @@ return {
 				["max"] = 60,
 				["min"] = 40,
 			},
-			["Quarterstaff"] = {
+			["2HWeapon"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Sceptre"] = {
+				["max"] = 60,
+				["min"] = 40,
+			},
+			["Staff"] = {
 				["max"] = 40,
 				["min"] = 40,
 			},
@@ -25722,6 +25787,10 @@ return {
 		},
 		["3759663284"] = {
 			["2HWeapon"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["Bow"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -25767,6 +25836,10 @@ return {
 			},
 		},
 		["3814102597"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["Wand"] = {
 				["max"] = 1,
 				["min"] = 1,
@@ -25797,6 +25870,10 @@ return {
 				["max"] = 20,
 				["min"] = 20,
 			},
+			["Sceptre"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25808,6 +25885,10 @@ return {
 		},
 		["3850614073"] = {
 			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 12,
+			},
+			["Sceptre"] = {
 				["max"] = 12,
 				["min"] = 12,
 			},
@@ -25916,6 +25997,10 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
+			["Bow"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 				["overrideModLineSingular"] = "Bow Attacks fire an additional Arrow",
 			},
@@ -25978,20 +26063,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3897831687"] = {
-			["Gloves"] = {
-				["max"] = 40,
-				["min"] = 40,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3897831687",
-				["text"] = "#% of Armour also applies to Fire Damage",
-				["type"] = "augment",
-			},
-			["usePositiveSign"] = true,
-		},
 		["3903510399"] = {
 			["Helmet"] = {
 				["max"] = 35,
@@ -26037,9 +26108,9 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["3973629633"] = {
-			["Gloves"] = {
-				["max"] = 20,
-				["min"] = 20,
+			["1HWeapon"] = {
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Wand"] = {
 				["max"] = 25,
@@ -26109,6 +26180,10 @@ return {
 		},
 		["3984865854"] = {
 			["1HWeapon"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Sceptre"] = {
 				["max"] = 15,
 				["min"] = 15,
 			},
@@ -26316,21 +26391,15 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
-		["4095671657"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_4095671657",
-				["text"] = "#% to Maximum Fire Resistance",
-				["type"] = "augment",
-			},
-			["usePositiveSign"] = true,
-		},
 		["416040624"] = {
+			["1HWeapon"] = {
+				["max"] = 16,
+				["min"] = 10,
+			},
+			["2HWeapon"] = {
+				["max"] = 16,
+				["min"] = 10,
+			},
 			["Chest"] = {
 				["max"] = 15,
 				["min"] = 15,
@@ -26339,7 +26408,7 @@ return {
 				["max"] = 15,
 				["min"] = 15,
 			},
-			["Quarterstaff"] = {
+			["Staff"] = {
 				["max"] = 16,
 				["min"] = 10,
 			},
@@ -26357,6 +26426,10 @@ return {
 		},
 		["4200448078"] = {
 			["1HWeapon"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["Sceptre"] = {
 				["max"] = 20,
 				["min"] = 20,
 			},
@@ -26452,19 +26525,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_4236566306",
 				["text"] = "Meta Skills gain #% increased Energy",
-				["type"] = "augment",
-			},
-		},
-		["4258524206"] = {
-			["Gloves"] = {
-				["max"] = 50,
-				["min"] = 50,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_4258524206",
-				["text"] = "#% chance to build an additional Combo on Hit",
 				["type"] = "augment",
 			},
 		},
@@ -26566,6 +26626,10 @@ return {
 				["max"] = 10,
 				["min"] = 10,
 			},
+			["Crossbow"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26579,6 +26643,10 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26589,6 +26657,10 @@ return {
 		},
 		["553018427"] = {
 			["1HWeapon"] = {
+				["max"] = -30,
+				["min"] = -30,
+			},
+			["Sceptre"] = {
 				["max"] = -30,
 				["min"] = -30,
 			},
@@ -26772,19 +26844,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["624954515"] = {
-			["Gloves"] = {
-				["max"] = 25,
-				["min"] = 25,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_624954515",
-				["text"] = "#% increased Accuracy Rating",
-				["type"] = "augment",
-			},
-		},
 		["627339348"] = {
 			["1HMace"] = {
 				["max"] = 28.5,
@@ -26843,6 +26902,10 @@ return {
 				["max"] = 8,
 				["min"] = 8,
 			},
+			["Sceptre"] = {
+				["max"] = 8,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -26866,6 +26929,10 @@ return {
 		},
 		["666077204"] = {
 			["1HWeapon"] = {
+				["max"] = 12,
+				["min"] = 12,
+			},
+			["Sceptre"] = {
 				["max"] = 12,
 				["min"] = 12,
 			},
@@ -26927,19 +26994,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_669069897",
 				["text"] = "Leeches #% of Physical Damage as Mana",
-				["type"] = "augment",
-			},
-		},
-		["681332047"] = {
-			["Gloves"] = {
-				["max"] = 8,
-				["min"] = 8,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_681332047",
-				["text"] = "#% increased Attack Speed",
 				["type"] = "augment",
 			},
 		},
@@ -27204,6 +27258,10 @@ return {
 				["max"] = 5,
 				["min"] = 5,
 			},
+			["Staff"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
 			["Talisman"] = {
 				["max"] = 5,
 				["min"] = 5,
@@ -27257,6 +27315,10 @@ return {
 				["max"] = 0.2,
 				["min"] = 0.2,
 			},
+			["Sceptre"] = {
+				["max"] = 0.2,
+				["min"] = 0.2,
+			},
 			["Spear"] = {
 				["max"] = 0.2,
 				["min"] = 0.2,
@@ -27282,7 +27344,15 @@ return {
 			},
 		},
 		["737908626"] = {
-			["Quarterstaff"] = {
+			["1HWeapon"] = {
+				["max"] = 28,
+				["min"] = 16,
+			},
+			["2HWeapon"] = {
+				["max"] = 28,
+				["min"] = 16,
+			},
+			["Staff"] = {
 				["max"] = 28,
 				["min"] = 16,
 			},
@@ -27395,20 +27465,15 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
-		["782230869"] = {
-			["Gloves"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_782230869",
-				["text"] = "#% increased Magnitude of Non-Damaging Ailments you inflict",
-				["type"] = "augment",
-			},
-		},
 		["789117908"] = {
+			["1HWeapon"] = {
+				["max"] = 35,
+				["min"] = 20,
+			},
+			["2HWeapon"] = {
+				["max"] = 35,
+				["min"] = 20,
+			},
 			["Boots"] = {
 				["max"] = 21,
 				["min"] = 12,
@@ -27429,13 +27494,13 @@ return {
 				["max"] = 21,
 				["min"] = 12,
 			},
-			["Quarterstaff"] = {
-				["max"] = 35,
-				["min"] = 20,
-			},
 			["Shield"] = {
 				["max"] = 21,
 				["min"] = 12,
+			},
+			["Staff"] = {
+				["max"] = 35,
+				["min"] = 20,
 			},
 			["Wand"] = {
 				["max"] = 35,
@@ -27499,19 +27564,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_791928121",
 				["text"] = "Causes #% increased Stun Buildup",
-				["type"] = "augment",
-			},
-		},
-		["820939409"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_820939409",
-				["text"] = "Gain # Mana per Enemy Hit with Attacks",
 				["type"] = "augment",
 			},
 		},
@@ -27729,19 +27781,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
-				["type"] = "augment",
-			},
-		},
-		["935518591"] = {
-			["Gloves"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_935518591",
-				["text"] = "Critical Hit chance is Lucky against Parried enemies",
 				["type"] = "augment",
 			},
 		},
