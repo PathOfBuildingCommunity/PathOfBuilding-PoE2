@@ -108,7 +108,7 @@ statMap = {
 #from tree
 #skill ArchonOfChayulaTornadoPlayer
 #set ArchonOfChayulaTornadoPlayer
-#flags
+#flags attack duration area
 #mods
 #skillEnd
 
@@ -214,10 +214,10 @@ statMap = {
 
 #skill ConductiveRunesPlayer
 #set ConductiveRunesPlayer
-#flags
+#flags attack duration
 #mods
 #set ConductiveRunesExplosionPlayer
-#flags
+#flags attack
 #mods
 #skillEnd
 
@@ -238,10 +238,10 @@ statMap = {
 #from item
 #skill CrushingFearPlayer
 #set CrushingFearPlayer
-#flags
+#flags attack area melee
 #mods
 #set CrushingFearNovaPlayer
-#flags
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -271,10 +271,11 @@ statMap = {
 
 #skill DetonateLivingPlayer
 #set DetonateLivingPlayer
-#flags
+#flags spell
 #mods
 #set DetonateLivingExplodePlayer
-#flags
+#flags area hit
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
@@ -380,19 +381,19 @@ statMap = {
 
 #skill TriggeredExplosiveTransmutationExplosionPlayer
 #set ExplosiveTransmutationPhysicalPlayer
-#flags
+#flags spell area
 #mods
 #set ExplosiveTransmutationColdPlayer
-#flags
+#flags spell area
 #mods
 #set ExplosiveTransmutationFirePlayer
-#flags
+#flags spell area
 #mods
 #set ExplosiveTransmutationLightningPlayer
-#flags
+#flags spell area
 #mods
 #set ExplosiveTransmutationChaosPlayer
-#flags
+#flags spell area
 #mods
 #skillEnd
 
@@ -423,22 +424,22 @@ statMap = {
 
 #skill FragmentsOfThePastPlayer
 #set FragmentsOfThePastPlayer
-#flags
+#flags attack duration
 #mods
 #skillEnd
 
 #skill FragmentsOfThePastFragmentPlayer
 #set FragmentsOfThePastFragmentPlayer
-#flags
+#flags attack area projectile
 #mods
 #skillEnd
 
 #skill FrostflameNovaPlayer
 #set FrostflameNovaPlayer
-#flags
+#flags spell
 #mods
 #set FrostflameNovaColdHitPlayer
-#flags
+#flags spell
 #mods
 #skillEnd
 
@@ -459,16 +460,16 @@ statMap = {
 #from item
 #skill MeleeGrenadeLauncherPlayer
 #set MeleeGrenadeLauncherPlayer
-#flags
+#flags attack area projectile
 #mods
 #skillEnd
 
 #skill GrimPillarsPlayer
 #set GrimPillarsPlayer
-#flags
+#flags spell area duration
 #mods
 #set GrimPillarsExplodePlayer
-#flags
+#flags spell area duration
 #mods
 #skillEnd
 
@@ -485,10 +486,10 @@ statMap = {
 #from tree
 #skill HollowFocusPlayer
 #set HollowFocusPlayer
-#flags
+#flags duration
 #mods
 #set HollowFocusNovaPlayer
-#flags
+#flags attack area
 #mods
 #skillEnd
 
@@ -502,13 +503,21 @@ statMap = {
 #from tree
 #skill SupportHollowFormPlayer
 #set SupportHollowFormPlayer
+statMap = {
+	["mantra_of_illusions_triggered_skill_attack_speed_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["mantra_of_illusions_triggered_skill_damage_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
 #mods
 #skillEnd
 
 #from tree
 #skill HollowResonancePlayer
 #set HollowResonancePlayer
-#flags
+#flags attack area
 #mods
 #skillEnd
 
@@ -689,7 +698,7 @@ statMap = {
 #from item
 #skill TriggeredMoltenShowerPlayer
 #set TriggeredMoltenShowerPlayer
-#flags
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -825,7 +834,7 @@ statMap = {
 
 #skill RainOfBladesTriggeredPlayer
 #set RainOfBladesTriggeredPlayer
-#flags
+#flags attack area
 #mods
 #skillEnd
 
@@ -865,17 +874,17 @@ statMap = {
 
 #skill CurseOfRepulsionShockwavePlayer
 #set CurseOfRepulsionShockwavePlayer
-#flags
+#flags nonWeaponAttack area
 #mods
 #skillEnd
 
 #from item
 #skill RighteousDescentPlayer
 #set RighteousDescentPlayer
-#flags
+#flags attack area
 #mods
 #set RighteousDescentPlayerBoosted
-#flags
+#flags attack area
 #mods
 #skillEnd
 
@@ -974,24 +983,24 @@ statMap = {
 
 #skill SkyfallPlayer
 #set SkyfallPlayer
-#flags
+#flags spell area duration
 #mods
 #set SkyfallInfusedPlayer
-#flags
+#flags spell area duration
 #mods
 #skillEnd
 
 #from item
 #skill NightfallSoaringMidnightPlayer
 #set NightfallSoaringMidnightPlayer
-#flags
+#flags attack projectile shieldAttack
 #mods
 #skillEnd
 
 #from item
 #skill NightfallEmbraceTheFallPlayer
 #set NightfallEmbraceTheFallPlayer
-#flags
+#flags attack melee shieldAttack area
 #mods
 #skillEnd
 
@@ -1048,10 +1057,10 @@ statMap = {
 #from item
 #skill StarbornOnslaughtPlayer
 #set StarbornOnslaughtPlayer
-#flags
+#flags attack area duration
 #mods
 #set StarbornOnslaughtExplosions
-#flags
+#flags attack area duration
 #mods
 #skillEnd
 
@@ -1147,17 +1156,19 @@ statMap = {
 #from item
 #skill TheStarsAnswerPlayer
 #set TheStarsAnswerPlayer
-#flags
+#flags spell duraton
 #mods
 #skillEnd
 
 #from item
 #skill TheStarsAnswerCometPlayer
 #set TheStarsAnswerCometPlayer
-#flags
+#flags spell area
+#baseMod skill("hitTimeOverride", 0.3)
 #mods
 #set TheStarsAnswerEmpoweredCometPlayer
-#flags
+#flags spell area
+#baseMod skill("hitTimeOverride", 2)
 #mods
 #skillEnd
 
@@ -1237,7 +1248,7 @@ statMap = {
 #from tree
 #skill VividStampedePlayer
 #set VividStampedePlayer
-#flags
+#flags attack area duration
 #mods
 #skillEnd
 
@@ -1257,13 +1268,13 @@ statMap = {
 
 #skill VoltaicBarrierPlayer
 #set VoltaicBarrierPlayer
-#flags
+#flags attack
 #mods
 #skillEnd
 
 #skill VoltaicBarrierTriggeredChainLightningPlayer
 #set VoltaicBarrierTriggeredChainLightningPlayer
-#flags
+#flags attack area duration
 #mods
 #skillEnd
 

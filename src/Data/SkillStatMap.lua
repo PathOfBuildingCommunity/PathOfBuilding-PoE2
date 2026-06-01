@@ -2839,6 +2839,9 @@ return {
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
 },
+["spells_have_culling_strike"] = {
+	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
+},
 ["spell_cast_time_added_to_cooldown_if_triggered"] = {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),
 },
