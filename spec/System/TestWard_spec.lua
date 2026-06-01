@@ -148,14 +148,27 @@ describe("TestWard", function()
 	it("WardRegen is included in TotalNetRegen", function()
 		build.configTab.input.customMods = "\z
 		+1000 to Ward\n\z
+		1 Physical Damage taken per second\n\z
 		"
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
 		assert.are.equals(50, build.calcsTab.calcsOutput.WardRegen)
-		assert.is_true(build.calcsTab.calcsOutput.TotalNetRegen == nil or build.calcsTab.calcsOutput.TotalNetRegen >= 50,
-			"TotalNetRegen should be at least WardRegen (50) but was " ..
-			tostring(build.calcsTab.calcsOutput.TotalNetRegen))
+		-- TotalNetRegen = WardRegen (50) - degen (1) = 49; tolerance of 2 for floor/rounding
+		assert.is_near(49, build.calcsTab.calcsOutput.TotalNetRegen, 2)
+	end)
+
+	it("ward_rune_maximum_ward_+%_final maps as Ward MORE (not INC)", function()
+		-- Verify MORE stacks multiplicatively: 100 base * (1 + 0.5 INC) * (1 + 0.5 MORE) = 225
+		build.configTab.input.customMods = "\z
+		+100 to Ward\n\z
+		50% increased Ward\n\z
+		50% more Ward\n\z
+		"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(225, build.calcsTab.calcsOutput.Ward)
 	end)
 
 	it("WardCoverOnMinionDeath stat ID parses correctly", function()

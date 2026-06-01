@@ -1859,13 +1859,16 @@ function calcs.defence(env, actor)
 	end
 
 	-- Ward regeneration
+	local wardRegenFlatPerMin = modDB:Sum("BASE", nil, "WardRegen") or 0
 	local wardRegenBase = data.gameConstants["WardRegenRatePercentPerMinute"] / 100 / 60 * output.Ward
+		+ wardRegenFlatPerMin / 60  -- flat bonus is in per-minute, convert to per-second
 	local wardRegenInc = modDB:Sum("INC", nil, "WardRegen")
 	local wardRegenMore = modDB:More(nil, "WardRegen")
 	output.WardRegen = m_max(m_floor(wardRegenBase * (1 + wardRegenInc / 100) * wardRegenMore), 0)
 	if breakdown and output.WardRegen > 0 then
 		breakdown.WardRegen = {
 			s_format("%.2f ^8(base per second)", wardRegenBase),
+			wardRegenFlatPerMin > 0 and s_format("+ %.2f ^8(flat per second)", wardRegenFlatPerMin / 60) or nil,
 			s_format("x %.2f ^8(increased)", 1 + wardRegenInc / 100),
 			wardRegenMore ~= 1 and s_format("x %.2f ^8(more)", wardRegenMore) or nil,
 			s_format("= %.2f ^8(per second)", output.WardRegen)
