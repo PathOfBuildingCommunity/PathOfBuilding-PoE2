@@ -108,7 +108,7 @@ VERSION[0.16.0][2026/05/30]
 * Fix crash on import from private league (LocalIdentity)
 * Fix crash on loading build due to some minion skills (LocalIdentity)
 * Fix crash when opening some old builds (LocalIdentity)
-* Fix Adnonia's Ego power charge mod slider crash (LocalIdentity)
+* Fix Adonia's Ego power charge mod slider crash (LocalIdentity)
 
 --- User Interface ---
 * Add legacy toggle for gems that are no longer obtainable (Peechey)

@@ -109,7 +109,7 @@
 - Fix crash on import from private league [\#1874](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1874) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash on loading build due to some minion skills [\#1880](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1880) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash when opening some old builds [\#1925](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1925) ([LocalIdentity](https://github.com/LocalIdentity))
-- Fix Adnonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Adonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
 ### User Interface
 - Add legacy toggle for gems that are no longer obtainable [\#1935](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1935) ([Peechey](https://github.com/Peechey))
 - Show "The Unseen Paths" nodes only when allocated [\#1742](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1742) ([MrHB212](https://github.com/MrHB212))
