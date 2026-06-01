@@ -493,8 +493,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Glorious Plate
-			Armour: 534
+			Elegant Plate
+			Armour: 502
 			Crafted: true
 			Prefix: None
 			Prefix: None

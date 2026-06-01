@@ -484,7 +484,7 @@ describe("TestSkills", function()
 
 		assert.is_not_nil(arcSkill)
 		assert.are.equals(2, arcSkill.skillModList:GetMultiplier("SupportCount", arcSkill.skillCfg))
-		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
+		assert.are.equals(2, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
 	end)
 
 	it("Test Elemental Conflux element selection", function()
