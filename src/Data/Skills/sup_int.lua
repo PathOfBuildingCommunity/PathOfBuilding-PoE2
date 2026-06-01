@@ -4009,9 +4009,6 @@ skills["SupportExpandPlayer"] = {
 				["skill_area_of_effect_+%_per_broken_seal"] = {
 					mod("SealRepeatPenalty", "MORE", nil),
 				},
-				["support_%_of_total_cast_time_as_base_skill_seal_gain_interval"] = {
-					mod("SealGainFrequency", "BASE", nil),
-				},
 			},
 			baseFlags = {
 			},
