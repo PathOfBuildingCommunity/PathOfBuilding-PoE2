@@ -23,7 +23,9 @@ jobs:
                 git config --global user.name "github-actions[bot]"
             - name: Update manifest.xml
               run: python3 update_manifest.py --quiet --in-place --set-version ${{ github.event.inputs.version }}
-            - name: Push to dev branch
-              run: |
-                  git commit -am "Update manifest" --allow-empty --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-                  git push origin HEAD:dev
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v5
+              with:
+                  title: Update manifest.xml to ${{ github.event.inputs.version }}
+                  branch: manifest-${{ github.event.inputs.version }}
+                  commit-message: 'Update manifest.xml to  ${{ github.event.inputs.version }}'
