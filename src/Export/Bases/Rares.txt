@@ -82,11 +82,11 @@ return {
 #setBase Shrine Sceptre, Purity Aura %s, [ Variant: Purity of Fire, Variant: Purity of Ice, Variant: Purity of Lightning, Crafted: true, Prefix: LocalIncreasedSpiritPercent6, Suffix: NearbyAlliesAllResistances5, Implicits: 3, {variant:1}Grants Skill: Level (1-20) Purity of Fire, {variant:2}Grants Skill: Level (1-20) Purity of Ice, {variant:3}Grants Skill: Level (1-20) Purity of Lightning ]
 
 -- Weapons
-#baseGroup Spell One Handed, [ Prefix: SpellDamageOnWeapon5, Prefix: SpellDamageAndManaOnWeapon4, Suffix: SpellCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#baseGroup Physical One Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#baseGroup Elemental One Handed, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#baseGroup Physical Two Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamageTwoHand6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
-#baseGroup Elemental Two Handed, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
+#baseGroup Spell One Hand, [ Prefix: SpellDamageOnWeapon5, Prefix: SpellDamageAndManaOnWeapon4, Suffix: SpellCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+#baseGroup Physical One Hand, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#baseGroup Elemental One Hand, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#baseGroup Physical Two Hand, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamageTwoHand6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
+#baseGroup Elemental Two Hand, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
 
 -- Bows
 #setBase Warmonger Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
@@ -148,6 +148,10 @@ return {
 #setBase Attuned Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
 #setBase Siphoning Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
 
+-- Talisman
+#setBase Maji Talisman, Physical %s, [ ]
+#setBase Maji Talisman, Elemental %s, [ ]
+
 -- Not in game yet.
 ---- One Hand Swords
 ---setBase Dark Blade, Physical %s, [ ]
@@ -185,9 +189,9 @@ return {
 #setBase Sapphire, [ ]
 
 -- Jewels
-#setBase Time-Lost Ruby, [ ]
-#setBase Time-Lost Emerald, [ ]
-#setBase Time-Lost Sapphire, [ ]
+#setBase Time-Lost Ruby, [ Radius: Small ]
+#setBase Time-Lost Emerald, [ Radius: Small ]
+#setBase Time-Lost Sapphire, [ Radius: Small ]
 
 -- Flasks
 [[

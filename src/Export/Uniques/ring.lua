@@ -103,11 +103,13 @@ UniqueAdditionalCurseOnEnemies1
 Dream Fragments
 Sapphire Ring
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 RingImplicitColdResistance1
 {variant:1}UniqueMaximumManaIncrease1[20,20]
-{variant:2}UniqueMaximumManaIncrease1
+{variant:2}UniqueMaximumManaIncrease1[10,10]
+{variant:3}UniqueMaximumManaIncrease1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
 ]],[[
@@ -231,6 +233,7 @@ UniqueManaCostReduction2
 ]],[[
 Sekhema's Resolve
 Ring
+Sockets: J
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald

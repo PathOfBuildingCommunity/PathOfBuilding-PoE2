@@ -10,7 +10,8 @@ colorCodes = {
 	RARE = "^xFFFF77",
 	UNIQUE = "^xAF6025",
 	RELIC = "^x60C060",
-	GEM = "^x1AA29B",
+	GEM = "^x74CABF",
+	GEMINFO = "^x6F9A98",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
 	ENCHANTED = "^xB8DAF1",
@@ -48,6 +49,7 @@ colorCodes = {
 	SHAPER = "^x55BBFF",
 	ELDER = "^xAA77CC",
 	FRACTURED = "^xA29160",
+	MUTATED = "^xAE2E3B",
 	ADJUDICATOR = "^xE9F831",
 	BASILISK = "^x00CB3A",
 	CRUSADER = "^x2946FC",
@@ -62,6 +64,8 @@ colorCodes = {
 	SAPBG = "^x261500",
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
+	GEMDESCRIPTION = "^xBAAD85",
+	SPLITPERSONALITY = "^xFFD62A"
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
@@ -102,16 +106,16 @@ end
 
 -- NOTE: the LuaJIT bitwise operations we have are not 64-bit
 -- so we need to implement them ourselves. Lua uses 53-bit doubles.
-HIGH_MASK_53 = 0x1FFFFF
+local HIGH_MASK_53 = 0x1FFFFF
 function OR64(...)
     local args = {...}
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- OR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -119,15 +123,15 @@ function OR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform OR operation on both parts
         local high = bit.bor(ah, bh)
         local low = bit.bor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -136,10 +140,10 @@ function AND64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- AND with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -147,15 +151,15 @@ function AND64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform AND operation on both parts
         local high = bit.band(ah, bh)
         local low = bit.band(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -164,10 +168,10 @@ function XOR64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- XOR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -175,15 +179,15 @@ function XOR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform XOR operation on both parts
         local high = bit.bxor(ah, bh)
         local low = bit.bxor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -191,15 +195,15 @@ function NOT64(a)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
     local al = a % 0x100000000
-    
+
     -- Perform NOT operation on both parts
     local high = bit.bnot(ah)
     local low = bit.bnot(al)
-    
+
     -- Convert negative numbers to their unsigned equivalents
     if high < 0 then high = high + 0x100000000 end
     if low < 0 then low = low + 0x100000000 end
-    
+
     -- Use bit operations to combine the results
     -- This avoids potential floating-point precision issues
     return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
@@ -209,7 +213,7 @@ function strHex64(value)
     -- Split into high and low 32-bit parts
     local high = math.floor(value / 0x100000000)
     local low = value % 0x100000000
-    
+
     -- Stringify as two 8-digit hex values
     return string.format("0x%08X%08X", high, low)
 end
@@ -221,6 +225,7 @@ ModFlag.Spell =		 0x0000000000000002
 ModFlag.Hit =		 0x0000000000000004
 ModFlag.Dot =		 0x0000000000000008
 ModFlag.Cast =		 0x0000000000000010
+ModFlag.Thorns =	 0x0000000000000020
 -- Damage sources
 ModFlag.Melee =		 0x0000000000000100
 ModFlag.Area =		 0x0000000000000200
@@ -244,12 +249,13 @@ ModFlag.Crossbow =	 0x0000000004000000
 ModFlag.Flail =		 0x0000000008000000
 ModFlag.Spear =		 0x0000000010000000
 ModFlag.Warstaff =	 0x0000000020000000
+ModFlag.Talisman =	 0x0000000040000000
 -- Weapon classes
 ModFlag.WeaponMelee =0x0000000100000000
 ModFlag.WeaponRanged=0x0000000200000000
 ModFlag.Weapon1H =	 0x0000000400000000
 ModFlag.Weapon2H =	 0x0000000800000000
-ModFlag.WeaponMask = 0x0000000F1FFF0000
+ModFlag.WeaponMask = 0x0000000F5FFF0000
 
 KeywordFlag = { }
 -- Skill keywords
@@ -264,6 +270,7 @@ KeywordFlag.Lightning =	0x00000080
 KeywordFlag.Chaos =		0x00000100
 KeywordFlag.Vaal =		0x00000200
 KeywordFlag.Bow =		0x00000400
+KeywordFlag.Arrow =		0x00000800
 -- Skill types
 KeywordFlag.Trap =		0x00001000
 KeywordFlag.Mine =		0x00002000
@@ -292,21 +299,48 @@ KeywordFlag.MatchAll =	0x40000000
 local band = AND64
 local bnot = NOT64
 local MatchAllMask = bnot(KeywordFlag.MatchAll)
+
+-- Two-level numeric-key cache to avoid building string keys or allocating tables per call.
+local matchKeywordFlagsCache = {}
+function ClearMatchKeywordFlagsCache()
+	-- cheap full reset without reallocating the outer table
+	for k in pairs(matchKeywordFlagsCache) do
+		matchKeywordFlagsCache[k] = nil
+	end
+end
+
 ---@param keywordFlags number The KeywordFlags to be compared to.
 ---@param modKeywordFlags number The KeywordFlags stored in the mod.
 ---@return boolean Whether the KeywordFlags in the mod are satisfied.
 function MatchKeywordFlags(keywordFlags, modKeywordFlags)
-	local matchAll = band(modKeywordFlags, KeywordFlag.MatchAll) ~= 0
-	modKeywordFlags = band(modKeywordFlags, MatchAllMask)
-	keywordFlags = band(keywordFlags, MatchAllMask)
-	if matchAll then
-		return band(keywordFlags, modKeywordFlags) == modKeywordFlags
+	-- Cache lookup
+	local row = matchKeywordFlagsCache[keywordFlags]
+	if row then
+		local cached = row[modKeywordFlags]
+		if cached ~= nil then
+			return cached
+		end
+	else
+		row = {}
+		matchKeywordFlagsCache[keywordFlags] = row
 	end
-	return modKeywordFlags == 0 or band(keywordFlags, modKeywordFlags) ~= 0
+	-- Not in cache, compute normally
+	local matchAll = band(modKeywordFlags, KeywordFlag.MatchAll) ~= 0
+	local modMasked = band(modKeywordFlags, MatchAllMask)
+	local keywordMasked = band(keywordFlags, MatchAllMask)
+
+	local matches
+	if matchAll then
+		matches = band(keywordMasked, modMasked) == modMasked
+	else
+		matches = (modMasked == 0) or (band(keywordMasked, modMasked) ~= 0)
+	end
+	row[modKeywordFlags] = matches -- Add to cache
+	return matches
 end
 
 -- Active skill types, used in ActiveSkills.dat and GrantedEffects.dat
--- Names taken from ActiveSkillType.dat as of PoE 3.17
+-- Names taken from ActiveSkillType.dat
 SkillType = {
 	Attack = 1,
 	Spell = 2,
@@ -390,33 +424,33 @@ SkillType = {
 	Blink = 80,
 	CanHaveBlessing = 81,
 	ProjectilesNotFromUser = 82,
-	AttackInPlaceIsDefault = 83,
-	Nova = 84,
-	InstantNoRepeatWhenHeld = 85,
-	InstantShiftAttackForLeftMouse = 86,
-	AuraNotOnCaster = 87,
-	Banner = 88,
-	Rain = 89,
-	Cooldown = 90,
-	ThresholdJewelChaining = 91,
-	Slam = 92,
-	Stance = 93,
-	NonRepeatable = 94, -- Blood and Sand + Flesh and Stone
-	UsedByTotem = 95,
-	Steel = 96,
-	Hex = 97,
-	Mark = 98,
-	Aegis = 99,
-	Orb = 100,
-	KillNoDamageModifiers = 101,
-	RandomElement = 102, -- means elements cannot repeat
-	LateConsumeCooldown = 103,
-	Arcane = 104, -- means it is reliant on amount of mana spent
-	FixedCastTime = 105,
-	RequiresOffHandNotWeapon = 106,
-	Link = 107,
-	Blessing = 108,
-	ZeroReservation = 109,
+	AttackInPlace = 83,
+	AttackInPlaceIsDefault = 84,
+	Nova = 85,
+	InstantNoRepeatWhenHeld = 86,
+	InstantShiftAttackForLeftMouse = 87,
+	AuraNotOnCaster = 88,
+	Banner = 89,
+	Rain = 90,
+	Cooldown = 91,
+	ThresholdJewelChaining = 92,
+	Slam = 93,
+	Stance = 94,
+	NonRepeatable = 95, -- Blood and Sand + Flesh and Stone
+	UsedByTotem = 96,
+	Steel = 97,
+	Hex = 98,
+	Mark = 99,
+	Aegis = 100,
+	Orb = 101,
+	KillNoDamageModifiers = 102,
+	RandomElement = 103, -- means elements cannot repeat
+	LateConsumeCooldown = 104,
+	Arcane = 105, -- means it is reliant on amount of mana spent
+	FixedCastTime = 106,
+	RequiresOffHandNotWeapon = 107,
+	Link = 108,
+	Blessing = 109,
 	DynamicCooldown = 110,
 	Microtransaction = 111,
 	OwnerCannotUse = 112,
@@ -441,61 +475,61 @@ SkillType = {
 	ConsumesCharges = 131,
 	ManualCooldownConsumption = 132,
 	SupportedByHourglass = 133,
-	ConsumesFullyBrokenArmour = 134,
-	SkillConsumesFreeze = 135,
-	SkillConsumesIgnite = 136,
-	SkillConsumesShock = 137,
-	Wall = 138,
-	Persistent = 139,
-	UsableWhileMoving = 140,
-	CanBecomeArrowRain = 141,
-	MultipleReservation = 142,
-	SupportedByElementalDischarge = 143,
-	Limit = 144,
-	Singular = 145,
-	GeneratesCharges = 146,
-	EmpowersOtherSkill = 147,
-	PerformsFinalStrike = 148,
-	PerfectTiming = 149,
-	CanHaveMultipleOngoingSkillInstances = 150,
-	Sustained = 151,
-	ComboStacking = 152,
-	SupportedByComboFinisher = 153,
-	Offering = 154,
-	Retaliation = 155,
-	Shapeshift = 156,
-	Invocation = 157,
-	Grenade = 158,
-	NoDualWield = 159,
-	QuarterstaffSkill = 160,
-	SupportedByFountains = 161,
-	Jumping = 162,
-	CannotChain = 163,
-	CreatesGroundRune = 164,
-	CreatesFissure = 165,
-	SummonsAttackTotem = 166,
-	NonWeaponAttack = 167,
-	CreatesGroundEffect = 168,
-	SupportedByComboMastery = 169,
-	IceCrystal = 170,
-	SkillConsumesPowerChargesOnUse = 171,
-	SkillConsumesFrenzyChargesOnUse = 172,
-	SkillConsumesEnduranceChargesOnUse = 173,
-	SupportedByFerocity = 174,
-	SupportedByPotential = 175,
-	ProjectileNoCollision = 176,
-	SupportedByExcise = 177,
-	SupportedByExpanse = 178,
-	SupportedByExecrate = 179,
-	IsBlasphemy = 180,
-	PersistentShowsCastTime = 181,
-	GeneratesEnergy = 182,
-	GeneratesRemnants = 183,
-	CommandableMinion = 184,
-	Bow = 185,
-	AffectsPresence = 186,
-	GainsStages = 187,
-	HasSeals = 188,
+	SupportedByBreachlordsAmalgam = 134,
+	ConsumesFullyBrokenArmour = 135,
+	SkillConsumesFreeze = 136,
+	SkillConsumesIgnite = 137,
+	SkillConsumesShock = 138,
+	Wall = 139,
+	Persistent = 140,
+	UsableWhileMoving = 141,
+	CanBecomeArrowRain = 142,
+	MultipleReservation = 143,
+	SupportedByElementalDischarge = 144,
+	Limit = 145,
+	Singlular = 146,
+	GeneratesCharges = 147,
+	EmpowersOtherSkill = 148,
+	PerformsFinalStrike = 149,
+	PerfectTiming = 150,
+	CanHaveMultipleOngoingSkillInstances = 151,
+	Sustained = 152,
+	ComboStacking = 153,
+	SupportedByComboFinisher = 154,
+	Offering = 155,
+	Retaliation = 156,
+	Shapeshift = 157,
+	Invocation = 158,
+	Grenade = 159,
+	NoDualWield = 160,
+	Jumping = 161,
+	CannotChain = 162,
+	CreatesGroundRune = 163,
+	CreatesFissure = 164,
+	SummonsAttackTotem = 165,
+	NonWeaponAttack = 166,
+	CreatesGroundEffect = 167,
+	SupportedByComboMastery = 168,
+	IceCrystal = 169,
+	SkillConsumesPowerChargesOnUse = 170,
+	SkillConsumesFrenzyChargesOnUse = 171,
+	SkillConsumesEnduranceChargesOnUse = 172,
+	SupportedByFerocity = 173,
+	SupportedByPotential = 174,
+	ProjectileNoCollision = 175,
+	SupportedByExcise = 176,
+	SupportedByExpanse = 177,
+	SupportedByExecrate = 178,
+	IsBlasphemy = 179,
+	PersistentShowsCastTime = 180,
+	GeneratesEnergy = 181,
+	GeneratesRemnants = 182,
+	CommandableMinion = 183,
+	Bow = 184,
+	AffectsPresence = 185,
+	GainsStages = 186,
+	HasSeals = 187,
+	SupportedByExpand = 188,
 	SupportedByUnleash = 189,
 	SupportedBySalvo = 190,
 	Spear = 191,
@@ -549,15 +583,52 @@ SkillType = {
 	FrozenSpite = 239,
 	ObjectDurability = 240,
 	Detonator = 241,
-	SupportedByOverabundanceThree = 242,
-	UnlimitedTotems = 243,
-	SupportedByHaemoCrystals = 244,
-	SupportedByFlamePillar = 245,
-	CanCreateStoneElementals = 246,
-	RemnantCannotBeShared = 247,
+	UnlimitedTotems = 242,
+	SupportedByHaemoCrystals = 243,
+	SupportedByFlamePillar = 244,
+	CanCreateStoneElementals = 245,
+	RemnantCannotBeShared = 246,
+	GamepadDoNotForceSkillAtLocation = 247,
+	GamepadDeflectable = 248,
+	GamepadForceAllowInteraction = 249,
+	Wyvern = 250,
+	Plant = 251,
+	Wind = 252,
+	SupportedByHayoxi = 253,
+	Storm = 254,
+	DisableUpdateActionLocationAfterRelease = 255,
+	InteractsWithElementalGround = 256,
+	SupportedByNovaProjectiles = 257,
+	UsedByProxy = 258,
+	SupportedByEchoingCry = 259,
+	SpecialAncestralBoost = 260,
+	Runic = 261,
+	ActiveBlock = 262,
+	SupportedByVruunsInevitablity = 263,
+	SupportedByTulsAvalanche = 264,
+	IndeterminateEmpowermentAmount = 265,
+	GamepadDoNotChannelSkillAtLocation = 266,
+	AffectedByCooldownRate = 267,
+	UsedByClone = 268,
+	SupportedByAncestralWarriorTotem = 269,
+	SupportedBySpellTotem = 270,
+	SupportedByBallistaTotem = 271,
+	SupportedByMortarTotem = 272,
+	SupportedByFeralInvocation = 273,
+	SupportedByMirageArcher = 274,
+	SupportedByMirageDeadeye = 275,
+	SupportedByHollowForm = 276,
+	SupportedByAnimusSplinters = 277,
+	HasNoCost = 278,
 }
 
-GlobalCache = { 
+-- build reverse lookup
+SkillTypeName = {}
+for k, v in pairs(SkillType) do
+  SkillTypeName[v] = k
+end
+
+GlobalCache = {
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 }
 

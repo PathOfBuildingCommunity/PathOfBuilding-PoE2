@@ -160,6 +160,18 @@ return {
 	{
 		["Act"] = 4,
 		["Description"] = "Act 4",
+		["Area"] = "Eye of Hinekora",
+		["Info"] = "Tribal Medicine",
+		["Options"] = {
+			"30% increased Global Armour, Evasion and Energy Shield",
+			"+15% of Armour also applies to Elemental Damage\n\tGain Deflection Rating equal to 12% of Evasion Rating\n\t12% faster start of Energy Shield Recharge",
+		},
+		["AreaLevel"] = 51,
+		["useConfig"] = true
+	},
+	{
+		["Act"] = 4,
+		["Description"] = "Act 4",
 		["Area"] = "Halls Of The Dead",
 		["Info"] = "Tawhoa's Test",
 		["Options"] = {
@@ -250,13 +262,13 @@ return {
 		["Area"] = "Qimah",
 		["Info"] = "Seven Pillars",
 		["Options"] = {
-			"+5% to Elemental Resistances",
+			"+5% to all Elemental Resistances",
 			"3% increased Movement Speed",
-			"15% increased Global Defences",
+			"15% increased Global Armour, Evasion and Energy Shield",
 			"20% increased Presence Area Of Effect",
 			"12% increased Cooldown Recovery Rate",
 			"+5 to all Attributes",
-			"5% increased Experience Gain\n\t-5% to Elemental Resistances\n\t3% reduced Movement Speed\n\t15% reduced Global Defences\n\t20% reduced Presence Area Of Effect\n\t12% reduced Cooldown Recovery Rate\n\t5% reduced Attributes",
+			"5% increased Experience Gain\n\t-5% to all Elemental Resistances\n\t3% reduced Movement Speed\n\t15% reduced Global Armour, Evasion and Energy Shield\n\t20% reduced Presence Area Of Effect\n\t12% reduced Cooldown Recovery Rate\n\t5% reduced Attributes",
 		},
 		["AreaLevel"] = 63,
 		["useConfig"] = true

@@ -42,6 +42,7 @@ sed -i 's/\[learn2draw/\[Lexy/' temp_change.md
 sed -i 's/\[Voronoff/\[Tom Clancy Is Dead/' temp_change.md
 sed -i 's/\[PJacek/\[TPlant/' temp_change.md
 sed -i 's/\[justjuangui/\[trompetin17/' temp_change.md
+sed -i 's/\[krryan/\[DragoonWraith/' temp_change.md
 
 cp temp_change.md changelog_temp.txt
 # Append existing CHANGELOG.md content (excluding first line) to temp_change.md
@@ -57,8 +58,10 @@ sed -i "1,/## What's Changed/d" changelog_temp.txt
 sed -i -re 's/( \()?\[\\#[0-9]+\]\([^)]*\),? ?\)?//g' changelog_temp.txt
 # Remove markdown link formatting from usernames in parentheses
 sed -i -re 's/\[([^]]*)\]\(https:\/\/github\.com\/[^)]*\)/\1/g' changelog_temp.txt
-# Create new changelog format: add version header, format section headers, prepend to existing changelog
-echo "VERSION[${RELEASE_VERSION#v}][$(date +'%Y/%m/%d')]" | cat - changelog_temp.txt | sed -re 's/^### (.*)/\n--- \1 ---/' | cat - changelog.txt > changelog_new.txt
+# Create new changelog format: add version header, remove lines 2-3, format section headers, remove ## headers with following line, prepend to existing changelog
+echo "VERSION[${RELEASE_VERSION#v}][$(date +'%Y/%m/%d')]" | cat - changelog_temp.txt | sed '2,3d' | sed -re 's/^### (.*)/\n--- \1 ---/' | sed -e '/^##.*/,+1 d' | cat - changelog.txt > changelog_new.txt
+# Convert dashes to asterisks for bullet points
+sed -i -e 's/^- /* /' changelog_new.txt
 mv changelog_new.txt changelog.txt
 
 # Normalize line endings to CRLF for all output files to ensure consistent checksums with Windows

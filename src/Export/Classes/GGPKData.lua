@@ -36,7 +36,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 		self.oozPath = datPath:match("\\$") and datPath or (datPath .. "\\")
 	else
 		self.path = path
-		self.oozPath = io.popen("cd"):read('*l'):gsub('\r?', '') .. "\\ggpk\\"
+		self.oozPath = GetWorkDir() .. "\\ggpk\\"
 		self:CleanDir(reExport)
 		self:ExtractFiles(reExport)
 	end
@@ -44,12 +44,8 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 	self.dat = { }
 	self.txt = { }
 	self.ot = { }
-
-	if USE_DAT64 then
-		self:AddDat64Files()
-	else
-		self:AddDatFiles()
-	end
+	
+	self:AddDat64Files()
 end)
 
 function GGPKClass:CleanDir(reExport)
@@ -67,48 +63,44 @@ function GGPKClass:ExtractFilesWithBun(fileListStr, useRegex)
 	os.execute(cmd)
 end
 
+-- Use manifest files to avoid command line limit and reduce cmd calls
+function GGPKClass:ExtractFilesWithBunFromTable(fileTable, useRegex)
+	local useRegex = useRegex or false
+	local manifest = self.oozPath .. "extract_list.txt"
+	local f = assert(io.open(manifest, "w"))
+	for _, fname in ipairs(fileTable) do
+		f:write(string.lower(fname), "\n")
+	end
+	f:close()
+	local cmd = 'cd "' .. self.oozPath .. '" && bun_extract_file.exe extract-files ' .. (useRegex and '--regex "' or '"') .. self.path .. '" . < "' .. manifest .. '"'
+	ConPrintf(cmd)
+	os.execute(cmd)
+	os.remove(manifest)
+end
+
 function GGPKClass:ExtractFiles(reExport)
 	if reExport then
 		local datList, csdList, otList, itList = self:GetNeededFiles()
-		local sweetSpotCharacter = 6000
-		local fileList = ''
-
+		local datFiles = {}
 		for _, fname in ipairs(datList) do
-			if USE_DAT64 then
-				fileList = fileList .. '"' .. fname .. 'c64" '
-			else
-				fileList = fileList .. '"' .. fname .. '" '
-			end
-
-			if fileList:len() > sweetSpotCharacter then
-				self:ExtractFilesWithBun(fileList)
-				fileList = ''
-			end
+			datFiles[#datFiles + 1] = fname .. "c64"
 		end
 
-		for _, fname in ipairs(otList) do
-			self:ExtractFilesWithBun('"' .. fname .. '"', true)
+		-- non-regex chunk: dat files + itList
+		for i = 1, #itList do
+			datFiles[#datFiles + 1] = itList[i]
 		end
+		self:ExtractFilesWithBunFromTable(datFiles, false)
 
-		for _, fname in ipairs(itList) do
-			fileList = fileList .. '"' .. fname .. '" '
-
-			if fileList:len() > sweetSpotCharacter then
-				self:ExtractFilesWithBun(fileList)
-				fileList = ''
-			end
+		-- regex chunk: otList + csdList (stat descriptions)
+		local regexFiles = {}
+		for i = 1, #otList do
+			regexFiles[#regexFiles + 1] = otList[i]
 		end
-
-		if (fileList:len() > 0) then
-			self:ExtractFilesWithBun(fileList)
-			fileList = ''
+		for i = 1, #csdList do
+			regexFiles[#regexFiles + 1] = csdList[i]
 		end
-
-		-- Special handling for stat descriptions (CSD) as they
-		-- are regex based
-		for _, fname in ipairs(csdList) do
-			self:ExtractFilesWithBun('"' .. fname .. '"', true)
-		end
+		self:ExtractFilesWithBunFromTable(regexFiles, true)
 	end
 
 	-- Overwrite Enums
@@ -120,265 +112,265 @@ end
 
 function GGPKClass:ExtractList(listToExtract, cache, useRegex)
 	useRegex = useRegex or false
-	local sweetSpotCharacter = 6000
 	printf("Extracting ...")
-	local fileList = ''
+	local fileTable = {}
 	for _, fname in ipairs(listToExtract) do
 		-- we are going to validate if the file is already extracted in this session
 		if not cache[fname] then
 			cache[fname] = true
-			fileList = fileList .. '"' .. string.lower(fname) .. '" '
-
-			if fileList:len() > sweetSpotCharacter then
-				self:ExtractFilesWithBun(fileList, useRegex)
-				fileList = ''
-			end
+			fileTable[#fileTable + 1] = fname
 		end
 	end
 
-	if fileList:len() > 0 then
-		self:ExtractFilesWithBun(fileList, useRegex)
-		fileList = ''
-	end
-end
-
-function GGPKClass:AddDatFiles()
-	local datFiles = scanDir(self.oozPath .. "Data\\", '%w+%.dat$')
-	for _, f in ipairs(datFiles) do
-		local record = { }
-		record.name = f
-		local rawFile = io.open(self.oozPath .. "Data\\" .. f, 'rb')
-		record.data = rawFile:read("*all")
-		rawFile:close()
-		--ConPrintf("FILENAME: %s", fname)
-		t_insert(self.dat, record)
-	end
+	self:ExtractFilesWithBunFromTable(fileTable, useRegex)
 end
 
 function GGPKClass:AddDat64Files()
-	local datFiles = scanDir(self.oozPath .. "Data\\", '%w+%.datc64$')
-	for _, f in ipairs(datFiles) do
+	local datFiles = self:GetNeededFiles()
+	local missingCount = 0
+	table.sort(datFiles, function(a, b) return a:lower() < b:lower() end)
+	for _, fname in ipairs(datFiles) do
 		local record = { }
-		record.name = f
-		local rawFile = io.open(self.oozPath .. "Data\\" .. f, 'rb')
-		record.data = rawFile:read("*all")
-		rawFile:close()
-		--ConPrintf("FILENAME: %s", fname)
-		t_insert(self.dat, record)
+		record.name = fname:match("([^/\\]+)$") .. "c64"
+		local rawFile = io.open(self.oozPath .. fname:gsub("/", "\\") .. "c64", 'rb')
+		if rawFile then
+			record.data = rawFile:read("*all")
+			rawFile:close()
+			t_insert(self.dat, record)
+		else
+			missingCount = missingCount + 1
+		end
+	end
+	if missingCount > 0 then
+		t_insert(main.scriptOutput, { "^7"..string.format("Skipped %d missing cached GGPK data files. Press Ctrl+F5 to refresh GGPK data.", missingCount), height = 14 })
 	end
 end
 
 function GGPKClass:GetNeededFiles()
 	local datFiles = {
-		"Data/Stats.dat",
-		"Data/VirtualStatContextFlags.dat",
-		"Data/BaseItemTypes.dat",
-		"Data/WeaponTypes.dat",
-		"Data/ArmourTypes.dat",
-		"Data/ShieldTypes.dat",
-		"Data/Flasks.dat",
-		"Data/ComponentCharges.dat",
-		"Data/PassiveSkills.dat",
-		"Data/PassiveSkillStatCategories.dat",
-		"Data/PassiveSkillMasteryGroups.dat",
-		"Data/PassiveSkillMasteryEffects.dat",
-		"Data/PassiveTreeExpansionJewelSizes.dat",
-		"Data/PassiveTreeExpansionJewels.dat",
-		"Data/PassiveJewelSlots.dat",
-		"Data/PassiveTreeExpansionSkills.dat",
-		"Data/PassiveTreeExpansionSpecialSkills.dat",
-		"Data/Mods.dat",
-		"Data/ModType.dat",
-		"Data/ModFamily.dat",
-		"Data/ModSellPriceTypes.dat",
-		"Data/ModEffectStats.dat",
-		"Data/ActiveSkills.dat",
-		"Data/ActiveSkillType.dat",
-		"Data/AlternateSkillTargetingBehaviours.dat",
-		"Data/Ascendancy.dat",
-		"Data/ClientStrings.dat",
-		"Data/FlavourText.dat",
-		"Data/Words.dat",
-		"Data/ItemClasses.dat",
-		"Data/SkillTotemVariations.dat",
-		"Data/Essences.dat",
-		"Data/EssenceMods.dat",
-		"Data/EssenceTargetItemCategories.dat",
-		"Data/EssenceType.dat",
-		"Data/Characters.dat",
-		"Data/BuffDefinitions.dat",
-		"Data/BuffTemplates.dat",
-		"Data/BuffVisuals.dat",
-		"Data/BuffVisualSetEntries.dat",
-		"Data/BuffVisualsArtVariations.dat",
-		"Data/BuffVisualOrbs.dat",
-		"Data/BuffVisualOrbTypes.dat",
-		"Data/GenericBuffAuras.dat",
-		"Data/AddBuffToTargetVarieties.dat",
-		"Data/HideoutNPCs.dat",
-		"Data/NPCs.dat",
-		"Data/CraftingBenchOptions.dat",
-		"Data/CraftingItemClassCategories.dat",
-		"Data/CraftingBenchUnlockCategories.dat",
-		"Data/CraftingBenchSortCategories.dat",
-		"Data/MonsterVarieties.dat",
-		"Data/MonsterResistances.dat",
-		"Data/MonsterTypes.dat",
-		"Data/DefaultMonsterStats.dat",
-		"Data/SkillGems.dat",
-		"Data/GrantedEffects.dat",
-		"Data/GrantedEffectsPerLevel.dat",
-		"Data/ItemExperiencePerLevel.dat",
-		"Data/EffectivenessCostConstants.dat",
-		"Data/Tags.dat",
-		"Data/GemTags.dat",
-		"Data/ItemVisualIdentity.dat",
-		"Data/AchievementItems.dat",
-		"Data/MultiPartAchievements.dat",
-		"Data/PantheonPanelLayout.dat",
-		"Data/AlternatePassiveAdditions.dat",
-		"Data/AlternatePassiveSkills.dat",
-		"Data/AlternateTreeVersions.dat",
-		"Data/GrantedEffectQualityStats.dat",
-		"Data/AegisVariations.dat",
-		"Data/CostTypes.dat",
-		"Data/PassiveJewelRadii.dat",
-		"Data/SoundEffects.dat",
-		"Data/MavenJewelRadiusKeystones.dat",
-		"Data/TableCharge.dat",
-		"Data/GrantedEffectStatSets.dat",
-		"Data/GrantedEffectStatSetsPerLevel.dat",
-		"Data/MonsterMapDifficulty.dat",
-		"Data/MonsterMapBossDifficulty.dat",
-		"Data/ReminderText.dat",
-		"Data/Projectiles.dat",
-		"Data/ItemExperienceTypes.dat",
-		"Data/UniqueStashLayout.dat",
-		"Data/UniqueStashTypes.dat",
-		"Data/Shrines.dat",
-		"Data/PassiveOverrideLimits.dat",
-		"Data/PassiveSkillOverrides.dat",
-		"Data/PassiveSkillOverrideTypes.dat",
-		"Data/DisplayMinionMonsterType.dat",
-		"Data/LeagueNames.dat",
-		"Data/GemEffects.dat",
-		"Data/ActionTypes.dat",
-		"Data/IndexableSupportGems.dat",
-		"Data/ItemClassCategories.dat",
-		"Data/MinionType.dat",
-		"Data/SummonedSpecificMonsters.dat",
-		"Data/GameConstants.dat",
-		"Data/AlternateQualityTypes.dat",
-		"Data/WeaponClasses.dat",
-		"Data/MonsterConditions.dat",
-		"Data/Rarity.dat",
-		"Data/Commands.dat",
-		"Data/ModEquivalencies.dat",
-		"Data/InfluenceTags.dat",
-		"Data/AttributeRequirements.dat",
-		"Data/GrantedEffectLabels.dat",
-		"Data/ItemInherentSkills.dat",
-		"Data/KeywordPopups.dat",
-		"Data/SoulCores.dat",
-		"Data/SoulCoresPerClass.dat",
-		"Data/UtilityFlaskBuffs.dat",
-		"Data/GrantedSkillSocketNumbers.dat",
-		"Data/AdvancedCraftingBenchCustomTags.dat",
-		"Data/AdvancedCraftingBenchTabFilterTypes.dat",
-		"Data/CharacterMeleeSkills.dat",
-		"Data/ClientStrings2.dat",
-		"Data/CraftableModTypes.dat",
-		"Data/DamageCalculationTypes.dat",
-		"Data/EndgameCorruptionMods.dat",
-		"Data/GoldInherentSkillPricesPerLevel.dat",
-		"Data/GoldModPrices.dat",
-		"Data/GoldRespecPrices.dat",
-		"Data/HideoutResistPenalties.dat",
-		"Data/MinionGemLevelScaling.dat",
-		"Data/MinionStats.dat",
-		"Data/ModGrantedSkills.dat",
-		"Data/PassiveJewelNodeModifyingStats.dat",
-		"Data/ResistancePenaltyPerAreaLevel.dat",
-		"Data/ShapeShiftForms.dat",
-		"Data/SkillGemsForUniqueStat.dat",
-		"Data/SkillGemSupports.dat",
-		"Data/SupportGems.dat",
-		"Data/TrapTools.dat",
-		"Data/UncutGemAdditionalTiers.dat",
-		"Data/UncutGemTiers.dat",
-		"Data/PassiveSkillTrees.dat",
-		"Data/PassiveSkillTreeUiArt.dat",
-		"Data/BlightCraftingTypes.dat",
-		"Data/BlightCraftingRecipes.dat",
-		"Data/BlightCraftingResults.dat",
-		"Data/BlightCraftingItems.dat",
-		"Data/ItemSpirit.dat",
-		"Data/ItemInherentSkills.dat",
-		"Data/StartingPassiveSkills.dat",
-		"Data/ClassPassiveSkillOverrides.dat",
-		"Data/AscendancyPassiveSkillOverrides.dat",
-		"Data/PassiveJewelArt.dat",
-		"Data/PassiveJewelRadiiArt.dat",
-		"Data/PassiveJewelUniqueArt.dat",
-		"Data/QuestStaticRewards.dat",
-		"Data/QuestFlags.dat",
-		"Data/Quest.dat",
-		"Data/QuestType.dat",
-		"Data/QuestRewards.dat",
-		"Data/QuestRewardOffers.dat",
-		"Data/QuestRewardType.dat",
-		"Data/WieldableClasses.dat",
-		"Data/ActiveSkillWeaponRequirement.dat",
-		"Data/SkillGemSearchTerms.dat",
-		"Data/PassiveSkillTreeNodeFrameArt.dat",
-		"Data/PassiveSkillTreeConnectionArt.dat",
-		"Data/PassiveSkillTreeMasteryArt.dat",
-		"Data/PlayerMinionIntrinsicStats.dat",
-		"Data/MonsterCategories.dat",
-		"Data/ActiveSkillRequirements.dat",
-		"Data/ArchnemesisMods.dat",
-		"Data/MonsterPackEntries.dat",
-		"Data/MonsterPacks.dat",
-		"Data/WorldAreas.dat",
-		"Data/SpectreOverrides.dat",
-		"Data/MonsterProjectileAttack.dat",
-		"Data/MonsterProjectileSpell.dat",
-		"Data/MonsterMortar.dat",
-		"Data/EndGameMaps.dat",
-		"Data/EndGameMapBiomes.dat",
-		"Data/EndGameMapPins.dat",
-		"Data/EndGameMapContentSet.dat",
-		"Data/EndGameMapContent.dat",
-		"Data/EndGameMapLocation.dat",
-		"Data/StrongBoxPacks.dat",
-		"Data/SkillArtVariations.dat",
-		"Data/MiscAnimated.dat",
-		"Data/MiscAnimatedArtVariations.dat",
-		"Data/MiscBeams.dat",
-		"Data/MiscBeamsArtVariations.dat",
-		"Data/MiscEffectPacksArtVariations.dat",
-		"Data/MiscObjects.dat",
-		"Data/MiscObjectsArtVariations.dat",
-		"Data/ProjectilesArtVariations.dat",
-		"Data/MonsterVarietiesArtVariations.dat",
-		"Data/MiscProjectileMod.dat",
-		"Data/MiscProjectileModArtVariations.dat",
-		"Data/MiscParticles.dat",
-		"Data/MiscParticlesArtVariations.dat",
-		"Data/MonsterVarietiesArtVariations.dat",
-		"Data/PreloadGroups.dat",
-		"Data/MiscEffectPacks.dat",
-		"Data/BallisticBounceOverride.dat",
-		"Data/DamageEffectVariations.dat",
-		"Data/AttackSkillDamageScalingType.dat",
-		"Data/AttackSkillDamageScalingValues.dat",
-		"Data/FlatPhysicalDamageValues.dat",
-		"Data/SupportGemFamily.dat",
+		"Data/Balance/Stats.dat",
+		"Data/Balance/VirtualStatContextFlags.dat",
+		"Data/Balance/BaseItemTypes.dat",
+		"Data/Balance/WeaponTypes.dat",
+		"Data/Balance/ArmourTypes.dat",
+		"Data/Balance/ShieldTypes.dat",
+		"Data/Balance/Flasks.dat",
+		"Data/Balance/ComponentCharges.dat",
+		"Data/Balance/PassiveSkills.dat",
+		"Data/Balance/PassiveSkillStatCategories.dat",
+		"Data/Balance/PassiveSkillMasteryGroups.dat",
+		"Data/Balance/PassiveSkillMasteryEffects.dat",
+		"Data/Balance/PassiveTreeExpansionJewelSizes.dat",
+		"Data/Balance/PassiveTreeExpansionJewels.dat",
+		"Data/Balance/PassiveJewelSlots.dat",
+		"Data/Balance/PassiveTreeExpansionSkills.dat",
+		"Data/Balance/PassiveTreeExpansionSpecialSkills.dat",
+		"Data/Balance/PassiveKeystoneList.dat",
+		"Data/Balance/Mods.dat",
+		"Data/Balance/ModType.dat",
+		"Data/Balance/ModFamily.dat",
+		"Data/Balance/ModSellPriceTypes.dat",
+		"Data/Balance/ModEffectStats.dat",
+		"Data/Balance/ModDomains.dat",
+		"Data/Balance/ModGenerationTypes.dat",
+		"Data/Balance/ActiveSkills.dat",
+		"Data/Balance/ActiveSkillType.dat",
+		"Data/Balance/AlternateSkillTargetingBehaviours.dat",
+		"Data/Balance/Ascendancy.dat",
+		"Data/Balance/ClientStrings.dat",
+		"Data/Balance/FlavourText.dat",
+		"Data/Balance/Words.dat",
+		"Data/Balance/ItemClasses.dat",
+		"Data/Balance/SkillTotemVariations.dat",
+		"Data/Balance/Essences.dat",
+		"Data/Balance/EssenceMods.dat",
+		"Data/Balance/EssenceTargetItemCategories.dat",
+		"Data/Balance/EssenceType.dat",
+		"Data/Balance/Characters.dat",
+		"Data/Balance/BuffDefinitions.dat",
+		"Data/Balance/BuffTemplates.dat",
+		"Data/Balance/BuffVisuals.dat",
+		"Data/Balance/BuffVisualSetEntries.dat",
+		"Data/Balance/BuffVisualsArtVariations.dat",
+		"Data/Balance/BuffVisualOrbs.dat",
+		"Data/Balance/BuffVisualOrbTypes.dat",
+		"Data/Balance/GenericBuffAuras.dat",
+		"Data/Balance/AddBuffToTargetVarieties.dat",
+		"Data/Balance/TacticianTotemBuffs.dat",
+		"Data/Balance/InterpolateBuffEffect.dat",
+		"Data/Balance/OnGoingBuffVariations.dat",
+		"Data/Balance/MonsterBonuses.dat",
+		"Data/Balance/HideoutNPCs.dat",
+		"Data/Balance/NPCs.dat",
+		"Data/Balance/CraftingBenchOptions.dat",
+		"Data/Balance/CraftingItemClassCategories.dat",
+		"Data/Balance/CraftingBenchUnlockCategories.dat",
+		"Data/Balance/CraftingBenchSortCategories.dat",
+		"Data/Balance/MonsterVarieties.dat",
+		"Data/Balance/MonsterResistances.dat",
+		"Data/Balance/MonsterTypes.dat",
+		"Data/Balance/DefaultMonsterStats.dat",
+		"Data/Balance/SkillGems.dat",
+		"Data/Balance/GrantedEffects.dat",
+		"Data/Balance/GrantedEffectsPerLevel.dat",
+		"Data/Balance/ItemExperiencePerLevel.dat",
+		"Data/Balance/EffectivenessCostConstants.dat",
+		"Data/Balance/Tags.dat",
+		"Data/Balance/GemTags.dat",
+		"Data/Balance/ItemVisualIdentity.dat",
+		"Data/Balance/AchievementItems.dat",
+		"Data/Balance/MultiPartAchievements.dat",
+		"Data/Balance/PantheonPanelLayout.dat",
+		"Data/Balance/AlternatePassiveAdditions.dat",
+		"Data/Balance/AlternatePassiveSkills.dat",
+		"Data/Balance/AlternateTreeVersions.dat",
+		"Data/Balance/GrantedEffectQualityStats.dat",
+		"Data/Balance/AegisVariations.dat",
+		"Data/Balance/CostTypes.dat",
+		"Data/Balance/PassiveJewelRadii.dat",
+		"Data/Balance/SoundEffects.dat",
+		"Data/Balance/MavenJewelRadiusKeystones.dat",
+		"Data/Balance/TableCharge.dat",
+		"Data/Balance/GrantedEffectStatSets.dat",
+		"Data/Balance/GrantedEffectStatSetsPerLevel.dat",
+		"Data/Balance/MonsterMapDifficulty.dat",
+		"Data/Balance/MonsterMapBossDifficulty.dat",
+		"Data/Balance/ReminderText.dat",
+		"Data/Balance/Projectiles.dat",
+		"Data/Balance/ItemExperienceTypes.dat",
+		"Data/Balance/UniqueStashLayout.dat",
+		"Data/Balance/UniqueStashTypes.dat",
+		"Data/Balance/Shrines.dat",
+		"Data/Balance/PassiveOverrideLimits.dat",
+		"Data/Balance/PassiveSkillOverrides.dat",
+		"Data/Balance/PassiveSkillOverrideTypes.dat",
+		"Data/Balance/DisplayMinionMonsterType.dat",
+		"Data/Balance/LeagueNames.dat",
+		"Data/Balance/GemEffects.dat",
+		"Data/Balance/ActionTypes.dat",
+		"Data/Balance/IndexableSupportGems.dat",
+		"Data/Balance/ItemClassCategories.dat",
+		"Data/Balance/MinionType.dat",
+		"Data/Balance/SummonedSpecificMonsters.dat",
+		"Data/Balance/GameConstants.dat",
+		"Data/Balance/AlternateQualityTypes.dat",
+		"Data/Balance/WeaponClasses.dat",
+		"Data/Balance/MonsterConditions.dat",
+		"Data/Balance/Rarity.dat",
+		"Data/Balance/Commands.dat",
+		"Data/Balance/ModEquivalencies.dat",
+		"Data/Balance/InfluenceTags.dat",
+		"Data/Balance/AttributeRequirements.dat",
+		"Data/Balance/GrantedEffectLabels.dat",
+		"Data/Balance/ItemInherentSkills.dat",
+		"Data/Balance/KeywordPopups.dat",
+		"Data/Balance/SoulCores.dat",
+		"Data/Balance/SoulCoreStats.dat",
+		"Data/Balance/SoulCoreTypes.dat",
+		"Data/Balance/SoulCoreLimits.dat",
+		"Data/Balance/SoulCoreStatCategories.dat",
+		"Data/Balance/UtilityFlaskBuffs.dat",
+		"Data/Balance/GrantedSkillSocketNumbers.dat",
+		"Data/Balance/AdvancedCraftingBenchCustomTags.dat",
+		"Data/Balance/AdvancedCraftingBenchTabFilterTypes.dat",
+		"Data/Balance/CharacterMeleeSkills.dat",
+		"Data/Balance/ClientStrings2.dat",
+		"Data/Balance/CraftableModTypes.dat",
+		"Data/Balance/DamageCalculationTypes.dat",
+		"Data/Balance/EndgameCorruptionMods.dat",
+		"Data/Balance/GoldInherentSkillPricesPerLevel.dat",
+		"Data/Balance/GoldModPrices.dat",
+		"Data/Balance/GoldRespecPrices.dat",
+		"Data/Balance/HideoutResistPenalties.dat",
+		"Data/Balance/MinionGemLevelScaling.dat",
+		"Data/Balance/MinionStats.dat",
+		"Data/Balance/ModGrantedSkills.dat",
+		"Data/Balance/PassiveJewelNodeModifyingStats.dat",
+		"Data/Balance/ResistancePenaltyPerAreaLevel.dat",
+		"Data/Balance/ShapeShiftForms.dat",
+		"Data/Balance/SkillGemsForUniqueStat.dat",
+		"Data/Balance/SkillGemSupports.dat",
+		"Data/Balance/SupportGems.dat",
+		"Data/Balance/TrapTools.dat",
+		"Data/Balance/UncutGems.dat",
+		"Data/Balance/UncutGemTiers.dat",
+		"Data/Balance/PassiveSkillTrees.dat",
+		"Data/Balance/PassiveSkillTreeUiArt.dat",
+		"Data/Balance/BlightCraftingTypes.dat",
+		"Data/Balance/BlightCraftingRecipes.dat",
+		"Data/Balance/BlightCraftingResults.dat",
+		"Data/Balance/BlightCraftingItems.dat",
+		"Data/Balance/ItemSpirit.dat",
+		"Data/Balance/ItemInherentSkills.dat",
+		"Data/Balance/StartingPassiveSkills.dat",
+		"Data/Balance/ClassPassiveSkillOverrides.dat",
+		"Data/Balance/AscendancyPassiveSkillOverrides.dat",
+		"Data/Balance/PassiveJewelArt.dat",
+		"Data/Balance/PassiveJewelRadiiArt.dat",
+		"Data/Balance/PassiveJewelUniqueArt.dat",
+		"Data/Balance/PassiveNodeTypes.dat",
+		"Data/Balance/PassiveSkillTypes.dat",
+		"Data/Balance/QuestStaticRewards.dat",
+		"Data/Balance/QuestFlags.dat",
+		"Data/Balance/Quest.dat",
+		"Data/Balance/QuestType.dat",
+		"Data/Balance/QuestRewards.dat",
+		"Data/Balance/QuestRewardOffers.dat",
+		"Data/Balance/QuestRewardType.dat",
+		"Data/Balance/WieldableClasses.dat",
+		"Data/Balance/ActiveSkillWeaponRequirement.dat",
+		"Data/Balance/SkillGemSearchTerms.dat",
+		"Data/Balance/PassiveSkillTreeNodeFrameArt.dat",
+		"Data/Balance/PassiveSkillTreeConnectionArt.dat",
+		"Data/Balance/PassiveSkillTreeMasteryArt.dat",
+		"Data/Balance/PlayerMinionIntrinsicStats.dat",
+		"Data/Balance/MonsterCategories.dat",
+		"Data/Balance/ActiveSkillRequirements.dat",
+		"Data/Balance/ArchnemesisMods.dat",
+		"Data/Balance/MonsterPackEntries.dat",
+		"Data/Balance/MonsterPacks.dat",
+		"Data/Balance/WorldAreas.dat",
+		"Data/Balance/SpectreOverrides.dat",
+		"Data/Balance/MonsterProjectileAttack.dat",
+		"Data/Balance/MonsterProjectileSpell.dat",
+		"Data/Balance/MonsterMortar.dat",
+		"Data/Balance/EndGameMaps.dat",
+		"Data/Balance/EndGameMapBiomes.dat",
+		"Data/Balance/EndGameMapPins.dat",
+		"Data/Balance/EndGameMapContentSet.dat",
+		"Data/Balance/EndGameMapContent.dat",
+		"Data/Balance/EndGameMapLocation.dat",
+		"Data/Balance/StrongBoxPacks.dat",
+		"Data/Balance/SkillArtVariations.dat",
+		"Data/Balance/MiscAnimated.dat",
+		"Data/Balance/MiscAnimatedArtVariations.dat",
+		"Data/Balance/MiscBeams.dat",
+		"Data/Balance/MiscBeamsArtVariations.dat",
+		"Data/Balance/MiscEffectPacksArtVariations.dat",
+		"Data/Balance/MiscObjects.dat",
+		"Data/Balance/MiscObjectsArtVariations.dat",
+		"Data/Balance/ProjectilesArtVariations.dat",
+		"Data/Balance/MonsterVarietiesArtVariations.dat",
+		"Data/Balance/MiscProjectileMod.dat",
+		"Data/Balance/MiscProjectileModArtVariations.dat",
+		"Data/Balance/MiscParticles.dat",
+		"Data/Balance/MiscParticlesArtVariations.dat",
+		"Data/Balance/MonsterVarietiesArtVariations.dat",
+		"Data/Balance/PreloadGroups.dat",
+		"Data/Balance/MiscEffectPacks.dat",
+		"Data/Balance/BallisticBounceOverride.dat",
+		"Data/Balance/DamageEffectVariations.dat",
+		"Data/Balance/AttackSkillDamageScalingType.dat",
+		"Data/Balance/AttackSkillDamageScalingValues.dat",
+		"Data/Balance/FlatPhysicalDamageValues.dat",
+		"Data/Balance/SupportGemFamily.dat",
+		"Data/Balance/TormentSpirits.dat",
+		"Data/Balance/CharacterShapeshiftBasicSkills.dat",
 	}
 	local csdFiles = {
-		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
-		"^Metadata/StatDescriptions/\\w+.csd$",
-		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
+		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
+		"^Data/StatDescriptions/\\w+.csd$",
+		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
 	}
 	local otFiles = {
 		"^Metadata/Monsters/(?:[\\w-]+/)*[\\w-]+\\.ot$",
@@ -387,6 +379,8 @@ function GGPKClass:GetNeededFiles()
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
 		"Metadata/Items/Item.it",
+		"Metadata/Items/Incursion2/Arm.it",
+		"Metadata/Items/Incursion2/Leg.it",
 		"Metadata/Items/Weapons/AbstractWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/AbstractTwoHandWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormbladeTwoHand.it",
@@ -396,6 +390,7 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/FishingRods/AbstractFishingRod.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/Crossbows/AbstractCrossbow.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandTalismans/AbstractTalisman.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/Bows/AbstractBow.it",
 		"Metadata/Items/Weapons/OneHandWeapons/AbstractOneHandWeapon.it",
 		"Metadata/Items/Weapons/OneHandWeapons/Spears/AbstractSpear.it",

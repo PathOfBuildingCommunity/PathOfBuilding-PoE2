@@ -56,10 +56,12 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 		self.labelOffset = -2
 	end
 	self.socketList = { }
+	self.jewelSocketList = { }
 	self.tooltipFunc = function(tooltip, mode, index, itemId)
 		local item = itemsTab.items[self.items[index]]
-		if main.popups[1] or mode == "OUT" or not item or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate) then
-			tooltip:Clear()
+		-- not selControl.ListControl allows hover when All Items or Unique/Rare DB Sections are in focus
+		if main.popups[1] or mode == "OUT" or not item or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
+			tooltip:Clear(true)
 		elseif tooltip:CheckForUpdate(item, launch.devModeAlt, itemsTab.build.outputRevision) then
 			itemsTab:AddItemTooltip(tooltip, item, self)
 		end
@@ -99,6 +101,16 @@ function ItemSlotClass:Populate()
 	end
 	if not self.selItemId or not self.itemsTab.items[self.selItemId] or not self.itemsTab:IsItemValidForSlot(self.itemsTab.items[self.selItemId], self.slotName) then
 		self:SetSelItemId(0)
+	end
+
+	-- Update Jewel Sockets
+	local jewelSocketCount = 0
+	if self.selItemId > 0 then
+		local selItem = self.itemsTab.items[self.selItemId]
+		jewelSocketCount = selItem.jewelSocketCount or 0
+	end
+	for i, jewelSocket in ipairs(self.jewelSocketList) do
+		jewelSocket.inactive = i > jewelSocketCount
 	end
 end
 

@@ -3,6 +3,18 @@
 return {
 -- Weapon: Staff
 [[
+Atziri's Rule
+Reflecting Staff
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Mirror of Refraction
+(10-20)% increased maximum Life
++(3-5) to Level of all Corrupted Spell Skill Gems
+(10-20)% increased Cast Speed
++(20-30) to Intelligence
+Spells which cost Life Gain (80-120)% of Damage as Extra Physical Damage
+]],[[
 The Burden of Shadows
 Chiming Staff
 Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
@@ -14,32 +26,43 @@ Skills gain 1% of Damage as Chaos Damage per 3 Life Cost
 ]],[[
 Dusk Vigil
 Ashen Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 Grants Skill: Level (1-20) Firebolt
 Grants Skill: Level (1-20) Ember Fusillade
-(60-80)% increased Spell Damage
-Gain (5-10) Life per Enemy Killed
+{variant:2}Gain (30-50)% of Damage as Extra Fire Damage
+{variant:1}(60-80)% increased Spell Damage
+{variant:2}(80-120)% increased Spell Damage
+Gain (5-10) Life per enemy killed
 25% increased Mana Regeneration Rate
 Trigger Ember Fusillade Skill on casting a Spell
 ]],[[
 Earthbound
 Voltaic Staff
-Implicits: 1
+Variant: Pre 0.4.0
+Variant: Current
+Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
-(80-120)% increased Lightning Damage
+{variant:2}(80-120)% increased Spell Damage
+{variant:1}(80-120)% increased Lightning Damage
 (10-20)% increased Cast Speed
 (20-30)% increased Mana Regeneration Rate
+{variant:2}(20-40)% increased chance to Shock
 Trigger Spark Skill on killing a Shocked Enemy
 ]],[[
 The Searing Touch
 Pyrophyte Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Living Bomb
 (80-120)% increased Fire Damage
 (10-20)% increased Cast Speed
 100% increased Flammability Magnitude
 100% increased Ignite Magnitude
+{variant:2}Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second
 ]],[[
 Sire of Shards
 Chiming Staff
@@ -55,24 +78,35 @@ Spells fire Projectiles in a circle
 ]],[[
 Taryn's Shiver
 Gelid Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Freezing Shards
-(80-120)% increased Cold Damage
+{variant:2}(80-120)% increased Spell Damage
+{variant:1}(80-120)% increased Cold Damage
 (10-20)% increased Cast Speed
-100% increased Freeze Buildup
-Enemies Frozen by you take 50% increased Damage
+{variant:1}100% increased Freeze Buildup
+{variant:2}30% increased Freeze Buildup
+{variant:1}Enemies Frozen by you take 50% increased Damage
+{variant:2}Enemies Frozen by you take 100% increased Damage
 ]],[[
 The Whispering Ice
 Permafrost Staff
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 Grants Skill: Level (1-20) Heart of Ice
 Grants Skill: Level (1-20) Icestorm
-+(2-4) to Level of all Cold Spell Skills
+{variant:1}+(2-4) to Level of all Cold Spell Skills
+{variant:2}+(5-7) to Level of all Cold Spell Skills
 (10-20)% reduced Cast Speed
-(5-15)% increased Intelligence
-4% increased Spell Damage per 10 Intelligence
-Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by (20-30)%
+{variant:1}(5-15)% increased Intelligence
+{variant:2}(5-10)% increased Intelligence
+{variant:1}4% increased Spell Damage per 10 Intelligence
+{variant:2}2% increased Spell Damage per 10 Intelligence
+{variant:1}Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by (20-30)%
+{variant:2}Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by (50-60)%
 ]],
 -- Weapon: Warstaff
 [[
@@ -166,17 +200,17 @@ Variant: Unholy Might
 Implicits: 1
 Grants Skill: Level (1-20) Feast of Flesh
 (60-80)% increased Desecrated Modifier magnitudes
-{variant:9}(80-120)% increased Chaos Damage
-{variant:11}(80-120)% increased Chaos Damage
-{variant:10}(80-120)% increased Spell Physical Damage
+{variant:9}(100-160)% increased Chaos Damage
+{variant:11}(100-160)% increased Chaos Damage
+{variant:10}(100-160)% increased Spell Physical Damage
 {variant:8}+(40-60) to Spirit
 {variant:7}(10-20)% increased Duration of Elemental Ailments on Enemies
-{variant:7}(80-120)% increased Elemental Damage
-{variant:11}Enemies you Kill have a (5-10)% chance to Explode, dealing a quarter of their maximum Life as Chaos Damage
+{variant:7}(100-160)% increased Elemental Damage
+{variant:11}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
 {variant:9}Enemies you Curse have -(8-5)% to Chaos Resistance
 {variant:10}(20-30)% chance to inflict Bleeding on Hit
 {variant:8}(6-10)% increased Spirit Reservation Efficiency of Skills
-{variant:12}(13-31)% increased Magnitude of Unholy Might buffs you grant
+{variant:12}(28-56)% increased Magnitude of Unholy Might buffs you grant
 {variant:12}You have Unholy Might
 {variant:1}Grants Skill: Level (1-20) His Dark Horizon
 {variant:2}Grants Skill: Level (1-20) His Foul Emergence

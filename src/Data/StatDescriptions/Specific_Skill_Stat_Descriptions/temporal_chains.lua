@@ -135,13 +135,6 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
-		}
-	},
-	[8]={
-		[1]={
-		},
-		stats={
 			[1]="temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"
 		}
 	},
@@ -152,6 +145,5 @@ return {
 	["base_temporal_chains_other_buff_time_passed_+%_to_apply"]=5,
 	parent="skill_stat_descriptions",
 	["skill_curse_action_speed_+%_final_magnitude_to_inflict"]=6,
-	["skill_effect_duration"]=7,
-	["temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"]=8
+	["temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"]=7
 }

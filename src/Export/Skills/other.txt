@@ -8,7 +8,7 @@ local skills, mod, flag, skill = ...
 #from tree
 #skill AcidicConcoctionPlayer
 #set AcidicConcoctionPlayer
-#flags attack projectile unarmed area
+#flags attack projectile area
 #mods
 #set AcidicConcoctionPoisonBurstPlayer
 #flags attack area
@@ -24,6 +24,13 @@ statMap = {
 #skillEnd
 
 #from tree
+#skill AlignFatePlayer
+#set AlignFatePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
 #minionList AncestralSpiritTurtle AncestralSpiritHulk AncestralSpiritCaster AncestralSpiritWarhorn
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
@@ -32,7 +39,7 @@ statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
 	},
@@ -40,10 +47,111 @@ statMap = {
 #mods
 #skillEnd
 
+#skill AnimusExchangePlayer
+#set AnimusExchangePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaAnimusSplintersPlayer
+#set MetaAnimusSplintersPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportAnimusSplintersPlayer
+#skillEnd
+
+#from tree
+#skill ApocalypsePlayer
+#set ApocalypsePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseColdPlayer
+#set ApocalypseColdPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseFirePlayer
+#set ApocalypseFirePlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseLightningPlayer
+#set ApocalypseLightningPlayer
+#flags spell area
+#mods
+#set ApocalypseLightningFinalStrikePlayer
+#flags spell area
+#mods
+#skillEnd
+
+#skill ArbitersReachWardPlayer
+#set ArbitersReachPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill ArchonOfChayulaPlayer
+#set ArchonOfChayulaPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill ArchonOfChayulaTornadoPlayer
+#set ArchonOfChayulaTornadoPlayer
+#flags attack duration area
+#mods
+#skillEnd
+
+#from item
+#skill AzmerianSwarmPlayer
+#set AzmerianSwarmPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SummonAzmerianWolfPlayer
+#set SummonAzmerianWolfPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CommandPackleaderPlayer
+#set CommandPackleaderPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BitterDeadPlayer
+#set BitterDeadPlayer
+#flags
+#mods
+#set BitterDeadExplosionPlayer
+#flags
+#mods
+#set BitterDeadChillAuraPlayer
+#flags
+#mods
+#set BitterDeadRuneAuraPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill BleedingConcoctionPlayer
 #set BleedingConcoctionPlayer
-#flags attack projectile unarmed area
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -61,10 +169,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBreachlordsAmalgam
+#set SupportBreachlordsAmalgam
+#mods
+#skillEnd
+
 #from item
 #skill ExplodingPoisonToadPlayer
 #set ExplodingPoisonToadPlayer
-#flags area attack
+#flags area nonWeaponAttack
 #mods
 #skillEnd
 
@@ -94,6 +207,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportCathasBrilliance
+#set SupportCathasBrilliance
+#mods
+#skillEnd
+
+#skill ConductiveRunesPlayer
+#set ConductiveRunesPlayer
+#flags attack duration
+#mods
+#set ConductiveRunesExplosionPlayer
+#flags attack
+#mods
+#skillEnd
+
 #from item
 #skill MeleeCrossbowPlayer
 #set MeleeCrossbowPlayer
@@ -105,6 +232,21 @@ statMap = {
 #skill UnloadAmmoPlayer
 #set UnloadAmmoPlayer
 #flags
+#mods
+#skillEnd
+
+#from item
+#skill CrushingFearPlayer
+#set CrushingFearPlayer
+#flags attack area melee
+#mods
+#set CrushingFearNovaPlayer
+#flags attack area melee
+#mods
+#skillEnd
+
+#skill SupportConcussiveRunesPlayer
+#set SupportConcussiveRunesPlayer
 #mods
 #skillEnd
 
@@ -124,6 +266,16 @@ statMap = {
 		div = 60,
 	},
 },
+#mods
+#skillEnd
+
+#skill DetonateLivingPlayer
+#set DetonateLivingPlayer
+#flags spell
+#mods
+#set DetonateLivingExplodePlayer
+#flags area hit
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
@@ -203,16 +355,45 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEshsProwess
+#set SupportEshsProwess
+#mods
+#skillEnd
+
+#skill EternalMarchPlayer
+#set EternalMarchPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
-#flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_fire_exposure_ms"] = {
-		mod("FireExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
+#flags attack projectile duration area
+#mods
+#skillEnd
+
+#skill ExplosiveTransmutationPlayer
+#set ExplosiveTransmutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveTransmutationExplosionPlayer
+#set ExplosiveTransmutationPhysicalPlayer
+#flags spell area
+#mods
+#set ExplosiveTransmutationColdPlayer
+#flags spell area
+#mods
+#set ExplosiveTransmutationFirePlayer
+#flags spell area
+#mods
+#set ExplosiveTransmutationLightningPlayer
+#flags spell area
+#mods
+#set ExplosiveTransmutationChaosPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -230,16 +411,42 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportFistOfKalguurPlayer
+#set SupportFistOfKalguurPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFistOfKalguurPlayer
+#set TriggeredFistOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FragmentsOfThePastPlayer
+#set FragmentsOfThePastPlayer
+#flags attack duration
+#mods
+#skillEnd
+
+#skill FragmentsOfThePastFragmentPlayer
+#set FragmentsOfThePastFragmentPlayer
+#flags attack area projectile
+#mods
+#skillEnd
+
+#skill FrostflameNovaPlayer
+#set FrostflameNovaPlayer
+#flags spell
+#mods
+#set FrostflameNovaColdHitPlayer
+#flags spell
+#mods
+#skillEnd
+
 #from tree
 #skill FulminatingConcoctionPlayer
 #set FulminatingConcoctionPlayer
-#flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_lightning_exposure_ms"] = {
-		mod("LightningExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -250,16 +457,123 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill MeleeGrenadeLauncherPlayer
+#set MeleeGrenadeLauncherPlayer
+#flags attack area projectile
+#mods
+#skillEnd
+
+#skill GrimPillarsPlayer
+#set GrimPillarsPlayer
+#flags spell area duration
+#mods
+#set GrimPillarsExplodePlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#skill SupportHerDeclarationPlayer
+#set SupportHerDeclarationPlayer
+#mods
+#skillEnd
+
+#skill SupportHealingRunesPlayer
+#set SupportHealingRunesPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill HollowFocusPlayer
+#set HollowFocusPlayer
+#flags duration
+#mods
+#set HollowFocusNovaPlayer
+#flags attack area
+#mods
+#skillEnd
+
+#from tree
+#skill MetaHollowFormPlayer
+#set MetaHollowFormPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill SupportHollowFormPlayer
+#set SupportHollowFormPlayer
+statMap = {
+	["mantra_of_illusions_triggered_skill_attack_speed_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["mantra_of_illusions_triggered_skill_damage_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
+#skill HollowResonancePlayer
+#set HollowResonancePlayer
+#flags attack area
+#mods
+#skillEnd
+
+#skill HollowShellPlayer
+#set HollowShellPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill InevitableAgonyPlayer
 #set InevitableAgonyPlayer
-#flags
+#flags area duration curse
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
 #from tree
 #skill IntoTheBreachPlayer
 #set IntoTheBreachPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#minionList BeetleMinion
+#skill CorpseBeetlesPlayer
+#set CorpseBeetlesPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandCorpseBeetleExplodePlayer
+#set CommandCorpseBeetleExplodePlayer
+#flags minion
+#mods
+#skillEnd
+
+#from tree
+#minionList SandDjinn
+#skill SummonSandDjinnPlayer
+#set SummonSandDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandSandDjinnKnifeThrowPlayer
+#set CommandSandDjinnKnifeThrowPlayer
+#flags
+#mods
+#skillEnd
+
+#skill LeylinesPlayer
+#set LeylinesPlayer
 #flags
 #mods
 #skillEnd
@@ -300,16 +614,23 @@ minionUses = {
 	["Weapon 1"] = true,
 },
 #set ManifestWeaponPlayer
-#flags spell minion duration
+#flags spell minion
 statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
 	},
 },
+#mods
+#skillEnd
+
+#from item
+#skill BearMaulPlayer
+#set BearMaulPlayer
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -320,15 +641,134 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMedvedsFelling
+#set SupportMedvedsFelling
+#mods
+#skillEnd
+
+#from item
+#skill MidnightStarPlayer
+#set MidnightStarPlayer
+#flags
+#mods
+#set MidnightStarIceCrystalDetonate
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill MetaMirageDeadeyePlayer
+#set MetaMirageDeadeyePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill SupportMirageDeadeyePlayer
+#set SupportMirageDeadeyePlayer
+statMap = {
+	["support_lingering_mirage_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
+#skill MirageDeadeyeSpawnPlayer
+#set MirageDeadeyeSpawnPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SummonMistRavenPlayer
+#set SummonMistRavenPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CommandMistRavenPlayer
+#set CommandMistRavenPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill TriggeredMoltenShowerPlayer
+#set TriggeredMoltenShowerPlayer
+#flags attack area projectile
+#mods
+#skillEnd
+
+#from tree
+#skill MomentOfVulnerabilityPlayer
+#set MomentOfVulnerabilityPlayer
+#flags spell
+#mods
+#skillEnd
+
+#skill SupportMorrigansInsight
+grantsThornsDamage = true,
+#set SupportMorrigansRefuge
+statMap = {
+	["support_morrigans_refuge_damage_+%_final_vs_frozen_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill TriggeredMorrigansInsightPlayer
+#set TriggeredMorrigansInsightPlayer
+#flags duration
+statMap = {
+	["morrigan_ward_thorns_minimum_base_cold_damage"] = {
+		mod("ColdMin", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Nature's Exchange"}),
+	},
+	["morrigan_ward_thorns_maximum_base_cold_damage"] = {
+		mod("ColdMax", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Nature's Exchange"}),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
+#minionList WaterDjinn
+#skill SummonWaterDjinnPlayer
+#set SummonWaterDjinnPlayer
+#flags minion
+#mods
+#skillEnd
+
+#from tree
+#skill CommandWaterDjinnBubblePlayer
+#set CommandWaterDjinnBubblePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportOlrothsConvictionPlayer
+#set SupportOlrothsConvictionPlayer
+#mods
+#skillEnd
+
+#skill SupportOlrothsHubrisPlayer
+#set SupportOlrothsHubrisPlayer
+#mods
+#skillEnd
+
 #from tree
 #skill ParryPlayer
 #set ParryPlayer
-#flags attack melee duration shieldAttack
+#flags attack melee duration shieldAttack area
 statMap = {
 	["base_parry_buff_damage_taken_+%_final_to_apply"] = {
 		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
 	},
 },
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -336,6 +776,39 @@ statMap = {
 #skill PinnacleOfPowerPlayer
 #set PinnacleOfPowerPlayer
 #flags buff duration
+statMap = {
+	["elemental_power_elemental_damage_+%_final_per_power_charge"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } }, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff" }),
+		flag("ColdCanIgnite", { type = "GlobalEffect", effectType = "Buff" }), flag("ColdCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+		flag("FireCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("FireCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+		flag("LightningCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("LightningCanIgnite", { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["elemental_power_buff_duration_per_power_charge_ms"] = {
+		mod("Duration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+		div = 1000,
+	},
+	["quality_stat_elemental_power_elemental_damage_+%_final_per_power_charge_is_gem"] = {
+		-- display only
+	},
+},
+#mods
+#skillEnd
+
+#skill PoweredByVerisiumPlayer
+#set PoweredByVerisiumPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill PrimalBountyPlayer
+#set PrimalBountyPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportPrototypeSeventeenPlayer
+#set SupportPrototypeSeventeenPlayer
 #mods
 #skillEnd
 
@@ -353,10 +826,72 @@ statMap = {
 #mods
 #skillEnd
 
+#skill RainOfBladesPlayer
+#set RainOfBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RainOfBladesTriggeredPlayer
+#set RainOfBladesTriggeredPlayer
+#flags attack area
+#mods
+#skillEnd
+
 #from item
 #skill ShieldBlockPlayer
 #set ShieldBlockPlayer
 #flags attack area shieldAttack melee
+#mods
+#skillEnd
+
+#skill RefutationPlayer
+#set RefutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaRemnantsOfKalguurPlayer
+#set MetaRemnantsOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WyvernRendPlayer
+#set WyvernRendPlayer
+#flags attack area melee
+#mods
+#set WyvernRendEmpoweredPlayer
+#flags attack area melee
+#mods
+#skillEnd
+
+#skill CurseOfRepulsionPlayer
+#set CurseOfRepulsionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CurseOfRepulsionShockwavePlayer
+#set CurseOfRepulsionShockwavePlayer
+#flags nonWeaponAttack area
+#mods
+#skillEnd
+
+#from item
+#skill RighteousDescentPlayer
+#set RighteousDescentPlayer
+#flags attack area
+#mods
+#set RighteousDescentPlayerBoosted
+#flags attack area
+#mods
+#skillEnd
+
+#from item
+#skill SacredGroundPlayer
+#set SacredGroundPlayer
+#flags
 #mods
 #skillEnd
 
@@ -367,16 +902,105 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportRuneforgedBladesPlayer
+#set SupportRuneforgedBladesPlayer
+#mods
+#skillEnd
+
+#skill TriggeredRuneforgedBladesPlayer
+#set TriggeredRuneforgedBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicExtractionPlayer
+#set SupportRunicExtractionPlayer
+#mods
+#skillEnd
+
+#skill SupportRunicInfusionPlayer
+#set SupportRunicInfusionPlayer
+#mods
+#skillEnd
+
+#skill RunicReprievePlayer
+#set RunicReprievePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#minionList FireDjinn
+#skill SummonFireDjinnPlayer
+#set SummonFireDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandFireDjinnLivingBombPlayer
+#set CommandFireDjinnLivingBombPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportScouringFlamePlayer
+#set SupportScouringFlamePlayer
+#mods
+#skillEnd
+
+#skill SupportSeraphsHeartPlayer
+#set SupportSeraphsHeartPlayer
+#mods
+#skillEnd
+
 #from tree
 #skill ShatteringConcoctionPlayer
 #set ShatteringConcoctionPlayer
-#flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_cold_exposure_ms"] = {
-		mod("ColdExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
+#flags attack projectile duration area
+#mods
+#skillEnd
+
+#from item
+#skill WolfShredPlayer
+#set WolfShredPlayer
+#flags attack melee area
+#mods
+#set WolfShredThirdPlayer
+#flags attack melee area
+#mods
+#set WolfShredFinalPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#from item
+#skill IceFragmentsPlayer
+#set IceFragmentsPlayer
+#flags attack projectile area
+#mods
+#skillEnd
+
+#skill SkyfallPlayer
+#set SkyfallPlayer
+#flags spell area duration
+#mods
+#set SkyfallInfusedPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from item
+#skill NightfallSoaringMidnightPlayer
+#set NightfallSoaringMidnightPlayer
+#flags attack projectile shieldAttack
+#mods
+#skillEnd
+
+#from item
+#skill NightfallEmbraceTheFallPlayer
+#set NightfallEmbraceTheFallPlayer
+#flags attack melee shieldAttack area
 #mods
 #skillEnd
 
@@ -384,6 +1008,12 @@ statMap = {
 #skill SorceryWardPlayer
 #set SorceryWardPlayer
 #flags
+statMap = {
+	["aegis_unique_shield_max_value_from_%_armour_evasion"] = {
+		mod("ElementalAegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution", neg = true }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+		mod("AegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution" }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -411,11 +1041,55 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill SpiritVesselPlayer
+#set SpiritVesselPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SpiritVesselSupport
+#set SpiritVesselSupport
+#mods
+#skillEnd
+
+#from item
+#skill StarbornOnslaughtPlayer
+#set StarbornOnslaughtPlayer
+#flags attack area duration
+#mods
+#set StarbornOnslaughtExplosions
+#flags attack area duration
+#mods
+#skillEnd
+
+#skill SupportStyrnsFerocity
+#set SupportStyrnsFerocity
+statMap = {
+	["support_knights_ferocity_crush_on_hit_ms"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
+		flag("Condition:Crushed", { type = "GlobalEffect", effectType = "Debuff" })
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportStyrnsMountain
+#set SupportStyrnsMountain
+statMap = {
+	["knights_legacy_non_active_blocking_melee_skill_damage_+%_final_to_grant_if_active_blocked_with_supported_skills_recently"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Styrn's Mountain" }, { type = "SkillType", skillType = SkillType.ActiveBlock, neg = true }, { type = "Condition", var = "BlockedRecently" }),
+	},
+},
+#mods
+#skillEnd
+
 #from tree
 #minionList SummonedHellhound
 #skill SummonInfernalHoundPlayer
 #set SummonInfernalHoundPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -423,7 +1097,7 @@ statMap = {
 #minionList TacticianMinion
 #skill SupportingFirePlayer
 #set SupportingFirePlayer
-#flags minion permanentMinion
+#flags minion duration
 statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
@@ -431,6 +1105,19 @@ statMap = {
 	["minion_1%_area_of_effect_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportTangMazusThuriblePlayer
+#set SupportTangMazusThuriblePlayer
+statMap = {
+	["companion_evasion_rating_+_per_10_summoner_evasion_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent" }) }),
+	},
+	["companion_deflection_rating_+_per_10_summoner_deflection_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent" }) }),
 	},
 },
 #mods
@@ -466,6 +1153,25 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill TheStarsAnswerPlayer
+#set TheStarsAnswerPlayer
+#flags spell duration
+#mods
+#skillEnd
+
+#from item
+#skill TheStarsAnswerCometPlayer
+#set TheStarsAnswerCometPlayer
+#flags spell area
+#baseMod skill("hitTimeOverride", 0.3)
+#mods
+#set TheStarsAnswerEmpoweredCometPlayer
+#flags spell area
+#baseMod skill("hitTimeOverride", 2)
+#mods
+#skillEnd
+
 #from tree
 #skill TimeFreezePlayer
 #set TimeFreezePlayer
@@ -480,10 +1186,69 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportTrickstersShardPlayer
+#set SupportTrickstersShardPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFracturedSelfPlayer
+#set TriggeredFracturedSelfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriskelionCascadePlayer
+#set TriskelionCascadePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportTulsAvalanche
+#set SupportTulsAvalanche
+#mods
+#skillEnd
+
 #from tree
 #skill UnboundAvatarPlayer
 #set UnboundAvatarPlayer
 #flags
+#mods
+#skillEnd
+
+#skill SupportUhtredsConstellation
+#set SupportUhtredsConstellation
+#mods
+#skillEnd
+
+#skill SupportUhtredsRitePlayer
+#set SupportUhtredsRitePlayer
+statMap = {
+	["support_uhtreds_chalice_damage_+%_final_during_life_flask"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "UsingLifeFlask" }),
+	},
+	["base_mana_cost_efficiency_+%_during_mana_flask"] = {
+		mod("ManaCostEfficiency", "INC", nil, 0, 0, { type = "Condition", var = "UsingManaFlask" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill VerisiumManifestationPlayer
+#set VerisiumManifestationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredManifestRunePlayer
+#set TriggeredManifestRunePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill VividStampedePlayer
+#set VividStampedePlayer
+#flags attack area duration
 #mods
 #skillEnd
 
@@ -498,6 +1263,53 @@ statMap = {
 #skill VoidIllusionSpawnPlayer Void Illusion
 #set VoidIllusionSpawnPlayer
 #flags attack
+#mods
+#skillEnd
+
+#skill VoltaicBarrierPlayer
+#set VoltaicBarrierPlayer
+#flags attack
+#mods
+#skillEnd
+
+#skill VoltaicBarrierTriggeredChainLightningPlayer
+#set VoltaicBarrierTriggeredChainLightningPlayer
+#flags attack area duration
+#mods
+#skillEnd
+
+#skill SupportVoranasSiege
+#set SupportVoranasSiege
+statMap = {
+	["support_voranas_siege_hit_damage_+%_final_vs_isolated_enemies"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Isolated" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportVruunsAftermath
+#set SupportVruunsAftermath
+#mods
+#skillEnd
+
+#skill WardboundMinionsPlayer
+#set WardboundMinionsPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill WildProtectorPlayer
+#set WildProtectorPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill AncientGiftsPlayer
+#set AncientGiftsPlayer
+#flags
 #mods
 #skillEnd
 
@@ -526,7 +1338,7 @@ skills["EnemyExplode"] = {
 					else
 						activeSkill.skillData[explodeMod.type.."EffectiveExplodePercentage"] = explodeMod.amount
 					end
-					output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.chance
+					output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.value / 100
 				end
 			end
 		else
@@ -534,7 +1346,7 @@ skills["EnemyExplode"] = {
 			local explodeModList = activeSkill.skillModList:List(activeSkill.skillCfg, "ExplodeMod")
 			for _, explodeMod in ipairs(explodeModList) do
 				local amountChance = typeAmountChances[explodeMod.type] or { }
-				amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.chance
+				amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.value / 100
 				typeAmountChances[explodeMod.type] = amountChance
 			end
 			for type, amountChance in pairs(typeAmountChances) do
@@ -629,6 +1441,35 @@ skills["EnemyExplode"] = {
 			},
 			levels = {
 				[1] = { },
+			},
+		},
+	}
+}
+
+skills["ThornsPlayer"] = {
+	name = "Thorns",
+	hidden = true,
+	fromItem = true,
+	skillTypes = { [SkillType.Damage] = true },
+	cannotBeSupported = true,
+	qualityStats = {},
+	levels = {
+		[1] = { levelRequirement = 0 },
+	},
+	statSets = {
+		[1] = {
+			label = "Thorns",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				thorns = true,
+			},
+			baseMods = {
+			},
+			constantStats = {},
+			stats = {},
+			levels = {
+				[1] = {},
 			},
 		},
 	}

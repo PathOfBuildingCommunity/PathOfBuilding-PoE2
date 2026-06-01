@@ -7,6 +7,7 @@ local ipairs = ipairs
 local pairs = pairs
 local select = select
 local t_insert = table.insert
+local t_remove = table.remove
 local m_floor = math.floor
 local m_min = math.min
 local m_max = math.max
@@ -61,6 +62,45 @@ function ModDBClass:ReplaceModInternal(mod)
 		return self.parent:ReplaceModInternal(mod)
 	end
 	
+	return false
+end
+
+---ConvertModInternal
+---  Converts an existing mod with oldName to a new mod with a different name.
+---  Moves the mod from the old name's bucket to the new name's bucket.
+---  If no matching mod exists, then the function returns false
+---@param oldName string @The name of the existing mod to find
+---@param mod table @The new mod to replace it with
+---@return boolean @Whether any mod was converted
+function ModDBClass:ConvertModInternal(oldName, mod)
+	if not self.mods[oldName] then
+		if self.parent then
+			return self.parent:ConvertModInternal(oldName, mod)
+		end
+		return false
+	end
+
+	local oldList = self.mods[oldName]
+	for i = 1, #oldList do
+		local curMod = oldList[i]
+		if oldName == curMod.name and mod.type == curMod.type and mod.flags == curMod.flags and mod.keywordFlags == curMod.keywordFlags and mod.source == curMod.source and not curMod.converted then
+			-- Remove from old name's bucket
+			t_remove(oldList, i)
+			-- Add to new name's bucket
+			local newName = mod.name
+			if not self.mods[newName] then
+				self.mods[newName] = { }
+			end
+			mod.converted = true
+			t_insert(self.mods[newName], mod)
+			return true
+		end
+	end
+
+	if self.parent then
+		return self.parent:ConvertModInternal(oldName, mod)
+	end
+
 	return false
 end
 
@@ -158,7 +198,8 @@ function ModDBClass:FlagInternal(context, cfg, flags, keywordFlags, source, ...)
 		if modList then
 			for i = 1, #modList do
 				local mod = modList[i]
-				if mod.type == "FLAG" and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
+				local checkSource = not cfg or not cfg.ignoreSourceinCheckConditions
+				if mod.type == "FLAG" and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not checkSource or not source or mod.source:match("[^:]+") == source) then
 					if mod[1] then
 						if context:EvalMod(mod, cfg) then
 							return true

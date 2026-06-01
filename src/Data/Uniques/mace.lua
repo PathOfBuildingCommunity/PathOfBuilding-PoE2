@@ -73,7 +73,7 @@ Variant: Current
 +(300-400) to Accuracy Rating
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to
-the enemy's Power for 6 seconds, up to a total of 500
+the enemy's Power for 20 seconds, up to a total of 500
 ]],[[
 Sculpted Suffering
 Warpick
@@ -89,13 +89,17 @@ Breaks Armour equal to 40% of damage from Hits with this weapon
 Fully Armour Broken enemies you kill with Hits Shatter
 ]],[[
 Seeing Stars
-Plated Mace
+{variant:1,2}Plated Mace
+{variant:3}Marching Mace
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
 {variant:1}Adds (9-12) to (18-22) Cold Damage
 {variant:2}Adds (12-16) to (22-25) Cold Damage
+{variant:3}Adds (24-31) to (36-46) Cold Damage
 {variant:1}Adds 1 to (30-35) Lightning Damage
 {variant:2}Adds 1 to (40-45) Lightning Damage
+{variant:3}Adds (1-5) to (66-90) Lightning Damage
 (10-20)% increased Attack Speed
 Energy Generation is doubled
 ]],[[
@@ -154,7 +158,7 @@ The Empty Roar
 Cultist Greathammer
 League: Dawn of the Hunt
 Implicits: 1
-Strikes deal Splash damage to targets within 1.5 metres
+Strikes deal Splash Damage
 Adds (25-35) to (40-50) Physical Damage
 Leeches 10% of Physical Damage as Life
 (10-20)% chance to cause Bleeding on Hit
@@ -165,13 +169,15 @@ The Hammer of Faith
 Giant Maul
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 {variant:1}(200-250)% increased Physical Damage
 {variant:2}(250-300)% increased Physical Damage
+{variant:3}(300-350)% increased Physical Damage
 10% reduced Attack Speed
 +10% to all Elemental Resistances
 50% increased Mana Regeneration Rate
-{variant:1}Gain a random Shrine buff every 10 seconds
+{variant:1,2,3}Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds
 ]],[[
 Hoghunt
 Felled Greatclub
@@ -189,12 +195,12 @@ Oak Greathammer
 Variant: Pre 0.1.1
 Variant: Current
 Implicits: 1
-Causes (30-50)% increased Stun Buildup
+Causes (20-40)% increased Stun Buildup
 {variant:1}(60-80)% increased Physical Damage
 {variant:2}(80-120)% increased Physical Damage
 +(10-15) to Strength
-Gain (10-20) Life per Enemy Killed
-Slam Skills you use yourself cause Aftershocks
+Gain (10-20) Life per enemy killed
+Slam Skills you use yourself cause an additional Aftershock
 ]],[[
 Quecholli
 Crumbling Maul
@@ -202,7 +208,7 @@ Implicits: 1
 Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage
 (80-120)% increased Physical Damage
 +(10-15) to all Attributes
-Gain 30 Life per Enemy Killed
+Gain 30 Life per enemy killed
 This Weapon's Critical Hit Chance is 100%
 Critical Hits do not deal extra Damage
 ]],[[

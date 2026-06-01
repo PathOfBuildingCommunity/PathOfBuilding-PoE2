@@ -3,13 +3,23 @@
 
 return {
 	[1]={
+		stats={
+			[1]="incinerate_maximum_stages"
+		}
+	},
+	[2]={
+		stats={
+			[1]="incinerate_gain_stage_every_x_ms"
+		}
+	},
+	[3]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -42,7 +52,43 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ignites from a single use of this Skill Compound if not\nfrom Ignited Ground"
+			}
+		},
+		stats={
+			[1]="active_skill_compounding_ignites"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
+				[1]={
+					k="per_minute_to_per_second",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Deals {0} Fire Damage per second"
+			}
+		},
+		stats={
+			[1]="base_fire_damage_to_deal_per_minute"
+		}
+	},
+	[7]={
 		[1]={
 			[1]={
 				[1]={
@@ -75,7 +121,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -100,9 +146,23 @@ return {
 			[1]="incinerate_fuel_gain_per_mana_spent"
 		}
 	},
-	[5]={
+	[9]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} seconds of Maximum fuel"
+			},
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -115,7 +175,7 @@ return {
 				},
 				text="Can store up to {0} second of fuel"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -133,56 +193,7 @@ return {
 			[1]="incinerate_maximum_fuel"
 		}
 	},
-	[6]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Deals {0}% more damage per stage"
-			}
-		},
-		stats={
-			[1]="incinerate_damage_+%_final_per_stage"
-		}
-	},
-	[7]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Gains a stage every second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Gains a stage every {0} seconds"
-			}
-		},
-		stats={
-			[1]="incinerate_gain_stage_every_x_ms"
-		}
-	},
-	[8]={
+	[10]={
 		[1]={
 			[1]={
 				limit={
@@ -203,30 +214,14 @@ return {
 			[2]="incinerate_maximum_exposure_magnitude"
 		}
 	},
-	[9]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="{0} maximum stages"
-			}
-		},
-		stats={
-			[1]="incinerate_maximum_stages"
-		}
-	},
-	[10]={
+	[11]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[11]={
+	[12]={
 		[1]={
 			[1]={
 				limit={
@@ -239,7 +234,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Ignites as though dealing {0} to {1} Fire damage"
+				text="Ignites as though dealing {0} to {1} Fire damage, every 0.075 seconds"
 			}
 		},
 		stats={
@@ -247,26 +242,19 @@ return {
 			[2]="spell_maximum_base_fire_damage"
 		}
 	},
-	[12]={
-		[1]={
-		},
-		stats={
-			[1]="virtual_incinerate_maximum_stages"
-		}
-	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["incinerate_buff_exposure_-_to_total_fire_resistance_per_stack"]=8,
-	["incinerate_damage_+%_final_per_stage"]=6,
-	["incinerate_fuel_gain_per_mana_spent"]=4,
-	["incinerate_gain_stage_every_x_ms"]=7,
-	["incinerate_maximum_exposure_magnitude"]=8,
-	["incinerate_maximum_fuel"]=5,
-	["incinerate_maximum_stages"]=9,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["active_skill_compounding_ignites"]=5,
+	["base_fire_damage_to_deal_per_minute"]=6,
+	["base_skill_effect_duration"]=7,
+	["incinerate_buff_exposure_-_to_total_fire_resistance_per_stack"]=10,
+	["incinerate_fuel_gain_per_mana_spent"]=8,
+	["incinerate_gain_stage_every_x_ms"]=2,
+	["incinerate_maximum_exposure_magnitude"]=10,
+	["incinerate_maximum_fuel"]=9,
+	["incinerate_maximum_stages"]=1,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=10,
-	["spell_maximum_base_fire_damage"]=11,
-	["spell_minimum_base_fire_damage"]=11,
-	["virtual_incinerate_maximum_stages"]=12
+	["skill_effect_duration"]=11,
+	["spell_maximum_base_fire_damage"]=12,
+	["spell_minimum_base_fire_damage"]=12
 }

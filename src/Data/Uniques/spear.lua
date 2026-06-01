@@ -3,6 +3,20 @@
 return {
 -- Weapon: Spear
 [[
+Atziri's Contempt
+Pronged Spear
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Shattering Spite
+(100-120)% increased Physical Damage
+Adds (83-97) to (123-153) Fire Damage
+Adds 1 to (133-247) Lightning Damage
+(10-16)% increased Attack Speed
+(60-80)% increased Presence Area of Effect
+Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target
+]],[[
 Chainsting
 Hunting Spear
 League: Dawn of the Hunt
@@ -38,12 +52,15 @@ Adds (33-41) to (47-53) Fire Damage
 Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target
 (25-40)% chance to Aggravate Bleeding on Hit
 ]],[[
-Splinter of Loratta
+Splinter of Lorrata
 Hardwood Spear
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Spear Throw
 Adds (2-3) to (6-8) Physical Damage
+{variant:2}Deal no Elemental Damage
 20% increased Melee Strike Range with this weapon
 Any number of Poisons from this Weapon can affect a target at the same time
 Always Poison on Hit with this weapon
@@ -97,7 +114,7 @@ Grants Skill: Spear Throw
 (150-200)% increased Physical Damage
 (10-15)% reduced Attack Speed
 +(15-30) to Strength
-Strikes deal Splash damage to targets within 1.5 metres
+Strikes deal Splash Damage
 Knocks Back Enemies on Hit
 Cannot use Projectile Attacks
 ]],

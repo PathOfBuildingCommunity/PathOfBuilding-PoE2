@@ -14,6 +14,54 @@ local s_gmatch = string.gmatch
 local BORDER_WIDTH = 3
 local H_PAD	= 12
 local V_PAD = 10
+-- spell-checker: disable
+local headerConfigs = {
+	RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+}
+-- spell-checker: enable
+
+local skillAssetMap
+local missingSkillAssets = { }
+local function getSkillAssetByName(name)
+	if not name or not data.skillAssets then
+		return nil
+	end
+	if not skillAssetMap then
+		skillAssetMap = { }
+		for file, fileInfo in pairs(data.skillAssets.ddsCoords or { }) do
+			local assetData = { }
+			assetData.handle = NewImageHandle()
+			assetData.handle:Load("Data/Skills/" .. file, "CLAMP")
+			assetData.width, assetData.height = assetData.handle:ImageSize()
+			for assetName, position in pairs(fileInfo) do
+				skillAssetMap[assetName] = {
+					found = assetData.width > 0,
+					handle = assetData.handle,
+					width = assetData.width,
+					height = assetData.height,
+					[1] = position,
+				}
+			end
+		end
+	end
+	if not skillAssetMap[name] and not missingSkillAssets[name] then
+		missingSkillAssets[name] = true
+		ConPrintf("missing skill asset with name " .. name)
+	end
+	return skillAssetMap[name]
+end
 
 local TooltipClass = newClass("Tooltip", function(self)
 	self.lines = { }
@@ -21,13 +69,21 @@ local TooltipClass = newClass("Tooltip", function(self)
 	self:Clear()
 end)
 
-function TooltipClass:Clear()
+function TooltipClass:Clear(clearUpdateParams)
 	wipeTable(self.lines)
 	wipeTable(self.blocks)
+	if self.updateParams and clearUpdateParams then
+		wipeTable(self.updateParams)
+	end
 	self.tooltipHeader = false
+	self.isUniqueGem = nil
 	self.titleYOffset = 0
 	self.recipe = nil
+	self.gemIcon = nil
+	self.gemBackground = nil
 	self.center = false
+	self.maxWidth = nil
+	self.minWidth = nil
 	self.color = { 0.5, 0.3, 0 }
 	t_insert(self.blocks, { height = 0 })
 end
@@ -52,20 +108,26 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
-function TooltipClass:AddLine(size, text)
+function TooltipClass:AddLine(size, text, font, background)
 	if text then
-		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do	
+		local fontToUse
+		if main.showFlavourText then
+			fontToUse = font or "VAR"
+		else
+			fontToUse = "VAR"
+		end
+		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
 				t_insert(self.blocks, { height = size + 2})
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
 			if self.maxWidth then
-				for _, line in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
-					t_insert(self.lines, { size = size, text = line, block = #self.blocks })
+				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
+					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background })
 			end
 		end
 	end
@@ -88,14 +150,16 @@ function TooltipClass:AddSeparator(size)
 
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
+		-- spell-checker: disable
 		local separatorConfigs = {
-			RELIC = "Assets/ItemsSeparatorFoil.png",
-			UNIQUE = "Assets/ItemsSeparatorUnique.png",
-			RARE = "Assets/ItemsSeparatorRare.png",
-			MAGIC = "Assets/ItemsSeparatorMagic.png",
-			NORMAL = "Assets/ItemsSeparatorWhite.png",
-			GEM = "Assets/ItemsSeparatorGem.png",
+			RELIC = "Assets/itemsseparatorfoil.png",
+			UNIQUE = "Assets/itemsseparatorunique.png",
+			RARE = "Assets/itemsseparatorrare.png",
+			MAGIC = "Assets/itemsseparatormagic.png",
+			NORMAL = "Assets/itemsseparatorwhite.png",
+			GEM = "Assets/itemsseparatorgem.png",
 		}
+		-- spell-checker: enable
 		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
@@ -115,7 +179,6 @@ function TooltipClass:AddSeparator(size)
 	})
 end
 
-
 function TooltipClass:GetSize()
 	local ttW, ttH = 0, 0
 	for i, data in ipairs(self.lines) do
@@ -123,14 +186,15 @@ function TooltipClass:GetSize()
 			ttH = ttH + data.size + 2
 		end
 		if data.text then
-			ttW = m_max(ttW, DrawStringWidth(data.size, "VAR", data.text))
+			ttW = m_max(ttW, DrawStringWidth(data.size, data.font, data.text))
 		end
 	end
 
 	-- Account for recipe display
 	if self.recipe and self.lines[1] then
 		local title = self.lines[1]
-		local imageX = DrawStringWidth(title.size, "VAR", title.text) + title.size
+		local font = main.showFlavourText and "FONTIN" or "VAR"
+		local imageX = DrawStringWidth(title.size, font, title.text) + title.size
 		local recipeTextSize = (title.size * 3) / 4
 		for _, recipeInfo in ipairs(self.recipe) do
 			local recipeName = recipeInfo.name
@@ -139,9 +203,13 @@ function TooltipClass:GetSize()
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
 				recipeNameShort = recipeNameShort:sub(1, #recipeNameShort - 3)
 			end
-			imageX = imageX + DrawStringWidth(recipeTextSize, "VAR", recipeNameShort) + title.size * 1.25
+			imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
+	end
+
+	if self.minWidth then
+		ttW = m_max(ttW, self.minWidth)
 	end
 
 	return ttW + H_PAD, ttH + V_PAD
@@ -149,12 +217,32 @@ end
 
 function TooltipClass:GetDynamicSize(viewPort)
 	local staticttW, staticttH = self:GetSize()
-	local columns, ttH = self:CalculateColumns(0, 0, staticttH, staticttW, viewPort)
-	local ttW = columns * staticttW
+	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
+		local rarity = tostring(self.tooltipHeader):upper()
+		local config = headerConfigs[rarity] or headerConfigs.NORMAL
+		self.titleYOffset = config.textYOffset or 0
+		staticttW = m_max(staticttW, DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text) + 50)
+	end
+	local columns, ttH, _, extraColumnWidth = self:CalculateColumns(0, 0, staticttH, staticttW, viewPort)
+
+	-- ensure extra column width has sensible value
+	extraColumnWidth = (columns > 1 and extraColumnWidth > 0) and extraColumnWidth or staticttW
+	local ttW = staticttW + (m_max(columns - 1, 0) * extraColumnWidth)
 
 	return ttW + H_PAD, ttH + V_PAD
 end
 
+--- Calculates the column breaks, layout heights, and individual rendering instructions for tooltip lines.
+--- By default, items exceeding window height will wrap to a new column.
+---@param ttY number Base y-coordinate for the tooltip content
+---@param ttX number Base x-coordinate for the tooltip content
+---@param ttH number The total estimated height of the tooltip content, used to determine column breakpoints
+---@param ttW number The pixel width of the primary (first) tooltip column
+---@param viewPort table A table `{x, y, width, height}` containing active screen boundaries
+---@return number columns The total number of layout columns generated
+---@return number maxColumnHeight The maximum pixel height reached across all formatted columns
+---@return table drawStack An array of sequential rendering instructions (texts, images, separators, and their coordinates)
+---@return number extraColumnWidth The required dynamic pixel width calculated for any additional columns beyond the first
 function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 	local y = ttY + 2 * BORDER_WIDTH
 	if self.titleYOffset then
@@ -163,11 +251,18 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 	local x = ttX
 	local columns = 1 -- reset to count columns by block heights
 	local currentBlock = 1
+	local extraColumnWidth = 0
 	local maxColumnHeight = 0
 	local drawStack = {}
+	local font
 
 	for i, data in ipairs(self.lines) do
 		-- Handle first line with recipe/oils
+		if main.showFlavourText then
+			font = data.font or "VAR"
+		else
+			font = "VAR"
+		end
 		if self.recipe and i == 1 and data.text then
 			local title = data
 			local titleSize = title.size
@@ -175,14 +270,14 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local padding = 4
 
 			-- Measure total width for centering
-			local totalWidth = DrawStringWidth(titleSize, "VAR", title.text)
+			local totalWidth = DrawStringWidth(titleSize, font, title.text)
 			local oilWidths = {}
 			for _, r in ipairs(self.recipe) do
 				local rn = r.name
 				if #rn > 3 and rn:sub(-3) == "Oil" then
 					rn = rn:sub(1, #rn - 3)
 				end
-				local textW = DrawStringWidth(recipeTextSize, "VAR", rn)
+				local textW = DrawStringWidth(recipeTextSize, font, rn)
 				local iconW = titleSize
 				table.insert(oilWidths, {rn, r.sprite, textW, iconW})
 				totalWidth = totalWidth + textW + iconW + padding
@@ -191,14 +286,17 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			-- Center title + oils
 			local curX = ttX + ttW / 2 - totalWidth / 2
 			-- Draw title
-			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, "VAR", title.text})
-			curX = curX + DrawStringWidth(titleSize, "VAR", title.text) + 6
+			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, font, title.text})
+			curX = curX + DrawStringWidth(titleSize, font, title.text) + (H_PAD / 2)
 
 			-- Draw oils
 			local maxOilHeight = 0
 			for _, part in ipairs(oilWidths) do
 				local rn, sprite, textW, iconW = part[1], part[2], part[3], part[4]
-				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, "VAR", rn})
+				if main.showFlavourText then
+					rn = "^xF8E6CA" .. rn
+				end
+				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, font, rn})
 				curX = curX + textW
 				t_insert(drawStack, {sprite, curX, y, iconW, iconW})
 				curX = curX + iconW + padding
@@ -222,12 +320,20 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			end
 			currentBlock = data.block
 
-			if self.center then
-				t_insert(drawStack, {x + ttW / 2, y, "CENTER_X", data.size, "VAR", data.text})
-			else
-				t_insert(drawStack, {x + 6, y, "LEFT", data.size, "VAR", data.text})
+			local lineCentered = data.center
+			if lineCentered == nil then
+				lineCentered = self.center
 			end
+			local lineX = lineCentered and (x + ttW / 2) or (x + (H_PAD / 2))
+			local lineAlign = lineCentered and "CENTER_X" or "LEFT"
+
+			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text, background = data.background})
 			y = y + data.size + 2
+
+			-- track max width for extra columns
+			if columns > 1 then
+				extraColumnWidth = m_max(extraColumnWidth, DrawStringWidth(data.size, font, data.text) + H_PAD)
+			end
 
 		elseif data.separatorImage and main.showFlavourText then
 			local sepSize = data.size or 10
@@ -237,7 +343,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				columns = columns + 1
 			end
 			currentBlock = data.block
-			t_insert(drawStack, {{ handle = data.separatorImage, isSeparator = true }, x + 6, y, ttW - 12, sepSize})
+			t_insert(drawStack, {{ handle = data.separatorImage, isSeparator = true }, x + (H_PAD / 2), y, ttW - H_PAD, sepSize})
 			y = y + sepSize
 
 		elseif self.lines[i + 1] and self.lines[i - 1] and self.lines[i + 1].text then
@@ -248,9 +354,51 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 		maxColumnHeight = m_max(y - ttY + 2 * BORDER_WIDTH, maxColumnHeight)
 	end
 
-	return columns, maxColumnHeight, drawStack
-end
+	-- Resizing/Shrinking drawStack elements in extra columns
+	-- NOTE: this logic depends on the current structure of `drawStack` --> needs adjustment if lengths or coordinates logic changes
+	if columns > 1 and extraColumnWidth > 0 then
+	 	for _, line in ipairs(drawStack) do
+			local isText = #line >= 6 -- Text elements have 6 props, images/separators have 5
+			local xIdx = isText and 1 or 2 -- `x` value at index 1 for text, 2 otherwise
+			local origX = line[xIdx]
 
+			-- calculate column index (origX is at least x * original widths from start)
+			local colIndex = m_floor((origX - ttX) / ttW) + 1
+
+			if colIndex > 1 then
+				local oldBaseX = ttX + ttW * (colIndex - 1)
+				local newBaseX = ttX + ttW + extraColumnWidth * (colIndex - 2) -- `- 2` because first column is unchanged
+
+				-- Update x coordinates
+				if isText and line[3] == "CENTER_X" then
+					-- centered texts
+					line[xIdx] = newBaseX + extraColumnWidth / 2
+				else
+					-- "LEFT" aligned text and images (NOTE: "RIGHT" aligned does not seem to exist)
+					line[xIdx] = origX - oldBaseX + newBaseX
+				end
+
+				-- Resize separators/dividers (technically unlikely to appear in extra columns, but just in case)
+				if not isText then
+					-- separator images have `width` value at index 4
+					if line[1] and type(line[1]) == "table" and line[1].isSeparator then
+						line[4] = extraColumnWidth - H_PAD -- "fancy" separators get extra padding
+					else
+						line[4] = extraColumnWidth - BORDER_WIDTH
+					end
+				end
+			end
+		end
+	end
+
+	return columns, maxColumnHeight, drawStack, extraColumnWidth
+end
+--- Draws tooltip to screen
+---@param x number x-coordinate to draw the tooltip at
+---@param y number y-coordinate to draw the tooltip at
+---@param w number|nil optional width of the UI element being hovered over. Tooltip will position itself outside this box (if possible)
+---@param h number|nil optional height of the UI element being hovered over. Needs to be provided alongside `w`
+---@param viewPort table A table `{x, y, width, height}` contains active screen boundaries
 
 function TooltipClass:Draw(x, y, w, h, viewPort)
 	if #self.lines == 0 then
@@ -259,29 +407,19 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	local ttW, ttH = self:GetSize()
 
 	-- ensure ttW is at least title width + 50 pixels, this fixes the header image for Magic items and some Tree passives.
-	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
-		local titleW = DrawStringWidth(self.lines[1].size, "VAR", self.lines[1].text)
+	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
+		local titleW = DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text)
 		if titleW + 50 > ttW then
 			ttW = titleW + 50
 		end
 	end
+	-- spell-checker: disable
 	local headerInfluence = {
-		Fractured = "Assets/FracturedItemSymbol.png",
-		Desecrated = "Assets/VeiledItemSymbol.png",
+		Fractured = "Assets/fractureditemsymbol.png",
+		Desecrated = "Assets/veileditemsymbol.png",
+		Mutated = "Assets/vaalitemicon.png",
 	}
-	local headerConfigs = {
-		RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png",middle="Assets/ItemsHeaderUniqueMiddle.png",right="Assets/ItemsHeaderUniqueRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		RARE = {left="Assets/ItemsHeaderRareLeft.png",middle="Assets/ItemsHeaderRareMiddle.png",right="Assets/ItemsHeaderRareRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png",middle="Assets/ItemsHeaderMagicMiddle.png",right="Assets/ItemsHeaderMagicRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png",middle="Assets/ItemsHeaderWhiteMiddle.png",right="Assets/ItemsHeaderWhiteRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		GEM = {left="Assets/ItemsHeaderGemLeft.png",middle="Assets/ItemsHeaderGemMiddle.png",right="Assets/ItemsHeaderGemRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png",middle="Assets/JewelPassiveHeaderMiddle.png",right="Assets/JewelPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png",middle="Assets/NotablePassiveHeaderMiddle.png",right="Assets/NotablePassiveHeaderRight.png",height=38,sideWidth=38,middleWidth=32,textYOffset=2},
-		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png",middle="Assets/NormalPassiveHeaderMiddle.png",right="Assets/NormalPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png",middle="Assets/KeystonePassiveHeaderMiddle.png",right="Assets/KeystonePassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png",middle="Assets/AscendancyPassiveHeaderMiddle.png",right="Assets/AscendancyPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-	}
+	-- spell-checker: enable
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
@@ -290,7 +428,8 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	end
 	local ttX = x
 	local ttY = y
-	if w and h then
+	local isHoverToolTip = w and h -- `w` and `h` typically only provided for hover tooltips
+	if isHoverToolTip then
 		ttX = ttX + w + 5
 		if ttX + ttW > viewPort.x + viewPort.width then
 			ttX = m_max(viewPort.x, x - 5 - ttW)
@@ -305,12 +444,34 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 	SetDrawColor(1, 1, 1)
 
-	local columns, maxColumnHeight, drawStack = self:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
+	-- Initial column calculation
+	local columns, maxColumnHeight, drawStack, extraColumnWidth = self:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
+
+	-- ensure extraColumnWidth has sensible value and calculate new total width (original width + extraColumns)
+	extraColumnWidth = (columns > 1 and extraColumnWidth > 0) and extraColumnWidth or ttW
+	local totalDrawWidth = ttW + (m_max(columns - 1, 0) * extraColumnWidth)
+
+	-- If hover tooltip and extra columns don't fit, shift to left and adjust drawStack (because hover tooltips can't scroll)
+	if columns > 1 and isHoverToolTip and totalDrawWidth + ttX >= viewPort.x + viewPort.width then
+		local newX = m_max(viewPort.x, viewPort.x + viewPort.width - totalDrawWidth)
+		local offsetX = newX - ttX
+		ttX = newX
+
+		for _, line in ipairs(drawStack) do
+			if #line < 6 then
+				-- Text element entries have 6 entries and `x` at `[2]`
+				line[2] = line[2] + offsetX
+			else
+				-- Image, Separators, etc. have 5 entries and `x` at `[1]`
+				line[1] = line[1] + offsetX
+			end
+		end
+	end
 
 	-- background shading currently must be drawn before text lines.  API change will allow something like the commented lines below
 	SetDrawColor(0, 0, 0, .85)
 	--SetDrawLayer(nil, GetDrawLayer() - 5)
-	DrawImage(nil, ttX, ttY + BORDER_WIDTH, ttW * columns - BORDER_WIDTH, maxColumnHeight - 2 * BORDER_WIDTH)
+	DrawImage(nil, ttX, ttY + BORDER_WIDTH, totalDrawWidth - BORDER_WIDTH, maxColumnHeight - 2 * BORDER_WIDTH)
 	--SetDrawLayer(nil, GetDrawLayer())
 	SetDrawColor(1, 1, 1)
 
@@ -318,6 +479,23 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
+		-- Animate RELIC header color (light green → bright yellow → white)
+		if rarity == "RELIC" and main.showAnimations then
+			local t = GetTime() * 0.003
+
+			-- Three phase-shifted sine waves
+			local s1 = math.sin(t)
+			local s2 = math.sin(t + 2.094) -- +120°
+			local s3 = math.sin(t + 4.188) -- +240°
+
+			local r = 0.8 + 0.2 * ((s1 + 1) / 2)   -- boosts yellows/whites
+			local g = 0.75 + 0.25 * ((s2 + 1) / 2) -- slightly darker green range
+			local b = 0.6 + 0.15 * ((s3 + 1) / 2)  -- minimal blue, keeps warmth
+
+			SetDrawColor(r, g, b)
+		else
+			SetDrawColor(1, 1, 1)
+		end
 
 		self.titleYOffset = config.textYOffset or 0
 
@@ -348,43 +526,72 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
 		end
 
-		-- Draw left cap first, then influence icon on top
-		DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader1 then
-			DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
-		end
-
-		-- Draw middle fill
-		if headerMiddleAreaWidth > 0 then
-			local drawX = headerX + headerSideWidth
-			local endX = headerX + headerTotalWidth - headerSideWidth
-			while drawX + headerMiddleWidth <= endX do
-				DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
-				drawX = drawX + headerMiddleWidth
+		if self.tooltipHeader ~= "GEM" then
+			-- Draw left cap first, then influence icon on top
+			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
+			if self.influenceHeader1 and config.allowInfluenceIcon then
+				DrawImage(self.influenceIcon1, headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
-			local remainingWidth = endX - drawX
-			if remainingWidth > 0 then
-				DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
-			end
-		end
 
-		-- Draw right cap
-		DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader2 then
-			DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
+			-- Draw middle fill
+			if headerMiddleAreaWidth > 0 then
+				local drawX = headerX + headerSideWidth
+				local endX = headerX + headerTotalWidth - headerSideWidth
+				while drawX + headerMiddleWidth <= endX do
+					DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
+					drawX = drawX + headerMiddleWidth
+				end
+				local remainingWidth = endX - drawX
+				if remainingWidth > 0 then
+					DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
+				end
+			end
+
+			-- Draw right cap
+			DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
+			if self.influenceHeader2 and config.allowInfluenceIcon then
+				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
+			end
+		elseif self.tooltipHeader == "GEM" then
+			local gemIconImage = getSkillAssetByName(self.gemIcon)
+			local gemBGImage = getSkillAssetByName(self.gemBackground)
+			local headerPath = self.isUniqueGem and "Assets/gemhovertitleunique.png" or "Assets/gemhovertitle.png"
+			if not self.gemHeaderImage or self.gemHeaderImagePath ~= headerPath then
+				self.gemHeaderImage = NewImageHandle()
+				self.gemHeaderImage:Load(headerPath)
+				self.gemHeaderImagePath = headerPath
+			end
+			if not self.gemIconBorder then
+				self.gemIconBorder = NewImageHandle()
+				self.gemIconBorder:Load("Assets/skillpanelskilliconframe.png")
+			end
+			DrawImage(self.gemHeaderImage, headerX, headerY, 375, 59)
+			if gemIconImage then
+				DrawImage(gemIconImage.handle, headerX + 21, headerY + 6, 46, 46, unpack(gemIconImage))
+				DrawImage(self.gemIconBorder, headerX + 21, headerY + 6, 48, 48)
+			end
+			if gemBGImage then
+				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -500, headerY, 500, 266, unpack(gemBGImage))
+			else
+				if not self.gemEmptyImage then
+					self.gemEmptyImage = NewImageHandle()
+					self.gemEmptyImage:Load("Assets/gemhoverimageempty.png")
+				end
+				DrawImage(self.gemEmptyImage, headerX + headerTotalWidth -500, headerY, 500, 266)
+			end
 		end
 	end
 
 	-- Draw lines and images
 	local firstSeparatorSkipped = false
-	for _, line in ipairs(drawStack) do 
+	for _, line in ipairs(drawStack) do
 		if #line < 6 then
 			local skip = false
 			if line[1] and type(line[1]) == "table" and line[1].isSeparator then
 				-- Only skip first separator for items and skill gems
 				local tooltipType = self.tooltipHeader and tostring(self.tooltipHeader):upper() or ""
-				if main.showFlavourText and not firstSeparatorSkipped and 
-				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM") then
+				if main.showFlavourText and not firstSeparatorSkipped and
+				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM" or tooltipType == "JEWEL") then
 					firstSeparatorSkipped = true
 					skip = true
 				else
@@ -408,21 +615,56 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				end
 			end
 		else
+			-- Draw background if specified, used for gem mod lines and desecrated mods on items.
+			local bg = line.background
+			if bg then
+				-- Save current draw color BEFORE drawing background image, otherwise wrapped strings print white text for later lines.
+				local prevR, prevG, prevB, prevA = GetDrawColor()
+
+				if type(bg) == "string" then
+					if not self._bgHandles then
+						self._bgHandles = {}
+					end
+					if not self._bgHandles[bg] then
+						local h = NewImageHandle()
+						h:Load("Assets/" .. bg .. ".png")
+						self._bgHandles[bg] = h
+					end
+					bg = self._bgHandles[bg]
+				end
+
+				local x = ttX
+				local y = line[2] - 1
+				local width = ttW - 8
+				local height = line[4] + 3
+				SetDrawColor(1,1,1,1)
+				DrawImage(bg, x + 4, y, width, height)
+
+				-- Restore color BEFORE DrawString
+				SetDrawColor(prevR, prevG, prevB, prevA)
+			end
+
+			-- Draw text line
 			DrawString(unpack(line))
 		end
 	end
 
 	-- Draw borders
 	if type(self.color) == "string" then
-		SetDrawColor(self.color) 
+		SetDrawColor(self.color)
 	else
 		SetDrawColor(unpack(self.color))
 	end
+
+	-- draw vertical borders, accounting for separate extra column width
 	for i = 0, columns do
-		DrawImage(nil, ttX + ttW * i - BORDER_WIDTH * math.ceil(i^2 / (i^2 + 1)), ttY, BORDER_WIDTH, maxColumnHeight)
+		local extraColXOffset = i > 0 and ttW + ((i - 1) * extraColumnWidth) or 0
+		local currentX = ttX + extraColXOffset
+		DrawImage(nil, currentX - BORDER_WIDTH * math.ceil(i^2 / (i^2 + 1)), ttY, BORDER_WIDTH, maxColumnHeight)
 	end
-	DrawImage(nil, ttX, ttY, ttW * columns, BORDER_WIDTH) -- top border
-	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, ttW * columns, BORDER_WIDTH) -- bottom border
+	-- draw horizontal borders
+	DrawImage(nil, ttX, ttY, totalDrawWidth, BORDER_WIDTH) -- top
+	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, totalDrawWidth, BORDER_WIDTH) -- bottom
 
 	return ttW, ttH
 end

@@ -77,22 +77,23 @@ local itemClassMap = {
 	["Claw"] = "Claw",
 	["Dagger"] = "Dagger",
 	["Wand"] = "Wand",
-	["One Hand Sword"] = "One Handed Sword",
-	["Thrusting One Hand Sword"] = "One Handed Sword",
-	["One Hand Axe"] = "One Handed Axe",
-	["One Hand Mace"] = "One Handed Mace",
+	["One Hand Sword"] = "One Hand Sword",
+	["Thrusting One Hand Sword"] = "One Hand Sword",
+	["One Hand Axe"] = "One Hand Axe",
+	["One Hand Mace"] = "One Hand Mace",
 	["Crossbow"] = "Crossbow",
 	["Bow"] = "Bow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Staff"] = "Staff",
 	["Warstaff"] = "Warstaff",
-	["Two Hand Sword"] = "Two Handed Sword",
-	["Two Hand Axe"] = "Two Handed Axe",
-	["Two Hand Mace"] = "Two Handed Mace",
+	["Two Hand Sword"] = "Two Hand Sword",
+	["Two Hand Axe"] = "Two Hand Axe",
+	["Two Hand Mace"] = "Two Hand Mace",
 	["Shield"] = "Shield",
-	["Sceptre"] = "One Handed Mace",
+	["Sceptre"] = "One Hand Mace",
 	["Flail"] = "Flail",
 	["Spear"] = "Spear",
+	["Talisman"] = "Talisman",
 	["Unarmed"] = "None",
 }
 
@@ -224,9 +225,6 @@ directiveTable.emit = function(state, args, out)
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
 						local areaIds = {}
-						if mapRow.BossVersion and mapRow.BossVersion.Id then
-							table.insert(areaIds, mapRow.BossVersion.Id)
-						end
 						for _, areaId in ipairs(areaIds) do
 							local area = dat("WorldAreas"):GetRow("Id", areaId)
 							if area and area.Name ~= "NULL" and not area.Name:match("DNT") then

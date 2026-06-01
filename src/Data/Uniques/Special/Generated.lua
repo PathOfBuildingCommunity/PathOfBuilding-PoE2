@@ -7,6 +7,8 @@
 data.uniques.generated = { }
 
 local excludedItemKeystones = {
+	"Acrobatics",
+	"Walker of the Wilds",
 }
 
 local uniqueMods = data.itemMods.Exclusive
@@ -75,10 +77,13 @@ end
 
 do
 	local excludedGems = {
+		"Detonate Minion",
+		"Rhoa Mount",
 	}
 	local gems = { }
 	for _, gemData in pairs(data.gems) do
-		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) then
+		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) and not gemData.grantedEffect.hidden and not gemData.grantedEffect.fromItem and not gemData.grantedEffect.fromTree then
+			gemData.name = gemData.name:gsub("Spectre: {0}", "Summon Spectre"):gsub("Companion: {0}", "Tamed Companion")
 			table.insert(gems, gemData.name)
 		end
 	end
@@ -132,12 +137,44 @@ do
 end
 
 do
+	local fleshCrucible = {
+		"Flesh Crucible",
+		"Diamond",
+		"Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}",
+		"Limited to: 1",
+		"Has Alt Variant: true",
+	}
+	local crucibleMods = { }
+	for _, name in ipairs(data.keystones) do
+		if not isValueInArray(excludedItemKeystones, name) then
+			table.insert(crucibleMods, name)
+		end
+	end
+	for modName, mod in pairs(uniqueMods) do
+		if modName:match("^UniqueVivisectionPrice") then
+			table.insert(crucibleMods, mod[1])
+		end
+	end
+	table.sort(crucibleMods)
+	for _, name in ipairs(crucibleMods) do
+		table.insert(fleshCrucible, "Variant: " .. name)
+	end
+	table.insert(fleshCrucible, "Selected Variant: 1")
+	table.insert(fleshCrucible, "Selected Alt Variant: 25")
+	for index, text in ipairs(crucibleMods) do
+		table.insert(fleshCrucible, "{variant:"..index.."}"..text)
+	end
+	table.insert(fleshCrucible, "Corrupted")
+    table.insert(data.uniques.generated, table.concat(fleshCrucible, "\n"))
+end
+
+do
 	local kulemakMods = { }
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^PassageUnique(.+)$")
 		if name then
 			table.insert(kulemakMods, { 
-				mod = mod, 
+				mod = mod,
 				name = name
 					:gsub("([a-z])([A-Z])", "%1 %2")
 					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
@@ -209,7 +246,7 @@ do
 	table.insert(heart, "Selected Alt Variant Two: 40")
 	table.insert(heart, "Selected Alt Variant Three: 41")
 	for index, mod in ipairs(heartMods) do
-		table.insert(heart, "{variant:" .. index .. "}" .. mod.mod[1])
+		table.insert(heart, "{variant:" .. index .. "}{desecrated}" .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(heart, "\n"))
 end

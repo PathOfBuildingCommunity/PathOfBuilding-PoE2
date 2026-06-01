@@ -16,20 +16,32 @@ No Inherent loss of Rage during effect
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
+Variant: Pre 0.4.0
+Variant: Current
 Instant Recovery
 (100-150)% increased Charges per use
-Excess Life Recovery added as Guard for 10 seconds
+{variant:1}Excess Life Recovery added as Guard for 10 seconds
+{variant:2}Excess Life Recovery added as Guard for 20 seconds
 ]],
 -- Flask: Mana
 [[
+Lavianga's Spirits
+Gargantuan Mana Flask
+Requires Level 49
+League: Fate of the Vaal
+This Flask cannot be Used but applies its Effect constantly
+(70-80)% reduced Amount Recovered
+]],[[
 Melting Maelstrom
 Ultimate Mana Flask
 Source: Drops from unique{Kosis, The Revelation}
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Effect is not removed when Unreserved Mana is Filled
 (200-250)% increased Duration
-Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres
+{variant:1,2}Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres
+{variant:3}Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres
 {variant:1}Recover all Mana when Used
 Deals 25% of current Mana as Chaos Damage to you when Effect ends
 ]],
@@ -48,7 +60,7 @@ Dousing Charm
 League: Dawn of the Hunt
 Implicits: 1
 Used when you become Ignited
-(20-25)% Chance to gain a Charge when you Kill an Enemy
+(20-25)% Chance to gain a Charge when you kill an enemy
 Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life
 ]],[[
 The Black Cat
@@ -93,7 +105,7 @@ Thawing Charm
 League: Dawn of the Hunt
 Implicits: 1
 Used when you become Frozen
-(20-25)% Chance to gain a Charge when you Kill an Enemy
+(20-25)% Chance to gain a Charge when you kill an enemy
 Energy Shield Recharge starts on use
 ]],[[
 Ngamahu's Chosen
@@ -118,7 +130,7 @@ Variant: Stag
 Variant: Cat
 Implicits: 1
 15% increased Rarity of Items found
-Used when you Kill a Rare or Unique Enemy
+Used when you kill a Rare or Unique enemy
 {variant:4}Possessed by Spirit Of The Bear for (10-20) seconds on use
 {variant:5}Possessed by Spirit Of The Boar for (10-20) seconds on use
 {variant:9}Possessed by Spirit Of The Cat for (10-20) seconds on use

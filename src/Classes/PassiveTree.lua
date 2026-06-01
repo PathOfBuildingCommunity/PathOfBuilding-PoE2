@@ -78,14 +78,16 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * self.scaleImage * 1.1
 	
-	for i = 0, 6 do
-		self.classes[i] = self.classes[i + 1]
-		self.classes[i + 1] = nil
+	local classes = { }
+	for _, class in pairs(self.classes) do
+		classes[class.integerId] = class
 	end
+	self.classes = classes
 
 	-- Build maps of class name -> class table
 	self.classNameMap = { }
 	self.ascendNameMap = { }
+	self.classIntegerIdMap = { }
 	self.internalAscendNameMap = { }
 	self.classNotables = { }
 
@@ -93,6 +95,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		class.classes = class.ascendancies
 		class.classes[0] = { name = "None" }
 		self.classNameMap[class.name] = classId
+		self.classIntegerIdMap[class.integerId] = classId
 		for ascendClassId, ascendClass in pairs(class.classes) do
 			self.ascendNameMap[ascendClass.id or ascendClass.name] = {
 				classId = classId,
@@ -117,6 +120,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.orbitAnglesByOrbit = self.constants.orbitAnglesByOrbit
 
 	ConPrintf("Loading passive tree assets...")
+	self.assets = self.assets or {}
 	for name, data in pairs(self.assets) do
 		self:LoadImage(data[1], data, "MIPMAP")
 	end
@@ -137,47 +141,25 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		end
 	end
 
-	self.nodeOverlay = {
-		Normal = {
-			artWidth = 70,
-			alloc = "PSSkillFrameActive",
-			path = "PSSkillFrameHighlighted",
-			unalloc = "PSSkillFrame",
-			allocAscend = "AscendancyFrameSmallAllocated",
-			pathAscend = "AscendancyFrameSmallCanAllocate",
-			unallocAscend = "AscendancyFrameSmallNormal"
-		},
-		Notable = {
-			artWidth = 100,
-			alloc = "NotableFrameAllocated",
-			path = "NotableFrameCanAllocate",
-			unalloc = "NotableFrameUnallocated",
-			allocAscend = "AscendancyFrameLargeAllocated",
-			pathAscend = "AscendancyFrameLargeCanAllocate",
-			unallocAscend = "AscendancyFrameLargeNormal",
-			allocBlighted = "BlightedNotableFrameAllocated",
-			pathBlighted = "BlightedNotableFrameCanAllocate",
-			unallocBlighted = "BlightedNotableFrameUnallocated",
-		},
-		Keystone = {
-			artWidth = 138,
-			alloc = "KeystoneFrameAllocated",
-			path = "KeystoneFrameCanAllocate",
-			unalloc = "KeystoneFrameUnallocated",
-			allocBlighted = "KeystoneFrameAllocated",
-			pathBlighted = "KeystoneFrameCanAllocate",
-			unallocBlighted = "KeystoneFrameUnallocated",
-		},
-		Socket = {
-			artWidth = 100,
-			alloc = "JewelFrameAllocated",
-			path = "JewelFrameCanAllocate",
-			unalloc = "JewelFrameUnallocated",
-			allocAlt = "JewelSocketAltActive",
-			pathAlt = "JewelSocketAltCanAllocate",
-			unallocAlt = "JewelSocketAltNormal",
-		},
-	}
+	self.spriteMap = { }
+	self.spriteCoords = self.spriteCoords or {}
+	for file, fileInfo in pairs(self.spriteCoords) do
+		local data = { }
+		self:LoadImage(file, data, "CLAMP")
+		for name, coords in pairs(fileInfo) do
+			self.spriteMap[name] = {
+				found = data.width > 0,
+				handle = data.handle,
+				width = coords.w,
+				height = coords.h,
+				[1] = coords.x / data.width,
+				[2] = coords.y / data.height,
+				[3] = (coords.x + coords.w) / data.width,
+				[4] = (coords.y + coords.h) / data.height
+			}
+		end
+	end
+
 	for type, data in pairs(self.nodeOverlay) do
 		local asset = self:GetAssetByName(data.alloc)
 		local artWidth = asset.width * self.scaleImage
@@ -211,7 +193,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		node.o = node.orbit
 		node.oidx = node.orbitIndex
 		node.dn = node.name
-		node.sd = node.stats
+		node.sd = node.stats or {}
 
 		node.__index = node
 		node.linkedId = { }
@@ -311,16 +293,16 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				goto endConnection
 			end
 
-			if node.ascendancyName ~= other.ascendancyName then
-				goto endConnection
-			end
-
 			if node.id == otherId then
 				goto endConnection
 			end
 
 			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
+			
+			if node.ascendancyName ~= other.ascendancyName then
+				goto endConnection
+			end
 
 			if node.classesStart ~= nil or other.classesStart ~= nil then
 				goto endConnection
@@ -343,7 +325,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	for nodeId, socket in pairs(self.sockets) do
 		if socket.name == "Charm Socket" then
 			socket.charmSocket = true
-		elseif not socket.containJewelSocket then
+		elseif not socket.containJewelSocket and not socket.noRadius then
 			socket.nodesInRadius = { }
 			socket.attributesInRadius = { }
 			for radiusIndex, _ in ipairs(data.jewelRadius) do
@@ -518,7 +500,21 @@ end
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
 	node.targetSize = self:GetNodeTargetSize(node)
-	node.overlay = node.containJewelSocket and node.jewelOverlay or self.nodeOverlay[node.type]
+	local overlayData
+	if node.nodeOverlay then
+		overlayData = { }
+		for type, data in pairs(node.nodeOverlay) do
+			overlayData[type] = data
+		end
+		local asset = self:GetAssetByName(overlayData.alloc)
+		local artWidth = asset.width * self.scaleImage
+		overlayData.artWidth = artWidth
+		overlayData.size = artWidth
+		overlayData.rsq = overlayData.size * overlayData.size
+	else
+		overlayData = self.nodeOverlay[node.type]
+	end
+	node.overlay = overlayData
 	if node.overlay then
 		local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
 		node.rsq = size * size
@@ -588,6 +584,7 @@ end
 function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local connector = {
 		ascendancyName = node1.ascendancyName,
+		connectionArt = node1.connectionArt or node2.connectionArt or self.connectionArt[node1.ascendancyName and "ascendancy" or "default"],
 		nodeId1 = node1.id,
 		nodeId2 = node2.id,
 		c = { } -- This array will contain the quad's data: 1-8 are the vertex coordinates, 9-16 are the texture coordinates
@@ -682,7 +679,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 
 	-- Generate a straight line
 	connector.type = "LineConnector"
-	local art = self:GetAssetByName("LineConnectorNormal")
+	local art = self:GetAssetByName(connector.connectionArt .. "LineConnectorNormal")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
 	local scale = art.height * 0.5 * self.scaleImage / dist
@@ -718,7 +715,7 @@ function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, conne
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local art  = self:GetAssetByName(connector.type .. state)
+		local art  = self:GetAssetByName( connector.connectionArt .. connector.type .. state)
 		local size =  art.width * self.scaleImage --self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = xScale + oX, yScale + oY
@@ -765,8 +762,14 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 	return orbitAngles
 end
 
+local alreadyAlertMissingAssetName = {}
 function PassiveTreeClass:GetAssetByName(name, type)
-	return self.ddsMap[name] or self.assets[name]
+	local assetData = self.ddsMap[name] or self.assets[name] or self.spriteMap[name]
+	if not assetData and not alreadyAlertMissingAssetName[name] then
+		alreadyAlertMissingAssetName[name] = true
+		ConPrintf("missing asset with name " .. name)
+	end
+	return assetData
 end
 
 function PassiveTreeClass:GetNodeTargetSize(node)

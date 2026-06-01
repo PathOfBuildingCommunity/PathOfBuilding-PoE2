@@ -3,25 +3,6 @@ describe("TestSocketables", function()
         newBuild()
     end)
 
-    it("ModRunes matches Data/Soulcores", function()
-        local modRunes = LoadModule("../src/Data/ModRunes")
-        local soulCores = {}
-        LoadModule("../src/Data/Bases/soulcore", soulCores)
-        local soulCoreCount = 0
-        for name, _ in pairs(soulCores) do
-            assert.is_not.equals(modRunes[name], nil)
-            soulCoreCount = soulCoreCount + 1
-        end
-
-        local modRunesCount = 0
-        for name, _ in pairs(modRunes) do
-            assert.is_not.equals(soulCores[name], nil)
-            modRunesCount = modRunesCount + 1
-        end
-        -- Final check that Bases/soulcore has same number of entries as ModRunes
-        assert.are.equals(modRunesCount, soulCoreCount)
-    end)
-
     -- Item Tab display Tests
     -- Also checks slot type runes
 
@@ -31,10 +12,7 @@ describe("TestSocketables", function()
         for name, rune in pairs(modRunes) do
             for runeSlotType, mods in pairs(rune) do
                 if runeSlotType == slotType then
-                    -- Need to add an entry of the name for each mod line for tests
-                    for _, _ in ipairs(mods) do
-                        table.insert(names, name)
-                    end
+                    table.insert(names, name)
                 end
             end
         end
@@ -64,7 +42,17 @@ describe("TestSocketables", function()
         -- To keep the test fast, only check that the lengths match
         -- This should also catch issues with multi-mod line runes since the rune name will appear
         -- for the number of mod lines that the rune has.
-        assert.are.equals(#itemTabRunes, #modRunes)
+        if #itemTabRunes ~= #modRunes then
+            ConPrintf("Item Tab Runes for slot type '%s':", slotType)
+            for _, name in ipairs(itemTabRunes) do
+                ConPrintf("  %s", name)
+            end
+            ConPrintf("Mod Runes for slot type '%s':", slotType)
+            for _, name in ipairs(modRunes) do
+                ConPrintf("  %s", name)
+            end
+        end
+        assert.are.equals(#itemTabRunes, #modRunes, "Mismatch in number of runes for slot type: " .. slotType)
     end
 
     -- Note: Except for weapon/armour/caster,

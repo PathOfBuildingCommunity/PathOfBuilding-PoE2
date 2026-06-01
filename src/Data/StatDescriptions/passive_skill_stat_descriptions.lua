@@ -316,7 +316,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Gain a Frenzy Charge on Kill"
+				text="Gain a Frenzy Charge on kill"
 			}
 		},
 		stats={
@@ -364,7 +364,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Converts all Energy Shield to Mana\nDoubles Mana Costs"
+				text="Convert 100% of maximum Energy Shield to maximum Mana\nMana Costs are Doubled"
 			}
 		},
 		stats={
@@ -380,7 +380,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Unlimited number of Summoned Totems\nTotems reserve 75 Spirit each"
+				text="Your Totem Limit is doubled\nNo Charge requirement for placing Totems\nTotems reserve 75 Spirit each"
 			}
 		},
 		stats={
@@ -540,7 +540,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Infusion Remnants you create are always a Random Element"
+				text="Create Lightning Infusion Remnants instead of Fire\nCreate Cold Infusion Remnants instead of Lightning\nCreate Fire Infusion Remnants instead of Cold"
 			}
 		},
 		stats={
@@ -572,7 +572,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life Leech is Instant\nCannot use Life Flasks"
+				text="50% more amount of Life Leeched\nLeech Life 67% less quickly\nCannot Recover Life other than from Leech\nLife Leech effects are not removed when Unreserved Life is Filled"
 			}
 		},
 		stats={
@@ -820,7 +820,7 @@ return {
 						[2]=1
 					}
 				},
-				text="Can Allocate Passives from the Marauder's starting point"
+				text="Can Allocate Passive Skills from the Warrior's starting point"
 			},
 			[2]={
 				limit={
@@ -829,7 +829,7 @@ return {
 						[2]=2
 					}
 				},
-				text="Can Allocate Passives from the Ranger's starting point"
+				text="Can Allocate Passive Skills from the Ranger's starting point"
 			},
 			[3]={
 				limit={
@@ -838,7 +838,7 @@ return {
 						[2]=3
 					}
 				},
-				text="Can Allocate Passives from the Witch's starting point"
+				text="Can Allocate Passive Skills from the Sorceress's starting point"
 			},
 			[4]={
 				limit={
@@ -847,7 +847,7 @@ return {
 						[2]=4
 					}
 				},
-				text="Can Allocate Passives from the Duelist's starting point"
+				text="Can Allocate Passive Skills from the Mercenary's starting point"
 			},
 			[5]={
 				limit={
@@ -856,7 +856,7 @@ return {
 						[2]=5
 					}
 				},
-				text="Can Allocate Passives from the Templar's starting point"
+				text="Can Allocate Passive Skills from the Templar's starting point"
 			},
 			[6]={
 				limit={
@@ -865,7 +865,7 @@ return {
 						[2]=6
 					}
 				},
-				text="Can Allocate Passives from the Shadow's starting point"
+				text="Can Allocate Passive Skills from the Shadow's starting point"
 			}
 		},
 		stats={
@@ -881,7 +881,7 @@ return {
 						[2]=99
 					}
 				},
-				text="{0}% chance to create Consecrated Ground on Kill, lasting 8 seconds"
+				text="{0}% chance to create Consecrated Ground on kill, lasting 8 seconds"
 			},
 			[2]={
 				limit={
@@ -890,7 +890,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Create Consecrated Ground on Kill, lasting 8 seconds"
+				text="Create Consecrated Ground on kill, lasting 8 seconds"
 			}
 		},
 		stats={
@@ -898,31 +898,6 @@ return {
 		}
 	},
 	[48]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Gain {0} Life Flask Charge per 4% Life spent"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
-				text="Gain {0} Life Flask Charges per 4% Life spent"
-			}
-		},
-		stats={
-			[1]="gain_X_life_flask_charges_per_4%_life_spent"
-		}
-	},
-	[49]={
 		[1]={
 			[1]={
 				[1]={
@@ -935,7 +910,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Adaptations last for {0} second"
+				text="-{0} second to base Energy Shield Recharge delay"
 			},
 			[2]={
 				[1]={
@@ -944,15 +919,40 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="DNT Adaptations last for {0} seconds"
+				text="-{0} seconds to base Energy Shield Recharge delay"
 			}
 		},
 		stats={
-			[1]="adaptation_duration_ms"
+			[1]="energy_shield_recharge_starts_X_ms_sooner"
+		}
+	},
+	[49]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Gain {0} Life Flask Charge per 2% Life spent"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Gain {0} Life Flask Charges per 2% Life spent"
+			}
+		},
+		stats={
+			[1]="gain_X_life_flask_charges_per_4%_life_spent"
 		}
 	},
 	[50]={
@@ -964,11 +964,24 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Add {0} Guard when Triggering a Skill for every 0.1 seconds of base use time of that Skill"
+				text="{0}% increased Armour, Evasion and Energy Shield"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Armour, Evasion and Energy Shield"
 			}
 		},
 		stats={
-			[1]="add_X_guard_on_trigger_per_100_ms_total_use_time_of_triggered_skill_up_to_maximum_mana"
+			[1]="global_armour_evasion_energy_shield_+%"
 		}
 	},
 	[51]={
@@ -984,7 +997,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Expending Combo adds {0} second to remaining Energy Shield Recharge delay per Combo"
+				text="Adaptations have a duration of {0} second"
 			},
 			[2]={
 				[1]={
@@ -993,44 +1006,43 @@ return {
 				},
 				limit={
 					[1]={
-						[1]=1,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT Expending Combo adds {0} seconds to remaining Energy Shield Recharge delay per Combo"
-			},
-			[3]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=-1000,
-						[2]=-1000
-					}
-				},
-				text="DNT Expending Combo removes {0} second from remaining Energy Shield Recharge delay per Combo"
-			},
-			[4]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="DNT Expending Combo removes {0} seconds from remaining Energy Shield Recharge delay per Combo"
+				text="Adaptations have a duration of {0} seconds"
 			}
 		},
 		stats={
-			[1]="add_X_ms_to_energy_shield_recharge_delay_per_combo_spent"
+			[1]="adaptation_duration_ms"
 		}
 	},
 	[52]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Adapt to the highest Elemental Damage Type of each Hit you take"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Adapt {0} times to the highest Elemental Damage Type of each Hit you take"
+			}
+		},
+		stats={
+			[1]="gain_X_adaptation_matching_type_when_hit_by_elemental_damage"
+		}
+	},
+	[53]={
 		[1]={
 			[1]={
 				limit={
@@ -1053,22 +1065,6 @@ return {
 		},
 		stats={
 			[1]="additional_combo_gain_chance_%"
-		}
-	},
-	[53]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT Gain {0} additional Combo whenever you gain Combo"
-			}
-		},
-		stats={
-			[1]="additional_combo_gain_on_hit"
 		}
 	},
 	[54]={
@@ -1096,11 +1092,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Apply {0} Critical Weakness to Enemies when Consuming a Mark on them"
+				text="{0}% increased Effect of Arcane Surge on you per ten percent missing Mana"
 			}
 		},
 		stats={
-			[1]="apply_X_critical_weakness_on_consuming_mark"
+			[1]="arcane_surge_effect_on_self_+%_per_10%_missing_mana"
 		}
 	},
 	[56]={
@@ -1112,23 +1108,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% increased Effect of Arcane Surge on you per ten percent missing Mana"
-			}
-		},
-		stats={
-			[1]="arcane_surge_effect_on_self_+%_per_10%_missing_mana"
-		}
-	},
-	[57]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT {0}% more Mana cost of Triggered Skills"
+				text="DNT-UNUSED {0}% more Mana cost of Triggered Skills"
 			},
 			[2]={
 				[1]={
@@ -1141,14 +1121,14 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Mana cost of Triggered Skills"
+				text="DNT-UNUSED {0}% less Mana cost of Triggered Skills"
 			}
 		},
 		stats={
 			[1]="ascendancy_arcane_archer_triggered_skill_mana_cost_+%_final"
 		}
 	},
-	[58]={
+	[57]={
 		[1]={
 			[1]={
 				[1]={
@@ -1168,23 +1148,23 @@ return {
 			[1]="ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"
 		}
 	},
-	[59]={
+	[58]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
-						[1]=1,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT Fire Djinn will use Flame Slice on Enemies you target with Damaging Skills"
+				text="Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Skills can be allocated without being connected to your tree"
 			}
 		},
 		stats={
-			[1]="ascendancy_enable_fire_djinn_passive"
+			[1]="ascendancy_disconnected_passives_can_be_allocated_around_allocated_keystones"
 		}
 	},
-	[60]={
+	[59]={
 		[1]={
 			[1]={
 				limit={
@@ -1198,6 +1178,22 @@ return {
 		},
 		stats={
 			[1]="ascendancy_gemling_charge_generator_buff_display"
+		}
+	},
+	[60]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Gem Quality grants Socketed Skills an additional effect"
+			}
+		},
+		stats={
+			[1]="ascendancy_gemling_enable_thaumaturgy_quality_stats"
 		}
 	},
 	[61]={
@@ -1241,35 +1237,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Spells deal {0}% more Damage when Sacrificing Energy Shield"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Spells deal {0}% less Damage when Sacrificing Energy Shield"
-			}
-		},
-		stats={
-			[1]="ascendancy_lich_spell_damage_+%_final_when_sacrificing_energy_shield"
-		}
-	},
-	[64]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Spells consume a Power Charge if able to deal {0}% more Damage"
 			},
 			[2]={
@@ -1290,6 +1257,22 @@ return {
 			[1]="ascendancy_lich_spells_consume_power_charges_for_spell_damage_+%_final"
 		}
 	},
+	[64]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Walk the Paths Not Taken"
+			}
+		},
+		stats={
+			[1]="ascendancy_oracle_can_allocate_additional_oracle_only_passives_display"
+		}
+	},
 	[65]={
 		[1]={
 			[1]={
@@ -1299,7 +1282,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Ignites you inflict have up to {0}% more Magnitude, at random"
+				text="DNT-UNUSED Ignites you inflict have up to {0}% more Magnitude, at random"
 			}
 		},
 		stats={
@@ -1307,6 +1290,99 @@ return {
 		}
 	},
 	[66]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Damage against Enemies affected by Blood Boils"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less Damage against Enemies affected by Blood Boils"
+			}
+		},
+		stats={
+			[1]="ascendancy_ritualist_damage_+%_final_vs_enemies_affected_by_blood_boil"
+		}
+	},
+	[67]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Gain an additional {0} Spirit for each empty available Charm slot you have"
+			}
+		},
+		stats={
+			[1]="ascendancy_shaman_+_spirit_per_empty_charm_slot"
+		}
+	},
+	[68]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Every 2 Rage also grants {0}% more Spell damage"
+			}
+		},
+		stats={
+			[1]="ascendancy_shaman_spell_damage_+%_final_per_2_rage"
+		}
+	},
+	[69]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Cascadable Spells have {0}% chance to Echo"
+			}
+		},
+		stats={
+			[1]="ascendancy_spell_deja_vu_skill_echo_chance_%"
+		}
+	},
+	[70]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Repeatable Spells have {0}% chance to Repeat"
+			}
+		},
+		stats={
+			[1]="ascendancy_spell_deja_vu_spell_%_chance_to_reoccur_an_additional_time"
+		}
+	},
+	[71]={
 		[1]={
 			[1]={
 				limit={
@@ -1344,32 +1420,23 @@ return {
 			[1]="ascendancy_tactician_suppressing_fire_hit_damage_immobilisation_multiplier_+%_final"
 		}
 	},
-	[67]={
+	[72]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
 						[1]=1,
-						[2]=1
-					}
-				},
-				text="DNT Minimum {0} Vivid Stag Wisp"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
 						[2]="#"
 					}
 				},
-				text="DNT Minimum {0} Vivid Stag Wisps"
+				text="Targets Cursed by you have at least {0}% of Life Reserved"
 			}
 		},
 		stats={
-			[1]="ascendancy_vivid_stag_minimum_stag_wisp_count"
+			[1]="ascendancy_whispers_of_the_flesh_cursed_enemies_have_at_least_life_reserved_%"
 		}
 	},
-	[68]={
+	[73]={
 		[1]={
 			[1]={
 				limit={
@@ -1398,23 +1465,7 @@ return {
 			[1]="base_curse_delay_+%"
 		}
 	},
-	[69]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT {0:+d} to Rage cost of Skills"
-			}
-		},
-		stats={
-			[1]="base_rage_cost"
-		}
-	},
-	[70]={
+	[74]={
 		[1]={
 			[1]={
 				[1]={
@@ -1427,14 +1478,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Regenerate {0}% of your Maximum Rage per second"
+				text="Regenerate {0}% of your maximum Rage per second"
 			}
 		},
 		stats={
 			[1]="base_rage_regeneration_rate_per_minute_%"
 		}
 	},
-	[71]={
+	[75]={
 		[1]={
 			[1]={
 				[1]={
@@ -1485,7 +1536,7 @@ return {
 			[3]="blood_mage_life_flask_buff_duration_ms"
 		}
 	},
-	[72]={
+	[76]={
 		[1]={
 			[1]={
 				limit={
@@ -1494,14 +1545,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT You can wield a Focus while also wielding a Staff"
+				text="You can equip a Focus while wielding a Staff"
 			}
 		},
 		stats={
 			[1]="can_equip_staff_with_focus"
 		}
 	},
-	[73]={
+	[77]={
 		[1]={
 			[1]={
 				limit={
@@ -1510,14 +1561,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Any Attack Hit can gain Combo"
+				text="Gain Combo from all Attack Hits"
 			}
 		},
 		stats={
 			[1]="can_gain_combo_from_any_attack_hit"
 		}
 	},
-	[74]={
+	[78]={
 		[1]={
 			[1]={
 				limit={
@@ -1533,7 +1584,7 @@ return {
 			[1]="can_only_spawn_blue_flame_of_chayula_remnants"
 		}
 	},
-	[75]={
+	[79]={
 		[1]={
 			[1]={
 				limit={
@@ -1549,7 +1600,7 @@ return {
 			[1]="can_only_spawn_purple_flame_of_chayula_remnants"
 		}
 	},
-	[76]={
+	[80]={
 		[1]={
 			[1]={
 				limit={
@@ -1565,7 +1616,7 @@ return {
 			[1]="can_only_spawn_red_flame_of_chayula_remnants"
 		}
 	},
-	[77]={
+	[81]={
 		[1]={
 			[1]={
 				limit={
@@ -1581,7 +1632,7 @@ return {
 			[1]="chance_for_extra_damage_roll_%"
 		}
 	},
-	[78]={
+	[82]={
 		[1]={
 			[1]={
 				limit={
@@ -1606,7 +1657,7 @@ return {
 			[1]="chance_%_for_extra_infusion_on_infused_remnant_pickup"
 		}
 	},
-	[79]={
+	[83]={
 		[1]={
 			[1]={
 				limit={
@@ -1615,14 +1666,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% chance to generate an Owl Feather on Critical Hit"
+				text="{0}% chance to gain an Owl Feather on Critical Hit"
 			}
 		},
 		stats={
 			[1]="chance_to_generate_owl_feather_%_on_crit"
 		}
 	},
-	[80]={
+	[84]={
 		[1]={
 			[1]={
 				limit={
@@ -1638,7 +1689,7 @@ return {
 			[1]="charge_skip_consume_chance_%"
 		}
 	},
-	[81]={
+	[85]={
 		[1]={
 			[1]={
 				limit={
@@ -1667,7 +1718,36 @@ return {
 			[1]="chill_effect_+%"
 		}
 	},
-	[82]={
+	[86]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Take {0}% more Damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Take {0}% less Damage"
+			}
+		},
+		stats={
+			[1]="chronomancer_damage_taken_+%_final"
+		}
+	},
+	[87]={
 		[1]={
 			[1]={
 				limit={
@@ -1688,7 +1768,7 @@ return {
 			[2]="chronomancer_grant_area_of_effect_+%"
 		}
 	},
-	[83]={
+	[88]={
 		[1]={
 			[1]={
 				limit={
@@ -1697,27 +1777,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Companions deal {0}% increased Damage per socketed Talisman"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="DNT Companions deal {0}% reduced Damage per socketed Talisman"
+				text="4 seconds after being Damaged by an Enemy Hit, take Damage equal to {0}% of that Hit's Damage"
 			}
 		},
 		stats={
-			[1]="companion_damage_+%_per_socketed_talisman"
+			[1]="chronomancer_take_%_of_hit_damage_4_seconds_after_being_hit"
 		}
 	},
-	[84]={
+	[89]={
 		[1]={
 			[1]={
 				limit={
@@ -1733,7 +1800,7 @@ return {
 			[1]="created_remnants_have_%_chance_to_duplicate_pick_up_results"
 		}
 	},
-	[85]={
+	[90]={
 		[1]={
 			[1]={
 				limit={
@@ -1749,7 +1816,7 @@ return {
 			[1]="critical_chance_vs_self_is_unlucky"
 		}
 	},
-	[86]={
+	[91]={
 		[1]={
 			[1]={
 				limit={
@@ -1765,7 +1832,7 @@ return {
 			[1]="crushing_blow"
 		}
 	},
-	[87]={
+	[92]={
 		[1]={
 			[1]={
 				limit={
@@ -1799,23 +1866,7 @@ return {
 			[1]="current_energy_shield_%_as_elemental_damage_reduction"
 		}
 	},
-	[88]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Enemies you Curse have at least {0}% of Life Reserved"
-			}
-		},
-		stats={
-			[1]="cursed_enemies_have_life_reserved_%"
-		}
-	},
-	[89]={
+	[93]={
 		[1]={
 			[1]={
 				limit={
@@ -1831,7 +1882,7 @@ return {
 			[1]="damage_taken_from_hits_is_unlucky"
 		}
 	},
-	[90]={
+	[94]={
 		[1]={
 			[1]={
 				limit={
@@ -1840,14 +1891,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% chance to Daze Enemies whose Hits you Block while Actively Blocking"
+				text="{0}% chance to Daze Enemies whose Hits you Block with a raised Shield"
 			}
 		},
 		stats={
 			[1]="daze_enemies_on_block_with_shield_raised_chance_%"
 		}
 	},
-	[91]={
+	[95]={
 		[1]={
 			[1]={
 				limit={
@@ -1856,14 +1907,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Enable Living Bomb"
+				text="DNT-UNUSED Enable Living Bomb"
 			}
 		},
 		stats={
 			[1]="display_fire_djinn_enable_living_bomb"
 		}
 	},
-	[92]={
+	[96]={
 		[1]={
 			[1]={
 				limit={
@@ -1879,7 +1930,7 @@ return {
 			[1]="display_nearby_enemies_are_taunted"
 		}
 	},
-	[93]={
+	[97]={
 		[1]={
 			[1]={
 				limit={
@@ -1888,14 +1939,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Enable Explosive Teleport"
+				text="DNT-UNUSED Enable Explosive Teleport"
 			}
 		},
 		stats={
 			[1]="display_sand_djinn_enable_explode_teleport"
 		}
 	},
-	[94]={
+	[98]={
 		[1]={
 			[1]={
 				limit={
@@ -1904,14 +1955,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Enable Hand Slam"
+				text="DNT-UNUSED Enable Hand Slam"
 			}
 		},
 		stats={
 			[1]="display_sand_djinn_enable_hand_slam"
 		}
 	},
-	[95]={
+	[99]={
 		[1]={
 			[1]={
 				limit={
@@ -1920,14 +1971,30 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Enable Knife Toss"
+				text="DNT-UNUSED Enable Knife Toss"
 			}
 		},
 		stats={
 			[1]="display_sand_djinn_enable_knife_throw"
 		}
 	},
-	[96]={
+	[100]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Attribute Passive Skills can instead grant 5% increased Damage\nAttribute Passive Skills can instead grant 5% increased Armour, Evasion and Energy Shield\nAttribute Passive Skills can instead grant 5% increased Cost Efficiency"
+			}
+		},
+		stats={
+			[1]="display_travellers_wisdom_extra_attribute_options"
+		}
+	},
+	[101]={
 		[1]={
 			[1]={
 				limit={
@@ -1943,7 +2010,7 @@ return {
 			[1]="display_you_have_x_fortification"
 		}
 	},
-	[97]={
+	[102]={
 		[1]={
 			[1]={
 				limit={
@@ -1952,7 +2019,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% more Energy Shield Recharge Rate"
+				text="{0}% more Energy Shield Recharge Rate while on Low Energy Shield"
 			},
 			[2]={
 				[1]={
@@ -1965,14 +2032,30 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Energy Shield Recharge Rate"
+				text="{0}% less Energy Shield Recharge Rate while on Low Energy Shield"
 			}
 		},
 		stats={
 			[1]="djinn_ascendancy_energy_shield_recharge_rate_+%_final_on_low_energy_shield"
 		}
 	},
-	[98]={
+	[103]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Double Adaptation Effect"
+			}
+		},
+		stats={
+			[1]="double_adaptation_effect"
+		}
+	},
+	[104]={
 		[1]={
 			[1]={
 				limit={
@@ -1988,18 +2071,9 @@ return {
 			[1]="elemental_damage_removed_from_mana_before_life_%"
 		}
 	},
-	[99]={
+	[105]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT {0}% more Elemental Damage taken per Adaptation, matching that Adaptations type"
-			},
-			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -2010,14 +2084,23 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Elemental Damage taken per Adaptation, matching that Adaptations type"
+				text="{0}% less Damage taken of each Elemental Damage Type per matching Adaptation"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Damage taken of each Elemental Damage Type per matching Adaptation"
 			}
 		},
 		stats={
-			[1]="elemental_damage_taken_+%_final_per_matching_adaptation"
+			[1]="ascendancy_druid_shaman_elemental_damage_taken_+%_final_per_matching_adaptation"
 		}
 	},
-	[100]={
+	[106]={
 		[1]={
 			[1]={
 				limit={
@@ -2033,40 +2116,7 @@ return {
 			[1]="elemental_skill_limit_+"
 		}
 	},
-	[101]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Energy Shield Recharge begins {0} second sooner"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy Shield Recharge begins {0} seconds sooner"
-			}
-		},
-		stats={
-			[1]="energy_shield_recharge_starts_X_ms_sooner"
-		}
-	},
-	[102]={
+	[107]={
 		[1]={
 			[1]={
 				[1]={
@@ -2086,7 +2136,7 @@ return {
 			[1]="every_1_second_nearby_enemies_withered_for_X_ms"
 		}
 	},
-	[103]={
+	[108]={
 		[1]={
 			[1]={
 				limit={
@@ -2095,7 +2145,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% increased bonuses gained from Equipped Focus"
+				text="{0}% increased bonuses gained from Equipped Focus"
 			},
 			[2]={
 				[1]={
@@ -2108,30 +2158,14 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% reduced bonuses gained from Equipped Focus"
+				text="{0}% reduced bonuses gained from Equipped Focus"
 			}
 		},
 		stats={
 			[1]="focus_mod_effect_+%"
 		}
 	},
-	[104]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT Gain {0} Adaptation when hit by Elemental Damage, matching the type of the Damage taken"
-			}
-		},
-		stats={
-			[1]="gain_X_adaptation_matching_type_when_hit_by_elemental_damage"
-		}
-	},
-	[105]={
+	[109]={
 		[1]={
 			[1]={
 				limit={
@@ -2147,7 +2181,23 @@ return {
 			[1]="gain_X_volatility_on_inflicting_elemental_ailment"
 		}
 	},
-	[106]={
+	[110]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Hit damage is taken from Mana before Life if your current Mana is higher than your current Life"
+			}
+		},
+		stats={
+			[1]="hit_damage_remove_from_mana_before_life_while_mana_higher_than_life"
+		}
+	},
+	[111]={
 		[1]={
 			[1]={
 				limit={
@@ -2163,7 +2213,7 @@ return {
 			[1]="immune_to_volatility_damage"
 		}
 	},
-	[107]={
+	[112]={
 		[1]={
 			[1]={
 				limit={
@@ -2172,14 +2222,62 @@ return {
 						[2]="#"
 					}
 				},
-				text="You can have two Companions of different types\nYou have 30% less Defences\nCompanions have +1 to each Defence for every 2 of that Defence you have"
+				text="Gain Elemental Archon when you cast a Spell while on High Infernal Flame"
+			}
+		},
+		stats={
+			[1]="gain_elemental_archon_when_you_cast_a_spell_while_on_high_infernal_flame"
+		}
+	},
+	[113]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Elemental Archon does not expire while on High Infernal Flame"
+			}
+		},
+		stats={
+			[1]="elemental_archon_does_not_expire_while_on_high_infernal_flame"
+		}
+	},
+	[114]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Lose Elemental Archon on reaching maximum Infernal Flame"
+			}
+		},
+		stats={
+			[1]="lose_elemental_archone_on_reaching_full_infernal_flame"
+		}
+	},
+	[115]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="You can have two Companions of different types\n30% more Reservation Efficiency of Companion Skills\n20% less Reservation Efficiency of non-Companion Skills"
 			}
 		},
 		stats={
 			[1]="keystone_2_companions"
 		}
 	},
-	[108]={
+	[116]={
 		[1]={
 			[1]={
 				limit={
@@ -2195,7 +2293,7 @@ return {
 			[1]="keystone_bulwark"
 		}
 	},
-	[109]={
+	[117]={
 		[1]={
 			[1]={
 				limit={
@@ -2204,14 +2302,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Bleeding you inflict is Aggravated\nBase Bleeding Duration is 1 second"
+				text="Bleeding you inflict is Aggravated\nBase Bleeding Duration is 1 second\n50% more Magnitude of Bleeding you inflict"
 			}
 		},
 		stats={
 			[1]="keystone_crimson_assault"
 		}
 	},
-	[110]={
+	[118]={
 		[1]={
 			[1]={
 				limit={
@@ -2227,7 +2325,7 @@ return {
 			[1]="keystone_crimson_dance"
 		}
 	},
-	[111]={
+	[119]={
 		[1]={
 			[1]={
 				limit={
@@ -2243,7 +2341,7 @@ return {
 			[1]="keystone_dance_with_death"
 		}
 	},
-	[112]={
+	[120]={
 		[1]={
 			[1]={
 				limit={
@@ -2259,23 +2357,7 @@ return {
 			[1]="keystone_giants_blood"
 		}
 	},
-	[113]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Mana Leech recovers based on Elemental Damage Types instead of Physical Damage"
-			}
-		},
-		stats={
-			[1]="keystone_mana_leech_from_elemental_instead"
-		}
-	},
-	[114]={
+	[121]={
 		[1]={
 			[1]={
 				limit={
@@ -2291,7 +2373,7 @@ return {
 			[1]="keystone_zealots_oath"
 		}
 	},
-	[115]={
+	[122]={
 		[1]={
 			[1]={
 				limit={
@@ -2307,7 +2389,7 @@ return {
 			[1]="leech_also_recovers_based_on_chaos_damage_as_well"
 		}
 	},
-	[116]={
+	[123]={
 		[1]={
 			[1]={
 				limit={
@@ -2323,7 +2405,7 @@ return {
 			[1]="life_leech_is_instant_for_empowered_attacks"
 		}
 	},
-	[117]={
+	[124]={
 		[1]={
 			[1]={
 				limit={
@@ -2352,7 +2434,7 @@ return {
 			[1]="life_mastery_nearby_enemy_life_regeneration_rate_+%"
 		}
 	},
-	[118]={
+	[125]={
 		[1]={
 			[1]={
 				limit={
@@ -2368,7 +2450,7 @@ return {
 			[1]="mana_regeneration_rate_modifiers_apply_to_rage_regeneration"
 		}
 	},
-	[119]={
+	[126]={
 		[1]={
 			[1]={
 				limit={
@@ -2384,7 +2466,7 @@ return {
 			[1]="maximum_block_chance_override"
 		}
 	},
-	[120]={
+	[127]={
 		[1]={
 			[1]={
 				limit={
@@ -2400,7 +2482,7 @@ return {
 			[1]="maximum_darkness_+%_per_capped_chaos_damage_resistance"
 		}
 	},
-	[121]={
+	[128]={
 		[1]={
 			[1]={
 				limit={
@@ -2409,14 +2491,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0:+d} to maximum Mana per fifty Item Evasion Rating on Equipped Armour Items"
+				text="DNT-UNUSED {0:+d} to maximum Mana per fifty Item Evasion on Equipped Armour Items"
 			}
 		},
 		stats={
 			[1]="maximum_mana_per_50_evasion_rating_from_armour_items"
 		}
 	},
-	[122]={
+	[129]={
 		[1]={
 			[1]={
 				limit={
@@ -2425,27 +2507,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Meta Skill Gems have {0}% increased Reservation efficiency"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="DNT Meta Skill Gems have {0}% reduced Reservation efficiency"
+				text="Minions Gain {0}% of Elemental Damage as Extra Chaos Damage"
 			}
 		},
 		stats={
-			[1]="meta_gem_reservation_efficiency_+%"
+			[1]="minion_non_skill_base_elemental_damage_%_to_gain_as_chaos"
 		}
 	},
-	[123]={
+	[130]={
 		[1]={
 			[1]={
 				limit={
@@ -2474,7 +2543,7 @@ return {
 			[1]="movement_speed_penalty_+%_while_raising_shield"
 		}
 	},
-	[124]={
+	[131]={
 		[1]={
 			[1]={
 				limit={
@@ -2483,14 +2552,46 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Attacks Empowered by Owl Feathers have {0}% more Critical Damage Bonus"
+				text="Attacks Empowered by Owl Feathers have {0}% more Critical Damage Bonus"
 			}
 		},
 		stats={
 			[1]="multishot_critical_damage_bonus_+%_final"
 		}
 	},
-	[125]={
+	[132]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Skills have {0:+d} to Rage cost"
+			}
+		},
+		stats={
+			[1]="natures_sustenance_added_rage_cost"
+		}
+	},
+	[133]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d} to Maximum Rage"
+			}
+		},
+		stats={
+			[1]="natures_sustenance_additional_maximum_rage"
+		}
+	},
+	[134]={
 		[1]={
 			[1]={
 				limit={
@@ -2506,7 +2607,7 @@ return {
 			[1]="no_barrage_projectile_spread"
 		}
 	},
-	[126]={
+	[135]={
 		[1]={
 			[1]={
 				limit={
@@ -2599,7 +2700,23 @@ return {
 			[3]="movement_speed_penalty_+%_final_while_performing_action_if_green_support_count_highest"
 		}
 	},
-	[127]={
+	[136]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Non-Unique Time-Lost Jewels have {0}% increased radius"
+			}
+		},
+		stats={
+			[1]="ascendancy_non_unique_jewel_radius_+%"
+		}
+	},
+	[137]={
 		[1]={
 			[1]={
 				limit={
@@ -2615,7 +2732,7 @@ return {
 			[1]="offering_skill_target_cullable_enemies_instead"
 		}
 	},
-	[128]={
+	[138]={
 		[1]={
 			[1]={
 				limit={
@@ -2631,7 +2748,81 @@ return {
 			[1]="offerings_only_buff_you"
 		}
 	},
-	[129]={
+	[139]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Inevitable Critical Hits"
+			}
+		},
+		stats={
+			[1]="oracle_hits_eventually_crit_with_critical_strike_multiplier_+%_final_per_failed_roll"
+		}
+	},
+	[140]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more maximum Life"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less maximum Life"
+			}
+		},
+		stats={
+			[1]="oracle_maximum_life_+%_final"
+		}
+	},
+	[141]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more maximum Mana"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less maximum Mana"
+			}
+		},
+		stats={
+			[1]="oracle_maximum_mana_+%_final"
+		}
+	},
+	[142]={
 		[1]={
 			[1]={
 				limit={
@@ -2660,7 +2851,7 @@ return {
 			[1]="physical_damage_+%"
 		}
 	},
-	[130]={
+	[143]={
 		[1]={
 			[1]={
 				limit={
@@ -2676,7 +2867,7 @@ return {
 			[1]="physical_spell_damage_can_pin_on_critical_hit"
 		}
 	},
-	[131]={
+	[144]={
 		[1]={
 			[1]={
 				limit={
@@ -2692,7 +2883,7 @@ return {
 			[1]="pinned_enemies_cannot_crit"
 		}
 	},
-	[132]={
+	[145]={
 		[1]={
 			[1]={
 				limit={
@@ -2708,7 +2899,7 @@ return {
 			[1]="pinned_enemies_cannot_evade_your_attacks"
 		}
 	},
-	[133]={
+	[146]={
 		[1]={
 			[1]={
 				limit={
@@ -2717,30 +2908,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Projectile Attacks always Chain to Marked Enemies with {0}% increased Chaining Distance"
+				text="DNT-UNUSED Projectile Attacks always Chain to Marked Enemies with {0}% increased Chaining Distance"
 			}
 		},
 		stats={
 			[1]="projectile_attacks_always_chain_to_marked_enemies_with_%_increased_chaining_distance"
 		}
 	},
-	[134]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT You gain {0}% more Spell Damage per Rage"
-			}
-		},
-		stats={
-			[1]="ascendancy_shaman_spell_damage_+%_final_per_rage"
-		}
-	},
-	[135]={
+	[147]={
 		[1]={
 			[1]={
 				limit={
@@ -2756,7 +2931,7 @@ return {
 			[1]="rage_gained_on_life_flask_use"
 		}
 	},
-	[136]={
+	[148]={
 		[1]={
 			[1]={
 				limit={
@@ -2765,14 +2940,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Freeze you inflict has up to {0}% increased duration, at random"
+				text="DNT-UNUSED Freeze you inflict has up to {0}% increased duration, at random"
 			}
 		},
 		stats={
 			[1]="random_freeze_duration_+%_up_to_%"
 		}
 	},
-	[137]={
+	[149]={
 		[1]={
 			[1]={
 				[1]={
@@ -2805,52 +2980,7 @@ return {
 			[1]="remnants_you_create_reappear_X_ms_after_being_collected"
 		}
 	},
-	[138]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT Skills have {0}% increased Reservation efficiency per socketed Talisman"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="DNT Skills have {0}% reduced Reservation efficiency per socketed Talisman"
-			}
-		},
-		stats={
-			[1]="reservation_efficiency_+%_of_skills_per_socketed_talisman"
-		}
-	},
-	[139]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT {0:+d}% to all Elemental Resistances per socketed Rune"
-			}
-		},
-		stats={
-			[1]="resist_all_elements_%_per_socketed_rune"
-		}
-	},
-	[140]={
+	[150]={
 		[1]={
 			[1]={
 				limit={
@@ -2866,7 +2996,7 @@ return {
 			[1]="sacrificing_energy_shield_does_not_interrupt_recharge"
 		}
 	},
-	[141]={
+	[151]={
 		[1]={
 			[1]={
 				limit={
@@ -2895,7 +3025,7 @@ return {
 			[1]="shock_effect_+%"
 		}
 	},
-	[142]={
+	[152]={
 		[1]={
 			[1]={
 				limit={
@@ -2904,7 +3034,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% increased cost of Skills per socketed Soul Core"
+				text="{0}% increased cost of Skills per Soul Core in your equipment"
 			},
 			[2]={
 				[1]={
@@ -2917,30 +3047,65 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% reduced cost of Skills per socketed Soul Core"
+				text="{0}% reduced cost of Skills per Soul Core in your equipment"
 			}
 		},
 		stats={
 			[1]="skill_cost_+%_per_socketed_soul_core"
 		}
 	},
-	[143]={
+	[153]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
+						[1]="!",
+						[2]=0
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="!",
+						[2]=0
+					},
+					[2]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell"
+				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {1}% more Damage"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="!",
+						[2]=0
+					},
+					[2]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {1}% less Damage"
 			}
 		},
 		stats={
-			[1]="spells_sacrifice_%_of_your_energy_shield"
+			[1]="spells_sacrifice_%_of_your_energy_shield",
+			[2]="ascendancy_lich_spell_damage_+%_final_when_sacrificing_energy_shield"
 		}
 	},
-	[144]={
+	[154]={
 		[1]={
 			[1]={
 				limit={
@@ -2956,7 +3121,7 @@ return {
 			[1]="start_at_zero_energy_shield"
 		}
 	},
-	[145]={
+	[155]={
 		[1]={
 			[1]={
 				limit={
@@ -2972,72 +3137,7 @@ return {
 			[1]="tactician_grants_aura_to_deployed_totems"
 		}
 	},
-	[146]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT Tame Beast can target Unique Beasts\nYou can summon Tamed Unique Beasts"
-			}
-		},
-		stats={
-			[1]="tame_beast_can_target_unique_beasts"
-		}
-	},
-	[147]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="DNT Your Tamed Beasts are possessed by a different random Azmeri Wisp once every {0} second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT Your Tamed Beasts are possessed by a different random Azmeri Wisp once every {0} seconds"
-			}
-		},
-		stats={
-			[1]="tamed_beasts_randomly_possessed_every_x_ms"
-		}
-	},
-	[148]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT Your Time Lost Jewels have upgraded radii"
-			}
-		},
-		stats={
-			[1]="time_lost_jewel_radius_is_upgraded"
-		}
-	},
-	[149]={
+	[156]={
 		[1]={
 			[1]={
 				limit={
@@ -3053,7 +3153,7 @@ return {
 			[1]="unlimited_banners_allowed"
 		}
 	},
-	[150]={
+	[157]={
 		[1]={
 			[1]={
 				limit={
@@ -3069,7 +3169,7 @@ return {
 			[1]="unravelling_cycling_buff_every_x_ms"
 		}
 	},
-	[151]={
+	[158]={
 		[1]={
 			[1]={
 				limit={
@@ -3078,14 +3178,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% of Main Hand Weapon Damage granted as Added Attack Damage to your Companions in your Presence"
+				text="Companions gain added Attack damage equal to {0}% of your main hand Weapon's damage"
 			}
 		},
 		stats={
-			[1]="weapon_damage_%_granted_to_companions_in_presence"
+			[1]="weapon_damage_%_granted_to_companions"
 		}
 	},
-	[152]={
+	[159]={
 		[1]={
 			[1]={
 				limit={
@@ -3101,7 +3201,7 @@ return {
 			[1]="base_phasing_without_visual"
 		}
 	},
-	[153]={
+	[160]={
 		[1]={
 			[1]={
 				limit={
@@ -3117,7 +3217,7 @@ return {
 			[1]="lich_offering_effect_+%_per_enemy_power"
 		}
 	},
-	[154]={
+	[161]={
 		[1]={
 			[1]={
 				limit={
@@ -3142,7 +3242,7 @@ return {
 			[1]="local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"
 		}
 	},
-	[155]={
+	[162]={
 		[1]={
 			[1]={
 				limit={
@@ -3158,7 +3258,23 @@ return {
 			[1]="keystone_alternate_dexterity_bonus"
 		}
 	},
-	[156]={
+	[163]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="5% of Physical Damage prevented Recouped as Energy Shield per enemy Power\nEnergy Shield does not Recharge\nYou cannot Recover Energy Shield from Regeneration\nYou cannot Recover Energy Shield to above Armour"
+			}
+		},
+		stats={
+			[1]="keystone_alternate_es_recovery"
+		}
+	},
+	[164]={
 		[1]={
 			[1]={
 				limit={
@@ -3174,7 +3290,7 @@ return {
 			[1]="keystone_alternate_intelligence_bonus"
 		}
 	},
-	[157]={
+	[165]={
 		[1]={
 			[1]={
 				limit={
@@ -3190,7 +3306,7 @@ return {
 			[1]="keystone_alternate_strength_bonus"
 		}
 	},
-	[158]={
+	[166]={
 		[1]={
 			[1]={
 				limit={
@@ -3206,7 +3322,7 @@ return {
 			[1]="keystone_amanamus_defiance"
 		}
 	},
-	[159]={
+	[167]={
 		[1]={
 			[1]={
 				limit={
@@ -3222,7 +3338,7 @@ return {
 			[1]="keystone_auto_invocation"
 		}
 	},
-	[160]={
+	[168]={
 		[1]={
 			[1]={
 				limit={
@@ -3238,7 +3354,7 @@ return {
 			[1]="keystone_barbed_tips"
 		}
 	},
-	[161]={
+	[169]={
 		[1]={
 			[1]={
 				limit={
@@ -3254,7 +3370,7 @@ return {
 			[1]="keystone_blind_monk"
 		}
 	},
-	[162]={
+	[170]={
 		[1]={
 			[1]={
 				limit={
@@ -3270,7 +3386,7 @@ return {
 			[1]="keystone_call_to_arms"
 		}
 	},
-	[163]={
+	[171]={
 		[1]={
 			[1]={
 				limit={
@@ -3286,7 +3402,7 @@ return {
 			[1]="keystone_charge_cycle"
 		}
 	},
-	[164]={
+	[172]={
 		[1]={
 			[1]={
 				limit={
@@ -3302,7 +3418,7 @@ return {
 			[1]="keystone_disciple_of_kitava"
 		}
 	},
-	[165]={
+	[173]={
 		[1]={
 			[1]={
 				limit={
@@ -3318,7 +3434,7 @@ return {
 			[1]="keystone_divine_flesh"
 		}
 	},
-	[166]={
+	[174]={
 		[1]={
 			[1]={
 				limit={
@@ -3334,7 +3450,23 @@ return {
 			[1]="keystone_divine_shield"
 		}
 	},
-	[167]={
+	[175]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="100% more Maximum Rage\nRegenerate 1 Rage per second per 4 Rage spent Recently\nNo Rage effect"
+			}
+		},
+		stats={
+			[1]="keystone_druidic_rage"
+		}
+	},
+	[176]={
 		[1]={
 			[1]={
 				limit={
@@ -3350,7 +3482,7 @@ return {
 			[1]="keystone_elemental_overload"
 		}
 	},
-	[168]={
+	[177]={
 		[1]={
 			[1]={
 				limit={
@@ -3366,7 +3498,7 @@ return {
 			[1]="keystone_emperors_heart"
 		}
 	},
-	[169]={
+	[178]={
 		[1]={
 			[1]={
 				limit={
@@ -3382,7 +3514,7 @@ return {
 			[1]="keystone_eternal_youth"
 		}
 	},
-	[170]={
+	[179]={
 		[1]={
 			[1]={
 				limit={
@@ -3398,7 +3530,7 @@ return {
 			[1]="keystone_fire_spells_become_chaos_spells"
 		}
 	},
-	[171]={
+	[180]={
 		[1]={
 			[1]={
 				limit={
@@ -3414,7 +3546,7 @@ return {
 			[1]="keystone_focused_rage"
 		}
 	},
-	[172]={
+	[181]={
 		[1]={
 			[1]={
 				limit={
@@ -3430,7 +3562,7 @@ return {
 			[1]="keystone_glancing_blows"
 		}
 	},
-	[173]={
+	[182]={
 		[1]={
 			[1]={
 				limit={
@@ -3446,7 +3578,7 @@ return {
 			[1]="keystone_heartstopper"
 		}
 	},
-	[174]={
+	[183]={
 		[1]={
 			[1]={
 				limit={
@@ -3462,7 +3594,7 @@ return {
 			[1]="keystone_herald_of_doom"
 		}
 	},
-	[175]={
+	[184]={
 		[1]={
 			[1]={
 				limit={
@@ -3478,7 +3610,7 @@ return {
 			[1]="keystone_hex_master"
 		}
 	},
-	[176]={
+	[185]={
 		[1]={
 			[1]={
 				limit={
@@ -3487,14 +3619,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Can Attack as though using a Quarterstaff while both of your hand slots are empty\nUnarmed Attacks that would use your Quarterstaff's damage gain:\nPhysical damage based on their Skill Level\n1% more Attack Speed per 25 Item Evasion Rating on Equipped Armour Items\n+0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"
+				text="Can Attack as though using a Quarterstaff while both of your hand slots are empty\nUnarmed Attacks that would use an Equipped Quarterstaff's damage have:\nBase Unarmed Physical damage replaced with damage based on their Skill Level\n1% more Attack Speed per 75 Item Evasion on Equipped Armour Items\n+0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"
 			}
 		},
 		stats={
 			[1]="keystone_hollow_palm_technique"
 		}
 	},
-	[177]={
+	[186]={
 		[1]={
 			[1]={
 				limit={
@@ -3510,7 +3642,7 @@ return {
 			[1]="keystone_impale"
 		}
 	},
-	[178]={
+	[187]={
 		[1]={
 			[1]={
 				limit={
@@ -3526,7 +3658,7 @@ return {
 			[1]="keystone_iron_grip"
 		}
 	},
-	[179]={
+	[188]={
 		[1]={
 			[1]={
 				limit={
@@ -3542,7 +3674,7 @@ return {
 			[1]="keystone_iron_will"
 		}
 	},
-	[180]={
+	[189]={
 		[1]={
 			[1]={
 				limit={
@@ -3558,7 +3690,7 @@ return {
 			[1]="keystone_kulemaks_sovereignty"
 		}
 	},
-	[181]={
+	[190]={
 		[1]={
 			[1]={
 				limit={
@@ -3574,7 +3706,23 @@ return {
 			[1]="keystone_kurgals_ambition"
 		}
 	},
-	[182]={
+	[191]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="You can equip a non-Unique Sceptre while wielding a Talisman\n50% less Spirit\nNon-Minion Skills have 50% less Reservation Efficiency"
+			}
+		},
+		stats={
+			[1]="keystone_lord_of_the_wilds"
+		}
+	},
+	[192]={
 		[1]={
 			[1]={
 				limit={
@@ -3590,7 +3738,7 @@ return {
 			[1]="keystone_magnetic_charge"
 		}
 	},
-	[183]={
+	[193]={
 		[1]={
 			[1]={
 				limit={
@@ -3606,7 +3754,7 @@ return {
 			[1]="keystone_mental_conditioning"
 		}
 	},
-	[184]={
+	[194]={
 		[1]={
 			[1]={
 				limit={
@@ -3622,7 +3770,7 @@ return {
 			[1]="keystone_natures_presence"
 		}
 	},
-	[185]={
+	[195]={
 		[1]={
 			[1]={
 				limit={
@@ -3638,7 +3786,7 @@ return {
 			[1]="keystone_oasis"
 		}
 	},
-	[186]={
+	[196]={
 		[1]={
 			[1]={
 				limit={
@@ -3654,7 +3802,7 @@ return {
 			[1]="keystone_precise_technique"
 		}
 	},
-	[187]={
+	[197]={
 		[1]={
 			[1]={
 				limit={
@@ -3670,7 +3818,7 @@ return {
 			[1]="keystone_prismatic_bulwark"
 		}
 	},
-	[188]={
+	[198]={
 		[1]={
 			[1]={
 				limit={
@@ -3686,7 +3834,7 @@ return {
 			[1]="keystone_quiet_might"
 		}
 	},
-	[189]={
+	[199]={
 		[1]={
 			[1]={
 				limit={
@@ -3702,7 +3850,7 @@ return {
 			[1]="keystone_runebinder"
 		}
 	},
-	[190]={
+	[200]={
 		[1]={
 			[1]={
 				limit={
@@ -3718,7 +3866,7 @@ return {
 			[1]="keystone_sacred_bastion"
 		}
 	},
-	[191]={
+	[201]={
 		[1]={
 			[1]={
 				limit={
@@ -3734,7 +3882,7 @@ return {
 			[1]="keystone_secrets_of_suffering"
 		}
 	},
-	[192]={
+	[202]={
 		[1]={
 			[1]={
 				limit={
@@ -3750,7 +3898,7 @@ return {
 			[1]="keystone_sharp_and_brittle"
 		}
 	},
-	[193]={
+	[203]={
 		[1]={
 			[1]={
 				limit={
@@ -3766,7 +3914,7 @@ return {
 			[1]="keystone_supreme_prodigy"
 		}
 	},
-	[194]={
+	[204]={
 		[1]={
 			[1]={
 				limit={
@@ -3775,14 +3923,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Regenerate 1 Life per second per 8 Life spent in the past 8 seconds\n50% more Life Cost of Skills"
+				text="Regenerate 1 Life per second per 16 Life spent in the past 4 seconds\n20% more Life Cost of Skills"
 			}
 		},
 		stats={
 			[1]="keystone_tecrods_brutality"
 		}
 	},
-	[195]={
+	[205]={
 		[1]={
 			[1]={
 				limit={
@@ -3798,7 +3946,7 @@ return {
 			[1]="keystone_tempered_by_war"
 		}
 	},
-	[196]={
+	[206]={
 		[1]={
 			[1]={
 				limit={
@@ -3814,7 +3962,7 @@ return {
 			[1]="keystone_ulamans_vision"
 		}
 	},
-	[197]={
+	[207]={
 		[1]={
 			[1]={
 				limit={
@@ -3830,7 +3978,7 @@ return {
 			[1]="keystone_versatile_combatant"
 		}
 	},
-	[198]={
+	[208]={
 		[1]={
 			[1]={
 				limit={
@@ -3846,29 +3994,49 @@ return {
 			[1]="keystone_veterans_awareness"
 		}
 	},
+	[209]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Storm and Plant Spells:\ndeal 50% more damage\ncost 50% less\nhave 75% less duration"
+			}
+		},
+		stats={
+			[1]="keystone_wildsurge_incantation"
+		}
+	},
 	["active_skill_additional_projectiles_description_mode"]=44,
-	["adaptation_duration_ms"]=49,
-	["add_X_guard_on_trigger_per_100_ms_total_use_time_of_triggered_skill_up_to_maximum_mana"]=50,
-	["add_X_ms_to_energy_shield_recharge_delay_per_combo_spent"]=51,
+	["adaptation_duration_ms"]=51,
 	["add_frenzy_charge_on_kill"]=17,
-	["additional_combo_gain_chance_%"]=52,
-	["additional_combo_gain_on_hit"]=53,
+	["additional_combo_gain_chance_%"]=53,
 	["aggravate_bleeding_when_inflicted_vs_pinned_enemy"]=54,
-	["apply_X_critical_weakness_on_consuming_mark"]=55,
-	["arcane_surge_effect_on_self_+%_per_10%_missing_mana"]=56,
-	["ascendancy_arcane_archer_triggered_skill_mana_cost_+%_final"]=57,
-	["ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"]=58,
-	["ascendancy_enable_fire_djinn_passive"]=59,
-	["ascendancy_gemling_charge_generator_buff_display"]=60,
+	["arcane_surge_effect_on_self_+%_per_10%_missing_mana"]=55,
+	["ascendancy_arcane_archer_triggered_skill_mana_cost_+%_final"]=56,
+	["ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"]=57,
+	["ascendancy_disconnected_passives_can_be_allocated_around_allocated_keystones"]=58,
+	["ascendancy_druid_shaman_elemental_damage_taken_+%_final_per_matching_adaptation"]=105,
+	["ascendancy_gemling_charge_generator_buff_display"]=59,
+	["ascendancy_gemling_enable_thaumaturgy_quality_stats"]=60,
 	["ascendancy_lich_consume_power_for_apparition"]=61,
 	["ascendancy_lich_skeletons_are_buffs_instead_of_minions"]=62,
-	["ascendancy_lich_spell_damage_+%_final_when_sacrificing_energy_shield"]=63,
-	["ascendancy_lich_spells_consume_power_charges_for_spell_damage_+%_final"]=64,
+	["ascendancy_lich_spell_damage_+%_final_when_sacrificing_energy_shield"]=153,
+	["ascendancy_lich_spells_consume_power_charges_for_spell_damage_+%_final"]=63,
+	["ascendancy_non_unique_jewel_radius_+%"]=136,
+	["ascendancy_oracle_can_allocate_additional_oracle_only_passives_display"]=64,
 	["ascendancy_random_ignite_effect_+%_final_up_to_%"]=65,
-	["ascendancy_shaman_spell_damage_+%_final_per_rage"]=134,
-	["ascendancy_tactician_suppressing_fire_hit_damage_immobilisation_multiplier_+%_final"]=66,
-	["ascendancy_vivid_stag_minimum_stag_wisp_count"]=67,
-	["base_curse_delay_+%"]=68,
+	["ascendancy_ritualist_damage_+%_final_vs_enemies_affected_by_blood_boil"]=66,
+	["ascendancy_shaman_+_spirit_per_empty_charm_slot"]=67,
+	["ascendancy_shaman_spell_damage_+%_final_per_2_rage"]=68,
+	["ascendancy_spell_deja_vu_skill_echo_chance_%"]=69,
+	["ascendancy_spell_deja_vu_spell_%_chance_to_reoccur_an_additional_time"]=70,
+	["ascendancy_tactician_suppressing_fire_hit_damage_immobilisation_multiplier_+%_final"]=71,
+	["ascendancy_whispers_of_the_flesh_cursed_enemies_have_at_least_life_reserved_%"]=72,
+	["base_curse_delay_+%"]=73,
 	["base_devotion"]=2,
 	["base_dexterity"]=7,
 	["base_dexterity_and_intelligence"]=42,
@@ -3877,178 +4045,186 @@ return {
 	["base_number_of_raging_spirits_allowed"]=24,
 	["base_number_of_skeletons_allowed"]=23,
 	["base_number_of_spectres_allowed"]=22,
-	["base_phasing_without_visual"]=152,
-	["base_rage_cost"]=69,
-	["base_rage_regeneration_rate_per_minute_%"]=70,
+	["base_phasing_without_visual"]=159,
+	["base_rage_regeneration_rate_per_minute_%"]=74,
 	["base_strength"]=5,
 	["base_strength_and_dexterity"]=40,
 	["base_strength_and_intelligence"]=41,
 	["base_tribute"]=3,
-	["blood_mage_life_flask_buff_%_charges_to_consume"]=71,
-	["blood_mage_life_flask_buff_%_damage_to_gain_as_physical_per_charge_consumed"]=71,
-	["blood_mage_life_flask_buff_duration_ms"]=71,
-	["can_equip_staff_with_focus"]=72,
-	["can_gain_combo_from_any_attack_hit"]=73,
-	["can_only_spawn_blue_flame_of_chayula_remnants"]=74,
-	["can_only_spawn_purple_flame_of_chayula_remnants"]=75,
-	["can_only_spawn_red_flame_of_chayula_remnants"]=76,
-	["chance_%_for_extra_infusion_on_infused_remnant_pickup"]=78,
-	["chance_for_extra_damage_roll_%"]=77,
-	["chance_to_generate_owl_feather_%_on_crit"]=79,
-	["charge_skip_consume_chance_%"]=80,
-	["chill_effect_+%"]=81,
-	["chronomancer_grant_area_of_effect_+%"]=82,
-	["chronomancer_grant_cast_speed_+%"]=82,
-	["companion_damage_+%_per_socketed_talisman"]=83,
+	["blood_mage_life_flask_buff_%_charges_to_consume"]=75,
+	["blood_mage_life_flask_buff_%_damage_to_gain_as_physical_per_charge_consumed"]=75,
+	["blood_mage_life_flask_buff_duration_ms"]=75,
+	["can_equip_staff_with_focus"]=76,
+	["can_gain_combo_from_any_attack_hit"]=77,
+	["can_only_spawn_blue_flame_of_chayula_remnants"]=78,
+	["can_only_spawn_purple_flame_of_chayula_remnants"]=79,
+	["can_only_spawn_red_flame_of_chayula_remnants"]=80,
+	["chance_%_for_extra_infusion_on_infused_remnant_pickup"]=82,
+	["chance_for_extra_damage_roll_%"]=81,
+	["chance_to_generate_owl_feather_%_on_crit"]=83,
+	["charge_skip_consume_chance_%"]=84,
+	["chill_effect_+%"]=85,
+	["chronomancer_damage_taken_+%_final"]=86,
+	["chronomancer_grant_area_of_effect_+%"]=87,
+	["chronomancer_grant_cast_speed_+%"]=87,
+	["chronomancer_take_%_of_hit_damage_4_seconds_after_being_hit"]=88,
 	["consecrate_ground_on_kill_%_for_3_seconds"]=47,
-	["created_remnants_have_%_chance_to_duplicate_pick_up_results"]=84,
-	["critical_chance_vs_self_is_unlucky"]=85,
+	["created_remnants_have_%_chance_to_duplicate_pick_up_results"]=89,
+	["critical_chance_vs_self_is_unlucky"]=90,
 	["critical_strike_chance_+%"]=34,
-	["crushing_blow"]=86,
-	["current_energy_shield_%_as_elemental_damage_reduction"]=87,
-	["cursed_enemies_have_life_reserved_%"]=88,
+	["crushing_blow"]=91,
+	["current_energy_shield_%_as_elemental_damage_reduction"]=92,
 	["damage_taken_+%_from_hits"]=1,
-	["damage_taken_from_hits_is_unlucky"]=89,
-	["daze_enemies_on_block_with_shield_raised_chance_%"]=90,
+	["damage_taken_from_hits_is_unlucky"]=93,
+	["daze_enemies_on_block_with_shield_raised_chance_%"]=94,
 	["dexterity_+%"]=8,
 	["display_can_take_character_start_point"]=46,
-	["display_fire_djinn_enable_living_bomb"]=91,
-	["display_nearby_enemies_are_taunted"]=92,
-	["display_sand_djinn_enable_explode_teleport"]=93,
-	["display_sand_djinn_enable_hand_slam"]=94,
-	["display_sand_djinn_enable_knife_throw"]=95,
-	["display_you_have_x_fortification"]=96,
-	["djinn_ascendancy_energy_shield_recharge_rate_+%_final_on_low_energy_shield"]=97,
-	["elemental_damage_removed_from_mana_before_life_%"]=98,
-	["elemental_damage_taken_+%_final_per_matching_adaptation"]=99,
-	["elemental_skill_limit_+"]=100,
-	["energy_shield_recharge_starts_X_ms_sooner"]=101,
-	["every_1_second_nearby_enemies_withered_for_X_ms"]=102,
-	["focus_mod_effect_+%"]=103,
-	["gain_X_adaptation_matching_type_when_hit_by_elemental_damage"]=104,
-	["gain_X_life_flask_charges_per_4%_life_spent"]=48,
-	["gain_X_volatility_on_inflicting_elemental_ailment"]=105,
+	["display_fire_djinn_enable_living_bomb"]=95,
+	["display_nearby_enemies_are_taunted"]=96,
+	["display_sand_djinn_enable_explode_teleport"]=97,
+	["display_sand_djinn_enable_hand_slam"]=98,
+	["display_sand_djinn_enable_knife_throw"]=99,
+	["display_travellers_wisdom_extra_attribute_options"]=100,
+	["display_you_have_x_fortification"]=101,
+	["djinn_ascendancy_energy_shield_recharge_rate_+%_final_on_low_energy_shield"]=102,
+	["double_adaptation_effect"]=103,
+	["elemental_archon_does_not_expire_while_on_high_infernal_flame"]=113,
+	["elemental_damage_removed_from_mana_before_life_%"]=104,
+	["elemental_skill_limit_+"]=106,
+	["energy_shield_recharge_starts_X_ms_sooner"]=48,
+	["every_1_second_nearby_enemies_withered_for_X_ms"]=107,
+	["focus_mod_effect_+%"]=108,
+	["gain_X_adaptation_matching_type_when_hit_by_elemental_damage"]=52,
+	["gain_X_life_flask_charges_per_4%_life_spent"]=49,
+	["gain_X_volatility_on_inflicting_elemental_ailment"]=109,
+	["gain_elemental_archon_when_you_cast_a_spell_while_on_high_infernal_flame"]=112,
+	["global_armour_evasion_energy_shield_+%"]=50,
 	["global_chance_to_blind_on_hit_%"]=43,
-	["immune_to_volatility_damage"]=106,
+	["hit_damage_remove_from_mana_before_life_while_mana_higher_than_life"]=110,
+	["immune_to_volatility_damage"]=111,
 	["intelligence_+%"]=10,
-	["keystone_2_companions"]=107,
+	["keystone_2_companions"]=115,
 	["keystone_acrobatics"]=25,
-	["keystone_alternate_dexterity_bonus"]=155,
-	["keystone_alternate_intelligence_bonus"]=156,
-	["keystone_alternate_strength_bonus"]=157,
-	["keystone_amanamus_defiance"]=158,
+	["keystone_alternate_dexterity_bonus"]=162,
+	["keystone_alternate_es_recovery"]=163,
+	["keystone_alternate_intelligence_bonus"]=164,
+	["keystone_alternate_strength_bonus"]=165,
+	["keystone_amanamus_defiance"]=166,
 	["keystone_ancestral_bond"]=21,
-	["keystone_auto_invocation"]=159,
+	["keystone_auto_invocation"]=167,
 	["keystone_avatar_of_fire"]=19,
-	["keystone_barbed_tips"]=160,
-	["keystone_blind_monk"]=161,
+	["keystone_barbed_tips"]=168,
+	["keystone_blind_monk"]=169,
 	["keystone_blood_magic"]=29,
-	["keystone_bulwark"]=108,
-	["keystone_call_to_arms"]=162,
+	["keystone_bulwark"]=116,
+	["keystone_call_to_arms"]=170,
 	["keystone_chaos_inoculation"]=32,
-	["keystone_charge_cycle"]=163,
+	["keystone_charge_cycle"]=171,
 	["keystone_conduit"]=28,
-	["keystone_crimson_assault"]=109,
-	["keystone_crimson_dance"]=110,
-	["keystone_dance_with_death"]=111,
-	["keystone_disciple_of_kitava"]=164,
-	["keystone_divine_flesh"]=165,
-	["keystone_divine_shield"]=166,
+	["keystone_crimson_assault"]=117,
+	["keystone_crimson_dance"]=118,
+	["keystone_dance_with_death"]=119,
+	["keystone_disciple_of_kitava"]=172,
+	["keystone_divine_flesh"]=173,
+	["keystone_divine_shield"]=174,
+	["keystone_druidic_rage"]=175,
 	["keystone_eldritch_battery"]=20,
 	["keystone_elemental_equilibrium"]=31,
-	["keystone_elemental_overload"]=167,
-	["keystone_emperors_heart"]=168,
-	["keystone_eternal_youth"]=169,
-	["keystone_fire_spells_become_chaos_spells"]=170,
-	["keystone_focused_rage"]=171,
-	["keystone_giants_blood"]=112,
-	["keystone_glancing_blows"]=172,
-	["keystone_heartstopper"]=173,
-	["keystone_herald_of_doom"]=174,
-	["keystone_hex_master"]=175,
-	["keystone_hollow_palm_technique"]=176,
-	["keystone_impale"]=177,
-	["keystone_iron_grip"]=178,
+	["keystone_elemental_overload"]=176,
+	["keystone_emperors_heart"]=177,
+	["keystone_eternal_youth"]=178,
+	["keystone_fire_spells_become_chaos_spells"]=179,
+	["keystone_focused_rage"]=180,
+	["keystone_giants_blood"]=120,
+	["keystone_glancing_blows"]=181,
+	["keystone_heartstopper"]=182,
+	["keystone_herald_of_doom"]=183,
+	["keystone_hex_master"]=184,
+	["keystone_hollow_palm_technique"]=185,
+	["keystone_impale"]=186,
+	["keystone_iron_grip"]=187,
 	["keystone_iron_reflexes"]=18,
-	["keystone_iron_will"]=179,
-	["keystone_kulemaks_sovereignty"]=180,
-	["keystone_kurgals_ambition"]=181,
-	["keystone_magnetic_charge"]=182,
-	["keystone_mana_leech_from_elemental_instead"]=113,
+	["keystone_iron_will"]=188,
+	["keystone_kulemaks_sovereignty"]=189,
+	["keystone_kurgals_ambition"]=190,
+	["keystone_lord_of_the_wilds"]=191,
+	["keystone_magnetic_charge"]=192,
 	["keystone_mana_shield"]=36,
-	["keystone_mental_conditioning"]=183,
+	["keystone_mental_conditioning"]=193,
 	["keystone_minion_instability"]=30,
-	["keystone_natures_presence"]=184,
-	["keystone_oasis"]=185,
+	["keystone_natures_presence"]=194,
+	["keystone_oasis"]=195,
 	["keystone_pain_attunement"]=26,
 	["keystone_point_blank"]=27,
-	["keystone_precise_technique"]=186,
-	["keystone_prismatic_bulwark"]=187,
-	["keystone_quiet_might"]=188,
-	["keystone_runebinder"]=189,
-	["keystone_sacred_bastion"]=190,
-	["keystone_secrets_of_suffering"]=191,
-	["keystone_sharp_and_brittle"]=192,
-	["keystone_supreme_prodigy"]=193,
-	["keystone_tecrods_brutality"]=194,
-	["keystone_tempered_by_war"]=195,
-	["keystone_ulamans_vision"]=196,
+	["keystone_precise_technique"]=196,
+	["keystone_prismatic_bulwark"]=197,
+	["keystone_quiet_might"]=198,
+	["keystone_runebinder"]=199,
+	["keystone_sacred_bastion"]=200,
+	["keystone_secrets_of_suffering"]=201,
+	["keystone_sharp_and_brittle"]=202,
+	["keystone_supreme_prodigy"]=203,
+	["keystone_tecrods_brutality"]=204,
+	["keystone_tempered_by_war"]=205,
+	["keystone_ulamans_vision"]=206,
 	["keystone_unwavering_stance"]=38,
 	["keystone_vaal_pact"]=33,
-	["keystone_versatile_combatant"]=197,
-	["keystone_veterans_awareness"]=198,
-	["keystone_zealots_oath"]=114,
-	["leech_also_recovers_based_on_chaos_damage_as_well"]=115,
-	["lich_offering_effect_+%_per_enemy_power"]=153,
-	["life_leech_is_instant_for_empowered_attacks"]=116,
-	["life_mastery_nearby_enemy_life_regeneration_rate_+%"]=117,
-	["local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"]=154,
-	["mana_regeneration_rate_modifiers_apply_to_rage_regeneration"]=118,
+	["keystone_versatile_combatant"]=207,
+	["keystone_veterans_awareness"]=208,
+	["keystone_wildsurge_incantation"]=209,
+	["keystone_zealots_oath"]=121,
+	["leech_also_recovers_based_on_chaos_damage_as_well"]=122,
+	["lich_offering_effect_+%_per_enemy_power"]=160,
+	["life_leech_is_instant_for_empowered_attacks"]=123,
+	["life_mastery_nearby_enemy_life_regeneration_rate_+%"]=124,
+	["local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"]=161,
+	["lose_elemental_archone_on_reaching_full_infernal_flame"]=114,
+	["mana_regeneration_rate_modifiers_apply_to_rage_regeneration"]=125,
 	["mana_regeneration_rate_per_minute_%"]=11,
 	["mana_regeneration_rate_per_minute_%_per_power_charge"]=12,
 	["max_endurance_charges"]=13,
 	["max_frenzy_charges"]=14,
 	["max_power_charges"]=15,
-	["maximum_block_chance_override"]=119,
-	["maximum_darkness_+%_per_capped_chaos_damage_resistance"]=120,
-	["maximum_mana_per_50_evasion_rating_from_armour_items"]=121,
-	["meta_gem_reservation_efficiency_+%"]=122,
-	["movement_speed_penalty_+%_final_while_performing_action_if_green_support_count_highest"]=126,
-	["movement_speed_penalty_+%_while_raising_shield"]=123,
-	["multishot_critical_damage_bonus_+%_final"]=124,
-	["no_barrage_projectile_spread"]=125,
-	["no_self_critical_strike_multiplier_if_red_support_count_highest"]=126,
+	["maximum_block_chance_override"]=126,
+	["maximum_darkness_+%_per_capped_chaos_damage_resistance"]=127,
+	["maximum_mana_per_50_evasion_rating_from_armour_items"]=128,
+	["minion_non_skill_base_elemental_damage_%_to_gain_as_chaos"]=129,
+	["movement_speed_penalty_+%_final_while_performing_action_if_green_support_count_highest"]=135,
+	["movement_speed_penalty_+%_while_raising_shield"]=130,
+	["multishot_critical_damage_bonus_+%_final"]=131,
+	["natures_sustenance_added_rage_cost"]=132,
+	["natures_sustenance_additional_maximum_rage"]=133,
+	["no_barrage_projectile_spread"]=134,
+	["no_self_critical_strike_multiplier_if_red_support_count_highest"]=135,
 	["number_of_additional_projectiles"]=44,
-	["offering_skill_target_cullable_enemies_instead"]=127,
-	["offerings_only_buff_you"]=128,
+	["offering_skill_target_cullable_enemies_instead"]=137,
+	["offerings_only_buff_you"]=138,
+	["oracle_hits_eventually_crit_with_critical_strike_multiplier_+%_final_per_failed_roll"]=139,
+	["oracle_maximum_life_+%_final"]=140,
+	["oracle_maximum_mana_+%_final"]=141,
 	parent="stat_descriptions",
 	["passive_can_be_allocated_without_connection"]=39,
-	["physical_damage_+%"]=129,
+	["physical_damage_+%"]=142,
 	["physical_damage_+%_per_frenzy_charge"]=16,
-	["physical_spell_damage_can_pin_on_critical_hit"]=130,
-	["pinned_enemies_cannot_crit"]=131,
-	["pinned_enemies_cannot_evade_your_attacks"]=132,
-	["projectile_attacks_always_chain_to_marked_enemies_with_%_increased_chaining_distance"]=133,
-	["rage_gained_on_life_flask_use"]=135,
-	["random_freeze_duration_+%_up_to_%"]=136,
-	["remnants_you_create_reappear_X_ms_after_being_collected"]=137,
-	["reservation_efficiency_+%_of_skills_per_socketed_talisman"]=138,
-	["resist_all_elements_%_per_socketed_rune"]=139,
+	["physical_spell_damage_can_pin_on_critical_hit"]=143,
+	["pinned_enemies_cannot_crit"]=144,
+	["pinned_enemies_cannot_evade_your_attacks"]=145,
+	["projectile_attacks_always_chain_to_marked_enemies_with_%_increased_chaining_distance"]=146,
+	["rage_gained_on_life_flask_use"]=147,
+	["random_freeze_duration_+%_up_to_%"]=148,
+	["remnants_you_create_reappear_X_ms_after_being_collected"]=149,
 	["resolute_technique"]=37,
-	["sacrificing_energy_shield_does_not_interrupt_recharge"]=140,
-	["shock_effect_+%"]=141,
-	["skill_cost_+%_final_if_blue_support_count_highest"]=126,
-	["skill_cost_+%_per_socketed_soul_core"]=142,
-	["spells_sacrifice_%_of_your_energy_shield"]=143,
+	["sacrificing_energy_shield_does_not_interrupt_recharge"]=150,
+	["shock_effect_+%"]=151,
+	["skill_cost_+%_final_if_blue_support_count_highest"]=135,
+	["skill_cost_+%_per_socketed_soul_core"]=152,
+	["spells_sacrifice_%_of_your_energy_shield"]=153,
 	["staff_block_%"]=35,
-	["start_at_zero_energy_shield"]=144,
+	["start_at_zero_energy_shield"]=154,
 	["strength_+%"]=6,
-	["tactician_grants_aura_to_deployed_totems"]=145,
-	["tame_beast_can_target_unique_beasts"]=146,
-	["tamed_beasts_randomly_possessed_every_x_ms"]=147,
-	["time_lost_jewel_radius_is_upgraded"]=148,
+	["tactician_grants_aura_to_deployed_totems"]=155,
 	["tribute_+%"]=4,
-	["unlimited_banners_allowed"]=149,
-	["unravelling_cycling_buff_every_x_ms"]=150,
-	["weapon_damage_%_granted_to_companions_in_presence"]=151
+	["unlimited_banners_allowed"]=156,
+	["unravelling_cycling_buff_every_x_ms"]=157,
+	["weapon_damage_%_granted_to_companions"]=158
 }

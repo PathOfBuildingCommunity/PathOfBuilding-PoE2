@@ -97,17 +97,19 @@ Lazuli Ring
 Implicits: 1
 {tags:mana}+(20-30) to maximum Mana
 {tags:fire,cold,lightning}+(5-15)% to all Elemental Resistances
-{tags:mana}Gain (1-10) Mana per Enemy Killed
+{tags:mana}Gain (1-10) Mana per enemy killed
 {tags:caster}You can apply an additional Curse
 ]],[[
 Dream Fragments
 Sapphire Ring
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 {tags:cold}+(20-30)% to Cold Resistance
 {variant:1}{tags:mana}20% increased maximum Mana
 {variant:2}{tags:mana}10% increased maximum Mana
+{variant:3}{tags:mana}(10-15)% increased maximum Mana
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
 ]],[[
@@ -231,6 +233,7 @@ Implicits: 1
 ]],[[
 Sekhema's Resolve
 Ring
+Sockets: J
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald

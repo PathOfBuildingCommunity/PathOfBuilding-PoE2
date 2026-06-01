@@ -3,6 +3,20 @@
 return {
 -- Weapon: Spear
 [[
+Atziri's Contempt
+Pronged Spear
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Shattering Spite
+UniqueLocalIncreasedPhysicalDamagePercent20
+UniqueLocalAddedFireDamage8
+UniqueLocalAddedLightningDamage7
+UniqueLocalIncreasedAttackSpeed27
+UniquePresenceRadius5
+UniqueSpearsInflictBloodstoneLanceOnHit1
+]],[[
 Chainsting
 Hunting Spear
 League: Dawn of the Hunt
@@ -38,12 +52,15 @@ UniqueLocalChanceToBleed2
 UniqueAggravateIgnites1
 UniqueLocalChanceToAggravateBleed1
 ]],[[
-Splinter of Loratta
+Splinter of Lorrata
 Hardwood Spear
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage3
+{variant:2}DealNoElementalDamageUnique__3
 UniqueLocalWeaponRangeIncrease1
 UniqueLocalInfinitePoisonStackCount1
 UniqueLocalPoisonOnHit1

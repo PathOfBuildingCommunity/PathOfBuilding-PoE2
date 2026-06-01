@@ -24,7 +24,7 @@ return {
 	},
 	[5]={
 		stats={
-			[1]="toxic_domain_max_damage_+%_final_from_stored_poison"
+			[1]="toxic_pustule_max_burst_damage_+%_final_from_stored_poison"
 		}
 	},
 	[6]={
@@ -154,6 +154,35 @@ return {
 	[11]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Effects of Toxic Bloom Linger on you for 1 second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Effects of Toxic Bloom Linger on you for {0} seconds"
+			}
+		},
+		stats={
+			[1]="toxic_domain_buff_linger_duration_ms"
+		}
+	},
+	[12]={
+		[1]={
+			[1]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1
@@ -171,7 +200,7 @@ return {
 			[1]="toxic_domain_healing_per_minute_+"
 		}
 	},
-	[12]={
+	[13]={
 		[1]={
 			[1]={
 				[1]={
@@ -200,7 +229,7 @@ return {
 			[1]="toxic_domain_mana_cost_+%"
 		}
 	},
-	[13]={
+	[14]={
 		[1]={
 			[1]={
 				limit={
@@ -234,8 +263,9 @@ return {
 	["skill_detonation_time"]=2,
 	["skill_effect_duration"]=9,
 	["skill_specific_stat_description_mode"]=10,
-	["toxic_domain_healing_per_minute_+"]=11,
-	["toxic_domain_mana_cost_+%"]=12,
-	["toxic_domain_max_damage_+%_final_from_stored_poison"]=5,
-	["toxic_domain_pustule_chance_%"]=13
+	["toxic_domain_buff_linger_duration_ms"]=11,
+	["toxic_domain_healing_per_minute_+"]=12,
+	["toxic_domain_mana_cost_+%"]=13,
+	["toxic_domain_pustule_chance_%"]=14,
+	["toxic_pustule_max_burst_damage_+%_final_from_stored_poison"]=5
 }

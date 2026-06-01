@@ -111,7 +111,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
@@ -120,5 +120,5 @@ return {
 	parent="skill_stat_descriptions",
 	["quality_display_base_number_of_projectiles_is_gem"]=4,
 	["skill_can_fire_arrows"]=4,
-	["total_number_of_projectiles_to_fire"]=5
+	["total_number_of_projectiles_to_fire_from_stats"]=5
 }

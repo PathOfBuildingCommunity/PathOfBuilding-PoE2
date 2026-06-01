@@ -14,19 +14,31 @@ UniqueFlaskDuration__1
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
+Variant: Pre 0.4.0
+Variant: Current
 UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
-UniqueFlaskOverhealToGuard1
+{variant:1}UniqueFlaskOverhealToGuard1[10,10]
+{variant:2}UniqueFlaskOverhealToGuard1
 ]],
 -- Flask: Mana
 [[
+Lavianga's Spirits
+Gargantuan Mana Flask
+Requires Level 49
+League: Fate of the Vaal
+UniqueAlwaysDrinkingFlask1
+UniqueFlaskRecoveryAmount1
+]],[[
 Melting Maelstrom
 Ultimate Mana Flask
 Source: Drops from unique{Kosis, The Revelation}
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 UniqueFlaskEffectNotRemovedOnFullMana1
-UniqueFlaskDealChaosDamageNova1
+{variant:1,2}UniqueFlaskDealChaosDamageNova1[50,50]
+{variant:3}UniqueFlaskDealChaosDamageNova1
 {variant:1}UniqueFlaskRecoverAllMana1
 UniqueFlaskTakeDamageWhenEnds1
 ]],

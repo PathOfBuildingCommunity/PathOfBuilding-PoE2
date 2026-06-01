@@ -24,7 +24,7 @@ return {
 	},
 	[5]={
 		stats={
-			[1]="ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"
+			[1]="ice_crystals_damage_+%_final_for_first_500_ms_when_not_killed_by_self"
 		}
 	},
 	[6]={
@@ -71,7 +71,7 @@ return {
 	["active_skill_hit_damage_freeze_multiplier_+%_final"]=4,
 	["active_skill_secondary_area_of_effect_radius"]=6,
 	["frost_wall_maximum_life"]=3,
-	["ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"]=5,
+	["ice_crystals_damage_+%_final_for_first_500_ms_when_not_killed_by_self"]=5,
 	parent="skill_stat_descriptions",
 	["skill_effect_duration"]=2,
 	["wall_maximum_length"]=1

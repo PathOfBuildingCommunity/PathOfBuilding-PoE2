@@ -24,24 +24,14 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportAdhesiveGrenadesPlayerThree
-#set SupportAdhesiveGrenadesPlayerThree
-statMap = {
-	["support_sticky_grenade_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportAdmixturePlayer
 #set SupportAdmixturePlayer
 statMap = {
 	["mixed_maladies_poison_effect_+%_final_vs_bleeding"] = {
-		mod("Damage", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 	},
 	["mixed_maladies_bleed_effect_+%_final_vs_poisoned"] = {
-		mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
 	},
 },
 #mods
@@ -102,11 +92,24 @@ statMap = {
 
 #skill SupportArakaalisLustPlayer
 #set SupportArakaalisLustPlayer
+statMap = {
+	["support_debilitate_hit_damage_+%_final_per_poison_stack"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks", limitVar = "ArakaaliMaxHitDamage", limitTotal = true } ),
+	},
+	["support_debilitate_hit_damage_max_poison_stacks"] = {
+		mod("Multiplier:ArakaaliMaxHitDamage", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportAmmoConservationPlayerFour
 #set SupportAmmoConservationPlayerFour
+#mods
+#skillEnd
+
+#skill SupportAtzirisImpatiencePlayer
+#set SupportAtzirisImpatiencePlayer
 #mods
 #skillEnd
 
@@ -140,22 +143,6 @@ statMap = {
 
 #skill SupportBountyPlayerTwo
 #set SupportBountyPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportBrambleslamPlayer
-#set SupportBrambleslamPlayer
-#mods
-#skillEnd
-
-#skill TriggeredBrambleslamPlayer
-#set TriggeredBrambleslamPlayer
-#flags attack
-#mods
-#skillEnd
-
-#skill SupportDazedBreakPlayer
-#set SupportDazedBreakPlayer
 #mods
 #skillEnd
 
@@ -226,6 +213,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportChargedMarkPlayer
+#set SupportChargedMarkPlayer
+#mods
+#skillEnd
+
+#skill TriggeredChargedMarkPlayer
+#set TriggeredChargedMarkPlayer
+#flags duration
+#mods
+#skillEnd
+
 #skill SupportChargedShotsPlayer
 #set SupportChargedShotsPlayer
 statMap = {
@@ -292,10 +290,15 @@ statMap = {
 		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "Poisoned" }),
 		mod("EnemyShockMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Shocked" }),
 		mod("EnemyChillMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Chilled" }),
-		mod("EnemyFreezeEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
-		mod("EnemyElectrocuteEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
+		mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
+		mod("EnemyElectrocuteBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportControlledHazardPlayer
+#set SupportControlledHazardPlayer
 #mods
 #skillEnd
 
@@ -324,27 +327,11 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportCrescendoPlayer
-#set SupportCrescendoPlayer
-#mods
-#skillEnd
-
-#skill SupportCrescendoPlayerTwo
-#set SupportCrescendoPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportCrescendoPlayerThree
-#set SupportCrescendoPlayerThree
-#mods
-#skillEnd
-
 #skill SupportCullingStrikePlayer
 #set SupportCullingStrikePlayer
 statMap = {
 	["support_culling_strike_vs_rare_or_unique_enemy"] = {
-		mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-		value = 10
+		mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 },
 #mods
@@ -354,8 +341,7 @@ statMap = {
 #set SupportCullingStrikePlayerTwo
 statMap = {
 	["support_culling_strike_vs_rare_or_unique_enemy"] = {
-		mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-		value = 10
+		mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 },
 #mods
@@ -373,11 +359,6 @@ statMap = {
 
 #skill SupportDazePlayer
 #set SupportDazePlayer
-#mods
-#skillEnd
-
-#skill SupportDazzlePlayer
-#set SupportDazzlePlayer
 #mods
 #skillEnd
 
@@ -445,6 +426,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportPietysMercyPlayer
+#set SupportPietysMercyPlayer
+statMap = {
+	["support_dominus_grasp_chain_count_+%_final"] = {
+		mod("ChainCountMax", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
 #skill SupportDurabilityPlayer
 #set SupportDurabilityPlayer
 #mods
@@ -452,6 +443,25 @@ statMap = {
 
 #skill SupportElectrocutePlayer
 #set SupportElectrocutePlayer
+#mods
+#skillEnd
+
+#skill SupportEonyrsThunderPlayer
+#set SupportEonyrsThunderPlayer
+#mods
+#skillEnd
+
+#skill TriggeredLightningDetonateDeadPlayer
+#set TriggeredLightningDetonateDeadPlayer
+#flags area hit
+statMap = {
+	["skill_specific_stat_description_mode"] = {
+		skill("corpseExplosionLifeMultiplier", nil),
+		div = 100,
+	},
+},
+#baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Lightning")
 #mods
 #skillEnd
 
@@ -469,32 +479,15 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportExcoriatePlayer
-#set SupportExcoriatePlayer
-statMap = {
-	["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportFerocityPlayer
 #set SupportFerocityPlayer
 statMap = {
 	["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportFlowPlayer
-#set SupportFlowPlayer
 #mods
 #skillEnd
 
@@ -524,18 +517,13 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportGambleshotPlayer
-#set SupportGambleshotPlayer
-statMap = {
-	[ "support_gambleshot_projectile_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportGarukhansResolvePlayer
 #set SupportGarukhansResolvePlayer
+statMap = {
+	["maximum_critical_strike_chance_is_%_from_support_garukhans_resolve"] = {
+		mod("CritChanceCap", "OVERRIDE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -566,11 +554,11 @@ statMap = {
 
 #skill SupportHitAndRunPlayer
 #set SupportHitAndRunPlayer
-#mods
-#skillEnd
-
-#skill SupportHobblePlayer
-#set SupportHobblePlayer
+statMap = {
+	["support_mobile_assault_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -582,7 +570,7 @@ statMap = {
 #skill SupportChargeInhibitionPlayer
 #set SupportChargeInhibitionPlayer
 statMap = {
-	["support_inhibitor_damage_+%_final_per_charge_type"] = {
+	["support_inhibitor_damage_+%_final_per_charge_type_or_infusion_type"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "FrenzyCharge", threshold = 1 }),
 		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "PowerCharge", threshold = 1 }),
 		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "EnduranceCharge", threshold = 1 }),
@@ -612,11 +600,6 @@ statMap = {
 		mod("EnemyShockChance", "MORE", nil),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportLeveragePlayer
-#set SupportLeveragePlayer
 #mods
 #skillEnd
 
@@ -691,11 +674,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportMarkForDeathPlayer
-#set SupportMarkForDeathPlayer
-#mods
-#skillEnd
-
 #skill SupportMobilityPlayer
 #set SupportMobilityPlayer
 #mods
@@ -719,6 +697,8 @@ statMap = {
 	},
 	["support_scattershot_skill_speed_+%_final"] = {
 		mod("Speed", "MORE", nil),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+		mod("TotemPlacementSpeed", "MORE", nil),
 	},
 },
 #mods
@@ -732,6 +712,8 @@ statMap = {
 	},
 	["support_scattershot_skill_speed_+%_final"] = {
 		mod("Speed", "MORE", nil),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+		mod("TotemPlacementSpeed", "MORE", nil),
 	},
 },
 #mods
@@ -741,8 +723,7 @@ statMap = {
 #set SupportEmpoweredCullPlayer
 statMap = {
 	["support_empowered_culling_strike"] = {
-		mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
-		value = 10,
+		mod("ExtraEmpowerMod", "LIST", { mod = mod("CanCull", "FLAG", nil), unscalable = true }),
 	}
 },
 #mods
@@ -760,16 +741,16 @@ statMap = {
 
 #skill SupportNovaProjectilesPlayer
 #set SupportNovaProjectilesPlayer
+#mods
+#skillEnd
+
+#skill SupportNovaProjectilesTwoPlayer
+#set SupportNovaProjectilesTwoPlayer
 statMap = {
 	["support_nova_projectiles_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportOutmaneuverPlayer
-#set SupportOutmaneuverPlayer
 #mods
 #skillEnd
 
@@ -793,22 +774,13 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportIncreaseLimitPlayerThree
-#set SupportIncreaseLimitPlayerThree
-statMap = {
-	["support_limit_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportOverchargePlayer
 #set SupportOverchargePlayer
 #mods
 #skillEnd
 
 #skill SupportOverextendPlayer
+legacy = true
 #set SupportOverextendPlayer
 statMap = {
 	["support_overextend_critical_strike_multiplier_+%_final"] = {
@@ -843,11 +815,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportPerpetualChargePlayer
-#set SupportPerpetualChargePlayer
-#mods
-#skillEnd
-
 #skill SupportPiercePlayer
 #set SupportPiercePlayer
 #mods
@@ -865,11 +832,6 @@ statMap = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "PiercedCount" }),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportPietysMercyPlayer
-#set SupportPietysMercyPlayer
 #mods
 #skillEnd
 
@@ -902,9 +864,23 @@ statMap = {
 #set SupportPoisonPlayerThree
 statMap = {
 	["mixed_maladies_poison_effect_+%_final_vs_bleeding"] = {
-		mod("Damage", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportPoisonSpores
+#set SupportPoisonSpores
+#mods
+#skillEnd
+
+#skill TriggeredPoisonSporesPustule
+#set TriggeredPoisonSporesPustule
+#flags
+#mods
+#set TriggeredPoisonSporesExplosion
+#flags attack area
 #mods
 #skillEnd
 
@@ -917,7 +893,7 @@ statMap = {
 #set SupportPrecisionPlayer
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 	},
 },
 #mods
@@ -927,7 +903,7 @@ statMap = {
 #set SupportPrecisionPlayerTwo
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 	},
 },
 #mods
@@ -1116,13 +1092,22 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportRicochetPlayerThree
-#set SupportRicochetPlayerThree
-#mods
-#skillEnd
-
 #skill SupportRigwaldsFerocityPlayer
 #set SupportRigwaldsFerocityPlayer
+statMap = {
+	["support_rigwald_attack_speed_+%_in_weapon_set_one"] = {
+		mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet1" }),
+	},
+	["support_rigwald_damage_+%_final_in_weapon_set_one"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet1" }),
+	},
+	["support_rigwald_attack_speed_+%_in_weapon_set_two"] = {
+		mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet2" }),
+	},
+	["support_rigwald_damage_+%_final_in_weapon_set_two"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet2" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1240,13 +1225,13 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportTulsStillnessPlayer
-#set SupportTulsStillnessPlayer
+#skill SupportTasaliosRhythmPlayer
+#set SupportTasaliosRhythmPlayer
 #mods
 #skillEnd
 
-#skill SupportTumultPlayer
-#set SupportTumultPlayer
+#skill SupportTulsStillnessPlayer
+#set SupportTulsStillnessPlayer
 #mods
 #skillEnd
 

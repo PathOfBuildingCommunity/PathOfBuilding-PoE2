@@ -6,8 +6,11 @@ return {
 The Adorned
 Diamond
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
+Variant: Pre 0.4.0
+Variant: Current
 Limited to: 1
-CorruptedMagicJewelModEffectUnique__1
+{variant:1}CorruptedMagicJewelModEffectUnique__1[0,100]
+{variant:2}CorruptedMagicJewelModEffectUnique__1
 ]],[[
 Controlled Metamorphosis
 Diamond
@@ -48,8 +51,11 @@ UniqueMaximumSpiritPerStackableJewel1
 [[
 Grand Spectrum
 Sapphire
+Variant: Pre 0.4.0
+Variant: Current
 Limited to: 3
-UniqueAllResistancePerStackableJewel1
+{variant:1}UniqueAllResistancePerStackableJewel1[4,4]
+{variant:2}UniqueAllResistancePerStackableJewel1
 ]],
 -- Jewel: Timeless
 [[

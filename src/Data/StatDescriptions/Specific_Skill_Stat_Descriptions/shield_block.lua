@@ -50,6 +50,53 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Parried Debuff lasts for an additional {0:+d} seconds"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Parried Debuff duration is {0} second"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Parried Debuff duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_parry_duration_ms"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -63,7 +110,7 @@ return {
 			[1]="global_always_hit"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -84,10 +131,35 @@ return {
 			[2]="off_hand_maximum_added_physical_damage_per_5_shield_armour"
 		}
 	},
+	[6]={
+		[1]={
+		},
+		stats={
+			[1]="parry_buff_attack_damage_taken_+%_final_magnitude_to_apply"
+		}
+	},
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="parry_buff_spell_damage_taken_+%_final_magnitude_to_apply"
+		}
+	},
+	[8]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_parry_duration_ms"
+		}
+	},
 	["active_skill_hit_damage_stun_multiplier_+%_final"]=1,
 	["always_light_stun"]=2,
-	["global_always_hit"]=3,
-	["off_hand_maximum_added_physical_damage_per_5_shield_armour"]=4,
-	["off_hand_minimum_added_physical_damage_per_5_shield_armour"]=4,
-	parent="skill_stat_descriptions"
+	["base_parry_duration_ms"]=3,
+	["global_always_hit"]=4,
+	["off_hand_maximum_added_physical_damage_per_5_shield_armour"]=5,
+	["off_hand_minimum_added_physical_damage_per_5_shield_armour"]=5,
+	parent="skill_stat_descriptions",
+	["parry_buff_attack_damage_taken_+%_final_magnitude_to_apply"]=6,
+	["parry_buff_spell_damage_taken_+%_final_magnitude_to_apply"]=7,
+	["virtual_parry_duration_ms"]=8
 }

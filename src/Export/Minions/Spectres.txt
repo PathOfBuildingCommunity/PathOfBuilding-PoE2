@@ -222,7 +222,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/Mutewind/MutewindManSpearShield_
 #emit
 
-#spectre Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted
+#spectre Metadata/Monsters/Mutewind/MutewindWomanDualDaggerCorroded__
 #emit
 
 #spectre Metadata/Monsters/Mutewind/MutewindWomanDualSword
@@ -235,7 +235,7 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
-#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted
+#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearCorroded__
 #emit
 
 #spectre Metadata/Monsters/Mutewind/MutewindWomanSpearShield
@@ -389,7 +389,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemale
 #emit
 
-#spectre Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_
+#spectre Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireBow_
 #emit
 
 -- Werewolves
@@ -423,10 +423,10 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/StonebackRhoa/BrambleRhoa
 #emit
 
-#spectre Metadata/Monsters/Wraith/WraithSpookyCold
+#spectre Metadata/Monsters/Wraith/WraithSpookyColdSpectre
 #emit
 
-#spectre Metadata/Monsters/Wraith/WraithSpookyLightning
+#spectre Metadata/Monsters/Wraith/WraithSpookyLightningSpectre
 #emit
 
 #spectre Metadata/Monsters/FungusZombie/FungusZombieMedium
@@ -513,9 +513,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/Frog/PaleFrog1
-#emit
-
-#spectre Metadata/Monsters/ReliquaryMonster/PitCrawler1
 #emit
 
 #spectre Metadata/Monsters/BoneStalker/TombStalker1
@@ -645,7 +642,7 @@ local minions, mod, flag = ...
 #flags recommendedBeast
 #emit
 
-#spectre Metadata/Monsters/VultureZombie/VultureDemon
+#spectre Metadata/Monsters/VultureZombie/VultureDemonSpectre
 #flags recommendedBeast
 #emit
 
@@ -662,9 +659,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/WingedFiend/WingedFiend
-#emit
-
-#spectre Metadata/Monsters/RockSliderSpectre
 #emit
 
 #spectre Metadata/Monsters/SkeletonSnake
@@ -742,9 +736,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/TwigMonsters/DredgeFiend
 #emit
 
-#spectre Metadata/Monsters/VaalSavage/CannibalTribeStalker
-#emit
-
 #spectre Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower
 #emit
 
@@ -790,9 +781,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/PlagueSwarm/BloodDrone
 #emit
 
-#spectre Metadata/Monsters/SwarmHost/SwarmHost
-#emit
-
 #spectre Metadata/Monsters/IgguranRaider/BladeStalkerPale
 #emit
 
@@ -824,10 +812,6 @@ local minions, mod, flag = ...
 #flags recommendedBeast recommendedSpectre
 #emit
 
-#spectre Metadata/Monsters/NettleAnt/NettleAntInterlude
-#flags recommendedBeast recommendedSpectre
-#emit
-
 #spectre Metadata/Monsters/SnakeHulk/SnakeHulk
 #emit
 
@@ -835,9 +819,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/GutViper/GutViper
-#emit
-
-#spectre Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk
 #emit
 
 #spectre Metadata/Monsters/SpittingSnake/SpittingSnake
@@ -866,9 +847,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/Taniwha/RiverTaniwhaNoJank
-#emit
-
-#spectre Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral
 #emit
 
 #spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelNoEmerge_
@@ -960,12 +938,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving
 #emit
 
-#spectre Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_
-#emit
-
-#spectre Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead
-#emit
-
 #spectre Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving
 #emit
 
@@ -1041,9 +1013,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightning
 #emit
 
-#spectre Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal
-#emit
-
 #spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBladeHands
 #emit
 
@@ -1069,7 +1038,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/FallenGods/FallenHooksFoundry
 #emit
 
-#spectre Metadata/Monsters/FallenGods/FallenStag
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStag
 #emit
 
 #spectre Metadata/Monsters/SpinningWheelHag/SpinningWheelHag
@@ -1264,16 +1233,13 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer
 #emit
 
-#spectre Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer
+#spectre Metadata/Monsters/SkeletonProwler/SkeletonProwler_
 #emit
 
 #spectre Metadata/Monsters/RatMonster/RatMonsterPrison
 #emit
 
 #spectre Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_
-#emit
-
-#spectre Metadata/Monsters/SkeletonProwler/SkeletonProwlerWet_
 #emit
 
 #spectre Metadata/Monsters/PaleWalker/PaleWalkerWave
@@ -1487,4 +1453,31 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/MedicineWoman/TawhoaMedicineWomanStandalone__
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionAxeThrowerIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionSwordShieldIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionCasterIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonFireIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonLightningIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Constructs/VaalBowlingPinIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/MonkeyExperiment
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/GoreChargerExperiment
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment
 #emit

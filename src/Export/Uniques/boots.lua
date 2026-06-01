@@ -3,6 +3,17 @@
 return {
 -- Boots: Armour
 [[
+Atziri's Step
+Cinched Boots
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+UniqueMovementVelocity27
+UniqueLocalIncreasedEvasionRatingPercent34
+UniqueIncreasedLife55
+UniqueEvasionAppliesToDeflection4
+UniqueDeflectDamagePrevented1
+UniqueCannotBeLightStunnedByDeflectedHits1
+]],[[
 Birth of Fury
 Stone Greaves
 Variant: Pre 0.1.1
@@ -221,6 +232,9 @@ UniqueThornsDamageIncrease1
 ]],[[
 Ghostmarch
 Threaded Shoes
+Variant: Pre 0.4.0.
+Variant: Current
+{variant:2}UniqueMovementVelocity28
 UniqueLocalIncreasedEvasionAndEnergyShield7
 UniqueIncreasedMana5
 UniqueChaosResist1
@@ -229,21 +243,26 @@ UniqueDodgeRollPhasing1
 Powertread
 Hunting Shoes
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
-UniqueMovementVelocity17
+{variant:1,2}UniqueMovementVelocity17[10,15]
+{variant:3}UniqueMovementVelocity17
 UniqueLocalIncreasedEvasionAndEnergyShield9
 UniqueIntelligence6
 UniqueMaximumPowerCharges1
 {variant:1}UniqueCriticalMultiplierPerPowerCharge1[8,8]
-{variant:2}UniqueCriticalMultiplierPerPowerCharge1
+{variant:2,3}UniqueCriticalMultiplierPerPowerCharge1
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[
 Ab Aeterno
 Grand Cuisses
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
 UniqueMovementVelocity22
-UniqueLocalArmourAndEvasionAndEnergyShield4
+{variant:1}UniqueLocalArmourAndEvasionAndEnergyShield4[60,80]
+{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield4
 UniqueDodgeRollAvoidAllDamage1
 UniqueSpeedPerDodgeRoll20Seconds1
 ]],

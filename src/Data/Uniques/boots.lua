@@ -3,6 +3,17 @@
 return {
 -- Boots: Armour
 [[
+Atziri's Step
+Cinched Boots
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+30% increased Movement Speed
+(80-120)% increased Evasion Rating
++(70-100) to maximum Life
+Gain Deflection Rating equal to (40-60)% of Evasion Rating
+-(12-6)% to amount of Damage Prevented by Deflection
+Cannot be Light Stunned by Deflected Hits
+]],[[
 Birth of Fury
 Stone Greaves
 Variant: Pre 0.1.1
@@ -21,7 +32,7 @@ Grants Skill: Level (1-20) Decompose
 10% increased Movement Speed
 (30-50)% increased Armour
 +(5-10) to Strength
-Trigger Decompose Skill on Step
+Trigger Decompose every 1.2 metres travelled
 ]],[[
 The Infinite Pursuit
 Bronze Greaves
@@ -220,6 +231,9 @@ Aggravate Bleeding on Enemies when they Enter your Presence
 ]],[[
 Ghostmarch
 Threaded Shoes
+Variant: Pre 0.4.0.
+Variant: Current
+{variant:2}15% increased Movement Speed
 (100-150)% increased Evasion and Energy Shield
 +(30-50) to maximum Mana
 +(17-23)% to Chaos Resistance
@@ -228,21 +242,26 @@ Dodge Roll passes through Enemies
 Powertread
 Hunting Shoes
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
-(10-15)% increased Movement Speed
+{variant:1,2}(10-15)% increased Movement Speed
+{variant:3}(15-20)% increased Movement Speed
 (60-80)% increased Evasion and Energy Shield
 +(10-20) to Intelligence
 +1 to Maximum Power Charges
 {variant:1}8% increased Critical Damage Bonus per Power Charge
-{variant:2}12% increased Critical Damage Bonus per Power Charge
+{variant:2,3}12% increased Critical Damage Bonus per Power Charge
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[
 Ab Aeterno
 Grand Cuisses
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
 (15-30)% increased Movement Speed
-(60-80)% increased Armour, Evasion and Energy Shield
+{variant:1}(60-80)% increased Armour, Evasion and Energy Shield
+{variant:2}(100-150)% increased Armour, Evasion and Energy Shield
 Dodge Roll avoids all Hits
 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds
 ]],
