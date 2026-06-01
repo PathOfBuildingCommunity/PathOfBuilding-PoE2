@@ -493,8 +493,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Elegant Plate
-			Armour: 502
+			Champion Cuirass
+			Armour: 526
 			Crafted: true
 			Prefix: None
 			Prefix: None
@@ -502,7 +502,7 @@ describe("TetsItemMods", function()
 			Suffix: None
 			Suffix: None
 			Suffix: None
-			Quality: 0
+			Quality: 18
 			LevelReq: 65
 			Implicits: 0
 		]])
