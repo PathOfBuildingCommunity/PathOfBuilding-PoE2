@@ -271,10 +271,13 @@ local function checkAsThoughWeaponTypes(weaponData, weaponTypes)
 end
 
 -- Get weapon flags and info for given weapon
-local function getWeaponFlags(env, weaponData, weaponTypes)
+local function getWeaponFlags(env, weaponData, weaponTypes, gemTags)
 	local info = env.data.weaponTypeInfo[weaponData.type]
 	if not info then
 		return
+	end
+	if weaponData.cannotUseGemTag and gemTags and gemTags[weaponData.cannotUseGemTag] then
+		return nil, info
 	end
 	if weaponTypes then
 		for _, types in ipairs(weaponTypes) do
@@ -379,6 +382,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillTypes = activeSkill.skillTypes
 	local activeEffect = activeSkill.activeEffect
 	local activeGrantedEffect = activeEffect.grantedEffect
+	local gemTags = activeEffect.gemData and activeEffect.gemData.tags
 	local activeStatSet, skillFlags
 	if env.mode == "CALCS" then
 		activeStatSet = activeEffect.statSetCalcs.statSet
@@ -461,7 +465,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				t_insert(weaponTypes, skillEffect.grantedEffect.weaponTypes)
 			end
 		end
-		local weapon1Flags, weapon1Info = getWeaponFlags(env, activeSkill.actor.weaponData1, weaponTypes)
+		local weapon1Flags, weapon1Info = getWeaponFlags(env, activeSkill.actor.weaponData1, weaponTypes, gemTags)
 		if not weapon1Flags and activeSkill.summonSkill then
 			-- Minion skills seem to ignore weapon types
 			weapon1Flags, weapon1Info = ModFlag[env.data.weaponTypeInfo["None"].flag], env.data.weaponTypeInfo["None"]
@@ -483,7 +487,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			activeSkill.disableReason = "Main Hand weapon is not usable with this skill"
 		end
 		if not skillTypes[SkillType.MainHandOnly] and not skillFlags.forceMainHand then
-			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponTypes)
+			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponTypes, gemTags)
 			if weapon2Flags then
 				if skillTypes[SkillType.DualWieldRequiresDifferentTypes] and (activeSkill.actor.weaponData1.type == activeSkill.actor.weaponData2.type) then
 					-- Skill requires a different compatible off hand weapon to main hand weapon

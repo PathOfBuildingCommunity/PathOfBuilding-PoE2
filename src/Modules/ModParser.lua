@@ -3416,6 +3416,7 @@ local specialModList = {
 	} end,
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
+	["cannot load or fire ammunition"] = { mod("WeaponData", "LIST", { key = "cannotUseGemTag", value = "ammunition" }) },
 	["has (%d+)%% increased elemental damage"] = function(num) return { mod("LocalElementalDamage", "INC", num) } end,
 	["all attacks with this weapon are critical hits"] = { mod("WeaponData", "LIST", { key = "CritChance", value = 100 }) },
 	["this weapon's critical hit chance is (%d+)%%"] = function(num) return { mod("WeaponData", "LIST", { key = "CritChance", value = num }) } end,

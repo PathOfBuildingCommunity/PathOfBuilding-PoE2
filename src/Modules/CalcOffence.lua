@@ -282,6 +282,9 @@ end
 ---@return number
 local function calcCrossbowReloadTime(weaponData, boltSkill)
 	local baseReloadTime = weaponData.ReloadTime
+	if not baseReloadTime then
+		return
+	end
 
 	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed", "Speed" )
 	return baseReloadTime / reloadTimeMulti
@@ -2861,7 +2864,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.Speed = m_min(output.Speed, data.misc.ServerTickRate * output.Repeats)
 			end
 			-- Crossbows: Adjust attack speed values for Crossbow skills that need to reload
-			if skillData.reloadTime then
+			if skillData.reloadTime and skillData.reloadTime > 0 then
 				output.FiringRate = output.Speed
 				output.BoltCount = skillData.boltCount
 				output.EffectiveBoltCount = output.BoltCount
@@ -2907,7 +2910,7 @@ function calcs.offence(env, actor, activeSkill)
 				-- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
 				-- note: if we are ever allowed to dual wield crossbows, this will need to be adjusted
 				-- TODO: properly reflect effects of "SkillAttackTime" mods in the breakdown. (This is also not currently done in the standard breakdown.Speed calculation)
-				if output.ReloadTime then
+				if output.ReloadTime and source.ReloadTime then
 					globalBreakdown.FiringRate = { }
 					breakdown.multiChain(globalBreakdown.FiringRate, {
 						base = { "%.2f ^8(base)", 1 / baseTime },
