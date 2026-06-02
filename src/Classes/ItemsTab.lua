@@ -3193,7 +3193,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	else
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix, "FONTIN SC")
 	end
-
+	tooltip.runicItem = item.runicItem
 	tooltip:AddSeparator(10)
 
 	-- Special fields for database items
@@ -3289,7 +3289,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(armourData.EnergyShield, base.armour.EnergyShieldBase), armourData.EnergyShield), "FONTIN SC")
 		end
 		if armourData.Ward > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FWard: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward), "FONTIN SC")
 		end
 	elseif base.flask then
 		-- Flask-specific info

@@ -799,6 +799,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					baseName = "Two-Toned Boots (Armour/Energy Shield)"
 				end
 				local base = data.itemBases[baseName]
+				if baseName:find("Runeforged") or baseName:find("Runemastered") then
+					self.runicItem = true
+				end
 				if base then
 					-- Items with variants can have multiple bases
 					self.baseLines[baseName] = { line = baseName, variantList = modLine.variantList }
