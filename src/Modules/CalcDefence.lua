@@ -3631,7 +3631,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				sourcePool = m_max(sourcePool - poolProtected, 0) + m_min(sourcePool, poolProtected) / (wardBypass / 100)
 				output[damageType.."TotalHitPool"] = sourcePool
 			else
-				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.Ward or 0
+				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + (output.Ward or 0)
 			end
 			-- aegis
 			output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + m_max(m_max(output[damageType.."Aegis"], output["sharedAegis"]), isElemental[damageType] and output[damageType.."AegisDisplay"] or 0)

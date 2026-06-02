@@ -1101,22 +1101,23 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				item.jewelRadiusLabel = property.values[1][1]
 			elseif property.name == "Limited to" then
 				item.limit = tonumber(property.values[1][1])
-			elseif property.name == "Evasion Rating" then
+			elseif escapeGGGString(property.name) == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
 					-- Another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Armour/Evasion)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
-			elseif property.name == "Energy Shield" then
+			elseif escapeGGGString(property.name) == "Energy Shield" then
 				if item.baseName == "Two-Toned Boots (Armour/Evasion)" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Runic Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			local escapedPropertyName = escapeGGGString(property.name)
+			if escapedPropertyName == "Energy Shield" or escapedPropertyName == "Ward" or escapedPropertyName == "Runic Ward" or escapedPropertyName == "Armour" or escapedPropertyName == "Evasion Rating" then
 				item.armourData = item.armourData or { }
-				local armourKey = property.name:gsub(" Rating", ""):gsub(" ", "")
+				local armourKey = escapedPropertyName:gsub(" Rating", ""):gsub(" ", "")
 				if armourKey == "RunicWard" then armourKey = "Ward" end
 				for _, value in ipairs(property.values) do
 					item.armourData[armourKey] = (item.armourData[armourKey] or 0) + tonumber(value[1])
@@ -1288,6 +1289,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			ConPrintf("Unrecognised slot name in imported item: %s", slotName)
 		end
 	end
+	return item
 end
 
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)

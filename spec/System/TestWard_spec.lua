@@ -171,6 +171,29 @@ describe("TestWard", function()
 		assert.are.equals(225, build.calcsTab.calcsOutput.Ward)
 	end)
 
+	it("Runeforged Ward from item with rune mods does not double-count (import path regression)", function()
+		-- Create an item through the build (paste a Runeforged item with rune-like Ward mod)
+		local item = new("Item", [[
+			Rarity: Rare
+			Mock Runeforged Coat
+			Runeforged Serpentscale Coat
+			--------
+			Runic Ward: 104
+			--------
+			Item Level: 67
+			--------
+			+65 to maximum Ward
+		]])
+		-- The game displays the FINAL ward value in the property line (post-quality, post-all-mods).
+		-- "Runic Ward: 104" means 104 is the game-computed final value.
+		-- PoB must NOT re-apply quality or add the +65 mod on top of the authoritative value.
+		-- Without fix: Ward = round((104+65) * 1.2) = 203 (double-counts flat mod and quality)
+		-- With fix (property line authoritative): Ward = 104 (no re-scaling)
+		item:BuildModList()
+		-- 104 = property line verbatim; the +65 mod is consumed (not re-applied) and quality is already baked in
+		assert.are.equals(104, item.armourData.Ward)
+	end)
+
 	it("WardCoverOnMinionDeath stat ID parses correctly", function()
 		build.configTab.input.customMods = "\z
 		recover 10% of maximum ward on persistent minion death\n\z
