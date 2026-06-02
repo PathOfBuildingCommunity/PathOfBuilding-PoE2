@@ -1,3 +1,13 @@
+VERSION[0.17.1][2026/06/02]
+
+--- Fixed Crashes ---
+* Fix crash on trying to use Trarthan Cannon (LocalIdentity)
+
+--- Fixed Calculations ---
+* Fix Zarokh's Revolt granting infinite DPS (LocalIdentity)
+* Fix incorrect Aggravated bleeding multiplier (Wires77)
+
+
 VERSION[0.17.0][2026/06/01]
 
 --- New to Path of Building ---
