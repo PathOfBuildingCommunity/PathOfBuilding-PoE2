@@ -315,7 +315,7 @@ describe("TestAttacks", function()
 
 		build.configTab.input.customMods = [[
 			nearby enemies have 100% less armour
-			hits can't be evaded
+			your hits can't be evaded
 		]]
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
