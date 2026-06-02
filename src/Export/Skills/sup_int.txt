@@ -644,6 +644,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredSparkEmpowerPlayer
+#hideFromSideBar
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayer
+#set TriggeredEmpoweredSparkPlayer
+#flags hit projectile duration
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayer
+#flags hit projectile duration
+#mods
+#skillEnd
+
 #skill SupportEncroachingGroundPlayer
 #set SupportEncroachingGroundPlayer
 #mods
