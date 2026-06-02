@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.17.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.17.1) (2026/06/02)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.17.0...v0.17.1)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix crash on trying to use Trarthan Cannon [\#2048](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2048) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Calculations
+- Fix Zarokh's Revolt granting infinite DPS [\#2045](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2045) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix incorrect Aggravated bleeding multiplier [\#2054](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2054) ([Wires77](https://github.com/Wires77))
+
+
+
 ## [v0.17.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.17.0) (2026/06/01)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.16.0...v0.17.0)
