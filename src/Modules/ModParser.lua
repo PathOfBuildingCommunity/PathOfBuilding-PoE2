@@ -2226,6 +2226,15 @@ local explodeFunc = function(chance, amount, type, ...)
 	}
 end
 
+
+local hollowPalmFunc = function(asNum, _, evNum, critNum, esNum)
+	return {
+		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
+		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = tonumber(esNum) }),
+	}
+end
+
+
 -- List of special modifiers
 local specialModList = {
 	-- Explode mods
@@ -5864,11 +5873,8 @@ local specialModList = {
 		flag("Condition:OnConsecratedGround", { type = "Condition", var = "StrHighestAttribute" }, { type = "Condition", var = "Stationary" }),
 	},
 	["you count as dual wielding while you are unencumbered"] = { flag("Condition:DualWielding", { type = "Condition", var = "Unencumbered" }) },
-	["can attack as though using a quarterstaff while both of your hand slots are empty unarmed attacks that would use your quarterstaff's damage gain: physical damage based on their skill level (%d+)%% more attack speed per (%d+) item evasion rating on equipped armour items %+(%d+%.?%d*)%% to critical hit chance per (%d+) item energy shield on equipped armour items"] = function(asNum, _, evNum, critNum, esNum) return
-	{	-- New Hollow Palm Technique
-		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
-		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = (esNum) }),
-	} end,
+	["can attack as though using a quarterstaff while both of your hand slots are empty unarmed attacks that would use your quarterstaff's damage gain: physical damage based on their skill level (%d+)%% more attack speed per (%d+) item evasion rating on equipped armour items %+(%d+%.?%d*)%% to critical hit chance per (%d+) item energy shield on equipped armour items"] = hollowPalmFunc,
+	["can attack as though using a quarterstaff while both of your hand slots are empty unarmed attacks that would use an equipped quarterstaff's damage have: base unarmed physical damage replaced with damage based on their skill level (%d+)%% more attack speed per (%d+) item evasion on equipped armour items %+(%d+%.?%d*)%% to critical hit chance per (%d+) item energy shield on equipped armour items"] = hollowPalmFunc,
 	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
 		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
