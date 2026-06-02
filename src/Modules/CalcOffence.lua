@@ -3058,7 +3058,7 @@ function calcs.offence(env, actor, activeSkill)
 					breakdown.Speed = {
 						"Simultaneous hits from each weapon:",
 						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
-						s_format("%.2f * 2 ^8(hits twice per attack)", output.Speed),
+						s_format("%.2f ^8(hits twice per attack)", output.Speed),
 						s_format("= %.2f", output.Speed),
 					}
 				else
@@ -4652,7 +4652,7 @@ function calcs.offence(env, actor, activeSkill)
 				if skillData.combinesHitsWhenDualWielding then
 					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				elseif skillData.doubleHitsWhenDualWielding then
-					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits once with each weapon)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
+					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill hits once with each weapon)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				else
 					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				end
