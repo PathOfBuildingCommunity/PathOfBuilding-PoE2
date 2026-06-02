@@ -9,11 +9,33 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     container: ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run tests
-        run: busted --lua=luajit
+        run: |
+          set -eu
+          shard_count=3
+          shard="${{ matrix.shard }}"
+          index=0
+          found=0
+          for spec in $(find spec/System -name '*_spec.lua' | sort); do
+            if [ $((index % shard_count)) -eq "$shard" ]; then
+              found=1
+              echo "::group::$spec"
+              if ! busted --lua=luajit "../$spec"; then
+                echo "::endgroup::"
+                exit 1
+              fi
+              echo "::endgroup::"
+            fi
+            index=$((index + 1))
+          done
+          [ "$found" -eq 1 ]
   check_modcache:
     runs-on: ubuntu-latest
     container: ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest

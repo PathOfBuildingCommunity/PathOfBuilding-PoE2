@@ -19,7 +19,7 @@ return {
 	},
 	[4]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[5]={
@@ -77,5 +77,5 @@ return {
 	["lightning_spear_damage_+%_final_when_charged"]=7,
 	parent="skill_stat_descriptions",
 	["skill_can_fire_arrows"]=1,
-	["total_number_of_projectiles_to_fire"]=4
+	["total_number_of_projectiles_to_fire_from_stats"]=4
 }

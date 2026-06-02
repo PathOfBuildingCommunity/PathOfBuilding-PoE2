@@ -500,6 +500,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill TriggeredDecayingHexPlayer
+#set TriggeredDecayingHexPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportLastingFrostPlayer
 #set SupportLastingFrostPlayer
 #mods
@@ -521,8 +527,9 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportDoedresUndoingPlayer
-#set SupportDoedresUndoingPlayer
+#skill ChaosFrogExplosionPlayer
+#set ChaosFrogExplosionPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -672,17 +679,10 @@ statMap = {
 #skill SupportExpandPlayer
 #set SupportExpandPlayer
 statMap = {
-	["support_expand_max_seals"] = {
-		mod("SealCount", "BASE", nil),
-	},
-	["skill_area_of_effect_+%_per_expand_seal"] = {
+	["skill_area_of_effect_+%_per_broken_seal"] = {
 		mod("SealRepeatPenalty", "MORE", nil),
 	},
-	["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-		mod("SealGainFrequency", "BASE", nil),
-	},
 },
-#baseMod flag("HasSeals")
 #baseMod flag("AreaSeal")
 #mods
 #skillEnd
@@ -1053,7 +1053,7 @@ statMap = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 5 }) }),
 		div = 5,
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 10 }) }),
 		div = 10,
 	},
@@ -1207,11 +1207,6 @@ statMap = {
 		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportNadirPlayer
-#set SupportNadirPlayer
 #mods
 #skillEnd
 
@@ -1431,7 +1426,6 @@ statMap = {
 
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
-#baseMod flag("HasSeals")
 #baseMod flag("DamageSeal")
 #mods
 #skillEnd
@@ -1509,7 +1503,6 @@ statMap = {
 
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
-#baseMod flag("HasSeals")
 #baseMod flag("DamageSeal")
 #mods
 #skillEnd

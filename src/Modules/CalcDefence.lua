@@ -1484,7 +1484,7 @@ function calcs.defence(env, actor)
 			end
 		end
 
-		output.DeflectionRating = (output.Evasion * modDB:Sum("BASE", nil, "EvasionGainAsDeflection") / 100 + output.Armour * modDB:Sum("BASE", nil, "ArmourGainAsDeflection") / 100) * calcLib.mod(modDB, nil, "DeflectionRating")
+		output.DeflectionRating = modDB:Sum("BASE", nil, "DeflectionRating") + (output.Evasion * modDB:Sum("BASE", nil, "EvasionGainAsDeflection") / 100 + output.Armour * modDB:Sum("BASE", nil, "ArmourGainAsDeflection") / 100) * calcLib.mod(modDB, nil, "DeflectionRating")
 		output.DeflectChance = calcs.deflectChance(output.DeflectionRating, enemyAccuracy)
 		if modDB:Flag(nil, "DeflectIsLucky") then
 			local notDeflect = 1 - output.DeflectChance / 100

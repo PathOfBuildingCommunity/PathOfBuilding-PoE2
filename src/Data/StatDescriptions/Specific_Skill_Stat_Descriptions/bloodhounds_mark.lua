@@ -65,7 +65,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Activates when Marked enemy is Heavy Stunned\nActivates when when Marked enemy dies if they had at least {0}% Heavy Stun buildup from Blood Loss\nTriggers blood explosion when Activated"
+				text="Activates when Marked enemy is Heavy Stunned\nActivates when Marked enemy dies if they had at least {0}% Heavy Stun buildup from Blood Loss\nTriggers blood explosion when Activated"
 			}
 		},
 		stats={

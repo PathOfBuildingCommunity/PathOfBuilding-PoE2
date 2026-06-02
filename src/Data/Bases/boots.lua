@@ -20,7 +20,7 @@ itemBases["Iron Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 47, },
+	armour = { Armour = 57, },
 	req = { level = 11, str = 17, },
 }
 itemBases["Bronze Greaves"] = {
@@ -30,7 +30,7 @@ itemBases["Bronze Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 60, },
+	armour = { Armour = 74, },
 	req = { level = 16, str = 23, },
 }
 itemBases["Trimmed Greaves"] = {
@@ -40,7 +40,7 @@ itemBases["Trimmed Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 87, },
+	armour = { Armour = 112, },
 	req = { level = 27, str = 38, },
 }
 itemBases["Stone Greaves"] = {
@@ -50,7 +50,7 @@ itemBases["Stone Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { Armour = 102, },
+	armour = { Armour = 133, },
 	req = { level = 33, str = 45, },
 }
 itemBases["Reefsteel Greaves"] = {
@@ -60,7 +60,7 @@ itemBases["Reefsteel Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 132, },
+	armour = { Armour = 174, },
 	req = { level = 45, str = 60, },
 }
 itemBases["Monument Greaves"] = {
@@ -70,7 +70,7 @@ itemBases["Monument Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 150, },
+	armour = { Armour = 199, },
 	req = { level = 52, str = 69, },
 }
 itemBases["Totemic Greaves"] = {
@@ -80,7 +80,7 @@ itemBases["Totemic Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 182, },
+	armour = { Armour = 244, },
 	req = { level = 65, str = 86, },
 }
 itemBases["Plated Greaves"] = {
@@ -90,7 +90,7 @@ itemBases["Plated Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 132, },
+	armour = { Armour = 174, },
 	req = { level = 45, str = 60, },
 }
 itemBases["Lionheart Greaves"] = {
@@ -100,7 +100,7 @@ itemBases["Lionheart Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 147, },
+	armour = { Armour = 195, },
 	req = { level = 51, str = 68, },
 }
 itemBases["Elegant Greaves"] = {
@@ -110,7 +110,7 @@ itemBases["Elegant Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 155, },
+	armour = { Armour = 206, },
 	req = { level = 54, str = 72, },
 }
 itemBases["Carved Greaves"] = {
@@ -120,7 +120,7 @@ itemBases["Carved Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 167, },
+	armour = { Armour = 223, },
 	req = { level = 59, str = 78, },
 }
 itemBases["Bulwark Greaves"] = {
@@ -130,7 +130,7 @@ itemBases["Bulwark Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 182, },
+	armour = { Armour = 244, },
 	req = { level = 65, str = 86, },
 }
 itemBases["Ornate Greaves"] = {
@@ -140,7 +140,7 @@ itemBases["Ornate Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 200, },
+	armour = { Armour = 256, },
 	req = { level = 70, str = 93, },
 }
 itemBases["Vaal Greaves"] = {
@@ -150,7 +150,7 @@ itemBases["Vaal Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 219, },
+	armour = { Armour = 268, },
 	req = { level = 75, str = 101, },
 }
 itemBases["Tasalian Greaves"] = {
@@ -160,8 +160,202 @@ itemBases["Tasalian Greaves"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 237, },
+	armour = { Armour = 280, },
 	req = { level = 80, str = 108, },
+}
+itemBases["Runeforged Rough Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 22, Ward = 14, },
+	req = { },
+}
+itemBases["Runeforged Iron Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 57, Ward = 21, },
+	req = { level = 11, str = 17, },
+}
+itemBases["Runeforged Bronze Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 74, Ward = 26, },
+	req = { level = 16, str = 23, },
+}
+itemBases["Runeforged Trimmed Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 112, Ward = 31, },
+	req = { level = 27, str = 38, },
+}
+itemBases["Runeforged Stone Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Armour = 133, Ward = 36, },
+	req = { level = 33, str = 45, },
+}
+itemBases["Runeforged Reefsteel Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 174, Ward = 39, },
+	req = { level = 45, str = 60, },
+}
+itemBases["Runeforged Monument Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, str = 69, },
+}
+itemBases["Runeforged Totemic Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, str = 86, },
+}
+itemBases["Runeforged Elegant Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 185, Ward = 45, },
+	req = { level = 54, str = 72, },
+}
+itemBases["Runeforged Carved Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 167, Ward = 78, },
+	req = { level = 59, str = 78, },
+}
+itemBases["Runeforged Bulwark Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 219, Ward = 42, },
+	req = { level = 65, str = 86, },
+}
+itemBases["Runeforged Ornate Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, Ward = 116, },
+	req = { level = 70, str = 93, },
+}
+itemBases["Runeforged Vaal Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 244, Ward = 42, },
+	req = { level = 75, str = 101, },
+}
+itemBases["Runeforged Tasalian Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 85, Ward = 180, },
+	req = { level = 80, str = 108, },
+}
+itemBases["Runemastered Rough Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
+	implicit = "10% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 150, Ward = 27, },
+	req = { level = 38, str = 51, },
+}
+itemBases["Runemastered Iron Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 120, Ward = 27, },
+	req = { level = 38, str = 51, },
+}
+itemBases["Runemastered Bronze Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 135, Ward = 20, },
+	req = { level = 38, str = 51, },
+}
+itemBases["Runemastered Trimmed Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 79, Ward = 71, },
+	req = { level = 40, str = 54, },
+}
+itemBases["Runemastered Stone Greaves"] = {
+	type = "Boots",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_armour = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Armour = 157, Ward = 46, },
+	req = { level = 55, str = 73, },
 }
 
 itemBases["Rawhide Boots"] = {
@@ -181,7 +375,7 @@ itemBases["Laced Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, ezomyte_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 38, },
+	armour = { Evasion = 47, },
 	req = { level = 11, dex = 17, },
 }
 itemBases["Embossed Boots"] = {
@@ -191,7 +385,7 @@ itemBases["Embossed Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 50, },
+	armour = { Evasion = 63, },
 	req = { level = 16, dex = 23, },
 }
 itemBases["Steeltoe Boots"] = {
@@ -201,7 +395,7 @@ itemBases["Steeltoe Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 79, },
+	armour = { Evasion = 102, },
 	req = { level = 28, dex = 39, },
 }
 itemBases["Lizardscale Boots"] = {
@@ -211,7 +405,7 @@ itemBases["Lizardscale Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 90, },
+	armour = { Evasion = 118, },
 	req = { level = 33, dex = 45, },
 }
 itemBases["Flared Boots"] = {
@@ -221,7 +415,7 @@ itemBases["Flared Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 119, },
+	armour = { Evasion = 157, },
 	req = { level = 45, dex = 60, },
 }
 itemBases["Leatherplate Boots"] = {
@@ -231,7 +425,7 @@ itemBases["Leatherplate Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 135, },
+	armour = { Evasion = 180, },
 	req = { level = 52, dex = 69, },
 }
 itemBases["Embroidered Boots"] = {
@@ -241,7 +435,7 @@ itemBases["Embroidered Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 166, },
+	armour = { Evasion = 222, },
 	req = { level = 65, dex = 86, },
 }
 itemBases["Bound Boots"] = {
@@ -251,7 +445,7 @@ itemBases["Bound Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 119, },
+	armour = { Evasion = 157, },
 	req = { level = 45, dex = 60, },
 }
 itemBases["Sleek Boots"] = {
@@ -261,7 +455,7 @@ itemBases["Sleek Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 133, },
+	armour = { Evasion = 177, },
 	req = { level = 51, dex = 68, },
 }
 itemBases["Studded Boots"] = {
@@ -271,7 +465,7 @@ itemBases["Studded Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 140, },
+	armour = { Evasion = 186, },
 	req = { level = 54, dex = 72, },
 }
 itemBases["Serpentscale Boots"] = {
@@ -281,7 +475,7 @@ itemBases["Serpentscale Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 152, },
+	armour = { Evasion = 203, },
 	req = { level = 59, dex = 78, },
 }
 itemBases["Cinched Boots"] = {
@@ -291,7 +485,7 @@ itemBases["Cinched Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 166, },
+	armour = { Evasion = 222, },
 	req = { level = 65, dex = 86, },
 }
 itemBases["Cavalry Boots"] = {
@@ -301,7 +495,7 @@ itemBases["Cavalry Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 183, },
+	armour = { Evasion = 233, },
 	req = { level = 70, dex = 93, },
 }
 itemBases["Dragonscale Boots"] = {
@@ -311,7 +505,7 @@ itemBases["Dragonscale Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 200, },
+	armour = { Evasion = 244, },
 	req = { level = 75, dex = 101, },
 }
 itemBases["Drakeskin Boots"] = {
@@ -321,8 +515,200 @@ itemBases["Drakeskin Boots"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 216, },
+	armour = { Evasion = 255, },
 	req = { level = 80, dex = 108, },
+}
+itemBases["Runeforged Rawhide Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 15, Ward = 14, },
+	req = { },
+}
+itemBases["Runeforged Laced Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 47, Ward = 21, },
+	req = { level = 11, dex = 17, },
+}
+itemBases["Runeforged Embossed Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 63, Ward = 26, },
+	req = { level = 16, dex = 23, },
+}
+itemBases["Runeforged Steeltoe Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 102, Ward = 32, },
+	req = { level = 28, dex = 39, },
+}
+itemBases["Runeforged Lizardscale Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 118, Ward = 36, },
+	req = { level = 33, dex = 45, },
+}
+itemBases["Runeforged Flared Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 157, Ward = 39, },
+	req = { level = 45, dex = 60, },
+}
+itemBases["Runeforged Leatherplate Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, dex = 69, },
+}
+itemBases["Runeforged Embroidered Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, dex = 86, },
+}
+itemBases["Runeforged Studded Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 177, Ward = 36, },
+	req = { level = 54, dex = 72, },
+}
+itemBases["Runeforged Serpentscale Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 162, Ward = 68, },
+	req = { level = 59, dex = 78, },
+}
+itemBases["Runeforged Cinched Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 200, Ward = 42, },
+	req = { level = 65, dex = 86, },
+}
+itemBases["Runeforged Cavalry Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 122, Ward = 116, },
+	req = { level = 70, dex = 93, },
+}
+itemBases["Runeforged Dragonscale Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 211, Ward = 53, },
+	req = { level = 75, dex = 101, },
+}
+itemBases["Runeforged Drakeskin Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 89, Ward = 169, },
+	req = { level = 80, dex = 108, },
+}
+itemBases["Runemastered Laced Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Evasion = 54, Ward = 81, },
+	req = { level = 38, dex = 51, },
+}
+itemBases["Runemastered Embossed Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Evasion = 94, Ward = 41, },
+	req = { level = 38, dex = 51, },
+}
+itemBases["Runemastered Steeltoe Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 113, Ward = 28, },
+	req = { level = 40, dex = 54, },
+}
+itemBases["Runemastered Lizardscale Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 99, Ward = 42, },
+	req = { level = 40, dex = 54, },
+}
+itemBases["Runemastered Cinched Boots"] = {
+	type = "Boots",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 178, Ward = 74, },
+	req = { level = 65, dex = 86, },
 }
 
 itemBases["Straw Sandals"] = {
@@ -352,7 +738,7 @@ itemBases["Lattice Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 25, },
+	armour = { EnergyShield = 27, },
 	req = { level = 16, int = 23, },
 }
 itemBases["Silk Slippers"] = {
@@ -362,7 +748,7 @@ itemBases["Silk Slippers"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 34, },
+	armour = { EnergyShield = 36, },
 	req = { level = 27, int = 38, },
 }
 itemBases["Feathered Sandals"] = {
@@ -372,7 +758,7 @@ itemBases["Feathered Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 38, },
+	armour = { EnergyShield = 41, },
 	req = { level = 33, int = 45, },
 }
 itemBases["Flax Sandals"] = {
@@ -382,7 +768,7 @@ itemBases["Flax Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 48, },
+	armour = { EnergyShield = 51, },
 	req = { level = 45, int = 60, },
 }
 itemBases["Studded Sandals"] = {
@@ -392,7 +778,7 @@ itemBases["Studded Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 53, },
+	armour = { EnergyShield = 57, },
 	req = { level = 52, int = 69, },
 }
 itemBases["Elaborate Sandals"] = {
@@ -402,7 +788,7 @@ itemBases["Elaborate Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 63, },
+	armour = { EnergyShield = 68, },
 	req = { level = 65, int = 86, },
 }
 itemBases["Laced Sandals"] = {
@@ -412,7 +798,7 @@ itemBases["Laced Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 48, },
+	armour = { EnergyShield = 51, },
 	req = { level = 45, int = 60, },
 }
 itemBases["Bangled Sandals"] = {
@@ -422,7 +808,7 @@ itemBases["Bangled Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 52, },
+	armour = { EnergyShield = 56, },
 	req = { level = 51, int = 68, },
 }
 itemBases["Elegant Slippers"] = {
@@ -432,7 +818,7 @@ itemBases["Elegant Slippers"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 54, },
+	armour = { EnergyShield = 58, },
 	req = { level = 54, int = 72, },
 }
 itemBases["Dunerunner Sandals"] = {
@@ -442,7 +828,7 @@ itemBases["Dunerunner Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 58, },
+	armour = { EnergyShield = 63, },
 	req = { level = 59, int = 78, },
 }
 itemBases["Bound Sandals"] = {
@@ -452,7 +838,7 @@ itemBases["Bound Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 63, },
+	armour = { EnergyShield = 68, },
 	req = { level = 65, int = 86, },
 }
 itemBases["Luxurious Slippers"] = {
@@ -462,7 +848,7 @@ itemBases["Luxurious Slippers"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 69, },
+	armour = { EnergyShield = 73, },
 	req = { level = 70, int = 93, },
 }
 itemBases["Sandsworn Sandals"] = {
@@ -472,7 +858,7 @@ itemBases["Sandsworn Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 75, },
+	armour = { EnergyShield = 78, },
 	req = { level = 75, int = 101, },
 }
 itemBases["Sekhema Sandals"] = {
@@ -482,8 +868,201 @@ itemBases["Sekhema Sandals"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, int_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 82, },
+	armour = { EnergyShield = 83, },
 	req = { level = 80, int = 108, },
+}
+itemBases["Runeforged Straw Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 14, Ward = 14, },
+	req = { },
+}
+itemBases["Runeforged Wrapped Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 22, Ward = 21, },
+	req = { level = 11, int = 17, },
+}
+itemBases["Runeforged Lattice Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 27, Ward = 26, },
+	req = { level = 16, int = 23, },
+}
+itemBases["Runeforged Silk Slippers"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 36, Ward = 31, },
+	req = { level = 27, int = 38, },
+}
+itemBases["Runeforged Feathered Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 41, Ward = 36, },
+	req = { level = 33, int = 45, },
+}
+itemBases["Runeforged Flax Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 51, Ward = 39, },
+	req = { level = 45, int = 60, },
+}
+itemBases["Runeforged Studded Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, int = 69, },
+}
+itemBases["Runeforged Elaborate Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, int = 86, },
+}
+itemBases["Runeforged Elegant Slippers"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 50, Ward = 54, },
+	req = { level = 54, int = 72, },
+}
+itemBases["Runeforged Dunerunner Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 56, Ward = 49, },
+	req = { level = 59, int = 78, },
+}
+itemBases["Runeforged Bound Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 61, Ward = 42, },
+	req = { level = 65, int = 86, },
+}
+itemBases["Runeforged Luxurious Slippers"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 37, Ward = 116, },
+	req = { level = 70, int = 93, },
+}
+itemBases["Runeforged Sandsworn Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 66, Ward = 49, },
+	req = { level = 75, int = 101, },
+}
+itemBases["Runeforged Sekhema Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 22, Ward = 184, },
+	req = { level = 80, int = 108, },
+}
+itemBases["Runemastered Straw Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { EnergyShield = 45, Ward = 34, },
+	req = { level = 38, int = 51, },
+}
+itemBases["Runemastered Wrapped Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { EnergyShield = 41, Ward = 41, },
+	req = { level = 38, int = 51, },
+}
+itemBases["Runemastered Lattice Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { EnergyShield = 34, Ward = 34, },
+	req = { level = 38, int = 51, },
+}
+itemBases["Runemastered Silk Slippers"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 36, Ward = 54, },
+	req = { level = 38, int = 51, },
+}
+itemBases["Runemastered Feathered Sandals"] = {
+	type = "Boots",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, int_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 33, Ward = 42, },
+	req = { level = 40, int = 54, },
 }
 
 itemBases["Mail Sabatons"] = {
@@ -493,7 +1072,7 @@ itemBases["Mail Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 19, Evasion = 15, },
+	armour = { Armour = 22, Evasion = 17, },
 	req = { level = 6, str = 7, dex = 7, },
 }
 itemBases["Braced Sabatons"] = {
@@ -503,7 +1082,7 @@ itemBases["Braced Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 33, Evasion = 28, },
+	armour = { Armour = 41, Evasion = 35, },
 	req = { level = 16, str = 14, dex = 14, },
 }
 itemBases["Stacked Sabatons"] = {
@@ -513,7 +1092,7 @@ itemBases["Stacked Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { Armour = 56, Evasion = 50, },
+	armour = { Armour = 73, Evasion = 65, },
 	req = { level = 33, str = 26, dex = 26, },
 }
 itemBases["Covered Sabatons"] = {
@@ -523,7 +1102,7 @@ itemBases["Covered Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 73, Evasion = 65, },
+	armour = { Armour = 96, Evasion = 86, },
 	req = { level = 45, str = 34, dex = 34, },
 }
 itemBases["Flexile Sabatons"] = {
@@ -533,7 +1112,7 @@ itemBases["Flexile Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 82, Evasion = 74, },
+	armour = { Armour = 109, Evasion = 99, },
 	req = { level = 52, str = 38, dex = 38, },
 }
 itemBases["Bold Sabatons"] = {
@@ -543,7 +1122,7 @@ itemBases["Bold Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 100, Evasion = 91, },
+	armour = { Armour = 134, Evasion = 122, },
 	req = { level = 65, str = 47, dex = 47, },
 }
 itemBases["Soldiering Sabatons"] = {
@@ -553,7 +1132,7 @@ itemBases["Soldiering Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 73, Evasion = 65, },
+	armour = { Armour = 96, Evasion = 86, },
 	req = { level = 45, str = 34, dex = 34, },
 }
 itemBases["Goldwork Sabatons"] = {
@@ -563,7 +1142,7 @@ itemBases["Goldwork Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 81, Evasion = 73, },
+	armour = { Armour = 107, Evasion = 97, },
 	req = { level = 51, str = 38, dex = 38, },
 }
 itemBases["Bastion Sabatons"] = {
@@ -573,7 +1152,7 @@ itemBases["Bastion Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 92, Evasion = 84, },
+	armour = { Armour = 123, Evasion = 111, },
 	req = { level = 59, str = 44, dex = 44, },
 }
 itemBases["Veteran Sabatons"] = {
@@ -583,7 +1162,7 @@ itemBases["Veteran Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 100, Evasion = 91, },
+	armour = { Armour = 134, Evasion = 122, },
 	req = { level = 65, str = 47, dex = 47, },
 }
 itemBases["Noble Sabatons"] = {
@@ -593,7 +1172,7 @@ itemBases["Noble Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 110, Evasion = 101, },
+	armour = { Armour = 141, Evasion = 128, },
 	req = { level = 70, str = 51, dex = 51, },
 }
 itemBases["Fortress Sabatons"] = {
@@ -603,7 +1182,7 @@ itemBases["Fortress Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 120, Evasion = 110, },
+	armour = { Armour = 147, Evasion = 134, },
 	req = { level = 75, str = 56, dex = 56, },
 }
 itemBases["Blacksteel Sabatons"] = {
@@ -613,8 +1192,161 @@ itemBases["Blacksteel Sabatons"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 130, Evasion = 119, },
+	armour = { Armour = 154, Evasion = 140, },
 	req = { level = 80, str = 59, dex = 59, },
+}
+itemBases["Runeforged Mail Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 22, Evasion = 17, Ward = 18, },
+	req = { level = 6, str = 7, dex = 7, },
+}
+itemBases["Runeforged Braced Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 41, Evasion = 35, Ward = 26, },
+	req = { level = 16, str = 14, dex = 14, },
+}
+itemBases["Runeforged Stacked Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Armour = 73, Evasion = 65, Ward = 34, },
+	req = { level = 33, str = 26, dex = 26, },
+}
+itemBases["Runeforged Covered Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 96, Evasion = 86, Ward = 39, },
+	req = { level = 45, str = 34, dex = 34, },
+}
+itemBases["Runeforged Flexile Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, str = 38, dex = 38, },
+}
+itemBases["Runeforged Bold Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, str = 47, dex = 47, },
+}
+itemBases["Runeforged Bastion Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 116, Evasion = 106, Ward = 39, },
+	req = { level = 59, str = 44, dex = 44, },
+}
+itemBases["Runeforged Veteran Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 127, Evasion = 116, Ward = 42, },
+	req = { level = 65, str = 47, dex = 47, },
+}
+itemBases["Runeforged Noble Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 80, Evasion = 73, Ward = 116, },
+	req = { level = 70, str = 51, dex = 51, },
+}
+itemBases["Runeforged Fortress Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 121, Evasion = 110, Ward = 63, },
+	req = { level = 75, str = 56, dex = 56, },
+}
+itemBases["Runeforged Blacksteel Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 40, Evasion = 37, Ward = 190, },
+	req = { level = 80, str = 59, dex = 59, },
+}
+itemBases["Runemastered Mail Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 50, Evasion = 44, Ward = 54, },
+	req = { level = 38, str = 29, dex = 29, },
+}
+itemBases["Runemastered Braced Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 66, Evasion = 59, Ward = 34, },
+	req = { level = 38, str = 29, dex = 29, },
+}
+itemBases["Runemastered Stacked Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_armour = true, vaal_basetype = true, },
+	implicit = "10% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 173, Evasion = 155, Ward = 21, },
+	req = { level = 40, str = 30, dex = 30, },
+}
+itemBases["Runemastered Covered Sabatons"] = {
+	type = "Boots",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 69, Evasion = 63, Ward = 73, },
+	req = { level = 55, str = 41, dex = 41, },
 }
 
 itemBases["Padded Leggings"] = {
@@ -624,7 +1356,7 @@ itemBases["Padded Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 18, EnergyShield = 9, },
+	armour = { Armour = 20, EnergyShield = 10, },
 	req = { level = 5, str = 7, int = 7, },
 }
 itemBases["Secured Leggings"] = {
@@ -634,7 +1366,7 @@ itemBases["Secured Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 33, EnergyShield = 14, },
+	armour = { Armour = 41, EnergyShield = 15, },
 	req = { level = 16, str = 14, int = 14, },
 }
 itemBases["Pelt Leggings"] = {
@@ -644,7 +1376,7 @@ itemBases["Pelt Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { Armour = 56, EnergyShield = 21, },
+	armour = { Armour = 73, EnergyShield = 22, },
 	req = { level = 33, str = 26, int = 26, },
 }
 itemBases["Weaver Leggings"] = {
@@ -654,7 +1386,7 @@ itemBases["Weaver Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 73, EnergyShield = 26, },
+	armour = { Armour = 96, EnergyShield = 28, },
 	req = { level = 45, str = 34, int = 34, },
 }
 itemBases["Gilt Leggings"] = {
@@ -664,7 +1396,7 @@ itemBases["Gilt Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 82, EnergyShield = 29, },
+	armour = { Armour = 109, EnergyShield = 31, },
 	req = { level = 52, str = 38, int = 38, },
 }
 itemBases["Pious Leggings"] = {
@@ -674,7 +1406,7 @@ itemBases["Pious Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 100, EnergyShield = 35, },
+	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 65, str = 47, int = 47, },
 }
 itemBases["Adherent Leggings"] = {
@@ -684,7 +1416,7 @@ itemBases["Adherent Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 73, EnergyShield = 26, },
+	armour = { Armour = 96, EnergyShield = 28, },
 	req = { level = 45, str = 34, int = 34, },
 }
 itemBases["Bound Leggings"] = {
@@ -694,7 +1426,7 @@ itemBases["Bound Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 81, EnergyShield = 29, },
+	armour = { Armour = 107, EnergyShield = 31, },
 	req = { level = 51, str = 38, int = 38, },
 }
 itemBases["Shamanistic Leggings"] = {
@@ -704,7 +1436,7 @@ itemBases["Shamanistic Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 92, EnergyShield = 32, },
+	armour = { Armour = 123, EnergyShield = 34, },
 	req = { level = 59, str = 44, int = 44, },
 }
 itemBases["Faithful Leggings"] = {
@@ -714,7 +1446,7 @@ itemBases["Faithful Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 100, EnergyShield = 35, },
+	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 65, str = 47, int = 47, },
 }
 itemBases["Apostle Leggings"] = {
@@ -724,7 +1456,7 @@ itemBases["Apostle Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 110, EnergyShield = 38, },
+	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 70, str = 51, int = 51, },
 }
 itemBases["Warlock Leggings"] = {
@@ -734,7 +1466,7 @@ itemBases["Warlock Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 120, EnergyShield = 42, },
+	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 75, str = 56, int = 56, },
 }
 itemBases["Cryptic Leggings"] = {
@@ -744,8 +1476,129 @@ itemBases["Cryptic Leggings"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, karui_basetype = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 130, EnergyShield = 45, },
+	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 80, str = 59, int = 59, },
+}
+itemBases["Runeforged Padded Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, ezomyte_basetype = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 20, EnergyShield = 10, Ward = 17, },
+	req = { level = 5, str = 7, int = 7, },
+}
+itemBases["Runeforged Secured Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 41, EnergyShield = 15, Ward = 26, },
+	req = { level = 16, str = 14, int = 14, },
+}
+itemBases["Runeforged Pelt Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Armour = 73, EnergyShield = 22, Ward = 34, },
+	req = { level = 33, str = 26, int = 26, },
+}
+itemBases["Runeforged Weaver Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 96, EnergyShield = 28, Ward = 39, },
+	req = { level = 45, str = 34, int = 34, },
+}
+itemBases["Runeforged Gilt Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, str = 38, int = 38, },
+}
+itemBases["Runeforged Pious Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, str = 47, int = 47, },
+}
+itemBases["Runeforged Shamanistic Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 110, EnergyShield = 31, Ward = 49, },
+	req = { level = 59, str = 44, int = 44, },
+}
+itemBases["Runeforged Faithful Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 121, EnergyShield = 34, Ward = 42, },
+	req = { level = 65, str = 47, int = 47, },
+}
+itemBases["Runeforged Apostle Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 74, EnergyShield = 20, Ward = 116, },
+	req = { level = 70, str = 51, int = 51, },
+}
+itemBases["Runeforged Warlock Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, EnergyShield = 37, Ward = 42, },
+	req = { level = 75, str = 56, int = 56, },
+}
+itemBases["Runeforged Cryptic Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 34, EnergyShield = 9, Ward = 201, },
+	req = { level = 80, str = 59, int = 59, },
+}
+itemBases["Runemastered Secured Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, maraketh_basetype = true, runeforged = true, str_int_armour = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Armour = 58, EnergyShield = 17, Ward = 41, },
+	req = { level = 38, str = 29, int = 29, },
 }
 
 itemBases["Frayed Shoes"] = {
@@ -755,7 +1608,7 @@ itemBases["Frayed Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, ezomyte_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 13, EnergyShield = 9, },
+	armour = { Evasion = 15, EnergyShield = 10, },
 	req = { level = 5, dex = 7, int = 7, },
 }
 itemBases["Threaded Shoes"] = {
@@ -765,7 +1618,7 @@ itemBases["Threaded Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, maraketh_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 28, EnergyShield = 14, },
+	armour = { Evasion = 35, EnergyShield = 15, },
 	req = { level = 16, dex = 14, int = 14, },
 }
 itemBases["Hunting Shoes"] = {
@@ -775,7 +1628,7 @@ itemBases["Hunting Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 50, EnergyShield = 21, },
+	armour = { Evasion = 65, EnergyShield = 22, },
 	req = { level = 33, dex = 26, int = 26, },
 }
 itemBases["Steelpoint Shoes"] = {
@@ -785,7 +1638,7 @@ itemBases["Steelpoint Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 65, EnergyShield = 26, },
+	armour = { Evasion = 86, EnergyShield = 28, },
 	req = { level = 45, dex = 34, int = 34, },
 }
 itemBases["Velour Shoes"] = {
@@ -795,7 +1648,7 @@ itemBases["Velour Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 74, EnergyShield = 29, },
+	armour = { Evasion = 99, EnergyShield = 31, },
 	req = { level = 52, dex = 38, int = 38, },
 }
 itemBases["Bladed Shoes"] = {
@@ -805,7 +1658,7 @@ itemBases["Bladed Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 91, EnergyShield = 35, },
+	armour = { Evasion = 122, EnergyShield = 37, },
 	req = { level = 65, dex = 47, int = 47, },
 }
 itemBases["Wayfarer Shoes"] = {
@@ -815,7 +1668,7 @@ itemBases["Wayfarer Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 65, EnergyShield = 26, },
+	armour = { Evasion = 86, EnergyShield = 28, },
 	req = { level = 45, dex = 34, int = 34, },
 }
 itemBases["Silverbuckled Shoes"] = {
@@ -825,7 +1678,7 @@ itemBases["Silverbuckled Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 73, EnergyShield = 29, },
+	armour = { Evasion = 97, EnergyShield = 31, },
 	req = { level = 51, dex = 38, int = 38, },
 }
 itemBases["Treerunner Shoes"] = {
@@ -835,7 +1688,7 @@ itemBases["Treerunner Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 84, EnergyShield = 32, },
+	armour = { Evasion = 111, EnergyShield = 34, },
 	req = { level = 59, dex = 44, int = 44, },
 }
 itemBases["Wanderer Shoes"] = {
@@ -845,7 +1698,7 @@ itemBases["Wanderer Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 91, EnergyShield = 35, },
+	armour = { Evasion = 122, EnergyShield = 37, },
 	req = { level = 65, dex = 47, int = 47, },
 }
 itemBases["Charmed Shoes"] = {
@@ -855,7 +1708,7 @@ itemBases["Charmed Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 101, EnergyShield = 38, },
+	armour = { Evasion = 128, EnergyShield = 39, },
 	req = { level = 70, dex = 51, int = 51, },
 }
 itemBases["Quickslip Shoes"] = {
@@ -865,7 +1718,7 @@ itemBases["Quickslip Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 110, EnergyShield = 42, },
+	armour = { Evasion = 134, EnergyShield = 41, },
 	req = { level = 75, dex = 56, int = 56, },
 }
 itemBases["Daggerfoot Shoes"] = {
@@ -875,8 +1728,149 @@ itemBases["Daggerfoot Shoes"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, dex_int_armour = true, karui_basetype = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 119, EnergyShield = 45, },
+	armour = { Evasion = 140, EnergyShield = 43, },
 	req = { level = 80, dex = 59, int = 59, },
+}
+itemBases["Runeforged Frayed Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, ezomyte_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 15, EnergyShield = 10, Ward = 17, },
+	req = { level = 5, dex = 7, int = 7, },
+}
+itemBases["Runeforged Threaded Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 35, EnergyShield = 15, Ward = 26, },
+	req = { level = 16, dex = 14, int = 14, },
+}
+itemBases["Runeforged Hunting Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 65, EnergyShield = 22, Ward = 34, },
+	req = { level = 33, dex = 26, int = 26, },
+}
+itemBases["Runeforged Steelpoint Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 86, EnergyShield = 28, Ward = 39, },
+	req = { level = 45, dex = 34, int = 34, },
+}
+itemBases["Runeforged Velour Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 175, },
+	req = { level = 52, dex = 38, int = 38, },
+}
+itemBases["Runeforged Bladed Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Ward = 211, },
+	req = { level = 65, dex = 47, int = 47, },
+}
+itemBases["Runeforged Treerunner Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 95, EnergyShield = 29, Ward = 58, },
+	req = { level = 59, dex = 44, int = 44, },
+}
+itemBases["Runeforged Wanderer Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 110, EnergyShield = 34, Ward = 42, },
+	req = { level = 65, dex = 47, int = 47, },
+}
+itemBases["Runeforged Charmed Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 67, EnergyShield = 20, Ward = 116, },
+	req = { level = 70, dex = 51, int = 51, },
+}
+itemBases["Runeforged Quickslip Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 128, EnergyShield = 39, Ward = 32, },
+	req = { level = 75, dex = 56, int = 56, },
+}
+itemBases["Runeforged Daggerfoot Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, karui_basetype = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 34, EnergyShield = 10, Ward = 194, },
+	req = { level = 80, dex = 59, int = 59, },
+}
+itemBases["Runemastered Threaded Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, maraketh_basetype = true, runeforged = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Evasion = 55, EnergyShield = 19, Ward = 34, },
+	req = { level = 38, dex = 29, int = 29, },
+}
+itemBases["Runemastered Hunting Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, vaal_basetype = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 70, EnergyShield = 23, Ward = 28, },
+	req = { level = 40, dex = 30, int = 30, },
+}
+itemBases["Runemastered Velour Shoes"] = {
+	type = "Boots",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 85, EnergyShield = 26, Ward = 63, },
+	req = { level = 65, dex = 47, int = 47, },
 }
 
 itemBases["Grand Cuisses"] = {
@@ -886,7 +1880,27 @@ itemBases["Grand Cuisses"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, str_dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 66, Evasion = 60, EnergyShield = 23, },
+	armour = { Armour = 89, Evasion = 81, EnergyShield = 25, },
+	req = { level = 65, str = 34, dex = 34, int = 34, },
+}
+itemBases["Runeforged Grand Cuisses"] = {
+	type = "Boots",
+	subType = "Armour/Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 67, Evasion = 61, EnergyShield = 19, Ward = 53, },
+	req = { level = 65, str = 34, dex = 34, int = 34, },
+}
+itemBases["Runemastered Grand Cuisses"] = {
+	type = "Boots",
+	subType = "Armour/Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 45, Evasion = 41, EnergyShield = 12, Ward = 106, },
 	req = { level = 65, str = 34, dex = 34, int = 34, },
 }
 
@@ -896,7 +1910,7 @@ itemBases["Golden Caligae"] = {
 	socketLimit = 3,
 	tags = { armour = true, boots = true, default = true, demigods = true, not_for_sale = true, },
 	implicit = "+(8-16)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	armour = { },
 	req = { level = 12, },
 }

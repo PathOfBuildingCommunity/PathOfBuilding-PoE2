@@ -367,7 +367,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set PoisonBurstArrowCloudPlayer
-#flags attack projectile area
+#flags attack projectile area duration
 #mods
 #skillEnd
 

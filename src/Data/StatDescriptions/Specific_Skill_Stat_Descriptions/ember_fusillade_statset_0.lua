@@ -77,7 +77,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["base_skill_effect_duration"]=4,
@@ -87,5 +87,5 @@ return {
 	["skill_effect_duration"]=6,
 	["spell_maximum_base_fire_damage"]=2,
 	["spell_minimum_base_fire_damage"]=1,
-	["total_number_of_projectiles_to_fire"]=7
+	["total_number_of_projectiles_to_fire_from_stats"]=7
 }

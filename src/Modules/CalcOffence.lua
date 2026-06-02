@@ -282,6 +282,9 @@ end
 ---@return number
 local function calcCrossbowReloadTime(weaponData, boltSkill)
 	local baseReloadTime = weaponData.ReloadTime
+	if not baseReloadTime then
+		return
+	end
 
 	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed", "Speed" )
 	return baseReloadTime / reloadTimeMulti
@@ -1448,7 +1451,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillModList:Flag(skillCfg, "RevivingMinion") then
 		local MinionRevivalSpeedMod = calcLib.mod(skillModList, skillCfg, "MinionRevivalSpeed")
-		local baseMinionRevivalTime = data.misc.MinionRevivalTimeBase
+		local baseMinionRevivalTime = skillModList:Override(skillCfg, "BaseReviveTime") or data.misc.MinionRevivalTimeBase
 		output.MinionRevivalSpeed = baseMinionRevivalTime * (1 / MinionRevivalSpeedMod)
 		if breakdown then
 			breakdown.MinionRevivalSpeed = {
@@ -2613,7 +2616,7 @@ function calcs.offence(env, actor, activeSkill)
 			local cannotBeEvaded = skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade"))
 			output.AccuracyHitChance = (cannotBeEvaded and 100) or calcs.hitChance(enemyEvasion, accuracyVsEnemy) * hitChanceMod
 			-- Accounting for mods that enable "Chance to hit with Attacks can exceed 100%"
-			local exceedsHitChance = skillModList:Flag(nil,"Condition:HitChanceCanExceed100") and calcs.hitChance(enemyEvasion, (m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distances[1] .. "m"])) * hitChanceMod) -- Check for flag and at least 100% hit chance at minimum distance
+			local exceedsHitChance = skillModList:Flag(cfg, "Condition:HitChanceCanExceed100") and calcs.hitChance(enemyEvasion, (m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distances[1] .. "m"])) * hitChanceMod) -- Check for flag and at least 100% hit chance at minimum distance
 			output.AccuracyHitChanceUncapped = exceedsHitChance and m_max(calcs.hitChance(enemyEvasion, accuracyVsEnemy, true) * calcLib.mod(skillModList, cfg, "HitChance"), output.AccuracyHitChance) -- keep higher chance in case of "CannotBeEvaded"
 			local handCondition = (pass.label == "Off Hand") and "OffHandAttack" or "MainHandAttack"
 			if exceedsHitChance and output.AccuracyHitChanceUncapped - 100 > 0 then
@@ -2861,7 +2864,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.Speed = m_min(output.Speed, data.misc.ServerTickRate * output.Repeats)
 			end
 			-- Crossbows: Adjust attack speed values for Crossbow skills that need to reload
-			if skillData.reloadTime then
+			if skillData.reloadTime and skillData.reloadTime > 0 then
 				output.FiringRate = output.Speed
 				output.BoltCount = skillData.boltCount
 				output.EffectiveBoltCount = output.BoltCount
@@ -2907,7 +2910,7 @@ function calcs.offence(env, actor, activeSkill)
 				-- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
 				-- note: if we are ever allowed to dual wield crossbows, this will need to be adjusted
 				-- TODO: properly reflect effects of "SkillAttackTime" mods in the breakdown. (This is also not currently done in the standard breakdown.Speed calculation)
-				if output.ReloadTime then
+				if output.ReloadTime and source.ReloadTime then
 					globalBreakdown.FiringRate = { }
 					breakdown.multiChain(globalBreakdown.FiringRate, {
 						base = { "%.2f ^8(base)", 1 / baseTime },

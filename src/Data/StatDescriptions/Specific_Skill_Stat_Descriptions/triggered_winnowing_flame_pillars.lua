@@ -44,7 +44,7 @@ return {
 			}
 		},
 		stats={
-			[1]="active_skill_base_secondary_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
 	[4]={
@@ -73,7 +73,7 @@ return {
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_secondary_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=3,
 	["never_ignite"]=1,
 	parent="skill_stat_descriptions",
 	["unique_flame_pillar_fire_damage_equal_to_%_of_remaining_ignite_damage"]=4

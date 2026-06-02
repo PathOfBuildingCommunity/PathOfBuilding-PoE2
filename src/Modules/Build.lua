@@ -246,21 +246,21 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.spec:AddUndoState()
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
-				self.treeTab.viewer.searchNeedsForceUpdate = true
+				self.treeTab.viewer.searchStrCached = ""
 			else
 				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
 					self.buildFlag = true
-					self.treeTab.viewer.searchNeedsForceUpdate = true
+					self.treeTab.viewer.searchStrCached = ""
 				end, "Connect Path", function()
 					if self.spec:ConnectToClass(value.classId) then
 						self.spec:SelectClass(value.classId)
 						self.spec:AddUndoState()
 						self.spec:SetWindowTitleWithBuildClass()
 						self.buildFlag = true
-						self.treeTab.viewer.searchNeedsForceUpdate = true
+						self.treeTab.viewer.searchStrCached = ""
 					end
 				end)
 			end
@@ -760,6 +760,7 @@ function buildMode:NewLoadout(loadoutName)
 
 	newSpec.title = loadoutName
 	t_insert(self.treeTab.specList, newSpec)
+	self:SyncLoadouts() -- Sync loadouts to update the dropdown with the new loadout and select it
 	self:SetActiveLoadout(self:GetLoadoutByName(loadoutName))
 
 	self.modFlag = true

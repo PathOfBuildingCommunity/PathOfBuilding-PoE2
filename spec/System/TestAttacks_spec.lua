@@ -74,7 +74,7 @@ describe("TestAttacks", function()
 		-- Test against Quarterstaff Strike (skill slot 1)
 		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nArmour Break I 1/0  1\nShock 1/0  1\nBiting Frost I 1/0  1")
 		runCallback("OnFrame")
-		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnite I 1/0  1\nDaze 1/0  1\nShock Conduction I 1/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnite I 1/0  1\nDaze 1/0  1\nShock Conduction 1/0  1")
 		runCallback("OnFrame")
 
 		build.configTab:BuildModList()

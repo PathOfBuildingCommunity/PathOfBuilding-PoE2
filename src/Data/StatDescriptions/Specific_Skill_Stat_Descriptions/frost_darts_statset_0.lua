@@ -2,5 +2,51 @@
 -- Item data (c) Grinding Gear Games
 
 return {
+	[1]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Forks an additional Time"
+			},
+			[2]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Forks {0} additional Times"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Forks an additional Time"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Forks {0} additional Times"
+			}
+		},
+		stats={
+			[1]="number_of_additional_forks_base"
+		}
+	},
+	["number_of_additional_forks_base"]=1,
 	parent="skill_stat_descriptions"
 }

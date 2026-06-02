@@ -284,6 +284,9 @@ return {
 ["support_spell_echo_area_of_effect_+%"] = {
 	mod("RepeatAreaOfEffect", "INC", nil),
 },
+["echoed_spell_area_of_effect_+%"] = {
+	mod("RepeatAreaOfEffect", "INC", nil),
+},
 ["base_melee_attack_repeat_count"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
@@ -559,6 +562,9 @@ return {
 ["attack_speed_+%_with_atleast_20_rage"] = {
 	mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 20 })
 },
+["supported_skill_attack_speed_+%_per_5_rage"] = {
+	mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Rage", div = 5 })
+},
 ["base_cooldown_speed_+%"] = {
 	mod("CooldownRecovery", "INC", nil),
 },
@@ -570,6 +576,10 @@ return {
 	div = 1000,
 },
 ["support_hourglass_display_cooldown_time_ms"] = {
+	mod("CooldownRecovery", "BASE", nil),
+	div = 1000,
+},
+["base_cooldown_modifiable_repeat_interval_ms"] = {
 	mod("CooldownRecovery", "BASE", nil),
 	div = 1000,
 },
@@ -606,6 +616,9 @@ return {
 },
 ["grenade_skill_cooldown_speed_+%"] = {
 	mod("CooldownRecovery", "INC", nil),
+},
+["cast_speed_+%_per_num_unique_spells_cast_in_last_8_seconds"] = {
+	mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "Multiplier", var = "NonInstantSpellCastRecently" }),
 },
 -- AoE
 ["active_skill_base_area_of_effect_radius"] = {
@@ -688,6 +701,9 @@ return {
 },
 ["critical_strike_chance_+%_per_power_charge"] = {
 	mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" }),
+},
+["critical_strike_chance_+%_per_5_rage"] = {
+	mod("CritChance", "INC", nil, 0, 0, { type = "PerStat", stat = "Rage", div = 5 })
 },
 ["critical_strike_multiplier_+_per_power_charge"] = {
 	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" }),
@@ -833,7 +849,7 @@ return {
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
-["support_damage_+%_final_per_combo_stack"] = {
+["support_culmination_damage_+%_final_per_combo_stack"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ComboStacks", limitVar = "ComboStacksMax" }),
 },
 ["skill_maximum_number_of_combo_stacks"] = {
@@ -1557,6 +1573,9 @@ return {
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
 },
+["physical_damage_can_freeze"] = {
+	flag("PhysicalCanFreeze"),
+},
 ["chaos_damage_can_freeze"] = {
 	flag("ChaosCanFreeze"),
 },
@@ -1793,6 +1812,12 @@ return {
 	flag("AdditionalChainsAddSplitsInstead")
 },
 ["modifiers_to_projectile_count_do_not_apply"] = {
+	flag("NoAdditionalProjectiles"),
+},
+["number_of_projectiles_cannot_be_modified"] = {
+	flag("NoAdditionalProjectiles"),
+},
+["base_modifiers_to_projectile_count_do_not_apply"] = {
 	flag("NoAdditionalProjectiles"),
 },
 ["base_number_of_arrows"] = {
@@ -2242,11 +2267,20 @@ return {
 ["support_anticipation_rapid_fire_count"] = {
 	mod("SealCount", "BASE", nil),
 },
+["base_maximum_seals_for_skill"] = {
+	mod("SealCount", "BASE", nil),
+},
 ["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
+["support_%_of_total_cast_time_as_base_skill_seal_gain_interval"] = {
 	mod("SealGainFrequency", "BASE", nil),
 },
 ["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
 	mod("SealRepeatPenalty", "MORE", nil),
+},
+["base_skill_is_sealed_skill"] = {
+	flag("HasSeals"),
 },
 
 --
@@ -2435,6 +2469,9 @@ return {
 ["summon_fire_resistance_+"] = {
 	mod("MinionModifier", "LIST", { mod = mod("FireResist", "BASE", nil) }),
 },
+["minion_fire_damage_resistance_%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("FireResist", "BASE", nil) }),
+},
 ["summon_cold_resistance_+"] = {
 	mod("MinionModifier", "LIST", { mod = mod("ColdResist", "BASE", nil) }),
 },
@@ -2461,6 +2498,9 @@ return {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
 },
 ["minions_are_gigantic"] = {
+	mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
+},
+["companions_are_gigantic"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
 },
 ["base_number_of_zombies_allowed"] = {
@@ -2577,6 +2617,10 @@ return {
 },
 ["is_resummoning_minion"] = {
 	flag("RevivingMinion")
+},
+["minion_base_resummon_time_ms"] = {
+	mod("BaseReviveTime", "OVERRIDE", nil),
+	div = 1000,
 },
 --Golem
 ["golem_buff_effect_+%"] = {
@@ -2801,6 +2845,9 @@ return {
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
 },
+["spells_have_culling_strike"] = {
+	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
+},
 ["spell_cast_time_added_to_cooldown_if_triggered"] = {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),
 },
@@ -2808,6 +2855,9 @@ return {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["gain_x_rage_on_melee_hit"] = {
+	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+},
+["gain_x%_of_maximum_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["warcry_grant_X_rage_per_5_power"] = {
@@ -2831,6 +2881,9 @@ return {
 },
 ["chaos_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["crushed_target_%_physical_damage_taken_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }, { type = "ActorCondition", actor = "enemy", var = "Crushed" }),
 },
 --
 -- Spectre or Minion-specific stats

@@ -221,6 +221,40 @@ return {
 			[2]="spell_maximum_base_fire_damage"
 		}
 	},
+	[12]={
+		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} metres to Wall length"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Wall length is {0} metres"
+			}
+		},
+		stats={
+			[1]="wall_maximum_length"
+		}
+	},
 	["base_fire_damage_to_deal_per_minute"]=1,
 	["base_secondary_skill_effect_duration"]=2,
 	["base_skill_effect_duration"]=3,
@@ -235,5 +269,6 @@ return {
 	["secondary_skill_effect_duration"]=9,
 	["skill_effect_duration"]=10,
 	["spell_maximum_base_fire_damage"]=11,
-	["spell_minimum_base_fire_damage"]=11
+	["spell_minimum_base_fire_damage"]=11,
+	["wall_maximum_length"]=12
 }
