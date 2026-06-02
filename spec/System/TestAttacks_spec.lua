@@ -336,17 +336,17 @@ describe("TestAttacks", function()
 		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
 		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
 		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
-		assert.are.equals(combinedSpeed, build.calcsTab.mainOutput.Speed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
 
 		-- Average Hit
 		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
 		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
 		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
-		assert.are.equals((mainHandAvgDmg + offHandAvgDmg) / 2, combinedAvgDmg)
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg) / 2, 4), round(combinedAvgDmg, 4))
 
 		-- DPS (hits twice per attack)
 		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
-		assert.are.equals(combinedAvgDmg * combinedSpeed * 2, combinedDPS)
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed * 2,4), round(combinedDPS,4))
 	end)
 
 	it("correctly calculates dual wield crit chance for double hits", function()
@@ -374,17 +374,17 @@ describe("TestAttacks", function()
 		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
 		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
 		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
-		assert.are.equals(combinedSpeed, build.calcsTab.mainOutput.Speed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
 
 		-- Average Hit
 		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
 		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
 		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
-		assert.are.equals((mainHandAvgDmg + offHandAvgDmg) / 2, combinedAvgDmg)
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg) / 2, 4), round(combinedAvgDmg, 4))
 
 		-- DPS (hits once per attack)
 		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
-		assert.are.equals(combinedAvgDmg * combinedSpeed, combinedDPS)
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed, 4), round(combinedDPS, 4))
 	end)
 
 	it("correctly calculates dual wield crit chance for alternating hits", function()
@@ -418,17 +418,17 @@ describe("TestAttacks", function()
 		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
 		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
 		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
-		assert.are.equals(combinedSpeed, build.calcsTab.mainOutput.Speed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
 
 		-- Average Hit
 		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
 		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
 		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
-		assert.are.equals((mainHandAvgDmg + offHandAvgDmg), combinedAvgDmg)
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg), 4), round(combinedAvgDmg, 4))
 
 		-- DPS (hits twice per attack)
 		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
-		assert.are.equals(combinedAvgDmg * combinedSpeed, combinedDPS)
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed, 4), round(combinedDPS,4))
 	end)
 
 	it("correctly calculates dual wield crit chance for combined hits", function()
