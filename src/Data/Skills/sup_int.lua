@@ -3035,6 +3035,50 @@ skills["SupportDiallasDesirePlayer"] = {
 		},
 	}
 }
+skills["SupportDoedresUndoingPlayer"] = {
+	name = "Doedre's Undoing",
+	description = "Supports Curse Skills. Supported Skills create an area which Curses Enemies within it, and spawns Witchtoads in that area. Witchtoads leap at eneimes that get close, and seek out Cursed enemies with higher aggression. Dark Consequences will be Triggered when they hit enemies with their leap, violently exploding the Witchtoad.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.AppliesCurse, },
+	addSkillTypes = { SkillType.Limit, },
+	excludeSkillTypes = { },
+	gemFamily = { "CursedGround",},
+	isLineage = true,
+	flavourText = {"Doedre's depravity knew no limits. She stretched and", "broke and rebuilt herself until she forgot her own shape.", "She reverted to a familiar form, and began anew.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Doedre's Undoing",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["doedre_cursed_ground_toad_spawn_interval_ms"] = {
+					mod("ToadSpawnInterval", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+				},
+				["max_toads_per_doedre_cursed_ground"] = {
+					-- Display Only
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "maximum_curse_zones_allowed", 2 },
+				{ "max_toads_per_doedre_cursed_ground", 4 },
+				{ "doedre_cursed_ground_toad_spawn_interval_ms", 250 },
+			},
+			stats = {
+				"curse_apply_as_curse_zone",
+				"spawn_doedre_toads_on_cursed_ground",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["ChaosFrogExplosionPlayer"] = {
 	name = "Dark Consequences",
 	hidden = true,
@@ -3086,6 +3130,9 @@ skills["ChaosFrogExplosionPlayer"] = {
 		[39] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
 		[40] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval") / 1000
+			end,
 	statSets = {
 		[1] = {
 			label = "Dark Consequences",
@@ -3093,9 +3140,15 @@ skills["ChaosFrogExplosionPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "triggered_chaos_frog_explosion",
+			statMap = {
+				["triggered_by_chaos_frog_explosion_chance_%"] = {
+					-- Display Only
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
+				triggered = true,
 			},
 			constantStats = {
 				{ "triggered_by_chaos_frog_explosion_chance_%", 100 },
@@ -3814,6 +3867,137 @@ skills["SupportEnergyRetentionPlayer"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["EnervatingNovaPlayer"] = {
+	name = "Enervating Nova",
+	baseTypeName = "Enervating Nova",
+	icon = "Art/2DArt/SkillIcons/EnervatingNovaWeaponSkill.dds",
+	fromItem = true,
+	color = 3,
+	description = "Unleash a Nova of Lightning damage to Electrocute enemies. Enemies close to you take no damage while enemies at the edge of the ring take significantly more damage. Enemies Hit can be Electrocuted by all Lightning damage for a short duration.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cascadable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Duration] = true, },
+	castTime = 1,
+	qualityStats = {
+		{ "active_skill_electrocutes_as_though_dealt_damage_+%_final", 2 },
+	},
+	levels = {
+		[1] = { critChance = 11, levelRequirement = 0, cost = { Mana = 0, }, },
+		[2] = { critChance = 11, levelRequirement = 3, cost = { Mana = 0, }, },
+		[3] = { critChance = 11, levelRequirement = 6, cost = { Mana = 0, }, },
+		[4] = { critChance = 11, levelRequirement = 10, cost = { Mana = 0, }, },
+		[5] = { critChance = 11, levelRequirement = 14, cost = { Mana = 0, }, },
+		[6] = { critChance = 11, levelRequirement = 18, cost = { Mana = 0, }, },
+		[7] = { critChance = 11, levelRequirement = 22, cost = { Mana = 0, }, },
+		[8] = { critChance = 11, levelRequirement = 26, cost = { Mana = 0, }, },
+		[9] = { critChance = 11, levelRequirement = 31, cost = { Mana = 0, }, },
+		[10] = { critChance = 11, levelRequirement = 36, cost = { Mana = 0, }, },
+		[11] = { critChance = 11, levelRequirement = 41, cost = { Mana = 0, }, },
+		[12] = { critChance = 11, levelRequirement = 46, cost = { Mana = 0, }, },
+		[13] = { critChance = 11, levelRequirement = 52, cost = { Mana = 0, }, },
+		[14] = { critChance = 11, levelRequirement = 58, cost = { Mana = 0, }, },
+		[15] = { critChance = 11, levelRequirement = 64, cost = { Mana = 0, }, },
+		[16] = { critChance = 11, levelRequirement = 66, cost = { Mana = 0, }, },
+		[17] = { critChance = 11, levelRequirement = 72, cost = { Mana = 0, }, },
+		[18] = { critChance = 11, levelRequirement = 78, cost = { Mana = 0, }, },
+		[19] = { critChance = 11, levelRequirement = 84, cost = { Mana = 0, }, },
+		[20] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[21] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[22] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[23] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[24] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[25] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[26] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[27] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[28] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[29] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[30] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[31] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[32] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[33] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[34] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[35] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[36] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[37] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[38] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[39] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+		[40] = { critChance = 11, levelRequirement = 90, cost = { Mana = 0, }, },
+	},
+	statSets = {
+		[1] = {
+			label = "Enervating Nova",
+			baseEffectiveness = 1.2000000476837,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0082000000402331,
+			statDescriptionScope = "enervating_nova",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "movement_speed_+%_final_while_performing_action", -70 },
+				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
+				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
+				{ "active_skill_base_area_of_effect_radius", 26 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 10 },
+				{ "base_skill_effect_duration", 4000 },
+				{ "new_shock_nova_distance_based_damage_+%_final", 100 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"active_skill_electrocutes_as_though_dealt_damage_+%_final",
+				"is_area_damage",
+				"can_perform_skill_while_moving",
+				"base_lightning_damage_can_electrocute",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 7, 100, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 10, 103, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 1, 14, 106, statInterpolation = { 1, 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 1, 18, 109, statInterpolation = { 1, 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 1, 23, 112, statInterpolation = { 1, 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 2, 29, 115, statInterpolation = { 1, 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 2, 36, 118, statInterpolation = { 1, 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 2, 44, 121, statInterpolation = { 1, 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 3, 54, 124, statInterpolation = { 1, 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 3, 64, 127, statInterpolation = { 1, 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 4, 77, 130, statInterpolation = { 1, 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 5, 89, 133, statInterpolation = { 1, 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 5, 103, 136, statInterpolation = { 1, 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 6, 119, 139, statInterpolation = { 1, 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 7, 137, 142, statInterpolation = { 1, 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 8, 157, 145, statInterpolation = { 1, 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 9, 179, 148, statInterpolation = { 1, 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 11, 204, 151, statInterpolation = { 1, 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 12, 233, 154, statInterpolation = { 1, 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 14, 265, 157, statInterpolation = { 1, 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 16, 301, 160, statInterpolation = { 1, 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 18, 342, 163, statInterpolation = { 1, 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 20, 389, 166, statInterpolation = { 1, 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 23, 442, 169, statInterpolation = { 1, 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 26, 501, 172, statInterpolation = { 1, 1, 1, }, actorLevel = 136.875, },
+				[26] = { 30, 569, 175, statInterpolation = { 1, 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 34, 647, 178, statInterpolation = { 1, 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 39, 735, 181, statInterpolation = { 1, 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 44, 835, 184, statInterpolation = { 1, 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 50, 949, 187, statInterpolation = { 1, 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 57, 1079, 188, statInterpolation = { 1, 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 65, 1228, 190, statInterpolation = { 1, 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 74, 1398, 191, statInterpolation = { 1, 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 84, 1593, 193, statInterpolation = { 1, 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 96, 1817, 194, statInterpolation = { 1, 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 109, 2074, 196, statInterpolation = { 1, 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 125, 2368, 197, statInterpolation = { 1, 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 143, 2708, 199, statInterpolation = { 1, 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 163, 3098, 200, statInterpolation = { 1, 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 187, 3549, 202, statInterpolation = { 1, 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -4709,6 +4893,37 @@ skills["SupportGambleshotPlayer"] = {
 			},
 			stats = {
 				"projectile_randomly_fork_chain_or_pierce",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportGorgePlayer"] = {
+	name = "Gorge",
+	description = "Supports skills that consume Corpses. Consuming Corpses with supported skills grants Flask charges.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.TargetsDestructibleCorpses, SkillType.TargetsDestructibleRareCorpses, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Gorge",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Gorge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_grants_X_life_flask_charges_on_using_corpse", 10 },
+				{ "support_grants_X_mana_flask_charges_on_using_corpse", 10 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6586,6 +6801,36 @@ skills["SupportOisinsOathPlayer"] = {
 			label = "Oisin's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"mana_leech_from_elemental_instead",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOisinsOathPlayer"] = {
+	name = "Oisin's Oath",
+	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, SkillType.Spell, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ManaLeech",},
+	isLineage = true,
+	flavourText = {"The first Warden of Eaves swore to patrol the border twixt the worlds forevermore, so that the tragedy of Gruthkul's stampede would never recur. In time, his vigil on the edge began to... change him.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Oisin's Oath",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["mana_leech_from_elemental_instead"] = {
 					flag("ManaLeechBasedOnElementalDamage"),
@@ -7015,6 +7260,45 @@ skills["SupportRitualisticCursePlayer"] = {
 			constantStats = {
 				{ "support_ritual_curse_curse_delay_+%_final", 30 },
 				{ "curse_area_of_effect_+%", 50 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRomirasRequitalPlayer"] = {
+	name = "Romira's Requital",
+	description = "Supports Skills that create Companions which can be damaged. Minions created by Supported Skills take a portion of Hit Damage you would otherwise have taken, but have lowered maximum Life. A percentage of Damage taken this way is Recouped by you as Life.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Companion, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.MinionsAreUndamagable, },
+	gemFamily = { "Loyalty",},
+	isLineage = true,
+	flavourText = {"\"Come, my faithful wife,\" he crooned. \"Sit. Eat. I wanted to", "reward you for your loyalty. I even cooked this myself...\"", "She looked 'round for her sons, but hers was the only chair.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Romira's Requital",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_trusty_companion_minion_life_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_trusty_companion_minion_life_+%_final", -30 },
+				{ "companion_takes_%_damage_before_you_from_support", 10 },
+				{ "loyalty_%_of_redirected_damage_recouped_as_life_for_owner", 200 },
 			},
 			stats = {
 			},
