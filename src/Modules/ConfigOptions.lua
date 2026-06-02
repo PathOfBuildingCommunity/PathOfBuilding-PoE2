@@ -357,6 +357,16 @@ local configSettings = {
 	{ var = "embraceMadnessActive", type = "check", label = "Is Embrace Madness active?", ifSkill = "Embrace Madness", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AffectedByGloriousMadness", "FLAG", true, "Config")
 	end },
+	{ label = "Eye of Winter:", ifSkill = "Eye of Winter" },
+	{ var = "eyeOfWinterCold", type = "check", label = "Eye of Winter gained ^x3F6DB3Cold^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^x3F6DB3Cold^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterCold", "FLAG", true, "Config")
+	end },
+	{ var = "eyeOfWinterFire", type = "check", label = "Eye of Winter gained ^xB97123Fire^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^xB97123Fire^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterFire", "FLAG", true, "Config")
+	end },
+	{ var = "eyeOfWinterLightning", type = "check", label = "Eye of Winter gained ^xADAA47Lightning^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^xADAA47Lightning^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterLightning", "FLAG", true, "Config")
+	end },
 	{ var = "touchedDebuffsCount", type = "countAllowZero", label = "Glorious Madness Stacks", ifOption = "embraceMadnessActive", defaultState = 10, tooltip = "Glorious Madness Stacks grants:\n\tEroding Touch: 6% inc Damage Taken per stack\n\tParalysing Touch: 6% reduced Action Speed per stack\n\tDiluting Touch: 9% reduced Flask charges gained and 9% reduced Flask Effect per stack\n\tWasting Touch: 9% reduced ^xE05030Life ^7and ^x88FFFFEnergy Shield ^7recovery rate per stack", apply = function(val, modList, enemyModList)
 		val = m_min(val, 10)
 		modList:NewMod("DamageTaken", "INC", val * 6, val.." Eroding Touch Stacks", { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "AffectedByGloriousMadness" })
