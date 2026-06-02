@@ -80,12 +80,12 @@ end
 
 -- Step 3: EndGameMaps
 for map in dat("EndGameMaps"):Rows() do
-	local areaId = map.WorldAreasKey.Id
+	local areaId = map.Id.Id
 	areaIdToMonsters[areaId] = areaIdToMonsters[areaId] or {}
 	local seen = areaIdToMonsters[areaId .. "_seen"] or {}
 	if map.NativePacks then
 		for _, pack in ipairs(map.NativePacks) do
-			for _, name in ipairs(packIdToMonsters[pack.MonsterPacksKey.Id] or {}) do
+			for _, name in ipairs(packIdToMonsters[pack.Id] or {}) do
 				if not seen[name] then
 					table.insert(areaIdToMonsters[areaId], name)
 					seen[name] = true
@@ -97,9 +97,11 @@ for map in dat("EndGameMaps"):Rows() do
 
 	-- Attach FlavourText as description for this area if present
 	if map.FlavourText and map.FlavourText ~= "" then
-		if map.WorldAreasKey.Id == "MapUniqueMegalith" then
+		if map.Id.Id == "MapUniqueMegalith" then
 			--Temporary, need to clean text properly and convert map flavour text to a table just like items are.
 			areaIdToMonsters[areaId .. "_desc"] = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore"
+		elseif map.Id.Id == "Delirium_Act1Town_Quest" then
+			areaIdToMonsters[areaId .. "_desc"] = "Delusions of suffering... and death."
 		-- Hideouts have 2 lines, remove second line
 		elseif areaId:sub(-10) == "_Claimable" then
 			local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
@@ -123,7 +125,7 @@ out:write('local worldAreas, _ = ...\n\n')
 
 for area in dat("WorldAreas"):Rows() do
 	if area.Name and area.Name ~= "NULL" and not area.Name:match("DNT") and area.Id then
-		if area.Id:match("Design") or area.Id:match("Programming") or area.Id == "BlackTest" then
+		if area.Id:match("Design") or area.Id:match("Programming") or area.Id == "BlackTest" or area.Id == "G_Endgame_Town" then
 			goto continue
 		end
 		local monsters = areaIdToMonsters[area.Id] or {}

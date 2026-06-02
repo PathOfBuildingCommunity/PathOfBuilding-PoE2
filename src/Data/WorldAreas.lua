@@ -1010,10 +1010,9 @@ worldAreas["MapHideoutFarmlands_Claimable"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Desiccated Lich",
-		"Living Sand",
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Decrepit Mercenary",
+		"Risen Farmhand",
+		"Scarecrow Beast",
 	},
 }
 
@@ -1027,11 +1026,7 @@ worldAreas["MapHideoutPrison_Claimable"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Feral Kin",
-		"Shaman Kin",
-		"Skulltop Kin",
-		"Tuskbearer Kin",
-		"Wardrum Kin",
+		"Eternal Torturer",
 	},
 }
 
@@ -3713,6 +3708,8 @@ worldAreas["MapRustbowl"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Ancient Ezomyte",
+		"Risen Arbalest",
 	},
 	bossVarieties = {
 		"Gozen, Rebellious Rustlord",
@@ -3729,9 +3726,15 @@ worldAreas["MapBackwash"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Drowned Explorer",
-		"Rotting Cannoneer",
-		"Rotting Soulcatcher",
+		"Filthy Crone",
+		"Filthy First-born",
+		"Filthy Lobber",
+		"Flathead Clubber",
+		"Flathead Warrior",
+		"Foul Blacksmith",
+		"Foul Mauler",
+		"Foul Sage",
+		"Pyromushroom Cultivator",
 	},
 	bossVarieties = {
 		"Yaota, the Loathsome",
@@ -3748,7 +3751,9 @@ worldAreas["MapBurialBog"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
+		"Bogfelled Commoner",
+		"Bogfelled Slave",
+		"Dredge Fiend",
 	},
 	bossVarieties = {
 		"Grudgelash, Vile Thorn",
@@ -3765,7 +3770,7 @@ worldAreas["MapInferno"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Burning Dead",
 	},
 	bossVarieties = {
 	},
@@ -3781,7 +3786,8 @@ worldAreas["MapWetlands"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Hyena Demon",
+		"Sun Clan Scavenger",
 	},
 	bossVarieties = {
 		"Caedron, the Hyena Lord",
@@ -3798,7 +3804,7 @@ worldAreas["MapBloomingField"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eternal Guard",
+		"Bloom Serpent",
 	},
 	bossVarieties = {
 		"The Black Crow",
@@ -3815,7 +3821,7 @@ worldAreas["MapCrimsonShores"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Brimstone Crab",
 	},
 	bossVarieties = {
 		"Volkhar, the Emberborn",
@@ -3832,7 +3838,10 @@ worldAreas["MapCenotes"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
+		"Bogfelled Commoner",
+		"Bogfelled Slave",
+		"Rotting Hulk",
+		"Swamp Golem",
 	},
 	bossVarieties = {
 		"Bahlak, the Sky Seer",
@@ -3849,7 +3858,8 @@ worldAreas["MapSavanna"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Hyena Demon",
+		"Sun Clan Scavenger",
 	},
 	bossVarieties = {
 		"Caedron, the Hyena Lord",
@@ -3866,7 +3876,8 @@ worldAreas["MapFortress"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bulbous Maw",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
 	},
 	bossVarieties = {
 		"Pirasha, the Forgotten Prisoner",
@@ -3883,10 +3894,8 @@ worldAreas["MapPenitentiary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Gilded Cobra",
 		"Lost-men Zealot",
-		"Ribrattle",
-		"Skullslinger",
-		"Spinesnatcher",
 	},
 	bossVarieties = {
 		"Incarnation of Death",
@@ -3903,10 +3912,9 @@ worldAreas["MapBloodwood"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Impaler",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
+		"Blood Collector",
+		"Blood Cretin",
+		"Courtesan",
 	},
 	bossVarieties = {
 		"Gorian, the Moving Earth",
@@ -3923,11 +3931,8 @@ worldAreas["MapSandspit"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Venomous Crab",
+		"Venomous Crab Matriarch",
 	},
 	bossVarieties = {
 		"The Sandstrider",
@@ -3944,8 +3949,7 @@ worldAreas["MapForge"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Desiccated Lich",
-		"Walking Goliath",
+		"Goliath",
 	},
 	bossVarieties = {
 		"Vastweld, the Colossal Guardian",
@@ -3962,7 +3966,10 @@ worldAreas["MapSulphuricCaverns"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
+		"Orok Fleshstabber",
+		"Orok Hunter",
+		"Orok Shaman",
+		"Orok Throatcutter",
 	},
 	bossVarieties = {
 		"The Bone Colossus",
@@ -3980,8 +3987,8 @@ worldAreas["MapMire"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Cultist Archer",
+		"Cultist Daggerdancer",
 	},
 	bossVarieties = {
 		"Riona, Winter's Cackle",
@@ -3998,7 +4005,8 @@ worldAreas["MapAugury"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Winged Fiend",
+		"Constricted Spitter",
+		"Slitherspitter",
 	},
 	bossVarieties = {
 		"Gressor-Kul, the Apex",
@@ -4015,7 +4023,8 @@ worldAreas["MapWoodland"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Rattling Gibbet",
+		"Antlion Charger",
+		"Ill-fated Explorer",
 	},
 	bossVarieties = {
 		"Murtagh, the Engorged",
@@ -4033,7 +4042,8 @@ worldAreas["MapSump"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Prowling Skeleton",
+		"Diretusk Boar",
+		"Ill-fated Explorer",
 	},
 	bossVarieties = {
 		"Brakka, the Withered Crone",
@@ -4050,10 +4060,8 @@ worldAreas["MapWillow"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Impaler",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
+		"Lightning Wraith",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"Connal, the Tormented",
@@ -4070,9 +4078,7 @@ worldAreas["MapHive"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Sandflesh Mage",
-		"Sandflesh Skeleton",
-		"Sandflesh Warrior",
+		"Plague Nymph",
 	},
 	bossVarieties = {
 		"The Fungus Behemoth",
@@ -4089,7 +4095,7 @@ worldAreas["MapHeadland"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Quill Crab",
+		"Pale-stitched Stalker",
 	},
 	bossVarieties = {
 		"Hask, the Fallen Son",
@@ -4106,9 +4112,8 @@ worldAreas["MapLoftySummit"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Bladedancer",
-		"Faridun Impaler",
-		"Faridun Swordsman",
+		"Frost Wraith",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"Oloton, the Remorseless",
@@ -4125,9 +4130,8 @@ worldAreas["MapNecropolis"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Impaler",
-		"Faridun Spearwoman",
+		"Death Knight",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"Tycho, the Black Praetor",
@@ -4144,10 +4148,8 @@ worldAreas["MapCrypt"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Fledgling",
-		"Faridun Impaler",
-		"Faridun Neophyte",
-		"Faridun Wind-slicer",
+		"Knight-Gaunt",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"Meltwax, Mockery of Faith",
@@ -4164,7 +4166,8 @@ worldAreas["MapHiddenGrotto"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Sabre Spider",
+		"Quake Golem",
+		"Skitter Golem",
 	},
 	bossVarieties = {
 		"Zar Wali, the Bone Tyrant",
@@ -4181,8 +4184,7 @@ worldAreas["MapSteamingSprings"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Tarnished Beetle",
-		"Tarnished Scarab",
+		"Bramble Rhoa",
 	},
 	bossVarieties = {
 		"Manassa, the Serpent Queen",
@@ -4199,8 +4201,9 @@ worldAreas["MapSeepage"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Bladedancer",
-		"Faridun Swordsman",
+		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
 	},
 	bossVarieties = {
 		"The Fungus Behemoth",
@@ -4217,7 +4220,8 @@ worldAreas["MapRiverside"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eaten Rat",
+		"Quadrilla",
+		"Scorpion Monkey",
 	},
 	bossVarieties = {
 		"Zekoa, the Headcrusher",
@@ -4234,7 +4238,8 @@ worldAreas["MapRavine"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Caustic Crab",
+		"Constricted Spitter",
+		"Snakethroat Shambler",
 	},
 	bossVarieties = {
 		"Tetzcatl, the Blazing Guardian",
@@ -4251,8 +4256,7 @@ worldAreas["MapSpiderWoods"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Mar Acolyte",
-		"Risen Maraketh",
+		"Vault Lurker",
 	},
 	bossVarieties = {
 		"Rootgrasp, the Hateful Forest",
@@ -4269,10 +4273,9 @@ worldAreas["MapMarrow"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ribrattle",
-		"Serpent Shaman",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Mar Acolyte",
+		"Risen Arbalest",
+		"Risen Maraketh",
 	},
 	bossVarieties = {
 		"Zar Wali, the Bone Tyrant",
@@ -4289,8 +4292,8 @@ worldAreas["MapGrimhaven"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Serpent Clan",
-		"Serpent Shaman",
+		"Decrepit Mercenary",
+		"Iron Thaumaturgist",
 	},
 	bossVarieties = {
 		"Saphira, The Dread Consort",
@@ -4307,8 +4310,7 @@ worldAreas["MapVaalVillage"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Bladedancer",
-		"Faridun Swordsman",
+		"Vaal Goliath",
 	},
 	bossVarieties = {
 	},
@@ -4324,7 +4326,7 @@ worldAreas["MapSlick"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Caustic Crab",
+		"Undead Vaal Guard",
 	},
 	bossVarieties = {
 		"Vorrik, The Infernal Engineer",
@@ -4341,7 +4343,7 @@ worldAreas["MapVaalCity"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Butcher",
+		"Viper Legionnaire",
 	},
 	bossVarieties = {
 		"Viper Napuatzi",
@@ -4358,7 +4360,7 @@ worldAreas["MapSteppe"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eternal Guard",
+		"Diretusk Boar",
 	},
 	bossVarieties = {
 		"Gozen, Rebellious Rustlord",
@@ -4375,7 +4377,9 @@ worldAreas["MapRockpools"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eaten Rat",
+		"Constricted Shambler",
+		"Constricted Spitter",
+		"Snakethroat Shambler",
 	},
 	bossVarieties = {
 		"Brughor, the Insatiable",
@@ -4392,8 +4396,7 @@ worldAreas["MapCreek"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eternal Prisoner",
-		"Spined Necromancer",
+		"River Drake",
 	},
 	bossVarieties = {
 		"Tierney, the Hateful",
@@ -4410,11 +4413,9 @@ worldAreas["MapBazaar"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Chaotic Zealot",
+		"Vaal Goliath",
+		"Vaal Overseer",
 	},
 	bossVarieties = {
 		"Viper Napuatzi",
@@ -4431,6 +4432,7 @@ worldAreas["MapDerelictMansion"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Tendril Sentinel",
 	},
 	bossVarieties = {
 		"Varloch, the Ashen Lord",
@@ -4448,10 +4450,10 @@ worldAreas["MapOutlands"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
-		"Ribrattle",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 }
 
@@ -4465,11 +4467,8 @@ worldAreas["MapBastille"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Decrepit Mercenary",
+		"Iron Guard",
 	},
 	bossVarieties = {
 		"Veynar, the Frostbane",
@@ -4486,6 +4485,9 @@ worldAreas["MapDecay"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Zombie",
 	},
 	bossVarieties = {
 		"The Fungus Behemoth",
@@ -4502,7 +4504,7 @@ worldAreas["MapMineshaft"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Maraketh Undead",
+		"Forsaken Miner",
 	},
 	bossVarieties = {
 		"Vorrik, The Infernal Engineer",
@@ -4519,6 +4521,8 @@ worldAreas["MapDeserted"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Desiccated Lich",
+		"Living Sand",
 	},
 	bossVarieties = {
 		"Lord of the Pit",
@@ -4535,10 +4539,10 @@ worldAreas["MapOasis"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
-		"Ribrattle",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 	bossVarieties = {
 		"Ishtaroth, the Perennial",
@@ -4555,11 +4559,9 @@ worldAreas["MapSunTemple"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Drowned Explorer",
-		"Faridun Fledgling",
-		"Faridun Neophyte",
-		"Faridun Wind-slicer",
-		"Rotting Soulcatcher",
+		"Bloodrite Guard",
+		"Bloodrite Priest",
+		"Priest of the Sun",
 	},
 	bossVarieties = {
 		"Tonqui, Seer of the Sun",
@@ -4576,10 +4578,8 @@ worldAreas["MapChannel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ribrattle",
-		"Serpent Shaman",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Mar Acolyte",
+		"Sand Spirit",
 	},
 	bossVarieties = {
 		"Hask, the Fallen Son",
@@ -4596,7 +4596,9 @@ worldAreas["MapVaalFoundry"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Corrupted Corpse",
+		"Gold-Melted Sentinel",
+		"Gold-Melted Shambler",
+		"Gold-melted Blacksmith",
 	},
 	bossVarieties = {
 		"Gulzal, the Living Furnace ",
@@ -4613,7 +4615,7 @@ worldAreas["MapVaalFactory"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Elephant Tortoise",
+		"Rusted Dyna Golem",
 	},
 	bossVarieties = {
 		"Tetzcatl, the Blazing Guardian",
@@ -4731,11 +4733,10 @@ worldAreas["MapLostTowers"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Blood Priest",
+		"Blood Priestess",
+		"Blood Zealot",
+		"Vaal Formshifter",
 	},
 	bossVarieties = {
 		"Chetza, the Feathered Plague",
@@ -4752,9 +4753,9 @@ worldAreas["MapSwampTower"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Drowned Explorer",
-		"Rotting Cannoneer",
-		"Rotting Soulcatcher",
+		"Filthy Crone",
+		"Flathead Clubber",
+		"Hunchback Clubber",
 	},
 	bossVarieties = {
 		"Stormgore, the Guardian",
@@ -4771,9 +4772,7 @@ worldAreas["MapAlpineRidge"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Sandflesh Mage",
-		"Sandflesh Skeleton",
-		"Sandflesh Warrior",
+		"Winged Fiend",
 	},
 	bossVarieties = {
 		"Ignatia, the Flame-Sworn",
@@ -4791,7 +4790,8 @@ worldAreas["MapMesa"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Hyena Demon",
+		"Sun Clan Scavenger",
 	},
 	bossVarieties = {
 		"Karash, The Dune Dweller",
@@ -4808,7 +4808,9 @@ worldAreas["MapBluff"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Vile Vulture",
+		"Constricted Spitter",
+		"Entrailhome Shambler",
+		"Slitherspitter",
 	},
 	bossVarieties = {
 		"Gressor-Kul, the Apex",
@@ -4852,8 +4854,8 @@ worldAreas["MapPlantation"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Risen Farmhand",
+		"Scarecrow Beast",
 	},
 	bossVarieties = {
 		"Varloch, the Ashen Lord",
@@ -4870,12 +4872,8 @@ worldAreas["MapAzmerianRanges"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Feral Kin",
-		"Shaman Kin",
-		"Skulltop Kin",
-		"Torchbearer Kin",
-		"Tuskbearer Kin",
-		"Wardrum Kin",
+		"Elephant Tortoise",
+		"Stoneback Rhoa",
 	},
 	bossVarieties = {
 		"Morwyn, the Kinslayer",
@@ -4892,7 +4890,10 @@ worldAreas["MapDeforestation"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Cultist Archer",
+		"Cultist Brute",
+		"Cultist Warrior",
+		"Cultist Witch",
 	},
 	bossVarieties = {
 		"Morwyn, the Kinslayer",
@@ -4909,12 +4910,9 @@ worldAreas["MapEpitaph"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Fledgling",
-		"Faridun Heavy Infantry",
-		"Faridun Impaler",
-		"Faridun Neophyte",
-		"Faridun Spearwoman",
-		"Faridun Wind-slicer",
+		"Dread Servant",
+		"Eternal Knight",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"Saphira, The Dread Consort",
@@ -4931,10 +4929,8 @@ worldAreas["MapAridPlains"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ribrattle",
-		"Serpent Shaman",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Mar Acolyte",
+		"Sand Spirit",
 	},
 	bossVarieties = {
 		"Akthi, the Final Sting",
@@ -4952,8 +4948,8 @@ worldAreas["MapSinterRift"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Quake Golem",
+		"Skitter Golem",
 	},
 	bossVarieties = {
 		"Brughor, the Insatiable",
@@ -4970,7 +4966,7 @@ worldAreas["MapPit"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Faridun Crawler",
 	},
 	bossVarieties = {
 		"Brakkus, the Juggernaut",
@@ -4987,9 +4983,11 @@ worldAreas["MapReservoir"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bulbous Maw",
-		"Pale Abductor",
-		"Pale Brinesplitter",
+		"Azak Fleshstabber",
+		"Azak Mauler",
+		"Azak Spearthrower",
+		"Azak Stalker",
+		"Azak Throatcutter",
 	},
 	bossVarieties = {
 		"Grudgelash, Vile Thorn",
@@ -5021,7 +5019,8 @@ worldAreas["MapRupture"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eaten Rat",
+		"Quadrilla",
+		"Scorpion Monkey",
 	},
 	bossVarieties = {
 		"Zekoa, the Headcrusher",
@@ -5038,8 +5037,11 @@ worldAreas["MapOvergrown"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Eaten Rat",
-		"Winged Fiend",
+		"Constricted Shambler",
+		"Constricted Spitter",
+		"Entwined Hulk",
+		"Scorpion Monkey",
+		"Snakethroat Shambler",
 	},
 	bossVarieties = {
 		"Tetzcatl, the Blazing Guardian",
@@ -5056,10 +5058,13 @@ worldAreas["MapCaldera"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Feral Kin",
 		"Shaman Kin",
+		"Skulltop Kin",
 		"Spearbearer Kin",
 		"Tallwalker Kin",
 		"Torchbearer Kin",
+		"Tuskbearer Kin",
 		"Wardrum Kin",
 	},
 	bossVarieties = {
@@ -5093,10 +5098,8 @@ worldAreas["MapSpring_"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ribrattle",
-		"Serpent Shaman",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Adorned Beetle",
+		"Adorned Scarab",
 	},
 	bossVarieties = {
 		"Manassa, the Serpent Queen",
@@ -5113,9 +5116,8 @@ worldAreas["MapSevenWaters"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Desiccated Lich",
-		"Dune Lurker",
-		"Walking Goliath",
+		"Rasp Scavenger",
+		"Vile Vulture",
 	},
 	bossVarieties = {
 		"Manassa, the Serpent Queen",
@@ -5132,10 +5134,16 @@ worldAreas["MapCavernCity"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
-		"Ribrattle",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Faridun Bladedancer",
+		"Faridun Butcher",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 	},
 	bossVarieties = {
 		"Zahmir, the Blade Sovereign",
@@ -5152,9 +5160,8 @@ worldAreas["MapTrenches"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ancestral Headtaker",
-		"Ancestral Hornbearer",
-		"Ancestral Warrior",
+		"Gargantuan Wasp",
+		"Swarming Wasp",
 	},
 	bossVarieties = {
 		"Gorian, the Moving Earth",
@@ -5171,6 +5178,11 @@ worldAreas["MapFrozenFalls"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bulbous Maw",
+		"Pale Abductor",
+		"Pale Brinesplitter",
+		"Pale Tidecrasher",
+		"Pale Waterwalker",
 	},
 	bossVarieties = {
 		"Thraeven, Wing of Winter",
@@ -5204,6 +5216,7 @@ worldAreas["MapWaywardIsle"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
+		"Lost-men Necromancer",
 		"Lost-men Zealot",
 		"Ribrattle",
 		"Skullslinger",
@@ -5224,10 +5237,8 @@ worldAreas["MapStronghold"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Shaman Kin",
-		"Spearbearer Kin",
-		"Tallwalker Kin",
-		"Wardrum Kin",
+		"Rattling Gibbet",
+		"Risen Rattler",
 	},
 	bossVarieties = {
 		"The Shackled Horror",
@@ -5244,11 +5255,8 @@ worldAreas["MapPort"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Feral Kin",
-		"Shaman Kin",
-		"Skulltop Kin",
-		"Tuskbearer Kin",
-		"Wardrum Kin",
+		"Drowned Explorer",
+		"Rotting Cannoneer",
 	},
 	bossVarieties = {
 		"Malgor, the Nautilord",
@@ -5265,10 +5273,13 @@ worldAreas["MapCliffside"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Amphibious Prowler",
-		"Brine Maiden",
-		"Ghastly Siren",
-		"Skittering Jellycrab",
+		"Faithful Archer",
+		"Faithful Warrior",
+		"Righteous Axewielder",
+		"Twilight Order Oathsworn",
+		"Twilight Order Officer",
+		"Twilight Order Priest",
+		"Twilight Order Soldier",
 	},
 	bossVarieties = {
 		"Brakkus, the Juggernaut",
@@ -5285,9 +5296,14 @@ worldAreas["MapSinkhole"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Luminous Spinefish",
-		"Molten Imp",
-		"Spiked Ray",
+		"Ancestral Archer",
+		"Ancestral Channeler",
+		"Ancestral Guardian",
+		"Ancestral Headtaker",
+		"Ancestral Hornbearer",
+		"Ancestral Warrior",
+		"Guardian Lizard",
+		"Guardian Turtle",
 	},
 	bossVarieties = {
 		"Yama The White",
@@ -5304,19 +5320,12 @@ worldAreas["MapFlotsam"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Azak Brute",
-		"Azak Fleshstabber",
-		"Azak Shaman",
-		"Azak Spearthrower",
-		"Azak Stalker",
-		"Azak Throatcutter",
-		"Caustic Crab",
-		"Chaw Mongrel",
-		"Feral Kin",
-		"Shaman Kin",
-		"Skulltop Kin",
-		"Tuskbearer Kin",
-		"Wardrum Kin",
+		"Bloated Anchorman",
+		"Drowned Bearer",
+		"Drowned Explorer",
+		"Rotting Cannoneer",
+		"Rotting Demolitionist",
+		"Rotting Soulcatcher",
 	},
 	bossVarieties = {
 		"Malgor, the Nautilord",
@@ -5333,8 +5342,10 @@ worldAreas["MapMortuary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
-		"Spined Necromancer",
+		"Bladelash Transcendent",
+		"Brutal Transcendent",
+		"Surgical Experimentalist",
+		"Warrior Transcendent",
 	},
 	bossVarieties = {
 		"Micata, the Remade",
@@ -5380,7 +5391,8 @@ worldAreas["MapGreenhouse"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bulbous Maw",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
 	},
 	bossVarieties = {
 		"Rootgrasp, the Hateful Forest",
@@ -5397,11 +5409,8 @@ worldAreas["MapSlash"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Cultivated Grove",
+		"Skeleton Spriggan",
 	},
 	bossVarieties = {
 		"The Black Crow",
@@ -5418,10 +5427,10 @@ worldAreas["MapSanctuary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
-		"Ribrattle",
-		"Skullslinger",
-		"Spinesnatcher",
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 	bossVarieties = {
 		"Pirasha, the Forgotten Prisoner",
@@ -5470,8 +5479,8 @@ worldAreas["MapCanyon"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Quake Golem",
-		"Skitter Golem",
+		"Maraketh Undead",
+		"Risen Tale-woman",
 	},
 	bossVarieties = {
 		"Morvak, the Infernal",
@@ -5488,8 +5497,8 @@ worldAreas["MapOrnateChambers"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Serpent Clan",
+		"Serpent Shaman",
 	},
 	bossVarieties = {
 		"Serath, the Scaled One",
@@ -5506,12 +5515,8 @@ worldAreas["MapIceCave"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Feral Kin",
-		"Shaman Kin",
-		"Skulltop Kin",
-		"Torchbearer Kin",
-		"Tuskbearer Kin",
-		"Wardrum Kin",
+		"Quill Crab",
+		"Spiked Scuttler",
 	},
 	bossVarieties = {
 		"The Frostborn Fiend",
@@ -5528,6 +5533,8 @@ worldAreas["MapRugosa"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Giant Maw",
+		"Skittering Jellycrab",
 	},
 	bossVarieties = {
 		"Syvora, Daughter of the Deep",
@@ -5544,8 +5551,7 @@ worldAreas["MapRiverhold"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
-		"Risen Maraketh",
+		"Rabid Dog",
 	},
 	bossVarieties = {
 		"Thariel, the Umbral Wraith",
@@ -5562,8 +5568,7 @@ worldAreas["MapRazedFields"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Desiccated Lich",
-		"Living Sand",
+		"Decrepit Mercenary",
 	},
 	bossVarieties = {
 		"Elvara, the Savage Flame",
@@ -5593,11 +5598,10 @@ worldAreas["MapVaalVault"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
+		"Blood Priest",
+		"Blood Priestess",
+		"Blood Zealot",
+		"Vaal Formshifter",
 	},
 	bossVarieties = {
 		"Ytzara, Blood Oracle",
@@ -5615,7 +5619,8 @@ worldAreas["MapSnowfall"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Skittering Jellycrab",
+		"Twilight Order Officer",
+		"Twilight Order Soldier",
 	},
 	bossVarieties = {
 		"Thariel, the Umbral Wraith",
@@ -5632,9 +5637,11 @@ worldAreas["MapExcavation"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Coral-crowned Skeleton",
-		"Ghastly Siren",
-		"Guardian Turtle",
+		"Zealous Courser",
+		"Zealous Excavator",
+		"Zealous Guard",
+		"Zealous Pillarcrusher",
+		"Zealous Shockwarden",
 	},
 	bossVarieties = {
 		"Aurelian, the Grand Adjudicator",
@@ -5931,7 +5938,8 @@ worldAreas["MapUberBoss_IronCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Iron Sharpshooter",
+		"Iron Spearman",
 	},
 	bossVarieties = {
 		"Count Geonor",
@@ -5949,6 +5957,8 @@ worldAreas["MapUberBoss_CopperCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Butcher",
+		"Faridun Infantry",
 	},
 	bossVarieties = {
 		"Jamanra, the Abomination",
@@ -5965,8 +5975,10 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
-		"Spined Necromancer",
+		"Bladelash Transcendent",
+		"Brutal Transcendent",
+		"Surgical Experimentalist",
+		"Warrior Transcendent",
 	},
 	bossVarieties = {
 		"Doryani, Royal Thaumaturge",
@@ -5984,12 +5996,15 @@ worldAreas["MapUberBoss_JadeCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ancestral Channeler",
-		"Ancestral Guardian",
-		"Ancestral Headtaker",
-		"Ancestral Hornbearer",
-		"Ancestral Warrior",
-		"Guardian Lizard",
+		"Blood-fevered Axeman",
+		"Blood-fevered Brew-breather",
+		"Blood-fevered Hookman",
+		"Blood-fevered Maceman",
+		"Blood-fevered Plaguespreader",
+		"Blood-fevered Spearman",
+		"Blood-fevered Tuskbeast",
+		"Blood-fevered Warrior",
+		"Blood-fevered Wisewoman",
 	},
 	bossVarieties = {
 		"Manoki, the Chosen",
@@ -6088,7 +6103,8 @@ worldAreas["MapUberBoss_IronCitadel_Quest"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Iron Sharpshooter",
+		"Iron Spearman",
 	},
 	bossVarieties = {
 		"Count Geonor",
@@ -6121,8 +6137,10 @@ worldAreas["MapUberBoss_StoneCitadel_Quest"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Rattler",
-		"Spined Necromancer",
+		"Bladelash Transcendent",
+		"Brutal Transcendent",
+		"Surgical Experimentalist",
+		"Warrior Transcendent",
 	},
 	bossVarieties = {
 		"Doryani, Royal Thaumaturge",
@@ -6653,8 +6671,7 @@ worldAreas["ExpeditionLeagueBoss"] = {
 worldAreas["Delirium_Act1Town_Quest"] = {
 	name = "Simulacrum of Delusion",
 	baseName = "Simulacrum of Delusion",
-	description = "Delusions of suffering...
-and death.",
+	description = "Delusions of suffering... and death.",
 	tags = {  },
 	act = 10,
 	level = 80,
@@ -7071,315 +7088,6 @@ worldAreas["BossRush_Area3"] = {
 	},
 }
 
-worldAreas["G_Endgame_Town"] = {
-	name = "The Ziggurat Refuge",
-	baseName = "The Ziggurat Refuge",
-	description = "The last light at the end of the world.",
-	tags = {  },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-		"Adorned Beetle",
-		"Adorned Miscreation",
-		"Adorned Scarab",
-		"Alpha Primate",
-		"Amphibious Prowler",
-		"Ancestral Archer",
-		"Ancestral Channeler",
-		"Ancestral Guardian",
-		"Ancestral Headtaker",
-		"Ancestral Hornbearer",
-		"Ancestral Warrior",
-		"Ancient Ezomyte",
-		"Angler Maw",
-		"Antlion Charger",
-		"Armoured Rhex",
-		"Azak Brute",
-		"Azak Fledgling",
-		"Azak Fleshstabber",
-		"Azak Mauler",
-		"Azak Shaman",
-		"Azak Spearthrower",
-		"Azak Stalker",
-		"Azak Throatcutter",
-		"Bearer of Penitence",
-		"Bladelash Transcendent",
-		"Bloated Anchorman",
-		"Blood Carrier",
-		"Blood Collector",
-		"Blood Cretin",
-		"Blood Priest",
-		"Blood Priestess",
-		"Blood Zealot",
-		"Blood-fevered Axeman",
-		"Blood-fevered Brew-breather",
-		"Blood-fevered Hookman",
-		"Blood-fevered Maceman",
-		"Blood-fevered Plaguespreader",
-		"Blood-fevered Spearman",
-		"Blood-fevered Tuskbeast",
-		"Blood-fevered Warrior",
-		"Blood-fevered Wisewoman",
-		"Bloodrite Guard",
-		"Bloodrite Priest",
-		"Bloodthief Wasp",
-		"Bloom Serpent",
-		"Bogfelled Commoner",
-		"Bogfelled Slave",
-		"Bone Stalker",
-		"Bramble Ape",
-		"Bramble Burrower",
-		"Bramble Hulk",
-		"Bramble Rhoa",
-		"Brimstone Crab",
-		"Brine Maiden",
-		"Brutal Transcendent",
-		"Bulbous Maw",
-		"Burdened Wretch",
-		"Burning Dead",
-		"Caustic Crab",
-		"Chaotic Zealot",
-		"Chaw Mongrel",
-		"Chyme Skitterer",
-		"Constricted Shambler",
-		"Constricted Spitter",
-		"Corrupted Corpse",
-		"Courtesan",
-		"Crag Leaper",
-		"Cultist Archer",
-		"Cultist Brute",
-		"Cultist Daggerdancer",
-		"Cultist Warrior",
-		"Cultist Witch",
-		"Cultivated Grove",
-		"Death Knight",
-		"Decrepit Mercenary",
-		"Desiccated Lich",
-		"Diretusk Boar",
-		"Doryani's Elite",
-		"Dread Servant",
-		"Dredge Fiend",
-		"Drowned",
-		"Drowned Bearer",
-		"Drowned Crawler",
-		"Drowned Explorer",
-		"Drudge Osseodon",
-		"Dune Lurker",
-		"Elephant Tortoise",
-		"Entrailhome Shambler",
-		"Entwined Hulk",
-		"Eternal Guard",
-		"Eternal Knight",
-		"Eternal Prisoner",
-		"Eternal Torturer",
-		"Faithful Archer",
-		"Faithful Warrior",
-		"Faridun Bladedancer",
-		"Faridun Butcher",
-		"Faridun Crawler",
-		"Faridun Fledgling",
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Neophyte",
-		"Faridun Plaguebringer",
-		"Faridun Spearman",
-		"Faridun Swordsman",
-		"Faridun Wind-slicer",
-		"Feral Kin",
-		"Feral Primate",
-		"Fiery Zealot",
-		"Filthy Crone",
-		"Filthy First-born",
-		"Filthy Lobber",
-		"Flathead Clubber",
-		"Flathead Warrior",
-		"Flathead Youngling",
-		"Flesh Larva",
-		"Forgotten Crawler",
-		"Forgotten Satyr",
-		"Forgotten Stalker",
-		"Forsaken Hulk",
-		"Forsaken Miner",
-		"Foul Blacksmith",
-		"Foul Mauler",
-		"Foul Sage",
-		"Frost Wraith",
-		"Fungal Artillery",
-		"Fungal Proliferator",
-		"Fungal Rattler",
-		"Fungal Wolf",
-		"Fungal Zombie",
-		"Fused Swordsman",
-		"Gargantuan Wasp",
-		"Gargoyle Demon",
-		"Gelid Zealot",
-		"Ghastly Siren",
-		"Giant Maw",
-		"Gilded Cobra",
-		"Gold-Melted Sentinel",
-		"Gold-Melted Shambler",
-		"Gold-melted Blacksmith",
-		"Goliath",
-		"Goliath Shrike",
-		"Goliath Transcendent",
-		"Guardian Lizard",
-		"Guardian Turtle",
-		"Gull Shrike",
-		"Hunchback Clubber",
-		"Hyena Demon",
-		"Ill-fated Explorer",
-		"Iron Guard",
-		"Iron Sharpshooter",
-		"Iron Spearman",
-		"Iron Thaumaturgist",
-		"Knight-Gaunt",
-		"Lightning Wraith",
-		"Living Sand",
-		"Lost-men Brute",
-		"Lost-men Necromancer",
-		"Lost-men Subjugator",
-		"Lost-men Zealot",
-		"Luminous Spinefish",
-		"Man o' War",
-		"Manshrike",
-		"Mantis Rat",
-		"Mar Acolyte",
-		"Maraketh Undead",
-		"Molten Imp",
-		"Mud Simulacrum",
-		"Orok Fleshstabber",
-		"Orok Hunter",
-		"Orok Shaman",
-		"Orok Throatcutter",
-		"Pack Werewolf",
-		"Pale Abductor",
-		"Pale Brinesplitter",
-		"Pale Tidecrasher",
-		"Pale Waterwalker",
-		"Pale-stitched Stalker",
-		"Plague Harvester",
-		"Plague Nymph",
-		"Plague Swarm",
-		"Porcupine Crab",
-		"Porcupine Goliath",
-		"Powered Zealot",
-		"Priest of the Sun",
-		"Prowling Chimeral",
-		"Prowling Shade",
-		"Pyromushroom Cultivator",
-		"Quadrilla",
-		"Quake Golem",
-		"Quill Crab",
-		"Rabid Dog",
-		"Rasp Scavenger",
-		"Rattling Gibbet",
-		"Rhex",
-		"Ribrattle",
-		"Righteous Axewielder",
-		"Risen Arbalest",
-		"Risen Farmhand",
-		"Risen Maraketh",
-		"Risen Rattler",
-		"Risen Tale-woman",
-		"River Drake",
-		"River Hag",
-		"Rotted Rat",
-		"Rotten Wolf",
-		"Rotting Cannoneer",
-		"Rotting Crow",
-		"Rotting Demolitionist",
-		"Rotting Hulk",
-		"Rotting Soulcatcher",
-		"Rusted Dyna Golem",
-		"Sabre Spider",
-		"Sand Spirit",
-		"Sandflesh Mage",
-		"Sandflesh Skeleton",
-		"Sandflesh Warrior",
-		"Sandscoured Dead",
-		"Scarecrow Beast",
-		"Scavenged Skeleton",
-		"Scorpion Monkey",
-		"Searot Harpooner",
-		"Searot Skeleton",
-		"Searot Sniper",
-		"Serpent Clan",
-		"Serpent Shaman",
-		"Shaman Kin",
-		"Shielded Transcendent",
-		"Skeleton Spriggan",
-		"Skitter Golem",
-		"Skittering Jellycrab",
-		"Skullslinger",
-		"Skulltop Kin",
-		"Slitherspitter",
-		"Snakethroat Shambler",
-		"Spearbearer Kin",
-		"Spiked Ray",
-		"Spiked Scuttler",
-		"Spined Necromancer",
-		"Spinesnatcher",
-		"Stoneback Rhoa",
-		"Sun Clan Scavenger",
-		"Surgical Experimentalist",
-		"Swamp Golem",
-		"Swarming Wasp",
-		"Tallwalker Kin",
-		"Tarnished Beetle",
-		"Tarnished Scarab",
-		"Tendril Prowler",
-		"Tendril Sentinel",
-		"Tombshrieker",
-		"Torchbearer Kin",
-		"Tuskbearer Kin",
-		"Twilight Order Oathsworn",
-		"Twilight Order Officer",
-		"Twilight Order Priest",
-		"Twilight Order Soldier",
-		"Undead Vaal Bladedancer",
-		"Undead Vaal Guard",
-		"Undertaker",
-		"Vaal Axeman",
-		"Vaal Embalmed Archer",
-		"Vaal Embalmed Axeman",
-		"Vaal Embalmed Bearer",
-		"Vaal Embalmed Rogue",
-		"Vaal Embalmed Spearman",
-		"Vaal Excoriator",
-		"Vaal Formshifter",
-		"Vaal Goliath",
-		"Vaal Guard",
-		"Vaal Overseer",
-		"Vaal Skeletal Archer",
-		"Vaal Skeletal Priest",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Warrior",
-		"Vault Lurker",
-		"Venomous Crab",
-		"Venomous Crab Matriarch",
-		"Vile Hag",
-		"Vile Imp",
-		"Vile Vulture",
-		"Vilespit Gull",
-		"Viper Legionnaire",
-		"Walking Goliath",
-		"Wardrum Kin",
-		"Warrior Transcendent",
-		"Werewolf Prowler",
-		"Winged Fiend",
-		"Winged Horror",
-		"Wretched Rattler",
-		"Zealous Courser",
-		"Zealous Excavator",
-		"Zealous Guard",
-		"Zealous Pillarcrusher",
-		"Zealous Shockwarden",
-	},
-}
-
 worldAreas["IncursionTemplePresent"] = {
 	name = "Lost Temple (Act 1)",
 	baseName = "Lost Temple",
@@ -7639,7 +7347,8 @@ worldAreas["MapUniqueInitialTower"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
+		"Hyena Demon",
+		"Sun Clan Scavenger",
 	},
 	bossVarieties = {
 		"Karash, The Dune Dweller",

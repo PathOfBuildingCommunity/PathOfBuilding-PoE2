@@ -230,26 +230,23 @@ directiveTable.emit = function(state, args, out)
 			if mapRow.NativePacks then
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
-						local areaIds = {}
-						for _, areaId in ipairs(areaIds) do
-							local area = dat("WorldAreas"):GetRow("Id", areaId)
-							if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
-								local isMap = false
-								for _, tag in ipairs(area.Tags or {}) do
-									if tag.Id == "map" then
-										isMap = true
-									end
+						local area = dat("WorldAreas"):GetRow("Id", mapRow.Id.Id)
+						if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
+							local isMap = false
+							for _, tag in ipairs(area.Tags or {}) do
+								if tag.Id == "map" then
+									isMap = true
 								end
-								local displayName = area.Name
-								if isMap then
-									displayName = displayName .. " (Map)"
-								elseif area.Act and area.Act ~= 10 then
-									displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
-								end
-								if not seenAreas[displayName] then
-									table.insert(worldAreaNames, displayName)
-									seenAreas[displayName] = true
-								end
+							end
+							local displayName = area.Name
+							if isMap then
+								displayName = displayName .. " (Map)"
+							elseif area.Act and area.Act ~= 10 then
+								displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
+							end
+							if not seenAreas[displayName] then
+								table.insert(worldAreaNames, displayName)
+								seenAreas[displayName] = true
 							end
 						end
 					end
