@@ -1181,6 +1181,7 @@ c["10% increased Spell Area Damage"]={{[1]={flags=514,keywordFlags=0,name="Damag
 c["10% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=10}},nil}
+c["10% increased Spirit Reservation Efficiency"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=10}},nil}
 c["10% increased Spirit Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=10}},nil}
 c["10% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=10}},nil}
 c["10% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=10}},nil}
@@ -1644,7 +1645,7 @@ c["15% increased effect of Fully Broken Armour"]={{[1]={flags=0,keywordFlags=0,n
 c["15% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=15}},nil}
 c["15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
 c["15% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=15}},nil}
-c["15% less Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=-15}},nil}
+c["15% less Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="MORE",value=-15}},nil}
 c["15% less maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=-15}},nil}
 c["15% less maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-15}},nil}
 c["15% more Damage against Enemies affected by Blood Boils"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=15}},"  against Enemies affected by Blood Boils "}
@@ -2039,10 +2040,10 @@ c["20% increased maximum Energy Shield if you've consumed a Power Charge Recentl
 c["20% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=20}},nil}
 c["20% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=20}},nil}
 c["20% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=20}}," speed of Recoup s "}
+c["20% less Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="MORE",value=-20}},nil}
 c["20% less Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="MORE",value=-20},[2]={flags=0,keywordFlags=0,name="Dex",type="MORE",value=-20},[3]={flags=0,keywordFlags=0,name="Int",type="MORE",value=-20},[4]={flags=0,keywordFlags=0,name="All",type="MORE",value=-20}},nil}
 c["20% less Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=-20}},nil}
 c["20% less Damage taken if you have not been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-20}},nil}
-c["20% less Defences"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="MORE",value=-20}},nil}
 c["20% less Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="MORE",value=-20}},nil}
 c["20% less Reservation Efficiency of non-Companion Skills"]={{[1]={[1]={neg=true,skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="MORE",value=-20}},nil}
 c["20% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="MORE",value=-20}},nil}
