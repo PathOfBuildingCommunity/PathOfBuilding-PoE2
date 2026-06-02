@@ -177,7 +177,12 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 		if statTable.stat == "FullDPS" and not (baseOutput["FullDPS"] and newOutput["FullDPS"]) then
 			meanStatDiff = meanStatDiff + ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS") * statTable.weightMult
 		end
-		meanStatDiff = meanStatDiff + ratioModSums(statTable.stat) * statTable.weightMult
+		local modSumRatio = ratioModSums(statTable.stat)
+		-- some weights, such as damage taken from hit need to be negated as lower is better for them
+		if statTable.transform then
+			modSumRatio = statTable.transform(modSumRatio)
+		end
+		meanStatDiff = meanStatDiff + modSumRatio * statTable.weightMult
 	end
 	return meanStatDiff
 end
@@ -547,6 +552,9 @@ end
 function TradeQueryGeneratorClass:GenerateModWeights(modsToTest)
 	local start = GetTime()
 	for _, entry in pairs(modsToTest) do
+		if _ == "1671376347" then
+			print("help")
+		end
 		if entry[self.calcContext.itemCategory] ~= nil then
 			if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then -- Don't calculate the same thing twice (can happen with corrupted vs implicit)
 				goto continue
