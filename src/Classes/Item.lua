@@ -64,7 +64,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true, ["unscalable"] = true
+	["custom"] = true, ["crafted"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true, ["unscalable"] = true
 }
 
 local function baseHasImplicitLine(base, line)
@@ -1362,6 +1362,9 @@ function ItemClass:BuildRaw()
 		end
 		if modLine.mutated then
 			line = "{mutated}" .. line
+		end
+		if modLine.crafted then
+			line = "{crafted}" .. line
 		end
 		if modLine.unscalable then
 			line = "{unscalable}" .. line

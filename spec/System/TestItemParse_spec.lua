@@ -329,6 +329,18 @@ describe("TestItemParse", function()
 		assert.truthy(item.explicitModLines[1].custom)
 	end)
 
+	it("crafted", function()
+		local item = new("Item", raw("{crafted}+8 to Strength"))
+		assert.truthy(item.explicitModLines[1].crafted)
+	end)
+
+	it("preserves crafted mod lines when rebuilding raw text", function()
+		local item = new("Item", raw("+8 to Strength"))
+		item.explicitModLines[1].crafted = true
+		item:BuildAndParseRaw()
+		assert.truthy(item.explicitModLines[1].crafted)
+	end)
+
 	it("enchant", function()
 		local item = new("Item", raw("+8 to Strength (enchant)"))
 		assert.are.equals(1, #item.enchantModLines)

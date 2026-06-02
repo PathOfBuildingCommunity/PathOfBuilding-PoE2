@@ -14,6 +14,7 @@ colorCodes = {
 	GEMINFO = "^x6F9A98",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
+	CRAFTED = "^xB8DAF1",
 	ENCHANTED = "^xB8DAF1",
 	CUSTOM = "^x5CF0BB",
 	SOURCE = "^x88FFFF",
