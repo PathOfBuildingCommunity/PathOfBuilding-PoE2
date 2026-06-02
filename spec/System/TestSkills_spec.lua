@@ -94,6 +94,47 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("keeps Virtuous armour scaling during accelerated skill recalcs", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Virtuous Barrier 20/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 20/0  1")
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.mainSocketGroup = 3
+		runCallback("OnFrame")
+
+		local calcs = LoadModule("Modules/Calcs")
+		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		local normalArmour = env.player.output.Armour
+		local normalDPS = env.player.output.TotalDPS
+		assert.are.equals(1050, normalArmour)
+		assert.is_true(normalDPS > 0)
+
+		env = calcs.initEnv(build, "CALCULATOR", {}, {
+			cachedPlayerDB = cachedPlayerDB,
+			cachedEnemyDB = cachedEnemyDB,
+			cachedMinionDB = cachedMinionDB,
+			env = env,
+			accelerate = {
+				nodeAlloc = true,
+				requirementsItems = true,
+				requirementsGems = true,
+				skills = true,
+				everything = true,
+			},
+		})
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		assert.are.equals(normalArmour, env.player.output.Armour)
+		assert.are.near(normalDPS, env.player.output.TotalDPS, 0.001)
+	end)
+
 	it("Test cost efficiency modifiers", function()
 		-- Test Mana Cost Efficiency
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")

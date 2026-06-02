@@ -1324,6 +1324,33 @@ statMap = {
 #mods
 #skillEnd
 
+#from tree
+#skill VirtuousBarrierPlayer
+#set VirtuousBarrierPlayer
+#flags
+statMap = {
+	["gem_barrier_red_grants_maximum_life_+%"] = {
+		mod("Life", "INC", nil, 0, 0, { type = "Multiplier", var = "StrengthMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_blue_grants_life_regeneration_rate_+%"] = {
+		mod("LifeRegen", "INC", nil, 0, 0, { type = "Multiplier", var = "IntelligenceMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_blue_grants_mana_regeneration_rate_+%"] = {
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "Multiplier", var = "IntelligenceMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_evasion_rating_+%"] = {
+		mod("Evasion", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_physical_damage_reduction_rating_+%"] = {
+		mod("Armour", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_energy_shield_delay_-%"] = {
+		mod("EnergyShield", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill VerisiumManifestationPlayer
 #set VerisiumManifestationPlayer
 #flags
