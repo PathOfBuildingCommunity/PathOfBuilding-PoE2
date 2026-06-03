@@ -3203,9 +3203,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.InfernalCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
 						globalOutput.InfernalCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.InfernalCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
-						local powerCap = value.skillModList:Sum("BASE", nil, "WarcryPowerCap")
-						local powerPer = value.skillModList:Sum("BASE", nil, "WarcryPowerPer")
-						globalOutput.InfernalEmpoweredCount = powerPer > 0 and m_floor(m_min(warcryPower, powerCap) / powerPer) or 0
+						globalOutput.InfernalEmpoweredCount = env.modDB:Sum("BASE", nil, "NumInfernalEmpowers") or 0
 						local baseUptimeRatio = m_min((globalOutput.InfernalEmpoweredCount / globalOutput.Speed) / (globalOutput.InfernalCryCooldown + globalOutput.InfernalCryCastTime), 1) * 100
 						local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 						globalOutput.InfernalCryUptimeRatio = m_min(100, baseUptimeRatio * storedUses)
