@@ -1984,13 +1984,13 @@ itemBases["Runemastered Grand Manchettes"] = {
 -- Needed so imported items can resolve their base correctly.
 itemBases["Fists of Stone"] = {
 	type = "Gloves",
-	subType = "Armour",
+	subType = "Evasion/Energy Shield",
 	quality = 20,
 	socketLimit = 3,
 	hidden = true,
-	tags = { armour = true, gloves = true, },
+	tags = { armour = true, gloves = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 0, },
+	armour = { Evasion = 0, EnergyShield = 0, },
 	req = { },
 }
 
