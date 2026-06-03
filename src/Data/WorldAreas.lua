@@ -3385,6 +3385,7 @@ worldAreas["P2_3"] = {
 		"Risen Maraketh",
 		"Serpent Clan",
 		"Serpent Shaman",
+		"Skeletal Cobra",
 		"Skullslinger",
 		"Spinesnatcher",
 	},
