@@ -8026,6 +8026,18 @@ return {
 			},
 		},
 		["1436284579"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["BaseJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -8192,6 +8204,18 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1658498488"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["BaseJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -8201,6 +8225,14 @@ return {
 			},
 		},
 		["1671376347"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["BaseJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["Belt"] = {
 				["max"] = 25,
 				["min"] = 20,
@@ -8208,6 +8240,10 @@ return {
 			["Boots"] = {
 				["max"] = 25,
 				["min"] = 20,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -8883,9 +8919,21 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["2923486259"] = {
+			["AnyJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
+			["BaseJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
+			},
 			["Chest"] = {
 				["max"] = 19,
 				["min"] = 13,
+			},
+			["RadiusJewel"] = {
+				["max"] = 7,
+				["min"] = 3,
 			},
 			["Ring"] = {
 				["max"] = 19,
@@ -9023,9 +9071,21 @@ return {
 				["max"] = 15,
 				["min"] = 10,
 			},
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["BaseJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
 			["Belt"] = {
 				["max"] = 15,
 				["min"] = 10,
+			},
+			["RadiusJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
 			},
 			["Ring"] = {
 				["max"] = 15,
@@ -9045,9 +9105,21 @@ return {
 				["max"] = 15,
 				["min"] = 10,
 			},
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["BaseJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
 			["Belt"] = {
 				["max"] = 15,
 				["min"] = 10,
+			},
+			["RadiusJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
 			},
 			["Ring"] = {
 				["max"] = 15,
@@ -9159,6 +9231,14 @@ return {
 			},
 		},
 		["3372524247"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["BaseJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["Belt"] = {
 				["max"] = 25,
 				["min"] = 20,
@@ -9166,6 +9246,10 @@ return {
 			["Boots"] = {
 				["max"] = 25,
 				["min"] = 20,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -9208,6 +9292,18 @@ return {
 			},
 		},
 		["3429557654"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["BaseJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -9585,9 +9681,21 @@ return {
 				["max"] = 15,
 				["min"] = 10,
 			},
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["BaseJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
 			["Belt"] = {
 				["max"] = 15,
 				["min"] = 10,
+			},
+			["RadiusJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
 			},
 			["Ring"] = {
 				["max"] = 15,
@@ -9630,6 +9738,14 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["4220027924"] = {
+			["AnyJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
+			["BaseJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
+			},
 			["Belt"] = {
 				["max"] = 25,
 				["min"] = 20,
@@ -9637,6 +9753,10 @@ return {
 			["Boots"] = {
 				["max"] = 25,
 				["min"] = 20,
+			},
+			["RadiusJewel"] = {
+				["max"] = 10,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -9904,6 +10024,18 @@ return {
 			},
 		},
 		["721014846"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["BaseJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["RadiusJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -10307,6 +10439,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1039268420",
 				["text"] = "Small Passive Skills in Radius also grant #% increased chance to Shock",
+				["type"] = "explicit",
+			},
+		},
+		["1040141381"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1040141381",
+				["text"] = "Recover #% of maximum Life when you use a Warcry",
 				["type"] = "explicit",
 			},
 		},
@@ -12249,6 +12390,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["1713927892"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1713927892",
+				["text"] = "# to Limit for Elemental Skills",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["1714971114"] = {
 			["AnyJewel"] = {
 				["max"] = 15,
@@ -12752,6 +12903,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1874553720",
 				["text"] = "#% reduced Chill Duration on you",
+				["type"] = "explicit",
+			},
+		},
+		["1879206848"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1879206848",
+				["text"] = "#% increased effect of Fully Broken Armour",
 				["type"] = "explicit",
 			},
 		},
@@ -14216,6 +14376,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["248192092"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_248192092",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Chaos Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["2482852589"] = {
 			["Amulet"] = {
 				["max"] = 50,
@@ -14640,6 +14810,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2663359259"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2663359259",
+				["text"] = "#% increased total Power counted by Warcries",
+				["type"] = "explicit",
+			},
+		},
 		["266564538"] = {
 			["AnyJewel"] = {
 				["max"] = 2,
@@ -14656,6 +14835,16 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant #% increased Damage while Shapeshifted",
 				["type"] = "explicit",
 			},
+		},
+		["2670212285"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2670212285",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Fire Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2672805335"] = {
 			["specialCaseData"] = {
@@ -16211,6 +16400,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3182714256"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3182714256",
+				["text"] = "# Prefix Modifier allowed",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["318953428"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -16260,6 +16459,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3196823591",
 				["text"] = "#% increased Charges gained",
+				["type"] = "explicit",
+			},
+		},
+		["3206904707"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3206904707",
+				["text"] = "#% increased Explicit Cold Modifier magnitudes",
 				["type"] = "explicit",
 			},
 		},
@@ -16881,6 +17089,15 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["3368921525"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3368921525",
+				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["type"] = "explicit",
+			},
+		},
 		["3372524247"] = {
 			["Amulet"] = {
 				["max"] = 45,
@@ -17293,6 +17510,16 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["350598685"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_350598685",
+				["text"] = "# to Weapon Range",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3513818125"] = {
 			["AnyJewel"] = {
 				["max"] = 3,
@@ -17527,6 +17754,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3628935286",
 				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Critical Hit Chance",
+				["type"] = "explicit",
+			},
+		},
+		["363924732"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_363924732",
+				["text"] = "#% increased Explicit Speed Modifier magnitudes",
 				["type"] = "explicit",
 			},
 		},
@@ -17940,6 +18176,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3759735052",
 				["text"] = "#% increased Attack Speed with Bows",
+				["type"] = "explicit",
+			},
+		},
+		["3762412853"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3762412853",
+				["text"] = "Attacks with this Weapon Penetrate #% Chaos Resistance",
 				["type"] = "explicit",
 			},
 		},
@@ -18442,6 +18687,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3946450303"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3946450303",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Cold Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3962278098"] = {
 			["1HWeapon"] = {
 				["max"] = 119,
@@ -18541,6 +18796,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
+				["type"] = "explicit",
+			},
+		},
+		["3987691524"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3987691524",
+				["text"] = "Inherent Rage loss starts 1 second later",
 				["type"] = "explicit",
 			},
 		},
@@ -21185,6 +21449,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["999511066"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_999511066",
+				["text"] = "#% increased Minion Duration",
+				["type"] = "explicit",
+			},
+		},
 	},
 	["Implicit"] = {
 		["1028592286"] = {
@@ -22097,6 +22370,23 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["3003542304"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["Bow"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3003542304",
+				["text"] = "Projectiles have #% chance for an additional Projectile when Forking",
+				["type"] = "implicit",
+			},
+		},
 		["3032590688"] = {
 			["Quiver"] = {
 				["max"] = 2,
@@ -22201,6 +22491,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_3325883026",
 				["text"] = "# Life Regeneration per second",
+				["type"] = "implicit",
+			},
+		},
+		["3326854490"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3326854490",
+				["text"] = "Every second, gain a Verisium Infusion",
 				["type"] = "implicit",
 			},
 		},
@@ -22452,6 +22755,19 @@ return {
 				["type"] = "implicit",
 			},
 			["usePositiveSign"] = true,
+		},
+		["4004011170"] = {
+			["Chest"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_4004011170",
+				["text"] = "#% increased Chaos Damage for each Corrupted Item Equipped",
+				["type"] = "implicit",
+			},
 		},
 		["4010341289"] = {
 			["Charm"] = {
@@ -23116,6 +23432,24 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1050105434",
 				["text"] = "# to maximum Mana",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1147690586"] = {
+			["1HMace"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["1HWeapon"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1147690586",
+				["text"] = "# to Level of all Lightning Skills",
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
@@ -24134,6 +24468,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1800433827"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1800433827",
+				["text"] = "Hits against you have no Critical Damage Bonus while on Consecrated Ground",
+				["type"] = "augment",
+			},
+		},
 		["1805182458"] = {
 			["1HWeapon"] = {
 				["max"] = 25,
@@ -24161,6 +24508,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1805633363",
 				["text"] = "#% increased Reservation Efficiency of Minion Skills",
+				["type"] = "augment",
+			},
+		},
+		["1871622140"] = {
+			["Chest"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1871622140",
+				["text"] = "Thorns Damage is Lucky against targets with Fully Broken Armour",
 				["type"] = "augment",
 			},
 		},
@@ -24593,6 +24953,23 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["2036307261"] = {
+			["2HWeapon"] = {
+				["max"] = 2,
+				["min"] = 2,
+			},
+			["Bow"] = {
+				["max"] = 2,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2036307261",
+				["text"] = "Hits with this weapon have # to # Added Physical Damage per 1% Block Chance",
+				["type"] = "augment",
+			},
+		},
 		["2045949233"] = {
 			["2HMace"] = {
 				["max"] = 25,
@@ -24728,6 +25105,24 @@ return {
 				["text"] = "#% increased Attack Speed (Local)",
 				["type"] = "augment",
 			},
+		},
+		["2153364323"] = {
+			["1HMace"] = {
+				["max"] = 200,
+				["min"] = 200,
+			},
+			["1HWeapon"] = {
+				["max"] = 200,
+				["min"] = 200,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2153364323",
+				["text"] = "# Intelligence Requirement",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2191621386"] = {
 			["Chest"] = {
@@ -25491,6 +25886,20 @@ return {
 				["text"] = "#% increased maximum Mana",
 				["type"] = "augment",
 			},
+		},
+		["2785209416"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2785209416",
+				["text"] = "# to maximum Life per 8 Armour on Equipped Helmet",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["280497929"] = {
 			["Helmet"] = {
@@ -26271,6 +26680,32 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["3170380905"] = {
+			["Shield"] = {
+				["max"] = 2,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3170380905",
+				["text"] = "Gain 1% of damage as Fire damage per #% Chance to Block",
+				["type"] = "augment",
+			},
+		},
+		["3198163869"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3198163869",
+				["text"] = "Raven-Touched",
+				["type"] = "augment",
+			},
+		},
 		["3203854378"] = {
 			["Shield"] = {
 				["max"] = 8,
@@ -26583,6 +27018,23 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
+		},
+		["3329501096"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3329501096",
+				["text"] = "Allies in your Presence share Charges with you",
+				["type"] = "augment",
+			},
 		},
 		["3336890334"] = {
 			["1HMace"] = {
@@ -27944,6 +28396,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["4217453078"] = {
+			["Chest"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_4217453078",
+				["text"] = "#% of Chaos Damage from Hits taken as a Damage of a random Element",
+				["type"] = "augment",
+			},
+		},
 		["4220027924"] = {
 			["Boots"] = {
 				["max"] = 22,
@@ -28918,6 +29383,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_762761075",
 				["text"] = "#% less Mana Regeneration Rate",
+				["type"] = "augment",
+			},
+		},
+		["769129523"] = {
+			["1HMace"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_769129523",
+				["text"] = "Causes Double Stun Buildup",
 				["type"] = "augment",
 			},
 		},
