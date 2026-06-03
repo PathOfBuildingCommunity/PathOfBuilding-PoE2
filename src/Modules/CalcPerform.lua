@@ -2257,9 +2257,10 @@ function calcs.perform(env, skipEHP)
 						end
 					end
 					if buff.type == "Debuff" then
-						local specificInc = skillModList:Sum("INC", skillCfg, buff.name:gsub(" ", "").."Magnitude") or 0 -- non-skill increases specific to that debuff type
-						local inc = skillModList:Sum("INC", skillCfg, "DebuffEffect") + specificInc
-						local more = skillModList:More(skillCfg, "DebuffEffect") * calcLib.mod(skillModList, skillCfg, "Magnitude")
+						local specificDebuffMult = calcLib.mod(skillModList, skillCfg, buff.name:gsub(" ", "").."Magnitude") -- non-skill mods specific to that debuff type
+						local skillMagnitudeMult = calcLib.mod(skillModList, skillCfg, "Magnitude")
+						local inc = skillModList:Sum("INC", skillCfg, "DebuffEffect")
+						local more = skillModList:More(skillCfg, "DebuffEffect") * skillMagnitudeMult * specificDebuffMult
 						mult = (1 + inc / 100) * more
 					end
 					srcList:ScaleAddList(buff.modList, mult * stackCount)

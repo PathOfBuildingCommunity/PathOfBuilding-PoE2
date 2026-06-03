@@ -6126,7 +6126,29 @@ function calcs.offence(env, actor, activeSkill)
 	if skillFlags.monsterExplode then
 		output.CombinedAvgToMonsterLife = output.CombinedAvg / monsterLife * 100
 	end
-	-- Parry non-damage stats
+	-- Parry Stats
+	-- NOTE: This section is mainly for skill-specific breakdowns. Actual application of damage modifier is handled in `CalcPerform`
+	local parryDebuffMagnitudeMod = calcLib.mod(skillModList, skillCfg, "ParryDebuffMagnitude")
+	if skillData.parryDebuffBaseMagnitude and parryDebuffMagnitudeMod and parryDebuffMagnitudeMod ~= 1 then
+		output.ParryDebuffMagnitudeMod = parryDebuffMagnitudeMod
+		if breakdown then
+			local inc = skillModList:Sum("INC", skillCfg, "ParryDebuffMagnitude")
+			local more = skillModList:More(skillCfg, "ParryDebuffMagnitude") * calcLib.mod(skillModList, skillCfg, "DebuffEffect")
+			breakdown.ParryDebuffMagnitudeMod = {
+				s_format("Modifiers to Parry Debuff Magnitude:"),
+				s_format(""),
+				s_format("x %.2f ^8(increased magnitude)", 1 + inc / 100),
+				s_format("x %.2f ^8(more magnitude)", more + 1),
+				s_format("= %.2f", parryDebuffMagnitudeMod),
+				s_format(""),
+				s_format("Resulting Parry Debuff Magnitude:"),
+				s_format("%.2f%% more damage taken ^8(base magnitude)", skillData.parryDebuffBaseMagnitude),
+				s_format("x %.2f", parryDebuffMagnitudeMod),
+				s_format("= %.2f%% more damage taken", skillData.parryDebuffBaseMagnitude * parryDebuffMagnitudeMod),
+				s_format("^8Note: Only the highest Parry Debuff magnitude will be counted"),
+			}
+		end
+	end
 	if skillData.parryDebuffDuration and skillData.parryDebuffDuration > 0 then
 		local expirationMult = calcBuffExpirationMult(enemyDB, skillCfg)
 		--skillModList:NewMod("ParryDebuffDuration", "BASE", skillData.parryDebuffDuration, "Base value from skill")

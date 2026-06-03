@@ -851,6 +851,11 @@ return {
 		{ modName = "SealGainFrequency", cfg = "skill" }, 
 	}, },
 	-- Parry
+	{ label = "Parry Effect Mod", haveOutput = "ParryDebuffMagnitudeMod", { format = "x {2:output:ParryDebuffMagnitudeMod}",
+		{ breakdown = "ParryDebuffMagnitudeMod" },
+		{ label = "Parry Magnitude", modName = "ParryDebuffMagnitude", cfg = "skill" },
+		{ label = "Debuff Effect", modName = "DebuffEffect", cfg = "skill" },
+	}, },
 	{ label = "Parry Duration", haveOutput = "ParryDebuffDuration", { format = "{2:output:ParryDebuffDuration}s", 
 		{ breakdown = "ParryDebuffDuration" },
 		{ label = "Player modifiers", modName = "ParryDebuffDuration", cfg = "skill" },
