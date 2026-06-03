@@ -2136,7 +2136,7 @@ local function checkLineForAllocates(line, nodes)
 end
 
 function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
-	local slotName = self.displayItem:GetPrimarySlot()
+	local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 	local newItem = new("Item", self.displayItem:BuildRaw())
 
 	for _, subMod in ipairs(mod) do
@@ -2166,6 +2166,21 @@ function ItemsTabClass:GetEquippedSlotForItem(item)
 			end
 		end
 	end
+end
+
+function ItemsTabClass:GetComparisonSlotNameForItem(item)
+	local equippedSlot = self:GetEquippedSlotForItem(item)
+	if equippedSlot then
+		return equippedSlot.slotName
+	end
+	if item.type == "Jewel" then
+		for _, slot in ipairs(self.orderedSlots) do
+			if not slot.inactive and slot.selItemId == 0 and slot:IsShown() and self:IsItemValidForSlot(item, slot.slotName) then
+				return slot.slotName
+			end
+		end
+	end
+	return item:GetPrimarySlot()
 end
 
 -- Check if the given item could be equipped in the given slot, taking into account possible conflicts with currently equipped items
@@ -2685,7 +2700,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	end
 	local function sortEnchantList(stat)
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(enchantList[currentModType], stat, function(listMod)
@@ -2913,7 +2928,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		end
 		local selected = not selectFirst and modList[controls.modSelect.selIndex] or nil
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(modList, stat, function(listMod)
