@@ -358,6 +358,11 @@ local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 	return warcryCastTime
 end
 
+--- Calculates effect of buff/debuff expiration rate on actors
+local function calcBuffExpirationMult(actorDB, cfg)
+	return 1 / m_max(data.misc.BuffExpirationSlowCap, calcLib.mod(actorDB, cfg, "BuffExpireFaster"))
+end
+
 function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
 	local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 	durationMod = m_max(durationMod, 0)
@@ -365,7 +370,7 @@ function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
 	local duration = durationBase * durationMod
 	local debuffDurationMult = 1
 	if env.mode_effective then
-		debuffDurationMult = 1 / m_max(data.misc.BuffExpirationSlowCap, calcLib.mod(enemyDB, skillCfg, "BuffExpireFaster"))
+		debuffDurationMult = calcBuffExpirationMult(enemyDB, skillCfg)
 	end
 	if skillData.debuff then
 		duration = duration * debuffDurationMult
