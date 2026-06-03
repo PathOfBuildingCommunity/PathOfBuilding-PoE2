@@ -1997,10 +1997,18 @@ function calcs.perform(env, skipEHP)
 					if baseEmpowers > 0 then
 						local extraEmpowers = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
 						local EmpowerMultiplier = modStore:More(nil, "ExtraEmpoweredAttacks")
-						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier))
+						local totalEmpowers = m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier)
+						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", totalEmpowers)
 						if not warcryList[buff.name] then
 							env.player.modDB:NewMod("Multiplier:EmpoweringWarcryCount", "BASE", 1, buff.name)
 							warcryList[buff.name] = true
+						end
+						if breakdown then
+							breakdown[warcryName.."EmpoweringWarcryCount"] = {
+								s_format("(%d / %d) ^8(Power / per = base)", m_min(warcryPower, powerCap), powerPer),
+								s_format("= ((%.2f + %.2f) x %.2f) ^8((base + extra) x more)", baseEmpowers, extraEmpowers, EmpowerMultiplier),
+								s_format("= %.2f", totalEmpowers),
+							}
 						end
 					end
 					if not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") then

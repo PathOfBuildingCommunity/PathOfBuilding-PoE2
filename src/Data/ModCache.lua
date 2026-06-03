@@ -6458,10 +6458,10 @@ c["Vivid Stags leap towards enemies Central Projectile of Owl Feather-Empowered 
 c["Volatile Power also grants 1% increased Critical Hit chance per Volatility exploded"]={nil,"Volatile Power also grants 1% increased Critical Hit chance per Volatility exploded "}
 c["Walk the Paths Not Taken"]={{},nil}
 c["Warcries Debilitate Enemies"]={{[1]={flags=0,keywordFlags=0,name="DebilitateChance",type="BASE",value=100}},nil}
-c["Warcries Empower an additional Attack"]={nil,"Warcries Empower an additional Attack "}
+c["Warcries Empower an additional Attack"]={{[1]={flags=0,keywordFlags=0,name="ExtraEmpoweredAttacks",type="BASE",value=1}},nil}
 c["Warcries Explode Corpses dealing 10% of their Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,keyOfScaledMod="value",type="Physical",value=100}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Warcries Explode Corpses dealing 25% of their Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=25,keyOfScaledMod="value",type="Physical",value=100}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
-c["Warcries have 15% chance to Empower 3 additional Attacks"]={nil,"Warcries have 15% chance to Empower 3 additional Attacks "}
+c["Warcries have 15% chance to Empower 3 additional Attacks"]={{[1]={flags=0,keywordFlags=0,name="ExtraEmpoweredAttacks",type="BASE",value=0.45}},nil}
 c["Warcries have a minimum of 10 Power"]={{[1]={flags=0,keywordFlags=0,name="MinimumWarcryPower",type="BASE",value=10}},nil}
 c["Warcries inflict 3 Critical Weakness on Enemies"]={nil,"Warcries inflict 3 Critical Weakness on Enemies "}
 c["Warcry Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
