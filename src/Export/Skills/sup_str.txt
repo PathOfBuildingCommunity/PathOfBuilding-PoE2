@@ -1814,7 +1814,7 @@ statMap = {
 
 #skill TriggeredVolcanicEruptionPlayer
 #set TriggeredVolcanicEruptionPlayer
-#flags attack area
+#flags attack area projectile
 #mods
 #skillEnd
 
