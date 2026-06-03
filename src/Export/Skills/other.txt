@@ -1422,9 +1422,10 @@ statMap = {
 #mods
 #skillEnd
 
+#minionList Wardbound
 #skill WardboundMinionsPlayer
 #set WardboundMinionsPlayer
-#flags
+#flags minion duration
 #mods
 #skillEnd
 

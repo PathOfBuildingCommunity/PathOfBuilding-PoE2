@@ -403,3 +403,8 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GSWardboundMinionBlast Cold Spell
+#set GSWardboundMinionBlast
+#flags spell area
+#mods
+#skillEnd

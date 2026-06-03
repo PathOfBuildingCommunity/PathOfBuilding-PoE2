@@ -1198,3 +1198,39 @@ minions["BearCompanion"] = {
 		mod("DamageTaken", "INC", -50, 0, 0), -- set_base_damage_taken_+% [set_base_damage_taken_+% = -50]
 	},
 }
+
+minions["Wardbound"] = {
+	name = "Wardbound Caster",
+	monsterTags = { "fast_movement", "humanoid", "not_str", "red_blood", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1,
+	attackRange = 14,
+	accuracy = 1,
+	limit = "WardboundLimit",
+	baseMovementSpeed = 41,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"GSWardboundMinionBlast",
+	},
+	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+	},
+}

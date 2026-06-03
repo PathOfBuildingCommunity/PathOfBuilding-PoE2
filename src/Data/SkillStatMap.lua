@@ -2567,6 +2567,9 @@ return {
 ["max_azmerian_swarms"] = {
 	mod("AzmerianSwarmLimit", "BASE", nil),
 },
+["base_number_of_wardbound_minions_allowed"] = {
+	mod("WardboundLimit", "BASE", nil),
+},
 ["active_skill_minion_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 },

@@ -113,3 +113,7 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/CompanionBear/CompanionBearPlayerSummoned BearCompanion
 #emit
+
+#monster Metadata/Monsters/LeagueExpeditionNew/PlayerSummoned/WardboundMinionPlayerSummoned Wardbound
+#limit WardboundLimit
+#emit

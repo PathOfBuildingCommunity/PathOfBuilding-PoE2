@@ -20390,6 +20390,9 @@ skills["WardboundMinionsPlayer"] = {
 	name = "Wardbound Minions",
 	baseTypeName = "Wardbound Minions",
 	icon = "Art/2DArt/SkillIcons/ExpeditionWardboundMinions.dds",
+	minionList = {
+		"Wardbound",
+	},
 	color = 4,
 	description = "Spend all your Runic Ward to summon Temporary Wardbound Casters. These Minions target nearby enemies with damaging Cold Spells.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.CreatesMinion] = true, [SkillType.Duration] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Minion] = true, },
@@ -20446,6 +20449,8 @@ skills["WardboundMinionsPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "wardbound_minions",
 			baseFlags = {
+				minion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 15000 },
