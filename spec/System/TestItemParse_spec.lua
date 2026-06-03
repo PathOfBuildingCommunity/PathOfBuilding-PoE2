@@ -460,6 +460,22 @@ describe("TestItemParse", function()
 		end
 	end)
 
+	it("keeps bonded rune stats separate from normal rune stats", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Test Body
+			Rusted Cuirass
+		]])
+		item.itemSocketCount = 1
+		item.runes = { "Lesser Body Rune" }
+		item:UpdateRunes()
+
+		assert.are.equals(3, #item.runeModLines)
+		assert.are.equals("+30 to maximum Life", item.runeModLines[1].line)
+		assert.are.equals("Bonded: +20 to maximum Life", item.runeModLines[2].line)
+		assert.are.equals("Bonded: +20 to maximum Mana", item.runeModLines[3].line)
+	end)
+
 	it("multi-line rune mod", function()
 		-- Thruldana is Bow-only as well
 		local item = new("Item", [[

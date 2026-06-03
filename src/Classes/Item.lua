@@ -1519,10 +1519,11 @@ function ItemClass:UpdateRunes()
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
-					if statOrder[order] then
+					local orderKey = modLine:match("^Bonded:") and "Bonded:"..order or order
+					if statOrder[orderKey] then
 						-- Combine stats
 						local start = 1
-						statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
+						statOrder[orderKey].line = statOrder[orderKey].line:gsub("(%d%.?%d*)", function(num)
 							local s, e, other = mod[i]:find("(%d%.?%d*)", start)
 							start = e + 1
 							return tonumber(num) + tonumber(other)
@@ -1535,7 +1536,7 @@ function ItemClass:UpdateRunes()
 								break
 							end
 						end
-						statOrder[order] = modLine
+						statOrder[orderKey] = modLine
 					end
 				end
 			end
