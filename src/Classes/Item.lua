@@ -300,6 +300,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.rarity = rarity or "UNIQUE"
 	self.charmLimit = nil
 	self.spiritValue = nil
+	self.runicItem = nil
 	self.quality = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
