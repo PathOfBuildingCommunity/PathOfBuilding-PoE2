@@ -11673,10 +11673,10 @@ skills["ParryPlayer"] = {
 			},
 			statMap = {
 				["base_maximum_active_block_distance_for_non_projectiles"] = {
-					skill("ParryBaseDistanceNonProj", nil),
+					skill("parryRangeNonProj", nil),
 				},
 				["base_maximum_active_block_distance_for_projectiles"] = {
-					skill("ParryBaseDistanceProj", nil)
+					skill("parryRangeProj", nil)
 				},
 			},
 			baseMods = {

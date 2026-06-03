@@ -6126,6 +6126,48 @@ function calcs.offence(env, actor, activeSkill)
 	if skillFlags.monsterExplode then
 		output.CombinedAvgToMonsterLife = output.CombinedAvg / monsterLife * 100
 	end
+	-- Parry non-damage stats
+	if skillData.parryDebuffDuration and skillData.parryDebuffDuration > 0 then
+		local expirationMult = calcBuffExpirationMult(enemyDB, skillCfg)
+		--skillModList:NewMod("ParryDebuffDuration", "BASE", skillData.parryDebuffDuration, "Base value from skill")
+		output.ParryDebuffDuration = skillData.parryDebuffDuration * calcLib.mod(skillModList, skillCfg, "ParryDebuffDuration") * (expirationMult or 0)
+		if breakdown then
+			breakdown.ParryDebuffDuration = {
+				s_format("Duration of parry debuff on enemy:\n"),
+				s_format(""),
+				s_format("%.2fs ^8(base duration)", skillData.parryDebuffDuration),
+				s_format("x %.2f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryDebuffDuration")),
+			}
+			if expirationMult and expirationMult ~= 1 then
+				t_insert(breakdown.ParryDebuffDuration, s_format("x %.2f ^8(buff expiration multiplier)", expirationMult))
+			end
+			t_insert(breakdown.ParryDebuffDuration, s_format("= %.2fs", output.ParryDebuffDuration))
+		end
+	end
+	if skillData.parryRangeNonProj or skillData.parryRangeProj then
+		output.ParryRangeNonProj = (skillData.parryRangeNonProj or 0) * calcLib.mod(skillModList, skillCfg, "ParryRangeNonProj")
+		output.ParryRangeProj = (skillData.parryRangeProj or 0) * calcLib.mod(skillModList, skillCfg, "ParryRangeProj")
+		if breakdown then
+			if output.ParryRangeNonProj > 0 then
+				breakdown.ParryRangeNonProj = { 
+					s_format("Max Parry distance vs. non-projectiles:"),
+					s_format(""),
+					s_format("%.1f m ^8(base parry range for non-projectiles)", skillData.parryRangeNonProj),
+					s_format("x %.1f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryRangeNonProj")),
+					s_format("= %.1f m", output.ParryRangeNonProj),
+				}
+			end
+			if output.ParryRangeProj > 0 then
+				breakdown.ParryRangeProj = {
+					s_format("Max Parry distance vs. projectiles:\n"),
+					s_format(""),
+					s_format("%.1f m ^8(base parry range for projectiles)", skillData.parryRangeProj),
+					s_format("x %.1f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryRangeProj")),
+					s_format("= %.1f m", output.ParryRangeProj),
+				}
+			end
+		end
+	end
 	if skillFlags.impale then
 		local mainHandImpaleDPS, offHandImpaleDPS
 		if skillFlags.attack and skillData.doubleHitsWhenDualWielding and skillFlags.bothWeaponAttack then
