@@ -1980,18 +1980,27 @@ itemBases["Runemastered Grand Manchettes"] = {
 	req = { level = 65, str = 32, dex = 32, int = 32, },
 }
 
--- Custom base types not present in GGPK exports.
--- Needed so imported items can resolve their base correctly.
+
 itemBases["Fists of Stone"] = {
 	type = "Gloves",
-	subType = "Evasion/Energy Shield",
 	quality = 20,
-	socketLimit = 3,
 	hidden = true,
-	tags = { armour = true, gloves = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 0, EnergyShield = 0, },
+	socketLimit = 3,
+	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, },
+	implicit = "Has +3 to Evasion Rating per player level\nHas +1 to maximum Energy Shield per player level",
+	implicitModTypes = { {  }, {  }, },
+	armour = { },
 	req = { },
 }
-
+itemBases["Runeforged Fists of Stone"] = {
+	type = "Gloves",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
+	implicit = "Has +2 to Evasion Rating per player level\nHas +1 to maximum Energy Shield per player level\nHas +1 to maximum Runic Ward per player level",
+	implicitModTypes = { {  }, {  }, {  }, },
+	armour = { },
+	req = { },
+}
 
