@@ -3619,7 +3619,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local lifeInc = modDB:Sum("INC", nil, "FlaskLifeRecovery")
 				local lifeMore = modDB:More(nil, "FlaskLifeRecovery")
 				local lifeRateInc = modDB:Sum("INC", nil, "FlaskLifeRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "LifeFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery", "LifeFlaskInstantRecovery")
 
 				-- More life recovery while on low life is not affected by flask effect (verified ingame).
 				-- Since this will be multiplied by the flask effect value below we have to counteract this by removing the flask effect from the value beforehand.
@@ -3682,7 +3682,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local manaInc = modDB:Sum("INC", nil, "FlaskManaRecovery")
 				local manaMore = modDB:More(nil, "FlaskManaRecovery")
 				local manaRateInc = modDB:Sum("INC", nil, "FlaskManaRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "ManaFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery",  "ManaFlaskInstantRecovery")
 				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100)
 				local base = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100) * (1 + durInc / 100)
 				local grad = base * output.ManaRecoveryRateMod

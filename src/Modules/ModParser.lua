@@ -3456,6 +3456,7 @@ local specialModList = {
 	["life flasks used while on low life apply recovery instantly"] = { mod("LifeFlaskInstantRecovery", "BASE", 100, { type = "Condition", var = "LowLife" }) },
 	["mana flasks used while on low mana apply recovery instantly"] = { mod("ManaFlaskInstantRecovery", "BASE", 100, { type = "Condition", var = "LowMana" }) },
 	["(%d+)%% of recovery applied instantly"] = function(num) return { mod("FlaskInstantRecovery", "BASE", num) } end,
+	["(%d+)%% of flask recovery applied instantly"] = function(num) return { mod("FlaskInstantRecovery", "BASE", num) } end,
 	["has no attribute requirements"] = { flag("NoAttributeRequirements") },
 	-- Skill modifiers
 	["([%+%-]%d+)%%? to level of ([%a%s]+) skills"] = function(num, _, name) return { mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = num }, 0, 0, { type = "SkillName", skillName = firstToUpper(name) } ),} end,
