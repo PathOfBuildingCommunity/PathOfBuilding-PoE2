@@ -2787,6 +2787,10 @@ return {
 ["base_parry_buff_damage_taken_+%_final_to_apply"] = {
 	mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry Debuff", effectCond = "ParryActive" }, { type = "Condition", var = "Effective" }),
 },
+["base_parry_duration_ms"] = {
+	skill("ParryDuration", nil),
+	div = 1000,
+},
 -- Other
 ["triggered_skill_damage_+%"] = {
 	mod("TriggeredDamage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),

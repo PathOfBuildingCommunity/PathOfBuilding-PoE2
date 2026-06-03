@@ -763,6 +763,14 @@ statMap = {
 #skill ParryPlayer
 #set ParryPlayer
 #flags attack melee duration shieldAttack area
+statMap = {
+	["base_maximum_active_block_distance_for_non_projectiles"] = {
+		skill("ParryBaseDistanceNonProj", nil),
+	},
+	["base_maximum_active_block_distance_for_projectiles"] = {
+		skill("ParryBaseDistanceProj", nil)
+	},
+},
 #baseMod skill("debuff", true)
 #mods
 #skillEnd

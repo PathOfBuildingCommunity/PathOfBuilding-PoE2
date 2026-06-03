@@ -11671,6 +11671,14 @@ skills["ParryPlayer"] = {
 				shieldAttack = true,
 				area = true,
 			},
+			statMap = {
+				["base_maximum_active_block_distance_for_non_projectiles"] = {
+					skill("ParryBaseDistanceNonProj", nil),
+				},
+				["base_maximum_active_block_distance_for_projectiles"] = {
+					skill("ParryBaseDistanceProj", nil)
+				},
+			},
 			baseMods = {
 				skill("debuff", true),
 			},
