@@ -2226,7 +2226,6 @@ local explodeFunc = function(chance, amount, type, ...)
 	}
 end
 
-
 -- List of special modifiers
 local specialModList = {
 	-- Explode mods
