@@ -1240,6 +1240,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
+	if itemData.craftedMods then
+		for _, line in ipairs(itemData.craftedMods) do
+			for line in line:gmatch("[^\n]+") do
+				local modList, extra = modLib.parseMod(line)
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
+			end
+		end
+	end
 
 	if itemData.grantedSkills then
 		for _, grantedSkillInfo in ipairs(itemData.grantedSkills) do
