@@ -1310,10 +1310,11 @@ function calcs.perform(env, skipEHP)
 		local tempTable1 = { }
 		local slotCfg = wipeTable(tempTable1)
 		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-			local armourData = env.player.itemList[slot] and env.player.itemList[slot].armourData
+			local item = env.player.itemList[slot]
+			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				energyShieldBase = armourData.EnergyShield or 0
+				energyShieldBase = item:GetArmourDataValue("EnergyShield", env.player.level)
 				if energyShieldBase > 0 then
 					modDB:NewMod("Life", "BASE", energyShieldBase, slot.." ES to Life Conversion")
 				end
@@ -1372,9 +1373,9 @@ function calcs.perform(env, skipEHP)
 
 	if modDB:Flag(nil, "ConvertBodyArmourArmourEvasionToWard") then
 		local ward
-		local armourData = env.player.itemList["Body Armour"] and env.player.itemList["Body Armour"].armourData
-		if armourData then
-			ward = armourData.Evasion + armourData.Armour
+		local item = env.player.itemList["Body Armour"]
+		if item and item.armourData then
+			ward = item:GetArmourDataValue("Evasion", env.player.level) + item:GetArmourDataValue("Armour", env.player.level)
 			if ward > 0 then
 				local wardMult = ((modDB:Sum("BASE", nil,"BodyArmourArmourEvasionToWardPercent") or 0) / 100)
 				modDB:NewMod("Ward", "BASE", ward * wardMult , "Body Armour Armour And Evasion Rating to Ward Conversion")

@@ -3397,6 +3397,9 @@ local specialModList = {
 	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
+	["has ([%+%-]%d+) to evasion rating per player level"] = function(num) return { mod("EvasionPerLevel", "BASE", num) } end,
+	["has ([%+%-]%d+) to maximum energy shield per player level"] = function(num) return { mod("EnergyShieldPerLevel", "BASE", num) } end,
+	["has ([%+%-]%d+) to maximum runic ward per player level"] = function(num) return { mod("WardPerLevel", "BASE", num) } end,
 	["reflects your other ring"] = {
 		-- Display only. For Kalandra's Touch.
 	},
