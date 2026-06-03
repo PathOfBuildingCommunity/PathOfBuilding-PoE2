@@ -1997,7 +1997,7 @@ function calcs.perform(env, skipEHP)
 					if baseEmpowers > 0 then
 						local extraEmpowers = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
 						local EmpowerMultiplier = modStore:More(nil, "ExtraEmpoweredAttacks")
-						local totalEmpowers = m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier)
+						local totalEmpowers = (baseEmpowers + extraEmpowers) * EmpowerMultiplier
 						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", totalEmpowers)
 						if not warcryList[buff.name] then
 							env.player.modDB:NewMod("Multiplier:EmpoweringWarcryCount", "BASE", 1, buff.name)

@@ -948,6 +948,25 @@ describe("TestSkills", function()
 		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
 	end)
 
+	it("Test chance to empower additional attacks contributes to average count", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Wrapped Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.skillsTab:PasteSocketGroup("Infernal Cry 20/0  1")
+		build.configTab.input.multiplierWarcryPower = 20
+		build.configTab.input.customMods = "Warcries have 15% chance to Empower 3 additional Attacks"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2.45, round(build.calcsTab.calcsOutput.InfernalEmpoweredCount, 2))
+	end)
+
 	it("Test Combined Ancestral Boosts - Ancestral Empowerment and Fist of War", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item

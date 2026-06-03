@@ -391,7 +391,7 @@ return {
 		{ format = "" },
 		{ format = "" },
 		{ format = "{0:output:InfernalCryUptimeRatio}%", { breakdown = "InfernalCryUptimeRatio" }, },
-		{ format = "{0:output:InfernalEmpoweredCount}" , { breakdown = "InfernalEmpoweringWarcryCount" },},
+		{ format = "{2:output:InfernalEmpoweredCount}" , { breakdown = "InfernalEmpoweringWarcryCount" },},
 		{ format = "" },
 	},
 	{ label = "Battlemage's Cry", haveOutput = "BattlemageUpTimeRatio", 

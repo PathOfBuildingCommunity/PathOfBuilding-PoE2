@@ -3223,7 +3223,7 @@ function calcs.offence(env, actor, activeSkill)
 						local infernalGainAsFire = modDB:Sum("BASE", nil, "InfernalExtraFireDamage")
 						if infernalGainAsFire > 0 then
 							local infernalUptime = activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") and 100 or globalOutput.InfernalCryUptimeRatio
-							skillModList:NewMod("DamageGainAsFire", "BASE", infernalGainAsFire * infernalUptime / 100, "Uptime Scaled Infernal Cry", ModFlag.Melee, 0, { type = "Condition", var = "Empowered"})
+							skillModList:NewMod("DamageGainAsFire", "BASE", infernalGainAsFire * infernalUptime / 100, "Uptime Scaled Infernal Cry", ModFlag.Melee)
 						end
 						globalOutput.InfernalCryCalculated = true
 					elseif value.activeEffect.grantedEffect.name == "Intimidating Cry" and activeSkill.skillTypes[SkillType.Melee] and not globalOutput.IntimidatingCryCalculated then
