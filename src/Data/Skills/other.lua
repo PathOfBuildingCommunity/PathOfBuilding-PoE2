@@ -11664,11 +11664,6 @@ skills["ParryPlayer"] = {
 			label = "Parry",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "parry",
-			statMap = {
-				["base_parry_buff_damage_taken_+%_final_to_apply"] = {
-					mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
-				},
-			},
 			baseFlags = {
 				attack = true,
 				melee = true,
