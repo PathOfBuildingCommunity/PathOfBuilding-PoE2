@@ -851,6 +851,7 @@ statMap = {
 #skill RefutationPlayer
 #set RefutationPlayer
 #flags
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 

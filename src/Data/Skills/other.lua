@@ -12639,6 +12639,9 @@ skills["RefutationPlayer"] = {
 			statDescriptionScope = "refutation",
 			baseFlags = {
 			},
+			baseMods = {
+				skill("debuff", true),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
