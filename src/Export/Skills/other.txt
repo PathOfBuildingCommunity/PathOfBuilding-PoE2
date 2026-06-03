@@ -120,16 +120,27 @@ statMap = {
 #skillEnd
 
 #from item
+#minionList AzmerianSwarm
 #skill AzmerianSwarmPlayer
 #set AzmerianSwarmPlayer
-#flags
+#flags minion duration
+statMap = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 5 }) }),
+		div = 5,
+	},
+	["non_skill_base_physical_damage_%_to_convert_to_random_element"] = {
+		mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToRandom", "BASE", nil) }),
+	},
+},
 #mods
 #skillEnd
 
 #from item
+#minionList AzmerianWolf
 #skill SummonAzmerianWolfPlayer
 #set SummonAzmerianWolfPlayer
-#flags
+#flags minion
 #mods
 #skillEnd
 
@@ -1411,16 +1422,18 @@ statMap = {
 #mods
 #skillEnd
 
+#minionList Wardbound
 #skill WardboundMinionsPlayer
 #set WardboundMinionsPlayer
-#flags
+#flags minion duration
 #mods
 #skillEnd
 
 #from tree
+#minionList BearCompanion
 #skill WildProtectorPlayer
 #set WildProtectorPlayer
-#flags
+#flags minion
 #mods
 #skillEnd
 

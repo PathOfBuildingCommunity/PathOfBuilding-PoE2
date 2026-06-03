@@ -1703,6 +1703,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierIncisionStackCount", type = "count", label = "# of Incision Stacks:", ifFlag = "Condition:CanInflictIncision", tooltip = "Incision applies 10% chance to Bleed the enemy, up to 10 stacks.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:IncisionStack", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "multiplierFaerieFireStackCount", type = "count", label = "# of Faerie Fire Stacks:", ifFlag = "Condition:CanInflictFaerieFire", tooltip = "Each Faerie Fire Debuff causes Hits against the affected target to Gain 2% of damage as Extra Damage of a random Element.\nThe Debuff lasts 8 seconds, and up to 10 can be applied to each target.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:FaerieFireStack", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyPoisoned", type = "check", label = "Is the enemy Poisoned?", ifEnemyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Poisoned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },

@@ -1761,6 +1761,9 @@ skills["AzmerianSwarmPlayer"] = {
 	baseTypeName = "Azmerian Swarms",
 	icon = "Art/2DArt/SkillIcons/FluttermothSkillIcon.dds",
 	fromItem = true,
+	minionList = {
+		"AzmerianSwarm",
+	},
 	color = 4,
 	description = "While active, summons short-lived Azmerian Swarms when you kill enemies affected by Elemental Ailments or hit Rare or Unique enemies affected by Elemental Ailments. The swarms are untargetable Minions that pursue nearby enemies to Attack them and infict Faerie Fire on Hit.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
@@ -1816,7 +1819,18 @@ skills["AzmerianSwarmPlayer"] = {
 			label = "Azmerian Swarms",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "azmerian_swarm_statset_0",
+			statMap = {
+				["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 5 }) }),
+					div = 5,
+				},
+				["non_skill_base_physical_damage_%_to_convert_to_random_element"] = {
+					mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToRandom", "BASE", nil) }),
+				},
+			},
 			baseFlags = {
+				minion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "max_azmerian_swarms", 8 },
@@ -1883,6 +1897,9 @@ skills["SummonAzmerianWolfPlayer"] = {
 	baseTypeName = "Azmerian Wolf",
 	icon = "Art/2DArt/SkillIcons/ThePackLeaderBaseMinionSkill.dds",
 	fromItem = true,
+	minionList = {
+		"AzmerianWolf",
+	},
 	color = 4,
 	description = "Summons an ancient Reviving Azmerian Wolf that can howl, calling to spirits convening an Eternal Hunt on Command. It Maims when attacking foes, and can lunge to bite and inflict Bleeding, or howl to inspire nearby allies.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, [SkillType.Companion] = true, [SkillType.CreatesCompanion] = true, [SkillType.CommandableMinion] = true, },
@@ -1939,6 +1956,7 @@ skills["SummonAzmerianWolfPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				minion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -20372,6 +20390,9 @@ skills["WardboundMinionsPlayer"] = {
 	name = "Wardbound Minions",
 	baseTypeName = "Wardbound Minions",
 	icon = "Art/2DArt/SkillIcons/ExpeditionWardboundMinions.dds",
+	minionList = {
+		"Wardbound",
+	},
 	color = 4,
 	description = "Spend all your Runic Ward to summon Temporary Wardbound Casters. These Minions target nearby enemies with damaging Cold Spells.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.CreatesMinion] = true, [SkillType.Duration] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Minion] = true, },
@@ -20428,6 +20449,8 @@ skills["WardboundMinionsPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "wardbound_minions",
 			baseFlags = {
+				minion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 15000 },
@@ -20491,6 +20514,9 @@ skills["WildProtectorPlayer"] = {
 	baseTypeName = "Wild Protector",
 	icon = "Art/2DArt/SkillIcons/WildspeakerBearSkill.dds",
 	fromTree = true,
+	minionList = {
+		"BearCompanion",
+	},
 	color = 4,
 	description = "Call upon a Bear Spirit Companion to maul your foes. The Bear Spirit leaps at enemies to Maim them, Leeches Life with its slam, and periodically roars to Intimidate enemies. The Bear Spirit does not count toward your Companion limit.",
 	skillTypes = { [SkillType.Companion] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.CreatesCompanion] = true, [SkillType.AttackInPlace] = true, [SkillType.Physical] = true, },
@@ -20548,6 +20574,7 @@ skills["WildProtectorPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				minion = true,
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
