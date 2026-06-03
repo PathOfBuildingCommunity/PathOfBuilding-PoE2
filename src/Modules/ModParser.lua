@@ -1453,6 +1453,7 @@ local modTagList = {
 	["per mana burn on you"] = { tag = { type = "Multiplier", var = "ManaBurnStacks" } },
 	["per mana burn, up to a maximum of (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "ManaBurnStacks", limit = tonumber(num), limitTotal = true } } end,
 	["per level"] = { tag = { type = "Multiplier", var = "Level" } },
+	["per player level"] = { tag = { type = "Multiplier", var = "Level" } },
 	["per (%d+) player levels"] = function(num) return { tag = { type = "Multiplier", var = "Level", div = num } } end,
 	["per defiance"] = { tag = { type = "Multiplier", var = "Defiance" } },
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
