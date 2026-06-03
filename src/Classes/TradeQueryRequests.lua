@@ -391,6 +391,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				item.enchantMods = item.enchantMods or { }
 				item.fracturedMods = item.fracturedMods or { }
 				item.desecratedMods = item.desecratedMods or { }
+				item.craftedMods = item.craftedMods or { }
 				item.runeMods = item.runeMods or { }
 				item.implicitMods = item.implicitMods or { }
 				item.explicitMods = item.explicitMods or { }
@@ -413,6 +414,9 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				end
 				for _, modLine in ipairs(item.desecratedMods) do
 					t_insert(rawLines, "{desecrated}"	.. escapeGGGString(modLine))
+				end
+				for _, modLine in ipairs(item.craftedMods) do
+					t_insert(rawLines, "{crafted}"	.. escapeGGGString(modLine))
 				end
 				if item.mirrored then
 					t_insert(rawLines, "Mirrored")

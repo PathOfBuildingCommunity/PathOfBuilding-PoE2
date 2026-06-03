@@ -28,3 +28,8 @@ local itemBases = ...
 #subType
 #baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods1
 
+#subType
+#forceHide true
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexIntAscendancy
+#forceHide false
+

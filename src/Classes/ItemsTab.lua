@@ -2136,7 +2136,7 @@ local function checkLineForAllocates(line, nodes)
 end
 
 function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
-	local slotName = self.displayItem:GetPrimarySlot()
+	local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 	local newItem = new("Item", self.displayItem:BuildRaw())
 
 	for _, subMod in ipairs(mod) do
@@ -2166,6 +2166,21 @@ function ItemsTabClass:GetEquippedSlotForItem(item)
 			end
 		end
 	end
+end
+
+function ItemsTabClass:GetComparisonSlotNameForItem(item)
+	local equippedSlot = self:GetEquippedSlotForItem(item)
+	if equippedSlot then
+		return equippedSlot.slotName
+	end
+	if item.type == "Jewel" then
+		for _, slot in ipairs(self.orderedSlots) do
+			if not slot.inactive and slot.selItemId == 0 and slot:IsShown() and self:IsItemValidForSlot(item, slot.slotName) then
+				return slot.slotName
+			end
+		end
+	end
+	return item:GetPrimarySlot()
 end
 
 -- Check if the given item could be equipped in the given slot, taking into account possible conflicts with currently equipped items
@@ -2685,7 +2700,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	end
 	local function sortEnchantList(stat)
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(enchantList[currentModType], stat, function(listMod)
@@ -2913,7 +2928,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		end
 		local selected = not selectFirst and modList[controls.modSelect.selIndex] or nil
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(modList, stat, function(listMod)
@@ -3193,7 +3208,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	else
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix, "FONTIN SC")
 	end
-
+	tooltip.runicItem = item.runicItem
 	tooltip:AddSeparator(10)
 
 	-- Special fields for database items
@@ -3276,20 +3291,25 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	elseif base.armour then
 		-- Armour-specific info
 		local armourData = item.armourData
+		local level = self.build.characterLevel
+		local armour = item:GetArmourDataValue("Armour", level)
+		local evasion = item:GetArmourDataValue("Evasion", level)
+		local energyShield = item:GetArmourDataValue("EnergyShield", level)
+		local ward = item:GetArmourDataValue("Ward", level)
 		if base.armour.BlockChance and armourData.BlockChance > 0 then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
-		if armourData.Armour > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armourData.Armour, base.armour.ArmourBase), armourData.Armour), "FONTIN SC")
+		if armour > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, base.armour.ArmourBase), armour), "FONTIN SC")
 		end
-		if armourData.Evasion > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(armourData.Evasion, base.armour.EvasionBase), armourData.Evasion), "FONTIN SC")
+		if evasion > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, base.armour.EvasionBase), evasion), "FONTIN SC")
 		end
-		if armourData.EnergyShield > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(armourData.EnergyShield, base.armour.EnergyShieldBase), armourData.EnergyShield), "FONTIN SC")
+		if energyShield > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, base.armour.EnergyShieldBase), energyShield), "FONTIN SC")
 		end
-		if armourData.Ward > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FWard: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward), "FONTIN SC")
+		if ward > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, base.armour.WardBase), ward), "FONTIN SC")
 		end
 	elseif base.flask then
 		-- Flask-specific info
@@ -3604,7 +3624,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local lifeInc = modDB:Sum("INC", nil, "FlaskLifeRecovery")
 				local lifeMore = modDB:More(nil, "FlaskLifeRecovery")
 				local lifeRateInc = modDB:Sum("INC", nil, "FlaskLifeRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "LifeFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery", "LifeFlaskInstantRecovery")
 
 				-- More life recovery while on low life is not affected by flask effect (verified ingame).
 				-- Since this will be multiplied by the flask effect value below we have to counteract this by removing the flask effect from the value beforehand.
@@ -3667,7 +3687,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local manaInc = modDB:Sum("INC", nil, "FlaskManaRecovery")
 				local manaMore = modDB:More(nil, "FlaskManaRecovery")
 				local manaRateInc = modDB:Sum("INC", nil, "FlaskManaRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "ManaFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery",  "ManaFlaskInstantRecovery")
 				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100)
 				local base = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100) * (1 + durInc / 100)
 				local grad = base * output.ManaRecoveryRateMod

@@ -526,6 +526,23 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDeadlyResolvePlayer
+#set SupportDeadlyResolvePlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyResolvePlayer
+#set TriggeredDeadlyResolvePlayer
+#flags nonWeaponAttack
+statMap = {
+	["dangerous_resolve_attack_damage_+1%_final_per_X_armour"] = {
+		mod("Multiplier:DamagePerArmour", "BASE", nil),
+	},
+},
+#baseMod mod("Damage", "MORE", 1, 0, 0, { type = "PerStat", stat = "Armour", divVar = "DamagePerArmour", limit = 200, limitTotal = true })
+#mods
+#skillEnd
+
 #skill SupportDeepCutsPlayer
 #set SupportDeepCutsPlayer
 statMap = {
@@ -1797,7 +1814,7 @@ statMap = {
 
 #skill TriggeredVolcanicEruptionPlayer
 #set TriggeredVolcanicEruptionPlayer
-#flags attack area
+#flags attack area projectile
 #mods
 #skillEnd
 

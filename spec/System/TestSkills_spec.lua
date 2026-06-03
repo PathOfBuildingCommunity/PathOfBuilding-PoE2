@@ -94,6 +94,54 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
+		build.skillsTab:PasteSocketGroup("Purity of Fire 20/0  1\nVitality II 1/0  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReserved)
+	end)
+
+	it("Keeps Virtuous armour scaling during Full DPS loop", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Virtuous Barrier 20/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 20/0  1")
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.mainSocketGroup = 3
+		runCallback("OnFrame")
+
+		local calcs = LoadModule("Modules/Calcs")
+		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		local normalArmour = env.player.output.Armour
+		local normalDPS = env.player.output.TotalDPS
+		assert.are.equals(1050, normalArmour)
+		assert.is_true(normalDPS > 0)
+
+		env = calcs.initEnv(build, "CALCULATOR", {}, {
+			cachedPlayerDB = cachedPlayerDB,
+			cachedEnemyDB = cachedEnemyDB,
+			cachedMinionDB = cachedMinionDB,
+			env = env,
+			accelerate = {
+				nodeAlloc = true,
+				requirementsItems = true,
+				requirementsGems = true,
+				skills = true,
+				everything = true,
+			},
+		})
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		assert.are.equals(normalArmour, env.player.output.Armour)
+		assert.are.near(normalDPS, env.player.output.TotalDPS, 0.001)
+	end)
+
 	it("Test cost efficiency modifiers", function()
 		-- Test Mana Cost Efficiency
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
@@ -946,6 +994,25 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.calcsOutput.AvgAncestralCallDamageEffect ~= nil)
 		assert.True(build.calcsTab.calcsOutput.AncestralCallUptimeRatio ~= nil)
 		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
+	end)
+
+	it("Test chance to empower additional attacks contributes to average count", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Wrapped Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.skillsTab:PasteSocketGroup("Infernal Cry 20/0  1")
+		build.configTab.input.multiplierWarcryPower = 20
+		build.configTab.input.customMods = "Warcries have 15% chance to Empower 3 additional Attacks"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2.45, round(build.calcsTab.calcsOutput.InfernalEmpoweredCount, 2))
 	end)
 
 	it("Test Combined Ancestral Boosts - Ancestral Empowerment and Fist of War", function()

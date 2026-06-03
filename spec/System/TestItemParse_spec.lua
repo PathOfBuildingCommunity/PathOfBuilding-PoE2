@@ -329,6 +329,18 @@ describe("TestItemParse", function()
 		assert.truthy(item.explicitModLines[1].custom)
 	end)
 
+	it("crafted", function()
+		local item = new("Item", raw("{crafted}+8 to Strength"))
+		assert.truthy(item.explicitModLines[1].crafted)
+	end)
+
+	it("preserves crafted mod lines when rebuilding raw text", function()
+		local item = new("Item", raw("+8 to Strength"))
+		item.explicitModLines[1].crafted = true
+		item:BuildAndParseRaw()
+		assert.truthy(item.explicitModLines[1].crafted)
+	end)
+
 	it("enchant", function()
 		local item = new("Item", raw("+8 to Strength (enchant)"))
 		assert.are.equals(1, #item.enchantModLines)
@@ -446,6 +458,22 @@ describe("TestItemParse", function()
 		for _, rune in ipairs(item.runes) do
 			assert.are_not.equals("Lesser Glacial Rune", rune)
 		end
+	end)
+
+	it("keeps bonded rune stats separate from normal rune stats", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Test Body
+			Rusted Cuirass
+		]])
+		item.itemSocketCount = 1
+		item.runes = { "Lesser Body Rune" }
+		item:UpdateRunes()
+
+		assert.are.equals(3, #item.runeModLines)
+		assert.are.equals("+30 to maximum Life", item.runeModLines[1].line)
+		assert.are.equals("Bonded: +20 to maximum Life", item.runeModLines[2].line)
+		assert.are.equals("Bonded: +20 to maximum Mana", item.runeModLines[3].line)
 	end)
 
 	it("multi-line rune mod", function()

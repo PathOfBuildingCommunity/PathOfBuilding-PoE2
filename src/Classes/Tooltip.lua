@@ -16,19 +16,19 @@ local H_PAD	= 12
 local V_PAD = 10
 -- spell-checker: disable
 local headerConfigs = {
-	RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 }
 -- spell-checker: enable
 
@@ -77,6 +77,7 @@ function TooltipClass:Clear(clearUpdateParams)
 	end
 	self.tooltipHeader = false
 	self.isUniqueGem = nil
+	self.runicItem = nil
 	self.titleYOffset = 0
 	self.recipe = nil
 	self.gemIcon = nil
@@ -499,16 +500,19 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		self.titleYOffset = config.textYOffset or 0
 
-		if not self.headerLeft or self.headerLeftPath ~= config.left then
+		local runic = self.runicItem and "runic" or ""
+		local leftPath = runic .. config.left
+
+		if not self.headerLeft or self.headerLeftPath ~= leftPath then
 			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load(config.left)
-			self.headerLeftPath = config.left
+			self.headerLeft:Load("Assets/" .. leftPath)
+			self.headerLeftPath = leftPath
 			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load(config.middle)
-			self.headerMiddlePath = config.middle
+			self.headerMiddle:Load("Assets/" .. runic .. config.middle)
+			self.headerMiddlePath = runic .. config.middle
 			self.headerRight = NewImageHandle()
-			self.headerRight:Load(config.right)
-			self.headerRightPath = config.right
+			self.headerRight:Load("Assets/" .. runic .. config.right)
+			self.headerRightPath = runic .. config.right
 		end
 
 		local headerHeight = config.height

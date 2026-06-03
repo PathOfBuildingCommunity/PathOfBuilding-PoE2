@@ -760,9 +760,10 @@ function calcs.defence(env, actor)
 
 	-- Armour defence types for conditionals
 	for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-		local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
+		local item = actor.itemList[slot]
+		local armourData = item and item.armourData
 		if armourData then
-			local wardBase = armourData.Ward or 0
+			local wardBase = item:GetArmourDataValue("Ward", actor.level)
 			if wardBase > 0 then
 				output["WardOnAllArmourItems"] = (output["WardOnAllArmourItems"] or 0) + wardBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -772,7 +773,7 @@ function calcs.defence(env, actor)
 
 			end
 
-			local energyShieldBase = armourData.EnergyShield or 0
+			local energyShieldBase = item:GetArmourDataValue("EnergyShield", actor.level)
 			if energyShieldBase > 0 then
 				output["EnergyShieldOnAllArmourItems"] = (output["EnergyShieldOnAllArmourItems"] or 0) + energyShieldBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -781,7 +782,7 @@ function calcs.defence(env, actor)
 				output["EnergyShieldOn"..slot] = energyShieldBase
 			end
 
-			local armourBase = armourData.Armour or 0
+			local armourBase = item:GetArmourDataValue("Armour", actor.level)
 			if armourBase > 0 then
 				output["ArmourOnAllArmourItems"] = (output["ArmourOnAllArmourItems"] or 0) + armourBase
 				if slot == "Body Armour" then
@@ -795,7 +796,7 @@ function calcs.defence(env, actor)
 				output["ArmourOn"..slot] = armourBase
 			end
 
-			local evasionBase = armourData.Evasion or 0
+			local evasionBase = item:GetArmourDataValue("Evasion", actor.level)
 			if evasionBase > 0 then
 				output["EvasionOnAllArmourItems"] = (output["EvasionOnAllArmourItems"] or 0) + evasionBase
 				if slot == "Body Armour" then
@@ -1151,10 +1152,11 @@ function calcs.defence(env, actor)
 		local gearEvasion = 0
 		local slotCfg = wipeTable(tempTable1)
 		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-			local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
+			local item = actor.itemList[slot]
+			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				wardBase = armourData.Ward or 0
+				wardBase = item:GetArmourDataValue("Ward", actor.level)
 				if wardBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						wardBase = wardBase * 2
@@ -1182,7 +1184,7 @@ function calcs.defence(env, actor)
 						end
 					end
 				end
-				energyShieldBase = armourData.EnergyShield or 0
+				energyShieldBase = item:GetArmourDataValue("EnergyShield", actor.level)
 				if energyShieldBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						energyShieldBase = energyShieldBase * 2
@@ -1206,7 +1208,7 @@ function calcs.defence(env, actor)
 						end
 					end
 				end
-				armourBase = armourData.Armour or 0
+				armourBase = item:GetArmourDataValue("Armour", actor.level)
 				if armourBase > 0 then
 					if slot == "Body Armour" then
 						if modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1224,7 +1226,7 @@ function calcs.defence(env, actor)
 						breakdown.slot(slot, nil, slotCfg, armourBase, nil, "Armour", "ArmourAndEvasion", "Defences", slot.."ESAndArmour")
 					end
 				end
-				evasionBase = armourData.Evasion or 0
+				evasionBase = item:GetArmourDataValue("Evasion", actor.level)
 				if evasionBase > 0 then
 					if slot == "Body Armour" then
 						if modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1319,7 +1321,8 @@ function calcs.defence(env, actor)
 			end
 			source.totalConversion = totalConversion
 			for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-				source.basePerSlot[slot] = actor.itemList[slot] and actor.itemList[slot].armourData and actor.itemList[slot].armourData[source.name] or 0
+				local item = actor.itemList[slot]
+				source.basePerSlot[slot] = item and item.armourData and item:GetArmourDataValue(source.name, actor.level) or 0
 			end
 		end
 		for _, source in ipairs(resourceList) do
@@ -2330,7 +2333,13 @@ function calcs.buildDefenceEstimations(env, actor)
 		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
-		local percentOfArmourApplies = (not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
+		local percentOfArmourApplies = 0
+		if not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") then
+			percentOfArmourApplies = modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken")
+		end
+		if isElemental[damageType] and not modDB:Flag(nil, "ArmourDoesNotApplyToElementalDamageTaken") then
+			percentOfArmourApplies = percentOfArmourApplies + modDB:Sum("BASE", nil, "ArmourAppliesToElementalDamageTaken")
+		end
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }
