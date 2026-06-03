@@ -94,7 +94,7 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
-	it("keeps Virtuous armour scaling during accelerated skill recalcs", function()
+	it("Keeps Virtuous armour scaling during Full DPS loop", function()
 		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
 		build.itemsTab:AddDisplayItem()
 		build.skillsTab:PasteSocketGroup("Virtuous Barrier 20/0  1")
