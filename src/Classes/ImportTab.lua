@@ -5,6 +5,7 @@
 --
 local ipairs = ipairs
 local t_insert = table.insert
+local t_remove = table.remove
 local b_rshift = bit.rshift
 local band = bit.band
 local m_max = math.max
@@ -815,6 +816,97 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	main:SetWindowTitleSubtext(string.format("%s (%s, %s, %s)", self.build.buildName, charData.name, charData.class, charData.league))
 end
 
+local SOCKET_GROUP_REIMPORT_KEY_SEPARATOR = "\31"
+
+local function getSocketGroupReimportKey(socketGroup)
+	-- Use a rarely-used separator to avoid accidental collisions when concatenating fields.
+	local gemNameParts = { }
+	for _, gem in ipairs(socketGroup.gemList) do
+		t_insert(gemNameParts, (gem.nameSpec or ""):lower())
+	end
+	return table.concat({
+		tostring(#socketGroup.gemList),
+		table.concat(gemNameParts, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR),
+	}, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR)
+end
+
+local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
+	local gemStates = { }
+	for gemIndex, gem in ipairs(socketGroup.gemList) do
+		gemStates[gemIndex] = {
+			enabled = gem.enabled,
+			count = gem.count,
+			statSet = gem.statSet and copyTable(gem.statSet),
+			statSetCalcs = gem.statSetCalcs and copyTable(gem.statSetCalcs),
+			skillPart = gem.skillPart,
+			skillPartCalcs = gem.skillPartCalcs,
+			skillStageCount = gem.skillStageCount,
+			skillStageCountCalcs = gem.skillStageCountCalcs,
+			skillMineCount = gem.skillMineCount,
+			skillMineCountCalcs = gem.skillMineCountCalcs,
+			skillMinion = gem.skillMinion,
+			skillMinionCalcs = gem.skillMinionCalcs,
+			skillMinionItemSet = gem.skillMinionItemSet,
+			skillMinionItemSetCalcs = gem.skillMinionItemSetCalcs,
+			skillMinionSkill = gem.skillMinionSkill,
+			skillMinionSkillCalcs = gem.skillMinionSkillCalcs,
+			skillMinionSkillStatSetIndexLookup = gem.skillMinionSkillStatSetIndexLookup and copyTable(gem.skillMinionSkillStatSetIndexLookup),
+			skillMinionSkillStatSetIndexLookupCalcs = gem.skillMinionSkillStatSetIndexLookupCalcs and copyTable(gem.skillMinionSkillStatSetIndexLookupCalcs),
+			enableGlobal1 = gem.enableGlobal1,
+			enableGlobal2 = gem.enableGlobal2,
+		}
+	end
+	return {
+		enabled = socketGroup.enabled,
+		includeInFullDPS = socketGroup.includeInFullDPS,
+		groupCount = socketGroup.groupCount,
+		label = socketGroup.label,
+		mainActiveSkill = socketGroup.mainActiveSkill,
+		mainActiveSkillCalcs = socketGroup.mainActiveSkillCalcs,
+		gemStates = gemStates,
+		isMainGroup = isMainGroup,
+	}
+end
+
+local function applyGemReimportState(gem, state)
+	gem.enabled = state.enabled
+	gem.count = state.count
+	gem.statSet = state.statSet and copyTable(state.statSet)
+	gem.statSetCalcs = state.statSetCalcs and copyTable(state.statSetCalcs)
+	gem.skillPart = state.skillPart
+	gem.skillPartCalcs = state.skillPartCalcs
+	gem.skillStageCount = state.skillStageCount
+	gem.skillStageCountCalcs = state.skillStageCountCalcs
+	gem.skillMineCount = state.skillMineCount
+	gem.skillMineCountCalcs = state.skillMineCountCalcs
+	gem.skillMinion = state.skillMinion
+	gem.skillMinionCalcs = state.skillMinionCalcs
+	gem.skillMinionItemSet = state.skillMinionItemSet
+	gem.skillMinionItemSetCalcs = state.skillMinionItemSetCalcs
+	gem.skillMinionSkill = state.skillMinionSkill
+	gem.skillMinionSkillCalcs = state.skillMinionSkillCalcs
+	gem.skillMinionSkillStatSetIndexLookup = state.skillMinionSkillStatSetIndexLookup and copyTable(state.skillMinionSkillStatSetIndexLookup)
+	gem.skillMinionSkillStatSetIndexLookupCalcs = state.skillMinionSkillStatSetIndexLookupCalcs and copyTable(state.skillMinionSkillStatSetIndexLookupCalcs)
+	gem.enableGlobal1 = state.enableGlobal1
+	gem.enableGlobal2 = state.enableGlobal2
+end
+
+local function applySocketGroupReimportState(socketGroup, state)
+	socketGroup.enabled = state.enabled
+	socketGroup.includeInFullDPS = state.includeInFullDPS
+	socketGroup.groupCount = state.groupCount
+	socketGroup.label = state.label
+	socketGroup.mainActiveSkill = state.mainActiveSkill
+	socketGroup.mainActiveSkillCalcs = state.mainActiveSkillCalcs
+	if state.gemStates then
+		for gemIndex, gemState in ipairs(state.gemStates) do
+			if socketGroup.gemList[gemIndex] then
+				applyGemReimportState(socketGroup.gemList[gemIndex], gemState)
+			end
+		end
+	end
+end
+
 function ImportTabClass:ImportItemsAndSkills(charData)
 	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
@@ -827,14 +919,21 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
 	local skillOrder
+	local preservedSocketGroupStateByKey
 	if self.controls.charImportItemsClearSkills.state then
 		skillOrder = { }
+		preservedSocketGroupStateByKey = { }
 		for _, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
 			for _, gem in ipairs(socketGroup.gemList) do
 				if gem.grantedEffect and not gem.grantedEffect.support then
 					t_insert(skillOrder, gem.grantedEffect.name)
 				end
 			end
+		end
+		for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+			local key = getSocketGroupReimportKey(socketGroup)
+			preservedSocketGroupStateByKey[key] = preservedSocketGroupStateByKey[key] or { }
+			t_insert(preservedSocketGroupStateByKey[key], snapshotSocketGroupReimportState(socketGroup, index == self.build.mainSocketGroup))
 		end
 		wipeTable(self.build.skillsTab.socketGroupList)
 	end
@@ -1009,6 +1108,22 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				return orderA
 			end
 		end)
+	end
+	if preservedSocketGroupStateByKey then
+		local restoredMainSocketGroup
+		for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+			local stateList = preservedSocketGroupStateByKey[getSocketGroupReimportKey(socketGroup)]
+			if stateList and stateList[1] then
+				local state = t_remove(stateList, 1)
+				applySocketGroupReimportState(socketGroup, state)
+				if state.isMainGroup then
+					restoredMainSocketGroup = index
+				end
+			end
+		end
+		if restoredMainSocketGroup then
+			self.build.mainSocketGroup = restoredMainSocketGroup
+		end
 	end
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
