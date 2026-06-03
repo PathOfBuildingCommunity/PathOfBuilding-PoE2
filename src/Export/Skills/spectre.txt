@@ -569,6 +569,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MeleeAtAnimationSpeedUnique
+#set MeleeAtAnimationSpeedUnique
+#flags attack melee
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedComboTEMP
 #set MeleeAtAnimationSpeedComboTEMP
 #flags attack melee
@@ -577,6 +583,12 @@ statMap = {
 
 #skill MeleeAtAnimationSpeedFire Basic Attack (Fire)
 #set MeleeAtAnimationSpeedFire
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedCold Basic Attack (Cold)
+#set MeleeAtAnimationSpeedCold
 #flags attack melee
 #mods
 #skillEnd
@@ -608,7 +620,7 @@ statMap = {
 
 #skill MMSHellscapeDemonEliteTripleMortar Triple Mortar
 #set MMSHellscapeDemonEliteTripleMortar
-#flags triggerable spell area hit 
+#flags triggerable spell area hit
 #mods
 #skillEnd
 
@@ -672,7 +684,7 @@ statMap = {
 #mods
 #skillEnd
 
-#skill GSAbyssCocoon3BallSpitSmallImpact Small Ball Impact 
+#skill GSAbyssCocoon3BallSpitSmallImpact Small Ball Impact
 #set GSAbyssCocoon3BallSpitSmallImpact
 #flags spell triggerable hit
 #mods
@@ -1174,5 +1186,71 @@ statMap = {
 #skill MPSTwilightClericProjectile Basic Spell
 #set MPSTwilightClericProjectile
 #flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSRaptorDefenderExplosiveShot Explosive Shot
+#set MPSRaptorDefenderExplosiveShot
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill GSRaptorDefenderRailShot Rail Shot
+#set GSRaptorDefenderRailShot
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill MPSGoblinShamanBasicProj Basic Spell
+#set MPSGoblinShamanBasicProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MAASExpedition2ShakariBasicMelee
+#set MAASExpedition2ShakariBasicMelee
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MAASExpedition2ShakariTailSwipe Tail Swipe
+#set MAASExpedition2ShakariTailSwipe
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAExpeditionShakariMonsterSlam Slam
+#set GAExpeditionShakariMonsterSlam
+#flags attack area
+#mods
+#skillEnd
+
+#skill GARathbreakerEnrageSlam Slam
+#set GARathbreakerEnrageSlam
+#flags attack area
+#mods
+#skillEnd
+
+#skill TCRathbreakerDrivebyCharge Charge
+#set TCRathbreakerDrivebyCharge
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedBoss
+#set MeleeAtAnimationSpeedComboTEMP
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAQuadrillaBossRectSlam Pillar Slam
+#set GAQuadrillaBossRectSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAIcyQuadrillaBossRectSlam Pillar Slam
+#set GAIcyQuadrillaBossRectSlam
+#flags attack melee area
 #mods
 #skillEnd

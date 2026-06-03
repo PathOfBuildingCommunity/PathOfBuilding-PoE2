@@ -814,7 +814,7 @@ function buildMode:CustomLoadout(specId, itemSetId, skillSetId, configSetId, nam
 	else
 		newConfigSet = self.configTab:CopyConfigSet(configSetId, name)
 	end
-	
+
 	local customLoadout = self:GetLoadoutByName(name)
 	self:SetActiveLoadout(customLoadout)
 
@@ -1721,8 +1721,8 @@ function buildMode:OpenSpectreLibrary(library)
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
-	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "Show All " .. firstToUpper(library) .. "s:")
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
+	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "^7Show All " .. firstToUpper(library) .. "s:")
 	controls.save = new("ButtonControl", nil, {-45, 420, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList

@@ -823,7 +823,7 @@ return {
 			name="Icon",
 			refTo="",
 			type="String",
-			width=290
+			width=100
 		},
 		[6]={
 			list=true,
@@ -42391,7 +42391,7 @@ return {
 			name="AdditionalMonsters",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=480
+			width=610
 		},
 		[25]={
 			list=true,
@@ -55171,7 +55171,7 @@ return {
 			name="MinionGlobalSkillLevelStat",
 			refTo="Stats",
 			type="Key",
-			width=160
+			width=150
 		},
 		[8]={
 			list=false,

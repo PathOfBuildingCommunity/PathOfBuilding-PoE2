@@ -1089,6 +1089,12 @@ return {
 ["lightning_damage_%_to_add_as_chaos"] = {
 	mod("LightningDamageGainAsChaos", "BASE", nil),
 },
+["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+	mod("DamageGainAsLightning", "BASE", nil),
+},
+["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+	mod("DamageGainAsCold", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
 	mod("DamageGainAsChaos", "BASE", nil),
 },
@@ -1850,7 +1856,7 @@ return {
 },
 ["spell_skills_fire_2_additional_projectiles_final_chance_%"] = {
 	mod("TwoAdditionalProjectilesChance", "BASE", nil),
-},	
+},
 ["additional_beam_only_chains"] = {
 	mod("BeamChainCountMax", "BASE", nil),
 },
