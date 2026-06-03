@@ -2509,6 +2509,13 @@ return {
 ["companions_are_gigantic"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
 },
+["minion_damage_+%_final_per_different_elemental_ailment_on_target"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }) }),
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) }),
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) }),
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) }),
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }) }),
+},
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
 },
@@ -2556,6 +2563,9 @@ return {
 },
 ["maximum_corpse_beetles_allowed"] = {
 	mod("BeetleLimit", "BASE", nil),
+},
+["max_azmerian_swarms"] = {
+	mod("AzmerianSwarmLimit", "BASE", nil),
 },
 ["active_skill_minion_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
@@ -2881,6 +2891,9 @@ return {
 },
 ["apply_X_incision_on_hit"] = {
 	flag("Condition:CanInflictIncision", { type = "GlobalEffect", effectType = "Buff", effectName = "Incision" }),
+},
+["%_chance_to_apply_hounded_by_wisps_on_hit"] = {
+	flag("Condition:CanInflictFaerieFire", { type = "GlobalEffect", effectType = "Buff", effectName = "FaerieFire" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),

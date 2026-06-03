@@ -1761,6 +1761,9 @@ skills["AzmerianSwarmPlayer"] = {
 	baseTypeName = "Azmerian Swarms",
 	icon = "Art/2DArt/SkillIcons/FluttermothSkillIcon.dds",
 	fromItem = true,
+	minionList = {
+		"AzmerianSwarm",
+	},
 	color = 4,
 	description = "While active, summons short-lived Azmerian Swarms when you kill enemies affected by Elemental Ailments or hit Rare or Unique enemies affected by Elemental Ailments. The swarms are untargetable Minions that pursue nearby enemies to Attack them and infict Faerie Fire on Hit.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
@@ -1816,7 +1819,18 @@ skills["AzmerianSwarmPlayer"] = {
 			label = "Azmerian Swarms",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "azmerian_swarm_statset_0",
+			statMap = {
+				["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 5 }) }),
+					div = 5,
+				},
+				["non_skill_base_physical_damage_%_to_convert_to_random_element"] = {
+					mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToRandom", "BASE", nil) }),
+				},
+			},
 			baseFlags = {
+				minion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "max_azmerian_swarms", 8 },

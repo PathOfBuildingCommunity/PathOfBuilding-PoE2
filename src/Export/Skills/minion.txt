@@ -354,3 +354,9 @@ statMap = {
 #flags attack area duration
 #mods
 #skillEnd
+
+#skill AzmerianSwarmAttack
+#set AzmerianSwarmAttack
+#flags attack melee
+#mods
+#skillEnd
