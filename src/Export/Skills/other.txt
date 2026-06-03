@@ -137,9 +137,10 @@ statMap = {
 #skillEnd
 
 #from item
+#minionList AzmerianWolf
 #skill SummonAzmerianWolfPlayer
 #set SummonAzmerianWolfPlayer
-#flags
+#flags minion
 #mods
 #skillEnd
 

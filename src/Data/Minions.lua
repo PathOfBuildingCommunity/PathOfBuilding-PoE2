@@ -1111,3 +1111,46 @@ minions["AzmerianSwarm"] = {
 		mod("Life", "OVERRIDE", 1, 0, 0), -- base_maximum_life_is_one [base_maximum_life_is_one = 1]
 	},
 }
+
+minions["AzmerianWolf"] = {
+	name = "Azmerian Wolf",
+	monsterTags = { "1HSword_onhit_audio", "beast", "mammal_beast", "medium_movement", "not_int", "not_str", "red_blood", },
+	life = 2.7,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.43,
+	damageSpread = 0.2,
+	attackTime = 1,
+	attackRange = 18,
+	accuracy = 1,
+	weaponType1 = "None",
+	weaponType2 = "None",
+	baseMovementSpeed = 36,
+	spectreReservation = 105,
+	companionReservation = 49.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedWolfPackleader",
+		"WolfPackleaderDashAttack",
+		"WolfPackleaderLungeBite",
+		"GTPackleaderGreatHuntDash",
+		"TBPackleaderGreatHuntDash",
+		"GAPackleaderGreatHuntDash",
+		"GreatHuntPackleaderMinion",
+		"EGPackleaderPrimalInspiration",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
+		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
+	},
+}

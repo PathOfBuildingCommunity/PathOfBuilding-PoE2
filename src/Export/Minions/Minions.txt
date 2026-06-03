@@ -107,3 +107,6 @@ local minions, mod = ...
 #monster Metadata/Monsters/UniqueItemMonsters/AzmerianSwarmMinion/AzmerianSwarmMinion AzmerianSwarm
 #limit AzmerianSwarmLimit
 #emit
+
+#monster Metadata/Monsters/UniqueItemMonsters/AzmerianPackleader/PackleaderWolfMinion AzmerianWolf
+#emit

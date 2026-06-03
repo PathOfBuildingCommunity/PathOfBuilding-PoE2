@@ -1897,6 +1897,9 @@ skills["SummonAzmerianWolfPlayer"] = {
 	baseTypeName = "Azmerian Wolf",
 	icon = "Art/2DArt/SkillIcons/ThePackLeaderBaseMinionSkill.dds",
 	fromItem = true,
+	minionList = {
+		"AzmerianWolf",
+	},
 	color = 4,
 	description = "Summons an ancient Reviving Azmerian Wolf that can howl, calling to spirits convening an Eternal Hunt on Command. It Maims when attacking foes, and can lunge to bite and inflict Bleeding, or howl to inspire nearby allies.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, [SkillType.Companion] = true, [SkillType.CreatesCompanion] = true, [SkillType.CommandableMinion] = true, },
@@ -1953,6 +1956,7 @@ skills["SummonAzmerianWolfPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				minion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
