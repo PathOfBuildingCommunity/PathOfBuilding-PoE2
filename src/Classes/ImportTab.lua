@@ -5,6 +5,7 @@
 --
 local ipairs = ipairs
 local t_insert = table.insert
+local t_remove = table.remove
 local b_rshift = bit.rshift
 local band = bit.band
 local m_max = math.max
