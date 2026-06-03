@@ -94,6 +94,13 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
+		build.skillsTab:PasteSocketGroup("Purity of Fire 20/0  1\nVitality II 1/0  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReserved)
+	end)
+
 	it("Keeps Virtuous armour scaling during Full DPS loop", function()
 		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
 		build.itemsTab:AddDisplayItem()
