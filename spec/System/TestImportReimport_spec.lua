@@ -225,4 +225,27 @@ Skeletal Sniper 20/0  1
 		assert.are.equal(3, srcInstance.skillMinionSkillStatSetIndexLookup[grantedEffectId][2])
 		assert.are.equal(2, srcInstance.skillMinionSkillStatSetIndexLookupCalcs[grantedEffectId][2])
 	end)
+
+	it("preserves active skill stat set when reimporting items and skills", function()
+		build.skillsTab:PasteSocketGroup([[
+Fireball 20/0  1
+]])
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		local activeEffect = socketGroup.displaySkillList[1].activeEffect
+		local grantedEffectId = activeEffect.grantedEffect.id
+		local srcInstance = activeEffect.srcInstance
+		srcInstance.statSet = { [grantedEffectId] = 3 }
+		srcInstance.statSetCalcs = { [grantedEffectId] = 2 }
+
+		reimportSingleGem("Linen Wraps", "Gloves", "Fireball")
+
+		socketGroup = build.skillsTab.socketGroupList[1]
+		activeEffect = socketGroup.displaySkillList[1].activeEffect
+		grantedEffectId = activeEffect.grantedEffect.id
+		srcInstance = activeEffect.srcInstance
+		assert.are.equal(3, srcInstance.statSet[grantedEffectId])
+		assert.are.equal(2, srcInstance.statSetCalcs[grantedEffectId])
+	end)
 end)

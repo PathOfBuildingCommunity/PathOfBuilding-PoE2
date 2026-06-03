@@ -836,6 +836,8 @@ local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
 		gemStates[gemIndex] = {
 			enabled = gem.enabled,
 			count = gem.count,
+			statSet = gem.statSet and copyTable(gem.statSet),
+			statSetCalcs = gem.statSetCalcs and copyTable(gem.statSetCalcs),
 			skillPart = gem.skillPart,
 			skillPartCalcs = gem.skillPartCalcs,
 			skillStageCount = gem.skillStageCount,
@@ -869,6 +871,8 @@ end
 local function applyGemReimportState(gem, state)
 	gem.enabled = state.enabled
 	gem.count = state.count
+	gem.statSet = state.statSet and copyTable(state.statSet)
+	gem.statSetCalcs = state.statSetCalcs and copyTable(state.statSetCalcs)
 	gem.skillPart = state.skillPart
 	gem.skillPartCalcs = state.skillPartCalcs
 	gem.skillStageCount = state.skillStageCount
