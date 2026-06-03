@@ -2330,7 +2330,13 @@ function calcs.buildDefenceEstimations(env, actor)
 		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
-		local percentOfArmourApplies = (not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
+		local percentOfArmourApplies = 0
+		if not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") then
+			percentOfArmourApplies = modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken")
+		end
+		if isElemental[damageType] and not modDB:Flag(nil, "ArmourDoesNotApplyToElementalDamageTaken") then
+			percentOfArmourApplies = percentOfArmourApplies + modDB:Sum("BASE", nil, "ArmourAppliesToElementalDamageTaken")
+		end
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }
