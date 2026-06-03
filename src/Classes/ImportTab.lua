@@ -815,6 +815,91 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	main:SetWindowTitleSubtext(string.format("%s (%s, %s, %s)", self.build.buildName, charData.name, charData.class, charData.league))
 end
 
+local SOCKET_GROUP_REIMPORT_KEY_SEPARATOR = "\31"
+
+local function getSocketGroupReimportKey(socketGroup)
+	-- Use a rarely-used separator to avoid accidental collisions when concatenating fields.
+	local gemNameParts = { }
+	for _, gem in ipairs(socketGroup.gemList) do
+		t_insert(gemNameParts, (gem.nameSpec or ""):lower())
+	end
+	return table.concat({
+		socketGroup.slot or "",
+		socketGroup.source or "",
+		tostring(#socketGroup.gemList),
+		table.concat(gemNameParts, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR),
+	}, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR)
+end
+
+local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
+	local gemStates = { }
+	for gemIndex, gem in ipairs(socketGroup.gemList) do
+		gemStates[gemIndex] = {
+			enabled = gem.enabled,
+			count = gem.count,
+			skillPart = gem.skillPart,
+			skillPartCalcs = gem.skillPartCalcs,
+			skillStageCount = gem.skillStageCount,
+			skillStageCountCalcs = gem.skillStageCountCalcs,
+			skillMineCount = gem.skillMineCount,
+			skillMineCountCalcs = gem.skillMineCountCalcs,
+			skillMinion = gem.skillMinion,
+			skillMinionCalcs = gem.skillMinionCalcs,
+			skillMinionItemSet = gem.skillMinionItemSet,
+			skillMinionItemSetCalcs = gem.skillMinionItemSetCalcs,
+			skillMinionSkill = gem.skillMinionSkill,
+			skillMinionSkillCalcs = gem.skillMinionSkillCalcs,
+			enableGlobal1 = gem.enableGlobal1,
+			enableGlobal2 = gem.enableGlobal2,
+		}
+	end
+	return {
+		enabled = socketGroup.enabled,
+		includeInFullDPS = socketGroup.includeInFullDPS,
+		groupCount = socketGroup.groupCount,
+		label = socketGroup.label,
+		mainActiveSkill = socketGroup.mainActiveSkill,
+		mainActiveSkillCalcs = socketGroup.mainActiveSkillCalcs,
+		gemStates = gemStates,
+		isMainGroup = isMainGroup,
+	}
+end
+
+local function applyGemReimportState(gem, state)
+	gem.enabled = state.enabled
+	gem.count = state.count
+	gem.skillPart = state.skillPart
+	gem.skillPartCalcs = state.skillPartCalcs
+	gem.skillStageCount = state.skillStageCount
+	gem.skillStageCountCalcs = state.skillStageCountCalcs
+	gem.skillMineCount = state.skillMineCount
+	gem.skillMineCountCalcs = state.skillMineCountCalcs
+	gem.skillMinion = state.skillMinion
+	gem.skillMinionCalcs = state.skillMinionCalcs
+	gem.skillMinionItemSet = state.skillMinionItemSet
+	gem.skillMinionItemSetCalcs = state.skillMinionItemSetCalcs
+	gem.skillMinionSkill = state.skillMinionSkill
+	gem.skillMinionSkillCalcs = state.skillMinionSkillCalcs
+	gem.enableGlobal1 = state.enableGlobal1
+	gem.enableGlobal2 = state.enableGlobal2
+end
+
+local function applySocketGroupReimportState(socketGroup, state)
+	socketGroup.enabled = state.enabled
+	socketGroup.includeInFullDPS = state.includeInFullDPS
+	socketGroup.groupCount = state.groupCount
+	socketGroup.label = state.label
+	socketGroup.mainActiveSkill = state.mainActiveSkill
+	socketGroup.mainActiveSkillCalcs = state.mainActiveSkillCalcs
+	if state.gemStates then
+		for gemIndex, gemState in ipairs(state.gemStates) do
+			if socketGroup.gemList[gemIndex] then
+				applyGemReimportState(socketGroup.gemList[gemIndex], gemState)
+			end
+		end
+	end
+end
+
 function ImportTabClass:ImportItemsAndSkills(charData)
 	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
