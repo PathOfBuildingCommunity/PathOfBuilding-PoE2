@@ -648,8 +648,14 @@ local function doActorMisc(env, actor)
 				enemyDB:NewMod("DamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
 			else
 				enemyDB:NewMod("PhysicalDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+				if modDB:Flag(nil, "ArmourBreakColdDamageTaken") then
+					enemyDB:NewMod("ColdDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+				end
 				if modDB:Flag(nil, "ArmourBreakFireDamageTaken") then
 					enemyDB:NewMod("FireDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+				end
+				if modDB:Flag(nil, "ArmourBreakLightningDamageTaken") then
+					enemyDB:NewMod("LightningDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
 				end
 			end
 		end
@@ -1304,10 +1310,11 @@ function calcs.perform(env, skipEHP)
 		local tempTable1 = { }
 		local slotCfg = wipeTable(tempTable1)
 		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-			local armourData = env.player.itemList[slot] and env.player.itemList[slot].armourData
+			local item = env.player.itemList[slot]
+			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				energyShieldBase = armourData.EnergyShield or 0
+				energyShieldBase = item:GetArmourDataValue("EnergyShield", env.player.level)
 				if energyShieldBase > 0 then
 					modDB:NewMod("Life", "BASE", energyShieldBase, slot.." ES to Life Conversion")
 				end
@@ -1366,9 +1373,9 @@ function calcs.perform(env, skipEHP)
 
 	if modDB:Flag(nil, "ConvertBodyArmourArmourEvasionToWard") then
 		local ward
-		local armourData = env.player.itemList["Body Armour"] and env.player.itemList["Body Armour"].armourData
-		if armourData then
-			ward = armourData.Evasion + armourData.Armour
+		local item = env.player.itemList["Body Armour"]
+		if item and item.armourData then
+			ward = item:GetArmourDataValue("Evasion", env.player.level) + item:GetArmourDataValue("Armour", env.player.level)
 			if ward > 0 then
 				local wardMult = ((modDB:Sum("BASE", nil,"BodyArmourArmourEvasionToWardPercent") or 0) / 100)
 				modDB:NewMod("Ward", "BASE", ward * wardMult , "Body Armour Armour And Evasion Rating to Ward Conversion")
@@ -1997,10 +2004,18 @@ function calcs.perform(env, skipEHP)
 					if baseEmpowers > 0 then
 						local extraEmpowers = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
 						local EmpowerMultiplier = modStore:More(nil, "ExtraEmpoweredAttacks")
-						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier))
+						local totalEmpowers = (baseEmpowers + extraEmpowers) * EmpowerMultiplier
+						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", totalEmpowers)
 						if not warcryList[buff.name] then
 							env.player.modDB:NewMod("Multiplier:EmpoweringWarcryCount", "BASE", 1, buff.name)
 							warcryList[buff.name] = true
+						end
+						if breakdown then
+							breakdown[warcryName.."EmpoweringWarcryCount"] = {
+								s_format("(%d / %d) ^8(Power / per = base)", m_min(warcryPower, powerCap), powerPer),
+								s_format("= ((%.2f + %.2f) x %.2f) ^8((base + extra) x more)", baseEmpowers, extraEmpowers, EmpowerMultiplier),
+								s_format("= %.2f", totalEmpowers),
+							}
 						end
 					end
 					if not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") then

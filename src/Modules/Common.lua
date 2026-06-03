@@ -238,7 +238,7 @@ function convertUTF8to16(text, offset)
 			else
 				t_insert(out, "?\z")
 			end
-		else 
+		else
 			t_insert(out, "?\z")
 		end
 	end
@@ -888,9 +888,13 @@ function supportEnabled(skillName, activeSkill)
 	return true
 end
 
+-- will remove newlines from strings so that they are valid lua
+---@param thing string | table | number
+---@return string
 function stringify(thing)
 	if type(thing) == 'string' then
-		return thing
+		local s = thing:gsub("\n", "")
+		return s
 	elseif type(thing) == 'number' then
 		return ""..thing;
 	elseif type(thing) == 'table' then
@@ -907,12 +911,12 @@ function stringify(thing)
 				s = s.."[\""..k.."\"] = "
 			end
 			if type(v) == 'string' then
-				s = s.."\""..stringify(v).."\", "
+				s = s.."\""..stringify(v).."\","
 			else
 				if type(v) == "boolean" then
 					v = v and "true" or "false"
 				end
-				val = stringify(v)..", "
+				val = stringify(v)..","
 				if type(v) == "table" then
 					val = string.gsub(val, "\n", "\n\t")
 				end

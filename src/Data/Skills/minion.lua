@@ -2483,3 +2483,333 @@ skills["TangmazuMadFlightMinion"] = {
 		},
 	}
 }
+skills["AzmerianSwarmAttack"] = {
+	name = "Basic Attack",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.75, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 4 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MeleeAtAnimationSpeedWolfPackleader"] = {
+	name = "Basic Attack",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Melee",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "maim_on_hit_%", 100 },
+				{ "attack_maximum_action_distance_+", 15 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WolfPackleaderDashAttack"] = {
+	name = "Dash",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 7, cooldown = 7.5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dash",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 35 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WolfPackleaderLungeBite"] = {
+	name = "Bite",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 3.5, cooldown = 3.5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lunge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 30 },
+				{ "bleed_on_hit_with_attacks_%", 100 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GreatHuntPackleaderMinion"] = {
+	name = "Eternal Hunt",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ThePackleaderCommandSkill.dds",
+	description = "The Azmerian Wolf howls, reaching out to the spirits to begin an Eternal Hunt. While the Eternal Hunt persists, spirits manifest as spectral wolves to ambush foes, damaging and Maiming enemies they Hit before disappearing.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, },
+	castTime = 4,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 50, baseMultiplier = 10, cooldown = 15, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Hunt",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "packleader_great_hunt",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 14 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "skill_specific_stat_description_mode", 7 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearMaul"] = {
+	name = "Maul",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidBearMaul.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Maul",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "melee_conditional_step_distance", 5 },
+				{ "moving_melee_conditional_step_distance", 15 },
+				{ "armour_break_damage_%_dealt_as_armour_break", 5 },
+				{ "attack_maximum_action_distance_+", -6 },
+				{ "melee_range_+", 6 },
+			},
+			stats = {
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearSlam"] = {
+	name = "Slam",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Slam] = true, [SkillType.Melee] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "bear_skills_additional_base_attack_time_when_performing_from_standing_stance", -500 },
+				{ "base_life_leech_from_any_attack_damage_permyriad", 5000 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"global_knockback",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearLeapImpact"] = {
+	name = "Leap Slam",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "generic_knockback_+%_final_at_min_distance", 200 },
+				{ "generic_knockback_+%_final_at_max_distance", -90 },
+				{ "generic_knockback_distance_limit", 25 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
+				"global_knockback",
+				"global_maim_on_hit",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSWardboundMinionBlast"] = {
+	name = "Cold Spell",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Cold Spell",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -65 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}

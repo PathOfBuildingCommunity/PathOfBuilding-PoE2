@@ -823,7 +823,7 @@ return {
 			name="Icon",
 			refTo="",
 			type="String",
-			width=290
+			width=100
 		},
 		[6]={
 			list=true,
@@ -24854,10 +24854,10 @@ return {
 		},
 		[21]={
 			list=false,
-			name="",
+			name="SkillId",
 			refTo="",
 			type="Int",
-			width=50
+			width=60
 		},
 		[22]={
 			list=false,
@@ -24966,7 +24966,7 @@ return {
 		},
 		[37]={
 			list=false,
-			name="",
+			name="MaxInheritedLevel",
 			refTo="",
 			type="Int",
 			width=90
@@ -42391,7 +42391,7 @@ return {
 			name="AdditionalMonsters",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=480
+			width=610
 		},
 		[25]={
 			list=true,
@@ -55171,7 +55171,7 @@ return {
 			name="MinionGlobalSkillLevelStat",
 			refTo="Stats",
 			type="Key",
-			width=160
+			width=150
 		},
 		[8]={
 			list=false,

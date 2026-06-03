@@ -49,7 +49,9 @@ end
 function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
-		tooltip:AddLine(18, "^7"..minion.name)
+		tooltip.center = true
+		tooltip:AddLine(20, "^7"..minion.name, "FONTIN SC")
+		tooltip.center = false
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
 		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
@@ -65,23 +67,27 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 			tooltip:AddLine(14, s_format("^7Evasion Multiplier: x%.2f", 1 + minion.evasion))
 		end
 		tooltip:AddLine(14, s_format("^7Resistances: %s%d ^7/ %s%d ^7/ %s%d ^7/ %s%d",
-			colorCodes.FIRE, minion.fireResist, 
-			colorCodes.COLD, minion.coldResist, 
-			colorCodes.LIGHTNING, minion.lightningResist, 
+			colorCodes.FIRE, minion.fireResist,
+			colorCodes.COLD, minion.coldResist,
+			colorCodes.LIGHTNING, minion.lightningResist,
 			colorCodes.CHAOS, minion.chaosResist
 		))
 		tooltip:AddLine(14, s_format("^7Base Damage: x%.2f", minion.damage))
 		tooltip:AddLine(14, s_format("^7Base Attack Speed: %.2f", 1 / minion.attackTime))
 		tooltip:AddLine(14, s_format("^7Base Movement Speed: %.2f", minion.baseMovementSpeed / 10))
-		for _, skillId in ipairs(minion.skillList) do
-			if self.data.skills[skillId] then
-				tooltip:AddLine(14, "^7Skill: "..self.data.skills[skillId].name)
+		if #minion.skillList > 0 then
+			tooltip:AddSeparator(10)
+			for _, skillId in ipairs(minion.skillList) do
+				if self.data.skills[skillId] then
+					local color = data.skillColorMap[self.data.skills[skillId].color] or colorCodes.NORMAL
+					tooltip:AddLine(14, "^7Skill: " .. color .. self.data.skills[skillId].name)
+				end
 			end
 		end
 		tooltip:AddSeparator(10)
 		if #minion.spawnLocation > 0 then
 			local coloredLocations = {}
-			for _, location in ipairs(minion.spawnLocation) do -- Print (Map) or (Act 7) in white, and map name in green. 
+			for _, location in ipairs(minion.spawnLocation) do -- Print (Map) or (Act 7) in white, and map name in green.
 				local mainText, bracket = location:match("^(.-)%s*(%b())%s*$")
 				table.insert(coloredLocations, bracket and (colorCodes.RELIC .. mainText .. " " .. "^7" .. bracket) or (colorCodes.RELIC .. location))
 			end
