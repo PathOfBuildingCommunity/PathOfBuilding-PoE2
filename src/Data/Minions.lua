@@ -1154,3 +1154,47 @@ minions["AzmerianWolf"] = {
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
 	},
 }
+
+minions["BearCompanion"] = {
+	name = "Wild Bear Spirit",
+	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 4.5,
+	damageSpread = 0.2,
+	attackTime = 0.8,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"CompanionBearMaul",
+		"CompanionBearSlam",
+		"CompanionBearWarcry",
+		"CompanionBearLeap",
+		"CompanionBearLeapImpact",
+		"CompanionBearLeapImpact2",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_bear_companion [is_bear_companion = 1]
+		-- no_blood_on_death [no_blood_on_death = 1]
+		-- override_turn_duration_ms [override_turn_duration_ms = 600]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
+		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
+		-- base_presence_radius [base_presence_radius = 40]
+		mod("DamageTaken", "INC", -50, 0, 0), -- set_base_damage_taken_+% [set_base_damage_taken_+% = -50]
+	},
+}

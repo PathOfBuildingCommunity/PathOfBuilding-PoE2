@@ -110,3 +110,6 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/UniqueItemMonsters/AzmerianPackleader/PackleaderWolfMinion AzmerianWolf
 #emit
+
+#monster Metadata/Monsters/CompanionBear/CompanionBearPlayerSummoned BearCompanion
+#emit

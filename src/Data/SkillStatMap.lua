@@ -2985,6 +2985,9 @@ return {
 	mod("DamageTaken", "MORE", nil),
 	value = -100,
 },
+["set_base_damage_taken_+%"] = {
+	mod("DamageTaken", "INC", nil),
+},
 --
 -- Gem Levels / quality
 --

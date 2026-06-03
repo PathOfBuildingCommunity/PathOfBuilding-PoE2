@@ -20509,6 +20509,9 @@ skills["WildProtectorPlayer"] = {
 	baseTypeName = "Wild Protector",
 	icon = "Art/2DArt/SkillIcons/WildspeakerBearSkill.dds",
 	fromTree = true,
+	minionList = {
+		"BearCompanion",
+	},
 	color = 4,
 	description = "Call upon a Bear Spirit Companion to maul your foes. The Bear Spirit leaps at enemies to Maim them, Leeches Life with its slam, and periodically roars to Intimidate enemies. The Bear Spirit does not count toward your Companion limit.",
 	skillTypes = { [SkillType.Companion] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.CreatesCompanion] = true, [SkillType.AttackInPlace] = true, [SkillType.Physical] = true, },
@@ -20566,6 +20569,7 @@ skills["WildProtectorPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				minion = true,
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },

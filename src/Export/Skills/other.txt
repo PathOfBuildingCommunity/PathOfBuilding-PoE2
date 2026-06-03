@@ -1429,9 +1429,10 @@ statMap = {
 #skillEnd
 
 #from tree
+#minionList BearCompanion
 #skill WildProtectorPlayer
 #set WildProtectorPlayer
-#flags
+#flags minion
 #mods
 #skillEnd
 

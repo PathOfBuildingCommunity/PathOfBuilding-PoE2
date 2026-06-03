@@ -2658,3 +2658,117 @@ skills["GreatHuntPackleaderMinion"] = {
 		},
 	}
 }
+skills["CompanionBearMaul"] = {
+	name = "Maul",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidBearMaul.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Maul",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "melee_conditional_step_distance", 5 },
+				{ "moving_melee_conditional_step_distance", 15 },
+				{ "armour_break_damage_%_dealt_as_armour_break", 5 },
+				{ "attack_maximum_action_distance_+", -6 },
+				{ "melee_range_+", 6 },
+			},
+			stats = {
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearSlam"] = {
+	name = "Slam",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Slam] = true, [SkillType.Melee] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "bear_skills_additional_base_attack_time_when_performing_from_standing_stance", -500 },
+				{ "base_life_leech_from_any_attack_damage_permyriad", 5000 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"global_knockback",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearLeapImpact"] = {
+	name = "Leap Slam",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "generic_knockback_+%_final_at_min_distance", 200 },
+				{ "generic_knockback_+%_final_at_max_distance", -90 },
+				{ "generic_knockback_distance_limit", 25 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
+				"global_knockback",
+				"global_maim_on_hit",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}

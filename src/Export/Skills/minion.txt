@@ -384,3 +384,22 @@ statMap = {
 #flags attack melee
 #mods
 #skillEnd
+
+#skill CompanionBearMaul
+#set CompanionBearMaul
+#flags attack melee
+#mods
+#skillEnd
+
+#skill CompanionBearSlam
+#set CompanionBearSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill CompanionBearLeapImpact Leap Slam
+#set CompanionBearLeapImpact
+#flags attack melee area
+#mods
+#skillEnd
+
