@@ -1980,4 +1980,18 @@ itemBases["Runemastered Grand Manchettes"] = {
 	req = { level = 65, str = 32, dex = 32, int = 32, },
 }
 
+-- Custom base types not present in GGPK exports.
+-- Needed so imported items can resolve their base correctly.
+itemBases["Fists of Stone"] = {
+	type = "Gloves",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	hidden = true,
+	tags = { armour = true, gloves = true, },
+	implicitModTypes = { },
+	armour = { Armour = 0, },
+	req = { },
+}
+
 
