@@ -1197,7 +1197,6 @@ local preFlagList = {
 	["^melee weapon damage"] = { flags = ModFlag.WeaponMelee },
 	["^deal "] = { },
 	["^causes "] = { },
-	["^has "] = { },
 	["^arrows deal "] = { keywordFlags = KeywordFlag.Arrow },
 	["^critical hits deal "] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["^poisons you inflict with critical hits have "] = { keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.MatchAll), tag = { type = "Condition", var = "CriticalStrike" } },
