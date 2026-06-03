@@ -1,4 +1,4 @@
-VERSION[0.18.0][2026/06/03]
+VERSION[0.18.0][2026/06/04]
 
 --- New to Path of Building ---
 * Add missing 0.5 skill gems (LocalIdentity)
