@@ -520,7 +520,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 				self:ReplaceSel("")
 			end
 		end
-	elseif key == "v" and ctrl or key == "RIGHTBUTTON" and self.Object:IsMouseOver() then
+	elseif key == "v" and ctrl or key == "RIGHTBUTTON" and self.Object:IsMouseOver() and not self.disableRightClickPaste then
 		local text = Paste()
 		if text then
 			if self.pasteFilter then
