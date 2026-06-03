@@ -283,6 +283,10 @@ function describeStats(stats)
 					val[spec.v].min = val[spec.v].min / 1000
 					val[spec.v].max = val[spec.v].max / 1000
 					val[spec.v].fmt = "g"
+				elseif spec.k == "divide_by_ten_thousand_1dp" then
+					val[spec.v].min = round(val[spec.v].min / 10000, 1)
+					val[spec.v].max = round(val[spec.v].max / 10000, 1)
+					val[spec.v].fmt = "g"
 				elseif spec.k == "per_minute_to_per_second" then
 					val[spec.v].min = val[spec.v].min / 60
 					val[spec.v].max = val[spec.v].max / 60
@@ -368,7 +372,7 @@ function describeStats(stats)
 					val[spec.v].max = val[spec.v].max + 200
 				elseif spec.k == "reminderstring" or spec.k == "canonical_line" or spec.k == "canonical_stat" then
 				elseif spec.k then
-					ConPrintf("Unknown description function: %s", spec.k)
+					print("Unknown description function: %s", spec.k)
 				end
 			end
 			local statDesc = desc.text:gsub("{(%d)}", function(n) 

@@ -220,6 +220,9 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 						ifRequired = true
 					elseif format == "divide_by_one_thousand" then
 						precision = 1000
+					elseif format == "divide_by_ten_thousand_1dp" then
+						precision = 10000
+						displayPrecision = 1
 					elseif format == "per_minute_to_per_second" then
 						precision = 60
 					elseif format == "per_minute_to_per_second_0dp" then

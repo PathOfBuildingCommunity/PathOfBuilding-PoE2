@@ -106,6 +106,12 @@ directiveTable.noGem = function(state, args, out)
 	state.noGem = true
 end
 
+-- #hideFromSideBar
+-- Loads the skill but prevents it from being offered as an active skill choice.
+directiveTable.hideFromSideBar = function(state, args, out)
+	out:write('\thideFromSideBar = true,\n')
+end
+
 -- #addSkillTypes <flag>[ <flag>[...]]
 -- skill types to be added to the skillTypes flags for this active skill
 directiveTable.addSkillTypes = function(state, args, out)

@@ -2885,6 +2885,9 @@ return {
 ["crushed_target_%_physical_damage_taken_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }, { type = "ActorCondition", actor = "enemy", var = "Crushed" }),
 },
+["armour_break_fire_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
 --
 -- Spectre or Minion-specific stats
 --

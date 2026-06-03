@@ -527,9 +527,30 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDoedresUndoingPlayer
+#set SupportDoedresUndoingPlayer
+statMap = {
+	["doedre_cursed_ground_toad_spawn_interval_ms"] = {
+		mod("ToadSpawnInterval", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+	["max_toads_per_doedre_cursed_ground"] = {
+		-- Display Only
+	},
+},
+#mods
+#skillEnd
+
 #skill ChaosFrogExplosionPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval") / 1000
+end,
 #set ChaosFrogExplosionPlayer
-#flags spell area
+#flags spell area triggered
+statMap = {
+	["triggered_by_chaos_frog_explosion_chance_%"] = {
+		-- Display Only
+	},
+},
 #mods
 #skillEnd
 
@@ -623,6 +644,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredSparkEmpowerPlayer
+#hideFromSideBar
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayer
+#set TriggeredEmpoweredSparkPlayer
+#flags hit projectile duration
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayer
+#flags hit projectile duration
+#mods
+#skillEnd
+
 #skill SupportEncroachingGroundPlayer
 #set SupportEncroachingGroundPlayer
 #mods
@@ -635,6 +677,13 @@ statMap = {
 
 #skill SupportEnergyRetentionPlayer
 #set SupportEnergyRetentionPlayer
+#mods
+#skillEnd
+
+#from item
+#skill EnervatingNovaPlayer
+#set EnervatingNovaPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -846,6 +895,11 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportGorgePlayer
+#set SupportGorgePlayer
 #mods
 #skillEnd
 
@@ -1212,6 +1266,11 @@ statMap = {
 
 #skill SupportOisinsOathPlayer
 #set SupportOisinsOathPlayer
+#mods
+#skillEnd
+
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
 statMap = {
 	["mana_leech_from_elemental_instead"] = {
 		flag("ManaLeechBasedOnElementalDamage"),
@@ -1299,6 +1358,16 @@ statMap = {
 statMap = {
 	["support_ritual_curse_curse_delay_+%_final"] = {
 		mod("CurseDelay", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportRomirasRequitalPlayer
+#set SupportRomirasRequitalPlayer
+statMap = {
+	["support_trusty_companion_minion_life_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 	},
 },
 #mods

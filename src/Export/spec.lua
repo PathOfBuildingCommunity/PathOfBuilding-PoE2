@@ -24854,10 +24854,10 @@ return {
 		},
 		[21]={
 			list=false,
-			name="",
+			name="SkillId",
 			refTo="",
 			type="Int",
-			width=50
+			width=60
 		},
 		[22]={
 			list=false,
@@ -24966,7 +24966,7 @@ return {
 		},
 		[37]={
 			list=false,
-			name="",
+			name="MaxInheritedLevel",
 			refTo="",
 			type="Int",
 			width=90

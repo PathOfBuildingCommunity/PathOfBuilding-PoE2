@@ -1388,6 +1388,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
 
+	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 0, Dex = 0, Int = 0 }
+	local virtuousMoteSkillCounted = { }
+
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
 			local function getNormalizedSkillLevel(grantedSkill)
@@ -1741,8 +1744,25 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if gemInstance.enabled and (gemInstance.gemData or gemInstance.grantedEffect) then
 						local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 						for index, grantedEffect in ipairs(grantedEffectList) do
-							if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+							if not grantedEffect.support and not grantedEffect.hideFromSideBar and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
 								slotHasActiveSkill = true
+								if gemInstance.gemData and not virtuousMoteSkillCounted[gemInstance] and not (group.gemList[gemIndex].fromNode or group.gemList[gemIndex].fromItem) then
+									virtuousMoteSkillCounted[gemInstance] = true
+									local requiredAttributes = { }
+									if gemInstance.gemData.reqStr > 0 then
+										t_insert(requiredAttributes, "Str")
+									end
+									if gemInstance.gemData.reqDex > 0 then
+										t_insert(requiredAttributes, "Dex")
+									end
+									if gemInstance.gemData.reqInt > 0 then
+										t_insert(requiredAttributes, "Int")
+									end
+									local moteValue = #requiredAttributes == 1 and 2 or 1
+									for _, attr in ipairs(requiredAttributes) do
+										virtuousMoteSkillCount[attr] = virtuousMoteSkillCount[attr] + moteValue
+									end
+								end
 								local activeEffect = {
 									grantedEffect = grantedEffect,
 									level = gemInstance.level,
@@ -1964,6 +1984,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
 		end
 	end
+
+	env.virtuousMoteSkillCount = virtuousMoteSkillCount
+	env.modDB.multipliers.StrengthMoteSkillCount = virtuousMoteSkillCount.Str
+	env.modDB.multipliers.DexterityMoteSkillCount = virtuousMoteSkillCount.Dex
+	env.modDB.multipliers.IntelligenceMoteSkillCount = virtuousMoteSkillCount.Int
 
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group

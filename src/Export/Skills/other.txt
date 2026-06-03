@@ -6,6 +6,13 @@
 local skills, mod, flag, skill = ...
 
 #from tree
+#skill TriggeredAbyssalApparitionPlayer
+#set TriggeredAbyssalApparitionPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
 #skill AcidicConcoctionPlayer
 #set AcidicConcoctionPlayer
 #flags attack projectile area
@@ -174,6 +181,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBreachlordsRift
+#set SupportBreachlordsRift
+statMap = {
+	["fully_broken_armour_and_sundered_armour_you_inflict_also_applies_to_cold_and_lightning_damage"] = {
+		flag("ArmourBreakColdDamageTaken", { type = "GlobalEffect", effectType = "Buff", effectName = "Breachlords Rift" }),
+		flag("ArmourBreakLightningDamageTaken", { type = "GlobalEffect", effectType = "Buff", effectName = "Breachlords Rift" }),
+	},
+	["support_break_%_armour_on_freeze_or_electrocute"] = {
+		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "Breachlords Rift" }, { type = "ActorCondition", actor = "enemy", varList = { "Frozen", "Electrocuted" } }),
+	},
+},
+#mods
+#skillEnd
+
 #from item
 #skill ExplodingPoisonToadPlayer
 #set ExplodingPoisonToadPlayer
@@ -209,6 +230,13 @@ statMap = {
 
 #skill SupportCathasBrilliance
 #set SupportCathasBrilliance
+#mods
+#skillEnd
+
+#from item
+#skill ChaosSpearTriggerChaosSurgePlayer
+#set ChaosSpearTriggerChaosSurgePlayer
+#flags attack area
 #mods
 #skillEnd
 
@@ -458,6 +486,16 @@ statMap = {
 #skillEnd
 
 #from item
+#skill GelidPalmPlayer
+#set GelidPalmPlayer
+#flags
+#mods
+#set GelidPalmBoltPlayer
+#flags attack area unarmed
+#mods
+#skillEnd
+
+#from item
 #skill MeleeGrenadeLauncherPlayer
 #set MeleeGrenadeLauncherPlayer
 #flags attack area projectile
@@ -470,6 +508,28 @@ statMap = {
 #mods
 #set GrimPillarsExplodePlayer
 #flags spell area duration
+#mods
+#skillEnd
+
+#from item
+#skill HarbingerOfMadnessPlayer
+#set HarbingerOfMadnessPlayer
+#flags area hit
+statMap = {
+	["harbinger_of_madness_damage_+%_final_per_power_of_source_enemy"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "EnemyPower"}),
+	},
+},
+#mods
+#skillEnd
+
+#from item
+#skill UniqueAtziriHeraldPlayer
+#set UniqueAtziriHeraldPlayer
+#flags
+#mods
+#set UniqueAtziriHeraldExplosionPlayer
+#flags hit
 #mods
 #skillEnd
 
@@ -929,6 +989,18 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill RunicTemperingPlayer
+#set RunicTempering
+#flags
+statMap = {
+	["runic_tempering_damage_taken_+%_final"] = {
+		mod("DamageTaken", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+},
+#mods
+#skillEnd
+
 #from tree
 #minionList FireDjinn
 #skill SummonFireDjinnPlayer
@@ -941,6 +1013,18 @@ statMap = {
 #skill CommandFireDjinnLivingBombPlayer
 #set CommandFireDjinnLivingBombPlayer
 #flags
+#mods
+#skillEnd
+
+#from item
+#skill SanguineRevelryPlayer
+#set SanguineRevelryPlayer
+#flags
+statMap = {
+	["sanguine_revelry_rage_gain_per_pickup"] = {
+		flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Sanguine Revelry" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -987,6 +1071,13 @@ statMap = {
 #mods
 #set SkyfallInfusedPlayer
 #flags spell area duration
+#mods
+#skillEnd
+
+#from item
+#skill SmashToSmithereensPlayer
+#set SmashToSmithereensPlayer
+#flags attack area
 #mods
 #skillEnd
 
@@ -1228,6 +1319,33 @@ statMap = {
 	},
 	["base_mana_cost_efficiency_+%_during_mana_flask"] = {
 		mod("ManaCostEfficiency", "INC", nil, 0, 0, { type = "Condition", var = "UsingManaFlask" }),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
+#skill VirtuousBarrierPlayer
+#set VirtuousBarrierPlayer
+#flags
+statMap = {
+	["gem_barrier_red_grants_maximum_life_+%"] = {
+		mod("Life", "INC", nil, 0, 0, { type = "Multiplier", var = "StrengthMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_blue_grants_life_regeneration_rate_+%"] = {
+		mod("LifeRegen", "INC", nil, 0, 0, { type = "Multiplier", var = "IntelligenceMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_blue_grants_mana_regeneration_rate_+%"] = {
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "Multiplier", var = "IntelligenceMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_evasion_rating_+%"] = {
+		mod("Evasion", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_physical_damage_reduction_rating_+%"] = {
+		mod("Armour", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["gem_barrier_green_grants_energy_shield_delay_-%"] = {
+		mod("EnergyShield", "INC", nil, 0, 0, { type = "Multiplier", var = "DexterityMoteSkillCount" }, { type = "GlobalEffect", effectType = "Buff" }),
 	},
 },
 #mods

@@ -572,6 +572,7 @@ c["+3 to Level of all Rolling Magma Skills"]={{[1]={flags=0,keywordFlags=0,name=
 c["+3 to Level of all Rolling Slam Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="rolling slam",value=3}}},nil}
 c["+3 to Level of all Runic Reprieve Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="runic reprieve",value=3}}},nil}
 c["+3 to Level of all Sacrifice Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="sacrifice",value=3}}},nil}
+c["+3 to Level of all Savage Fury Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="savage fury",value=3}}},nil}
 c["+3 to Level of all Scavenged Plating Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="scavenged plating",value=3}}},nil}
 c["+3 to Level of all Seismic Cry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="seismic cry",value=3}}},nil}
 c["+3 to Level of all Shard Scavenger Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="shard scavenger",value=3}}},nil}
@@ -5556,7 +5557,7 @@ c["Grants Skill: Temporal Rift"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill"
 c["Grants Skill: Time Freeze"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="TimeFreezePlayer"}}},nil}
 c["Grants Skill: Time Snap"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="TimeSnapPlayer"}}},nil}
 c["Grants Skill: Unbound Avatar"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="UnboundAvatarPlayer"}}},nil}
-c["Grants Skill: Virtuous Barrier"]={nil,nil}
+c["Grants Skill: Virtuous Barrier"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="VirtuousBarrierPlayer"}}},nil}
 c["Grants Skill: Vivid Stampede"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="VividStampedePlayer"}}},nil}
 c["Grants Skill: Void Illusion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="VoidIllusionPlayer"}}},nil}
 c["Grants Skill: Wild Protector"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="WildProtectorPlayer"}}},nil}

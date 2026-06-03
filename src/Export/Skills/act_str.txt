@@ -924,6 +924,28 @@ end,
 #mods
 #skillEnd
 
+#skill SavageFuryPlayer
+#set SavageFuryPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SavageFuryActivePlayer
+#set SavageFuryActivePlayer
+#flags duration
+statMap = {
+	["wild_beast_life_lost_%_per_minute_nonlethal"] = {
+		mod("LifeDegen", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		div = 60,
+	},
+	["wild_beast_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		flag("Onslaught", { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } })
+	},
+},
+#mods
+#skillEnd
+
 #skill ScavengedPlatingPlayer
 grantsThornsDamage = true,
 #set ScavengedPlatingPlayer
