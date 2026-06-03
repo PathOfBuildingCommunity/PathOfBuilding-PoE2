@@ -16453,6 +16453,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["3196512240"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3196512240",
+				["text"] = "#% increased Explicit Chaos Modifier magnitudes",
+				["type"] = "explicit",
+			},
+		},
 		["3196823591"] = {
 			["specialCaseData"] = {
 			},
@@ -21186,6 +21195,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["895564377"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_895564377",
+				["text"] = "Increases and Reductions to Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
+				["type"] = "explicit",
+			},
+		},
 		["915769802"] = {
 			["Belt"] = {
 				["max"] = 304,
@@ -23639,6 +23657,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1311130924"] = {
+			["Chest"] = {
+				["max"] = 25,
+				["min"] = 25,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1311130924",
+				["text"] = "#% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
+				["type"] = "augment",
+			},
+		},
 		["1323701627"] = {
 			["1HWeapon"] = {
 				["max"] = 1,
@@ -25431,6 +25462,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2392260628",
 				["text"] = "#% increased Runic Ward Regeneration Rate",
+				["type"] = "augment",
+			},
+		},
+		["2444976134"] = {
+			["Chest"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2444976134",
+				["text"] = "Gain Maximum Energy Shield equal to #% of totalStrength Requirements of Equipped Armour Items",
 				["type"] = "augment",
 			},
 		},

@@ -67,7 +67,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more damage for each previous time this Skill has been used consecutively"
+				text="{0}% more damage for each previous time this Skill has been used consecutively, up to 300%"
 			},
 			[2]={
 				[1]={
@@ -80,7 +80,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less damage for each previous time this Skill has been used consecutively"
+				text="{0}% less damage for each previous time this Skill has been used consecutively, up to 300%"
 			}
 		},
 		stats={
