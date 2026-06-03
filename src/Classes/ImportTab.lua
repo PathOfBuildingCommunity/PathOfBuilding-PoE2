@@ -825,8 +825,6 @@ local function getSocketGroupReimportKey(socketGroup)
 		t_insert(gemNameParts, (gem.nameSpec or ""):lower())
 	end
 	return table.concat({
-		socketGroup.slot or "",
-		socketGroup.source or "",
 		tostring(#socketGroup.gemList),
 		table.concat(gemNameParts, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR),
 	}, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR)
@@ -850,6 +848,8 @@ local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
 			skillMinionItemSetCalcs = gem.skillMinionItemSetCalcs,
 			skillMinionSkill = gem.skillMinionSkill,
 			skillMinionSkillCalcs = gem.skillMinionSkillCalcs,
+			skillMinionSkillStatSetIndexLookup = gem.skillMinionSkillStatSetIndexLookup and copyTable(gem.skillMinionSkillStatSetIndexLookup),
+			skillMinionSkillStatSetIndexLookupCalcs = gem.skillMinionSkillStatSetIndexLookupCalcs and copyTable(gem.skillMinionSkillStatSetIndexLookupCalcs),
 			enableGlobal1 = gem.enableGlobal1,
 			enableGlobal2 = gem.enableGlobal2,
 		}
@@ -881,6 +881,8 @@ local function applyGemReimportState(gem, state)
 	gem.skillMinionItemSetCalcs = state.skillMinionItemSetCalcs
 	gem.skillMinionSkill = state.skillMinionSkill
 	gem.skillMinionSkillCalcs = state.skillMinionSkillCalcs
+	gem.skillMinionSkillStatSetIndexLookup = state.skillMinionSkillStatSetIndexLookup and copyTable(state.skillMinionSkillStatSetIndexLookup)
+	gem.skillMinionSkillStatSetIndexLookupCalcs = state.skillMinionSkillStatSetIndexLookupCalcs and copyTable(state.skillMinionSkillStatSetIndexLookupCalcs)
 	gem.enableGlobal1 = state.enableGlobal1
 	gem.enableGlobal2 = state.enableGlobal2
 end

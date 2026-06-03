@@ -88,6 +88,7 @@ describe("TestImportReimport", function()
 
 	it("preserves full DPS state and manually disabled gems when reimporting items and skills", function()
 		build.skillsTab:PasteSocketGroup([[
+Slot: Gloves
 Dark Effigy 1/0  1
 Controlled Destruction 1/0 DISABLED 1
 ]])
@@ -196,5 +197,32 @@ Fireball 20/0  1
 
 	it("preserves minion skill when reimporting items and skills", function()
 		assertReimportPreservesSkillSubstate("Linen Wraps", "Gloves", "Skeletal Sniper", "skillMinionSkill", 2)
+	end)
+
+	it("preserves minion skill stat set when reimporting items and skills", function()
+		build.skillsTab:PasteSocketGroup([[
+Skeletal Sniper 20/0  1
+]])
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		local activeEffect = socketGroup.displaySkillList[1].activeEffect
+		local grantedEffectId = activeEffect.grantedEffect.id
+		local srcInstance = activeEffect.srcInstance
+		srcInstance.skillMinionSkill = 2
+		srcInstance.skillMinionSkillCalcs = 2
+		srcInstance.skillMinionSkillStatSetIndexLookup = { [grantedEffectId] = { [2] = 3 } }
+		srcInstance.skillMinionSkillStatSetIndexLookupCalcs = { [grantedEffectId] = { [2] = 2 } }
+
+		reimportSingleGem("Linen Wraps", "Gloves", "Skeletal Sniper")
+
+		socketGroup = build.skillsTab.socketGroupList[1]
+		activeEffect = socketGroup.displaySkillList[1].activeEffect
+		grantedEffectId = activeEffect.grantedEffect.id
+		srcInstance = activeEffect.srcInstance
+		assert.are.equal(2, srcInstance.skillMinionSkill)
+		assert.are.equal(2, srcInstance.skillMinionSkillCalcs)
+		assert.are.equal(3, srcInstance.skillMinionSkillStatSetIndexLookup[grantedEffectId][2])
+		assert.are.equal(2, srcInstance.skillMinionSkillStatSetIndexLookupCalcs[grantedEffectId][2])
 	end)
 end)
