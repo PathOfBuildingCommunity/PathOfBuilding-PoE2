@@ -365,41 +365,45 @@ function TradeQueryGeneratorClass:InitMods()
 		return
 	end
 
-	-- download stats JSON from GGG API
-	launch:DownloadPage("https://www.pathofexile.com/api/trade2/data/stats",
-		function(response, errMsg)
-			if errMsg then
-				error("Error while downloading stats.json: "..errMsg)
-			end
-			local body = dkjson.decode(response.body)
+	-- Download stats JSON from GGG API. Do not use launch:DownloadPage here as it is async, and QueryMods.lua must use the freshly downloaded stats.
+	local tradeStats = ""
+	local easy = curl.easy()
+	easy:setopt_url("https://www.pathofexile.com/api/trade2/data/stats")
+	easy:setopt_useragent("Path of Building/" .. launch.versionNumber)
+	easy:setopt_writefunction(function(data)
+		tradeStats = tradeStats..data
+		return true
+	end)
+	local ok = easy:perform()
+	easy:close()
+	if not ok or tradeStats == "" then
+		error("Error while downloading stats.json")
+	end
+	local body = dkjson.decode(tradeStats)
 
-			if body.error then
-				error("Error received from api/trade2/data/stats: "..body.error.message)
-			end
+	if body.error then
+		error("Error received from api/trade2/data/stats: "..body.error.message)
+	end
 
-			local f = io.open("./Data/TradeSiteStats.lua", "w")
-			if not f then
-				error("Could not open file for writing trade stat data")
-			end
+	local f = io.open("./Data/TradeSiteStats.lua", "w")
+	if not f then
+		error("Could not open file for writing trade stat data")
+	end
 
-			for catIdx, _ in ipairs(body.result) do
-				table.sort(body.result[catIdx].entries, function(a, b)
-					return a.text < b.text
-				end)
-			end
+	for catIdx, _ in ipairs(body.result) do
+		table.sort(body.result[catIdx].entries, function(a, b)
+			return a.text < b.text
+		end)
+	end
 
-
-				local template = [[-- This file is automatically downloaded, do not edit!
+	local template = [[-- This file is automatically downloaded, do not edit!
 -- Trade site stat data (c) Grinding Gear Games
 -- https://www.pathofexile.com/api/trade2/data/stats
 -- spell-checker: disable
 return %s
 -- spell-checker: enable]]
-			f:write(s_format(template, stringify(body.result)))
-
-			f:close()
-		end
-	)
+	f:write(s_format(template, stringify(body.result)))
+	f:close()
 
 	self.modData = {
 		["Explicit"] = { },
@@ -552,9 +556,6 @@ end
 function TradeQueryGeneratorClass:GenerateModWeights(modsToTest)
 	local start = GetTime()
 	for _, entry in pairs(modsToTest) do
-		if _ == "1671376347" then
-			print("help")
-		end
 		if entry[self.calcContext.itemCategory] ~= nil then
 			if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then -- Don't calculate the same thing twice (can happen with corrupted vs implicit)
 				goto continue
