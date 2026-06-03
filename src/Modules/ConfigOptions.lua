@@ -924,6 +924,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "mountainsTeachingsEnabled", type = "check", label = "Mountain's Teachings:", ifAscendClass = "Martial Artist", ifNode = 51546, defaultState = true, tooltip = "While active (requires Way of the Mountain):\n\tAttacks you use yourself and Attacks granted by the Martial Artist Ascendancy Class deal 15% more damage\n\tEnemy Hits you take that would deal damage less than or equal to 30% of your maximum Life (after Armour and Resistances, but before other modifiers to damage taken) deal 40% less damage (NOT REFLECTED IN POB)\n\tYou have 50% more Stun Threshold", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:MountainsTeachings", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "buffAdrenaline", type = "check", label = "Do you have Adrenaline?", tooltip = "This will enable the Adrenaline buff, which grants:\n\t100% increased Damage\n\t25% increased Attack, Cast and Movement Speed\n\t10% additional Physical Damage Reduction", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Adrenaline", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

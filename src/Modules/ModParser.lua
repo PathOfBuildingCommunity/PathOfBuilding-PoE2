@@ -6137,7 +6137,14 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
-	["can be modified while corrupted"] = {}
+	["can be modified while corrupted"] = {},
+	["(%d+)%% surpassing chance per enemy power to gain mountain's teachings on immobilising an enemy if you have the way of the mountain ascendancy passive skill"] = function()
+		local mtTag = { type = "Condition", var = "MountainsTeachings" }
+		return {
+			mod("Damage", "MORE", 15, "Mountain's Teachings", ModFlag.Attack, mtTag, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Minion, neg = true }),
+			mod("StunThreshold", "MORE", 50, "Mountain's Teachings", mtTag),
+		}
+	end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

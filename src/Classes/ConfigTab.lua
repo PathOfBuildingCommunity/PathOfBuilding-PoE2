@@ -255,6 +255,14 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					return "This option is specific to '"..self.build.spec.nodes[ifOption].dn.."'."
 				end))
 			end
+			if varData.ifAscendClass then
+				t_insert(shownFuncs, listOrSingleIfOption(varData.ifAscendClass, function(ifOption)
+					return self.build.spec.curAscendClassBaseName == ifOption
+				end))
+				t_insert(tooltipFuncs, listOrSingleIfTooltip(varData.ifAscendClass, function(ifOption)
+					return "This option is specific to the "..ifOption.." Ascendancy Class."
+				end))
+			end
 			if varData.ifOption then
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifOption, function(ifOption)
 					return self.configSets[self.activeConfigSetId].input[ifOption]
