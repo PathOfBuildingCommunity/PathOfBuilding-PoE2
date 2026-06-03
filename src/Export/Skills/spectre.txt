@@ -1242,3 +1242,15 @@ statMap = {
 #flags attack melee area
 #mods
 #skillEnd
+
+#skill GAQuadrillaBossRectSlam Pillar Slam
+#set GAQuadrillaBossRectSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAIcyQuadrillaBossRectSlam Pillar Slam
+#set GAIcyQuadrillaBossRectSlam
+#flags attack melee area
+#mods
+#skillEnd

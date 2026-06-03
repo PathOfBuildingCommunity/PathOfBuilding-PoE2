@@ -8208,3 +8208,76 @@ skills["MeleeAtAnimationSpeedBoss"] = {
 		},
 	}
 }
+skills["GAQuadrillaBossRectSlam"] = {
+	name = "Pillar Slam",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 3, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pillar Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "voll_slam_damage_+%_final_at_centre", 0 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 150 },
+			},
+			stats = {
+				"is_area_damage",
+				"base_skill_can_be_blocked",
+				"base_skill_cannot_be_avoided_by_dodge_roll_or_evaded_or_blocked",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAIcyQuadrillaBossRectSlam"] = {
+	name = "Pillar Slam",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 3, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pillar Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "voll_slam_damage_+%_final_at_centre", 0 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 150 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 30 },
+			},
+			stats = {
+				"is_area_damage",
+				"base_skill_can_be_blocked",
+				"base_skill_cannot_be_avoided_by_dodge_roll_or_evaded_or_blocked",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
