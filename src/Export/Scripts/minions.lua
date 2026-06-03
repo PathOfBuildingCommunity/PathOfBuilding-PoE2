@@ -290,6 +290,7 @@ directiveTable.emit = function(state, args, out)
 	out:write('\tattackTime = ', (monsterVariety.AttackDuration/1000), ',\n')
 	out:write('\tattackRange = ', monsterVariety.MaximumAttackRange, ',\n')
 	out:write('\taccuracy = 1,\n') -- minions don't need accuracy as of 0.3. Printing 1 just so nothing breaks.
+	out:write('\tcritChance = ', round(monsterVariety.AttackCrit * 100, 2), ',\n')
 	for _, mod in ipairs(monsterVariety.Mods) do
 		if mod.Id == "MonsterSpeedAndDamageFixupSmall" then
 			out:write('\tdamageFixup = 0.11,\n')
