@@ -503,6 +503,7 @@ local modNameList = {
 	["maximum fortification"] = "MaximumFortification",
 	["fortification"] = "MinimumFortification",
 	["maximum valour"] = "MaximumValour",
+	["parried debuff magnitude"] = "ParryDebuffMagnitude",
 	-- Charges
 	["maximum power charge"] = "PowerChargesMax",
 	["maximum power charges"] = "PowerChargesMax",

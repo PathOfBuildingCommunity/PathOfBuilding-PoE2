@@ -1161,7 +1161,7 @@ c["10% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSp
 c["10% increased Movement Speed when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
 c["10% increased Movement Speed while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
 c["10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
-c["10% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
+c["10% increased Parried Debuff Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ParryDebuffMagnitude",type="INC",value=10}},nil}
 c["10% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
 c["10% increased Pin duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=10}}," Pin  "}
 c["10% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=10}},nil}
@@ -1604,9 +1604,7 @@ c["15% increased Melee Damage with Hits at Close Range"]={{[1]={[1]={type="Condi
 c["15% increased Minion Duration"]={{[1]={[1]={skillType=77,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["15% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
 c["15% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}}," Parried Debuff  "}
-c["15% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
-c["15% increased Parried Debuff Magnitude 20% increased Parry Hit Area of Effect"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}}," Parried Debuff Magnitude 20% increasedHit  "}
-c["15% increased Parried Debuff Magnitude Cannot be Critically Hit while Parrying"]={{}," Parried Debuff Magnitude Cannot be Critically Hit while Parrying "}
+c["15% increased Parried Debuff Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ParryDebuffMagnitude",type="INC",value=15}},nil}
 c["15% increased Parry Hit Area of Effect"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}},"Hit  "}
 c["15% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=15}},nil}
 c["15% increased Pin Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyPinBuildup",type="INC",value=15}},nil}
@@ -2264,7 +2262,7 @@ c["25% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",ty
 c["25% increased Minion Duration"]={{[1]={[1]={skillType=77,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["25% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
 c["25% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked",[7]="Electrocuted"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
-c["25% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
+c["25% increased Parried Debuff Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ParryDebuffMagnitude",type="INC",value=25}},nil}
 c["25% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=25}},nil}
 c["25% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=25}},nil}
 c["25% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
@@ -3033,7 +3031,7 @@ c["50% increased Melee Damage against Heavy Stunned enemies"]={{[1]={[1]={actor=
 c["50% increased Melee Damage against Immobilised Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=256,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Minion Damage while you have at least two different active Offerings"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=50}}}},"   while you have at least two different active Offerings "}
 c["50% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," Parried Debuff  "}
-c["50% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
+c["50% increased Parried Debuff Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ParryDebuffMagnitude",type="INC",value=50}},nil}
 c["50% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=50}},nil}
 c["50% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=50}},nil}
 c["50% increased Rarity of Items found when on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LootRarity",type="INC",value=50}},nil}
@@ -3159,9 +3157,7 @@ c["6% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="Man
 c["6% increased Minion Duration"]={{[1]={[1]={skillType=77,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=6}},nil}
 c["6% increased Movement Speed if you've successfully Parried Recently"]={{[1]={[1]={type="Condition",var="ParriedRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},nil}
 c["6% increased Movement Speed while you have an active Charm"]={{[1]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},nil}
-c["6% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
-c["6% increased Parried Debuff Magnitude 8% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=6}}," Parried Debuff Magnitude 8% increased Parried Debuff  "}
-c["6% increased Parried Debuff Magnitude 8% increased Parry Hit Area of Effect"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=6}}," Parried Debuff Magnitude 8% increasedHit  "}
+c["6% increased Parried Debuff Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ParryDebuffMagnitude",type="INC",value=6}},nil}
 c["6% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=6}},nil}
 c["6% increased Power Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=6}},nil}
 c["6% increased Reservation Efficiency of Herald Skills"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=6}},nil}
