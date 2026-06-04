@@ -2374,6 +2374,9 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.skillModList:Flag(nil, "ApplyCriticalWeakness") then
 			modDB:NewMod("ApplyCriticalWeakness", "FLAG", true)
 		end
+		if activeSkill.skillModList:Flag(nil, "CanParry") then
+			modDB:NewMod("CanParry", "FLAG", true)
+		end
 		--Handle combustion
 		if enemyDB:Flag(nil, "Condition:Ignited") and (activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Attack]) and not appliedCombustion then
 			for _, support in ipairs(activeSkill.supportList) do
