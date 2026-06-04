@@ -546,10 +546,24 @@ function CalcsTabClass:PowerBuilder()
 	for nodeId, node in pairs(self.build.spec.nodes) do
 		wipeTable(node.power)
 		if node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
-			distanceMap[node.pathDist or 1000] = distanceMap[node.pathDist or 1000] or { }
-			distanceMap[node.pathDist or 1000][nodeId] = node
-			if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
-				total = total + 1
+			if not node.unlockConstraint then
+				distanceMap[node.pathDist or 1000] = distanceMap[node.pathDist or 1000] or { }
+				distanceMap[node.pathDist or 1000][nodeId] = node
+				if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
+					total = total + 1
+				end
+			else
+				for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+					if nodeId and self.build.spec.nodes[nodeId].alloc then
+						distanceMap[node.pathDist or 1000] = distanceMap[node.pathDist or 1000] or { }
+						distanceMap[node.pathDist or 1000][nodeId] = node
+						if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
+							total = total + 1
+						end
+					else
+						print(node.name)
+					end
+				end
 			end
 		end
 	end
