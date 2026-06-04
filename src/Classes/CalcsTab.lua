@@ -560,8 +560,6 @@ function CalcsTabClass:PowerBuilder()
 						if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
 							total = total + 1
 						end
-					else
-						print(node.name)
 					end
 				end
 			end
