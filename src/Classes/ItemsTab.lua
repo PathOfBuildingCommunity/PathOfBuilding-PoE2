@@ -1939,10 +1939,16 @@ function ItemsTabClass:UpdateRuneControls()
 	for i = 1, item.itemSocketCount do
 		self.controls["displayItemRune"..i].list = runes
 		if item.runes[i] then
+			local found = false
 			for j, modLine in ipairs(self.controls["displayItemRune"..i].list) do
 				if item.runes[i] == modLine.name then
 					self.controls["displayItemRune"..i].selIndex = j
+					found = true
 				end
+			end
+			-- ensure that outdated rune selections from previous display items get reset
+			if not found then
+				self.controls["displayItemRune"..i].selIndex = 1
 			end
 		else
 			self.controls["displayItemRune"..i].selIndex = 1
