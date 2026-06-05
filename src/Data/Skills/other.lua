@@ -11664,20 +11664,22 @@ skills["ParryPlayer"] = {
 			label = "Parry",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "parry",
+			statMap = {
+				["base_maximum_active_block_distance_for_non_projectiles"] = {
+					skill("parryRangeNonProj", nil),
+					div = 10,
+				},
+				["base_maximum_active_block_distance_for_projectiles"] = {
+					skill("parryRangeProj", nil),
+					div = 10,
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				duration = true,
 				shieldAttack = true,
 				area = true,
-			},
-			statMap = {
-				["base_maximum_active_block_distance_for_non_projectiles"] = {
-					skill("parryRangeNonProj", nil),
-				},
-				["base_maximum_active_block_distance_for_projectiles"] = {
-					skill("parryRangeProj", nil)
-				},
 			},
 			baseMods = {
 				skill("debuff", true),
@@ -12638,6 +12640,7 @@ skills["RefutationPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "refutation",
 			baseFlags = {
+				duration = true,
 			},
 			baseMods = {
 				skill("debuff", true),
