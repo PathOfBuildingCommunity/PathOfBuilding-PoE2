@@ -1737,7 +1737,6 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 				for i = 1, #newItem.sockets do
 					newItem.runes[i] = "None"
 					if currentRunes[i] then
-						local found = false
 						for _, rune in ipairs(validRunes) do
 							-- we only copy runes which fit the new item type
 							if rune.name == currentRunes[i] then
