@@ -956,10 +956,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 		-- This could be done better with the character melee skills data at some point.
 		if typeLine:match("Mace Strike") then
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
+			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
 			if weapon2Sel == 0 then
-				if self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
