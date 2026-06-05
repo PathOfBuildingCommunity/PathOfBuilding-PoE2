@@ -1954,6 +1954,7 @@ function ItemsTabClass:UpdateRuneControls()
 	local item = self.displayItem
 	-- Build rune selection for item
 	local runes = self:GetValidRunesForItem(item)
+	local runesUpdated = false
 
 	for i = 1, item.itemSocketCount do
 		self.controls["displayItemRune"..i].list = runes
@@ -1967,10 +1968,15 @@ function ItemsTabClass:UpdateRuneControls()
 			end
 			if not found then
 				self.controls["displayItemRune"..i].selIndex = 1
+				item.runes[i] = "None"
+				runesUpdated = true
 			end
 		else
 			self.controls["displayItemRune"..i].selIndex = 1
 		end
+	end
+	if runesUpdated then
+		item:UpdateRunes()
 	end
 end
 
