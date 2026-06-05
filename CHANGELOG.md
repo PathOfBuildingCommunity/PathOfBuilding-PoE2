@@ -1,5 +1,28 @@
 # Changelog
 
+## [v0.19.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.19.0) (2026/06/05)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.18.0...v0.19.0)
+
+
+## What's Changed
+### New to Path of Building
+- Update passive tree with 0.5.1 changes [\#2096](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2096) ([trompetin17](https://github.com/justjuangui))
+* Update skills with 0.5.1 changes by [LocalIdentity](https://github.com/LocalIdentity)
+- Add Facebreaker unique gloves support [\#2097](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2097) ([Anakior](https://github.com/Anakior), [LocalIdentity](https://github.com/LocalIdentity))
+- Add support for various Parry modifiers (Debuff Magnitude, Range, Duration) [\#2080](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2080) ([majochem](https://github.com/majochem))
+- Implement parsing for remnant effect mods [\#2093](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2093) ([moxaj](https://github.com/moxaj))
+### Fixed Crashes
+- Fix crash when importing a character that uses Facebreaker gloves [\#2098](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2098) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix crash when clicking on empty rune list [\#2091](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2091) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix Deflect chance not being capped at 95% [\#2100](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2100) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Hollow Form support effects being switched [\#2099](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2099) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Virtuous Barrier not factoring the base 3 of each type of mote [\#2103](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2103) ([LocalIdentity](https://github.com/LocalIdentity))
+### User Interface
+- Fix hidden Oracle nodes being included in power report and missing connector lines [\#2090](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2090) ([MrHB212](https://github.com/MrHB212))
+
+
 ## [v0.18.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.18.0) (2026/06/04)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.17.1...v0.18.0)
