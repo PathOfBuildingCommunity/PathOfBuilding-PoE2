@@ -6430,6 +6430,7 @@ c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodg
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Unaffected by Chilled Ground"]={nil,"Unaffected by Chilled Ground "}
 c["Unaffected by Elemental Weakness"]={nil,"Unaffected by Elemental Weakness "}
+c["Unaffected by Shocked Ground"]={nil,"Unaffected by Shocked Ground "}
 c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={{[1]={flags=0,keywordFlags=0,name="UseFacebreakerItemDamage",type="FLAG",value=true}},nil}
 c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=-25}}}},nil}
 c["Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
