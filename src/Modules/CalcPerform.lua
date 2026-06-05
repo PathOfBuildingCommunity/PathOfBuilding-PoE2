@@ -2272,8 +2272,10 @@ function calcs.perform(env, skipEHP)
 						end
 					end
 					if buff.type == "Debuff" then
+						local specificDebuffMult = calcLib.mod(skillModList, skillCfg, buff.name:gsub(" ", "").."Magnitude") -- non-skill mods specific to that debuff type
+						local skillMagnitudeMult = calcLib.mod(skillModList, skillCfg, "Magnitude")
 						local inc = skillModList:Sum("INC", skillCfg, "DebuffEffect")
-						local more = skillModList:More(skillCfg, "DebuffEffect") * calcLib.mod(skillModList, skillCfg, "Magnitude")
+						local more = skillModList:More(skillCfg, "DebuffEffect") * skillMagnitudeMult * specificDebuffMult
 						mult = (1 + inc / 100) * more
 					end
 					srcList:ScaleAddList(buff.modList, mult * stackCount)
@@ -2386,6 +2388,9 @@ function calcs.perform(env, skipEHP)
 		end
 		if activeSkill.skillModList:Flag(nil, "ApplyCriticalWeakness") then
 			modDB:NewMod("ApplyCriticalWeakness", "FLAG", true)
+		end
+		if activeSkill.skillModList:Flag(nil, "CanParry") then
+			modDB:NewMod("CanParry", "FLAG", true)
 		end
 		--Handle combustion
 		if enemyDB:Flag(nil, "Condition:Ignited") and (activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Attack]) and not appliedCombustion then

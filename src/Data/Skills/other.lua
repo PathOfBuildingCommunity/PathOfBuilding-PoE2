@@ -12453,8 +12453,13 @@ skills["ParryPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "parry",
 			statMap = {
-				["base_parry_buff_damage_taken_+%_final_to_apply"] = {
-					mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
+				["base_maximum_active_block_distance_for_non_projectiles"] = {
+					skill("parryRangeNonProj", nil),
+					div = 10,
+				},
+				["base_maximum_active_block_distance_for_projectiles"] = {
+					skill("parryRangeProj", nil),
+					div = 10,
 				},
 			},
 			baseFlags = {
@@ -13423,6 +13428,10 @@ skills["RefutationPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "refutation",
 			baseFlags = {
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },

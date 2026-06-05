@@ -491,9 +491,9 @@ local configSettings = {
 		modList:NewMod("Multiplier:StoicismSeconds", "BASE", m_min(m_max(val, 0), 20), "Config")
 		modList:NewMod("Multiplier:StoicismCap", "BASE", 20, "Config")
 	end },
-	{ label = "Parry:", ifSkill = "Parry" },
-	{ var = "parryActive", type = "check", label = "Enemy has Parry Debuff", ifSkill = "Parry", tooltip = "The Parry debuff grants:\n\tEnemies take 50% more Attack Damage", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:ParryActive", "FLAG", true, "Config")
+	{ label = "Parry:", ifFlag = "CanParry" },
+	{ var = "parryActive", type = "check", label = "Enemy has Parry Debuff", ifFlag = "CanParry", tooltip = "The Parry debuff grants:\n\tEnemies take 50% more Attack Damage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ParryActive", "FLAG", true, "Config")
 	end },
 	{ label = "Plague Bearer:", ifSkill = "Plague Bearer"},
 	{ var = "plagueBearerState", type = "list", label = "State:", ifSkill = "Plague Bearer", list = {{val="INC",label="Incubating"},{val="INF",label="Infecting"}}, apply = function(val, modList, enemyModList)

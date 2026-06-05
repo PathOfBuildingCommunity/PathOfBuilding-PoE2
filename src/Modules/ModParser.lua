@@ -503,6 +503,9 @@ local modNameList = {
 	["maximum fortification"] = "MaximumFortification",
 	["fortification"] = "MinimumFortification",
 	["maximum valour"] = "MaximumValour",
+	["parried debuff magnitude"] = "ParryDebuffMagnitude",
+	["parried debuff duration"] = "ParryDebuffDuration",
+	["parry range"] = { "ParryRangeNonProj", "ParryRangeProj" },
 	-- Charges
 	["maximum power charge"] = "PowerChargesMax",
 	["maximum power charges"] = "PowerChargesMax",
@@ -662,7 +665,6 @@ local modNameList = {
 	["cooldown recovery rate"] = "CooldownRecovery",
 	["cooldown use"] = "AdditionalCooldownUses",
 	["cooldown uses"] = "AdditionalCooldownUses",
-	["range"] = "WeaponRange",
 	["weapon range"] = "WeaponRange",
 	["metres to weapon range"] = "WeaponRangeMetre",
 	["metre to weapon range"] = "WeaponRangeMetre",
