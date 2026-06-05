@@ -5579,7 +5579,7 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
-c["Has 8 to 12 Physical damage, +3 to +4 per Boss's Face Broken"]={{[1]={flags=16777216,keywordFlags=0,name="PhysicalMin",type="BASE",value=8},[2]={flags=16777216,keywordFlags=0,name="PhysicalMax",type="BASE",value=12},[3]={[1]={type="Multiplier",var="BossFaceBroken"},flags=16777216,keywordFlags=0,name="PhysicalMin",type="BASE",value=3},[4]={[1]={type="Multiplier",var="BossFaceBroken"},flags=16777216,keywordFlags=0,name="PhysicalMax",type="BASE",value=4}},nil}
+c["Has 8 to 12 Physical damage, +3 to +4 per Boss's Face Broken"]={{[1]={flags=0,keywordFlags=0,name="FacebreakerPhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="FacebreakerPhysicalMax",type="BASE",value=12},[3]={[1]={type="Multiplier",var="BossFaceBroken"},flags=0,keywordFlags=0,name="FacebreakerPhysicalMin",type="BASE",value=3},[4]={[1]={type="Multiplier",var="BossFaceBroken"},flags=0,keywordFlags=0,name="FacebreakerPhysicalMax",type="BASE",value=4}},nil}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
@@ -6418,7 +6418,7 @@ c["Trusted Kinship"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",v
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Unaffected by Elemental Weakness"]={nil,"Unaffected by Elemental Weakness "}
-c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={{},nil}
+c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={{[1]={flags=0,keywordFlags=0,name="UseFacebreakerItemDamage",type="FLAG",value=true}},nil}
 c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=-25}}}},nil}
 c["Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
 c["Unique Tamed Beasts have 30% increased movement speed"]={nil,"Unique Tamed Beasts have 30% increased movement speed "}

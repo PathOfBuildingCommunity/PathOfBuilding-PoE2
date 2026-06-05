@@ -2385,6 +2385,12 @@ function calcs.offence(env, actor, activeSkill)
 					source.CritChance = skillData.CritChance
 				end
 			end
+			if source.FacebreakerItemDamage and activeSkill.activeEffect.grantedEffect.weaponTypes and activeSkill.activeEffect.grantedEffect.weaponTypes["One Hand Mace"] then
+				for _, damageType in ipairs(dmgTypeList) do
+					source[damageType.."Min"] = source["Facebreaker"..damageType.."Min"] or 0
+					source[damageType.."Max"] = source["Facebreaker"..damageType.."Max"] or 0
+				end
+			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
 			end

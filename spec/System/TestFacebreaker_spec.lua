@@ -24,9 +24,9 @@ describe("TestFacebreaker", function()
 
 	it("grants its base Physical damage to Unarmed attacks", function()
 		equipFacebreaker()
-		local modDB = build.calcsTab.mainEnv.player.modDB
-		assert.are.equals(8, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMin"))
-		assert.are.equals(12, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMax"))
+		local weaponData1 = build.calcsTab.mainEnv.player.weaponData1
+		assert.are.equals(8, weaponData1.FacebreakerPhysicalMin)
+		assert.are.equals(12, weaponData1.FacebreakerPhysicalMax)
 	end)
 
 	it("lets you attack as though using a One Hand Mace while unarmed", function()
@@ -40,10 +40,10 @@ describe("TestFacebreaker", function()
 		build.configTab.input.configBossFaceBroken = 10
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
-		local modDB = build.calcsTab.mainEnv.player.modDB
+		local weaponData1 = build.calcsTab.mainEnv.player.weaponData1
 		-- 8 base + 3 per face broken * 10, 12 base + 4 per face broken * 10
-		assert.are.equals(8 + 3 * 10, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMin"))
-		assert.are.equals(12 + 4 * 10, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMax"))
+		assert.are.equals(8 + 3 * 10, weaponData1.FacebreakerPhysicalMin)
+		assert.are.equals(12 + 4 * 10, weaponData1.FacebreakerPhysicalMax)
 	end)
 
 	it("matches the in-game resolved damage at 60 Boss's Faces Broken (188-252)", function()
@@ -52,9 +52,13 @@ describe("TestFacebreaker", function()
 		build.configTab.input.configBossFaceBroken = 60
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
-		local modDB = build.calcsTab.mainEnv.player.modDB
-		assert.are.equals(188, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMin"))
-		assert.are.equals(252, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "PhysicalMax"))
+		build.skillsTab:PasteSocketGroup("Boneshatter 1/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		local mainHand = build.calcsTab.mainOutput.MainHand
+		assert.are.equals(188, mainHand.PhysicalMinBase)
+		assert.are.equals(252, mainHand.PhysicalMaxBase)
 	end)
 
 	it("makes One Hand Mace skills usable unarmed and applies 'more Unarmed Damage per Strength' to them", function()
@@ -105,8 +109,32 @@ describe("TestFacebreaker", function()
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
-		local modDB = build.calcsTab.mainEnv.player.modDB
-		assert.are.equals(9, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "FireMin"))
-		assert.are.equals(14, modDB:Sum("BASE", { flags = ModFlag.Unarmed }, "FireMax"))
+		local weaponData1 = build.calcsTab.mainEnv.player.weaponData1
+		assert.are.equals(9, weaponData1.FacebreakerFireMin)
+		assert.are.equals(14, weaponData1.FacebreakerFireMax)
+	end)
+
+	it("uses Facebreaker item damage instead of Hollow Palm added Physical damage for mace-compatible staff skills", function()
+		equipFacebreaker()
+		build.configTab.input.customMods = "Hollow Palm Technique"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Rain of Blades 1/0  1")
+		runCallback("OnFrame")
+		local skillModList = build.calcsTab.mainEnv.player.mainSkill.skillModList
+		assert.are.equals(0, skillModList:Sum("BASE", { flags = ModFlag.Attack }, "PhysicalMin"))
+		assert.are.equals(0, skillModList:Sum("BASE", { flags = ModFlag.Attack }, "PhysicalMax"))
+	end)
+
+	it("keeps Hollow Palm added Physical damage for quarterstaff-only skills", function()
+		equipFacebreaker()
+		build.configTab.input.customMods = "Hollow Palm Technique"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1")
+		runCallback("OnFrame")
+		local skillModList = build.calcsTab.mainEnv.player.mainSkill.skillModList
+		assert.is_true(skillModList:Sum("BASE", { flags = ModFlag.Attack }, "PhysicalMin") > 0)
+		assert.is_true(skillModList:Sum("BASE", { flags = ModFlag.Attack }, "PhysicalMax") > 0)
 	end)
 end)
