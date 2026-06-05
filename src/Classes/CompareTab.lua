@@ -1270,7 +1270,7 @@ function CompareTabClass:RebuildConfigControls(compareEntry)
 				end
 				local hasAnyCondition = varData.ifCond or varData.ifOption or varData.ifSkill
 					or varData.ifSkillFlag or varData.ifSkillData or varData.ifSkillList
-					or varData.ifNode or varData.ifMod or varData.ifMult
+					or varData.ifNode or varData.ifAscendClass or varData.ifMod or varData.ifMult
 					or varData.ifEnemyStat or varData.ifEnemyCond or varData.legacy
 
 				local ctrlInfo = {
