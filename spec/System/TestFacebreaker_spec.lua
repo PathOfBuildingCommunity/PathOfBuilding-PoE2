@@ -89,6 +89,11 @@ describe("TestFacebreaker", function()
 		assert.are.equals(0, modDB:Sum("MORE", { flags = ModFlag.Sword + ModFlag.Hit }, "Damage"))
 	end)
 
+	it("auto-imports the Boss's Faces Broken count from character quest stats", function()
+		build.importTab:ImportQuestRewardConfig({ "57 [BrokenFace|Broken Boss Faces]" })
+		assert.are.equals(57, build.configTab.input.configBossFaceBroken)
+	end)
+
 	it("supports the Fire damage variant", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item

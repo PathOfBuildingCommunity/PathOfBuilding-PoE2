@@ -729,6 +729,18 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		end
 	end
 
+	-- Facebreaker: auto-fill the "# of Boss's Faces Broken" config from the character's quest stats
+	for _, stat in ipairs(questStats) do
+		if stat:lower():find("broken boss face", 1, true) then
+			local faces = tonumber(stat:match("%d+"))
+			if faces and configTab.input.configBossFaceBroken ~= faces then
+				configTab.input.configBossFaceBroken = faces
+				updated = true
+			end
+			break
+		end
+	end
+
 	if updated then
 		configTab:BuildModList()
 		configTab:UpdateControls()
