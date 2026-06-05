@@ -5878,6 +5878,21 @@ local specialModList = {
 		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
 		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = tonumber(esNum) }),
 	} end,
+	-- Facebreaker (and its Fire variant): the gloves grant base weapon damage that empty-handed One Hand Mace attacks use.
+	-- The base damage is modelled as flat damage on Unarmed attacks; the empty-hand "use a One Hand Mace" part is handled in CalcSetup.
+	-- "Boss's Face Broken" is a stacking counter exposed through the Configuration tab (Multiplier:BossFaceBroken).
+	["has (%d+) to (%d+) (%a+) damage, %+(%d+) to %+(%d+) per boss's face broken"] = function(min, _, max, dmgType, perMin, perMax)
+		local dmg = dmgType:sub(1, 1):upper() .. dmgType:sub(2)
+		return {
+			mod(dmg.."Min", "BASE", tonumber(min), nil, ModFlag.Unarmed),
+			mod(dmg.."Max", "BASE", tonumber(max), nil, ModFlag.Unarmed),
+			mod(dmg.."Min", "BASE", tonumber(perMin), nil, ModFlag.Unarmed, { type = "Multiplier", var = "BossFaceBroken" }),
+			mod(dmg.."Max", "BASE", tonumber(perMax), nil, ModFlag.Unarmed, { type = "Multiplier", var = "BossFaceBroken" }),
+		}
+	end,
+	["can attack as though using a one handed mace while both of your hand slots are empty"] = { flag("CanAttackAsOneHandMaceUnarmed") },
+	-- The item's damage (parsed above) is already applied to Unarmed attacks, so this line just needs to be recognised (no extra effect)
+	["unarmed attacks that would use an equipped one hand mace's damage use this item's damage"] = { },
 	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
 		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
