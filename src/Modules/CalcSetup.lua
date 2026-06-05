@@ -1389,7 +1389,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
 
-	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 0, Dex = 0, Int = 0 }
+	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 3, Dex = 3, Int = 3 }
 	local virtuousMoteSkillCounted = { }
 
 	if not accelerate.skills then
