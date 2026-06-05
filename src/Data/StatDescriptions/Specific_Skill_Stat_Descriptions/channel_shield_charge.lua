@@ -47,8 +47,26 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0}% increased maximum travel distance"
+			}
+		},
+		stats={
+			[1]="shield_charge_extra_distance"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_skill_effect_duration"]=1,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["shield_charge_extra_distance"]=4
 }

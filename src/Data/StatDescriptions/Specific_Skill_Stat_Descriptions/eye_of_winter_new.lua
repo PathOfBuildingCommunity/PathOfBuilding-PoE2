@@ -3,6 +3,43 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_number_of_projectiles"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Fires {0} Shard Projectile per second"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Fires {0} Shard Projectiles per second"
+			}
+		},
+		stats={
+			[1]="base_number_of_projectiles"
+		}
+	},
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="display_scaled_number_of_projectiles"
+		}
+	},
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -18,7 +55,7 @@ return {
 			[1]="eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"
 		}
 	},
-	[2]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -47,7 +84,9 @@ return {
 			[1]="eye_of_winter_first_hit_damage_+%_final"
 		}
 	},
-	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"]=1,
-	["eye_of_winter_first_hit_damage_+%_final"]=2,
+	["base_number_of_projectiles"]=2,
+	["display_scaled_number_of_projectiles"]=3,
+	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"]=4,
+	["eye_of_winter_first_hit_damage_+%_final"]=5,
 	parent="skill_stat_descriptions"
 }

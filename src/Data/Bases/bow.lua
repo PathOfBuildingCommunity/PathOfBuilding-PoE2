@@ -25,7 +25,7 @@ itemBases["Warden Bow"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { bow = true, default = true, ezomyte_basetype = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicit = "(20-30)% chance to Chain an additional time",
+	implicit = "(25-35)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 12, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
 	req = { level = 11, dex = 23, },
@@ -83,7 +83,7 @@ itemBases["Artillery Bow"] = {
 	tags = { bow = true, default = true, karui_basetype = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "50% reduced Projectile Range",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 39, PhysicalMax = 72, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
+	weapon = { PhysicalMin = 39, PhysicalMax = 72, CritChanceBase = 5, AttackRateBase = 1.1, Range = 120, },
 	req = { level = 45, dex = 80, },
 }
 itemBases["Tribal Bow"] = {
@@ -136,7 +136,7 @@ itemBases["Protector Bow"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { bow = true, default = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicit = "(20-30)% chance to Chain an additional time",
+	implicit = "(25-35)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 53, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
 	req = { level = 48, dex = 86, },
@@ -178,6 +178,71 @@ itemBases["Militant Bow"] = {
 	weapon = { PhysicalMin = 46, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 62, dex = 109, },
 }
+itemBases["Runeforged Crude Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { ChaosMin = 42, ChaosMax = 62, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	req = { level = 55, dex = 97, },
+}
+itemBases["Runeforged Shortbow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
+	req = { level = 38, dex = 68, },
+}
+itemBases["Runeforged Shortbow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicit = "Projectiles have 50% chance for an additional Projectile when Forking",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 44, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.4, Range = 120, },
+	req = { level = 55, dex = 97, },
+}
+itemBases["Runeforged Recurve Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 41, PhysicalMax = 84, CritChanceBase = 5, AttackRateBase = 1.1, Range = 120, },
+	req = { level = 40, dex = 72, },
+}
+itemBases["Runeforged Composite Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 53, PhysicalMax = 88, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	req = { level = 55, dex = 97, },
+}
+itemBases["Runeforged Dualstring Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicit = "+50% Surpassing chance to fire an additional Arrow",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 45, PhysicalMax = 83, CritChanceBase = 6.5, AttackRateBase = 1.15, Range = 120, },
+	req = { level = 55, dex = 97, },
+}
+itemBases["Runeforged Zealot Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 44, PhysicalMax = 67, ChaosMin = 7, ChaosMax = 19, CritChanceBase = 10, AttackRateBase = 1.2, Range = 120, },
+	req = { level = 55, dex = 97, },
+}
 itemBases["Ironwood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
@@ -201,7 +266,7 @@ itemBases["Guardian Bow"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { bow = true, default = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicit = "(20-30)% chance to Chain an additional time",
+	implicit = "(25-35)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 53, PhysicalMax = 88, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
 	req = { level = 77, dex = 163, },
@@ -241,6 +306,15 @@ itemBases["Obliterator Bow"] = {
 	tags = { bow = true, default = true, karui_basetype = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "50% reduced Projectile Range",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 62, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
+	weapon = { PhysicalMin = 62, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.1, Range = 120, },
 	req = { level = 78, dex = 163, },
+}
+itemBases["Heartwood Shortbow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
+	req = { level = 67, dex = 134, },
 }

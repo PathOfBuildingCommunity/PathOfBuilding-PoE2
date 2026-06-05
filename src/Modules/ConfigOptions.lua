@@ -357,6 +357,16 @@ local configSettings = {
 	{ var = "embraceMadnessActive", type = "check", label = "Is Embrace Madness active?", ifSkill = "Embrace Madness", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AffectedByGloriousMadness", "FLAG", true, "Config")
 	end },
+	{ label = "Eye of Winter:", ifSkill = "Eye of Winter" },
+	{ var = "eyeOfWinterCold", type = "check", label = "Eye of Winter gained ^x3F6DB3Cold^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^x3F6DB3Cold^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterCold", "FLAG", true, "Config")
+	end },
+	{ var = "eyeOfWinterFire", type = "check", label = "Eye of Winter gained ^xB97123Fire^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^xB97123Fire^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterFire", "FLAG", true, "Config")
+	end },
+	{ var = "eyeOfWinterLightning", type = "check", label = "Eye of Winter gained ^xADAA47Lightning^7 Damage:", ifSkill = "Eye of Winter", tooltip = "Eye of Winter has passed over ^xADAA47Lightning^7 Ground Effect or Orb.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EyeOfWinterLightning", "FLAG", true, "Config")
+	end },
 	{ var = "touchedDebuffsCount", type = "countAllowZero", label = "Glorious Madness Stacks", ifOption = "embraceMadnessActive", defaultState = 10, tooltip = "Glorious Madness Stacks grants:\n\tEroding Touch: 6% inc Damage Taken per stack\n\tParalysing Touch: 6% reduced Action Speed per stack\n\tDiluting Touch: 9% reduced Flask charges gained and 9% reduced Flask Effect per stack\n\tWasting Touch: 9% reduced ^xE05030Life ^7and ^x88FFFFEnergy Shield ^7recovery rate per stack", apply = function(val, modList, enemyModList)
 		val = m_min(val, 10)
 		modList:NewMod("DamageTaken", "INC", val * 6, val.." Eroding Touch Stacks", { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "AffectedByGloriousMadness" })
@@ -586,6 +596,10 @@ local configSettings = {
 	{ label = "Spectral Wolf:", ifSkill = "Summon Spectral Wolf" },
 	{ var = "configSpectralWolfCount", type = "count", label = "# of Active Spectral Wolves:", ifSkill = "Summon Spectral Wolf", tooltip = "Sets the number of active Spectral Wolves.\nThe maximum number of Spectral Wolves is 10.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SpectralWolfCount", "BASE", m_min(val, 10), "Config")
+	end },
+	{ label = "Spiraling Conspiracy:", ifSkill = "Spiraling Conspiracy" },
+	{ var = "configMistRavenCount", type = "count", label = "# of Active Mist Ravens:", ifSkill = "Spiraling Conspiracy", tooltip = "Sets the number of active Spiraling Conspiracy.\nThe maximum number of Spiraling Conspiracy is 30.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:MistRavenCount", "BASE", m_min(val, 30), "Config")
 	end },
 	{ label = "Stance Skills:", ifSkill = { "Blood and Sand", "Flesh and Stone", "Lacerate", "Bladestorm", "Perforate", "Perforate of Duality" } },
 	{ var = "bloodSandStance", type = "list", label = "Stance:", ifSkill = { "Blood and Sand", "Flesh and Stone", "Lacerate", "Bladestorm", "Perforate", "Perforate of Duality" }, list = {{val="BLOOD",label="Blood Stance"},{val="SAND",label="Sand Stance"}}, apply = function(val, modList, enemyModList)
@@ -1689,6 +1703,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierIncisionStackCount", type = "count", label = "# of Incision Stacks:", ifFlag = "Condition:CanInflictIncision", tooltip = "Incision applies 10% chance to Bleed the enemy, up to 10 stacks.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:IncisionStack", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "multiplierFaerieFireStackCount", type = "count", label = "# of Faerie Fire Stacks:", ifFlag = "Condition:CanInflictFaerieFire", tooltip = "Each Faerie Fire Debuff causes Hits against the affected target to Gain 2% of damage as Extra Damage of a random Element.\nThe Debuff lasts 8 seconds, and up to 10 can be applied to each target.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:FaerieFireStack", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyPoisoned", type = "check", label = "Is the enemy Poisoned?", ifEnemyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Poisoned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1853,6 +1870,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyLightningExposure", type = "check", label = "Is the enemy Exposed to ^xADAA47Lightning?", ifFlag = "Condition:CanApplyLightningExposure", tooltip = "This applies -20% ^xADAA47Lightning Resistance ^7to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("LightningExposure", "BASE", 20, "Config", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanApplyLightningExposure" })
+	end },
+	{ var = "conditionEnemyIsolated", type = "check", label = "Is the enemy Isolated?", ifEnemyCond = "Isolated", tooltip = "A target is Isolated if none of its allies are within 6m of it.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Isolated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyIntimidated", type = "check", label = "Is the enemy Intimidated?", tooltip = "Intimidate is a Debuff that inflicts 10% increased damage taken and 10% reduced damage dealt.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Intimidated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

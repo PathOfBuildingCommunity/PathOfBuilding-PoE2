@@ -1,3 +1,66 @@
+VERSION[0.18.0][2026/06/04]
+
+--- New to Path of Building ---
+* Add missing 0.5 skill gems (LocalIdentity)
+* Add new 0.5 Spectres (Blitz54)
+* Add new 0.5 Minions (LocalIdentity)
+* Add support for Eye of Winter ground damage buffs (LocalIdentity)
+* Add support for Flask instant recovery belt mod (LocalIdentity)
+* Add support for additional Warcry Empowers (Peechey)
+* Preserve skill selection on character reimport (LocalIdentity)
+* Disable right click to paste in the notes tab (LocalIdentity)
+
+--- User Interface ---
+* Show Runic item headers and change "Ward" text on items to "Runic Ward" (Blitz54)
+
+--- Fixed Calculations ---
+* Fix Shrine sceptre Auras not making linked buffs have no Spirit cost (LocalIdentity)
+* Fix Volcanic Eruption not scaling with Projectile damage (MrHB212)
+* Fix Smith of Kitava Flowing Metal node not working (vaisest)
+* Fix some bonded Rune affects applying without Wisdom of the Maji (LocalIdentity)
+* Fix Cold damage contributing to stun buildup (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix Crafted mods not importing from items (LocalIdentity)
+* Fix Gloves not importing when using Way of the Stonefist (Eucelia)
+* Fix trade search not working (vaisest)
+* Fix Jewel mod sorting not working (LocalIdentity)
+* Fix Comet not showing DPS values (LocalIdentity)
+* Fix parsing for Hollow Palm Technique (Eucelia)
+
+
+VERSION[0.17.1][2026/06/02]
+
+--- Fixed Crashes ---
+* Fix crash on trying to use Trarthan Cannon (LocalIdentity)
+
+--- Fixed Calculations ---
+* Fix Zarokh's Revolt granting infinite DPS (LocalIdentity)
+* Fix incorrect Aggravated bleeding multiplier (Wires77)
+
+
+VERSION[0.17.0][2026/06/01]
+
+--- New to Path of Building ---
+* Add new 0.5 Data (LocalIdentity)
+* Add new runes from 0.5 (Blitz54)
+* Add support for Rapid Casting III (TarikBeentjes61)
+
+--- User Interface ---
+* Fix showing hidden Unseen Path nodes on search (MrHB212)
+
+--- Fixed Crashes ---
+* Fix issue creating Loadouts with link identifiers (FenikSRT4)
+
+--- Fixed Calculations ---
+* Fix rangeless mods not getting pasted properly (Wires77)
+* Update quest rewards for 0.5 (rasmuskl)
+* Fix Amazon's Critical Strike (Peechey)
+
+--- Fixed Bugs ---
+* Fix various tree bugs by using patch data (trompetin17)
+
+
 VERSION[0.16.0][2026/05/30]
 
 --- 0.5 Return of the Ancients ---
@@ -86,7 +149,7 @@ VERSION[0.16.0][2026/05/30]
 * Fix crash on import from private league (LocalIdentity)
 * Fix crash on loading build due to some minion skills (LocalIdentity)
 * Fix crash when opening some old builds (LocalIdentity)
-* Fix Adnonia's Ego power charge mod slider crash (LocalIdentity)
+* Fix Adonia's Ego power charge mod slider crash (LocalIdentity)
 
 --- User Interface ---
 * Add legacy toggle for gems that are no longer obtainable (Peechey)

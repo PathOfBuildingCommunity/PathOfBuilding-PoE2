@@ -5,6 +5,16 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Gain {0} additional Fury on Attack Hit"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

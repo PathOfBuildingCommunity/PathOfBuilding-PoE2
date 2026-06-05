@@ -500,6 +500,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill TriggeredDecayingHexPlayer
+#set TriggeredDecayingHexPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportLastingFrostPlayer
 #set SupportLastingFrostPlayer
 #mods
@@ -523,6 +529,28 @@ statMap = {
 
 #skill SupportDoedresUndoingPlayer
 #set SupportDoedresUndoingPlayer
+statMap = {
+	["doedre_cursed_ground_toad_spawn_interval_ms"] = {
+		mod("ToadSpawnInterval", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+	["max_toads_per_doedre_cursed_ground"] = {
+		-- Display Only
+	},
+},
+#mods
+#skillEnd
+
+#skill ChaosFrogExplosionPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval") / 1000
+end,
+#set ChaosFrogExplosionPlayer
+#flags spell area triggered
+statMap = {
+	["triggered_by_chaos_frog_explosion_chance_%"] = {
+		-- Display Only
+	},
+},
 #mods
 #skillEnd
 
@@ -616,6 +644,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredSparkEmpowerPlayer
+#hideFromSideBar
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayer
+#set TriggeredEmpoweredSparkPlayer
+#flags hit projectile duration
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayer
+#flags hit projectile duration
+#mods
+#skillEnd
+
 #skill SupportEncroachingGroundPlayer
 #set SupportEncroachingGroundPlayer
 #mods
@@ -628,6 +677,13 @@ statMap = {
 
 #skill SupportEnergyRetentionPlayer
 #set SupportEnergyRetentionPlayer
+#mods
+#skillEnd
+
+#from item
+#skill EnervatingNovaPlayer
+#set EnervatingNovaPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -672,17 +728,10 @@ statMap = {
 #skill SupportExpandPlayer
 #set SupportExpandPlayer
 statMap = {
-	["support_expand_max_seals"] = {
-		mod("SealCount", "BASE", nil),
-	},
-	["skill_area_of_effect_+%_per_expand_seal"] = {
+	["skill_area_of_effect_+%_per_broken_seal"] = {
 		mod("SealRepeatPenalty", "MORE", nil),
 	},
-	["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-		mod("SealGainFrequency", "BASE", nil),
-	},
 },
-#baseMod flag("HasSeals")
 #baseMod flag("AreaSeal")
 #mods
 #skillEnd
@@ -846,6 +895,11 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportGorgePlayer
+#set SupportGorgePlayer
 #mods
 #skillEnd
 
@@ -1053,7 +1107,7 @@ statMap = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 5 }) }),
 		div = 5,
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 10 }) }),
 		div = 10,
 	},
@@ -1210,8 +1264,8 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportNadirPlayer
-#set SupportNadirPlayer
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
 #mods
 #skillEnd
 
@@ -1304,6 +1358,16 @@ statMap = {
 statMap = {
 	["support_ritual_curse_curse_delay_+%_final"] = {
 		mod("CurseDelay", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportRomirasRequitalPlayer
+#set SupportRomirasRequitalPlayer
+statMap = {
+	["support_trusty_companion_minion_life_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 	},
 },
 #mods
@@ -1431,7 +1495,6 @@ statMap = {
 
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
-#baseMod flag("HasSeals")
 #baseMod flag("DamageSeal")
 #mods
 #skillEnd
@@ -1509,7 +1572,6 @@ statMap = {
 
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
-#baseMod flag("HasSeals")
 #baseMod flag("DamageSeal")
 #mods
 #skillEnd

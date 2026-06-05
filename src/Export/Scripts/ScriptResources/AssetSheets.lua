@@ -42,6 +42,9 @@ function assetSheets.newSheet(name, startWidth, saturation)
 end
 
 function assetSheets.addToSheet(sheet, icon, section, metadata)
+	if icon == nil or icon == "" then
+		return
+	end
 	sheet.files[icon] = sheet.files[icon] or { }
 	if sheet.files[icon][section] then
 		if metadata.alias then

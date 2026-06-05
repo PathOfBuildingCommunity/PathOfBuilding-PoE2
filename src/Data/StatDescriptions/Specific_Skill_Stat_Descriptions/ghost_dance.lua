@@ -11,22 +11,44 @@ return {
 				},
 				limit={
 					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Gain a Ghost Shroud every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="{0} second duration between gaining Ghost Shrouds"
+				text="Gain a Ghost Shroud every {0} seconds"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_cooldown_modifiable_repeat_interval_ms"
 		}
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Modifiers to Cooldown Recovery Rate also apply to\nGhost Shroud gain frequency"
+			}
 		},
 		stats={
-			[1]="display_skill_ghost_dance_grants_energy_shield_when_hit"
+			[1]="cooldown_recovery_modifiers_also_apply_to_repeat_interval"
 		}
 	},
 	[3]={
@@ -48,42 +70,28 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
 					}
 				},
-				text="Ghost Shrouds recover Energy Shield equal to {0:+d}% of your Evasion"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="When Hit, Consume a Ghost Shroud to\nrecover Energy Shield equal to {0}% of your Evasion"
+				text="When Hit, lose a Ghost Shroud \nRegenerate Energy Shield equal to {0}% of your Evasion Rating per second if you have lost a Ghost Shroud Recently"
 			}
 		},
 		stats={
-			[1]="skill_base_ghost_dance_grants_%_evasion_as_energy_shield_when_hit",
-			[2]="quality_display_ghost_dance_is_gem"
+			[1]="skill_base_ghost_dance_grants_%_evasion_as_es_regeneration_per_minute_if_have_lost_ghost_dance_shroud_recently"
 		}
 	},
 	[5]={
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="virtual_cooldown_modifiable_repeat_interval_ms"
 		}
 	},
 	[6]={
@@ -93,12 +101,11 @@ return {
 			[1]="virtual_ghost_dance_max_stacks"
 		}
 	},
-	["base_skill_effect_duration"]=1,
-	["display_skill_ghost_dance_grants_energy_shield_when_hit"]=2,
+	["base_cooldown_modifiable_repeat_interval_ms"]=1,
+	["cooldown_recovery_modifiers_also_apply_to_repeat_interval"]=2,
 	["ghost_dance_max_stacks"]=3,
 	parent="skill_stat_descriptions",
-	["quality_display_ghost_dance_is_gem"]=4,
-	["skill_base_ghost_dance_grants_%_evasion_as_energy_shield_when_hit"]=4,
-	["skill_effect_duration"]=5,
+	["skill_base_ghost_dance_grants_%_evasion_as_es_regeneration_per_minute_if_have_lost_ghost_dance_shroud_recently"]=4,
+	["virtual_cooldown_modifiable_repeat_interval_ms"]=5,
 	["virtual_ghost_dance_max_stacks"]=6
 }

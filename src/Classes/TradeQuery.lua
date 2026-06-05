@@ -777,7 +777,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 		self.onlyWeightedBaseOutput[row_idx][result_index] = onlyWeightedBaseOutput
 		self.lastComparedWeightList[row_idx][result_index] = self.statSortSelectionList
 	end
-	
+
 	local slotName = self.slotTables[row_idx].nodeId and "Jewel " .. tostring(self.slotTables[row_idx].nodeId) or self.slotTables[row_idx].slotName
 	if slotName == "Megalomaniac" then
 		local addedNodes = {}
@@ -787,7 +787,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 				addedNodes[node] = true
 			end
 		end
-		
+
 		local output = self:ReduceOutput(calcFunc({ addNodes = addedNodes }))
 		local weight = self.tradeQueryGenerator.WeightedRatioOutputs(baseOutput, output, self.statSortSelectionList)
 		result.evaluation = {{ output = output, weight = weight }}
@@ -968,31 +968,43 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						self:SetNotice(context.controls.pbNotice, "")
 					end
 
+					-- ensure we only take in items that parse properly to avoid crash issues.
+					local itemsSafe = {}
+					for _, entry in ipairs(items) do
+						local item = new("Item", entry.item_string)
+						if item.base then
+							t_insert(itemsSafe, entry)
+						end
+					end
+
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
-						for i, _ in ipairs(items) do
-							local item = new("Item", items[i].item_string)
-							self.itemsTab:CopyAnointsAndAugments(item, true, true, context.slotTbl.slotName)
-							items[i].item_string = item:BuildRaw()
+						for i, _ in ipairs(itemsSafe) do
+							local item = new("Item", itemsSafe[i].item_string)
+							-- avoid interacting with badly parsed stuff
+							if item.base and item.type then
+								self.itemsTab:CopyAnointsAndAugments(item, true, true, context.slotTbl.slotName)
+								itemsSafe[i].item_string = item:BuildRaw()
+							end
 						end
 					elseif self.tradeQueryGenerator.lastAugmentBehaviour == "Remove" then
-						for item_idx, _ in ipairs(items) do
-							local item = new("Item", items[item_idx].item_string)
+						for item_idx, _ in ipairs(itemsSafe) do
+							local item = new("Item", itemsSafe[item_idx].item_string)
 							-- sockets are kept as-is so the user can see e.g. exceptional or corrupted sockets
 							for rune_idx, _ in ipairs(item.runes or {}) do
 								item.runes[rune_idx] = "None"
 							end
 							item:UpdateRunes()
-							items[item_idx].item_string = item:BuildRaw()
+							itemsSafe[item_idx].item_string = item:BuildRaw()
 						end
 					elseif self.tradeQueryGenerator.lastAnointBehaviour == "Remove" then
-						for i, _ in ipairs(items) do
-							local item = new("Item", items[i].item_string)
+						for i, _ in ipairs(itemsSafe) do
+							local item = new("Item", itemsSafe[i].item_string)
 							item.enchantModLines = {}
-							items[i].item_string = item:BuildRaw()
+							itemsSafe[i].item_string = item:BuildRaw()
 						end
 					end
 
-					self.resultTbl[context.row_idx] = items
+					self.resultTbl[context.row_idx] = itemsSafe
 					self:UpdateControlsWithItems(context.row_idx)
 					context.controls["priceButton"..context.row_idx].label =  "Price Item"
 				end,

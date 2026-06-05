@@ -449,22 +449,21 @@ statMap = {
 #skill SupportCorruptingCryPlayer
 #set SupportCorruptingCryPlayer
 statMap = {
-	["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
-		skill("PhysicalDot", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
-		div = 60,
-	},
-	["support_corrupting_cry_warcry_applies_X_stacks_of_corrupted_blood"] = {
-		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
-	},
 	["support_corrupting_cry_area_of_effect_+%_final"] = {
 		mod("AreaOfEffect", "MORE", nil, 0, KeywordFlag.Warcry)
 	},
-	["support_corrupting_cry_corrupted_blood_duration_ms"] = {
-		skill("durationSecondary", nil),
-		div = 1000,
-	},
-	["support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood"] = {
+	["warcry_triggers_corrupting_cry"] = {
 		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill TriggeredCorruptingCryPlayer
+#set TriggeredCorruptingCryPlayer
+statMap = {
+	["add_buff_to_target_skill_number_of_corrupted_blood_debuffs_to_inflict"] = {
+		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
 	},
 },
 #baseMod skill("debuff", true)
@@ -477,19 +476,18 @@ statMap = {
 #skill SupportCorruptingCryPlayerTwo
 #set SupportCorruptingCryPlayerTwo
 statMap = {
-	["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
-		skill("PhysicalDot", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
-		div = 60,
-	},
-	["support_corrupting_cry_warcry_applies_X_stacks_of_corrupted_blood"] = {
-		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
-	},
-	["support_corrupting_cry_corrupted_blood_duration_ms"] = {
-		skill("durationSecondary", nil),
-		div = 1000,
-	},
-	["support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood"] = {
+	["warcry_triggers_corrupting_cry"] = {
 		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill TriggeredCorruptingCryTwoPlayer
+#set TriggeredCorruptingCryTwoPlayer
+statMap = {
+	["add_buff_to_target_skill_number_of_corrupted_blood_debuffs_to_inflict"] = {
+		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
 	},
 },
 #baseMod skill("debuff", true)
@@ -525,6 +523,23 @@ statMap = {
 		mod("Multiplier:DauntlessMaxDamage", "BASE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportDeadlyResolvePlayer
+#set SupportDeadlyResolvePlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyResolvePlayer
+#set TriggeredDeadlyResolvePlayer
+#flags nonWeaponAttack
+statMap = {
+	["dangerous_resolve_attack_damage_+1%_final_per_X_armour"] = {
+		mod("Multiplier:DamagePerArmour", "BASE", nil),
+	},
+},
+#baseMod mod("Damage", "MORE", 1, 0, 0, { type = "PerStat", stat = "Armour", divVar = "DamagePerArmour", limit = 200, limitTotal = true })
 #mods
 #skillEnd
 
@@ -776,7 +791,7 @@ statMap = {
 
 #skill TriggeredFanTheFlamesPlayer
 #set TriggeredFanTheFlamesPlayer
-#flags attack area
+#flags nonWeaponAttack area
 #mods
 #skillEnd
 
@@ -787,7 +802,7 @@ statMap = {
 
 #skill TriggeredFanTheFlamesPlayerTwo
 #set TriggeredFanTheFlamesPlayerTwo
-#flags attack area
+#flags nonWeaponAttack area
 #mods
 #skillEnd
 
@@ -929,6 +944,11 @@ statMap = {
 		mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportHelbrymsHidePlayer
+#set SupportHelbrymsHidePlayer
 #mods
 #skillEnd
 
@@ -1179,6 +1199,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMinionMeleeSplashPlayer
+#set SupportMinionMeleeSplashPlayer
+#mods
+#skillEnd
+
+#skill SupportMinionMeleeSplashPlayerTwo
+#set SupportMinionMeleeSplashPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportOpeningMovePlayer
 #set SupportOpeningMovePlayer
 #mods
@@ -1187,19 +1217,18 @@ statMap = {
 #skill SupportCorruptingCryPlayerThree
 #set SupportCorruptingCryPlayerThree
 statMap = {
-	["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
-		skill("PhysicalDot", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
-		div = 60,
-	},
-	["support_corrupting_cry_warcry_applies_X_stacks_of_corrupted_blood"] = {
-		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
-	},
-	["support_corrupting_cry_corrupted_blood_duration_ms"] = {
-		skill("durationSecondary", nil),
-		div = 1000,
-	},
-	["support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood"] = {
+	["warcry_triggers_paquates_pact"] = {
 		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill TriggeredCorruptingCryThreePlayer
+#set TriggeredCorruptingCryThreePlayer
+statMap = {
+	["add_buff_to_target_skill_number_of_corrupted_blood_debuffs_to_inflict"] = {
+		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
 	},
 },
 #baseMod skill("debuff", true)
@@ -1318,6 +1347,9 @@ statMap = {
 		mod("ArmourAppliesToColdDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating"}, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
 	},
+	["support_tempered_valour_deflection_rating_%_of_evasion_rating"] = {
+		mod("EvasionGainAsDeflection", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+	},
 },
 #mods
 #skillEnd
@@ -1329,6 +1361,9 @@ statMap = {
 		mod("ArmourAppliesToFireDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
 		mod("ArmourAppliesToColdDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating"}, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+	},
+	["support_tempered_valour_deflection_rating_%_of_evasion_rating"] = {
+		mod("EvasionGainAsDeflection", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
 	},
 },
 #mods
@@ -1779,7 +1814,12 @@ statMap = {
 
 #skill TriggeredVolcanicEruptionPlayer
 #set TriggeredVolcanicEruptionPlayer
-#flags attack area
+#flags attack area projectile
+#mods
+#skillEnd
+
+#skill SupportVruunsInevitability
+#set SupportVruunsInevitability
 #mods
 #skillEnd
 

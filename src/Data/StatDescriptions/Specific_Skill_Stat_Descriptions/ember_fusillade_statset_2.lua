@@ -4,9 +4,9 @@
 return {
 	[1]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	parent="skill_stat_descriptions",
-	["total_number_of_projectiles_to_fire"]=1
+	["total_number_of_projectiles_to_fire_from_stats"]=1
 }

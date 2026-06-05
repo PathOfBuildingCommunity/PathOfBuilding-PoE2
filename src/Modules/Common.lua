@@ -238,7 +238,7 @@ function convertUTF8to16(text, offset)
 			else
 				t_insert(out, "?\z")
 			end
-		else 
+		else
 			t_insert(out, "?\z")
 		end
 	end
@@ -265,6 +265,7 @@ function sanitiseText(text)
 		:gsub("\195\164", "a") -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
 		:gsub("\195\182", "o") -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
 		:gsub("\195\173", "i") -- U+00ED LATIN SMALL LETTER I WITH ACUTE
+		:gsub("\195\179", "o") -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
 		-- single-byte: Windows-1252 and similar
 		:gsub("\150", "-") -- U+2013 EN DASH
 		:gsub("\151", "-") -- U+2014 EM DASH
@@ -887,9 +888,13 @@ function supportEnabled(skillName, activeSkill)
 	return true
 end
 
+-- will remove newlines from strings so that they are valid lua
+---@param thing string | table | number
+---@return string
 function stringify(thing)
 	if type(thing) == 'string' then
-		return thing
+		local s = thing:gsub("\n", "")
+		return s
 	elseif type(thing) == 'number' then
 		return ""..thing;
 	elseif type(thing) == 'table' then
@@ -906,12 +911,12 @@ function stringify(thing)
 				s = s.."[\""..k.."\"] = "
 			end
 			if type(v) == 'string' then
-				s = s.."\""..stringify(v).."\", "
+				s = s.."\""..stringify(v).."\","
 			else
 				if type(v) == "boolean" then
 					v = v and "true" or "false"
 				end
-				val = stringify(v)..", "
+				val = stringify(v)..","
 				if type(v) == "table" then
 					val = string.gsub(val, "\n", "\n\t")
 				end

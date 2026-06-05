@@ -246,7 +246,7 @@ describe("TetsItemMods", function()
 			{range:1}(15-20)% increased Cold Damage per 1% Missing Cold Resistance, up to a maximum of 300%
 			{range:1}(15-20)% increased Fire Damage per 1% Missing Fire Resistance, up to a maximum of 300%]])
 		build.itemsTab:AddDisplayItem()
-		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0 Default  1\n")
+		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.are_not.equals(340, build.calcsTab.mainEnv.modDB:Sum("INC", "FireDamage"))
@@ -493,8 +493,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Glorious Plate
-			Armour: 534
+			Champion Cuirass
+			Armour: 526
 			Crafted: true
 			Prefix: None
 			Prefix: None
@@ -502,7 +502,7 @@ describe("TetsItemMods", function()
 			Suffix: None
 			Suffix: None
 			Suffix: None
-			Quality: 0
+			Quality: 18
 			LevelReq: 65
 			Implicits: 0
 		]])

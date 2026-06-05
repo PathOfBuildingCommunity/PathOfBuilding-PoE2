@@ -70,6 +70,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Spell, { type = "Condition", var = "Unnerved"})
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Spell, { type = "Condition", var = "Unnerved", neg = true}, { type = "Condition", var = "Party:Unnerved"})
 	modDB:NewMod("Damage", "MORE", -10, "Base", { type = "Condition", var = "Debilitated"})
+	modDB:NewMod("DamageGainAsRandom", "BASE", 2, "Faerie Fire", { type = "Multiplier", var = "FaerieFireStack", limit = 10, actor = "enemy" })
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
 	modDB:NewMod("ShockBase", "BASE", data.gameConstants["BaseShockMagnitude"], "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
@@ -90,6 +91,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("MassiveShrine", "FLAG", true, "Base", { type = "Condition", var = "MassiveShrine" })
 	modDB:NewMod("AlchemistsGenius", "FLAG", true, "Base", { type = "Condition", var = "AlchemistsGenius" })
 	modDB:NewMod("LuckyHits", "FLAG", true, "Base", { type = "Condition", var = "LuckyHits" })
+	modDB:NewMod("ColdCannotHeavyStun", "FLAG", true)
 	modDB:NewMod("Convergence", "FLAG", true, "Base", { type = "Condition", var = "Convergence" })
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
@@ -628,7 +630,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TotemColdResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemChaosResist", "BASE", 20, "Base")
-		modDB:NewMod("MaximumRage", "BASE", data.characterConstants["maximum_rage"], "Base")
+		modDB:NewMod("MaximumRage", "BASE", data.gameConstants["BaseMaximumRage"], "Base")
 		modDB:NewMod("MaximumFortification", "BASE", data.characterConstants["base_max_fortification"], "Base")
 		modDB:NewMod("MaximumValour", "BASE", 50, "Base")
 		modDB:NewMod("SoulEaterMax", "BASE", 45, "Base")
@@ -649,7 +651,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 		modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.characterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
 		modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.characterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
-		modDB:NewMod("AilmentMagnitude", "MORE", data.monsterConstants["bleeding_moving_damage_%_of_base_override"] - 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
+		modDB:NewMod("AilmentMagnitude", "MORE", 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
 		modDB:NewMod("MovementSpeed", "INC", 50, "Base", { type = "Condition", var = "Sprinting" })
@@ -1387,6 +1389,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
 
+	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 0, Dex = 0, Int = 0 }
+	local virtuousMoteSkillCounted = { }
+
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
 			local function getNormalizedSkillLevel(grantedSkill)
@@ -1740,8 +1745,25 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if gemInstance.enabled and (gemInstance.gemData or gemInstance.grantedEffect) then
 						local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 						for index, grantedEffect in ipairs(grantedEffectList) do
-							if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+							if not grantedEffect.support and not grantedEffect.hideFromSideBar and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
 								slotHasActiveSkill = true
+								if gemInstance.gemData and not virtuousMoteSkillCounted[gemInstance] and not (group.gemList[gemIndex].fromNode or group.gemList[gemIndex].fromItem) then
+									virtuousMoteSkillCounted[gemInstance] = true
+									local requiredAttributes = { }
+									if gemInstance.gemData.reqStr > 0 then
+										t_insert(requiredAttributes, "Str")
+									end
+									if gemInstance.gemData.reqDex > 0 then
+										t_insert(requiredAttributes, "Dex")
+									end
+									if gemInstance.gemData.reqInt > 0 then
+										t_insert(requiredAttributes, "Int")
+									end
+									local moteValue = #requiredAttributes == 1 and 2 or 1
+									for _, attr in ipairs(requiredAttributes) do
+										virtuousMoteSkillCount[attr] = virtuousMoteSkillCount[attr] + moteValue
+									end
+								end
 								local activeEffect = {
 									grantedEffect = grantedEffect,
 									level = gemInstance.level,
@@ -1963,6 +1985,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
 		end
 	end
+
+	env.virtuousMoteSkillCount = virtuousMoteSkillCount
+	env.modDB.multipliers.StrengthMoteSkillCount = virtuousMoteSkillCount.Str
+	env.modDB.multipliers.DexterityMoteSkillCount = virtuousMoteSkillCount.Dex
+	env.modDB.multipliers.IntelligenceMoteSkillCount = virtuousMoteSkillCount.Int
 
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group

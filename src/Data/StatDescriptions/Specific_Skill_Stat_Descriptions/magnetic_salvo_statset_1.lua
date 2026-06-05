@@ -9,7 +9,7 @@ return {
 	},
 	[2]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[3]={
@@ -56,5 +56,5 @@ return {
 	["active_skill_base_area_of_effect_radius"]=4,
 	["base_number_of_projectiles"]=1,
 	parent="skill_stat_descriptions",
-	["total_number_of_projectiles_to_fire"]=2
+	["total_number_of_projectiles_to_fire_from_stats"]=2
 }

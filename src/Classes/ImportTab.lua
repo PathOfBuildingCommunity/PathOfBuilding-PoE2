@@ -11,6 +11,8 @@ local band = bit.band
 local m_max = math.max
 local dkjson = require "dkjson"
 
+local tradeHelpers = LoadModule("Classes/TradeHelpers")
+
 local realmList = {
 	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
 }
@@ -646,39 +648,57 @@ end
 
 function ImportTabClass:ImportQuestRewardConfig(questStats)
 	local configTab = self.build.configTab
-	local statLines = {}
+
+	-- Reduce a stat line to a numberless key + value (e.g. "+30 to [Spirit|Spirit]" -> "+# to spirit", 30)
+	local function statKey(text)
+		text = escapeGGGString(text):lower():gsub("^%s+", ""):gsub("%s+$", "")
+		return tradeHelpers.modLineTemplate(text), tradeHelpers.modLineValue(text) or 0
+	end
+
+	local statTotals = {}
 	for _, stat in ipairs(questStats) do
-		t_insert(statLines, escapeGGGString(stat):lower())
+		local key, value = statKey(stat)
+		statTotals[key] = (statTotals[key] or 0) + value
+	end
+
+	-- Stats shared by 3+ quests can't be split greedily (two +30 Spirit quests make 40/70 ambiguous),
+	-- so resolve those by exact total then zero their totals.
+	local disambiguation = {
+		["+# to spirit"] = {
+			[30] = { "King In The Mists" },
+			[40] = { "Lythara" },
+			[60] = { "King In The Mists", "Ignagduk" },
+			[70] = { "King In The Mists", "Lythara" },
+			[100] = { "King In The Mists", "Ignagduk", "Lythara" },
+		},
+	}
+	local resolved = {}
+	for stat, byTotal in pairs(disambiguation) do
+		local taken = byTotal[statTotals[stat] or 0]
+		if taken then
+			for _, info in ipairs(taken) do resolved[info] = true end
+			statTotals[stat] = 0
+		end
 	end
 
 	local function splitLine(text)
 		local out = {}
-		for line in text:gmatch("[^\r\n]+") do
-			line = line:gsub("^%s+", ""):lower()
-			t_insert(out, line)
+		for line in tostring(text):gmatch("[^\r\n]+") do
+			local key, value = statKey(line)
+			t_insert(out, { key = key, value = value })
 		end
 		return out
 	end
 
-	-- Ensure all required lines exist, then remove them so they can't match again
+	-- True if the totals still hold every line of the reward; consume them so a later quest can't reclaim it
 	local function matchQuest(requiredLines)
-		local indices = {}
-		for _, needed in ipairs(requiredLines) do
-			local found
-			for idx, line in ipairs(statLines) do
-				if line == needed then
-					found = idx
-					break
-				end
-			end
-			if not found then
+		for _, line in ipairs(requiredLines) do
+			if (statTotals[line.key] or 0) < line.value then
 				return false
 			end
-			t_insert(indices, found)
 		end
-		table.sort(indices, function(a, b) return a > b end)
-		for _, idx in ipairs(indices) do
-			t_remove(statLines, idx)
+		for _, line in ipairs(requiredLines) do
+			statTotals[line.key] = statTotals[line.key] - line.value
 		end
 		return true
 	end
@@ -688,7 +708,7 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
 			if quest.Stat then
-				local matches = matchQuest(splitLine(quest.Stat))
+				local matches = resolved[quest.Info] or matchQuest(splitLine(quest.Stat))
 				if configTab.input[var] ~= matches then
 					configTab.input[var] = matches
 					updated = true
@@ -796,6 +816,97 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	main:SetWindowTitleSubtext(string.format("%s (%s, %s, %s)", self.build.buildName, charData.name, charData.class, charData.league))
 end
 
+local SOCKET_GROUP_REIMPORT_KEY_SEPARATOR = "\31"
+
+local function getSocketGroupReimportKey(socketGroup)
+	-- Use a rarely-used separator to avoid accidental collisions when concatenating fields.
+	local gemNameParts = { }
+	for _, gem in ipairs(socketGroup.gemList) do
+		t_insert(gemNameParts, (gem.nameSpec or ""):lower())
+	end
+	return table.concat({
+		tostring(#socketGroup.gemList),
+		table.concat(gemNameParts, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR),
+	}, SOCKET_GROUP_REIMPORT_KEY_SEPARATOR)
+end
+
+local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
+	local gemStates = { }
+	for gemIndex, gem in ipairs(socketGroup.gemList) do
+		gemStates[gemIndex] = {
+			enabled = gem.enabled,
+			count = gem.count,
+			statSet = gem.statSet and copyTable(gem.statSet),
+			statSetCalcs = gem.statSetCalcs and copyTable(gem.statSetCalcs),
+			skillPart = gem.skillPart,
+			skillPartCalcs = gem.skillPartCalcs,
+			skillStageCount = gem.skillStageCount,
+			skillStageCountCalcs = gem.skillStageCountCalcs,
+			skillMineCount = gem.skillMineCount,
+			skillMineCountCalcs = gem.skillMineCountCalcs,
+			skillMinion = gem.skillMinion,
+			skillMinionCalcs = gem.skillMinionCalcs,
+			skillMinionItemSet = gem.skillMinionItemSet,
+			skillMinionItemSetCalcs = gem.skillMinionItemSetCalcs,
+			skillMinionSkill = gem.skillMinionSkill,
+			skillMinionSkillCalcs = gem.skillMinionSkillCalcs,
+			skillMinionSkillStatSetIndexLookup = gem.skillMinionSkillStatSetIndexLookup and copyTable(gem.skillMinionSkillStatSetIndexLookup),
+			skillMinionSkillStatSetIndexLookupCalcs = gem.skillMinionSkillStatSetIndexLookupCalcs and copyTable(gem.skillMinionSkillStatSetIndexLookupCalcs),
+			enableGlobal1 = gem.enableGlobal1,
+			enableGlobal2 = gem.enableGlobal2,
+		}
+	end
+	return {
+		enabled = socketGroup.enabled,
+		includeInFullDPS = socketGroup.includeInFullDPS,
+		groupCount = socketGroup.groupCount,
+		label = socketGroup.label,
+		mainActiveSkill = socketGroup.mainActiveSkill,
+		mainActiveSkillCalcs = socketGroup.mainActiveSkillCalcs,
+		gemStates = gemStates,
+		isMainGroup = isMainGroup,
+	}
+end
+
+local function applyGemReimportState(gem, state)
+	gem.enabled = state.enabled
+	gem.count = state.count
+	gem.statSet = state.statSet and copyTable(state.statSet)
+	gem.statSetCalcs = state.statSetCalcs and copyTable(state.statSetCalcs)
+	gem.skillPart = state.skillPart
+	gem.skillPartCalcs = state.skillPartCalcs
+	gem.skillStageCount = state.skillStageCount
+	gem.skillStageCountCalcs = state.skillStageCountCalcs
+	gem.skillMineCount = state.skillMineCount
+	gem.skillMineCountCalcs = state.skillMineCountCalcs
+	gem.skillMinion = state.skillMinion
+	gem.skillMinionCalcs = state.skillMinionCalcs
+	gem.skillMinionItemSet = state.skillMinionItemSet
+	gem.skillMinionItemSetCalcs = state.skillMinionItemSetCalcs
+	gem.skillMinionSkill = state.skillMinionSkill
+	gem.skillMinionSkillCalcs = state.skillMinionSkillCalcs
+	gem.skillMinionSkillStatSetIndexLookup = state.skillMinionSkillStatSetIndexLookup and copyTable(state.skillMinionSkillStatSetIndexLookup)
+	gem.skillMinionSkillStatSetIndexLookupCalcs = state.skillMinionSkillStatSetIndexLookupCalcs and copyTable(state.skillMinionSkillStatSetIndexLookupCalcs)
+	gem.enableGlobal1 = state.enableGlobal1
+	gem.enableGlobal2 = state.enableGlobal2
+end
+
+local function applySocketGroupReimportState(socketGroup, state)
+	socketGroup.enabled = state.enabled
+	socketGroup.includeInFullDPS = state.includeInFullDPS
+	socketGroup.groupCount = state.groupCount
+	socketGroup.label = state.label
+	socketGroup.mainActiveSkill = state.mainActiveSkill
+	socketGroup.mainActiveSkillCalcs = state.mainActiveSkillCalcs
+	if state.gemStates then
+		for gemIndex, gemState in ipairs(state.gemStates) do
+			if socketGroup.gemList[gemIndex] then
+				applyGemReimportState(socketGroup.gemList[gemIndex], gemState)
+			end
+		end
+	end
+end
+
 function ImportTabClass:ImportItemsAndSkills(charData)
 	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
@@ -808,14 +919,21 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
 	local skillOrder
+	local preservedSocketGroupStateByKey
 	if self.controls.charImportItemsClearSkills.state then
 		skillOrder = { }
+		preservedSocketGroupStateByKey = { }
 		for _, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
 			for _, gem in ipairs(socketGroup.gemList) do
 				if gem.grantedEffect and not gem.grantedEffect.support then
 					t_insert(skillOrder, gem.grantedEffect.name)
 				end
 			end
+		end
+		for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+			local key = getSocketGroupReimportKey(socketGroup)
+			preservedSocketGroupStateByKey[key] = preservedSocketGroupStateByKey[key] or { }
+			t_insert(preservedSocketGroupStateByKey[key], snapshotSocketGroupReimportState(socketGroup, index == self.build.mainSocketGroup))
 		end
 		wipeTable(self.build.skillsTab.socketGroupList)
 	end
@@ -838,10 +956,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 		-- This could be done better with the character melee skills data at some point.
 		if typeLine:match("Mace Strike") then
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
+			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
 			if weapon2Sel == 0 then
-				if self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
@@ -991,6 +1109,22 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			end
 		end)
 	end
+	if preservedSocketGroupStateByKey then
+		local restoredMainSocketGroup
+		for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+			local stateList = preservedSocketGroupStateByKey[getSocketGroupReimportKey(socketGroup)]
+			if stateList and stateList[1] then
+				local state = t_remove(stateList, 1)
+				applySocketGroupReimportState(socketGroup, state)
+				if state.isMainGroup then
+					restoredMainSocketGroup = index
+				end
+			end
+		end
+		if restoredMainSocketGroup then
+			self.build.mainSocketGroup = restoredMainSocketGroup
+		end
+	end
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
@@ -1004,7 +1138,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	return charData -- For the wrapper
 end
 
-local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC" }
+local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC", [13] = "RARE", [14] = "UNIQUE" }
 local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt", ["IncursionArmLeft"] = "Arm 2", ["IncursionArmRight"] = "Arm 1", ["IncursionLegLeft"] = "Leg 2", ["IncursionLegRight"] = "Leg 1" }
 
 function ImportTabClass:ImportItem(itemData, slotName)
@@ -1218,6 +1352,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			for line in line:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, mutated = true })
+			end
+		end
+	end
+	if itemData.craftedMods then
+		for _, line in ipairs(itemData.craftedMods) do
+			for line in line:gmatch("[^\n]+") do
+				local modList, extra = modLib.parseMod(line)
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
 			end
 		end
 	end
