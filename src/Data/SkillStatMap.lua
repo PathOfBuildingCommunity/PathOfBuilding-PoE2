@@ -1095,6 +1095,9 @@ return {
 ["non_skill_base_all_damage_%_to_gain_as_cold"] = {
 	mod("DamageGainAsCold", "BASE", nil),
 },
+["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+	mod("DamageGainAsFire", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
 	mod("DamageGainAsChaos", "BASE", nil),
 },

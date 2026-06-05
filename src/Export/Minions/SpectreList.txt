@@ -1138,7 +1138,6 @@ Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersColdBloodied            
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersColdPatrol                        		----		Gelid Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersColdSacrifice                     		----		Gelid Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersColdSacrificePray                 		----		Gelid Zealot
-Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersColdSacrificeWorship              		----		Gelid Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFireBloodied                      		----		Fiery Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightningBloodied                 		----		Powered Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpectre               		----		Bannerbearing Zealot

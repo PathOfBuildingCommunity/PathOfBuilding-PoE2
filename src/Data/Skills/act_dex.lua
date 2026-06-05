@@ -4817,6 +4817,7 @@ skills["MetaMirageArcherPlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 60, },
@@ -8186,6 +8187,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -8266,6 +8268,7 @@ skills["StormLancePlayer"] = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 30 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "base_skill_effect_duration", 1500 },
 				{ "base_secondary_skill_effect_duration", 8000 },
 				{ "overcharged_spear_base_frequency_ms", 200 },
@@ -8352,6 +8355,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "arc_chain_distance", 30 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 70 },
 			},
@@ -8429,6 +8433,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 70 },
 			},
 			stats = {
@@ -8557,6 +8562,7 @@ skills["StormcallerArrowPlayer"] = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -8627,6 +8633,7 @@ skills["StormcallerArrowPlayer"] = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
+				{ "base_number_of_projectiles", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 20 },
 				{ "active_skill_shock_chance_+%_final", 500 },
 				{ "active_skill_shock_as_though_damage_+%_final", 50 },

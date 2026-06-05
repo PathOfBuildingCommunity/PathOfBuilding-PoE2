@@ -915,6 +915,7 @@ skills["ArtilleryBallistaPlayer"] = {
 	skillTotemId = 22,
 	castTime = 1,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 14, }, },
@@ -4905,6 +4906,7 @@ skills["ExplosiveGrenadePlayer"] = {
 				{ "active_skill_projectile_speed_+%_variation_final_if_multiple_projectiles", 15 },
 				{ "consume_X_heat_on_skill_use", 15 },
 				{ "active_skill_all_damage_%_as_fire_if_heat_is_consumed", 50 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"active_skill_base_area_of_effect_radius",
@@ -11430,6 +11432,7 @@ skills["PlasmaBlastPlayer"] = {
 				{ "total_attack_time_+_ms", 2000 },
 				{ "channel_end_duration_as_%_of_attack_time", 35 },
 				{ "shock_effect_+%", 50 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -11507,6 +11510,7 @@ skills["PlasmaBlastPlayer"] = {
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "channel_end_duration_as_%_of_attack_time", 35 },
 				{ "shock_effect_+%", 50 },
+				{ "base_number_of_projectiles", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 20 },
 				{ "active_skill_base_area_of_effect_radius", 32 },
 			},

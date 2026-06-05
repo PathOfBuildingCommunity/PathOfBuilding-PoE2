@@ -3595,10 +3595,10 @@ skills["TriggeredFanTheFlamesPlayerTwo"] = {
 }
 skills["SupportAddedFireDamagePlayer"] = {
 	name = "Fire Attunement",
-	description = "Supports Attacks, causing them to Gain Fire Damage but deal less Cold and Lightning Damage.",
+	description = "Supports any skill that deals damage, causing them to Gain Fire Damage but deal less Cold and Lightning Damage.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "FireAttunement",},
@@ -3620,7 +3620,7 @@ skills["SupportAddedFireDamagePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "non_skill_base_all_damage_%_to_gain_as_fire_with_attacks", 25 },
+				{ "non_skill_base_all_damage_%_to_gain_as_fire", 25 },
 				{ "support_cold_and_lightning_damage_+%_final", -50 },
 			},
 			stats = {
