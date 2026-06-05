@@ -2,7 +2,7 @@ VERSION[0.19.0][2026/06/05]
 
 --- New to Path of Building ---
 * Update passive tree with 0.5.1 changes (trompetin17)
-* Update skills with 0.5.1 changes by LocalIdentity
+* Update skills with 0.5.1 changes (LocalIdentity)
 * Add Facebreaker unique gloves support (Anakior, LocalIdentity)
 * Add support for various Parry modifiers (Debuff Magnitude, Range, Duration) (majochem)
 * Implement parsing for remnant effect mods (moxaj)

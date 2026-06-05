@@ -8,7 +8,7 @@
 ## What's Changed
 ### New to Path of Building
 - Update passive tree with 0.5.1 changes [\#2096](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2096) ([trompetin17](https://github.com/justjuangui))
-* Update skills with 0.5.1 changes by [LocalIdentity](https://github.com/LocalIdentity)
+- Update skills with 0.5.1 changes by [LocalIdentity](https://github.com/LocalIdentity)
 - Add Facebreaker unique gloves support [\#2097](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2097) ([Anakior](https://github.com/Anakior), [LocalIdentity](https://github.com/LocalIdentity))
 - Add support for various Parry modifiers (Debuff Magnitude, Range, Duration) [\#2080](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2080) ([majochem](https://github.com/majochem))
 - Implement parsing for remnant effect mods [\#2093](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2093) ([moxaj](https://github.com/moxaj))
