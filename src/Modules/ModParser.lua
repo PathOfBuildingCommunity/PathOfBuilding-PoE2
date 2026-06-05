@@ -5878,6 +5878,20 @@ local specialModList = {
 		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
 		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = tonumber(esNum) }),
 	} end,
+	-- Facebreaker (and its Fire variant): the gloves grant base weapon damage that empty-handed One Hand Mace attacks use.
+	-- The base damage is stored separately and copied onto the attack source when a compatible skill uses the item damage.
+	-- "Boss's Face Broken" is a stacking counter exposed through the Configuration tab (Multiplier:BossFaceBroken).
+	["has (%d+) to (%d+) (%a+) damage, %+(%d+) to %+(%d+) per boss's face broken"] = function(min, _, max, dmgType, perMin, perMax)
+		local dmg = dmgType:sub(1, 1):upper() .. dmgType:sub(2)
+		return {
+			mod("Facebreaker"..dmg.."Min", "BASE", tonumber(min)),
+			mod("Facebreaker"..dmg.."Max", "BASE", tonumber(max)),
+			mod("Facebreaker"..dmg.."Min", "BASE", tonumber(perMin), { type = "Multiplier", var = "BossFaceBroken" }),
+			mod("Facebreaker"..dmg.."Max", "BASE", tonumber(perMax), { type = "Multiplier", var = "BossFaceBroken" }),
+		}
+	end,
+	["can attack as though using a one handed mace while both of your hand slots are empty"] = { flag("CanAttackAsOneHandMaceUnarmed") },
+	["unarmed attacks that would use an equipped one hand mace's damage use this item's damage"] = { flag("UseFacebreakerItemDamage") },
 	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
 		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),

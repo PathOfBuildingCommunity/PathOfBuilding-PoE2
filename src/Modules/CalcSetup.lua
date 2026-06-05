@@ -1593,6 +1593,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 			end
+			-- Facebreaker: Can Attack as though using a One Handed Mace while both of your hand slots are empty
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "CanAttackAsOneHandMaceUnarmed") then
+				env.player.weaponData1.asThoughUsing = env.player.weaponData1.asThoughUsing or { }
+				env.player.weaponData1.asThoughUsing["One Hand Mace"] = true
+			end
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "UseFacebreakerItemDamage") then
+				env.player.weaponData1.FacebreakerItemDamage = true
+				for _, damageType in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+					env.player.weaponData1["Facebreaker"..damageType.."Min"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Min")
+					env.player.weaponData1["Facebreaker"..damageType.."Max"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Max")
+				end
+			end
 			env.player.weaponData2 = env.player.weaponData2 or { }
 		else
 			env.player.weaponData2 = env.player.itemList["Weapon 2"].weaponData and env.player.itemList["Weapon 2"].weaponData[2] or { }

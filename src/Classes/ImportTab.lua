@@ -656,9 +656,17 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 	end
 
 	local statTotals = {}
+	local updated = false
 	for _, stat in ipairs(questStats) do
 		local key, value = statKey(stat)
-		statTotals[key] = (statTotals[key] or 0) + value
+		if key == "# broken boss faces" then
+			if configTab.placeholder.configBossFaceBroken ~= value then
+				configTab.placeholder.configBossFaceBroken = value
+				updated = true
+			end
+		else
+			statTotals[key] = (statTotals[key] or 0) + value
+		end
 	end
 
 	-- Stats shared by 3+ quests can't be split greedily (two +30 Spirit quests make 40/70 ambiguous),
@@ -703,7 +711,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		return true
 	end
 
-	local updated = false
 	for _, quest in ipairs(data.questRewards) do
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info

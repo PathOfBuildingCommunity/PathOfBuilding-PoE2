@@ -22,6 +22,15 @@ UniqueImpaleOnCriticalHit1
 UniqueCriticalsCannotConsumeImpale1
 UniqueAttackerTakesDamage8
 ]],[[
+Facebreaker
+Stocky Mitts
+UniqueBaseDamageOverrideForMaceAttacks1
+UniqueStunDamageIncrease1
+UniqueUnarmedAttackDamagePerXStrength1
+UnarmedStrikeRangeUnique1
+UniqueGainArmourEqualToStrength1
+UniqueOneHandMaceSkillsUsableUnarmed1
+]],[[
 Hateforge
 Moulded Mitts
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
