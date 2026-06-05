@@ -656,9 +656,17 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 	end
 
 	local statTotals = {}
+	local updated = false
 	for _, stat in ipairs(questStats) do
 		local key, value = statKey(stat)
-		statTotals[key] = (statTotals[key] or 0) + value
+		if key == "# broken boss faces" then
+			if configTab.placeholder.configBossFaceBroken ~= value then
+				configTab.placeholder.configBossFaceBroken = value
+				updated = true
+			end
+		else
+			statTotals[key] = (statTotals[key] or 0) + value
+		end
 	end
 
 	-- Stats shared by 3+ quests can't be split greedily (two +30 Spirit quests make 40/70 ambiguous),
@@ -703,7 +711,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		return true
 	end
 
-	local updated = false
 	for _, quest in ipairs(data.questRewards) do
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
@@ -956,10 +963,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 		-- This could be done better with the character melee skills data at some point.
 		if typeLine:match("Mace Strike") then
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
+			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
 			if weapon2Sel == 0 then
-				if self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"

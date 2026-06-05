@@ -8896,10 +8896,10 @@ skills["SupportHollowFormPlayer"] = {
 			statDescriptionScope = "meta_gem_stat_descriptions",
 			statMap = {
 				["mantra_of_illusions_triggered_skill_attack_speed_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Speed", "MORE", nil, ModFlag.Attack),
 				},
 				["mantra_of_illusions_triggered_skill_damage_+%_final"] = {
-					mod("Speed", "MORE", nil, ModFlag.Attack),
+					mod("Damage", "MORE", nil),
 				},
 			},
 			baseFlags = {
