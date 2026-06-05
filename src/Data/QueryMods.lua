@@ -450,6 +450,15 @@ return {
 				["type"] = "enchant",
 			},
 		},
+		["13693"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13693",
+				["text"] = "Allocates Rhythm of Ice",
+				["type"] = "enchant",
+			},
+		},
 		["13708"] = {
 			["specialCaseData"] = {
 			},
@@ -537,6 +546,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
+				["type"] = "enchant",
+			},
+		},
+		["14265"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14265",
+				["text"] = "Allocates Arsonist",
 				["type"] = "enchant",
 			},
 		},
@@ -1665,6 +1683,15 @@ return {
 				["type"] = "enchant",
 			},
 		},
+		["23907"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23907",
+				["text"] = "Allocates Ice Storm",
+				["type"] = "enchant",
+			},
+		},
 		["23939"] = {
 			["specialCaseData"] = {
 			},
@@ -1779,6 +1806,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|24655",
 				["text"] = "Allocates Breath of Fire",
+				["type"] = "enchant",
+			},
+		},
+		["24721"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24721",
+				["text"] = "Allocates Brain Freeze",
 				["type"] = "enchant",
 			},
 		},
@@ -2943,6 +2979,15 @@ return {
 				["type"] = "enchant",
 			},
 		},
+		["33852"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33852",
+				["text"] = "Allocates Flurry",
+				["type"] = "enchant",
+			},
+		},
 		["33887"] = {
 			["specialCaseData"] = {
 			},
@@ -3489,6 +3534,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|37543",
 				["text"] = "Allocates Full Recovery",
+				["type"] = "enchant",
+			},
+		},
+		["37619"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37619",
+				["text"] = "Allocates Rhythm of Fire",
 				["type"] = "enchant",
 			},
 		},
@@ -4878,6 +4932,15 @@ return {
 				["type"] = "enchant",
 			},
 		},
+		["47387"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47387",
+				["text"] = "Allocates Stormkeeper",
+				["type"] = "enchant",
+			},
+		},
 		["47418"] = {
 			["specialCaseData"] = {
 			},
@@ -5283,6 +5346,15 @@ return {
 				["type"] = "enchant",
 			},
 		},
+		["50498"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50498",
+				["text"] = "Allocates Brain Storm",
+				["type"] = "enchant",
+			},
+		},
 		["50562"] = {
 			["specialCaseData"] = {
 			},
@@ -5604,6 +5676,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|52618",
 				["text"] = "Allocates Boon of the Beast",
+				["type"] = "enchant",
+			},
+		},
+		["52669"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52669",
+				["text"] = "Allocates Flamekeeper",
 				["type"] = "enchant",
 			},
 		},
@@ -6693,6 +6774,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|60764",
 				["text"] = "Allocates Feathered Fletching",
+				["type"] = "enchant",
+			},
+		},
+		["60878"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60878",
+				["text"] = "Allocates Lightning Storm",
 				["type"] = "enchant",
 			},
 		},
@@ -14153,6 +14243,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2393315299"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2393315299",
+				["text"] = "#% increased Explicit Critical Modifier magnitudes",
+				["type"] = "explicit",
+			},
+		},
 		["239367161"] = {
 			["AnyJewel"] = {
 				["max"] = 20,
@@ -15408,6 +15507,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["2888350852"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2888350852",
+				["text"] = "Gain #% of Damage as Extra Cold Damage while you are missing Runic Ward",
+				["type"] = "explicit",
+			},
+		},
 		["2891184298"] = {
 			["1HWeapon"] = {
 				["max"] = 35,
@@ -16547,7 +16655,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3249412463",
-				["text"] = "Supported Minions' Strikes have Melee Splash",
+				["text"] = "Minions' Strikes have Melee Splash",
 				["type"] = "explicit",
 			},
 		},
@@ -20028,6 +20136,16 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["548070846"] = {
+			["invertOnNegative"] = true,
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_548070846",
+				["text"] = "#% increased Duration of Ailments on You",
+				["type"] = "explicit",
+			},
+		},
 		["54812069"] = {
 			["specialCaseData"] = {
 			},
@@ -23454,6 +23572,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["1092987622"] = {
+			["Chest"] = {
+				["max"] = 250,
+				["min"] = 250,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1092987622",
+				["text"] = "#% of Melee Physical Damage taken reflected to Attacker",
+				["type"] = "augment",
+			},
+		},
 		["1147690586"] = {
 			["1HMace"] = {
 				["max"] = 3,
@@ -24572,6 +24703,23 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1910743684"] = {
+			["2HMace"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1910743684",
+				["text"] = "All damage with this Weapon causes Electrocution buildup",
+				["type"] = "augment",
+			},
+		},
 		["1911097163"] = {
 			["1HWeapon"] = {
 				["max"] = 0.5,
@@ -25259,6 +25407,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2250533757",
 				["text"] = "#% increased Movement Speed",
+				["type"] = "augment",
+			},
+		},
+		["2301852600"] = {
+			["Boots"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2301852600",
+				["text"] = "Deal #% of Overkill damage to enemies within 2 metres of the enemy killed",
 				["type"] = "augment",
 			},
 		},
@@ -26091,6 +26252,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_289128254",
 				["text"] = "Allies in your Presence have #% increased Cast Speed",
+				["type"] = "augment",
+			},
+		},
+		["2895144208"] = {
+			["2HMace"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2895144208",
+				["text"] = "Maim on Critical Hit",
 				["type"] = "augment",
 			},
 		},
@@ -27063,6 +27241,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["331731406"] = {
+			["Chest"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_331731406",
+				["text"] = "Cannot be Ignited",
+				["type"] = "augment",
+			},
+		},
 		["3329501096"] = {
 			["1HWeapon"] = {
 				["max"] = 1,
@@ -27306,6 +27497,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["3441651621"] = {
+			["Chest"] = {
+				["max"] = -10,
+				["min"] = -10,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3441651621",
+				["text"] = "# Physical Damage taken from Attack Hits",
+				["type"] = "augment",
+			},
+		},
 		["3444646646"] = {
 			["2HWeapon"] = {
 				["max"] = 2,
@@ -27513,6 +27717,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3537994888",
 				["text"] = "#% chance when you gain a Power Charge to gain an additional Power Charge",
+				["type"] = "augment",
+			},
+		},
+		["3538915253"] = {
+			["1HMace"] = {
+				["max"] = 120,
+				["min"] = 120,
+			},
+			["1HWeapon"] = {
+				["max"] = 120,
+				["min"] = 120,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3538915253",
+				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal tothe enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "augment",
 			},
 		},
@@ -28619,6 +28840,37 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["50721145"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_50721145",
+				["text"] = "Your speed is unaffected by Slows",
+				["type"] = "augment",
+			},
+		},
+		["518292764"] = {
+			["2HMace"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["2HWeapon"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_518292764",
+				["text"] = "#% to Critical Hit Chance",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
+		},
 		["53045048"] = {
 			["Chest"] = {
 				["max"] = 30,
@@ -29595,6 +29847,24 @@ return {
 				["text"] = "Causes #% increased Stun Buildup",
 				["type"] = "augment",
 			},
+		},
+		["805298720"] = {
+			["1HWeapon"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["Wand"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_805298720",
+				["text"] = "# to Level of all Curse Skills",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["830161081"] = {
 			["Boots"] = {

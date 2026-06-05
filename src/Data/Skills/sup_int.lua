@@ -1688,10 +1688,10 @@ skills["SupportCatharsisPlayer"] = {
 }
 skills["SupportAddedChaosDamagePlayer"] = {
 	name = "Chaos Attunement",
-	description = "Supports Attacks, causing them to Gain Chaos Damage but deal less Damage of other Types.",
+	description = "Supports any skill that deals damage, causing them to Gain Chaos Damage but deal less Damage of other Types.",
 	color = 3,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "ChaosAttunement",},
@@ -1715,7 +1715,7 @@ skills["SupportAddedChaosDamagePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "non_skill_base_all_damage_%_to_gain_as_chaos_with_attacks", 25 },
+				{ "non_skill_base_all_damage_%_to_gain_as_chaos", 25 },
 				{ "support_chaos_support_non_chaos_damage_+%_final", -50 },
 			},
 			stats = {
@@ -1862,10 +1862,10 @@ skills["SupportClarityPlayerTwo"] = {
 }
 skills["SupportAddedColdDamagePlayer"] = {
 	name = "Cold Attunement",
-	description = "Supports Attacks, causing them to Gain Cold Damage but deal less Fire and Lightning Damage.",
+	description = "Supports any skill that deals damage, causing them to Gain Cold Damage but deal less Fire and Lightning Damage.",
 	color = 3,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "ColdAttunement",},
@@ -1887,7 +1887,7 @@ skills["SupportAddedColdDamagePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "non_skill_base_all_damage_%_to_gain_as_cold_with_attacks", 25 },
+				{ "non_skill_base_all_damage_%_to_gain_as_cold", 25 },
 				{ "support_fire_and_lightning_damage_+%_final", -50 },
 			},
 			stats = {
@@ -5597,10 +5597,10 @@ skills["SupportHulkingMinionsPlayer"] = {
 }
 skills["SupportIceBitePlayer"] = {
 	name = "Ice Bite I",
-	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with supported skills infuses all of your Attacks with Cold damage for a short time.",
+	description = "Supports damaging skills and Warcries you use yourself. Freezing an enemy with supported skills infuses your damage with Cold damage for a short time.",
 	color = 3,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, SkillType.Damage, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "IceBite",},
@@ -5638,10 +5638,10 @@ skills["SupportIceBitePlayer"] = {
 }
 skills["SupportIceBitePlayerTwo"] = {
 	name = "Ice Bite II",
-	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with supported skills infuses all of your Attacks with Cold damage for a short time.",
+	description = "Supports damaging skills and Warcries you use yourself. Freezing an enemy with supported skills infuses your damage with Cold damage for a short time.",
 	color = 3,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, SkillType.Damage, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "IceBite",},

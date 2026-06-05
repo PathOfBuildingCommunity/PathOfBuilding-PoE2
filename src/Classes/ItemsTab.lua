@@ -1729,10 +1729,22 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 				newItem.itemSocketCount = #newItem.sockets
 				newItem:UpdateRunes()
 			end
+
+			local validRunes = self:GetValidRunesForItem(newItem)
+
 			-- replace runes with current ones, or set to none
 			if shouldChangeAugments then
 				for i = 1, #newItem.sockets do
-					newItem.runes[i] = currentRunes[i] or "None"
+					newItem.runes[i] = "None"
+					if currentRunes[i] then
+						for _, rune in ipairs(validRunes) do
+							-- we only copy runes which fit the new item type
+							if rune.name == currentRunes[i] then
+								newItem.runes[i] = currentRunes[i]
+								break
+							end
+						end
+					end
 				end
 				newItem:UpdateRunes()
 			end
@@ -1900,10 +1912,8 @@ table.sort(runeModLines, function(a, b)
 		return a.group < b.group
 	end
 end)
--- Update rune selection controls
-function ItemsTabClass:UpdateRuneControls()
-	local item = self.displayItem
-	-- Build rune selection for item
+
+function ItemsTabClass:GetValidRunesForItem(item)
 	local runes = { }
 	for _, rune in pairs(runeModLines) do
 		local subType = item.base.subType and item.base.subType:lower()
@@ -1935,18 +1945,37 @@ function ItemsTabClass:UpdateRuneControls()
 				end
 		end
 	end
+	return runes
+end
+
+-- Update rune selection controls
+function ItemsTabClass:UpdateRuneControls()
+	local item = self.displayItem
+	-- Build rune selection for item
+	local runes = self:GetValidRunesForItem(item)
+	local runesUpdated = false
 
 	for i = 1, item.itemSocketCount do
 		self.controls["displayItemRune"..i].list = runes
 		if item.runes[i] then
+			local found = false
 			for j, modLine in ipairs(self.controls["displayItemRune"..i].list) do
 				if item.runes[i] == modLine.name then
 					self.controls["displayItemRune"..i].selIndex = j
+					found = true
 				end
+			end
+			if not found then
+				self.controls["displayItemRune"..i].selIndex = 1
+				item.runes[i] = "None"
+				runesUpdated = true
 			end
 		else
 			self.controls["displayItemRune"..i].selIndex = 1
 		end
+	end
+	if runesUpdated then
+		item:UpdateRunes()
 	end
 end
 

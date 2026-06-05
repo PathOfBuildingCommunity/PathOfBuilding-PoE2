@@ -159,4 +159,29 @@ describe("ImportTab quest reward import", function()
 		assert.are.equals(tribal.Options[1], input[tribalVar])
 		assert.are.equals(seven.Options[3], input[sevenVar])
 	end)
+
+	it("imports Boss's Faces Broken without affecting quest reward matching", function()
+		local sevenVar, seven = findQuest("Seven Pillars")
+		local input = importStats({
+			"+20 to maximum Life",
+			"5% increased maximum Life",
+			"5% increased maximum Mana",
+			"+100 to [Spirit|Spirit]",
+			"30% increased [Charm] Effect Duration",
+			"+5% to [Resistances|Fire Resistance]",
+			"+15% to [Resistances|Cold Resistance]",
+			"+15% to [Resistances|Lightning Resistance]",
+			"30% increased Life Recovery from [Flask|Flasks]",
+			"45% increased Global [Armour], [Evasion] and [EnergyShield|Energy Shield]",
+			"25% increased [StunThreshold|Stun Threshold]",
+			"+1 [Charm] Slot",
+			"58 [BrokenFace|Broken Boss Faces]",
+		})
+
+		assert.is_nil(input.configBossFaceBroken)
+		assert.are.equals(58, build.configTab.placeholder.configBossFaceBroken)
+		assert.are.equals(seven.Options[3], input[sevenVar])
+		runCallback("OnFrame")
+		assert.is_false(build.configTab.varControls.configBossFaceBroken.shown())
+	end)
 end)

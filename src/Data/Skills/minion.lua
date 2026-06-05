@@ -741,6 +741,7 @@ skills["FireBombSkeletonMinion"] = {
 				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -764,6 +765,7 @@ skills["FireBombSkeletonMinion"] = {
 				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "base_secondary_skill_effect_duration", 0 },
 			},
 			stats = {
