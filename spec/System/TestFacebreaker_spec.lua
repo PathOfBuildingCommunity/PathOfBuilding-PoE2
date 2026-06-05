@@ -91,7 +91,8 @@ describe("TestFacebreaker", function()
 
 	it("auto-imports the Boss's Faces Broken count from character quest stats", function()
 		build.importTab:ImportQuestRewardConfig({ "57 [BrokenFace|Broken Boss Faces]" })
-		assert.are.equals(57, build.configTab.input.configBossFaceBroken)
+		assert.is_nil(build.configTab.input.configBossFaceBroken)
+		assert.are.equals(57, build.configTab.placeholder.configBossFaceBroken)
 	end)
 
 	it("supports the Fire damage variant", function()

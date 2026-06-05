@@ -656,9 +656,17 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 	end
 
 	local statTotals = {}
+	local updated = false
 	for _, stat in ipairs(questStats) do
 		local key, value = statKey(stat)
-		statTotals[key] = (statTotals[key] or 0) + value
+		if key == "# broken boss faces" then
+			if configTab.placeholder.configBossFaceBroken ~= value then
+				configTab.placeholder.configBossFaceBroken = value
+				updated = true
+			end
+		else
+			statTotals[key] = (statTotals[key] or 0) + value
+		end
 	end
 
 	-- Stats shared by 3+ quests can't be split greedily (two +30 Spirit quests make 40/70 ambiguous),
@@ -703,7 +711,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		return true
 	end
 
-	local updated = false
 	for _, quest in ipairs(data.questRewards) do
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
@@ -726,18 +733,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 					updated = true
 				end
 			end
-		end
-	end
-
-	-- Facebreaker: auto-fill the "# of Boss's Faces Broken" config from the character's quest stats
-	for _, stat in ipairs(questStats) do
-		if stat:lower():find("broken boss face", 1, true) then
-			local faces = tonumber(stat:match("%d+"))
-			if faces and configTab.input.configBossFaceBroken ~= faces then
-				configTab.input.configBossFaceBroken = faces
-				updated = true
-			end
-			break
 		end
 	end
 

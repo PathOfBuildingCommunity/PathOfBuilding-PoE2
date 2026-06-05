@@ -839,7 +839,7 @@ Huge sets the radius to 11.
 	{ var = "overrideGhostShrouds", type = "count", label = "# of Ghost Shrouds (if not maximum):", ifOption = "useGhostShrouds", apply = function(val, modList, enemyModList)
 		modList:NewMod("GhostShrouds", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "configBossFaceBroken", type = "count", label = "# of Boss's Faces Broken:", ifMult = "BossFaceBroken", tooltip = "The number of times you have Broken a Boss's Face (e.g. with Facebreaker).\nEach one raises the item's base damage by its 'per Boss's Face Broken' amount.\nTo find it in-game, read the item's Physical Damage line and solve, e.g. for Facebreaker: faces = (min damage - 8) / 3.\nCheck the Physical damage breakdown in the Calcs tab to see the result.", apply = function(val, modList, enemyModList)
+	{ var = "configBossFaceBroken", type = "count", label = "# of Boss's Faces Broken:", ifMult = "BossFaceBroken", tooltip = "Boss's Face Broken refers to unique bosses defeated in the campaign that have a skull marker on the World Screen. Rare monster encounters with the skull marker do not count.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BossFaceBroken", "BASE", val, "Config")
 	end },
 	{ var = "waitForMaxSeals", type = "check", label = "Do you wait for Max Seals?", ifFlag = "HasSeals", apply = function(val, modList, enemyModList)
