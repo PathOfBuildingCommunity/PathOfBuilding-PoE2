@@ -576,10 +576,10 @@ statMap = {
 #set SupportHollowFormPlayer
 statMap = {
 	["mantra_of_illusions_triggered_skill_attack_speed_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Speed", "MORE", nil, ModFlag.Attack),
 	},
 	["mantra_of_illusions_triggered_skill_damage_+%_final"] = {
-		mod("Speed", "MORE", nil, ModFlag.Attack),
+		mod("Damage", "MORE", nil),
 	},
 },
 #mods
@@ -835,8 +835,13 @@ statMap = {
 #set ParryPlayer
 #flags attack melee duration shieldAttack area
 statMap = {
-	["base_parry_buff_damage_taken_+%_final_to_apply"] = {
-		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
+	["base_maximum_active_block_distance_for_non_projectiles"] = {
+		skill("parryRangeNonProj", nil),
+		div = 10,
+	},
+	["base_maximum_active_block_distance_for_projectiles"] = {
+		skill("parryRangeProj", nil),
+		div = 10,
 	},
 },
 #baseMod skill("debuff", true)
@@ -918,7 +923,8 @@ statMap = {
 
 #skill RefutationPlayer
 #set RefutationPlayer
-#flags
+#flags duration
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 

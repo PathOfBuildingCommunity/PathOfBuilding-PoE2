@@ -1389,7 +1389,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
 
-	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 0, Dex = 0, Int = 0 }
+	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 3, Dex = 3, Int = 3 }
 	local virtuousMoteSkillCounted = { }
 
 	if not accelerate.skills then
@@ -1591,6 +1591,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 						env.player.modDB.conditions["HollowPalm"] = true -- Had to add condition here because it was otherwise not recognized correctly when "DisableSkill" is processed
 						break
 					end
+				end
+			end
+			-- Facebreaker: Can Attack as though using a One Handed Mace while both of your hand slots are empty
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "CanAttackAsOneHandMaceUnarmed") then
+				env.player.weaponData1.asThoughUsing = env.player.weaponData1.asThoughUsing or { }
+				env.player.weaponData1.asThoughUsing["One Hand Mace"] = true
+			end
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "UseFacebreakerItemDamage") then
+				env.player.weaponData1.FacebreakerItemDamage = true
+				for _, damageType in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+					env.player.weaponData1["Facebreaker"..damageType.."Min"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Min")
+					env.player.weaponData1["Facebreaker"..damageType.."Max"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Max")
 				end
 			end
 			env.player.weaponData2 = env.player.weaponData2 or { }

@@ -50,7 +50,7 @@ function calcs.deflectChance(deflection, accuracy)
 		return 0
 	end
 	local chanceToNotDeflect = accuracy / ( accuracy + deflection * 0.12 ) * 150 - 50
-	return 100 - m_max(m_min(round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
+	return m_max(m_min(100 - round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)

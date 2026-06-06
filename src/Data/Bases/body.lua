@@ -2926,8 +2926,8 @@ itemBases["Runemastered Revered Vestments"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
-	implicit = "+1% to all Maximum Elemental Resistances\n(10-15)% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
-	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, {  }, },
+	implicit = "+1% to all Maximum Elemental Resistances\n(10-15)% increased Energy Shield Recharge Rate",
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, { "defences", "energy_shield" }, },
 	armour = { Armour = 199, EnergyShield = 88, Ward = 86, MovementPenalty = 0.04, },
 	req = { level = 70, str = 57, int = 85, },
 }

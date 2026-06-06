@@ -48471,14 +48471,14 @@ return {
 		},
 		[63]={
 			list=false,
-			name="StatValue6",
+			name="Stat6",
 			refTo="",
 			type="Int",
 			width=150
 		},
 		[64]={
 			list=false,
-			name="StatValue7",
+			name="Stat7",
 			refTo="",
 			type="Int",
 			width=150

@@ -54,6 +54,16 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Empowers +{0} Attacks"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
