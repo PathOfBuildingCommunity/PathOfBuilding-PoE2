@@ -762,17 +762,6 @@ function SetActiveTheme(name)
 	activeTheme = name
 end
 
--- TODO: does not quite work
-local function mergeColors(...)
-	local out = colors
-	for i = 1, select("#", ...) do
-		local t = select(i, ...)
-		for k, v in pairs(t) do out[k] = v end
-	end
-	return out
-end
--- colors = mergeColors(colorCodes, poe2trade_colors, darkModern_colors)
-
 local function isHex(s)
 	return string.sub(s, 1, 1) == "#" or string.sub(s, 1, 2):lower() == "0x" or string.sub(s, 1, 2):lower() == "^x"
 end
@@ -781,7 +770,6 @@ local function colorNameToHex(colorName)
 	if isHex(colorName) then
 		return colorName
 	end
-	-- return colors[colorName]
 	return colorNameToHex(colors[colorName])
 end
 
