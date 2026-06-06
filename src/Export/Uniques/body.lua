@@ -676,11 +676,13 @@ UniqueShockOnMaxPowerCharges1
 Sierran Inheritance
 Marabout Garb
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield5
 UniqueLightningResist2
-UniqueEnergyShieldDelay1
-{variant:2}AllDamageTakenCanChillUnique__1
+{variant:1,2}UniqueEnergyShieldDelay1
+{variant:2,3}AllDamageTakenCanChillUnique__1
+{variant:3}UniqueEnergyShieldRechargeRate8
 UniqueReverseChill1
 ]],[[
 Zerphi's Serape

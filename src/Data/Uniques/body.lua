@@ -687,11 +687,13 @@ Shocks you when you reach maximum Power Charges
 Sierran Inheritance
 Marabout Garb
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 (50-80)% increased Evasion and Energy Shield
 +(15-25)% to Lightning Resistance
-(30-50)% faster start of Energy Shield Recharge
-{variant:2}All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you
+{variant:3}(15-30)% increased Energy Shield Recharge Rate
+{variant:1,2}(30-50)% faster start of Energy Shield Recharge
+{variant:2,3}All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you
 The Effect of Chill on you is reversed
 ]],[[
 Zerphi's Serape
