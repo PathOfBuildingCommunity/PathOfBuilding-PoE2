@@ -6,25 +6,32 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStr%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrUnique
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDex%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDexUnique
 
 #subType Energy Shield
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyInt%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyIntUnique
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDex%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexUnique
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrInt%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrIntUnique
 
 #subType Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDexInt%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDexIntUnique
 
 #subType Armour/Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexInt%d+
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexIntBase
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexIntUnique
 
 #subType
 #baseMatch Metadata/Items/Armours/BodyArmours/BodyDemigods1

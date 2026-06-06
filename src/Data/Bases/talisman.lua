@@ -158,6 +158,7 @@ itemBases["Runeforged Nettle Talisman"] = {
 itemBases["Runemastered Nettle Talisman"] = {
 	type = "Talisman",
 	quality = 20,
+	hidden = true,
 	tags = { default = true, ezomyte_basetype = true, runeforged = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 68, PhysicalMax = 114, CritChanceBase = 11, AttackRateBase = 1.25, Range = 12, },
@@ -175,6 +176,7 @@ itemBases["Runeforged Familial Talisman"] = {
 itemBases["Runemastered Familial Talisman"] = {
 	type = "Talisman",
 	quality = 20,
+	hidden = true,
 	tags = { default = true, maraketh_basetype = true, runeforged = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Minions deal (51-100)% increased Damage",
 	implicitModTypes = { { "minion_damage", "damage", "minion" }, },

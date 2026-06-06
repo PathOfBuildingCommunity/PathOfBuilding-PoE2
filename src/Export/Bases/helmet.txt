@@ -6,24 +6,31 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetStr%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrUnique
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetDex%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetDexUnique
 
 #subType Energy Shield
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetInt%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetIntUnique
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDex%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDexUnique
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrInt%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrIntUnique
 
 #subType Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetDexInt%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetDexIntUnique
 
 #subType Armour/Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDexInt%d+
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDexIntUnique
 
 #subType
 #baseMatch Metadata/Items/Armours/Helmets/HelmetWreath1
