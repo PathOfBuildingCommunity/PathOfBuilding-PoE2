@@ -92,11 +92,65 @@ return {
 			[1]="grenade_fuse_duration"
 		}
 	},
+	[7]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Detonation Time"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Detonation Time"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Detonation Time"
+			},
+			[4]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Detonation Time"
+			}
+		},
+		stats={
+			[1]="skill_detonation_time_+%"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
 	["base_skill_effect_duration"]=5,
 	["grenade_fuse_duration"]=6,
 	parent="skill_stat_descriptions",
-	["projectiles_nova"]=2
+	["projectiles_nova"]=2,
+	["skill_detonation_time_+%"]=7
 }

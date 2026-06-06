@@ -26,6 +26,7 @@ local skills, mod, flag, skill = ...
 #skill AncestralWarriorTotemPlayer
 #set AncestralWarriorTotemPlayer
 #flags totem attack
+#baseMod mod("GloryGeneration", "INC", 40, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -54,6 +55,10 @@ addFlags = {
 #skill ArtilleryBallistaPlayer
 #set ArtilleryBallistaPlayer
 #flags totem duration
+#baseMod mod("Speed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("WarcrySpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("TotemPlacementSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("ReloadingSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -72,11 +77,10 @@ statMap = {
 	},
 	["skill_attrition_culling_strike_at_x_or_more_stacks"] = {
 		mod("Multiplier:AttritionCullSeconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+		mod("CanCull", "FLAG", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds", thresholdActor = "player"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 	["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
-		{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
-		{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-		value = 10,}
+		mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 },
 #mods
@@ -123,7 +127,7 @@ statMap = {
 
 #skill BoneshatterPlayer
 #set BoneshatterPlayer
-#flags attack melee
+#flags attack melee area
 #mods
 #set BoneshatterShockwavePlayer
 #flags attack melee area
@@ -481,6 +485,11 @@ statMap = {
 #skill InfernalCryPlayer
 #set InfernalCryPlayer
 #flags warcry area duration
+statMap = {
+	["infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_%"] = {
+		mod("InfernalExtraFireDamageMultiplier", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -756,7 +765,7 @@ statMap = {
 
 #skill WolfLunarBlessingBeamAttackPlayer
 #set WolfLunarBlessingBeamAttackPlayer
-#flags attack melee area
+#flags attack area
 #mods
 #skillEnd
 
@@ -799,6 +808,7 @@ statMap = {
 #skill MetaMortarCannonPlayer
 #set MetaMortarCannonPlayer
 #flags totem attack
+#baseMod mod("DamageGainAsFire", "BASE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -838,14 +848,6 @@ statMap = {
 #mods
 #set OilGrenadeOilGroundPlayer
 #flags attack area projectile duration
-statMap = {
-	["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
-		mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-	mult = -1,
-},
-},
 #mods
 #skillEnd
 
@@ -874,8 +876,8 @@ end,
 #mods
 #skillEnd
 
-#skill SupportCrossSlashPlayer
-#set SupportCrossSlashPlayer
+#skill SupportWolfPouncePlayer
+#set SupportWolfPouncePlayer
 #mods
 #skillEnd
 
@@ -886,8 +888,8 @@ end,
 #skillEnd
 
 #minionList WolfMinion
-#skill WolfCrossSlashWolfPlayer
-#set WolfCrossSlashWolfPlayer
+#skill WolfPounceSummonWolfPlayer
+#set WolfPounceSummonWolfPlayer
 #flags minion
 #mods
 #skillEnd
@@ -922,12 +924,41 @@ end,
 #mods
 #skillEnd
 
+#skill SavageFuryPlayer
+#set SavageFuryPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SavageFuryActivePlayer
+#set SavageFuryActivePlayer
+#flags duration
+statMap = {
+	["wild_beast_life_lost_%_per_minute_nonlethal"] = {
+		mod("LifeDegen", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		div = 60,
+	},
+	["wild_beast_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		flag("Onslaught", { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } })
+	},
+},
+#mods
+#skillEnd
+
 #skill ScavengedPlatingPlayer
+grantsThornsDamage = true,
 #set ScavengedPlatingPlayer
 #flags duration
 statMap = {
 	["scavenged_plating_armour_+%_final_per_stack"] = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+	},
+	["scavenged_plating_thorns_minimum_physical_damage"] = {
+		mod("PhysicalMin", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+	},
+	["scavenged_plating_thorns_maximum_physical_damage"] = {
+		mod("PhysicalMax", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
 	},
 	["scavenged_plating_maximum_stacks_display"] = {
 		mod("Multiplier:ScavengedPlatingStacksLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating"}),
@@ -985,6 +1016,7 @@ statMap = {
 #skill ShockwaveTotemPlayer
 #set ShockwaveTotemPlayer
 #flags totem
+#baseMod mod("AreaOfEffect", "INC", 30, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -1000,6 +1032,7 @@ statMap = {
 #skill SiegeBallistaPlayer
 #set SiegeBallistaPlayer
 #flags totem
+#baseMod mod("Damage", "MORE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}, { type = "ActorCondition", actor = "enemy", var = "Immobilised" })
 #mods
 #skillEnd
 
@@ -1015,6 +1048,7 @@ statMap = {
 #skill SummonMetaTotemSpellTotemPlayer
 #set SummonMetaTotemSpellTotemPlayer
 #flags
+#baseMod mod("CritChance", "INC", 50, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 

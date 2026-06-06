@@ -10,7 +10,7 @@ local m_max = math.max
 local m_floor = math.floor
 local s_format = string.format
 local dkjson = require "dkjson"
-local tradeHelpers = LoadModule("Classes/CompareTradeHelpers")
+local tradeHelpers = LoadModule("Classes/TradeHelpers")
 local buySimilar = LoadModule("Classes/CompareBuySimilar")
 local calcsHelpers = LoadModule("Classes/CompareCalcsHelpers")
 local buildListHelpers = LoadModule("Modules/BuildListHelpers")
@@ -3516,20 +3516,25 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 		elseif base.armour then
 			local armourData = item.armourData
 			if armourData then
-				if armourData.Armour and armourData.Armour > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armourData.Armour))
+				local level = self.primaryBuild.characterLevel
+				local armour = item:GetArmourDataValue("Armour", level)
+				local evasion = item:GetArmourDataValue("Evasion", level)
+				local energyShield = item:GetArmourDataValue("EnergyShield", level)
+				local ward = item:GetArmourDataValue("Ward", level)
+				if armour > 0 then
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
 					drawY = drawY + lineHeight
 				end
-				if armourData.Evasion and armourData.Evasion > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", armourData.Evasion))
+				if evasion > 0 then
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
 					drawY = drawY + lineHeight
 				end
-				if armourData.EnergyShield and armourData.EnergyShield > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", armourData.EnergyShield))
+				if energyShield > 0 then
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
 					drawY = drawY + lineHeight
 				end
-				if armourData.Ward and armourData.Ward > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", armourData.Ward))
+				if ward > 0 then
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
 					drawY = drawY + lineHeight
 				end
 				if armourData.BlockChance and armourData.BlockChance > 0 then

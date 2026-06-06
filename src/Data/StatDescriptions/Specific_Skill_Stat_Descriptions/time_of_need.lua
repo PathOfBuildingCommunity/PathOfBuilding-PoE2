@@ -15,18 +15,27 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0} second duration between Blessings"
+				text="{0} seconds between Blessings"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_cooldown_modifiable_repeat_interval_ms"
 		}
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Modifiers to Cooldown Recovery Rate also apply to\nBlessing frequency"
+			}
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="cooldown_recovery_modifiers_also_apply_to_repeat_interval"
 		}
 	},
 	[3]={
@@ -45,8 +54,16 @@ return {
 			[1]="skill_time_of_need_gain_x_life"
 		}
 	},
-	["base_skill_effect_duration"]=1,
+	[4]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_cooldown_modifiable_repeat_interval_ms"
+		}
+	},
+	["base_cooldown_modifiable_repeat_interval_ms"]=1,
+	["cooldown_recovery_modifiers_also_apply_to_repeat_interval"]=2,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=2,
-	["skill_time_of_need_gain_x_life"]=3
+	["skill_time_of_need_gain_x_life"]=3,
+	["virtual_cooldown_modifiable_repeat_interval_ms"]=4
 }

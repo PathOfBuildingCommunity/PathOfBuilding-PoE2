@@ -63,6 +63,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% chance to Poison on Hit"
+			}
+		},
+		stats={
+			[1]="base_chance_to_poison_on_hit_%"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
 						[1]="#",
 						[2]="#"
 					},
@@ -75,31 +91,15 @@ return {
 			}
 		},
 		stats={
-			[1]="attack_minimum_added_physical_damage",
-			[2]="attack_maximum_added_physical_damage"
-		}
-	},
-	[5]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="{0}% chance to Poison on Hit"
-			}
-		},
-		stats={
-			[1]="base_chance_to_poison_on_hit_%"
+			[1]="main_hand_weapon_minimum_physical_damage",
+			[2]="main_hand_weapon_maximum_physical_damage"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	["attack_maximum_added_physical_damage"]=4,
-	["attack_minimum_added_physical_damage"]=4,
-	["base_chance_to_poison_on_hit_%"]=5,
+	["base_chance_to_poison_on_hit_%"]=4,
+	["main_hand_weapon_maximum_physical_damage"]=5,
+	["main_hand_weapon_minimum_physical_damage"]=5,
 	parent="skill_stat_descriptions",
 	["trigger_toad_spawn_chance_%"]=1
 }

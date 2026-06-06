@@ -93,6 +93,16 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Enemies lose Life equal to +{0}% of Consumed Blood Loss"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

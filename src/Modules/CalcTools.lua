@@ -83,7 +83,7 @@ end
 
 -- Check if given support skill can support the given active skill
 function calcLib.canGrantedEffectSupportActiveSkill(grantedEffect, activeSkill)
-	if grantedEffect.unsupported or activeSkill.activeEffect.grantedEffect.cannotBeSupported then
+	if activeSkill.activeEffect.grantedEffect.cannotBeSupported then
 		return false
 	end
 	if grantedEffect.supportGemsOnly and not activeSkill.activeEffect.gemData then
@@ -111,16 +111,18 @@ end
 
 -- Check if given gem is of the given type ("all", "strength", "melee", etc)
 function calcLib.gemIsType(gem, type, includeTransfigured)
-	return (type == "all" or 
-			(type == "elemental" and (gem.tags.fire or gem.tags.cold or gem.tags.lightning)) or 
-			(type == "aoe" and gem.tags.area) or
-			(type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) or
-			((type == "active skill" or type == "grants_active_skill" or type == "skill") and gem.tags.grants_active_skill and not gem.tags.support) or
-			(type == "non-vaal" and not gem.tags.vaal) or
-			(type == gem.name:lower()) or
-			(type == gem.name:lower():gsub("^vaal ", "")) or
-			(includeTransfigured and calcLib.isGemIdSame(gem.name, type, true)) or
-			((type ~= "active skill" and type ~= "grants_active_skill" and type ~= "skill") and gem.tags[type]))
+	local gemData = gem.gemData or gem
+	return (type == "all" or
+			(type == "corrupted" and gem.corrupted) or
+			(type == "elemental" and (gemData.tags.fire or gemData.tags.cold or gemData.tags.lightning)) or
+			(type == "aoe" and gemData.tags.area) or
+			(type == "trap or mine" and (gemData.tags.trap or gemData.tags.mine)) or
+			((type == "active skill" or type == "grants_active_skill" or type == "skill") and gemData.tags.grants_active_skill and not gemData.tags.support) or
+			(type == "non-vaal" and not gemData.tags.vaal) or
+			(type == gemData.name:lower()) or
+			(type == gemData.name:lower():gsub("^vaal ", "")) or
+			(includeTransfigured and calcLib.isGemIdSame(gemData.name, type, true)) or
+			((type ~= "active skill" and type ~= "grants_active_skill" and type ~= "skill") and gemData.tags[type]))
 end
 
 -- In-game formula

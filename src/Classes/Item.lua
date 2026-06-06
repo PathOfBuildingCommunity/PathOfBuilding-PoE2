@@ -12,10 +12,11 @@ local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
 local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
+local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute"}
 local catalystTags = {
 	{ "life" },
 	{ "mana" },
-	{ "defences" },
+	{ "defences", "armour", "evasion", "energyshield" },
 	{ "physical" },
 	{ "fire" },
 	{ "cold" },
@@ -29,7 +30,11 @@ local catalystTags = {
 
 local minimumReqLevel = { }
 
-local function getCatalystScalar(catalystId, tags, quality)
+local function getCatalystScalar(catalystId, mod, quality)
+	if mod.unscalable then
+		return 1
+	end
+	local tags = mod.modTags
 	if not catalystId or type(catalystId) ~= "number" or not catalystTags[catalystId] or not tags or type(tags) ~= "table" or #tags == 0 then
 		return 1
 	end
@@ -55,11 +60,11 @@ end
 local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 	if raw then
 		self:ParseRaw(sanitiseText(raw), rarity, highQuality)
-	end	
+	end
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["crafted"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true, ["unscalable"] = true
 }
 
 local function baseHasImplicitLine(base, line)
@@ -67,7 +72,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line then
+		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
 			return true
 		end
 	end
@@ -295,6 +300,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.rarity = rarity or "UNIQUE"
 	self.charmLimit = nil
 	self.spiritValue = nil
+	self.runicItem = nil
 	self.quality = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
@@ -329,6 +335,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	if self.rawLines[l] then
+		if self.rawLines[l] == "--------" then
+			l = l + 1
+		end
 		-- Determine if "Unidentified" item
 		local unidentified = false
 		if self.rarity == "UNIQUE" then
@@ -361,6 +370,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.sockets = { }
 	self.runes = { }
 	self.itemSocketCount = 0
+	self.jewelSocketCount = 0
 	self.classRequirementModLines = { }
 	self.buffModLines = { }
 	self.enchantModLines = { }
@@ -383,14 +393,18 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local deferJewelRadiusIndexAssignment
 	local gameModeStage = "FINDIMPLICIT"
 	local foundExplicit, foundImplicit
+	local linePrefix = ""
+	local linePostfix = ""
 
-	while self.rawLines[l] do	
+	while self.rawLines[l] do
 		local line = self.rawLines[l]
 		if flaskBuffLines and flaskBuffLines[line] then
 			flaskBuffLines[line] = nil
 		elseif charmBuffLines and charmBuffLines[line] then
 			charmBuffLines[line] = nil
 		elseif line == "--------" then
+			linePrefix = ""
+			linePostfix = ""
 			self.checkSection = true
 		elseif line == "Sanctified" then
 			self.sanctified = true
@@ -406,7 +420,68 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
+		elseif line:match("^%(%a+") then
+			-- Reminder text, nothing to parse
+			while self.rawLines[l] and not self.rawLines[l]:match("%)$") do
+				l = l + 1
+			end
+		elseif line:match("^{ ") then
+			-- We're parsing advanced copy/paste format
+			linePrefix = ""
+			linePostfix = ""
+			self.crafted = true
+			local fullModName, modTags, increasedAmt = line:match("^{ (.-) %- (.-)  %- (%d*).*}$")
+			if not fullModName then
+				fullModName, modTags = line:match("^{ (.-) %- (.-) }$")
+			end
+			if not fullModName then
+				fullModName = line:match("^{ (.-) }$")
+			end
+			local modName = fullModName:match("^.*Modifier \"(.*)\"")
+			if modName and modName ~= "" and self.affixes then
+				self.pendingAffixList = { }
+				local backupAffixList = { }
+				for modId, modData in pairs(self.affixes) do
+					if modData.affix == modName then
+						if self:GetModSpawnWeight(modData) > 0 then
+							if modData.type == "Prefix" then
+								t_insert(self.pendingAffixList, { modId = modId, table = self.prefixes })
+							elseif modData.type == "Suffix" then
+								t_insert(self.pendingAffixList, { modId = modId, table = self.suffixes })
+							end
+						else
+							-- Conqueror mods can't natively spawn on items, so we'll use those if we don't find a match otherwise
+							if modData.type == "Prefix" then
+								t_insert(backupAffixList, { modId = modId, table = self.prefixes })
+							elseif modData.type == "Suffix" then
+								t_insert(backupAffixList, { modId = modId, table = self.suffixes })
+							end
+						end
+					end
+				end
+				if #self.pendingAffixList == 0 and #backupAffixList > 0 then
+					self.pendingAffixList = backupAffixList
+				end
+				if #self.pendingAffixList == 0 then
+					-- Could be a veiled, temple, or other custom mod, so just keep it around
+					linePrefix = "{custom}"
+				end
+			elseif fullModName:match("(.*)Enhancement.*") then
+				linePostfix = " (enchant)"
+			end
+			local possibleLineFlags = fullModName:match("(.*)Modifier.*")
+			if possibleLineFlags then
+				for flag in possibleLineFlags:gmatch("%a+") do
+					if lineFlags[flag:lower()] then
+						linePrefix = linePrefix .. "{" .. flag:lower() .. "}"
+					end
+				end
+			end
+			if modTags and modTags ~= "" then
+				linePrefix = linePrefix .. "{tags:" .. modTags:lower():gsub("%s+", "") .. "}"
+			end
 		else
+			line = linePrefix .. line .. linePostfix
 			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
@@ -426,7 +501,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				self.checkSection = false
 			end
-			local specName, specVal = line:match("^([%a ]+:?): (.+)$")
+			local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
 			if specName then
 				if specName == "Class:" then
 					specName = "Requires Class"
@@ -437,6 +512,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			if specName then
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
+					goto continue
 				elseif specName == "Item Level" then
 					self.itemLevel = specToNumber(specVal)
 				elseif specName == "Requires Class" then
@@ -445,6 +521,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.charmLimit = specToNumber(specVal)
 				elseif specName == "Spirit" then
 					self.spiritValue = specToNumber(specVal)
+				elseif specName:match("Quality %(%a+ Modifiers%)") then
+					self.catalystQuality = specToNumber(specVal:match("(%d+)%%"))
+					for i=1, #catalystDescriptorList do
+						if specName:match("Quality %(([%a%s]+) Modifiers%)") == catalystDescriptorList[i] then
+							self.catalyst = i
+						end
+					end
 				elseif specName == "Quality" then
 					self.quality = specToNumber(specVal)
 				elseif specName == "Sockets" then
@@ -453,6 +536,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						if c:match("[S]") then
 							t_insert(self.sockets, { group = group })
 							group = group + 1
+						elseif c:match("[J]") then -- e.g. specVal = "Sockets: J J J J J J"
+							self.jewelSocketCount = self.jewelSocketCount + 1
 						end
 					end
 					self.itemSocketCount = #self.sockets
@@ -603,8 +688,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.requirements[specName:sub(1,3):lower()] = specToNumber(specVal)
 				elseif specName == "Critical Hit Range" or specName == "Attacks per Second" or specName == "Weapon Range" or
 				       specName == "Critical Hit Chance" or specName == "Physical Damage" or specName == "Elemental Damage" or
-				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or 
-					   specName == "Reload Time" or specName == "Chance to Block" or specName == "Block chance" or 
+				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or
+					   specName == "Reload Time" or specName == "Chance to Block" or specName == "Block chance" or
 					   specName == "Armour" or specName == "Energy Shield" or specName == "Evasion" or specName == "Requires" then
 					self.hidden_specs = true
 				-- Anything else is an explicit with a colon in it (Fortress Covenant, Pure Talent, etc) unless it's part of the custom name
@@ -617,7 +702,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				foundExplicit = true
 				gameModeStage = "EXPLICIT"
 			end
-			if not specName or foundExplicit or foundImplicit then
+			if not specName or foundExplicit or foundImplicit or lineIsBaseImplicit then
 				local modLine = { modTags = {} }
 
 				line = line:gsub("{(%a*):?([^}]*)}", function(k,val)
@@ -715,6 +800,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					baseName = "Two-Toned Boots (Armour/Energy Shield)"
 				end
 				local base = data.itemBases[baseName]
+				if baseName:find("Runeforged") or baseName:find("Runemastered") then
+					self.runicItem = true
+				end
 				if base then
 					-- Items with variants can have multiple bases
 					self.baseLines[baseName] = { line = baseName, variantList = modLine.variantList }
@@ -761,7 +849,76 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					foundImplicit = true
 					gameModeStage = "IMPLICIT"
 				end
-				local catalystScalar = getCatalystScalar(self.catalyst, modLine.modTags, self.catalystQuality)
+				local catalystScalar = 1
+				if line:match(" %- Unscalable Value$") then
+					line = line:gsub(" %- Unscalable Value$", "")
+					modLine.unscalable = true
+				else
+					catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
+				end
+				if self.pendingAffixList and #self.pendingAffixList > 0 then
+					if #self.pendingAffixList > 1 then
+						-- Probably a conqueror or Essence mod since the mod name is the same for all of them
+						-- Try to match the line against one of the mods there
+						local valueStrippedLine = line:gsub("%-?%d+%.?%d*%(", "("):gsub("%-?%d+%.?%d*", "#")
+						for _, pendingAffix in ipairs(self.pendingAffixList) do
+							local modData = self.affixes[pendingAffix.modId]
+							for _, modDataLine in ipairs(modData) do
+								-- Prefer the exact match
+								if line == modDataLine then
+									self.pendingAffixList = { pendingAffix }
+									break
+								end
+								if valueStrippedLine == modDataLine:gsub("%-?%d+%.?%d*", "#") then
+									self.pendingAffixList = { pendingAffix }
+									break
+								end
+							end
+						end
+					end
+					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
+					local bestPrecisionDelta = -1
+					local bestPrecisionRange = -1
+					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
+						-- Find advanced copy paste format: 45(40-50)
+						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
+						local delta = tonumber(max) - min
+						line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
+						if delta > bestPrecisionDelta then
+							bestPrecisionRange = round((value - min) / delta, 3)
+							bestPrecisionDelta = delta
+						end
+					end
+					t_insert(self.pendingAffixList[1].table, {
+						modId = self.pendingAffixList[1].modId,
+						range = bestPrecisionRange >= 0 and bestPrecisionRange <= 1 and bestPrecisionRange or 0.5,
+					})
+					self.pendingAffixList = {}
+				else
+					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
+					local bestPrecisionDelta = -1
+					local bestPrecisionRange = -1
+
+					-- Replace non-number ranges as unsupported
+					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
+
+					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
+						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
+						local delta = tonumber(max) - min
+						if delta > bestPrecisionDelta then
+							bestPrecisionRange = round((value - min) / delta, 3)
+							bestPrecisionDelta = delta
+						end
+						if bestPrecisionRange > 1 or bestPrecisionRange < 0 then
+							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
+						else
+							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", (tonumber(value) < 0 and "+" or "") .. "(" .. range .. ")")
+						end
+					end
+					if bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
+						modLine.range = bestPrecisionRange
+					end
+				end
 				local rangedLine = itemLib.applyRange(line, 1, catalystScalar, modLine.corruptedRange)
 				local modList, extra = modLib.parseMod(rangedLine)
 				if (not modList or extra) and self.rawLines[l+1] then
@@ -855,8 +1012,90 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
 			local shouldFixRunesOnItem = #self.runes == 0
 
+			local function getRuneLineParts(modLine)
+				local values = { }
+				local strippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
+					t_insert(values, tonumber(val))
+					return "#"
+				end)
+				if #values == 0 then
+					t_insert(values, 1)
+				end
+				return strippedModLine, values
+			end
+
+			local function compareRuneValueSets(a, b)
+				for i = 1, math.max(#a, #b) do
+					local aVal = a[i] or 0
+					local bVal = b[i] or 0
+					if aVal ~= bVal then
+						return aVal > bVal
+					end
+				end
+				return false
+			end
+
+			local function runeValueSetsEqual(a, b)
+				for i = 1, math.max(#a, #b) do
+					if math.abs((a[i] or 0) - (b[i] or 0)) > 1e-9 then
+						return false
+					end
+				end
+				return true
+			end
+
+			local function addRuneValueSets(a, b)
+				local out = { }
+				for i = 1, math.max(#a, #b) do
+					out[i] = (a[i] or 0) + (b[i] or 0)
+				end
+				return out
+			end
+
+			local function runeValueSetExceeds(valueSet, target)
+				for i = 1, math.max(#valueSet, #target) do
+					if (valueSet[i] or 0) > (target[i] or 0) + 1e-9 then
+						return true
+					end
+				end
+				return false
+			end
+
+			local function findRuneCombination(groupedRunes, targetValues, maxRunes)
+				local best = { }
+				local counts = { }
+
+				local function search(startIndex, count, sum)
+					if runeValueSetsEqual(sum, targetValues) then
+						if not best.count or count < best.count then
+							best.count = count
+							best.counts = { }
+							for index, value in pairs(counts) do
+								best.counts[index] = value
+							end
+						end
+						return
+					end
+					if count >= maxRunes or (best.count and count >= best.count) then
+						return
+					end
+
+					for index = startIndex, #groupedRunes do
+						local nextSum = addRuneValueSets(sum, groupedRunes[index].values)
+						if not runeValueSetExceeds(nextSum, targetValues) then
+							counts[index] = (counts[index] or 0) + 1
+							search(index, count + 1, nextSum)
+							counts[index] = counts[index] - 1
+						end
+					end
+				end
+
+				search(1, 0, { })
+				return best.counts, best.count
+			end
+
 			-- Form a key value table with the following format
-			-- { [strippedModLine] = { { runeName1, runeValue1 }, etc, }, etc}
+			-- { [strippedModLine] = { { name = runeName1, values = { low, high } }, etc, }, etc}
 			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
 			-- This could be refactored to only needs to be called once.
 			local statGroupedRunes = { }
@@ -864,15 +1103,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
 				local addModToGroupedRunes = function (modLine)
-					local runeValue = 1
-					local runeStrippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
-						runeValue = val
-						return "#"
-					end)
+					local runeStrippedModLine, runeValues = getRuneLineParts(modLine)
 					if statGroupedRunes[runeStrippedModLine] == nil then
 						statGroupedRunes[runeStrippedModLine] = { }
 					end
-					t_insert(statGroupedRunes[runeStrippedModLine], { runeName, runeValue });
+					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, values = runeValues })
 				end
 				for slotType, slotMod in pairs(runeMods) do
 					if slotType == broadItemType or slotType == specificItemType then
@@ -885,129 +1120,27 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 			-- Sort table to ensure first entries are always largest.
 			for _, runes in pairs(statGroupedRunes) do
-				table.sort(runes,  function(a, b) return a[2] > b[2] end)
+				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
-				local value = 1
-				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
-					value = val
-					return "#"
-				end)
+				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
-				if groupedRunes then -- found the rune category with the relevant stat.
-					-- First a greedy base is found using the runes in the groupedRunes. If this matches the target value then that set of runes is applied.
-					-- If the greedy base isn't a solution we search all the possible combinations that could lead to a valid combination.
-					-- This done by recursing through all combinations that could lead to a valid value and pruning values that exceed the number
-					-- of runes and solutions that it would be impossible to reach the target value from. Visited combinations are recorded and are used such 
-					-- that candidates are only searched once. This makes for a fairly efficient algorithm that doesn't search unneeded values very much.
-					local function getNumberOfRunesOfEachType(values, target)
-						local function adjustCombination(values, target, result, best, visited, sum, count)
-							-- This is used to avoid unnecessary checks on decrement.
-							local function checkAndAdjustCombination(values, target, result, best, visited, sum, count)
-								-- If it's a valid solution, update best
-								if math.abs(sum-target) <  1e-9 then
-									if not best.count or count < best.count then
-										best.count = count
-										-- Copy solution to avoid side effects from continued searching.
-										local solution = {}
-										for k, v in pairs(result) do
-											solution[k] = v
-										end
-										best.solution = solution
-									end
-									return
-								end
-
-								-- Prune if we already used more runes than the best found
-								if best.count and count >= best.count then return end
-
-								return adjustCombination(values, target, result, best, visited, sum, count)
-							end
-
-							for _, v in ipairs(values) do
-								local function checkUnique(result)
-									-- Generate a unique key from the result table this prevents duplicates combinations being searched
-									local key = ""
-									for value, count in pairs(result) do
-										if count > 0 then
-											key = key .. value .. "x" .. count .. " "
-										end
-									end
-									if visited[key] then 
-										return false 
-									else
-										visited[key] = true
-										return true
-									end
-								end
-								
-								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
-								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
-								if sum + tonumber(v) <= target + 1e-9 and count < remainingRunes then
-									result[v] = (result[v] or 0) + 1
-									if checkUnique(result) then
-										checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
-									end
-									result[v] = result[v] - 1
-								end
-
-								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 0 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[1] * (best.count - count + 1)) then
-									result[v] = result[v] - 1
-									if checkUnique(result) then
-										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
-									end
-									result[v] = result[v] + 1
-								end
-							end
-						end
-						
-						-- Step 1: Perform greedy search and tests if a single rune is used as these are the most common use case.
-						local greedySolution = {}
-						local leftover = target
-
-						for _, v in ipairs(values) do
-							local count = math.floor(leftover / v)
-							greedySolution[v] = count
-							leftover = leftover - count * v
-						end
-
-						local greedyCount = 0
-						for v, c in pairs(greedySolution) do
-							greedyCount = greedyCount + c
-						end
-						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
-							return greedySolution, greedyCount
-						end
-
-						-- Step 2. Perform search starting from the greedy base
-						local best = {count = nil, solution = nil}
-						local visited = {}
-
-						adjustCombination(values, target, greedySolution, best, visited, target - leftover, greedyCount)
-
-						return best.solution, best.count
-					end
-
-					local values = { }
-					for i, runes in ipairs(groupedRunes) do
-						t_insert(values, runes[2])
-					end
-					local result, numRunes = getNumberOfRunesOfEachType(values, tonumber(value))
+				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
+					local result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
 
 					if result then -- we have found a valid combo for that rune category
 						remainingRunes = remainingRunes - numRunes
-						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
+						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulCore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.soulCore = groupedRunes[1].name:match("Soul Core") ~= nil
 						modLine.runeCount = numRunes
 
 						if shouldFixRunesOnItem then
-							for i, rune in ipairs(groupedRunes) do
-								for _ = 1, tonumber(result[rune[2]]) do
-									t_insert(self.runes, groupedRunes[i][1])
+							for index, rune in ipairs(groupedRunes) do
+								for _ = 1, result[index] or 0 do
+									t_insert(self.runes, rune.name)
 								end
 							end
 						end
@@ -1020,7 +1153,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.runes = { }
 		end
 	end
-	
+
 	if self.base and not self.requirements.level then
 		if importedLevelReq and #self.sockets == 0 then
 			-- Requirements on imported items can only be trusted for items with no sockets
@@ -1044,7 +1177,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	self.affixLimit = 0
 	if self.crafted then
-		if not self.affixes then 
+		if not self.affixes then
 			self.crafted = false
 		elseif self.rarity == "MAGIC" then
 			if self.prefixes.limit or self.suffixes.limit then
@@ -1126,7 +1259,7 @@ function ItemClass:NormaliseQuality()
 		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
 			self.quality = main.defaultItemQuality
 		end
-	end	
+	end
 end
 
 function ItemClass:GetModSpawnWeight(mod, includeTags, excludeTags)
@@ -1234,6 +1367,12 @@ function ItemClass:BuildRaw()
 		if modLine.mutated then
 			line = "{mutated}" .. line
 		end
+		if modLine.crafted then
+			line = "{crafted}" .. line
+		end
+		if modLine.unscalable then
+			line = "{unscalable}" .. line
+		end
 		if modLine.variantList then
 			local varSpec
 			for varId in pairs(modLine.variantList) do
@@ -1257,7 +1396,7 @@ function ItemClass:BuildRaw()
 			if baseLine.variantList then
 				writeModLine(baseLine)
 			end
-		end	
+		end
 		if self.hasAltVariant then
 			t_insert(rawLines, "Has Alt Variant: true")
 			t_insert(rawLines, "Selected Alt Variant: " .. self.variantAlt)
@@ -1292,6 +1431,14 @@ function ItemClass:BuildRaw()
 		for i = 1, self.itemSocketCount do
 			t_insert(rawLines, "Rune: "..(self.runes[i] or "None"))
 		end
+	end
+	if self.jewelSocketCount and self.jewelSocketCount > 0 then
+		local socketString = ""
+		for _ = 1, self.jewelSocketCount do
+			socketString = socketString .. "J "
+		end
+		socketString = socketString:gsub(" $", "")
+		t_insert(rawLines, "Sockets: " .. socketString)
 	end
 	if self.requirements and self.requirements.level then
 		t_insert(rawLines, "LevelReq: " .. self.requirements.level)
@@ -1343,7 +1490,7 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType) 
+	local getModRunesForTypes = function(runeName, baseType, specificType)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1352,7 +1499,7 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[baseType])
 				-- end
 			end
-			if rune[specificType] then 
+			if rune[specificType] then
 				-- for _, mod in pairs(rune[specificType]) do
 					t_insert(gatheredRuneMods, rune[specificType])
 				-- end
@@ -1360,21 +1507,27 @@ function ItemClass:UpdateRunes()
 		end
 		return gatheredRuneMods
 	end
-	
+
 	local statOrder = {}
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster"
-			local specificType = self.base.type:lower()
+			local subType = self.base.subType and self.base.subType:lower()
+			local itemType = self.base.type:lower()
+			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
+			local specificType =
+				(subType == "warstaff" and "warstaff") or
+				(itemType == "shield" and subType == "evasion" and "buckler") or
+				itemType
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
-					if statOrder[order] then
+					local orderKey = modLine:match("^Bonded:") and "Bonded:"..order or order
+					if statOrder[orderKey] then
 						-- Combine stats
 						local start = 1
-						statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
+						statOrder[orderKey].line = statOrder[orderKey].line:gsub("(%d%.?%d*)", function(num)
 							local s, e, other = mod[i]:find("(%d%.?%d*)", start)
 							start = e + 1
 							return tonumber(num) + tonumber(other)
@@ -1387,13 +1540,12 @@ function ItemClass:UpdateRunes()
 								break
 							end
 						end
-						statOrder[order] = modLine
-					end	
+						statOrder[orderKey] = modLine
+					end
 				end
 			end
 		end
 	end
-
 end
 
 -- Rebuild explicit modifiers using the item's affixes
@@ -1425,7 +1577,7 @@ function ItemClass:Craft()
 					self.nameSuffix = self.nameSuffix .. " " .. mod.affix
 				end
 				self.requirements.level = m_max(self.requirements.level or 0, m_floor(mod.level * 0.8))
-				local rangeScalar = getCatalystScalar(self.catalyst, mod.modTags, self.catalystQuality)
+				local rangeScalar = getCatalystScalar(self.catalyst, mod, self.catalystQuality)
 				for i, line in ipairs(mod) do
 					line = itemLib.applyRange(line, affix.range or 0.5, rangeScalar)
 					local order = mod.statOrder[i]
@@ -1446,7 +1598,7 @@ function ItemClass:Craft()
 							end
 						end
 						statOrder[order] = modLine
-					end	
+					end
 				end
 			end
 		end
@@ -1461,7 +1613,7 @@ function ItemClass:Craft()
 end
 
 function ItemClass:CheckModLineVariant(modLine)
-	return not modLine.variantList 
+	return not modLine.variantList
 		or modLine.variantList[self.variant]
 		or (self.hasAltVariant and modLine.variantList[self.variantAlt])
 		or (self.hasAltVariant2 and modLine.variantList[self.variantAlt2])
@@ -1487,6 +1639,14 @@ function ItemClass:GetPrimarySlot()
 	else
 		return self.type
 	end
+end
+
+function ItemClass:GetArmourDataValue(name, level)
+	local armourData = self.armourData
+	if not armourData then
+		return 0
+	end
+	return (armourData[name] or 0) + round((armourData[name.."PerLevel"] or 0) * (level or 0))
 end
 
 -- Calculate local modifiers, and removes them from the modifier list
@@ -1578,7 +1738,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		weaponData.AttackRate = round(self.base.weapon.AttackRateBase * (1 + weaponData.AttackSpeedInc / 100), 2)
 		weaponData.rangeBonus = calcLocal(modList, "WeaponRange", "BASE", 0) + 10 * calcLocal(modList, "WeaponRangeMetre", "BASE", 0) + m_floor(self.quality / 10 * calcLocal(modList, "AlternateQualityLocalWeaponRangePer10Quality", "BASE", 0))
 		weaponData.range = self.base.weapon.Range + weaponData.rangeBonus
-		if self.base.weapon.ReloadTimeBase then 
+		if self.base.weapon.ReloadTimeBase then
 			weaponData.ReloadSpeedInc = calcLocal(modList, "ReloadSpeed", "INC", ModFlag.Attack) + weaponData.AttackSpeedInc
 			weaponData.ReloadTime = round(self.base.weapon.ReloadTimeBase / (1 + weaponData.ReloadSpeedInc / 100), 2)
 		end
@@ -1638,6 +1798,9 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local energyShieldBase = calcLocal(modList, "EnergyShield", "BASE", 0) + (self.base.armour.EnergyShield or 0)
 		local armourEnergyShieldBase = calcLocal(modList, "ArmourAndEnergyShield", "BASE", 0)
 		local wardBase = calcLocal(modList, "Ward", "BASE", 0) + (self.base.armour.Ward or 0)
+		local evasionPerLevel = calcLocal(modList, "EvasionPerLevel", "BASE", 0)
+		local energyShieldPerLevel = calcLocal(modList, "EnergyShieldPerLevel", "BASE", 0)
+		local wardPerLevel = calcLocal(modList, "WardPerLevel", "BASE", 0)
 		local armourInc = calcLocal(modList, "Armour", "INC", 0)
 		local armourEvasionInc = calcLocal(modList, "ArmourAndEvasion", "INC", 0)
 		local evasionInc = calcLocal(modList, "Evasion", "INC", 0)
@@ -1655,6 +1818,9 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		armourData.Evasion = round((evasionBase + armourEvasionBase + evasionEnergyShieldBase) * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.EnergyShield = round((energyShieldBase + evasionEnergyShieldBase + armourEnergyShieldBase) * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.Ward = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.EvasionPerLevel = evasionPerLevel * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
+		armourData.EnergyShieldPerLevel = energyShieldPerLevel * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
+		armourData.WardPerLevel = wardPerLevel * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
 
 		if self.base.armour.BlockChance then
 			armourData.BlockChance = m_floor((self.base.armour.BlockChance * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100) + calcLocal(modList, "BlockChance", "BASE", 0)))
@@ -1704,7 +1870,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local charmData = self.charmData
 		local durationInc = calcLocal(modList, "Duration", "INC", 0)
 		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
-		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * durationMore, 1)
+		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * (1 + self.quality / 100) * durationMore, 1)
 		charmData.chargesMax = (self.base.charm.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)) * (1 + calcLocal(modList, "FlaskCharges", "INC", 0) / 100)
 		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))
 		charmData.gainBase = calcLocal(modList, "FlaskChargesGenerated", "BASE", 0)
@@ -1758,11 +1924,11 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			if jewelData.clusterJewelSkill and not self.clusterJewel.skills[jewelData.clusterJewelSkill] then
 				jewelData.clusterJewelSkill = nil
 			end
-			jewelData.clusterJewelValid = jewelData.clusterJewelKeystone 
-				or ((jewelData.clusterJewelSkill or jewelData.clusterJewelSmallsAreNothingness) and jewelData.clusterJewelNodeCount) 
+			jewelData.clusterJewelValid = jewelData.clusterJewelKeystone
+				or ((jewelData.clusterJewelSkill or jewelData.clusterJewelSmallsAreNothingness) and jewelData.clusterJewelNodeCount)
 				or (jewelData.clusterJewelSocketCountOverride and jewelData.clusterJewelNothingnessCount)
 		end
-	end	
+	end
 	return { unpack(modList) }
 end
 
@@ -1807,12 +1973,16 @@ function ItemClass:BuildModList()
 				if modLine.range then
 					-- Check if line actually has a range
 					if modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
-						local strippedModeLine = modLine.line:gsub("\n"," ")						
-						local catalystScalar = getCatalystScalar(self.catalyst, modLine.modTags, self.catalystQuality)
+						local strippedModeLine = modLine.line:gsub("\n"," ")
+						local catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
 						-- Put the modified value into the string
 						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar, modLine.corruptedRange)
 						-- Check if we can parse it before adding the mods
 						local list, extra = modLib.parseMod(line)
+						if itemLib.isZeroValueLine(line) then
+							list = { }
+							extra = nil
+						end
 						if list and not extra then
 							modLine.modList = list
 							t_insert(self.rangeLineList, modLine)
@@ -1856,6 +2026,14 @@ function ItemClass:BuildModList()
 				triggerChance = skill.triggerChance,
 			})
 		end
+	end
+	--Sekhema's Resolve
+	if baseList:Flag(nil, "JewelSocketRestriction") then
+		self.canSocketJewelBase = { }
+		self.canSocketJewelBase["Diamond"] = calcLocal(baseList, "CanSocketJewelBaseDiamond", "FLAG", 0)
+		self.canSocketJewelBase["Sapphire"] = calcLocal(baseList, "CanSocketJewelBaseSapphire", "FLAG", 0)
+		self.canSocketJewelBase["Emerald"] = calcLocal(baseList, "CanSocketJewelBaseEmerald", "FLAG", 0)
+		self.canSocketJewelBase["Ruby"] = calcLocal(baseList, "CanSocketJewelBaseRuby", "FLAG", 0)
 	end
 
 	local reqLevel = 0
@@ -1906,9 +2084,9 @@ function ItemClass:BuildModList()
 		self.requirements.dexMod = 0
 		self.requirements.intMod = 0
 	elseif calcLocal(baseList, "AttributeRequirementsConverted", "FLAG", 0) then
-		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100  
-		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100 
-		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100 
+		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100
+		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100
+		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100
 		self.requirements.intBase = intConversion * (self.requirements.str + self.requirements.dex) + (self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) - self.requirements.int * (strConversion + dexConversion)
 		self.requirements.intMod = m_floor(self.requirements.intBase * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
 		self.requirements.dexBase = dexConversion * (self.requirements.str + self.requirements.int) + (self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) - self.requirements.dex * (strConversion + intConversion)

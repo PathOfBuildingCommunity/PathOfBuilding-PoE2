@@ -7,6 +7,58 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Ruby Ring
+			Implicits: 0
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(62, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "LootRarity"))
+	end)
+
+	it("aggregates matching ring resistance lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "80% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Amethyst Ring
+			Implicits: 0
+			+12% to Chaos Resistance
+			+26% to Chaos Resistance
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(68, build.calcsTab.mainOutput.ChaosResistTotal)
+	end)
+
+	it("sorts defensive item stats when the best score is negative", function()
+		build.configTab.input.enemyFireDamage = "1000"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local itemDB = build.itemsTab.controls.uniqueDB
+		itemDB.db = { list = {
+			new("Item", "New Item\nRing"),
+			new("Item", "New Item\nRing\n+50% to Fire Resistance"),
+			new("Item", "New Item\nBroadhead Quiver"),
+		} }
+		itemDB:SetSortMode("FireTakenHit")
+
+		itemDB:ListBuilder()
+
+		assert.is_true(itemDB.list[1].measuredPower < 0)
+		assert.are.equals(-math.huge, itemDB.list[#itemDB.list].measuredPower)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
@@ -194,7 +246,7 @@ describe("TetsItemMods", function()
 			{range:1}(15-20)% increased Cold Damage per 1% Missing Cold Resistance, up to a maximum of 300%
 			{range:1}(15-20)% increased Fire Damage per 1% Missing Fire Resistance, up to a maximum of 300%]])
 		build.itemsTab:AddDisplayItem()
-		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0 Default  1\n")
+		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.are_not.equals(340, build.calcsTab.mainEnv.modDB:Sum("INC", "FireDamage"))
@@ -441,8 +493,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Glorious Plate
-			Armour: 534
+			Champion Cuirass
+			Armour: 526
 			Crafted: true
 			Prefix: None
 			Prefix: None
@@ -450,7 +502,7 @@ describe("TetsItemMods", function()
 			Suffix: None
 			Suffix: None
 			Suffix: None
-			Quality: 0
+			Quality: 18
 			LevelReq: 65
 			Implicits: 0
 		]])
@@ -551,5 +603,178 @@ describe("TetsItemMods", function()
 		-- added fire damage increases cold damage
 		assert.are_not.equals(baseColdAvg, round(build.calcsTab.mainOutput.ColdStoredCombinedAvg))
 		assert.equals(0, round(build.calcsTab.mainOutput.FireStoredCombinedAvg))
+	end)
+
+	it("Timeless jewels grant conquered attribute passive bonuses", function()
+		local calcs = build.calcsTab.calcs
+		local jewelSocketNodeId = 999
+		local attributeNode = {
+			id = 1,
+			type = "Normal",
+			isAttribute = true,
+			allocMode = 0,
+			modList = new("ModList"),
+		}
+		local smallNode = {
+			id = 2,
+			type = "Normal",
+			allocMode = 0,
+			modList = new("ModList"),
+		}
+		local envMode = "SPEC_TIMELESS_ATTRIBUTE"
+		GlobalCache.cachedData[envMode] = { }
+		local env = {
+			mode = envMode,
+			radiusJewelList = { },
+			allocNodes = { },
+			build = {
+				itemsTab = {
+					activeItemSet = {
+						useSecondWeaponSet = false,
+					},
+				},
+				spec = {
+					nodes = {
+						[jewelSocketNodeId] = {
+							allocMode = 0,
+						},
+					},
+				},
+			},
+		}
+		table.insert(env.radiusJewelList, {
+			type = "Other",
+			nodes = {
+				[attributeNode.id] = { type = "Normal" },
+				[smallNode.id] = { type = "Normal" },
+			},
+			item = {
+				baseName = "Timeless Jewel",
+			},
+			nodeId = jewelSocketNodeId,
+			jewelHash = "undying-hate-spec",
+			data = {
+				modSource = "Tree:" .. jewelSocketNodeId,
+			},
+			func = function(node, out, data)
+				if node and node.type == "Normal" and node.isAttribute then
+					out:NewMod("Str", "BASE", 7, data.modSource)
+				elseif node and node.type == "Normal" and not node.isAttribute then
+					out:NewMod("Dex", "BASE", 11, data.modSource)
+				end
+			end,
+		})
+
+		local attributeModList = calcs.buildModListForNode(env, attributeNode, 0, false)
+		local smallModList = calcs.buildModListForNode(env, smallNode, 0, false)
+		GlobalCache.cachedData[envMode] = nil
+
+		assert.are.equals(7, attributeModList:Sum("BASE", nil, "Str"))
+		assert.are.equals(0, attributeModList:Sum("BASE", nil, "Dex"))
+		assert.are.equals(0, smallModList:Sum("BASE", nil, "Str"))
+		assert.are.equals(11, smallModList:Sum("BASE", nil, "Dex"))
+	end)
+
+	it("Blistering Bond with Avatar of Fire", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			The Blood Thorn
+			Wrapped Quarterstaff
+			{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
+			{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
+			{range:0.5}+(10-15) to Strength
+			Causes Bleeding on Hit
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+		75% of Damage Converted to Fire Damage
+		Deal no Non-Fire Damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		runCallback("OnFrame")
+
+		local baseBleedPlusAvatarWithoutBlistering = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusAvatarWithoutBlistering == nil) -- fire cannot bleed, deal no physical = no bleed
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+		Rarity: UNIQUE
+		0.5 Blistering Bond Test
+		Ruby Ring
+		LevelReq: 8
+		Implicits: 1
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:life}{range:0.5}+(40-60) to maximum Life
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:cold}{range:0.5}-(15-10)% to Cold Resistance
+		You take Fire Damage instead of Physical Damage from Bleeding
+		Fire Damage also Contributes to Bleeding Magnitude
+		Bleeding you Inflict deals Fire damage instead of Physical damage
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		local baseBleed = build.calcsTab.mainOutput.BleedDPS
+
+		build.configTab.input.customMods = [[
+		Adds 100 to 200 fire damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseBleedPlusFire = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusFire > baseBleed) -- fire can bleed, +fire = +bleed
+
+		build.configTab.input.customMods = [[
+		75% of Damage Converted to Fire Damage
+		Deal no Non-Fire Damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseBleedPlusAvatar = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusAvatar > 0) -- fire can bleed, deal no physical = can bleed
+	end)
+
+	it("ancestral bond", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+		Rarity: UNIQUE
+		Hoghunt
+		Felled Greatclub
+		Variant: Pre 0.1.1
+		Variant: Current
+		Selected Variant: 2
+		Quality: 20
+		LevelReq: 0
+		Implicits: 0
+		{variant:1}{range:0.5}(100-150)% increased Physical Damage
+		{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
+		+15% to Critical Hit Chance
+		10% reduced Attack Speed
+		+10 to Strength
+		Maim on Critical Hit
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Ancestral Warrior Totem 20/0 2")
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+		Totems reserve 75 spirit each
+		+100 spirit
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(150, build.calcsTab.mainOutput.SpiritReserved)
+
+		build.configTab.input.customMods = [[
+		Totems reserve 75 spirit each
+		100% increased spirit reservation efficiency
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(76, build.calcsTab.mainOutput.SpiritReserved)
 	end)
 end)

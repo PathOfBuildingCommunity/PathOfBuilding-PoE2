@@ -167,7 +167,10 @@ statMap = {
 #set SupportBlazingCriticalPlayer
 statMap = {
 	["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-		mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+		mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+	},
+	["support_blazing_crits_base_duration_ms"] = {
+		-- Display only
 	},
 },
 #mods
@@ -329,11 +332,6 @@ statMap = {
 
 #skill SupportColdExposurePlayer
 #set SupportColdExposurePlayer
-statMap = {
-	["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-		mod("ColdExposureChance", "BASE", nil),
-	},
-},
 #mods
 #skillEnd
 
@@ -415,7 +413,14 @@ statMap = {
 #skillEnd
 
 #skill SupportCracklingBarrierPlayer
+grantsThornsDamage = true,
 #set SupportCracklingBarrierPlayer
+statMap = {
+	["return_%_of_maximum_mana_as_lightning_damage_to_attacker_while_channelling"] = {
+		mod("LightningMin", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+		mod("LightningMax", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -442,6 +447,11 @@ statMap = {
 
 #skill SupportCrescendoPlayerTwo
 #set SupportCrescendoPlayerTwo
+statMap = {
+	["support_crescendo_non_final_strike_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FinalStrike", neg = true})
+	},
+},
 #mods
 #skillEnd
 
@@ -486,6 +496,13 @@ statMap = {
 		div = 60,
 	},
 },
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" })
+#mods
+#skillEnd
+
+#skill TriggeredDecayingHexPlayer
+#set TriggeredDecayingHexPlayer
+#flags
 #mods
 #skillEnd
 
@@ -512,6 +529,28 @@ statMap = {
 
 #skill SupportDoedresUndoingPlayer
 #set SupportDoedresUndoingPlayer
+statMap = {
+	["doedre_cursed_ground_toad_spawn_interval_ms"] = {
+		mod("ToadSpawnInterval", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+	["max_toads_per_doedre_cursed_ground"] = {
+		-- Display Only
+	},
+},
+#mods
+#skillEnd
+
+#skill ChaosFrogExplosionPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval") / 1000
+end,
+#set ChaosFrogExplosionPlayer
+#flags spell area triggered
+statMap = {
+	["triggered_by_chaos_frog_explosion_chance_%"] = {
+		-- Display Only
+	},
+},
 #mods
 #skillEnd
 
@@ -605,13 +644,29 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportEncroachingGroundPlayer
-#set SupportEncroachingGroundPlayer
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
 #mods
 #skillEnd
 
-#skill SupportEnergyBarrierPlayer
-#set SupportEnergyBarrierPlayer
+#skill TriggeredSparkEmpowerPlayer
+#hideFromSideBar
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayer
+#set TriggeredEmpoweredSparkPlayer
+#flags hit projectile duration
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayer
+#flags hit projectile duration
+#mods
+#skillEnd
+
+#skill SupportEncroachingGroundPlayer
+#set SupportEncroachingGroundPlayer
 #mods
 #skillEnd
 
@@ -622,6 +677,13 @@ statMap = {
 
 #skill SupportEnergyRetentionPlayer
 #set SupportEnergyRetentionPlayer
+#mods
+#skillEnd
+
+#from item
+#skill EnervatingNovaPlayer
+#set EnervatingNovaPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -665,6 +727,12 @@ statMap = {
 
 #skill SupportExpandPlayer
 #set SupportExpandPlayer
+statMap = {
+	["skill_area_of_effect_+%_per_broken_seal"] = {
+		mod("SealRepeatPenalty", "MORE", nil),
+	},
+},
+#baseMod flag("AreaSeal")
 #mods
 #skillEnd
 
@@ -830,6 +898,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportGorgePlayer
+#set SupportGorgePlayer
+#mods
+#skillEnd
+
 #skill SupportGuatelitzisAblationPlayer
 #set SupportGuatelitzisAblationPlayer
 #mods
@@ -853,11 +926,6 @@ statMap = {
 
 #skill SupportHexBloomPlayer
 #set SupportHexBloomPlayer
-#mods
-#skillEnd
-
-#skill SupportHinderPlayer
-#set SupportHinderPlayer
 #mods
 #skillEnd
 
@@ -1039,7 +1107,7 @@ statMap = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 5 }) }),
 		div = 5,
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 10 }) }),
 		div = 10,
 	},
@@ -1137,7 +1205,7 @@ statMap = {
 #set SupportMinionPactPlayer
 statMap = {
 	["support_minion_pact_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 	},
 },
 #mods
@@ -1147,7 +1215,7 @@ statMap = {
 #set SupportMinionPactPlayerTwo
 statMap = {
 	["support_minion_pact_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 	},
 },
 #mods
@@ -1196,8 +1264,8 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportNadirPlayer
-#set SupportNadirPlayer
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
 #mods
 #skillEnd
 
@@ -1240,16 +1308,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportPotentialPlayer
-#set SupportPotentialPlayer
-statMap = {
-	["skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"] = {
-		mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportPracticalMagicPlayer
 #set SupportPracticalMagicPlayer
 #mods
@@ -1285,19 +1343,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportRimePlayer
-#set SupportRimePlayer
-statMap = {
-	["chilled_ground_applies_%_freeze_multiplier_taken"] = {
-		mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Rime" }, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }),
-	},
-	["support_winterblast_chill_effect_+%_final"] = {
-		mod("EnemyChillMagnitude", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportTempestuousTempoPlayer
 #set SupportTempestuousTempoPlayer
 statMap = {
@@ -1313,6 +1358,16 @@ statMap = {
 statMap = {
 	["support_ritual_curse_curse_delay_+%_final"] = {
 		mod("CurseDelay", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportRomirasRequitalPlayer
+#set SupportRomirasRequitalPlayer
+statMap = {
+	["support_trusty_companion_minion_life_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 	},
 },
 #mods
@@ -1344,6 +1399,7 @@ statMap = {
 #skillEnd
 
 #skill SupportShockConductionPlayerTwo
+legacy = true
 #set SupportShockConductionPlayerTwo
 #mods
 #skillEnd
@@ -1437,14 +1493,9 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportUnbendingPlayer
-#set SupportUnbendingPlayer
-#mods
-#skillEnd
-
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
-#baseMod flag("HasSeals")
+#baseMod flag("DamageSeal")
 #mods
 #skillEnd
 
@@ -1470,11 +1521,6 @@ statMap = {
 
 #skill SupportVilentasPropulsionPlayer
 #set SupportVilentasPropulsionPlayer
-#mods
-#skillEnd
-
-#skill SupportVolatilePowerPlayer
-#set SupportVolatilePowerPlayer
 #mods
 #skillEnd
 
@@ -1526,7 +1572,7 @@ statMap = {
 
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
-#baseMod flag("HasSeals")
+#baseMod flag("DamageSeal")
 #mods
 #skillEnd
 

@@ -106,6 +106,12 @@ directiveTable.noGem = function(state, args, out)
 	state.noGem = true
 end
 
+-- #hideFromSideBar
+-- Loads the skill but prevents it from being offered as an active skill choice.
+directiveTable.hideFromSideBar = function(state, args, out)
+	out:write('\thideFromSideBar = true,\n')
+end
+
 -- #addSkillTypes <flag>[ <flag>[...]]
 -- skill types to be added to the skillTypes flags for this active skill
 directiveTable.addSkillTypes = function(state, args, out)
@@ -134,7 +140,7 @@ directiveTable.skill = function(state, args, out)
 	local secondaryEffect
 	if not gemEffect then
 		gemEffect = dat("GemEffects"):GetRow("AdditionalGrantedEffects", granted)
-		if gemEffect then 
+		if gemEffect then
 			secondaryEffect = true
 		end
 	end
@@ -172,6 +178,7 @@ directiveTable.skill = function(state, args, out)
 		gems[gemEffect.Id] = true
 		if granted.IsSupport then
 			skill.displayName = fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support", "")
+			skill.displayName = sanitiseText(skill.displayName)
 			out:write('\tname = "', skill.displayName, '",\n')
 			if #gemEffect.Description > 0 then
 				out:write('\tdescription = "', escapeGGGString(gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
@@ -179,7 +186,7 @@ directiveTable.skill = function(state, args, out)
 			gemLevels = 1
 		else
 			skill.displayName = secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
-			out:write('\tname = "', skill.displayName, '",\n')
+			out:write('\tname = "', sanitiseText(skill.displayName), '",\n')
 			-- Hybrid gems (e.g. Vaal gems) use the display name of the active skill e.g. Vaal Summon Skeletons of Sorcery
 			out:write('\tbaseTypeName = "', granted.ActiveSkill.DisplayName, '",\n')
 		end
@@ -187,9 +194,12 @@ directiveTable.skill = function(state, args, out)
 		if displayName == args and not granted.IsSupport then
 			displayName = gemEffect and trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
 		end
-		skill.displayName = displayName
+		skill.displayName = sanitiseText(displayName)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
+	end
+	if granted.ActiveSkill and granted.ActiveSkill.Icon then
+		out:write('\ticon = "', granted.ActiveSkill.Icon, '",\n')
 	end
 	if state.fromSpec then
 		out:write('\tfrom' .. state.fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
@@ -337,15 +347,13 @@ directiveTable.skill = function(state, args, out)
 				end
 				out:write('},\n')
 			end
-			if supportGem.Lineage then
+			if supportGem.Lineage and supportGem.FlavourText then
 				out:write('\tisLineage = true,\n')
-				if supportGem.FlavourText then
-					out:write('\tflavourText = {')
-					for _, line in ipairs(cleanAndSplit(supportGem.FlavourText.Text)) do
-						out:write('"', line, '", ')
-					end
-					out:write('},\n')
+				out:write('\tflavourText = {')
+				for _, line in ipairs(cleanAndSplit(supportGem.FlavourText.Text)) do
+					out:write('"', line, '", ')
 				end
+				out:write('},\n')
 			end
 		end
 		if skill.isTrigger then
@@ -358,7 +366,7 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tignoreMinionTypes = true,\n')
 		end
 		local weaponTypes = { }
-		if granted.WeaponRestrictions[1] then
+		if granted.WeaponRestrictions[1] and not granted.IsSupport then
 			for _, class in ipairs(granted.WeaponRestrictions[1].WeaponClass) do
 				if weaponClassMap[class.ItemClass.Id] then
 					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
@@ -458,7 +466,7 @@ directiveTable.skillEnd = function(state, args, out)
 end
 
 -- #set <GrantedEffectStatSetsId>
--- Initialises the statSet data and emits information pertaining to statSet 
+-- Initialises the statSet data and emits information pertaining to statSet
 directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
@@ -468,6 +476,7 @@ directiveTable.set = function(state, args, out)
 	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
 	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
+	label = sanitiseText(label)
 	local set = { }
 	local skill = state.skill
 	if next(skill.sets) == nil then
@@ -493,25 +502,25 @@ directiveTable.set = function(state, args, out)
 		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
 		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
 		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
-		
+
 		if grantedEffectStatSet.BaseEffectiveness == 1 then
-			grantedEffectStatSet.BaseEffectiveness = skill.baseGrantedEffectStatSet.BaseEffectiveness 
+			grantedEffectStatSet.BaseEffectiveness = skill.baseGrantedEffectStatSet.BaseEffectiveness
 		end
 		if grantedEffectStatSet.IncrementalEffectiveness == 0 then
-			grantedEffectStatSet.IncrementalEffectiveness = skill.baseGrantedEffectStatSet.IncrementalEffectiveness 
+			grantedEffectStatSet.IncrementalEffectiveness = skill.baseGrantedEffectStatSet.IncrementalEffectiveness
 		end
 		if grantedEffectStatSet.DamageIncrementalEffectiveness == 0 then
-			grantedEffectStatSet.DamageIncrementalEffectiveness = skill.baseGrantedEffectStatSet.DamageIncrementalEffectiveness 
+			grantedEffectStatSet.DamageIncrementalEffectiveness = skill.baseGrantedEffectStatSet.DamageIncrementalEffectiveness
 		end
 	end
-	
+
 	local statMap = { }
 	local statMapOrder = {}
 
 	for indx = 1, #statsPerLevel do
 		local statRow = statsPerLevel[indx]
 		local baseStatRow = skill.baseStatRow[indx]
-		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 } 
+		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 }
 		level.level = statRow.GemLevel
 		-- stat based level info
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
@@ -893,7 +902,7 @@ for skillGem in dat("SkillGems"):Rows() do
 	for _, gemEffect in ipairs(skillGem.GemEffects) do
 		if gems[gemEffect.Id] then
 			out:write('\t["', "Metadata/Items/Gems/SkillGem" .. gemEffect.Id, '"] = {\n')
-			out:write('\t\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or trueGemNames[gemEffect.Id] or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
+			out:write('\t\tname = "', sanitiseText(fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or trueGemNames[gemEffect.Id] or skillGem.BaseItemType.Name:gsub(" Support","")), '",\n')
 			-- Hybrid gems (e.g. Vaal gems) use the display name of the active skill e.g. Vaal Summon Skeletons of Sorcery
 			if not skillGem.IsSupport then
 				out:write('\t\tbaseTypeName = "', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')

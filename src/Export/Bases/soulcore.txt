@@ -3,17 +3,21 @@ local itemBases = ...
 
 #type SoulCore
 #baseMatch Metadata/Items/SoulCores/SoulCore
+#baseMatch Metadata/Items/SoulCores/Thesis
+
+#type AbyssalEye
 #baseMatch Metadata/Items/SoulCores/AmanamusGaze
 #baseMatch Metadata/Items/SoulCores/KurgalsGaze
 #baseMatch Metadata/Items/SoulCores/TecrodsGaze
 #baseMatch Metadata/Items/SoulCores/UlamansGaze
-#baseMatch Metadata/Items/SoulCores/ThesisOfSouls
-#baseMatch Metadata/Items/SoulCores/ThesisOfExperiments
-#baseMatch Metadata/Items/SoulCores/ThesisOfBlood
-#baseMatch Metadata/Items/SoulCores/ThesisOfSacrifice
 
 #type Rune
 #baseMatch Metadata/Items/SoulCores/Rune
+#baseMatch Metadata/Items/SoulCores/Emergent
 
 #type Idol
 #baseMatch Metadata/Items/SoulCores/Talisman
+#baseMatch Metadata/Items/SoulCores/Idol
+
+#type CongealedMist
+#baseMatch Metadata/Items/SoulCores/AugmentAnoint

@@ -24,7 +24,7 @@ itemBases["Caster Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Cast Speed",
-	implicitModTypes = { { "caster", "speed" }, },
+	implicitModTypes = { { "caster_speed", "caster", "speed" }, },
 	req = { },
 }
 itemBases["Decrepifying Arm"] = {
@@ -40,7 +40,7 @@ itemBases["Deflective Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Deflection Rating",
-	implicitModTypes = { { "evasion", "defences" }, },
+	implicitModTypes = { { "defences", "evasion" }, },
 	req = { },
 }
 itemBases["Commanding Arm"] = {
@@ -48,7 +48,7 @@ itemBases["Commanding Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(15-25)% increased Presence Area of Effect",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "aura" }, },
 	req = { },
 }
 itemBases["Evasive Leg"] = {
@@ -56,7 +56,7 @@ itemBases["Evasive Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(20-30)% increased Evasion Rating",
-	implicitModTypes = { { "evasion", "defences" }, },
+	implicitModTypes = { { "defences", "evasion" }, },
 	req = { },
 }
 itemBases["Sprinters Leg"] = {
@@ -64,7 +64,7 @@ itemBases["Sprinters Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Movement Speed while Sprinting",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "speed" }, },
 	req = { },
 }
 itemBases["Sturdy Leg"] = {

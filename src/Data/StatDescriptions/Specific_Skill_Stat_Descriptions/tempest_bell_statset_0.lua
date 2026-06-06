@@ -75,6 +75,22 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Can be Ancestrally Boosted as though a Strike"
+			}
+		},
+		stats={
+			[1]="skill_specific_stat_description_mode"
+		}
+	},
+	[6]={
+		[1]={
 		},
 		stats={
 			[1]="virtual_bell_hit_limit"
@@ -85,5 +101,6 @@ return {
 	["bell_hit_limit"]=3,
 	parent="skill_stat_descriptions",
 	["skill_effect_duration"]=4,
-	["virtual_bell_hit_limit"]=5
+	["skill_specific_stat_description_mode"]=5,
+	["virtual_bell_hit_limit"]=6
 }

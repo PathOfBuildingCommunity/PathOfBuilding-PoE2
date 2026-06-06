@@ -4,10 +4,17 @@ end
 loadStatFile("stat_descriptions.csd")
 
 classMap = {
-	["Martial Weapons"] = { "weapon" },
+	["Martial Weapon"] = { "weapon" },
+	["Caster Weapon"] = { "caster" },
+	["Martial Or Caster Weapon"] = { "weapon", "caster" },
 	["Armour"] = { "armour" },
-	["Caster Weapons"] = { "caster" },
+	["Wand or Staff"] = { "wand", "staff" },
+	["Maces or Talisman"] = { "one hand mace", "two hand mace", "talisman" },
+	["One Hand Mace or Quarterstaff"] = { "one hand mace", "warstaff" },
+	["Shield or Buckler"] = { "shield", "buckler" },
 	["All"] = { "weapon", "armour", "caster" },
+	["Quarterstaff or Spear"] = { "warstaff", "spear" },
+	["Crossbow Bow or Spear"] = { "crossbow", "bow", "spear" },
 }
 
 function table.containsId(table, element)
@@ -38,18 +45,27 @@ directiveTable.base = function(state, args, out)
 	if not displayName then
 		displayName = baseItemType.Name
 	end
+	if displayName:find("DNT") then
+		return
+	end
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
 
 	local function writeModLines(modLines, out)
 		for _, modLine in ipairs(modLines) do
 			out:write('\t\t["'..modLine.slotType..'"] = {\n')
-			out:write('\t\t\t\ttype = "Rune",\n')
+			out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
 			-- only write labels/statOrder if present
 			if modLine.label and #modLine.label > 0 then
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
 				local statOrder = modLine.statOrder or {}
 				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
+				out:write('\t\t\t\ttradeHashes = { ')
+				for hash, desc in pairs(modLine.tradeHashes) do
+					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+				end
+				out:write(' },\n')
 			end
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
@@ -66,8 +82,10 @@ directiveTable.base = function(state, args, out)
 		rank = soulCores.LevelReq or 0
 
 		local stats = { }
+		local statHashes = {}
 		for i, statKey in ipairs(soulCoreStat.Stats) do
 			local statValue = soulCoreStat["StatValue"][i]
+			table.insert(statHashes, intToBytes(statKey.Hash))
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		local bondedStats = { }
@@ -77,24 +95,53 @@ directiveTable.base = function(state, args, out)
 		end
 		if next(stats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
-				local stats, orders = describeStats(stats)
-				local bondedStats, bondedOrders = describeStats(bondedStats)
-				for i, stat in ipairs(bondedStats) do
-					bondedStats[i] = "Bonded: " .. stat
+				local statsCopy = {}
+				for k, v in pairs(stats) do statsCopy[k] = { min = v.min, max = v.max } end
+				local bondedStatsCopy = {}
+				for k, v in pairs(bondedStats) do bondedStatsCopy[k] = { min = v.min, max = v.max, bonded = v.bonded } end
+				local descStats, orders = describeStats(statsCopy)
+				local descBondedStats, bondedOrders = describeStats(bondedStatsCopy)
+				for i, stat in ipairs(descBondedStats) do
+					descBondedStats[i] = "Bonded: " .. stat
 				end
-				for _, stat in ipairs(bondedStats) do
-					table.insert(stats, stat)
+				for _, stat in ipairs(descBondedStats) do
+					table.insert(descStats, stat)
 				end
 				for _, order in ipairs(bondedOrders) do
 					table.insert(orders, order)
 				end
 				if #orders > 0 then
+					local modIdx = 1
+					local tradeHashes = {}
+					while soulCoreStat.Stats[modIdx] do
+						local currentStats = {}
+						local stat = soulCoreStat.Stats[modIdx]
+						currentStats[stat.Id] = {
+							min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+						}
+						local bytes = intToBytes(stat.Hash)
+						-- # to # stats consist of two different stats as the min and max have different ranges
+						if stat.Id:match("minimum") then
+							local nextStat = soulCoreStat.Stats[modIdx + 1]
+							if nextStat and nextStat.Id:match("maximum") then
+								modIdx = modIdx + 1
+								bytes = bytes .. intToBytes(nextStat.Hash)
+								currentStats[nextStat.Id] = {
+									min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+								}
+							end
+						end
+						local description, _, _ = describeStats(currentStats)
+						tradeHashes[murmurHash2(bytes, 0x02312233)] = description
+						modIdx = modIdx + 1
+					end
 					local out = {
-						type = "Rune",
+						type = soulCores.Type.Id,
 						slotType = class,
-						label = stats,
+						label = descStats,
 						statOrder = orders,
 						rank = rank,
+						tradeHashes = tradeHashes
 					}
 					table.insert(modLines, out)
 				end

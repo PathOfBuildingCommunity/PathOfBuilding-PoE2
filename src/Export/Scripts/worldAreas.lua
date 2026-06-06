@@ -80,60 +80,38 @@ end
 
 -- Step 3: EndGameMaps
 for map in dat("EndGameMaps"):Rows() do
-	local areaRefs = {}
-	if map.BossVersion then
-		table.insert(areaRefs, map.BossVersion)
-	end
-	for _, area in ipairs(areaRefs) do
-		local areaId = area.Id
-		areaIdToMonsters[areaId] = areaIdToMonsters[areaId] or {}
-		local seen = areaIdToMonsters[areaId .. "_seen"] or {}
-		if map.NativePacks then
-			for _, pack in ipairs(map.NativePacks) do
-				for _, name in ipairs(packIdToMonsters[pack.Id] or {}) do
-					if not seen[name] then
-						table.insert(areaIdToMonsters[areaId], name)
-						seen[name] = true
-					end
+	local areaId = map.Id.Id
+	areaIdToMonsters[areaId] = areaIdToMonsters[areaId] or {}
+	local seen = areaIdToMonsters[areaId .. "_seen"] or {}
+	if map.NativePacks then
+		for _, pack in ipairs(map.NativePacks) do
+			for _, name in ipairs(packIdToMonsters[pack.Id] or {}) do
+				if not seen[name] then
+					table.insert(areaIdToMonsters[areaId], name)
+					seen[name] = true
 				end
 			end
 		end
-		areaIdToMonsters[areaId .. "_seen"] = seen
+	end
+	areaIdToMonsters[areaId .. "_seen"] = seen
 
-		-- Attach FlavourText as description for this area if present
-		if map.FlavourText and map.FlavourText ~= "" then
-			if area.Id == "MapUniqueMegalith" then
-				--Temporary, need to clean text properly and convert map flavour text to a table just like items are.
-				areaIdToMonsters[areaId .. "_desc"] = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore"
-			-- Hideouts have 2 lines, remove second line
-			elseif areaId:sub(-10) == "_Claimable" then
-				local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
-				if firstSentence then
-					areaIdToMonsters[areaId .. "_desc"] = firstSentence:gsub("%s+$", "")
-				else
-					areaIdToMonsters[areaId .. "_desc"] = map.FlavourText
-				end
+	-- Attach FlavourText as description for this area if present
+	if map.FlavourText and map.FlavourText ~= "" then
+		if map.Id.Id == "MapUniqueMegalith" then
+			--Temporary, need to clean text properly and convert map flavour text to a table just like items are.
+			areaIdToMonsters[areaId .. "_desc"] = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore"
+		elseif map.Id.Id == "Delirium_Act1Town_Quest" then
+			areaIdToMonsters[areaId .. "_desc"] = "Delusions of suffering... and death."
+		-- Hideouts have 2 lines, remove second line
+		elseif areaId:sub(-10) == "_Claimable" then
+			local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
+			if firstSentence then
+				areaIdToMonsters[areaId .. "_desc"] = firstSentence:gsub("%s+$", "")
 			else
 				areaIdToMonsters[areaId .. "_desc"] = map.FlavourText
 			end
-		end
-	end
-end
-
--- Combine _NoBoss monsters into their corresponding boss map
-for areaId, monsters in pairs(areaIdToMonsters) do
-	if type(areaId) == "string" and areaId:sub(-7) == "_NoBoss" then
-		local bossAreaId = areaId:sub(1, -8)
-		areaIdToMonsters[bossAreaId] = areaIdToMonsters[bossAreaId] or {}
-		local seen = {}
-		for _, name in ipairs(areaIdToMonsters[bossAreaId]) do
-			seen[name] = true
-		end
-		for _, name in ipairs(monsters) do
-			if not seen[name] then
-				table.insert(areaIdToMonsters[bossAreaId], name)
-				seen[name] = true
-			end
+		else
+			areaIdToMonsters[areaId .. "_desc"] = map.FlavourText
 		end
 	end
 end
@@ -147,8 +125,7 @@ out:write('local worldAreas, _ = ...\n\n')
 
 for area in dat("WorldAreas"):Rows() do
 	if area.Name and area.Name ~= "NULL" and not area.Name:match("DNT") and area.Id then
-		-- Skip areas ending with _NoBoss
-		if area.Id:match("Design") or area.Id:match("Programming") or area.Id == "BlackTest" then
+		if area.Id:match("Design") or area.Id:match("Programming") or area.Id == "BlackTest" or area.Id == "G_Endgame_Town" then
 			goto continue
 		end
 		local monsters = areaIdToMonsters[area.Id] or {}
@@ -174,10 +151,7 @@ for area in dat("WorldAreas"):Rows() do
 		end
 		out:write('\tname = "' .. area.Name .. suffix .. '",\n')
 		out:write('\tbaseName = "' .. area.Name .. '",\n')
-		local desc = area.Description
-		if (not desc or desc == "") and areaIdToMonsters[area.Id .. "_desc"] then
-			desc = areaIdToMonsters[area.Id .. "_desc"]
-		end
+		local desc = areaIdToMonsters[area.Id .. "_desc"] or area.Description
 		if desc and desc ~= "" then
 			out:write('\tdescription = "' .. desc .. '",\n')
 		end

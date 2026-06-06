@@ -857,8 +857,8 @@ worldAreas["HideoutArcaneIsle"] = {
 }
 
 worldAreas["HideoutSacrifice"] = {
-	name = "Sacrifice Hideout (Act 1)",
-	baseName = "Sacrifice Hideout",
+	name = "Sacrificial Apex Hideout (Act 1)",
+	baseName = "Sacrificial Apex Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -869,8 +869,8 @@ worldAreas["HideoutSacrifice"] = {
 }
 
 worldAreas["HideoutVerdant"] = {
-	name = "Verdant Hideout (Act 1)",
-	baseName = "Verdant Hideout",
+	name = "Overgrown Apex Hideout (Act 1)",
+	baseName = "Overgrown Apex Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -924,6 +924,178 @@ worldAreas["HideoutBlankCrypt"] = {
 	level = 65,
 	isMap = false,
 	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutArenaIncursion"] = {
+	name = "Red Queen's Chambers Hideout (Act 1)",
+	baseName = "Red Queen's Chambers Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutSunkenPalace"] = {
+	name = "Sunken Palace Hideout (Act 1)",
+	baseName = "Sunken Palace Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutColossalTitan"] = {
+	name = "Titan Apex Hideout (Act 1)",
+	baseName = "Titan Apex Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankJungle"] = {
+	name = "Jungle Clearing Hideout (Act 1)",
+	baseName = "Jungle Clearing Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankVolcanicCave"] = {
+	name = "Volcanic Cave Hideout (Act 1)",
+	baseName = "Volcanic Cave Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutVampireManor"] = {
+	name = "Bloodreaver Manor Hideout (Act 1)",
+	baseName = "Bloodreaver Manor Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapHideoutFarmlands_Claimable"] = {
+	name = "Farmlands Hideout (Map)",
+	baseName = "Farmlands Hideout",
+	description = "A rare enclave of fertile earth.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Decrepit Mercenary",
+		"Risen Farmhand",
+		"Scarecrow Beast",
+	},
+}
+
+worldAreas["MapHideoutPrison_Claimable"] = {
+	name = "Prison Hideout (Map)",
+	baseName = "Prison Hideout",
+	description = "A refuge from the villains it once contained.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Eternal Torturer",
+	},
+}
+
+worldAreas["MapHideoutShoreline_Claimable"] = {
+	name = "Shoreline Hideout (Act 4)",
+	baseName = "Shoreline Hideout",
+	tags = { "area_with_water" },
+	act = 4,
+	level = 46,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Caustic Crab",
+		"Coconut Crab",
+		"Elephant Tortoise",
+		"Quill Crab",
+		"Spiked Scuttler",
+		"Stoneback Rhoa",
+	},
+}
+
+worldAreas["MapHideoutFelled_Claimable"] = {
+	name = "Felled Hideout (Map)",
+	baseName = "Felled Hideout",
+	description = "A fortress of fallen wood.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapHideoutLimestone_Claimable"] = {
+	name = "Limestone Hideout (Map)",
+	baseName = "Limestone Hideout",
+	description = "A forgotten grotto, lost to the world.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapHideoutShrine_Claimable"] = {
+	name = "Shrine Hideout (Map)",
+	baseName = "Shrine Hideout",
+	description = "A fragment of a glorious past.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapHideoutCanal_Claimable"] = {
+	name = "Canal Hideout (Map)",
+	baseName = "Canal Hideout",
+	description = "A moment in time, on the eve of the end.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1041,7 +1213,7 @@ worldAreas["G1_1"] = {
 	name = "The Riverbank (Act 1)",
 	baseName = "The Riverbank",
 	description = "The drowned stare through muddied branches",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 1,
 	isMap = false,
@@ -1059,7 +1231,7 @@ worldAreas["G1_2"] = {
 	name = "Clearfell (Act 1)",
 	baseName = "Clearfell",
 	description = "A sickness has befallen Ogham",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 2,
 	isMap = false,
@@ -1079,7 +1251,7 @@ worldAreas["G1_3"] = {
 	name = "Mud Burrow (Act 1)",
 	baseName = "Mud Burrow",
 	description = "The tunnels of a tormented creature",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 3,
 	isMap = false,
@@ -1098,7 +1270,7 @@ worldAreas["G1_4"] = {
 	name = "The Grelwood (Act 1)",
 	baseName = "The Grelwood",
 	description = "Forest of the Old Magicks",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 4,
 	isMap = false,
@@ -1121,7 +1293,7 @@ worldAreas["G1_5"] = {
 	name = "The Red Vale (Act 1)",
 	baseName = "The Red Vale",
 	description = "Haunted battleground of the Phaaryl Wars",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 5,
 	isMap = false,
@@ -1141,7 +1313,7 @@ worldAreas["G1_6"] = {
 	name = "The Grim Tangle (Act 1)",
 	baseName = "The Grim Tangle",
 	description = "The sickness spreads forth underground",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 6,
 	isMap = false,
@@ -1162,7 +1334,7 @@ worldAreas["G1_7"] = {
 	name = "Cemetery of the Eternals (Act 1)",
 	baseName = "Cemetery of the Eternals",
 	description = "Built atop the Ezomyte clan graves beneath",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 7,
 	isMap = false,
@@ -1185,7 +1357,7 @@ worldAreas["G1_8"] = {
 	name = "Mausoleum of the Praetor (Act 1)",
 	baseName = "Mausoleum of the Praetor",
 	description = "Resting place of Draven Sentari",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 8,
 	isMap = false,
@@ -1209,7 +1381,7 @@ worldAreas["G1_9"] = {
 	name = "Tomb of the Consort (Act 1)",
 	baseName = "Tomb of the Consort",
 	description = "Resting place of Asinia Sentari",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 8,
 	isMap = false,
@@ -1229,7 +1401,7 @@ worldAreas["G1_9"] = {
 worldAreas["G1_10"] = {
 	name = "Root Hollow (Act 1)",
 	baseName = "Root Hollow",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 15,
 	isMap = false,
@@ -1245,7 +1417,7 @@ worldAreas["G1_11"] = {
 	name = "Hunting Grounds (Act 1)",
 	baseName = "Hunting Grounds",
 	description = "Wild bounty of Ogham",
-	tags = { "EzomyteStrongbox", "nameless_shrine" },
+	tags = {  },
 	act = 1,
 	level = 10,
 	isMap = false,
@@ -1267,7 +1439,7 @@ worldAreas["G1_12"] = {
 	name = "Freythorn (Act 1)",
 	baseName = "Freythorn",
 	description = "The Clanless Enclave",
-	tags = { "EzomyteStrongbox", "nameless_shrine" },
+	tags = {  },
 	act = 1,
 	level = 11,
 	isMap = false,
@@ -1289,7 +1461,7 @@ worldAreas["G1_13_1"] = {
 	name = "Ogham Farmlands (Act 1)",
 	baseName = "Ogham Farmlands",
 	description = "Diseased crops of Ogham",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 12,
 	isMap = false,
@@ -1312,7 +1484,7 @@ worldAreas["G1_13_2"] = {
 	name = "Ogham Village (Act 1)",
 	baseName = "Ogham Village",
 	description = "The burning tragedy",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 13,
 	isMap = false,
@@ -1334,7 +1506,7 @@ worldAreas["G1_14"] = {
 	name = "The Manor Ramparts (Act 1)",
 	baseName = "The Manor Ramparts",
 	description = "Surrounding walls of the Wolf's Den",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 14,
 	isMap = false,
@@ -1357,7 +1529,7 @@ worldAreas["G1_15"] = {
 	name = "Ogham Manor (Act 1)",
 	baseName = "Ogham Manor",
 	description = "Den of the Mad Wolf",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 1,
 	level = 15,
 	isMap = false,
@@ -1398,7 +1570,7 @@ worldAreas["G2_1"] = {
 	name = "Vastiri Outskirts (Act 2)",
 	baseName = "Vastiri Outskirts",
 	description = "Blood-red and unforgiving sands",
-	tags = { "MarakethStrongbox", "badlands_shrine" },
+	tags = {  },
 	act = 2,
 	level = 16,
 	isMap = false,
@@ -1420,7 +1592,7 @@ worldAreas["G2_2"] = {
 	name = "Traitor's Passage (Act 2)",
 	baseName = "Traitor's Passage",
 	description = "The pride and fall of Balbala",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 19,
 	isMap = false,
@@ -1443,7 +1615,7 @@ worldAreas["G2_3"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 20,
 	isMap = false,
@@ -1469,7 +1641,7 @@ worldAreas["G2_3a"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 20,
 	isMap = false,
@@ -1482,7 +1654,7 @@ worldAreas["G2_3s"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 20,
 	isMap = false,
@@ -1495,7 +1667,7 @@ worldAreas["G2_4_1"] = {
 	name = "Keth (Act 2)",
 	baseName = "Keth",
 	description = "Jewel of the Vastiri",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 21,
 	isMap = false,
@@ -1518,7 +1690,7 @@ worldAreas["G2_4_2"] = {
 	name = "The Lost City (Act 2)",
 	baseName = "The Lost City",
 	description = "The glory of Keth knew no bounds",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 22,
 	isMap = false,
@@ -1539,7 +1711,7 @@ worldAreas["G2_4_3"] = {
 	name = "Buried Shrines (Act 2)",
 	baseName = "Buried Shrines",
 	description = "Sands settle where water once flowed",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 23,
 	isMap = false,
@@ -1560,7 +1732,7 @@ worldAreas["G2_5_1"] = {
 	name = "Mastodon Badlands (Act 2)",
 	baseName = "Mastodon Badlands",
 	description = "Territory of the Lost-Men",
-	tags = { "MarakethStrongbox", "badlands_shrine" },
+	tags = {  },
 	act = 2,
 	level = 21,
 	isMap = false,
@@ -1581,7 +1753,7 @@ worldAreas["G2_5_2"] = {
 	name = "The Bone Pits (Act 2)",
 	baseName = "The Bone Pits",
 	description = "Necromantic ash tarnish the sands",
-	tags = { "MarakethStrongbox", "badlands_shrine" },
+	tags = {  },
 	act = 2,
 	level = 22,
 	isMap = false,
@@ -1608,7 +1780,7 @@ worldAreas["G2_6"] = {
 	name = "Valley of the Titans (Act 2)",
 	baseName = "Valley of the Titans",
 	description = "They remain where they slept",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 21,
 	isMap = false,
@@ -1628,7 +1800,7 @@ worldAreas["G2_7"] = {
 	name = "The Titan Grotto (Act 2)",
 	baseName = "The Titan Grotto",
 	description = "Their echoes rattled the world",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 22,
 	isMap = false,
@@ -1649,7 +1821,7 @@ worldAreas["G2_8"] = {
 	name = "Deshar (Act 2)",
 	baseName = "Deshar",
 	description = "The City of the Dead",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 28,
 	isMap = false,
@@ -1667,7 +1839,7 @@ worldAreas["G2_8a"] = {
 	name = "Deshar (Act 2)",
 	baseName = "Deshar",
 	description = "The City of the Dead",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 28,
 	isMap = false,
@@ -1680,7 +1852,7 @@ worldAreas["G2_9_1"] = {
 	name = "Path of Mourning (Act 2)",
 	baseName = "Path of Mourning",
 	description = "They climb to mourn their Honoured Dead",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 29,
 	isMap = false,
@@ -1696,7 +1868,7 @@ worldAreas["G2_9_2"] = {
 	name = "The Spires of Deshar (Act 2)",
 	baseName = "The Spires of Deshar",
 	description = "Where the Honoured Dead lie buried in the sky",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 2,
 	level = 30,
 	isMap = false,
@@ -1725,7 +1897,7 @@ worldAreas["G2_10_1"] = {
 	name = "Mawdun Quarry (Act 2)",
 	baseName = "Mawdun Quarry",
 	description = "The hills of Mawdun became the Faridun foothold",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
+	tags = {  },
 	act = 2,
 	level = 17,
 	isMap = false,
@@ -1745,7 +1917,7 @@ worldAreas["G2_10_2"] = {
 	name = "Mawdun Mine (Act 2)",
 	baseName = "Mawdun Mine",
 	description = "Where metal veins bled for the tools of war",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
+	tags = {  },
 	act = 2,
 	level = 18,
 	isMap = false,
@@ -1768,7 +1940,7 @@ worldAreas["G2_10_2"] = {
 worldAreas["G2_11"] = {
 	name = "The Dreadnought's Wake (Act 2)",
 	baseName = "The Dreadnought's Wake",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
+	tags = {  },
 	act = 2,
 	level = 30,
 	isMap = false,
@@ -1780,20 +1952,22 @@ worldAreas["G2_11"] = {
 		"Plague Swarm",
 		"Rasp Scavenger",
 		"Rhex",
+		"The Punished",
 	},
 }
 
-worldAreas["G2_12_1"] = {
-	name = "The Dreadnought (Act 2)",
-	baseName = "The Dreadnought",
-	description = "War Caravan of the Faridun",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
+worldAreas["G2_12"] = {
+	name = "Dreadnought (Act 2)",
+	baseName = "Dreadnought",
+	description = "War Caravan of the Risen King",
+	tags = {  },
 	act = 2,
 	level = 31,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
 		"Faridun Bladedancer",
+		"Faridun Butcher",
 		"Faridun Crawler",
 		"Faridun Fledgling",
 		"Faridun Heavy Infantry",
@@ -1808,30 +1982,6 @@ worldAreas["G2_12_1"] = {
 		"Plague Harvester",
 		"Plague Swarm",
 	},
-}
-
-worldAreas["G2_12_2"] = {
-	name = "Dreadnought Vanguard (Act 2)",
-	baseName = "Dreadnought Vanguard",
-	description = "Forward carts of the Risen King",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
-	act = 2,
-	level = 32,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-		"Faridun Bladedancer",
-		"Faridun Butcher",
-		"Faridun Fledgling",
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Neophyte",
-		"Faridun Spearman",
-		"Faridun Spearwoman",
-		"Faridun Swordsman",
-		"Faridun Wind-slicer",
-	},
 	bossVarieties = {
 		"Jamanra, the Abomination",
 	},
@@ -1841,7 +1991,7 @@ worldAreas["G2_13"] = {
 	name = "Trial of the Sekhemas (Act 2)",
 	baseName = "Trial of the Sekhemas",
 	description = "The Winter Sekhema designed a Great Trial to challenge the worthy",
-	tags = { "MarakethStrongbox", "faridun_shrine" },
+	tags = {  },
 	act = 2,
 	level = 22,
 	isMap = false,
@@ -2111,7 +2261,7 @@ worldAreas["G3_1"] = {
 	name = "Sandswept Marsh (Act 3)",
 	baseName = "Sandswept Marsh",
 	description = "Where thick waters stir with the rising dead",
-	tags = { "area_with_water", "VaalStrongbox" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 33,
 	isMap = false,
@@ -2136,7 +2286,7 @@ worldAreas["G3_2_1"] = {
 	name = "Infested Barrens (Act 3)",
 	baseName = "Infested Barrens",
 	description = "Where the jungle gives way to colonies and hives",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 35,
 	isMap = false,
@@ -2153,7 +2303,7 @@ worldAreas["G3_2_2"] = {
 	name = "The Matlan Waterways (Act 3)",
 	baseName = "The Matlan Waterways",
 	description = "Seed of Utzaal's birth and death",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 39,
 	isMap = false,
@@ -2176,7 +2326,7 @@ worldAreas["G3_3"] = {
 	name = "Jungle Ruins (Act 3)",
 	baseName = "Jungle Ruins",
 	description = "The jungle thrives amongst overgrown structures",
-	tags = { "area_with_water", "VaalStrongbox" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 34,
 	isMap = false,
@@ -2201,7 +2351,7 @@ worldAreas["G3_4"] = {
 	name = "The Venom Crypts (Act 3)",
 	baseName = "The Venom Crypts",
 	description = "Graves that once held nobility now slither and bite",
-	tags = { "area_with_water", "VaalStrongbox" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 35,
 	isMap = false,
@@ -2211,6 +2361,10 @@ worldAreas["G3_4"] = {
 		"Constricted Spitter",
 		"Entrailhome Shambler",
 		"Entwined Hulk",
+		"Orok Fleshstabber",
+		"Orok Hunter",
+		"Orok Shaman",
+		"Orok Throatcutter",
 		"Rotted Rat",
 		"Scorpion Monkey",
 		"Slitherspitter",
@@ -2222,7 +2376,7 @@ worldAreas["G3_5"] = {
 	name = "Chimeral Wetlands (Act 3)",
 	baseName = "Chimeral Wetlands",
 	description = "Where beauty and death become one",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 36,
 	isMap = false,
@@ -2243,7 +2397,7 @@ worldAreas["G3_6_1"] = {
 	name = "Jiquani's Machinarium (Act 3)",
 	baseName = "Jiquani's Machinarium",
 	description = "Where the Architect of Industry bestowed life unto stone",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 37,
 	isMap = false,
@@ -2268,7 +2422,7 @@ worldAreas["G3_6_2"] = {
 	name = "Jiquani's Sanctum (Act 3)",
 	baseName = "Jiquani's Sanctum",
 	description = "Seat of Jiquani's rise to power",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 38,
 	isMap = false,
@@ -2292,9 +2446,9 @@ worldAreas["G3_7"] = {
 	name = "The Azak Bog (Act 3)",
 	baseName = "The Azak Bog",
 	description = "Home of the merciless Azak savages",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
-	level = 36,
+	level = 40,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
@@ -2318,7 +2472,7 @@ worldAreas["G3_8"] = {
 	name = "The Drowned City (Act 3)",
 	baseName = "The Drowned City",
 	description = "Utzaal the drowned is now revealed",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 40,
 	isMap = false,
@@ -2345,7 +2499,7 @@ worldAreas["G3_9"] = {
 	name = "The Molten Vault (Act 3)",
 	baseName = "The Molten Vault",
 	description = "Forge of the forgotten wealth of Kamasa",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 41,
 	isMap = false,
@@ -2369,7 +2523,7 @@ worldAreas["G3_10"] = {
 	name = "The Trial of Chaos (Act 3)",
 	baseName = "The Trial of Chaos",
 	description = "Where the Trialmaster tests challengers in the name of Chaos",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 38,
 	isMap = false,
@@ -2388,7 +2542,7 @@ worldAreas["G3_10_Airlock"] = {
 	name = "The Temple of Chaos (Act 3)",
 	baseName = "The Temple of Chaos",
 	description = "Testing grounds for the Vaal High Priests",
-	tags = { "area_with_water", "VaalStrongbox" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 38,
 	isMap = false,
@@ -2401,7 +2555,7 @@ worldAreas["G3_11"] = {
 	name = "Apex of Filth (Act 3)",
 	baseName = "Apex of Filth",
 	description = "The rot and mire of unspeakable centuries",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 41,
 	isMap = false,
@@ -2428,7 +2582,7 @@ worldAreas["G3_12"] = {
 	name = "Temple of Kopec (Act 3)",
 	baseName = "Temple of Kopec",
 	description = "Unfathomable energy resides within the Ziggurat",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 42,
 	isMap = false,
@@ -2448,7 +2602,7 @@ worldAreas["G3_14"] = {
 	name = "Utzaal (Act 3)",
 	baseName = "Utzaal",
 	description = "The Cradle of Vaal Ambition",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 43,
 	isMap = false,
@@ -2471,7 +2625,7 @@ worldAreas["G3_14"] = {
 worldAreas["G3_15"] = {
 	name = "Library of Kamasa (Act 3)",
 	baseName = "Library of Kamasa",
-	tags = { "dungeon", "VaalStrongbox", "vaal_shrine" },
+	tags = { "dungeon" },
 	act = 3,
 	level = 43,
 	isMap = false,
@@ -2489,7 +2643,7 @@ worldAreas["G3_16"] = {
 	name = "Aggorat (Act 3)",
 	baseName = "Aggorat",
 	description = "Salvation sought in beauty and blood",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 44,
 	isMap = false,
@@ -2512,7 +2666,7 @@ worldAreas["G3_17"] = {
 	name = "The Black Chambers (Act 3)",
 	baseName = "The Black Chambers",
 	description = "Doryani toiled in her name and his own",
-	tags = { "area_with_water", "VaalStrongbox", "vaal_shrine" },
+	tags = { "area_with_water" },
 	act = 3,
 	level = 45,
 	isMap = false,
@@ -2550,7 +2704,7 @@ worldAreas["G4_1_1"] = {
 	name = "Isle of Kin (Act 4)",
 	baseName = "Isle of Kin",
 	description = "They mine and harvest to appease their master",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2573,7 +2727,7 @@ worldAreas["G4_1_2"] = {
 	name = "Volcanic Warrens (Act 4)",
 	baseName = "Volcanic Warrens",
 	description = "Magma coils around a throne most foul",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 47,
 	isMap = false,
@@ -2598,7 +2752,7 @@ worldAreas["G4_2_1"] = {
 	name = "Kedge Bay (Act 4)",
 	baseName = "Kedge Bay",
 	description = "Countless wrecks emerge from the fog",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2619,7 +2773,7 @@ worldAreas["G4_2_2"] = {
 	name = "Journey's End (Act 4)",
 	baseName = "Journey's End",
 	description = "Those who made it ashore met an unknown end",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 47,
 	isMap = false,
@@ -2640,7 +2794,7 @@ worldAreas["G4_3_1"] = {
 	name = "Whakapanu Island (Act 4)",
 	baseName = "Whakapanu Island",
 	description = "The island consumes those who trespass",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2663,7 +2817,7 @@ worldAreas["G4_3_2"] = {
 	name = "Singing Caverns (Act 4)",
 	baseName = "Singing Caverns",
 	description = "A beautiful song lures the unwary",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 47,
 	isMap = false,
@@ -2687,7 +2841,7 @@ worldAreas["G4_4_1"] = {
 	name = "Eye of Hinekora (Act 4)",
 	baseName = "Eye of Hinekora",
 	description = "The ocean opens for the worthy",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2702,7 +2856,7 @@ worldAreas["G4_4_2"] = {
 	name = "Halls of the Dead (Act 4)",
 	baseName = "Halls of the Dead",
 	description = "Notable Karui gather here for all time",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 47,
 	isMap = false,
@@ -2737,7 +2891,7 @@ worldAreas["G4_5_1"] = {
 	name = "Abandoned Prison (Act 4)",
 	baseName = "Abandoned Prison",
 	description = "They were left to starve when the Empire fell",
-	tags = { "area_with_water", "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2758,7 +2912,7 @@ worldAreas["G4_5_2"] = {
 	name = "Solitary Confinement (Act 4)",
 	baseName = "Solitary Confinement",
 	description = "The worst offenders drowned... or worse",
-	tags = { "area_with_water", "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 47,
 	isMap = false,
@@ -2784,7 +2938,7 @@ worldAreas["G4_7"] = {
 	name = "Shrike Island (Act 4)",
 	baseName = "Shrike Island",
 	description = "Karui collect eggs here to prove themselves",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 46,
 	isMap = false,
@@ -2808,7 +2962,7 @@ worldAreas["G4_8a"] = {
 	name = "Arastas (Act 4)",
 	baseName = "Arastas",
 	description = "The Twilight Order recruit those who dream of more",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 52,
 	isMap = false,
@@ -2821,7 +2975,7 @@ worldAreas["G4_8b"] = {
 	name = "Arastas (Act 4)",
 	baseName = "Arastas",
 	description = "The Twilight Order recruit those who dream of more",
-	tags = { "area_with_water", "KaruiStrongbox", "twilight_order_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 52,
 	isMap = false,
@@ -2845,7 +2999,7 @@ worldAreas["G4_8b"] = {
 worldAreas["G4_9_"] = {
 	name = "Isle of Decay (Act 4)",
 	baseName = "Isle of Decay",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2862,7 +3016,7 @@ worldAreas["G4_10"] = {
 	name = "The Excavation (Act 4)",
 	baseName = "The Excavation",
 	description = "Ancient machines and tools hold unknown secrets",
-	tags = { "KaruiStrongbox" },
+	tags = {  },
 	act = 4,
 	level = 52,
 	isMap = false,
@@ -2889,7 +3043,7 @@ worldAreas["G4_11_1a"] = {
 	name = "Ngakanu (Act 4)",
 	baseName = "Ngakanu",
 	description = "Stronghold of the Tukohama Tribe",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2902,7 +3056,7 @@ worldAreas["G4_11_1b"] = {
 	name = "Ngakanu (Act 4)",
 	baseName = "Ngakanu",
 	description = "Stronghold of the Tukohama Tribe",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2922,7 +3076,7 @@ worldAreas["G4_11_2"] = {
 	name = "Heart of the Tribe (Act 4)",
 	baseName = "Heart of the Tribe",
 	description = "The Blood Fever spreads faster than fire",
-	tags = { "area_with_water", "KaruiStrongbox", "karui_shrine" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2946,7 +3100,7 @@ worldAreas["G4_13"] = {
 	name = "Plunder's Point (Act 4)",
 	baseName = "Plunder's Point",
 	description = "Not all that is buried is forgotten",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2959,7 +3113,7 @@ worldAreas["G4_14"] = {
 	name = "Brinerot Cove (Act 4)",
 	baseName = "Brinerot Cove",
 	description = "Cutthroats will do anything for gold",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	tags = { "area_with_water" },
 	act = 4,
 	level = 53,
 	isMap = false,
@@ -2985,7 +3139,7 @@ worldAreas["P1_1"] = {
 	name = "Scorched Farmlands (Act 6)",
 	baseName = "Scorched Farmlands",
 	description = "The fields burn as the night brings new terror",
-	tags = { "EzomyteStrongbox", "frost_shrine" },
+	tags = { "frost_shrine" },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3017,7 +3171,7 @@ worldAreas["P1_2"] = {
 	name = "Stones of Serle (Act 6)",
 	baseName = "Stones of Serle",
 	description = "Remnants of an ancient rite glow once more",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3040,7 +3194,7 @@ worldAreas["P1_3"] = {
 	name = "The Blackwood (Act 6)",
 	baseName = "The Blackwood",
 	description = "The fey grew silent in shadow",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3066,7 +3220,7 @@ worldAreas["P1_4"] = {
 	name = "Holten (Act 6)",
 	baseName = "Holten",
 	description = "In blood they pledged to the voice of darkness",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3096,7 +3250,7 @@ worldAreas["P1_5"] = {
 	name = "Wolvenhold (Act 6)",
 	baseName = "Wolvenhold",
 	description = "Cages that once held the enemy now hold their own",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3120,7 +3274,7 @@ worldAreas["P1_6"] = {
 	name = "Holten Estate (Act 6)",
 	baseName = "Holten Estate",
 	description = "The fallen of Holten chose to dance with Darkness",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3161,7 +3315,7 @@ worldAreas["P2_1"] = {
 	name = "The Khari Crossing (Act 6)",
 	baseName = "The Khari Crossing",
 	description = "Water once flowed but now only desiccation remains",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3196,7 +3350,7 @@ worldAreas["P2_2"] = {
 	name = "Pools of Khatal (Act 6)",
 	baseName = "Pools of Khatal",
 	description = "Steaming pools hide death and decay",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3218,7 +3372,7 @@ worldAreas["P2_3"] = {
 	name = "Sel Khari Sanctuary  (Act 6)",
 	baseName = "Sel Khari Sanctuary ",
 	description = "Home to the guardians of the First Barya",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3231,6 +3385,7 @@ worldAreas["P2_3"] = {
 		"Risen Maraketh",
 		"Serpent Clan",
 		"Serpent Shaman",
+		"Skeletal Cobra",
 		"Skullslinger",
 		"Spinesnatcher",
 	},
@@ -3243,7 +3398,7 @@ worldAreas["P2_5"] = {
 	name = "The Galai Gates (Act 6)",
 	baseName = "The Galai Gates",
 	description = "Gateway of the Fifth River",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3270,7 +3425,7 @@ worldAreas["P2_6"] = {
 	name = "Qimah (Act 6)",
 	baseName = "Qimah",
 	description = "Once a mecca of the great Akharas",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3298,7 +3453,7 @@ worldAreas["P2_7"] = {
 	name = "Qimah Reservoir (Act 6)",
 	baseName = "Qimah Reservoir",
 	description = "The sacred water of Qimah once flowed in abundance",
-	tags = { "MarakethStrongbox", "maraketh_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3312,13 +3467,10 @@ worldAreas["P2_7"] = {
 		"Faridun Infantry",
 		"Faridun Javelineer",
 		"Faridun Neophyte",
-		"Faridun Plaguebringer",
 		"Faridun Spearman",
 		"Faridun Spearwoman",
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
-		"Plague Harvester",
-		"Plague Swarm",
 		"Sand Spirit",
 		"Tombshrieker",
 		"Vesper Bat",
@@ -3346,7 +3498,7 @@ worldAreas["P3_1"] = {
 	name = "Ashen Forest (Act 6)",
 	baseName = "Ashen Forest",
 	description = "The Azmeri hunt here when the season provides",
-	tags = { "VaalStrongbox", "nameless_shrine" },
+	tags = {  },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3370,7 +3522,7 @@ worldAreas["P3_2"] = {
 	name = "Kriar Village (Act 6)",
 	baseName = "Kriar Village",
 	description = "Madness spreads wherever humanity makes its home",
-	tags = { "VaalStrongbox", "nameless_shrine" },
+	tags = {  },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3397,7 +3549,7 @@ worldAreas["P3_3"] = {
 	name = "Glacial Tarn (Act 6)",
 	baseName = "Glacial Tarn",
 	description = "In chilling beauty the glacial basin rests",
-	tags = { "VaalStrongbox", "nameless_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3427,7 +3579,7 @@ worldAreas["P3_4"] = {
 	name = "Howling Caves (Act 6)",
 	baseName = "Howling Caves",
 	description = "Howls of beasts tremble the very walls",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 6,
 	level = 55,
 	isMap = false,
@@ -3450,7 +3602,7 @@ worldAreas["P3_5"] = {
 	name = "Kriar Peaks (Act 6)",
 	baseName = "Kriar Peaks",
 	description = "Kriar's snow tipped peaks tower above all",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3473,7 +3625,7 @@ worldAreas["P3_6"] = {
 	name = "Etched Ravine (Act 6)",
 	baseName = "Etched Ravine",
 	description = "The Architect of Expansion cut his way into the mountainside",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3497,7 +3649,7 @@ worldAreas["P3_7"] = {
 	name = "The Cuachic Vault (Act 6)",
 	baseName = "The Cuachic Vault",
 	description = "Doryani's final contingency against the end",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 6,
 	level = 56,
 	isMap = false,
@@ -3537,6 +3689,7 @@ worldAreas["MapLeaguePortal"] = {
 worldAreas["MapVoidReliquary"] = {
 	name = "The Reliquary Vault (Map)",
 	baseName = "The Reliquary Vault",
+	description = "Ancient treasures await.",
 	tags = { "map" },
 	act = 10,
 	level = 65,
@@ -3550,7 +3703,7 @@ worldAreas["MapRustbowl"] = {
 	name = "Rustbowl (Map)",
 	baseName = "Rustbowl",
 	description = "Aeons of wear have rotted steel to its core.",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3568,7 +3721,7 @@ worldAreas["MapBackwash"] = {
 	name = "Backwash (Map)",
 	baseName = "Backwash",
 	description = "Humid air chokes and twists everything it touches.",
-	tags = { "map", "forest_biome", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3593,7 +3746,7 @@ worldAreas["MapBurialBog"] = {
 	name = "Burial Bog (Map)",
 	baseName = "Burial Bog",
 	description = "The land returns the dead as easily as it received them.",
-	tags = { "map", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3612,7 +3765,7 @@ worldAreas["MapInferno"] = {
 	name = "Inferno (Map)",
 	baseName = "Inferno",
 	description = "Embers swirl as bark crackles and sparks.",
-	tags = { "map", "forest_biome", "VaalStrongbox" },
+	tags = { "map", "has_forest_biome_monsters" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3628,7 +3781,7 @@ worldAreas["MapWetlands"] = {
 	name = "Wetlands (Map)",
 	baseName = "Wetlands",
 	description = "Mud and air seethes with warped life.",
-	tags = { "map", "swamp_biome", "EzomyteStrongbox", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3646,7 +3799,7 @@ worldAreas["MapBloomingField"] = {
 	name = "Blooming Field (Map)",
 	baseName = "Blooming Field",
 	description = "Bright colours hide the rot beneath.",
-	tags = { "map", "forest_biome", "grass_biome", "EzomyteStrongbox" },
+	tags = { "map", "has_grass_biome_monsters" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3663,7 +3816,7 @@ worldAreas["MapCrimsonShores"] = {
 	name = "Crimson Shores (Map)",
 	baseName = "Crimson Shores",
 	description = "Fishermen once reaped a rich bounty here.",
-	tags = { "map", "water_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3680,7 +3833,7 @@ worldAreas["MapCenotes"] = {
 	name = "Cenotes (Map)",
 	baseName = "Cenotes",
 	description = "The ground shifts underfoot with disturbing ease.",
-	tags = { "map", "mountain_biome", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3700,7 +3853,7 @@ worldAreas["MapSavanna"] = {
 	name = "Savannah (Map)",
 	baseName = "Savannah",
 	description = "Wild lands spurn those who claim to rule them.",
-	tags = { "map", "grass_biome", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3718,7 +3871,7 @@ worldAreas["MapFortress"] = {
 	name = "Fortress (Map)",
 	baseName = "Fortress",
 	description = "Time overwhelms even the sturdiest walls.",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3736,7 +3889,7 @@ worldAreas["MapPenitentiary"] = {
 	name = "Penitentiary (Map)",
 	baseName = "Penitentiary",
 	description = "Restless prisoners yearn for freedom.",
-	tags = { "map", "grass_biome", "ezomyte_city", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3750,31 +3903,11 @@ worldAreas["MapPenitentiary"] = {
 	},
 }
 
-worldAreas["MapLostTowers"] = {
-	name = "Lost Towers (Map)",
-	baseName = "Lost Towers",
-	description = "The grandest of monuments, standing proudly before an audience of none.",
-	tags = { "map", "map_tower", "forest_biome", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Blood Priest",
-		"Blood Priestess",
-		"Blood Zealot",
-		"Vaal Formshifter",
-	},
-	bossVarieties = {
-		"Chetza, the Feathered Plague",
-	},
-}
-
 worldAreas["MapBloodwood"] = {
 	name = "Bloodwood (Map)",
 	baseName = "Bloodwood",
 	description = "Poisoned trees bear pestilent fruits.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3793,7 +3926,7 @@ worldAreas["MapSandspit"] = {
 	name = "Sandspit (Map)",
 	baseName = "Sandspit",
 	description = "A haven for seabirds. A hazard for sailors.",
-	tags = { "map", "water_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3811,7 +3944,7 @@ worldAreas["MapForge"] = {
 	name = "Forge (Map)",
 	baseName = "Forge",
 	description = "No living hands ever stoked these flames.",
-	tags = { "map", "grass_biome", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3828,7 +3961,7 @@ worldAreas["MapSulphuricCaverns"] = {
 	name = "Sulphuric Caverns (Map)",
 	baseName = "Sulphuric Caverns",
 	description = "Beasts of many kinds sought shelter one final time.",
-	tags = { "map", "swamp_biome", "desert_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3849,7 +3982,7 @@ worldAreas["MapMire"] = {
 	name = "Mire (Map)",
 	baseName = "Mire",
 	description = "These waters devour the same souls they feed.",
-	tags = { "map", "forest_biome", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3867,7 +4000,7 @@ worldAreas["MapAugury"] = {
 	name = "Augury (Map)",
 	baseName = "Augury",
 	description = "They watched the birds to foretell what any fool could see.",
-	tags = { "map", "grass_biome", "forest_biome", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3885,7 +4018,7 @@ worldAreas["MapWoodland"] = {
 	name = "Woodland (Map)",
 	baseName = "Woodland",
 	description = "The woods give their leaves to the seasons. Man takes the rest.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3904,7 +4037,7 @@ worldAreas["MapSump"] = {
 	name = "Sump (Map)",
 	baseName = "Sump",
 	description = "Humanity trapped within a cage of desperation and agony.",
-	tags = { "map", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3922,7 +4055,7 @@ worldAreas["MapWillow"] = {
 	name = "Willow (Map)",
 	baseName = "Willow",
 	description = "Leaves cling to trees as souls cling to life.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3940,7 +4073,7 @@ worldAreas["MapHive"] = {
 	name = "Hive (Map)",
 	baseName = "Hive",
 	description = "The work of an invisible empire.",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3957,7 +4090,7 @@ worldAreas["MapHeadland"] = {
 	name = "Headland (Map)",
 	baseName = "Headland",
 	description = "Sturdy walls held out an armada, but not the famine it brought.",
-	tags = { "map", "mountain_biome", "desert_biome", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3974,7 +4107,7 @@ worldAreas["MapLoftySummit"] = {
 	name = "Lofty Summit (Map)",
 	baseName = "Lofty Summit",
 	description = "The last vestiges of earth, lost beyond the sky.",
-	tags = { "map", "mountain_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -3992,7 +4125,7 @@ worldAreas["MapNecropolis"] = {
 	name = "Necropolis (Map)",
 	baseName = "Necropolis",
 	description = "Silent stones mark ancient graves and forgotten sorrows.",
-	tags = { "map", "forest_biome", "ezomyte_city", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4010,7 +4143,7 @@ worldAreas["MapCrypt"] = {
 	name = "Crypt (Map)",
 	baseName = "Crypt",
 	description = "Those killed in battle do not rest peacefully.",
-	tags = { "map", "grass_biome", "desert_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4028,7 +4161,7 @@ worldAreas["MapHiddenGrotto"] = {
 	name = "Hidden Grotto (Map)",
 	baseName = "Hidden Grotto",
 	description = "Shafts of light raise life where they fall.",
-	tags = { "map", "grass_biome", "forest_biome", "swamp_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4046,7 +4179,7 @@ worldAreas["MapSteamingSprings"] = {
 	name = "Steaming Springs (Map)",
 	baseName = "Steaming Springs",
 	description = "The tears of a ravaged earth.",
-	tags = { "map", "mountain_biome", "grass_biome", "forest_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4063,7 +4196,7 @@ worldAreas["MapSeepage"] = {
 	name = "Seepage (Map)",
 	baseName = "Seepage",
 	description = "The fetid home of foul generations.",
-	tags = { "map", "grass_biome", "forest_biome", "swamp_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4082,7 +4215,7 @@ worldAreas["MapRiverside"] = {
 	name = "Riverside (Map)",
 	baseName = "Riverside",
 	description = "Rushing waters threaten to move the earth.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4100,7 +4233,7 @@ worldAreas["MapRavine"] = {
 	name = "Ravine (Map)",
 	baseName = "Ravine",
 	description = "A wound carved into the world, never to heal.",
-	tags = { "map", "mountain_biome", "forest_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4118,7 +4251,7 @@ worldAreas["MapSpiderWoods"] = {
 	name = "Spider Woods (Map)",
 	baseName = "Spider Woods",
 	description = "Vast lairs of silk span the treetops.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4135,7 +4268,7 @@ worldAreas["MapMarrow"] = {
 	name = "Marrow (Map)",
 	baseName = "Marrow",
 	description = "Darkness enshrouds these endless chasms.",
-	tags = { "map", "grass_biome", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4154,7 +4287,7 @@ worldAreas["MapGrimhaven"] = {
 	name = "Grimhaven (Map)",
 	baseName = "Grimhaven",
 	description = "Avarice in the conqueror builds contempt among the conquered.",
-	tags = { "map", "grass_biome", "ezomyte_city", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4172,7 +4305,7 @@ worldAreas["MapVaalVillage"] = {
 	name = "Vaal Village (Map)",
 	baseName = "Vaal Village",
 	description = "Vice wears a mask of simplicity.",
-	tags = { "map", "swamp_biome", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4184,25 +4317,11 @@ worldAreas["MapVaalVillage"] = {
 	},
 }
 
-worldAreas["MapVaalOutskirts"] = {
-	name = "Vaal Outskirts (Map)",
-	baseName = "Vaal Outskirts",
-	tags = { "map", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-	},
-}
-
 worldAreas["MapSlick"] = {
 	name = "Slick (Map)",
 	baseName = "Slick",
 	description = "Stagnant oils mix to form a deadly concoction.",
-	tags = { "map", "grass_biome", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4219,7 +4338,7 @@ worldAreas["MapVaalCity"] = {
 	name = "Vaal City (Map)",
 	baseName = "Vaal City",
 	description = "Hubris convinces men they can survive the mistakes of their forebears.",
-	tags = { "map", "swamp_biome", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4236,7 +4355,7 @@ worldAreas["MapSteppe"] = {
 	name = "Steppe (Map)",
 	baseName = "Steppe",
 	description = "Even the sparse vegetation does not linger here long.",
-	tags = { "map", "grass_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4249,30 +4368,11 @@ worldAreas["MapSteppe"] = {
 	},
 }
 
-worldAreas["MapSwampTower"] = {
-	name = "Sinking Spire (Map)",
-	baseName = "Sinking Spire",
-	description = "This Vaal structure is not lost in the jungle. Not yet.",
-	tags = { "map", "swamp_biome", "map_tower", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Filthy Crone",
-		"Flathead Clubber",
-		"Hunchback Clubber",
-	},
-	bossVarieties = {
-		"Stormgore, the Guardian",
-	},
-}
-
 worldAreas["MapRockpools"] = {
 	name = "Rockpools (Map)",
 	baseName = "Rockpools",
 	description = "Life abounds on the shells of its dead ancestors.",
-	tags = { "map", "VaalStrongbox", "water_biome" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4291,7 +4391,7 @@ worldAreas["MapCreek"] = {
 	name = "Creek (Map)",
 	baseName = "Creek",
 	description = "Dark energies congeal the lifeblood of the forest.",
-	tags = { "map", "forest_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4304,11 +4404,30 @@ worldAreas["MapCreek"] = {
 	},
 }
 
+worldAreas["MapBazaar"] = {
+	name = "Bazaar (Map)",
+	baseName = "Bazaar",
+	description = "Live by the power of Corruption... die by madness.",
+	tags = { "map", "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Chaotic Zealot",
+		"Vaal Goliath",
+		"Vaal Overseer",
+	},
+	bossVarieties = {
+		"Viper Napuatzi",
+	},
+}
+
 worldAreas["MapDerelictMansion"] = {
 	name = "Derelict Mansion (Map)",
 	baseName = "Derelict Mansion",
 	description = "Darkness always finds its way into the minds of the weak.",
-	tags = { "map", "grass_biome", "forest_biome", "EzomyteStrongbox", "ezomyte_shrine", "swamp_biome" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4326,7 +4445,7 @@ worldAreas["MapOutlands"] = {
 	name = "Outlands (Map)",
 	baseName = "Outlands",
 	description = "Stone shelters brace against the doom of the desert.",
-	tags = { "map", "desert_biome", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4343,7 +4462,7 @@ worldAreas["MapBastille"] = {
 	name = "Bastille (Map)",
 	baseName = "Bastille",
 	description = "The final court for aristocrats no longer deemed fit to rule.",
-	tags = { "map", "grass_biome", "forest_biome", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4361,7 +4480,7 @@ worldAreas["MapDecay"] = {
 	name = "Decay (Map)",
 	baseName = "Decay",
 	description = "Spores dance through the air in search of new hosts.",
-	tags = { "map", "grass_biome", "forest_biome", "swamp_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4380,7 +4499,7 @@ worldAreas["MapMineshaft"] = {
 	name = "Mineshaft (Map)",
 	baseName = "Mineshaft",
 	description = "A dark labyrinth of steel and stone.",
-	tags = { "map", "mountain_biome", "desert_biome", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4397,7 +4516,7 @@ worldAreas["MapDeserted"] = {
 	name = "Deserted (Map)",
 	baseName = "Deserted",
 	description = "A city ravaged by time and sands.",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4415,7 +4534,7 @@ worldAreas["MapOasis"] = {
 	name = "Oasis (Map)",
 	baseName = "Oasis",
 	description = "Hidden amongst sunbleached wastes lies a mockery of paradise.",
-	tags = { "map", "desert_biome", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4431,43 +4550,11 @@ worldAreas["MapOasis"] = {
 	},
 }
 
-worldAreas["MapBastion"] = {
-	name = "Bastion (Map)",
-	baseName = "Bastion",
-	tags = { "map", "faridun_city", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-	},
-}
-
-worldAreas["MapAlpineRidge"] = {
-	name = "Alpine Ridge (Map)",
-	baseName = "Alpine Ridge",
-	description = "The path grows treacherous as the world falls away.",
-	tags = { "map", "mountain_biome", "map_tower", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Winged Fiend",
-	},
-	bossVarieties = {
-		"Ignatia, the Flame-Sworn",
-		"Gelida, the Frost-Tongue",
-	},
-}
-
 worldAreas["MapSunTemple"] = {
 	name = "Sun Temple (Map)",
 	baseName = "Sun Temple",
 	description = "Wet stone emanates an inner warmth. Vaal brilliance lies in wait.",
-	tags = { "map", "swamp_biome", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4486,7 +4573,7 @@ worldAreas["MapChannel"] = {
 	name = "Channel (Map)",
 	baseName = "Channel",
 	description = "The waters have returned, but no empire remains to greet them.",
-	tags = { "map", "desert_biome", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4504,7 +4591,7 @@ worldAreas["MapVaalFoundry"] = {
 	name = "Molten Vault (Map)",
 	baseName = "Molten Vault",
 	description = "The cult of Kamasa exploited Utzaal long before its fall.",
-	tags = { "map", "mountain_biome", "desert_biome", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4523,7 +4610,23 @@ worldAreas["MapVaalFactory"] = {
 	name = "The Assembly (Map)",
 	baseName = "The Assembly",
 	description = "Remnants of Vaal artifice still remain.",
-	tags = { "map", "grass_biome", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Rusted Dyna Golem",
+	},
+	bossVarieties = {
+		"Tetzcatl, the Blazing Guardian",
+	},
+}
+
+worldAreas["MapPrecursorTower"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	tags = { "map", "map_tower" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4531,7 +4634,150 @@ worldAreas["MapVaalFactory"] = {
 	monsterVarieties = {
 	},
 	bossVarieties = {
-		"Tetzcatl, the Blazing Guardian",
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapPrecursorTowerDesert"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "There is no how, or why, or when. Only awe.",
+	tags = { "map", "map_tower", "desert_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapPrecursorTowerForest"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "There is no how, or why, or when. Only awe.",
+	tags = { "map", "map_tower", "forest_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapPrecursorTowerGrass"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "There is no how, or why, or when. Only awe.",
+	tags = { "map", "map_tower", "grass_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapPrecursorTowerMountain"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "There is no how, or why, or when. Only awe.",
+	tags = { "map", "mountain_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapPrecursorTowerSwamp"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "There is no how, or why, or when. Only awe.",
+	tags = { "map", "map_tower", "swamp_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Precursor Displacer",
+		"Precursor Extractor",
+	},
+}
+
+worldAreas["MapLostTowers"] = {
+	name = "Lost Towers (Map)",
+	baseName = "Lost Towers",
+	description = "The grandest of monuments, standing proudly before an audience of none.",
+	tags = { "map", "map_tower" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Blood Priest",
+		"Blood Priestess",
+		"Blood Zealot",
+		"Vaal Formshifter",
+	},
+	bossVarieties = {
+		"Chetza, the Feathered Plague",
+	},
+}
+
+worldAreas["MapSwampTower"] = {
+	name = "Sinking Spire (Map)",
+	baseName = "Sinking Spire",
+	description = "This Vaal structure is not lost in the jungle. Not yet.",
+	tags = { "map", "map_tower" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Filthy Crone",
+		"Flathead Clubber",
+		"Hunchback Clubber",
+	},
+	bossVarieties = {
+		"Stormgore, the Guardian",
+	},
+}
+
+worldAreas["MapAlpineRidge"] = {
+	name = "Alpine Ridge (Map)",
+	baseName = "Alpine Ridge",
+	description = "The path grows treacherous as the world falls away.",
+	tags = { "map", "map_tower" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Winged Fiend",
+	},
+	bossVarieties = {
+		"Ignatia, the Flame-Sworn",
+		"Gelida, the Frost-Tongue",
 	},
 }
 
@@ -4539,7 +4785,7 @@ worldAreas["MapMesa"] = {
 	name = "Mesa (Map)",
 	baseName = "Mesa",
 	description = "Bleak heights overlook a devastated land.",
-	tags = { "map", "map_tower", "desert_biome", "MarakethStrongbox" },
+	tags = { "map", "map_tower" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4557,7 +4803,7 @@ worldAreas["MapBluff"] = {
 	name = "Bluff (Map)",
 	baseName = "Bluff",
 	description = "Life still clings to the highest places.",
-	tags = { "map", "map_tower", "grass_biome", "VaalStrongbox" },
+	tags = { "map", "map_tower" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4572,24 +4818,10 @@ worldAreas["MapBluff"] = {
 	},
 }
 
-worldAreas["MapPerch"] = {
-	name = "Perch (Map)",
-	baseName = "Perch",
-	tags = { "map", "mountain_biome", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-	},
-}
-
 worldAreas["MapKarst"] = {
 	name = "Karst (Map)",
 	baseName = "Karst",
-	tags = { "map", "mountain_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4601,7 +4833,7 @@ worldAreas["MapKarst"] = {
 worldAreas["MapTerrace"] = {
 	name = "Terrace (Map)",
 	baseName = "Terrace",
-	tags = { "map", "grass_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4616,15 +4848,18 @@ worldAreas["MapTerrace"] = {
 worldAreas["MapPlantation"] = {
 	name = "Plantation (Map)",
 	baseName = "Plantation",
-	tags = { "map", "EzomyteStrongbox" },
+	description = "A mad Thane rules over ruin.",
+	tags = { "map", "has_grass_biome_monsters" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Risen Farmhand",
+		"Scarecrow Beast",
 	},
 	bossVarieties = {
-		"Thariel, the Umbral Wraith",
+		"Varloch, the Ashen Lord",
 	},
 }
 
@@ -4632,7 +4867,7 @@ worldAreas["MapAzmerianRanges"] = {
 	name = "Azmerian Ranges (Map)",
 	baseName = "Azmerian Ranges",
 	description = "The Spirit guides the mountain-born.",
-	tags = { "map", "forest_biome", "mountain_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4646,11 +4881,31 @@ worldAreas["MapAzmerianRanges"] = {
 	},
 }
 
+worldAreas["MapDeforestation"] = {
+	name = "Deforestation (Map)",
+	baseName = "Deforestation",
+	description = "The felling continues, unto insanity.",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Cultist Archer",
+		"Cultist Brute",
+		"Cultist Warrior",
+		"Cultist Witch",
+	},
+	bossVarieties = {
+		"Morwyn, the Kinslayer",
+	},
+}
+
 worldAreas["MapEpitaph"] = {
 	name = "Epitaph (Map)",
 	baseName = "Epitaph",
 	description = "We know the minds of generations past only by the works they left behind.",
-	tags = { "map", "mountain_biome", "grass_biome", "forest_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4665,10 +4920,85 @@ worldAreas["MapEpitaph"] = {
 	},
 }
 
+worldAreas["MapAridPlains"] = {
+	name = "Arid Plains (Map)",
+	baseName = "Arid Plains",
+	description = "Cruel time and change, now plains only in name.",
+	tags = { "map", "has_desert_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Mar Acolyte",
+		"Sand Spirit",
+	},
+	bossVarieties = {
+		"Akthi, the Final Sting",
+		"Anundr, the Sandworm",
+	},
+}
+
+worldAreas["MapSinterRift"] = {
+	name = "Sinter Rift (Map)",
+	baseName = "Sinter Rift",
+	description = "The air is acrid. The skin burns. No doubt... sulphite.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Quake Golem",
+		"Skitter Golem",
+	},
+	bossVarieties = {
+		"Brughor, the Insatiable",
+	},
+}
+
+worldAreas["MapPit"] = {
+	name = "Pit (Map)",
+	baseName = "Pit",
+	description = "They scrabble and dig; they know not why...",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Faridun Crawler",
+	},
+	bossVarieties = {
+		"Brakkus, the Juggernaut",
+	},
+}
+
 worldAreas["MapReservoir"] = {
 	name = "Reservoir (Map)",
 	baseName = "Reservoir",
-	tags = { "map", "area_with_water" },
+	description = "It's always raining, but the channels never fill...",
+	tags = { "map", "area_with_water", "has_swamp_biome_monsters", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Azak Fleshstabber",
+		"Azak Mauler",
+		"Azak Spearthrower",
+		"Azak Stalker",
+		"Azak Throatcutter",
+	},
+	bossVarieties = {
+		"Grudgelash, Vile Thorn",
+	},
+}
+
+worldAreas["MapGeode"] = {
+	name = "Geode (Map)",
+	baseName = "Geode",
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4676,7 +5006,7 @@ worldAreas["MapReservoir"] = {
 	monsterVarieties = {
 	},
 	bossVarieties = {
-		"Grudgelash, Vile Thorn",
+		"Rattlecage, the Earthbreaker",
 	},
 }
 
@@ -4684,7 +5014,7 @@ worldAreas["MapRupture"] = {
 	name = "Rupture (Map)",
 	baseName = "Rupture",
 	description = "In the end, the river will always conquer the dam.",
-	tags = { "map", "area_with_water", "swamp_biome", "VaalStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4702,7 +5032,7 @@ worldAreas["MapOvergrown"] = {
 	name = "Overgrown (Map)",
 	baseName = "Overgrown",
 	description = "A garden bereft of its gardener still grows as it pleases.",
-	tags = { "map", "area_with_water", "forest_biome", "VaalStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4723,7 +5053,7 @@ worldAreas["MapCaldera"] = {
 	name = "Caldera (Map)",
 	baseName = "Caldera",
 	description = "An undrinkable lagoon girt in unbreathable air.",
-	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4746,7 +5076,8 @@ worldAreas["MapCaldera"] = {
 worldAreas["MapChasm"] = {
 	name = "Chasm (Map)",
 	baseName = "Chasm",
-	tags = { "map", "area_with_water", "water_biome" },
+	description = "Haunting echoes carry a song of sorrow...",
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4762,7 +5093,7 @@ worldAreas["MapSpring_"] = {
 	name = "Spring (Map)",
 	baseName = "Spring",
 	description = "In these lands, a pure water source is the most valuable treasure.",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4780,7 +5111,7 @@ worldAreas["MapSevenWaters"] = {
 	name = "Confluence (Map)",
 	baseName = "Confluence",
 	description = "Where nomads share tales of a time before drought.",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4798,7 +5129,7 @@ worldAreas["MapCavernCity"] = {
 	name = "Sacred Reservoir (Map)",
 	baseName = "Sacred Reservoir",
 	description = "The Temporal's tongue captures the ear of those vying for power.",
-	tags = { "map", "desert_biome", "MarakethStrongbox", "maraketh_shrine" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4824,7 +5155,7 @@ worldAreas["MapTrenches"] = {
 	name = "Trenches (Map)",
 	baseName = "Trenches",
 	description = "The Cataclysm tore the land asunder.",
-	tags = { "map", "forest_biome", "swamp_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4842,7 +5173,7 @@ worldAreas["MapFrozenFalls"] = {
 	name = "Frozen Falls (Map)",
 	baseName = "Frozen Falls",
 	description = "Beware a chill colder than death itself.",
-	tags = { "map", "mountain_biome", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4862,7 +5193,8 @@ worldAreas["MapFrozenFalls"] = {
 worldAreas["MapSwarm"] = {
 	name = "Swarm (Map)",
 	baseName = "Swarm",
-	tags = { "map", "desert_biome" },
+	description = "Something rumbles in the lava-lit gloom.",
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4878,7 +5210,7 @@ worldAreas["MapWaywardIsle"] = {
 	name = "Wayward Isle (Map)",
 	baseName = "Wayward Isle",
 	description = "The bones of marooned wanderers assemble here.",
-	tags = { "map", "area_with_water", "water_biome", "MarakethStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4900,7 +5232,7 @@ worldAreas["MapStronghold"] = {
 	name = "Stronghold (Map)",
 	baseName = "Stronghold",
 	description = "Merchants and pirates alike need a safe port to peddle their wares.",
-	tags = { "map", "area_with_water", "water_biome", "EzomyteStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4917,15 +5249,18 @@ worldAreas["MapStronghold"] = {
 worldAreas["MapPort"] = {
 	name = "Port (Map)",
 	baseName = "Port",
-	tags = { "map", "area_with_water", "water_biome" },
+	description = "The sea returns everything eventually. Even the dead.",
+	tags = { "map", "area_with_water", "has_grass_biome_monsters", "has_water_biome_monsters" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Drowned Explorer",
+		"Rotting Cannoneer",
 	},
 	bossVarieties = {
-		"Torrek of the Drowned Fleet",
+		"Malgor, the Nautilord",
 	},
 }
 
@@ -4933,7 +5268,7 @@ worldAreas["MapCliffside"] = {
 	name = "Cliffside (Map)",
 	baseName = "Cliffside",
 	description = "The grandest sculptures are carved with neither hammer nor chisel.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "mountain_biome", "KaruiStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4956,7 +5291,7 @@ worldAreas["MapSinkhole"] = {
 	name = "Sinkhole (Map)",
 	baseName = "Sinkhole",
 	description = "Spirits gather where the world falls away.",
-	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4980,7 +5315,7 @@ worldAreas["MapFlotsam"] = {
 	name = "Flotsam (Map)",
 	baseName = "Flotsam",
 	description = "Violent seas and hungry shores devour vessels, crew and all.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "KaruiStrongbox" },
+	tags = { "map", "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4995,6 +5330,322 @@ worldAreas["MapFlotsam"] = {
 	},
 	bossVarieties = {
 		"Malgor, the Nautilord",
+	},
+}
+
+worldAreas["MapMortuary"] = {
+	name = "Mortuary (Map)",
+	baseName = "Mortuary",
+	description = "These halls weren't meant for you...",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Bladelash Transcendent",
+		"Brutal Transcendent",
+		"Surgical Experimentalist",
+		"Warrior Transcendent",
+	},
+	bossVarieties = {
+		"Micata, the Remade",
+	},
+}
+
+worldAreas["MapOrbalasCrossing"] = {
+	name = "Orbala's Crossing (Map)",
+	baseName = "Orbala's Crossing",
+	description = "Follow in her footsteps... if you dare.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Serath, the Scaled One",
+	},
+}
+
+worldAreas["MapMonument"] = {
+	name = "The Monument (Map)",
+	baseName = "The Monument",
+	description = "It continues still, its purpose unknown.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapGreenhouse"] = {
+	name = "Greenhouse (Map)",
+	baseName = "Greenhouse",
+	description = "Fell blooms and grasping roots grow in shadow.",
+	tags = { "map", "has_forest_biome_monsters", "has_swamp_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+	},
+	bossVarieties = {
+		"Rootgrasp, the Hateful Forest",
+	},
+}
+
+worldAreas["MapSlash"] = {
+	name = "Slash (Map)",
+	baseName = "Slash",
+	description = "Calm, bleak twilight holds only despair.",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Cultivated Grove",
+		"Skeleton Spriggan",
+	},
+	bossVarieties = {
+		"The Black Crow",
+	},
+}
+
+worldAreas["MapSanctuary"] = {
+	name = "Sanctuary (Map)",
+	baseName = "Sanctuary",
+	description = "When does protection become a prison?",
+	tags = { "map", "has_desert_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
+	},
+	bossVarieties = {
+		"Pirasha, the Forgotten Prisoner",
+	},
+}
+
+worldAreas["MapPrecipice"] = {
+	name = "Precipice (Map)",
+	baseName = "Precipice",
+	description = "This cavern burns hot and deadly.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Morvak, the Infernal",
+	},
+}
+
+worldAreas["MapArroyo"] = {
+	name = "Arroyo (Map)",
+	baseName = "Arroyo",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Akthi, the Final Sting",
+		"Anundr, the Sandworm",
+	},
+}
+
+worldAreas["MapCanyon"] = {
+	name = "Canyon (Map)",
+	baseName = "Canyon",
+	description = "These gates have facilitated many trades. Silks, spices, and now horrors.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Maraketh Undead",
+		"Risen Tale-woman",
+	},
+	bossVarieties = {
+		"Morvak, the Infernal",
+	},
+}
+
+worldAreas["MapOrnateChambers"] = {
+	name = "Ornate Chambers (Map)",
+	baseName = "Ornate Chambers",
+	description = "A sanctuary for the unsanctified.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Serpent Clan",
+		"Serpent Shaman",
+	},
+	bossVarieties = {
+		"Serath, the Scaled One",
+	},
+}
+
+worldAreas["MapIceCave"] = {
+	name = "Ice Cave (Map)",
+	baseName = "Ice Cave",
+	description = "The chill is second only to the stench.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Quill Crab",
+		"Spiked Scuttler",
+	},
+	bossVarieties = {
+		"The Frostborn Fiend",
+	},
+}
+
+worldAreas["MapRugosa"] = {
+	name = "Rugosa (Map)",
+	baseName = "Rugosa",
+	description = "There is beauty to be found in the depths.",
+	tags = { "map", "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Giant Maw",
+		"Skittering Jellycrab",
+	},
+	bossVarieties = {
+		"Syvora, Daughter of the Deep",
+	},
+}
+
+worldAreas["MapRiverhold"] = {
+	name = "Riverhold (Map)",
+	baseName = "Riverhold",
+	description = "Only the shadow of death lives here now.",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Rabid Dog",
+	},
+	bossVarieties = {
+		"Thariel, the Umbral Wraith",
+	},
+}
+
+worldAreas["MapRazedFields"] = {
+	name = "Razed Fields (Map)",
+	baseName = "Razed Fields",
+	description = "Strife and terror rule the night.",
+	tags = { "map", "has_grass_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Decrepit Mercenary",
+	},
+	bossVarieties = {
+		"Elvara, the Savage Flame",
+		"Rael, the Frost Hand",
+	},
+}
+
+worldAreas["MapMezzanine"] = {
+	name = "Mezzanine (Map)",
+	baseName = "Mezzanine",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapVaalVault"] = {
+	name = "Sealed Vault (Map)",
+	baseName = "Sealed Vault",
+	description = "The Vaal who survived the Cataclysm must now survive each other.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Blood Priest",
+		"Blood Priestess",
+		"Blood Zealot",
+		"Vaal Formshifter",
+	},
+	bossVarieties = {
+		"Ytzara, Blood Oracle",
+		"Maztli, Flesh-Shaper",
+	},
+}
+
+worldAreas["MapSnowfall"] = {
+	name = "Snowfall (Map)",
+	baseName = "Snowfall",
+	description = "There is no bleaker tundra than a city at night.",
+	tags = { "map", "has_mountain_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Twilight Order Officer",
+		"Twilight Order Soldier",
+	},
+	bossVarieties = {
+		"Thariel, the Umbral Wraith",
+	},
+}
+
+worldAreas["MapExcavation"] = {
+	name = "Digsite (Map)",
+	baseName = "Digsite",
+	description = "They dig not to discover, but to escape.",
+	tags = { "map", "has_grass_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Zealous Courser",
+		"Zealous Excavator",
+		"Zealous Guard",
+		"Zealous Pillarcrusher",
+		"Zealous Shockwarden",
+	},
+	bossVarieties = {
+		"Aurelian, the Grand Adjudicator",
 	},
 }
 
@@ -5082,7 +5733,7 @@ worldAreas["MapUniqueLake"] = {
 	name = "The Fractured Lake (Map)",
 	baseName = "The Fractured Lake",
 	description = "A mirror is a perfect prison for one's sense of self... until it cracks.",
-	tags = { "map", "water_biome" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -5095,7 +5746,7 @@ worldAreas["MapUniqueSelenite"] = {
 	name = "The Silent Cave (Map)",
 	baseName = "The Silent Cave",
 	description = "The prismatic patterns of Time shimmer and coalesce in vast geodes hidden from sight.",
-	tags = { "map", "mountain_biome" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -5118,8 +5769,8 @@ worldAreas["MapUniqueMerchant01_Chimeral"] = {
 }
 
 worldAreas["MapUniqueMerchant01_Oasis"] = {
-	name = "Merchant's Campsite (Map)",
-	baseName = "Merchant's Campsite",
+	name = "Jado's Campsite (Map)",
+	baseName = "Jado's Campsite",
 	description = "A travelling merchant offers wares in perilous times.",
 	tags = { "map" },
 	act = 10,
@@ -5169,10 +5820,10 @@ worldAreas["MapUniqueMerchant02_Farmland"] = {
 	},
 }
 
-worldAreas["MapUniqueMerchant02_Riverbank"] = {
-	name = "Merchant's Campsite (Map)",
-	baseName = "Merchant's Campsite",
-	description = "A travelling merchant offers wares in perilous times.",
+worldAreas["Map_HildaCampsite"] = {
+	name = "Hilda's Campsite (Map)",
+	baseName = "Hilda's Campsite",
+	description = "The hunt never ends... but it does pause for rests.",
 	tags = { "map" },
 	act = 10,
 	level = 65,
@@ -5282,7 +5933,7 @@ worldAreas["MapUberBoss_IronCitadel"] = {
 	name = "The Iron Citadel (Map)",
 	baseName = "The Iron Citadel",
 	description = "A heart of corruption, borne of steel.",
-	tags = { "map", "ezomyte_city", "EzomyteStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 80,
 	isMap = true,
@@ -5301,7 +5952,7 @@ worldAreas["MapUberBoss_CopperCitadel"] = {
 	name = "The Copper Citadel (Map)",
 	baseName = "The Copper Citadel",
 	description = "A heart of corruption, borne of copper.",
-	tags = { "map", "faridun_city", "MarakethStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 80,
 	isMap = true,
@@ -5319,7 +5970,7 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 	name = "The Stone Citadel (Map)",
 	baseName = "The Stone Citadel",
 	description = "A heart of corruption, borne of stone.",
-	tags = { "map", "vaal_city", "VaalStrongbox" },
+	tags = { "map" },
 	act = 10,
 	level = 80,
 	isMap = true,
@@ -5340,7 +5991,7 @@ worldAreas["MapUberBoss_JadeCitadel"] = {
 	name = "The Jade Isles (Map)",
 	baseName = "The Jade Isles",
 	description = "Valako kept them here, to perfect their skills for war... but the Blood Fever consumed them.",
-	tags = { "map", "KaruiStrongbox", "water_biome", "swamp_biome", "karui_shrine" },
+	tags = { "map" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -5366,10 +6017,10 @@ worldAreas["MapUberBoss_JadeCitadel"] = {
 worldAreas["MapUberBoss_Monolith"] = {
 	name = "The Burning Monolith (Map)",
 	baseName = "The Burning Monolith",
-	description = "Flaming rite of the Fourth Edict",
-	tags = { "map", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
+	description = "Within lies power beyond comprehension.",
+	tags = { "map", "pinnacle_boss", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
 	act = 10,
-	level = 82,
+	level = 74,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
@@ -5379,53 +6030,133 @@ worldAreas["MapUberBoss_Monolith"] = {
 	},
 }
 
-worldAreas["MapHideoutFelled_Claimable"] = {
-	name = "Felled Hideout (Map)",
-	baseName = "Felled Hideout",
-	description = "A fortress of fallen wood.",
-	tags = { "map", "forest_biome", "EzomyteStrongbox" },
+worldAreas["MapUberBoss_FallenStar"] = {
+	name = "Ruins of Kingsmarch (Map)",
+	baseName = "Ruins of Kingsmarch",
+	description = "And it shall be a legendary battle!",
+	tags = { "map", "pinnacle_boss", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
 	act = 10,
-	level = 65,
+	level = 79,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"The Aberration",
+	},
 }
 
-worldAreas["MapHideoutLimestone_Claimable"] = {
-	name = "Limestone Hideout (Map)",
-	baseName = "Limestone Hideout",
-	description = "A forgotten grotto, lost to the world.",
-	tags = { "map", "water_biome", "EzomyteStrongbox" },
+worldAreas["MapUberBoss_Delirium"] = {
+	name = "The Withered Willow (Map)",
+	baseName = "The Withered Willow",
+	description = "A gnarled tree reflects a terrifying truth.",
+	tags = { "map", "pinnacle_boss", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
 	act = 10,
-	level = 65,
+	level = 79,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"The Raven Trickster",
+	},
 }
 
-worldAreas["MapHideoutShrine_Claimable"] = {
-	name = "Shrine Hideout (Map)",
-	baseName = "Shrine Hideout",
-	description = "A fragment of a glorious past.",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
+worldAreas["MapUberBoss_Ritual"] = {
+	name = "Caer Tarth (Map)",
+	baseName = "Caer Tarth",
+	description = "Once the heart of Druidic power and culture...",
+	tags = { "map", "pinnacle_boss", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
 	act = 10,
-	level = 65,
+	level = 79,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"The Bodach",
+	},
 }
 
-worldAreas["MapHideoutCanal_Claimable"] = {
-	name = "Canal Hideout (Map)",
-	baseName = "Canal Hideout",
-	description = "A moment in time, on the eve of the end.",
-	tags = { "map", "grass_biome", "VaalStrongbox" },
+worldAreas["MapUberBoss_Divinity"] = {
+	name = "The Origin Tower (Map)",
+	baseName = "The Origin Tower",
+	description = "Perhaps the truth of history may be found within.",
+	tags = { "map", "pinnacle_boss", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
+	act = 10,
+	level = 79,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The Arbiter of Divinity",
+	},
+}
+
+worldAreas["MapUberBoss_IronCitadel_Quest"] = {
+	name = "Western Enigma Chamber (Map)",
+	baseName = "Western Enigma Chamber",
+	description = "Where reality begins and ends is uncertain.",
+	tags = { "map" },
+	act = 10,
+	level = 75,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Iron Sharpshooter",
+		"Iron Spearman",
+	},
+	bossVarieties = {
+		"Count Geonor",
+		"Geonor, the Putrid Wolf",
+	},
+}
+
+worldAreas["MapUberBoss_CopperCitadel_Quest"] = {
+	name = "The Copper Citadel (Map)",
+	baseName = "The Copper Citadel",
+	tags = { "map" },
+	act = 10,
+	level = 75,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Jamanra, the Abomination",
+	},
+}
+
+worldAreas["MapUberBoss_StoneCitadel_Quest"] = {
+	name = "Eastern Enigma Chamber (Map)",
+	baseName = "Eastern Enigma Chamber",
+	description = "Your eyes betray you at every turn.",
+	tags = { "map" },
+	act = 10,
+	level = 80,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Bladelash Transcendent",
+		"Brutal Transcendent",
+		"Surgical Experimentalist",
+		"Warrior Transcendent",
+	},
+	bossVarieties = {
+		"Doryani, Royal Thaumaturge",
+		"Doryani's Triumph",
+	},
+}
+
+worldAreas["ExpeditionLogBook_Peninsula"] = {
+	name = "Craggy Peninsula",
+	baseName = "Craggy Peninsula",
+	description = "On the edge of the sea, the dead are closest to home.",
+	tags = { "area_with_water" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
 	},
@@ -5434,7 +6165,8 @@ worldAreas["MapHideoutCanal_Claimable"] = {
 worldAreas["ExpeditionLogBook_Tropical"] = {
 	name = "Lush Isle",
 	baseName = "Lush Isle",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	description = "Life roils over layers of bones.",
+	tags = { "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5446,7 +6178,8 @@ worldAreas["ExpeditionLogBook_Tropical"] = {
 worldAreas["ExpeditionLogBook_Tundra"] = {
 	name = "Frigid Bluffs",
 	baseName = "Frigid Bluffs",
-	tags = { "area_with_water", "VaalStrongbox" },
+	description = "This place was not always so bleak.",
+	tags = { "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5460,7 +6193,99 @@ worldAreas["ExpeditionLogBook_Tundra"] = {
 worldAreas["ExpeditionLogBook_Atoll"] = {
 	name = "Barren Atoll",
 	baseName = "Barren Atoll",
-	tags = { "area_with_water", "KaruiStrongbox" },
+	description = "This lonely island lay untouched for centuries.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Digsite"] = {
+	name = "Exhumed Ruins",
+	baseName = "Exhumed Ruins",
+	description = "You will find what they did not.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Reef"] = {
+	name = "Bleached Shoals",
+	baseName = "Bleached Shoals",
+	description = "They came by ship... and they never left.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Wastes"] = {
+	name = "Scorched Cay",
+	baseName = "Scorched Cay",
+	description = "The past lies untouched where the living dare not tread.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Heath"] = {
+	name = "Moor of Fallen Skies",
+	baseName = "Moor of Fallen Skies",
+	description = "Traces of history remain.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Basin"] = {
+	name = "Stagnant Basin",
+	baseName = "Stagnant Basin",
+	description = "The crumbling landscape reveals what lies beneath...",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Gully"] = {
+	name = "Sloughed Gully",
+	baseName = "Sloughed Gully",
+	description = "The past lies piled under dirt and rot.",
+	tags = { "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionLogBook_Prairie"] = {
+	name = "Grazed Prairie",
+	baseName = "Grazed Prairie",
+	description = "The land has forgotten what came before.",
+	tags = { "area_with_water" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5482,26 +6307,140 @@ worldAreas["ExpeditionSubArea_Cavern"] = {
 }
 
 worldAreas["ExpeditionSubArea_Kalguur"] = {
-	name = "Kalguuran Tomb",
-	baseName = "Kalguuran Tomb",
+	name = "Runic Catacombs",
+	baseName = "Runic Catacombs",
 	tags = {  },
 	act = 10,
 	level = 65,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Scythe Arbalist",
+		"Black Scythe Mercenary",
+		"Druid of the Broken Circle",
+		"Knight of the Sun",
+		"Order Ostiary",
+		"Priest of the Chalice",
+		"Runed Knight",
+		"Unearthed Rampager",
+		"Unearthed Runecaster",
+		"Unearthed Skeletal Archer",
+		"Unearthed Skeletal Swordsman",
+		"Unearthed Skeletal Warrior",
+		"Unearthed Soldier",
+		"Unearthed Urchin",
+		"Unearthed Zombie",
+	},
+}
+
+worldAreas["ExpeditionSubArea_Kalguur_Act1"] = {
+	name = "Lost Catacombs (Act 1)",
+	baseName = "Lost Catacombs",
+	description = "The Tree of Souls reveals a hidden past",
+	tags = {  },
+	act = 1,
+	level = 12,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
+		"Fungal Wolf",
+		"Fungal Zombie",
+		"Priest of the Chalice",
+		"Runed Knight",
+		"Unearthed Rampager",
+		"Unearthed Runecaster",
+		"Unearthed Skeletal Archer",
+		"Unearthed Skeletal Swordsman",
+		"Unearthed Skeletal Warrior",
+		"Unearthed Zombie",
+	},
+}
+
+worldAreas["ExpeditionSubArea_Kalguur_Act2"] = {
+	name = "Skull of the Titan (Act 2)",
+	baseName = "Skull of the Titan",
+	description = "A long dead Titan is more than it seems",
+	tags = {  },
+	act = 2,
+	level = 28,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Black Scythe Arbalist",
+		"Black Scythe Mercenary",
+		"Quake Golem",
+		"Skitter Golem",
+		"Tombshrieker",
+		"Unearthed Rampager",
+		"Unearthed Skeletal Archer",
+		"Unearthed Skeletal Swordsman",
+		"Unearthed Skeletal Warrior",
+		"Unearthed Zombie",
+		"Vault Lurker",
+	},
+}
+
+worldAreas["ExpeditionSubArea_Kalguur_Act3"] = {
+	name = "Mystic Refuge (Act 3)",
+	baseName = "Mystic Refuge",
+	description = "The jungle has not forgotten the scrying few",
+	tags = {  },
+	act = 3,
+	level = 35,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Constricted Shambler",
+		"Constricted Spitter",
+		"Druid of the Broken Circle",
+		"Entrailhome Shambler",
+		"Entwined Hulk",
+		"Rotted Rat",
+		"Snakethroat Shambler",
+		"Unearthed Runecaster",
+		"Unearthed Soldier",
+		"Unearthed Urchin",
+	},
+}
+
+worldAreas["ExpeditionSubArea_Kalguur_Act4"] = {
+	name = "Deserted Post (Act 4)",
+	baseName = "Deserted Post",
+	description = "They left in a hurry and for good reason",
+	tags = {  },
+	act = 4,
+	level = 53,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Knight of the Sun",
+		"Order Ostiary",
+		"Unearthed Runecaster",
+		"Unearthed Soldier",
+		"Unearthed Urchin",
 	},
 }
 
 worldAreas["ExpeditionSubArea_OlrothBoss"] = {
-	name = "Kalguuran Tomb",
-	baseName = "Kalguuran Tomb",
+	name = "Obscure Island",
+	baseName = "Obscure Island",
+	description = "The truth lies somewhere between light and shadow.",
 	tags = {  },
 	act = 10,
 	level = 65,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Amphibious Prowler",
+		"Knight of the Sun",
+		"Order Ostiary",
+		"Skittering Jellycrab",
+		"Unearthed Skeletal Archer",
+		"Unearthed Skeletal Swordsman",
+		"Unearthed Skeletal Warrior",
 	},
 	bossVarieties = {
 		"Olroth, Origin of the Fall",
@@ -5509,8 +6448,95 @@ worldAreas["ExpeditionSubArea_OlrothBoss"] = {
 }
 
 worldAreas["ExpeditionSubArea_UhtredBoss"] = {
-	name = "Kalguuran Tomb",
-	baseName = "Kalguuran Tomb",
+	name = "Secluded Temple",
+	baseName = "Secluded Temple",
+	description = "What lies beyond the limits of mortal understanding?",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Goliath Shrike",
+		"Manshrike",
+		"Priest of the Chalice",
+		"Runed Knight",
+		"Unearthed Runecaster",
+		"Unearthed Soldier",
+		"Unearthed Urchin",
+		"Vile Vulture",
+		"Vilespit Gull",
+	},
+	bossVarieties = {
+		"Uhtred, the Stardrinker",
+	},
+}
+
+worldAreas["ExpeditionSubArea_VoranaBoss"] = {
+	name = "Mournful Cliffside",
+	baseName = "Mournful Cliffside",
+	description = "Her one-woman crusade continues still.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Black Scythe Arbalist",
+		"Black Scythe Mercenary",
+		"Gargantuan Wasp",
+		"Swarming Wasp",
+		"Unearthed Runecaster",
+		"Unearthed Soldier",
+		"Unearthed Zombie",
+	},
+	bossVarieties = {
+		"Vorana, Last to Fall",
+	},
+}
+
+worldAreas["ExpeditionSubArea_MedvedBoss"] = {
+	name = "Sprawling Jungle",
+	baseName = "Sprawling Jungle",
+	description = "What once was, shall be again.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"Caustic Crab",
+		"Druid of the Broken Circle",
+		"Scorpion Monkey",
+		"Stoneback Rhoa",
+		"Unearthed Soldier",
+		"Unearthed Urchin",
+		"Unearthed Zombie",
+	},
+	bossVarieties = {
+		"Medved, the Fallen Seer",
+	},
+}
+
+worldAreas["ExpeditionSubArea_BlackKnightBoss"] = {
+	name = "Tomb of the Fallen Knight",
+	baseName = "Tomb of the Fallen Knight",
+	description = "He disavowed his new King and fled his homeland",
+	tags = {  },
+	act = 10,
+	level = 80,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Styrn, Fallen Knight of Aldur",
+	},
+}
+
+worldAreas["ExpeditionSubArea_Precursor"] = {
+	name = "Ancient Cache",
+	baseName = "Ancient Cache",
 	tags = {  },
 	act = 10,
 	level = 65,
@@ -5518,12 +6544,9 @@ worldAreas["ExpeditionSubArea_UhtredBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
-	bossVarieties = {
-		"Uhtred, Covetous Traitor",
-	},
 }
 
-worldAreas["ExpeditionSubArea_Shrike"] = {
+worldAreas["ExpeditionSubArea_Lair"] = {
 	name = "Rancid Nest",
 	baseName = "Rancid Nest",
 	tags = {  },
@@ -5559,6 +6582,78 @@ worldAreas["ExpeditionSubArea_Volcano"] = {
 	},
 }
 
+worldAreas["ExpeditionSubArea_Vein"] = {
+	name = "Gilded Deposit",
+	baseName = "Gilded Deposit",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionSubArea_Laboratory"] = {
+	name = "Decayed Laboratory",
+	baseName = "Decayed Laboratory",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionSubArea_Sanctuary"] = {
+	name = "Tranquil Chamber",
+	baseName = "Tranquil Chamber",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionSubArea_Fissure"] = {
+	name = "Stale Crevice",
+	baseName = "Stale Crevice",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionSubArea_Catacomb"] = {
+	name = "Derelict Catacombs",
+	baseName = "Derelict Catacombs",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ExpeditionSubArea_Pond"] = {
+	name = "Famed Pond",
+	baseName = "Famed Pond",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
 worldAreas["ExpeditionLeagueBoss"] = {
 	name = "Kalguuran Tomb (Map)",
 	baseName = "Kalguuran Tomb",
@@ -5574,9 +6669,10 @@ worldAreas["ExpeditionLeagueBoss"] = {
 	},
 }
 
-worldAreas["Delirium_Act1Town"] = {
-	name = "Clearfell Lumbermill",
-	baseName = "Clearfell Lumbermill",
+worldAreas["Delirium_Act1Town_Quest"] = {
+	name = "Simulacrum of Delusion",
+	baseName = "Simulacrum of Delusion",
+	description = "Delusions of suffering... and death.",
 	tags = {  },
 	act = 10,
 	level = 80,
@@ -5586,9 +6682,23 @@ worldAreas["Delirium_Act1Town"] = {
 	},
 }
 
-worldAreas["Delirium_Act3Town"] = {
-	name = "Sunken Pyramid",
-	baseName = "Sunken Pyramid",
+worldAreas["Delirium_Act1Town"] = {
+	name = "Simulacrum of Delusion",
+	baseName = "Simulacrum of Delusion",
+	description = "Exactly as you remember it...",
+	tags = {  },
+	act = 10,
+	level = 80,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["Delirium_Act2Reveal"] = {
+	name = "Garukhan's Tomb",
+	baseName = "Garukhan's Tomb",
+	description = "Secrets and shadows...",
 	tags = {  },
 	act = 10,
 	level = 65,
@@ -5598,12 +6708,39 @@ worldAreas["Delirium_Act3Town"] = {
 	},
 }
 
-worldAreas["BreachDomain_01"] = {
-	name = "Twisted Domain",
-	baseName = "Twisted Domain",
+worldAreas["Delirium_Act3Town"] = {
+	name = "Sunken Pyramid",
+	baseName = "Sunken Pyramid",
+	description = "Drown in the black waters of nightmare...",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["Delirium_HungerBoss"] = {
+	name = "Loathsome Mire",
+	baseName = "Loathsome Mire",
+	description = "Your senses may betray you",
 	tags = {  },
 	act = 10,
 	level = 80,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["BreachDomain_01"] = {
+	name = "Twisted Domain",
+	baseName = "Twisted Domain",
+	description = "Under their broken sun they plot our doom",
+	tags = { "pinnacle_boss" },
+	act = 10,
+	level = 79,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
@@ -5624,9 +6761,69 @@ worldAreas["BreachDomain_01"] = {
 	},
 }
 
+worldAreas["ChayulaLeague"] = {
+	name = "Monastery of the Keepers",
+	baseName = "Monastery of the Keepers",
+	description = "Through the Dreamer they see their path.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["ChayulaLeague_Tower"] = {
+	name = "Hive Fortress",
+	baseName = "Hive Fortress",
+	description = "Our world is becoming... their world.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"It That Controls",
+		"It That Creeps",
+		"It That Guards",
+		"It That Hates",
+		"It That Hunts",
+		"It That Lashes",
+		"It That Shreds",
+		"It That Stalks",
+	},
+}
+
+worldAreas["ChayulaLeague_TowerBoss"] = {
+	name = "Hive Colony",
+	baseName = "Hive Colony",
+	description = "A rare chance to strike back at the horde...",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+		"It That Controls",
+		"It That Creeps",
+		"It That Guards",
+		"It That Hates",
+		"It That Hunts",
+		"It That Lashes",
+		"It That Shreds",
+		"It That Stalks",
+	},
+	bossVarieties = {
+		"It That Was Tul",
+		"It That Was Esh",
+	},
+}
+
 worldAreas["RitualLeagueBoss"] = {
 	name = "Crux of Nothingness (Map)",
 	baseName = "Crux of Nothingness",
+	description = "On the crumbling edge of meaning, He awaits.",
 	tags = { "map" },
 	act = 10,
 	level = 80,
@@ -5695,12 +6892,14 @@ worldAreas["Abyss_Depths1"] = {
 		"Abyssal Shambler",
 		"Abyssal Strangler",
 		"Abyssal Walker",
+		"Faridun Plaguebringer",
 		"Flesh Larva",
 		"Gargantuan Larva",
 		"Lightless Abomination",
 		"Lightless Moray",
 		"Lightless Serpent",
 		"Lightless Vengewing",
+		"Plague Harvester",
 	},
 }
 
@@ -5762,12 +6961,14 @@ worldAreas["Abyss_Boss1"] = {
 		"Abyssal Shambler",
 		"Abyssal Strangler",
 		"Abyssal Walker",
+		"Faridun Plaguebringer",
 		"Flesh Larva",
 		"Gargantuan Larva",
 		"Lightless Abomination",
 		"Lightless Moray",
 		"Lightless Serpent",
 		"Lightless Vengewing",
+		"Plague Harvester",
 	},
 	bossVarieties = {
 		"Tasgul, Swallower of Light",
@@ -5801,12 +7002,12 @@ worldAreas["Abyss_Boss2"] = {
 }
 
 worldAreas["Abyss_Pinnacle"] = {
-	name = "The Black Cathedral (Act 2)",
-	baseName = "The Black Cathedral",
-	description = "That which cannot die waits in darkness",
-	tags = {  },
-	act = 2,
-	level = 80,
+	name = "The Well of Souls",
+	baseName = "The Well of Souls",
+	description = "From anywhere, and everywhere, it is... down.",
+	tags = { "pinnacle_boss" },
+	act = 10,
+	level = 79,
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
@@ -5888,540 +7089,11 @@ worldAreas["BossRush_Area3"] = {
 	},
 }
 
-worldAreas["G_Endgame_Town"] = {
-	name = "The Ziggurat Refuge",
-	baseName = "The Ziggurat Refuge",
-	description = "Reinforced hideaway from the Cataclysm",
-	tags = {  },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-		"Adorned Beetle",
-		"Adorned Miscreation",
-		"Adorned Scarab",
-		"Alpha Primate",
-		"Amphibious Prowler",
-		"Ancestral Archer",
-		"Ancestral Channeler",
-		"Ancestral Guardian",
-		"Ancestral Headtaker",
-		"Ancestral Hornbearer",
-		"Ancestral Warrior",
-		"Ancient Ezomyte",
-		"Angler Maw",
-		"Antlion Charger",
-		"Armoured Rhex",
-		"Azak Brute",
-		"Azak Fledgling",
-		"Azak Fleshstabber",
-		"Azak Mauler",
-		"Azak Shaman",
-		"Azak Spearthrower",
-		"Azak Stalker",
-		"Azak Throatcutter",
-		"Bearer of Penitence",
-		"Bladelash Transcendent",
-		"Bloated Anchorman",
-		"Blood Carrier",
-		"Blood Collector",
-		"Blood Cretin",
-		"Blood Priest",
-		"Blood Priestess",
-		"Blood Zealot",
-		"Blood-fevered Axeman",
-		"Blood-fevered Brew-breather",
-		"Blood-fevered Hookman",
-		"Blood-fevered Maceman",
-		"Blood-fevered Plaguespreader",
-		"Blood-fevered Spearman",
-		"Blood-fevered Tuskbeast",
-		"Blood-fevered Warrior",
-		"Blood-fevered Wisewoman",
-		"Bloodrite Guard",
-		"Bloodrite Priest",
-		"Bloodthief Wasp",
-		"Bloom Serpent",
-		"Bogfelled Commoner",
-		"Bogfelled Slave",
-		"Bone Stalker",
-		"Bramble Ape",
-		"Bramble Burrower",
-		"Bramble Hulk",
-		"Bramble Rhoa",
-		"Brimstone Crab",
-		"Brine Maiden",
-		"Brutal Transcendent",
-		"Bulbous Maw",
-		"Burdened Wretch",
-		"Burning Dead",
-		"Caustic Crab",
-		"Chaotic Zealot",
-		"Chaw Mongrel",
-		"Chyme Skitterer",
-		"Constricted Shambler",
-		"Constricted Spitter",
-		"Corrupted Corpse",
-		"Courtesan",
-		"Crag Leaper",
-		"Cultist Archer",
-		"Cultist Brute",
-		"Cultist Daggerdancer",
-		"Cultist Warrior",
-		"Cultist Witch",
-		"Cultivated Grove",
-		"Death Knight",
-		"Decrepit Mercenary",
-		"Desiccated Lich",
-		"Diretusk Boar",
-		"Doryani's Elite",
-		"Dread Servant",
-		"Dredge Fiend",
-		"Drowned",
-		"Drowned Bearer",
-		"Drowned Crawler",
-		"Drowned Explorer",
-		"Drudge Osseodon",
-		"Dune Lurker",
-		"Elephant Tortoise",
-		"Entrailhome Shambler",
-		"Entwined Hulk",
-		"Eternal Guard",
-		"Eternal Knight",
-		"Eternal Prisoner",
-		"Eternal Torturer",
-		"Faithful Archer",
-		"Faithful Warrior",
-		"Faridun Bladedancer",
-		"Faridun Butcher",
-		"Faridun Crawler",
-		"Faridun Fledgling",
-		"Faridun Heavy Infantry",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Neophyte",
-		"Faridun Plaguebringer",
-		"Faridun Spearman",
-		"Faridun Swordsman",
-		"Faridun Wind-slicer",
-		"Feral Kin",
-		"Feral Primate",
-		"Fiery Zealot",
-		"Filthy Crone",
-		"Filthy First-born",
-		"Filthy Lobber",
-		"Flathead Clubber",
-		"Flathead Warrior",
-		"Flathead Youngling",
-		"Flesh Larva",
-		"Forgotten Crawler",
-		"Forgotten Satyr",
-		"Forgotten Stalker",
-		"Forsaken Hulk",
-		"Forsaken Miner",
-		"Foul Blacksmith",
-		"Foul Mauler",
-		"Foul Sage",
-		"Frost Wraith",
-		"Fungal Artillery",
-		"Fungal Proliferator",
-		"Fungal Rattler",
-		"Fungal Wolf",
-		"Fungal Zombie",
-		"Fused Swordsman",
-		"Gargantuan Wasp",
-		"Gargoyle Demon",
-		"Gelid Zealot",
-		"Ghastly Siren",
-		"Giant Maw",
-		"Gilded Cobra",
-		"Gold-Melted Sentinel",
-		"Gold-Melted Shambler",
-		"Gold-melted Blacksmith",
-		"Goliath",
-		"Goliath Shrike",
-		"Goliath Transcendent",
-		"Guardian Lizard",
-		"Guardian Turtle",
-		"Gull Shrike",
-		"Hunchback Clubber",
-		"Hyena Demon",
-		"Ill-fated Explorer",
-		"Iron Guard",
-		"Iron Sharpshooter",
-		"Iron Spearman",
-		"Iron Thaumaturgist",
-		"Knight-Gaunt",
-		"Lightning Wraith",
-		"Living Sand",
-		"Lost-men Brute",
-		"Lost-men Necromancer",
-		"Lost-men Subjugator",
-		"Lost-men Zealot",
-		"Luminous Spinefish",
-		"Man o' War",
-		"Manshrike",
-		"Mantis Rat",
-		"Mar Acolyte",
-		"Maraketh Undead",
-		"Molten Imp",
-		"Mud Simulacrum",
-		"Orok Fleshstabber",
-		"Orok Hunter",
-		"Orok Shaman",
-		"Orok Throatcutter",
-		"Pack Werewolf",
-		"Pale Abductor",
-		"Pale Brinesplitter",
-		"Pale Tidecrasher",
-		"Pale Waterwalker",
-		"Pale-stitched Stalker",
-		"Plague Harvester",
-		"Plague Nymph",
-		"Plague Swarm",
-		"Porcupine Crab",
-		"Porcupine Goliath",
-		"Powered Zealot",
-		"Priest of the Sun",
-		"Prowling Chimeral",
-		"Prowling Shade",
-		"Pyromushroom Cultivator",
-		"Quadrilla",
-		"Quake Golem",
-		"Quill Crab",
-		"Rabid Dog",
-		"Rasp Scavenger",
-		"Rattling Gibbet",
-		"Rhex",
-		"Ribrattle",
-		"Righteous Axewielder",
-		"Risen Arbalest",
-		"Risen Farmhand",
-		"Risen Maraketh",
-		"Risen Rattler",
-		"Risen Tale-woman",
-		"River Drake",
-		"River Hag",
-		"Rotted Rat",
-		"Rotten Wolf",
-		"Rotting Cannoneer",
-		"Rotting Crow",
-		"Rotting Demolitionist",
-		"Rotting Hulk",
-		"Rotting Soulcatcher",
-		"Rusted Dyna Golem",
-		"Sabre Spider",
-		"Sand Spirit",
-		"Sandflesh Mage",
-		"Sandflesh Skeleton",
-		"Sandflesh Warrior",
-		"Sandscoured Dead",
-		"Scarecrow Beast",
-		"Scavenged Skeleton",
-		"Scorpion Monkey",
-		"Searot Harpooner",
-		"Searot Skeleton",
-		"Searot Sniper",
-		"Serpent Clan",
-		"Serpent Shaman",
-		"Shaman Kin",
-		"Shielded Transcendent",
-		"Skeleton Spriggan",
-		"Skitter Golem",
-		"Skittering Jellycrab",
-		"Skullslinger",
-		"Skulltop Kin",
-		"Slitherspitter",
-		"Snakethroat Shambler",
-		"Spearbearer Kin",
-		"Spiked Ray",
-		"Spiked Scuttler",
-		"Spined Necromancer",
-		"Spinesnatcher",
-		"Stoneback Rhoa",
-		"Sun Clan Scavenger",
-		"Surgical Experimentalist",
-		"Swamp Golem",
-		"Swarming Wasp",
-		"Tallwalker Kin",
-		"Tarnished Beetle",
-		"Tarnished Scarab",
-		"Tendril Prowler",
-		"Tendril Sentinel",
-		"Tombshrieker",
-		"Torchbearer Kin",
-		"Tuskbearer Kin",
-		"Twilight Order Oathsworn",
-		"Twilight Order Officer",
-		"Twilight Order Priest",
-		"Twilight Order Soldier",
-		"Undead Vaal Bladedancer",
-		"Undead Vaal Guard",
-		"Undertaker",
-		"Vaal Axeman",
-		"Vaal Embalmed Archer",
-		"Vaal Embalmed Axeman",
-		"Vaal Embalmed Bearer",
-		"Vaal Embalmed Rogue",
-		"Vaal Embalmed Spearman",
-		"Vaal Excoriator",
-		"Vaal Formshifter",
-		"Vaal Goliath",
-		"Vaal Guard",
-		"Vaal Overseer",
-		"Vaal Skeletal Archer",
-		"Vaal Skeletal Priest",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Warrior",
-		"Vault Lurker",
-		"Venomous Crab",
-		"Venomous Crab Matriarch",
-		"Vile Hag",
-		"Vile Imp",
-		"Vile Vulture",
-		"Vilespit Gull",
-		"Viper Legionnaire",
-		"Walking Goliath",
-		"Wardrum Kin",
-		"Warrior Transcendent",
-		"Werewolf Prowler",
-		"Winged Fiend",
-		"Winged Horror",
-		"Wretched Rattler",
-		"Zealous Courser",
-		"Zealous Excavator",
-		"Zealous Guard",
-		"Zealous Pillarcrusher",
-		"Zealous Shockwarden",
-	},
-}
-
-worldAreas["MapHideoutFarmlands_Claimable"] = {
-	name = "Farmlands Hideout (Map)",
-	baseName = "Farmlands Hideout",
-	description = "A rare enclave of fertile earth.",
-	tags = { "map", "grass_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Decrepit Mercenary",
-		"Risen Farmhand",
-		"Scarecrow Beast",
-	},
-}
-
-worldAreas["MapHideoutPrison_Claimable"] = {
-	name = "Prison Hideout (Map)",
-	baseName = "Prison Hideout",
-	description = "A refuge from the villains it once contained.",
-	tags = { "map", "swamp_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Eternal Torturer",
-	},
-}
-
-worldAreas["MapHideoutShoreline_Claimable"] = {
-	name = "Shoreline Hideout (Act 4)",
-	baseName = "Shoreline Hideout",
-	tags = { "area_with_water" },
-	act = 4,
-	level = 46,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-		"Caustic Crab",
-		"Coconut Crab",
-		"Elephant Tortoise",
-		"Quill Crab",
-		"Spiked Scuttler",
-		"Stoneback Rhoa",
-	},
-}
-
-worldAreas["MapArroyo"] = {
-	name = "Arroyo (Map)",
-	baseName = "Arroyo",
-	tags = { "map", "desert_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Akthi, the Final Sting",
-		"Anundr, the Sandworm",
-	},
-}
-
-worldAreas["MapOrnateChambers"] = {
-	name = "Ornate Chambers (Map)",
-	baseName = "Ornate Chambers",
-	description = "A sanctuary for the unsanctified.",
-	tags = { "map", "desert_biome", "MarakethStrongbox", "mountain_biome" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Serpent Clan",
-		"Serpent Shaman",
-	},
-	bossVarieties = {
-		"Serath, the Scaled One",
-	},
-}
-
-worldAreas["MapCanyon"] = {
-	name = "Canyon (Map)",
-	baseName = "Canyon",
-	description = "These gates have facilitated many trades. Silks, spices, and now horrors.",
-	tags = { "map", "desert_biome", "mountain_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Maraketh Undead",
-		"Risen Tale-woman",
-	},
-	bossVarieties = {
-		"Morvak, the Infernal",
-	},
-}
-
-worldAreas["MapRazedFields"] = {
-	name = "Razed Fields (Map)",
-	baseName = "Razed Fields",
-	description = "Shadows in the night came for the farmers and torched their crops.",
-	tags = { "map", "grass_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Azak Brute",
-		"Azak Fleshstabber",
-		"Azak Mauler",
-		"Azak Shaman",
-		"Azak Spearthrower",
-		"Azak Stalker",
-		"Azak Throatcutter",
-	},
-	bossVarieties = {
-		"Elvara, the Savage Flame",
-		"Rael, the Frost Hand",
-	},
-}
-
-worldAreas["MapRugosa"] = {
-	name = "Rugosa (Map)",
-	baseName = "Rugosa",
-	description = "A song so exquisite it can only be heard once.",
-	tags = { "map", "water_biome", "KaruiStrongbox", "area_with_water" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Brine Maiden",
-		"Ghastly Siren",
-	},
-	bossVarieties = {
-		"Syvora, Daughter of the Deep",
-	},
-}
-
-worldAreas["MapRiverhold"] = {
-	name = "Riverhold (Map)",
-	baseName = "Riverhold",
-	description = "The barges stopped, and the atrocity began.",
-	tags = { "map", "grass_biome", "forest_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Knight-Gaunt",
-		"Risen Rattler",
-	},
-	bossVarieties = {
-		"Thariel, the Umbral Wraith",
-	},
-}
-
-worldAreas["MapExcavation"] = {
-	name = "Digsite (Map)",
-	baseName = "Digsite",
-	description = "The remains of a time before Time.",
-	tags = { "map", "grass_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Zealous Courser",
-		"Zealous Excavator",
-		"Zealous Guard",
-		"Zealous Pillarcrusher",
-		"Zealous Shockwarden",
-	},
-	bossVarieties = {
-		"Aurelian, the Grand Adjudicator",
-	},
-}
-
-worldAreas["MapIceCave"] = {
-	name = "Ice Cave (Map)",
-	baseName = "Ice Cave",
-	description = "These caves offer scant protection from the elements.",
-	tags = { "map", "mountain_biome", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Frost Wraith",
-		"Risen Rattler",
-	},
-	bossVarieties = {
-		"The Frostborn Fiend",
-	},
-}
-
-worldAreas["MapVaalVault"] = {
-	name = "Sealed Vault (Map)",
-	baseName = "Sealed Vault",
-	description = "The Vaal who survived the Cataclysm must now survive each other.",
-	tags = { "map", "mountain_biome", "VaalStrongbox", "vaal_shrine" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-		"Blood Priest",
-		"Blood Priestess",
-		"Blood Zealot",
-		"Vaal Formshifter",
-	},
-	bossVarieties = {
-		"Ytzara, Blood Oracle",
-		"Maztli, Flesh-Shaper",
-	},
-}
-
 worldAreas["IncursionTemplePresent"] = {
 	name = "Lost Temple (Act 1)",
 	baseName = "Lost Temple",
 	description = "Two thousand years of dust and rot await",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 1,
 	level = 65,
 	isMap = false,
@@ -6434,22 +7106,10 @@ worldAreas["IncursionTemple"] = {
 	name = "Atziri's Temple (Act 3)",
 	baseName = "Atziri's Temple",
 	description = "400 BIC",
-	tags = { "VaalStrongbox", "vaal_shrine" },
+	tags = {  },
 	act = 3,
 	level = 46,
 	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
-worldAreas["MapMezzanine"] = {
-	name = "Mezzanine (Map)",
-	baseName = "Mezzanine",
-	tags = { "map" },
-	act = 10,
-	level = 65,
-	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
 	},
@@ -6465,6 +7125,234 @@ worldAreas["IncursionHub"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+	},
+}
+
+worldAreas["IncursionHubEndgame"] = {
+	name = "Vaal Ruins",
+	baseName = "Vaal Ruins",
+	description = "The secrets of the Vaal await an intrepid explorer.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["DruidTrailer"] = {
+	name = "Druid Trailer (Act 1)",
+	baseName = "Druid Trailer",
+	tags = {  },
+	act = 1,
+	level = 30,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapMothersoul_Male"] = {
+	name = "The Patriarch Halls (Map)",
+	baseName = "The Patriarch Halls",
+	description = "One cannot create life without the power to take it.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Precursor Driller",
+		"Precursor Fabricator",
+		"Precursor Refractor",
+		"Precursor Spherator",
+		"Tombshrieker",
+	},
+	bossVarieties = {
+		"Phyx, Sentinel of the Spark",
+	},
+}
+
+worldAreas["MapMothersoul_Female"] = {
+	name = "The Matriarch Halls (Map)",
+	baseName = "The Matriarch Halls",
+	description = "One cannot take life without the power to create it.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Precursor Driller",
+		"Precursor Fabricator",
+		"Precursor Refractor",
+		"Precursor Spherator",
+		"Tombshrieker",
+	},
+	bossVarieties = {
+		"Phya, Sentinel of the Cradle",
+	},
+}
+
+worldAreas["MapMothersoul_Male_Quest"] = {
+	name = "The Patriarch Halls (Map)",
+	baseName = "The Patriarch Halls",
+	description = "One cannot create life without the power to take it.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Phyx, Sentinel of the Spark",
+	},
+}
+
+worldAreas["MapMothersoul_Female_Quest"] = {
+	name = "The Matriarch Halls (Map)",
+	baseName = "The Matriarch Halls",
+	description = "One cannot take life without the power to create it.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Phya, Sentinel of the Cradle",
+	},
+}
+
+worldAreas["MapUniqueReactor_01"] = {
+	name = "Western Gateway (Map)",
+	baseName = "Western Gateway",
+	description = "Silent and imposing, it dominates the landscape.",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Precursor Driller",
+		"Precursor Fabricator",
+		"Precursor Refractor",
+		"Precursor Spherator",
+		"Tombshrieker",
+	},
+	bossVarieties = {
+		"Precursor Separator",
+	},
+}
+
+worldAreas["MapUniqueReactor_02"] = {
+	name = "Ancient Gateway (Map)",
+	baseName = "Ancient Gateway",
+	description = "Long lost secrets lie buried beyond.",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Precursor Driller",
+		"Precursor Fabricator",
+		"Precursor Refractor",
+		"Precursor Spherator",
+		"Tombshrieker",
+	},
+}
+
+worldAreas["MapUniqueReactor_03"] = {
+	name = "Eastern Gateway (Map)",
+	baseName = "Eastern Gateway",
+	description = "What kind of people could have built such a thing?",
+	tags = { "map", "has_forest_biome_monsters" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Precursor Driller",
+		"Precursor Fabricator",
+		"Precursor Refractor",
+		"Precursor Spherator",
+		"Tombshrieker",
+	},
+	bossVarieties = {
+		"Precursor Refiner",
+	},
+}
+
+worldAreas["MapUniqueReactor_04"] = {
+	name = "Site of the Chosen (Map)",
+	baseName = "Site of the Chosen",
+	description = "Selfless ancients gave themselves to save tomorrow.",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["PrecursorVault"] = {
+	name = "Precursor Vault",
+	baseName = "Precursor Vault",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["EndgameDoodad_MeteorCrater"] = {
+	name = "The Fallen Star",
+	baseName = "The Fallen Star",
+	description = "What ruin the sky wreaks...",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["EndgameDoodad_BeastGroundZero"] = {
+	name = "The Chained Beast",
+	baseName = "The Chained Beast",
+	description = "Heroes of many different cultures gather to save the world.",
+	tags = {  },
+	act = 10,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapUniqueInitialTower"] = {
+	name = "Precursor Tower (Map)",
+	baseName = "Precursor Tower",
+	description = "A tower of the Ancients emerged before your eyes",
+	tags = { "map", "map_tower" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+		"Hyena Demon",
+		"Sun Clan Scavenger",
+	},
+	bossVarieties = {
+		"Karash, The Dune Dweller",
 	},
 }
 

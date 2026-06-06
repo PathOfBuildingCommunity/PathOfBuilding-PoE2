@@ -14,4 +14,6 @@ local itemBases = ...
 #base Metadata/Items/Jewels/JewelRadiusDiamond
 
 #subType Timeless
+#forceHide true
 #base Metadata/Items/Jewels/JewelTimeless
+#forceHide false
