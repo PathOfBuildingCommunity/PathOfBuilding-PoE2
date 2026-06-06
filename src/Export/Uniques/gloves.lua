@@ -6,12 +6,20 @@ return {
 Atziri's Acuity
 Moulded Mitts
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Herald of the Royal Queen
+{variant:1,2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11[80,100]
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
+{variant:3}UniqueIncreasedLife58
 {variant:1}UniqueCriticalStrikeChance2[20,30]
 {variant:2}UniqueCriticalStrikeChance2
-UniqueIntelligence9
-UniqueCriticalStrikesLeechIsInstant1
+{variant:1,2}UniqueIntelligence9
+{variant:1,2}UniqueCriticalStrikesLeechIsInstant1
+{variant:3}UniqueLifeLeech2
+{variant:3}PercentOfPhysicalHitDamageAsAdditionalBloodLoss
+{variant:3}UniqueVaalPact1
 ]],[[
 Dreadfist
 Bolstered Mitts

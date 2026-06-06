@@ -6,12 +6,20 @@ return {
 Atziri's Acuity
 Moulded Mitts
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
-(80-100)% increased Armour
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Herald of the Royal Queen
+{variant:1,2}(80-100)% increased Armour
+{variant:3}(150-200)% increased Armour
+{variant:3}+(100-150) to maximum Life
 {variant:1}(20-30)% increased Critical Hit Chance
 {variant:2}(30-50)% increased Critical Hit Chance
-+(20-30) to Intelligence
-Leech from Critical Hits is instant
+{variant:1,2}+(20-30) to Intelligence
+{variant:3}Leech 10% of Physical Attack Damage as Life
+{variant:1,2}Leech from Critical Hits is instant
+{variant:3}10% of Physical damage dealt by your Hits causes Blood Loss
+{variant:3}Vaal Pact
 ]],[[
 Dreadfist
 Bolstered Mitts
