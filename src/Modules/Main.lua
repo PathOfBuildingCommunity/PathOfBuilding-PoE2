@@ -22,6 +22,7 @@ LoadModule("Modules/ModTools")
 LoadModule("Modules/ItemTools")
 LoadModule("Modules/CalcTools")
 LoadModule("Modules/BuildSiteTools")
+LoadModule("Modules/Style")
 
 --[[if launch.devMode then
 	for skillName, skill in pairs(data.enchantments.Helmet) do
@@ -106,6 +107,7 @@ function main:Init()
 	self.defaultItemQuality = 20
 	self.showTitlebarName = true
 	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
+	self.activeTheme = "classic"
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
 	self.migrateAugments = true
@@ -414,20 +416,21 @@ function main:OnFrame()
 			end
 		end
 		if self.toastMode then
-			SetDrawColor(0.85, 0.85, 0.85)
+			SetDrawStyle('toast_border')
 			DrawImage(nil, 0, self.screenH - self.mainBarHeight, 312, self.mainBarHeight)
-			SetDrawColor(0.1, 0.1, 0.1)
+			SetDrawStyle('toast_background')
 			DrawImage(nil, 0, self.screenH - self.mainBarHeight + 4, 308, self.mainBarHeight - 4)
-			SetDrawColor(1, 1, 1)
-			DrawString(4, self.screenH - self.mainBarHeight + 8, "LEFT", 20, "VAR", self.toastMessages[1]:gsub("\n.*",""))
-			DrawString(4, self.screenH - self.mainBarHeight + 28, "LEFT", 16, "VAR", self.toastMessages[1]:gsub("^[^\n]*\n?",""))
+			SetDrawStyle('text_toast_heading')
+			StyledDrawString(4, self.screenH - self.mainBarHeight + 8, "LEFT", 20, 'text_toast_heading', self.toastMessages[1]:gsub("\n.*",""))
+			SetDrawStyle('text_toast')
+			StyledDrawString(4, self.screenH - self.mainBarHeight + 28, "LEFT", 16, 'text_toast', self.toastMessages[1]:gsub("^[^\n]*\n?",""))
 		end
 	end
 
-	-- Draw main controls
-	SetDrawColor(0.85, 0.85, 0.85)
+	-- Draw main controls (bottom left corner)
+	SetDrawStyle('main_control_border')
 	DrawImage(nil, 0, self.screenH - 58, 312, 58)
-	SetDrawColor(0.1, 0.1, 0.1)
+	SetDrawStyle('main_control_background')
 	DrawImage(nil, 0, self.screenH - 54, 308, 54)
 	self:DrawControls(self.viewPort)
 
@@ -440,6 +443,7 @@ function main:OnFrame()
 	end
 
 	if self.showDragText then
+		-- TODO: what is drawn here?
 		local cursorX, cursorY = GetCursorPos()
 		local strWidth = DrawStringWidth(16, "VAR", self.showDragText)
 		SetDrawLayer(20, 0)
@@ -667,6 +671,10 @@ function main:LoadSettings(ignoreBuild)
 					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
 					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 				end
+				if node.attrib.activeTheme then
+					self.activeTheme = node.attrib.activeTheme
+					SetActiveTheme(self.activeTheme)
+				end
 			end
 		end
 	end
@@ -799,7 +807,8 @@ function main:SaveSettings()
 		showFlavourText = tostring(self.showFlavourText),
 		showAnimations = tostring(self.showAnimations),
 		showAllItemAffixes = tostring(self.showAllItemAffixes),
-		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
+		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent),
+		activeTheme = self.activeTheme
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
@@ -868,10 +877,10 @@ function main:OpenOptionsPopup()
 
 	-- local func to make a new section header
 	local function drawSectionHeader(id, title, omitHorizontalLine)
-		local headerBGColor ={ .6, .6, .6}
-		controls["section-"..id .. "-bg"] = new("RectangleOutlineControl", { "TOPLEFT", nil, "TOPLEFT" }, { 8, currentY, popupWidth - 17, 26 }, headerBGColor, 1)
+		local headerBGstyle = 'rectangle_outline_border'
+		controls["section-"..id .. "-bg"] = new("RectangleOutlineControl", { "TOPLEFT", nil, "TOPLEFT" }, { 8, currentY, popupWidth - 17, 26 }, headerBGstyle, 1)
 		nextRow(.2)
-		controls["section-"..id .. "-label"] = new("LabelControl", { "TOPLEFT", nil, "TOPLEFT" }, { popupWidth / 2 - 60, currentY, 0, 16 }, "^7" .. title)
+		controls["section-"..id .. "-label"] = new("LabelControl", { "TOPLEFT", nil, "TOPLEFT" }, { popupWidth / 2 - 60, currentY, 0, 16 }, GetStyleColor('text_heading') .. title)
 		nextRow(1.5)
 	end
 
@@ -887,7 +896,7 @@ function main:OpenOptionsPopup()
 	}, function(index, value)
 		self.connectionProtocol = value.protocol
 	end)
-	controls.connectionProtocolLabel = new("LabelControl", { "RIGHT", controls.connectionProtocol, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Connection Protocol:")
+	controls.connectionProtocolLabel = new("LabelControl", { "RIGHT", controls.connectionProtocol, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Connection Protocol:")
 	controls.connectionProtocol.tooltipText = "Changes which protocol is used when downloading updates and importing builds."
 	controls.connectionProtocol:SelByValue(launch.connectionProtocol, "protocol")
 
@@ -897,7 +906,7 @@ function main:OpenOptionsPopup()
 		{ label = "SOCKS", scheme = "socks5" },
 		{ label = "SOCKS5H", scheme = "socks5h" },
 	})
-	controls.proxyLabel = new("LabelControl", { "RIGHT", controls.proxyType, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Proxy server:")
+	controls.proxyLabel = new("LabelControl", { "RIGHT", controls.proxyType, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Proxy server:")
 	controls.proxyURL = new("EditControl", { "LEFT", controls.proxyType, "RIGHT" }, { 4, 0, 206, 18 })
 
 	if launch.proxyURL then
@@ -920,13 +929,13 @@ function main:OpenOptionsPopup()
 		self.dpiScaleOverridePercent = value.percent
 		SetDPIScaleOverridePercent(value.percent)
 	end)
-	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
+	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "UI scaling override:")
 	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
 	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
 	controls.buildPath = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 290, 18 })
-	controls.buildPathLabel = new("LabelControl", { "RIGHT", controls.buildPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Build save path:")
+	controls.buildPathLabel = new("LabelControl", { "RIGHT", controls.buildPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Build save path:")
 	if self.buildPath ~= self.defaultBuildPath then
 		controls.buildPath:SetText(self.buildPath)
 	end
@@ -940,7 +949,7 @@ function main:OpenOptionsPopup()
 	}, function(index, value)
 		self.nodePowerTheme = value.theme
 	end)
-	controls.nodePowerThemeLabel = new("LabelControl", { "RIGHT", controls.nodePowerTheme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Node Power colours:")
+	controls.nodePowerThemeLabel = new("LabelControl", { "RIGHT", controls.nodePowerTheme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Node Power colours:")
 	controls.nodePowerTheme.tooltipText = "Changes the colour scheme used for the node power display on the passive tree."
 	controls.nodePowerTheme:SelByValue(self.nodePowerTheme, "theme")
 
@@ -952,7 +961,7 @@ function main:OpenOptionsPopup()
 			self.colorPositive = buf
 		end
 	end)
-	controls.colorPositiveLabel = new("LabelControl", { "RIGHT", controls.colorPositive, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for positive values:")
+	controls.colorPositiveLabel = new("LabelControl", { "RIGHT", controls.colorPositive, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Hex colour for positive values:")
 	controls.colorPositive.tooltipText = "Overrides the default hex colour for positive values in breakdowns. \nExpected format is 0x000000. " ..
 		"The default value is " .. tostring(defaultColorCodes.POSITIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
 
@@ -964,7 +973,7 @@ function main:OpenOptionsPopup()
 			self.colorNegative = buf
 		end
 	end)
-	controls.colorNegativeLabel = new("LabelControl", { "RIGHT", controls.colorNegative, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for negative values:")
+	controls.colorNegativeLabel = new("LabelControl", { "RIGHT", controls.colorNegative, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Hex colour for negative values:")
 	controls.colorNegative.tooltipText = "Overrides the default hex colour for negative values in breakdowns. \nExpected format is 0x000000. " ..
 		"The default value is " .. tostring(defaultColorCodes.NEGATIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
 
@@ -977,46 +986,58 @@ function main:OpenOptionsPopup()
 			self.colorHighlight = buf
 		end
 	end)
-	controls.colorHighlightLabel = new("LabelControl", { "RIGHT", controls.colorHighlight, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for highlight nodes:")
+	controls.colorHighlightLabel = new("LabelControl", { "RIGHT", controls.colorHighlight, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Hex colour for highlight nodes:")
 	controls.colorHighlight.tooltipText = "Overrides the default hex colour for highlighting nodes in passive tree search. \nExpected format is 0x000000. " ..
 		"The default value is " .. tostring(defaultColorCodes.HIGHLIGHT:gsub('^(^)', '0')) .."\nIf updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.betaTest = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Opt-in to weekly beta test builds:", function(state)
+	controls.betaTest = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Opt-in to weekly beta test builds:", function(state)
 		self.betaTest = state
 	end)
 
 	nextRow()
-	controls.edgeSearchHighlight = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20}, "^7Show search circles at viewport edge", function(state)
+	controls.edgeSearchHighlight = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20}, "Show search circles at viewport edge", function(state)
 		self.edgeSearchHighlight = state
 	end)
 	
 	--nextRow()
-	--controls.showPublicBuilds = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Latest/Trending builds:", function(state)
+	--controls.showPublicBuilds = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show Latest/Trending builds:", function(state)
 		--self.showPublicBuilds = state
 	--end)
 
 	nextRow()
-	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
+	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Styled Tooltips with Flavour Text:", function(state)
 		self.showFlavourText = state
 	end)
 	controls.showFlavourText.tooltipText = "If updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
+	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show Animations:", function(state)
 		self.showAnimations = state
 	end)
 	
 	nextRow()
-	controls.showAllItemAffixes = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show all item affixes sliders:", function(state)
+	controls.showAllItemAffixes = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show all item affixes sliders:", function(state)
 		self.showAllItemAffixes = state
 	end)
 	controls.showAllItemAffixes.tooltipText = "Display all item affix slots as a stacked list instead of hiding them in dropdowns"
+	
+	nextRow()
+	controls.theme = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 150, 18 }, {
+		{ label = "Classic", themeIdentifier = "classic" },
+		{ label = "Dark", themeIdentifier = "dark" },
+	}, function(index, value)
+		self.activeTheme = value.themeIdentifier
+		SetActiveTheme(value.themeIdentifier)
+	end)
+	controls.themeLabel = new("LabelControl", { "RIGHT", controls.theme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Theme:")
+	controls.theme.tooltipText = "Sets the color and font styles of PoB.\nNote: Some styles require a restart of PoB to take effetct.\nAvailable Options:\nClassic - The traditional PoB experience\nDark - Dark mode inspired by the offical PoE2 trade site"
+	controls.theme:SelByValue(self.activeTheme, "themeIdentifier")
 
 	nextRow()
 	drawSectionHeader("build", "Build-related options")
 
-	controls.showThousandsSeparators = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT"}, { defaultLabelPlacementX, currentY, 20 }, "^7Show thousands separators:", function(state)
+	controls.showThousandsSeparators = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT"}, { defaultLabelPlacementX, currentY, 20 }, "Show thousands separators:", function(state)
 	self.showThousandsSeparators = state
 	end)
 	controls.showThousandsSeparators.state = self.showThousandsSeparators
@@ -1025,16 +1046,16 @@ function main:OpenOptionsPopup()
 	controls.thousandsSeparator = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 30, 20 }, self.thousandsSeparator, nil, "%w", 1, function(buf)
 		self.thousandsSeparator = buf
 	end)
-	controls.thousandsSeparatorLabel = new("LabelControl", { "RIGHT", controls.thousandsSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Thousands separator:")
+	controls.thousandsSeparatorLabel = new("LabelControl", { "RIGHT", controls.thousandsSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "Thousands separator:")
 
 	nextRow()
 	controls.decimalSeparator = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 30, 20 }, self.decimalSeparator, nil, "%w", 1, function(buf)
 		self.decimalSeparator = buf
 	end)
-	controls.decimalSeparatorLabel = new("LabelControl", { "RIGHT", controls.decimalSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Decimal separator:")
+	controls.decimalSeparatorLabel = new("LabelControl", { "RIGHT", controls.decimalSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "Decimal separator:")
 
 	nextRow()
-	controls.titlebarName = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show build name in window title:", function(state)
+	controls.titlebarName = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show build name in window title:", function(state)
 		self.showTitlebarName = state
 	end)
 
@@ -1043,60 +1064,60 @@ function main:OpenOptionsPopup()
 		self.defaultGemQuality = m_min(tonumber(gemQuality) or 0, 23)
 	end)
 	controls.defaultGemQuality.tooltipText = "Set the default quality that can be overwritten by build-related quality settings in the skill panel."
-	controls.defaultGemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default gem quality:")
+	controls.defaultGemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Default gem quality:")
 
 	nextRow()
 	controls.defaultItemQuality = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
 		self.defaultItemQuality = m_min(tonumber(itemQuality) or 0, 20)
 	end)
 	controls.defaultItemQuality.tooltipText = "Set the default quality that will be applied to newly created or pasted items."
-	controls.defaultItemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default item quality:")
+	controls.defaultItemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Default item quality:")
 
 	nextRow()
 	controls.defaultCharLevel = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
 		self.defaultCharLevel = m_min(m_max(tonumber(charLevel) or 1, 1), 100)
 	end)
 	controls.defaultCharLevel.tooltipText = "Set the default level of your builds. If this is higher than 1, manual level mode will be enabled by default in new builds."
-	controls.defaultCharLevelLabel = new("LabelControl", { "RIGHT", controls.defaultCharLevel, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default character level:")
+	controls.defaultCharLevelLabel = new("LabelControl", { "RIGHT", controls.defaultCharLevel, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Default character level:")
 
 	nextRow()
 	controls.defaultItemAffixQualitySlider = new("SliderControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 200, 20 }, function(value)
 		self.defaultItemAffixQuality = round(value, 2)
 		controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 	end)
-	controls.defaultItemAffixQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemAffixQualitySlider, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Default item affix quality:")
+	controls.defaultItemAffixQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemAffixQualitySlider, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "Default item affix quality:")
 	controls.defaultItemAffixQualityValue = new("LabelControl", { "LEFT", controls.defaultItemAffixQualitySlider, "RIGHT" }, { -defaultLabelSpacingPx, 0, 92, 16 }, "50%")
 	controls.defaultItemAffixQualitySlider.val = self.defaultItemAffixQuality
 	controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 
 	nextRow()
-	controls.showWarnings = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show build warnings:", function(state)
+	controls.showWarnings = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show build warnings:", function(state)
 		self.showWarnings = state
 	end)
 	controls.showWarnings.state = self.showWarnings
 
 	nextRow()
-	controls.slotOnlyTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltips only for affected slots:", function(state)
+	controls.slotOnlyTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show tooltips only for affected slots:", function(state)
 		self.slotOnlyTooltips = state
 	end, "Shows comparisons in tooltips only for the slot you are currently placing the item in, instead of all slots.")
 	controls.slotOnlyTooltips.state = self.slotOnlyTooltips
 
 	nextRow()
-	controls.migrateAugments = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Copy augments onto display item:", function(state)
+	controls.migrateAugments = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Copy augments onto display item:", function(state)
 		self.migrateAugments = state
 	end)
 	controls.migrateAugments.tooltipText = "Apply augments and anoints from current gear when comparing new gear, given they are possible to add to the new item."
 	controls.migrateAugments.state = self.migrateAugments
 	
 	nextRow()
-	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
+	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Show tooltip for unsupported mods :", function(state)
 		self.notSupportedModTooltips = state
 	end)
 	controls.notSupportedModTooltips.tooltipText = "Show ^8(Not supported in PoB yet) ^7next to unsupported mods\nRequires PoB to restart for it to take effect"
 	controls.notSupportedModTooltips.state = self.notSupportedModTooltips
 	
 	nextRow()
-	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
+	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Invert slider scroll direction:", function(state)
 		self.invertSliderScrollDirection = state
 	end)
 	controls.invertSliderScrollDirection.tooltipText = "Default scroll direction is:\nScroll Up = Move right\nScroll Down = Move left"
@@ -1104,7 +1125,7 @@ function main:OpenOptionsPopup()
 	
 	if launch.devMode then
 		nextRow()
-		controls.disableDevAutoSave = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Disable Dev AutoSave:", function(state)
+		controls.disableDevAutoSave = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "Disable Dev AutoSave:", function(state)
 			self.disableDevAutoSave = state
 		end)
 		controls.disableDevAutoSave.tooltipText = "Do not Autosave builds while on Dev branch"
@@ -1143,6 +1164,7 @@ function main:OpenOptionsPopup()
 	local initialShowAnimations = self.showAnimations
 	local initialShowAllItemAffixes = self.showAllItemAffixes
 	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
+	local initialActiveTheme = self.activeTheme
 
 	-- last line with buttons has more spacing
 	nextRow(1.5)
@@ -1202,6 +1224,8 @@ function main:OpenOptionsPopup()
 		self.showAllItemAffixes = initialShowAllItemAffixes
 		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
+		self.activeTheme = initialActiveTheme
+		SetActiveTheme(self.activeTheme)
 		main:ClosePopup()
 	end)
 	nextRow(1.5)
@@ -1378,6 +1402,7 @@ function main:OpenAboutPopup(helpSectionIndex)
 end
 
 function main:DrawBackground(viewPort)
+	-- TODO: what is drawn here?
 	SetDrawLayer(nil, -100)
 	SetDrawColor(0.5, 0.5, 0.5)
 
@@ -1571,7 +1596,7 @@ function main:OpenMessagePopup(title, msg)
 	controls.close = new("ButtonControl", nil, {0, 40 + numMsgLines * 16, 80, 20}, "Ok", function()
 		main:ClosePopup()
 	end)
-	return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
+	return self:OpenPopup(m_max(StyledDrawStringWidth(16, 'text_label', msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
 end
 
 function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, onExtra)
@@ -1581,11 +1606,11 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 		t_insert(controls, new("LabelControl", nil, {0, 20 + numMsgLines * 16, 0, 16}, line))
 		numMsgLines = numMsgLines + 1
 	end
-	local confirmWidth = m_max(80, DrawStringWidth(16, "VAR", confirmLabel) + 10)
+	local confirmWidth = m_max(80, StyledDrawStringWidth(16, 'text_button', confirmLabel) + 10)
 	
 	if extraLabel and onExtra then
 		-- Three button layout: Continue (left), Connect Path (center), Cancel (right)
-		local extraWidth = m_max(80, DrawStringWidth(16, "VAR", extraLabel) + 10)
+		local extraWidth = m_max(80, StyledDrawStringWidth(16, 'text_button', extraLabel) + 10)
 		local cancelWidth = 80
 		local spacing = 10
 		local totalWidth = confirmWidth + extraWidth + cancelWidth + (spacing * 2)
@@ -1607,7 +1632,7 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 		placeButton(confirmWidth, confirmLabel, onConfirm, true)
 		placeButton(extraWidth, extraLabel, onExtra)
 		placeButton(cancelWidth, "Cancel", function() end)
-		return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, totalWidth + 40), 70 + numMsgLines * 16, title, controls, "confirm")
+		return self:OpenPopup(m_max(StyledDrawStringWidth(16, 'text_label', msg) + 30, totalWidth + 40), 70 + numMsgLines * 16, title, controls, "confirm")
 	else
 		-- Two button layout (original)
 		controls.confirm = new("ButtonControl", nil, {-5 - m_ceil(confirmWidth/2), 40 + numMsgLines * 16, confirmWidth, 20}, confirmLabel, function()
@@ -1617,13 +1642,13 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 		t_insert(controls, new("ButtonControl", nil, {5 + m_ceil(confirmWidth/2), 40 + numMsgLines * 16, confirmWidth, 20}, "Cancel", function()
 			main:ClosePopup()
 		end))
-		return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "confirm")
+		return self:OpenPopup(m_max(StyledDrawStringWidth(16, 'text_label', msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "confirm")
 	end
 end
 
 function main:OpenNewFolderPopup(path, onClose)
 	local controls = { }
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter folder name:")
+	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "Enter folder name:")
 	controls.edit = new("EditControl", nil, {0, 40, 350, 20}, nil, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		controls.create.enabled = buf:match("%S")
 	end)
@@ -1675,7 +1700,7 @@ function main:OpenCloudErrorPopup(fileName)
 	controls.close = new("ButtonControl", nil, {55, 40 + numMsgLines * 16, 80, 20}, "Ok", function()
 		main:ClosePopup()
 	end)
-	return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
+	return self:OpenPopup(m_max(StyledDrawStringWidth(16, 'text_label', msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
 end
 
 function main:SetWindowTitleSubtext(subtext)
