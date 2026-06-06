@@ -339,7 +339,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
+	if state.type == "Flask" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -363,7 +363,7 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	out:write('},\n}\n')
-	
+
 	if not (state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow) then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""
