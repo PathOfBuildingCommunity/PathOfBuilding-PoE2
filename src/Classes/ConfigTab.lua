@@ -46,7 +46,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.setSelect.enabled = function()
 		return #self.configSetOrderList > 1
 	end
-	self.controls.setLabel = new("LabelControl", { "RIGHT", self.controls.setSelect, "LEFT" }, { -2, 0, 0, 16 }, "^7Config set:")
+	self.controls.setLabel = new("LabelControl", { "RIGHT", self.controls.setSelect, "LEFT" }, { -2, 0, 0, 16 }, "Config set:")
 	self.controls.setManage = new("ButtonControl", { "LEFT", self.controls.setSelect, "RIGHT" }, { 4, 0, 90, 20 }, "Manage...", function()
 		self:OpenConfigSetManagePopup()
 	end)
@@ -545,7 +545,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 			end
 			local labelControl = control
 			if varData.label and varData.type ~= "check" then
-				labelControl = new("LabelControl", {"RIGHT",control,"LEFT"}, {-4, 0, 0, DrawStringWidth(14, "VAR", varData.label) > 228 and 12 or 14}, "^7"..varData.label)
+				labelControl = new("LabelControl", {"RIGHT",control,"LEFT"}, {-4, 0, 0, StyledDrawStringWidth(14, 'text_label', varData.label) > 228 and 12 or 14}, varData.label)
 				t_insert(self.controls, labelControl)
 			end
 			if varData.var then
@@ -579,11 +579,14 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					local def = self:GetDefaultState(varData.var, type(cur))
 					if cur ~= nil and cur ~= def then
 						if not shown then
-							return 	0.753, 0.502, 0.502
+							-- highlight changed but empty?
+							return '_border_highlight_negative'
 						end
-						return 	0.451, 0.576, 0.702
+						-- highlight changed
+						return '_border_highlight'
 					end
-					return 0.5, 0.5, 0.5
+					-- no highlight 
+					return '_border'
 				end
 			end
 

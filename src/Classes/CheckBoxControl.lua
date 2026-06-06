@@ -8,7 +8,7 @@ local CheckBoxClass = newClass("CheckBoxControl", "Control", "TooltipHost", func
 	self.Control(anchor, rect)
 	self.TooltipHost(tooltipText)
 	self.label = label
-	self.labelWidth = DrawStringWidth(self.width - 4, "VAR", label or "") + 5
+	self.labelWidth = StyledDrawStringWidth(self.width - 4, 'text_label', label or "") + 5
 	self.changeFunc = changeFunc
 	self.state = initialState
 	self.checkImage = nil
@@ -36,62 +36,66 @@ function CheckBoxClass:Draw(viewPort, noTooltip)
 	local size = self.width
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
+	-- Checkbox-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('checkbox_border_disabled')
 	elseif mOver then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('checkbox_border_hover')
 	elseif self.borderFunc then
-		local r, g, b = self.borderFunc()
-		SetDrawColor(r, g, b)
+		SetDrawStyle('checkbox'..self.borderFunc())
 	elseif self.checkImage and self.state then
-		SetDrawColor(0.75, 0.75, 0.75)
+		-- TODO: why different border when using image instead of checkmark?
+		SetDrawStyle('checkbox_border_toggled')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('checkbox_border')
 	end
 	DrawImage(nil, x, y, size, size)
+	-- Checkbox-Fill
 	if not enabled then
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('checkbox_background_disabled')
 	elseif self.clicked and mOver then
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('checkbox_background_clicked')
 	elseif mOver then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('checkbox_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('checkbox_background')
 	end
 	DrawImage(nil, x + 1, y + 1, size - 2, size - 2)
+	-- Checkbox-Checkmark
 	if self.checkImage then
 		if self.state then
 			if not enabled then
-				SetDrawColor(0.33, 0.33, 0.33)
+				SetDrawStyle('checkbox_checkimage_disabled')
 			elseif mOver then
-				SetDrawColor(2, 2, 2)
+				SetDrawStyle('checkbox_checkimage_hover')
 			else
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('checkbox_checkimage_toggled')
 			end
 		else
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('checkbox_checkimage')
 		end
 		DrawImage(self.checkImage.handle, x + 1, y + 1, size - 2, size - 2, self.checkImage[1])
 	else
 		if self.state then
 			if not enabled then
-				SetDrawColor(0.33, 0.33, 0.33)
+				SetDrawStyle('checkbox_checkmark_disabled')
 			elseif mOver then
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('checkbox_checkmark_hover')
 			else
-				SetDrawColor(0.75, 0.75, 0.75)
+				SetDrawStyle('checkbox_checkmark')
 			end
 			main:DrawCheckMark(x + size/2, y + size/2, size * 0.8)
 		end
 	end
+	-- Checkbox-Label-Text
 	if enabled then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('text_label')
 	else
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('text_disabled')
 	end
 	local label = self:GetProperty("label")
 	if label then
-		DrawString(x - 5, y + 2, "RIGHT_X", size - 4, "VAR", label)
+		StyledDrawString(x - 5, y + 2, "RIGHT_X", size - 4, 'text_label', label)
 	end
 	if mOver and not noTooltip then
 		SetDrawLayer(nil, 100)

@@ -40,40 +40,48 @@ function ButtonClass:Draw(viewPort, noTooltip)
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
 	local locked = self:GetProperty("locked")
+	-- Button-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif mOver or locked then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('button_border_disabled')
+	elseif mOver then
+		SetDrawStyle('button_border_hover')
+	elseif locked then
+		SetDrawStyle('button_border_toggled')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('button_border')
 	end
 	DrawImage(nil, x, y, width, height)
+	-- Button-Fill
 	if not enabled then
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('button_background_disabled')
 	elseif self.clicked and mOver then
-		SetDrawColor(0.5, 0.5, 0.5)
-	elseif mOver or locked then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('button_background_clicked')
+	elseif locked then
+		SetDrawStyle('button_background_toggled')
+	elseif mOver then
+		SetDrawStyle('button_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('button_background')
 	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
+	-- Button-Image
 	if self.image then
 		if enabled then
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('button_image')
 		else
-			SetDrawColor(0.33, 0.33, 0.33)
+			SetDrawStyle('button_image_disabled')
 		end
 		DrawImage(self.image, x + 2, y + 2, width - 4, height - 4)
 		if self.clicked and mOver then
-			SetDrawColor(1, 1, 1, 0.5)
+			SetDrawStyle('button_image_overlay_clicked')
 			DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 		end
 	end
+	-- Button-Text
 	if enabled then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('text_button')
 	else
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('text_button_disabled')
 	end
 	local label = self:GetProperty("label")
 	if label == "+" then
@@ -86,7 +94,7 @@ function ButtonClass:Draw(viewPort, noTooltip)
 		DrawImageQuad(nil, x + width * 0.7, y + height * 0.2, x + width * 0.8, y + height * 0.3, x + width * 0.3, y + height * 0.8, x + width * 0.2, y + height * 0.7)
 	else
 		local overSize = self.overSizeText or 0
-		DrawString(x + width / 2, y + 2 - overSize, "CENTER_X", height - 4 + overSize * 2, "VAR", label)
+		StyledDrawString(x + width / 2, y + 2 - overSize, "CENTER_X", height - 4 + overSize * 2, 'text_button', label)
 	end
 	if mOver then
 		if not noTooltip or self.forceTooltip then

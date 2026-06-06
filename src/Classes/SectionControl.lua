@@ -12,18 +12,23 @@ end)
 function SectionClass:Draw()
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
+	-- Section-Border
 	SetDrawLayer(nil, -10)
-	SetDrawColor(0.66, 0.66, 0.66)
+	SetDrawStyle('section_border')
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0.1, 0.1, 0.1)
+	-- Section-Fill
+	SetDrawStyle('section_background')
 	DrawImage(nil, x + 2, y + 2, width - 4, height - 4)
 	SetDrawLayer(nil, 0)
 	local label = self:GetProperty("label")
-	local labelWidth = DrawStringWidth(14, "VAR", label)
-	SetDrawColor(0.66, 0.66, 0.66)
+	local labelWidth = StyledDrawStringWidth(14, 'text_section_title', label)
+	-- Section-Title-Border
+	SetDrawStyle('section_border_title')
 	DrawImage(nil, x + 6, y - 8, labelWidth + 6, 18)
-	SetDrawColor(0, 0, 0)
+	-- Section-Title-Fill
+	SetDrawStyle('section_background_title')
 	DrawImage(nil, x + 7, y - 7, labelWidth + 4, 16)
-	SetDrawColor(1, 1, 1)
-	DrawString(x + 9, y - 6, "LEFT", 14, "VAR", label)
+	-- Section-Title
+	SetDrawStyle('text_section_title')
+	StyledDrawString(x + 9, y - 6, "LEFT", 14, 'text_section_title', label)
 end

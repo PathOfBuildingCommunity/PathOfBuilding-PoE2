@@ -40,7 +40,7 @@ local ListClass = newClass("ListControl", "Control", "ControlHost", function(sel
 	self.forceTooltip = forceTooltip
 	self.colList = { { } }
 	self.tooltip = new("Tooltip")
-	self.font = "VAR"
+	self.font = "VAR" -- is this used by any inheriting class or can this be removed?
 	if self.scroll then
 		if self.scroll == "HORIZONTAL" then
 			self.scrollH = true
@@ -177,20 +177,25 @@ function ListClass:Draw(viewPort, noTooltip)
 
 	local label = self:GetProperty("label") 
 	if label then
-		DrawString(x + self.labelPositionOffset[1], y - 20 + self.labelPositionOffset[2], "LEFT", 16, self.font, label)
+		SetDrawStyle('text_label')
+		StyledDrawString(x + self.labelPositionOffset[1], y - 20 + self.labelPositionOffset[2], "LEFT", 16, 'text_label', label)
 	end
+	-- List-Border
 	if self.otherDragSource and not self.CanDragToValue then
-		SetDrawColor(0.2, 0.6, 0.2)
+		SetDrawStyle('list_border_drag_targeted')
 	elseif self.hasFocus then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('list_border_selected')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('list_border')
 	end
 	DrawImage(nil, x, y, width, height)
+	-- List-Fill
 	if self.otherDragSource and not self.CanDragToValue then
-		SetDrawColor(0, 0.05, 0)
+		SetDrawStyle('list_background_drag_targeted')
+	elseif self.hasFocus then
+		SetDrawStyle('list_background_selected')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('list_background')
 	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 	self:DrawControls(viewPort, (noTooltip and not self.forceTooltip) and self)
@@ -202,7 +207,7 @@ function ListClass:Draw(viewPort, noTooltip)
 	local minIndex = m_floor(scrollOffsetV / rowHeight + 1)
 	local maxIndex = m_min(m_floor((scrollOffsetV + height) / rowHeight + 1), #list)
 	for colIndex, column in ipairs(self.colList) do
-		local colFont = self:GetColumnProperty(column, "font") or "VAR"
+		local colFont = self:GetColumnProperty(column, "font") or GetStyleFont('text_list')
 		local clipWidth = DrawStringWidth(textHeight, colFont, "...")
 		colOffset = column._offset - scrollOffsetH
 		local colWidth = column._width
@@ -233,41 +238,51 @@ function ListClass:Draw(viewPort, noTooltip)
 			end
 			if self.showRowSeparators then
 				if self.hasFocus and value == self.selValue then
-					SetDrawColor(1, 1, 1)
+					SetDrawStyle('list_entry_border_focused')
 				elseif value == ttValue then
-					SetDrawColor(0.8, 0.8, 0.8)
+					SetDrawStyle('list_entry_border_hover')
 				else
-					SetDrawColor(0.5, 0.5, 0.5)
+					SetDrawStyle('list_entry_border_selected')
 				end
 				DrawImage(nil, colOffset, lineY, not self.scroll and colWidth - 4 or colWidth, rowHeight)
-				if (value == self.selValue or value == ttValue) then
-					SetDrawColor(0.33, 0.33, 0.33)
+				if self.hasFocus and value == self.selValue then
+					SetDrawStyle('list_entry_background_focused')
+				elseif value == ttValue then
+					SetDrawStyle('list_entry_background_hover')
+				elseif value == self.selValue then
+					SetDrawStyle('list_entry_background_selected')
 				elseif self.otherDragSource and self.CanDragToValue and self:CanDragToValue(index, value, self.otherDragSource) then
+					-- TODO: ?
 					SetDrawColor(0, 0.2, 0)
 				elseif index % 2 == 0 then
-					SetDrawColor(0.05, 0.05, 0.05)
+					SetDrawStyle('list_entry_background_even')
 				else
-					SetDrawColor(0, 0, 0)
+					SetDrawStyle('list_entry_background')
 				end
 				DrawImage(nil, colOffset, lineY + 1, not self.scroll and colWidth - 4 or colWidth, rowHeight - 2)
 			elseif value == self.selValue or value == ttValue then
 				if self.hasFocus and value == self.selValue then
-					SetDrawColor(1, 1, 1)
+					SetDrawStyle('list_entry_border_focused')
 				elseif value == ttValue then
-					SetDrawColor(0.8, 0.8, 0.8)
+					SetDrawStyle('list_entry_border_hover')
 				else
-					SetDrawColor(0.5, 0.5, 0.5)
+					SetDrawStyle('list_entry_border_selected')
 				end
 				DrawImage(nil, colOffset, lineY, not self.scroll and colWidth - 4 or colWidth, rowHeight)
 				if self.otherDragSource and self.CanDragToValue and self:CanDragToValue(index, value, self.otherDragSource) then
+					-- TODO: ?
 					SetDrawColor(0, 0.2, 0)
+				elseif self.hasFocus and value == self.selValue then
+					SetDrawStyle('list_entry_background_focused')
+				elseif value == ttValue then
+					SetDrawStyle('list_entry_background_hover')
 				else
-					SetDrawColor(0.15, 0.15, 0.15)
+					SetDrawStyle('list_entry_background_selected')
 				end
 				DrawImage(nil, colOffset, lineY + 1, not self.scroll and colWidth - 4 or colWidth, rowHeight - 2)
 			end
 			if not self.SetHighlightColor or not self:SetHighlightColor(index, value) then
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('text_list')
 			end
 			-- TODO: handle icon size properly, for now assume they are 16x16
 			if icon == nil then
@@ -280,32 +295,32 @@ function ListClass:Draw(viewPort, noTooltip)
 		if self.colLabels then
 			local mOver = relX >= colOffset and relX <= colOffset + colWidth and relY >= 0 and relY <= 18
 			if mOver and self:GetColumnProperty(column, "sortable") then
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('list_column_label_border_hover')
 				DrawImage(nil, colOffset, 1, colWidth, 18)
-				SetDrawColor(0.33, 0.33, 0.33)
+				SetDrawStyle('list_column_label_background_hover')
 				DrawImage(nil, colOffset + 1, 2, colWidth - 2, 16)
 			else
-				SetDrawColor(0.5, 0.5, 0.5)
+				SetDrawStyle('list_column_label_border')
 				DrawImage(nil, colOffset, 1, colWidth, 18)
-				SetDrawColor(0.15, 0.15, 0.15)
+				SetDrawStyle('list_column_label_background')
 				DrawImage(nil, colOffset + 1, 2, colWidth - 2, 16)
 			end
 			local label = self:GetColumnProperty(column, "label")
 			if label and #label > 0 then
-				SetDrawColor(1, 1, 1)
-				DrawString(colOffset + colWidth/2, 4, "CENTER_X", 12, "VAR", label)
+				SetDrawStyle('text_list_column_label')
+				StyledDrawString(colOffset + colWidth/2, 4, "CENTER_X", 12, 'text_list_column_label', label)
 			end
 		end
 	end
 	if #self.list == 0 and self.defaultText then
-		SetDrawColor(1, 1, 1)
-		DrawString(2, 2, "LEFT", 14, self.font, self.defaultText)
+		SetDrawStyle('text_list_placeholder')
+		StyledDrawString(2, 2, "LEFT", 14, 'text_list_placeholder', self.defaultText)
 	end
 	if self.selDragIndex then
 		local lineY = rowHeight * (self.selDragIndex - 1) - scrollOffsetV
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('list_dragindex')
 		DrawImage(nil, 0, lineY - 1, width - 20, 3)
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('list_dragindex_center')
 		DrawImage(nil, 0, lineY, width - 20, 1)
 	end
 	SetViewport()

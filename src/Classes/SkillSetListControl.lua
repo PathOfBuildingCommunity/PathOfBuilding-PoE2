@@ -52,7 +52,7 @@ end)
 
 function SkillSetListClass:RenameSet(skillSet, addOnName)
 	local controls = { }
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter name for this skill set:")
+	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "Enter name for this skill set:")
 	controls.edit = new("EditControl", nil, {0, 40, 350, 20}, skillSet.title, nil, nil, 100, function(buf)
 		controls.save.enabled = buf:match("%S")
 	end)

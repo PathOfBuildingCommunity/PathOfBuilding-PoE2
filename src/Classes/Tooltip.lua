@@ -32,7 +32,7 @@ function TooltipClass:Clear(clearUpdateParams)
 	self.recipe = nil
 	self.center = false
 	self.maxWidth = nil
-	self.color = { 0.5, 0.3, 0 }
+	self.color = hexToRGB(GetStyleColor('tooltip_border'))
 	t_insert(self.blocks, { height = 0 })
 end
 
@@ -334,15 +334,17 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		end
 	end
 
+	-- TODO: ?
 	SetDrawColor(1, 1, 1)
 
 	local columns, maxColumnHeight, drawStack = self:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 
 	-- background shading currently must be drawn before text lines.  API change will allow something like the commented lines below
-	SetDrawColor(0, 0, 0, .85)
+	SetDrawStyle('tooltip_background')
 	--SetDrawLayer(nil, GetDrawLayer() - 5)
 	DrawImage(nil, ttX, ttY + BORDER_WIDTH, ttW * columns - BORDER_WIDTH, maxColumnHeight - 2 * BORDER_WIDTH)
 	--SetDrawLayer(nil, GetDrawLayer())
+	-- Initial tooltip text color
 	SetDrawColor(1, 1, 1)
 
 	-- Item header (drawn within borders)
@@ -494,7 +496,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 	-- Draw borders
 	if type(self.color) == "string" then
-		SetDrawColor(self.color) 
+		SetDrawColor(self.color)
 	else
 		SetDrawColor(unpack(self.color))
 	end

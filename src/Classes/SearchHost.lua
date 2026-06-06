@@ -122,6 +122,8 @@ function SearchHostClass:ResetSearch()
 end
 
 function SearchHostClass:GetSearchTermPretty()
-	local color = self:IsSearchActive() and self.matchCount > 0 and "^xFFFFFF" or "^xFF0000"
-	return color .. self.searchTerm
+	if self:IsSearchActive() and self.matchCount == 0 then
+		return GetStyleColor('text_negative')..self.searchTerm
+	end
+	return self.searchTerm
 end

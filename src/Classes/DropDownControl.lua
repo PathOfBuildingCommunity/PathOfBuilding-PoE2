@@ -110,19 +110,20 @@ function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, heig
 		local startX = 0
 		local endX = 0
 		local last = 0
-		SetDrawColor(1, 1, 0, 0.2)
+		SetDrawStyle('search_text_highlight_overlay')
 		for _, range in ipairs(searchInfo.ranges) do
 			if range.from - last - 1 > 0 then
-				startX = DrawStringWidth(height, "VAR", label:sub(last + 1, range.from - 1)) + x + endX
+				startX = StyledDrawStringWidth(height, 'text_dropdown', label:sub(last + 1, range.from - 1)) + x + endX
 			else
 				startX = endX
 			end
-			endX = DrawStringWidth(height, "VAR", label:sub(range.from, range.to)) + x + startX
+			endX = StyledDrawStringWidth(height, 'text_dropdown', label:sub(range.from, range.to)) + x + startX
 			last = range.to
 
 			DrawImage(nil, startX, y, endX - startX, height)
 		end
-		SetDrawColor(1, 1, 1)
+		-- is this supposed to prevent further coloring/highlighting of text?
+		SetDrawStyle('text_dropdown')
 	end
 end
 
@@ -243,15 +244,17 @@ function DropDownClass:Draw(viewPort, noTooltip)
 	local dropExtra = self.dropHeight + 4
 	scrollBar:SetContentDimension(lineHeight * self:GetDropCount(), self.dropHeight)
 	local dropY = self.dropUp and y - dropExtra or y + height
+	-- DropDown-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif mOver or self.dropped then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('dropdown_border_disabled')
+	elseif self.dropped then
+		SetDrawStyle('dropdown_border_toggled')
+	elseif mOver then
+		SetDrawStyle('dropdown_border_hover')
 	elseif self.borderFunc then
-		local r, g, b = self.borderFunc()
-		SetDrawColor(r, g, b)
+		SetDrawStyle('dropdown'..self.borderFunc())
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('dropdown_border')
 	end
 	DrawImage(nil, x, y, width, height)
 	if self.dropped then
@@ -259,29 +262,33 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		DrawImage(nil, x, dropY, self.droppedWidth, dropExtra)
 		SetDrawLayer(nil, 0)
 	end
+	-- DropDown-Fill
 	if not enabled or self.dropped then
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('dropdown_background_disabled')
 	elseif mOver then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('dropdown_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('dropdown_background')
 	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
+	-- DropDown-Arrow
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('dropdown_arrow_disabled')
 	elseif mOver or self.dropped then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('dropdown_arrow_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('dropdown_arrow')
 	end
 	main:DrawArrow(x + width - height/2, y + height/2, height/2, height/2, "DOWN")
 	if self.dropped then
+		-- DropDown-Drop-Fill
 		SetDrawLayer(nil, 5)
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('dropdown_background')
 		DrawImage(nil, x + 1, dropY + 1, self.droppedWidth - 2, dropExtra - 2)
 		SetDrawLayer(nil, 0)
 	end
 	if self.otherDragSource then
+		-- TODO: ?
 		SetDrawColor(0, 1, 0, 0.25)
 		DrawImage(nil, x, y, width, height)
 	end
@@ -297,14 +304,17 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				mOver and "BODY" or "OUT", self.selIndex, self.list[self.selIndex])
 			SetDrawLayer(nil, 0)
 		end
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('text_dropdown')
 	else
-		SetDrawColor(0.66, 0.66, 0.66)
+		SetDrawStyle('text_dropdown_disabled')
 	end
 	-- draw selected label or search term
 	local selLabel = nil
 	local selDetail = nil
 	if self:IsSearchActive() then
+		if self.matchCount > 0 then
+			SetDrawStyle('text_dropdown')
+		end
 		selLabel = "Search: " .. self:GetSearchTermPretty()
 	else
 		local selItem = self.list[self.selIndex]
@@ -316,10 +326,10 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
-	DrawString(0, 0, "LEFT", lineHeight, "VAR", selLabel or "")
+	StyledDrawString(0, 0, "LEFT", lineHeight, 'text_dropdown', selLabel or "")
 	if selDetail ~= nil then
-		local dx = DrawStringWidth(lineHeight, "VAR", selDetail)
-		DrawString(width - dx - 22, 0, "LEFT", lineHeight, "VAR", selDetail)
+		local dx = StyledDrawStringWidth(lineHeight, 'text_dropdown', selDetail)
+		StyledDrawString(width - dx - 22, 0, "LEFT", lineHeight, 'text_dropdown', selDetail)
 	end
 	SetViewport()
 
@@ -357,14 +367,14 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				local y = (dropIndex - 1) * lineHeight - scrollBar.offset
 				-- highlight background if hovered
 				if index == self.hoverSel then
-					SetDrawColor(0.33, 0.33, 0.33)
+					SetDrawStyle('dropdown_background_hover')
 					DrawImage(nil, 0, y, width - 4, lineHeight)
 				end
 				-- highlight font color if hovered or selected
 				if index == self.hoverSel or index == self.selIndex then
-					SetDrawColor(1, 1, 1)
+					SetDrawStyle('text_dropdown')
 				else
-					SetDrawColor(0.66, 0.66, 0.66)
+					SetDrawStyle('text_dropdown_lowered')
 				end
 				-- draw actual item label with search match highlight if available
 				local label = nil
@@ -375,18 +385,18 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				else 
 					label = listVal
 				end
-				DrawString(0, y, "LEFT", lineHeight, "VAR", label)
+				StyledDrawString(0, y, "LEFT", lineHeight, 'text_dropdown', label)
 				if detail ~= nil then
 					local detail = listVal.detail
-					dx = DrawStringWidth(lineHeight, "VAR", detail)
-					DrawString(width - dx - 4 - 22, y, "LEFT", lineHeight, "VAR", detail)
+					dx = StyledDrawStringWidth(lineHeight, 'text_dropdown', detail)
+					StyledDrawString(width - dx - 4 - 22, y, "LEFT", lineHeight, 'text_dropdown', detail)
 				end
 				self:DrawSearchHighlights(label, searchInfo, 0, y, width - 4, lineHeight)
 			end
 		end
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('text_dropdown')
 		if self:IsSearchActive() and self:GetMatchCount() == 0 then
-			DrawString(0, 0 , "LEFT", lineHeight, "VAR", "<No matches>")
+			StyledDrawString(0, 0 , "LEFT", lineHeight, 'text_dropdown', "<No matches>")
 		end
 		SetViewport()
 		SetDrawLayer(nil, 0)
@@ -513,7 +523,7 @@ function DropDownClass:CheckDroppedWidth(enable)
 				line = line.label or ""
 			end
 			  -- +10 to stop clipping
-			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line or "") + 10)
+			dWidth = m_max(dWidth, StyledDrawStringWidth(lineHeight, 'text_dropdown', line or "") + 10)
 		end
 		  -- no greater than self.maxDroppedWidth
 		self.droppedWidth = m_min(dWidth + scrollWidth, self.maxDroppedWidth)
@@ -524,7 +534,7 @@ function DropDownClass:CheckDroppedWidth(enable)
 			end
 			-- add 20 to account for the 'down arrow' in the box
 			local boxWidth
-			boxWidth = DrawStringWidth(lineHeight, "VAR", line or "") + 20
+			boxWidth = StyledDrawStringWidth(lineHeight, 'text_dropdown', line or "") + 20
 			self.width = m_max(m_min(boxWidth, 390), 190)
 		end
 		
