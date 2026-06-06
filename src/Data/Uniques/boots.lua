@@ -258,11 +258,15 @@ Ab Aeterno
 Grand Cuisses
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 (15-30)% increased Movement Speed
 {variant:1}(60-80)% increased Armour, Evasion and Energy Shield
 {variant:2}(100-150)% increased Armour, Evasion and Energy Shield
+{variant:3}(200-250)% increased Armour, Evasion and Energy Shield
 Dodge Roll avoids all Hits
-10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds
+{variant:3}Gain Overencumbrance for 4 seconds when you Dodge Roll
+{variant:3}Your speed is Unaffected by Slows while Sprinting
+{variant:1,2}10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds
 ]],
 }
