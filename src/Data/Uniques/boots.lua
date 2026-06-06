@@ -53,8 +53,8 @@ Variant: Current
 {variant:1}(50-80)% increased Armour
 {variant:1}+(30-50) to Stun Threshold
 {variant:2}+(50-70) to Stun Threshold
--10 Physical damage taken from Projectile Attacks
 +10% to Block chance
+-10 Physical damage taken from Projectile Attacks
 ]],[[
 Trampletoe
 Trimmed Greaves

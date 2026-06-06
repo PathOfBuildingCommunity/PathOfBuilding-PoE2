@@ -46,8 +46,8 @@ Implicits: 1
 {tags:life}20% reduced maximum Life
 {tags:attribute}+(10-20) to all Attributes
 {tags:fire,cold,lightning}+(10-20)% to all Elemental Resistances
-{variant:1}100% increased amount of Life Leeched
-{variant:2}(100-200)% increased amount of Life Leeched
+{variant:1}{tags:life}100% increased amount of Life Leeched
+{variant:2}{tags:life}(100-200)% increased amount of Life Leeched
 ]],[[
 Choir of the Storm
 Jade Amulet
@@ -111,9 +111,9 @@ Implicits: 1
 +(10-15) to Spirit
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
+{tags:fire}+(1-4) to Level of all Fire Skills
 {tags:mana}(30-40)% increased Mana Regeneration Rate
 {tags:fire}Take 100 Fire Damage when you Ignite an Enemy
-{tags:fire}+(1-4) to Level of all Fire Skills
 ]],[[
 Fixation of Yix
 Stellar Amulet
@@ -244,7 +244,7 @@ Implicits: 1
 {variant:1}100% increased Critical Hit Chance
 {variant:2}(100-200)% increased Critical Hit Chance
 +(60-100) to Stun Threshold
-Your Critical Hits do not deal extra Damage
+You have no Critical Damage Bonus
 ]],[[
 Xoph's Blood
 Amber Amulet
@@ -269,12 +269,12 @@ Variant: Current
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
 {tags:fire,cold,lightning}+(10-15)% to all Elemental Resistances
-(15-30)% increased Elemental Damage
+{tags:fire,cold,lightning}(15-30)% increased Elemental Damage
 {variant:1}Enemies take (5-10)% increased Damage for each Elemental Ailment type among
 {variant:1}your Ailments on them
 {variant:2}Enemies take (15-20)% increased Damage for each Elemental Ailment type among
 {variant:2}your Ailments on them
-{variant:1}(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
-{variant:2}(30-40)% reduced Duration of Ignite, Shock and Chill on Enemies
+{variant:1}{tags:fire,cold,lightning}(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
+{variant:2}{tags:fire,cold,lightning}(30-40)% reduced Duration of Ignite, Shock and Chill on Enemies
 ]],
 }

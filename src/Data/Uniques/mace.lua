@@ -209,8 +209,8 @@ Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Da
 (80-120)% increased Physical Damage
 +(10-15) to all Attributes
 Gain 30 Life per enemy killed
+Hits with this Weapon have no Critical Damage Bonus
 This Weapon's Critical Hit Chance is 100%
-Critical Hits do not deal extra Damage
 ]],[[
 Tidebreaker
 Pointed Maul

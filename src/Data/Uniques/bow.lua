@@ -52,8 +52,8 @@ Variant: Current
 +(20-30) to Dexterity
 +2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently
 -1 metre to Dodge Roll distance if you've Dodge Rolled Recently
-{variant:1}Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
-{variant:2}Barrageable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
+{variant:1}Repeatable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
+{variant:2}Repeatable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
 ]],[[
 Quill Rain
 Shortbow

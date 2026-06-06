@@ -257,8 +257,8 @@ League: Dawn of the Hunt
 +(80-120) to maximum Life
 +(10-30) to Spirit
 (40-60)% reduced Poison Duration on you
-You can have two Companions of different types
 (40-60)% reduced Duration of Bleeding on You
+You can have two Companions of different types
 ]],
 
 -- Body: Energy Shield
@@ -312,8 +312,8 @@ Variant: Current
 +(100-150) to maximum Life
 {variant:1}5% of Spell Damage Leeched as Life
 {variant:2}10% of Spell Damage Leeched as Life
-{variant:1}Skills gain a Base Life Cost equal to 50% of Base Mana Cost
-{variant:2}Skills gain a Base Life Cost equal to 100% of Base Mana Cost
+{variant:1}Skills Gain 50% of Mana Cost as Extra Life Cost
+{variant:2}Skills Gain 100% of Mana Cost as Extra Life Cost
 ]],[[
 Ghostwrithe
 Tattered Robe
@@ -341,8 +341,8 @@ Variant: Pre 0.1.1
 Variant: Current
 +(40-60) to maximum Life
 +(30-50) to maximum Mana
-{variant:2}Minions have +(17-23)% to Chaos Resistance
 Minions gain (20-30)% of their maximum Life as Extra maximum Energy Shield
+{variant:2}Minions have +(17-23)% to Chaos Resistance
 Minions Revive 50% faster
 ]],[[
 Prayers for Rain
@@ -761,9 +761,9 @@ Sockets: S S S S
 {variant:9}+(50-60) to maximum Mana per Socket filled
 {variant:26}Hits against you have (10-15)% reduced Critical Damage Bonus per Socket filled
 {variant:27}Hits against you have (15-20)% reduced Critical Damage Bonus per Socket filled
-{variant:10}10% increased Global Defences per Socket filled
-{variant:11}(6-10)% increased Global Defences per Socket filled
-{variant:12}(9-12)% increased Global Defences per Socket filled
+{variant:10}10% increased Global Armour, Evasion and Energy Shield per Socket filled
+{variant:11}(6-10)% increased Global Armour, Evasion and Energy Shield per Socket filled
+{variant:12}(9-12)% increased Global Armour, Evasion and Energy Shield per Socket filled
 {variant:13}10% increased Rarity of Items found per Socket filled
 {variant:4}5% increased Maximum Life per Socket filled
 {variant:7}5% increased Maximum Mana per Socket filled

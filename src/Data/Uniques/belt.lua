@@ -59,12 +59,12 @@ Variant: Shield
 Implicits: 2
 Has (1-3) Charm Slot
 Flasks gain 0.17 charges per Second
+(50-100)% increased effect of Socketed Augment Items
 {variant:2}This item gains bonuses from Socketed Items as though it was a Body Armour
 {variant:4}This item gains bonuses from Socketed Items as though it was Boots
 {variant:3}This item gains bonuses from Socketed Items as though it was Gloves
 {variant:1}This item gains bonuses from Socketed Items as though it was a Helmet
 {variant:5}This item gains bonuses from Socketed Items as though it was a Shield
-(50-100)% increased effect of Socketed Items
 ]],[[
 The Gnashing Sash
 Wide Belt
@@ -227,10 +227,10 @@ Requires Level 56
 Implicits: 2
 (20-30)% increased Stun Threshold
 Has (1-3) Charm Slot
+50% of Charges consumed by used Charms are granted to your Life Flasks
 {variant:1}+(0-2) Charm Slot
 +(10-30) to Strength
 Corrupted Blood cannot be inflicted on you
-50% of charges used by Charms granted to your Life Flasks
 (10-30)% increased Charm Charges used
 ]],
 }

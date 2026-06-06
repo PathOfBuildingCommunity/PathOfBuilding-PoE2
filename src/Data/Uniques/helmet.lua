@@ -6,10 +6,10 @@ return {
 Black Sun Crest
 Wrapped Greathelm
 (50-80)% increased Armour
-20% reduced Light Radius
 (5-15)% increased Strength
 (5-15)% increased Dexterity
 (5-15)% increased Intelligence
+20% reduced Light Radius
 ]],[[
 Blood Price
 Fierce Greathelm
@@ -172,10 +172,10 @@ Variant: Current
 {variant:2}+(60-100) to maximum Mana
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
-{variant:1}(20-25)% of Damage taken bypasses Energy Shield
-{variant:2}10% of Damage taken bypasses Energy Shield
 {variant:1}Gain (25-30)% of maximum Life as Extra maximum Energy Shield
 {variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
+{variant:1}(20-25)% of Damage taken bypasses Energy Shield
+{variant:2}10% of Damage taken bypasses Energy Shield
 ]],[[
 Crown of Eyes
 Vermeil Circlet
@@ -404,9 +404,9 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
++1 to Level of all Skills
 Gain 10 Life per enemy killed
 Gain 10 Mana per enemy killed
-+1 to Level of all Skills
 ]],[[
 The Deepest Tower
 Spiritbone Crown

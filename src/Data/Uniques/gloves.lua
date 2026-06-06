@@ -150,7 +150,7 @@ Intricate Gloves
 +(40-60) to maximum Energy Shield
 +(80-120) to maximum Life
 (6-12)% increased Cast Speed
-Sacrifice (5-15)% of Life to gain that much Energy Shield when you Cast a Spell
+Sacrifice (5-15)% of maximum Life to gain that much Energy Shield when you Cast a Spell
 ]],[[
 Doedre's Tenure
 Stitched Gloves
@@ -338,7 +338,7 @@ Variant: Current
 (30-60)% increased Evasion and Energy Shield
 +(30-50) to maximum Life
 {variant:2}(20-30)% increased Critical Damage Bonus
-Life Flasks do not recover Life
+Flasks do not recover Life
 On-Kill Effects happen twice
 ]],[[
 Plaguefinger
