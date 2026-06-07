@@ -565,6 +565,14 @@ Highest Weight - Displays the order retrieved from trade]]
 		return hideRowFunc(self, row_count)
 	end
 
+	row_count = row_count + 1
+	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true }
+	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
+	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
+	self.controls["name"..row_count].shown = function()
+		return hideRowFunc(self, row_count)
+	end
+
 	-- fix case where the row count is reduced from the last time the popup was
 	-- opened, which would leave extra row controls in the menu
 	for k, v in pairs(self.controls) do

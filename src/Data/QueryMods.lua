@@ -8,6 +8,318 @@
 -- site stats.
 
 return {
+	["AgainstTheDarkness"] = {
+		["1247628870"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1247628870",
+				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Mana",
+				["type"] = "explicit",
+			},
+		},
+		["1294464552"] = {
+			["AnyJewel"] = {
+				["max"] = 8,
+				["min"] = 8,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1294464552",
+				["text"] = "Small Passive Skills in Radius also grant # to maximum Mana",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1316656343"] = {
+			["AnyJewel"] = {
+				["max"] = 8,
+				["min"] = 8,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1316656343",
+				["text"] = "Small Passive Skills in Radius also grant # to maximum Life",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1627878766"] = {
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1627878766",
+				["text"] = "Small Passive Skills in Radius also grant #% reduced Shock duration on you",
+				["type"] = "explicit",
+			},
+		},
+		["1731760476"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1731760476",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Chaos Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["1809641701"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1809641701",
+				["text"] = "Small Passive Skills in Radius also grant #% increased maximum Life",
+				["type"] = "explicit",
+			},
+		},
+		["1842384813"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1842384813",
+				["text"] = "Notable Passive Skills in Radius also grant #% increased Strength",
+				["type"] = "explicit",
+			},
+		},
+		["1862508014"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1862508014",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Cold Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["2217513089"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2217513089",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Lightning Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["2264240911"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2264240911",
+				["text"] = "Small Passive Skills in Radius also grant #% to Chaos Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["2603051299"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2603051299",
+				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Chaos Damage",
+				["type"] = "explicit",
+			},
+		},
+		["2717786748"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2717786748",
+				["text"] = "Notable Passive Skills in Radius also grant #% increased Dexterity",
+				["type"] = "explicit",
+			},
+		},
+		["2884937919"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2884937919",
+				["text"] = "Small Passive Skills in Radius also grant #% to Cold Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["2948688907"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2948688907",
+				["text"] = "Small Passive Skills in Radius also grant #% to Fire Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["338620903"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_338620903",
+				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Fire Damage",
+				["type"] = "explicit",
+			},
+		},
+		["3474941090"] = {
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3474941090",
+				["text"] = "Small Passive Skills in Radius also grant #% reduced Ignite Duration on you",
+				["type"] = "explicit",
+			},
+		},
+		["3991877392"] = {
+			["AnyJewel"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3991877392",
+				["text"] = "Notable Passive Skills in Radius also grant # to Spirit",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["3994876825"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3994876825",
+				["text"] = "Small Passive Skills in Radius also grant #% to Lightning Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["40618390"] = {
+			["AnyJewel"] = {
+				["max"] = 3,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_40618390",
+				["text"] = "Notable Passive Skills in Radius also grant #% increased Intelligence",
+				["type"] = "explicit",
+			},
+		},
+		["4151994709"] = {
+			["AnyJewel"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4151994709",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Maximum Fire Resistance",
+				["type"] = "explicit",
+			},
+			["usePositiveSign"] = true,
+		},
+		["833138896"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_833138896",
+				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Cold Damage",
+				["type"] = "explicit",
+			},
+		},
+		["852470634"] = {
+			["AnyJewel"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_852470634",
+				["text"] = "Notable Passive Skills in Radius also grant Gain #% of Damage as Extra Lightning Damage",
+				["type"] = "explicit",
+			},
+		},
+		["860443350"] = {
+			["AnyJewel"] = {
+				["max"] = 6,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_860443350",
+				["text"] = "Small Passive Skills in Radius also grant #% reduced Freeze Duration on you",
+				["type"] = "explicit",
+			},
+		},
+	},
 	["AllocatesXEnchant"] = {
 		["10029"] = {
 			["specialCaseData"] = {

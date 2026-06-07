@@ -532,12 +532,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3981240776",
+				["id"] = "explicit.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2704225257",
+				["id"] = "explicit.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
@@ -2477,12 +2477,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1602191394",
+				["id"] = "explicit.stat_2261942307",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2261942307",
+				["id"] = "explicit.stat_1602191394",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
@@ -2632,12 +2632,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3984865854",
+				["id"] = "explicit.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1416406066",
+				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
@@ -4522,12 +4522,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|160",
+				["id"] = "explicit.stat_448592698|161",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|161",
+				["id"] = "explicit.stat_448592698|160",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
@@ -7417,6 +7417,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|9863",
+				["text"] = "Allocates Knight of Izaro",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|2397",
 				["text"] = "Allocates Last Stand",
 				["type"] = "explicit",
@@ -9892,12 +9897,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|5",
+				["id"] = "explicit.stat_2801937280",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2801937280",
+				["id"] = "explicit.stat_3831171903|5",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
@@ -10657,12 +10662,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10677,12 +10682,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10772,12 +10777,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2262736444",
+				["id"] = "explicit.stat_3831171903|9",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|9",
+				["id"] = "explicit.stat_2262736444",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
@@ -10862,12 +10867,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2080373320",
+				["id"] = "explicit.stat_1464727508",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1464727508",
+				["id"] = "explicit.stat_2080373320",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
@@ -11442,22 +11447,22 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|2",
-				["text"] = "Giant's Blood",
-				["type"] = "explicit",
-			},
-			{
 				["id"] = "explicit.stat_1875158664",
 				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_4266776872",
-				["text"] = "Glancing Blows",
+				["id"] = "explicit.stat_3831171903|2",
+				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3831171903|22",
+				["text"] = "Glancing Blows",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_4266776872",
 				["text"] = "Glancing Blows",
 				["type"] = "explicit",
 			},
@@ -12262,12 +12267,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1468737867",
+				["id"] = "explicit.stat_3042527515",
 				["text"] = "Map contains an additional Shrine",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3042527515",
+				["id"] = "explicit.stat_1468737867",
 				["text"] = "Map contains an additional Shrine",
 				["type"] = "explicit",
 			},
@@ -13432,12 +13437,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|7",
+				["id"] = "explicit.stat_98977150",
 				["text"] = "Pain Attunement",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_98977150",
+				["id"] = "explicit.stat_3831171903|7",
 				["text"] = "Pain Attunement",
 				["type"] = "explicit",
 			},
@@ -15477,12 +15482,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|33",
+				["id"] = "explicit.stat_1315418254",
 				["text"] = "Zealot's Oath",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1315418254",
+				["id"] = "explicit.stat_3831171903|33",
 				["text"] = "Zealot's Oath",
 				["type"] = "explicit",
 			},
@@ -15583,12 +15588,12 @@ return {
 				["type"] = "implicit",
 			},
 			{
-				["id"] = "implicit.stat_774059442",
+				["id"] = "implicit.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "implicit",
 			},
 			{
-				["id"] = "implicit.stat_3336230913",
+				["id"] = "implicit.stat_774059442",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "implicit",
 			},
@@ -17389,12 +17394,12 @@ return {
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_1416406066",
+				["id"] = "fractured.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_3984865854",
+				["id"] = "fractured.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "fractured",
 			},
@@ -24445,6 +24450,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|9863",
+				["text"] = "Allocates Knight of Izaro",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|2397",
 				["text"] = "Allocates Last Stand",
 				["type"] = "crafted",
@@ -29871,12 +29881,12 @@ return {
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|62210",
+				["id"] = "enchant.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|14258",
+				["id"] = "enchant.stat_2954116742|62210",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "enchant",
 			},
@@ -31497,12 +31507,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_2704225257",
+				["id"] = "rune.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3981240776",
+				["id"] = "rune.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
@@ -31962,12 +31972,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3984865854",
+				["id"] = "rune.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_1416406066",
+				["id"] = "rune.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
@@ -34063,12 +34073,12 @@ return {
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_2704225257",
+				["id"] = "desecrated.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_3981240776",
+				["id"] = "desecrated.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
@@ -35203,12 +35213,12 @@ return {
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_3984865854",
+				["id"] = "desecrated.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_1416406066",
+				["id"] = "desecrated.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "desecrated",
 			},
@@ -38555,12 +38565,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink_reservation",
+				["id"] = "skill.blink",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink",
+				["id"] = "skill.blink_reservation",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
@@ -38665,12 +38675,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.corpse_cloud_triggered",
+				["id"] = "skill.corpse_cloud",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.corpse_cloud",
+				["id"] = "skill.corpse_cloud_triggered",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},

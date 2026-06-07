@@ -93,6 +93,7 @@ local function getStatEntries(modType)
 		-- note that in the json the label is augment while the id is rune
 		["Rune"] = "rune",
 		["HeartOfTheWell"] = "explicit",
+		["AgainstTheDarkness"] = "explicit",
 	}
 	if tradeStatCategoryIndices[modType] then
 		for i, cat in ipairs(tradeStats) do
@@ -419,6 +420,7 @@ return %s
 		["AllocatesXEnchant"] = { },
 		["Rune"] = { },
 		["HeartOfTheWell"] = { },
+		["AgainstTheDarkness"] = { },
 	}
 
 	-- create mask for regular mods
@@ -469,6 +471,19 @@ return %s
 		end
 	end
 	self:GenerateModData(heartMods, { ["BaseJewel"] = true, ["AnyJewel"] = true }, { ["AnyJewel"] = "AnyJewel" })
+
+	-- against the darkness mods
+	local darknessMods = {}
+	for name, mod in pairsSortByKey(data.itemMods.Exclusive) do
+		-- this name prefix is not very unique and already matches some mods that don't exist on the
+		-- jewel. this might cause problems later
+		if name:match("^UniqueJewelRadius") then
+			local modCopy = copyTable(mod)
+			modCopy.type = "AgainstTheDarkness"
+			t_insert(darknessMods, modCopy)
+		end
+	end
+	self:GenerateModData(darknessMods, { ["RadiusJewel"] = true, ["AnyJewel"] = true }, { ["AnyJewel"] = "AnyJewel" })
 
 	-- implicit mods
 	for baseName, entry in pairsSortByKey(data.itemBases) do
@@ -736,10 +751,22 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			special = {
 				queryFilters = {},
 				queryExtra = {
-					name = "Heart of the Well",
+					name = options.special.itemName,
 					type = "Diamond"
 				},
 				HeartOfTheWell = true
+			}
+			itemCategory = "AnyJewel"
+			itemCategoryQueryStr = "jewel"
+		end
+		if options.special.itemName == "Against the Darkness" then
+			special = {
+				queryFilters = {},
+				queryExtra = {
+					name = options.special.itemName,
+					type = "Time-Lost Diamond"
+				},
+				AgainstTheDarkness = true
 			}
 			itemCategory = "AnyJewel"
 			itemCategoryQueryStr = "jewel"
@@ -757,7 +784,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 
 	-- Create a temp item for the slot with no mods
 	local itemRawStr = "Rarity: RARE\nStat Tester\n" .. testItemType
-	if options.jewelType == "Radius" then
+	if options.jewelType == "Radius" or (options.special and options.special.itemName) then
 		itemRawStr = [[Rarity: RARE
 Stat Tester
 Time-Lost Sapphire
@@ -804,6 +831,13 @@ function TradeQueryGeneratorClass:ExecuteQuery()
 	end
 	if self.calcContext.special.HeartOfTheWell then
 		self:GenerateModWeights(self.modData.HeartOfTheWell)
+		if self.calcContext.options.includeCorrupted then
+			self:GenerateModWeights(self.modData["Corrupted"])
+		end
+		return
+	end
+	if self.calcContext.special.AgainstTheDarkness then
+		self:GenerateModWeights(self.modData.AgainstTheDarkness)
 		if self.calcContext.options.includeCorrupted then
 			self:GenerateModWeights(self.modData["Corrupted"])
 		end
@@ -1070,7 +1104,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 		options.special = { itemName = context.slotTbl.slotName }
 	end
 
-	if context.slotTbl.slotName == "Heart of the Well" then
+	if context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
 		local activeSocketList = { }
 		for nodeId, jewelSlot in pairs(self.itemsTab.sockets) do
 			if not jewelSlot.inactive then
