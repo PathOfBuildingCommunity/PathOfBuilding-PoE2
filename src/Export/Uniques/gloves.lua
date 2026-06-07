@@ -376,12 +376,15 @@ Sine Aequo
 Grand Manchettes
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 UniqueIncreasedSkillSpeed1
 {variant:1}UniqueLocalArmourAndEvasionAndEnergyShield3[40,60]
-{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield3
+{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield3[100,150]
+{variant:3}UniqueLocalArmourAndEvasionAndEnergyShield3
 UniqueImmobiliseThreshold1
 {variant:1}UniqueImmobiliseDamageTaken1[25,25]
 {variant:2}UniqueImmobiliseDamageTaken1
+{variant:3}UniqueImmobiliseIncreasedDamageTaken1
 ]],
 }
