@@ -6121,6 +6121,33 @@ local specialModList = {
 	} end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
+	-- Bloodbarrier (Corrupted Blood)
+	["inflict corrupted blood for ([%d%.]+) seconds on block, dealing ([%d%.]+)%% of your maximum life as physical damage per second"] = function(_, duration, pct)
+		duration = tonumber(duration)
+		pct = tonumber(pct)
+
+		return {
+			mod("ExtraSkill", "LIST", {
+				skillId = "BloodbarrierPlayer",
+				level = 1,
+				noSupports = true,
+				name = "Bloodbarrier",
+			}),
+			mod("ExtraSkillStat", "LIST", {
+				key = "unique_blood_barrier_applies_x_stacks_of_corrupted_blood_on_block",
+				value = 1,
+			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+			mod("ExtraSkillStat", "LIST", {
+				key = "base_skill_effect_duration",
+				value = math.floor(duration * 1000 + 0.5),
+			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+			mod("ExtraSkillStat", "LIST", {
+				key = "base_physical_damage_%_of_maximum_life_to_deal_per_minute",
+				value = pct * 60,
+			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+		}
+	end,
+
 	-- Display-only modifiers
 	["extra gore"] = { },
 	["prefixes:"] = { },

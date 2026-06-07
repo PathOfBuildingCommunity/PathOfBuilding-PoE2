@@ -2709,6 +2709,56 @@ skills["BloodBoilPlayer"] = {
 		},
 	}
 }
+skills["BloodbarrierPlayer"] = {
+	name = "Bloodbarrier",
+	baseTypeName = "Bloodbarrier",
+	gemName = "Bloodbarrier",
+	fromItem = true,
+	color = 4,
+	description = "On Block, inflicts Corrupted Blood on enemies, dealing Physical Damage over Time based on your maximum Life.",
+	skillTypes = {
+		[SkillType.Duration] = true,
+		[SkillType.AttackInPlace] = true,
+		[SkillType.Physical] = true,
+		[SkillType.DamageOverTime] = true,
+	},
+	castTime = 0,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Corrupted Blood",
+			baseEffectiveness = 5.5,
+			incrementalEffectiveness = 0.17000000178814,
+			damageIncrementalEffectiveness = 0.010599999688566,
+			statDescriptionScope = "triggered_corrupting_cry",
+			statMap = {
+				["base_physical_damage_%_of_maximum_life_to_deal_per_minute"] = {
+					skill("PhysicalDot", nil, { type = "PerStat", stat = "Life", div = 1 }),
+					div = 6000,
+				},
+			},
+			baseFlags = {
+			},
+			baseMods = {
+				skill("debuff", true),
+				flag("dotIsCorruptingBlood"),
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 5000 },
+				{ "skill_desired_amount_override", 1 },
+			},
+			stats = {
+				"base_skill_effect_duration",
+				"base_physical_damage_%_of_maximum_life_to_deal_per_minute",
+			},
+			levels = {
+				[1] = { 0, 0, statInterpolation = { 1, 1 }, actorLevel = 1, },
+			},
+		},
+	},
+}
 skills["MeleeBowPlayer"] = {
 	name = "Bow Shot",
 	baseTypeName = "Bow Shot",
