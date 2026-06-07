@@ -468,11 +468,16 @@ UniqueChaosResistanceIsZero2
 The Hollow Mask
 Hewn Mask
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Wildwood's Gifts
 UniqueIncreasedLife14
 UniqueAdditionalPhysicalDamageReduction1
 UniqueAllResistances4
-{variant:2}UniqueChaosResist23
+{variant:2,3}UniqueChaosResist23
+{variant:3}UniqueRemnantsAffectAlliesInPresence1
+{variant:3}UniqueRemnantSkillSpiritReservationEfficiency1
 ]],[[
 Leer Cast
 Hooded Mask

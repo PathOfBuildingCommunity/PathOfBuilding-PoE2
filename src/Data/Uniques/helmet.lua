@@ -472,11 +472,16 @@ Chaos Resistance is zero
 The Hollow Mask
 Hewn Mask
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Wildwood's Gifts
 +(60-80) to maximum Life
 15% additional Physical Damage Reduction
 -10% to all Elemental Resistances
-{variant:2}+13% to Chaos Resistance
+{variant:2,3}+13% to Chaos Resistance
+{variant:3}Remnants you create affect Allies in your Presence as well as you when collected
+{variant:3}(80-100)% increased Reservation Efficiency of Remnant Skills
 ]],[[
 Leer Cast
 Hooded Mask
