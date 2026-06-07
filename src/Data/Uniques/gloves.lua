@@ -354,11 +354,13 @@ On-Kill Effects happen twice
 Plaguefinger
 Gauze Wraps
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 (30-50)% increased Evasion and Energy Shield
 (4-6)% increased Attack Speed
+{variant:3}Cannot inflict Elemental Ailments
 {variant:1}(5-10)% chance to Poison on Hit
-{variant:2}(20-30)% chance to Poison on Hit
+{variant:2,3}(20-30)% chance to Poison on Hit
 All Damage from Hits Contributes to Poison Magnitude
 ]],[[
 Thunderfist

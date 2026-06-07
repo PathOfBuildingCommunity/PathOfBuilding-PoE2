@@ -350,11 +350,13 @@ UniqueDoubleOnKillEffects1
 Plaguefinger
 Gauze Wraps
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield1
 UniqueIncreasedAttackSpeed1
+{variant:3}UniqueCannotInflictElementalAilments1
 {variant:1}UniqueBaseChanceToPoison2[5,10]
-{variant:2}UniqueBaseChanceToPoison2
+{variant:2,3}UniqueBaseChanceToPoison2
 UniqueAllDamageCanPoison1
 ]],[[
 Thunderfist
