@@ -244,6 +244,7 @@ local modNameList = {
 	["evasion rating and armour"] = "ArmourAndEvasion",
 	["armour and energy shield"] = "ArmourAndEnergyShield",
 	["evasion rating and energy shield"] = "EvasionAndEnergyShield",
+	["global evasion rating and energy shield"] = { "Evasion", "EnergyShield" },
 	["evasion and energy shield"] = "EvasionAndEnergyShield",
 	["armour, evasion and energy shield"] = "Defences",
 	["defences"] = "Defences",
