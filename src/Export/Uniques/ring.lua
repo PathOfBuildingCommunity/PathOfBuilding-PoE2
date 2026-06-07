@@ -39,12 +39,16 @@ UniqueChanceToIntimidateOnHit1
 ]],[[
 Blistering Bond
 Ruby Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitFireResistance1
 UniqueIncreasedLife3
 UniqueFireResist18
 UniqueColdResist22
 UniqueSelfBleedFireDamage1
+{variant:2}UniqueFireDamageAlsoContributesToBleed1
+{variant:2}UniqueInflictBleedFireDamage1
 ]],[[
 The Burrower
 Topaz Ring

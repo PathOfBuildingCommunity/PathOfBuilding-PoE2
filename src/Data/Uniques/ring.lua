@@ -39,12 +39,16 @@ Implicits: 1
 ]],[[
 Blistering Bond
 Ruby Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:fire}+(20-30)% to Fire Resistance
 {tags:life}+(40-60) to maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
 {tags:cold}-(15-10)% to Cold Resistance
 {tags:fire}You take Fire Damage instead of Physical Damage from Bleeding
+{variant:2}{tags:fire}Fire Damage also Contributes to Bleeding Magnitude
+{variant:2}{tags:fire}Bleeding you inflict deals Fire Damage instead of Physical Damage
 ]],[[
 The Burrower
 Topaz Ring
