@@ -152,7 +152,6 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 					filter.value = value
 				end
 			end
-			
 			t_insert(queryTable.query.stats[1].filters, filter)
 		end
 	end
@@ -200,6 +199,17 @@ function M.openPopup(item, slotName, primaryBuild)
 		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.explicitModLines, type = "explicit" },
 	}
+	-- this adds a single aggregated entry for matching stats (e.g. transformed flat dmg mods) which avoids issues with confusing results
+	local function insertOrAddToExisting(entry)
+		for _, existingFilter in ipairs(modEntries) do
+				if existingFilter.tradeId == entry.tradeId and entry.value then
+					existingFilter.count = existingFilter.count + 1
+					existingFilter.value = (existingFilter.value or 0) + entry.value
+					return
+				end
+			end
+		t_insert(modEntries, entry)
+	end
 	for _, source in ipairs(modTypeSources) do
 		if source.list then
 			for _, modLine in ipairs(source.list) do
@@ -220,7 +230,7 @@ function M.openPopup(item, slotName, primaryBuild)
 							value = tradeHelpers.modLineValue(resolvedLine)
 						end
 						local invert = (not isOption) and tradeHelpers.shouldBeInverted(identifier, resolvedLine, source.type)
-						t_insert(modEntries, {
+						insertOrAddToExisting({
 							line = modLine.line,
 							formatted = formatted,
 							tradeId = identifier,
@@ -228,6 +238,7 @@ function M.openPopup(item, slotName, primaryBuild)
 							isOption = isOption,
 							type = source.type,
 							invert = invert,
+							count = 1,
 						})
 					end
 				end
@@ -400,8 +411,13 @@ function M.openPopup(item, slotName, primaryBuild)
 			-- strip color codes and replace with gray
 			displayText = "^8" .. displayText:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", "")
 		end
-		if #displayText > (#colorCodeLength + 60) then
-			displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
+		if #displayText > (#colorCodeLength + 58) then
+			displayText = displayText:sub(1, #colorCodeLength + 52) .. "..."
+		end
+
+		-- append a (#x) to the line to clarify this contains multiple mods
+		if entry.count and entry.count > 1 then
+			displayText = string.format("%s (%d mods)", displayText, entry.count)
 		end
 		
 		controls[prefix .. "Label"] = new("LabelControl", { "LEFT", controls[prefix .. "Check"], "RIGHT" }, { 4, 0, 0, 16 },
