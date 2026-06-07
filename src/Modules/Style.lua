@@ -13,10 +13,16 @@
 ---| "'text_label'"
 ---| "'text_label_disabled'"
 ---| "'text_heading'"
+---| "'text_tooltip'"
 ---| "'text_toast'"
 ---| "'text_toast_heading'"
 ---| "'text_popup_title'"
 ---| "'text_section_title'"
+---| "'text_calc_section_title'"
+---| "'text_calc_section_title_disabled'"
+---| "'text_calc_section_title_value'"
+---| "'text_calc_section_label'"
+---| "'text_calc_section_value'"
 ---| "'text_current_build'"
 ---| "'text_button'"
 ---| "'text_button_disabled'"
@@ -169,6 +175,9 @@
 ---| "'dragger_knobimage'"
 ---| "'dragger_knobimage_disabled'"
 ---| "'dragger_knobimage_overlay_dragged'"
+---| "'path_border'"
+---| "'path_background'"
+---| "'path_arrow'"
 ---| "'rectangle_outline_border'"
 ---| "'popup_background'"
 ---| "'popup_background_title'"
@@ -268,10 +277,16 @@ local themes = {
 		text_label = {color = colors.white, font = fonts.VAR},
 		text_label_disabled = {color = colors.dark_grey, font = fonts.VAR},
 		text_heading = {color = colors.white, font = fonts.VAR},
+		text_tooltip = {color = colors.white, font = fonts.VAR},
 		text_toast = {color = colors.white, font = fonts.VAR},
 		text_toast_heading = {color = colors.white, font = fonts.VAR},
 		text_popup_title = {color = colors.white, font = fonts.VAR},
 		text_section_title = {color = colors.white, font = fonts.VAR},
+		text_calc_section_title = {color = colors.white, font = fonts.VAR_BOLD},
+		text_calc_section_title_disabled = {color = colors.dark, font = fonts.VAR_BOLD}, -- is 10% brightness correct here?
+		text_calc_section_title_value = {color = colors.white, font = fonts.VAR},
+		text_calc_section_label = {color = colors.white, font = fonts.VAR},
+		text_calc_section_value = {color = colors.white, font = fonts.VAR},
 		text_current_build = {color = colors.white, font = fonts.VAR},
 		text_button = {color = colors.white, font = fonts.VAR},
 		text_button_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -465,6 +480,10 @@ local themes = {
 		dragger_knobimage = colors.white,
 		dragger_knobimage_disabled = colors.dark_grey,
 		dragger_knobimage_overlay_dragged = colors.white_50,
+		-- path 
+		path_background = colors.black,
+		path_border = colors.grey,
+		path_arrow = colors.white,
 		-- rectangle outline
 		rectangle_outline_border = colors.white,
 		-- popup background
@@ -515,10 +534,16 @@ local themes = {
 		text_label = {color = poe2trade_colors.white_warm, font = fonts.FONTIN_SC},
 		text_label_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
 		text_heading = {color = poe2trade_colors.button_raised_hover, font = fonts.FONTIN_SC},
+		text_tooltip = {color = colors.light, font = fonts.FONTIN},
 		text_toast = {color = colors.light, font = fonts.FONTIN},
 		text_toast_heading = {color = colors.white, font = fonts.FONTIN},
 		text_popup_title = {color = poe2trade_colors.button_raised_hover, font = fonts.FONTIN_SC},
 		text_section_title = {color = poe2trade_colors.button_raised_hover, font = fonts.FONTIN_SC},
+		text_calc_section_title = {color = poe2trade_colors.white_warm, font = fonts.FONTIN_SC},
+		text_calc_section_title_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
+		text_calc_section_title_value = {color = colors.white, font = fonts.FONTIN},
+		text_calc_section_label = {color = colors.white, font = fonts.FONTIN},
+		text_calc_section_value = {color = colors.white, font = fonts.FONTIN},
 		text_current_build = {color = colors.light, font = fonts.FONTIN},
 		text_button = {color = colors.light, font = fonts.FONTIN_SC},
 		text_button_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
@@ -712,6 +737,10 @@ local themes = {
 		dragger_knobimage = colors.white,
 		dragger_knobimage_disabled = colors.dark_grey,
 		dragger_knobimage_overlay_dragged = colors.white_50,
+		-- path 
+		path_background = colors.dark,
+		path_border = poe2trade_colors.clickable_background_hover,
+		path_arrow = colors.light_grey,
 		-- rectangle outline
 		rectangle_outline_border = poe2trade_colors.brown_transparancy,
 		-- popup background

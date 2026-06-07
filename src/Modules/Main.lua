@@ -1073,7 +1073,7 @@ function main:OpenOptionsPopup(savedState)
 		SetActiveTheme(value.themeIdentifier)
 	end)
 	controls.themeLabel = new("LabelControl", { "RIGHT", controls.theme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "Theme:")
-	controls.theme.tooltipText = "Sets the color and font styles of PoB.\nNote: Some styles require a restart of PoB to take effetct.\nAvailable Options:\nClassic - The traditional PoB experience\nDark - Dark mode inspired by the offical PoE2 trade site"
+	controls.theme.tooltipText = "Sets the color and font styles of PoB.\nNote: Some styles require a restart of PoB to take effect.\nAvailable Options:\nClassic - The traditional PoB experience\nDark - Dark mode inspired by the offical PoE2 trade site"
 	controls.theme:SelByValue(self.activeTheme, "themeIdentifier")
 
 	nextRow()

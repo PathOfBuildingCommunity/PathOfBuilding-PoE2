@@ -237,16 +237,17 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 		SetDrawColor(0.10, 0.10, 0.10)
 		-- Draw label
 		if not self.enabled then
-			DrawString(x + 3, lineY + 3, "LEFT", 16, "VAR BOLD", "^8"..subSec.label)
+			SetDrawStyle('text_calc_section_title_disabled')
+			StyledDrawString(x + 3, lineY + 3, "LEFT", 16, 'text_calc_section_title_disabled', subSec.label)
 		else
-			local textColor = "^7"
+			local textColor = GetStyleColor('text_calc_section_title')
 			if self.calcsTab:SearchMatch(subSec.label) then
 				textColor = colorCodes.HIGHLIGHT
 			end
-			DrawString(x + 3, lineY + 3, "LEFT", 16, "VAR BOLD", textColor..subSec.label..":")
+			StyledDrawString(x + 3, lineY + 3, "LEFT", 16, 'text_calc_section_title', textColor..subSec.label..":")
 			if subSec.data.extra then
-				local x = x + 3 + DrawStringWidth(16, "VAR BOLD", subSec.label) + 10
-				DrawString(x, lineY + 3, "LEFT", 16, "VAR", "^7"..formatCalcStr(subSec.data.extra, actor))
+				local x = x + 3 + StyledDrawStringWidth(16, 'text_calc_section_title', subSec.label) + 10
+				StyledDrawString(x, lineY + 3, "LEFT", 16, 'text_calc_section_title_value', GetStyleColor('text_calc_section_title_value')..formatCalcStr(subSec.data.extra, actor))
 			end
 		end
 		-- Draw line below label
@@ -269,7 +270,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 			for _, rowData in ipairs(subSec.data) do
 				if rowData.enabled then
 					rows = rows + 1
-					local textColor = "^7"
+					local textColor = GetStyleColor('text_calc_section_label')
 					if rowData.color then
 						textColor = rowData.color
 					end
@@ -279,7 +280,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 						if self.calcsTab:SearchMatch(rowData.label) then
 							textColor = colorCodes.HIGHLIGHT
 						end
-						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label..":")
+						StyledDrawString(x + 132, lineY + 2, "RIGHT_X", 16, 'text_calc_section_label', textColor..rowData.label..":")
 					end
 					for colour, colData in ipairs(rowData) do
 						-- Draw column separator at the left end of the cell
@@ -301,7 +302,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 							end
 							local textSize = rowData.textSize or 14
 							SetViewport(colData.x + 3, colData.y, colData.width - 4, colData.height)
-							DrawString(1, 9 - textSize/2, "LEFT", textSize, "VAR", "^7"..formatCalcStr(colData.format, actor, colData))
+							StyledDrawString(1, 9 - textSize/2, "LEFT", textSize, 'text_calc_section_value', GetStyleColor('text_calc_section_value')..formatCalcStr(colData.format, actor, colData))
 							SetViewport()
 						end
 					end

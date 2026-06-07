@@ -113,9 +113,9 @@ function TooltipClass:AddLine(size, text, font, background)
 	if text then
 		local fontToUse
 		if main.showFlavourText then
-			fontToUse = font or "VAR"
+			fontToUse = font or GetStyleFont('text_tooltip')
 		else
-			fontToUse = "VAR"
+			fontToUse = GetStyleFont('text_tooltip')
 		end
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
