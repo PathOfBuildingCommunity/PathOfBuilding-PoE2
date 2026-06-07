@@ -107,12 +107,15 @@ Variant: Current
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 (50-80)% increased Evasion Rating
 {variant:1}+(10-20) to Dexterity
-{variant:2}+(20-30) to Dexterity
-Charms gain 0.5 charges per Second
+{variant:2,3}+(20-30) to Dexterity
+{variant:1,2}Charms gain 0.5 charges per Second
+{variant:3}Charms gain 1 charge per Second
 {variant:2}+1 Charm Slot
+{variant:3}+(1-2) Charm Slot
 ]],[[
 Goldrim
 Felt Cap

@@ -107,12 +107,15 @@ UniqueLifeRegeneration20
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent2
 {variant:1}UniqueDexterity26[10,20]
-{variant:2}UniqueDexterity26
-UniqueCharmChargeGeneration1
-{variant:2}UniqueGlobalAdditionalCharm1
+{variant:2,3}UniqueDexterity26
+{variant:1,2}UniqueCharmChargeGeneration1[30,30]
+{variant:3}UniqueCharmChargeGeneration1
+{variant:2}UniqueGlobalAdditionalCharm1[1,1]
+{variant:3}UniqueGlobalAdditionalCharm1
 ]],[[
 Goldrim
 Felt Cap
