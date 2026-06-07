@@ -13,12 +13,18 @@ UniqueAllResistances3
 ]],[[
 Blackflame
 Amethyst Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 BodyArmourImplicitChaosResistance1
 UniqueManaRegeneration2
-UniqueIgniteDuration1
+{variant:1}UniqueIgniteEffect1[50,50]
+{variant:2}UniqueIgniteEffect1
+{variant:1}UniqueIgniteDuration1[50,50]
+{variant:2}UniqueIgniteDuration1
 UniqueEnemiesIgniteChaosDamage1
-UniqueIgniteEffect1
+{variant:2}UniqueWitherNeverExpiresOnIgnitedEnemies1
+{variant:2}UniqueWitherInflictedAlsoIncreasesFireDamageTaken1
 ]],[[
 Blackheart
 Iron Ring

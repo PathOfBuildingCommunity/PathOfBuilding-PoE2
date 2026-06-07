@@ -13,12 +13,18 @@ Implicits: 1
 ]],[[
 Blackflame
 Amethyst Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:mana}(15-30)% increased Mana Regeneration Rate
-50% increased Ignite Magnitude
-{tags:fire}50% reduced Ignite Duration on Enemies
-{tags:fire}Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite
+{tags:fire}Ignite you inflict deals Chaos Damage instead of Fire Damage
+{variant:1}{tags:fire}50% increased Ignite Magnitude
+{variant:2}{tags:fire}(80-100)% increased Ignite Magnitude
+{variant:1}{tags:fire}50% increased Ignite Duration on Enemies
+{variant:2}{tags:fire}(60-75)% reduced Ignite Duration on Enemies
+{variant:2}{tags:fire,chaos}Withered you inflict also increases Fire Damage taken
+{variant:2}{tags:fire}Withered does not expire on Enemies Ignited by you
 ]],[[
 Blackheart
 Iron Ring
