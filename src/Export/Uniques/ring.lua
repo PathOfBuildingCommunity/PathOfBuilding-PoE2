@@ -144,11 +144,14 @@ UniqueConsecratedGroundStationaryRing1
 ]],[[
 Glowswarm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitIncreasedMana1
 UniqueIncreasedMana7
 UniqueFlaskManaRecoveryRate3
 UniqueManaFlaskChargeGeneration2
+{variant:2}UniqueGuardFromManaFlask1
 ]],[[
 Heartbound Loop
 Pearl Ring

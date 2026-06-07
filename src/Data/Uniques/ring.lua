@@ -144,11 +144,14 @@ You have Consecrated Ground around you while stationary
 ]],[[
 Glowswarm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:mana}+(20-30) to maximum Mana
 {tags:mana}+(40-60) to maximum Mana
 {tags:mana}(20-30)% increased Flask Mana Recovery rate
 Mana Flasks gain (0.17-0.25) charges per Second
+{variant:2}Using a Mana Flask grants Guard equal to 100% of Flask's recovery amount for 4 seconds
 ]],[[
 Heartbound Loop
 Pearl Ring
