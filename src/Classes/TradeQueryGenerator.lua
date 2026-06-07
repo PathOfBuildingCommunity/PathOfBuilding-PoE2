@@ -91,7 +91,8 @@ local function getStatEntries(modType)
 		["Corrupted"] = "enchant",
 		["AllocatesXEnchant"] = "enchant",
 		-- note that in the json the label is augment while the id is rune
-		["Rune"] = "rune"
+		["Rune"] = "rune",
+		["HeartOfTheWell"] = "explicit",
 	}
 	if tradeStatCategoryIndices[modType] then
 		for i, cat in ipairs(tradeStats) do
@@ -211,6 +212,11 @@ function TradeQueryGeneratorClass:ProcessMod(mod, itemCategoriesMask, itemCatego
 		end
 
 		local modType = (mod.type == "Prefix" or mod.type == "Suffix") and "Explicit" or mod.type == "SpecialCorrupted" and "Corrupted" or mod.type
+
+		if not modType then
+			ConPrintf("Unable to match mod due to missing mod type: %s", modLine)
+			goto continue
+		end
 
 		-- Special cases
 		local specialCaseData = { }
@@ -412,6 +418,7 @@ return %s
 		["Enchant"] = { },
 		["AllocatesXEnchant"] = { },
 		["Rune"] = { },
+		["HeartOfTheWell"] = { },
 	}
 
 	-- create mask for regular mods
@@ -421,6 +428,7 @@ return %s
 	end
 
 	self:GenerateModData(data.itemMods.Item, regularItemMask)
+	self:GenerateModData(data.itemMods.Desecrated, regularItemMask)
 	self:GenerateModData(data.itemMods.Corruption, regularItemMask)
 	self:GenerateModData(data.itemMods.Jewel, { ["BaseJewel"] = true, ["AnyJewel"] = true, ["RadiusJewel"] = true })
 	self:GenerateModData(data.itemMods.Flask, { ["LifeFlask"] = true, ["ManaFlask"] = true })
@@ -450,6 +458,17 @@ return %s
 			self.modData.AllocatesXEnchant[nodeId] = { tradeMod = entry, specialCaseData = { } }
 		end
 	end
+
+	-- heart of the well mods
+	local heartMods = {}
+	for name, mod in pairsSortByKey(data.itemMods.Desecrated) do
+		if name:match("^UniqueHeart") then
+			local modCopy = copyTable(mod)
+			modCopy.type = "HeartOfTheWell"
+			t_insert(heartMods, modCopy)
+		end
+	end
+	self:GenerateModData(heartMods, { ["BaseJewel"] = true, ["AnyJewel"] = true }, { ["AnyJewel"] = "AnyJewel" })
 
 	-- implicit mods
 	for baseName, entry in pairsSortByKey(data.itemBases) do
@@ -713,6 +732,18 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 				calcNodesInsteadOfMods = true,
 			}
 		end
+		if options.special.itemName == "Heart of the Well" then
+			special = {
+				queryFilters = {},
+				queryExtra = {
+					name = "Heart of the Well",
+					type = "Diamond"
+				},
+				HeartOfTheWell = true
+			}
+			itemCategory = "AnyJewel"
+			itemCategoryQueryStr = "jewel"
+		end
 	else
 		itemCategoryQueryStr, itemCategory = tradeHelpers.getTradeCategory(slot.slotName, existingItem)
 		if not itemCategory then
@@ -769,6 +800,13 @@ end
 function TradeQueryGeneratorClass:ExecuteQuery()
 	if self.calcContext.special.calcNodesInsteadOfMods then
 		self:GeneratePassiveNodeWeights(self.modData.AllocatesXEnchant)
+		return
+	end
+	if self.calcContext.special.HeartOfTheWell then
+		self:GenerateModWeights(self.modData.HeartOfTheWell)
+		if self.calcContext.options.includeCorrupted then
+			self:GenerateModWeights(self.modData["Corrupted"])
+		end
 		return
 	end
 
@@ -1032,6 +1070,21 @@ Remove: anoints are completely ignored, and removed from items.]]
 		options.special = { itemName = context.slotTbl.slotName }
 	end
 
+	if context.slotTbl.slotName == "Heart of the Well" then
+		local activeSocketList = { }
+		for nodeId, jewelSlot in pairs(self.itemsTab.sockets) do
+			if not jewelSlot.inactive then
+				t_insert(activeSocketList, jewelSlot)
+			end
+		end
+		controls.jewelSlot = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 100, 18}, activeSocketList, function(idx, value) end)
+		controls.jewelSlotLabel = new("LabelControl", {"RIGHT",controls.jewelSlot,"LEFT"}, {-5, 0, 0, 16}, "Jewel Slot:")
+		if self.lastJewelSlot and self.lastJewelSlot <= #activeSocketList then
+			controls.jewelSlot.selIndex = self.lastJewelSlot
+		end
+		updateLastAnchor(controls.jewelSlot)
+	end
+
 
 	if isJewelSlot then
 		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
@@ -1116,6 +1169,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 		if controls.jewelType then
 			self.lastJewelType = controls.jewelType.selIndex
 			options.jewelType = controls.jewelType:GetSelValue()
+		end
+		if controls.jewelSlot then
+			self.lastJewelSlot = controls.jewelSlot.selIndex
+			slot = controls.jewelSlot:GetSelValue()
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
