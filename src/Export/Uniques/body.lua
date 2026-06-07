@@ -187,17 +187,20 @@ UniqueGlobalEvasionOnFullLife1
 Hyrri's Ire
 Armoured Vest
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitIncreasedAilmentThreshold1
 {variant:1}UniqueLocalIncreasedEvasionRatingPercent33[100,130]
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent33
-{variant:2}UniqueDamageGainedAsCold2
+{variant:2}UniqueLocalIncreasedEvasionRatingPercent33[200,250]
+{variant:3}UniqueLocalIncreasedEvasionRatingPercent33
+{variant:2}UniqueDamageGainedAsCold2[15,25]
+{variant:3}UniqueDamageGainedAsCold2
 {variant:1}UniqueAddedColdDamage3
 UniqueDexterity38
 {variant:1}UniqueChillDuration2
-{variant:2}FreezeDurationUnique__1
+{variant:2,3}FreezeDurationUnique__1
 UniqueCanEvadeAllDamageNotHitRecently1
 ]],[[
 Quatl's Molt

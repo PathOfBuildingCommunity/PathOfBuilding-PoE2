@@ -191,17 +191,20 @@ Quilted Vest
 Hyrri's Ire
 Armoured Vest
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 (30-40)% increased Elemental Ailment Threshold
 {variant:1}(100-130)% increased Evasion Rating
 {variant:2}(200-250)% increased Evasion Rating
+{variant:3}(100-150)% increased Evasion Rating
 {variant:1}Adds (13-20) to (21-31) Cold damage to Attacks
 {variant:2}Gain (15-25)% of Damage as Extra Cold Damage
+{variant:3}Gain (10-20)% of Damage as Extra Cold Damage
 +(30-40) to Dexterity
 {variant:1}25% increased Chill Duration on Enemies
-{variant:2}25% increased Freeze Duration on Enemies
+{variant:2,3}25% increased Freeze Duration on Enemies
 Evasion Rating is doubled if you have not been Hit Recently
 ]],[[
 Quatl's Molt
