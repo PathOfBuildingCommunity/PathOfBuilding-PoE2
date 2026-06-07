@@ -290,6 +290,8 @@ Rope Cuffs
 Variant: Pre 0.1.1
 Variant: Current
 (40-60)% increased Armour and Energy Shield
+20% increased Rarity of Items found
+Your other Modifiers to Rarity of Items found do not apply
 {variant:2}+(10-15)% to Cold Resistance
 Gain (7-10) Life per enemy killed
 Gain (4-6) Mana per enemy killed
