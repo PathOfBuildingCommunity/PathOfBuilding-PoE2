@@ -1130,6 +1130,12 @@ function calcs.perform(env, skipEHP)
 			modDB.multipliers["BrandsAttachedToEnemy"] = m_max(actual, modDB.multipliers["BrandsAttachedToEnemy"] or 0)
 			enemyDB.multipliers["BrandsAttached"] = m_max(actual, enemyDB.multipliers["BrandsAttached"] or 0)
 		end
+		if activeSkill.activeEffect.grantedEffect.name == "Predator's Mark" then
+			local configAllies = modDB:Sum("BASE", nil, "Multiplier:ConfigAlliesInSummonerRange")
+			if configAllies > 0 then
+				enemyDB.multipliers["AlliesInSummonerRange"] = m_max(m_min(configAllies, 15), enemyDB.multipliers["AlliesInSummonerRange"] or 0)
+			end
+		end
 		if skillFlags.totem then
 			local override = env.player.mainSkill.skillModList:Override(env.player.mainSkill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit" )
 			local limit = override or env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit" )

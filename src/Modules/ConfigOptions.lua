@@ -515,6 +515,9 @@ local configSettings = {
 	{ var = "deathmarkDeathmarkActive", type = "check", label = "Is the enemy marked with Signal Prey?", ifSkill = "Predator", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EnemyHasDeathmark", "FLAG", true, "Config")
 	end },
+	{ var = "alliesInRange", type = "count", label = "# of Allies in Range:", ifEnemyMult = "AlliesInSummonerRange", tooltip = "The number of allies near the marked enemy.\nEach ally causes the enemy to take increased Damage (3% base, up to 4% with quality 20).\nMaximum effect is 45% at base, up to 60% at quality 20 \xe2\x80\x94 always reached at 15 allies.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:ConfigAlliesInSummonerRange", "BASE", val, "Config")
+	end },
 	{ label = "Pride:", ifSkill = "Pride" },
 	{ var = "prideEffect", type = "list", label = "Pride Aura Effect:", ifSkill = { "Pride", "AzmeriDemonPhysicalDamageAura" }, list = {{val="MIN",label="Initial effect"},{val="MAX",label="Maximum effect"}}, apply = function(val, modList, enemyModList)
 		if val == "MAX" then
