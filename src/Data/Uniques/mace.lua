@@ -145,13 +145,15 @@ All damage with this Weapon causes Electrocution buildup
 Chober Chaber
 Leaden Greathammer
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 +100 Intelligence Requirement
 {variant:1}(80-120)% increased Physical Damage
-{variant:2}Adds (58-65) to (102-110) Physical Damage
+{variant:2,3}Adds (58-65) to (102-110) Physical Damage
 +(80-100) to maximum Mana
-{variant:2}+50 to Spirit
+{variant:2,3}+50 to Spirit
 {variant:1}+5% to Critical Hit Chance
+{variant:3}+(2-3) to Level of all Minion Skills
 Increases and Reductions to Minion Damage also affect you
 ]],[[
 The Empty Roar
