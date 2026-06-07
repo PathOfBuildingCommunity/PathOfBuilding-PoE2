@@ -587,7 +587,7 @@ return {
 	mod("CooldownRecovery", "MORE", nil),
 },
 ["support_cooldown_reduction_cooldown_recovery_+%"] = {
-	mod("CooldownRecovery", "MORE", nil),
+	mod("CooldownRecovery", "INC", nil),
 },
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),

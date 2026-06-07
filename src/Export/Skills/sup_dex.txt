@@ -304,21 +304,11 @@ statMap = {
 
 #skill SupportCooldownRecoveryPlayer
 #set SupportCooldownRecoveryPlayer
-statMap = {
-	["support_cooldown_reduction_cooldown_recovery_+%"] = {
-		mod("CooldownRecovery", "INC", nil),
-	},
-},
 #mods
 #skillEnd
 
 #skill SupportCooldownRecoveryPlayerTwo
 #set SupportCooldownRecoveryPlayerTwo
-statMap = {
-	["support_cooldown_reduction_cooldown_recovery_+%"] = {
-		mod("CooldownRecovery", "INC", nil),
-	},
-},
 #mods
 #skillEnd
 
