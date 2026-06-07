@@ -7,15 +7,17 @@ Death's Harp
 Dualstring Bow
 Variant: 0.2.0
 Variant: 0.3.0
+Variant: 0.5.0
 Variant: Current
 Implicits: 1
 +50% Surpassing chance to fire an additional Arrow
 {variant:1}+(50-70)% to Critical Damage Bonus
 {variant:2}+(30-40)% to Critical Damage Bonus
-{variant:3}+(20-25)% to Critical Damage Bonus
-Bow Attacks fire 3 additional Arrows
+{variant:3,4}+(20-25)% to Critical Damage Bonus
+{variant:1,2,3}Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per enemy killed
 Gain (12-18) Mana per enemy killed
+{variant:4}+(250-330)% Surpassing chance to fire an additional Arrow
 ]],[[
 Doomfletch
 Composite Bow
