@@ -52,12 +52,14 @@ The Brass Dome
 Champion Cuirass
 Variant: Pre 0.1.1
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}(300-400)% increased Armour
 {variant:2}(400-500)% increased Armour
 {variant:3}(700-800)% increased Armour
+{variant:4}(500-600)% increased Armour
 {variant:1}+5% to all Maximum Elemental Resistances
-{variant:2,3}-(5-1)% to all Maximum Elemental Resistances
+{variant:2,3,4}-(5-1)% to all Maximum Elemental Resistances
 +(200-300) to Stun Threshold
 Take no Extra Damage from Critical Hits
 ]],[[

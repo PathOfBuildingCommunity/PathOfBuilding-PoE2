@@ -52,12 +52,14 @@ The Brass Dome
 Champion Cuirass
 Variant: Pre 0.1.1
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[300,400]
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[400,500]
-{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[700,800]
+{variant:4}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
 {variant:1}UniqueMaximumElementalResistance1[5,5]
-{variant:2,3}UniqueMaximumElementalResistance1
+{variant:2,3,4}UniqueMaximumElementalResistance1
 UniqueStunThreshold3
 UniqueTakeNoExtraDamageFromCriticalStrikes1
 ]],[[
