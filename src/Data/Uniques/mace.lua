@@ -127,7 +127,7 @@ Variant: Current
 {variant:2}+(10-20) to Strength
 {variant:2}+(20-30)% to Fire Resistance
 Hits Break (30-50) Armour
-Inflicts Fire Exposure when this Weapon Fully Breaks Armour
+Inflicts Elemental Exposure when this Weapon Fully Breaks Armour
 ]],
 -- Weapon: Two Handed Mace
 [[
