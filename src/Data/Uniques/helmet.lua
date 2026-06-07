@@ -426,17 +426,19 @@ Keeper of the Arc
 Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}(100-150)% increased Armour and Energy Shield
 {variant:2}(150-250)% increased Armour and Energy Shield
+{variant:3}(240-340)% increased Armour and Energy Shield
 (15-25) Life Regeneration per second
 (15-25)% increased Mana Regeneration Rate
 {variant:1}Alternating every 5 seconds:
 {variant:1}Take 30% less Damage from Hits
 {variant:1}Take 30% less Damage over time
-{variant:2}Alternating every 5 seconds:
-{variant:2}Take 40% less Damage from Hits
-{variant:2}Take 40% less Damage over time
+{variant:2,3}Alternating every 5 seconds:
+{variant:2,3}Take 40% less Damage from Hits
+{variant:2,3}Take 40% less Damage over time
 ]],[[
 Veil of the Night
 Martyr Crown
