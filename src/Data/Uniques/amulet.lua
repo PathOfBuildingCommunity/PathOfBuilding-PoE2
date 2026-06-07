@@ -40,6 +40,7 @@ Critical Hits ignore Enemy Monster Elemental Resistances
 Carnage Heart
 Amber Amulet
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
@@ -47,7 +48,8 @@ Implicits: 1
 {tags:attribute}+(10-20) to all Attributes
 {tags:fire,cold,lightning}+(10-20)% to all Elemental Resistances
 {variant:1}{tags:life}100% increased amount of Life Leeched
-{variant:2}{tags:life}(100-200)% increased amount of Life Leeched
+{variant:2,3}{tags:life}(100-200)% increased amount of Life Leeched
+{variant:3}(25-50)% increased Damage while Leeching
 ]],[[
 Choir of the Storm
 Jade Amulet
