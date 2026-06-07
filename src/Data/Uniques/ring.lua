@@ -230,14 +230,17 @@ Enemies Chilled by your Hits can be Shattered as though Frozen
 ]],[[
 Prized Pain
 Iron Ring
+Variant: Pre 0.5.0
+Variant: Current
 League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
 {tags:attribute}+(20-30) to Strength
-Skills gain a Base Life Cost equal to 10% of Base Mana Cost
-Deal your Thorns Damage to Enemies you Stun with Melee Attacks
-{tags:physical}(24-35) to (35-53) Physical Thorns damage
+Skills Gain 10% of Mana Cost as Extra Life Cost
+{variant:1}Deal your Thorns Damage to Enemies you Stun with Melee Attacks
+{tags:physical}(24-35) to (36-53) Physical Thorns damage
+{variant:2}(15-25)% chance to deal your Thorns Damage to Enemies you Hit with Melee Attacks
 ]],[[
 Seed of Cataclysm
 Lazuli Ring

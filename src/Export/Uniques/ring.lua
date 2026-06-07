@@ -230,14 +230,17 @@ UniqueChillHitsCauseShattering1
 ]],[[
 Prized Pain
 Iron Ring
+Variant: Pre 0.5.0
+Variant: Current
 League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 RingImplicitPhysicalDamage1
 UniqueStrength41
 UniqueLifeCostAsManaCost2
-UniqueThornsDamageOnStun1
+{variant:1}UniqueThornsDamageOnStun1
 UniqueAttackerTakesDamage7
+{variant:2}UniqueChanceToDealThornsDamageOnHit1
 ]],[[
 Seed of Cataclysm
 Lazuli Ring
