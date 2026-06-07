@@ -183,11 +183,15 @@ Mirrored
 ]],[[
 Levinstone
 Topaz Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:lightning}+(20-30)% to Lightning Resistance
 {tags:mana}+(40-60) to maximum Mana
-{tags:lightning}+1 to Level of all Lightning Skills
+{variant:1}{tags:lightning}+1 to Level of all Lightning Skills
 {tags:lightning}(10-20)% increased chance to Shock
+{variant:2}{tags:lightning}Lightning Skills Chain +1 times
+{variant:2}{tags:lightning}(10-20)% increased Magnitude of Shock you inflict
 ]],[[
 Ming's Heart
 Amethyst Ring

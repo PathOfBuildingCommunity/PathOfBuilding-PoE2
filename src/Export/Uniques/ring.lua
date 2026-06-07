@@ -183,11 +183,15 @@ Mirrored
 ]],[[
 Levinstone
 Topaz Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitLightningResistance1
 UniqueIncreasedMana7
 UniqueShockChanceIncrease2
-UniqueGlobalLightningGemLevel1
+{variant:1}UniqueGlobalLightningGemLevel1
+{variant:2}UniqueLightningSpellsChain1
+{variant:2}UniqueShockEffect1
 ]],[[
 Ming's Heart
 Amethyst Ring
