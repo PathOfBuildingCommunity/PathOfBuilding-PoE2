@@ -1107,7 +1107,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
-	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 325, row_height}, {}, function(index)
+	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 351, row_height}, {}, function(index)
 		self.itemIndexTbl[row_idx] = self.sortedResultTbl[row_idx][index].index
 		self:SetFetchResultReturn(row_idx, self.itemIndexTbl[row_idx])
 	end)
@@ -1159,7 +1159,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 	end
 	-- Whisper so we can copy to clipboard
 	controls["whisperButton" .. row_idx] = new("ButtonControl",
-		{ "TOPLEFT", controls["importButton" .. row_idx], "TOPRIGHT" }, { 8, 0, 170, row_height }, function()
+		{ "TOPLEFT", controls["importButton" .. row_idx], "TOPRIGHT" }, { 8, 0, 155, row_height }, function()
 			local itemResult = self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
 
 			if not itemResult then return "" end
