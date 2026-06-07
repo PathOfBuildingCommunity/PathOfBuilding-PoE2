@@ -151,10 +151,13 @@ Covert Hood
 ]],[[
 Radiant Grief
 Lace Hood
+Variant: Pre 0.5.0
+Variant: Current
 (80-100)% increased Evasion Rating
 +(15-25)% to Fire Resistance
 30% increased Light Radius
-Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
+{variant:1}Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
+{variant:2}Enemies in your Presence are Ignited as though dealt 200 Base Fire Damage
 ]],[[
 Starkonja's Head
 Leatherbound Hood

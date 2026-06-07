@@ -151,10 +151,13 @@ UniqueCullingStrikeThreshold1
 ]],[[
 Radiant Grief
 Lace Hood
+Variant: Pre 0.5.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent1
 UniqueFireResist6
 UniqueLightRadius7
-UniqueIgniteEnemiesInPresence1
+{variant:1}UniqueIgniteEnemiesInPresence1[100,100]
+{variant:2}UniqueIgniteEnemiesInPresence1
 ]],[[
 Starkonja's Head
 Leatherbound Hood
