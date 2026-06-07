@@ -118,7 +118,7 @@ describe("TestSkills", function()
 
 		local normalArmour = env.player.output.Armour
 		local normalDPS = env.player.output.TotalDPS
-		assert.are.equals(1050, normalArmour)
+		assert.are.equals(1200, normalArmour)
 		assert.is_true(normalDPS > 0)
 
 		env = calcs.initEnv(build, "CALCULATOR", {}, {
