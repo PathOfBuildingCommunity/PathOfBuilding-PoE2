@@ -587,7 +587,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
 	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) -- scrollBar height, "18 - slotTables > 37" logic is fine tuning whitespace after last row
 	self.pane_height = (row_height + row_vertical_padding) * effective_row_count + 3 * pane_margins_vertical + row_height / 2
-	local pane_width = 850 + (scrollBarShown and 25 or 0)
+	local pane_width = 885 + (scrollBarShown and 25 or 0)
 
 	self.controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT", self.controls["StatWeightMultipliersButton"],"TOPRIGHT"}, {0, 25, 18, 0}, 50, "VERTICAL", false)
 	self.controls.scrollBar.shown = function() return scrollBarShown end
@@ -957,8 +957,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						slotTbl.slotName == "Watcher's Eye" and self:findValidSlotForWatchersEye() or
 						slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
-	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 100, row_height - 4}, nameColor..slotTbl.slotName)
-	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "Find best", function()
+	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 135, row_height - 4}, nameColor..slotTbl.slotName)
+	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "Find best", function()
 		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, function(context, query, errMsg)
 			if errMsg then
 				self:SetNotice(context.controls.pbNotice, colorCodes.NEGATIVE .. errMsg)
@@ -1099,7 +1099,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 	local clampItemIndex = function(index)
 		return m_min(m_max(index or 1, 1), self.sortedResultTbl[row_idx] and #self.sortedResultTbl[row_idx] or 1)
 	end
-	controls["changeButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "<< Search", function()
+	controls["changeButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "<< Search", function()
 		self.itemIndexTbl[row_idx] = nil
 		self.sortedResultTbl[row_idx] = nil
 		self.resultTbl[row_idx] = nil
