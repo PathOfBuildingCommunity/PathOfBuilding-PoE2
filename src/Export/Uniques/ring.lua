@@ -244,12 +244,16 @@ UniqueAttackerTakesDamage7
 ]],[[
 Seed of Cataclysm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitIncreasedMana1
 UniqueSpellCriticalStrikeChance2
-UniqueSpellCriticalStrikeMultiplier1
+{variant:1}UniqueSpellCriticalStrikeMultiplier1
 UniqueChaosResist2
 UniqueManaCostReduction2
+{variant:2}UniqueSpellCriticalStrikeMultiplierPerSpellCritRecently1
+{variant:2}UniqueChanceForSpellCriticalHitsToBeLucky1
 ]],[[
 Sekhema's Resolve
 Ring

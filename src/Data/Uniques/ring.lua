@@ -244,12 +244,16 @@ Skills Gain 10% of Mana Cost as Extra Life Cost
 ]],[[
 Seed of Cataclysm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:mana}+(20-30) to maximum Mana
 {tags:caster}(30-50)% increased Critical Hit Chance for Spells
-{tags:caster}(30-50)% increased Critical Spell Damage Bonus
+{variant:1}{tags:caster}(30-50)% increased Critical Spell Damage Bonus
+{variant:2}{tags:caster}5% reduced Critical Spell Damage Bonus per Critical Hit you've dealt with Spells Recently
 {tags:chaos}+(13-17)% to Chaos Resistance
 {tags:mana}10% increased Mana Cost of Skills
+{variant:2}{tags:caster}(15-30)% chance for Spell Damage with Critical Hits to be Lucky
 ]],[[
 Sekhema's Resolve
 Ring
