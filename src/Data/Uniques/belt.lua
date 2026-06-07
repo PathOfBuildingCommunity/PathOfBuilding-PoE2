@@ -221,16 +221,20 @@ Life and Mana Flasks can be equipped in either slot
 Zerphi's Genesis
 Heavy Belt
 Variant: Pre 0.2.0f
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
 Implicits: 2
 (20-30)% increased Stun Threshold
 Has (1-3) Charm Slot
+{variant:3}(25-50)% increased Corrupted Charms effect duration
 50% of Charges consumed by used Charms are granted to your Life Flasks
+{variant:3}50% of Charges consumed by used Life Flasks are granted to your Charms
 {variant:1}+(0-2) Charm Slot
 +(10-30) to Strength
+{variant:3}Skills from Corrupted Gems have (15-25)% increased Cost Efficiency during any Flask Effect
 Corrupted Blood cannot be inflicted on you
-(10-30)% increased Charm Charges used
+{variant:1,2}(10-30)% increased Charm Charges used
 ]],
 }

@@ -221,6 +221,7 @@ UniqueLifeManaFlaskAnySlot1
 Zerphi's Genesis
 Heavy Belt
 Variant: Pre 0.2.0f
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
@@ -231,6 +232,9 @@ BeltImplicitIncreasedStunThreshold1
 UniqueStrength28
 UniqueCorruptedBloodImmunity1
 UniqueCharmChargesToLifeFlasks1
-UniqueReducedCharmChargesUsed1
+{variant:1,2}UniqueReducedCharmChargesUsed1
+{variant:3}UniqueLifeFlaskChargesToCharms1
+{variant:3}UniqueCorruptedSkillCostEfficiencyDuringFlaskEffect1
+{variant:3}UniqueCorruptedCharmDuration1
 ]],
 }
