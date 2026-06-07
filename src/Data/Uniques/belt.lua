@@ -81,9 +81,12 @@ Life Recovery from Flasks can Overflow Maximum Life
 Goregirdle
 Plate Belt
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 2
-+(100-140) to Armour
+{variant:2}+(140-180) to Armour
 Has (1-3) Charm Slot
+{variant:1}+(100-140) to Armour
 +(20-30) to Strength
 (10-20) Life Regeneration per second
 Defend with 200% of Armour

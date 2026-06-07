@@ -81,9 +81,12 @@ UniqueLifeFlasksOvercapLife1
 Goregirdle
 Plate Belt
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 2
 BeltImplicitCharmSlots3
-BeltImplicitPhysicalDamageReductionRating1
+{variant:2}BeltImplicitPhysicalDamageReductionRating1
+{variant:1}BeltImplicitPhysicalDamageReductionRating1[100,140]
 UniqueStrength10
 UniqueLifeRegeneration17
 UniqueDoubleArmourEffect1
