@@ -596,10 +596,13 @@ UniqueLifeRecoupAppliesToEnergyShield1
 Soul Mantle
 Sacrificial Mantle
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield12
+{variant:2}UniqueIncreasedSpirit15
 UniqueStrength42
 UniqueIntelligence40
-UniqueIncreasedTotemLife1
+{variant:1}UniqueIncreasedTotemLife1
 UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],[[

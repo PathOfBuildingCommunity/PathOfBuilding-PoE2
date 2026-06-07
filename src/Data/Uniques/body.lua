@@ -606,10 +606,13 @@ Damage taken Recouped as Life is also Recouped as Energy Shield
 Soul Mantle
 Sacrificial Mantle
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 (80-120)% increased Armour and Energy Shield
+{variant:2}+75 to Spirit
 +10 to Strength
 +15 to Intelligence
-(20-30)% reduced Totem Life
+{variant:1}(20-30)% reduced Totem Life
 +1 to maximum number of Summoned Totems
 Inflicts a random Curse on you when your Totems die, ignoring Curse limit
 ]],[[
