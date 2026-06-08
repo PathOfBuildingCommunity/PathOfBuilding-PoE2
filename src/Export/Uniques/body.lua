@@ -674,6 +674,17 @@ UniqueLightningResist3
 UniqueReducedDamageIfNotHitRecently1
 UniqueIncreasedEvasionIfHitRecently1
 ]],[[
+Forgotten Warden
+Primal Markings
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Spirit Vessel
+UniqueDeflectionRatingPerMissingEnergyShield1
+UniqueLocalIncreasedEvasionAndEnergyShield20
+UniqueDexterity46
+UniqueCompanionLife1
+UniqueDamageFromDeflectedHitsTakenFromCompanion1
+]],[[
 Gloomform
 Waxed Jacket
 Variant: Pre 0.1.1

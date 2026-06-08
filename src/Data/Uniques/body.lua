@@ -688,6 +688,17 @@ Variant: Current
 20% less Damage taken if you have not been Hit Recently
 100% increased Evasion Rating if you have been Hit Recently
 ]],[[
+Forgotten Warden
+Primal Markings
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Spirit Vessel
++(70-100) to Deflection Rating per 50 missing Energy Shield
+(200-300)% increased Evasion and Energy Shield
++(20-30) to Dexterity
+Companions have (30-50)% increased maximum Life
+(10-15)% of Damage from Deflected Hits is taken from Damageable Companion's Life before you
+]],[[
 Gloomform
 Waxed Jacket
 Variant: Pre 0.1.1
