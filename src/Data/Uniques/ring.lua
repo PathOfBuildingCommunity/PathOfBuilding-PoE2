@@ -329,6 +329,18 @@ Right ring slot: Projectiles from Spells Chain +1 times
 Right ring slot: Projectiles from Spells cannot Fork
 Projectiles from Spells cannot Pierce
 ]],[[
+The Taming
+Prismatic Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+{tags:fire,cold,lightning}+(7-10)% to all Elemental Resistances
+{tags:fire,cold,lightning}+(10-20)% to all Elemental Resistances
+{tags:fire,cold,lightning}(10-20)% increased Damage for each type of Elemental Ailment on Enemy
+Wind Skills which can be boosted by Elemental Ground Surfaces can be boosted by multiple Elemental Ground Surfaces
+Wind Skills which can be boosted by Elemental Ground Surfaces count
+as being boosted by Ignited, Shocked, and Chilled Ground
+]],[[
 Thief's Torment
 Emerald Ring
 Implicits: 1

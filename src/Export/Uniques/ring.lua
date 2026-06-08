@@ -326,6 +326,16 @@ UniqueRightRingSpellProjectilesChain1
 UniqueRightRingSpellProjectilesCannotFork1
 UniqueSpellsCannotPierce1
 ]],[[
+The Taming
+Prismatic Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+RingImplicitAllResistances1
+UniqueAllResistances29
+UniqueDamagePerElementalAilment1
+UniqueWindSkillsBoostedByAllElementalGrounds1
+]],[[
 Thief's Torment
 Emerald Ring
 Implicits: 1
