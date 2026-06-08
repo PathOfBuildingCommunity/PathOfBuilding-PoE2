@@ -5664,13 +5664,11 @@ c["Hits have 15% chance to treat Enemy Monster Elemental Resistance values as in
 c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywordFlags=0,name="EnemyCritChance",type="INC",value=-25}},nil}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
-c["Hits with this Weapon have no Critical Damage Bonus"]={nil,"no Critical Damage Bonus "}
-c["Hits with this Weapon have no Critical Damage Bonus This Weapon's Critical Hit Chance is 100%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},flags=8196,keywordFlags=0,name="CritMultiplier",type="OVERRIDE",value=100}},"no  This 's Critical Hit Chance "}
+c["Hits with this Weapon have no Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Hollow Palm Technique"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Hollow Palm Technique"}},nil}
 c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, that Charge instead "}
 c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true},[2]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="IgniteToChaos",value=true}}},nil}
-c["Ignite you inflict deals Chaos Damage instead of Fire Damage"]={nil,"Ignite you inflict deals Chaos Damage instead of Fire Damage "}
-c["Ignite you inflict deals Chaos Damage instead of Fire Damage 50% increased Ignite Magnitude"]={nil,"Ignite you inflict deals Chaos Damage instead of Fire Damage 50% increased Ignite Magnitude "}
+c["Ignite you inflict deals Chaos Damage instead of Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true}},nil}
 c["Ignites you cause are reflected back to you"]={nil,"Ignites you cause are reflected back to you "}
 c["Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you"]={nil,"Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you "}
 c["Ignites you inflict deal Damage 10% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=10}},nil}
@@ -6318,11 +6316,9 @@ c["Skeletal Minions you would create instead grant you Umbral Souls for each Min
 c["Skill Gems have no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=-100}},nil}
 c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
 c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=3}},nil}
-c["Skills Gain 10% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=10}},"  as Extra Life Cost "}
-c["Skills Gain 10% of Mana Cost as Extra Life Cost Deal your Thorns Damage to Enemies you Stun with Melee Attacks"]={{[1]={flags=256,keywordFlags=0,name="ManaCost",type="BASE",value=10}},"  as Extra Life Cost Deal your Thorns Damage to Enemies you Stun  "}
-c["Skills Gain 100% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=100}},"  as Extra Life Cost "}
-c["Skills Gain 50% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=50}},"  as Extra Life Cost "}
-c["Skills Gain 50% of Mana Cost as Extra Life Cost Skills Gain 100% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=50}},"  as Extra Life Cost Skills Gain 100% of Mana Cost as Extra Life Cost "}
+c["Skills Gain 10% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=10}},nil}
+c["Skills Gain 100% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=100}},nil}
+c["Skills Gain 50% of Mana Cost as Extra Life Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=50}},nil}
 c["Skills can build and retain Combo regardless of Weapon Set"]={nil,"Skills can build and retain Combo regardless of Weapon Set "}
 c["Skills can build and retain Combo regardless of Weapon Set Gain Combo from all Attack Hits"]={nil,"Skills can build and retain Combo regardless of Weapon Set Gain Combo from all Attack Hits "}
 c["Skills deal 20% increased Damage per Connected Red Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillDamageIncreasedPerRedSupport",type="FLAG",value=20}},nil}
@@ -6612,7 +6608,7 @@ c["You have Consecrated Ground around you while stationary"]={{[1]={[1]={type="C
 c["You have Unholy Might"]={{[1]={flags=0,keywordFlags=0,name="Condition:UnholyMight",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
 c["You have no Accuracy Penalty at Distance"]={{[1]={flags=0,keywordFlags=0,name="NoAccuracyDistancePenalty",type="FLAG",value=true}},nil}
-c["You have no Critical Damage Bonus"]={nil,"no Critical Damage Bonus "}
+c["You have no Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["You have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0},[2]={flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0},[3]={flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}},nil}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
 c["You have no Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="OVERRIDE",value=0}},nil}
