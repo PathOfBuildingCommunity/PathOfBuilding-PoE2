@@ -30,7 +30,7 @@ end
 -- mods, the midpoint of that range
 --- @param line string
 function M.modLineValue(line)
-	local low, high = line:match("(%-?[%d]+%.?[%d]) to (%-?[%d]+%.?[%d])")
+	local low, high = line:match("(%-?%d+%.?%d*) to (%-?%d+%.?%d*)")
 	if low and high then
 		return (tonumber(low) + tonumber(high)) / 2
 	end
