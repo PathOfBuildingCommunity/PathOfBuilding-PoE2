@@ -2138,6 +2138,7 @@ local modTagList = {
 	["by s?l?a?i?n? ?shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["against enemies further than (%d+)m"] = function(num) return { tag = { type = "MultiplierThreshold", var = "enemyDistance", threshold = num * 10 } } end,
 	["against enemies within (%d+) ?me?t?r?e?s?"] = function(num) return { tag = { type = "MultiplierThreshold", var = "enemyDistance", threshold = num * 10, upper = true } } end,
+	["against slowed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Slowed" } },
 	-- Enemy multipliers
 	["per freeze, shock [ao][nr]d? ignite on enemy"] = { tag = { type = "Multiplier", var = "FreezeShockIgniteOnEnemy" } },
 	["per (%d+)%% chill magnitude on enemy"] = function(num) return { tag = { type = "Multiplier", var = "ChillEffect", actor = "enemy", div = num } } end,

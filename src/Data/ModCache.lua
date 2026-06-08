@@ -2757,7 +2757,7 @@ c["40% increased Damage with Bow Skills"]={{[1]={flags=0,keywordFlags=1024,name=
 c["40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},nil}
-c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},"  against Slowed Enemies "}
+c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Slowed"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyElectrocuteBuildup",type="INC",value=40}},nil}
 c["40% increased Elemental Ailment Application if you have Shapeshifted to an Animal form Recently"]={{}," Elemental Ailment Application  "}
 c["40% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}},nil}
