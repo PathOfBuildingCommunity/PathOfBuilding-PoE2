@@ -58,5 +58,15 @@ Grants Skill: Level (1-20) Sanguine Revelry
 (20-30)% chance to cause Bleeding on Hit
 Every 5 Rage also grants 5% of Damage taken Recouped as Life
 UniqueLocalIncreasedPhysicalDamagePercent23UniqueLocalIncreasedAttackSpeed29
+]],[[
+Surge of the Tide
+Lumbering Talisman
+League: Runes of Aldur
+(250-300)% increased Physical Damage
+(30-50)% increased Armour
+(10-15)% reduced Attack Speed
++(20-30) to Strength
+Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted
+Every second Strike Skill you use while Shapeshifted is Ancestrally Boosted
 ]],
 }

@@ -56,5 +56,14 @@ UniqueLocalIncreasedPhysicalDamagePercent23UniqueLocalIncreasedAttackSpeed29
 UniqueStrength48
 UniqueLocalChanceToBleed3
 UniqueLifeRecoupPerRage1
+]],[[
+Surge of the Tide
+Lumbering Talisman
+League: Runes of Aldur
+UniqueLocalIncreasedPhysicalDamagePercent19
+UniqueIncreasedPhysicalDamageReductionRatingPercent2
+UniqueLocalIncreasedAttackSpeed25
+UniqueStrength45
+UniqueAncestralBoostEveryXAttacksWhileShapeshifted1
 ]],
 }
