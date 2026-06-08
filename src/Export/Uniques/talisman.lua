@@ -45,5 +45,16 @@ UniqueMovementVelocity26
 UniqueStrength40
 UniqueIntelligence45
 UniqueDamagePerMinion1
+]],[[
+Spiteful Floret
+Nettle Talisman
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Sanguine Revelry
+UniqueLocalIncreasedPhysicalDamagePercent23
+UniqueLocalIncreasedPhysicalDamagePercent23UniqueLocalIncreasedAttackSpeed29
+UniqueStrength48
+UniqueLocalChanceToBleed3
+UniqueLifeRecoupPerRage1
 ]],
 }

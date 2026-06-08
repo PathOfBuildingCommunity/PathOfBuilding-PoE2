@@ -47,5 +47,16 @@ Minions deal (30-50)% increased Damage
 +(8-15) to Strength
 +(8-15) to Intelligence
 (5-8)% increased Damage per Minion
+]],[[
+Spiteful Floret
+Nettle Talisman
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Sanguine Revelry
+(60-90)% increased Physical Damage
++(7-14) to Strength
+(20-30)% chance to cause Bleeding on Hit
+Every 5 Rage also grants 5% of Damage taken Recouped as Life
+UniqueLocalIncreasedPhysicalDamagePercent23UniqueLocalIncreasedAttackSpeed29
 ]],
 }
