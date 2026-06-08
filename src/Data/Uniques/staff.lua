@@ -128,6 +128,17 @@ Source: Drops from unique{Kosis, The Revelation}
 100% increased Elemental Damage
 Trigger skills refund half of Energy spent
 ]],[[
+Duality
+Warding Quarterstaff
+League: Fate of the Vaal
+Implicits: 1
++(30-50) to maximum Runic Ward
+(200-300)% increased Physical Damage
++(20-30)% to Critical Damage Bonus
+(12-22)% increased Attack Speed
+Gain Finality for 0.5 seconds per Combo expended when using Skills
+Gain (500-1000) Guard for 0.5 seconds per Combo expended when using Skills
+]],[[
 Matsya
 Crescent Quarterstaff
 Variant: Pre 0.1.1

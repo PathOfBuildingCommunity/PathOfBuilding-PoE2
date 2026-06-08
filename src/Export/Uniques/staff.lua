@@ -127,6 +127,17 @@ UniqueLocalCriticalStrikeChance4
 UniqueGlobalElementalGemLevel1
 UniqueTriggersRefundEnergySpent1
 ]],[[
+Duality
+Warding Quarterstaff
+League: Fate of the Vaal
+Implicits: 1
+QuarterstaffImplicitRunicWard1
+UniqueLocalIncreasedPhysicalDamagePercent25
+UniqueLocalCriticalMultiplier3
+UniqueLocalIncreasedAttackSpeed32
+UniqueGainFinalityForXSecondsPerComboLostUsingSkills1
+UniqueGainXGuardPerComboLostUsingSkills1
+]],[[
 Matsya
 Crescent Quarterstaff
 Variant: Pre 0.1.1
