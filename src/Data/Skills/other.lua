@@ -17842,10 +17842,10 @@ skills["SupportTangMazusThuriblePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["companion_evasion_rating_+_per_10_summoner_evasion_rating"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent" }) }),
+					mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent", div = 10 }) }),
 				},
 				["companion_deflection_rating_+_per_10_summoner_deflection_rating"] = {
-					mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent" }) }),
+					mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent", div = 10 }) }),
 				},
 			},
 			baseFlags = {
