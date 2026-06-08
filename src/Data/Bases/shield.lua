@@ -264,7 +264,7 @@ itemBases["Runeforged Splintered Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 18, Ward = 12, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 18, RunicWard = 12, MovementPenalty = 0.03, },
 	req = { },
 }
 itemBases["Runeforged Painted Tower Shield"] = {
@@ -275,7 +275,7 @@ itemBases["Runeforged Painted Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 33, Ward = 15, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 33, RunicWard = 15, MovementPenalty = 0.03, },
 	req = { level = 6, str = 11, },
 }
 itemBases["Runeforged Braced Tower Shield"] = {
@@ -286,7 +286,7 @@ itemBases["Runeforged Braced Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 50, Ward = 18, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 50, RunicWard = 18, MovementPenalty = 0.03, },
 	req = { level = 12, str = 19, },
 }
 itemBases["Runeforged Barricade Tower Shield"] = {
@@ -297,7 +297,7 @@ itemBases["Runeforged Barricade Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 62, Ward = 22, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 62, RunicWard = 22, MovementPenalty = 0.03, },
 	req = { level = 16, str = 25, },
 }
 itemBases["Runeforged Effigial Tower Shield"] = {
@@ -308,7 +308,7 @@ itemBases["Runeforged Effigial Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 76, Ward = 25, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 76, RunicWard = 25, MovementPenalty = 0.03, },
 	req = { level = 21, str = 32, },
 }
 itemBases["Runeforged Rampart Tower Shield"] = {
@@ -319,7 +319,7 @@ itemBases["Runeforged Rampart Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 96, Ward = 27, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 96, RunicWard = 27, MovementPenalty = 0.03, },
 	req = { level = 28, str = 42, },
 }
 itemBases["Runeforged Heraldric Tower Shield"] = {
@@ -330,7 +330,7 @@ itemBases["Runeforged Heraldric Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 111, Ward = 30, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 111, RunicWard = 30, MovementPenalty = 0.03, },
 	req = { level = 33, str = 48, },
 }
 itemBases["Runeforged Stone Tower Shield"] = {
@@ -341,7 +341,7 @@ itemBases["Runeforged Stone Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 119, Ward = 33, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 119, RunicWard = 33, MovementPenalty = 0.03, },
 	req = { level = 36, str = 52, },
 }
 itemBases["Runeforged Crucible Tower Shield"] = {
@@ -352,7 +352,7 @@ itemBases["Runeforged Crucible Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 145, Ward = 36, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 145, RunicWard = 36, MovementPenalty = 0.03, },
 	req = { level = 45, str = 64, },
 }
 itemBases["Runeforged Ancestor Tower Shield"] = {
@@ -363,7 +363,7 @@ itemBases["Runeforged Ancestor Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 148, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 148, MovementPenalty = 0.03, },
 	req = { level = 50, str = 71, },
 }
 itemBases["Runeforged Phalanx Tower Shield"] = {
@@ -374,7 +374,7 @@ itemBases["Runeforged Phalanx Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 146, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 146, MovementPenalty = 0.03, },
 	req = { level = 52, str = 74, },
 }
 itemBases["Runeforged Defiant Tower Shield"] = {
@@ -385,7 +385,7 @@ itemBases["Runeforged Defiant Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 160, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 160, MovementPenalty = 0.03, },
 	req = { level = 58, str = 82, },
 }
 itemBases["Runeforged Blacksteel Tower Shield"] = {
@@ -396,7 +396,7 @@ itemBases["Runeforged Blacksteel Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 176, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 176, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runeforged Bulwark Tower Shield"] = {
@@ -407,7 +407,7 @@ itemBases["Runeforged Bulwark Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 137, Ward = 53, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 137, RunicWard = 53, MovementPenalty = 0.03, },
 	req = { level = 54, str = 77, },
 }
 itemBases["Runeforged Noble Tower Shield"] = {
@@ -418,7 +418,7 @@ itemBases["Runeforged Noble Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 167, Ward = 41, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 167, RunicWard = 41, MovementPenalty = 0.03, },
 	req = { level = 59, str = 83, },
 }
 itemBases["Runeforged Goldworked Tower Shield"] = {
@@ -429,7 +429,7 @@ itemBases["Runeforged Goldworked Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 144, Ward = 58, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 144, RunicWard = 58, MovementPenalty = 0.03, },
 	req = { level = 61, str = 86, },
 }
 itemBases["Runeforged Royal Tower Shield"] = {
@@ -440,7 +440,7 @@ itemBases["Runeforged Royal Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 183, Ward = 44, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 183, RunicWard = 44, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runeforged Fortress Tower Shield"] = {
@@ -451,7 +451,7 @@ itemBases["Runeforged Fortress Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 132, Ward = 106, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 132, RunicWard = 106, MovementPenalty = 0.03, },
 	req = { level = 70, str = 99, },
 }
 itemBases["Runeforged Vaal Tower Shield"] = {
@@ -462,7 +462,7 @@ itemBases["Runeforged Vaal Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 213, Ward = 35, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 213, RunicWard = 35, MovementPenalty = 0.03, },
 	req = { level = 75, str = 107, },
 }
 itemBases["Runeforged Tawhoan Tower Shield"] = {
@@ -473,7 +473,7 @@ itemBases["Runeforged Tawhoan Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 71, Ward = 176, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 71, RunicWard = 176, MovementPenalty = 0.03, },
 	req = { level = 80, str = 115, },
 }
 itemBases["Runemastered Splintered Tower Shield"] = {
@@ -485,7 +485,7 @@ itemBases["Runemastered Splintered Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 100, Ward = 23, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 100, RunicWard = 23, MovementPenalty = 0.03, },
 	req = { level = 38, str = 54, },
 }
 itemBases["Runemastered Painted Tower Shield"] = {
@@ -497,7 +497,7 @@ itemBases["Runemastered Painted Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 63, Ward = 57, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 63, RunicWard = 57, MovementPenalty = 0.03, },
 	req = { level = 38, str = 54, },
 }
 itemBases["Runemastered Braced Tower Shield"] = {
@@ -509,7 +509,7 @@ itemBases["Runemastered Braced Tower Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 88, Ward = 34, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 88, RunicWard = 34, MovementPenalty = 0.03, },
 	req = { level = 38, str = 54, },
 }
 itemBases["Runemastered Barricade Tower Shield"] = {
@@ -521,7 +521,7 @@ itemBases["Runemastered Barricade Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 94, Ward = 28, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 94, RunicWard = 28, MovementPenalty = 0.03, },
 	req = { level = 38, str = 54, },
 }
 itemBases["Runemastered Effigial Tower Shield"] = {
@@ -533,7 +533,7 @@ itemBases["Runemastered Effigial Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 113, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 113, MovementPenalty = 0.03, },
 	req = { level = 38, str = 54, },
 }
 itemBases["Runemastered Rampart Tower Shield"] = {
@@ -545,7 +545,7 @@ itemBases["Runemastered Rampart Tower Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 98, Ward = 29, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 98, RunicWard = 29, MovementPenalty = 0.03, },
 	req = { level = 40, str = 58, },
 }
 itemBases["Runemastered Heraldric Tower Shield"] = {
@@ -557,7 +557,7 @@ itemBases["Runemastered Heraldric Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 96, Ward = 42, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 96, RunicWard = 42, MovementPenalty = 0.03, },
 	req = { level = 50, str = 71, },
 }
 itemBases["Runemastered Crucible Tower Shield"] = {
@@ -569,7 +569,7 @@ itemBases["Runemastered Crucible Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Ward = 250, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, RunicWard = 250, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runemastered Crucible Tower Shield"] = {
@@ -581,7 +581,7 @@ itemBases["Runemastered Crucible Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Recover (15-25) Runic Ward when you Block\nGrants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { {  }, },
-	armour = { BlockChance = 26, Armour = 100, Ward = 100, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 100, RunicWard = 100, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runemastered Crucible Tower Shield"] = {
@@ -593,7 +593,7 @@ itemBases["Runemastered Crucible Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Evasion = 148, Ward = 35, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Evasion = 148, RunicWard = 35, MovementPenalty = 0.03, },
 	req = { level = 65, dex = 91, },
 }
 itemBases["Runemastered Crucible Tower Shield"] = {
@@ -605,7 +605,7 @@ itemBases["Runemastered Crucible Tower Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "(15-25)% of Damage is taken from Mana before Life\nGrants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { { "resource", "life", "mana" }, },
-	armour = { BlockChance = 26, Armour = 162, Ward = 35, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 162, RunicWard = 35, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runemastered Blacksteel Tower Shield"] = {
@@ -617,7 +617,7 @@ itemBases["Runemastered Blacksteel Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 102, Ward = 88, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 102, RunicWard = 88, MovementPenalty = 0.03, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runemastered Vaal Tower Shield"] = {
@@ -629,7 +629,7 @@ itemBases["Runemastered Vaal Tower Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 203, Ward = 70, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 203, RunicWard = 70, MovementPenalty = 0.03, },
 	req = { level = 75, str = 107, },
 }
 itemBases["Glacial Fortress"] = {
@@ -653,7 +653,7 @@ itemBases["Runemastered Glacial Fortress"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_armour = true, str_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 203, Ward = 53, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 203, RunicWard = 53, MovementPenalty = 0.03, },
 	req = { level = 70, str = 99, },
 }
 
@@ -918,7 +918,7 @@ itemBases["Runeforged Leather Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 10, Ward = 10, },
+	armour = { BlockChance = 20, Evasion = 10, RunicWard = 10, },
 	req = { },
 }
 itemBases["Runeforged Wooden Buckler"] = {
@@ -929,7 +929,7 @@ itemBases["Runeforged Wooden Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 18, Ward = 11, },
+	armour = { BlockChance = 20, Evasion = 18, RunicWard = 11, },
 	req = { level = 5, dex = 10, },
 }
 itemBases["Runeforged Plated Buckler"] = {
@@ -940,7 +940,7 @@ itemBases["Runeforged Plated Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 31, Ward = 14, },
+	armour = { BlockChance = 20, Evasion = 31, RunicWard = 14, },
 	req = { level = 11, dex = 18, },
 }
 itemBases["Runeforged Iron Buckler"] = {
@@ -951,7 +951,7 @@ itemBases["Runeforged Iron Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 42, Ward = 17, },
+	armour = { BlockChance = 20, Evasion = 42, RunicWard = 17, },
 	req = { level = 16, dex = 25, },
 }
 itemBases["Runeforged Ridged Buckler"] = {
@@ -962,7 +962,7 @@ itemBases["Runeforged Ridged Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 55, Ward = 21, },
+	armour = { BlockChance = 20, Evasion = 55, RunicWard = 21, },
 	req = { level = 22, dex = 33, },
 }
 itemBases["Runeforged Spiked Buckler"] = {
@@ -973,7 +973,7 @@ itemBases["Runeforged Spiked Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 64, Ward = 20, },
+	armour = { BlockChance = 20, Evasion = 64, RunicWard = 20, },
 	req = { level = 26, dex = 38, },
 }
 itemBases["Runeforged Ringed Buckler"] = {
@@ -984,7 +984,7 @@ itemBases["Runeforged Ringed Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 79, Ward = 24, },
+	armour = { BlockChance = 20, Evasion = 79, RunicWard = 24, },
 	req = { level = 33, dex = 48, },
 }
 itemBases["Runeforged Edged Buckler"] = {
@@ -995,7 +995,7 @@ itemBases["Runeforged Edged Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 92, Ward = 28, },
+	armour = { BlockChance = 20, Evasion = 92, RunicWard = 28, },
 	req = { level = 39, dex = 56, },
 }
 itemBases["Runeforged Laminate Buckler"] = {
@@ -1006,7 +1006,7 @@ itemBases["Runeforged Laminate Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, karui_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 105, Ward = 29, },
+	armour = { BlockChance = 20, Evasion = 105, RunicWard = 29, },
 	req = { level = 45, dex = 64, },
 }
 itemBases["Runeforged Pearl Buckler"] = {
@@ -1017,7 +1017,7 @@ itemBases["Runeforged Pearl Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, karui_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 116, Ward = 29, },
+	armour = { BlockChance = 20, Evasion = 116, RunicWard = 29, },
 	req = { level = 50, dex = 71, },
 }
 itemBases["Runeforged Ornate Buckler"] = {
@@ -1028,7 +1028,7 @@ itemBases["Runeforged Ornate Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Ward = 117, },
+	armour = { BlockChance = 20, RunicWard = 117, },
 	req = { level = 52, dex = 74, },
 }
 itemBases["Runeforged Array Buckler"] = {
@@ -1039,7 +1039,7 @@ itemBases["Runeforged Array Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Ward = 122, },
+	armour = { BlockChance = 20, RunicWard = 122, },
 	req = { level = 55, dex = 78, },
 }
 itemBases["Runeforged Aegis Buckler"] = {
@@ -1050,7 +1050,7 @@ itemBases["Runeforged Aegis Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Ward = 141, },
+	armour = { BlockChance = 20, RunicWard = 141, },
 	req = { level = 65, dex = 91, },
 }
 itemBases["Runeforged Spikeward Buckler"] = {
@@ -1061,7 +1061,7 @@ itemBases["Runeforged Spikeward Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 99, Ward = 42, },
+	armour = { BlockChance = 20, Evasion = 99, RunicWard = 42, },
 	req = { level = 54, dex = 77, },
 }
 itemBases["Runeforged Jingling Buckler"] = {
@@ -1072,7 +1072,7 @@ itemBases["Runeforged Jingling Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 122, Ward = 32, },
+	armour = { BlockChance = 20, Evasion = 122, RunicWard = 32, },
 	req = { level = 59, dex = 83, },
 }
 itemBases["Runeforged Bladeguard Buckler"] = {
@@ -1083,7 +1083,7 @@ itemBases["Runeforged Bladeguard Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 104, Ward = 47, },
+	armour = { BlockChance = 20, Evasion = 104, RunicWard = 47, },
 	req = { level = 61, dex = 86, },
 }
 itemBases["Runeforged Ornate Buckler"] = {
@@ -1094,7 +1094,7 @@ itemBases["Runeforged Ornate Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 133, Ward = 35, },
+	armour = { BlockChance = 20, Evasion = 133, RunicWard = 35, },
 	req = { level = 65, dex = 91, },
 }
 itemBases["Runeforged Gutspike Buckler"] = {
@@ -1105,7 +1105,7 @@ itemBases["Runeforged Gutspike Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 96, Ward = 85, },
+	armour = { BlockChance = 20, Evasion = 96, RunicWard = 85, },
 	req = { level = 70, dex = 99, },
 }
 itemBases["Runeforged Ancient Buckler"] = {
@@ -1116,7 +1116,7 @@ itemBases["Runeforged Ancient Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 148, Ward = 35, },
+	armour = { BlockChance = 20, Evasion = 148, RunicWard = 35, },
 	req = { level = 75, dex = 107, },
 }
 itemBases["Runeforged Desert Buckler"] = {
@@ -1127,7 +1127,7 @@ itemBases["Runeforged Desert Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, karui_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 59, Ward = 134, },
+	armour = { BlockChance = 20, Evasion = 59, RunicWard = 134, },
 	req = { level = 80, dex = 115, },
 }
 itemBases["Runemastered Leather Buckler"] = {
@@ -1139,7 +1139,7 @@ itemBases["Runemastered Leather Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 108, Ward = 36, },
+	armour = { BlockChance = 20, Evasion = 108, RunicWard = 36, },
 	req = { level = 38, dex = 54, },
 }
 itemBases["Runemastered Wooden Buckler"] = {
@@ -1151,7 +1151,7 @@ itemBases["Runemastered Wooden Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 90, Ward = 18, },
+	armour = { BlockChance = 20, Evasion = 90, RunicWard = 18, },
 	req = { level = 38, dex = 54, },
 }
 itemBases["Runemastered Plated Buckler"] = {
@@ -1163,7 +1163,7 @@ itemBases["Runemastered Plated Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, ezomyte_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 67, Ward = 23, },
+	armour = { BlockChance = 20, Evasion = 67, RunicWard = 23, },
 	req = { level = 38, dex = 54, },
 }
 itemBases["Runemastered Iron Buckler"] = {
@@ -1175,7 +1175,7 @@ itemBases["Runemastered Iron Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 45, Ward = 45, },
+	armour = { BlockChance = 20, Evasion = 45, RunicWard = 45, },
 	req = { level = 38, dex = 54, },
 }
 itemBases["Runemastered Ridged Buckler"] = {
@@ -1187,7 +1187,7 @@ itemBases["Runemastered Ridged Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 66, Ward = 28, },
+	armour = { BlockChance = 20, Evasion = 66, RunicWard = 28, },
 	req = { level = 40, dex = 58, },
 }
 itemBases["Runemastered Spiked Buckler"] = {
@@ -1199,7 +1199,7 @@ itemBases["Runemastered Spiked Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, maraketh_basetype = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 61, Ward = 33, },
+	armour = { BlockChance = 20, Evasion = 61, RunicWard = 33, },
 	req = { level = 40, dex = 58, },
 }
 itemBases["Runemastered Ornate Buckler"] = {
@@ -1211,7 +1211,7 @@ itemBases["Runemastered Ornate Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 114, Ward = 12, },
+	armour = { BlockChance = 20, Evasion = 114, RunicWard = 12, },
 	req = { level = 55, dex = 78, },
 }
 itemBases["Runemastered Array Buckler"] = {
@@ -1223,7 +1223,7 @@ itemBases["Runemastered Array Buckler"] = {
 	tags = { armour = true, buckler = true, default = true, dex_armour = true, dex_shield = true, runeforged = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 103, Ward = 33, },
+	armour = { BlockChance = 20, Evasion = 103, RunicWard = 33, },
 	req = { level = 60, dex = 85, },
 }
 
@@ -1466,7 +1466,7 @@ itemBases["Runeforged Hardwood Targe"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 10, Evasion = 7, Ward = 12, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 10, Evasion = 7, RunicWard = 12, MovementPenalty = 0.015, },
 	req = { },
 }
 itemBases["Runeforged Pelage Targe"] = {
@@ -1477,7 +1477,7 @@ itemBases["Runeforged Pelage Targe"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 21, Evasion = 17, Ward = 17, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 21, Evasion = 17, RunicWard = 17, MovementPenalty = 0.015, },
 	req = { level = 8, str = 9, dex = 9, },
 }
 itemBases["Runeforged Studded Targe"] = {
@@ -1488,7 +1488,7 @@ itemBases["Runeforged Studded Targe"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 34, Evasion = 29, Ward = 22, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 34, Evasion = 29, RunicWard = 22, MovementPenalty = 0.015, },
 	req = { level = 16, str = 15, dex = 15, },
 }
 itemBases["Runeforged Crescent Targe"] = {
@@ -1499,7 +1499,7 @@ itemBases["Runeforged Crescent Targe"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 50, Evasion = 44, Ward = 30, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 50, Evasion = 44, RunicWard = 30, MovementPenalty = 0.015, },
 	req = { level = 26, str = 22, dex = 22, },
 }
 itemBases["Runeforged Chiseled Targe"] = {
@@ -1510,7 +1510,7 @@ itemBases["Runeforged Chiseled Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, Evasion = 54, Ward = 33, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 61, Evasion = 54, RunicWard = 33, MovementPenalty = 0.015, },
 	req = { level = 33, str = 27, dex = 27, },
 }
 itemBases["Runeforged Feathered Targe"] = {
@@ -1521,7 +1521,7 @@ itemBases["Runeforged Feathered Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 67, Evasion = 60, Ward = 34, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 67, Evasion = 60, RunicWard = 34, MovementPenalty = 0.015, },
 	req = { level = 37, str = 30, dex = 30, },
 }
 itemBases["Runeforged Stratified Targe"] = {
@@ -1532,7 +1532,7 @@ itemBases["Runeforged Stratified Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 82, Evasion = 74, Ward = 38, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 82, Evasion = 74, RunicWard = 38, MovementPenalty = 0.015, },
 	req = { level = 46, str = 37, dex = 37, },
 }
 itemBases["Runeforged Carved Targe"] = {
@@ -1543,7 +1543,7 @@ itemBases["Runeforged Carved Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 89, Evasion = 81, Ward = 40, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 89, Evasion = 81, RunicWard = 40, MovementPenalty = 0.015, },
 	req = { level = 51, str = 40, dex = 40, },
 }
 itemBases["Runeforged Mosaic Targe"] = {
@@ -1554,7 +1554,7 @@ itemBases["Runeforged Mosaic Targe"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 146, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 146, MovementPenalty = 0.015, },
 	req = { level = 52, str = 41, dex = 41, },
 }
 itemBases["Runeforged Aureate Targe"] = {
@@ -1565,7 +1565,7 @@ itemBases["Runeforged Aureate Targe"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 157, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 157, MovementPenalty = 0.015, },
 	req = { level = 57, str = 45, dex = 45, },
 }
 itemBases["Runeforged Grand Targe"] = {
@@ -1576,7 +1576,7 @@ itemBases["Runeforged Grand Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 176, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 176, MovementPenalty = 0.015, },
 	req = { level = 65, str = 50, dex = 50, },
 }
 itemBases["Runeforged Polished Targe"] = {
@@ -1587,7 +1587,7 @@ itemBases["Runeforged Polished Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 75, Evasion = 68, Ward = 53, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 75, Evasion = 68, RunicWard = 53, MovementPenalty = 0.015, },
 	req = { level = 54, str = 42, dex = 42, },
 }
 itemBases["Runeforged Stone Targe"] = {
@@ -1598,7 +1598,7 @@ itemBases["Runeforged Stone Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 92, Evasion = 84, Ward = 41, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 92, Evasion = 84, RunicWard = 41, MovementPenalty = 0.015, },
 	req = { level = 59, str = 46, dex = 46, },
 }
 itemBases["Runeforged Avian Targe"] = {
@@ -1609,7 +1609,7 @@ itemBases["Runeforged Avian Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, Evasion = 73, Ward = 59, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 80, Evasion = 73, RunicWard = 59, MovementPenalty = 0.015, },
 	req = { level = 62, str = 48, dex = 48, },
 }
 itemBases["Runeforged Mammoth Targe"] = {
@@ -1620,7 +1620,7 @@ itemBases["Runeforged Mammoth Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 101, Evasion = 92, Ward = 44, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 101, Evasion = 92, RunicWard = 44, MovementPenalty = 0.015, },
 	req = { level = 65, str = 50, dex = 50, },
 }
 itemBases["Runeforged Baroque Targe"] = {
@@ -1631,7 +1631,7 @@ itemBases["Runeforged Baroque Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 73, Evasion = 66, Ward = 106, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 73, Evasion = 66, RunicWard = 106, MovementPenalty = 0.015, },
 	req = { level = 70, str = 54, dex = 54, },
 }
 itemBases["Runeforged Soaring Targe"] = {
@@ -1642,7 +1642,7 @@ itemBases["Runeforged Soaring Targe"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 106, Evasion = 97, Ward = 53, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 106, Evasion = 97, RunicWard = 53, MovementPenalty = 0.015, },
 	req = { level = 75, str = 59, dex = 59, },
 }
 itemBases["Runeforged Golden Targe"] = {
@@ -1653,7 +1653,7 @@ itemBases["Runeforged Golden Targe"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 34, Evasion = 31, Ward = 185, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 34, Evasion = 31, RunicWard = 185, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, dex = 63, },
 }
 itemBases["Runemastered Hardwood Targe"] = {
@@ -1665,7 +1665,7 @@ itemBases["Runemastered Hardwood Targe"] = {
 	tags = { armour = true, buckler = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 44, Evasion = 39, Ward = 18, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 44, Evasion = 39, RunicWard = 18, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, dex = 31, },
 }
 itemBases["Runemastered Crescent Targe"] = {
@@ -1677,7 +1677,7 @@ itemBases["Runemastered Crescent Targe"] = {
 	tags = { armour = true, buckler = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 41, Evasion = 37, Ward = 23, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 41, Evasion = 37, RunicWard = 23, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, dex = 31, },
 }
 itemBases["Venerable Defender"] = {
@@ -1701,7 +1701,7 @@ itemBases["Runemastered Venerable Defender"] = {
 	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 162, Ward = 42, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 162, RunicWard = 42, MovementPenalty = 0.03, },
 	req = { level = 65, str = 107, },
 }
 itemBases["Runemastered Venerable Defender"] = {
@@ -1713,7 +1713,7 @@ itemBases["Runemastered Venerable Defender"] = {
 	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, EnergyShield = 45, Ward = 42, },
+	armour = { BlockChance = 25, EnergyShield = 45, RunicWard = 42, },
 	req = { level = 65, int = 107, },
 }
 itemBases["Runemastered Venerable Defender"] = {
@@ -1725,7 +1725,7 @@ itemBases["Runemastered Venerable Defender"] = {
 	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 148, Ward = 42, },
+	armour = { BlockChance = 20, Evasion = 148, RunicWard = 42, },
 	req = { level = 65, dex = 107, },
 }
 itemBases["Runemastered Venerable Defender"] = {
@@ -1737,7 +1737,7 @@ itemBases["Runemastered Venerable Defender"] = {
 	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 89, Evasion = 81, Ward = 42, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 89, Evasion = 81, RunicWard = 42, MovementPenalty = 0.015, },
 	req = { level = 65, str = 67, dex = 67, },
 }
 
@@ -1980,7 +1980,7 @@ itemBases["Runeforged Blazon Crest Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 10, EnergyShield = 6, Ward = 12, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 10, EnergyShield = 6, RunicWard = 12, MovementPenalty = 0.015, },
 	req = { },
 }
 itemBases["Runeforged Sigil Crest Shield"] = {
@@ -1991,7 +1991,7 @@ itemBases["Runeforged Sigil Crest Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 20, EnergyShield = 9, Ward = 16, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 20, EnergyShield = 9, RunicWard = 16, MovementPenalty = 0.015, },
 	req = { level = 7, str = 8, int = 8, },
 }
 itemBases["Runeforged Emblem Crest Shield"] = {
@@ -2002,7 +2002,7 @@ itemBases["Runeforged Emblem Crest Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 34, EnergyShield = 12, Ward = 22, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 34, EnergyShield = 12, RunicWard = 22, MovementPenalty = 0.015, },
 	req = { level = 16, str = 15, int = 15, },
 }
 itemBases["Runeforged Jingling Crest Shield"] = {
@@ -2013,7 +2013,7 @@ itemBases["Runeforged Jingling Crest Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 53, EnergyShield = 17, Ward = 31, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 53, EnergyShield = 17, RunicWard = 31, MovementPenalty = 0.015, },
 	req = { level = 28, str = 23, int = 23, },
 }
 itemBases["Runeforged Sectarian Crest Shield"] = {
@@ -2024,7 +2024,7 @@ itemBases["Runeforged Sectarian Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, EnergyShield = 19, Ward = 33, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 61, EnergyShield = 19, RunicWard = 33, MovementPenalty = 0.015, },
 	req = { level = 33, str = 27, int = 27, },
 }
 itemBases["Runeforged Omen Crest Shield"] = {
@@ -2035,7 +2035,7 @@ itemBases["Runeforged Omen Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 66, EnergyShield = 20, Ward = 34, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 66, EnergyShield = 20, RunicWard = 34, MovementPenalty = 0.015, },
 	req = { level = 36, str = 30, int = 30, },
 }
 itemBases["Runeforged Wayward Crest Shield"] = {
@@ -2046,7 +2046,7 @@ itemBases["Runeforged Wayward Crest Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, EnergyShield = 23, Ward = 38, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 80, EnergyShield = 23, RunicWard = 38, MovementPenalty = 0.015, },
 	req = { level = 45, str = 36, int = 36, },
 }
 itemBases["Runeforged Seer Crest Shield"] = {
@@ -2057,7 +2057,7 @@ itemBases["Runeforged Seer Crest Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 88, EnergyShield = 25, Ward = 40, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 88, EnergyShield = 25, RunicWard = 40, MovementPenalty = 0.015, },
 	req = { level = 50, str = 39, int = 39, },
 }
 itemBases["Runeforged Stoic Crest Shield"] = {
@@ -2068,7 +2068,7 @@ itemBases["Runeforged Stoic Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 146, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 146, MovementPenalty = 0.015, },
 	req = { level = 52, str = 41, int = 41, },
 }
 itemBases["Runeforged Empyreal Crest Shield"] = {
@@ -2079,7 +2079,7 @@ itemBases["Runeforged Empyreal Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 157, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 157, MovementPenalty = 0.015, },
 	req = { level = 57, str = 45, int = 45, },
 }
 itemBases["Runeforged Deified Crest Shield"] = {
@@ -2090,7 +2090,7 @@ itemBases["Runeforged Deified Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Ward = 176, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, RunicWard = 176, MovementPenalty = 0.015, },
 	req = { level = 65, str = 50, int = 50, },
 }
 itemBases["Runeforged Dekharan Crest Shield"] = {
@@ -2101,7 +2101,7 @@ itemBases["Runeforged Dekharan Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 75, EnergyShield = 21, Ward = 53, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 75, EnergyShield = 21, RunicWard = 53, MovementPenalty = 0.015, },
 	req = { level = 54, str = 42, int = 42, },
 }
 itemBases["Runeforged Quartered Crest Shield"] = {
@@ -2112,7 +2112,7 @@ itemBases["Runeforged Quartered Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 92, EnergyShield = 26, Ward = 41, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 92, EnergyShield = 26, RunicWard = 41, MovementPenalty = 0.015, },
 	req = { level = 59, str = 46, int = 46, },
 }
 itemBases["Runeforged Glowering Crest Shield"] = {
@@ -2123,7 +2123,7 @@ itemBases["Runeforged Glowering Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, EnergyShield = 22, Ward = 59, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 80, EnergyShield = 22, RunicWard = 59, MovementPenalty = 0.015, },
 	req = { level = 62, str = 48, int = 48, },
 }
 itemBases["Runeforged Intricate Crest Shield"] = {
@@ -2134,7 +2134,7 @@ itemBases["Runeforged Intricate Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 101, EnergyShield = 28, Ward = 44, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 101, EnergyShield = 28, RunicWard = 44, MovementPenalty = 0.015, },
 	req = { level = 65, str = 50, int = 50, },
 }
 itemBases["Runeforged Sekheman Crest Shield"] = {
@@ -2145,7 +2145,7 @@ itemBases["Runeforged Sekheman Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 73, EnergyShield = 20, Ward = 106, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 73, EnergyShield = 20, RunicWard = 106, MovementPenalty = 0.015, },
 	req = { level = 70, str = 54, int = 54, },
 }
 itemBases["Runeforged Vaal Crest Shield"] = {
@@ -2156,7 +2156,7 @@ itemBases["Runeforged Vaal Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 123, EnergyShield = 34, Ward = 26, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 123, EnergyShield = 34, RunicWard = 26, MovementPenalty = 0.015, },
 	req = { level = 75, str = 59, int = 59, },
 }
 itemBases["Runeforged Blacksteel Crest Shield"] = {
@@ -2167,7 +2167,7 @@ itemBases["Runeforged Blacksteel Crest Shield"] = {
 	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 28, EnergyShield = 8, Ward = 194, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 28, EnergyShield = 8, RunicWard = 194, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, int = 63, },
 }
 itemBases["Runemastered Blazon Crest Shield"] = {
@@ -2179,7 +2179,7 @@ itemBases["Runemastered Blazon Crest Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 43, EnergyShield = 13, Ward = 47, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 43, EnergyShield = 13, RunicWard = 47, MovementPenalty = 0.015, },
 	req = { level = 40, str = 32, int = 32, },
 }
 itemBases["Runemastered Sigil Crest Shield"] = {
@@ -2191,7 +2191,7 @@ itemBases["Runemastered Sigil Crest Shield"] = {
 	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 65, EnergyShield = 19, Ward = 12, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 65, EnergyShield = 19, RunicWard = 12, MovementPenalty = 0.015, },
 	req = { level = 40, str = 32, int = 32, },
 }
 itemBases["Runemastered Emblem Crest Shield"] = {
@@ -2203,7 +2203,7 @@ itemBases["Runemastered Emblem Crest Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 48, EnergyShield = 14, Ward = 34, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 48, EnergyShield = 14, RunicWard = 34, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, int = 31, },
 }
 itemBases["Runemastered Jingling Crest Shield"] = {
@@ -2215,7 +2215,7 @@ itemBases["Runemastered Jingling Crest Shield"] = {
 	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 41, EnergyShield = 12, Ward = 45, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 41, EnergyShield = 12, RunicWard = 45, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, int = 31, },
 }
 itemBases["Runemastered Omen Crest Shield"] = {
@@ -2227,7 +2227,7 @@ itemBases["Runemastered Omen Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, vaal_basetype = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 42, EnergyShield = 12, Ward = 82, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 42, EnergyShield = 12, RunicWard = 82, MovementPenalty = 0.015, },
 	req = { level = 48, str = 38, int = 38, },
 }
 itemBases["Runemastered Intricate Crest Shield"] = {
@@ -2239,7 +2239,7 @@ itemBases["Runemastered Intricate Crest Shield"] = {
 	tags = { armour = true, default = true, runeforged = true, shield = true, str_int_armour = true, str_int_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 78, EnergyShield = 22, Ward = 62, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 78, EnergyShield = 22, RunicWard = 62, MovementPenalty = 0.015, },
 	req = { level = 65, str = 50, int = 50, },
 }
 

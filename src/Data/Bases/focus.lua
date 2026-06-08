@@ -216,7 +216,7 @@ itemBases["Runeforged Twig Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 12, Ward = 12, },
+	armour = { EnergyShield = 12, RunicWard = 12, },
 	req = { },
 }
 itemBases["Runeforged Woven Focus"] = {
@@ -225,7 +225,7 @@ itemBases["Runeforged Woven Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 15, Ward = 15, },
+	armour = { EnergyShield = 15, RunicWard = 15, },
 	req = { level = 6, int = 11, },
 }
 itemBases["Runeforged Antler Focus"] = {
@@ -234,7 +234,7 @@ itemBases["Runeforged Antler Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 18, Ward = 17, },
+	armour = { EnergyShield = 18, RunicWard = 17, },
 	req = { level = 10, int = 17, },
 }
 itemBases["Runeforged Engraved Focus"] = {
@@ -243,7 +243,7 @@ itemBases["Runeforged Engraved Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 22, Ward = 22, },
+	armour = { EnergyShield = 22, RunicWard = 22, },
 	req = { level = 16, int = 25, },
 }
 itemBases["Runeforged Tonal Focus"] = {
@@ -252,7 +252,7 @@ itemBases["Runeforged Tonal Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 26, Ward = 24, },
+	armour = { EnergyShield = 26, RunicWard = 24, },
 	req = { level = 22, int = 33, },
 }
 itemBases["Runeforged Crystal Focus"] = {
@@ -261,7 +261,7 @@ itemBases["Runeforged Crystal Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 29, Ward = 25, },
+	armour = { EnergyShield = 29, RunicWard = 25, },
 	req = { level = 26, int = 38, },
 }
 itemBases["Runeforged Voodoo Focus"] = {
@@ -270,7 +270,7 @@ itemBases["Runeforged Voodoo Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 34, Ward = 28, },
+	armour = { EnergyShield = 34, RunicWard = 28, },
 	req = { level = 33, int = 48, },
 }
 itemBases["Runeforged Plumed Focus"] = {
@@ -279,7 +279,7 @@ itemBases["Runeforged Plumed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 36, Ward = 30, },
+	armour = { EnergyShield = 36, RunicWard = 30, },
 	req = { level = 36, int = 52, },
 }
 itemBases["Runeforged Runed Focus"] = {
@@ -288,7 +288,7 @@ itemBases["Runeforged Runed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 42, Ward = 32, },
+	armour = { EnergyShield = 42, RunicWard = 32, },
 	req = { level = 45, int = 64, },
 }
 itemBases["Runeforged Whorl Focus"] = {
@@ -297,7 +297,7 @@ itemBases["Runeforged Whorl Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 47, Ward = 34, },
+	armour = { EnergyShield = 47, RunicWard = 34, },
 	req = { level = 51, int = 73, },
 }
 itemBases["Runeforged Elegant Focus"] = {
@@ -306,7 +306,7 @@ itemBases["Runeforged Elegant Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Ward = 146, },
+	armour = { RunicWard = 146, },
 	req = { level = 52, int = 74, },
 }
 itemBases["Runeforged Attuned Focus"] = {
@@ -315,7 +315,7 @@ itemBases["Runeforged Attuned Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Ward = 157, },
+	armour = { RunicWard = 157, },
 	req = { level = 57, int = 81, },
 }
 itemBases["Runeforged Magus Focus"] = {
@@ -324,7 +324,7 @@ itemBases["Runeforged Magus Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Ward = 176, },
+	armour = { RunicWard = 176, },
 	req = { level = 65, int = 91, },
 }
 itemBases["Runeforged Arrayed Focus"] = {
@@ -333,7 +333,7 @@ itemBases["Runeforged Arrayed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 41, Ward = 45, },
+	armour = { EnergyShield = 41, RunicWard = 45, },
 	req = { level = 54, int = 77, },
 }
 itemBases["Runeforged Cultist Focus"] = {
@@ -342,7 +342,7 @@ itemBases["Runeforged Cultist Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 50, Ward = 32, },
+	armour = { EnergyShield = 50, RunicWard = 32, },
 	req = { level = 59, int = 83, },
 }
 itemBases["Runeforged Hallowed Focus"] = {
@@ -351,7 +351,7 @@ itemBases["Runeforged Hallowed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 40, Ward = 58, },
+	armour = { EnergyShield = 40, RunicWard = 58, },
 	req = { level = 61, int = 86, },
 }
 itemBases["Runeforged Druidic Focus"] = {
@@ -360,7 +360,7 @@ itemBases["Runeforged Druidic Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 51, Ward = 62, },
+	armour = { EnergyShield = 51, RunicWard = 62, },
 	req = { level = 65, int = 91, },
 }
 itemBases["Runeforged Leyline Focus"] = {
@@ -369,7 +369,7 @@ itemBases["Runeforged Leyline Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 39, Ward = 114, },
+	armour = { EnergyShield = 39, RunicWard = 114, },
 	req = { level = 70, int = 99, },
 }
 itemBases["Runeforged Sacred Focus"] = {
@@ -378,7 +378,7 @@ itemBases["Runeforged Sacred Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 65, Ward = 53, },
+	armour = { EnergyShield = 65, RunicWard = 53, },
 	req = { level = 75, int = 107, },
 }
 itemBases["Runeforged Tasalian Focus"] = {
@@ -387,7 +387,7 @@ itemBases["Runeforged Tasalian Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 24, Ward = 181, },
+	armour = { EnergyShield = 24, RunicWard = 181, },
 	req = { level = 80, int = 115, },
 }
 itemBases["Runemastered Twig Focus"] = {
@@ -397,7 +397,7 @@ itemBases["Runemastered Twig Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 38, Ward = 23, },
+	armour = { EnergyShield = 38, RunicWard = 23, },
 	req = { level = 38, int = 54, },
 }
 itemBases["Runemastered Woven Focus"] = {
@@ -407,7 +407,7 @@ itemBases["Runemastered Woven Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 23, Ward = 45, },
+	armour = { EnergyShield = 23, RunicWard = 45, },
 	req = { level = 38, int = 54, },
 }
 itemBases["Runemastered Antler Focus"] = {
@@ -417,7 +417,7 @@ itemBases["Runemastered Antler Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 23, Ward = 34, },
+	armour = { EnergyShield = 23, RunicWard = 34, },
 	req = { level = 38, int = 54, },
 }
 itemBases["Runemastered Engraved Focus"] = {
@@ -427,7 +427,7 @@ itemBases["Runemastered Engraved Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 38, Ward = 45, },
+	armour = { EnergyShield = 38, RunicWard = 45, },
 	req = { level = 38, int = 54, },
 }
 itemBases["Runemastered Tonal Focus"] = {
@@ -437,7 +437,7 @@ itemBases["Runemastered Tonal Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 19, Ward = 57, },
+	armour = { EnergyShield = 19, RunicWard = 57, },
 	req = { level = 38, int = 54, },
 }
 itemBases["Runemastered Crystal Focus"] = {
@@ -447,7 +447,7 @@ itemBases["Runemastered Crystal Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 23, Ward = 47, },
+	armour = { EnergyShield = 23, RunicWard = 47, },
 	req = { level = 40, int = 58, },
 }
 itemBases["Runemastered Voodoo Focus"] = {
@@ -457,7 +457,7 @@ itemBases["Runemastered Voodoo Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 40, Ward = 31, },
+	armour = { EnergyShield = 40, RunicWard = 31, },
 	req = { level = 55, int = 78, },
 }
 itemBases["Runemastered Plumed Focus"] = {
@@ -467,6 +467,6 @@ itemBases["Runemastered Plumed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 23, Ward = 106, },
+	armour = { EnergyShield = 23, RunicWard = 106, },
 	req = { level = 75, int = 91, },
 }

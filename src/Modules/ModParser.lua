@@ -238,7 +238,8 @@ local modNameList = {
 	["evasion"] = "Evasion",
 	["evasion rating"] = "Evasion",
 	["energy shield"] = "EnergyShield",
-	["ward"] = "Ward",
+	["runic ward"] = "Ward",
+	["maximum runic ward"] = "Ward",
 	["armour and evasion"] = "ArmourAndEvasion",
 	["armour and evasion rating"] = "ArmourAndEvasion",
 	["evasion rating and armour"] = "ArmourAndEvasion",
@@ -3365,7 +3366,7 @@ local specialModList = {
 	["all flames of chayula that you manifest are red"] = { flag("BreachFlameOnlyRed") },
 	["all flames of chayula that you manifest are blue"] = { flag("BreachFlameOnlyBlue") },
 	["all flames of chayula that you manifest are purple"] = { flag("BreachFlameOnlyPurple") },
-	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
+	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"),
 	},

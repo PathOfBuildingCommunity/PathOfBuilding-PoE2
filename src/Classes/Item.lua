@@ -581,7 +581,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 				elseif specName == "Talisman Tier" then
 					self.talismanTier = specToNumber(specVal)
-				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Ward" then
+				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Runic Ward" then
 					if specName == "Evasion Rating" then
 						specName = "Evasion"
 						if self.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
@@ -1297,9 +1297,9 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Spirit: " .. self.spiritValue)
 	end
 	if self.armourData then
-		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "Ward" }) do
+		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "RunicWard" }) do
 			if self.armourData[type] and self.armourData[type] > 0 then
-				t_insert(rawLines, type:gsub("EnergyShield", "Energy Shield") .. ": " .. self.armourData[type])
+				t_insert(rawLines, type:gsub("EnergyShield", "Energy Shield"):gsub("RunicWard", "Runic Ward")  .. ": " .. self.armourData[type])
 			end
 		end
 	end

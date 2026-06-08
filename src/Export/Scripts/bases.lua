@@ -291,9 +291,9 @@ directiveTable.base = function(state, args, out)
 			out:write('EnergyShield = ', armourType.EnergyShield, ', ')
 			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
-		if armourType.Ward > 0 then
-			out:write('Ward = ', armourType.Ward, ', ')
-			itemValueSum = itemValueSum + armourType.Ward
+		if armourType.RunicWard > 0 then
+			out:write('RunicWard = ', armourType.RunicWard, ', ')
+			itemValueSum = itemValueSum + armourType.RunicWard
 		end
 		if armourType.MovementPenalty ~= 0 then
 			out:write('MovementPenalty = ', -armourType.MovementPenalty / 10000, ', ')
@@ -364,7 +364,7 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	out:write('},\n}\n')
-	
+
 	if not hidden then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""
