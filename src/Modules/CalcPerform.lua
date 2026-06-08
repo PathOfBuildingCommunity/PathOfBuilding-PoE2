@@ -761,7 +761,8 @@ local function doActorMisc(env, actor)
 	-- Process enemy modifiers
 	applyEnemyModifiers(actor)
 
-	-- Check enemy "Slowed" condition if not already in effect
+	-- Check enemy "Slowed" conditions
+	-- NOTE: check is done based on negative speed modifiers as the list of possible slowing effects is very large
 	if actor ~= env.player and actor ~= env.minion and (not modDB:Flag(nil, "UnaffectedBySlows")) then
 		local slowEffect = modDB:SumNegativeValues("INC", nil, "ActionSpeed") or 0
 		slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "MovementSpeed") or 0
@@ -2402,8 +2403,6 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.skillModList:Flag(nil, "CanParry") then
 			modDB:NewMod("CanParry", "FLAG", true)
 		end
-		-- Handle `slowed` condition
-		-- todo remove
 		--Handle combustion
 		if enemyDB:Flag(nil, "Condition:Ignited") and (activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Attack]) and not appliedCombustion then
 			for _, support in ipairs(activeSkill.supportList) do

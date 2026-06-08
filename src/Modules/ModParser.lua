@@ -6314,7 +6314,9 @@ local flagTypes = {
 	["no life regeneration"] = "NoLifeRegen",
 	["no inherent mana regeneration"] = "Condition:NoInherentManaRegen",
 	["hexproof"] = { name = "CurseEffectOnSelf", value = -100, type = "MORE" },
+	["maimed"] = "Condition:Maimed",
 	["hindered,? with (%d+)%% reduced movement speed"] = "Condition:Hindered",
+	["hindered"] = "Condition:Hindered",
 	["unnerved"] = "Condition:Unnerved",
 	["malediction"] = "HasMalediction",
 }
