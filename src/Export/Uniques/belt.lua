@@ -40,7 +40,7 @@ Cannot be Shocked
 ]],[[
 Cat O' Nine Tails
 Utility Belt
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 2
 BeltImplicitInstantFlaskRecoveryPercent1
 BeltImplicitCharmSlots3

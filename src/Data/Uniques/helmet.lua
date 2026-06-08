@@ -303,7 +303,7 @@ You can wield Two-Handed Axes, Maces and Swords in one hand
 ]],[[
 Decree of Acuity
 Ancient Visor
-League: Fate of the Vaal
+League: Runes of Aldur
 (150-250)% increased Armour and Evasion
 +(25-35) to Dexterity
 Gain (15-30)% of Evasion Rating as extra Armour

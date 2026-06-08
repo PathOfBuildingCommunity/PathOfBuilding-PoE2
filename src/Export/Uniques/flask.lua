@@ -23,7 +23,7 @@ UniqueFlaskChargesUsed1
 ]],[[
 Opportunity
 Ultimate Life Flask
-League: Fate of the Vaal
+League: Runes of Aldur
 UniqueFlaskEffectNotRemovedOnFullLife__2
 UniqueCannotDrinkFlaskManually1
 UniqueFlaskUsedOnPerfectTiming1

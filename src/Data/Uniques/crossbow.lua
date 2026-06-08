@@ -51,7 +51,7 @@ expend Ammunition if you've Reloaded Recently
 ]],[[
 Redemption
 Trarthan Cannon
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Cannot load or fire Ammunition
 (300-400)% increased Physical Damage

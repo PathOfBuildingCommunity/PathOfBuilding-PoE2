@@ -75,7 +75,7 @@ UniqueAttackerTakesDamage3
 ]],[[
 Geofri's Sanctuary
 Revered Vestments
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 BodyArmourImplicitMaximumElementalResistance1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent32
@@ -556,7 +556,7 @@ UniqueLifeLeechOvercapLife1
 ]],[[
 Decree of Loyalty
 Ancient Mail
-League: Fate of the Vaal
+League: Runes of Aldur
 UniqueLocalIncreasedArmourAndEnergyShield29
 UniqueStrengthAndIntelligence3
 UniqueMaximumChaosResist1
@@ -688,7 +688,7 @@ UniqueIncreasedEvasionIfHitRecently1
 ]],[[
 Forgotten Warden
 Primal Markings
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Spirit Vessel
 UniqueDeflectionRatingPerMissingEnergyShield1

@@ -58,7 +58,7 @@ UniqueDoubleAccuracyRating1
 ]],[[
 Nightfall
 Fortress Tower Shield
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueStrengthRequirements5
@@ -279,7 +279,7 @@ UniqueSkillEffectDuration1
 ]],[[
 Eyes of the Runefather
 Venerable Defender
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEvasion32

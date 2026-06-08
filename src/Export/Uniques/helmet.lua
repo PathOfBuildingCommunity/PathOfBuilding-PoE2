@@ -303,7 +303,7 @@ UniqueUseTwoHandedWeaponOneHand1
 ]],[[
 Decree of Acuity
 Ancient Visor
-League: Fate of the Vaal
+League: Runes of Aldur
 UniqueLocalIncreasedArmourAndEvasion33
 UniqueDexterity47
 UniquePercentEvasionRatingAsExtraArmour1

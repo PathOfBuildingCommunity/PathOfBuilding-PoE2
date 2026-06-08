@@ -95,7 +95,7 @@ UniqueManaRegeneration29
 ]],[[
 Eventide Petals
 Veridical Chain
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 2
 Grants Skill: Level (1-20) Midnight Zenith
 AmuletImplicitRunicWard1
@@ -171,7 +171,7 @@ UniqueRecoverLifeBasedOnRegen1
 ]],[[
 Immaculate Adherence
 Solar Amulet
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 AmuletImplicitBaseSpirit1
 UniqueDamageRemovedFromManaBeforeLife3

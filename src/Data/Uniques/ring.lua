@@ -13,7 +13,7 @@ Implicits: 1
 ]],[[
 Berek's Grip
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 {tags:cold,lightning}+(12-16)% to Cold and Lightning Resistances
@@ -25,7 +25,7 @@ Hits against you have (35-50)% reduced Critical Hit Chance while you are Chilled
 ]],[[
 Berek's Pass
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 {tags:fire,cold}+(12-16)% to Fire and Cold Resistances
@@ -37,7 +37,7 @@ Implicits: 1
 ]],[[
 Berek's Respite
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 {tags:fire,lightning}+(12-16)% to Fire and Lightning Resistances

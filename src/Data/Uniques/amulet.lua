@@ -95,7 +95,7 @@ Implicits: 1
 ]],[[
 Eventide Petals
 Veridical Chain
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 2
 Grants Skill: Level (1-20) Midnight Zenith
 +(30-40) to maximum Runic Ward
@@ -171,7 +171,7 @@ Every 4 seconds, Recover 1 Life for every 0.2 Life Recovery per second from Rege
 ]],[[
 Immaculate Adherence
 Solar Amulet
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 +(10-15) to Spirit
 {tags:life,mana}100% of Damage is taken from Mana before Life

@@ -57,7 +57,7 @@ UniqueLeechLifeOnSpellCast1
 ]],[[
 Liminal Coil
 Twisted Wand
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Coiling Bolts
 UniqueSpellDamageOnWeapon12
@@ -69,7 +69,7 @@ UniqueSpellDamageAsExtraPhysicalPerCurse1
 ]],[[
 Runeseeker's Call
 Runic Fork
-League: Fate of the Vaal
+League: Runes of Aldur
 Sockets: S S S S S
 Implicits: 1
 Grants Skill: Level (1-20) The Stars Answer

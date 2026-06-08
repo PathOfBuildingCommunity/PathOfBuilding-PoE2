@@ -45,7 +45,7 @@ GhostflameOnHitUnique__1
 ]],[[
 Ironbound
 Warden Bow
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 BowImplicitLocalChanceToChain1
 UniqueLocalIncreasedPhysicalDamageReductionRating6
@@ -57,7 +57,7 @@ UniqueProjectilesReturnIfPiercedArmourBroken1
 ]],[[
 Periphery
 Heartwood Shortbow
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Azmerian Swarms
 UniqueLocalAddedFireDamage9

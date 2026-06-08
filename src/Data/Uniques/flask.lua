@@ -25,7 +25,7 @@ Instant Recovery
 ]],[[
 Opportunity
 Ultimate Life Flask
-League: Fate of the Vaal
+League: Runes of Aldur
 Effect is not removed when Unreserved Life is Filled
 Cannot be Used manually
 Used when you release a skill with Perfect Timing

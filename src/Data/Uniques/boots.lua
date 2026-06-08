@@ -212,7 +212,7 @@ You cannot Sprint
 [[
 Decree of Flight
 Ancient Leggings
-League: Fate of the Vaal
+League: Runes of Aldur
 30% increased Movement Speed
 (150-200)% increased Armour and Energy Shield
 (20-30)% faster Dodge Roll

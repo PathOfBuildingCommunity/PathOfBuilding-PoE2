@@ -130,7 +130,7 @@ Trigger skills refund half of Energy spent
 ]],[[
 Duality
 Warding Quarterstaff
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 +(30-50) to maximum Runic Ward
 (200-300)% increased Physical Damage

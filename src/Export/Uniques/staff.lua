@@ -129,7 +129,7 @@ UniqueTriggersRefundEnergySpent1
 ]],[[
 Duality
 Warding Quarterstaff
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 QuarterstaffImplicitRunicWard1
 UniqueLocalIncreasedPhysicalDamagePercent25

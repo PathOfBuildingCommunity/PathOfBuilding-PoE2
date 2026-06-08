@@ -97,7 +97,7 @@ Adds (3-5) to (6-8) Cold damage to Attacks
 ]],[[
 Horror's Flight
 Engraved Bracers
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Crushing Fear
 (200-300)% increased Evasion Rating

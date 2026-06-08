@@ -213,7 +213,7 @@ UniqueCannotSprint1
 [[
 Decree of Flight
 Ancient Leggings
-League: Fate of the Vaal
+League: Runes of Aldur
 UniqueMovementVelocity29
 UniqueLocalIncreasedArmourAndEnergyShield27
 UniqueDodgeRollSpeed1

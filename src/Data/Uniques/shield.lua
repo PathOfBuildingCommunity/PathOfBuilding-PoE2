@@ -58,7 +58,7 @@ Accuracy Rating is Doubled
 ]],[[
 Nightfall
 Fortress Tower Shield
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Raise Shield
 +150 Strength Requirement
@@ -305,7 +305,7 @@ Lose 1% of maximum Mana on Kill
 ]],[[
 Eyes of the Runefather
 Venerable Defender
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Raise Shield
 (300-400)% increased Armour and Evasion

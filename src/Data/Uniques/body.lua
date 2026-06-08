@@ -75,7 +75,7 @@ Variant: Current
 ]],[[
 Geofri's Sanctuary
 Revered Vestments
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 +1% to all Maximum Elemental Resistances
 (150-200)% increased Armour
@@ -566,7 +566,7 @@ Life Leech can Overflow Maximum Life
 ]],[[
 Decree of Loyalty
 Ancient Mail
-League: Fate of the Vaal
+League: Runes of Aldur
 (200-300)% increased Armour and Energy Shield
 +(15-25) to Strength and Intelligence
 +(1-5)% to Maximum Chaos Resistance
@@ -702,7 +702,7 @@ Variant: Current
 ]],[[
 Forgotten Warden
 Primal Markings
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Spirit Vessel
 +(70-100) to Deflection Rating per 50 missing Energy Shield

@@ -45,7 +45,7 @@ Attack Hits inflict Spectral Fire for 8 seconds
 ]],[[
 Ironbound
 Warden Bow
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 (25-35)% chance to Chain an additional time
 +(100-150) to Armour
@@ -57,7 +57,7 @@ Arrows Return if they have Pierced a target which had Fully Broken Armour
 ]],[[
 Periphery
 Heartwood Shortbow
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Azmerian Swarms
 Adds (48-59) to (75-97) Fire Damage

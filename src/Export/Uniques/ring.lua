@@ -13,7 +13,7 @@ UniqueAllResistances3
 ]],[[
 Berek's Grip
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 RingImplicitColdLightningResistance
@@ -24,7 +24,7 @@ UniqueWindSkillsBoostedByShockedGround1
 ]],[[
 Berek's Pass
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 RingImplicitFireColdResistance
@@ -35,7 +35,7 @@ UniqueWindSkillsBoostedByChilledGround1
 ]],[[
 Berek's Respite
 Two-Stone Ring
-League: Fate of the Vaal
+League: Runes of Aldur
 Requires Level 42
 Implicits: 1
 RingImplicitFireLightningResistance

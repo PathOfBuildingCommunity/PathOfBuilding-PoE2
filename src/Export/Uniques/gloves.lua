@@ -96,7 +96,7 @@ UniqueChillEffect1
 ]],[[
 Horror's Flight
 Engraved Bracers
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Crushing Fear
 UniqueLocalIncreasedEvasionRatingPercent36

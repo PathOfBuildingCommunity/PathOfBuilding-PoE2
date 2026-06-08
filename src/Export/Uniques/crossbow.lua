@@ -49,7 +49,7 @@ UniqueLocalReloadSpeed1
 ]],[[
 Redemption
 Trarthan Cannon
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 CannonBowImplicitCannotUseAmmoSkills1
 UniqueLocalIncreasedPhysicalDamagePercent24

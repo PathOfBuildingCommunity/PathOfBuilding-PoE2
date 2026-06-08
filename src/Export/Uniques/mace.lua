@@ -5,7 +5,7 @@ return {
 [[
 Brutus' Lead Sprinkler
 Morning Star
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Molten Shower
 UniqueMoltenShowerSkill1
@@ -87,7 +87,7 @@ UniqueMaximumLightningDamagePerPower1
 ]],[[
 Sadist's Mercy
 Flanged Mace
-League: Fate of the Vaal
+League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Harbinger of Madness
 UniqueLocalIncreasedPhysicalDamagePercent27
@@ -237,7 +237,7 @@ UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
 Serle's Grit
 Kalguuran Forgehammer
-League: Fate of the Vaal
+League: Runes of Aldur
 Sockets: S S S
 Implicits: 2
 Grants Skill: Level (1-20) Runic Tempering
