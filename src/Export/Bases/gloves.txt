@@ -6,24 +6,31 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesStr%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrUnique
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesDex%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexUnique
 
 #subType Energy Shield
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesIntUnique
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDex%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDexUnique
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrIntUnique
 
 #subType Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexIntUnique
 
 #subType Armour/Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDexInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDexIntUnique
 
 #subType
 #baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods1

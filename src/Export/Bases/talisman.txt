@@ -2,4 +2,5 @@
 local itemBases = ...
 
 #type Talisman
+#socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandTalismans/AbstractTalisman
