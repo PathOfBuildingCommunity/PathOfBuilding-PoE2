@@ -448,6 +448,15 @@ UniqueManaRegeneration26
 {variant:1}UniqueAlternatingDamageTaken1[-30,-30]
 {variant:2,3}UniqueAlternatingDamageTaken1
 ]],[[
+Vestige of Darkness
+Tenebrous Crown
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEnergyShield28
+UniqueStrengthAndIntelligence2
+UniquePhysicalDamageFromHitsContributesToChillAndFreeze1
+UniqueBlindEnemiesInPresence1
+UniqueHauntedByTheWendigo1
+]],[[
 Veil of the Night
 Martyr Crown
 UniqueMaximumLifeIncrease2

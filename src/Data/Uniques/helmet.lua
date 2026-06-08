@@ -452,6 +452,15 @@ Variant: Current
 {variant:2,3}Take 40% less Damage from Hits
 {variant:2,3}Take 40% less Damage over time
 ]],[[
+Vestige of Darkness
+Tenebrous Crown
+League: Runes of Aldur
+(150-200)% increased Armour and Energy Shield
++(20-30) to Strength and Intelligence
+Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup
+Enemies in your Presence are Blinded
+The Bodach haunts your Presence
+]],[[
 Veil of the Night
 Martyr Crown
 50% increased maximum Life
