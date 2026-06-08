@@ -94,6 +94,17 @@ UniqueAddedColdDamage1
 UniqueFreezeDamageIncrease2
 UniqueChillEffect1
 ]],[[
+Horror's Flight
+Engraved Bracers
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Crushing Fear
+UniqueLocalIncreasedEvasionRatingPercent36
+UniqueIncreasedAttackSpeed16
+UniqueDexterity45
+UniqueAddedChaosDamage5
+UniqueGainFearIncarnateOnCulling1
+]],[[
 Idle Hands
 Sectioned Bracers
 UniqueLocalIncreasedEvasionRatingPercent3

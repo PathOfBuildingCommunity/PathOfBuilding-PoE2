@@ -95,6 +95,17 @@ Adds (3-5) to (6-8) Cold damage to Attacks
 (40-50)% increased Freeze Buildup
 (20-30)% increased Magnitude of Chill you inflict
 ]],[[
+Horror's Flight
+Engraved Bracers
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Crushing Fear
+(200-300)% increased Evasion Rating
+(7-17)% increased Attack Speed
++(13-23) to Dexterity
+Adds (19-23) to (31-37) Chaos Damage to Attacks
+Gain 1 Fear Incarnate when you Cull a target
+]],[[
 Idle Hands
 Sectioned Bracers
 (40-60)% increased Evasion Rating
