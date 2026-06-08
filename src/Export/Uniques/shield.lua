@@ -265,6 +265,16 @@ UniqueMaximumLifeOnKillPercent2
 UniqueMaximumManaOnKillPercent1
 UniqueSkillEffectDuration1
 ]],[[
+Eyes of the Runefather
+Venerable Defender
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedArmourAndEvasion32
+UniqueColdResist36
+UniqueAncientsChallengeOnOffHandDamage1
+UniqueRaiseShieldAncientsChallenge1
+]],[[
 Feathered Fortress
 Crescent Targe
 Variant: Pre 0.1.1
