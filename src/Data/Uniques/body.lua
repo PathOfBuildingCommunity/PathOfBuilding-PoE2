@@ -559,17 +559,25 @@ Pilgrim Vestments
 +(5-15)% to all Elemental Resistances
 Gain no inherent bonus from Intelligence
 ]],[[
-Husk of Dreams
+Reverie
 Shaman Mantle
 Variant: Pre 0.1.1
+Variant: 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Rite of Restoration
 (100-150)% increased Armour and Energy Shield
 -10% to Fire Resistance
 {variant:1}+(13-17)% to Chaos Resistance
-{variant:2}+(13-17)% to Chaos Resistance
+{variant:2,3}+(13-17)% to Chaos Resistance
 {variant:1}(25-50)% increased Flask Charges gained
 {variant:2}(20-30)% increased Flask Charges gained
-50% less Flask Charges used
+{variant:1,2}50% less Flask Charges used
+{variant:3}Cannot use Life Flasks
+{variant:3}Non-Unique Life Flasks apply their Effects constantly
+{variant:3}Recovery from Life Flasks cannot be Instant
+{variant:3}Recovery from your Life Flasks cannot be applied to anything other than you
+{variant:3}(40-60)% less Life Flask Recovery
 ]],[[
 Icetomb
 Mail Vestments

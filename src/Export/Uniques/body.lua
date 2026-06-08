@@ -549,17 +549,22 @@ UniqueIncreasedSpirit1
 UniqueAllResistances2
 UniqueNoManaPerIntelligence1
 ]],[[
-Husk of Dreams
+Reverie
 Shaman Mantle
 Variant: Pre 0.1.1
+Variant: 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Rite of Restoration
 UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueFireResist9
 {variant:1}UniqueChaosResist2[13,17]
-{variant:2}UniqueChaosResist2
+{variant:2,3}UniqueChaosResist2
 {variant:1}UniqueReducedFlaskChargesUsed1[25,50]
 {variant:2}UniqueReducedFlaskChargesUsed1
-UniqueFlaskChanceToNotConsume1
+{variant:1,2}UniqueFlaskChanceToNotConsume1
+{variant:3}UniqueLifeRegenerationFromLifeFlaskRecovery1
+{variant:3}UniqueLifeFlaskRecoveryAmount1
 ]],[[
 Icetomb
 Mail Vestments
