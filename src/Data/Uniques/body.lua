@@ -159,6 +159,17 @@ Variant: Current
 Cannot be Ignited
 -10 Physical Damage taken from Attack Hits
 ]],[[
+The Auspex
+Exquisite Vest
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Mist Raven
+(210-240)% increased Evasion Rating
++(70-120) to maximum Life
+100% increased Attribute Requirements
+Chance to Deflect is Lucky while on Low Life
+Enemies in your Presence gain 1 Gruelling Madness each second
+]],[[
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1

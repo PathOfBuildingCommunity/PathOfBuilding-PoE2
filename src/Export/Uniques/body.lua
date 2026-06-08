@@ -159,6 +159,17 @@ UniqueIncreasedLife3
 UniqueCannotBeIgnited1
 UniquePhysicalAttackDamageTaken1
 ]],[[
+The Auspex
+Exquisite Vest
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Mist Raven
+UniqueLocalIncreasedEvasionRatingPercent35
+UniqueIncreasedLife57
+UniqueReducedLocalAttributeRequirements6
+UniqueDeflectChanceLuckyOnLowLife1
+UniqueEnemiesInPresenceGainGruelingMadness1
+]],[[
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
