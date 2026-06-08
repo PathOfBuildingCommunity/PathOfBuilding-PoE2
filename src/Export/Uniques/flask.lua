@@ -52,6 +52,15 @@ UniqueFlaskEffectNotRemovedOnFullMana1
 {variant:3}UniqueFlaskDealChaosDamageNova1
 {variant:1}UniqueFlaskRecoverAllMana1
 UniqueFlaskTakeDamageWhenEnds1
+]],[[
+Uhtred's Chalice
+Transcendent Mana Flask
+League: Runes of Aldur
+UniqueFlaskRecoveryAmount3
+UniqueFlaskIncreasedRecoverySpeed3
+UniqueFlaskExtraCharges2
+UniqueLosePercentLifeWhileNoRunicWardDuringEffect1
+UniqueManaFlaskRecoveryCanOverflowManaDuringEffect1
 ]],
 -- Charm
 [[

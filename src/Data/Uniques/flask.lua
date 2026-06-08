@@ -55,6 +55,15 @@ Effect is not removed when Unreserved Mana is Filled
 {variant:3}Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres
 {variant:1}Recover all Mana when Used
 Deals 25% of current Mana as Chaos Damage to you when Effect ends
+]],[[
+Uhtred's Chalice
+Transcendent Mana Flask
+League: Runes of Aldur
+(200-300)% increased Amount Recovered
+70% reduced Recovery rate
+(50-60)% reduced Charges
+Lose 5% Life per second while you have no Runic Ward during Effect
+Mana Recovery from Flasks can Overflow maximum Mana during Effect
 ]],
 -- Charm
 [[
