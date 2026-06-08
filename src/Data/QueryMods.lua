@@ -10722,6 +10722,10 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1014398896"] = {
+			["Belt"] = {
+				["max"] = 55,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -11579,6 +11583,10 @@ return {
 				["max"] = 2,
 				["min"] = 1,
 			},
+			["Ring"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["Staff"] = {
 				["max"] = 6,
 				["min"] = 2,
@@ -12387,6 +12395,10 @@ return {
 				["max"] = 10,
 				["min"] = 5,
 			},
+			["Ring"] = {
+				["max"] = 25,
+				["min"] = 7,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -12486,6 +12498,10 @@ return {
 			},
 		},
 		["145581225"] = {
+			["Belt"] = {
+				["max"] = 19,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -12548,6 +12564,10 @@ return {
 			},
 		},
 		["1485480327"] = {
+			["Belt"] = {
+				["max"] = 55,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -12567,6 +12587,10 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1493485657"] = {
+			["Belt"] = {
+				["max"] = 25,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13010,6 +13034,10 @@ return {
 			["BaseJewel"] = {
 				["max"] = 15,
 				["min"] = 4,
+			},
+			["Ring"] = {
+				["max"] = 31,
+				["min"] = 7,
 			},
 			["Wand"] = {
 				["max"] = 64,
@@ -13517,6 +13545,10 @@ return {
 			},
 		},
 		["174664100"] = {
+			["Belt"] = {
+				["max"] = 16,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13976,6 +14008,10 @@ return {
 				["max"] = 25,
 				["min"] = 15,
 			},
+			["Ring"] = {
+				["max"] = 35,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -14261,6 +14297,10 @@ return {
 			["Focus"] = {
 				["max"] = 20,
 				["min"] = 10,
+			},
+			["Ring"] = {
+				["max"] = 14,
+				["min"] = 6,
 			},
 			["Wand"] = {
 				["max"] = 16,
@@ -14676,6 +14716,10 @@ return {
 				["max"] = 30,
 				["min"] = 20,
 			},
+			["Ring"] = {
+				["max"] = 39,
+				["min"] = 12,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -14953,6 +14997,10 @@ return {
 			},
 			["Amulet"] = {
 				["max"] = 3,
+				["min"] = 1,
+			},
+			["Belt"] = {
+				["max"] = 2,
 				["min"] = 1,
 			},
 			["Focus"] = {
@@ -15597,6 +15645,10 @@ return {
 			["Gloves"] = {
 				["max"] = 29,
 				["min"] = 15,
+			},
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 2,
 			},
 			["specialCaseData"] = {
 			},
@@ -16689,6 +16741,10 @@ return {
 			},
 		},
 		["2639966148"] = {
+			["Belt"] = {
+				["max"] = 12,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -16698,6 +16754,10 @@ return {
 			},
 		},
 		["2653231923"] = {
+			["Ring"] = {
+				["max"] = 26,
+				["min"] = 7,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -17075,6 +17135,10 @@ return {
 			["Focus"] = {
 				["max"] = 34,
 				["min"] = 10,
+			},
+			["Ring"] = {
+				["max"] = 29,
+				["min"] = 8,
 			},
 			["Staff"] = {
 				["max"] = 59,
@@ -17788,6 +17852,10 @@ return {
 				["max"] = 25,
 				["min"] = 15,
 			},
+			["Belt"] = {
+				["max"] = 55,
+				["min"] = 6,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -17883,6 +17951,10 @@ return {
 			["Focus"] = {
 				["max"] = 89,
 				["min"] = 25,
+			},
+			["Ring"] = {
+				["max"] = 39,
+				["min"] = 6,
 			},
 			["Staff"] = {
 				["max"] = 238,
@@ -18357,6 +18429,10 @@ return {
 			["BaseJewel"] = {
 				["max"] = 4,
 				["min"] = 2,
+			},
+			["Ring"] = {
+				["max"] = 10,
+				["min"] = 3,
 			},
 			["specialCaseData"] = {
 			},
@@ -20118,6 +20194,10 @@ return {
 			},
 		},
 		["3422093970"] = {
+			["Belt"] = {
+				["max"] = 16,
+				["min"] = 4,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -20246,8 +20326,8 @@ return {
 				["min"] = 20,
 			},
 			["Ring"] = {
-				["max"] = 30,
-				["min"] = 20,
+				["max"] = 51,
+				["min"] = 12,
 			},
 			["specialCaseData"] = {
 			},
@@ -20306,6 +20386,10 @@ return {
 		},
 		["3489782002"] = {
 			["Amulet"] = {
+				["max"] = 89,
+				["min"] = 8,
+			},
+			["Belt"] = {
 				["max"] = 89,
 				["min"] = 8,
 			},
@@ -21240,6 +21324,10 @@ return {
 			},
 		},
 		["3742865955"] = {
+			["Belt"] = {
+				["max"] = 61,
+				["min"] = 13,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -21492,6 +21580,10 @@ return {
 			},
 			["BaseJewel"] = {
 				["max"] = 8,
+				["min"] = 5,
+			},
+			["Belt"] = {
+				["max"] = 24,
 				["min"] = 5,
 			},
 			["specialCaseData"] = {
@@ -23276,6 +23368,10 @@ return {
 				["max"] = 4,
 				["min"] = 2,
 			},
+			["Belt"] = {
+				["max"] = 15,
+				["min"] = 4,
+			},
 			["Chest"] = {
 				["max"] = 20,
 				["min"] = 10,
@@ -23419,6 +23515,10 @@ return {
 			["BaseJewel"] = {
 				["max"] = 20,
 				["min"] = 10,
+			},
+			["Ring"] = {
+				["max"] = 52,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -24586,6 +24686,10 @@ return {
 			["Focus"] = {
 				["max"] = 59,
 				["min"] = 27,
+			},
+			["Ring"] = {
+				["max"] = 25,
+				["min"] = 7,
 			},
 			["Staff"] = {
 				["max"] = 109,
@@ -27509,6 +27613,20 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["3489782002"] = {
+			["Amulet"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3489782002",
+				["text"] = "# to maximum Energy Shield",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
+		},
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40,
@@ -29310,6 +29428,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1683578560"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1683578560",
+				["text"] = "Unwavering Stance",
+				["type"] = "augment",
+			},
+		},
 		["1755296234"] = {
 			["1HMace"] = {
 				["max"] = 1,
@@ -30203,6 +30334,24 @@ return {
 				["text"] = "#% increased Movement Speed",
 				["type"] = "augment",
 			},
+		},
+		["227523295"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Wand"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_227523295",
+				["text"] = "# to Maximum Power Charges",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2293111154"] = {
 			["1HMace"] = {
@@ -31144,6 +31293,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["2905515354"] = {
+			["Shield"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2905515354",
+				["text"] = "You take #% of damage from Blocked Hits",
+				["type"] = "augment",
+			},
+		},
 		["2910761524"] = {
 			["1HWeapon"] = {
 				["max"] = 25,
@@ -31417,6 +31579,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2942439603",
 				["text"] = "Skills have #% chance to not remove Charges but still count as consuming them",
+				["type"] = "augment",
+			},
+		},
+		["2957287092"] = {
+			["Shield"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2957287092",
+				["text"] = "Chance to Block Damage is Lucky",
 				["type"] = "augment",
 			},
 		},
@@ -32331,6 +32506,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3407849389",
 				["text"] = "#% reduced effect of Curses on you",
+				["type"] = "augment",
+			},
+		},
+		["3430033313"] = {
+			["Shield"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3430033313",
+				["text"] = "Off-hand Hits inflict Runefather's Challenge",
 				["type"] = "augment",
 			},
 		},

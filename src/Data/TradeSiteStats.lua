@@ -532,12 +532,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2704225257",
+				["id"] = "explicit.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3981240776",
+				["id"] = "explicit.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
@@ -587,12 +587,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2897413282",
+				["id"] = "explicit.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1379411836",
+				["id"] = "explicit.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
@@ -1797,12 +1797,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3666934677",
+				["id"] = "explicit.stat_57434274",
 				["text"] = "#% increased Experience gain",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_57434274",
+				["id"] = "explicit.stat_3666934677",
 				["text"] = "#% increased Experience gain",
 				["type"] = "explicit",
 			},
@@ -2477,12 +2477,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2261942307",
+				["id"] = "explicit.stat_1602191394",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1602191394",
+				["id"] = "explicit.stat_2261942307",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
@@ -2632,12 +2632,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1416406066",
+				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3984865854",
+				["id"] = "explicit.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
@@ -4522,12 +4522,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|161",
+				["id"] = "explicit.stat_448592698|160",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|160",
+				["id"] = "explicit.stat_448592698|161",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
@@ -7557,6 +7557,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|27779",
+				["text"] = "Allocates Lord of the Squall",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|42959",
 				["text"] = "Allocates Low Tolerance",
 				["type"] = "explicit",
@@ -8103,6 +8108,11 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2954116742|62210",
+				["text"] = "Allocates Puppet Master chance",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "explicit",
 			},
@@ -10662,12 +10672,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10682,12 +10692,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -12252,12 +12262,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_395808938",
+				["id"] = "explicit.stat_2162684861",
 				["text"] = "Map contains an additional Essence",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2162684861",
+				["id"] = "explicit.stat_395808938",
 				["text"] = "Map contains an additional Essence",
 				["type"] = "explicit",
 			},
@@ -12267,12 +12277,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1468737867",
+				["id"] = "explicit.stat_3042527515",
 				["text"] = "Map contains an additional Shrine",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3042527515",
+				["id"] = "explicit.stat_1468737867",
 				["text"] = "Map contains an additional Shrine",
 				["type"] = "explicit",
 			},
@@ -13437,12 +13447,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|7",
+				["id"] = "explicit.stat_98977150",
 				["text"] = "Pain Attunement",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_98977150",
+				["id"] = "explicit.stat_3831171903|7",
 				["text"] = "Pain Attunement",
 				["type"] = "explicit",
 			},
@@ -16559,12 +16569,12 @@ return {
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_2897413282",
+				["id"] = "fractured.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_1379411836",
+				["id"] = "fractured.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
@@ -16666,6 +16676,11 @@ return {
 			{
 				["id"] = "fractured.stat_169946467",
 				["text"] = "#% increased Accuracy Rating with Bows",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2158617060",
+				["text"] = "#% increased Archon Buff duration",
 				["type"] = "fractured",
 			},
 			{
@@ -17046,6 +17061,11 @@ return {
 			{
 				["id"] = "fractured.stat_3196512240",
 				["text"] = "#% increased Explicit Chaos Modifier magnitudes",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3206904707",
+				["text"] = "#% increased Explicit Cold Modifier magnitudes",
 				["type"] = "fractured",
 			},
 			{
@@ -17531,6 +17551,16 @@ return {
 			{
 				["id"] = "fractured.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_4273473110",
+				["text"] = "#% increased maximum Runic Ward",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2663359259",
+				["text"] = "#% increased total Power counted by Warcries",
 				["type"] = "fractured",
 			},
 			{
@@ -22134,6 +22164,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_1058934731",
+				["text"] = "Temporary Minion Skills have # to Limit of Minions summoned",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_3067892458",
 				["text"] = "Triggered Spells deal #% increased Spell Damage",
 				["type"] = "fractured",
@@ -22785,6 +22820,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|35876",
+				["text"] = "Allocates Admonisher",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|17340",
 				["text"] = "Allocates Adrenaline Rush",
 				["type"] = "crafted",
@@ -22797,6 +22837,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|4295",
 				["text"] = "Allocates Adverse Growth",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|4716",
+				["text"] = "Allocates Afterimage",
 				["type"] = "crafted",
 			},
 			{
@@ -22817,6 +22862,16 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|56493",
 				["text"] = "Allocates Agile Succession",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|55817",
+				["text"] = "Allocates Alchemical Oil",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|43854",
+				["text"] = "Allocates All For One",
 				["type"] = "crafted",
 			},
 			{
@@ -22890,6 +22945,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|46972",
+				["text"] = "Allocates Arcane Mixtures",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|16940",
 				["text"] = "Allocates Arcane Nature",
 				["type"] = "crafted",
@@ -22960,6 +23020,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|62455",
+				["text"] = "Allocates Bannerman",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|50562",
 				["text"] = "Allocates Barbaric Strength",
 				["type"] = "crafted",
@@ -22967,6 +23032,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|50062",
 				["text"] = "Allocates Barrier of Venarius",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|8916",
+				["text"] = "Allocates Bashing Beast",
 				["type"] = "crafted",
 			},
 			{
@@ -23160,6 +23230,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|53294",
+				["text"] = "Allocates Burn Away",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|35324",
 				["text"] = "Allocates Burnout",
 				["type"] = "crafted",
@@ -23270,6 +23345,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|35618",
+				["text"] = "Allocates Cold Coat",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|26518",
 				["text"] = "Allocates Cold Nature",
 				["type"] = "crafted",
@@ -23345,6 +23425,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|9323",
+				["text"] = "Allocates Craving Slaughter",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|20511",
 				["text"] = "Allocates Cremating Cries",
 				["type"] = "crafted",
@@ -23390,6 +23475,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|5332",
+				["text"] = "Allocates Crystallised Immunities",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|36341",
 				["text"] = "Allocates Cull the Hordes",
 				["type"] = "crafted",
@@ -23427,6 +23517,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|30523",
 				["text"] = "Allocates Dead can Dance",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|49618",
+				["text"] = "Allocates Deadly Flourish",
 				["type"] = "crafted",
 			},
 			{
@@ -23510,6 +23605,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|14343",
+				["text"] = "Allocates Deterioration",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|24753",
 				["text"] = "Allocates Determined Precision",
 				["type"] = "crafted",
@@ -23532,6 +23632,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|44573",
 				["text"] = "Allocates Disciplined Training",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|38459",
+				["text"] = "Allocates Disorientation",
 				["type"] = "crafted",
 			},
 			{
@@ -23622,6 +23727,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|33093",
 				["text"] = "Allocates Effervescent",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|46692",
+				["text"] = "Allocates Efficient Alchemy",
 				["type"] = "crafted",
 			},
 			{
@@ -23785,6 +23895,16 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|30720",
+				["text"] = "Allocates Entropic Incarnation",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|65243",
+				["text"] = "Allocates Enveloping Presence",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|61404",
 				["text"] = "Allocates Equilibrium",
 				["type"] = "crafted",
@@ -23870,6 +23990,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|55",
+				["text"] = "Allocates Fast Acting Toxins",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|3921",
 				["text"] = "Allocates Fate Finding",
 				["type"] = "crafted",
@@ -23917,6 +24042,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|45013",
 				["text"] = "Allocates Finishing Blows",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|54911",
+				["text"] = "Allocates Firestarter",
 				["type"] = "crafted",
 			},
 			{
@@ -24035,6 +24165,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|40270",
+				["text"] = "Allocates Frenetic",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|48699",
 				["text"] = "Allocates Frostwalker",
 				["type"] = "crafted",
@@ -24145,8 +24280,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|29762",
+				["text"] = "Allocates Guttural Roar",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|33229",
 				["text"] = "Allocates Haemorrhaging Cuts",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|44974",
+				["text"] = "Allocates Hail",
 				["type"] = "crafted",
 			},
 			{
@@ -24295,6 +24440,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|53030",
+				["text"] = "Allocates Immolation",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|24062",
 				["text"] = "Allocates Immortal Infamy",
 				["type"] = "crafted",
@@ -24375,6 +24525,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|116",
+				["text"] = "Allocates Insightfulness",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|16150",
 				["text"] = "Allocates Inspiring Ally",
 				["type"] = "crafted",
@@ -24422,6 +24577,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|51934",
 				["text"] = "Allocates Invocated Efficiency",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|338",
+				["text"] = "Allocates Invocated Limit",
 				["type"] = "crafted",
 			},
 			{
@@ -24485,6 +24645,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|61741",
+				["text"] = "Allocates Lasting Toxins",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|18496",
 				["text"] = "Allocates Lasting Trauma",
 				["type"] = "crafted",
@@ -24500,8 +24665,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|40687",
+				["text"] = "Allocates Lead by Example",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|8531",
 				["text"] = "Allocates Leaping Ambush",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|51446",
+				["text"] = "Allocates Leather Bound Gauntlets",
 				["type"] = "crafted",
 			},
 			{
@@ -24580,6 +24755,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|27779",
+				["text"] = "Allocates Lord of the Squall",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|42959",
 				["text"] = "Allocates Low Tolerance",
 				["type"] = "crafted",
@@ -24592,6 +24772,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|59303",
 				["text"] = "Allocates Lucky Rabbit Foot",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|27009",
+				["text"] = "Allocates Lust for Sacrifice",
 				["type"] = "crafted",
 			},
 			{
@@ -24660,6 +24845,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|27513",
+				["text"] = "Allocates Material Solidification",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|11886",
 				["text"] = "Allocates Mauling Stuns",
 				["type"] = "crafted",
@@ -24672,6 +24862,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|3215",
 				["text"] = "Allocates Melding",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|16466",
+				["text"] = "Allocates Mental Alacrity",
 				["type"] = "crafted",
 			},
 			{
@@ -24782,6 +24977,21 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|42036",
 				["text"] = "Allocates Off-Balancing Retort",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|44753",
+				["text"] = "Allocates One With Flame",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|34316",
+				["text"] = "Allocates One with the River",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|9444",
+				["text"] = "Allocates One with the Storm",
 				["type"] = "crafted",
 			},
 			{
@@ -24915,6 +25125,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|13895",
+				["text"] = "Allocates Precise Point",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|34425",
 				["text"] = "Allocates Precise Volatility",
 				["type"] = "crafted",
@@ -24960,6 +25175,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|28892",
+				["text"] = "Allocates Primal Rage",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|50884",
 				["text"] = "Allocates Primal Sundering",
 				["type"] = "crafted",
@@ -24972,6 +25192,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|58397",
 				["text"] = "Allocates Proficiency",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|45874",
+				["text"] = "Allocates Proliferating Weeds",
 				["type"] = "crafted",
 			},
 			{
@@ -24997,6 +25222,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|13482",
 				["text"] = "Allocates Punctured Lung",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|14258",
+				["text"] = "Allocates Puppet Master chance",
 				["type"] = "crafted",
 			},
 			{
@@ -25060,6 +25290,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|45244",
+				["text"] = "Allocates Refills",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|26447",
 				["text"] = "Allocates Refocus",
 				["type"] = "crafted",
@@ -25107,6 +25342,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|38972",
 				["text"] = "Allocates Restless Dead",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|31773",
+				["text"] = "Allocates Resurging Archon",
 				["type"] = "crafted",
 			},
 			{
@@ -25250,6 +25490,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|44917",
+				["text"] = "Allocates Self Mortification",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|36085",
 				["text"] = "Allocates Serrated Edges",
 				["type"] = "crafted",
@@ -25267,6 +25512,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|49740",
 				["text"] = "Allocates Shattered Crystal",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|64415",
+				["text"] = "Allocates Shattering Daze",
 				["type"] = "crafted",
 			},
 			{
@@ -25310,8 +25560,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|5284",
+				["text"] = "Allocates Shredding Force",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|47088",
 				["text"] = "Allocates Sic 'Em",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|63037",
+				["text"] = "Allocates Sigil of Fire",
 				["type"] = "crafted",
 			},
 			{
@@ -25480,6 +25740,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|26479",
+				["text"] = "Allocates Steadfast Resolve",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|47782",
 				["text"] = "Allocates Steady Footing",
 				["type"] = "crafted",
@@ -25615,6 +25880,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|65265",
+				["text"] = "Allocates Swift Interruption",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|53367",
 				["text"] = "Allocates Symbol of Defiance",
 				["type"] = "crafted",
@@ -25725,6 +25995,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|59433",
+				["text"] = "Allocates Thirst for Endurance",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|38532",
 				["text"] = "Allocates Thirst for Power",
 				["type"] = "crafted",
@@ -25732,6 +26007,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|17600",
 				["text"] = "Allocates Thirsting Ally",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|43711",
+				["text"] = "Allocates Thornhide",
 				["type"] = "crafted",
 			},
 			{
@@ -25827,6 +26107,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|2335",
 				["text"] = "Allocates Turn the Clock Forward",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|1352",
+				["text"] = "Allocates Unbending",
 				["type"] = "crafted",
 			},
 			{
@@ -25955,6 +26240,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|46060",
+				["text"] = "Allocates Voracious",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|27303",
 				["text"] = "Allocates Vulgar Methods",
 				["type"] = "crafted",
@@ -25967,6 +26257,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|47418",
 				["text"] = "Allocates Warding Potions",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|53187",
+				["text"] = "Allocates Warlord Berserker",
 				["type"] = "crafted",
 			},
 			{
@@ -26052,6 +26347,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|11184",
 				["text"] = "Allocates Zarokh's Gift",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|50485",
+				["text"] = "Allocates Zone of Control",
 				["type"] = "crafted",
 			},
 			{
@@ -31532,6 +31832,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_227523295",
+				["text"] = "# to Maximum Power Charges",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1181501418",
 				["text"] = "# to Maximum Rage",
 				["type"] = "augment",
@@ -32002,12 +32307,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_1416406066",
+				["id"] = "rune.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3984865854",
+				["id"] = "rune.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
@@ -32387,6 +32692,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_566086661",
+				["text"] = "Attacks with this Weapon have Added Cold Damage equal to #% to #% of maximum Mana",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_315791320",
 				["text"] = "Aura Skills have #% increased Magnitudes",
 				["type"] = "augment",
@@ -32474,6 +32784,11 @@ return {
 			{
 				["id"] = "rune.stat_2926029365",
 				["text"] = "Bonded: # to maximum Mana",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1122225204",
+				["text"] = "Bonded: # to maximum Runic Ward",
 				["type"] = "augment",
 			},
 			{
@@ -32992,6 +33307,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1479161975",
+				["text"] = "Bonded: #% of Damage is taken from Mana before Life",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_264750496",
 				["text"] = "Bonded: #% of Damage taken Recouped as Life",
 				["type"] = "augment",
@@ -33397,6 +33717,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2957287092",
+				["text"] = "Chance to Block Damage is Lucky",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_234296660",
 				["text"] = "Companions deal #% increased Damage",
 				["type"] = "augment",
@@ -33757,6 +34082,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3430033313",
+				["text"] = "Off-hand Hits inflict Runefather's Challenge",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2616640048",
 				["text"] = "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "augment",
@@ -33907,6 +34237,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1683578560",
+				["text"] = "Unwavering Stance",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2390027291",
 				["text"] = "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				["type"] = "augment",
@@ -33939,6 +34274,11 @@ return {
 			{
 				["id"] = "rune.stat_4058681894",
 				["text"] = "You have no Critical Damage Bonus",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2905515354",
+				["text"] = "You take #% of damage from Blocked Hits",
 				["type"] = "augment",
 			},
 			{
@@ -38595,12 +38935,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink_reservation",
+				["id"] = "skill.blink",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink",
+				["id"] = "skill.blink_reservation",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
@@ -38705,12 +39045,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.corpse_cloud",
+				["id"] = "skill.corpse_cloud_triggered",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.corpse_cloud_triggered",
+				["id"] = "skill.corpse_cloud",
 				["text"] = "Grants Skill: Level # Decompose",
 				["type"] = "skill",
 			},

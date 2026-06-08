@@ -436,6 +436,26 @@ return %s
 	self:GenerateModData(data.itemMods.Flask, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, { ["Charm"] = true })
 
+	-- add breach mods which lack proper weights. e.g. the belt mods have a spawn weight of zero for rings, and 1 for genesis_tree_minion or genesis_tree_caster
+	for name, mod in pairs(data.itemMods.Item) do
+		local treeMod = false
+		local slot
+		for i, v in ipairs(mod.weightKey) do
+			if v == "genesis_tree_minion" or v == "genesis_tree_caster" then
+				treeMod = true
+			end
+			if (v == "belt") and mod.weightVal[i] == 0 then
+				slot = "Ring"
+			end
+			if (v == "ring") and mod.weightVal[i] == 0 then
+				slot = "Belt"
+			end
+		end
+		if treeMod and slot then
+			self:ProcessMod(mod, regularItemMask, {[slot] = true})
+		end
+	end
+
 	-- essences, because in item mod data they don't have equipment tags
 	for name, essence in pairs(data.essences) do
 		-- weird exception: linked to mod that says "% dex int or str"
@@ -565,7 +585,7 @@ return %s
 					if next(matchedCategories) then
 						self:ProcessMod(mod, regularItemMask, matchedCategories)
 					else
-						ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
+						ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s Mod line: %s", mods.slotType, mods.name, modLine)
 					end
 				end
 			end
@@ -617,6 +637,9 @@ end
 function TradeQueryGeneratorClass:GenerateModWeights(modsToTest)
 	local start = GetTime()
 	for _, entry in pairs(modsToTest) do
+		if entry.tradeMod.text == "# to Level of all Minion Skills" then
+			print("help")
+		end
 		if entry[self.calcContext.itemCategory] ~= nil then
 			if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then -- Don't calculate the same thing twice (can happen with corrupted vs implicit)
 				goto continue
