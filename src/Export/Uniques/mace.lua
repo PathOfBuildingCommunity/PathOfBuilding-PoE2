@@ -85,6 +85,17 @@ UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
 ]],[[
+Sadist's Mercy
+Flanged Mace
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Harbinger of Madness
+UniqueLocalIncreasedPhysicalDamagePercent27
+UniqueLocalCriticalStrikeChance11
+UniqueLocalIncreasedAttackSpeed28
+UniqueInflictGruelingMadnessOnHit1
+UniqueEnemiesInPresenceGainPowerPerGruelingMadness1
+]],[[
 Sculpted Suffering
 Warpick
 Variant: Pre 0.3.0

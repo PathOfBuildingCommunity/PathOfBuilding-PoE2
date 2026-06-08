@@ -86,6 +86,17 @@ Variant: Current
 On Hitting an enemy, gains maximum added Lightning damage equal to
 the enemy's Power for 20 seconds, up to a total of 500
 ]],[[
+Sadist's Mercy
+Flanged Mace
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Harbinger of Madness
+(240-300)% increased Physical Damage
++(5-8)% to Critical Hit Chance
+(14-22)% increased Attack Speed
+Hits with this Weapon inflict (2-5) Gruelling Madness
+Enemies in your Presence have additional Power equal to their Gruelling Madness
+]],[[
 Sculpted Suffering
 Warpick
 Variant: Pre 0.3.0
