@@ -15215,6 +15215,7 @@ skills["WolfPounceMarkPlayer"] = {
 						{ type = "Multiplier", var = "AlliesInSummonerRange" },
 						{ type = "GlobalEffect", effectType = "Curse" }),
 				},
+				["skill_wolf_mark_damage_taken_+%_cap"] = {},
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 8000 },

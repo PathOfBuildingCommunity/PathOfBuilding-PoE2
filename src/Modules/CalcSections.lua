@@ -865,10 +865,12 @@ return {
 		{ breakdown = "ParryRangeNonProj" },
 		{ label = "Range modifiers", modName = "ParryRangeNonProj", cfg = "skill" },
 	}, },
-	{ label = "Parry Range Proj", haveOutput = "ParryRangeProj", { format = "{1:output:ParryRangeProj}m", 
-		{ breakdown = "ParryRangeProj" }, 
+	{ label = "Parry Range Proj", haveOutput = "ParryRangeProj", { format = "{1:output:ParryRangeProj}m",
+		{ breakdown = "ParryRangeProj" },
 		{ label = "Range modifiers", modName = "ParryRangeProj", cfg = "skill" },
 	}, },
+	-- Predator's Mark
+	{ label = "Predator's Mark Allies", haveOutput = "PredatorsMarkAllies", { format = "{0:output:PredatorsMarkAllies} Allies", }, },
 	-- Mines
 	{ label = "Active Mine Limit", flag = "mine", { format = "{0:output:ActiveMineLimit}", { modName = "ActiveMineLimit", cfg = "skill" }, }, },
 	{ label = "Mine Throw Rate", flag = "mine", { format = "{2:output:MineLayingSpeed}", 

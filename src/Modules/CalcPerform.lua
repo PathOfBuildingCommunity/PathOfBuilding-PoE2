@@ -1133,7 +1133,9 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.activeEffect.grantedEffect.name == "Predator's Mark" then
 			local configAllies = modDB:Sum("BASE", nil, "Multiplier:ConfigAlliesInSummonerRange")
 			if configAllies > 0 then
-				enemyDB.multipliers["AlliesInSummonerRange"] = m_max(m_min(configAllies, 15), enemyDB.multipliers["AlliesInSummonerRange"] or 0)
+				local effectiveAllies = m_min(configAllies, 15)
+				enemyDB.multipliers["AlliesInSummonerRange"] = m_max(effectiveAllies, enemyDB.multipliers["AlliesInSummonerRange"] or 0)
+				output.PredatorsMarkAllies = effectiveAllies
 			end
 		end
 		if skillFlags.totem then
