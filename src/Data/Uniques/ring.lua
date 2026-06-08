@@ -13,6 +13,8 @@ Implicits: 1
 ]],[[
 Berek's Grip
 Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
 Implicits: 1
 {tags:cold,lightning}+(12-16)% to Cold and Lightning Resistances
 {tags:attribute}+(10-20) to Dexterity and Intelligence
@@ -20,6 +22,18 @@ Implicits: 1
 Hits against you have (35-50)% reduced Critical Hit Chance while you are Chilled
 {tags:lightning}Wind Skills which can be boosted by Elemental Ground Surfaces count
 {tags:lightning}as being boosted by Shocked Ground
+]],[[
+Berek's Pass
+Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
+Implicits: 1
+{tags:fire,cold}+(12-16)% to Fire and Cold Resistances
+{tags:attribute}+(10-20) to Strength and Intelligence
+{tags:fire,cold}+(10-20)% to Fire and Cold Resistances
+{tags:life}Regenerate (1-2)% of maximum Life per second while Ignited
+{tags:cold}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:cold}as being boosted by Chilled Ground
 ]],[[
 Blackflame
 Amethyst Ring

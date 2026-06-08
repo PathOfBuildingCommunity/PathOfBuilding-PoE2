@@ -13,12 +13,25 @@ UniqueAllResistances3
 ]],[[
 Berek's Grip
 Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
 Implicits: 1
 RingImplicitColdLightningResistance
 UniqueDexterityAndIntelligence1
 UniqueColdLightningResistance1
 UniqueReducedCriticalDamageTakenWhileChilled1
 UniqueWindSkillsBoostedByShockedGround1
+]],[[
+Berek's Pass
+Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
+Implicits: 1
+RingImplicitFireColdResistance
+UniqueStrengthAndIntelligence4
+UniqueFireColdResistance1
+UniqueLifeRegenerationWhileIgnited1
+UniqueWindSkillsBoostedByChilledGround1
 ]],[[
 Blackflame
 Amethyst Ring
