@@ -1895,6 +1895,9 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		for _, value in ipairs(modList:List(nil, "JewelData")) do
 			jewelData[value.key] = value.value
 		end
+		for _, className in ipairs(modList:List(nil, "AlternateClassStart")) do
+			jewelData.alternateClassStart = className
+		end
 		if modList:List(nil, "FromNothingKeystones") then
 			jewelData.fromNothingKeystones = { }
 			for _, value in ipairs(modList:List(nil, "FromNothingKeystones")) do

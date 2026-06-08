@@ -2728,7 +2728,8 @@ local specialModList = {
 	["evasion rating from equipped body armour is halved"] = { mod("Evasion", "MORE", -50, { type = "SlotName", slotName = "Body Armour" }) },
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
-	["can allocate passives from the %a+'s starting point"] = { },
+	["can allocate passives from the (%a+)'s starting point"] = function(_, className) return { mod("AlternateClassStart", "LIST", firstToUpper(className)) } end,
+	["can allocate passive skills from the (%a+)'s starting point"] = function(_, className) return { mod("AlternateClassStart", "LIST", firstToUpper(className)) } end,
 	["projectiles gain damage as they travel farther, dealing up to (%d+)%% increased damage with hits to targets"] = function(num) return { mod("Damage", "INC", num, nil, bor(ModFlag.Hit, ModFlag.Projectile), { type = "DistanceRamp", ramp = { {35,0},{70,1} } }) } end,
 	["(%d+)%% chance to gain elusive on kill"] = {
 		flag("Condition:CanBeElusive"),
