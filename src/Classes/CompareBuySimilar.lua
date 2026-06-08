@@ -199,15 +199,19 @@ function M.openPopup(item, slotName, primaryBuild)
 		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.explicitModLines, type = "explicit" },
 	}
-	-- this adds a single aggregated entry for matching stats (e.g. transformed flat dmg mods) which avoids issues with confusing results
+	-- this adds a single aggregated entry for matching stats (e.g. transformed flat dmg mods) which avoids issues with confusing results. different types are not summed as e.g. implicit and explicit mods are separate in the search. options are also avoided as they don't represent values that can be added combined
 	local function insertOrAddToExisting(entry)
 		for _, existingFilter in ipairs(modEntries) do
-				if existingFilter.tradeId == entry.tradeId and entry.value then
-					existingFilter.count = existingFilter.count + 1
-					existingFilter.value = (existingFilter.value or 0) + entry.value
-					return
-				end
+			if (not existingFilter.isOption) and entry.value
+				and existingFilter.tradeId and existingFilter.tradeId == entry.tradeId
+				and existingFilter.type == entry.type
+				then
+				existingFilter.count = existingFilter.count + 1
+				local value = (entry.invert ~= existingFilter.invert) and -entry.value or entry.value
+				existingFilter.value = (existingFilter.value or 0) + value
+				return
 			end
+		end
 		t_insert(modEntries, entry)
 	end
 	for _, source in ipairs(modTypeSources) do
