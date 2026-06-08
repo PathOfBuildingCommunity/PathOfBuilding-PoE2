@@ -169,6 +169,18 @@ Implicits: 1
 Life Recovery from Regeneration is not applied
 Every 4 seconds, Recover 1 Life for every 0.2 Life Recovery per second from Regeneration
 ]],[[
+Immaculate Adherence
+Solar Amulet
+League: Fate of the Vaal
+Implicits: 1
++(10-15) to Spirit
+{tags:life,mana}100% of Damage is taken from Mana before Life
+{tags:defences}Cannot have Energy Shield
+{tags:defences}Convert 100% of maximum Energy Shield to maximum Divinity
+(0-100)% increased maximum Divinity
+20% reduced maximum Divinity per Corrupted Item Equipped
+{tags:life,mana}Skills Cost Divinity instead of Mana or Life
+]],[[
 Ligurium Talisman
 Lapis Amulet
 Requires Level 35

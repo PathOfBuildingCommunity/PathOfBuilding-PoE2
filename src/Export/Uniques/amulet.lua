@@ -169,6 +169,18 @@ UniqueLightRadius1
 UniqueLifeRegenerationNotApplied1
 UniqueRecoverLifeBasedOnRegen1
 ]],[[
+Immaculate Adherence
+Solar Amulet
+League: Fate of the Vaal
+Implicits: 1
+AmuletImplicitBaseSpirit1
+UniqueDamageRemovedFromManaBeforeLife3
+UniqueCannotHaveEnergyShield1
+UniqueEnergyShieldConvertedToDivinity1
+UniqueIncreasedMaximumDivinity1
+UniqueReducedMaximumDivinityPerCorruptedItem1
+UniqueSkillAndLifeCostsConvertedToDivinity1
+]],[[
 Ligurium Talisman
 Lapis Amulet
 Requires Level 35
