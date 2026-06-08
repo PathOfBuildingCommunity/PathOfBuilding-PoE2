@@ -160,6 +160,49 @@ UniqueFlaskManaRecoveryRate2
 {variant:1}UniqueManaFlaskChargeGeneration1[0,15]
 {variant:2}UniqueManaFlaskChargeGeneration1
 ]],[[
+Mageblood
+Utility Belt
+Has Alt Variant: true
+Has Alt Variant Two: true
+Has Alt Variant Three: true
+Selected Variant: 1
+Selected Alt Variant: 2
+Selected Alt Variant Two: 3
+Selected Alt Variant Three: 4
+Variant: Legacy of Amethyst
+Variant: Legacy of Basalt
+Variant: Legacy of Bismuth
+Variant: Legacy of Diamond
+Variant: Legacy of Gold
+Variant: Legacy of Granite
+Variant: Legacy of Jade
+Variant: Legacy of Quicksilver
+Variant: Legacy of Ruby
+Variant: Legacy of Sapphire
+Variant: Legacy of Silver
+Variant: Legacy of Stibnite
+Variant: Legacy of Sulphur
+Variant: Legacy of Topaz
+League: Runes of Aldur
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitInstantFlaskRecoveryPercent1
+{variant:1}Legacy of Amethyst
+{variant:2}Legacy of Basalt
+{variant:3}Legacy of Bismuth
+{variant:4}Legacy of Diamond
+{variant:5}Legacy of Gold
+{variant:6}Legacy of Granite
+{variant:7}Legacy of Jade
+{variant:8}Legacy of Quicksilver
+{variant:9}Legacy of Ruby
+{variant:10}Legacy of Sapphire
+{variant:11}Legacy of Silver
+{variant:12}Legacy of Stibnite
+{variant:13}Legacy of Sulphur
+{variant:14}Legacy of Topaz
+UniqueIncreasedMagesLegacyEffectPerDuplicateMagesLegacy
+]],[[
 Meginord's Girdle
 Rawhide Belt
 Implicits: 2
