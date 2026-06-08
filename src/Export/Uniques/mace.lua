@@ -3,6 +3,17 @@
 return {
 -- Weapon: One Handed Mace
 [[
+Brutus' Lead Sprinkler
+Morning Star
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Molten Shower
+UniqueMoltenShowerSkill1
+UniqueLocalIncreasedPhysicalDamagePercent26
+UniqueLocalIncreasedAttackSpeed33
+UniqueStrength49
+UniqueAddedFireDamageToAttacksPer25Strength
+]],[[
 Brynhand's Mark
 Wooden Club
 Variant: Pre 0.1.1
