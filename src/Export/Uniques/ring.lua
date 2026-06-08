@@ -347,6 +347,18 @@ UniqueDisablesOtherRingSlot1
 UniqueManaGainPerTarget1
 UniqueSelfCurseDuration1
 ]],[[
+Veilpiercer
+Amethyst Ring
+League: Runes of Aldur
+Implicits: 1
+RingImplicitChaosResistance1
+UniqueIncreasedMana54
+UniqueIntelligence48
+UniqueIgnoreHexproof2
+UniqueCursesSpreadOnKill1
+UniqueGainDarkWhispers1
+UniqueHitDamageAgainstEnemiesInPresence1
+]],[[
 Venopuncture
 Iron Ring
 League: Dawn of the Hunt

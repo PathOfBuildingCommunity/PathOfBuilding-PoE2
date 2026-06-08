@@ -352,6 +352,18 @@ Can't use other Rings
 {tags:mana,attack}Gain 15 Mana per Enemy Hit with Attacks
 {tags:caster}50% reduced Duration of Curses on you
 ]],[[
+Veilpiercer
+Amethyst Ring
+League: Runes of Aldur
+Implicits: 1
+{tags:chaos}+(7-13)% to Chaos Resistance
+{tags:mana}+(60-100) to maximum Mana
+{tags:attribute}+(15-25) to Intelligence
+Curses you inflict can affect Hexproof Enemies
+{tags:caster}Curses you inflict spread to enemies within 3 metres when Cursed enemy dies
+Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence
+(20-40)% increased Damage with Hits against targets in your Presence
+]],[[
 Venopuncture
 Iron Ring
 League: Dawn of the Hunt
