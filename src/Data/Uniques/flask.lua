@@ -22,6 +22,17 @@ Instant Recovery
 (100-150)% increased Charges per use
 {variant:1}Excess Life Recovery added as Guard for 10 seconds
 {variant:2}Excess Life Recovery added as Guard for 20 seconds
+]],[[
+Opportunity
+Ultimate Life Flask
+League: Fate of the Vaal
+Effect is not removed when Unreserved Life is Filled
+Cannot be Used manually
+Used when you release a skill with Perfect Timing
+Skills have (80-120)% longer Perfect Timing window during effect
+(100-150)% increased Amount Recovered
+(25-50)% reduced Recovery rate
+(50-75)% reduced Charges per use
 ]],
 -- Flask: Mana
 [[

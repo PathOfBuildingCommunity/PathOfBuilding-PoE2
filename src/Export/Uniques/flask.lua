@@ -20,6 +20,17 @@ UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
 {variant:1}UniqueFlaskOverhealToGuard1[10,10]
 {variant:2}UniqueFlaskOverhealToGuard1
+]],[[
+Opportunity
+Ultimate Life Flask
+League: Fate of the Vaal
+UniqueFlaskEffectNotRemovedOnFullLife__2
+UniqueCannotDrinkFlaskManually1
+UniqueFlaskUsedOnPerfectTiming1
+UniquePerfectTimingWindowDuringFlaskEffect1
+UniqueFlaskRecoveryAmount2
+UniqueFlaskIncreasedRecoverySpeed2
+UniqueFlaskChargesUsed3
 ]],
 -- Flask: Mana
 [[
