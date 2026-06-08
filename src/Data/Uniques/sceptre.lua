@@ -108,5 +108,17 @@ Gain (40-60)% of Damage as Extra Fire Damage
 Allies in your Presence Regenerate (2-3)% of their Maximum Life per second
 Allies in your Presence Gain (20-30)% of Damage as Extra Fire Damage
 Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance
+]],[[
+Sylvan's Effigy
+Stoic Sceptre
+League: Runes of Aldur
+Implicits: 2
+Grants Skill: Level (1-20) Discipline
+Grants Skill: Level (1-20) Azmerian Wolf
+(50-75)% increased Spirit
+Allies in your Presence Regenerate (50-100) Life per second
++(6-12) to all Attributes
+Companions deal (50-100)% increased damage to your Marked targets
+You can have any number of Companions of different types
 ]],
 }
