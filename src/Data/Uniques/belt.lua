@@ -106,15 +106,17 @@ Infernoclasp
 Plate Belt
 Source: No longer obtainable
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 2
-+(100-140) to Armour
+{variant:3}+(140-180) to Armour
 Has (1-3) Charm Slot
+{variant:1,2}+(100-140) to Armour
 +(100-150) to Armour
 +(10-20) to Strength
 +(3-5)% to Maximum Fire Resistance
 {variant:1}+(25-35)% to Fire Resistance
-{variant:2}+(30-50)% to Fire Resistance
+{variant:2,3}+(30-50)% to Fire Resistance
 ]],[[
 Ingenuity
 Utility Belt

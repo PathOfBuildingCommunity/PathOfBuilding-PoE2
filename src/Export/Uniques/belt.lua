@@ -106,15 +106,17 @@ Infernoclasp
 Plate Belt
 Source: No longer obtainable
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 2
 BeltImplicitCharmSlots3
-BeltImplicitPhysicalDamageReductionRating1
+{variant:3}BeltImplicitPhysicalDamageReductionRating1
+{variant:1,2}BeltImplicitPhysicalDamageReductionRating1[100,140]
 UniqueIncreasedPhysicalDamageReductionRating1
 UniqueStrength2
 UniqueMaximumFireResist1
 {variant:1}UniqueFireResist3[25,35]
-{variant:2}UniqueFireResist3
+{variant:2,3}UniqueFireResist3
 ]],[[
 Ingenuity
 Utility Belt
