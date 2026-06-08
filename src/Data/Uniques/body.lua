@@ -667,6 +667,17 @@ Variant: Current
 +1 to maximum number of Summoned Totems
 Inflicts a random Curse on you when your Totems die, ignoring Curse limit
 ]],[[
+The Unleashed
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
++1% to all Maximum Elemental Resistances
+(150-250)% increased Armour and Energy Shield
++(10-20) to Strength and Intelligence
+(15-25)% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half
+Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds
+Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential
+]],[[
 Voll's Protector
 {variant:1}Ironclad Vestments
 {variant:2}Plated Vestments

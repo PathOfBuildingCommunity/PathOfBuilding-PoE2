@@ -654,6 +654,16 @@ UniqueIntelligence40
 UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],[[
+The Unleashed
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
+BodyArmourImplicitMaximumElementalResistance1
+UniqueLocalIncreasedArmourAndEnergyShield26
+UniqueStrengthAndIntelligence1
+UniqueHitDamageBypassesEnergyShieldWhileBelowHalfEnergyShield1
+UniqueRunicBindingOnSpellHit1
+]],[[
 Voll's Protector
 {variant:1}Ironclad Vestments
 {variant:2}Plated Vestments
