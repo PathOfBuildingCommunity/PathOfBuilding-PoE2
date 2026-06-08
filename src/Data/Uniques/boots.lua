@@ -210,6 +210,16 @@ You cannot Sprint
 ]],
 -- Boots: Armour/Energy Shield
 [[
+Decree of Flight
+Ancient Leggings
+League: Fate of the Vaal
+30% increased Movement Speed
+(150-200)% increased Armour and Energy Shield
+(20-30)% faster Dodge Roll
+Gain Guard equal to (10-20)% of missing Energy Shield for 4 seconds when you Dodge Roll
+Maximum amount of Guard is based on maximum Energy Shield instead
+Divine Flight
+]],[[
 Wake of Destruction
 Secured Leggings
 Variant: Pre 0.1.1
