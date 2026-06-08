@@ -46,5 +46,15 @@ UniqueLocalIncreasedPhysicalDamagePercent7
 UniqueLocalIncreasedAttackSpeed8
 UniqueChanceForNoBoltReload1
 UniqueLocalReloadSpeed1
+]],[[
+Redemption
+Trarthan Cannon
+League: Fate of the Vaal
+Implicits: 1
+CannonBowImplicitCannotUseAmmoSkills1
+UniqueLocalIncreasedPhysicalDamagePercent24
+UniqueLocalNoCriticalStrikeMultiplier2
+UniqueGlobalCooldownRecovery2
+UniqueGainDisorderlyConductEveryXGrenadeSkills
 ]],
 }
