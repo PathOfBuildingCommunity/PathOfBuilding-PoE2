@@ -236,6 +236,19 @@ Gain 30 Life per enemy killed
 Hits with this Weapon have no Critical Damage Bonus
 This Weapon's Critical Hit Chance is 100%
 ]],[[
+Serle's Grit
+Kalguuran Forgehammer
+League: Fate of the Vaal
+Sockets: S S S
+Implicits: 2
+Grants Skill: Level (1-20) Runic Tempering
+Has 3 Sockets
+Maximum Quality is 40%
+Adds (23-30) to (35-55) Physical Damage
++(20-30) to Strength
+Skills which Empower an Attack have (10-20)% chance to not count that Attack
+(40-50) to (80-100) added Physical Thorns damage per Runic Plate
+]],[[
 Tidebreaker
 Pointed Maul
 League: Dawn of the Hunt

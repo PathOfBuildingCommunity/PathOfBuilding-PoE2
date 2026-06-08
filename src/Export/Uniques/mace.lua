@@ -235,6 +235,19 @@ UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
+Serle's Grit
+Kalguuran Forgehammer
+League: Fate of the Vaal
+Sockets: S S S
+Implicits: 2
+Grants Skill: Level (1-20) Runic Tempering
+MaceImplicitHasXSockets
+UniqueMaximumQualityOverride2
+UniqueLocalAddedPhysicalDamage25
+UniqueStrength44
+UniqueChanceForExertedAttackToNoteReduceCount1
+UniqueAddedThornsPerRune
+]],[[
 Tidebreaker
 Pointed Maul
 League: Dawn of the Hunt
