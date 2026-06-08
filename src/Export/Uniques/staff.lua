@@ -52,6 +52,17 @@ UniqueManaRegeneration6
 {variant:2}UniqueShockChanceIncrease4
 UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
+The Raven's Flock
+Perching Staff
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Spiraling Conspiracy
+UniqueIncreasedCastSpeed22
+UniqueIntelligence47
+UniqueMinionDamage3
+UniqueMinionChanceToApplyGruelingMadness1
+UniqueSpiritReservationEfficiency1
+]],[[
 The Searing Touch
 Pyrophyte Staff
 Variant: Pre 0.4.0
