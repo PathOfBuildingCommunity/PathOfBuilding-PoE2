@@ -93,6 +93,17 @@ Implicits: 1
 {variant:1}{tags:defences}Gain (20-30)% of maximum Mana as Extra maximum Energy Shield
 {variant:2}{tags:defences}Gain (4-6)% of maximum Mana as Extra maximum Energy Shield
 ]],[[
+Eventide Petals
+Veridical Chain
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Level (1-20) Midnight Zenith
++(30-40) to maximum Runic Ward
+(30-50)% increased Critical Hit Chance
+{tags:attribute}+(25-35) to Intelligence
+(30-50)% increased Light Radius
+Ice Crystals have (-3-3)% reduced maximum Life per 5% Cold Resistance you have
+]],[[
 Eye of Chayula
 Gold Amulet
 Variant: Pre 0.2.0

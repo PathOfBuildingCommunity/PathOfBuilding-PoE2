@@ -93,6 +93,17 @@ UniqueManaRegeneration29
 {variant:1}UniqueGainManaAsExtraEnergyShield1[20,30]
 {variant:2}UniqueGainManaAsExtraEnergyShield1
 ]],[[
+Eventide Petals
+Veridical Chain
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Level (1-20) Midnight Zenith
+AmuletImplicitRunicWard1
+UniqueCriticalStrikeChance16
+UniqueIntelligence50
+UniqueLightRadius21
+UniqueCrystalLifePerColdResistance
+]],[[
 Eye of Chayula
 Gold Amulet
 Variant: Pre 0.2.0
