@@ -55,6 +55,18 @@ Grants Skill: Level (1-20) Mana Drain
 (5-10)% increased Cast Speed
 Leeches 1% of maximum Life when you Cast a Spell
 ]],[[
+Liminal Coil
+Twisted Wand
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Coiling Bolts
+(71-113)% increased Spell Damage
+(7-13)% increased Cast Speed
+Magnitudes of Curses you inflict are zero
+Curses you inflict ignore Curse limit
+Spell Hits Gain (23-31)% of Damage as Extra Chaos Damage per Curse on target
+Spell Hits Gain (23-31)% of Damage as Extra Physical Damage per Curse on target
+]],[[
 Sanguine Diviner
 Bone Wand
 Implicits: 1
