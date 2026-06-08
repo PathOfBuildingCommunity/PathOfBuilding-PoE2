@@ -301,6 +301,15 @@ You can wield Two-Handed Axes, Maces and Swords in one hand
 {variant:3}This item gains bonuses from Socketed Items as though it was a Body Armour
 {variant:3}Has 4 Augment Sockets
 ]],[[
+Decree of Acuity
+Ancient Visor
+League: Fate of the Vaal
+(150-250)% increased Armour and Evasion
++(25-35) to Dexterity
+Gain (15-30)% of Evasion Rating as extra Armour
+You are Blind
+The Effect of Blind on you is reversed
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1

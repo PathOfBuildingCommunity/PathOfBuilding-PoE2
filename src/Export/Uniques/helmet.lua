@@ -301,6 +301,15 @@ UniqueUseTwoHandedWeaponOneHand1
 {variant:3}Has 4 Augment Sockets
 {variant:3}LocalItemBenefitSocketableAsIfBodyArmourUnique__2
 ]],[[
+Decree of Acuity
+Ancient Visor
+League: Fate of the Vaal
+UniqueLocalIncreasedArmourAndEvasion33
+UniqueDexterity47
+UniquePercentEvasionRatingAsExtraArmour1
+UniqueBlinded1
+UniqueBlindEffectsReversed1
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1
