@@ -73,6 +73,18 @@ UniqueLocalIncreasedPhysicalDamageReductionRatingPercent19
 UniqueSlowPotency1
 UniqueAttackerTakesDamage3
 ]],[[
+Geofri's Sanctuary
+Revered Vestments
+League: Fate of the Vaal
+Implicits: 1
+BodyArmourImplicitMaximumElementalResistance1
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent32
+UniqueAllResistances28
+UniqueMaximumEnergyShieldIsPercentOfStrength1
+UniqueEnergyShieldCannotBeConverted1
+UniqueLifeRegenerationPer10Intelligence1
+UniqueZealotsOath1
+]],[[
 Greed's Embrace
 Vaal Cuirass
 UniqueIncreasedStrengthRequirements1

@@ -2082,6 +2082,9 @@ function ItemClass:BuildModList()
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
 		self.requirements.int = 0
 	end
+	if self.name == "Geofri's Sanctuary, Revered Vestments" then
+		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
+	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
 		self.requirements.strMod = 0
 		self.requirements.dexMod = 0
