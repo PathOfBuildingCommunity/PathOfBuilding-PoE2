@@ -33,6 +33,17 @@ UniqueFireColdResistance1
 UniqueLifeRegenerationWhileIgnited1
 UniqueWindSkillsBoostedByChilledGround1
 ]],[[
+Berek's Respite
+Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
+Implicits: 1
+RingImplicitFireLightningResistance
+UniqueStrengthAndDexterity1
+UniqueFireLightningResistance1
+UniqueCriticalDamageBonusWhileShocked1
+UniqueWindSkillsBoostedByIgnitedGround1
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0

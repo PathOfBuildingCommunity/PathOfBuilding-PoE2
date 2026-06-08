@@ -35,6 +35,18 @@ Implicits: 1
 {tags:cold}Wind Skills which can be boosted by Elemental Ground Surfaces count
 {tags:cold}as being boosted by Chilled Ground
 ]],[[
+Berek's Respite
+Two-Stone Ring
+League: Fate of the Vaal
+Requires Level 42
+Implicits: 1
+{tags:fire,lightning}+(12-16)% to Fire and Lightning Resistances
+{tags:attribute}+(10-20) to Strength and Dexterity
+{tags:fire,lightning}+(10-20)% to Fire and Lightning Resistances
+(15-25)% increased Critical Damage Bonus while Shocked
+{tags:fire}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:fire}as being boosted by Ignited Ground
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0
