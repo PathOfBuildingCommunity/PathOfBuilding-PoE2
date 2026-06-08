@@ -86,6 +86,7 @@ Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
@@ -93,11 +94,12 @@ Grants Skill: Raise Shield
 Grants Skill: Cast on Block
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[150,200]
-{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:3,4}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
 {variant:1}UniqueMaximumBlockChance2
 {variant:2}UniqueBaseBlockDamageTaken3[15,20]
-{variant:3}UniqueBaseBlockDamageTaken3
+{variant:3,4}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
+{variant:4}UniqueLocalRunicWard1
 ]],[[
 The Wailing Wall
 Effigial Tower Shield

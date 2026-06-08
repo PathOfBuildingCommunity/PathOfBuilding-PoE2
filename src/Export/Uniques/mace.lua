@@ -144,14 +144,16 @@ UniqueLocalAllDamageCanElectrocute1
 Chober Chaber
 Leaden Greathammer
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 UniqueIntelligenceRequirements1
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent4
-{variant:2}UniqueLocalAddedPhysicalDamage12
+{variant:2,3}UniqueLocalAddedPhysicalDamage12
 UniqueIncreasedMana22
-{variant:2}UniqueIncreasedSpirit8
+{variant:2,3}UniqueIncreasedSpirit8
 {variant:1}UniqueLocalCriticalStrikeChance3
 UniqueMinionDamageAffectsYou1
+{variant:3}UniqueGlobalMinionSpellSkillGemLevel3
 ]],[[
 The Empty Roar
 Cultist Greathammer

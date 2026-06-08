@@ -6,12 +6,20 @@ return {
 Atziri's Acuity
 Moulded Mitts
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
-(80-100)% increased Armour
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Herald of the Royal Queen
+{variant:1,2}(80-100)% increased Armour
+{variant:3}(150-200)% increased Armour
+{variant:3}+(100-150) to maximum Life
 {variant:1}(20-30)% increased Critical Hit Chance
 {variant:2}(30-50)% increased Critical Hit Chance
-+(20-30) to Intelligence
-Leech from Critical Hits is instant
+{variant:1,2}+(20-30) to Intelligence
+{variant:3}Leech 10% of Physical Attack Damage as Life
+{variant:1,2}Leech from Critical Hits is instant
+{variant:3}10% of Physical damage dealt by your Hits causes Blood Loss
+{variant:3}Vaal Pact
 ]],[[
 Dreadfist
 Bolstered Mitts
@@ -20,7 +28,7 @@ League: Dawn of the Hunt
 (20-30)% increased Critical Damage Bonus
 Critical Hits inflict Impale
 Critical Hits cannot Extract Impale
-(20-31) to (31-49) Physical Thorns damage
+(20-31) to (32-49) Physical Thorns damage
 ]],[[
 Facebreaker
 Stocky Mitts
@@ -150,7 +158,7 @@ Intricate Gloves
 +(40-60) to maximum Energy Shield
 +(80-120) to maximum Life
 (6-12)% increased Cast Speed
-Sacrifice (5-15)% of Life to gain that much Energy Shield when you Cast a Spell
+Sacrifice (5-15)% of maximum Life to gain that much Energy Shield when you Cast a Spell
 ]],[[
 Doedre's Tenure
 Stitched Gloves
@@ -282,6 +290,8 @@ Rope Cuffs
 Variant: Pre 0.1.1
 Variant: Current
 (40-60)% increased Armour and Energy Shield
+20% increased Rarity of Items found
+Your other Modifiers to Rarity of Items found do not apply
 {variant:2}+(10-15)% to Cold Resistance
 Gain (7-10) Life per enemy killed
 Gain (4-6) Mana per enemy killed
@@ -338,17 +348,19 @@ Variant: Current
 (30-60)% increased Evasion and Energy Shield
 +(30-50) to maximum Life
 {variant:2}(20-30)% increased Critical Damage Bonus
-Life Flasks do not recover Life
+Flasks do not recover Life
 On-Kill Effects happen twice
 ]],[[
 Plaguefinger
 Gauze Wraps
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 (30-50)% increased Evasion and Energy Shield
 (4-6)% increased Attack Speed
+{variant:3}Cannot inflict Elemental Ailments
 {variant:1}(5-10)% chance to Poison on Hit
-{variant:2}(20-30)% chance to Poison on Hit
+{variant:2,3}(20-30)% chance to Poison on Hit
 All Damage from Hits Contributes to Poison Magnitude
 ]],[[
 Thunderfist
@@ -368,11 +380,14 @@ Sine Aequo
 Grand Manchettes
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 (10-15)% increased Skill Speed
 {variant:1}(40-60)% increased Armour, Evasion and Energy Shield
 {variant:2}(100-150)% increased Armour, Evasion and Energy Shield
+{variant:3}(150-200)% increased Armour, Evasion and Energy Shield
 Immobilise enemies at 50% buildup instead of 100%
+{variant:3}(30-50)% increased Damage against Immobilised Enemies
 {variant:1}Enemies Immobilised by you take 25% less Damage
 {variant:2}Enemies Immobilised by you take 20% more Damage
 ]],

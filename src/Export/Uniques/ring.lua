@@ -13,12 +13,18 @@ UniqueAllResistances3
 ]],[[
 Blackflame
 Amethyst Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 BodyArmourImplicitChaosResistance1
 UniqueManaRegeneration2
-UniqueIgniteDuration1
+{variant:1}UniqueIgniteEffect1[50,50]
+{variant:2}UniqueIgniteEffect1
+{variant:1}UniqueIgniteDuration1[50,50]
+{variant:2}UniqueIgniteDuration1
 UniqueEnemiesIgniteChaosDamage1
-UniqueIgniteEffect1
+{variant:2}UniqueWitherNeverExpiresOnIgnitedEnemies1
+{variant:2}UniqueWitherInflictedAlsoIncreasesFireDamageTaken1
 ]],[[
 Blackheart
 Iron Ring
@@ -33,12 +39,16 @@ UniqueChanceToIntimidateOnHit1
 ]],[[
 Blistering Bond
 Ruby Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitFireResistance1
 UniqueIncreasedLife3
 UniqueFireResist18
 UniqueColdResist22
 UniqueSelfBleedFireDamage1
+{variant:2}UniqueFireDamageAlsoContributesToBleed1
+{variant:2}UniqueInflictBleedFireDamage1
 ]],[[
 The Burrower
 Topaz Ring
@@ -113,6 +123,19 @@ RingImplicitColdResistance1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
 ]],[[
+Eshtera's Path
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+UniqueOnlySocketSapphireJewel1
+UniqueItemFoundRarityIncrease20
+UniqueAllAttributes1
+{variant:1}UniqueColdResistanceNoPenalty1
+{variant:2}UniqueFireAndColdResPerLightningResItem1
+]],[[
 Evergrasping Ring
 Pearl Ring
 League: Dawn of the Hunt
@@ -134,11 +157,14 @@ UniqueConsecratedGroundStationaryRing1
 ]],[[
 Glowswarm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitIncreasedMana1
 UniqueIncreasedMana7
 UniqueFlaskManaRecoveryRate3
 UniqueManaFlaskChargeGeneration2
+{variant:2}UniqueGuardFromManaFlask1
 ]],[[
 Heartbound Loop
 Pearl Ring
@@ -170,11 +196,15 @@ Mirrored
 ]],[[
 Levinstone
 Topaz Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 RingImplicitLightningResistance1
 UniqueIncreasedMana7
 UniqueShockChanceIncrease2
-UniqueGlobalLightningGemLevel1
+{variant:1}UniqueGlobalLightningGemLevel1
+{variant:2}UniqueLightningSpellsChain1
+{variant:2}UniqueShockEffect1
 ]],[[
 Ming's Heart
 Amethyst Ring
@@ -213,40 +243,43 @@ UniqueChillHitsCauseShattering1
 ]],[[
 Prized Pain
 Iron Ring
+Variant: Pre 0.5.0
+Variant: Current
 League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 RingImplicitPhysicalDamage1
 UniqueStrength41
 UniqueLifeCostAsManaCost2
-UniqueThornsDamageOnStun1
+{variant:1}UniqueThornsDamageOnStun1
 UniqueAttackerTakesDamage7
+{variant:2}UniqueChanceToDealThornsDamageOnHit1
 ]],[[
-Seed of Cataclysm
-Lazuli Ring
-Implicits: 1
-RingImplicitIncreasedMana1
-UniqueSpellCriticalStrikeChance2
-UniqueSpellCriticalStrikeMultiplier1
-UniqueChaosResist2
-UniqueManaCostReduction2
-]],[[
-Sekhema's Resolve
+Safrin's Resolve
 Ring
 Sockets: J
 Source: Drops from unique{Zarokh, the Temporal}
-Variant: Ruby
-Variant: Emerald
-Variant: Sapphire
+Variant: Pre 0.5.0
+Variant: Current
 Requires Level 40
+UniqueOnlySocketRubyJewel1
 UniqueItemFoundRarityIncrease20
 UniqueAllAttributes1
 {variant:1}UniqueFireResistanceNoPenalty1
-{variant:2}UniqueLightningResistanceNoPenalty1
-{variant:3}UniqueColdResistanceNoPenalty1
-{variant:1}UniqueOnlySocketRubyJewel1
-{variant:2}UniqueOnlySocketEmeraldJewel1
-{variant:3}UniqueOnlySocketSapphireJewel1
+{variant:2}UniqueColdAndLightningResPerFireResItem1
+]],[[
+Seed of Cataclysm
+Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
+Implicits: 1
+RingImplicitIncreasedMana1
+UniqueSpellCriticalStrikeChance2
+{variant:1}UniqueSpellCriticalStrikeMultiplier1
+UniqueChaosResist2
+UniqueManaCostReduction2
+{variant:2}UniqueSpellCriticalStrikeMultiplierPerSpellCritRecently1
+{variant:2}UniqueChanceForSpellCriticalHitsToBeLucky1
 ]],[[
 Snakepit
 Pearl Ring
@@ -321,5 +354,18 @@ UniqueIncreasedSkillSpeed3
 UniqueDexterity2
 UniqueManaRegeneration18
 UniqueColdDamageConvertToLightning1
+]],[[
+Zaida's Longevity
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+UniqueOnlySocketEmeraldJewel1
+UniqueItemFoundRarityIncrease20
+UniqueAllAttributes1
+{variant:1}UniqueLightningResistanceNoPenalty1
+{variant:2}UniqueFireAndLightningRestPerColdResItem1
 ]],
 }

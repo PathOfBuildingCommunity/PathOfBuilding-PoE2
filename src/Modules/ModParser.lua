@@ -3365,7 +3365,7 @@ local specialModList = {
 	["all flames of chayula that you manifest are red"] = { flag("BreachFlameOnlyRed") },
 	["all flames of chayula that you manifest are blue"] = { flag("BreachFlameOnlyBlue") },
 	["all flames of chayula that you manifest are purple"] = { flag("BreachFlameOnlyPurple") },
-	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
+	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"),
 	},
@@ -3736,6 +3736,8 @@ local specialModList = {
 	["your critical hit chance is lucky while focus?sed"] = { flag("CritChanceLucky", { type = "Condition", var = "Focused" }) },
 	["your critical hits do not deal extra damage"] = { flag("NoCritMultiplier") },
 	["critical hits do not deal extra damage"] = { flag("NoCritMultiplier") },
+	["you have no critical damage bonus"] = { flag("NoCritMultiplier") },
+	["hits with this weapon have no critical damage bonus"] = { flag("NoCritMultiplier", { type = "Condition", var = "{Hand}Attack" }) },
 	["minion critical hits do not deal extra damage"] = { mod("MinionModifier", "LIST", { mod = flag("NoCritMultiplier") }) },
 	["lightning damage with non%-critical hits is lucky"] = { flag("LightningNoCritLucky") },
 	["your damage with critical hits is lucky"] = { flag("CritLucky") },
@@ -3920,6 +3922,7 @@ local specialModList = {
 	} end,
 	["enemies ignited by you during f?l?a?s?k? ?effect take (%d+)%% increased damage"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) } end,
 	["enemies ignited by you take chaos damage instead of fire damage from ignite"] = { flag("IgniteToChaos") },
+	["ignite you inflict deals chaos damage instead of fire damage"] = { flag("IgniteToChaos") },
 	["enemies chilled by your hits are shocked"] = {
 		mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "ChilledByYourHits" }),
 		mod("EnemyModifier", "LIST", { mod = flag("Condition:Shocked", { type = "Condition", var = "ChilledByYourHits" }) })
@@ -5954,6 +5957,9 @@ local specialModList = {
 	["attacks cost life instead of mana"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
 
 	["skills gain a base life cost equal to (%d+)%% of base mana cost"] = function(num) return {
+		mod("BaseManaCostAsLifeCost", "BASE", num),
+	} end,
+	["skills gain (%d+)%% of mana cost as extra life cost"] = function(num) return {
 		mod("BaseManaCostAsLifeCost", "BASE", num),
 	} end,
 	["skills gain a base energy shield cost equal to (%d+)%% of base mana cost"] = function(num) return {

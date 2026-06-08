@@ -59,12 +59,12 @@ Variant: Shield
 Implicits: 2
 Has (1-3) Charm Slot
 Flasks gain 0.17 charges per Second
+(50-100)% increased effect of Socketed Augment Items
 {variant:2}This item gains bonuses from Socketed Items as though it was a Body Armour
 {variant:4}This item gains bonuses from Socketed Items as though it was Boots
 {variant:3}This item gains bonuses from Socketed Items as though it was Gloves
 {variant:1}This item gains bonuses from Socketed Items as though it was a Helmet
 {variant:5}This item gains bonuses from Socketed Items as though it was a Shield
-(50-100)% increased effect of Socketed Items
 ]],[[
 The Gnashing Sash
 Wide Belt
@@ -81,9 +81,12 @@ Life Recovery from Flasks can Overflow Maximum Life
 Goregirdle
 Plate Belt
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 2
-+(100-140) to Armour
+{variant:2}+(140-180) to Armour
 Has (1-3) Charm Slot
+{variant:1}+(100-140) to Armour
 +(20-30) to Strength
 (10-20) Life Regeneration per second
 Defend with 200% of Armour
@@ -103,15 +106,17 @@ Infernoclasp
 Plate Belt
 Source: No longer obtainable
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 2
-+(100-140) to Armour
+{variant:3}+(140-180) to Armour
 Has (1-3) Charm Slot
+{variant:1,2}+(100-140) to Armour
 +(100-150) to Armour
 +(10-20) to Strength
 +(3-5)% to Maximum Fire Resistance
 {variant:1}+(25-35)% to Fire Resistance
-{variant:2}+(30-50)% to Fire Resistance
+{variant:2,3}+(30-50)% to Fire Resistance
 ]],[[
 Ingenuity
 Utility Belt
@@ -221,16 +226,20 @@ Life and Mana Flasks can be equipped in either slot
 Zerphi's Genesis
 Heavy Belt
 Variant: Pre 0.2.0f
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
 Implicits: 2
 (20-30)% increased Stun Threshold
 Has (1-3) Charm Slot
+{variant:3}(25-50)% increased Corrupted Charms effect duration
+50% of Charges consumed by used Charms are granted to your Life Flasks
+{variant:3}50% of Charges consumed by used Life Flasks are granted to your Charms
 {variant:1}+(0-2) Charm Slot
 +(10-30) to Strength
+{variant:3}Skills from Corrupted Gems have (15-25)% increased Cost Efficiency during any Flask Effect
 Corrupted Blood cannot be inflicted on you
-50% of charges used by Charms granted to your Life Flasks
-(10-30)% increased Charm Charges used
+{variant:1,2}(10-30)% increased Charm Charges used
 ]],
 }
