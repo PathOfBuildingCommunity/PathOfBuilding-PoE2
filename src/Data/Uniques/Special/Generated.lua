@@ -288,13 +288,13 @@ do
 	table.insert(loreweave, "Selected Variant: 22")
 	table.insert(loreweave, "Selected Alt Variant: 44")
 	table.insert(loreweave, "Selected Alt Variant Two: 66")
-	for index, mod in ipairs(loreweaveMods) do
-		table.insert(loreweave, "{variant:" .. index .. "}" .. mod.mod[1])
-	end
 	for _, modName in ipairs(baseModNames) do
 		if uniqueMods[modName] then
 			table.insert(loreweave, uniqueMods[modName][1])
 		end
+	end
+	for index, mod in ipairs(loreweaveMods) do
+		table.insert(loreweave, "{variant:" .. index .. "}" .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(loreweave, "\n"))
 end
