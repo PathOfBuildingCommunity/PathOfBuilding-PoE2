@@ -55,6 +55,17 @@ UniqueBlockChanceFromArmourOnEquipment1
 UniqueAddedPhysicalDamagePerGlobalBlockChance1
 UniqueProjectilesReturnIfPiercedArmourBroken1
 ]],[[
+Periphery
+Heartwood Shortbow
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Azmerian Swarms
+UniqueLocalAddedFireDamage9
+UniqueLocalAddedColdDamage8
+UniqueLocalAddedLightningDamage12
+UniqueLocalIncreasedAttackSpeed30
+UniqueElementalDamageFromHitsContributesToCoreEleAilments1
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt

@@ -55,6 +55,17 @@ Implicits: 1
 Hits with this weapon have (1-2) to (4-5) Added Physical Damage per 1% Block Chance
 Arrows Return if they have Pierced a target which had Fully Broken Armour
 ]],[[
+Periphery
+Heartwood Shortbow
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Azmerian Swarms
+Adds (48-59) to (75-97) Fire Damage
+Adds (35-53) to (65-80) Cold Damage
+Adds (1-8) to (123-152) Lightning Damage
+(8-14)% increased Attack Speed
+Elemental Damage from Hits Contributes to Flammability, Ignite, and Chill Magnitudes, Freeze Buildup, and Shock Chance
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt
