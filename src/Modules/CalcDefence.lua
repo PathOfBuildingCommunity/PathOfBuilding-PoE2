@@ -763,7 +763,7 @@ function calcs.defence(env, actor)
 		local item = actor.itemList[slot]
 		local armourData = item and item.armourData
 		if armourData then
-			local wardBase = item:GetArmourDataValue("Ward", actor.level)
+			local wardBase = item:GetArmourDataValue("RunicWard", actor.level)
 			if wardBase > 0 then
 				output["WardOnAllArmourItems"] = (output["WardOnAllArmourItems"] or 0) + wardBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1156,7 +1156,7 @@ function calcs.defence(env, actor)
 			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				wardBase = item:GetArmourDataValue("Ward", actor.level)
+				wardBase = item:GetArmourDataValue("RunicWard", actor.level)
 				if wardBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						wardBase = wardBase * 2
@@ -1304,6 +1304,7 @@ function calcs.defence(env, actor)
 			{ name = "EnergyShield", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "EnergyShield", "Defences" }, modsTotal = { "EnergyShieldTotal" }, defence = true },
 			{ name = "Life", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Life" }, modsTotal = { "LifeTotal" }, },
 			{ name = "Mana", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Mana" }, modsTotal = { "ManaTotal" }, },
+			{ name = "RunicWard", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Ward", "Defences" }, modsTotal = { "RunicWardTotal" }, },
 		}
 		for _, source in ipairs(resourceList) do
 			output[source.name] = (output[source.name] or 0)

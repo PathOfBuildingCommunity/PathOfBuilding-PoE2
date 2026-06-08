@@ -3324,7 +3324,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		local armour = item:GetArmourDataValue("Armour", level)
 		local evasion = item:GetArmourDataValue("Evasion", level)
 		local energyShield = item:GetArmourDataValue("EnergyShield", level)
-		local ward = item:GetArmourDataValue("Ward", level)
+		local ward = item:GetArmourDataValue("RunicWard", level)
 		if base.armour.BlockChance and armourData.BlockChance > 0 then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
