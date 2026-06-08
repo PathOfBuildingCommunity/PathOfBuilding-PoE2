@@ -43,6 +43,18 @@ Adds (76-98) to (126-193) Fire Damage
 -30 Physical Damage taken from Hits
 Attack Hits inflict Spectral Fire for 8 seconds
 ]],[[
+Ironbound
+Warden Bow
+League: Fate of the Vaal
+Implicits: 1
+(25-35)% chance to Chain an additional time
++(100-150) to Armour
+(5-10)% increased Attack Speed
++12% to Block chance
+(3-5)% increased Block chance per 100 total Item Armour on Equipped Armour Items
+Hits with this weapon have (1-2) to (4-5) Added Physical Damage per 1% Block Chance
+Arrows Return if they have Pierced a target which had Fully Broken Armour
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt

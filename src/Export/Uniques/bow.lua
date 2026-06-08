@@ -43,6 +43,18 @@ UniqueLifeRecoveryRate2
 UniqueFlatPhysicalDamageTaken1
 GhostflameOnHitUnique__1
 ]],[[
+Ironbound
+Warden Bow
+League: Fate of the Vaal
+Implicits: 1
+BowImplicitLocalChanceToChain1
+UniqueLocalIncreasedPhysicalDamageReductionRating6
+UniqueLocalIncreasedAttackSpeed31
+UniqueBlockPercent3
+UniqueBlockChanceFromArmourOnEquipment1
+UniqueAddedPhysicalDamagePerGlobalBlockChance1
+UniqueProjectilesReturnIfPiercedArmourBroken1
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt
