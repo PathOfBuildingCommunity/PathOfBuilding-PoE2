@@ -67,6 +67,15 @@ UniqueCursesIgnoreLimit1
 UniqueSpellDamageAsExtraChaosPerCurse1
 UniqueSpellDamageAsExtraPhysicalPerCurse1
 ]],[[
+Runeseeker's Call
+Runic Fork
+League: Fate of the Vaal
+Sockets: S S S S S
+Implicits: 1
+Grants Skill: Level (1-20) The Stars Answer
+UniqueOnlySocketRunes1
+UniqueLocalIncreasedRuneEffect1
+]],[[
 Sanguine Diviner
 Bone Wand
 Implicits: 1

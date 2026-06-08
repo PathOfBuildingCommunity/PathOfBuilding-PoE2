@@ -67,6 +67,15 @@ Curses you inflict ignore Curse limit
 Spell Hits Gain (23-31)% of Damage as Extra Chaos Damage per Curse on target
 Spell Hits Gain (23-31)% of Damage as Extra Physical Damage per Curse on target
 ]],[[
+Runeseeker's Call
+Runic Fork
+League: Fate of the Vaal
+Sockets: S S S S S
+Implicits: 1
+Grants Skill: Level (1-20) The Stars Answer
+Only Runes can be Socketed in this item
+200% increased effect of Socketed Runes
+]],[[
 Sanguine Diviner
 Bone Wand
 Implicits: 1
