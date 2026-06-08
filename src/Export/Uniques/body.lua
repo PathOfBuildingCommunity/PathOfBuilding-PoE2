@@ -542,6 +542,16 @@ UniqueLocalIncreasedArmourAndEnergyShield5
 UniqueReducedBleedDuration1
 UniqueLifeLeechOvercapLife1
 ]],[[
+Decree of Loyalty
+Ancient Mail
+League: Fate of the Vaal
+UniqueLocalIncreasedArmourAndEnergyShield29
+UniqueStrengthAndIntelligence3
+UniqueMaximumChaosResist1
+UniqueMaxLifeToConvertToArmourPerChaosResistance1
+UniqueDefendWithXPercentArmourWhileYouHaveEnergyShield1
+UniqueDamageOvertimeDoesNotBypassEnergyShield1
+]],[[
 Enfolding Dawn
 Pilgrim Vestments
 UniqueLocalIncreasedArmourAndEnergyShield5

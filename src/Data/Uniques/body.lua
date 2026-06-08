@@ -552,6 +552,16 @@ Variant: Current
 Life Leech can Overflow Maximum Life
 (40-60)% reduced Duration of Bleeding on You
 ]],[[
+Decree of Loyalty
+Ancient Mail
+League: Fate of the Vaal
+(200-300)% increased Armour and Energy Shield
++(15-25) to Strength and Intelligence
++(1-5)% to Maximum Chaos Resistance
+Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%
+Defend with (150-200)% of Armour while you have Energy Shield
+Damage over Time cannot bypass your Energy Shield
+]],[[
 Enfolding Dawn
 Pilgrim Vestments
 (50-100)% increased Armour and Energy Shield
