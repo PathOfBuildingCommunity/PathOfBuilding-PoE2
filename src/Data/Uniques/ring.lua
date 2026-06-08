@@ -123,6 +123,19 @@ Implicits: 1
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
 ]],[[
+Eshtera's Path
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+You can only Socket Sapphire Jewels in this item
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(10-20) to all Attributes
+{variant:2}+(5-10)% to Fire and Cold Resistances per Equipped Item with a Lightning Resistance Modifier
+{variant:1}Cold Resistance is unaffected by Area Penalties
+]],[[
 Evergrasping Ring
 Pearl Ring
 League: Dawn of the Hunt
@@ -242,6 +255,19 @@ Skills Gain 10% of Mana Cost as Extra Life Cost
 {tags:physical}(24-35) to (36-53) Physical Thorns damage
 {variant:2}(15-25)% chance to deal your Thorns Damage to Enemies you Hit with Melee Attacks
 ]],[[
+Safrin's Resolve
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+You can only Socket Ruby Jewels in this item
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(10-20) to all Attributes
+{variant:2}+(5-10)% to Cold and Lightning Resistances per Equipped Item with a Fire Resistance Modifier
+{variant:1}Fire Resistance is unaffected by Area Penalties
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Variant: Pre 0.5.0
@@ -254,23 +280,6 @@ Implicits: 1
 {tags:chaos}+(13-17)% to Chaos Resistance
 {tags:mana}10% increased Mana Cost of Skills
 {variant:2}{tags:caster}(15-30)% chance for Spell Damage with Critical Hits to be Lucky
-]],[[
-Sekhema's Resolve
-Ring
-Sockets: J
-Source: Drops from unique{Zarokh, the Temporal}
-Variant: Ruby
-Variant: Emerald
-Variant: Sapphire
-Requires Level 40
-{variant:1}You can only Socket Ruby Jewels in this item
-{variant:2}You can only Socket Emerald Jewels in this item
-{variant:3}You can only Socket Sapphire Jewels in this item
-(10-20)% increased Rarity of Items found
-{tags:attribute}+(10-20) to all Attributes
-{variant:3}Cold Resistance is unaffected by Area Penalties
-{variant:1}Fire Resistance is unaffected by Area Penalties
-{variant:2}Lightning Resistance is unaffected by Area Penalties
 ]],[[
 Snakepit
 Pearl Ring
@@ -345,5 +354,18 @@ Implicits: 1
 {tags:attribute}+(10-20) to Dexterity
 {tags:mana}(25-35)% increased Mana Regeneration Rate
 100% of Cold Damage Converted to Lightning Damage
+]],[[
+Zaida's Longevity
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+You can only Socket Emerald Jewels in this item
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(10-20) to all Attributes
+{variant:2}+(5-10)% to Fire and Lightning Resistances per Equipped Item with a Cold Resistance Modifier
+{variant:1}Lightning Resistance is unaffected by Area Penalties
 ]],
 }

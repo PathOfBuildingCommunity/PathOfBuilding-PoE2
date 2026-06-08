@@ -123,6 +123,19 @@ RingImplicitColdResistance1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
 ]],[[
+Eshtera's Path
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+UniqueOnlySocketSapphireJewel1
+UniqueItemFoundRarityIncrease20
+UniqueAllAttributes1
+{variant:1}UniqueColdResistanceNoPenalty1
+{variant:2}UniqueFireAndColdResPerLightningResItem1
+]],[[
 Evergrasping Ring
 Pearl Ring
 League: Dawn of the Hunt
@@ -242,6 +255,19 @@ UniqueLifeCostAsManaCost2
 UniqueAttackerTakesDamage7
 {variant:2}UniqueChanceToDealThornsDamageOnHit1
 ]],[[
+Safrin's Resolve
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+UniqueOnlySocketRubyJewel1
+UniqueItemFoundRarityIncrease20
+UniqueAllAttributes1
+{variant:1}UniqueFireResistanceNoPenalty1
+{variant:2}UniqueColdAndLightningResPerFireResItem1
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Variant: Pre 0.5.0
@@ -254,23 +280,6 @@ UniqueChaosResist2
 UniqueManaCostReduction2
 {variant:2}UniqueSpellCriticalStrikeMultiplierPerSpellCritRecently1
 {variant:2}UniqueChanceForSpellCriticalHitsToBeLucky1
-]],[[
-Sekhema's Resolve
-Ring
-Sockets: J
-Source: Drops from unique{Zarokh, the Temporal}
-Variant: Ruby
-Variant: Emerald
-Variant: Sapphire
-Requires Level 40
-UniqueItemFoundRarityIncrease20
-UniqueAllAttributes1
-{variant:1}UniqueFireResistanceNoPenalty1
-{variant:2}UniqueLightningResistanceNoPenalty1
-{variant:3}UniqueColdResistanceNoPenalty1
-{variant:1}UniqueOnlySocketRubyJewel1
-{variant:2}UniqueOnlySocketEmeraldJewel1
-{variant:3}UniqueOnlySocketSapphireJewel1
 ]],[[
 Snakepit
 Pearl Ring
@@ -345,5 +354,18 @@ UniqueIncreasedSkillSpeed3
 UniqueDexterity2
 UniqueManaRegeneration18
 UniqueColdDamageConvertToLightning1
+]],[[
+Zaida's Longevity
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+UniqueOnlySocketEmeraldJewel1
+UniqueItemFoundRarityIncrease20
+UniqueAllAttributes1
+{variant:1}UniqueLightningResistanceNoPenalty1
+{variant:2}UniqueFireAndLightningRestPerColdResItem1
 ]],
 }
