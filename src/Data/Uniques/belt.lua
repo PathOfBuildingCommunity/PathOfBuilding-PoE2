@@ -38,6 +38,18 @@ Has (1-3) Charm Slot
 (7-12) Life Regeneration per second
 Cannot be Shocked
 ]],[[
+Cat O' Nine Tails
+Utility Belt
+League: Fate of the Vaal
+Implicits: 2
+Has (1-3) Charm Slot
+20% of Flask Recovery applied Instantly
++(120-200) to maximum Life
+Regenerate 5% of maximum Life per second if you have been Hit Recently
+(25-50)% increased Life Recovery rate
+Life Recovery other than Flasks cannot Recover Life to above Low Life
+Gain Physical Thorns damage equal to 8% - 12% of maximum Life
+]],[[
 Coward's Legacy
 Mail Belt
 Implicits: 2

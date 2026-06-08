@@ -38,6 +38,18 @@ UniqueIncreasedMana7
 UniqueLifeRegeneration2
 Cannot be Shocked
 ]],[[
+Cat O' Nine Tails
+Utility Belt
+League: Fate of the Vaal
+Implicits: 2
+BeltImplicitInstantFlaskRecoveryPercent1
+BeltImplicitCharmSlots3
+UniqueIncreasedLife51
+UniqueRegeneratePercentLifeIfHitRecently1
+UniqueLifeRecoveryRate1
+UniqueCannotRecoverAboveLowLifeExceptFlasks1
+UniqueGainPercentLifeAsThorns1
+]],[[
 Coward's Legacy
 Mail Belt
 Implicits: 2
