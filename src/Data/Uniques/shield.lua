@@ -56,6 +56,18 @@ Accuracy Rating is Doubled
 {variant:1}Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage
 {variant:2,3}Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
 ]],[[
+Nightfall
+Fortress Tower Shield
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Raise Shield
++150 Strength Requirement
+(10-20)% increased Block chance
+(350-450)% increased Armour
++(30-40)% to Cold Resistance
+(10-20)% of Fire damage taken as Cold damage
+(10-20)% of Lightning damage taken as Cold damage
+]],[[
 Redblade Banner
 Heraldric Tower Shield
 Variant: Pre 0.3.0

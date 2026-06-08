@@ -56,6 +56,18 @@ UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
 {variant:2,3}UniquePoisonOnBlock1
 ]],[[
+Nightfall
+Fortress Tower Shield
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueStrengthRequirements5
+UniqueLocalBlockChance15
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent31
+UniqueColdResist35
+UniqueFireDamageTakenAsCold1
+UniqueLightningDamageTakenAsCold1
+]],[[
 Redblade Banner
 Heraldric Tower Shield
 Variant: Pre 0.3.0
