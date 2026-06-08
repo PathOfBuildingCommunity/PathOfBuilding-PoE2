@@ -1631,6 +1631,17 @@ itemBases["Ancient Leggings"] = {
 	armour = { Armour = 134, EnergyShield = 37, },
 	req = { level = 65, str = 56, int = 56, },
 }
+itemBases["Runemastered Ancient Leggings"] = {
+	type = "Boots",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, boots = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 107, EnergyShield = 30, Ward = 53, },
+	req = { level = 65, str = 56, int = 56, },
+}
 
 itemBases["Frayed Shoes"] = {
 	type = "Boots",

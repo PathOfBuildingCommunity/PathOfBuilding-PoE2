@@ -1801,6 +1801,17 @@ itemBases["Ancient Visor"] = {
 	armour = { Armour = 179, Evasion = 163, },
 	req = { level = 65, str = 59, dex = 59, },
 }
+itemBases["Runemastered Ancient Visor"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 179, Evasion = 163, },
+	req = { level = 65, str = 59, dex = 59, },
+}
 
 itemBases["Iron Crown"] = {
 	type = "Helmet",
@@ -2212,6 +2223,17 @@ itemBases["Tenebrous Crown"] = {
 	tags = { armour = true, default = true, helmet = true, str_int_armour = true, },
 	implicitModTypes = { },
 	armour = { Armour = 179, EnergyShield = 50, },
+	req = { level = 65, str = 59, int = 59, },
+}
+itemBases["Runemastered Tenebrous Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 143, EnergyShield = 40, Ward = 56, },
 	req = { level = 65, str = 59, int = 59, },
 }
 
