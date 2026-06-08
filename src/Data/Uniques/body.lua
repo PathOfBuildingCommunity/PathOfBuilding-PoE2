@@ -549,6 +549,16 @@ Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 -17% to Chaos Resistance
 Charms use no Charges
 ]],[[
+The Sunken Vessel
+Knight Armour
+League: Runes of Aldur
+(120-180)% increased Armour and Evasion
++(80-120) to maximum Life
+30% reduced Life Recovery rate
+33% chance to avoid Projectiles
+Physical Damage of Enemies Hitting you is Unlucky
+Convert All Armour to Evasion Rating
+]],[[
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt

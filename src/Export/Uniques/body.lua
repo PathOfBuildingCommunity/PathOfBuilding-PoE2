@@ -541,6 +541,16 @@ UniqueAllResistances6
 UniqueChaosResist19
 UniqueCharmsNoCharges1
 ]],[[
+The Sunken Vessel
+Knight Armour
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEvasion34
+UniqueIncreasedLife59
+UniqueLifeRecoveryRate3
+UniqueChanceToAvoidProjectiles1
+UniqueEnemyExtraDamageRollsWithPhysicalDamage1
+UniqueConvertAllArmourToEvasion1
+]],[[
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt
