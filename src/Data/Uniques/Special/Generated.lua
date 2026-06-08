@@ -173,7 +173,7 @@ do
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^PassageUnique(.+)$")
 		if name then
-			table.insert(kulemakMods, { 
+			table.insert(kulemakMods, {
 				mod = mod,
 				name = name
 					:gsub("([a-z])([A-Z])", "%1 %2")
@@ -249,4 +249,52 @@ do
 		table.insert(heart, "{variant:" .. index .. "}{desecrated}" .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(heart, "\n"))
+end
+
+do
+	local loreweaveMods = { }
+	for modName, mod in pairs(uniqueMods) do
+		local name = modName:match("^UniqueLoreweave(.+)$")
+		if name then
+			table.insert(loreweaveMods, {
+				mod = mod,
+				name = name
+					:gsub("([a-z])([A-Z])", "%1 %2")
+					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
+					:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+			})
+		end
+	end
+	table.sort(loreweaveMods, function(a, b) return a.name < b.name end)
+	local loreweave = {
+		"Loreweave",
+		"Ornate Ringmail",
+		"League: Runes of Aldur",
+		"Has Alt Variant: true",
+		"Has Alt Variant Two: true",
+	}
+	local baseModNames = {
+		"UniqueAddedPhysicalDamage1BigRange",
+		"UniqueIncreasedAccuracy1BigRange",
+		"UniqueIncreasedMana2BigRange",
+		"UniqueItemFoundRarityIncrease6BigRange",
+		"UniqueAdditionalGemQuality1BigRange",
+		"UniqueIncreasedCastSpeed2BigRange",
+		"UniqueMaximumResistancesOverride1BigRange",
+	}
+	for _, mod in ipairs(loreweaveMods) do
+		table.insert(loreweave, "Variant: " .. mod.name)
+	end
+	table.insert(loreweave, "Selected Variant: 22")
+	table.insert(loreweave, "Selected Alt Variant: 44")
+	table.insert(loreweave, "Selected Alt Variant Two: 66")
+	for index, mod in ipairs(loreweaveMods) do
+		table.insert(loreweave, "{variant:" .. index .. "}" .. mod.mod[1])
+	end
+	for _, modName in ipairs(baseModNames) do
+		if uniqueMods[modName] then
+			table.insert(loreweave, uniqueMods[modName][1])
+		end
+	end
+	table.insert(data.uniques.generated, table.concat(loreweave, "\n"))
 end
