@@ -11,6 +11,15 @@ UniqueItemFoundRarityIncrease5
 UniqueDexterity4
 UniqueAllResistances3
 ]],[[
+Berek's Grip
+Two-Stone Ring
+Implicits: 1
+RingImplicitColdLightningResistance
+UniqueDexterityAndIntelligence1
+UniqueColdLightningResistance1
+UniqueReducedCriticalDamageTakenWhileChilled1
+UniqueWindSkillsBoostedByShockedGround1
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0

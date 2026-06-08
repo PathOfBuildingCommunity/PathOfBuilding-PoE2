@@ -11,6 +11,16 @@ Implicits: 1
 {tags:attribute}+10 to Dexterity
 {tags:fire,cold,lightning}-20% to all Elemental Resistances
 ]],[[
+Berek's Grip
+Two-Stone Ring
+Implicits: 1
+{tags:cold,lightning}+(12-16)% to Cold and Lightning Resistances
+{tags:attribute}+(10-20) to Dexterity and Intelligence
+{tags:cold,lightning}+(10-20)% to Cold and Lightning Resistances
+Hits against you have (35-50)% reduced Critical Hit Chance while you are Chilled
+{tags:lightning}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:lightning}as being boosted by Shocked Ground
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0
