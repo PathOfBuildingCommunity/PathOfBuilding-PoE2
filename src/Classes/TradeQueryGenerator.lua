@@ -436,23 +436,24 @@ return %s
 	self:GenerateModData(data.itemMods.Flask, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, { ["Charm"] = true })
 
-	-- add breach mods which lack proper weights. e.g. the belt mods have a spawn weight of zero for rings, and 1 for genesis_tree_minion or genesis_tree_caster
+	-- add breach mods which lack proper weights. these mods spawn for either belts or rings, but
+	-- have weights of zero for ones they DONT spawn on
 	for name, mod in pairs(data.itemMods.Item) do
 		local treeMod = false
-		local slot
+		local slots = {Ring = true, Belt = true}
 		for i, v in ipairs(mod.weightKey) do
 			if v == "genesis_tree_minion" or v == "genesis_tree_caster" then
 				treeMod = true
 			end
 			if (v == "belt") and mod.weightVal[i] == 0 then
-				slot = "Ring"
+				slots.Belt = nil
 			end
 			if (v == "ring") and mod.weightVal[i] == 0 then
-				slot = "Belt"
+				slots.Ring = nil
 			end
 		end
-		if treeMod and slot then
-			self:ProcessMod(mod, regularItemMask, {[slot] = true})
+		if treeMod then
+			self:ProcessMod(mod, regularItemMask, slots)
 			goto continueBreach
 		end
 

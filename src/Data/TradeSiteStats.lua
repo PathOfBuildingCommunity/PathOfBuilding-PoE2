@@ -587,12 +587,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1379411836",
+				["id"] = "explicit.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2897413282",
+				["id"] = "explicit.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
@@ -637,12 +637,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_774059442",
+				["id"] = "explicit.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3336230913",
+				["id"] = "explicit.stat_774059442",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
@@ -2477,12 +2477,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2261942307",
+				["id"] = "explicit.stat_1602191394",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1602191394",
+				["id"] = "explicit.stat_2261942307",
 				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
@@ -2632,12 +2632,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3984865854",
+				["id"] = "explicit.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1416406066",
+				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
@@ -4522,12 +4522,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|161",
+				["id"] = "explicit.stat_448592698|160",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|160",
+				["id"] = "explicit.stat_448592698|161",
 				["text"] = "+# to Level of all Skeletal Sniper Skills",
 				["type"] = "explicit",
 			},
@@ -4632,12 +4632,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|193",
+				["id"] = "explicit.stat_448592698|201",
 				["text"] = "+# to Level of all Tamed Companion Skills",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_448592698|201",
+				["id"] = "explicit.stat_448592698|193",
 				["text"] = "+# to Level of all Tamed Companion Skills",
 				["type"] = "explicit",
 			},
@@ -8107,12 +8107,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2954116742|14258",
+				["id"] = "explicit.stat_2954116742|62210",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2954116742|62210",
+				["id"] = "explicit.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "explicit",
 			},
@@ -9907,12 +9907,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2801937280",
+				["id"] = "explicit.stat_3831171903|5",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|5",
+				["id"] = "explicit.stat_2801937280",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
@@ -10552,12 +10552,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2933846633",
+				["id"] = "explicit.stat_3146310524",
 				["text"] = "Dazes on Hit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3146310524",
+				["id"] = "explicit.stat_2933846633",
 				["text"] = "Dazes on Hit",
 				["type"] = "explicit",
 			},
@@ -10672,12 +10672,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10787,12 +10787,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|9",
+				["id"] = "explicit.stat_2262736444",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2262736444",
+				["id"] = "explicit.stat_3831171903|9",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
@@ -11027,12 +11027,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2625554454",
+				["id"] = "explicit.stat_2879778895",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2879778895",
+				["id"] = "explicit.stat_2625554454",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
@@ -11457,22 +11457,22 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|2",
-				["text"] = "Giant's Blood",
-				["type"] = "explicit",
-			},
-			{
 				["id"] = "explicit.stat_1875158664",
 				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_4266776872",
-				["text"] = "Glancing Blows",
+				["id"] = "explicit.stat_3831171903|2",
+				["text"] = "Giant's Blood",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3831171903|22",
+				["text"] = "Glancing Blows",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_4266776872",
 				["text"] = "Glancing Blows",
 				["type"] = "explicit",
 			},
@@ -11847,12 +11847,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|21",
+				["id"] = "explicit.stat_326965591",
 				["text"] = "Iron Reflexes",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_326965591",
+				["id"] = "explicit.stat_3831171903|21",
 				["text"] = "Iron Reflexes",
 				["type"] = "explicit",
 			},
@@ -12262,12 +12262,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2162684861",
+				["id"] = "explicit.stat_395808938",
 				["text"] = "Map contains an additional Essence",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_395808938",
+				["id"] = "explicit.stat_2162684861",
 				["text"] = "Map contains an additional Essence",
 				["type"] = "explicit",
 			},
@@ -16569,12 +16569,12 @@ return {
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_1379411836",
+				["id"] = "fractured.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_2897413282",
+				["id"] = "fractured.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
@@ -17414,12 +17414,12 @@ return {
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_1416406066",
+				["id"] = "fractured.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_3984865854",
+				["id"] = "fractured.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "fractured",
 			},
@@ -18326,6 +18326,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|28044",
 				["text"] = "Allocates Coming Calamity",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|42660",
+				["text"] = "Allocates Commanding Rage",
 				["type"] = "fractured",
 			},
 			{
@@ -23240,6 +23245,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|6514",
+				["text"] = "Allocates Cacophony",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|50795",
 				["text"] = "Allocates Careful Aim",
 				["type"] = "crafted",
@@ -25225,12 +25235,12 @@ return {
 				["type"] = "crafted",
 			},
 			{
-				["id"] = "crafted.stat_2954116742|14258",
+				["id"] = "crafted.stat_2954116742|62210",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "crafted",
 			},
 			{
-				["id"] = "crafted.stat_2954116742|62210",
+				["id"] = "crafted.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "crafted",
 			},
@@ -27416,12 +27426,12 @@ return {
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|14265",
+				["id"] = "enchant.stat_2954116742|12245",
 				["text"] = "Allocates Arsonist",
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|12245",
+				["id"] = "enchant.stat_2954116742|14265",
 				["text"] = "Allocates Arsonist",
 				["type"] = "enchant",
 			},
@@ -30211,12 +30221,12 @@ return {
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|62210",
+				["id"] = "enchant.stat_2954116742|14258",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "enchant",
 			},
 			{
-				["id"] = "enchant.stat_2954116742|14258",
+				["id"] = "enchant.stat_2954116742|62210",
 				["text"] = "Allocates Puppet Master chance",
 				["type"] = "enchant",
 			},
@@ -31842,12 +31852,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3981240776",
+				["id"] = "rune.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_2704225257",
+				["id"] = "rune.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
@@ -32307,12 +32317,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_1416406066",
+				["id"] = "rune.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3984865854",
+				["id"] = "rune.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "augment",
 			},
@@ -39230,12 +39240,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.unique_breach_lightning_bolt",
+				["id"] = "skill.lightning_bolt",
 				["text"] = "Grants Skill: Level # Lightning Bolt",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.lightning_bolt",
+				["id"] = "skill.unique_breach_lightning_bolt",
 				["text"] = "Grants Skill: Level # Lightning Bolt",
 				["type"] = "skill",
 			},
