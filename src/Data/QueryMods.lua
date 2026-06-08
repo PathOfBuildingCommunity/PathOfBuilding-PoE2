@@ -10645,6 +10645,10 @@ return {
 			},
 		},
 		["1002535626"] = {
+			["Belt"] = {
+				["max"] = 59,
+				["min"] = 41,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -10996,6 +11000,10 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["1058934731"] = {
+			["Ring"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -11401,6 +11409,10 @@ return {
 			},
 		},
 		["1180552088"] = {
+			["Belt"] = {
+				["max"] = 39,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -11763,6 +11775,10 @@ return {
 			},
 		},
 		["1265767008"] = {
+			["Belt"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -11964,6 +11980,10 @@ return {
 			},
 		},
 		["1321054058"] = {
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13175,6 +13195,10 @@ return {
 			},
 		},
 		["1615901249"] = {
+			["Ring"] = {
+				["max"] = 35,
+				["min"] = 25,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13295,6 +13319,10 @@ return {
 			["Amulet"] = {
 				["max"] = 20,
 				["min"] = 12,
+			},
+			["Ring"] = {
+				["max"] = 29,
+				["min"] = 21,
 			},
 			["specialCaseData"] = {
 			},
@@ -13725,6 +13753,10 @@ return {
 			},
 		},
 		["1797815732"] = {
+			["Belt"] = {
+				["max"] = 100,
+				["min"] = 50,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13786,6 +13818,10 @@ return {
 			},
 		},
 		["1805633363"] = {
+			["Belt"] = {
+				["max"] = 10,
+				["min"] = 7,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -14281,6 +14317,10 @@ return {
 			},
 		},
 		["195270549"] = {
+			["Ring"] = {
+				["max"] = 4,
+				["min"] = 2,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -14603,7 +14643,7 @@ return {
 				["min"] = 20,
 			},
 			["Ring"] = {
-				["max"] = 15,
+				["max"] = 35,
 				["min"] = 10,
 			},
 			["specialCaseData"] = {
@@ -14952,6 +14992,10 @@ return {
 			},
 		},
 		["2150661403"] = {
+			["Belt"] = {
+				["max"] = 50,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -14964,6 +15008,10 @@ return {
 			["2HWeapon"] = {
 				["max"] = 35,
 				["min"] = 25,
+			},
+			["Belt"] = {
+				["max"] = 50,
+				["min"] = 40,
 			},
 			["Staff"] = {
 				["max"] = 35,
@@ -18833,6 +18881,10 @@ return {
 				["max"] = 20,
 				["min"] = 12,
 			},
+			["Ring"] = {
+				["max"] = 23,
+				["min"] = 16,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -19031,6 +19083,10 @@ return {
 			},
 		},
 		["323800555"] = {
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -19062,6 +19118,10 @@ return {
 			},
 		},
 		["3249412463"] = {
+			["Belt"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -19867,6 +19927,10 @@ return {
 			},
 		},
 		["3384867265"] = {
+			["Belt"] = {
+				["max"] = 35,
+				["min"] = 21,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -20547,6 +20611,10 @@ return {
 			},
 		},
 		["3526763442"] = {
+			["Belt"] = {
+				["max"] = 12,
+				["min"] = 7,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -20822,6 +20890,10 @@ return {
 			},
 		},
 		["3621874554"] = {
+			["Belt"] = {
+				["max"] = 40,
+				["min"] = 30,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -21768,6 +21840,10 @@ return {
 			},
 		},
 		["3858572996"] = {
+			["Belt"] = {
+				["max"] = 59,
+				["min"] = 41,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -22675,6 +22751,10 @@ return {
 				["max"] = 2,
 				["min"] = 1,
 			},
+			["Ring"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["Staff"] = {
 				["max"] = 2,
 				["min"] = 1,
@@ -23182,6 +23262,10 @@ return {
 			},
 		},
 		["4259875040"] = {
+			["Ring"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23375,6 +23459,10 @@ return {
 			["Chest"] = {
 				["max"] = 20,
 				["min"] = 10,
+			},
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 8,
 			},
 			["specialCaseData"] = {
 			},
@@ -23880,6 +23968,10 @@ return {
 			},
 		},
 		["54812069"] = {
+			["Belt"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23898,6 +23990,10 @@ return {
 			},
 		},
 		["555706343"] = {
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24596,6 +24692,10 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["73032170"] = {
+			["Ring"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -24917,6 +25017,10 @@ return {
 			},
 		},
 		["797289402"] = {
+			["Belt"] = {
+				["max"] = 59,
+				["min"] = 41,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25083,6 +25187,10 @@ return {
 			},
 		},
 		["825116955"] = {
+			["Ring"] = {
+				["max"] = 12,
+				["min"] = 8,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25375,6 +25483,10 @@ return {
 			},
 		},
 		["933355817"] = {
+			["Belt"] = {
+				["max"] = 50,
+				["min"] = 35,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25435,6 +25547,10 @@ return {
 			},
 		},
 		["953593695"] = {
+			["Ring"] = {
+				["max"] = 45,
+				["min"] = 35,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -25552,6 +25668,10 @@ return {
 			},
 		},
 		["999511066"] = {
+			["Belt"] = {
+				["max"] = 49,
+				["min"] = 35,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27612,20 +27732,6 @@ return {
 				["text"] = "#% increased Projectile Range",
 				["type"] = "implicit",
 			},
-		},
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002",
-				["text"] = "# to maximum Energy Shield",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
 		},
 		["3544800472"] = {
 			["Chest"] = {

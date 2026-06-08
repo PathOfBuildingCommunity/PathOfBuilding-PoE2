@@ -453,7 +453,17 @@ return %s
 		end
 		if treeMod and slot then
 			self:ProcessMod(mod, regularItemMask, {[slot] = true})
+			goto continueBreach
 		end
+
+		-- there are also crafted mods which can be identified based on the name
+		if name:match("^GenesisTreeRing") then
+			self:ProcessMod(mod, regularItemMask, {Ring = true})
+		end
+		if name:match("^GenesisTreeBelt") then
+			self:ProcessMod(mod, regularItemMask, {Belt = true})
+		end
+		::continueBreach::
 	end
 
 	-- essences, because in item mod data they don't have equipment tags
