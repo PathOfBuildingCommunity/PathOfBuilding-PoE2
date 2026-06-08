@@ -257,6 +257,19 @@ UniqueIntelligence39
 UniqueLocalStunDamageIncrease2
 UniqueLocalAllDamageCanChill1
 ]],[[
+Twisted Empyrean
+Aberrant Sledge
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Starborn Onslaught
+UniqueLocalIncreasedPhysicalDamagePercent22
+UniqueLocalAddedColdDamage9
+UniqueIncreasedMana53
+UniqueLocalCriticalStrikeChance12
+UniqueDamageRemovedFromManaBeforeLife2
+UniqueLocalAttacksHaveAddedColdDamageFromPercentMaxMana1
+UniqueMaceSkillFireDamageConvertedToCold1
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1

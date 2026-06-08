@@ -258,6 +258,19 @@ League: Dawn of the Hunt
 Causes (150-200)% increased Stun Buildup
 All Damage from Hits with this Weapon Contributes to Chill Magnitude
 ]],[[
+Twisted Empyrean
+Aberrant Sledge
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Starborn Onslaught
+(80-100)% increased Physical Damage
+Adds (150-200) to (350-400) Cold Damage
++(300-400) to maximum Mana
++(4-6)% to Critical Hit Chance
+(10-20)% of Damage is taken from Mana before Life
+Attacks with this Weapon have Added Cold Damage equal to (6-8)% to (10-12)% of maximum Mana
+Convert 100% of Fire Damage with Mace Skills to Cold Damage
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1
