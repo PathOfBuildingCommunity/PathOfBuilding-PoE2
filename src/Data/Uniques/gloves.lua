@@ -28,7 +28,7 @@ League: Dawn of the Hunt
 (20-30)% increased Critical Damage Bonus
 Critical Hits inflict Impale
 Critical Hits cannot Extract Impale
-(20-31) to (31-49) Physical Thorns damage
+(20-31) to (32-49) Physical Thorns damage
 ]],[[
 Facebreaker
 Stocky Mitts
