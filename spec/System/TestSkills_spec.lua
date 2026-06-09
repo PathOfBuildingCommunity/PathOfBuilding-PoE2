@@ -1107,7 +1107,7 @@ describe("TestSkills", function()
 		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
 	end)
 
-	it("Predator's Mark scales damage with allies in range and caps at 15", function()
+	it("Predator's Mark scales damage with minions in presence and caps at 15", function()
 		build.skillsTab:PasteSocketGroup("Pounce 20/0  1")
 		runCallback("OnFrame")
 		build.configTab:BuildModList()
@@ -1117,27 +1117,27 @@ describe("TestSkills", function()
 
 		local baseDmg = build.calcsTab.mainOutput.AverageDamage
 
-		-- 5 allies in range should increase effective damage
-		build.configTab.configSets[1].input.alliesInRange = 5
+		-- 5 minions in presence should increase effective damage
+		build.configTab.input.multiplierMinionsInPresence = 5
 		build.configTab:BuildModList()
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
 		local dmgWith5 = build.calcsTab.mainOutput.AverageDamage
-		assert.True(dmgWith5 > baseDmg, "Damage should increase with 5 allies in range")
+		assert.True(dmgWith5 > baseDmg, "Damage should increase with 5 minions in presence")
 
-		-- cap: 15 and 20 allies should give identical output
-		build.configTab.configSets[1].input.alliesInRange = 15
+		-- cap: 15 and 20 minions should give identical output
+		build.configTab.input.multiplierMinionsInPresence = 15
 		build.configTab:BuildModList()
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
 		local dmgAt15 = build.calcsTab.mainOutput.AverageDamage
 
-		build.configTab.configSets[1].input.alliesInRange = 20
+		build.configTab.input.multiplierMinionsInPresence = 20
 		build.configTab:BuildModList()
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
 		local dmgAt20 = build.calcsTab.mainOutput.AverageDamage
 
-		assert.are.equals(dmgAt15, dmgAt20, "Damage should not increase beyond 15 allies")
+		assert.are.equals(dmgAt15, dmgAt20, "Damage should not increase beyond 15 minions")
 	end)
 end)
