@@ -6582,8 +6582,7 @@ c["Regenerate 1.5% of maximum Life per Second if you've used a Life Flask in the
 c["Regenerate 1.5% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1.5}},nil}
 c["Regenerate 1.5% of maximum Life per second while Ignited"]={{[1]={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1.5}},nil}
 c["Regenerate 1.5% of maximum Life per second while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1.5}},nil}
-c["Regenerate 2 Life per second for every 10 Intelligence"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}}," for every 10  "}
-c["Regenerate 2 Life per second for every 10 Intelligence Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}}," for every 10  Zealot's Oath "}
+c["Regenerate 2 Life per second for every 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}},nil}
 c["Regenerate 2% of maximum Life per second while Ignited"]={{[1]={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
 c["Regenerate 2.5% of maximum Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2.5}},nil}
 c["Regenerate 3% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 3% of maximum Life over 1 second when Stunned "}
