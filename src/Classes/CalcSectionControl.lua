@@ -225,7 +225,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 	SetDrawLayer(nil, -10)
 	SetDrawColor(self.colour)
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0.10, 0.10, 0.10)
+	SetDrawStyle('calc_section_background')
 	DrawImage(nil, x + 2, y + 2, width - 4, height - 4)
 	
 	local primary = true
@@ -275,7 +275,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 						textColor = rowData.color
 					end
 					if rowData.label then
-						SetDrawColor(rowData.bgCol or "^0")
+						SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_label_background'))
 						DrawImage(nil, x + 2, lineY + 2, 130, 18)
 						if self.calcsTab:SearchMatch(rowData.label) then
 							textColor = colorCodes.HIGHLIGHT
@@ -292,12 +292,12 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 							end
 							if self.calcsTab.displayData == colData then
 								-- This is the display stat, draw a green border around this cell
-								SetDrawColor(0.25, 1, 0.25)
+								SetDrawStyle('calc_breakdown_border_hover')
 								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
-								SetDrawColor(rowData.bgCol or "^0")
+								SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_value_background_hover'))
 								DrawImage(nil, colData.x + 3, colData.y + 1, colData.width - 4, colData.height - 2)
 							else
-								SetDrawColor(rowData.bgCol or "^0")
+								SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_value_background'))
 								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
 							end
 							local textSize = rowData.textSize or 14

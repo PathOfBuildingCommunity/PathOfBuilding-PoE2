@@ -23,6 +23,7 @@
 ---| "'text_calc_section_title_value'"
 ---| "'text_calc_section_label'"
 ---| "'text_calc_section_value'"
+---| "'text_calc_breakdown'"
 ---| "'text_current_build'"
 ---| "'text_button'"
 ---| "'text_button_disabled'"
@@ -178,6 +179,13 @@
 ---| "'path_border'"
 ---| "'path_background'"
 ---| "'path_arrow'"
+---| "'calc_section_background'"
+---| "'calc_section_label_background'"
+---| "'calc_section_value_background'"
+---| "'calc_section_value_background_hover'"
+---| "'calc_breakdown_tooltip_border'"
+---| "'calc_breakdown_tooltip_border_pinned'"
+---| "'calc_breakdown_border_hover'"
 ---| "'rectangle_outline_border'"
 ---| "'popup_background'"
 ---| "'popup_background_title'"
@@ -245,9 +253,12 @@ local colors = {
 	brownish = "#804D00",
 	green_black = "#000D00",
 	dark_green = "#349934",
+	lime = "#34FF34",
+	red = "#FF0000",
+	green = "#00FF00",
+	blue = "#0000FF",
 }
 
--- poe2trade uses font FontinSmallcaps everywhere
 local poe2trade_colors = {
 	button_raised_disabled = "#533e22",
 	button_raised_enabled = "#5a3806",
@@ -287,6 +298,7 @@ local themes = {
 		text_calc_section_title_value = {color = colors.white, font = fonts.VAR},
 		text_calc_section_label = {color = colors.white, font = fonts.VAR},
 		text_calc_section_value = {color = colors.white, font = fonts.VAR},
+		text_calc_breakdown = {color = colors.white, font = fonts.VAR},
 		text_current_build = {color = colors.white, font = fonts.VAR},
 		text_button = {color = colors.white, font = fonts.VAR},
 		text_button_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -484,6 +496,15 @@ local themes = {
 		path_background = colors.black,
 		path_border = colors.grey,
 		path_arrow = colors.white,
+		-- calc section 
+		calc_section_background = colors.dark,
+		calc_section_label_background = colors.black,
+		calc_section_value_background = colors.black,
+		calc_section_value_background_hover = colors.black,
+		-- calc breakdown
+		calc_breakdown_tooltip_border = colors.dark_green,
+		calc_breakdown_tooltip_border_pinned = colors.lime,
+		calc_breakdown_border_hover = colors.lime,
 		-- rectangle outline
 		rectangle_outline_border = colors.white,
 		-- popup background
@@ -544,6 +565,7 @@ local themes = {
 		text_calc_section_title_value = {color = colors.white, font = fonts.FONTIN},
 		text_calc_section_label = {color = colors.white, font = fonts.FONTIN},
 		text_calc_section_value = {color = colors.white, font = fonts.FONTIN},
+		text_calc_breakdown = {color = colors.white, font = fonts.FONTIN},
 		text_current_build = {color = colors.light, font = fonts.FONTIN},
 		text_button = {color = colors.light, font = fonts.FONTIN_SC},
 		text_button_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
@@ -741,6 +763,15 @@ local themes = {
 		path_background = colors.dark,
 		path_border = poe2trade_colors.clickable_background_hover,
 		path_arrow = colors.light_grey,
+		-- calc section 
+		calc_section_background = colors.dark,
+		calc_section_label_background = poe2trade_colors.row_background,
+		calc_section_value_background = poe2trade_colors.row_background,
+		calc_section_value_background_hover = colors.dark,
+		-- calc breakdown
+		calc_breakdown_tooltip_border = poe2trade_colors.tooltip_border,
+		calc_breakdown_tooltip_border_pinned = poe2trade_colors.button_raised_hover,
+		calc_breakdown_border_hover = poe2trade_colors.button_raised_hover,
 		-- rectangle outline
 		rectangle_outline_border = poe2trade_colors.brown_transparancy,
 		-- popup background
