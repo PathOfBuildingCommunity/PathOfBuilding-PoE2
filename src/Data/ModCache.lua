@@ -3796,7 +3796,8 @@ c["All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill o
 c["All Flames of Chayula that you manifest are Blue"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyBlue",type="FLAG",value=true}},nil}
 c["All Flames of Chayula that you manifest are Purple"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyPurple",type="FLAG",value=true}},nil}
 c["All Flames of Chayula that you manifest are Red"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyRed",type="FLAG",value=true}},nil}
-c["All Mage's Legacies have 50% increased effect per duplicate Mage's Legacy you have"]={nil,"All Mage's Legacies have 50% increased effect per duplicate Mage's Legacy you have "}
+c["All Mage's Legacies have 38% increased effect per duplicate Mage's Legacy you have"]={{[1]={flags=0,keywordFlags=0,name="MagesLegacyEffect",type="INC",value=38}},nil}
+c["All Mage's Legacies have 50% increased effect per duplicate Mage's Legacy you have"]={{[1]={flags=0,keywordFlags=0,name="MagesLegacyEffect",type="INC",value=50}},nil}
 c["All bonuses from Equipped Amulet apply to your Minions instead of you"]={{},nil}
 c["All damage with this Weapon causes Electrocution buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanElectrocution",type="FLAG",value=true}},nil}
 c["Allies in your Presence Gain 15% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=15},onlyAllies=true}}},nil}
@@ -6055,34 +6056,20 @@ c["Leeching Life from your Hits causes Allies in your Presence to also Leech the
 c["Leeching Life from your Hits causes your Companion to also Leech the same amount of Life"]={nil,"Leeching Life from your Hits causes your Companion to also Leech the same amount of Life "}
 c["Left ring slot: Projectiles from Spells Fork"]={{[1]={[1]={num=1,type="SlotNumber"},flags=1026,keywordFlags=0,name="ForkOnce",type="FLAG",value=true},[2]={[1]={num=1,type="SlotNumber"},flags=1026,keywordFlags=0,name="ForkCountMax",type="BASE",value=1}},nil}
 c["Left ring slot: Projectiles from Spells cannot Chain"]={{[1]={[1]={num=1,type="SlotNumber"},flags=1026,keywordFlags=0,name="CannotChain",type="FLAG",value=true}},nil}
-c["Legacy of Amethyst"]={nil,"Legacy of Amethyst "}
-c["Legacy of Amethyst Legacy of Basalt"]={nil,"Legacy of Amethyst Legacy of Basalt "}
-c["Legacy of Basalt"]={nil,"Legacy of Basalt "}
-c["Legacy of Basalt Legacy of Bismuth"]={nil,"Legacy of Basalt Legacy of Bismuth "}
-c["Legacy of Bismuth"]={nil,"Legacy of Bismuth "}
-c["Legacy of Bismuth Legacy of Diamond"]={nil,"Legacy of Bismuth Legacy of Diamond "}
-c["Legacy of Diamond"]={nil,"Legacy of Diamond "}
-c["Legacy of Diamond Legacy of Gold"]={nil,"Legacy of Diamond Legacy of Gold "}
-c["Legacy of Gold"]={nil,"Legacy of Gold "}
-c["Legacy of Gold Legacy of Granite"]={nil,"Legacy of Gold Legacy of Granite "}
-c["Legacy of Granite"]={nil,"Legacy of Granite "}
-c["Legacy of Granite Legacy of Jade"]={nil,"Legacy of Granite Legacy of Jade "}
-c["Legacy of Jade"]={nil,"Legacy of Jade "}
-c["Legacy of Jade Legacy of Quicksilver"]={nil,"Legacy of Jade Legacy of Quicksilver "}
-c["Legacy of Quicksilver"]={nil,"Legacy of Quicksilver "}
-c["Legacy of Quicksilver Legacy of Ruby"]={nil,"Legacy of Quicksilver Legacy of Ruby "}
-c["Legacy of Ruby"]={nil,"Legacy of Ruby "}
-c["Legacy of Ruby Legacy of Sapphire"]={nil,"Legacy of Ruby Legacy of Sapphire "}
-c["Legacy of Sapphire"]={nil,"Legacy of Sapphire "}
-c["Legacy of Sapphire Legacy of Silver"]={nil,"Legacy of Sapphire Legacy of Silver "}
-c["Legacy of Silver"]={nil,"Legacy of Silver "}
-c["Legacy of Silver Legacy of Stibnite"]={nil,"Legacy of Silver Legacy of Stibnite "}
-c["Legacy of Stibnite"]={nil,"Legacy of Stibnite "}
-c["Legacy of Stibnite Legacy of Sulphur"]={nil,"Legacy of Stibnite Legacy of Sulphur "}
-c["Legacy of Sulphur"]={nil,"Legacy of Sulphur "}
-c["Legacy of Sulphur Legacy of Topaz"]={nil,"Legacy of Sulphur Legacy of Topaz "}
-c["Legacy of Topaz"]={nil,"Legacy of Topaz "}
-c["Legacy of Topaz All Mage's Legacies have 50% increased effect per duplicate Mage's Legacy you have"]={nil,"Legacy of Topaz All Mage's Legacies have 50% increased effect per duplicate Mage's Legacy you have "}
+c["Legacy of Amethyst"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfAmethyst",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Basalt"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfBasalt",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Bismuth"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfBismuth",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Diamond"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfDiamond",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Gold"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfGold",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Granite"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfGranite",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Jade"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfJade",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Quicksilver"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfQuicksilver",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Ruby"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfRuby",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Sapphire"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfSapphire",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Silver"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfSilver",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Stibnite"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfStibnite",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Sulphur"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfSulphur",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
+c["Legacy of Topaz"]={{[1]={flags=0,keywordFlags=0,name="LegacyOfTopaz",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="MagebloodEquipped",type="FLAG",value=true}},nil}
 c["Life Flask Effects are not removed when Unreserved Life is Filled"]={{[1]={flags=0,keywordFlags=0,name="LifeFlaskEffectNotRemoved",type="FLAG",value=true}},nil}
 c["Life Flask Effects do not Queue"]={nil,"Life Flask Effects do not Queue "}
 c["Life Flasks also recover Mana"]={nil,"Life Flasks also recover Mana "}
