@@ -104,8 +104,8 @@ do
 	table.insert(data.uniques.generated, table.concat(prism, "\n"))
 end
 
-local treedata = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
-local nodes = treedata.nodes
+local treeData = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
+local nodes = treeData.nodes
 
 do
     local megalomaniac = {
