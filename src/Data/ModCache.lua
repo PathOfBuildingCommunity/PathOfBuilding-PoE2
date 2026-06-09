@@ -4832,8 +4832,7 @@ c["Base Critical Hit Chance for Attacks with Weapons is 7%"]={{[1]={flags=0,keyw
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
 c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
 c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="PlayerHasDarkness",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Darkness",type="BASE",value=100}},nil}
-c["Bear Skills Convert 80% of Physical Damage to Fire Damage"]={nil,"Bear Skills Convert 80% of Physical Damage to Fire Damage "}
-c["Bear Skills Convert 80% of Physical Damage to Fire Damage Skills which require Glory generate 5 Glory every 2 seconds"]={nil,"Bear Skills Convert 80% of Physical Damage to Fire Damage Skills which require Glory generate 5 Glory every 2 seconds "}
+c["Bear Skills Convert 80% of Physical Damage to Fire Damage"]={{[1]={[1]={skillType=123,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value="80"}},nil}
 c["Bear Spirit gains Embrace of the Wild"]={nil,"Bear Spirit gains Embrace of the Wild "}
 c["Bear Spirit gains Embrace of the Wild Vivid Stags leap towards enemies"]={nil,"Bear Spirit gains Embrace of the Wild Vivid Stags leap towards enemies "}
 c["Bear Spirit gains Embrace of the Wild Vivid Stags leap towards enemies Central Projectile of Owl Feather-Empowered Skills leaves a trail of Soaring Ground"]={nil,"Bear Spirit gains Embrace of the Wild Vivid Stags leap towards enemies Central Projectile of Owl Feather-Empowered Skills leaves a trail of Soaring Ground "}
@@ -5707,6 +5706,7 @@ c["Grants Skill: Level 11 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="Extra
 c["Grants Skill: Level 11 Bursting Fen Toad"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ExplodingPoisonToadPlayer"}}},nil}
 c["Grants Skill: Level 11 Cackling Companions"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="HyenaCacklePlayer"}}},nil}
 c["Grants Skill: Level 11 Chaos Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="WeaponGrantedChaosboltPlayer"}}},nil}
+c["Grants Skill: Level 11 Chaotic Surge"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ChaosSpearTriggerChaosSurgePlayer"}}},nil}
 c["Grants Skill: Level 11 Coiling Bolts"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="CoilingBoltsPlayer"}}},nil}
 c["Grants Skill: Level 11 Compose Requiem"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="CrossbowRequiemAmmoPlayer"}}},nil}
 c["Grants Skill: Level 11 Crackling Palm"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="CracklingPalmPlayer"}}},nil}
@@ -5770,8 +5770,7 @@ c["Grants Skill: Level 20 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="Extra
 c["Grants Skill: Level 20 Bursting Fen Toad"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ExplodingPoisonToadPlayer"}}},nil}
 c["Grants Skill: Level 20 Cackling Companions"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HyenaCacklePlayer"}}},nil}
 c["Grants Skill: Level 20 Chaos Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="WeaponGrantedChaosboltPlayer"}}},nil}
-c["Grants Skill: Level 20 Chaotic Infusion"]={nil,nil}
-c["Grants Skill: Level 20 Chaotic Infusion 20% increased Attack Speed"]={nil,nil}
+c["Grants Skill: Level 20 Chaotic Surge"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ChaosSpearTriggerChaosSurgePlayer"}}},nil}
 c["Grants Skill: Level 20 Coiling Bolts"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CoilingBoltsPlayer"}}},nil}
 c["Grants Skill: Level 20 Compose Requiem"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CrossbowRequiemAmmoPlayer"}}},nil}
 c["Grants Skill: Level 20 Crackling Palm"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CracklingPalmPlayer"}}},nil}
