@@ -3675,7 +3675,7 @@ return {
 		},
 		[6]={
 			list=false,
-			name="Ward",
+			name="RunicWard",
 			refTo="",
 			type="Int",
 			width=150
