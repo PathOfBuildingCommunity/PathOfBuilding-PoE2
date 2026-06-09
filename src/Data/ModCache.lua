@@ -100,7 +100,7 @@ c["+1 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemPrope
 c["+1 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=1}}},nil}
 c["+1 to Level of all Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="all",value=1}}},nil}
 c["+1 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=1}},nil}
-c["+1 to Maximum Energy Shield per 12 Item Evasion on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},"  per 12 Item Evasion on Equipped Body Armour "}
+c["+1 to Maximum Energy Shield per 12 Item Evasion on Equipped Body Armour"]={{[1]={[1]={div=12,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Item Armour on Equipped Helmet"]={{[1]={[1]={div=8,stat="ArmourOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
