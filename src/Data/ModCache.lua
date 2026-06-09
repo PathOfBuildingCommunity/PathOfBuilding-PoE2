@@ -6768,7 +6768,7 @@ c["Targets can be affected by two of your Chills at the same time"]={{[1]={flags
 c["Targets can be affected by two of your Shocks at the same time"]={{[1]={flags=0,keywordFlags=0,name="ShockCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ShockStacksMax",type="OVERRIDE",value=2}},nil}
 c["Temporary Minion Skills have +2 to Limit of Minions summoned"]={{[1]={[1]={baseFlag="duration",neg=true,type="BaseFlag"},flags=0,keywordFlags=0,name="ActiveMinionLimit",type="BASE",value=2}},nil}
 c["The Bodach haunts your Presence"]={nil,"The Bodach haunts your Presence "}
-c["The Effect of Blind on you is reversed"]={nil,"The Effect of Blind on you is reversed "}
+c["The Effect of Blind on you is reversed"]={{[1]={flags=0,keywordFlags=0,name="BlindEffectReversed",type="FLAG",value=true}},nil}
 c["The Effect of Chill on you is reversed"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffectIsReversed",type="FLAG",value=true}},nil}
 c["The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted"]={nil,"The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted "}
 c["The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted Ancestrally Boosted Attacks deal 30% increased Damage"]={nil,"The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted Ancestrally Boosted Attacks deal 30% increased Damage "}

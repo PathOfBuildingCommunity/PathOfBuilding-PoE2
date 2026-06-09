@@ -5754,6 +5754,7 @@ local specialModList = {
 	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num, _, base) return {
 		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",-num) }),
 	} end,
+	["the effect of blind on you is reversed"] = { flag("BlindEffectReversed") },
 	["blind does not affect your chance to hit"] = { flag("IgnoreBlindHitChance") },
 	["enemies blinded by you while you are blinded have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }, { type = "Condition", var = "Blinded" }, { type = "Condition", var = "CannotBeBlinded", neg = true }) },
 	["enemies blinded by you have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }) },

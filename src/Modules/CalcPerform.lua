@@ -666,8 +666,9 @@ local function doActorMisc(env, actor)
 				if modDB:Override(nil, "BlindEffect") then
 					effect = m_min(modDB:Override(nil, "BlindEffect") / 100, effect)
 				end
-				modDB:NewMod("Accuracy", "MORE", m_floor(-20 * effect), "Blind")
-				modDB:NewMod("Evasion", "MORE", m_floor(-20 * effect), "Blind")
+				local baseBlind = modDB:Flag(nil, "BlindEffectReversed") and 20 or -20
+				modDB:NewMod("Accuracy", "MORE", m_floor(baseBlind * effect), "Blind")
+				modDB:NewMod("Evasion", "MORE", m_floor(baseBlind * effect), "Blind")
 			end
 		end
 		if modDB:Flag(nil, "Chill") then
