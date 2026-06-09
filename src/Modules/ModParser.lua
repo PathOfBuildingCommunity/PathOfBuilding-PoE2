@@ -1462,6 +1462,8 @@ local modTagList = {
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
 	["per socketed rune or soul core"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
 	["per socket filled"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
+	["per idol in your equipment"] = { tag = { type = "Multiplier", var = "IdolsInEquipment" } },
+	["per non%-idol augment in your equipment"] = { tag = { type = "Multiplier", var = "NonIdolAugmentsInEquipment" } },
 	["per (%d+) (%a+) support gems socketed"] = function(num, _, color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems", div = num } } end,
 	["per socketed (%a+) support gem"] = function(color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems" } } end,
 	["for each equipped normal item"] = { tag = { type = "Multiplier", var = "NormalItem" } },
@@ -2894,6 +2896,9 @@ local specialModList = {
 	["companions gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
 		mod("MinionModifier", "LIST", { mod = flag("GainMainHandDmgFromParent") }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
+	} end,
+	["companions deal (%d+)%% increased damage per idol in your equipment"] = function(num) return {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num, { type = "Multiplier", var = "IdolsInEquipment", actor = "parent" }) }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
 	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return {
