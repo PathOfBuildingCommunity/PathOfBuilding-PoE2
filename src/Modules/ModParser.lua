@@ -166,7 +166,7 @@ local modNameList = {
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
 	["tribute"] = "Tribute",
-	-- Life/Mana/Spirit/Darkness
+	-- Life/Mana/Spirit/Runic Ward/Darkness
 	["maximum darkness"] = "Darkness",
 	["spirit"] = "Spirit",
 	["maximum spirit"] = "Spirit",
@@ -179,6 +179,7 @@ local modNameList = {
 	["maximum mana"] = "Mana",
 	["mana regeneration"] = "ManaRegen",
 	["mana regeneration rate"] = "ManaRegen",
+	["runic ward regeneration rate"] = "ManaRegen",
 	["mana cost"] = "ManaCost",
 	["mana cost of"] = "ManaCost",
 	["mana cost of skills"] = "ManaCost",

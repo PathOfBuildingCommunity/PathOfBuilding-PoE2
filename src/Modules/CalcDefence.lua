@@ -3833,6 +3833,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetLifeRegen = output.LifeRegenRecovery
 			output.NetManaRegen = output.ManaRegenRecovery
 			output.NetEnergyShieldRegen = output.EnergyShieldRegenRecovery
+			output.NetWardRegen = output.WardRegenRecovery
 			local totalLifeDegen = 0
 			local totalManaDegen = 0
 			local totalEnergyShieldDegen = 0
@@ -3861,12 +3862,21 @@ function calcs.buildDefenceEstimations(env, actor)
 							{ label = "Degen", key = "degen" },
 						},
 					}
+				breakdown.NetWardRegen = {
+						label = "Total Runic Ward Degen",
+						rowList = { },
+						colList = {
+							{ label = "Type", key = "type" },
+							{ label = "Degen", key = "degen" },
+						},
+					}
 			end
 			for _, damageType in ipairs(dmgTypeList) do
 				if output[damageType.."BuildDegen"] then
 					local energyShieldDegen = 0
 					local lifeDegen = 0
 					local manaDegen = 0
+					local wardDegen = 0
 					local takenFromMana = output[damageType.."MindOverMatter"] + output["sharedMindOverMatter"]
 					if output.EnergyShieldRegenRecovery > 0 then
 						if modDB:Flag(nil, "EnergyShieldProtectsMana") then
@@ -3883,6 +3893,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					end
 					totalLifeDegen = totalLifeDegen + lifeDegen
 					totalManaDegen = totalManaDegen + manaDegen
+					totalWanaDegen = totalWanaDegen + wardDegen
 					totalEnergyShieldDegen = totalEnergyShieldDegen + energyShieldDegen
 					if breakdown then
 						t_insert(breakdown.NetLifeRegen.rowList, {
@@ -3893,6 +3904,10 @@ function calcs.buildDefenceEstimations(env, actor)
 							type = s_format("%s", damageType),
 							degen = s_format("%.2f", manaDegen),
 						})
+						t_insert(breakdown.NetWardRegen.rowList, {
+							type = s_format("%s", damageType),
+							degen = s_format("%.2f", wardDegen),
+						})
 						t_insert(breakdown.NetEnergyShieldRegen.rowList, {
 							type = s_format("%s", damageType),
 							degen = s_format("%.2f", energyShieldDegen),
@@ -3902,8 +3917,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			output.NetLifeRegen = output.NetLifeRegen - totalLifeDegen
 			output.NetManaRegen = output.NetManaRegen - totalManaDegen
+			output.NetWardRegen = output.NetWardRegen - totalWardDegen
 			output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
-			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
+			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen + output.NetWardRegen
 			if breakdown then
 				t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
 				t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
@@ -3911,6 +3927,9 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(total mana regen)", output.ManaRegenRecovery))
 				t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
 				t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
+				t_insert(breakdown.NetWardRegen, s_format("%.1f ^8(total ward regen)", output.WardRegenRecovery))
+				t_insert(breakdown.NetWardRegen, s_format("- %.1f ^8(total ward degen)", totalWardDegen))
+				t_insert(breakdown.NetWardRegen, s_format("= %.1f", output.NetWardRegen))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(total energy shield degen)", totalEnergyShieldDegen))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
@@ -3918,6 +3937,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					s_format("Net Life Regen: %.1f", output.NetLifeRegen),
 					s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
 					s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
+					s_format("+ Net Runic Ward Regen: %.1f", output.NetWardRegen),
 					s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
 				}
 			end
@@ -4073,9 +4093,11 @@ function calcs.buildDefenceEstimations(env, actor)
 			else
 				output.ComprehensiveNetLifeRegen = output.LifeRegenRecovery
 				output.ComprehensiveNetManaRegen = output.ManaRegenRecovery
+				output.ComprehensiveNetWardRegen = output.WardRegenRecovery
 				output.ComprehensiveNetEnergyShieldRegen = output.EnergyShieldRegenRecovery
 				local totalLifeDegen = 0
 				local totalManaDegen = 0
+				local totalWardDegen = 0
 				local totalEnergyShieldDegen = 0
 				if breakdown then
 					breakdown.ComprehensiveNetLifeRegen = {
@@ -4088,6 +4110,14 @@ function calcs.buildDefenceEstimations(env, actor)
 						}
 					breakdown.ComprehensiveNetManaRegen = {
 							label = "Total Mana Degen",
+							rowList = { },
+							colList = {
+								{ label = "Type", key = "type" },
+								{ label = "Degen", key = "degen" },
+							},
+						}
+					breakdown.ComprehensiveNetWardRegen = {
+							label = "Total Runic Ward Degen",
 							rowList = { },
 							colList = {
 								{ label = "Type", key = "type" },
@@ -4125,6 +4155,7 @@ function calcs.buildDefenceEstimations(env, actor)
 						end
 						totalLifeDegen = totalLifeDegen + lifeDegen
 						totalManaDegen = totalManaDegen + manaDegen
+						totalWardDegen = totalWardDegen + wardDegen
 						totalEnergyShieldDegen = totalEnergyShieldDegen + energyShieldDegen
 						if breakdown then
 							t_insert(breakdown.ComprehensiveNetLifeRegen.rowList, {
@@ -4135,6 +4166,10 @@ function calcs.buildDefenceEstimations(env, actor)
 								type = s_format("%s", damageType),
 								degen = s_format("%.2f", manaDegen),
 							})
+							t_insert(breakdown.ComprehensiveNetWardRegen.rowList, {
+								type = s_format("%s", damageType),
+								degen = s_format("%.2f", wardDegen),
+							})
 							t_insert(breakdown.ComprehensiveNetEnergyShieldRegen.rowList, {
 								type = s_format("%s", damageType),
 								degen = s_format("%.2f", energyShieldDegen),
@@ -4144,6 +4179,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 				output.ComprehensiveNetLifeRegen = output.ComprehensiveNetLifeRegen + (output.LifeRecoupRecoveryAvg or 0) - totalLifeDegen - (output.LifeLossLostAvg or 0)
 				output.ComprehensiveNetManaRegen = output.ComprehensiveNetManaRegen + (output.ManaRecoupRecoveryAvg or 0) - totalManaDegen
+				output.ComprehensiveNetWardRegen = output.ComprehensiveNetWardRegen + (output.WardRecoupRecoveryAvg or 0) - totalWardDegen
 				output.ComprehensiveNetEnergyShieldRegen = output.ComprehensiveNetEnergyShieldRegen + (output.EnergyShieldRecoupRecoveryAvg or 0) - totalEnergyShieldDegen
 				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetEnergyShieldRegen
 				if breakdown then

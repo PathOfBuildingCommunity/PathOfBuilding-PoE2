@@ -74,14 +74,14 @@ local function processMod(grantedEffect, mod, statName)
 	if type(mod.value) == "table" and mod.value.mod then
 		mod.value.mod.source = "Skill:"..grantedEffect.id
 	end
-	
+
 	for _, tag in ipairs(mod) do
 		if tag.type == "GlobalEffect" then
 			grantedEffect.hasGlobalEffect = true
 			break
 		end
 	end
-	
+
 	local notMinionStat = false
 	for _, statStet in ipairs(grantedEffect.statSets) do
 		if statStet.notMinionStat and statName and (grantedEffect.support or grantedEffect.skillTypes and grantedEffect.skillTypes[SkillType.Buff]) then
@@ -428,6 +428,9 @@ data.highPrecisionMods = {
 	["EnergyShieldRegenPercent"] = {
 		["BASE"] = 2,
 	},
+	["WardRegenPercent"] = {
+		["BASE"] = 2,
+	},
 	["LifeRegen"] = {
 		["BASE"] = 1,
 	},
@@ -435,6 +438,9 @@ data.highPrecisionMods = {
 		["BASE"] = 1,
 	},
 	["EnergyShieldRegen"] = {
+		["BASE"] = 1,
+	},
+	["WardRegen"] = {
 		["BASE"] = 1,
 	},
 	["RageRegen"] = {
@@ -772,10 +778,10 @@ data.itemTagSpecialExclusionPattern = {
 }
 
 -- Load bosses
-do 
+do
 	data.bosses = { }
 	LoadModule("Data/Bosses", data.bosses)
-	
+
 	local count, uberCount = 0, 0
 	local armourTotal, evasionTotal = 0, 0
 	local uberArmourTotal, uberEvasionTotal = 0, 0
@@ -972,7 +978,7 @@ for gemId, gem in pairs(data.gems) do
 		data.gemGrantedEffectIdForVaalGemId[gem.secondaryGrantedEffectId] = gemId
 		for otherGemId, otherGem in pairs(data.gems) do
 			if otherGem.grantedEffectId == gem.secondaryGrantedEffectId then
-				data.gemVaalGemIdForBaseGemId[gemId] = otherGemId 
+				data.gemVaalGemIdForBaseGemId[gemId] = otherGemId
 				break
 			end
 		end
