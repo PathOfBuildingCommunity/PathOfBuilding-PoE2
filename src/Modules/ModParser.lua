@@ -4166,6 +4166,7 @@ local specialModList = {
 	["gain deflection rating equal to (%d+)%% of armour"] = function(num) return { mod("ArmourGainAsDeflection", "BASE", num) } end,
 	["prevent %+(%d+)%% of damage from deflected hits"] = function(num) return { mod("DeflectEffect", "BASE", num) } end,
 	["chance to deflect is lucky"] = { flag("DeflectIsLucky") },
+	["chance to deflect is lucky while on low life"] = { flag("DeflectIsLucky", { type = "Condition", var = "LowLife" }), },
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["y?o?u?r? ?chance to suppress spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
 	["prevent %+(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
@@ -4896,7 +4897,7 @@ local specialModList = {
 		flag("CannotLeechLife", { type = "Condition", var = "LowLife" }),
 		flag("CannotLeechMana", { type = "Condition", var = "LowLife" })
 	},
-	["cannot leech life from critical hits"] = {	flag("CannotLeechLife", { type = "Condition", var = "CriticalStrike" }) },
+	["cannot leech life from critical hits"] = { flag("CannotLeechLife", { type = "Condition", var = "CriticalStrike" }) },
 	["leech applies instantly on critical hit"] = {
 		mod("InstantLifeLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
 		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),

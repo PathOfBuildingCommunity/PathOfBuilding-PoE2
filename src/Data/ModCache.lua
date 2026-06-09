@@ -4983,8 +4983,7 @@ c["Chain from Terrain an additional time Cannot collide with targets"]={nil,"Cha
 c["Chance is doubled against Undead and Demons"]={{},"Chance  against Undead and Demons "}
 c["Chance to Block Damage is Lucky"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceIsLucky",type="FLAG",value=true}},nil}
 c["Chance to Deflect is Lucky"]={{[1]={flags=0,keywordFlags=0,name="DeflectIsLucky",type="FLAG",value=true}},nil}
-c["Chance to Deflect is Lucky while on Low Life"]={nil,"Chance to Deflect is Lucky while on Low Life "}
-c["Chance to Deflect is Lucky while on Low Life Enemies in your Presence gain 1 Gruelling Madness each second"]={nil,"Chance to Deflect is Lucky while on Low Life Enemies in your Presence gain 1 Gruelling Madness each second "}
+c["Chance to Deflect is Lucky while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DeflectIsLucky",type="FLAG",value=true}},nil}
 c["Chance to Evade is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="UnluckyEvade",type="FLAG",value=true}},nil}
 c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
 c["Channelling Skills deal 12% increased Damage"]={{[1]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
