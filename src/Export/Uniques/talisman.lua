@@ -52,7 +52,7 @@ League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Sanguine Revelry
 UniqueLocalIncreasedPhysicalDamagePercent23
-UniqueLocalIncreasedPhysicalDamagePercent23UniqueLocalIncreasedAttackSpeed29
+UniqueLocalIncreasedAttackSpeed29
 UniqueStrength48
 UniqueLocalChanceToBleed3
 UniqueLifeRecoupPerRage1
