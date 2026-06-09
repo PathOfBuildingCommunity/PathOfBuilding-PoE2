@@ -3410,8 +3410,8 @@ local specialModList = {
 	["reflects opposite ring"] = {
 		-- Display only. For Kalandra's Touch.
 	},
-	["maximum quality is 50%%"] = {
-		-- Display only. For Breach Rings.
+	["maximum quality is (%d+)%%"] = {
+		-- Display only. For Breach Rings and Serle's Grit.
 	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
 		-- Display only. For Strugglescream.
