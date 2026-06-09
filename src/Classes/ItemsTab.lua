@@ -1940,6 +1940,10 @@ function ItemsTabClass:GetValidRunesForItem(item)
 					if rune.slot == "None" or rune.type == "SoulCore" then
 						table.insert(runes, rune)
 					end
+				elseif item.title == "Runeseeker's Call" then
+					if rune.slot == "None" or rune.type == "Rune" then
+						table.insert(runes, rune)
+					end
 				else
 					table.insert(runes, rune)
 				end
