@@ -32,6 +32,7 @@ Critical Hits cannot Extract Impale
 ]],[[
 Facebreaker
 Stocky Mitts
+League: Runes of Aldur
 Has 8 to 12 Physical damage, +3 to +4 per Boss's Face Broken
 (30-50)% increased Stun Buildup
 1% more Unarmed Damage per 5 Strength

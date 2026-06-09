@@ -32,6 +32,7 @@ UniqueAttackerTakesDamage8
 ]],[[
 Facebreaker
 Stocky Mitts
+League: Runes of Aldur
 UniqueBaseDamageOverrideForMaceAttacks1
 UniqueStunDamageIncrease1
 UniqueUnarmedAttackDamagePerXStrength1
