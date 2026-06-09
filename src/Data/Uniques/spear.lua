@@ -96,7 +96,7 @@ Variant: Pre 0.2.1
 Variant: Current
 Implicits: 2
 Grants Skill: Spear Throw
-Grants Skill: Level (1-20) Chaotic Infusion
+Grants Skill: Level (1-20) Chaotic Surge
 (15-20)% increased Attack Speed
 {variant:1}Leeches (0.06-0.1)% of Physical Damage as Life
 {variant:2}Leeches (10-20)% of Physical Damage as Life

@@ -96,7 +96,7 @@ Variant: Pre 0.2.1
 Variant: Current
 Implicits: 2
 Grants Skill: Spear Throw
-Grants Skill: Level (1-20) Chaotic Infusion
+Grants Skill: Level (1-20) Chaotic Surge
 UniqueLocalIncreasedAttackSpeed21
 {variant:1}UniqueLifeLeechLocal3[6,10]
 {variant:2}UniqueLifeLeechLocal3
