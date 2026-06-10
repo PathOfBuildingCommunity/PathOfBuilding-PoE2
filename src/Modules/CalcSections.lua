@@ -865,8 +865,8 @@ return {
 		{ breakdown = "ParryRangeNonProj" },
 		{ label = "Range modifiers", modName = "ParryRangeNonProj", cfg = "skill" },
 	}, },
-	{ label = "Parry Range Proj", haveOutput = "ParryRangeProj", { format = "{1:output:ParryRangeProj}m", 
-		{ breakdown = "ParryRangeProj" }, 
+	{ label = "Parry Range Proj", haveOutput = "ParryRangeProj", { format = "{1:output:ParryRangeProj}m",
+		{ breakdown = "ParryRangeProj" },
 		{ label = "Range modifiers", modName = "ParryRangeProj", cfg = "skill" },
 	}, },
 	-- Mines

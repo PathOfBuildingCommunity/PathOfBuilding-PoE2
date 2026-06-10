@@ -1118,4 +1118,5 @@ describe("TestSkills", function()
 		local noParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
 		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
 	end)
+	
 end)

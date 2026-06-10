@@ -15209,6 +15209,14 @@ skills["WolfPounceMarkPlayer"] = {
 			baseFlags = {
 				duration = true,
 			},
+			statMap = {
+				["skill_wolf_mark_damage_taken_+%_per_nearby_enemy"] = {
+					mod("DamageTaken", "INC", nil, 0, 0, { type = "Multiplier", var = "MinionPresenceCount", actor = "player", limitVar = "PredatorsMarkLimit", limitTotal = true }, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["skill_wolf_mark_damage_taken_+%_cap"] = {
+					mod("Multiplier:PredatorsMarkLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 8000 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
