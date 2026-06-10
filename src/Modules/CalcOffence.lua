@@ -92,8 +92,8 @@ local function calcGainedDamage(activeSkill, output, cfg, damageType)
 
 	local gainedMin, gainedMax = 0, 0
 	for _, otherType in ipairs(dmgTypeList) do
-		local baseMin = m_floor(output[otherType.."MinBase"] * activeSkill.conversionTable[otherType].mult)
-		local baseMax = m_floor(output[otherType.."MaxBase"] * activeSkill.conversionTable[otherType].mult)
+		local baseMin = output[otherType.."MinBase"] * activeSkill.conversionTable[otherType].mult
+		local baseMax = output[otherType.."MaxBase"] * activeSkill.conversionTable[otherType].mult
 		local gainMult = gainTable[otherType][damageType]
 		if gainMult and gainMult > 0 then
 			-- Damage is being converted/gained from the other damage type
@@ -3957,8 +3957,8 @@ function calcs.offence(env, actor, activeSkill)
 			local baseMax = output[damageTypeMax.."Base"]
 			local summedMin = baseMin * convMult + convertedMin + gainedMin
 			local summedMax = baseMax * convMult + convertedMax + gainedMax
-			output[damageType.."SummedMinBase"] = round(summedMin)
-			output[damageType.."SummedMaxBase"] = round(summedMax)
+			output[damageType.."SummedMinBase"] = summedMin
+			output[damageType.."SummedMaxBase"] = summedMax
 			if breakdown then
 				if (baseMin ~= 0 or baseMax ~= 0) then
 					if convMult ~= 1 then

@@ -167,6 +167,70 @@ describe("TestAttacks", function()
 		assert.are.equals(1.1, build.calcsTab.mainOutput.MainHand.AverageHit)
 	end)
 
+	it("matches in-game tooltip DPS for low-level spear skills", function()
+		build.spec:SelectClass(build.spec.tree.classNameMap.Huntress)
+		build.characterLevel = 11
+		build.characterLevelAutoMode = false
+		build.controls.characterLevel:SetText(11)
+		build.configTab.input.customMods = [[
+			10% increased Attack Damage
+			+10000 to Accuracy Rating
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]]
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Apocalypse Edge
+			Ironhead Spear
+			Item Level: 7
+			Quality: 0
+			LevelReq: 5
+			Implicits: 1
+			Grants Skill: Spear Throw
+			Adds 2 to 4 Physical Damage
+		]])
+		build.itemsTab:AddDisplayItem()
+
+		local skills = {
+			{ gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpear", level = 4, dps = 32.8 },
+			{ gemId = "Metadata/Items/Gems/SkillGemWhirlingSlash", level = 1, dps = 11.8 },
+			{ gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearThrow", level = 4, dps = 28.8 },
+			{ gemId = "Metadata/Items/Gems/SkillGemTwister", level = 2, dps = 17.5 },
+		}
+		for _, skill in ipairs(skills) do
+			local group = {
+				enabled = true,
+				gemList = { {
+					gemId = skill.gemId,
+					level = skill.level,
+					quality = 0,
+					enabled = true,
+					count = 1,
+					enableGlobal1 = true,
+					enableGlobal2 = true,
+				} },
+			}
+			table.insert(build.skillsTab.socketGroupList, group)
+			build.skillsTab:ProcessSocketGroup(group)
+			skill.groupIndex = #build.skillsTab.socketGroupList
+		end
+
+		for _, skill in ipairs(skills) do
+			local group = build.skillsTab.socketGroupList[skill.groupIndex]
+			build.mainSocketGroup = skill.groupIndex
+			build.calcsTab.input.skill_number = skill.groupIndex
+			group.mainActiveSkill = 1
+			group.mainActiveSkillCalcs = 1
+			build.buildFlag = true
+			build.modFlag = true
+			runCallback("OnFrame")
+			build.calcsTab:BuildOutput()
+			runCallback("OnFrame")
+
+			assert.are.equals(skill.dps, round(build.calcsTab.mainOutput.TotalDPS, 1))
+		end
+	end)
+
 	it("correctly calculates Garukhan's Resolve bifurcated critical hit damage", function()
 		local function setup(socketGroup)
 			newBuild()
@@ -209,7 +273,6 @@ describe("TestAttacks", function()
 		assert.is_true(math.abs(1 / 3 - (garukhanOutput.CritBifurcates - 1)) < 0.000001)
 		assert.is_true(math.abs(10001 - garukhanOutput.AverageHit) < 0.01)
 	end)
-
 
 	it("correctly adds damage with oracle forced outcome", function()
 		-- Setup: Add weapon with no crit chance, and strip enemy defenses
