@@ -902,6 +902,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					-- Replace non-number ranges as unsupported
 					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
 
+					-- Strip single values like 25(50) -> 25
+					line = line:gsub("(%d+)%((%d+)%)", "%1")
+
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
 						local delta = tonumber(max) - min
