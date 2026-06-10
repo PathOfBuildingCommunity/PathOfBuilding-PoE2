@@ -660,7 +660,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			skillModList:NewMod("Damage", "MORE", -100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 			skillModList:NewMod("Speed", "MORE", 100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 		elseif activeSkill.actor.minionData.damage ~= 1 then
-			skillModList:NewMod("AddedDamage", "MORE", (activeSkill.actor.minionData.damage - 1) * 100, activeSkill.actor.minionData.name .." Damage Multiplier", ModFlag.Attack)
+			skillModList:NewMod("AddedDamage", "MORE", (activeSkill.actor.minionData.damage - 1) * 100, activeSkill.actor.minionData.name .." Damage Multiplier", ModFlag.Attack, { type = "SkillName", skillNameList = { "Spectre", "Companion" }, partialMatch = true, summonSkill = true, neg = true })
 		end
 	end
 	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") and not skillModList:Flag(activeSkill.skillCfg, "EnableSkill") then
