@@ -151,6 +151,10 @@ local formList = {
 	["is doubled"] = "DOUBLED",
 	["doubles?"] = "DOUBLED",
 	["causes? double"] = "DOUBLED",
+	["^immunity to "] = "IMMUNE",
+	["^immune to being "] = "IMMUNE",
+	["^immune to "] = "IMMUNE",
+	["^cannot be "] = "IMMUNE",
 }
 
 -- Map of modifier names
@@ -778,15 +782,23 @@ local modNameList = {
 	["chance to ignite"] = "EnemyIgniteChance",
 	["to freeze, shock and ignite"] = { "EnemyFreezeChance", "EnemyShockChance", "EnemyIgniteChance" },
 	["flammability magnitude"] = "EnemyIgniteChance",
+	["magnitude of shock"] = "EnemyShockMagnitude",
 	["magnitude of shock you inflict"] = "EnemyShockMagnitude",
+	["magnitude of chill"] = "EnemyChillMagnitude",
 	["magnitude of chill you inflict"] = "EnemyChillMagnitude",
 	["magnitude of jagged ground you create"] = "EnemyJaggedGroundMagnitude",
+	["magnitude of bleeding"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
 	["magnitude of bleeding you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
-	["magnitude of ignite you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
+	["magnitude of ignite"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
+	["magnitude of ignite [you inflict]"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["ignite magnitude"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["bleed magnitude"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
+	["magnitude of poison"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
+	["magnitude of poisons"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
 	["magnitude of poison you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
+	["magnitude of poisons you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
 	["effect of poison you inflict"] = { "AilmentEffect", keywordFlags = KeywordFlag.Poison },
+	["effect of poisons you inflict"] = { "AilmentEffect", keywordFlags = KeywordFlag.Poison },
 	["magnitude of ailments"] = "AilmentMagnitude",
 	["magnitude of ailments you inflict"] = "AilmentMagnitude",
 	["magnitude of damaging ailments you inflict"] = { "AilmentMagnitude", keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite) },
@@ -851,6 +863,7 @@ local modNameList = {
 	["bleed duration on you"] = "SelfBleedDuration",
 	["bleeding duration on you"] = "SelfBleedDuration",
 	["duration of bleeding on you"] = "SelfBleedDuration",
+	["magnitude of bleeding on you"] = "SelfBleedEffect",
 	["to blind enemies on hit"] = { "BlindChance" },
 	["curse magnitudes"] = { "CurseEffect" },
 	["aura magnitudes"] = { "AuraEffect" },
@@ -1462,6 +1475,8 @@ local modTagList = {
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
 	["per socketed rune or soul core"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
 	["per socket filled"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
+	["per idol in your equipment"] = { tag = { type = "Multiplier", var = "IdolsInEquipment", actor = "player" } },
+	["per non%-idol augment in your equipment"] = { tag = { type = "Multiplier", var = "NonIdolAugmentsInEquipment", actor = "player" } },
 	["per (%d+) (%a+) support gems socketed"] = function(num, _, color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems", div = num } } end,
 	["per socketed (%a+) support gem"] = function(color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems" } } end,
 	["for each equipped normal item"] = { tag = { type = "Multiplier", var = "NormalItem" } },
@@ -1600,16 +1615,16 @@ local modTagList = {
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) maximum energy shield on helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
-	["per (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)evasion r?a?t?i?n?g? ?on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion rating on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnAllArmourItems", div = num } } end,
 	["per (%d+) t?o?t?a?l? ?(i?t?e?m? ?)armour on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnAllArmourItems", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "ArmourOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
-	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion rating on shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
-	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion rating on equipped shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
-	["per (%d+) (i?t?e?m? ?)evasion rating on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EvasionOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion r?a?t?i?n?g? ?on shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion r?a?t?i?n?g? ?on equipped shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)evasion r?a?t?i?n?g? ?on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EvasionOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
 	["per (%d+) maximum energy shield on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
 	["per (%d+) maximum energy shield on shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped focus"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingFocus" } } } end,
@@ -2131,6 +2146,7 @@ local modTagList = {
 	["by s?l?a?i?n? ?shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["against enemies further than (%d+)m"] = function(num) return { tag = { type = "MultiplierThreshold", var = "enemyDistance", threshold = num * 10 } } end,
 	["against enemies within (%d+) ?me?t?r?e?s?"] = function(num) return { tag = { type = "MultiplierThreshold", var = "enemyDistance", threshold = num * 10, upper = true } } end,
+	["against slowed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Slowed" } },
 	-- Enemy multipliers
 	["per freeze, shock [ao][nr]d? ignite on enemy"] = { tag = { type = "Multiplier", var = "FreezeShockIgniteOnEnemy" } },
 	["per (%d+)%% chill magnitude on enemy"] = function(num) return { tag = { type = "Multiplier", var = "ChillEffect", actor = "enemy", div = num } } end,
@@ -3617,6 +3633,12 @@ local specialModList = {
 		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill1], level = num, triggered = true }),
 		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill2], level = num, triggered = true }),
 		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill3], level = num, triggered = true }),
+	} end,
+	["inflict corrupted blood for ([%d%.]+) seconds on block, dealing ([%d%.]+)%% of your maximum life as physical damage per second"] = function(_, duration, percent) return {
+		mod("ExtraSkill", "LIST", { skillId = "BloodbarrierPlayer",	level = 1, noSupports = true, name = "Bloodbarrier" }),
+		mod("ExtraSkillStat", "LIST", { key = "unique_blood_barrier_applies_x_stacks_of_corrupted_blood_on_block", value = 1 }, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+		mod("ExtraSkillStat", "LIST", { key = "base_skill_effect_duration", value = math.floor(tonumber(duration) * 1000 + 0.001)}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+		mod("ExtraSkillStat", "LIST", {	key = "base_physical_damage_%_of_maximum_life_to_deal_per_minute", value = tonumber(percent) }, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
 	} end,
 	["offering skills triggered this way also affect you"] = { mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Flesh Offering", "Spirit Offering" } }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["trigger level (%d+) (.+) after spending a total of (%d+) mana"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
@@ -5749,6 +5771,9 @@ local specialModList = {
 	["you have far shot while you do not have iron reflexes"] = { flag("FarShot", { neg = true, type = "Condition", var = "HaveIronReflexes" }) },
 	["you have resolute technique while you do not have elemental overload"] = { mod("Keystone", "LIST", "Resolute Technique", { neg = true, type = "Condition", var = "HaveElementalOverload" }) },
 	["hits ignore enemy monster fire resistance while you are ignited"] = { flag("IgnoreFireResistance", { type = "Condition", var = "Ignited" }) },
+	["hits ignore enemy fire resistance"] = { flag("IgnoreFireResistance") },
+	["hits ignore enemy cold resistance"] = { flag("IgnoreColdResistance") },
+	["hits ignore enemy lightning resistance"] = { flag("IgnoreLightningResistance") },
 	["your hits can't be evaded by blinded enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "Blinded" }) },
 	["your hits cannot be evaded by pinned enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "Pinned" }) },
 	["your hits cannot be evaded by heavy stunned enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }) },
@@ -6189,6 +6214,30 @@ local specialModList = {
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
 end
+--[[ -- Conditional Immunities
+-- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
+specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
+	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
+	
+	-- look for static or dynamically phrased base immunity mod
+	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
+	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
+	local lowerAilment = ailment and string.lower(ailment) or ""
+	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
+	
+	-- look if condition exists
+	-- todo make more dynamic
+	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
+
+	local condTag = tagKey and (modTagList[tagKey] or modFlagList) or nil
+	if condTag then
+
+		return { flag(firstToUpper(ailment) .. "Immune", condTag.tag) }
+	else
+		return nil
+	end
+end
+ ]]
 local oldList = specialModList
 specialModList = { }
 for k, v in pairs(oldList) do
@@ -6325,9 +6374,34 @@ local flagTypes = {
 	["no life regeneration"] = "NoLifeRegen",
 	["no inherent mana regeneration"] = "Condition:NoInherentManaRegen",
 	["hexproof"] = { name = "CurseEffectOnSelf", value = -100, type = "MORE" },
+	["maimed"] = "Condition:Maimed",
 	["hindered,? with (%d+)%% reduced movement speed"] = "Condition:Hindered",
+	["hindered"] = "Condition:Hindered",
 	["unnerved"] = "Condition:Unnerved",
 	["malediction"] = "HasMalediction",
+}
+
+-- Table to map "status" like "Bleeding" to correct effect like "BleedImmune"
+local statusToEffectMap = {
+	["bleeding"] = "Bleed",
+	["blinded"] = "Blind",
+	["chilled"] = "Chill",
+	["cursed"] = "Curse",
+	["curses"] = "Curse",
+	["elemental ailments"] = "ElementalAilment",
+	["frozen"] = "Freeze",
+	["hindered"] = "Hinder",
+	["ignited"] = "Ignite",
+	["light stunned"] = "Stun",
+	["maimed"] = "Maim",
+	["poisoned"] = "Poison",
+	["shocked"] = "Shock",
+	-- NOTE: the following are possible, but not yet processed as of 2026-06-09
+	--["armour broken"] = "ArmourBreak",
+	--["critically hit"] = "Crit",
+	--["electrocuted"] = "Electrocute",
+	--["heavy stunned"] = "HeavyStun",
+	--["pinned"] = "Pin",
 }
 
 -- Build active skill name lookup
@@ -6649,6 +6723,54 @@ local function parseMod(line, order)
 		modName = type(modValue) == "table" and modValue.name or modValue
 		modType = type(modValue) == "table" and modValue.type or "FLAG"
 		modValue = type(modValue) == "table" and modValue.value or true
+	elseif modForm == "IMMUNE" then
+		local effectLine = line:gsub("%s+$","") -- remove trailing spaces
+		local _, numWords = effectLine:gsub("%S+", "")
+		local multiEffect = effectLine:find(" and ")
+
+		local function getEffectFromStatus(statusString)
+			return statusToEffectMap[statusString:lower()] or statusString
+		end
+
+		-- Check number of words, as 99% of effects consist of only one or two words
+		-- NOTE: needs exception for wordings like "freeze and chill"
+		if multiEffect then
+			if numWords > 3 then
+				local preEff, postEff = effectLine:match("^(.-) and (.*)")
+				local _, preWordNum = preEff:gsub("%S+", "")
+				local _, postWordNum = postEff:gsub("%S+", "")
+				if preWordNum > 2 or postWordNum > 2 then
+					return { }, line -- more than 2 effects, likely a false positive
+				end
+			end
+		elseif (numWords < 1) or (numWords > 2) then
+			return { }, line -- no words or more than 2 unlikely for single effect
+		end
+
+		-- Process effect strings to valid mod names
+		local effect
+		if multiEffect then
+			effect = { }
+			effect[1], effect[2] = effectLine:match("^(.-) and (.*)") -- fuzzy match is fine here as length is already checked before
+			for i, _ in pairs(effect) do
+				effect[i] = getEffectFromStatus(effect[i])
+				effect[i] = combineToUpper(effect[i])
+			end
+		else
+			effect = getEffectFromStatus(effectLine)
+			effect = combineToUpper(effect)
+		end
+		
+		if type(effect) == "table" then
+			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
+			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }
+			modValue = { type(modValue) == "table" and modValue.value or true, type(modValue) == "table" and modValue.value or true }
+		else
+			modName = effect .. "Immune"
+			modType = type(modValue) == "table" and modValue.type or "FLAG"
+			modValue = type(modValue) == "table" and modValue.value or true
+		end
+		line = "" -- rest of the line already processed at this stage
 	elseif modForm == "OVERRIDE" then
 		modType = "OVERRIDE"
 	elseif modForm == "DOUBLED" then

@@ -900,14 +900,12 @@ function stringify(thing)
 	elseif type(thing) == 'table' then
 		local s = "{";
 		local keys = { }
-		for key in pairs(thing) do table.insert(keys, key) end
+		for key in pairs(thing) do t_insert(keys, key) end
 		table.sort(keys)
 		for _, k in ipairs(keys) do
 			local v = thing[k]
 			s = s.."\n\t"
-			if type(k) == 'number' then
-				s = s.."["..k.."] = "
-			else
+			if type(k) ~= 'number' then
 				s = s.."[\""..k.."\"] = "
 			end
 			if type(v) == 'string' then

@@ -26,9 +26,14 @@ function M.modLineTemplate(line)
 	return line:gsub("%-?[%d]+%.?[%d]*", "#")
 end
 
--- Helper: extract the first number from a mod line for value comparison
+-- Helper: extract the first number from a mod line for value comparison, or in the case of # to #
+-- mods, the midpoint of that range
 --- @param line string
 function M.modLineValue(line)
+	local low, high = line:match("(%-?%d+%.?%d*) to (%-?%d+%.?%d*)")
+	if low and high then
+		return (tonumber(low) + tonumber(high)) / 2
+	end
 	return tonumber(line:match("%-?[%d]+%.?[%d]*"))
 end
 

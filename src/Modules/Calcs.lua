@@ -598,6 +598,8 @@ function calcs.buildOutput(build, mode)
 					elseif tag.type == "Multiplier" or tag.type == "MultiplierThreshold" then
 						if not tag.actor then
 							addVarTag(env.enemyMultipliersUsed, tag, mod)
+						elseif tag.actor == "enemy" or tag.actor == "player" then
+							addVarTag(env.multipliersUsed, tag, mod)
 						end
 					end
 				end

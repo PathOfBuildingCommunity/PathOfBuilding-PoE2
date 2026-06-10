@@ -100,7 +100,7 @@ c["+1 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemPrope
 c["+1 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=1}}},nil}
 c["+1 to Level of all Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="all",value=1}}},nil}
 c["+1 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=1}},nil}
-c["+1 to Maximum Energy Shield per 12 Item Evasion on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},"  per 12 Item Evasion on Equipped Body Armour "}
+c["+1 to Maximum Energy Shield per 12 Item Evasion on Equipped Body Armour"]={{[1]={[1]={div=12,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Item Armour on Equipped Helmet"]={{[1]={[1]={div=8,stat="ArmourOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
@@ -1001,7 +1001,7 @@ c["-30% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningR
 c["-30% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-30}},nil}
 c["-35% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=-35}},nil}
 c["-4 Physical Damage taken from Attack Hits"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenFromAttacks",type="BASE",value=-4}},nil}
-c["-4% to all Elemental Resistances per non-Idol Augment in your Equipment"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-4}},"  per non-Idol Augment in your Equipment "}
+c["-4% to all Elemental Resistances per non-Idol Augment in your Equipment"]={{[1]={[1]={actor="player",type="Multiplier",var="NonIdolAugmentsInEquipment"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-4}},nil}
 c["-5% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-5}},nil}
 c["-5% to amount of Damage Prevented by Deflection"]={{[1]={flags=0,keywordFlags=0,name="DeflectEffect",type="BASE",value=-5}},nil}
 c["-6% to amount of Damage Prevented by Deflection"]={{[1]={flags=0,keywordFlags=0,name="DeflectEffect",type="BASE",value=-6}},nil}
@@ -1880,8 +1880,7 @@ c["2% chance to Recover all Life when you Kill an Enemy"]={{[1]={[1]={percent=2,
 c["2% increased Accuracy Rating per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=2}},nil}
 c["2% increased Area of Effect for Attacks per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=2}},nil}
 c["2% increased Armour per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=2}},nil}
-c["2% increased Attack Damage per 75 Item Armour and Evasion on Equipped Shield"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},"  per 75 Item Armour and Evasion on Equipped Shield "}
-c["2% increased Attack Damage per 75 Item Armour and Evasion on Equipped Shield 50% increased Armour, Evasion and Energy Shield from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},"  per 75 Item Armour and Evasion on Equipped Shield 50% increased Armour, Evasion and Energy Shield  "}
+c["2% increased Attack Damage per 75 Item Armour and Evasion on Equipped Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
 c["2% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Attack Speed per 10 Dexterity"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
@@ -1897,8 +1896,7 @@ c["2% increased Maximum Life per socketed Grand Spectrum"]={{[1]={[1]={type="Mul
 c["2% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},nil}
 c["2% increased Movement Speed while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},nil}
 c["2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ParryDebuffDuration",type="INC",value=2}},nil}
-c["2% increased Reservation Efficiency of Skills per Idol in your Equipment"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=2}},"  per Idol in your Equipment "}
-c["2% increased Reservation Efficiency of Skills per Idol in your Equipment -4% to all Elemental Resistances per non-Idol Augment in your Equipment"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=2}},"  per Idol in your Equipment -4% to all Elemental Resistances per non-Idol Augment in your Equipment "}
+c["2% increased Reservation Efficiency of Skills per Idol in your Equipment"]={{[1]={[1]={actor="player",type="Multiplier",var="IdolsInEquipment"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=2}},nil}
 c["2% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=2},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=2},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=2}},nil}
 c["2% increased Skill Speed with Channelling Skills"]={{[1]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="Speed",type="INC",value=2},[2]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=2},[3]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=2}},nil}
 c["2% increased Spell Damage per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
@@ -2763,7 +2761,7 @@ c["35% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,nam
 c["35% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=35}},nil}
 c["35% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=35}},nil}
 c["35% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=35},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=35}},nil}
-c["35% increased Magnitude of Ignite against Poisoned enemies"]={{}," Magnitude of Ignite  "}
+c["35% increased Magnitude of Ignite against Poisoned enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=35}},nil}
 c["35% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=35}},nil}
 c["35% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=35}},nil}
 c["35% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=35}},nil}
@@ -2806,7 +2804,7 @@ c["4% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name=
 c["4% increased Area of Effect for Attacks per Enemy you've Ignited in the last 8 seconds, up to 40%"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=4}},"   per Enemy you've Ignited in the last 8 seconds, up to 40% "}
 c["4% increased Area of Effect of Ancestrally Boosted Attacks"]={{[1]={flags=1,keywordFlags=0,name="AncestralBoostAreaOfEffect",type="INC",value=4}},nil}
 c["4% increased Armour, Evasion and Energy Shield while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="Defences",type="INC",value=4}},nil}
-c["4% increased Attack Damage per 75 Item Armour and Evasion on Equipped Shield"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=4}},"  per 75 Item Armour and Evasion on Equipped Shield "}
+c["4% increased Attack Damage per 75 Item Armour and Evasion on Equipped Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Attack Speed while a Rare or Unique Enemy is in your Presence"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="NearbyRareOrUniqueEnemy",[2]="RareOrUnique"}},flags=1,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Attack Speed while your Companion is in your Presence"]={{[1]={[1]={type="Condition",var="CompanionInPresence"},flags=1,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
@@ -2889,7 +2887,7 @@ c["40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="e
 c["40% increased Damage with Hits against targets in your Presence"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=40}},"   against targets in your Presence "}
 c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},nil}
-c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},"  against Slowed Enemies "}
+c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Slowed"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyElectrocuteBuildup",type="INC",value=40}},nil}
 c["40% increased Elemental Ailment Application if you have Shapeshifted to an Animal form Recently"]={{}," Elemental Ailment Application  "}
 c["40% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}},nil}
@@ -3256,7 +3254,7 @@ c["50% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="Self
 c["50% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=-50}},nil}
 c["50% reduced Freeze Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-50}},nil}
 c["50% reduced Ignite Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-50}},nil}
-c["50% reduced Magnitude of Bleeding on You"]={{}," Magnitude of Bleeding on You "}
+c["50% reduced Magnitude of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedEffect",type="INC",value=-50}},nil}
 c["50% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-50}},nil}
 c["50% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-50}},nil}
 c["50% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-50}},nil}
@@ -4940,17 +4938,16 @@ c["Cannot Recover Life other than from Leech"]={{[1]={flags=0,keywordFlags=0,nam
 c["Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="NoManaRegen",type="FLAG",value=true}},nil}
 c["Cannot be Blinded"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="BlindImmune",type="FLAG",value=true}},nil}
 c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true}},nil}
-c["Cannot be Critically Hit while Parrying"]={nil,"Cannot be Critically Hit while Parrying "}
+c["Cannot be Critically Hit while Parrying"]={{},"Critically Hit while Parrying "}
 c["Cannot be Heavy Stunned while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Light Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
-c["Cannot be Light Stunned by Deflected Hits"]={nil,"Cannot be Light Stunned by Deflected Hits "}
-c["Cannot be Light Stunned if you haven't been Hit Recently"]={nil,"Cannot be Light Stunned if you haven't been Hit Recently "}
+c["Cannot be Light Stunned by Deflected Hits"]={{},"Light Stunned by Deflected Hits "}
+c["Cannot be Light Stunned if you haven't been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Cannot be Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
-c["Cannot be Used manually"]={nil,"Cannot be Used manually "}
-c["Cannot be Used manually Used when you release a skill with Perfect Timing"]={nil,"Cannot be Used manually Used when you release a skill with Perfect Timing "}
+c["Cannot be Used manually"]={{[1]={flags=0,keywordFlags=0,name="UsedManuallyImmune",type="FLAG",value=true}},nil}
 c["Cannot collide with targets"]={nil,"Cannot collide with targets "}
 c["Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="CannotGainSpiritFromEquipment",type="FLAG",value=true}},nil}
 c["Cannot have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="CannotHaveES",type="FLAG",value=true}},nil}
@@ -5009,9 +5006,7 @@ c["Charms use no Charges"]={{[1]={flags=0,keywordFlags=0,name="CharmsUseNoCharge
 c["Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCannotChill",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCannotFreeze",type="FLAG",value=true}},nil}
 c["Cold Resistance is unaffected by Area Penalties"]={nil,"Cold Resistance is unaffected by Area Penalties "}
 c["Companions deal 10% increased Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}
-c["Companions deal 10% increased damage per Idol in your Equipment"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"  per Idol in your Equipment "}
-c["Companions deal 10% increased damage per Idol in your Equipment 2% increased Reservation Efficiency of Skills per Idol in your Equipment"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"  per Idol in your Equipment 2% increased Reservation Efficiency of Skills per Idol in your Equipment "}
-c["Companions deal 10% increased damage per Idol in your Equipment 2% increased Reservation Efficiency of Skills per Idol in your Equipment -4% to all Elemental Resistances per non-Idol Augment in your Equipment"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"  per Idol in your Equipment 2% increased Reservation Efficiency of Skills per Idol in your Equipment -4% to all Elemental Resistances per non-Idol Augment in your Equipment "}
+c["Companions deal 10% increased damage per Idol in your Equipment"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="player",type="Multiplier",var="IdolsInEquipment"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}
 c["Companions deal 100% increased damage to your Marked targets"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="Damage",type="INC",value=100}}}},nil}
 c["Companions deal 12% increased Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},nil}
 c["Companions deal 15% increased Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=15}}}},nil}
@@ -5942,29 +5937,25 @@ c["Ignore Warcry Cooldowns"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,
 c["Ignore all Movement Penalties from Armour"]={{[1]={flags=0,keywordFlags=0,name="Condition:IgnoreMovementPenalties",type="FLAG",value=true}},nil}
 c["Immobilise enemies at 50% buildup instead of 100%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoiseThreshold",type="MORE",value=-50}}}},nil}
 c["Immune to Bleeding if Equipped Helmet has higher Armour than Evasion Rating"]={{[1]={[1]={type="Condition",var="HelmetArmourHigherThanEvasion"},flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
-c["Immune to Bleeding while Shapeshifted"]={nil,"Immune to Bleeding while Shapeshifted "}
-c["Immune to Bleeding while Shapeshifted Immune to Maim while Shapeshifted"]={nil,"Immune to Bleeding while Shapeshifted Immune to Maim while Shapeshifted "}
-c["Immune to Bleeding while affected by an Archon Buff"]={nil,"Immune to Bleeding while affected by an Archon Buff "}
+c["Immune to Bleeding while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
+c["Immune to Bleeding while affected by an Archon Buff"]={{},"Bleeding while affected by an Archon Buff "}
 c["Immune to Chaos Damage and Bleeding"]={{[1]={flags=0,keywordFlags=0,name="ChaosInoculation",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChaosDamageTaken",type="MORE",value=-100},[3]={flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
 c["Immune to Chill if a majority of your Socketed Support Gems are Blue"]={{[1]={[1]={type="Condition",var="MajorityBlueSocketedSupports"},flags=0,keywordFlags=0,name="ChillImmune",type="FLAG",value=true}},nil}
-c["Immune to Corrupted Blood"]={nil,"Immune to Corrupted Blood "}
-c["Immune to Corrupted Blood 40% reduced Duration of Bleeding on You"]={nil,"Immune to Corrupted Blood 40% reduced Duration of Bleeding on You "}
+c["Immune to Corrupted Blood"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
 c["Immune to Elemental Ailments while on Consecrated Ground if you have at least 150 Devotion"]={{[1]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="ElementalAilmentImmune",type="FLAG",value=true}},nil}
-c["Immune to Exposure"]={nil,"Immune to Exposure "}
-c["Immune to Exposure Unaffected by Elemental Weakness"]={nil,"Immune to Exposure Unaffected by Elemental Weakness "}
+c["Immune to Exposure"]={{[1]={flags=0,keywordFlags=0,name="ExposureImmune",type="FLAG",value=true}},nil}
 c["Immune to Freeze"]={{[1]={flags=0,keywordFlags=0,name="FreezeImmune",type="FLAG",value=true}},nil}
-c["Immune to Freeze and Chill while affected by an Archon Buff"]={nil,"Immune to Freeze and Chill while affected by an Archon Buff "}
-c["Immune to Hinder"]={nil,"Immune to Hinder "}
-c["Immune to Hinder Immune to Maim"]={nil,"Immune to Hinder Immune to Maim "}
+c["Immune to Freeze and Chill while affected by an Archon Buff"]={{},"Freeze and Chill while affected by an Archon Buff "}
+c["Immune to Hinder"]={{[1]={flags=0,keywordFlags=0,name="HinderImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite if a majority of your Socketed Support Gems are Red"]={{[1]={[1]={type="Condition",var="MajorityRedSocketedSupports"},flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
-c["Immune to Maim"]={nil,"Immune to Maim "}
-c["Immune to Maim while Shapeshifted"]={nil,"Immune to Maim while Shapeshifted "}
+c["Immune to Maim"]={{[1]={flags=0,keywordFlags=0,name="MaimImmune",type="FLAG",value=true}},nil}
+c["Immune to Maim while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaimImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison if Equipped Helmet has higher Evasion Rating than Armour"]={{[1]={[1]={type="Condition",var="HelmetEvasionHigherThanArmour"},flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Shock"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Immune to Shock if a majority of your Socketed Support Gems are Green"]={{[1]={[1]={type="Condition",var="MajorityGreenSocketedSupports"},flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
-c["Immune to Shock while affected by an Archon Buff"]={nil,"Immune to Shock while affected by an Archon Buff "}
+c["Immune to Shock while affected by an Archon Buff"]={{},"Shock while affected by an Archon Buff "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75%"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply "}
 c["Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%"]={nil,"Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75% "}
@@ -5988,7 +5979,7 @@ c["Inflict Abyssal Wasting on Hit Projectiles have 16% chance to Chain an additi
 c["Inflict Cold Exposure on Igniting an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy "}
 c["Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy "}
 c["Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of"]={nil,"Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of "}
-c["Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of your maximum Life as Physical damage per second"]={nil,"Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of your maximum Life as Physical damage per second "}
+c["Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of your maximum Life as Physical damage per second"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,name="Bloodbarrier",noSupports=true,skillId="BloodbarrierPlayer"}},[2]={[1]={skillId="BloodbarrierPlayer",type="SkillId"},flags=0,keywordFlags=0,name="ExtraSkillStat",type="LIST",value={key="unique_blood_barrier_applies_x_stacks_of_corrupted_blood_on_block",value=1}},[3]={[1]={skillId="BloodbarrierPlayer",type="SkillId"},flags=0,keywordFlags=0,name="ExtraSkillStat",type="LIST",value={key="base_skill_effect_duration",value=5000}},[4]={[1]={skillId="BloodbarrierPlayer",type="SkillId"},flags=0,keywordFlags=0,name="ExtraSkillStat",type="LIST",value={key="base_physical_damage_%_of_maximum_life_to_deal_per_minute",value=50}}},nil}
 c["Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by 30%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireExposure",type="BASE",value=30}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdExposure",type="BASE",value=30}}},[3]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningExposure",type="BASE",value=30}}}},nil}
 c["Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by 55%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireExposure",type="BASE",value=55}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdExposure",type="BASE",value=55}}},[3]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningExposure",type="BASE",value=55}}}},nil}
 c["Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by 60%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireExposure",type="BASE",value=60}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdExposure",type="BASE",value=60}}},[3]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningExposure",type="BASE",value=60}}}},nil}
@@ -7043,6 +7034,5 @@ c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Dama
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
-c["your maximum Life as Physical damage per second"]={nil,"your maximum Life as Physical damage per second "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}
