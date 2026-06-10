@@ -151,6 +151,10 @@ local formList = {
 	["is doubled"] = "DOUBLED",
 	["doubles?"] = "DOUBLED",
 	["causes? double"] = "DOUBLED",
+	["^immunity to "] = "IMMUNE",
+	["^immune to being "] = "IMMUNE",
+	["^immune to "] = "IMMUNE",
+	["^cannot be "] = "IMMUNE",
 }
 
 -- Map of modifier names
@@ -6182,6 +6186,30 @@ local specialModList = {
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
 end
+--[[ -- Conditional Immunities
+-- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
+specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
+	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
+	
+	-- look for static or dynamically phrased base immunity mod
+	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
+	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
+	local lowerAilment = ailment and string.lower(ailment) or ""
+	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
+	
+	-- look if condition exists
+	-- todo make more dynamic
+	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
+
+	local condTag = tagKey and (modTagList[tagKey] or modFlagList) or nil
+	if condTag then
+
+		return { flag(firstToUpper(ailment) .. "Immune", condTag.tag) }
+	else
+		return nil
+	end
+end
+ ]]
 local oldList = specialModList
 specialModList = { }
 for k, v in pairs(oldList) do
@@ -6321,6 +6349,29 @@ local flagTypes = {
 	["hindered,? with (%d+)%% reduced movement speed"] = "Condition:Hindered",
 	["unnerved"] = "Condition:Unnerved",
 	["malediction"] = "HasMalediction",
+}
+
+-- Table to map "status" like "Bleeding" to correct effect like "BleedImmune"
+local statusToEffectMap = {
+	["bleeding"] = "Bleed",
+	["blinded"] = "Blind",
+	["chilled"] = "Chill",
+	["cursed"] = "Curse",
+	["curses"] = "Curse",
+	["elemental ailments"] = "ElementalAilment",
+	["frozen"] = "Freeze",
+	["hindered"] = "Hinder",
+	["ignited"] = "Ignite",
+	["light stunned"] = "Stun",
+	["maimed"] = "Maim",
+	["poisoned"] = "Poison",
+	["shocked"] = "Shock",
+	-- NOTE: the following are possible, but not yet processed as of 2026-06-09
+	--["armour broken"] = "ArmourBreak",
+	--["critically hit"] = "Crit",
+	--["electrocuted"] = "Electrocute",
+	--["heavy stunned"] = "HeavyStun",
+	--["pinned"] = "Pin",
 }
 
 -- Build active skill name lookup
@@ -6642,6 +6693,54 @@ local function parseMod(line, order)
 		modName = type(modValue) == "table" and modValue.name or modValue
 		modType = type(modValue) == "table" and modValue.type or "FLAG"
 		modValue = type(modValue) == "table" and modValue.value or true
+	elseif modForm == "IMMUNE" then
+		local effectLine = line:gsub("%s+$","") -- remove trailing spaces
+		local _, numWords = effectLine:gsub("%S+", "")
+		local multiEffect = effectLine:find(" and ")
+
+		local function getEffectFromStatus(statusString)
+			return statusToEffectMap[statusString:lower()] or statusString
+		end
+
+		-- Check number of words, as 99% of effects consist of only one or two words
+		-- NOTE: needs exception for wordings like "freeze and chill"
+		if multiEffect then
+			if numWords > 3 then
+				local preEff, postEff = effectLine:match("^(.-) and (.*)")
+				local _, preWordNum = preEff:gsub("%S+", "")
+				local _, postWordNum = postEff:gsub("%S+", "")
+				if preWordNum > 2 or postWordNum > 2 then
+					return { }, line -- more than 2 effects, likely a false positive
+				end
+			end
+		elseif (numWords < 1) or (numWords > 2) then
+			return { }, line -- no words or more than 2 unlikely for single effect
+		end
+
+		-- Process effect strings to valid mod names
+		local effect
+		if multiEffect then
+			effect = { }
+			effect[1], effect[2] = effectLine:match("^(.-) and (.*)") -- fuzzy match is fine here as length is already checked before
+			for i, _ in pairs(effect) do
+				effect[i] = getEffectFromStatus(effect[i])
+				effect[i] = combineToUpper(effect[i])
+			end
+		else
+			effect = getEffectFromStatus(effectLine)
+			effect = combineToUpper(effect)
+		end
+		
+		if type(effect) == "table" then
+			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
+			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }
+			modValue = { type(modValue) == "table" and modValue.value or true, type(modValue) == "table" and modValue.value or true }
+		else
+			modName = effect .. "Immune"
+			modType = type(modValue) == "table" and modValue.type or "FLAG"
+			modValue = type(modValue) == "table" and modValue.value or true
+		end
+		line = "" -- rest of the line already processed at this stage
 	elseif modForm == "OVERRIDE" then
 		modType = "OVERRIDE"
 	elseif modForm == "DOUBLED" then

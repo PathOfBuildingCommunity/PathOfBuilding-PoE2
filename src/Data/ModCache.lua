@@ -4770,12 +4770,12 @@ c["Cannot Recover Life other than from Leech"]={{[1]={flags=0,keywordFlags=0,nam
 c["Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="NoManaRegen",type="FLAG",value=true}},nil}
 c["Cannot be Blinded"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="BlindImmune",type="FLAG",value=true}},nil}
 c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true}},nil}
-c["Cannot be Critically Hit while Parrying"]={nil,"Cannot be Critically Hit while Parrying "}
+c["Cannot be Critically Hit while Parrying"]={{},"Critically Hit while Parrying "}
 c["Cannot be Heavy Stunned while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Light Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
-c["Cannot be Light Stunned by Deflected Hits"]={nil,"Cannot be Light Stunned by Deflected Hits "}
-c["Cannot be Light Stunned if you haven't been Hit Recently"]={nil,"Cannot be Light Stunned if you haven't been Hit Recently "}
+c["Cannot be Light Stunned by Deflected Hits"]={{},"Light Stunned by Deflected Hits "}
+c["Cannot be Light Stunned if you haven't been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Cannot be Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
@@ -5679,29 +5679,25 @@ c["Ignore Warcry Cooldowns"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,
 c["Ignore all Movement Penalties from Armour"]={{[1]={flags=0,keywordFlags=0,name="Condition:IgnoreMovementPenalties",type="FLAG",value=true}},nil}
 c["Immobilise enemies at 50% buildup instead of 100%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoiseThreshold",type="MORE",value=-50}}}},nil}
 c["Immune to Bleeding if Equipped Helmet has higher Armour than Evasion Rating"]={{[1]={[1]={type="Condition",var="HelmetArmourHigherThanEvasion"},flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
-c["Immune to Bleeding while Shapeshifted"]={nil,"Immune to Bleeding while Shapeshifted "}
-c["Immune to Bleeding while Shapeshifted Immune to Maim while Shapeshifted"]={nil,"Immune to Bleeding while Shapeshifted Immune to Maim while Shapeshifted "}
-c["Immune to Bleeding while affected by an Archon Buff"]={nil,"Immune to Bleeding while affected by an Archon Buff "}
+c["Immune to Bleeding while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
+c["Immune to Bleeding while affected by an Archon Buff"]={{},"Bleeding while affected by an Archon Buff "}
 c["Immune to Chaos Damage and Bleeding"]={{[1]={flags=0,keywordFlags=0,name="ChaosInoculation",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChaosDamageTaken",type="MORE",value=-100},[3]={flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
 c["Immune to Chill if a majority of your Socketed Support Gems are Blue"]={{[1]={[1]={type="Condition",var="MajorityBlueSocketedSupports"},flags=0,keywordFlags=0,name="ChillImmune",type="FLAG",value=true}},nil}
-c["Immune to Corrupted Blood"]={nil,"Immune to Corrupted Blood "}
-c["Immune to Corrupted Blood 40% reduced Duration of Bleeding on You"]={nil,"Immune to Corrupted Blood 40% reduced Duration of Bleeding on You "}
+c["Immune to Corrupted Blood"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
 c["Immune to Elemental Ailments while on Consecrated Ground if you have at least 150 Devotion"]={{[1]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="ElementalAilmentImmune",type="FLAG",value=true}},nil}
-c["Immune to Exposure"]={nil,"Immune to Exposure "}
-c["Immune to Exposure Unaffected by Elemental Weakness"]={nil,"Immune to Exposure Unaffected by Elemental Weakness "}
+c["Immune to Exposure"]={{[1]={flags=0,keywordFlags=0,name="ExposureImmune",type="FLAG",value=true}},nil}
 c["Immune to Freeze"]={{[1]={flags=0,keywordFlags=0,name="FreezeImmune",type="FLAG",value=true}},nil}
-c["Immune to Freeze and Chill while affected by an Archon Buff"]={nil,"Immune to Freeze and Chill while affected by an Archon Buff "}
-c["Immune to Hinder"]={nil,"Immune to Hinder "}
-c["Immune to Hinder Immune to Maim"]={nil,"Immune to Hinder Immune to Maim "}
+c["Immune to Freeze and Chill while affected by an Archon Buff"]={{},"Freeze and Chill while affected by an Archon Buff "}
+c["Immune to Hinder"]={{[1]={flags=0,keywordFlags=0,name="HinderImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite if a majority of your Socketed Support Gems are Red"]={{[1]={[1]={type="Condition",var="MajorityRedSocketedSupports"},flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
-c["Immune to Maim"]={nil,"Immune to Maim "}
-c["Immune to Maim while Shapeshifted"]={nil,"Immune to Maim while Shapeshifted "}
+c["Immune to Maim"]={{[1]={flags=0,keywordFlags=0,name="MaimImmune",type="FLAG",value=true}},nil}
+c["Immune to Maim while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaimImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison if Equipped Helmet has higher Evasion Rating than Armour"]={{[1]={[1]={type="Condition",var="HelmetEvasionHigherThanArmour"},flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Shock"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Immune to Shock if a majority of your Socketed Support Gems are Green"]={{[1]={[1]={type="Condition",var="MajorityGreenSocketedSupports"},flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
-c["Immune to Shock while affected by an Archon Buff"]={nil,"Immune to Shock while affected by an Archon Buff "}
+c["Immune to Shock while affected by an Archon Buff"]={{},"Shock while affected by an Archon Buff "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75%"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply "}
 c["Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%"]={nil,"Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75% "}
