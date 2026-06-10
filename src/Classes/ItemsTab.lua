@@ -49,7 +49,10 @@ local flavourLookup = {}
 for _, entry in pairs(data.flavourText) do
     if entry.name and entry.id and entry.text then
         flavourLookup[entry.name] = flavourLookup[entry.name] or {}
-        flavourLookup[entry.name][entry.id] = entry.text
+        flavourLookup[entry.name][entry.id] = {
+            text = entry.text,
+            origin = entry.origin
+        }
     end
 end
 
@@ -3224,7 +3227,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
-	self:SetTooltipHeaderInfluence(tooltip, item)
 	-- Item name
 	if item.title then
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.title, "FONTIN SC")
@@ -3265,7 +3267,61 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	local slotNum = slot and slot.slotNum or (IsKeyDown("SHIFT") and 2 or 1)
 	local modList = item.modList or item.slotModList[slotNum]
 
-	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type), "FONTIN SC")
+	-- Find matching flavour entry and extract origin ONCE
+	local itemOrigin = nil
+	local flavourText = nil
+	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type == "Transcendent Limb" then
+		if main.showFlavourText then
+			local flavourTable
+			if item.base.type == "Transcendent Limb" then
+				flavourTable = flavourLookup["Transcendent Limb"]
+			else
+				flavourTable = flavourLookup[item.title]
+			end
+			if flavourTable then
+				local flavour = nil
+
+				if item.title == "Grand Spectrum" then
+					local selectedFlavourId = nil
+					local baseName = item.baseName
+					if baseName == "Ruby" then
+						selectedFlavourId = "FourUniqueJewel1"
+					elseif baseName == "Emerald" then
+						selectedFlavourId = "FourUniqueJewel2"
+					elseif baseName == "Sapphire" then
+						selectedFlavourId = "FourUniqueJewel3"
+					end
+					if selectedFlavourId then
+						flavour = flavourTable[selectedFlavourId]
+					end
+
+				else
+					for _, text in pairs(flavourTable) do
+						flavour = text
+						break
+					end
+				end
+
+				if flavour then
+					if flavour.origin then
+						itemOrigin = flavour.origin
+					end
+					flavourText = flavour.text or flavour
+				end
+			end
+		end
+	end
+
+	-- Combine base type with origin if available
+	local typeStr = base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type
+	if itemOrigin then
+		typeStr = itemOrigin .. " " .. typeStr
+		if itemOrigin == "Vaal" then
+			item.mutated = true
+		end
+	end
+	self:SetTooltipHeaderInfluence(tooltip, item)
+	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", typeStr), "FONTIN SC")
 	if item.quality and item.quality > 0 then
 		tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FQuality: "..colorCodes.MAGIC.."+%d%%", item.quality), "FONTIN SC")
 	end
@@ -3565,63 +3621,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type =="Transcendent Limb" and main.showFlavourText then
-		local flavourTable
-		if item.base.type =="Transcendent Limb" then
-			flavourTable = flavourLookup["Transcendent Limb"]
-		else
-			flavourTable = flavourLookup[item.title]
+	if flavourText then
+		for _, line in ipairs(flavourText) do
+			tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
 		end
-		if flavourTable then
-			local flavour = nil
-
-			if item.title == "Sekhema's Resolve" then
-				local selectedFlavourId = nil
-				for _, lineEntry in ipairs(tooltip.lines or {}) do
-					local lineText = lineEntry.text or ""
-					if lineText:find("Emerald") then
-						selectedFlavourId = "FourUniqueSanctum4a"
-						break
-					elseif lineText:find("Sapphire") then
-						selectedFlavourId = "FourUniqueSanctum4b"
-						break
-					elseif lineText:find("Ruby") then
-						selectedFlavourId = "FourUniqueSanctum4c"
-						break
-					end
-				end
-				if selectedFlavourId then
-					flavour = flavourTable[selectedFlavourId]
-				end
-
-			elseif item.title == "Grand Spectrum" then
-				local selectedFlavourId = nil
-				local baseName = item.baseName
-				if baseName == "Ruby" then
-					selectedFlavourId = "FourUniqueJewel1"
-				elseif baseName == "Emerald" then
-					selectedFlavourId = "FourUniqueJewel2"
-				elseif baseName == "Sapphire" then
-					selectedFlavourId = "FourUniqueJewel3"
-				end
-				if selectedFlavourId then
-					flavour = flavourTable[selectedFlavourId]
-				end
-
-			else
-				for _, text in pairs(flavourTable) do
-					flavour = text
-					break
-				end
-			end
-
-			if flavour then
-				for _, line in ipairs(flavour) do
-					tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
-				end
-				tooltip:AddSeparator(14)
-			end
-		end
+		tooltip:AddSeparator(14)
 	end
 
 	-- Stat differences
