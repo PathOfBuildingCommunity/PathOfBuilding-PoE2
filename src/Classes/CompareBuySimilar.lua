@@ -349,8 +349,9 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	-- Helper: create a numeric EditControl without +/- spinner buttons, and
 	-- with a preset changeFunc
-	local function newPlainNumericEdit(anchor, rect, init, prompt, limit)
-		local ctrl = new("EditControl", anchor, rect, init, prompt, "%D", limit, rebuildUrl)
+	local function newPlainNumericEdit(anchor, rect, init, prompt, limit, integer)
+		local format = integer and "%d" or "^%d."
+		local ctrl = new("EditControl", anchor, rect, init, prompt, format, limit, rebuildUrl)
 		-- Remove the +/- spinner buttons that "%D" filter triggers
 		ctrl.isNumeric = false
 		if ctrl.controls then
@@ -377,8 +378,8 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- Item level
 		ctrlY = ctrlY + 4
 		controls.ilvlLabel = new("LabelControl", {"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Item Level:")
-		controls.ilvlMin = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Min", 4)
-		controls.ilvlMax = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 4)
+		controls.ilvlMin = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Min", 4, true)
+		controls.ilvlMax = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 4, true)
 		ctrlY = ctrlY + rowHeight
 
 		-- Defence stat rows
@@ -386,8 +387,8 @@ function M.openPopup(item, slotName, primaryBuild)
 			local prefix = "def" .. i
 			controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
 			controls[prefix .. "Label"] = new("LabelControl", {"LEFT", controls[prefix .. "Check"], "RIGHT"}, {4, 0, 0, 16}, "^7" .. def.label)
-			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, tostring(m_floor(def.value)), "Min", 6)
-			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 6)
+			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, tostring(m_floor(def.value)), "Min", 6, true)
+			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 6, true)
 			ctrlY = ctrlY + rowHeight
 		end
 
@@ -443,7 +444,7 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- when the trade site has a dropdown for the value, we opt to disable
 		-- the inputs as they are numeric
 		if not (entry.isOption or entry.needsExactValue) and entry.value then
-			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, controlYPos, fieldW, fieldH}, entry.value ~= 0 and tostring(m_floor(entry.value)) or "", "Min", 8)
+			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, controlYPos, fieldW, fieldH}, entry.value ~= 0 and tostring(entry.value) or "", "Min", 8)
 			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, controlYPos, fieldW, fieldH}, "", "Max", 8)
 			if not canSearch then
 				controls[prefix .. "Min"].enabled = function() return false end
