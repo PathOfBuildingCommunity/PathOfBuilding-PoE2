@@ -66,7 +66,8 @@ colorCodes = {
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
 	GEMDESCRIPTION = "^xBAAD85",
-	SPLITPERSONALITY = "^xFFD62A"
+	SPLITPERSONALITY = "^xFFD62A",
+	SPIRIT = "^xF5D076"
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
@@ -74,7 +75,6 @@ colorCodes.INTELLIGENCE = colorCodes.WITCH
 
 colorCodes.LIFE = colorCodes.MARAUDER
 colorCodes.MANA = colorCodes.WITCH
-colorCodes.SPIRIT = colorCodes.RARE
 colorCodes.ES = colorCodes.SOURCE
 colorCodes.WARD = colorCodes.RARE
 colorCodes.ARMOUR = colorCodes.NORMAL
