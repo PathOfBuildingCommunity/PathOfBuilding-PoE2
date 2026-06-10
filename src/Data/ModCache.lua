@@ -2654,7 +2654,7 @@ c["35% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,nam
 c["35% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=35}},nil}
 c["35% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=35}},nil}
 c["35% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=35},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=35}},nil}
-c["35% increased Magnitude of Ignite against Poisoned enemies"]={{}," Magnitude of Ignite  "}
+c["35% increased Magnitude of Ignite against Poisoned enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=35}},nil}
 c["35% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=35}},nil}
 c["35% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=35}},nil}
 c["35% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=35}},nil}
@@ -2775,7 +2775,7 @@ c["40% increased Damage with Bow Skills"]={{[1]={flags=0,keywordFlags=1024,name=
 c["40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},nil}
-c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},"  against Slowed Enemies "}
+c["40% increased Duration of Poisons you inflict against Slowed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Slowed"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyElectrocuteBuildup",type="INC",value=40}},nil}
 c["40% increased Elemental Ailment Application if you have Shapeshifted to an Animal form Recently"]={{}," Elemental Ailment Application  "}
 c["40% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}},nil}
@@ -3128,7 +3128,7 @@ c["50% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="Self
 c["50% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=-50}},nil}
 c["50% reduced Freeze Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-50}},nil}
 c["50% reduced Ignite Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-50}},nil}
-c["50% reduced Magnitude of Bleeding on You"]={{}," Magnitude of Bleeding on You "}
+c["50% reduced Magnitude of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedEffect",type="INC",value=-50}},nil}
 c["50% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-50}},nil}
 c["50% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-50}},nil}
 c["50% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-50}},nil}

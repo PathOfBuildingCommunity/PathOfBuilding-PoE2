@@ -760,6 +760,17 @@ local function doActorMisc(env, actor)
 	
 	-- Process enemy modifiers
 	applyEnemyModifiers(actor)
+
+	-- Check enemy "Slowed" conditions
+	-- NOTE: check is done based on negative speed modifiers as the list of possible slowing effects is very large
+	if actor ~= env.player and actor ~= env.minion and (not modDB:Flag(nil, "UnaffectedBySlows")) then
+		local slowEffect = modDB:SumNegativeValues("INC", nil, "ActionSpeed") or 0
+		slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "MovementSpeed") or 0
+		slowEffect = slowEffect + modDB:SumNegativeValues("INC", nil, "TemporalChainsActionSpeed") or 0
+		if slowEffect ~= 0 then
+			modDB:NewMod("Condition:Slowed", "FLAG", true)
+		end
+	end
 end
 
 -- Process charges
