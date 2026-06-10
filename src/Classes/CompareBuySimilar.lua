@@ -350,7 +350,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	-- Helper: create a numeric EditControl without +/- spinner buttons, and
 	-- with a preset changeFunc
 	local function newPlainNumericEdit(anchor, rect, init, prompt, limit, integer)
-		local format = integer and "%d" or "^%d."
+		local format = integer and "%D" or "^%d."
 		local ctrl = new("EditControl", anchor, rect, init, prompt, format, limit, rebuildUrl)
 		-- Remove the +/- spinner buttons that "%D" filter triggers
 		ctrl.isNumeric = false
@@ -422,7 +422,7 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- Truncate long mod text to fit
 		--- @type string[]
 		local displayTexts = entry.formattedLines
-		for _, displayText in ipairs(displayTexts) do
+		for index, displayText in ipairs(displayTexts) do
 			local colorCodeLength = displayText:match("(%^x%x%x%x%x%x%x)") or displayText:gsub("(%^%x)", "") or ""
 
 			if not canSearch then
@@ -432,6 +432,7 @@ function M.openPopup(item, slotName, primaryBuild)
 			if #displayText > (#colorCodeLength + 62) then
 				displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
 			end
+			displayTexts[index] = displayText
 		end
 		
 
