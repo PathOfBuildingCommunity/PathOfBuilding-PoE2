@@ -5519,20 +5519,10 @@ local specialModList = {
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels, if not from cluster jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	-- Mageblood
-	["legacy of amethyst"] = { mod("LegacyOfAmethyst", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of basalt"] = { mod("LegacyOfBasalt", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of bismuth"] = { mod("LegacyOfBismuth", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of diamond"] = { mod("LegacyOfDiamond", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of gold"] = { mod("LegacyOfGold", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of granite"] = { mod("LegacyOfGranite", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of jade"] = { mod("LegacyOfJade", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of quicksilver"] = { mod("LegacyOfQuicksilver", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of ruby"] = { mod("LegacyOfRuby", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of sapphire"] = { mod("LegacyOfSapphire", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of silver"] = { mod("LegacyOfSilver", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of stibnite"] = { mod("LegacyOfStibnite", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of sulphur"] = { mod("LegacyOfSulphur", "BASE", 1), flag("MagebloodEquipped") },
-	["legacy of topaz"] = { mod("LegacyOfTopaz", "BASE", 1), flag("MagebloodEquipped") },
+	["legacy of (%w+)"] = function (_, flask) return {
+		mod("LegacyOf"..firstToUpper(flask), "BASE", 1),
+		flag("MagebloodEquipped")
+	} end,
 	["all mage's legacies have (%d+)%% increased effect per duplicate mage's legacy you have"] = function(num) return { mod("MagesLegacyEffect", "INC", num) } end,
 	-- Misc
 	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },

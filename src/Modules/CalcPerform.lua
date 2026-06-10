@@ -1485,7 +1485,7 @@ function calcs.perform(env, skipEHP)
 			for name, stacks in pairs(legacyCountByName) do
 				local def = legacies[name]
 				for _, entry in ipairs(def.effects) do
-					local value = globalEffect * entry.value
+					local value = m_floor(globalEffect * entry.value)
 					modDB:NewMod(entry.stat, entry.type, value, "Mageblood")
 				end
 			end
