@@ -259,11 +259,15 @@ Ab Aeterno
 Grand Cuisses
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 UniqueMovementVelocity22
 {variant:1}UniqueLocalArmourAndEvasionAndEnergyShield4[60,80]
-{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield4
+{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield4[100,150]
+{variant:3}UniqueLocalArmourAndEvasionAndEnergyShield4
 UniqueDodgeRollAvoidAllDamage1
-UniqueSpeedPerDodgeRoll20Seconds1
+{variant:1,2}UniqueSpeedPerDodgeRoll20Seconds1
+{variant:3}UniqueOverencumbranceOnDodge1
+{variant:3}UniqueUnaffectedBySlowsWhileSprinting1
 ]],
 }

@@ -202,6 +202,7 @@ itemBases["Runeforged Tense Crossbow"] = {
 itemBases["Runemastered Tense Crossbow"] = {
 	type = "Crossbow",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { crossbow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
@@ -229,6 +230,7 @@ itemBases["Runeforged Dyad Crossbow"] = {
 itemBases["Runemastered Dyad Crossbow"] = {
 	type = "Crossbow",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { crossbow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },

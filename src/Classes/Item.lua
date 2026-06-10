@@ -902,6 +902,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					-- Replace non-number ranges as unsupported
 					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
 
+					-- Strip single values like 25(50) -> 25
+					line = line:gsub("(%d+)%((%d+)%)", "%1")
+
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
 						local delta = tonumber(max) - min
@@ -1894,6 +1897,9 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 		for _, value in ipairs(modList:List(nil, "JewelData")) do
 			jewelData[value.key] = value.value
+		end
+		for _, className in ipairs(modList:List(nil, "AlternateClassStart")) do
+			jewelData.alternateClassStart = className
 		end
 		if modList:List(nil, "FromNothingKeystones") then
 			jewelData.fromNothingKeystones = { }

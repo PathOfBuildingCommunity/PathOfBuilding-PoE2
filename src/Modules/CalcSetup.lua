@@ -61,6 +61,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("Evasion", "INC", -15, "Base", { type = "Condition", var = "Maimed" })
+	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Hindered" })
 	modDB:NewMod("AilmentThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("PoiseThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", { type = "Condition", var = "Intimidated"})
@@ -1928,7 +1929,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemName or grantedEffect.name
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. (gemName or grantedEffect.name)
 							end
 						end
 					end

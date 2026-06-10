@@ -52,12 +52,14 @@ The Brass Dome
 Champion Cuirass
 Variant: Pre 0.1.1
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[300,400]
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[400,500]
-{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[700,800]
+{variant:4}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
 {variant:1}UniqueMaximumElementalResistance1[5,5]
-{variant:2,3}UniqueMaximumElementalResistance1
+{variant:2,3,4}UniqueMaximumElementalResistance1
 UniqueStunThreshold3
 UniqueTakeNoExtraDamageFromCriticalStrikes1
 ]],[[
@@ -185,17 +187,20 @@ UniqueGlobalEvasionOnFullLife1
 Hyrri's Ire
 Armoured Vest
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitIncreasedAilmentThreshold1
 {variant:1}UniqueLocalIncreasedEvasionRatingPercent33[100,130]
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent33
-{variant:2}UniqueDamageGainedAsCold2
+{variant:2}UniqueLocalIncreasedEvasionRatingPercent33[200,250]
+{variant:3}UniqueLocalIncreasedEvasionRatingPercent33
+{variant:2}UniqueDamageGainedAsCold2[15,25]
+{variant:3}UniqueDamageGainedAsCold2
 {variant:1}UniqueAddedColdDamage3
 UniqueDexterity38
 {variant:1}UniqueChillDuration2
-{variant:2}FreezeDurationUnique__1
+{variant:2,3}FreezeDurationUnique__1
 UniqueCanEvadeAllDamageNotHitRecently1
 ]],[[
 Quatl's Molt
@@ -544,17 +549,22 @@ UniqueIncreasedSpirit1
 UniqueAllResistances2
 UniqueNoManaPerIntelligence1
 ]],[[
-Husk of Dreams
+Reverie
 Shaman Mantle
 Variant: Pre 0.1.1
+Variant: 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Rite of Restoration
 UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueFireResist9
 {variant:1}UniqueChaosResist2[13,17]
-{variant:2}UniqueChaosResist2
+{variant:2,3}UniqueChaosResist2
 {variant:1}UniqueReducedFlaskChargesUsed1[25,50]
 {variant:2}UniqueReducedFlaskChargesUsed1
-UniqueFlaskChanceToNotConsume1
+{variant:1,2}UniqueFlaskChanceToNotConsume1
+{variant:3}UniqueLifeRegenerationFromLifeFlaskRecovery1
+{variant:3}UniqueLifeFlaskRecoveryAmount1
 ]],[[
 Icetomb
 Mail Vestments
@@ -591,10 +601,13 @@ UniqueLifeRecoupAppliesToEnergyShield1
 Soul Mantle
 Sacrificial Mantle
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield12
+{variant:2}UniqueIncreasedSpirit15
 UniqueStrength42
 UniqueIntelligence40
-UniqueIncreasedTotemLife1
+{variant:1}UniqueIncreasedTotemLife1
 UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],[[
@@ -676,11 +689,13 @@ UniqueShockOnMaxPowerCharges1
 Sierran Inheritance
 Marabout Garb
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield5
 UniqueLightningResist2
-UniqueEnergyShieldDelay1
-{variant:2}AllDamageTakenCanChillUnique__1
+{variant:1,2}UniqueEnergyShieldDelay1
+{variant:2,3}AllDamageTakenCanChillUnique__1
+{variant:3}UniqueEnergyShieldRechargeRate8
 UniqueReverseChill1
 ]],[[
 Zerphi's Serape

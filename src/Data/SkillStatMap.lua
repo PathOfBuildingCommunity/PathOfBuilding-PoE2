@@ -587,7 +587,7 @@ return {
 	mod("CooldownRecovery", "MORE", nil),
 },
 ["support_cooldown_reduction_cooldown_recovery_+%"] = {
-	mod("CooldownRecovery", "MORE", nil),
+	mod("CooldownRecovery", "INC", nil),
 },
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
@@ -928,6 +928,15 @@ return {
 },
 ["base_reduce_enemy_lightning_resistance_%"] = {
 	mod("LightningPenetration", "BASE", nil),
+},
+["hits_ignore_enemy_fire_resistance"] =  {
+	flag("IgnoreFireResistance")
+},
+["hits_ignore_enemy_cold_resistance"] = {
+	flag("IgnoreColdResistance")
+},
+["hits_ignore_enemy_lightning_resistance"] = {
+	flag("IgnoreLightningResistance")
 },
 ["reduce_enemy_chaos_resistance_%"] = {
 	mod("ChaosPenetration", "BASE", nil),

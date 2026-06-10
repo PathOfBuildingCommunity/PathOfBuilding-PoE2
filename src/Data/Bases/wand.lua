@@ -122,6 +122,7 @@ itemBases["Dueling Wand"] = {
 itemBases["Twisted Wand"] = {
 	type = "Wand",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Coiling Bolts",
@@ -131,6 +132,7 @@ itemBases["Twisted Wand"] = {
 itemBases["Runic Fork"] = {
 	type = "Wand",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicitModTypes = { },
@@ -139,6 +141,7 @@ itemBases["Runic Fork"] = {
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% chance for Spell Skills to fire 2 additional Projectiles",
@@ -148,6 +151,7 @@ itemBases["Runemastered Runic Fork"] = {
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% increased Mana Regeneration Rate",
@@ -157,6 +161,7 @@ itemBases["Runemastered Runic Fork"] = {
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "+300 to maximum Runic Ward",

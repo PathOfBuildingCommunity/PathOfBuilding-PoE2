@@ -85,6 +85,7 @@ itemBases["Heavy Belt"] = {
 itemBases["Runemastered Heavy Belt"] = {
 	type = "Belt",
 	charmLimit = 0,
+	hidden = true,
 	tags = { belt = true, default = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\n(15-25)% Life Recovery from Flasks also applies to Runic Ward\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, {  }, },
@@ -93,6 +94,7 @@ itemBases["Runemastered Heavy Belt"] = {
 itemBases["Runemastered Heavy Belt"] = {
 	type = "Belt",
 	charmLimit = 0,
+	hidden = true,
 	tags = { belt = true, default = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\n(20-40)% increased Runic Ward Regeneration Rate\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, { "runic_ward" }, },
@@ -101,6 +103,7 @@ itemBases["Runemastered Heavy Belt"] = {
 itemBases["Runemastered Heavy Belt"] = {
 	type = "Belt",
 	charmLimit = 0,
+	hidden = true,
 	tags = { belt = true, default = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nRunic Ward recovery can can Overflow maximum Runic Ward\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, {  }, },
@@ -109,6 +112,7 @@ itemBases["Runemastered Heavy Belt"] = {
 itemBases["Runemastered Heavy Belt"] = {
 	type = "Belt",
 	charmLimit = 0,
+	hidden = true,
 	tags = { belt = true, default = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nFlasks gain (0.5-1) charges per Second\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, {  }, },

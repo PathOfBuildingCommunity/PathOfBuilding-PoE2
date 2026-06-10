@@ -127,7 +127,7 @@ Variant: Current
 {variant:2}+(10-20) to Strength
 {variant:2}+(20-30)% to Fire Resistance
 Hits Break (30-50) Armour
-Inflicts Fire Exposure when this Weapon Fully Breaks Armour
+Inflicts Elemental Exposure when this Weapon Fully Breaks Armour
 ]],
 -- Weapon: Two Handed Mace
 [[
@@ -145,13 +145,15 @@ All damage with this Weapon causes Electrocution buildup
 Chober Chaber
 Leaden Greathammer
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 +100 Intelligence Requirement
 {variant:1}(80-120)% increased Physical Damage
-{variant:2}Adds (58-65) to (102-110) Physical Damage
+{variant:2,3}Adds (58-65) to (102-110) Physical Damage
 +(80-100) to maximum Mana
-{variant:2}+50 to Spirit
+{variant:2,3}+50 to Spirit
 {variant:1}+5% to Critical Hit Chance
+{variant:3}+(2-3) to Level of all Minion Skills
 Increases and Reductions to Minion Damage also affect you
 ]],[[
 The Empty Roar
@@ -209,8 +211,8 @@ Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Da
 (80-120)% increased Physical Damage
 +(10-15) to all Attributes
 Gain 30 Life per enemy killed
+Hits with this Weapon have no Critical Damage Bonus
 This Weapon's Critical Hit Chance is 100%
-Critical Hits do not deal extra Damage
 ]],[[
 Tidebreaker
 Pointed Maul
