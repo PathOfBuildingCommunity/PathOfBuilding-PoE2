@@ -340,7 +340,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
+	if state.type == "Flask" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end

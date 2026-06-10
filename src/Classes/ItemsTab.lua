@@ -2372,11 +2372,6 @@ function ItemsTabClass:CraftItem()
 				raritySel = 2
 			end
 		end
-		if base.base.type == "SoulCore" or base.base.type == "Rune" then
-			if raritySel == 3 or raritySel == 2 then
-				raritySel = 1
-			end
-		end
 		if base.base.type == "Transcendent Limb" then
 			raritySel = 1
 		end
