@@ -136,7 +136,7 @@ local legacies = {
 	LegacyOfTopaz = {
 		effects = {
 			{ stat = "LightningResist", type = "BASE", value = 60 },
-			{ stat = "LightningResistMax", type = "BASE", value = 60 },
+			{ stat = "LightningResistMax", type = "BASE", value = 5 },
 		}
 	},
 }
