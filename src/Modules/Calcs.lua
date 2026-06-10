@@ -149,34 +149,6 @@ function calcs.getMiscCalculator(build)
 	end, env.player.output
 end
 
-local function isSkillIncludedInFullDPS(build, activeSkill)
-	if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
-		return true
-	end
-
-	-- Extra/generated skills can sometimes lose the socketGroup reference used by the UI.
-	-- Fall back to matching the generated Skills-tab group by skill id.
-	local skillId = activeSkill.activeEffect
-		and activeSkill.activeEffect.grantedEffect
-		and activeSkill.activeEffect.grantedEffect.id
-
-	if not skillId or not build.skillsTab or not build.skillsTab.socketGroupList then
-		return false
-	end
-
-	for _, socketGroup in ipairs(build.skillsTab.socketGroupList) do
-		if socketGroup.includeInFullDPS and socketGroup.gemList then
-			for _, gem in ipairs(socketGroup.gemList) do
-				if gem.skillId == skillId then
-					return true
-				end
-			end
-		end
-	end
-
-	return false
-end
-
 function calcs.calcFullDPS(build, mode, override, specEnv)
 	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
 	local usedEnv = nil
@@ -205,7 +177,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	local causticGroundSource = ""
 
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
-		if isSkillIncludedInFullDPS(build, activeSkill) then
+		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
 			if enabled then
 				fullEnv.player.mainSkill = activeSkill

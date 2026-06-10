@@ -3611,6 +3611,12 @@ local specialModList = {
 		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill2], level = num, triggered = true }),
 		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill3], level = num, triggered = true }),
 	} end,
+	["inflict corrupted blood for ([%d%.]+) seconds on block, dealing ([%d%.]+)%% of your maximum life as physical damage per second"] = function(_, duration, percent) return {
+		mod("ExtraSkill", "LIST", { skillId = "BloodbarrierPlayer",	level = 1, noSupports = true, name = "Bloodbarrier" }),
+		mod("ExtraSkillStat", "LIST", { key = "unique_blood_barrier_applies_x_stacks_of_corrupted_blood_on_block", value = 1 }, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+		mod("ExtraSkillStat", "LIST", { key = "base_skill_effect_duration", value = math.floor(tonumber(duration) * 1000 + 0.001)}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+		mod("ExtraSkillStat", "LIST", {	key = "base_physical_damage_%_of_maximum_life_to_deal_per_minute", value = tonumber(percent) }, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
+	} end,
 	["offering skills triggered this way also affect you"] = { mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Flesh Offering", "Spirit Offering" } }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["trigger level (%d+) (.+) after spending a total of (%d+) mana"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["consumes a void charge to trigger level (%d+) (.+) when you fire arrows"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
@@ -6121,33 +6127,6 @@ local specialModList = {
 	} end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
-	-- Bloodbarrier (Corrupted Blood)
-	["inflict corrupted blood for ([%d%.]+) seconds on block, dealing ([%d%.]+)%% of your maximum life as physical damage per second"] = function(_, duration, pct)
-		duration = tonumber(duration)
-		pct = tonumber(pct)
-
-		return {
-			mod("ExtraSkill", "LIST", {
-				skillId = "BloodbarrierPlayer",
-				level = 1,
-				noSupports = true,
-				name = "Bloodbarrier",
-			}),
-			mod("ExtraSkillStat", "LIST", {
-				key = "unique_blood_barrier_applies_x_stacks_of_corrupted_blood_on_block",
-				value = 1,
-			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
-			mod("ExtraSkillStat", "LIST", {
-				key = "base_skill_effect_duration",
-				value = math.floor(duration * 1000 + 0.5),
-			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
-			mod("ExtraSkillStat", "LIST", {
-				key = "base_physical_damage_%_of_maximum_life_to_deal_per_minute",
-				value = pct * 60,
-			}, { type = "SkillId", skillId = "BloodbarrierPlayer" }),
-		}
-	end,
-
 	-- Display-only modifiers
 	["extra gore"] = { },
 	["prefixes:"] = { },
