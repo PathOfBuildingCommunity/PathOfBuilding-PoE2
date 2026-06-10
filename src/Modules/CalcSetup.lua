@@ -1091,11 +1091,28 @@ function calcs.initEnv(build, mode, override, specEnv)
 						Int = item.requirements.intMod,
 					})
 				end
-				-- Rune / Soul Core Sockets
+				-- Rune / Soul Core / Idol Sockets
 				local socketed = 0
 				for i = 1, item.itemSocketCount do
-					if item.runes[i] ~= "None" then
+					local runeName = item.runes[i]
+					if runeName and runeName ~= "None" then
 						socketed = socketed + 1
+						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
+						local runeData = data.itemMods.Runes[runeName]
+						local augType
+						if runeData then
+							for _, baseEntry in pairs(runeData) do
+								if type(baseEntry) == "table" and baseEntry.type then
+									augType = baseEntry.type
+									break
+								end
+							end
+						end
+						if augType == "Idol" then
+							env.itemModDB.multipliers["IdolsInEquipment"] = (env.itemModDB.multipliers["IdolsInEquipment"] or 0) + 1
+						elseif augType then
+							env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] = (env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] or 0) + 1
+						end
 					end
 				end
 				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
