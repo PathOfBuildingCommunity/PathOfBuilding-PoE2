@@ -206,7 +206,7 @@ describe("TestAttacks", function()
 		local garukhanOutput = setup("Quarterstaff Strike 1/0  1\nGarukhan's Resolve 1/0  1")
 		assert.are.equals(50, garukhanOutput.PreBifurcateCritChance)
 		assert.are.equals(75, garukhanOutput.CritChance)
-		assert.is_true(math.abs(100 / 3 - garukhanOutput.CritBifurcates) < 0.000001)
+		assert.is_true(math.abs(1 / 3 - garukhanOutput.CritBifurcates) < 0.000001)
 		assert.is_true(math.abs(10001 - garukhanOutput.AverageHit) < 0.01)
 	end)
 
