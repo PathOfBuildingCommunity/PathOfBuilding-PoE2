@@ -1158,12 +1158,8 @@ function SkillsTabClass:GetBeastModDropList()
 		local sorted = { }
 		local nameCount = { }
 		for modId, beastMod in pairs(self.build.data.tamedBeastMods) do
-			-- Non-rollable mods (script-applied, player-minion variants, placeholders) stay
-			-- resolvable on import but are not offered for selection
-			if beastMod.rollable then
-				t_insert(sorted, { modId = modId, beastMod = beastMod })
-				nameCount[beastMod.name] = (nameCount[beastMod.name] or 0) + 1
-			end
+			t_insert(sorted, { modId = modId, beastMod = beastMod })
+			nameCount[beastMod.name] = (nameCount[beastMod.name] or 0) + 1
 		end
 		table.sort(sorted, function(a, b)
 			if a.beastMod.name ~= b.beastMod.name then
@@ -1258,6 +1254,10 @@ function SkillsTabClass:CreateBeastModSlot(index)
 			if not gemInstance then
 				return
 			end
+			local minion = gemInstance.skillMinion and self.build.data.minions[gemInstance.skillMinion]
+			if minion and not self.build.data.beastModCanSpawn(value.beastMod, minion.monsterTags) then
+				tooltip:AddLine(16, "^1Cannot naturally spawn on "..minion.name.." and will be ignored")
+			end
 			local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				-- Trial-swap the entry for the compare, restoring both the entry and the
@@ -1304,19 +1304,22 @@ function SkillsTabClass:CreateBeastModSlot(index)
 	end
 	self.controls["beastModSlot"..index.."Enable"] = slot.enabled
 
-	-- Imported modifier the dropdown can't represent: unknown id, or known but not in the
-	-- selectable pool. Either way the entry still applies and can be toggled or removed.
+	-- Per-row problem indicator: an imported entry the data doesn't know (stays toggleable
+	-- and removable, but applies nothing), or a known mod the selected beast's tags can
+	-- never roll (ignored by calcs, see CalcPerform)
 	slot.unresolved = new("LabelControl", {"LEFT", slot.enabled, "RIGHT"}, {8, 0, 0, 16}, function()
-		local entry = getEntry()
+		local entry, gemInstance = getEntry()
 		if not entry then
 			return ""
 		end
-		if not entry.modId then
-			return entry.display and ("^1Unrecognised: ^7"..entry.display) or ""
+		local beastMod = entry.modId and self.build.data.tamedBeastMods[entry.modId]
+		if not beastMod then
+			local display = entry.display or entry.modId
+			return display and ("^1Unrecognised: ^7"..display) or ""
 		end
-		local beastMod = self.build.data.tamedBeastMods[entry.modId]
-		if not (beastMod and beastMod.rollable) then
-			return "^1Not selectable: ^7"..(beastMod and beastMod.name or entry.modId)
+		local minion = gemInstance.skillMinion and self.build.data.minions[gemInstance.skillMinion]
+		if minion and not self.build.data.beastModCanSpawn(beastMod, minion.monsterTags) then
+			return "^1Cannot spawn on ^7"..minion.name
 		end
 		return ""
 	end)

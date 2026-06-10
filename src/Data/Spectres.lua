@@ -20584,7 +20584,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/VaalThaumaturgeSpear"]
 
 minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/SoulCoreQuadrillaMinion"] = {
 	name = "Quadrilla Sergeant",
-	monsterTags = { "2HBluntStone_onhit_audio", "beast", "fast_movement", "humanoid", "incursion_unique_quadrilla", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "2HBluntStone_onhit_audio", "beast", "fast_movement", "humanoid", "incursion_unique_quadrilla", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.66,
@@ -20626,7 +20626,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/S
 
 minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/IncursionChainedBeastBoss/ChainedBeastBossMinion_"] = {
 	name = "Unchained Beast",
-	monsterTags = { "beast", "Claw_onhit_audio", "incursion_unique_chained_beast", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Claw_onhit_audio", "incursion_unique_chained_beast", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.66,
@@ -20740,7 +20740,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/VaalF
 
 minions["Metadata/Monsters/CrowBell/CrowBellBossMinion1"] = {
 	name = "The Crowbell",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20815,7 +20815,7 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion1"] = {
 
 minions["Metadata/Monsters/CrowBell/CrowBellBossMinion2"] = {
 	name = "The Black Crow",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20890,7 +20890,7 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion2"] = {
 
 minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1"] = {
 	name = "The Devourer",
-	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20953,7 +20953,7 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1"] = {
 
 minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2"] = {
 	name = "Gorian, the Moving Earth",
-	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21016,7 +21016,7 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2"] = {
 
 minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1"] = {
 	name = "Xyclucian, the Chimera",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21086,7 +21086,7 @@ minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1"] = {
 
 minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2"] = {
 	name = "Xilozoma, the Maw-Beast",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21156,7 +21156,7 @@ minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2"] = {
 
 minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1"] = {
 	name = "Uxmal, the Beastlord",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21220,7 +21220,7 @@ minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1"] = {
 
 minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2"] = {
 	name = "Gressor-Kul, the Apex",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21284,7 +21284,7 @@ minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2"] = {
 
 minions["Metadata/Monsters/Bird2/MutantBird2Minion1"] = {
 	name = "Scourge of the Skies",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21368,7 +21368,7 @@ minions["Metadata/Monsters/Bird2/MutantBird2Minion1"] = {
 
 minions["Metadata/Monsters/Bird2/MutantBird2Minion2"] = {
 	name = "Chetza, the Feathered Plague",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21452,7 +21452,7 @@ minions["Metadata/Monsters/Bird2/MutantBird2Minion2"] = {
 
 minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1"] = {
 	name = "Rathbreaker",
-	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", },
+	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21501,7 +21501,7 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1"] = {
 
 minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2"] = {
 	name = "Caedron, the Hyena Lord",
-	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", },
+	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21550,7 +21550,7 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2"] = {
 
 minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"] = {
 	name = "Mighty Silverfist",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21595,7 +21595,7 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"] = {
 
 minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion2"] = {
 	name = "Zekoa, the Headcrusher",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21640,7 +21640,7 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion2"] = {
 
 minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1"] = {
 	name = "The Abominable Yeti",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21692,7 +21692,7 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1"] = {
 
 minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2"] = {
 	name = "The Frostborn Fiend",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21744,7 +21744,7 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2"] = {
 
 minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1"] = {
 	name = "Great White One",
-	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21818,7 +21818,7 @@ minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1"] = {
 
 minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2"] = {
 	name = "The Sandstrider",
-	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21892,7 +21892,7 @@ minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2"] = {
 
 minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_"] = {
 	name = "The Ravenous Fang",
-	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21961,7 +21961,7 @@ minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion"] = {
 	name = "Bahlak, the Sky Seer",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22025,7 +22025,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1"] = {
 	name = "Rakkar, the Frozen Talon",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22088,7 +22088,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2"] = {
 	name = "Thraeven, Wing of Winter",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22151,7 +22151,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2"] = {
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_"] = {
 	name = "Ashar, the Sand Mother",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22203,7 +22203,7 @@ minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_"] =
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2"] = {
 	name = "Karash, The Dune Dweller",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22255,7 +22255,7 @@ minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2"] = 
 
 minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1"] = {
 	name = "Vornas, the Fell Flame",
-	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", },
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22314,7 +22314,7 @@ minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1"] = 
 
 minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2"] = {
 	name = "Morvak, the Infernal",
-	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", },
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22373,7 +22373,7 @@ minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2"] = 
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion"] = {
 	name = "Akthi, the Final Sting",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},

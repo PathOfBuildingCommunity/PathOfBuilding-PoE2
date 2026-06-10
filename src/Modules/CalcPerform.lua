@@ -1026,7 +1026,8 @@ function calcs.perform(env, skipEHP)
 		if mainSrcInstance and mainSrcInstance.tamedBeastModList and mainGrantedEffect and mainGrantedEffect.minionList and mainGrantedEffect.name:match("^Companion") then
 			for _, beastMod in ipairs(mainSrcInstance.tamedBeastModList) do
 				local beastModData = beastMod.enabled and beastMod.modId and env.data.tamedBeastMods[beastMod.modId]
-				if beastModData then
+				-- A mod the beast's tags can never roll is ignoreed
+				if beastModData and data.beastModCanSpawn(beastModData, env.minion.minionData.monsterTags) then
 					for _, mod in ipairs(beastModData.modList) do
 						env.minion.modDB:AddMod(mod)
 					end

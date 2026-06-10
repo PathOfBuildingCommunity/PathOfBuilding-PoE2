@@ -7,7 +7,7 @@ describe("TestTamedBeastMods", function()
 		{
 			name = "Monster Modifiers:\n{0}",
 			values = {
-				{ "[MonsterFlaskRemovalAura1|Siphons Flask Charges]\n[MonsterLifeRegenerationRatePercentage1|Regenerates Life]\nPeriodically unleashes [Cold|Ice]\n[MonsterAdditionalProjectiles1|Additional Projectiles]", 0 },
+				{ "[PlayerMonsterFlaskRemovalAura1|Siphons Flask Charges]\n[PlayerMonsterLifeRegenerationRatePercentage1|Regenerates Life]\nPeriodically unleashes [Cold|Ice]\n[PlayerMonsterAdditionalProjectiles1|Additional Projectiles]", 0 },
 			},
 			displayMode = 3,
 		},
@@ -18,13 +18,13 @@ describe("TestTamedBeastMods", function()
 			local list = build.importTab:ParseTamedBeastProperties(sampleProperties)
 
 			assert.are.equals(4, #list)
-			assert.are.equals("MonsterFlaskRemovalAura1", list[1].modId)
+			assert.are.equals("PlayerMonsterFlaskRemovalAura1", list[1].modId)
 			assert.are.equals("Siphons Flask Charges", list[1].display)
-			assert.are.equals("MonsterLifeRegenerationRatePercentage1", list[2].modId)
+			assert.are.equals("PlayerMonsterLifeRegenerationRatePercentage1", list[2].modId)
 			-- No leading [ModId|...] token; resolved by display line lookup
 			assert.are.equals("Periodically unleashes Ice", list[3].display)
-			assert.is_not_nil(list[3].modId)
-			assert.are.equals("MonsterAdditionalProjectiles1", list[4].modId)
+			assert.are.equals("PlayerMonsterChilledGroundOnDeath1", list[3].modId)
+			assert.are.equals("PlayerMonsterAdditionalProjectiles1", list[4].modId)
 			for _, entry in ipairs(list) do
 				assert.True(entry.enabled)
 			end
@@ -46,6 +46,63 @@ describe("TestTamedBeastMods", function()
 		end)
 	end)
 
+	describe("Exported data shape", function()
+		it("contains only Player-prefixed companion mods with spawn weights", function()
+			local count = 0
+			for modId, beastMod in pairs(build.data.tamedBeastMods) do
+				count = count + 1
+				assert.is_not_nil(modId:match("^PlayerMonster"), modId.." is not Player-prefixed")
+				assert.is_nil(beastMod.rollable, modId.." still carries the removed rollable flag")
+				assert.are.equals("string", type(beastMod.name))
+				assert.True(beastMod.type == "Prefix" or beastMod.type == "Suffix")
+				assert.are.equals("table", type(beastMod.statDescriptions))
+				assert.are.equals("table", type(beastMod.modList))
+				assert.are.equals("table", type(beastMod.spawnWeights))
+				assert.True(#beastMod.spawnWeights > 0, modId.." has no spawn weights")
+				for _, entry in ipairs(beastMod.spawnWeights) do
+					assert.are.equals("string", type(entry.tag))
+					assert.are.equals("number", type(entry.weight))
+				end
+			end
+			-- ~68 as of 0.5; loose band so balance patches don't break the suite
+			assert.True(count >= 50 and count <= 100, "unexpected mod count: "..count)
+			-- Script-applied twin (generation type 3) must not pass the prefix/suffix filter
+			assert.is_nil(build.data.tamedBeastMods["PlayerMonsterGlacialPrison1"])
+		end)
+
+		it("marks boss-only beasts via the object template is_boss flag", function()
+			local silverfist = build.data.minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"]
+			assert.is_not_nil(silverfist)
+			assert.True(isValueInArray(silverfist.monsterTags, "boss") ~= nil)
+			local wolf = build.data.minions["WolfMinion"]
+			assert.is_not_nil(wolf)
+			assert.is_nil(isValueInArray(wolf.monsterTags, "boss"))
+		end)
+	end)
+
+	describe("data.beastModCanSpawn", function()
+		it("blocks zero-weight tag matches ahead of the default entry", function()
+			local hasteAura = build.data.tamedBeastMods["PlayerMonsterIncreasedSpeedAura1"]
+			assert.is_not_nil(hasteAura)
+			assert.False(build.data.beastModCanSpawn(hasteAura, { "fast_movement", "beast" }))
+			assert.True(build.data.beastModCanSpawn(hasteAura, { "beast" }))
+		end)
+
+		it("requires positive-gate tags when the default weight is zero", function()
+			local alwaysBleeds = build.data.tamedBeastMods["PlayerMonsterAlwaysBleed1"]
+			assert.is_not_nil(alwaysBleeds)
+			assert.True(build.data.beastModCanSpawn(alwaysBleeds, { "physical_affinity" }))
+			assert.False(build.data.beastModCanSpawn(alwaysBleeds, { "beast" }))
+			assert.False(build.data.beastModCanSpawn(alwaysBleeds, nil))
+		end)
+
+		it("falls through to false when no entry matches and there is no default", function()
+			local beastMod = { spawnWeights = { { tag = "caster", weight = 1 } } }
+			assert.False(build.data.beastModCanSpawn(beastMod, { "beast" }))
+			assert.True(build.data.beastModCanSpawn(beastMod, { "caster" }))
+		end)
+	end)
+
 	describe("SkillsTab persistence", function()
 		it("saves tamed beast mods as Gem child elements", function()
 			build.skillsTab.skillSets[1].socketGroupList = { {
@@ -55,7 +112,7 @@ describe("TestTamedBeastMods", function()
 					level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true,
 					count = 1, corrupted = false, corruptLevel = 0,
 					tamedBeastModList = {
-						{ modId = "MonsterDamageGainedAsCold1", enabled = true },
+						{ modId = "PlayerMonsterDamageGainedAsCold1", enabled = true },
 						{ display = "Periodically unleashes Ice", enabled = false },
 					},
 				} },
@@ -84,7 +141,7 @@ describe("TestTamedBeastMods", function()
 				end
 			end
 			assert.are.equals(2, #beastModNodes)
-			assert.are.equals("MonsterDamageGainedAsCold1", beastModNodes[1].attrib.modId)
+			assert.are.equals("PlayerMonsterDamageGainedAsCold1", beastModNodes[1].attrib.modId)
 			assert.are.equals("true", beastModNodes[1].attrib.enabled)
 			assert.is_nil(beastModNodes[2].attrib.modId)
 			assert.are.equals("Periodically unleashes Ice", beastModNodes[2].attrib.display)
@@ -94,7 +151,7 @@ describe("TestTamedBeastMods", function()
 		it("loads TamedBeastMod elements back onto the gem instance", function()
 			local node = { elem = "Skill", attrib = { enabled = "true" },
 				{ elem = "Gem", attrib = { nameSpec = "Companion: Mighty Silverfist", level = "20", quality = "0", enabled = "true" },
-					{ elem = "TamedBeastMod", attrib = { modId = "MonsterDamageGainedAsCold1", enabled = "true" } },
+					{ elem = "TamedBeastMod", attrib = { modId = "PlayerMonsterDamageGainedAsCold1", enabled = "true" } },
 					{ elem = "TamedBeastMod", attrib = { display = "Periodically unleashes Ice", enabled = "false" } },
 				},
 			}
@@ -105,7 +162,7 @@ describe("TestTamedBeastMods", function()
 			local gemInstance = socketGroupList[#socketGroupList].gemList[1]
 			assert.is_not_nil(gemInstance.tamedBeastModList)
 			assert.are.equals(2, #gemInstance.tamedBeastModList)
-			assert.are.equals("MonsterDamageGainedAsCold1", gemInstance.tamedBeastModList[1].modId)
+			assert.are.equals("PlayerMonsterDamageGainedAsCold1", gemInstance.tamedBeastModList[1].modId)
 			assert.True(gemInstance.tamedBeastModList[1].enabled)
 			assert.is_nil(gemInstance.tamedBeastModList[2].modId)
 			assert.are.equals("Periodically unleashes Ice", gemInstance.tamedBeastModList[2].display)
@@ -125,7 +182,9 @@ describe("TestTamedBeastMods", function()
 	end)
 
 	describe("Calculation wiring", function()
-		local beastId = "Metadata/Monsters/Quadrilla/QuadrillaBossMinion1" -- Mighty Silverfist
+		-- Mighty Silverfist: monsterTags include both fast_movement and boss, so it can
+		-- never roll Haste Aura (fast_movement = 0) or Regenerates Life (boss = 0)
+		local beastId = "Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"
 
 		local function buildCompanionGroup(tamedBeastModList)
 			table.insert(build.beastList, beastId)
@@ -148,7 +207,7 @@ describe("TestTamedBeastMods", function()
 		end
 
 		it("applies enabled beast mods to the companion minion", function()
-			buildCompanionGroup({ { modId = "MonsterDamageGainedAsCold1", enabled = true } })
+			buildCompanionGroup({ { modId = "PlayerMonsterDamageGainedAsCold1", enabled = true } })
 
 			local minion = build.calcsTab.mainEnv.minion
 			assert.is_not_nil(minion)
@@ -157,7 +216,7 @@ describe("TestTamedBeastMods", function()
 
 		it("skips disabled and unresolved beast mods", function()
 			local gemInstance = buildCompanionGroup({
-				{ modId = "MonsterDamageGainedAsCold1", enabled = false },
+				{ modId = "PlayerMonsterDamageGainedAsCold1", enabled = false },
 				{ display = "Periodically unleashes Ice", enabled = true },
 			})
 
@@ -169,6 +228,18 @@ describe("TestTamedBeastMods", function()
 			build.buildFlag = true
 			runCallback("OnFrame")
 			assert.are.equals(40, build.calcsTab.mainEnv.minion.modDB:Sum("BASE", nil, "DamageGainAsCold"))
+		end)
+
+		it("ignores enabled mods the selected beast can never roll", function()
+			buildCompanionGroup({
+				{ modId = "PlayerMonsterLifeRegenerationRatePercentage1", enabled = true }, -- boss = 0
+				{ modId = "PlayerMonsterDamageGainedAsCold1", enabled = true },
+			})
+
+			local minion = build.calcsTab.mainEnv.minion
+			assert.is_not_nil(minion)
+			assert.are.equals(0, minion.modDB:Sum("BASE", nil, "LifeRegenPercent"))
+			assert.are.equals(40, minion.modDB:Sum("BASE", nil, "DamageGainAsCold"))
 		end)
 
 		it("does not affect companions without beast mods", function()
@@ -183,7 +254,7 @@ describe("TestTamedBeastMods", function()
 			build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 			runCallback("OnFrame")
 			local srcInstance = build.skillsTab.socketGroupList[1].gemList[1]
-			srcInstance.tamedBeastModList = { { modId = "MonsterDamageGainedAsCold1", enabled = true } }
+			srcInstance.tamedBeastModList = { { modId = "PlayerMonsterDamageGainedAsCold1", enabled = true } }
 			build.buildFlag = true
 			runCallback("OnFrame")
 
@@ -194,11 +265,11 @@ describe("TestTamedBeastMods", function()
 
 		it("applies entries beyond the fourth and creates UI rows for them", function()
 			buildCompanionGroup({
-				{ modId = "MonsterIncreasedSpeedAura1", enabled = false },
-				{ modId = "MonsterLifeRegenerationRatePercentage1", enabled = false },
-				{ modId = "MonsterAdditionalProjectiles1", enabled = false },
-				{ modId = "MonsterFlaskRemovalAura1", enabled = false },
-				{ modId = "MonsterDamageGainedAsCold1", enabled = true },
+				{ modId = "PlayerMonsterIncreasedSpeedAura1", enabled = false },
+				{ modId = "PlayerMonsterLifeRegenerationRatePercentage1", enabled = false },
+				{ modId = "PlayerMonsterAdditionalProjectiles1", enabled = false },
+				{ modId = "PlayerMonsterFlaskRemovalAura1", enabled = false },
+				{ modId = "PlayerMonsterDamageGainedAsCold1", enabled = true },
 			})
 
 			assert.are.equals(40, build.calcsTab.mainEnv.minion.modDB:Sum("BASE", nil, "DamageGainAsCold"))
@@ -208,7 +279,7 @@ describe("TestTamedBeastMods", function()
 			skillsTab:UpdateBeastModSlots()
 			assert.is_not_nil(skillsTab.beastModSlots[6])
 			local slot5 = skillsTab.beastModSlots[5]
-			assert.are.equals("MonsterDamageGainedAsCold1", slot5.select.list[slot5.select.selIndex].modId)
+			assert.are.equals("PlayerMonsterDamageGainedAsCold1", slot5.select.list[slot5.select.selIndex].modId)
 		end)
 	end)
 
@@ -223,7 +294,7 @@ describe("TestTamedBeastMods", function()
 					properties = { { name = "Level", values = { { "17", 0 } } } },
 					tamedBeastProperties = { {
 						name = "Monster Modifiers:\n{0}",
-						values = { { "[MonsterDamageGainedAsCold1|Extra Cold Damage]\n[MonsterIncreasedSpeedAura1|Haste Aura]", 0 } },
+						values = { { "[PlayerMonsterDamageGainedAsCold1|Extra Cold Damage]\n[PlayerMonsterIncreasedSpeedAura1|Haste Aura]", 0 } },
 						displayMode = 3,
 					} },
 				} },
@@ -246,7 +317,7 @@ describe("TestTamedBeastMods", function()
 
 			gem = build.skillsTab.socketGroupList[1].gemList[1]
 			assert.are.equals(2, #gem.tamedBeastModList)
-			assert.are.equals("MonsterDamageGainedAsCold1", gem.tamedBeastModList[1].modId)
+			assert.are.equals("PlayerMonsterDamageGainedAsCold1", gem.tamedBeastModList[1].modId)
 			assert.False(gem.tamedBeastModList[1].enabled)
 			assert.True(gem.tamedBeastModList[2].enabled)
 		end)

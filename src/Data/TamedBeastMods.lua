@@ -6,40 +6,19 @@
 
 local mods, mod, flag = ...
 
-mods["MonsterDamageGainedAsFire1"] = {
-	name = "Extra Fire Damage",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Gains 40% of damage as extra Fire damage.",
-	},
-	modList = {
-		mod("DamageGainAsFire", "BASE", 40, 0, 0), -- MonsterDamageGainedAsFire1 [non_skill_base_all_damage_%_to_gain_as_fire = 40]
-	},
-}
-
 mods["PlayerMonsterDamageGainedAsFire1"] = {
 	name = "Extra Fire Damage",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "fire_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Gains 40% of damage as extra Fire damage.",
 	},
 	modList = {
 		mod("DamageGainAsFire", "BASE", 40, 0, 0), -- PlayerMonsterDamageGainedAsFire1 [non_skill_base_all_damage_%_to_gain_as_fire = 40]
-	},
-}
-
-mods["MonsterDamageGainedAsCold1"] = {
-	name = "Extra Cold Damage",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Gains 40% of damage as extra Cold damage.",
-	},
-	modList = {
-		mod("DamageGainAsCold", "BASE", 40, 0, 0), -- MonsterDamageGainedAsCold1 [non_skill_base_all_damage_%_to_gain_as_cold = 40]
 	},
 }
 
@@ -47,23 +26,15 @@ mods["PlayerMonsterDamageGainedAsCold1"] = {
 	name = "Extra Cold Damage",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "cold_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Gains 40% of damage as extra Cold damage.",
 	},
 	modList = {
 		mod("DamageGainAsCold", "BASE", 40, 0, 0), -- PlayerMonsterDamageGainedAsCold1 [non_skill_base_all_damage_%_to_gain_as_cold = 40]
-	},
-}
-
-mods["MonsterDamageGainedAsLightning1"] = {
-	name = "Extra Lightning Damage",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Gains 40% of damage as extra Lightning damage.",
-	},
-	modList = {
-		mod("DamageGainAsLightning", "BASE", 40, 0, 0), -- MonsterDamageGainedAsLightning1 [non_skill_base_all_damage_%_to_gain_as_lightning = 40]
 	},
 }
 
@@ -71,24 +42,15 @@ mods["PlayerMonsterDamageGainedAsLightning1"] = {
 	name = "Extra Lightning Damage",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "lightning_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Gains 40% of damage as extra Lightning damage.",
 	},
 	modList = {
 		mod("DamageGainAsLightning", "BASE", 40, 0, 0), -- PlayerMonsterDamageGainedAsLightning1 [non_skill_base_all_damage_%_to_gain_as_lightning = 40]
-	},
-}
-
-mods["MonsterIncreasedSpeed1"] = {
-	name = "Hasted",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 30% increased Attack, Cast and Movement speed.",
-	},
-	modList = {
-		mod("Speed", "INC", 30, 0, 0), -- MonsterIncreasedSpeed1 [attack_and_cast_speed_+% = 30]
-		mod("MovementSpeed", "INC", 30, 0, 0), -- MonsterIncreasedSpeed1 [base_movement_velocity_+% = 30]
 	},
 }
 
@@ -96,7 +58,12 @@ mods["PlayerMonsterIncreasedSpeed1"] = {
 	name = "Hasted",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "fast_movement", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 30% increased Attack, Cast and Movement speed.",
 	},
 	modList = {
 		mod("Speed", "INC", 30, 0, 0), -- PlayerMonsterIncreasedSpeed1 [attack_and_cast_speed_+% = 30]
@@ -104,40 +71,18 @@ mods["PlayerMonsterIncreasedSpeed1"] = {
 	},
 }
 
-mods["MonsterCriticalStrikeChance1"] = {
-	name = "Extra Crits",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 300% increased chance to Critically Hit.",
-	},
-	modList = {
-		mod("CritChance", "INC", 300, 0, 0), -- MonsterCriticalStrikeChance1 [critical_strike_chance_+% = 300]
-	},
-}
-
 mods["PlayerMonsterCriticalStrikeChance1"] = {
 	name = "Extra Crits",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 300% increased chance to Critically Hit.",
 	},
 	modList = {
 		mod("CritChance", "INC", 300, 0, 0), -- PlayerMonsterCriticalStrikeChance1 [critical_strike_chance_+% = 300]
-	},
-}
-
-mods["MonsterStunDamageIncrease1"] = {
-	name = "Stuns",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 100% increased Stun buildup.",
-	},
-	modList = {
-		-- MonsterStunDamageIncrease1 [hit_damage_stun_multiplier_+% = 100]
 	},
 }
 
@@ -145,23 +90,15 @@ mods["PlayerMonsterStunDamageIncrease1"] = {
 	name = "Stuns",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "melee", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 100% increased Stun buildup.",
 	},
 	modList = {
 		-- PlayerMonsterStunDamageIncrease1 [hit_damage_stun_multiplier_+% = 100]
-	},
-}
-
-mods["MonsterExtraArmour1"] = {
-	name = "Armoured",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster gains extra Armour based off of their Strength.",
-	},
-	modList = {
-		-- MonsterExtraArmour1 [monster_additional_strength_ratio_%_for_armour = 100]
 	},
 }
 
@@ -169,23 +106,15 @@ mods["PlayerMonsterExtraArmour1"] = {
 	name = "Armoured",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "armour", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster gains extra Armour based off of their Strength.",
 	},
 	modList = {
 		-- PlayerMonsterExtraArmour1 [monster_additional_strength_ratio_%_for_armour = 100]
-	},
-}
-
-mods["MonsterExtraEvasion1"] = {
-	name = "Evasive",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster gains extra Evasion based off of their Dexterity.",
-	},
-	modList = {
-		-- MonsterExtraEvasion1 [monster_additional_dexterity_ratio_%_for_evasion = 100]
 	},
 }
 
@@ -193,23 +122,15 @@ mods["PlayerMonsterExtraEvasion1"] = {
 	name = "Evasive",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "evasion", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster gains extra Evasion based off of their Dexterity.",
 	},
 	modList = {
 		-- PlayerMonsterExtraEvasion1 [monster_additional_dexterity_ratio_%_for_evasion = 100]
-	},
-}
-
-mods["MonsterExtraEnergyShield1"] = {
-	name = "Extra Energy Shield",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster gains 25% of Maximum life as added Energy Shield.",
-	},
-	modList = {
-		-- MonsterExtraEnergyShield1 [base_maximum_life_%_to_gain_as_total_energy_shield = 25]
 	},
 }
 
@@ -217,22 +138,15 @@ mods["PlayerMonsterExtraEnergyShield1"] = {
 	name = "Extra Energy Shield",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "energy_shield", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster gains 25% of Maximum life as added Energy Shield.",
 	},
 	modList = {
 		-- PlayerMonsterExtraEnergyShield1 [base_maximum_life_%_to_gain_as_total_energy_shield = 25]
-	},
-}
-
-mods["MonsterAlwaysPoison1"] = {
-	name = "Always Poisons",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("PoisonChance", "BASE", 100, 0, 0), -- MonsterAlwaysPoison1 [global_poison_on_hit = 1]
 	},
 }
 
@@ -240,6 +154,11 @@ mods["PlayerMonsterAlwaysPoison1"] = {
 	name = "Always Poisons",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "physical_affinity", weight = 1 },
+		{ tag = "chaos_affinity", weight = 1 },
+		{ tag = "default", weight = 0 },
+	},
 	statDescriptions = {
 	},
 	modList = {
@@ -247,22 +166,14 @@ mods["PlayerMonsterAlwaysPoison1"] = {
 	},
 }
 
-mods["MonsterAlwaysBleed1"] = {
-	name = "Always Bleeds",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("BleedChance", "BASE", 100, 0, 0), -- MonsterAlwaysBleed1 [global_bleed_on_hit = 1]
-	},
-}
-
 mods["PlayerMonsterAlwaysBleed1"] = {
 	name = "Always Bleeds",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "physical_affinity", weight = 1 },
+		{ tag = "default", weight = 0 },
+	},
 	statDescriptions = {
 	},
 	modList = {
@@ -270,32 +181,16 @@ mods["PlayerMonsterAlwaysBleed1"] = {
 	},
 }
 
-mods["MonsterBurningGroundOnDeath1"] = {
-	name = "Periodically unleashes Fire",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
 mods["PlayerMonsterBurningGroundOnDeath1"] = {
-	name = "Burning Ground on Death",
+	name = "Periodically unleashes Fire",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "titan_boss", weight = 0 },
+		{ tag = "fire_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterChilledGroundOnDeath1"] = {
-	name = "Periodically unleashes Ice",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
 	},
 	modList = {
@@ -306,17 +201,11 @@ mods["PlayerMonsterChilledGroundOnDeath1"] = {
 	name = "Periodically unleashes Ice",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "titan_boss", weight = 0 },
+		{ tag = "cold_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterShockedGroundOnDeath1"] = {
-	name = "Periodically unleashes Lightning",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
 	},
 	modList = {
@@ -327,45 +216,14 @@ mods["PlayerMonsterShockedGroundOnDeath1"] = {
 	name = "Periodically unleashes Lightning",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "titan_boss", weight = 0 },
+		{ tag = "lightning_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
 	},
 	modList = {
-	},
-}
-
-mods["MonsterImmuneToStun1"] = {
-	name = "Increased Stun Threshold",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster cannot be Stunned.",
-	},
-	modList = {
-		mod("StunImmune", "FLAG", 1, 0, 0), -- MonsterImmuneToStun1 [base_cannot_be_stunned = 1]
-	},
-}
-
-mods["PlayerMonsterImmuneToStun1"] = {
-	name = "Increased Stun Threshold",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("StunImmune", "FLAG", 1, 0, 0), -- PlayerMonsterImmuneToStun1 [base_cannot_be_stunned = 1]
-	},
-}
-
-mods["MonsterStunResilience1"] = {
-	name = "Stun Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 250% increased Stun Threshold.",
-	},
-	modList = {
-		mod("StunThreshold", "INC", 250, 0, 0), -- MonsterStunResilience1 [stun_threshold_+% = 250]
 	},
 }
 
@@ -373,24 +231,14 @@ mods["PlayerMonsterStunResilience1"] = {
 	name = "Stun Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 250% increased Stun Threshold.",
 	},
 	modList = {
 		mod("StunThreshold", "INC", 250, 0, 0), -- PlayerMonsterStunResilience1 [stun_threshold_+% = 250]
-	},
-}
-
-mods["MonsterFireResistance1"] = {
-	name = "Fire Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has +50% to Fire Resistance and +10% to Maximum Fire Resistance.",
-	},
-	modList = {
-		mod("FireResist", "BASE", 50, 0, 0), -- MonsterFireResistance1 [base_fire_damage_resistance_% = 50]
-		mod("FireResistMax", "BASE", 10, 0, 0), -- MonsterFireResistance1 [base_maximum_fire_damage_resistance_% = 10]
 	},
 }
 
@@ -398,7 +246,12 @@ mods["PlayerMonsterFireResistance1"] = {
 	name = "Fire Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "fire_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has +50% to Fire Resistance and +10% to Maximum Fire Resistance.",
 	},
 	modList = {
 		mod("FireResist", "BASE", 50, 0, 0), -- PlayerMonsterFireResistance1 [base_fire_damage_resistance_% = 50]
@@ -406,25 +259,16 @@ mods["PlayerMonsterFireResistance1"] = {
 	},
 }
 
-mods["MonsterColdResistance1"] = {
-	name = "Cold Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has +50% to Cold Resistance and +10% to Maximum Cold Resistance.",
-	},
-	modList = {
-		mod("ColdResist", "BASE", 50, 0, 0), -- MonsterColdResistance1 [base_cold_damage_resistance_% = 50]
-		mod("ColdResistMax", "BASE", 10, 0, 0), -- MonsterColdResistance1 [base_maximum_cold_damage_resistance_% = 10]
-	},
-}
-
 mods["PlayerMonsterColdResistance1"] = {
 	name = "Cold Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "cold_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has +50% to Cold Resistance and +10% to Maximum Cold Resistance.",
 	},
 	modList = {
 		mod("ColdResist", "BASE", 50, 0, 0), -- PlayerMonsterColdResistance1 [base_cold_damage_resistance_% = 50]
@@ -432,25 +276,16 @@ mods["PlayerMonsterColdResistance1"] = {
 	},
 }
 
-mods["MonsterLightningResistance1"] = {
-	name = "Lightning Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has +50% to Lightning Resistance and +10% to Maximum Lightning Resistance.",
-	},
-	modList = {
-		mod("LightningResist", "BASE", 50, 0, 0), -- MonsterLightningResistance1 [base_lightning_damage_resistance_% = 50]
-		mod("LightningResistMax", "BASE", 10, 0, 0), -- MonsterLightningResistance1 [base_maximum_lightning_damage_resistance_% = 10]
-	},
-}
-
 mods["PlayerMonsterLightningResistance1"] = {
 	name = "Lightning Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "lightning_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has +50% to Lightning Resistance and +10% to Maximum Lightning Resistance.",
 	},
 	modList = {
 		mod("LightningResist", "BASE", 50, 0, 0), -- PlayerMonsterLightningResistance1 [base_lightning_damage_resistance_% = 50]
@@ -458,40 +293,18 @@ mods["PlayerMonsterLightningResistance1"] = {
 	},
 }
 
-mods["MonsterArmourPenetration1"] = {
-	name = "Breaks Armour",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Breaks Armour equal to 1000% of Physical Damage dealt.",
-	},
-	modList = {
-		mod("Condition:CanArmourBreak", "FLAG", 1000, 0, 0, { effectName = "ArmourBreak", effectType = "Buff", type = "GlobalEffect" }), -- MonsterArmourPenetration1 [armour_break_physical_damage_%_dealt_as_armour_break = 1000]
-	},
-}
-
 mods["PlayerMonsterArmourPenetration1"] = {
 	name = "Breaks Armour",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Breaks Armour equal to 1000% of Physical Damage dealt.",
 	},
 	modList = {
 		mod("Condition:CanArmourBreak", "FLAG", 1000, 0, 0, { effectName = "ArmourBreak", effectType = "Buff", type = "GlobalEffect" }), -- PlayerMonsterArmourPenetration1 [armour_break_physical_damage_%_dealt_as_armour_break = 1000]
-	},
-}
-
-mods["MonsterIncreasedAccuracy1"] = {
-	name = "Accurate",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 200% increased Accuracy Rating.",
-	},
-	modList = {
-		mod("Accuracy", "INC", 200, 0, 0), -- MonsterIncreasedAccuracy1 [accuracy_rating_+% = 200]
 	},
 }
 
@@ -499,23 +312,14 @@ mods["PlayerMonsterIncreasedAccuracy1"] = {
 	name = "Accurate",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 200% increased Accuracy Rating.",
 	},
 	modList = {
 		mod("Accuracy", "INC", 200, 0, 0), -- PlayerMonsterIncreasedAccuracy1 [accuracy_rating_+% = 200]
-	},
-}
-
-mods["MonsterDamageGainedAsChaos1"] = {
-	name = "Extra Chaos Damage",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Gains 40% of damage as extra Chaos damage.",
-	},
-	modList = {
-		mod("DamageGainAsChaos", "BASE", 40, 0, 0), -- MonsterDamageGainedAsChaos1 [non_skill_base_all_damage_%_to_gain_as_chaos = 40]
 	},
 }
 
@@ -523,23 +327,15 @@ mods["PlayerMonsterDamageGainedAsChaos1"] = {
 	name = "Extra Chaos Damage",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "chaos_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Gains 40% of damage as extra Chaos damage.",
 	},
 	modList = {
 		mod("DamageGainAsChaos", "BASE", 40, 0, 0), -- PlayerMonsterDamageGainedAsChaos1 [non_skill_base_all_damage_%_to_gain_as_chaos = 40]
-	},
-}
-
-mods["MonsterLifeRegenerationRatePercentage1"] = {
-	name = "Regenerates Life",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster Regenerates 2% of Maximum Life per second.",
-	},
-	modList = {
-		mod("LifeRegenPercent", "BASE", 2, 0, 0), -- MonsterLifeRegenerationRatePercentage1 [life_regeneration_rate_per_minute_% = 120]
 	},
 }
 
@@ -547,23 +343,15 @@ mods["PlayerMonsterLifeRegenerationRatePercentage1"] = {
 	name = "Regenerates Life",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster Regenerates 2% of Maximum Life per second.",
 	},
 	modList = {
 		mod("LifeRegenPercent", "BASE", 2, 0, 0), -- PlayerMonsterLifeRegenerationRatePercentage1 [life_regeneration_rate_per_minute_% = 120]
-	},
-}
-
-mods["MonsterAdditionalProjectiles1"] = {
-	name = "Additional Projectiles",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster fires 4 additional Projectiles.",
-	},
-	modList = {
-		mod("ProjectileCount", "BASE", 4, 0, 0), -- MonsterAdditionalProjectiles1 [number_of_additional_projectiles = 4]
 	},
 }
 
@@ -571,24 +359,15 @@ mods["PlayerMonsterAdditionalProjectiles1"] = {
 	name = "Additional Projectiles",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "allows_additional_projectiles", weight = 1 },
+		{ tag = "default", weight = 0 },
+	},
 	statDescriptions = {
+		"Monster fires 4 additional Projectiles.",
 	},
 	modList = {
 		mod("ProjectileCount", "BASE", 4, 0, 0), -- PlayerMonsterAdditionalProjectiles1 [number_of_additional_projectiles = 4]
-	},
-}
-
-mods["MonsterAreaOfEffect1"] = {
-	name = "Increased Area of Effect",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 100% Increased Area of Effect.",
-		"100% more Area of Effect",
-	},
-	modList = {
-		-- MonsterAreaOfEffect1 [rare_monster_mod_area_of_effect_+%_final = 100]
 	},
 }
 
@@ -596,7 +375,13 @@ mods["PlayerMonsterAreaOfEffect1"] = {
 	name = "Increased Area of Effect",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "allows_inc_aoe", weight = 1 },
+		{ tag = "default", weight = 0 },
+	},
 	statDescriptions = {
+		"Monster has 100% Increased Area of Effect.",
 		"100% more Area of Effect",
 	},
 	modList = {
@@ -604,23 +389,14 @@ mods["PlayerMonsterAreaOfEffect1"] = {
 	},
 }
 
-mods["MonsterIgniteChanceIncrease1"] = {
-	name = "All Damage Ignites",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("PhysicalCanIgnite", "FLAG", 1, 0, 0), -- MonsterIgniteChanceIncrease1 [all_damage_can_ignite = 1]
-		mod("EnemyIgniteChance", "BASE", 100, 0, 0), -- MonsterIgniteChanceIncrease1 [always_ignite = 1]
-	},
-}
-
 mods["PlayerMonsterIgniteChanceIncrease1"] = {
 	name = "All Damage Ignites",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "fire_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
 	},
 	modList = {
@@ -629,23 +405,14 @@ mods["PlayerMonsterIgniteChanceIncrease1"] = {
 	},
 }
 
-mods["MonsterFreezeDamageIncrease1"] = {
-	name = "All Damage Chills",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterFreezeDamageIncrease1 [all_damage_can_chill = 1]
-		-- MonsterFreezeDamageIncrease1 [chill_minimum_slow_% = 10]
-	},
-}
-
 mods["PlayerMonsterFreezeDamageIncrease1"] = {
 	name = "All Damage Chills",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "cold_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
 	},
 	modList = {
@@ -654,23 +421,14 @@ mods["PlayerMonsterFreezeDamageIncrease1"] = {
 	},
 }
 
-mods["MonsterShockChanceIncrease1"] = {
-	name = "All Damage Shocks",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("PhysicalCanShock", "FLAG", 1, 0, 0), -- MonsterShockChanceIncrease1 [all_damage_can_shock = 1]
-		mod("EnemyShockChance", "BASE", 100, 0, 0), -- MonsterShockChanceIncrease1 [always_shock = 1]
-	},
-}
-
 mods["PlayerMonsterShockChanceIncrease1"] = {
 	name = "All Damage Shocks",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "lightning_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
 	},
 	modList = {
@@ -679,32 +437,17 @@ mods["PlayerMonsterShockChanceIncrease1"] = {
 	},
 }
 
-mods["MonsterBurningGroundTrail1"] = {
-	name = "Trail of Fire",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
 mods["PlayerMonsterBurningGroundTrail1"] = {
 	name = "Trail of Fire",
 	type = "Suffix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "immobile", weight = 0 },
+		{ tag = "ranged", weight = 0 },
+		{ tag = "fire_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterChilledGroundTrail1"] = {
-	name = "Trail of Ice",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
 	statDescriptions = {
 	},
 	modList = {
@@ -715,19 +458,13 @@ mods["PlayerMonsterChilledGroundTrail1"] = {
 	name = "Trail of Ice",
 	type = "Suffix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "immobile", weight = 0 },
+		{ tag = "ranged", weight = 0 },
+		{ tag = "cold_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterShockedGroundTrail1"] = {
-	name = "Trail of Lightning",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
 	statDescriptions = {
-		"Monster leaves a trail of Shocked Ground as they move.",
 	},
 	modList = {
 	},
@@ -737,23 +474,16 @@ mods["PlayerMonsterShockedGroundTrail1"] = {
 	name = "Trail of Lightning",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "immobile", weight = 0 },
+		{ tag = "ranged", weight = 0 },
+		{ tag = "lightning_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster leaves a trail of Shocked Ground as they move.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterImmuneToSlow1"] = {
-	name = "Slow Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Monster has 50% reduced Slowing Potency of Debuffs on them.",
-		"50% less Slowing Potency of Debuffs on me",
-	},
-	modList = {
-		-- MonsterImmuneToSlow1 [monster_slow_potency_+%_final = -50]
 	},
 }
 
@@ -761,7 +491,11 @@ mods["PlayerMonsterImmuneToSlow1"] = {
 	name = "Slow Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has 50% reduced Slowing Potency of Debuffs on them.",
 		"50% less Slowing Potency of Debuffs on me",
 	},
 	modList = {
@@ -769,16 +503,18 @@ mods["PlayerMonsterImmuneToSlow1"] = {
 	},
 }
 
-mods["MonsterChaosResistance1"] = {
-	name = "Chaos Resistant",
-	rollable = true,
+mods["PlayerMonsterModReducedCritMulti1"] = {
+	name = "Crit Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
-		"Monster has +50% to Chaos Resistance.",
+		"Hits against this Monster have 80% reduced Critical Damage Bonus.",
 	},
 	modList = {
-		mod("ChaosResist", "BASE", 50, 0, 0), -- MonsterChaosResistance1 [base_chaos_damage_resistance_% = 50]
+		mod("SelfCritMultiplier", "INC", -80, 0, 0), -- PlayerMonsterModReducedCritMulti1 [base_self_critical_strike_multiplier_-% = 80]
 	},
 }
 
@@ -786,171 +522,15 @@ mods["PlayerMonsterChaosResistance1"] = {
 	name = "Chaos Resistant",
 	type = "Suffix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "chaos_affinity", weight = 1 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster has +50% to Chaos Resistance.",
 	},
 	modList = {
 		mod("ChaosResist", "BASE", 50, 0, 0), -- PlayerMonsterChaosResistance1 [base_chaos_damage_resistance_% = 50]
-	},
-}
-
-mods["MonsterCannotLeech1"] = {
-	name = "of Congealment",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterCannotLeech1 [life_leeched_from_-permyriad = 6000]
-		-- MonsterCannotLeech1 [mana_leeched_from_-permyriad = 4000]
-		-- MonsterCannotLeech1 [energy_shield_leeched_from_-permyriad = 6000]
-	},
-}
-
-mods["PlayerMonsterCannotLeech1"] = {
-	name = "of Congealment",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterCannotLeech1 [life_leeched_from_-permyriad = 6000]
-		-- PlayerMonsterCannotLeech1 [mana_leeched_from_-permyriad = 4000]
-		-- PlayerMonsterCannotLeech1 [energy_shield_leeched_from_-permyriad = 6000]
-	},
-}
-
-mods["MonsterIsHexproof1"] = {
-	name = "of Hexproof",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Hexproof",
-	},
-	modList = {
-		-- MonsterIsHexproof1 [hexproof = 1]
-	},
-}
-
-mods["PlayerMonsterIsHexproof1"] = {
-	name = "of Hexproof",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Hexproof",
-	},
-	modList = {
-		-- PlayerMonsterIsHexproof1 [hexproof = 1]
-	},
-}
-
-mods["MonsterAdditionalChains1"] = {
-	name = "of Chaining",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("ChainCountMax", "BASE", 2, 0, 0), -- MonsterAdditionalChains1 [number_of_chains = 2]
-		-- MonsterAdditionalChains1 [projectile_chain_from_terrain_chance_% = 50]
-	},
-}
-
-mods["PlayerMonsterAdditionalChains1"] = {
-	name = "of Chaining",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("ChainCountMax", "BASE", 2, 0, 0), -- PlayerMonsterAdditionalChains1 [number_of_chains = 2]
-		-- PlayerMonsterAdditionalChains1 [projectile_chain_from_terrain_chance_% = 50]
-	},
-}
-
-mods["MonsterProjectilesGainDamage1"] = {
-	name = "of Far Shot",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterProjectilesGainDamage1 [projectile_damage_+%_max_as_distance_travelled_increases = 60]
-	},
-}
-
-mods["PlayerMonsterProjectilesGainDamage1"] = {
-	name = "of Far Shot",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterProjectilesGainDamage1 [projectile_damage_+%_max_as_distance_travelled_increases = 60]
-	},
-}
-
-mods["MonsterModReducedCritMulti1"] = {
-	name = "Crit Resistant",
-	rollable = true,
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-		"Hits against this Monster have 80% reduced Critical Damage Bonus.",
-	},
-	modList = {
-		mod("SelfCritMultiplier", "INC", -80, 0, 0), -- MonsterModReducedCritMulti1 [base_self_critical_strike_multiplier_-% = 80]
-	},
-}
-
-mods["PlayerMonsterModReducedCritMulti1"] = {
-	name = "Crit Resistant",
-	type = "Suffix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("SelfCritMultiplier", "INC", -80, 0, 0), -- PlayerMonsterModReducedCritMulti1 [base_self_critical_strike_multiplier_-% = 80]
-	},
-}
-
-mods["MonsterLastGasp1"] = {
-	name = "TBD",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterLastGasp1 [retaliation_godmode_ghost_duration_ms = 10000]
-		-- MonsterLastGasp1 [corpse_cannot_be_destroyed = 1]
-		-- MonsterLastGasp1 [cannot_be_dominated = 1]
-	},
-}
-
-mods["PlayerMonsterLastGasp1"] = {
-	name = "TBD",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterLastGasp1 [retaliation_godmode_ghost_duration_ms = 10000]
-		-- PlayerMonsterLastGasp1 [corpse_cannot_be_destroyed = 1]
-		-- PlayerMonsterLastGasp1 [cannot_be_dominated = 1]
-	},
-}
-
-mods["MonsterFlameBeacons1"] = {
-	name = "Periodic Fire Explosions",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
 	},
 }
 
@@ -958,17 +538,11 @@ mods["PlayerMonsterFlameBeacons1"] = {
 	name = "Periodic Fire Explosions",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterFrostBeacons1"] = {
-	name = "Periodic Cold Explosions",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
 	},
 	modList = {
@@ -979,17 +553,11 @@ mods["PlayerMonsterFrostBeacons1"] = {
 	name = "Periodic Cold Explosions",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterLightningBeacons1"] = {
-	name = "Periodic Lightning Explosions",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
 	},
 	modList = {
@@ -1000,19 +568,12 @@ mods["PlayerMonsterLightningBeacons1"] = {
 	name = "Periodic Lightning Explosions",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterStrongerMinions1"] = {
-	name = "Powerful Minions",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster's Pack Minions have 25% increased Damage and 50% increased Life.",
 	},
 	modList = {
 	},
@@ -1022,22 +583,15 @@ mods["PlayerMonsterStrongerMinions1"] = {
 	name = "Powerful Minions",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster's Pack Minions have 25% increased Damage and 50% increased Life.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterPhysicalDamageAura1"] = {
-	name = "Extra Physical Damage Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that grants 40% increased Physical Damage to Allies within 5 metres.",
-	},
-	modList = {
-		mod("PhysicalDamage", "INC", 40, 0, 0), -- MonsterPhysicalDamageAura1 [physical_damage_+% = 40]
 	},
 }
 
@@ -1045,24 +599,15 @@ mods["PlayerMonsterPhysicalDamageAura1"] = {
 	name = "Extra Physical Damage Aura",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that grants 40% increased Physical Damage to Allies within 5 metres.",
 	},
 	modList = {
 		mod("PhysicalDamage", "INC", 40, 0, 0), -- PlayerMonsterPhysicalDamageAura1 [physical_damage_+% = 40]
-	},
-}
-
-mods["MonsterIncreasedSpeedAura1"] = {
-	name = "Haste Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that grants 20% increased Attack and Cast speed and 10% increased Movement speed to Allies within 5 metres.",
-	},
-	modList = {
-		mod("Speed", "INC", 25, 0, 0), -- MonsterIncreasedSpeedAura1 [attack_and_cast_speed_+% = 25]
-		mod("MovementSpeed", "INC", 25, 0, 0), -- MonsterIncreasedSpeedAura1 [base_movement_velocity_+% = 25]
 	},
 }
 
@@ -1070,7 +615,13 @@ mods["PlayerMonsterIncreasedSpeedAura1"] = {
 	name = "Haste Aura",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "fast_movement", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that grants 20% increased Attack and Cast speed and 10% increased Movement speed to Allies within 5 metres.",
 	},
 	modList = {
 		mod("Speed", "INC", 25, 0, 0), -- PlayerMonsterIncreasedSpeedAura1 [attack_and_cast_speed_+% = 25]
@@ -1078,63 +629,19 @@ mods["PlayerMonsterIncreasedSpeedAura1"] = {
 	},
 }
 
-mods["PlayerMonsterIncreasedSpeedAuraMinion1"] = {
-	name = "Haste Aura",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		mod("Speed", "INC", 20, 0, 0), -- PlayerMonsterIncreasedSpeedAuraMinion1 [attack_and_cast_speed_+% = 20]
-		mod("MovementSpeed", "INC", 10, 0, 0), -- PlayerMonsterIncreasedSpeedAuraMinion1 [base_movement_velocity_+% = 10]
-	},
-}
-
-mods["MonsterEnergyShieldAura1"] = {
-	name = "Energy Shield Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that grants 20% of Maximum life as added Energy Shield to Allies within 5 metres.",
-	},
-	modList = {
-		-- MonsterEnergyShieldAura1 [base_maximum_life_%_to_gain_as_total_energy_shield = 30]
-	},
-}
-
 mods["PlayerMonsterEnergyShieldAura1"] = {
 	name = "Energy Shield Aura",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that grants 20% of Maximum life as added Energy Shield to Allies within 5 metres.",
 	},
 	modList = {
 		-- PlayerMonsterEnergyShieldAura1 [base_maximum_life_%_to_gain_as_total_energy_shield = 30]
-	},
-}
-
-mods["PlayerMonsterEnergyShieldAuraMinion1"] = {
-	name = "Energy Shield Aura",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterEnergyShieldAuraMinion1 [base_maximum_life_%_to_gain_as_total_energy_shield = 20]
-	},
-}
-
-mods["MonsterResistanceAura1"] = {
-	name = "Elemental Resistance Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that grants +35% to all Elemental Resistances to Allies within 5 metres.",
-	},
-	modList = {
-		mod("ElementalResist", "BASE", 35, 0, 0), -- MonsterResistanceAura1 [base_resist_all_elements_% = 35]
 	},
 }
 
@@ -1142,26 +649,15 @@ mods["PlayerMonsterResistanceAura1"] = {
 	name = "Elemental Resistance Aura",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that grants +35% to all Elemental Resistances to Allies within 5 metres.",
 	},
 	modList = {
 		mod("ElementalResist", "BASE", 35, 0, 0), -- PlayerMonsterResistanceAura1 [base_resist_all_elements_% = 35]
-	},
-}
-
-mods["MonsterTemporalAura1"] = {
-	name = "Temporal Bubble",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that Debuffs Enemies within 3.2 metres; Slowing by 25%, making effects expire 40% slower and reducing Cooldown Recovery Rate by 60%.",
-	},
-	modList = {
-		-- MonsterTemporalAura1 [action_speed_-% = 25]
-		-- MonsterTemporalAura1 [debuff_time_passed_+% = -40]
-		mod("CooldownRecovery", "INC", -60, 0, 0), -- MonsterTemporalAura1 [base_cooldown_speed_+% = -60]
-		-- MonsterTemporalAura1 [cannot_be_damaged_by_things_outside_radius = 0]
 	},
 }
 
@@ -1169,7 +665,12 @@ mods["PlayerMonsterTemporalAura1"] = {
 	name = "Temporal Bubble",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that Debuffs Enemies within 3.2 metres; Slowing by 25%, making effects expire 40% slower and reducing Cooldown Recovery Rate by 60%.",
 	},
 	modList = {
 		-- PlayerMonsterTemporalAura1 [action_speed_-% = 25]
@@ -1179,25 +680,14 @@ mods["PlayerMonsterTemporalAura1"] = {
 	},
 }
 
-mods["PlayerMonsterTemporalAuraMinion1"] = {
-	name = "Temporal Bubble",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterTemporalAuraMinion1 [action_speed_-% = 12]
-		-- PlayerMonsterTemporalAuraMinion1 [debuff_time_passed_+% = -40]
-		mod("CooldownRecovery", "INC", -20, 0, 0), -- PlayerMonsterTemporalAuraMinion1 [base_cooldown_speed_+% = -20]
-		-- PlayerMonsterTemporalAuraMinion1 [cannot_be_damaged_by_things_outside_radius = 0]
-	},
-}
-
-mods["MonsterHinderAura1"] = {
+mods["PlayerMonsterHinderAura1"] = {
 	name = "Hinder Aura",
-	rollable = true,
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
 		"Monster creates an Aura that Hinders enemies within 3.6 metres.",
 	},
@@ -1205,49 +695,18 @@ mods["MonsterHinderAura1"] = {
 	},
 }
 
-mods["PlayerMonsterHinderAura1"] = {
-	name = "Hinder Aura",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterPreventRecoveryAura1"] = {
-	name = "Prevents Recovery Above 50%",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that Debuffs enemies within 4.2 metres, causing their Life and Energy Shield to not be able to recover past 50%.",
-	},
-	modList = {
-		-- MonsterPreventRecoveryAura1 [cannot_recover_life_or_energy_shield_above_% = 50]
-	},
-}
-
 mods["PlayerMonsterPreventRecoveryAura1"] = {
 	name = "Prevents Recovery Above 50%",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that Debuffs enemies within 4.2 metres, causing their Life and Energy Shield to not be able to recover past 50%.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterImmuneAura1"] = {
-	name = "Periodic Invulnerability Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster releases a nova that makes Allies invulnerable for 5 seconds while the monster is alive within 5 metres every 12 seconds.",
-	},
-	modList = {
-		-- MonsterImmuneAura1 [monster_allies_cannot_take_damage_pulse_owner = 1]
 	},
 }
 
@@ -1255,23 +714,16 @@ mods["PlayerMonsterImmuneAura1"] = {
 	name = "Periodic Invulnerability Aura",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-		-- PlayerMonsterImmuneAura1 [monster_allies_cannot_take_damage_pulse_owner = 1]
-	},
-}
-
-mods["MonsterImmuneAura2"] = {
-	name = "Empowered Periodic Invulnerability Aura",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
 		"Monster releases a nova that makes Allies invulnerable for 5 seconds while the monster is alive within 5 metres every 12 seconds.",
 	},
 	modList = {
-		-- MonsterImmuneAura2 [monster_allies_cannot_take_damage_pulse_owner = 1]
+		-- PlayerMonsterImmuneAura1 [monster_allies_cannot_take_damage_pulse_owner = 1]
 	},
 }
 
@@ -1279,35 +731,16 @@ mods["PlayerMonsterImmuneAura2"] = {
 	name = "Empowered Periodic Invulnerability Aura",
 	type = "Prefix",
 	tier = 2,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster releases a nova that makes Allies invulnerable for 5 seconds while the monster is alive within 5 metres every 12 seconds.",
 	},
 	modList = {
 		-- PlayerMonsterImmuneAura2 [monster_allies_cannot_take_damage_pulse_owner = 1]
-	},
-}
-
-mods["MonsterImmuneAuraMinion2"] = {
-	name = "Increased Life",
-	type = "Prefix",
-	tier = 2,
-	statDescriptions = {
-		"Monster has 50% increased Life.",
-	},
-	modList = {
-		-- MonsterImmuneAuraMinion2 [base_maximum_life = 0]
-		-- MonsterImmuneAuraMinion2 [maximum_life_+% = 50]
-	},
-}
-
-mods["MonsterManaSiphonAura1"] = {
-	name = "Siphons Mana and Deals Lightning Damage",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates a circular effect that drains Mana and deals Lightning Damage over time to enemies near the edge of the circle.",
-	},
-	modList = {
 	},
 }
 
@@ -1315,19 +748,14 @@ mods["PlayerMonsterManaSiphonAura1"] = {
 	name = "Siphons Mana and Deals Lightning Damage",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "ranged", weight = 0 },
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterManaSiphonAura2"] = {
-	name = "Siphons Mana and Deals Lightning Damage",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster creates a circular effect that drains Mana and deals Lightning Damage over time to enemies near the edge of the circle. Additionally, Monster will periodically create separate circles that drain Mana and deal Lightning Damage over time to enemies standing in them.",
+		"Monster creates a circular effect that drains Mana and deals Lightning Damage over time to enemies near the edge of the circle.",
 	},
 	modList = {
 	},
@@ -1337,19 +765,14 @@ mods["PlayerMonsterManaSiphonAura2"] = {
 	name = "Siphons Mana and Deals Lightning Damage",
 	type = "Prefix",
 	tier = 2,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "ranged", weight = 0 },
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterHealingNova1"] = {
-	name = "Heals Allies and Suppresses Foe Recovery",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster releases a nova that reduces Enemy Life and Energy Shield Recovery Rate by 60% and causes Allies to Regenerate 5.5% of Maximum Life per second for 4 seconds within 5 metres every 8 seconds.",
+		"Monster creates a circular effect that drains Mana and deals Lightning Damage over time to enemies near the edge of the circle. Additionally, Monster will periodically create separate circles that drain Mana and deal Lightning Damage over time to enemies standing in them.",
 	},
 	modList = {
 	},
@@ -1359,22 +782,15 @@ mods["PlayerMonsterHealingNova1"] = {
 	name = "Heals Allies and Suppresses Foe Recovery",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster releases a nova that reduces Enemy Life and Energy Shield Recovery Rate by 60% and causes Allies to Regenerate 5.5% of Maximum Life per second for 4 seconds within 5 metres every 8 seconds.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterFlaskRemovalAura1"] = {
-	name = "Siphons Flask Charges",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster creates an Aura that removes 3 Flask and Charm charges from enemies every 3 seconds within 3.6 metres.",
-	},
-	modList = {
-		-- MonsterFlaskRemovalAura1 [generate_x_charges_for_any_flask_per_minute = -3]
 	},
 }
 
@@ -1382,22 +798,15 @@ mods["PlayerMonsterFlaskRemovalAura1"] = {
 	name = "Siphons Flask Charges",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster creates an Aura that removes 3 Flask and Charm charges from enemies every 3 seconds within 3.6 metres.",
 	},
 	modList = {
 		-- PlayerMonsterFlaskRemovalAura1 [generate_x_charges_for_any_flask_per_minute = -3]
-	},
-}
-
-mods["MonsterRevivesMinions1"] = {
-	name = "Reviving Minions",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster periodically revives Pack Minions.",
-	},
-	modList = {
 	},
 }
 
@@ -1405,19 +814,15 @@ mods["PlayerMonsterRevivesMinions1"] = {
 	name = "Reviving Minions",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "quest_null_monster_mods", weight = 0 },
+		{ tag = "boss", weight = 0 },
+		{ tag = "no_minion_revival", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterRevivesMinions2"] = {
-	name = "Empowered Reviving Minions",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster periodically revives Pack Minions with increased Life and Damage.",
+		"Monster periodically revives Pack Minions.",
 	},
 	modList = {
 	},
@@ -1427,22 +832,17 @@ mods["PlayerMonsterRevivesMinions2"] = {
 	name = "Empowered Reviving Minions",
 	type = "Prefix",
 	tier = 2,
+	spawnWeights = {
+		{ tag = "quest_null_monster_mods", weight = 0 },
+		{ tag = "boss", weight = 0 },
+		{ tag = "no_minion_revival", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster periodically revives Pack Minions with increased Life and Damage.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterMinionsTakeLifeInstead1"] = {
-	name = "Damage Taken From Minions First",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"50% of damage taken from Monster is taken from Monster's Pack Minions instead",
-	},
-	modList = {
-		-- MonsterMinionsTakeLifeInstead1 [damage_removed_from_pack_minions_before_life_or_es_% = 50]
 	},
 }
 
@@ -1450,22 +850,16 @@ mods["PlayerMonsterMinionsTakeLifeInstead1"] = {
 	name = "Damage Taken From Minions First",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "boss", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"50% of damage taken from Monster is taken from Monster's Pack Minions instead",
 	},
 	modList = {
 		-- PlayerMonsterMinionsTakeLifeInstead1 [damage_removed_from_pack_minions_before_life_or_es_% = 50]
-	},
-}
-
-mods["MonsterShroudWalker1"] = {
-	name = "Shroud Walker",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster periodically teleports to an enemy they can see, creating a Smoke Cloud where they leave and where they teleport to.",
-	},
-	modList = {
 	},
 }
 
@@ -1473,17 +867,13 @@ mods["PlayerMonsterShroudWalker1"] = {
 	name = "Shroud Walker",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "immobile", weight = 0 },
+		{ tag = "no_shroud_walker", weight = 0 },
+		{ tag = "boss", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterShroudWalker2"] = {
-	name = "Shroud Walker",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
 		"Monster periodically teleports to an enemy they can see, creating a Smoke Cloud where they leave and where they teleport to.",
 	},
@@ -1495,19 +885,15 @@ mods["PlayerMonsterShroudWalker2"] = {
 	name = "Shroud Walker",
 	type = "Prefix",
 	tier = 2,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "immobile", weight = 0 },
+		{ tag = "no_shroud_walker", weight = 0 },
+		{ tag = "boss", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterPeriodicEnrage1"] = {
-	name = "Periodically Enrages",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster periodically Enrages; gaining 30% increased Damage, 25% increased Skill and Movement Speed and 33% less damage taken for 5 seconds every 10 seconds.",
+		"Monster periodically teleports to an enemy they can see, creating a Smoke Cloud where they leave and where they teleport to.",
 	},
 	modList = {
 	},
@@ -1517,19 +903,12 @@ mods["PlayerMonsterPeriodicEnrage1"] = {
 	name = "Periodically Enrages",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterPeriodicEnrage2"] = {
-	name = "Enraged",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster is Enraged; gaining 30% increased Damage, 25% increased Skill and Movement Speed and 33% less damage taken.",
+		"Monster periodically Enrages; gaining 30% increased Damage, 25% increased Skill and Movement Speed and 33% less damage taken for 5 seconds every 10 seconds.",
 	},
 	modList = {
 	},
@@ -1539,28 +918,12 @@ mods["PlayerMonsterPeriodicEnrage2"] = {
 	name = "Enraged",
 	type = "Prefix",
 	tier = 2,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterPeriodicEnrageMinion2"] = {
-	name = "Enraged",
-	type = "Prefix",
-	tier = 2,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterCorpseExploder1"] = {
-	name = "Explodes Nearby Corpses",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
+		"Monster is Enraged; gaining 30% increased Damage, 25% increased Skill and Movement Speed and 33% less damage taken.",
 	},
 	modList = {
 	},
@@ -1570,19 +933,11 @@ mods["PlayerMonsterCorpseExploder1"] = {
 	name = "Explodes Nearby Corpses",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterLightningMirage1"] = {
-	name = "Lightning Mirage When Hit",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster creates a Mirage when Hit that moves towards enemies and explodes when it gets close enough, dealing Lightning Damage.",
 	},
 	modList = {
 	},
@@ -1592,19 +947,12 @@ mods["PlayerMonsterLightningMirage1"] = {
 	name = "Lightning Mirage When Hit",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterLightningMirage2"] = {
-	name = "Lightning Mirages When Hit",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster creates Mirages when Hit that move towards enemies and explode when they get close enough, dealing Lightning Damage.",
+		"Monster creates a Mirage when Hit that moves towards enemies and explodes when it gets close enough, dealing Lightning Damage.",
 	},
 	modList = {
 	},
@@ -1614,19 +962,12 @@ mods["PlayerMonsterLightningMirage2"] = {
 	name = "Lightning Mirages When Hit",
 	type = "Prefix",
 	tier = 2,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterMagmaBarrier1"] = {
-	name = "Magma Barrier",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster creates a 90% damage absorption barrier that explodes after taking a certain amount of damage, dealing Fire Damage",
+		"Monster creates Mirages when Hit that move towards enemies and explode when they get close enough, dealing Lightning Damage.",
 	},
 	modList = {
 	},
@@ -1636,19 +977,13 @@ mods["PlayerMonsterMagmaBarrier1"] = {
 	name = "Magma Barrier",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterFlamewaller1"] = {
-	name = "Conjures Flamewalls",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster creates circular walls of Fire that deal damage to enemies standing in them.",
+		"Monster creates a 90% damage absorption barrier that explodes after taking a certain amount of damage, dealing Fire Damage",
 	},
 	modList = {
 	},
@@ -1658,18 +993,13 @@ mods["PlayerMonsterFlamewaller1"] = {
 	name = "Conjures Flamewalls",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "sanctum_monster", weight = 0 },
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterLightningStorms1"] = {
-	name = "Conjures Lightning Storms",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
+		"Monster creates circular walls of Fire that deal damage to enemies standing in them.",
 	},
 	modList = {
 	},
@@ -1679,39 +1009,11 @@ mods["PlayerMonsterLightningStorms1"] = {
 	name = "Conjures Lightning Storms",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterElementalWaller1"] = {
-	name = "Conjures Elemental Hazards",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterElementalWaller1"] = {
-	name = "Conjures Elemental Hazards",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterVolatilePlants1"] = {
-	name = "Volatile Plants",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster periodically creates Volatile Plants, releasing orbs that move towards enemies; exploding when they get close enough; dealing Chaos Damage.",
 	},
 	modList = {
 	},
@@ -1721,19 +1023,12 @@ mods["PlayerMonsterVolatilePlants1"] = {
 	name = "Volatile Plants",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterVolatilePlants2"] = {
-	name = "Empowering Volatile Plants",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster periodically creates Powerful Volatile Plants, releasing orbs that move towards enemies; exploding when they get close enough; dealing Chaos Damage.",
+		"Monster periodically creates Volatile Plants, releasing orbs that move towards enemies; exploding when they get close enough; dealing Chaos Damage.",
 	},
 	modList = {
 	},
@@ -1743,19 +1038,12 @@ mods["PlayerMonsterVolatilePlants2"] = {
 	name = "Empowering Volatile Plants",
 	type = "Prefix",
 	tier = 2,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterVolatileRocks1"] = {
-	name = "Volatile Crag",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
 	statDescriptions = {
-		"Monster periodically creates Volatile Crag that moves towards enemies; exploding when they get close enough; dealing Fire Damage.",
+		"Monster periodically creates Powerful Volatile Plants, releasing orbs that move towards enemies; exploding when they get close enough; dealing Chaos Damage.",
 	},
 	modList = {
 	},
@@ -1765,19 +1053,12 @@ mods["PlayerMonsterVolatileRocks1"] = {
 	name = "Volatile Crag",
 	type = "Prefix",
 	tier = 1,
-	statDescriptions = {
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
 	},
-	modList = {
-	},
-}
-
-mods["MonsterVolatileRocks2"] = {
-	name = "Empowering Volatile Crag",
-	rollable = true,
-	type = "Prefix",
-	tier = 2,
 	statDescriptions = {
-		"Monster periodically creates Powerful Volatile Crag that moves towards enemies; exploding when they get close enough; dealing Fire Damage.",
+		"Monster periodically creates Volatile Crag that moves towards enemies; exploding when they get close enough; dealing Fire Damage.",
 	},
 	modList = {
 	},
@@ -1787,22 +1068,14 @@ mods["PlayerMonsterVolatileRocks2"] = {
 	name = "Empowering Volatile Crag",
 	type = "Prefix",
 	tier = 2,
+	spawnWeights = {
+		{ tag = "magic", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster periodically creates Powerful Volatile Crag that moves towards enemies; exploding when they get close enough; dealing Fire Damage.",
 	},
 	modList = {
-	},
-}
-
-mods["MonsterProximalTangibility1"] = {
-	name = "Proximal Tangibility",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster cannot be damaged by enemies any further than 3 metres from them.",
-	},
-	modList = {
-		-- MonsterProximalTangibility1 [ignore_cannot_be_damaged_by_enemies = 0]
 	},
 }
 
@@ -1810,371 +1083,15 @@ mods["PlayerMonsterProximalTangibility1"] = {
 	name = "Proximal Tangibility",
 	type = "Prefix",
 	tier = 1,
+	spawnWeights = {
+		{ tag = "no_proximity_shield", weight = 0 },
+		{ tag = "boss", weight = 0 },
+		{ tag = "default", weight = 1 },
+	},
 	statDescriptions = {
+		"Monster cannot be damaged by enemies any further than 3 metres from them.",
 	},
 	modList = {
 		-- PlayerMonsterProximalTangibility1 [ignore_cannot_be_damaged_by_enemies = 0]
-	},
-}
-
-mods["MonsterBombardier1"] = {
-	name = "Bombardier",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-		"Monster periodically unleashes barrages of Fire projectiles.",
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterBombardier1"] = {
-	name = "Periodically unleashes Fire",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterSoulEater1"] = {
-	name = "Soul Eater",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterSoulEater1 [grant_actor_scale_+%_to_aura_owner_on_death = 0]
-		-- MonsterSoulEater1 [grant_attack_speed_+%_to_aura_owner_on_death = 1]
-		-- MonsterSoulEater1 [grant_damage_reduction_%_to_aura_owner_on_death = -1]
-		-- MonsterSoulEater1 [soul_is_consumed_on_death = 1]
-	},
-}
-
-mods["PlayerMonsterSoulEater1"] = {
-	name = "Soul Eater",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterSoulEater1 [grant_actor_scale_+%_to_aura_owner_on_death = 0]
-		-- PlayerMonsterSoulEater1 [grant_attack_speed_+%_to_aura_owner_on_death = 1]
-		-- PlayerMonsterSoulEater1 [grant_damage_reduction_%_to_aura_owner_on_death = -1]
-		-- PlayerMonsterSoulEater1 [soul_is_consumed_on_death = 1]
-	},
-}
-
-mods["MonsterAbyssalCrystalMineWall1"] = {
-	name = "Crystalline Barrier",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssalCrystalMineWall1"] = {
-	name = "Crystalline Barrier",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssVolatileRocks1"] = {
-	name = "Volatile Souls",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssVolatileRocks1"] = {
-	name = "Volatile Souls",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssSiphonAura1"] = {
-	name = "Soul Siphoner",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssSiphonAura1"] = {
-	name = "Soul Siphoner",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssLastGasp1"] = {
-	name = "Kurgal's Last Gasp",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssLastGasp1"] = {
-	name = "Kurgal's Last Gasp",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssLightlessFaction1"] = {
-	name = "Amanamu's Void",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssLightlessFaction1"] = {
-	name = "Amanamu's Void",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssLeechAura"] = {
-	name = "Lifestealer Aura",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssApparitionMirage1"] = {
-	name = "Unstable Revenants",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssImmuneAura1"] = {
-	name = "Undying Will",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterAbyssImmuneAura1 [ignore_cannot_be_damaged_by_enemies = 1]
-	},
-}
-
-mods["PlayerMonsterAbyssImmuneAura1"] = {
-	name = "Undying Will",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterAbyssImmuneAura1 [ignore_cannot_be_damaged_by_enemies = 0]
-	},
-}
-
-mods["MonsterAbyssFactionRunes"] = {
-	name = "Lithomantic Runes",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssFactionRunes"] = {
-	name = "Lithomantic Runes",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssMeteor"] = {
-	name = "Meteoric Demise",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssMeteor"] = {
-	name = "Meteoric Demise",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssApparitionBeamcaster"] = {
-	name = "Kulemak's Desecration",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssApparitionBeamcaster"] = {
-	name = "Kulemak's Desecration",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssPitSplitting"] = {
-	name = "Ulaman's Legion",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterAbyssPitSplitting [grant_actor_scale_+%_to_aura_owner_on_death = 0]
-		-- MonsterAbyssPitSplitting [grant_attack_speed_+%_to_aura_owner_on_death = 0]
-		-- MonsterAbyssPitSplitting [grant_damage_reduction_%_to_aura_owner_on_death = 0]
-		-- MonsterAbyssPitSplitting [soul_is_consumed_on_death = 0]
-	},
-}
-
-mods["PlayerMonsterAbyssPitSplitting"] = {
-	name = "Ulaman's Legion",
-	type = "Prefix",
-	statDescriptions = {
-	},
-	modList = {
-		-- PlayerMonsterAbyssPitSplitting [grant_actor_scale_+%_to_aura_owner_on_death = 0]
-		-- PlayerMonsterAbyssPitSplitting [grant_attack_speed_+%_to_aura_owner_on_death = 0]
-		-- PlayerMonsterAbyssPitSplitting [grant_damage_reduction_%_to_aura_owner_on_death = 0]
-		-- PlayerMonsterAbyssPitSplitting [soul_is_consumed_on_death = 0]
-	},
-}
-
-mods["MonsterAbyssPustuleGround1"] = {
-	name = "Bubonic Trail",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssPustuleGround1"] = {
-	name = "Bubonic Trail",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssGeyserWalls1"] = {
-	name = "Soulflame Geysers",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssGeyserWalls1"] = {
-	name = "Soulflame Geysers",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssShadeWalker1"] = {
-	name = "Shade Walker",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssShadeWalker1"] = {
-	name = "Shade Walker",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterAbyssSoulcano1"] = {
-	name = "Eruption of Souls",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["PlayerMonsterAbyssSoulcano1"] = {
-	name = "Eruption of Souls",
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-	},
-}
-
-mods["MonsterProximalTangibilityHidden1"] = {
-	name = "Ethereal",
-	rollable = true,
-	type = "Prefix",
-	tier = 1,
-	statDescriptions = {
-	},
-	modList = {
-		-- MonsterProximalTangibilityHidden1 [ignore_cannot_be_damaged_by_enemies = 0]
 	},
 }

@@ -1004,6 +1004,19 @@ LoadModule("Data/TamedBeastMods", data.tamedBeastMods, makeSkillMod, makeFlagMod
 function data.normaliseBeastModLine(line)
 	return (line:lower():gsub("^%s+", ""):gsub("%s+$", ""))
 end
+
+function data.beastModCanSpawn(beastMod, monsterTags)
+	local tagSet = { }
+	for _, tag in ipairs(monsterTags or { }) do
+		tagSet[tag] = true
+	end
+	for _, entry in ipairs(beastMod.spawnWeights) do
+		if entry.tag == "default" or tagSet[entry.tag] then
+			return entry.weight > 0
+		end
+	end
+	return false
+end
 -- Secondary index for import lines that don't carry a "[ModId|...]" token; iterate ids in
 -- sorted order so collisions deterministically resolve to the lowest id
 data.tamedBeastModsByDisplay = { }

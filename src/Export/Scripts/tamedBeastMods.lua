@@ -86,46 +86,61 @@ out:write('-- Monster data (c) Grinding Gear Games\n')
 out:write('\n')
 out:write('local mods, mod, flag = ...\n')
 
-local exported, unmappedStats = 0, { }
-for modRow in dat("Mods"):Rows() do
-	if modRow.Domain == MONSTER_DOMAIN and (modRow.GenerationType == GEN_PREFIX or modRow.GenerationType == GEN_SUFFIX) and not modRow.Id:match("Royale") then
-		-- Render description lines at min roll; min == max keeps the text free of "(min-max)" ranges
-		-- so the importer can match display lines verbatim
-		local stats = { }
-		for i = 1, 6 do
-			if modRow["Stat"..i] then
-				stats[modRow["Stat"..i].Id] = { min = modRow["Stat"..i.."Value"][1], max = modRow["Stat"..i.."Value"][1] }
-			end
-		end
-		if modRow.Type then
-			stats.Type = modRow.Type
-		end
-		local descLines = describeStats(stats)
-		local popupName = popupNames[modRow.Id]
-		local archName = archNames[modRow.Id] and escapeGGGString(archNames[modRow.Id])
-		local popupDescription = popupDescriptions[modRow.Id] and escapeGGGString(popupDescriptions[modRow.Id])
-		if popupName or archName or descLines[1] or modRow.Name ~= "" then
-			local name = popupName or archName or (modRow.Name ~= "" and modRow.Name) or descLines[1]
-			-- A mod can only be rolled (and thus appear on a captured beast) if some monster
-			-- tag carries a positive spawn weight; script-applied mods (abyss etc.) and the
-			-- "PlayerMonster*" twins are all-zero. Unnamed placeholders are not selectable.
-			local rollable = false
-			for _, weight in ipairs(modRow.SpawnWeight) do
+-- Tamed beasts roll their mods in the wild as "Monster*" mods (the ones with real
+-- spawn weights); the itemised companion carries the standalone "PlayerMonster*"
+-- twin, which is what the character API reports on import, so Player ids are the
+-- only ids exported. Display text (keyword popups, nameplate lines) is keyed by
+-- the Monster ids, so name and descriptions resolve through the twin; stats come
+-- from the Player row itself, which is authoritative for the companion.
+local exported, unmappedStats, seen = 0, { }, { }
+for archMod in dat("ArchnemesisMods"):Rows() do
+	local playerRow = archMod.Id
+	local id = playerRow and playerRow.Id
+	if id and id:match("^Player") and not seen[id] then
+		seen[id] = true
+		local twinId = id:gsub("^Player", "", 1)
+		local twinRow = dat("Mods"):GetRow("Id", twinId)
+		-- The mod must exist on the beast side as a rollable prefix/suffix: that is
+		-- what can appear on a captured beast.
+		local rollable = false
+		if twinRow and twinRow.Domain == MONSTER_DOMAIN and (twinRow.GenerationType == GEN_PREFIX or twinRow.GenerationType == GEN_SUFFIX) then
+			for _, weight in ipairs(twinRow.SpawnWeight) do
 				if weight > 0 then
 					rollable = true
 					break
 				end
 			end
-			out:write('\nmods["', modRow.Id, '"] = {\n')
-			out:write('\tname = "', escapeString(name), '",\n')
-			if rollable and name ~= "TBD" then
-				out:write('\trollable = true,\n')
+		end
+		if rollable then
+			local stats = { }
+			for i = 1, 6 do
+				if playerRow["Stat"..i] then
+					stats[playerRow["Stat"..i].Id] = { min = playerRow["Stat"..i.."Value"][1], max = playerRow["Stat"..i.."Value"][1] }
+				end
 			end
-			out:write('\ttype = "', modRow.GenerationType == GEN_PREFIX and "Prefix" or "Suffix", '",\n')
-			local tier = tonumber(modRow.Id:match("(%d+)$"))
+			if playerRow.Type then
+				stats.Type = playerRow.Type
+			end
+			local descLines = describeStats(stats)
+			local popupName = popupNames[twinId]
+			local archName = archNames[twinId] and escapeGGGString(archNames[twinId])
+			local popupDescription = popupDescriptions[twinId] and escapeGGGString(popupDescriptions[twinId])
+			local name = popupName or archName or (twinRow.Name ~= "" and twinRow.Name) or descLines[1] or twinId
+			out:write('\nmods["', id, '"] = {\n')
+			out:write('\tname = "', escapeString(name), '",\n')
+			out:write('\ttype = "', twinRow.GenerationType == GEN_PREFIX and "Prefix" or "Suffix", '",\n')
+			local tier = tonumber(id:match("(%d+)$"))
 			if tier then
 				out:write('\ttier = ', tier, ',\n')
 			end
+			if #twinRow.SpawnTags ~= #twinRow.SpawnWeight then
+				printf("Warning: %s has %d spawn tags but %d weights", twinId, #twinRow.SpawnTags, #twinRow.SpawnWeight)
+			end
+			out:write('\tspawnWeights = {\n')
+			for i, tagRow in ipairs(twinRow.SpawnTags) do
+				out:write('\t\t{ tag = "', tagRow.Id, '", weight = ', twinRow.SpawnWeight[i] or 0, ' },\n')
+			end
+			out:write('\t},\n')
 			out:write('\tstatDescriptions = {\n')
 			if archName and archName ~= name then
 				out:write('\t\t"', escapeString(archName), '",\n')
@@ -139,18 +154,18 @@ for modRow in dat("Mods"):Rows() do
 			out:write('\t},\n')
 			out:write('\tmodList = {\n')
 			for i = 1, 6 do
-				if modRow["Stat"..i] then
-					local statId = modRow["Stat"..i].Id
-					local modStats = ' [' .. statId .. ' = ' .. modRow["Stat"..i.."Value"][1] .. ']'
+				if playerRow["Stat"..i] then
+					local statId = playerRow["Stat"..i].Id
+					local modStats = ' [' .. statId .. ' = ' .. playerRow["Stat"..i.."Value"][1] .. ']'
 					if skillStatMap[statId] then
 						local newMod = skillStatMap[statId][1]
-						out:write('\t\tmod("', newMod.name, '", "', newMod.type, '", ', newMod.value and type(newMod.value) ~= "boolean" and tableToString(newMod.value) or (skillStatMap[statId].value or modRow["Stat"..i.."Value"][1] * (skillStatMap[statId].mult or 1) / (skillStatMap[statId].div or 1)), ', ', newMod.flags or 0, ', ', newMod.keywordFlags or 0)
+						out:write('\t\tmod("', newMod.name, '", "', newMod.type, '", ', newMod.value and type(newMod.value) ~= "boolean" and tableToString(newMod.value) or (skillStatMap[statId].value or playerRow["Stat"..i.."Value"][1] * (skillStatMap[statId].mult or 1) / (skillStatMap[statId].div or 1)), ', ', newMod.flags or 0, ', ', newMod.keywordFlags or 0)
 						for _, extra in ipairs(newMod) do
 							out:write(', ', tableToString(extra))
 						end
-						out:write('), -- ', modRow.Id, modStats, '\n')
+						out:write('), -- ', id, modStats, '\n')
 					else
-						out:write('\t\t-- ', modRow.Id, modStats, '\n')
+						out:write('\t\t-- ', id, modStats, '\n')
 						unmappedStats[statId] = (unmappedStats[statId] or 0) + 1
 					end
 				end
