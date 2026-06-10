@@ -648,9 +648,6 @@ end
 function TradeQueryGeneratorClass:GenerateModWeights(modsToTest)
 	local start = GetTime()
 	for _, entry in pairs(modsToTest) do
-		if entry.tradeMod.text == "# to Level of all Minion Skills" then
-			print("help")
-		end
 		if entry[self.calcContext.itemCategory] ~= nil then
 			if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then -- Don't calculate the same thing twice (can happen with corrupted vs implicit)
 				goto continue
@@ -1172,10 +1169,16 @@ Remove: anoints are completely ignored, and removed from items.]]
 				t_insert(activeSocketList, jewelSlot)
 			end
 		end
+		table.sort(activeSocketList, function(a, b)
+			return a.label < b.label
+		end)
 		controls.jewelSlot = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 100, 18}, activeSocketList, function(idx, value) end)
 		controls.jewelSlotLabel = new("LabelControl", {"RIGHT",controls.jewelSlot,"LEFT"}, {-5, 0, 0, 16}, "Jewel Slot:")
-		if self.lastJewelSlot and self.lastJewelSlot <= #activeSocketList then
-			controls.jewelSlot.selIndex = self.lastJewelSlot
+		for index, jewelSlot in ipairs(activeSocketList) do
+			if jewelSlot.nodeId == context.slotTbl.selectedJewelNodeId then
+				controls.jewelSlot.selIndex = index
+				break
+			end
 		end
 		updateLastAnchor(controls.jewelSlot)
 	end
@@ -1237,6 +1240,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 	popupHeight = popupHeight + 4
 
 	controls.generateQuery = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-45, -10, 80, 20}, "Execute", function()
+		local selectedJewelSlot = controls.jewelSlot and controls.jewelSlot:GetSelValue()
+		if controls.jewelSlot and not selectedJewelSlot then
+			return
+		end
 		main:ClosePopup()
 
 		self.tradeTypeIndex = context.controls.tradeTypeSelection.selIndex
@@ -1266,8 +1273,8 @@ Remove: anoints are completely ignored, and removed from items.]]
 			options.jewelType = controls.jewelType:GetSelValue()
 		end
 		if controls.jewelSlot then
-			self.lastJewelSlot = controls.jewelSlot.selIndex
-			slot = controls.jewelSlot:GetSelValue()
+			slot = selectedJewelSlot
+			context.slotTbl.selectedJewelNodeId = slot.nodeId
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
@@ -1287,6 +1294,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 
 		self:StartQuery(slot, options)
 	end)
+	controls.generateQuery.enabled = function()
+		return not controls.jewelSlot or controls.jewelSlot:GetSelValue() ~= nil
+	end
+	controls.generateQuery.tooltipText = controls.jewelSlot and "Requires an active Jewel Socket." or nil
 	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)

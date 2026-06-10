@@ -558,7 +558,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true }
+	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true, selectedJewelNodeId = activeSocketList[1] }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -566,7 +566,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true }
+	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true, selectedJewelNodeId = activeSocketList[1] }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -794,7 +794,9 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 		self.lastComparedWeightList[row_idx][result_index] = self.statSortSelectionList
 	end
 
-	local slotName = self.slotTables[row_idx].nodeId and "Jewel " .. tostring(self.slotTables[row_idx].nodeId) or self.slotTables[row_idx].slotName
+	local slotTbl = self.slotTables[row_idx]
+	local jewelNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+	local slotName = jewelNodeId and "Jewel " .. tostring(jewelNodeId) or slotTbl.slotName
 	if slotName == "Megalomaniac" then
 		local addedNodes = {}
 		for nodeName in (result.item_string.."\r\n"):gmatch("Allocates (.-)\r?\n") do
@@ -1086,7 +1088,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		local isAuthorized = main.api.authToken ~= nil
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
-		return isAuthorized and validURL and not isSearching
+		local selectedJewelSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId]
+		local hasRequiredJewelSlot = not slotTbl.unique or slotTbl.slotName == "Megalomaniac" or selectedJewelSlot and not selectedJewelSlot.inactive
+		return isAuthorized and validURL and not isSearching and hasRequiredJewelSlot
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
@@ -1094,6 +1098,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")
+		elseif slotTbl.unique and slotTbl.slotName ~= "Megalomaniac"
+			and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
+			tooltip:AddLine(16, "Requires an active Jewel Socket")
 		end
 	end
 	local clampItemIndex = function(index)
@@ -1124,7 +1131,8 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		end
 		local item = new("Item", result.item_string)
 		tooltip:Clear()
-		self.itemsTab:AddItemTooltip(tooltip, item, activeSlot)
+		local tooltipSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or activeSlot
+		self.itemsTab:AddItemTooltip(tooltip, item, tooltipSlot)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
 	end
@@ -1134,8 +1142,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		-- pass "true" to not auto equip it as we will have our own logic
 		self.itemsTab:AddDisplayItem(true)
 		-- Autoequip it
-		local slot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or self.itemsTab.slots[slotTbl.slotName]
-		if slot and slotTbl.slotName == slot.label and slot:IsShown() and self.itemsTab:IsItemValidForSlot(item, slot.slotName) then
+		local jewelNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+		local slot = jewelNodeId and self.itemsTab.sockets[jewelNodeId] or self.itemsTab.slots[slotTbl.slotName]
+		if slot and (jewelNodeId or slotTbl.slotName == slot.label) and slot:IsShown() and self.itemsTab:IsItemValidForSlot(item, slot.slotName) then
 			slot:SetSelItemId(item.id)
 			self.itemsTab:PopulateSlots()
 			self.itemsTab:AddUndoState()
@@ -1151,7 +1160,8 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			-- item.baseName is nil and throws error in the following AddItemTooltip func
 			-- if the item is unidentified
 			local item = new("Item", item_string)
-			self.itemsTab:AddItemTooltip(tooltip, item, activeSlot, true)
+			local tooltipSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or activeSlot
+			self.itemsTab:AddItemTooltip(tooltip, item, tooltipSlot, true)
 		end
 	end
 	controls["importButton"..row_idx].enabled = function()
