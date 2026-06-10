@@ -88,6 +88,8 @@ local displayStats = {
 	{ stat = "ESCost", label = "Energy Shield Cost", fmt = "d", color = colorCodes.ES, pool = "EnergyShield", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESHasCost end },
 	{ stat = "ESPerSecondCost", label = "ES Cost per second", fmt = ".2f", color = colorCodes.ES, pool = "EnergyShield", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPerSecondHasCost end },
 	{ stat = "ESPercentPerSecondCost", label = "ES Cost per second", fmt = ".2f%%", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPercentPerSecondHasCost end },
+	{ stat = "WardCost", label = "Runic Ward Cost", fmt = "d", color = colorCodes.WARD, pool = "Ward", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.WardHasCost end },
+	{ stat = "WardPerSecondCost", label = "Ward Cost per second", fmt = ".2f", color = colorCodes.WARD, pool = "Ward", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.WardPerSecondHasCost end },
 	{ stat = "RageCost", label = "Rage Cost", fmt = "d", color = colorCodes.RAGE, pool = "Rage", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RageHasCost end },
 	{ stat = "RagePerSecondCost", label = "Rage Cost per second", fmt = ".2f", color = colorCodes.RAGE, pool = "Rage", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RagePerSecondHasCost end },
 	{ stat = "SoulCost", label = "Soul Cost", fmt = "d", color = colorCodes.RAGE, pool = "Soul", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.SoulHasCost end },
