@@ -205,6 +205,7 @@ local modNameList = {
 	["life cost efficiency of skills"] = "LifeCostEfficiency",
 	["spirit cost efficiency"] = "SpiritCostEfficiency",
 	["spirit cost efficiency of skills"] = "SpiritCostEfficiency",
+	["runic ward cost efficiency"] = "WardCostEfficiency",
 	["energy shield cost efficiency"] = "ESCostEfficiency",
 	["energy shield cost efficiency of skills"] = "ESCostEfficiency",
 	["es cost efficiency"] = "ESCostEfficiency",
