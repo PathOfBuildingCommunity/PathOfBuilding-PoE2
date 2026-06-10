@@ -167,6 +167,50 @@ describe("TestAttacks", function()
 		assert.are.equals(1.1, build.calcsTab.mainOutput.MainHand.AverageHit)
 	end)
 
+	it("correctly calculates Garukhan's Resolve bifurcated critical hit damage", function()
+		local function setup(socketGroup)
+			newBuild()
+			build.itemsTab:CreateDisplayItemFromRaw([[
+				New Item
+				Razor Quarterstaff
+				Quality: 0
+				This Weapon's Critical Hit Chance is 0%
+				-100% increased physical damage
+				adds 1 to 1 physical damage to attacks
+				nearby enemies have 100% less armour
+				nearby enemies have 100% less evasion
+			]])
+			build.itemsTab:AddDisplayItem()
+			runCallback("OnFrame")
+			build.skillsTab:PasteSocketGroup(socketGroup)
+			runCallback("OnFrame")
+
+			build.configTab.input.customMods = [[
+				+50% to critical hit chance
+				your critical damage bonus is 1000000%
+				+4000 to accuracy
+			]]
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			build.calcsTab:BuildOutput()
+			runCallback("OnFrame")
+
+			return build.calcsTab.mainOutput.MainHand
+		end
+
+		local normalOutput = setup("Quarterstaff Strike 1/0  1")
+		assert.are.equals(50, normalOutput.CritChance)
+		assert.are.equals(10001, normalOutput.CritMultiplier)
+		assert.are.equals(5001, normalOutput.AverageHit)
+
+		local garukhanOutput = setup("Quarterstaff Strike 1/0  1\nGarukhan's Resolve 1/0  1")
+		assert.are.equals(50, garukhanOutput.PreBifurcateCritChance)
+		assert.are.equals(75, garukhanOutput.CritChance)
+		assert.is_true(math.abs(100 / 3 - garukhanOutput.CritBifurcates) < 0.000001)
+		assert.is_true(math.abs(10001 - garukhanOutput.AverageHit) < 0.01)
+	end)
+
+
 	it("correctly adds damage with oracle forced outcome", function()
 		-- Setup: Add weapon with no crit chance, and strip enemy defenses
 		build.itemsTab:CreateDisplayItemFromRaw([[
