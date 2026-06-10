@@ -996,6 +996,40 @@ for _, minion in pairs(data.minions) do
 		mod.source = "Minion:"..minion.name
 	end
 end
+-- Load tamed beast (companion) monster mods
+data.tamedBeastMods = { }
+LoadModule("Data/TamedBeastMods", data.tamedBeastMods, makeSkillMod, makeFlagMod)
+-- Normalises a beast mod display line for matching; nameplate lines are fixed labels
+-- without roll values, so case folding and trimming suffice
+function data.normaliseBeastModLine(line)
+	return (line:lower():gsub("^%s+", ""):gsub("%s+$", ""))
+end
+-- Secondary index for import lines that don't carry a "[ModId|...]" token; iterate ids in
+-- sorted order so collisions deterministically resolve to the lowest id
+data.tamedBeastModsByDisplay = { }
+do
+	local sortedIds = { }
+	for id in pairs(data.tamedBeastMods) do
+		table.insert(sortedIds, id)
+	end
+	table.sort(sortedIds)
+	for _, id in ipairs(sortedIds) do
+		local beastMod = data.tamedBeastMods[id]
+		for _, mod in ipairs(beastMod.modList) do
+			mod.source = "Beast Mod:"..beastMod.name
+		end
+		for _, line in ipairs(beastMod.statDescriptions) do
+			local key = data.normaliseBeastModLine(line)
+			if not data.tamedBeastModsByDisplay[key] then
+				data.tamedBeastModsByDisplay[key] = id
+			end
+		end
+		local nameKey = data.normaliseBeastModLine(beastMod.name)
+		if not data.tamedBeastModsByDisplay[nameKey] then
+			data.tamedBeastModsByDisplay[nameKey] = id
+		end
+	end
+end
 data.printMissingMinionSkills = function()
 	local missing = { }
 	for _, minion in pairs(data.minions) do
