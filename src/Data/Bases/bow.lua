@@ -312,6 +312,7 @@ itemBases["Obliterator Bow"] = {
 itemBases["Heartwood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { bow = true, default = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },

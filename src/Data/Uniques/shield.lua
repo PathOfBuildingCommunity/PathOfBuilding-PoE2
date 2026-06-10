@@ -86,18 +86,20 @@ Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
+{variant:4}+(50-100) to maximum Runic Ward
 {variant:1}(100-150)% increased Armour
 {variant:2}(150-200)% increased Armour
-{variant:3}(200-300)% increased Armour
+{variant:3,4}(200-300)% increased Armour
 {variant:1}-(20-10)% to maximum Block chance
 Chance to Block Damage is Lucky
 {variant:2}You take (15-20)% of damage from Blocked Hits
-{variant:3}You take (0-20)% of damage from Blocked Hits
+{variant:3,4}You take (0-20)% of damage from Blocked Hits
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
@@ -234,6 +236,24 @@ Variant: Level: 2 Cold, 3 Fire, 1 Lightning
 Implicits: 1
 Grants Skill: Parry
 (100-300)% increased Evasion Rating
+{variant:7}+1 to Level of all Fire Skills
+{variant:8}+1 to Level of all Fire Skills
+{variant:9}+2 to Level of all Fire Skills
+{variant:10}+2 to Level of all Fire Skills
+{variant:11}+3 to Level of all Fire Skills
+{variant:12}+3 to Level of all Fire Skills
+{variant:7}+2 to Level of all Cold Skills
+{variant:8}+3 to Level of all Cold Skills
+{variant:9}+1 to Level of all Cold Skills
+{variant:10}+3 to Level of all Cold Skills
+{variant:11}+1 to Level of all Cold Skills
+{variant:12}+2 to Level of all Cold Skills
+{variant:7}+3 to Level of all Lightning Skills
+{variant:8}+2 to Level of all Lightning Skills
+{variant:9}+3 to Level of all Lightning Skills
+{variant:10}+1 to Level of all Lightning Skills
+{variant:11}+2 to Level of all Lightning Skills
+{variant:12}+1 to Level of all Lightning Skills
 {variant:1}+1% to Maximum Fire Resistance
 {variant:2}+1% to Maximum Fire Resistance
 {variant:3}+2% to Maximum Fire Resistance
@@ -252,24 +272,6 @@ Grants Skill: Parry
 {variant:4}+1% to Maximum Lightning Resistance
 {variant:5}+2% to Maximum Lightning Resistance
 {variant:6}+1% to Maximum Lightning Resistance
-{variant:7}+2 to Level of all Cold Skills
-{variant:8}+3 to Level of all Cold Skills
-{variant:9}+1 to Level of all Cold Skills
-{variant:10}+3 to Level of all Cold Skills
-{variant:11}+1 to Level of all Cold Skills
-{variant:12}+2 to Level of all Cold Skills
-{variant:7}+1 to Level of all Fire Skills
-{variant:8}+1 to Level of all Fire Skills
-{variant:9}+2 to Level of all Fire Skills
-{variant:10}+2 to Level of all Fire Skills
-{variant:11}+3 to Level of all Fire Skills
-{variant:12}+3 to Level of all Fire Skills
-{variant:7}+3 to Level of all Lightning Skills
-{variant:8}+2 to Level of all Lightning Skills
-{variant:9}+3 to Level of all Lightning Skills
-{variant:10}+1 to Level of all Lightning Skills
-{variant:11}+2 to Level of all Lightning Skills
-{variant:12}+1 to Level of all Lightning Skills
 ]],
 -- Shield: Energy Shield
 
@@ -350,10 +352,10 @@ Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
 Grants Skill: Raise Shield
-(333-666)% increased Armour and Energy Shield
 {variant:1}(333-666)% increased effect of Socketed Soul Cores
 {variant:2}100% increased effect of Socketed Soul Cores
 {variant:3}(66-333)% increased effect of Socketed Soul Cores
+(333-666)% increased Armour and Energy Shield
 {variant:2,3}Everlasting Sacrifice
 ]],[[
 Oaksworn

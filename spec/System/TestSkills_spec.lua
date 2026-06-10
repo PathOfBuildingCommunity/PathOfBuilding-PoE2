@@ -118,7 +118,7 @@ describe("TestSkills", function()
 
 		local normalArmour = env.player.output.Armour
 		local normalDPS = env.player.output.TotalDPS
-		assert.are.equals(1050, normalArmour)
+		assert.are.equals(1200, normalArmour)
 		assert.is_true(normalDPS > 0)
 
 		env = calcs.initEnv(build, "CALCULATOR", {}, {
@@ -354,15 +354,27 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
-	it("applies minion offensive multiplier to all attack damage", function()
+	it("applies generated minion offensive multiplier to attack damage", function()
 		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
 		runCallback("OnFrame")
 
 		local minion = build.calcsTab.mainEnv.minion
-		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+		local expectedPhysicalMax = floor(floor(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage * (1 + minion.minionData.damageSpread))
 
 		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
-		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"), 0.0001)
+		assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"))
+	end)
+
+	it("does not apply minion offensive multiplier to spectre or companion added damage", function()
+		for _, skill in ipairs({ "Spectre: Lightless Abomination 20/0  1", "Companion: Lightless Abomination 20/0  1" }) do
+			newBuild()
+			build.skillsTab:PasteSocketGroup(skill)
+			runCallback("OnFrame")
+
+			local minion = build.calcsTab.mainEnv.minion
+			assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"))
+		end
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
@@ -1106,4 +1118,5 @@ describe("TestSkills", function()
 		local noParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
 		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
 	end)
+	
 end)

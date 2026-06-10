@@ -40,6 +40,7 @@ UniqueCriticalStrikesIgnoreResistances1
 Carnage Heart
 Amber Amulet
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 1
 AmuletImplicitStrength1
@@ -47,7 +48,8 @@ UniqueMaximumLifeIncrease3
 UniqueAllAttributes1
 UniqueAllResistances6
 {variant:1}UniqueLifeLeechAmount1[100,100]
-{variant:2}UniqueLifeLeechAmount1
+{variant:2,3}UniqueLifeLeechAmount1
+{variant:3}IncreasedDamageWhileLeechingUnique__3
 ]],[[
 Choir of the Storm
 Jade Amulet

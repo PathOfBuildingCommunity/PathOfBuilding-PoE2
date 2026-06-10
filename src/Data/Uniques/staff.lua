@@ -123,9 +123,9 @@ Causes Bleeding on Hit
 Collapsing Horizon
 Wyrm Quarterstaff
 Source: Drops from unique{Kosis, The Revelation}
-100% increased Elemental Damage with Attacks
 +(5-10)% to Critical Hit Chance
 +(2-4) to Level of all Elemental Skills
+100% increased Elemental Damage
 Trigger skills refund half of Energy spent
 ]],[[
 Matsya
@@ -209,7 +209,7 @@ Grants Skill: Level (1-20) Feast of Flesh
 {variant:11}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
 {variant:9}Enemies you Curse have -(8-5)% to Chaos Resistance
 {variant:10}(20-30)% chance to inflict Bleeding on Hit
-{variant:8}(6-10)% increased Spirit Reservation Efficiency of Skills
+{variant:8}(6-10)% increased Spirit Reservation Efficiency
 {variant:12}(28-56)% increased Magnitude of Unholy Might buffs you grant
 {variant:12}You have Unholy Might
 {variant:1}Grants Skill: Level (1-20) His Dark Horizon

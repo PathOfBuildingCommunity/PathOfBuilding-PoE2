@@ -107,12 +107,15 @@ UniqueLifeRegeneration20
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent2
 {variant:1}UniqueDexterity26[10,20]
-{variant:2}UniqueDexterity26
-UniqueCharmChargeGeneration1
-{variant:2}UniqueGlobalAdditionalCharm1
+{variant:2,3}UniqueDexterity26
+{variant:1,2}UniqueCharmChargeGeneration1[30,30]
+{variant:3}UniqueCharmChargeGeneration1
+{variant:2}UniqueGlobalAdditionalCharm1[1,1]
+{variant:3}UniqueGlobalAdditionalCharm1
 ]],[[
 Goldrim
 Felt Cap
@@ -148,10 +151,13 @@ UniqueCullingStrikeThreshold1
 ]],[[
 Radiant Grief
 Lace Hood
+Variant: Pre 0.5.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent1
 UniqueFireResist6
 UniqueLightRadius7
-UniqueIgniteEnemiesInPresence1
+{variant:1}UniqueIgniteEnemiesInPresence1[100,100]
+{variant:2}UniqueIgniteEnemiesInPresence1
 ]],[[
 Starkonja's Head
 Leatherbound Hood
@@ -423,13 +429,15 @@ Keeper of the Arc
 Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedArmourAndEnergyShield17[100,150]
-{variant:2}UniqueLocalIncreasedArmourAndEnergyShield17
+{variant:2}UniqueLocalIncreasedArmourAndEnergyShield17[150,250]
+{variant:3}UniqueLocalIncreasedArmourAndEnergyShield17
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
 {variant:1}UniqueAlternatingDamageTaken1[-30,-30]
-{variant:2}UniqueAlternatingDamageTaken1
+{variant:2,3}UniqueAlternatingDamageTaken1
 ]],[[
 Veil of the Night
 Martyr Crown
@@ -465,11 +473,16 @@ UniqueChaosResistanceIsZero2
 The Hollow Mask
 Hewn Mask
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Wildwood's Gifts
 UniqueIncreasedLife14
 UniqueAdditionalPhysicalDamageReduction1
 UniqueAllResistances4
-{variant:2}UniqueChaosResist23
+{variant:2,3}UniqueChaosResist23
+{variant:3}UniqueRemnantsAffectAlliesInPresence1
+{variant:3}UniqueRemnantSkillSpiritReservationEfficiency1
 ]],[[
 Leer Cast
 Hooded Mask

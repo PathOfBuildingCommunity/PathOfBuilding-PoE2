@@ -131,6 +131,7 @@ itemBases["Ravenous Staff"] = {
 itemBases["Permafrost Staff"] = {
 	type = "Staff",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Heart of Ice",
@@ -140,6 +141,7 @@ itemBases["Permafrost Staff"] = {
 itemBases["Reflecting Staff"] = {
 	type = "Staff",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Mirror of Refraction",
@@ -149,6 +151,7 @@ itemBases["Reflecting Staff"] = {
 itemBases["Perching Staff"] = {
 	type = "Staff",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Spiraling Conspiracy",
@@ -433,4 +436,52 @@ itemBases["Dreaming Quarterstaff"] = {
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 99, PhysicalMax = 133, CritChanceBase = 0, AttackRateBase = 1.5, Range = 14, },
 	req = { level = 78, dex = 127, int = 50, },
+}
+itemBases["Warding Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "+(30-50) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	weapon = { PhysicalMin = 51, PhysicalMax = 85, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 65, dex = 127, int = 50, },
+}
+itemBases["Runemastered Warding Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "+(30-50) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	weapon = { PhysicalMin = 51, PhysicalMax = 85, CritChanceBase = 10, AttackRateBase = 1.6, Range = 14, },
+	req = { level = 65, dex = 127, int = 50, },
+}
+itemBases["Runemastered Warding Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "+(30-50) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	weapon = { PhysicalMin = 51, PhysicalMax = 85, CritChanceBase = 15, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 65, dex = 127, int = 50, },
+}
+itemBases["Runemastered Warding Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { default = true, runeforged = true, two_hand_weapon = true, twohand = true, warstaff = true, weapon = true, },
+	implicit = "+(30-50) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	weapon = { PhysicalMin = 85, PhysicalMax = 141, CritChanceBase = 10, AttackRateBase = 1.4, Range = 14, },
+	req = { level = 65, dex = 127, int = 50, },
 }

@@ -7,15 +7,17 @@ Death's Harp
 Dualstring Bow
 Variant: 0.2.0
 Variant: 0.3.0
+Variant: 0.5.0
 Variant: Current
 Implicits: 1
 BowImplicitAdditionalArrows1
 {variant:1}UniqueLocalCriticalMultiplier1[50,70]
 {variant:2}UniqueLocalCriticalMultiplier1[30,40]
-{variant:3}UniqueLocalCriticalMultiplier1
-UniqueAdditionalArrow1
+{variant:3,4}UniqueLocalCriticalMultiplier1
+{variant:1,2,3}UniqueAdditionalArrow1
 UniqueLifeGainedFromEnemyDeath4
 UniqueManaGainedFromEnemyDeath6
+{variant:4}UniqueAdditionalArrowChance1
 ]],[[
 Doomfletch
 Composite Bow

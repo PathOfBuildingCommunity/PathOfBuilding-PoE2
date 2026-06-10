@@ -13,12 +13,18 @@ Implicits: 1
 ]],[[
 Blackflame
 Amethyst Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:mana}(15-30)% increased Mana Regeneration Rate
-50% increased Ignite Magnitude
-{tags:fire}50% reduced Ignite Duration on Enemies
-{tags:fire}Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite
+{tags:fire}Ignite you inflict deals Chaos Damage instead of Fire Damage
+{variant:1}{tags:fire}50% increased Ignite Magnitude
+{variant:2}{tags:fire}(80-100)% increased Ignite Magnitude
+{variant:1}{tags:fire}50% increased Ignite Duration on Enemies
+{variant:2}{tags:fire}(60-75)% reduced Ignite Duration on Enemies
+{variant:2}{tags:fire,chaos}Withered you inflict also increases Fire Damage taken
+{variant:2}{tags:fire}Withered does not expire on Enemies Ignited by you
 ]],[[
 Blackheart
 Iron Ring
@@ -33,12 +39,16 @@ Implicits: 1
 ]],[[
 Blistering Bond
 Ruby Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:fire}+(20-30)% to Fire Resistance
 {tags:life}+(40-60) to maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
 {tags:cold}-(15-10)% to Cold Resistance
-You take Fire Damage instead of Physical Damage from Bleeding
+{tags:fire}You take Fire Damage instead of Physical Damage from Bleeding
+{variant:2}{tags:fire}Fire Damage also Contributes to Bleeding Magnitude
+{variant:2}{tags:fire}Bleeding you inflict deals Fire Damage instead of Physical Damage
 ]],[[
 The Burrower
 Topaz Ring
@@ -71,7 +81,7 @@ Implicits: 1
 {tags:lightning}+(20-30)% to Lightning Resistance
 {tags:attribute}+(10-20) to Intelligence
 {tags:mana}(25-35)% increased Mana Regeneration Rate
-(20-30)% increased Freeze Buildup
+{tags:cold}(20-30)% increased Freeze Buildup
 100% of Lightning Damage Converted to Cold Damage
 ]],[[
 Cracklecreep
@@ -113,6 +123,19 @@ Implicits: 1
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
 ]],[[
+Eshtera's Path
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+You can only Socket Sapphire Jewels in this item
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(10-20) to all Attributes
+{variant:2}+(5-10)% to Fire and Cold Resistances per Equipped Item with a Lightning Resistance Modifier
+{variant:1}Cold Resistance is unaffected by Area Penalties
+]],[[
 Evergrasping Ring
 Pearl Ring
 League: Dawn of the Hunt
@@ -134,11 +157,14 @@ You have Consecrated Ground around you while stationary
 ]],[[
 Glowswarm
 Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:mana}+(20-30) to maximum Mana
 {tags:mana}+(40-60) to maximum Mana
 {tags:mana}(20-30)% increased Flask Mana Recovery rate
 Mana Flasks gain (0.17-0.25) charges per Second
+{variant:2}Using a Mana Flask grants Guard equal to 100% of Flask's recovery amount for 4 seconds
 ]],[[
 Heartbound Loop
 Pearl Ring
@@ -170,11 +196,15 @@ Mirrored
 ]],[[
 Levinstone
 Topaz Ring
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 1
 {tags:lightning}+(20-30)% to Lightning Resistance
 {tags:mana}+(40-60) to maximum Mana
-(10-20)% increased chance to Shock
-{tags:lightning}+1 to Level of all Lightning Skills
+{variant:1}{tags:lightning}+1 to Level of all Lightning Skills
+{tags:lightning}(10-20)% increased chance to Shock
+{variant:2}{tags:lightning}Lightning Skills Chain +1 times
+{variant:2}{tags:lightning}(10-20)% increased Magnitude of Shock you inflict
 ]],[[
 Ming's Heart
 Amethyst Ring
@@ -182,7 +212,7 @@ Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:life}20% reduced maximum Life
 {tags:chaos}Gain (30-40)% of Damage as Extra Chaos Damage
-{tags:defences}30% reduced Global Defences
+{tags:defences}30% reduced Global Armour, Evasion and Energy Shield
 ]],[[
 Original Sin
 Amethyst Ring
@@ -213,40 +243,43 @@ Enemies Chilled by your Hits can be Shattered as though Frozen
 ]],[[
 Prized Pain
 Iron Ring
+Variant: Pre 0.5.0
+Variant: Current
 League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
 {tags:attribute}+(20-30) to Strength
-Skills gain a Base Life Cost equal to 10% of Base Mana Cost
-Deal your Thorns Damage to Enemies you Stun with Melee Attacks
-{tags:physical}(24-35) to (35-53) Physical Thorns damage
+Skills Gain 10% of Mana Cost as Extra Life Cost
+{variant:1}Deal your Thorns Damage to Enemies you Stun with Melee Attacks
+{tags:physical}(24-35) to (36-53) Physical Thorns damage
+{variant:2}(15-25)% chance to deal your Thorns Damage to Enemies you Hit with Melee Attacks
 ]],[[
-Seed of Cataclysm
-Lazuli Ring
-Implicits: 1
-{tags:mana}+(20-30) to maximum Mana
-{tags:caster}(30-50)% increased Critical Hit Chance for Spells
-{tags:caster}(30-50)% increased Critical Spell Damage Bonus
-{tags:chaos}+(13-17)% to Chaos Resistance
-{tags:mana}10% increased Mana Cost of Skills
-]],[[
-Sekhema's Resolve
+Safrin's Resolve
 Ring
 Sockets: J
 Source: Drops from unique{Zarokh, the Temporal}
-Variant: Ruby
-Variant: Emerald
-Variant: Sapphire
+Variant: Pre 0.5.0
+Variant: Current
 Requires Level 40
+You can only Socket Ruby Jewels in this item
 (10-20)% increased Rarity of Items found
 {tags:attribute}+(10-20) to all Attributes
-{variant:3}Cold Resistance is unaffected by Area Penalties
+{variant:2}+(5-10)% to Cold and Lightning Resistances per Equipped Item with a Fire Resistance Modifier
 {variant:1}Fire Resistance is unaffected by Area Penalties
-{variant:2}Lightning Resistance is unaffected by Area Penalties
-{variant:2}You can only Socket Emerald Jewels in this item
-{variant:1}You can only Socket Ruby Jewels in this item
-{variant:3}You can only Socket Sapphire Jewels in this item
+]],[[
+Seed of Cataclysm
+Lazuli Ring
+Variant: Pre 0.5.0
+Variant: Current
+Implicits: 1
+{tags:mana}+(20-30) to maximum Mana
+{tags:caster}(30-50)% increased Critical Hit Chance for Spells
+{variant:1}{tags:caster}(30-50)% increased Critical Spell Damage Bonus
+{variant:2}{tags:caster}5% reduced Critical Spell Damage Bonus per Critical Hit you've dealt with Spells Recently
+{tags:chaos}+(13-17)% to Chaos Resistance
+{tags:mana}10% increased Mana Cost of Skills
+{variant:2}{tags:caster}(15-30)% chance for Spell Damage with Critical Hits to be Lucky
 ]],[[
 Snakepit
 Pearl Ring
@@ -321,5 +354,18 @@ Implicits: 1
 {tags:attribute}+(10-20) to Dexterity
 {tags:mana}(25-35)% increased Mana Regeneration Rate
 100% of Cold Damage Converted to Lightning Damage
+]],[[
+Zaida's Longevity
+Ring
+Sockets: J
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.5.0
+Variant: Current
+Requires Level 40
+You can only Socket Emerald Jewels in this item
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(10-20) to all Attributes
+{variant:2}+(5-10)% to Fire and Lightning Resistances per Equipped Item with a Cold Resistance Modifier
+{variant:1}Lightning Resistance is unaffected by Area Penalties
 ]],
 }

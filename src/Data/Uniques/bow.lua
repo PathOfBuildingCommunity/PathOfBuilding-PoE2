@@ -7,15 +7,17 @@ Death's Harp
 Dualstring Bow
 Variant: 0.2.0
 Variant: 0.3.0
+Variant: 0.5.0
 Variant: Current
 Implicits: 1
 +50% Surpassing chance to fire an additional Arrow
 {variant:1}+(50-70)% to Critical Damage Bonus
 {variant:2}+(30-40)% to Critical Damage Bonus
-{variant:3}+(20-25)% to Critical Damage Bonus
-Bow Attacks fire 3 additional Arrows
+{variant:3,4}+(20-25)% to Critical Damage Bonus
+{variant:1,2,3}Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per enemy killed
 Gain (12-18) Mana per enemy killed
+{variant:4}+(250-330)% Surpassing chance to fire an additional Arrow
 ]],[[
 Doomfletch
 Composite Bow
@@ -52,8 +54,8 @@ Variant: Current
 +(20-30) to Dexterity
 +2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently
 -1 metre to Dodge Roll distance if you've Dodge Rolled Recently
-{variant:1}Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
-{variant:2}Barrageable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
+{variant:1}Repeatable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
+{variant:2}Repeatable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
 ]],[[
 Quill Rain
 Shortbow
