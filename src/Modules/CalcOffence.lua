@@ -3808,18 +3808,22 @@ function calcs.offence(env, actor, activeSkill)
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreBifurcateCritChance
 					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100
-					output.CritBifurcates = bifurcateMultiChance
+					local effectiveCritChance = output.CritChance
+					local conditionalBifurcateChance = effectiveCritChance > 0 and bifurcateMultiChance / effectiveCritChance or 0
+					output.CritBifurcates = 1 + conditionalBifurcateChance
 					local damageBonus = extraDamage
-					local bifurcatedBonus = bifurcateMultiChance * extraDamage / 100
-					if breakdown and enemyInc ~= 1 then
+					local bifurcatedBonus = conditionalBifurcateChance * extraDamage
+					if breakdown then
 						breakdown.CritBifurcates = {
-							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
+							s_format("%.2f%% ^8(pre-bifurcate crit chance)", critChancePercentage),
 							s_format("x %.2f%%", critChancePercentage),
-							s_format("= %.2f%% ^8(crit Bifurcates chance)", bifurcateMultiChance),
+							s_format("= %.2f%% ^8(chance both crit rolls succeed)", bifurcateMultiChance),
+							s_format("/ %.2f%% ^8(chance at least one crit roll succeeds)", effectiveCritChance),
+							s_format("= %.2f ^8(crit Bifurcates effect)", 1 + conditionalBifurcateChance),
 						}
 					end
 					extraDamage = damageBonus + bifurcatedBonus
-					skillModList:NewMod("CritMultiplier", "MORE", floor(bifurcateMultiChance, 2), "Bifurcated Crit Damage Bonus")
+					skillModList:NewMod("CritMultiplier", "MORE", floor(conditionalBifurcateChance * 100, 2), "Bifurcated Crit Damage Bonus")
 				end
 
 				if env.mode_effective then
