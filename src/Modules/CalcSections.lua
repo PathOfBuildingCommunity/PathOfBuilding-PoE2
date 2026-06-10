@@ -1836,6 +1836,7 @@ return {
 	}, },
 	{ label = "Life on Block", haveOutput = "LifeOnBlock", { format = "{0:output:LifeOnBlock}", { modName = "LifeOnBlock" }, }, },
 	{ label = "Mana on Block", haveOutput = "ManaOnBlock", { format = "{0:output:ManaOnBlock}", { modName = "ManaOnBlock" }, }, },
+	{ label = "Ward on Block", haveOutput = "WardOnBlock", { format = "{0:output:WardOnBlock}", { modName = "WardOnBlock" }, }, },
 	{ label = "ES on Block", haveOutput = "EnergyShieldOnBlock", { format = "{0:output:EnergyShieldOnBlock}", { modName = "EnergyShieldOnBlock" }, }, },
 	{ label = "ES on Spell Block", haveOutput = "EnergyShieldOnSpellBlock", { format = "{0:output:EnergyShieldOnSpellBlock}", { modName = "EnergyShieldOnSpellBlock" }, }, },
 } }, { defaultCollapsed = false, label = "Dodge", data = {

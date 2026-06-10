@@ -185,7 +185,7 @@ local configSettings = {
 		end
 	end },
 	{ var = "EHPUnluckyWorstOf", type = "list", label = "EHP calc unlucky:", tooltip = "Sets the EHP calc to pretend its unlucky and reduce the effects of random events such as\n\tBlock/Spell Block Chance\n\tDodge/Spell Dodge Chance\n\tSpell Suppression Chance\n\tAvoidance Chance", list = {{val=1,label="Average"},{val=2,label="Unlucky"},{val=4,label="Very Unlucky"}} },
-	{ var = "DisableEHPGainOnBlock", type = "check", label = "Disable EHP gain on block/suppress:", ifMod = {"LifeOnBlock", "ManaOnBlock", "EnergyShieldOnBlock", "EnergyShieldOnSpellBlock", "LifeOnSuppress", "EnergyShieldOnSuppress"}, tooltip = "Sets the EHP calc to not apply gain on block and suppress effects"},
+	{ var = "DisableEHPGainOnBlock", type = "check", label = "Disable EHP gain on block/suppress:", ifMod = {"LifeOnBlock", "ManaOnBlock", "WardOnBlock", "EnergyShieldOnBlock", "EnergyShieldOnSpellBlock", "LifeOnSuppress", "EnergyShieldOnSuppress"}, tooltip = "Sets the EHP calc to not apply gain on block and suppress effects"},
 	{ var = "armourCalculationMode", type = "list", label = "Armour calculation mode:", ifCond = { "ArmourMax", "ArmourAvg" }, tooltip = "Controls how Defending with Double Armour is calculated:\n\tMinimum: never Defend with Double Armour\n\tAverage: Damage Reduction from Defending with Double Armour is proportional to chance\n\tMaximum: always Defend with Double Armour\nThis setting has no effect if you have 100% chance to Defend with Double Armour.", list = {{val="MIN",label="Minimum"},{val="AVERAGE",label="Average"},{val="MAX",label="Maximum"}}, apply = function(val, modList, enemyModList)
 		if val == "MAX" then
 			modList:NewMod("Condition:ArmourMax", "FLAG", true, "Config")
@@ -1574,7 +1574,7 @@ Huge sets the radius to 11.
 	{ var = "conditionHaveArborix", type = "check", label = "Do you have Iron Reflexes?", ifFlag = "Condition:HaveArborix", tooltip = "This option is specific to Arborix.",apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveIronReflexes", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Keystone", "LIST", "Iron Reflexes", "Config")
-	end },	
+	end },
 	{ var = "conditionHaveAugyre", type = "list", label = "Augyre rotating buff:", ifFlag = "Condition:HaveAugyre", list = {{val="EleOverload",label="Elemental Overload"},{val="ResTechnique",label="Resolute Technique"}}, tooltip = "This option is specific to Augyre.", apply = function(val, modList, enemyModList)
 		if val == "EleOverload" then
 			modList:NewMod("Condition:HaveElementalOverload", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1583,7 +1583,7 @@ Huge sets the radius to 11.
 			modList:NewMod("Condition:HaveResoluteTechnique", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 			modList:NewMod("Keystone", "LIST", "Resolute Technique", "Config")
 		end
-	end },	
+	end },
 	{ var = "conditionHaveVulconus", type = "check", label = "Do you have Avatar Of Fire?", ifFlag = "Condition:HaveVulconus", tooltip = "This option is specific to Vulconus.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveAvatarOfFire", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Keystone", "LIST", "Avatar of Fire", "Config")
@@ -2183,7 +2183,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyColdDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyFireDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyChaosDamage']:SetPlaceholder(defaultDamage, true)
-			
+
 			local rollRangeMult = m_min(m_max(build.configTab.input['enemyDamageRollRange'] or build.configTab.varControls['enemyDamageRollRange'].placeholder, 0), 100)
 			for damageType, damageMult in pairs(bossData.DamageMultipliers) do
 				if isUber and bossData.UberDamageMultiplier then
@@ -2198,7 +2198,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyLightningPen']:SetPlaceholder(defaultPen, true)
 			build.configTab.varControls['enemyColdPen']:SetPlaceholder(defaultPen, true)
 			build.configTab.varControls['enemyFirePen']:SetPlaceholder(defaultPen, true)
-			
+
 			if bossData.DamagePenetrations then
 				for penType, pen in pairs(bossData.DamagePenetrations) do
 					if isUber and bossData.UberDamagePenetrations and bossData.UberDamagePenetrations[penType] then
@@ -2208,13 +2208,13 @@ Huge sets the radius to 11.
 					end
 				end
 			end
-			
+
 			if bossData.DamageType then
 				build.configTab.varControls['enemyDamageType']:SelByValue(bossData.DamageType, "val")
 				build.configTab.input['enemyDamageType'] = bossData.DamageType
 			end
 			build.configTab.varControls['enemyDamageType'].enabled = false
-			
+
 			if isUber and bossData.UberSpeed then
 				build.configTab.varControls['enemySpeed']:SetPlaceholder(bossData.UberSpeed, true)
 			elseif bossData.speed then
@@ -2223,7 +2223,7 @@ Huge sets the radius to 11.
 			if bossData.critChance then
 				build.configTab.varControls['enemyCritChance']:SetPlaceholder(bossData.critChance, true)
 			end
-			
+
 			modList:NewMod("BossSkillActive", "FLAG", true, "Config")
 
 			-- boss specific mods
@@ -2275,7 +2275,7 @@ Huge sets the radius to 11.
 	{ var = "enemyFireDamage", type = "countAllowZero", label = "Enemy Skill ^xB97123Fire Damage:"},
 	{ var = "enemyFirePen", type = "countAllowZero", label = "Enemy Skill ^xB97123Fire Pen:"},
 	{ var = "enemyChaosDamage", type = "countAllowZero", label = "Enemy Skill ^xD02090Chaos Damage:"},
-	
+
 	-- Section: Custom mods
 	{ section = "Custom Modifiers", col = 1 },
 	{ var = "customMods", type = "text", label = "", doNotHighlight = true, resizable = true,

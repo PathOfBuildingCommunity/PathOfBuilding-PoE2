@@ -723,7 +723,7 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge ^7(%d remaining)", output.sharedGuardAbsorb - poolsRemaining.Guard.shared, poolsRemaining.Guard.shared))
 	end
 	if output.Ward and output.Ward > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Ward", output.Ward))
+		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", output.Ward))
 	end
 	if output.EnergyShieldRecoveryCap ~= poolsRemaining.EnergyShield and output.EnergyShieldRecoveryCap and output.EnergyShieldRecoveryCap > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield ^7(%d remaining)", output.EnergyShieldRecoveryCap - poolsRemaining.EnergyShield, poolsRemaining.EnergyShield))
@@ -1908,6 +1908,8 @@ function calcs.defence(env, actor)
 	end
 
 	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
+
+	output.WardOnBlock = modDB:Sum("BASE", nil, "WardOnBlock")
 
 	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
 	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
