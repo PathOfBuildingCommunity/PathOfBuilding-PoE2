@@ -437,7 +437,7 @@ return %s
 	self:GenerateModData(data.itemMods.Charm, { ["Charm"] = true })
 
 	-- add breach mods which lack proper weights. these mods spawn for either belts or rings, but
-	-- have weights of zero for ones they DONT spawn on
+	-- have weights of zero for ones they cannot spawn on
 	for name, mod in pairs(data.itemMods.Item) do
 		local treeMod = false
 		local slots = {Ring = true, Belt = true}
