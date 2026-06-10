@@ -152,7 +152,6 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 					filter.value = value
 				end
 			end
-			
 			t_insert(queryTable.query.stats[1].filters, filter)
 		end
 	end
@@ -200,6 +199,22 @@ function M.openPopup(item, slotName, primaryBuild)
 		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.explicitModLines, type = "explicit" },
 	}
+	-- this adds a single aggregated entry for matching stats (e.g. transformed flat dmg mods) which avoids issues with confusing results. different types are not summed as e.g. implicit and explicit mods are separate in the search. options are also avoided as they don't represent values that can be added combined
+	local function insertOrAddToExisting(entry)
+		for _, existingFilter in ipairs(modEntries) do
+			if (not existingFilter.isOption) and entry.value
+				and existingFilter.tradeId and existingFilter.tradeId == entry.tradeId
+				and existingFilter.type == entry.type
+				then
+				existingFilter.count = existingFilter.count + 1
+				local value = (entry.invert ~= existingFilter.invert) and -entry.value or entry.value
+				existingFilter.value = (existingFilter.value or 0) + value
+				t_insert(existingFilter.formattedLines, entry.formattedLines[1])
+				return
+			end
+		end
+		t_insert(modEntries, entry)
+	end
 	for _, source in ipairs(modTypeSources) do
 		if source.list then
 			for _, modLine in ipairs(source.list) do
@@ -220,14 +235,16 @@ function M.openPopup(item, slotName, primaryBuild)
 							value = tradeHelpers.modLineValue(resolvedLine)
 						end
 						local invert = (not isOption) and tradeHelpers.shouldBeInverted(identifier, resolvedLine, source.type)
-						t_insert(modEntries, {
-							line = modLine.line,
-							formatted = formatted,
+						insertOrAddToExisting({
+							-- this array will always start with one line, but if multiple mods are
+							-- aggregated together it will contain the original mod lines for each
+							formattedLines = {formatted},
 							tradeId = identifier,
 							value = value,
 							isOption = isOption,
 							type = source.type,
 							invert = invert,
+							count = 1,
 						})
 					end
 				end
@@ -332,8 +349,9 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	-- Helper: create a numeric EditControl without +/- spinner buttons, and
 	-- with a preset changeFunc
-	local function newPlainNumericEdit(anchor, rect, init, prompt, limit)
-		local ctrl = new("EditControl", anchor, rect, init, prompt, "%D", limit, rebuildUrl)
+	local function newPlainNumericEdit(anchor, rect, init, prompt, limit, integer)
+		local format = integer and "%D" or "^%d."
+		local ctrl = new("EditControl", anchor, rect, init, prompt, format, limit, rebuildUrl)
 		-- Remove the +/- spinner buttons that "%D" filter triggers
 		ctrl.isNumeric = false
 		if ctrl.controls then
@@ -360,8 +378,8 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- Item level
 		ctrlY = ctrlY + 4
 		controls.ilvlLabel = new("LabelControl", {"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Item Level:")
-		controls.ilvlMin = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Min", 4)
-		controls.ilvlMax = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 4)
+		controls.ilvlMin = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Min", 4, true)
+		controls.ilvlMax = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 4, true)
 		ctrlY = ctrlY + rowHeight
 
 		-- Defence stat rows
@@ -369,8 +387,8 @@ function M.openPopup(item, slotName, primaryBuild)
 			local prefix = "def" .. i
 			controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
 			controls[prefix .. "Label"] = new("LabelControl", {"LEFT", controls[prefix .. "Check"], "RIGHT"}, {4, 0, 0, 16}, "^7" .. def.label)
-			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, tostring(m_floor(def.value)), "Min", 6)
-			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 6)
+			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, tostring(m_floor(def.value)), "Min", 6, true)
+			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 6, true)
 			ctrlY = ctrlY + rowHeight
 		end
 
@@ -390,33 +408,51 @@ function M.openPopup(item, slotName, primaryBuild)
 		prevType = entry.type
 		local prefix = "mod" .. i
 		local canSearch = entry.tradeId ~= nil
-		controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
+
+		local rows = #entry.formattedLines
+
+		local fontSize = 16
+		-- adjust down by half a text row for each row over 1
+		local controlYPos = ctrlY + (rows - 1) * 8
+		local checkBoxXPos = -popupWidth/2 + leftMargin + checkboxSize/2
+		controls[prefix .. "Check"] = new("CheckBoxControl", nil, {checkBoxXPos, controlYPos, checkboxSize}, "", rebuildUrl)
 		controls[prefix .. "Check"].enabled = function() return canSearch end
+
+
 		-- Truncate long mod text to fit
-		--- @type string
-		local displayText = entry.formatted
-		local colorCodeLength = displayText:match("(%^x%x%x%x%x%x%x)") or displayText:gsub("(%^%x)", "") or ""
-		if not canSearch then
-			-- strip color codes and replace with gray
-			displayText = "^8" .. displayText:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", "")
-		end
-		if #displayText > (#colorCodeLength + 60) then
-			displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
+		--- @type string[]
+		local displayTexts = entry.formattedLines
+		for index, displayText in ipairs(displayTexts) do
+			local colorCodeLength = displayText:match("(%^x%x%x%x%x%x%x)") or displayText:gsub("(%^%x)", "") or ""
+
+			if not canSearch then
+				-- strip color codes and replace with gray
+				displayText = "^8" .. displayText:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", "")
+			end
+			if #displayText > (#colorCodeLength + 62) then
+				displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
+			end
+			displayTexts[index] = displayText
 		end
 		
-		controls[prefix .. "Label"] = new("LabelControl", { "LEFT", controls[prefix .. "Check"], "RIGHT" }, { 4, 0, 0, 16 },
+
+		local displayText = table.concat(displayTexts, "\n")
+		-- labels anchor based on the first row instead of the middle row, so adjust upwards
+		local labelXOffset = (rows - 1) * -8
+
+		controls[prefix .. "Label"] = new("LabelControl", {"LEFT", controls[prefix .. "Check"], "RIGHT"},{ 4, labelXOffset, 0, fontSize },
 			displayText)
 		-- when the trade site has a dropdown for the value, we opt to disable
 		-- the inputs as they are numeric
 		if not (entry.isOption or entry.needsExactValue) and entry.value then
-			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, entry.value ~= 0 and tostring(m_floor(entry.value)) or "", "Min", 8)
-			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 8)
+			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, controlYPos, fieldW, fieldH}, entry.value ~= 0 and tostring(entry.value) or "", "Min", 8)
+			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, controlYPos, fieldW, fieldH}, "", "Max", 8)
 			if not canSearch then
 				controls[prefix .. "Min"].enabled = function() return false end
 				controls[prefix .. "Max"].enabled = function() return false end
 			end
 		end
-		ctrlY = ctrlY + rowHeight
+		ctrlY = ctrlY + math.max(rowHeight, fontSize*rows + 8)
 	end
 
 	-- Search button
