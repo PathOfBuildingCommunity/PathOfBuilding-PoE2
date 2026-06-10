@@ -1095,21 +1095,56 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		self.itemIndexTbl[row_idx] = self.sortedResultTbl[row_idx][index].index
 		self:SetFetchResultReturn(row_idx, self.itemIndexTbl[row_idx])
 	end)
+	local function getResultWeightedScore(result_index)
+		local sum = 0
+		for _, eval in ipairs(self:GetResultEvaluation(row_idx, result_index) or {}) do
+			sum = sum + (eval.weight or 0)
+		end
+		return sum
+	end
+	local function addStatWeightScoreBreakdownLines(tooltip, result_index)
+		local evaluation = self:GetResultEvaluation(row_idx, result_index)
+		if not (evaluation and evaluation[1] and evaluation[1].output and self.statSortSelectionList) then
+			return
+		end
+		local calcFunc, baseOutput = self.itemsTab.build.calcsTab:GetMiscCalculator()
+		for _, statWeight in ipairs(self.statSortSelectionList) do
+			local perStatScore = self.tradeQueryGenerator.WeightedRatioOutputs(baseOutput, evaluation[1].output, { statWeight }) * 1000
+			tooltip:AddLine(16, string.format("^7%s Score: %.0f", statWeight.label, perStatScore))
+		end
+	end
+	local function addCompareTooltip(tooltip, result_index, dbMode)
+		local result = self.resultTbl[row_idx] and self.resultTbl[row_idx][result_index]
+		if not result or not result.item_string then
+			return
+		end
+		local item = new("Item", result.item_string)
+		self.itemsTab:AddItemTooltip(tooltip, item, activeSlot, dbMode, nil, true, activeSlot and activeSlot.slotName or nil)
+		if main.slotOnlyTooltips and slotTbl.slotName == "Megalomaniac" then
+			local evaluation = self:GetResultEvaluation(row_idx, result_index)
+			if evaluation and evaluation[1] then
+				self.itemsTab.build:AddStatComparesToTooltip(tooltip, self.onlyWeightedBaseOutput[row_idx][result_index], evaluation[1].output, "^7Equipping this item will give you:")
+			end
+		end
+	end
 	self:UpdateDropdownList(row_idx)
 	controls["resultDropdown"..row_idx].tooltipFunc = function(tooltip, dropdown_mode, dropdown_index, dropdown_display_string)
 		local sortedRow = self.sortedResultTbl[row_idx]
 		if not sortedRow or not sortedRow[dropdown_index] then
 			return
 		end
-		local pb_index = sortedRow[dropdown_index].index
-		local result = self.resultTbl[row_idx] and self.resultTbl[row_idx][pb_index]
+		tooltip:Clear()
+		local result_index = sortedRow[dropdown_index].index
+		local result = self.resultTbl[row_idx] and self.resultTbl[row_idx][result_index]
 		if not result then
 			return
 		end
-		local item = new("Item", result.item_string)
-		tooltip:Clear()
-		self.itemsTab:AddItemTooltip(tooltip, item, activeSlot)
+		addCompareTooltip(tooltip, result_index)
 		tooltip:AddSeparator(10)
+		if IsKeyDown("SHIFT") then
+			tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(result_index) * 1000))
+			addStatWeightScoreBreakdownLines(tooltip, result_index)
+		end
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
 	end
 	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
@@ -1129,13 +1164,14 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 	controls["importButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		local selected_result_index = self.itemIndexTbl[row_idx]
-		local item_string = self.resultTbl[row_idx][selected_result_index].item_string
-		if selected_result_index and item_string then
-			-- TODO: item parsing bug caught here.
-			-- item.baseName is nil and throws error in the following AddItemTooltip func
-			-- if the item is unidentified
-			local item = new("Item", item_string)
-			self.itemsTab:AddItemTooltip(tooltip, item, activeSlot, true)
+		local itemResult = selected_result_index and self.resultTbl[row_idx] and self.resultTbl[row_idx][selected_result_index]
+		if itemResult and itemResult.item_string then
+			addCompareTooltip(tooltip, selected_result_index, true)
+			tooltip:AddSeparator(10)
+			if IsKeyDown("SHIFT") then
+				tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(selected_result_index) * 1000))
+				addStatWeightScoreBreakdownLines(tooltip, selected_result_index)
+			end
 		end
 	end
 	controls["importButton"..row_idx].enabled = function()

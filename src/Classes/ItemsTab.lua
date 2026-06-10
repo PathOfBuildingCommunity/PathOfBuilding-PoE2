@@ -3220,7 +3220,8 @@ function ItemsTabClass:FormatItemSource(text)
 			   :gsub("prophecy{([^}]+)}",colorCodes.PROPHECY.."%1"..colorCodes.SOURCE)
 end
 
-function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
+function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth, forceSlotOnlyTooltips, compareSlotName)
+	local slotOnlyTooltips = forceSlotOnlyTooltips ~= nil and forceSlotOnlyTooltips or main.slotOnlyTooltips
 	local fontSizeSmall = main.showFlavourText and 16 or 14
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	local fontSizeTitle = main.showFlavourText and 22 or 20
@@ -3894,12 +3895,25 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
 		end
 
-		-- if we have a specific slot to compare to, and the user has "Show
-		-- tooltips only for affected slots" checked, we can just compare that
-		-- one slot
-		if main.slotOnlyTooltips and slot then
-			slot = type(slot) ~= "string" and slot or self.slots[slot]
-			if slot then addCompareForSlot(slot) end
+		local function slotMatches(compareSlot)
+			if compareSlotName then
+				return compareSlot.slotName == compareSlotName
+			end
+			local targetSlot = type(slot) ~= "string" and slot or self.slots[slot]
+			if not targetSlot then
+				return false
+			end
+			return (targetSlot.nodeId and targetSlot.nodeId == compareSlot.nodeId) or (targetSlot.slotName and targetSlot.slotName == compareSlot.slotName) or targetSlot == compareSlot
+		end
+
+		-- If slot-only tooltips are active for a specific slot, compare only that slot.
+		if slotOnlyTooltips and (slot or compareSlotName) then
+			for _, compareSlot in ipairs(compareSlots) do
+				if slotMatches(compareSlot) then
+					addCompareForSlot(compareSlot)
+					return
+				end
+			end
 			return
 		end
 

@@ -2264,39 +2264,56 @@ end
 
 function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount)
 	local count = 0
-	for _, statData in ipairs(statList) do
-		if statData.stat and (not statData.flag or actor.mainSkill.activeEffect.statSet.skillFlags[statData.flag]) and not statData.childStat and statData.stat ~= "SkillDPS" then
-			local statVal1 = compareOutput[statData.stat] or 0
-			local statVal2 = baseOutput[statData.stat] or 0
-			local diff = statVal1 - statVal2
-			if statData.stat == "FullDPS" and not compareOutput[statData.stat] then
-				diff = 0
+	local function addStatCompareLine(statData)
+		if not (statData.stat and (not statData.flag or actor.mainSkill.activeEffect.statSet.skillFlags[statData.flag]) and not statData.childStat and statData.stat ~= "SkillDPS") then
+			return
+		end
+		local statVal1 = compareOutput[statData.stat] or 0
+		local statVal2 = baseOutput[statData.stat] or 0
+		local diff = statVal1 - statVal2
+		if statData.stat == "FullDPS" and not compareOutput[statData.stat] then
+			diff = 0
+		end
+		if (diff > 0.001 or diff < -0.001) and (not statData.condFunc or statData.condFunc(statVal1,compareOutput) or statData.condFunc(statVal2,baseOutput)) then
+			if count == 0 then
+				tooltip:AddLine(14, header)
 			end
-			if (diff > 0.001 or diff < -0.001) and (not statData.condFunc or statData.condFunc(statVal1,compareOutput) or statData.condFunc(statVal2,baseOutput)) then
-				if count == 0 then
-					tooltip:AddLine(14, header)
-				end
-				local color = ((statData.lowerIsBetter and diff < 0) or (not statData.lowerIsBetter and diff > 0)) and colorCodes.POSITIVE or colorCodes.NEGATIVE
-				local val = diff * ((statData.pc or statData.mod) and 100 or 1)
-				local valStr = s_format("%+"..statData.fmt, val) -- Can't use self:FormatStat, because it doesn't have %+. Adding that would have complicated a simple function
+			local color = ((statData.lowerIsBetter and diff < 0) or (not statData.lowerIsBetter and diff > 0)) and colorCodes.POSITIVE or colorCodes.NEGATIVE
+			local val = diff * ((statData.pc or statData.mod) and 100 or 1)
+			local valStr = s_format("%+"..statData.fmt, val) -- Can't use self:FormatStat, because it doesn't have %+. Adding that would have complicated a simple function
 
-				valStr = formatNumSep(valStr)
+			valStr = formatNumSep(valStr)
 
-				local line = s_format("%s%s %s", color, valStr, statData.label)
-				local pcPerPt = ""
-				if statData.compPercent and statVal1 ~= 0 and statVal2 ~= 0 then
-					local pc = statVal1 / statVal2 * 100 - 100
-					line = line .. s_format(" (%+.1f%%)", pc)
-					if nodeCount then
-						pcPerPt = s_format(" (%+.1f%%)", pc / nodeCount)
-					end
-				end
+			local line = s_format("%s%s %s", color, valStr, statData.label)
+			local pcPerPt = ""
+			if statData.compPercent and statVal1 ~= 0 and statVal2 ~= 0 then
+				local pc = statVal1 / statVal2 * 100 - 100
+				line = line .. s_format(" (%+.1f%%)", pc)
 				if nodeCount then
-					line = line .. s_format(" ^8[%+"..statData.fmt.."%s per point]", diff * ((statData.pc or statData.mod) and 100 or 1) / nodeCount, pcPerPt)
+					pcPerPt = s_format(" (%+.1f%%)", pc / nodeCount)
 				end
-				tooltip:AddLine(14, line)
-				count = count + 1
 			end
+			if nodeCount then
+				line = line .. s_format(" ^8[%+"..statData.fmt.."%s per point]", diff * ((statData.pc or statData.mod) and 100 or 1) / nodeCount, pcPerPt)
+			end
+			tooltip:AddLine(14, line)
+			count = count + 1
+		end
+	end
+
+	local prioritized = { FullDPS = true, TotalEHP = true, EffectiveLootRarityMod = true }
+	for _, priorityStat in ipairs({ "FullDPS", "TotalEHP", "EffectiveLootRarityMod" }) do
+		for _, statData in ipairs(statList) do
+			if statData.stat == priorityStat then
+				addStatCompareLine(statData)
+				break
+			end
+		end
+	end
+
+	for _, statData in ipairs(statList) do
+		if not prioritized[statData.stat] then
+			addStatCompareLine(statData)
 		end
 	end
 	return count
