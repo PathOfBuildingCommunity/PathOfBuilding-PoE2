@@ -914,7 +914,6 @@ Azmerian Wolf                 		----		SummonAzmerianWolfPlayer	CommandPackleader
 Bitter Dead                   		----		BitterDeadPlayer
 Black Powder Blitz            		----		BlackPowderBlitzReservationPlayer	BlackPowderBlitzPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
-Bloodbarrier                        ----        BloodbarrierPlayer
 Blood Boil                    		----		BloodBoilPlayer
 Bow Shot                      		----		MeleeBowPlayer
 Bursting Fen Toad             		----		ExplodingPoisonToadPlayer
