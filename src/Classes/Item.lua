@@ -850,8 +850,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					gameModeStage = "IMPLICIT"
 				end
 				local catalystScalar = 1
-				if line:match(" %- Unscalable Value$") then
-					line = line:gsub(" %- Unscalable Value$", "")
+				if line:match(" %- Unscalable Value$") or line:match(" — Unscalable Value$") then
+					line = line:gsub(" %- Unscalable Value$", ""):gsub(" — Unscalable Value$", "")
 					modLine.unscalable = true
 				else
 					catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
@@ -1138,12 +1138,37 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
+			local gameSocketedRuneEffectModifier = 0
+			if mode == "GAME" and shouldFixRunesOnItem then
+				for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
+					for _, effectModLine in ipairs(modLines) do
+						for _, mod in ipairs(effectModLine.modList or { }) do
+							if mod.name == "SocketedRuneEffect" and mod.type == "INC" then
+								gameSocketedRuneEffectModifier = gameSocketedRuneEffectModifier + mod.value / 100
+							end
+						end
+					end
+				end
+			end
+
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
 				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
 				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
-					local result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
+					local result, numRunes
+					local socketedRuneEffectAlreadyApplied
+					if gameSocketedRuneEffectModifier ~= 0 then
+						local unscaledTargetValues = { }
+						for valueIndex, value in ipairs(targetValues) do
+							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedRuneEffectModifier)
+						end
+						result, numRunes = findRuneCombination(groupedRunes, unscaledTargetValues, remainingRunes)
+						socketedRuneEffectAlreadyApplied = result ~= nil
+					end
+					if not result then
+						result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
+					end
 
 					if result then -- we have found a valid combo for that rune category
 						remainingRunes = remainingRunes - numRunes
@@ -1151,6 +1176,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
 						modLine.augmentType = groupedRunes[1].type
 						modLine.runeCount = numRunes
+						modLine.socketedRuneEffectAlreadyApplied = socketedRuneEffectAlreadyApplied
 
 						if shouldFixRunesOnItem then
 							for index, rune in ipairs(groupedRunes) do
@@ -2041,7 +2067,7 @@ function ItemClass:BuildModList()
 	for _, modLine in ipairs(self.runeModLines) do
 		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
 			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
-		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra then
+		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
 			for _, mod in ipairs(modLine.modList) do
 				baseList:ScaleAddMod(mod, effectModifier)
 			end

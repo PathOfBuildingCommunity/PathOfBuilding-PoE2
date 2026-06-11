@@ -539,6 +539,65 @@ describe("TestItemParse", function()
 		assert.are.equals(210, spellDamage)
 	end)
 
+	it("infers pasted game rune lines with socketed rune effect", function()
+		local item = new("Item", [[
+			Item Class: Wands
+			Rarity: Unique
+			Runeseeker's Call
+			Runic Fork
+			--------
+			Quality: +20% (augmented)
+			--------
+			Requires: Level 90 (unmet)
+			--------
+			Sockets: S S S S S
+			--------
+			Item Level: 86
+			--------
+			Gain 120% of Damage as Extra Lightning Damage (rune)
+			Remnants you create have 75% reduced effect (rune)
+			Remnants can be collected from 150% further away (rune)
+			--------
+			Grants Skill: Level 20 The Stars Answer
+			--------
+			{ Unique Modifier }
+			Only Runes can be Socketed in this item — Unscalable Value
+			{ Unique Modifier }
+			200% increased effect of Socketed Runes — Unscalable Value
+			--------
+			Smithed from ancient metal
+			wrought from the very stars.
+			It is a means to call upon them,
+			for one capable of wielding it.
+			--------
+			Corrupted
+		]])
+
+		local damageGainAsLightning = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsLightning" and mod.type == "BASE" then
+				damageGainAsLightning = damageGainAsLightning + mod.value
+			end
+		end
+		assert.are.equals(120, damageGainAsLightning)
+
+		item:BuildAndParseRaw()
+
+		assert.are.equals(5, item.itemSocketCount)
+		assert.are.equals(5, #item.runes)
+		for _, rune in ipairs(item.runes) do
+			assert.are_not.equals("None", rune)
+		end
+
+		damageGainAsLightning = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsLightning" and mod.type == "BASE" then
+				damageGainAsLightning = damageGainAsLightning + mod.value
+			end
+		end
+		assert.are.equals(120, damageGainAsLightning)
+	end)
+
 	it("multi-line rune mod", function()
 		-- Thruldana is Bow-only as well
 		local item = new("Item", [[
