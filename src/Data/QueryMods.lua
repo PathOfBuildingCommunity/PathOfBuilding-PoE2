@@ -28208,9 +28208,17 @@ return {
 			},
 		},
 		["774059442"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
+				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28598,6 +28606,20 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["1073847159"] = {
+			["Chest"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1073847159",
+				["text"] = "# to Spirit per Idol socketed in your Equipment",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
+		},
 		["1092987622"] = {
 			["Chest"] = {
 				["max"] = 250,
@@ -28628,6 +28650,19 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
+		},
+		["1150343007"] = {
+			["Helmet"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1150343007",
+				["text"] = "#% of Damage from Hits is taken from your Damageable Companion's Life before you",
+				["type"] = "augment",
+			},
 		},
 		["1181501418"] = {
 			["1HWeapon"] = {
@@ -29709,6 +29744,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1805633363",
 				["text"] = "#% increased Reservation Efficiency of Minion Skills",
+				["type"] = "augment",
+			},
+		},
+		["1811977226"] = {
+			["Boots"] = {
+				["max"] = 4,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1811977226",
+				["text"] = "Gain Onslaught for # seconds when your Marks Activate",
 				["type"] = "augment",
 			},
 		},
@@ -30824,6 +30872,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["25786091"] = {
+			["Helmet"] = {
+				["max"] = 4,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_25786091",
+				["text"] = "Enemies have no Critical Damage Bonus for # seconds after you Blind them",
+				["type"] = "augment",
+			},
+		},
 		["2579974553"] = {
 			["1HWeapon"] = {
 				["max"] = 1,
@@ -31110,6 +31171,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["2695354435"] = {
+			["Helmet"] = {
+				["max"] = 100,
+				["min"] = 100,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2695354435",
+				["text"] = "#% increased Global Evasion Rating when on Low Life",
+				["type"] = "augment",
+			},
+		},
 		["2703838669"] = {
 			["Boots"] = {
 				["max"] = 1,
@@ -31165,6 +31239,20 @@ return {
 				["text"] = "Gain # Rage on Melee Hit",
 				["type"] = "augment",
 			},
+		},
+		["2715190555"] = {
+			["Boots"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2715190555",
+				["text"] = "#% to Thorns Critical Hit Chance",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["2748665614"] = {
 			["Helmet"] = {
@@ -31948,6 +32036,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3107707789",
 				["text"] = "#% increased Movement Speed while Sprinting",
+				["type"] = "augment",
+			},
+		},
+		["3128773415"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3128773415",
+				["text"] = "Your speed is Unaffected by Slows while Sprinting",
 				["type"] = "augment",
 			},
 		},
@@ -32929,6 +33030,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["3639405795"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3639405795",
+				["text"] = "#% increased Movement Speed while Sprinting per Persistent Minion",
+				["type"] = "augment",
+			},
+		},
 		["3666934677"] = {
 			["Helmet"] = {
 				["max"] = 2,
@@ -33274,6 +33388,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3855016469",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus",
+				["type"] = "augment",
+			},
+		},
+		["3863682550"] = {
+			["Helmet"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3863682550",
+				["text"] = "Gain Guard equal to #% of maximum Life for 4 seconds on taking Savage Hit",
 				["type"] = "augment",
 			},
 		},
@@ -33749,6 +33876,19 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
+		},
+		["4111745607"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_4111745607",
+				["text"] = "Enemies which are on Full Life cannot Evade your Hits",
+				["type"] = "augment",
+			},
 		},
 		["412462523"] = {
 			["2HWeapon"] = {
@@ -34789,6 +34929,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["751944209"] = {
+			["Chest"] = {
+				["max"] = 200,
+				["min"] = 200,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_751944209",
+				["text"] = "#% increased Stun Threshold if you've been Stunned Recently",
+				["type"] = "augment",
+			},
+		},
 		["757050353"] = {
 			["Boots"] = {
 				["max"] = 50.5,
@@ -35252,6 +35405,20 @@ return {
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
 				["type"] = "augment",
 			},
+		},
+		["967155385"] = {
+			["Chest"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_967155385",
+				["text"] = "Prevent #% of Damage from Deflected Hits if you'veDeflected no Hits Recently",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["970213192"] = {
 			["1HMace"] = {

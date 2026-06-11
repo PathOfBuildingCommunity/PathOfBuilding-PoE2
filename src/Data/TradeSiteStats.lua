@@ -532,12 +532,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3981240776",
+				["id"] = "explicit.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2704225257",
+				["id"] = "explicit.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "explicit",
 			},
@@ -587,12 +587,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2897413282",
+				["id"] = "explicit.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1379411836",
+				["id"] = "explicit.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "explicit",
 			},
@@ -637,12 +637,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3336230913",
+				["id"] = "explicit.stat_774059442",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_774059442",
+				["id"] = "explicit.stat_3336230913",
 				["text"] = "# to maximum Runic Ward",
 				["type"] = "explicit",
 			},
@@ -2632,12 +2632,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1416406066",
+				["id"] = "explicit.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3984865854",
+				["id"] = "explicit.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "explicit",
 			},
@@ -5362,6 +5362,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|14265",
+				["text"] = "Allocates Arsonist",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|58817",
 				["text"] = "Allocates Artillery Strike",
 				["type"] = "explicit",
@@ -5562,6 +5567,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|1448",
+				["text"] = "Allocates Bond of the Cat",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|52568",
 				["text"] = "Allocates Bond of the Owl",
 				["type"] = "explicit",
@@ -5569,6 +5579,11 @@ return {
 			{
 				["id"] = "explicit.stat_2954116742|34478",
 				["text"] = "Allocates Bond of the Viper",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2954116742|5191",
+				["text"] = "Allocates Bond of the Wolf",
 				["type"] = "explicit",
 			},
 			{
@@ -6697,6 +6712,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|52669",
+				["text"] = "Allocates Flamekeeper",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|62963",
 				["text"] = "Allocates Flamewalker",
 				["type"] = "explicit",
@@ -7142,6 +7162,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|23907",
+				["text"] = "Allocates Ice Storm",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|55847",
 				["text"] = "Allocates Ice Walls",
 				["type"] = "explicit",
@@ -7512,6 +7537,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|60878",
+				["text"] = "Allocates Lightning Storm",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|56063",
 				["text"] = "Allocates Lingering Horror",
 				["type"] = "explicit",
@@ -7744,6 +7774,11 @@ return {
 			{
 				["id"] = "explicit.stat_2954116742|8810",
 				["text"] = "Allocates Multitasking",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2954116742|50239",
+				["text"] = "Allocates Mutewind Agility",
 				["type"] = "explicit",
 			},
 			{
@@ -8282,6 +8317,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|33400",
+				["text"] = "Allocates Reverberating Parry",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|8660",
 				["text"] = "Allocates Reverberation",
 				["type"] = "explicit",
@@ -8364,6 +8404,11 @@ return {
 			{
 				["id"] = "explicit.stat_2954116742|42070",
 				["text"] = "Allocates Saqawal's Guidance",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2954116742|35743",
+				["text"] = "Allocates Saqawal's Hide",
 				["type"] = "explicit",
 			},
 			{
@@ -9212,6 +9257,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|10169",
+				["text"] = "Allocates Unfettered",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|8881",
 				["text"] = "Allocates Unforgiving",
 				["type"] = "explicit",
@@ -9907,12 +9957,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|5",
+				["id"] = "explicit.stat_2801937280",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2801937280",
+				["id"] = "explicit.stat_3831171903|5",
 				["text"] = "Blood Magic",
 				["type"] = "explicit",
 			},
@@ -10672,12 +10722,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Area lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10692,12 +10742,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3226351972",
+				["id"] = "explicit.stat_1174954559",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1174954559",
+				["id"] = "explicit.stat_3226351972",
 				["text"] = "Delirium Fog in Map lasts # additional seconds before dissipating",
 				["type"] = "explicit",
 			},
@@ -10787,12 +10837,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2262736444",
+				["id"] = "explicit.stat_3831171903|9",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|9",
+				["id"] = "explicit.stat_2262736444",
 				["text"] = "Eldritch Battery",
 				["type"] = "explicit",
 			},
@@ -10877,12 +10927,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2080373320",
+				["id"] = "explicit.stat_1464727508",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1464727508",
+				["id"] = "explicit.stat_2080373320",
 				["text"] = "Enemies in your Presence are Blinded",
 				["type"] = "explicit",
 			},
@@ -11027,12 +11077,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2879778895",
+				["id"] = "explicit.stat_2625554454",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_2625554454",
+				["id"] = "explicit.stat_2879778895",
 				["text"] = "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds",
 				["type"] = "explicit",
 			},
@@ -11847,12 +11897,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_326965591",
+				["id"] = "explicit.stat_3831171903|21",
 				["text"] = "Iron Reflexes",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|21",
+				["id"] = "explicit.stat_326965591",
 				["text"] = "Iron Reflexes",
 				["type"] = "explicit",
 			},
@@ -15127,12 +15177,12 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_1683578560",
+				["id"] = "explicit.stat_3831171903|3",
 				["text"] = "Unwavering Stance",
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3831171903|3",
+				["id"] = "explicit.stat_1683578560",
 				["text"] = "Unwavering Stance",
 				["type"] = "explicit",
 			},
@@ -16569,12 +16619,12 @@ return {
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_2897413282",
+				["id"] = "fractured.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
 			{
-				["id"] = "fractured.stat_1379411836",
+				["id"] = "fractured.stat_2897413282",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
 			},
@@ -16596,6 +16646,16 @@ return {
 			{
 				["id"] = "fractured.stat_1050105434",
 				["text"] = "# to maximum Mana",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3336230913",
+				["text"] = "# to maximum Runic Ward",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_1823942939",
+				["text"] = "# to maximum number of Summoned Ballista Totems",
 				["type"] = "fractured",
 			},
 			{
@@ -16636,6 +16696,11 @@ return {
 			{
 				["id"] = "fractured.stat_795138349",
 				["text"] = "#% chance to Poison on Hit",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_4258524206",
+				["text"] = "#% chance to build an additional Combo on Hit",
 				["type"] = "fractured",
 			},
 			{
@@ -17066,6 +17131,16 @@ return {
 			{
 				["id"] = "fractured.stat_3206904707",
 				["text"] = "#% increased Explicit Cold Modifier magnitudes",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2393315299",
+				["text"] = "#% increased Explicit Critical Modifier magnitudes",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3624940721",
+				["text"] = "#% increased Explicit Lightning Modifier magnitudes",
 				["type"] = "fractured",
 			},
 			{
@@ -17736,6 +17811,11 @@ return {
 			{
 				["id"] = "fractured.stat_1978899297",
 				["text"] = "#% to all Maximum Elemental Resistances",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_933355817",
+				["text"] = "#% to gain Archon of Undeath when you create an Offering",
 				["type"] = "fractured",
 			},
 			{
@@ -18566,6 +18646,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|47514",
 				["text"] = "Allocates Dizzying Hits",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|26214",
+				["text"] = "Allocates Dominion",
 				["type"] = "fractured",
 			},
 			{
@@ -20964,6 +21049,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_323800555",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_4019237939",
 				["text"] = "Gain #% of Damage as Extra Physical Damage",
 				["type"] = "fractured",
@@ -21016,6 +21106,16 @@ return {
 			{
 				["id"] = "fractured.stat_3855016469",
 				["text"] = "Hits against you have #% reduced Critical Damage Bonus",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3368921525",
+				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3987691524",
+				["text"] = "Inherent Rage loss starts 1 second later",
 				["type"] = "fractured",
 			},
 			{
@@ -21111,6 +21211,11 @@ return {
 			{
 				["id"] = "fractured.stat_3091578504",
 				["text"] = "Minions have #% increased Attack and Cast Speed",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_1691403182",
+				["text"] = "Minions have #% increased Cooldown Recovery Rate",
 				["type"] = "fractured",
 			},
 			{
@@ -21746,6 +21851,11 @@ return {
 			{
 				["id"] = "fractured.stat_3482326075",
 				["text"] = "Remnants can be collected from #% further away",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_4147510958",
+				["text"] = "Sealed Skills have # to maximum Seals",
 				["type"] = "fractured",
 			},
 			{
@@ -22860,6 +22970,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|6655",
+				["text"] = "Allocates Aggravation",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|8896",
 				["text"] = "Allocates Agile Sprinter",
 				["type"] = "crafted",
@@ -22897,6 +23012,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|20558",
 				["text"] = "Allocates Among the Hordes",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|2575",
+				["text"] = "Allocates Ancestral Alacrity",
 				["type"] = "crafted",
 			},
 			{
@@ -22960,6 +23080,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|46124",
+				["text"] = "Allocates Arcane Remnants",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|26926",
 				["text"] = "Allocates Archon of Undeath",
 				["type"] = "crafted",
@@ -22972,6 +23097,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|27434",
 				["text"] = "Allocates Archon of the Storm",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|14265",
+				["text"] = "Allocates Arsonist",
 				["type"] = "crafted",
 			},
 			{
@@ -23090,13 +23220,28 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|38329",
+				["text"] = "Allocates Biting Frost",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|17029",
 				["text"] = "Allocates Blade Catcher",
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|2394",
+				["text"] = "Allocates Blade Flurry",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|25753",
 				["text"] = "Allocates Blazing Arms",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|48925",
+				["text"] = "Allocates Blessing of the Moon",
 				["type"] = "crafted",
 			},
 			{
@@ -23112,6 +23257,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|39083",
 				["text"] = "Allocates Blood Rush",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|58183",
+				["text"] = "Allocates Blood Tearing",
 				["type"] = "crafted",
 			},
 			{
@@ -23140,6 +23290,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|1448",
+				["text"] = "Allocates Bond of the Cat",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|52568",
 				["text"] = "Allocates Bond of the Owl",
 				["type"] = "crafted",
@@ -23147,6 +23302,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|34478",
 				["text"] = "Allocates Bond of the Viper",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|5191",
+				["text"] = "Allocates Bond of the Wolf",
 				["type"] = "crafted",
 			},
 			{
@@ -23240,6 +23400,16 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|8554",
+				["text"] = "Allocates Burning Nature",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|6544",
+				["text"] = "Allocates Burning Strikes",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|35324",
 				["text"] = "Allocates Burnout",
 				["type"] = "crafted",
@@ -23247,6 +23417,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|6514",
 				["text"] = "Allocates Cacophony",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|32799",
+				["text"] = "Allocates Captivating Companionship",
 				["type"] = "crafted",
 			},
 			{
@@ -23275,8 +23450,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|31433",
+				["text"] = "Allocates Catalysis",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|9472",
 				["text"] = "Allocates Catapult",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|32664",
+				["text"] = "Allocates Chakra of Breathing",
 				["type"] = "crafted",
 			},
 			{
@@ -23412,6 +23597,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|36623",
 				["text"] = "Allocates Convalescence",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|56776",
+				["text"] = "Allocates Cooked",
 				["type"] = "crafted",
 			},
 			{
@@ -23600,6 +23790,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|4931",
+				["text"] = "Allocates Dependable Ward",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|28267",
 				["text"] = "Allocates Desensitisation",
 				["type"] = "crafted",
@@ -23705,6 +23900,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|40073",
+				["text"] = "Allocates Drenched",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|3688",
 				["text"] = "Allocates Dynamism",
 				["type"] = "crafted",
@@ -23745,6 +23945,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|16790",
+				["text"] = "Allocates Efficient Casting",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|30408",
 				["text"] = "Allocates Efficient Contraptions",
 				["type"] = "crafted",
@@ -23752,6 +23957,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|42245",
 				["text"] = "Allocates Efficient Inscriptions",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|94",
+				["text"] = "Allocates Efficient Killing",
 				["type"] = "crafted",
 			},
 			{
@@ -23772,6 +23982,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|56988",
 				["text"] = "Allocates Electric Blood",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|30546",
+				["text"] = "Allocates Electrified Claw",
 				["type"] = "crafted",
 			},
 			{
@@ -23832,6 +24047,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|8397",
 				["text"] = "Allocates Empowering Remains",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|40985",
+				["text"] = "Allocates Empowering Remnants",
 				["type"] = "crafted",
 			},
 			{
@@ -23920,8 +24140,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|52684",
+				["text"] = "Allocates Eroding Chains",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|20032",
 				["text"] = "Allocates Erraticism",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|42032",
+				["text"] = "Allocates Escalating Mayhem",
 				["type"] = "crafted",
 			},
 			{
@@ -23965,8 +24195,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|47420",
+				["text"] = "Allocates Expendable Army",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|48581",
 				["text"] = "Allocates Exploit the Elements",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|36333",
+				["text"] = "Allocates Explosive Empowerment",
 				["type"] = "crafted",
 			},
 			{
@@ -23995,6 +24235,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|31172",
+				["text"] = "Allocates Falcon Technique",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|60464",
 				["text"] = "Allocates Fan the Flames",
 				["type"] = "crafted",
@@ -24007,6 +24252,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|3921",
 				["text"] = "Allocates Fate Finding",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|59214",
+				["text"] = "Allocates Fated End",
 				["type"] = "crafted",
 			},
 			{
@@ -24075,6 +24325,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|52669",
+				["text"] = "Allocates Flamekeeper",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|62963",
 				["text"] = "Allocates Flamewalker",
 				["type"] = "crafted",
@@ -24082,6 +24337,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|43584",
 				["text"] = "Allocates Flare",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|12337",
+				["text"] = "Allocates Flash Storm",
 				["type"] = "crafted",
 			},
 			{
@@ -24112,6 +24372,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|33852",
 				["text"] = "Allocates Flurry",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|33730",
+				["text"] = "Allocates Focused Channel",
 				["type"] = "crafted",
 			},
 			{
@@ -24180,6 +24445,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|45751",
+				["text"] = "Allocates Frightening Shield",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|48699",
 				["text"] = "Allocates Frostwalker",
 				["type"] = "crafted",
@@ -24222,6 +24492,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|46365",
 				["text"] = "Allocates Gigantic Following",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|41972",
+				["text"] = "Allocates Glaciation",
 				["type"] = "crafted",
 			},
 			{
@@ -24320,6 +24595,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|24438",
+				["text"] = "Allocates Hardened Wood",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|40480",
 				["text"] = "Allocates Harmonic Generator",
 				["type"] = "crafted",
@@ -24332,6 +24612,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|44293",
 				["text"] = "Allocates Hastening Barrier",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|48215",
+				["text"] = "Allocates Headshot",
 				["type"] = "crafted",
 			},
 			{
@@ -24370,6 +24655,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|56997",
+				["text"] = "Allocates Heavy Contact",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|15617",
 				["text"] = "Allocates Heavy Drinker",
 				["type"] = "crafted",
@@ -24395,8 +24685,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|30456",
+				["text"] = "Allocates High Alert",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|54805",
 				["text"] = "Allocates Hindered Capabilities",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|60273",
+				["text"] = "Allocates Hindering Obstacles",
 				["type"] = "crafted",
 			},
 			{
@@ -24440,6 +24740,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|23907",
+				["text"] = "Allocates Ice Storm",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|32932",
 				["text"] = "Allocates Ichlotl's Inferno",
 				["type"] = "crafted",
@@ -24460,6 +24765,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|51871",
+				["text"] = "Allocates Immortal Thirst",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|16626",
 				["text"] = "Allocates Impact Area",
 				["type"] = "crafted",
@@ -24477,6 +24787,16 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|21748",
 				["text"] = "Allocates Impending Doom",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|57379",
+				["text"] = "Allocates In Your Face",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|35028",
+				["text"] = "Allocates In the Thick of It",
 				["type"] = "crafted",
 			},
 			{
@@ -24502,6 +24822,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|57110",
 				["text"] = "Allocates Infused Flesh",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|38965",
+				["text"] = "Allocates Infused Limits",
 				["type"] = "crafted",
 			},
 			{
@@ -24580,8 +24905,18 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|35369",
+				["text"] = "Allocates Investing Energies",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|41394",
 				["text"] = "Allocates Invigorating Archon",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|50023",
+				["text"] = "Allocates Invigorating Grandeur",
 				["type"] = "crafted",
 			},
 			{
@@ -24720,6 +25055,16 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|44566",
+				["text"] = "Allocates Lightning Rod",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|60878",
+				["text"] = "Allocates Lightning Storm",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|56063",
 				["text"] = "Allocates Lingering Horror",
 				["type"] = "crafted",
@@ -24785,6 +25130,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|1104",
+				["text"] = "Allocates Lust for Power",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|27009",
 				["text"] = "Allocates Lust for Sacrifice",
 				["type"] = "crafted",
@@ -24822,6 +25172,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|44756",
 				["text"] = "Allocates Marked Agility",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|36976",
+				["text"] = "Allocates Marked for Death",
 				["type"] = "crafted",
 			},
 			{
@@ -24872,6 +25227,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|3215",
 				["text"] = "Allocates Melding",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|43939",
+				["text"] = "Allocates Melting Flames",
 				["type"] = "crafted",
 			},
 			{
@@ -24932,6 +25292,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|8810",
 				["text"] = "Allocates Multitasking",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|50239",
+				["text"] = "Allocates Mutewind Agility",
 				["type"] = "crafted",
 			},
 			{
@@ -25090,6 +25455,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|51129",
+				["text"] = "Allocates Pile On",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|60083",
 				["text"] = "Allocates Pin and Run",
 				["type"] = "crafted",
@@ -25195,6 +25565,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|26356",
+				["text"] = "Allocates Primed to Explode",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|54814",
 				["text"] = "Allocates Profane Commander",
 				["type"] = "crafted",
@@ -25260,6 +25635,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|33542",
+				["text"] = "Allocates Quick Fingers",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|48240",
 				["text"] = "Allocates Quick Recovery",
 				["type"] = "crafted",
@@ -25295,6 +25675,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|10602",
+				["text"] = "Allocates Reaving",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|61309",
 				["text"] = "Allocates Redblade Discipline",
 				["type"] = "crafted",
@@ -25307,6 +25692,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|26447",
 				["text"] = "Allocates Refocus",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|20388",
+				["text"] = "Allocates Regenerative Flesh",
 				["type"] = "crafted",
 			},
 			{
@@ -25377,6 +25767,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|3188",
 				["text"] = "Allocates Revenge",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|33400",
+				["text"] = "Allocates Reverberating Parry",
 				["type"] = "crafted",
 			},
 			{
@@ -25465,6 +25860,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|35743",
+				["text"] = "Allocates Saqawal's Hide",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|62237",
 				["text"] = "Allocates Saqawal's Talon",
 				["type"] = "crafted",
@@ -25520,6 +25920,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|41811",
+				["text"] = "Allocates Shatter Palm",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|49740",
 				["text"] = "Allocates Shattered Crystal",
 				["type"] = "crafted",
@@ -25547,6 +25952,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|29800",
 				["text"] = "Allocates Shocking Limit",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|32448",
+				["text"] = "Allocates Shockproof",
 				["type"] = "crafted",
 			},
 			{
@@ -25665,6 +26075,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|3698",
+				["text"] = "Allocates Spike Pit",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|40117",
 				["text"] = "Allocates Spiked Armour",
 				["type"] = "crafted",
@@ -25705,8 +26120,23 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|42302",
+				["text"] = "Allocates Split Shot",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|13980",
 				["text"] = "Allocates Split the Earth",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|20251",
+				["text"] = "Allocates Splitting Ground",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|23736",
+				["text"] = "Allocates Spray and Pray",
 				["type"] = "crafted",
 			},
 			{
@@ -25747,6 +26177,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|34908",
 				["text"] = "Allocates Staunch Deflection",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|37408",
+				["text"] = "Allocates Staunching",
 				["type"] = "crafted",
 			},
 			{
@@ -25835,6 +26270,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|8791",
+				["text"] = "Allocates Sturdy Ally",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|60138",
 				["text"] = "Allocates Stylebender",
 				["type"] = "crafted",
@@ -25842,6 +26282,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|55193",
 				["text"] = "Allocates Subterfuge Mask",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|30392",
+				["text"] = "Allocates Succour",
 				["type"] = "crafted",
 			},
 			{
@@ -25890,6 +26335,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|56714",
+				["text"] = "Allocates Swift Flight",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|65265",
 				["text"] = "Allocates Swift Interruption",
 				["type"] = "crafted",
@@ -25897,6 +26347,21 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|53367",
 				["text"] = "Allocates Symbol of Defiance",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|17825",
+				["text"] = "Allocates Tactical Retreat",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|22864",
+				["text"] = "Allocates Tainted Strike",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|40213",
+				["text"] = "Allocates Taste for Blood",
 				["type"] = "crafted",
 			},
 			{
@@ -25947,6 +26412,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|54031",
 				["text"] = "Allocates The Great Boar",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|48734",
+				["text"] = "Allocates The Howling Primate",
 				["type"] = "crafted",
 			},
 			{
@@ -26105,6 +26575,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|23221",
+				["text"] = "Allocates Trick Shot",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|61601",
 				["text"] = "Allocates True Strike",
 				["type"] = "crafted",
@@ -26155,6 +26630,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|10169",
+				["text"] = "Allocates Unfettered",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|8881",
 				["text"] = "Allocates Unforgiving",
 				["type"] = "crafted",
@@ -26182,6 +26662,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|33585",
 				["text"] = "Allocates Unspoken Bond",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|18485",
+				["text"] = "Allocates Unstable Bond",
 				["type"] = "crafted",
 			},
 			{
@@ -26217,6 +26702,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|65193",
 				["text"] = "Allocates Viciousness",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|22967",
+				["text"] = "Allocates Vigilance",
 				["type"] = "crafted",
 			},
 			{
@@ -26282,6 +26772,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|12998",
 				["text"] = "Allocates Warm the Heart",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|64650",
+				["text"] = "Allocates Wary Dodging",
 				["type"] = "crafted",
 			},
 			{
@@ -31852,12 +32347,12 @@ return {
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_2704225257",
+				["id"] = "rune.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
 			{
-				["id"] = "rune.stat_3981240776",
+				["id"] = "rune.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "augment",
 			},
@@ -32139,6 +32634,11 @@ return {
 			{
 				["id"] = "rune.stat_473429811",
 				["text"] = "#% increased Freeze Buildup",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2695354435",
+				["text"] = "#% increased Global Evasion Rating when on Low Life",
 				["type"] = "augment",
 			},
 			{
@@ -32427,6 +32927,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1150343007",
+				["text"] = "#% of Damage from Hits is taken from your Damageable Companion's Life before you",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_458438597",
 				["text"] = "#% of Damage is taken from Mana before Life",
 				["type"] = "augment",
@@ -32519,6 +33024,11 @@ return {
 			{
 				["id"] = "rune.stat_3655769732",
 				["text"] = "#% to Quality of all Skills",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2715190555",
+				["text"] = "#% to Thorns Critical Hit Chance",
 				["type"] = "augment",
 			},
 			{
@@ -33262,6 +33772,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3494229254",
+				["text"] = "Bonded: #% increased Thorns Critical Damage Bonus",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3266426611",
 				["text"] = "Bonded: #% increased Thorns damage",
 				["type"] = "augment",
@@ -33314,6 +33829,11 @@ return {
 			{
 				["id"] = "rune.stat_826685275",
 				["text"] = "Bonded: #% of Armour also applies to Elemental Damage while Shapeshifted",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_4108430531",
+				["text"] = "Bonded: #% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				["type"] = "augment",
 			},
 			{
@@ -33524,6 +34044,11 @@ return {
 			{
 				["id"] = "rune.stat_2269618934",
 				["text"] = "Bonded: Gain #% of maximum Life as Extra maximum Runic Ward",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1377764687",
+				["text"] = "Bonded: Gain Finality for # seconds per Combo expended when using Skills",
 				["type"] = "augment",
 			},
 			{
@@ -33864,6 +34389,11 @@ return {
 			{
 				["id"] = "rune.stat_3444646646",
 				["text"] = "Gain # Druidic Prowess when you Heavy Stun a Rare or Unique Enemy",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2443032293",
+				["text"] = "Gain # Guard for 0.5 seconds per Combo expended when using Skills",
 				["type"] = "augment",
 			},
 			{
@@ -34453,12 +34983,12 @@ return {
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_3981240776",
+				["id"] = "desecrated.stat_2704225257",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_2704225257",
+				["id"] = "desecrated.stat_3981240776",
 				["text"] = "# to Spirit",
 				["type"] = "desecrated",
 			},
@@ -35098,8 +35628,18 @@ return {
 				["type"] = "desecrated",
 			},
 			{
+				["id"] = "desecrated.stat_3206904707",
+				["text"] = "#% increased Explicit Cold Modifier magnitudes",
+				["type"] = "desecrated",
+			},
+			{
 				["id"] = "desecrated.stat_2393315299",
 				["text"] = "#% increased Explicit Critical Modifier magnitudes",
+				["type"] = "desecrated",
+			},
+			{
+				["id"] = "desecrated.stat_3574578302",
+				["text"] = "#% increased Explicit Fire Modifier magnitudes",
 				["type"] = "desecrated",
 			},
 			{
@@ -35593,12 +36133,12 @@ return {
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_3984865854",
+				["id"] = "desecrated.stat_1416406066",
 				["text"] = "#% increased Spirit",
 				["type"] = "desecrated",
 			},
 			{
-				["id"] = "desecrated.stat_1416406066",
+				["id"] = "desecrated.stat_3984865854",
 				["text"] = "#% increased Spirit",
 				["type"] = "desecrated",
 			},
@@ -38945,12 +39485,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink",
+				["id"] = "skill.blink_reservation",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.blink_reservation",
+				["id"] = "skill.blink",
 				["text"] = "Grants Skill: Level # Blink",
 				["type"] = "skill",
 			},
@@ -39240,12 +39780,12 @@ return {
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.lightning_bolt",
+				["id"] = "skill.unique_breach_lightning_bolt",
 				["text"] = "Grants Skill: Level # Lightning Bolt",
 				["type"] = "skill",
 			},
 			{
-				["id"] = "skill.unique_breach_lightning_bolt",
+				["id"] = "skill.lightning_bolt",
 				["text"] = "Grants Skill: Level # Lightning Bolt",
 				["type"] = "skill",
 			},
