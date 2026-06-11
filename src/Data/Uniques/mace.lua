@@ -3,6 +3,17 @@
 return {
 -- Weapon: One Handed Mace
 [[
+Brutus' Lead Sprinkler
+Morning Star
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Molten Shower
+Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength
+(80-120)% increased Physical Damage
+(5-10)% increased Attack Speed
++(15-25) to Strength
+5 to 10 Added Attack Fire Damage per 25 Strength
+]],[[
 Brynhand's Mark
 Wooden Club
 Variant: Pre 0.1.1
@@ -74,6 +85,17 @@ Variant: Current
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to
 the enemy's Power for 20 seconds, up to a total of 500
+]],[[
+Sadist's Mercy
+Flanged Mace
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Harbinger of Madness
+(240-300)% increased Physical Damage
++(5-8)% to Critical Hit Chance
+(14-22)% increased Attack Speed
+Hits with this Weapon inflict (2-5) Gruelling Madness
+Enemies in your Presence have additional Power equal to their Gruelling Madness
 ]],[[
 Sculpted Suffering
 Warpick
@@ -214,6 +236,19 @@ Gain 30 Life per enemy killed
 Hits with this Weapon have no Critical Damage Bonus
 This Weapon's Critical Hit Chance is 100%
 ]],[[
+Serle's Grit
+Kalguuran Forgehammer
+League: Runes of Aldur
+Sockets: S S S
+Implicits: 2
+Grants Skill: Level (1-20) Runic Tempering
+Has 3 Sockets
+Maximum Quality is 40%
+Adds (23-30) to (35-55) Physical Damage
++(20-30) to Strength
+Skills which Empower an Attack have (10-20)% chance to not count that Attack
+(40-50) to (80-100) added Physical Thorns damage per Runic Plate
+]],[[
 Tidebreaker
 Pointed Maul
 League: Dawn of the Hunt
@@ -222,6 +257,19 @@ League: Dawn of the Hunt
 +(20-30) to Intelligence
 Causes (150-200)% increased Stun Buildup
 All Damage from Hits with this Weapon Contributes to Chill Magnitude
+]],[[
+Twisted Empyrean
+Aberrant Sledge
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Starborn Onslaught
+(80-100)% increased Physical Damage
+Adds (150-200) to (350-400) Cold Damage
++(300-400) to maximum Mana
++(4-6)% to Critical Hit Chance
+(10-20)% of Damage is taken from Mana before Life
+Attacks with this Weapon have Added Cold Damage equal to (6-8)% to (10-12)% of maximum Mana
+Convert 100% of Fire Damage with Mace Skills to Cold Damage
 ]],[[
 Trephina
 Forge Maul

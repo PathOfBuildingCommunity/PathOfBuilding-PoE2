@@ -32,6 +32,7 @@ Critical Hits cannot Extract Impale
 ]],[[
 Facebreaker
 Stocky Mitts
+League: Runes of Aldur
 Has 8 to 12 Physical damage, +3 to +4 per Boss's Face Broken
 (30-50)% increased Stun Buildup
 1% more Unarmed Damage per 5 Strength
@@ -94,6 +95,17 @@ Adds (3-5) to (6-8) Cold damage to Attacks
 {variant:2}+(20-30)% to Cold Resistance
 (40-50)% increased Freeze Buildup
 (20-30)% increased Magnitude of Chill you inflict
+]],[[
+Horror's Flight
+Engraved Bracers
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Crushing Fear
+(200-300)% increased Evasion Rating
+(7-17)% increased Attack Speed
++(13-23) to Dexterity
+Adds (19-23) to (31-37) Chaos Damage to Attacks
+Gain 1 Fear Incarnate when you Cull a target
 ]],[[
 Idle Hands
 Sectioned Bracers

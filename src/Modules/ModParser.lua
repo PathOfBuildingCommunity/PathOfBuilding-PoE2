@@ -896,6 +896,7 @@ local modNameList = {
 	["effect of the socketed jewel"] = "SocketedJewelEffect",
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
 	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
+	["effect of socketed runes"] = "SocketedRuneEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",
@@ -1579,6 +1580,7 @@ local modTagList = {
 	["per (%d+) strength"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end,
 	["per (%d+) dexterity"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end,
 	["per (%d+) intelligence"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end,
+	["for every (%d+) intelligence"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end,
 	["per (%d+) total attributes"] = function(num) return { tag = { type = "PerStat", statList = { "Str", "Dex", "Int" }, div = num } } end,
 	["per (%d+) of your lowest attribute"] = function(num) return { tag = { type = "PerStat", stat = "LowestAttribute", div = num } } end,
 	["per (%d+) reserved life"] = function(num) return { tag = { type = "PerStat", stat = "LifeReserved", div = num } } end,
@@ -2603,6 +2605,7 @@ local specialModList = {
 		flag("NoStrBonusToLife") }
 	end,
 	["(%a+) spells convert (%d+)%% of (%a+) damage to (%a+) damage"] = function (_, spellType, num, fromType, toType) return { mod(firstToUpper(fromType) .. "DamageConvertTo" .. firstToUpper(toType), "BASE", num, { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] }) } end, -- Blackflame Covenant
+	["(%a+) skills convert (%d+)%% of (%a+) damage to (%a+) damage"] = function (_, skillType, num, fromType, toType) return { mod(firstToUpper(fromType) .. "DamageConvertTo" .. firstToUpper(toType), "BASE", num, { type = "SkillType", skillType = SkillType[firstToUpper(skillType)] }) } end, -- Fury of the King
 	["(%a+) damage from (%a+) spells contributes to flammability and ignite magnitudes"] = function(_, sourceType, spellType) return { flag(firstToUpper(sourceType) .. "CanIgnite", { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] })} end,
 	["ignite inflicted with (%a+) spells deals chaos damage instead of fire damage"] = function (_, spellType) return {
 		flag("IgniteToChaos", { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
@@ -3426,18 +3429,17 @@ local specialModList = {
 	["reflects opposite ring"] = {
 		-- Display only. For Kalandra's Touch.
 	},
-	["maximum quality is 50%%"] = {
-		-- Display only. For Breach Rings.
+	["maximum quality is (%d+)%%"] = {
+		-- Display only. For Breach Rings and Serle's Grit.
 	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
-		-- Display only. For Strugglescream.
+		-- For Strugglescream. Handled in Item.lua
 	} end,
 	["can have an additional instilled modifier"] = function(num) return {
-		-- Display only.
+		-- Handled in Item.lua
 	} end,
-	["only soul cores can be socketed in this item"] = function(num) return {
-		-- Display only.
-	} end,
+	["only soul cores can be socketed in this item"] = { flag("SocketedSoulCoresOnly") },
+	["only runes can be socketed in this item"] = { flag("SocketedRunesOnly") },
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
 	["cannot load or fire ammunition"] = { mod("WeaponData", "LIST", { key = "cannotUseGemTag", value = "ammunition" }) },
@@ -4188,6 +4190,7 @@ local specialModList = {
 	["gain deflection rating equal to (%d+)%% of armour"] = function(num) return { mod("ArmourGainAsDeflection", "BASE", num) } end,
 	["prevent %+(%d+)%% of damage from deflected hits"] = function(num) return { mod("DeflectEffect", "BASE", num) } end,
 	["chance to deflect is lucky"] = { flag("DeflectIsLucky") },
+	["chance to deflect is lucky while on low life"] = { flag("DeflectIsLucky", { type = "Condition", var = "LowLife" }), },
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["y?o?u?r? ?chance to suppress spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
 	["prevent %+(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
@@ -4918,7 +4921,7 @@ local specialModList = {
 		flag("CannotLeechLife", { type = "Condition", var = "LowLife" }),
 		flag("CannotLeechMana", { type = "Condition", var = "LowLife" })
 	},
-	["cannot leech life from critical hits"] = {	flag("CannotLeechLife", { type = "Condition", var = "CriticalStrike" }) },
+	["cannot leech life from critical hits"] = { flag("CannotLeechLife", { type = "Condition", var = "CriticalStrike" }) },
 	["leech applies instantly on critical hit"] = {
 		mod("InstantLifeLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
 		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
@@ -5534,6 +5537,12 @@ local specialModList = {
 	["this jewel's socket has (%d+)%% increased effect per allocated passive skill between it and your class' starting location"] = function(num) return { mod("JewelData", "LIST", { key = "jewelIncEffectFromClassStart", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels, if not from cluster jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
+	-- Mageblood
+	["legacy of (%w+)"] = function (_, flask) return {
+		mod("LegacyOf"..firstToUpper(flask), "BASE", 1),
+		flag("MagebloodEquipped")
+	} end,
+	["all mage's legacies have (%d+)%% increased effect per duplicate mage's legacy you have"] = function(num) return { mod("MagesLegacyEffect", "INC", num) } end,
 	-- Misc
 	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
 	["fully broken armour you inflict also increases fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
@@ -5774,6 +5783,7 @@ local specialModList = {
 	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num, _, base) return {
 		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",-num) }),
 	} end,
+	["the effect of blind on you is reversed"] = { flag("BlindEffectReversed") },
 	["blind does not affect your chance to hit"] = { flag("IgnoreBlindHitChance") },
 	["enemies blinded by you while you are blinded have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }, { type = "Condition", var = "Blinded" }, { type = "Condition", var = "CannotBeBlinded", neg = true }) },
 	["enemies blinded by you have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }) },

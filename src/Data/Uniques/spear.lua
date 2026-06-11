@@ -41,6 +41,19 @@ Adds (10-15) to (21-26) Physical Damage
 (30-60)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds
 (30-60)% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds
 ]],[[
+The Ordained
+Grand Spear
+League: Runes of Aldur
+Implicits: 3
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Righteous Descent
+25% increased Melee Strike Range with this weapon
+(150-250)% increased Physical Damage
+Adds 1 to (200-300) Lightning Damage
++(5-8)% to Critical Hit Chance
+Life Leech recovers based on your Lightning damage as well as Physical damage
+Create a Fragment of Divinity in your Presence every 4 seconds
+]],[[
 Saitha's Spear
 Barbed Spear
 League: Dawn of the Hunt
@@ -83,7 +96,7 @@ Variant: Pre 0.2.1
 Variant: Current
 Implicits: 2
 Grants Skill: Spear Throw
-Grants Skill: Level (1-20) Chaotic Infusion
+Grants Skill: Level (1-20) Chaotic Surge
 (15-20)% increased Attack Speed
 {variant:1}Leeches (0.06-0.1)% of Physical Damage as Life
 {variant:2}Leeches (10-20)% of Physical Damage as Life

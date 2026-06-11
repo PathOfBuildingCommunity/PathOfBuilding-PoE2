@@ -48,5 +48,16 @@ Implicits: 1
 30% reduced Reload Speed
 Bolts fired by Crossbow Attacks have 100% chance to not
 expend Ammunition if you've Reloaded Recently
+]],[[
+Redemption
+Trarthan Cannon
+League: Runes of Aldur
+Implicits: 1
+Cannot load or fire Ammunition
+(300-400)% increased Physical Damage
+Hits with this Weapon have no Critical Damage Bonus
+(20-40)% reduced Cooldown Recovery Rate
+Gain 1 Explosive Rhythm every (2-3) times you use a Grenade Skill
+ Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds
 ]],
 }

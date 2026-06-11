@@ -73,6 +73,18 @@ Variant: Current
 50% reduced Slowing Potency of Debuffs on You
 (15-20) to (25-30) Physical Thorns damage
 ]],[[
+Geofri's Sanctuary
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
++1% to all Maximum Elemental Resistances
+(150-200)% increased Armour
++(10-20)% to all Elemental Resistances
+Your maximum Energy Shield is equal to (200-300)% of your Strength
+Maximum Energy Shield cannot be Converted
+Regenerate 2 Life per second for every 10 Intelligence
+Zealot's Oath
+]],[[
 Greed's Embrace
 Vaal Cuirass
 50% increased Strength Requirement
@@ -146,6 +158,17 @@ Variant: Current
 {variant:2}+(30-40)% to Fire Resistance
 Cannot be Ignited
 -10 Physical Damage taken from Attack Hits
+]],[[
+The Auspex
+Exquisite Vest
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Mist Raven
+(210-240)% increased Evasion Rating
++(70-120) to maximum Life
+100% increased Attribute Requirements
+Chance to Deflect is Lucky while on Low Life
+Enemies in your Presence gain 1 Gruelling Madness each second
 ]],[[
 Briskwrap
 Rhoahide Coat
@@ -526,6 +549,16 @@ Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 -17% to Chaos Resistance
 Charms use no Charges
 ]],[[
+The Sunken Vessel
+Knight Armour
+League: Runes of Aldur
+(120-180)% increased Armour and Evasion
++(80-120) to maximum Life
+30% reduced Life Recovery rate
+33% chance to avoid Projectiles
+Physical Damage of Enemies Hitting you is Unlucky
+Convert All Armour to Evasion Rating
+]],[[
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt
@@ -551,6 +584,16 @@ Variant: Current
 {variant:2}(10-15)% increased maximum Life
 Life Leech can Overflow Maximum Life
 (40-60)% reduced Duration of Bleeding on You
+]],[[
+Decree of Loyalty
+Ancient Mail
+League: Runes of Aldur
+(200-300)% increased Armour and Energy Shield
++(15-25) to Strength and Intelligence
++(1-5)% to Maximum Chaos Resistance
+Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%
+Defend with (150-200)% of Armour while you have Energy Shield
+Damage over Time cannot bypass your Energy Shield
 ]],[[
 Enfolding Dawn
 Pilgrim Vestments
@@ -624,6 +667,17 @@ Variant: Current
 +1 to maximum number of Summoned Totems
 Inflicts a random Curse on you when your Totems die, ignoring Curse limit
 ]],[[
+The Unleashed
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
++1% to all Maximum Elemental Resistances
+(150-250)% increased Armour and Energy Shield
++(10-20) to Strength and Intelligence
+(15-25)% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half
+Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds
+Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential
+]],[[
 Voll's Protector
 {variant:1}Ironclad Vestments
 {variant:2}Plated Vestments
@@ -677,6 +731,17 @@ Variant: Current
 +(10-20)% to Lightning Resistance
 20% less Damage taken if you have not been Hit Recently
 100% increased Evasion Rating if you have been Hit Recently
+]],[[
+Forgotten Warden
+Primal Markings
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Spirit Vessel
++(70-100) to Deflection Rating per 50 missing Energy Shield
+(200-300)% increased Evasion and Energy Shield
++(20-30) to Dexterity
+Companions have (30-50)% increased maximum Life
+(10-15)% of Damage from Deflected Hits is taken from Damageable Companion's Life before you
 ]],[[
 Gloomform
 Waxed Jacket

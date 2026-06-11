@@ -73,6 +73,18 @@ UniqueLocalIncreasedPhysicalDamageReductionRatingPercent19
 UniqueSlowPotency1
 UniqueAttackerTakesDamage3
 ]],[[
+Geofri's Sanctuary
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
+BodyArmourImplicitMaximumElementalResistance1
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent32
+UniqueAllResistances28
+UniqueMaximumEnergyShieldIsPercentOfStrength1
+UniqueEnergyShieldCannotBeConverted1
+UniqueLifeRegenerationPer10Intelligence1
+UniqueZealotsOath1
+]],[[
 Greed's Embrace
 Vaal Cuirass
 UniqueIncreasedStrengthRequirements1
@@ -146,6 +158,17 @@ UniqueIncreasedLife3
 {variant:2}UniqueFireResist8
 UniqueCannotBeIgnited1
 UniquePhysicalAttackDamageTaken1
+]],[[
+The Auspex
+Exquisite Vest
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Mist Raven
+UniqueLocalIncreasedEvasionRatingPercent35
+UniqueIncreasedLife57
+UniqueReducedLocalAttributeRequirements6
+UniqueDeflectChanceLuckyOnLowLife1
+UniqueEnemiesInPresenceGainGruelingMadness1
 ]],[[
 Briskwrap
 Rhoahide Coat
@@ -518,6 +541,16 @@ UniqueAllResistances6
 UniqueChaosResist19
 UniqueCharmsNoCharges1
 ]],[[
+The Sunken Vessel
+Knight Armour
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEvasion34
+UniqueIncreasedLife59
+UniqueLifeRecoveryRate3
+UniqueChanceToAvoidProjectiles1
+UniqueEnemyExtraDamageRollsWithPhysicalDamage1
+UniqueConvertAllArmourToEvasion1
+]],[[
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt
@@ -541,6 +574,16 @@ UniqueLocalIncreasedArmourAndEnergyShield5
 {variant:2}UniqueMaximumLifeIncrease4
 UniqueReducedBleedDuration1
 UniqueLifeLeechOvercapLife1
+]],[[
+Decree of Loyalty
+Ancient Mail
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEnergyShield29
+UniqueStrengthAndIntelligence3
+UniqueMaximumChaosResist1
+UniqueMaxLifeToConvertToArmourPerChaosResistance1
+UniqueDefendWithXPercentArmourWhileYouHaveEnergyShield1
+UniqueDamageOvertimeDoesNotBypassEnergyShield1
 ]],[[
 Enfolding Dawn
 Pilgrim Vestments
@@ -611,6 +654,16 @@ UniqueIntelligence40
 UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],[[
+The Unleashed
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
+BodyArmourImplicitMaximumElementalResistance1
+UniqueLocalIncreasedArmourAndEnergyShield26
+UniqueStrengthAndIntelligence1
+UniqueHitDamageBypassesEnergyShieldWhileBelowHalfEnergyShield1
+UniqueRunicBindingOnSpellHit1
+]],[[
 Voll's Protector
 {variant:1}Ironclad Vestments
 {variant:2}Plated Vestments
@@ -663,6 +716,17 @@ Variant: Current
 UniqueLightningResist3
 UniqueReducedDamageIfNotHitRecently1
 UniqueIncreasedEvasionIfHitRecently1
+]],[[
+Forgotten Warden
+Primal Markings
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Spirit Vessel
+UniqueDeflectionRatingPerMissingEnergyShield1
+UniqueLocalIncreasedEvasionAndEnergyShield20
+UniqueDexterity46
+UniqueCompanionLife1
+UniqueDamageFromDeflectedHitsTakenFromCompanion1
 ]],[[
 Gloomform
 Waxed Jacket

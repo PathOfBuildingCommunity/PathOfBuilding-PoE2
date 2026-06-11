@@ -52,6 +52,17 @@ Grants Skill: Level (1-20) Spark
 {variant:2}(20-40)% increased chance to Shock
 Trigger Spark Skill on killing a Shocked Enemy
 ]],[[
+The Raven's Flock
+Perching Staff
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Spiraling Conspiracy
+(8-16)% increased Cast Speed
++(20-30) to Intelligence
+Minions deal (80-120)% increased Damage
+Minions have (10-20)% chance to inflict Gruelling Madness on Hit
+(30-50)% increased Spirit Reservation Efficiency
+]],[[
 The Searing Touch
 Pyrophyte Staff
 Variant: Pre 0.4.0
@@ -127,6 +138,17 @@ Source: Drops from unique{Kosis, The Revelation}
 +(2-4) to Level of all Elemental Skills
 100% increased Elemental Damage
 Trigger skills refund half of Energy spent
+]],[[
+Duality
+Warding Quarterstaff
+League: Runes of Aldur
+Implicits: 1
++(30-50) to maximum Runic Ward
+(200-300)% increased Physical Damage
++(20-30)% to Critical Damage Bonus
+(12-22)% increased Attack Speed
+Gain Finality for 0.5 seconds per Combo expended when using Skills
+Gain (500-1000) Guard for 0.5 seconds per Combo expended when using Skills
 ]],[[
 Matsya
 Crescent Quarterstaff

@@ -93,6 +93,17 @@ Implicits: 1
 {variant:1}{tags:defences}Gain (20-30)% of maximum Mana as Extra maximum Energy Shield
 {variant:2}{tags:defences}Gain (4-6)% of maximum Mana as Extra maximum Energy Shield
 ]],[[
+Eventide Petals
+Veridical Chain
+League: Runes of Aldur
+Implicits: 2
+Grants Skill: Level (1-20) Midnight Zenith
++(30-40) to maximum Runic Ward
+(30-50)% increased Critical Hit Chance
+{tags:attribute}+(25-35) to Intelligence
+(30-50)% increased Light Radius
+Ice Crystals have (-3-3)% reduced maximum Life per 5% Cold Resistance you have
+]],[[
 Eye of Chayula
 Gold Amulet
 Variant: Pre 0.2.0
@@ -157,6 +168,18 @@ Implicits: 1
 25% reduced Light Radius
 Life Recovery from Regeneration is not applied
 Every 4 seconds, Recover 1 Life for every 0.2 Life Recovery per second from Regeneration
+]],[[
+Immaculate Adherence
+Solar Amulet
+League: Runes of Aldur
+Implicits: 1
++(10-15) to Spirit
+{tags:life,mana}100% of Damage is taken from Mana before Life
+{tags:defences}Cannot have Energy Shield
+{tags:defences}Convert 100% of maximum Energy Shield to maximum Divinity
+(0-100)% increased maximum Divinity
+20% reduced maximum Divinity per Corrupted Item Equipped
+{tags:life,mana}Skills Cost Divinity instead of Mana or Life
 ]],[[
 Ligurium Talisman
 Lapis Amulet

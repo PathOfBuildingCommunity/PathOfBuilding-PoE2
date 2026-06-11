@@ -43,6 +43,29 @@ Adds (76-98) to (126-193) Fire Damage
 -30 Physical Damage taken from Hits
 Attack Hits inflict Spectral Fire for 8 seconds
 ]],[[
+Ironbound
+Warden Bow
+League: Runes of Aldur
+Implicits: 1
+(25-35)% chance to Chain an additional time
++(100-150) to Armour
+(5-10)% increased Attack Speed
++12% to Block chance
+(3-5)% increased Block chance per 100 total Item Armour on Equipped Armour Items
+Hits with this weapon have (1-2) to (4-5) Added Physical Damage per 1% Block Chance
+Arrows Return if they have Pierced a target which had Fully Broken Armour
+]],[[
+Periphery
+Heartwood Shortbow
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Azmerian Swarms
+Adds (48-59) to (75-97) Fire Damage
+Adds (35-53) to (65-80) Cold Damage
+Adds (1-8) to (123-152) Lightning Damage
+(8-14)% increased Attack Speed
+Elemental Damage from Hits Contributes to Flammability, Ignite, and Chill Magnitudes, Freeze Buildup, and Shock Chance
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt

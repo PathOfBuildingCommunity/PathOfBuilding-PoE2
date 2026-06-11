@@ -211,6 +211,16 @@ UniqueCannotSprint1
 ]],
 -- Boots: Armour/Energy Shield
 [[
+Decree of Flight
+Ancient Leggings
+League: Runes of Aldur
+UniqueMovementVelocity29
+UniqueLocalIncreasedArmourAndEnergyShield27
+UniqueDodgeRollSpeed1
+UniqueGuardFromMissingEnergyShieldOnDodge1
+UniqueMaximumGuardBasedOnEnergyShield1
+UniqueDivineFlight1
+]],[[
 Wake of Destruction
 Secured Leggings
 Variant: Pre 0.1.1

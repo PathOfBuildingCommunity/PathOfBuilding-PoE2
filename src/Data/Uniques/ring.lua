@@ -11,6 +11,42 @@ Implicits: 1
 {tags:attribute}+10 to Dexterity
 {tags:fire,cold,lightning}-20% to all Elemental Resistances
 ]],[[
+Berek's Grip
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+{tags:cold,lightning}+(12-16)% to Cold and Lightning Resistances
+{tags:attribute}+(10-20) to Dexterity and Intelligence
+{tags:cold,lightning}+(10-20)% to Cold and Lightning Resistances
+Hits against you have (35-50)% reduced Critical Hit Chance while you are Chilled
+{tags:lightning}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:lightning}as being boosted by Shocked Ground
+]],[[
+Berek's Pass
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+{tags:fire,cold}+(12-16)% to Fire and Cold Resistances
+{tags:attribute}+(10-20) to Strength and Intelligence
+{tags:fire,cold}+(10-20)% to Fire and Cold Resistances
+{tags:life}Regenerate (1-2)% of maximum Life per second while Ignited
+{tags:cold}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:cold}as being boosted by Chilled Ground
+]],[[
+Berek's Respite
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+{tags:fire,lightning}+(12-16)% to Fire and Lightning Resistances
+{tags:attribute}+(10-20) to Strength and Dexterity
+{tags:fire,lightning}+(10-20)% to Fire and Lightning Resistances
+(15-25)% increased Critical Damage Bonus while Shocked
+{tags:fire}Wind Skills which can be boosted by Elemental Ground Surfaces count
+{tags:fire}as being boosted by Ignited Ground
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0
@@ -293,6 +329,18 @@ Right ring slot: Projectiles from Spells Chain +1 times
 Right ring slot: Projectiles from Spells cannot Fork
 Projectiles from Spells cannot Pierce
 ]],[[
+The Taming
+Prismatic Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+{tags:fire,cold,lightning}+(7-10)% to all Elemental Resistances
+{tags:fire,cold,lightning}+(10-20)% to all Elemental Resistances
+{tags:fire,cold,lightning}(10-20)% increased Damage for each type of Elemental Ailment on Enemy
+Wind Skills which can be boosted by Elemental Ground Surfaces can be boosted by multiple Elemental Ground Surfaces
+Wind Skills which can be boosted by Elemental Ground Surfaces count
+as being boosted by Ignited, Shocked, and Chilled Ground
+]],[[
 Thief's Torment
 Emerald Ring
 Implicits: 1
@@ -303,6 +351,18 @@ Implicits: 1
 Can't use other Rings
 {tags:mana,attack}Gain 15 Mana per Enemy Hit with Attacks
 {tags:caster}50% reduced Duration of Curses on you
+]],[[
+Veilpiercer
+Amethyst Ring
+League: Runes of Aldur
+Implicits: 1
+{tags:chaos}+(7-13)% to Chaos Resistance
+{tags:mana}+(60-100) to maximum Mana
+{tags:attribute}+(15-25) to Intelligence
+Curses you inflict can affect Hexproof Enemies
+{tags:caster}Curses you inflict spread to enemies within 3 metres when Cursed enemy dies
+Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence
+(20-40)% increased Damage with Hits against targets in your Presence
 ]],[[
 Venopuncture
 Iron Ring

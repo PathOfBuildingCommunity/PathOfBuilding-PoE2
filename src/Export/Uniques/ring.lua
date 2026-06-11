@@ -11,6 +11,39 @@ UniqueItemFoundRarityIncrease5
 UniqueDexterity4
 UniqueAllResistances3
 ]],[[
+Berek's Grip
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+RingImplicitColdLightningResistance
+UniqueDexterityAndIntelligence1
+UniqueColdLightningResistance1
+UniqueReducedCriticalDamageTakenWhileChilled1
+UniqueWindSkillsBoostedByShockedGround1
+]],[[
+Berek's Pass
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+RingImplicitFireColdResistance
+UniqueStrengthAndIntelligence4
+UniqueFireColdResistance1
+UniqueLifeRegenerationWhileIgnited1
+UniqueWindSkillsBoostedByChilledGround1
+]],[[
+Berek's Respite
+Two-Stone Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+RingImplicitFireLightningResistance
+UniqueStrengthAndDexterity1
+UniqueFireLightningResistance1
+UniqueCriticalDamageBonusWhileShocked1
+UniqueWindSkillsBoostedByIgnitedGround1
+]],[[
 Blackflame
 Amethyst Ring
 Variant: Pre 0.5.0
@@ -293,6 +326,16 @@ UniqueRightRingSpellProjectilesChain1
 UniqueRightRingSpellProjectilesCannotFork1
 UniqueSpellsCannotPierce1
 ]],[[
+The Taming
+Prismatic Ring
+League: Runes of Aldur
+Requires Level 42
+Implicits: 1
+RingImplicitAllResistances1
+UniqueAllResistances29
+UniqueDamagePerElementalAilment1
+UniqueWindSkillsBoostedByAllElementalGrounds1
+]],[[
 Thief's Torment
 Emerald Ring
 Implicits: 1
@@ -303,6 +346,18 @@ UniqueLifeGainPerTarget1
 UniqueDisablesOtherRingSlot1
 UniqueManaGainPerTarget1
 UniqueSelfCurseDuration1
+]],[[
+Veilpiercer
+Amethyst Ring
+League: Runes of Aldur
+Implicits: 1
+RingImplicitChaosResistance1
+UniqueIncreasedMana54
+UniqueIntelligence48
+UniqueIgnoreHexproof2
+UniqueCursesSpreadOnKill1
+UniqueGainDarkWhispers1
+UniqueHitDamageAgainstEnemiesInPresence1
 ]],[[
 Venopuncture
 Iron Ring

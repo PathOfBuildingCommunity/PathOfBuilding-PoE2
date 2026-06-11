@@ -3,6 +3,17 @@
 return {
 -- Weapon: One Handed Mace
 [[
+Brutus' Lead Sprinkler
+Morning Star
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Molten Shower
+UniqueMoltenShowerSkill1
+UniqueLocalIncreasedPhysicalDamagePercent26
+UniqueLocalIncreasedAttackSpeed33
+UniqueStrength49
+UniqueAddedFireDamageToAttacksPer25Strength
+]],[[
 Brynhand's Mark
 Wooden Club
 Variant: Pre 0.1.1
@@ -73,6 +84,17 @@ Variant: Current
 UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
+]],[[
+Sadist's Mercy
+Flanged Mace
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Harbinger of Madness
+UniqueLocalIncreasedPhysicalDamagePercent27
+UniqueLocalCriticalStrikeChance11
+UniqueLocalIncreasedAttackSpeed28
+UniqueInflictGruelingMadnessOnHit1
+UniqueEnemiesInPresenceGainPowerPerGruelingMadness1
 ]],[[
 Sculpted Suffering
 Warpick
@@ -213,6 +235,19 @@ UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
+Serle's Grit
+Kalguuran Forgehammer
+League: Runes of Aldur
+Sockets: S S S
+Implicits: 2
+Grants Skill: Level (1-20) Runic Tempering
+MaceImplicitHasXSockets
+UniqueMaximumQualityOverride2
+UniqueLocalAddedPhysicalDamage25
+UniqueStrength44
+UniqueChanceForExertedAttackToNoteReduceCount1
+UniqueAddedThornsPerRune
+]],[[
 Tidebreaker
 Pointed Maul
 League: Dawn of the Hunt
@@ -221,6 +256,19 @@ UniqueGlobalIncreaseMeleeSkillGemLevel1
 UniqueIntelligence39
 UniqueLocalStunDamageIncrease2
 UniqueLocalAllDamageCanChill1
+]],[[
+Twisted Empyrean
+Aberrant Sledge
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Starborn Onslaught
+UniqueLocalIncreasedPhysicalDamagePercent22
+UniqueLocalAddedColdDamage9
+UniqueIncreasedMana53
+UniqueLocalCriticalStrikeChance12
+UniqueDamageRemovedFromManaBeforeLife2
+UniqueLocalAttacksHaveAddedColdDamageFromPercentMaxMana1
+UniqueMaceSkillFireDamageConvertedToCold1
 ]],[[
 Trephina
 Forge Maul

@@ -32,6 +32,7 @@ UniqueAttackerTakesDamage8
 ]],[[
 Facebreaker
 Stocky Mitts
+League: Runes of Aldur
 UniqueBaseDamageOverrideForMaceAttacks1
 UniqueStunDamageIncrease1
 UniqueUnarmedAttackDamagePerXStrength1
@@ -93,6 +94,17 @@ UniqueAddedColdDamage1
 {variant:2}UniqueColdResist24
 UniqueFreezeDamageIncrease2
 UniqueChillEffect1
+]],[[
+Horror's Flight
+Engraved Bracers
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Crushing Fear
+UniqueLocalIncreasedEvasionRatingPercent36
+UniqueIncreasedAttackSpeed16
+UniqueDexterity45
+UniqueAddedChaosDamage5
+UniqueGainFearIncarnateOnCulling1
 ]],[[
 Idle Hands
 Sectioned Bracers

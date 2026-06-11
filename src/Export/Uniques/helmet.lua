@@ -301,6 +301,15 @@ UniqueUseTwoHandedWeaponOneHand1
 {variant:3}Has 4 Augment Sockets
 {variant:3}LocalItemBenefitSocketableAsIfBodyArmourUnique__2
 ]],[[
+Decree of Acuity
+Ancient Visor
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEvasion33
+UniqueDexterity47
+UniquePercentEvasionRatingAsExtraArmour1
+UniqueBlinded1
+UniqueBlindEffectsReversed1
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1
@@ -438,6 +447,15 @@ UniqueLifeRegeneration10
 UniqueManaRegeneration26
 {variant:1}UniqueAlternatingDamageTaken1[-30,-30]
 {variant:2,3}UniqueAlternatingDamageTaken1
+]],[[
+Vestige of Darkness
+Tenebrous Crown
+League: Runes of Aldur
+UniqueLocalIncreasedArmourAndEnergyShield28
+UniqueStrengthAndIntelligence2
+UniquePhysicalDamageFromHitsContributesToChillAndFreeze1
+UniqueBlindEnemiesInPresence1
+UniqueHauntedByTheWendigo1
 ]],[[
 Veil of the Night
 Martyr Crown
