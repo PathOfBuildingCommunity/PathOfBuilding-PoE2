@@ -17842,10 +17842,10 @@ skills["SupportTangMazusThuriblePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["companion_evasion_rating_+_per_10_summoner_evasion_rating"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent" }) }),
+					mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent", div = 10 }) }),
 				},
 				["companion_deflection_rating_+_per_10_summoner_deflection_rating"] = {
-					mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent" }) }),
+					mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent", div = 10 }) }),
 				},
 			},
 			baseFlags = {
@@ -20756,6 +20756,42 @@ skills["AncientGiftsPlayer"] = {
 		},
 	}
 }
+			skills["BloodbarrierPlayer"] = {
+				name = "Bloodbarrier",
+				baseTypeName = "Bloodbarrier",
+				fromItem = true,
+				skillTypes = { [SkillType.Duration] = true,	[SkillType.AttackInPlace] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true },
+				cannotBeSupported = true,
+				castTime = 0,
+				levels = {
+					[1] = { levelRequirement = 0, },
+				},
+				statSets = {
+					[1] = {
+						label = "Corrupted Blood",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						statMap = {
+							["base_physical_damage_%_of_maximum_life_to_deal_per_minute"] = {
+								skill("PhysicalDot", nil, { type = "PercentStat", stat = "Life", percent = 1 }),
+							},
+						},
+						baseFlags = {
+							duration = true,
+						},
+						baseMods = {
+							skill("debuff", true),
+							flag("dotIsCorruptingBlood"),
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 			skills["EnemyExplode"] = {
 				name = "On Kill Monster Explosion",
 				hidden = true,

@@ -6,24 +6,38 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStr%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrVerisiumUnique
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/Boots/FourBootsDex%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsDexUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsDexVerisiumUnique
 
 #subType Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsInt%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsIntUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsIntVerisiumUnique
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrDex%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexVerisiumUnique
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrInt%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrIntUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrIntVerisiumUnique
 
 #subType Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsDexInt%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsDexIntUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsDexIntVerisiumUnique
 
 #subType Armour/Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexInt%d+
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexIntUnique
+#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexIntVerisiumUnique
 
 #subType
 #base Metadata/Items/Armours/Boots/BootsDemigods1

@@ -1445,11 +1445,6 @@ skills["SupportCooldownRecoveryPlayer"] = {
 			label = "Cooldown Recovery I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_cooldown_reduction_cooldown_recovery_+%"] = {
-					mod("CooldownRecovery", "INC", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1481,11 +1476,6 @@ skills["SupportCooldownRecoveryPlayerTwo"] = {
 			label = "Cooldown Recovery II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_cooldown_reduction_cooldown_recovery_+%"] = {
-					mod("CooldownRecovery", "INC", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {

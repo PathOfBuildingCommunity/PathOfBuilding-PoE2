@@ -55,6 +55,27 @@ UniqueGlobalSpellGemsLevel1
 UniqueIncreasedCastSpeed1
 UniqueLeechLifeOnSpellCast1
 ]],[[
+Liminal Coil
+Twisted Wand
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Coiling Bolts
+UniqueSpellDamageOnWeapon12
+UniqueIncreasedCastSpeed21
+UniqueCurseMagnitudeIsZero1
+UniqueCursesIgnoreLimit1
+UniqueSpellDamageAsExtraChaosPerCurse1
+UniqueSpellDamageAsExtraPhysicalPerCurse1
+]],[[
+Runeseeker's Call
+Runic Fork
+League: Runes of Aldur
+Sockets: S S S S S
+Implicits: 1
+Grants Skill: Level (1-20) The Stars Answer
+UniqueOnlySocketRunes1
+UniqueLocalIncreasedRuneEffect1
+]],[[
 Sanguine Diviner
 Bone Wand
 Implicits: 1

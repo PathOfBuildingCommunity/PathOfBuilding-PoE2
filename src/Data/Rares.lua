@@ -5,7 +5,7 @@
 -- Helmet
 [[
 Armour Helmet
-Runemastered Rusted Greathelm
+Runeforged Paragon Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
@@ -26,7 +26,7 @@ Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Runemastered Guarded Helm
+Runeforged Champion Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
@@ -121,7 +121,7 @@ Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife9
 ]],[[
 Armour/Energy Shield Chest
-Runemastered Revered Vestments
+Runeforged Wolfskin Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
@@ -172,7 +172,7 @@ Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Runemastered Stacked Sabatons
+Blacksteel Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
@@ -195,7 +195,7 @@ Prefix: MovementVelocity5
 -- Shields
 [[
 Armour Shield
-Runemastered Vaal Tower Shield
+Tawhoan Tower Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5

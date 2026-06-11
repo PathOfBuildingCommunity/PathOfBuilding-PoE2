@@ -393,6 +393,7 @@ itemBases["Runeforged Tasalian Focus"] = {
 itemBases["Runemastered Twig Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -402,6 +403,7 @@ itemBases["Runemastered Twig Focus"] = {
 itemBases["Runemastered Woven Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -411,6 +413,7 @@ itemBases["Runemastered Woven Focus"] = {
 itemBases["Runemastered Antler Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -420,6 +423,7 @@ itemBases["Runemastered Antler Focus"] = {
 itemBases["Runemastered Engraved Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -429,6 +433,7 @@ itemBases["Runemastered Engraved Focus"] = {
 itemBases["Runemastered Tonal Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -438,6 +443,7 @@ itemBases["Runemastered Tonal Focus"] = {
 itemBases["Runemastered Crystal Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -447,6 +453,7 @@ itemBases["Runemastered Crystal Focus"] = {
 itemBases["Runemastered Voodoo Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -456,6 +463,7 @@ itemBases["Runemastered Voodoo Focus"] = {
 itemBases["Runemastered Plumed Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },

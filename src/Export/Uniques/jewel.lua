@@ -47,8 +47,7 @@ Grand Spectrum
 Emerald
 Limited to: 3
 UniqueMaximumSpiritPerStackableJewel1
-]],
-[[
+]],[[
 Grand Spectrum
 Sapphire
 Variant: Pre 0.4.0
@@ -56,6 +55,18 @@ Variant: Current
 Limited to: 3
 {variant:1}UniqueAllResistancePerStackableJewel1[4,4]
 {variant:2}UniqueAllResistancePerStackableJewel1
+]],[[
+Voices
+Sapphire
+Variant: 2 Sinister Sockets
+Variant: 3 Sinister Sockets
+Variant: 4 Sinister Sockets
+League: Runes of Aldur
+Limited to: 1
+{variant:1}UniqueJewelGrantsVoicesJewelSockets1
+{variant:2}UniqueJewelGrantsVoicesJewelSockets2
+{variant:3}UniqueJewelGrantsVoicesJewelSockets3
+Corrupted
 ]],
 -- Jewel: Timeless
 [[

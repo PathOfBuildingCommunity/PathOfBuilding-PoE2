@@ -198,7 +198,7 @@ function ModDBClass:FlagInternal(context, cfg, flags, keywordFlags, source, ...)
 		if modList then
 			for i = 1, #modList do
 				local mod = modList[i]
-				local checkSource = not cfg or not cfg.ignoreSourceinCheckConditions
+				local checkSource = not cfg or not cfg.ignoreSourceInCheckConditions
 				if mod.type == "FLAG" and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not checkSource or not source or mod.source:match("[^:]+") == source) then
 					if mod[1] then
 						if context:EvalMod(mod, cfg) then
