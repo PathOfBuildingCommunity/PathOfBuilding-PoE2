@@ -780,7 +780,7 @@ Huge sets the radius to 11.
 	{ var = "enemyRadius", type = "countAllowZero", label = "Enemy radius:", ifSkill = { "Seismic Trap", "Lightning Spire Trap", "Explosive Trap" }, includeTransfigured = true, tooltip = "Configure the radius of an enemy hitbox to calculate some area overlapping (shotgunning) effects.", apply = function(val, modList, enemyModList)
 		modList:NewMod("EnemyRadius", "OVERRIDE", m_max(val, 1), "Config")
 	end },
-	{ var = "TotalSpectreLife", type = "countAllowZero", label = "Total Spectre Life:", ifMod = "takenFromSpectresBeforeYou", ifSkill = "Raise Spectre", includeTransfigured = true, tooltip = "The total life of your Spectres that can be taken before yours (used by jinxed juju)", apply = function(val, modList, enemyModList)
+	{ var = "TotalSpectreLife", type = "countAllowZero", label = "Total Spectre Life:", ifMod = "takenFromSpectresBeforeYou", tooltip = "The total life of your Spectres that can be taken before yours", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalSpectreLife", "BASE", val, "Config")
 	end },
 	{ var = "TotalTotemLife", type = "countAllowZero", label = "Total Totem Life:", ifOption = "conditionHaveTotem", ifMod = "takenFromTotemsBeforeYou", tooltip = "The total life of your Totems (excluding Vaal Rejuvenation Totem) that can be taken before yours (used by totem mastery)", apply = function(val, modList, enemyModList)
@@ -791,6 +791,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "TotalVaalRejuvenationTotemLife", type = "countAllowZero", label = "Total Vaal Rejuvenation Totem Life:", ifSkill = { "Vaal Rejuvenation Totem" }, ifMod = "takenFromVaalRejuvenationTotemsBeforeYou", tooltip = "The total life of your Vaal Rejuvenation Totems that can be taken before yours", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalVaalRejuvenationTotemLife", "BASE", val, "Config")
+	end },
+	{ var = "TotalCompanionLife", type = "countAllowZero", label = "Total Companion Life:", ifMod = { "takenFromCompanionBeforeYou", "takenFromCompanionBeforeYouFromDeflected" }, tooltip = "Overrides the automatically calculated total life of your damageable Companions\nthat can be taken before yours (e.g. Starkonja's Head, Loyalty)", apply = function(val, modList, enemyModList)
+		modList:NewMod("TotalCompanionLife", "OVERRIDE", val, "Config")
 	end },
 	-- Section: Combat options
 	{ section = "When In Combat", col = 1 },
