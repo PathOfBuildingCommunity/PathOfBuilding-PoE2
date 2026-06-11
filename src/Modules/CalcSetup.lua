@@ -1117,20 +1117,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
 
-				if item.socketedSoulCoreEffectModifier ~= 0 then
-					for _, modLine in ipairs(item.runeModLines) do
-						if modLine.soulcore then
-							for _, mod in ipairs(modLine.modList) do
-								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
-								end
-							end
-						end
-					end
-				end
-
 				if item.type == "Jewel" and item.base.subType == "Abyss" then
 					-- Update Abyss Jewel conditions/multipliers
 					local cond = "Have"..item.baseName:gsub(" ","")

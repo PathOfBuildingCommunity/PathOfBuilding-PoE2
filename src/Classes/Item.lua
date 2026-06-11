@@ -1014,6 +1014,18 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base then
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
 			local shouldFixRunesOnItem = #self.runes == 0
+			if not shouldFixRunesOnItem and #self.runeModLines > 0 then
+				local canRebuildRunes = true
+				for _, rune in ipairs(self.runes) do
+					if rune ~= "None" and not data.itemMods.Runes[rune] then
+						canRebuildRunes = false
+						break
+					end
+				end
+				if canRebuildRunes then
+					self:UpdateRunes()
+				end
+			end
 
 			local function getRuneLineParts(modLine)
 				local values = { }
@@ -1105,17 +1117,17 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local broadItemType = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff) and "caster" or "armour" -- minor optimisation
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
-				local addModToGroupedRunes = function (modLine)
+				local addModToGroupedRunes = function (modLine, augmentType)
 					local runeStrippedModLine, runeValues = getRuneLineParts(modLine)
 					if statGroupedRunes[runeStrippedModLine] == nil then
 						statGroupedRunes[runeStrippedModLine] = { }
 					end
-					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, values = runeValues })
+					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, type = augmentType, values = runeValues })
 				end
 				for slotType, slotMod in pairs(runeMods) do
 					if slotType == broadItemType or slotType == specificItemType then
 						for _, mod in ipairs(slotMod) do
-							addModToGroupedRunes(mod)
+							addModToGroupedRunes(mod, slotMod.type)
 						end
 					end
 				end
@@ -1137,7 +1149,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						remainingRunes = remainingRunes - numRunes
 						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulCore = groupedRunes[1].name:match("Soul Core") ~= nil
+						modLine.augmentType = groupedRunes[1].type
 						modLine.runeCount = numRunes
 
 						if shouldFixRunesOnItem then
@@ -1526,7 +1538,7 @@ function ItemClass:UpdateRunes()
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
-					local orderKey = modLine:match("^Bonded:") and "Bonded:"..order or order
+					local orderKey = mod.type .. ":" .. (modLine:match("^Bonded:") and "Bonded:"..order or order)
 					if statOrder[orderKey] then
 						-- Combine stats
 						local start = 1
@@ -1535,8 +1547,12 @@ function ItemClass:UpdateRunes()
 							start = e + 1
 							return tonumber(num) + tonumber(other)
 						end)
+						local modList, extra = modLib.parseMod(statOrder[orderKey].line)
+						statOrder[orderKey].modList = modList or { }
+						statOrder[orderKey].extra = extra
 					else
-						local modLine = { line = modLine, order = order, rune = true, enchant = true }
+						local modList, extra = modLib.parseMod(modLine)
+						local modLine = { line = modLine, order = order, modList = modList or { }, extra = extra, rune = true, enchant = true, augmentType = mod.type }
 						for l = 1, #self.runeModLines + 1 do
 							if not self.runeModLines[l] or self.runeModLines[l].order > order then
 								t_insert(self.runeModLines, l, modLine)
@@ -2020,6 +2036,17 @@ function ItemClass:BuildModList()
 	for _, modLine in ipairs(self.explicitModLines) do
 		processModLine(modLine)
 	end
+	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
+	self.socketedRuneEffectModifier = calcLocal(baseList, "SocketedRuneEffect", "INC", 0) / 100
+	for _, modLine in ipairs(self.runeModLines) do
+		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
+			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
+		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra then
+			for _, mod in ipairs(modLine.modList) do
+				baseList:ScaleAddMod(mod, effectModifier)
+			end
+		end
+	end
 	self.grantedSkills = { }
 	for _, skill in ipairs(baseList:List(nil, "ExtraSkill")) do
 		if skill.name ~= "Unknown" then
@@ -2129,5 +2156,4 @@ function ItemClass:BuildModList()
 	else
 		self.modList = self:BuildModListForSlotNum(baseList)
 	end
-	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 end

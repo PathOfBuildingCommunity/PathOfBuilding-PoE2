@@ -896,6 +896,7 @@ local modNameList = {
 	["effect of the socketed jewel"] = "SocketedJewelEffect",
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
 	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
+	["effect of socketed runes"] = "SocketedRuneEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",
@@ -3432,17 +3433,13 @@ local specialModList = {
 		-- Display only. For Breach Rings and Serle's Grit.
 	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
-		-- Display only. For Strugglescream.
+		-- For Strugglescream. Handled in Item.lua
 	} end,
 	["can have an additional instilled modifier"] = function(num) return {
-		-- Display only.
+		-- Handled in Item.lua
 	} end,
-	["only soul cores can be socketed in this item"] = function(num) return {
-		-- Display only.
-	} end,
-	["only runes can be socketed in this item"] = function(num) return {
-		-- Display only.
-	} end,
+	["only soul cores can be socketed in this item"] = { flag("SocketedSoulCoresOnly") },
+	["only runes can be socketed in this item"] = { flag("SocketedRunesOnly") },
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
 	["cannot load or fire ammunition"] = { mod("WeaponData", "LIST", { key = "cannotUseGemTag", value = "ammunition" }) },

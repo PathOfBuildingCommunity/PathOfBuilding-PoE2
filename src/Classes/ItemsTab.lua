@@ -1918,6 +1918,14 @@ end)
 
 function ItemsTabClass:GetValidRunesForItem(item)
 	local runes = { }
+	local socketedItemType
+	if item.baseModList then
+		if item.baseModList:Flag(nil, "SocketedSoulCoresOnly") then
+			socketedItemType = "SoulCore"
+		elseif item.baseModList:Flag(nil, "SocketedRunesOnly") then
+			socketedItemType = "Rune"
+		end
+	end
 	for _, rune in pairs(runeModLines) do
 		local subType = item.base.subType and item.base.subType:lower()
 		local itemType = item.base.type:lower()
@@ -1939,17 +1947,9 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			end
 		end
 		if isRuneValidForSlot(rune.slot) then
-				if item.title == "Atziri's Splendour" then
-					if rune.slot == "None" or rune.type == "SoulCore" then
-						table.insert(runes, rune)
-					end
-				elseif item.title == "Runeseeker's Call" then
-					if rune.slot == "None" or rune.type == "Rune" then
-						table.insert(runes, rune)
-					end
-				else
-					table.insert(runes, rune)
-				end
+			if rune.slot == "None" or not socketedItemType or rune.type == socketedItemType then
+				table.insert(runes, rune)
+			end
 		end
 	end
 	return runes
