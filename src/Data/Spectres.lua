@@ -8345,6 +8345,84 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	},
 }
 
+minions["Metadata/Monsters/PorcupineAnt/PorcupineAntMedium"] = {
+	name = "Rasp Scavenger",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.35,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 26,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GPAPorcupineAntSpikeNova",
+		"MMAPorcupineAntSpikeball",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
+minions["Metadata/Monsters/PorcupineAnt/PorcupineAntLarge"] = {
+	name = "Rasp Scavenger",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "medium_movement", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 14,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 34,
+	spectreReservation = 57,
+	companionReservation = 32.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GPAPorcupineAntSpikeNova",
+		"MMAPorcupineAntSpikeball",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
 minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	name = "Tombshrieker",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -20584,7 +20662,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/VaalThaumaturgeSpear"]
 
 minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/SoulCoreQuadrillaMinion"] = {
 	name = "Quadrilla Sergeant",
-	monsterTags = { "2HBluntStone_onhit_audio", "beast", "fast_movement", "humanoid", "incursion_unique_quadrilla", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "2HBluntStone_onhit_audio", "beast", "fast_movement", "humanoid", "incursion_unique_quadrilla", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.66,
@@ -20626,7 +20704,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/S
 
 minions["Metadata/Monsters/LeagueIncursionNew/MiniBosses/IncursionChainedBeastBoss/ChainedBeastBossMinion_"] = {
 	name = "Unchained Beast",
-	monsterTags = { "beast", "Claw_onhit_audio", "incursion_unique_chained_beast", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Claw_onhit_audio", "incursion_unique_chained_beast", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.66,
@@ -20740,7 +20818,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/VaalF
 
 minions["Metadata/Monsters/CrowBell/CrowBellBossMinion1"] = {
 	name = "The Crowbell",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20815,7 +20893,7 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion1"] = {
 
 minions["Metadata/Monsters/CrowBell/CrowBellBossMinion2"] = {
 	name = "The Black Crow",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20890,7 +20968,7 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion2"] = {
 
 minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1"] = {
 	name = "The Devourer",
-	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -20953,7 +21031,7 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1"] = {
 
 minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2"] = {
 	name = "Gorian, the Moving Earth",
-	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21016,7 +21094,7 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2"] = {
 
 minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1"] = {
 	name = "Xyclucian, the Chimera",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21086,7 +21164,7 @@ minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1"] = {
 
 minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2"] = {
 	name = "Xilozoma, the Maw-Beast",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21156,7 +21234,7 @@ minions["Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2"] = {
 
 minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1"] = {
 	name = "Uxmal, the Beastlord",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21220,7 +21298,7 @@ minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1"] = {
 
 minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2"] = {
 	name = "Gressor-Kul, the Apex",
-	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Claw_onhit_audio", "flying", "mammal_beast", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21284,7 +21362,7 @@ minions["Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2"] = {
 
 minions["Metadata/Monsters/Bird2/MutantBird2Minion1"] = {
 	name = "Scourge of the Skies",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21368,7 +21446,7 @@ minions["Metadata/Monsters/Bird2/MutantBird2Minion1"] = {
 
 minions["Metadata/Monsters/Bird2/MutantBird2Minion2"] = {
 	name = "Chetza, the Feathered Plague",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "red_blood", "very_slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21452,7 +21530,7 @@ minions["Metadata/Monsters/Bird2/MutantBird2Minion2"] = {
 
 minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1"] = {
 	name = "Rathbreaker",
-	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", },
+	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21501,7 +21579,7 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1"] = {
 
 minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2"] = {
 	name = "Caedron, the Hyena Lord",
-	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", },
+	monsterTags = { "2HSharpMetal_onhit_audio", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21550,7 +21628,7 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2"] = {
 
 minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"] = {
 	name = "Mighty Silverfist",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21595,7 +21673,7 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"] = {
 
 minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion2"] = {
 	name = "Zekoa, the Headcrusher",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21640,7 +21718,7 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion2"] = {
 
 minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1"] = {
 	name = "The Abominable Yeti",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21692,7 +21770,7 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1"] = {
 
 minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2"] = {
 	name = "The Frostborn Fiend",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21744,7 +21822,7 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2"] = {
 
 minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1"] = {
 	name = "Great White One",
-	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21818,7 +21896,7 @@ minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1"] = {
 
 minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2"] = {
 	name = "The Sandstrider",
-	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "fast_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21892,7 +21970,7 @@ minions["Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2"] = {
 
 minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_"] = {
 	name = "The Ravenous Fang",
-	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -21961,7 +22039,7 @@ minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion"] = {
 	name = "Bahlak, the Sky Seer",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22025,7 +22103,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1"] = {
 	name = "Rakkar, the Frozen Talon",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22088,7 +22166,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1"] = {
 
 minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2"] = {
 	name = "Thraeven, Wing of Winter",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", },
+	monsterTags = { "beast", "Beast_onhit_audio", "flying", "not_str", "red_blood", "slow_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22151,7 +22229,7 @@ minions["Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2"] = {
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_"] = {
 	name = "Ashar, the Sand Mother",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22203,7 +22281,7 @@ minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_"] =
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2"] = {
 	name = "Karash, The Dune Dweller",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "sanctum_monster", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22255,7 +22333,7 @@ minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2"] = 
 
 minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1"] = {
 	name = "Vornas, the Fell Flame",
-	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", },
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22314,7 +22392,7 @@ minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1"] = 
 
 minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2"] = {
 	name = "Morvak, the Infernal",
-	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", },
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "fire", "mammal_beast", "not_dex", "not_int", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22373,7 +22451,7 @@ minions["Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2"] = 
 
 minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion"] = {
 	name = "Akthi, the Final Sting",
-	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	monsterTags = { "beast", "fast_movement", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", "boss", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -22413,6 +22491,954 @@ minions["Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion"] 
 		-- TamedMonsterImpale [cannot_consume_impale = 1]
 		mod("ImpaleChance", "BASE", 50, 0, 0), -- TamedMonsterImpale [impale_on_hit_%_chance = 50]
 		-- TamedMonsterImpale [impale_magnitude_+% = 50]
+		-- MonsterUniqueT2Boss [monster_slain_experience_+% = 0]
+		-- MonsterUniqueT2Boss [monster_dropped_item_quantity_+% = 0]
+		-- MonsterUniqueT2Boss [monster_dropped_item_rarity_+% = 1600]
+		-- MonsterUniqueT2Boss [i_am_boss_of_tier = 2]
+		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
+		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
+		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
+	},
+}
+minions["Metadata/Monsters/Monkeys/MonkeyJungleTamed"] = {
+	name = "Feral Primate",
+	monsterTags = { "animal_claw_weapon", "beast", "flesh_armour", "is_unarmed", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "primate_beast", "red_blood", "small_height", "Unarmed_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 7,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 33,
+	spectreReservation = 36,
+	companionReservation = 24,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins (Act 3)",
+		"Kriar Peaks (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabBigElite"] = {
+	name = "Porcupine Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "fire_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", "slow_movement", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 50,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 27,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Riverbank (Act 1)",
+		"Found in Maps",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurst",
+		"QuillCrabSpikeShrapnelAudio",
+		"QuillCrabSpikeShrapnel",
+		"CGEQuillCrabFireGround",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoisonElite"] = {
+	name = "Venomous Crab Matriarch",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "monster_applies_poison", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 50,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 27,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds (Act 1)",
+		"Sandspit (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstPoison",
+		"QuillCrabSpikeShrapnelAudioPoison",
+		"QuillCrabSpikeShrapnelPoison",
+		"CGEQuillCrabCausticGround",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeRanged1Spectre"] = {
+	name = "Flesh Larva",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "cannot_be_monolith", "insect", "medium_movement", "melee", "monster_applies_poison", "monster_barely_moves", "monster_summons_adds", "physical_affinity", "ranged", "red_blood", "Stab_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.8,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 33,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+		"Mud Burrow (Act 1)",
+		"Pools of Khatal (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"HuhuGrubLarvaeMortar",
+		"HuhuGrubRangedStanceChange",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/DemonSpiders/BlackStrider"] = {
+	name = "Black Strider",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "melee", "physical_affinity", "spider", "Stab_onhit_audio", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 43,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ancient Gateway (Map)",
+		"Ashen Forest (Act 6)",
+		"Eastern Gateway (Map)",
+		"Spider Woods (Map)",
+		"The Matriarch Halls (Map)",
+		"The Patriarch Halls (Map)",
+		"The Titan Grotto (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Western Gateway (Map)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"BlackStriderMassMortar",
+		"GTBlackStriderMassMortar",
+		"GABlackStriderWebMortarImpact",
+		"BlackStriderWebProjectile",
+		"MPWBlackStriderWebProjectile",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/DemonSpiders/BlackStriderSanctumTrial"] = {
+	name = "Black Strider",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "melee", "physical_affinity", "sanctum_monster", "spider", "Stab_onhit_audio", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 43,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ancient Gateway (Map)",
+		"Ashen Forest (Act 6)",
+		"Eastern Gateway (Map)",
+		"Spider Woods (Map)",
+		"The Matriarch Halls (Map)",
+		"The Patriarch Halls (Map)",
+		"The Titan Grotto (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Western Gateway (Map)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"CGESanctumBlackStriderWeb",
+		"MPWBlackStriderWebProjectileSanctum",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDullSanctumScorpionBoss"] = {
+	name = "Tarnished Beetle",
+	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "insect", "lightning_affinity", "medium_movement", "melee", "not_dex", "not_int", "sanctum_monster", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 31,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Keth (Act 2)",
+		"The Galai Gates (Act 6)",
+		"The Khari Crossing (Act 6)",
+		"The Lost City (Act 2)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSBeetleLightningNova",
+		"EABeetleNovaCharge",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+	},
+}
+
+minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWideSanctumTrial"] = {
+	name = "Adorned Scarab",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", "sanctum_monster", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 47,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Spring (Map)",
+		"The Galai Gates (Act 6)",
+		"The Lost City (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAMediumBeetleChargedSunder",
+		"GAMediumBeetleSunder",
+		"WalkEmergeSanctumPortal",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+	},
+}
+
+minions["Metadata/Monsters/EtchedBeetles/LargeEtchedBeetleBossMinion"] = {
+	name = "Adorned Beetle",
+	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 47,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Spring (Map)",
+		"The Galai Gates (Act 6)",
+		"The Lost City (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/HyenaMonster/HyenaMonsterHighAggro"] = {
+	name = "Hyena Demon",
+	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 50,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mesa (Map)",
+		"Precursor Tower (Map)",
+		"Qimah (Act 6)",
+		"Savannah (Map)",
+		"The Bone Pits (Act 2)",
+		"Found in Maps",
+		"Vastiri Outskirts (Act 2)",
+		"Wetlands (Map)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+	},
+}
+
+minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpearBossMinion_"] = {
+	name = "Sun Clan Scavenger",
+	monsterTags = { "allows_additional_projectiles", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.11,
+	attackRange = 8,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 39,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mesa (Map)",
+		"Precursor Tower (Map)",
+		"Qimah (Act 6)",
+		"Savannah (Map)",
+		"The Bone Pits (Act 2)",
+		"Found in Maps",
+		"Vastiri Outskirts (Act 2)",
+		"Wetlands (Map)",
+	},
+	skillList = {
+		"HyenaCentaurMeleeStab",
+		"HyenaCentaurMeleeSwipe",
+		"HyenaCentaurSpearThrow",
+		"EGHyenaDogpile",
+		"EGHyenaDogpileBig",
+		"HyenaCentaurSpearThrowCliff",
+		"DTTHyenaCentaurCliffJump",
+		"EASHyenaCliffJump",
+		"EASHyenaCliffFlee",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
+	},
+}
+
+minions["Metadata/Monsters/PorcupineAnt/PorcupineAntMediumSanctumTrial"] = {
+	name = "Rasp Scavenger",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "sanctum_monster", "slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.35,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 26,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GPAPorcupineAntSpikeNovaSanctum",
+		"MMAPorcupineAntSpikeballSanctum",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
+minions["Metadata/Monsters/PorcupineAnt/PorcupineAntLargeSanctumTrial"] = {
+	name = "Rasp Scavenger",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "medium_movement", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "sanctum_monster", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 14,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 34,
+	spectreReservation = 57,
+	companionReservation = 32.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GPAPorcupineAntSpikeNovaSanctum",
+		"MMAPorcupineAntSpikeballSanctum",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
+minions["Metadata/Monsters/CaveDweller/CaveDwellerSanctumTrial__"] = {
+	name = "Tombshrieker",
+	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "sanctum_monster", },
+	life = 1.35,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 11,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 33,
+	spectreReservation = 62,
+	companionReservation = 34.8,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ancient Gateway (Map)",
+		"Eastern Gateway (Map)",
+		"Qimah Reservoir (Act 6)",
+		"Skull of the Titan (Act 2)",
+		"The Matriarch Halls (Map)",
+		"The Patriarch Halls (Map)",
+		"Found in Maps",
+		"Traitor's Passage (Act 2)",
+		"Trial of the Sekhemas (Floor 1)",
+		"Western Gateway (Map)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSCaveDwellerSonicPulse",
+		"GPSCaveDwellerSuperProjectileSanctum",
+		"GSCaveDwellerSuperProjectile",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/PlagueNymph/PlagueNymphFoundry"] = {
+	name = "Plague Nymph",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.2,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 11,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 25,
+	spectreReservation = 59,
+	companionReservation = 33.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hive (Map)",
+		"Howling Caves (Act 6)",
+		"Mawdun Mine (Act 2)",
+		"Pools of Khatal (Act 6)",
+		"The Dreadnought's Wake (Act 2)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSPlagueNymphLaser",
+		"MPSPlagueNymphRailGun",
+	},
+	modList = {
+		-- MonsterMaimOnHitChance [maim_on_hit_% = 25]
+		mod("StunDuration", "OVERRIDE", 1.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1500]
+	},
+}
+
+minions["Metadata/Monsters/ChawMongrel/ChawMongrelLeashBoss"] = {
+	name = "Chaw Mongrel",
+	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "melee", "not_int", "physical_affinity", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 0.99,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 48,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Azak Bog (Act 3)",
+		"The Matlan Waterways (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DoLiterallyNothing",
+	},
+	modList = {
+		-- MonsterMaimOnHit [global_maim_on_hit = 1]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2"] = {
+	name = "The Ravenous Fang",
+	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "boss", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 30,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedBoss",
+		"GAArenaBeastSlam",
+		"GAArenaBeastSlamEmpowered",
+		"EASGoblinArenaBeastCombo",
+		"GAGoblinArenaBeastHeadbutt",
+		"GAGoblinArenaBeastHeadbuttEmpowered",
+		"GAGoblinArenaBeastGroundSlash",
+		"EASArenaBeastBossFissureSlams",
+		"WalkEmergeArenaBeastBoss",
+		"GTArenaBeastBossShockwave",
+		"EGArenaBeastBossShockwaveDetonation",
+		"GAArenaBeastBossBigSlam",
+		"GAArenaBeastBossShockwave",
+		"GAArenaBeastBossPunchLeft",
+		"GAArenaBeastBossPunchLeftEmpowered",
+		"GAArenaBeastBossPunchRight",
+		"GAArenaBeastBossPunchRightEmpowered",
+		"GAArenaBeastBossFissureDamage",
+		"GAArenaBeastBossFissureExplosion",
+		"CGEArenaBeastBossSulpurGas",
+		"EASBlindBeastEnrage",
+		"GAGoblinArenaBeastGroundSlashLightning",
+		"GAGoblinArenaBeastLightningInfuse",
+		"EAABlindBeastDash",
+		"GAArenaBeastLeapSlam",
+		"GAArenaBeastLeapSlamEnraged",
+		"GAArenaBeastLeapSlamEnragedKick",
+	},
+	modList = {
+		mod("PhysicalCanShock", "FLAG", 1, 0, 0), -- TamedMonsterAllDamageShocksAndEffect [all_damage_can_shock = 1]
+		mod("EnemyShockMagnitude", "INC", 100, 0, 0), -- TamedMonsterAllDamageShocksAndEffect [shock_effect_+% = 100]
+		-- MonsterUniqueT2Boss [monster_slain_experience_+% = 0]
+		-- MonsterUniqueT2Boss [monster_dropped_item_quantity_+% = 0]
+		-- MonsterUniqueT2Boss [monster_dropped_item_rarity_+% = 1600]
+		-- MonsterUniqueT2Boss [i_am_boss_of_tier = 2]
+		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
+		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
+		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1600]
+	},
+}
+
+minions["Metadata/Monsters/ParasiteMonsters/ParasiteMonster01"] = {
+	name = "Armoured Parasite",
+	monsterTags = { "beast", "insect", "MonsterStab_onhit_audio", "red_blood", "very_slow_movement", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 5,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 12,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGParasiteRevive",
+		"DTTParasiteSwarmLeap",
+		"DTTParasiteSwarmLeapAttach",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ParasiteMonsters/ParasiteMonster02"] = {
+	name = "Kreth Parasite",
+	monsterTags = { "beast", "medium_movement", "MonsterStab_onhit_audio", "not_int", "not_str", "red_blood", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 32,
+	spectreReservation = 38,
+	companionReservation = 24.9,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGParasiteRevive",
+		"DTTParasiteSwarmLeap",
+		"DTTParasiteSwarmLeapAttach",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/MorayClanMonster/MorayClan"] = {
+	name = "Moray Clan",
+	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 46,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SerpentClanTailWhip",
+		"GSSerpentClanAcidSpit",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Baron/BaronWerewolfProwlerSummon"] = {
+	name = "Tendril Prowler",
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "not_int", "not_str", "red_blood", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.54,
+	damageSpread = 0.2,
+	attackTime = 2.25,
+	attackRange = 12,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 37,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Holten Estate (Act 6)",
+		"Ogham Manor (Act 1)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeed2",
+		"MAASBaronEndgameBasic",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- BossMinionFlaskChargeIncrease300 [monster_slain_flask_charges_granted_+% = 300]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName"] = {
+	name = "Rabid Dog",
+	monsterTags = { "beast", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "quest_null_monster_mods", "red_blood", "Snap_onhit_audio", "very_slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 11,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Farmlands (Act 1)",
+		"Riverhold (Map)",
+		"Scorched Farmlands (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
+		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 100]
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+	},
+}
+
+minions["Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph"] = {
+	name = "Nymph Wasp",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "caster", "insect", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.2,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 11,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 25,
+	spectreReservation = 59,
+	companionReservation = 33.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Ashen Forest (Act 6)",
+		"Mournful Cliffside",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSTwilightOrderPlagueNymphRailGun",
+		"GSTwilightOrderPlagueNymphLaser",
+	},
+	modList = {
+		-- MonsterMaimOnHitChance [maim_on_hit_% = 25]
+		mod("StunDuration", "OVERRIDE", 1.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1500]
+	},
+}
+
+minions["Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion"] = {
+	name = "Anundr, the Sandworm",
+	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "boss", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.35,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 2.01,
+	attackRange = 37,
+	accuracy = 1,
+	critChance = 5,
+	baseMovementSpeed = 30,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeMudBurrowerLeftCleave",
+		"MeleeMudBurrowerRightCleave",
+		"MeleeMudBurrowerBite",
+		"MPAMudBurrowerBloodProj",
+		"MudBurrowerBurrowSpam",
+		"MudBurrowerEpicBurrowNoRetarget",
+		"MudBurrowerGoopGT",
+		"MPAMudBurrowerSprayProj",
+		"GAMudBurrowerBloodProj",
+		"MudBurrowerEpicBurrowTriggerGA",
+		"MudBurrowerMaggotSummon",
+		"MudBurrowerGoopTriggerEG",
+		"MudBurrowerGoopTriggerKnockbackGA",
+		"MPAMudBurrowerGoopSmallBall",
+		"GAMudBurrowerGoopSmallImpact",
+		"MPAMudBurrowerGoopBigBall",
+		"MudBurrowerGoopExplode",
+		"GAMudBurrowerSpraySmallImpact",
+		"GAMudBurrowerDivePush",
+		"GAMudBurrowerHeadSlam",
+		"CGEMudBurrowerVomit",
+		"MPAMudBurrowerVomitProj",
+	},
+	modList = {
+		mod("AilmentMagnitude", "MORE", 200, 0, 2097152), -- TamedMonsterPoisonMagnitude [active_skill_poison_effect_+%_final = 200]
 		-- MonsterUniqueT2Boss [monster_slain_experience_+% = 0]
 		-- MonsterUniqueT2Boss [monster_dropped_item_quantity_+% = 0]
 		-- MonsterUniqueT2Boss [monster_dropped_item_rarity_+% = 1600]

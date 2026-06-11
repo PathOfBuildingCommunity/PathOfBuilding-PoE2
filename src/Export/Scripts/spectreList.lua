@@ -29,8 +29,11 @@ if file then
 end
 
 for monster in dat("MonsterVarieties"):Rows() do
+	local isBeast = monster.MonsterCategory and monster.MonsterCategory.Type == "Beast"
+	-- Beast bosses keep their health bar on the companion variety (e.g. Anundr,
+	-- the Sandworm), so bossness alone cannot disqualify a beast
 	if monster.NotSpectre == false
-		and monster.BossHealthBar == false
+		and (monster.BossHealthBar == false or isBeast)
 		and not monster.Type.IsPlayerMinion == true
 		and not monster.Id:match("NPC")
 		and not monster.Name:match("DNT")
@@ -91,7 +94,10 @@ for monster in dat("MonsterVarieties"):Rows() do
 
 		table.sort(skillIds)
 
-		local signature = monster.Name .. "|" .. table.concat(skillIds, ",")
+		-- Same name and skills but a different Spirit cost is a real variant
+		-- (e.g. the small/medium/large Rasp Scavengers), not a duplicate;
+		-- reservation is derived from ExperienceMultiplier (see minions.lua)
+		local signature = monster.Name .. "|" .. skillSource.ExperienceMultiplier .. "|" .. table.concat(skillIds, ",")
 
 		------------------------------------------------------------
 		-- Duplicate check (name + skills)
