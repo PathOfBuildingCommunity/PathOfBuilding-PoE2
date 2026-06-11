@@ -67,6 +67,7 @@ directiveTable.base = function(state, args, out)
 				end
 				out:write(' },\n')
 			end
+				out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
 		end
@@ -141,7 +142,8 @@ directiveTable.base = function(state, args, out)
 						label = descStats,
 						statOrder = orders,
 						rank = rank,
-						tradeHashes = tradeHashes
+						tradeHashes = tradeHashes,
+						isSocketBound = soulCores.IsSocketBound
 					}
 					table.insert(modLines, out)
 				end

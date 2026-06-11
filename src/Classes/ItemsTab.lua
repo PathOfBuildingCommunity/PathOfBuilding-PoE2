@@ -1746,18 +1746,30 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 			local validRunes = self:GetValidRunesForItem(newItem)
 
 			-- replace runes with current ones, or set to none
+			local skipped = 0
 			if shouldChangeAugments then
 				for i = 1, #newItem.sockets do
+					for _, rune in ipairs(validRunes) do
+						-- avoid overwriting socket bound runes as removing these from e.g. trade results
+						-- will be confusing
+						if rune.name == newItem.runes[i] and rune.isSocketBound then
+							-- if the new item has more slots than the old item, we still copy old
+							-- runes in order after skipping the socket bound rune
+							skipped = skipped + 1
+							goto continue
+						end
+					end
 					newItem.runes[i] = "None"
-					if currentRunes[i] then
+					if currentRunes[i - skipped] then
 						for _, rune in ipairs(validRunes) do
 							-- we only copy runes which fit the new item type
-							if rune.name == currentRunes[i] then
-								newItem.runes[i] = currentRunes[i]
+							if rune.name == currentRunes[i - skipped] then
+								newItem.runes[i] = currentRunes[i - skipped]
 								break
 							end
 						end
 					end
+					::continue::
 				end
 				newItem:UpdateRunes()
 			end
@@ -1909,11 +1921,11 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1 } }
+local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1, isSocketBound = false } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod, isSocketBound = runeMod.isSocketBound })
 	end
 end
 table.sort(runeModLines, function(a, b)
