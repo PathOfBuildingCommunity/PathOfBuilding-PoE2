@@ -495,6 +495,7 @@ describe("TestItemParse", function()
 			end
 		end
 		assert.are.equals(18, damageGainAsFire)
+		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 18%% of Damage as Extra Fire Damage"))
 	end)
 
 	it("does not double-scale imported socketed rune text", function()
@@ -537,6 +538,9 @@ describe("TestItemParse", function()
 			end
 		end
 		assert.are.equals(210, spellDamage)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("{enchant}{rune}210%% increased Spell Damage"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}%+9 to Level of all Spell Skills"))
 	end)
 
 	it("infers pasted game rune lines with socketed rune effect", function()
@@ -596,6 +600,10 @@ describe("TestItemParse", function()
 			end
 		end
 		assert.are.equals(120, damageGainAsLightning)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Gain 120%% of Damage as Extra Lightning Damage"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants you create have 75%% reduced effect"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants can be collected from 150%% further away"))
 	end)
 
 	it("multi-line rune mod", function()

@@ -1324,6 +1324,9 @@ end
 
 function ItemClass:BuildRaw()
 	local rawLines = { }
+	if self.runeModLines and self.runeModLines[1] then
+		self:ApplySocketedRuneDisplayScalars()
+	end
 	t_insert(rawLines, "Rarity: " .. self.rarity)
 	if self.title then
 		t_insert(rawLines, self.title)
@@ -1383,7 +1386,8 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Item Level: " .. self.itemLevel)
 	end
 	local function writeModLine(modLine)
-		local line = modLine.line
+		local displayValueScalar = modLine.displayValueScalar and (modLine.valueScalar or 1) * modLine.displayValueScalar
+		local line = displayValueScalar and itemLib.applyRange(modLine.line, modLine.range or main.defaultItemAffixQuality, displayValueScalar, modLine.corruptedRange) or modLine.line
 		if modLine.range and line:match("%(%-?[%d%.]+%-%-?[%d%.]+%)") then
 			line = "{range:" .. round(modLine.range, 3) .. "}" .. line
 		end
@@ -1589,6 +1593,18 @@ function ItemClass:UpdateRunes()
 					end
 				end
 			end
+		end
+	end
+end
+
+function ItemClass:ApplySocketedRuneDisplayScalars()
+	for _, modLine in ipairs(self.runeModLines or { }) do
+		local effectModifier = modLine.augmentType == "SoulCore" and (self.socketedSoulCoreEffectModifier or 0)
+			or modLine.augmentType == "Rune" and (self.socketedRuneEffectModifier or 0)
+		if effectModifier and effectModifier ~= 0 and not modLine.socketedRuneEffectAlreadyApplied then
+			modLine.displayValueScalar = 1 + effectModifier
+		else
+			modLine.displayValueScalar = nil
 		end
 	end
 end
@@ -2064,6 +2080,9 @@ function ItemClass:BuildModList()
 	end
 	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 	self.socketedRuneEffectModifier = calcLocal(baseList, "SocketedRuneEffect", "INC", 0) / 100
+	if self.runeModLines[1] then
+		self:ApplySocketedRuneDisplayScalars()
+	end
 	for _, modLine in ipairs(self.runeModLines) do
 		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
 			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
