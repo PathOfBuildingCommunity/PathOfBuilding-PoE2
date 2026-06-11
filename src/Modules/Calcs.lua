@@ -183,24 +183,35 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				fullEnv.player.mainSkill = activeSkill
 				calcs.perform(fullEnv, true)
 				usedEnv = fullEnv
+				-- Companion/Spectre gems all share a single granted effect ("Companion: {0}"/"Spectre: {0}"),
+				-- whose name is mutated globally for display, so derive the entry name from this skill's own minion
+				local skillName = activeSkill.activeEffect.grantedEffect.name
+				local skillMinion = activeSkill.minion or usedEnv.minion
+				if skillMinion and skillMinion.minionData then
+					if skillName:match("^Companion:") then
+						skillName = "Companion: "..skillMinion.minionData.name
+					elseif skillName:match("^Spectre:") then
+						skillName = "Spectre: "..skillMinion.minionData.name
+					end
+				end
 				local minionName = nil
 				if activeSkill.minion or usedEnv.minion then
 					if usedEnv.minion.output.TotalDPS and usedEnv.minion.output.TotalDPS > 0 then
 						minionName = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
-						t_insert(fullDPS.skills, { name = activeSkill.activeEffect.grantedEffect.name, dps = usedEnv.minion.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName..activeSkill.skillPartName })
+						t_insert(fullDPS.skills, { name = skillName, dps = usedEnv.minion.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName..activeSkill.skillPartName })
 						fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.minion.output.TotalDPS * activeSkillCount
 					end
 					if usedEnv.minion.output.BleedDPS and usedEnv.minion.output.BleedDPS > fullDPS.bleedDPS then
 						fullDPS.bleedDPS = usedEnv.minion.output.BleedDPS
-						bleedSource = activeSkill.activeEffect.grantedEffect.name
+						bleedSource = skillName
 					end
 					if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
 						fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
-						igniteSource = activeSkill.activeEffect.grantedEffect.name
+						igniteSource = skillName
 					end
 					if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > fullDPS.poisonDPS then
 						fullDPS.poisonDPS = usedEnv.minion.output.PoisonDPS
-						poisonSource = activeSkill.activeEffect.grantedEffect.name
+						poisonSource = skillName
 					end
 					if usedEnv.minion.output.ImpaleDPS and usedEnv.minion.output.ImpaleDPS > 0 then
 						fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.minion.output.ImpaleDPS * activeSkillCount
@@ -263,32 +274,32 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				end
 
 				if usedEnv.player.output.TotalDPS and usedEnv.player.output.TotalDPS > 0 then
-					t_insert(fullDPS.skills, { name = activeSkill.activeEffect.grantedEffect.name, dps = usedEnv.player.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName and activeSkill.infoMessage2 or activeSkill.skillPartName })
+					t_insert(fullDPS.skills, { name = skillName, dps = usedEnv.player.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName and activeSkill.infoMessage2 or activeSkill.skillPartName })
 					fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.player.output.TotalDPS * activeSkillCount
 				end
 				if usedEnv.player.output.BleedDPS and usedEnv.player.output.BleedDPS > fullDPS.bleedDPS then
 					fullDPS.bleedDPS = usedEnv.player.output.BleedDPS
-					bleedSource = activeSkill.activeEffect.grantedEffect.name
+					bleedSource = skillName
 				end
 				if usedEnv.player.output.CorruptingBloodDPS and usedEnv.player.output.CorruptingBloodDPS > fullDPS.corruptingBloodDPS then
 					fullDPS.corruptingBloodDPS = usedEnv.player.output.CorruptingBloodDPS
-					corruptingBloodSource = activeSkill.activeEffect.grantedEffect.name
+					corruptingBloodSource = skillName
 				end
 				if usedEnv.player.output.IgniteDPS and usedEnv.player.output.IgniteDPS > fullDPS.igniteDPS then
 					fullDPS.igniteDPS = usedEnv.player.output.IgniteDPS
-					igniteSource = activeSkill.activeEffect.grantedEffect.name
+					igniteSource = skillName
 				end
 				if usedEnv.player.output.BurningGroundDPS and usedEnv.player.output.BurningGroundDPS > fullDPS.burningGroundDPS then
 					fullDPS.burningGroundDPS = usedEnv.player.output.BurningGroundDPS
-					burningGroundSource = activeSkill.activeEffect.grantedEffect.name
+					burningGroundSource = skillName
 				end
 				if usedEnv.player.output.PoisonDPS and usedEnv.player.output.PoisonDPS > fullDPS.poisonDPS then
 					fullDPS.poisonDPS = usedEnv.player.output.PoisonDPS
-					poisonSource = activeSkill.activeEffect.grantedEffect.name
+					poisonSource = skillName
 				end
 				if usedEnv.player.output.CausticGroundDPS and usedEnv.player.output.CausticGroundDPS > fullDPS.causticGroundDPS then
 					fullDPS.causticGroundDPS = usedEnv.player.output.CausticGroundDPS
-					causticGroundSource = activeSkill.activeEffect.grantedEffect.name
+					causticGroundSource = skillName
 				end
 				if usedEnv.player.output.ImpaleDPS and usedEnv.player.output.ImpaleDPS > 0 then
 					fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.player.output.ImpaleDPS * activeSkillCount
