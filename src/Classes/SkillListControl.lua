@@ -178,6 +178,7 @@ function SkillListClass:OnHoverKeyUp(key)
 		elseif key == "RIGHTBUTTON" then
 			if IsKeyDown("CTRL") then
 				item.includeInFullDPS = not item.includeInFullDPS
+				self.skillsTab:SyncCompanionFullDPS(item)
 				if item == self.skillsTab.displayGroup then
 					self.skillsTab:SetDisplayGroup(item)
 				end

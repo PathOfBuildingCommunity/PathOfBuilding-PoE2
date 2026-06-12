@@ -10,6 +10,8 @@ local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
 
+local gemTooltip = LoadModule("Classes/GemTooltip")
+
 local groupSlotDropList = {
 	{ label = "None" },
 	{ label = "Weapon 1", slotName = "Weapon 1" },
@@ -212,6 +214,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	end
 	self.controls.includeInFullDPS = new("CheckBoxControl", { "LEFT", self.controls.groupEnabled, "RIGHT" }, { 145, 0, 20 }, "Include in Full DPS:", function(state)
 		self.displayGroup.includeInFullDPS = state
+		self:SyncCompanionFullDPS(self.displayGroup)
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
@@ -283,15 +286,64 @@ will automatically apply to the skill.]]
 	self.controls.gemEnableHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].enabled, "TOPLEFT"}, {-16, -2, 0, 16}, "^7Enabled:")
 	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {18, -2, 0, 16}, "^7Count:")
 
-	-- Tamed beast (companion) modifiers
-	self.anchorBeastMods = new("Control", nil, {0, 0, 0, 0})
-	self.anchorBeastMods:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 0, function()
+	-- Tamed beast (companion) selection and Full DPS attack list
+	self.anchorCompanion = new("Control", nil, {0, 0, 0, 0})
+	self.anchorCompanion:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 0, function()
 		local y = 0
 		for i = 1, (self.displayGroup and #self.displayGroup.gemList or 0) + 1 do
 			local slot = self.gemSlots[i]
 			y = y + ((slot and (slot.enableGlobal1:IsShown() or slot.enableGlobal2:IsShown())) and 46 or 22)
 		end
 		return y + 14
+	end)
+	local function companionShown()
+		return self:GetDisplayedBeastGem() ~= nil
+	end
+	self.controls.companionBeastLabel = new("LabelControl", {"TOPLEFT", self.anchorCompanion, "TOPLEFT"}, {0, 20, 0, 16}, "^7Beast:")
+	self.controls.companionBeastLabel.shown = companionShown
+	self.controls.companionBeastSelect = new("DropDownControl", {"LEFT", self.controls.companionBeastLabel, "RIGHT"}, {4, 0, 250, 18}, nil, function(index, value)
+		local gemInstance = self:GetDisplayedBeastGem()
+		if gemInstance and value.minionId then
+			gemInstance.skillMinion = value.minionId
+			gemInstance.skillMinionCalcs = value.minionId
+			-- Gems resolved by id keep a "Companion: <beast>" display name; nameSpec-resolved
+			-- gems must keep their resolvable name (see ProcessSocketGroup)
+			if gemInstance.gemId and gemInstance.nameSpec and gemInstance.nameSpec:match("^Companion:") then
+				gemInstance.nameSpec = "Companion: "..value.label
+			end
+			-- gem slot text is only written by SetDisplayGroup, so refresh it to show the rename
+			self:SetDisplayGroup(self.displayGroup)
+			self:AddUndoState()
+			self.build.modFlag = true
+			self.build.buildFlag = true
+		end
+	end)
+	self.controls.companionBeastSelect.shown = companionShown
+	self.controls.companionBeastManage = new("ButtonControl", {"LEFT", self.controls.companionBeastSelect, "RIGHT"}, {8, 0, 110, 18}, "Manage Beasts...", function()
+		self.build:OpenSpectreLibrary("beast")
+	end)
+	self.controls.companionBeastManage.shown = companionShown
+	self.beastAttackSlots = { }
+	self:CreateBeastAttackSlot(1)
+	self.controls.beastAttackHeader = new("LabelControl", {"BOTTOMLEFT", self.beastAttackSlots[1].enabled, "TOPLEFT"}, {0, -2, 0, 16}, "^7Include in Full DPS:")
+	self.controls.beastAttackHeader.shown = function()
+		return self:GetDisplayedBeastAttacks() ~= nil
+	end
+	self.controls.beastAttackHeader.tooltipText = "Checked attacks each count as their own entry in Full DPS.\nChecking an attack includes the group in Full DPS; unchecking all attacks removes it."
+
+	-- Tamed beast (companion) modifiers
+	self.anchorBeastMods = new("Control", nil, {0, 0, 0, 0})
+	self.anchorBeastMods:SetAnchor("TOPLEFT", self.anchorCompanion, "TOPLEFT", 0, function()
+		if not self:GetDisplayedBeastGem() then
+			return 0
+		end
+		local attacks = self:GetDisplayedBeastAttacks()
+		if not attacks then
+			-- beast row only (no calc data for the attack list yet)
+			return 44
+		end
+		-- beast row + attacks header + one row per attack
+		return 62 + #attacks * 20 + 6
 	end)
 	self.beastModSlots = { }
 	self:CreateBeastModSlot(1)
@@ -414,6 +466,9 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 					display = child.attrib.display,
 					enabled = child.attrib.enabled == "true",
 				})
+			elseif child.elem == "FullDPSMinionSkill" and child.attrib.skillId then
+				gemInstance.fullDPSMinionSkills = gemInstance.fullDPSMinionSkills or { }
+				gemInstance.fullDPSMinionSkills[child.attrib.skillId] = true
 			end
 		end
 
@@ -574,6 +629,17 @@ function SkillsTabClass:Save(xml)
 						} } )
 					end
 				end
+				if gemInstance.fullDPSMinionSkills then
+					-- sorted for deterministic build XML
+					local skillIds = { }
+					for skillId in pairs(gemInstance.fullDPSMinionSkills) do
+						t_insert(skillIds, skillId)
+					end
+					table.sort(skillIds)
+					for _, skillId in ipairs(skillIds) do
+						t_insert(gemInfo, { elem = "FullDPSMinionSkill", attrib = { skillId = skillId } } )
+					end
+				end
 				t_insert(node, gemInfo)
 			end
 			t_insert(child, node)
@@ -640,6 +706,7 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 	end
 
 	self:UpdateGemSlots()
+	self:UpdateBeastAttackSlots()
 	self:UpdateBeastModSlots()
 
 	self:DrawControls(viewPort)
@@ -1140,15 +1207,189 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."EnableGlobal2"] = slot.enableGlobal2
 end
 
--- Returns the displayed group's Companion gem, if any (only companions carry tamed beast mods)
-function SkillsTabClass:GetDisplayedBeastGem()
-	if not self.displayGroup then
+-- Returns the group's Companion gem, if any (only companions carry tamed beast mods)
+function SkillsTabClass:GetBeastGemForGroup(socketGroup)
+	if not socketGroup then
 		return
 	end
-	for _, gemInstance in ipairs(self.displayGroup.gemList) do
+	for _, gemInstance in ipairs(socketGroup.gemList) do
 		local grantedEffect = gemInstance.gemData and gemInstance.gemData.grantedEffect
 		if grantedEffect and grantedEffect.minionList and grantedEffect.name:match("^Companion") then
 			return gemInstance
+		end
+	end
+end
+
+function SkillsTabClass:GetDisplayedBeastGem()
+	return self:GetBeastGemForGroup(self.displayGroup)
+end
+
+-- Returns the group companion's attack list (minion.activeSkillList), its owning
+-- active skill and the gem instance; the list is nil when no calc data is available
+-- (group disabled, no beast, or no calc pass since the last edit)
+function SkillsTabClass:GetBeastAttacksForGroup(socketGroup)
+	local gemInstance = self:GetBeastGemForGroup(socketGroup)
+	if not gemInstance or not socketGroup.displaySkillList then
+		return nil, nil, gemInstance
+	end
+	for _, activeSkill in ipairs(socketGroup.displaySkillList) do
+		if activeSkill.activeEffect.srcInstance == gemInstance and activeSkill.minion and activeSkill.minion.activeSkillList then
+			return activeSkill.minion.activeSkillList, activeSkill, gemInstance
+		end
+	end
+	return nil, nil, gemInstance
+end
+
+function SkillsTabClass:GetDisplayedBeastAttacks()
+	return self:GetBeastAttacksForGroup(self.displayGroup)
+end
+
+-- Keep the companion attack selection in step with the group's Include in Full DPS
+-- state: enabling it selects the first attack, disabling it clears the selection
+function SkillsTabClass:SyncCompanionFullDPS(socketGroup)
+	local attacks, _, gemInstance = self:GetBeastAttacksForGroup(socketGroup)
+	if not gemInstance then
+		return
+	end
+	if not socketGroup.includeInFullDPS then
+		gemInstance.fullDPSMinionSkills = nil
+	elseif attacks and attacks[1] then
+		gemInstance.fullDPSMinionSkills = { [attacks[1].activeEffect.grantedEffect.id] = true }
+	end
+end
+
+-- The active attack: the one the sidebar's minion skill dropdown selects, which is
+-- what counts for Full DPS when no explicit per-attack selection has been made
+function SkillsTabClass:GetDisplayedBeastActiveAttackIndex(gemInstance, attacks)
+	return m_max(m_min(gemInstance.skillMinionSkill or 1, #attacks), 1)
+end
+
+function SkillsTabClass:CreateBeastAttackSlot(index)
+	local slot = { }
+	self.beastAttackSlots[index] = slot
+
+	local function isRowShown()
+		local attacks = self:GetDisplayedBeastAttacks()
+		return attacks ~= nil and index <= #attacks
+	end
+
+	-- Include this attack in Full DPS
+	slot.enabled = new("CheckBoxControl", nil, {0, 0, 18}, nil, function(state)
+		local attacks, activeSkill, gemInstance = self:GetDisplayedBeastAttacks()
+		local minionSkill = attacks and attacks[index]
+		if not minionSkill then
+			return
+		end
+		-- Build a new table every time: undo snapshots share nested tables (shallow
+		-- copyTable in CreateUndoState), so in-place mutation would corrupt them
+		local newSelection = { }
+		if gemInstance.fullDPSMinionSkills then
+			for skillId, value in pairs(gemInstance.fullDPSMinionSkills) do
+				newSelection[skillId] = value
+			end
+		elseif self.displayGroup.includeInFullDPS then
+			-- Materialize the legacy default: only the active attack counts
+			local activeIndex = self:GetDisplayedBeastActiveAttackIndex(gemInstance, attacks)
+			newSelection[attacks[activeIndex].activeEffect.grantedEffect.id] = true
+		end
+		newSelection[minionSkill.activeEffect.grantedEffect.id] = state or nil
+		-- The selection and the group's Include in Full DPS state move together:
+		-- checking any attack turns it on, unchecking the last one turns it off
+		if next(newSelection) then
+			gemInstance.fullDPSMinionSkills = newSelection
+			self.displayGroup.includeInFullDPS = true
+		else
+			gemInstance.fullDPSMinionSkills = nil
+			self.displayGroup.includeInFullDPS = false
+		end
+		-- the group checkbox state is only refreshed by SetDisplayGroup, so mirror it here
+		self.controls.includeInFullDPS.state = self.displayGroup.includeInFullDPS and self.displayGroup.enabled
+		self:AddUndoState()
+		self.build.buildFlag = true
+	end)
+	if index == 1 then
+		slot.enabled:SetAnchor("TOPLEFT", self.anchorCompanion, "TOPLEFT", 0, 62)
+	else
+		slot.enabled:SetAnchor("TOPLEFT", self.beastAttackSlots[index - 1].enabled, "BOTTOMLEFT", 0, 2)
+	end
+	slot.enabled.shown = isRowShown
+	slot.enabled.tooltipText = "Include this attack as its own Full DPS entry."
+	self.controls["beastAttackSlot"..index.."Enable"] = slot.enabled
+
+	-- Attack name; hovering it shows the skill's data, gem tooltip style
+	slot.label = new("LabelControl", {"LEFT", slot.enabled, "RIGHT"}, {6, 0, 0, 16}, function()
+		local attacks = self:GetDisplayedBeastAttacks()
+		local minionSkill = attacks and attacks[index]
+		if not minionSkill then
+			return ""
+		end
+		return "^7"..minionSkill.activeEffect.grantedEffect.name
+	end)
+	slot.label.shown = isRowShown
+	slot.label.tooltipFunc = function(tooltip)
+		local attacks = self:GetDisplayedBeastAttacks()
+		local minionSkill = attacks and attacks[index]
+		if tooltip:CheckForUpdate(self.build.outputRevision, self.displayGroup, minionSkill) and minionSkill then
+			gemTooltip.AddMinionSkillTooltip(tooltip, self.build, minionSkill)
+		end
+	end
+	self.controls["beastAttackSlot"..index.."Label"] = slot.label
+end
+
+-- Update the companion controls to reflect the currently displayed socket group
+function SkillsTabClass:UpdateBeastAttackSlots()
+	local gemInstance = self:GetDisplayedBeastGem()
+	if not gemInstance then
+		return
+	end
+	-- Beast selection list, sourced from the build's tamed beast library
+	wipeTable(self.controls.companionBeastSelect.list)
+	for _, minionId in ipairs(self.build.beastList or { }) do
+		local minion = self.build.data.minions[minionId]
+		if minion then
+			t_insert(self.controls.companionBeastSelect.list, { label = minion.name, minionId = minionId })
+		end
+	end
+	if not self.controls.companionBeastSelect.list[1] then
+		t_insert(self.controls.companionBeastSelect.list, { label = "<No tamed beasts>" })
+	end
+	self.controls.companionBeastSelect:SelByValue(gemInstance.skillMinion, "minionId")
+	self.controls.companionBeastSelect.enabled = self.controls.companionBeastSelect.list[1].minionId ~= nil
+	-- Attack rows: create on demand, like gem and beast mod slots
+	local attacks = self:GetDisplayedBeastAttacks()
+	for index = 1, (attacks and #attacks or 0) do
+		if not self.beastAttackSlots[index] then
+			self:CreateBeastAttackSlot(index)
+		end
+	end
+	if not attacks then
+		return
+	end
+	-- Checkbox states: nothing counts while the group is out of Full DPS; with it
+	-- on, the explicit selection governs when any of its ids matches this beast's
+	-- attacks, otherwise the legacy default (only the active attack counts)
+	local includeInFullDPS = self.displayGroup and self.displayGroup.includeInFullDPS
+	local selection = gemInstance.fullDPSMinionSkills
+	local anyMatch = false
+	if selection then
+		for _, minionSkill in ipairs(attacks) do
+			if selection[minionSkill.activeEffect.grantedEffect.id] then
+				anyMatch = true
+				break
+			end
+		end
+	end
+	local activeIndex = self:GetDisplayedBeastActiveAttackIndex(gemInstance, attacks)
+	for index, slot in ipairs(self.beastAttackSlots) do
+		local minionSkill = attacks[index]
+		if minionSkill then
+			if not includeInFullDPS then
+				slot.enabled.state = false
+			elseif anyMatch then
+				slot.enabled.state = selection[minionSkill.activeEffect.grantedEffect.id] or false
+			else
+				slot.enabled.state = index == activeIndex
+			end
 		end
 	end
 end

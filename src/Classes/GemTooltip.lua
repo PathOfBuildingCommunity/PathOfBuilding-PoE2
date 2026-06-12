@@ -360,4 +360,75 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	end
 end
 
+-- Tooltip for a minion's own skill (e.g. a companion attack): the same look as a
+-- player gem tooltip, but minion skills carry no gem data, tier or requirements.
+-- minionSkill is the live active skill from minion.activeSkillList, whose
+-- activeEffect provides the level, quality and actor level for stat evaluation.
+function GemTooltip.AddMinionSkillTooltip(tooltip, build, minionSkill)
+	local fontSizeBig, fontSizeTitle = getFontSizes()
+	local activeEffect = minionSkill.activeEffect
+	local grantedEffect = activeEffect.grantedEffect
+	tooltip.center = false
+	tooltip.color = colorCodes.GEM
+	tooltip.minWidth = 400
+	tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. grantedEffect.name, "FONTIN SC")
+	tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "Minion Skill", "FONTIN SC")
+	-- Gem-style tag line, derived from the stat sets' base flags
+	local seenTags, tags = { }, { }
+	for _, statSet in ipairs(grantedEffect.statSets) do
+		for flag in pairs(statSet.baseFlags or { }) do
+			if flag ~= "hit" and not seenTags[flag] then
+				seenTags[flag] = true
+				table.insert(tags, flag == "area" and "AoE" or (flag:sub(1, 1):upper() .. flag:sub(2)))
+			end
+		end
+	end
+	table.sort(tags)
+	if tags[1] then
+		tooltip:AddLine(fontSizeBig, "^x7F7F7F" .. table.concat(tags, ", "), "FONTIN")
+	end
+	tooltip:AddSeparator(8)
+	local levelStats = grantedEffect.levels[activeEffect.level] or grantedEffect.levels[1] or { }
+	local isAttack = grantedEffect.skillTypes and grantedEffect.skillTypes[SkillType.Attack]
+	local cost
+	for _, res in ipairs(data.costs) do
+		if levelStats.cost and levelStats.cost[res.Resource] then
+			cost = (cost and (cost .. ", ") or "") .. res.ResourceString:gsub("{0}", string.format("%g", round(levelStats.cost[res.Resource] / res.Divisor, 2)))
+		end
+	end
+	if cost then
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "Cost: ^7" .. cost, "FONTIN SC")
+	end
+	if levelStats.cooldown then
+		local line = colorCodes.GEMINFO .. string.format("Cooldown Time: ^7%.2f sec", levelStats.cooldown)
+		if levelStats.storedUses and levelStats.storedUses > 1 then
+			line = line .. string.format(" (%d uses)", levelStats.storedUses)
+		end
+		tooltip:AddLine(fontSizeBig, line, "FONTIN SC")
+	end
+	if isAttack then
+		if levelStats.attackSpeedMultiplier then
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Attack Speed: ^7%d%% of base", levelStats.attackSpeedMultiplier + 100), "FONTIN SC")
+		end
+		if levelStats.attackTime then
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Attack Time: ^7%.2f sec", levelStats.attackTime / 1000), "FONTIN SC")
+		end
+		if levelStats.baseMultiplier then
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Attack Damage: ^7%g%% of base", levelStats.baseMultiplier * 100), "FONTIN SC")
+		end
+	elseif (grantedEffect.castTime or 0) > 0 then
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Cast Time: ^7%.2f sec", grantedEffect.castTime), "FONTIN SC")
+	end
+	if levelStats.critChance then
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Critical Hit Chance: ^7%.2f%%", levelStats.critChance), "FONTIN SC")
+	end
+	if grantedEffect.description then
+		tooltip:AddSeparator(10)
+		for _, line in ipairs(main:WrapString(grantedEffect.description, 16, 400)) do
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
+		end
+	end
+	addEffectStats(tooltip, build, activeEffect, grantedEffect, nil, nil)
+end
+
 return GemTooltip

@@ -431,6 +431,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				srcInstance.nameSpec = "Companion: ".. value.label
 			end
 		end
+		-- the Skills tab gem slot text is only written by SetDisplayGroup; refresh it
+		-- if the renamed gem's group is the one on display there
+		if self.skillsTab.displayGroup == mainSocketGroup then
+			self.skillsTab:SetDisplayGroup(mainSocketGroup)
+		end
 		self.modFlag = true
 		self.buildFlag = true
 	end)
