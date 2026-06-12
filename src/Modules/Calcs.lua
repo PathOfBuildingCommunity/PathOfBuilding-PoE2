@@ -124,7 +124,10 @@ function calcs.getMiscCalculator(build)
 	-- Run base calculation pass
 	local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
 	calcs.perform(env)
-	local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
+	-- Capture per-skill Full DPS results and their input references during the base pass,
+	-- so accelerated calls can reuse results for skills whose inputs are unchanged
+	local fullDPSStore = { }
+	local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = { store = fullDPSStore, capture = true }})
 	local usedFullDPS = #fullDPS.skills > 0
 	if usedFullDPS then
 		env.player.output.SkillDPS = fullDPS.skills
@@ -136,8 +139,9 @@ function calcs.getMiscCalculator(build)
 		if fastCalcOptions then
 			if fastCalcOptions.fullDPSOnly and usedFullDPS and useFullDPS then
 				-- The caller only reads the FullDPS roll-up (e.g. sorting gems by Full DPS), and
-				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
+				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely.
+				-- The base-pass cache store lets skills with unchanged inputs reuse their captured results
+				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = { store = fullDPSStore } })
 				return { SkillDPS = fullDPS.skills, FullDPS = fullDPS.combinedDPS, FullDotDPS = fullDPS.TotalDotDPS }
 			end
 			-- Accelerated pass for hot loops (e.g. gem dropdown DPS sorting): reuse the cached
@@ -173,9 +177,130 @@ function calcs.getMiscCalculator(build)
 	end, env.player.output
 end
 
+-- Output fields harvested from each Full DPS calc pass; captured into plain snapshot
+-- tables so that cached passes can be merged identically to freshly computed ones
+local playerHarvestFields = { "TotalDPS", "BleedDPS", "CorruptingBloodDPS", "IgniteDPS", "BurningGroundDPS", "PoisonDPS", "CausticGroundDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier" }
+local minionHarvestFields = { "TotalDPS", "BleedDPS", "IgniteDPS", "PoisonDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier" }
+local mirageHarvestFields = { "TotalDPS", "BleedDPS", "IgniteDPS", "PoisonDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier", "BurningGroundDPS", "CausticGroundDPS" }
+local function captureFields(output, fields)
+	local captured = { }
+	for _, field in ipairs(fields) do
+		captured[field] = output[field]
+	end
+	return captured
+end
+
+-- Tolerant modifier equality for the Full DPS input diff: mod tables are pointer-stable
+-- across initEnv calls within one build revision, except for a few mods constructed per
+-- pass (e.g. GemLevel, level-scaled support mods), which are compared structurally instead.
+-- Comparison is depth-limited; anything deeper or non-plain stays conservatively unequal.
+local function valuesEqual(a, b, depth)
+	if a == b then
+		return true
+	end
+	if type(a) ~= "table" or type(b) ~= "table" or depth <= 0 then
+		return false
+	end
+	local keyCount = 0
+	for k, v in pairs(a) do
+		keyCount = keyCount + 1
+		if not valuesEqual(v, b[k], depth - 1) then
+			return false
+		end
+	end
+	for _ in pairs(b) do
+		keyCount = keyCount - 1
+	end
+	return keyCount == 0
+end
+local function modsEqual(a, b)
+	if a == b then
+		return true
+	end
+	if type(a) ~= "table" or type(b) ~= "table" then
+		return false
+	end
+	if a.name ~= b.name or a.type ~= b.type or a.flags ~= b.flags or a.keywordFlags ~= b.keywordFlags or a.source ~= b.source then
+		return false
+	end
+	if not valuesEqual(a.value, b.value, 3) then
+		return false
+	end
+	if #a ~= #b then
+		return false
+	end
+	for i = 1, #a do
+		if not valuesEqual(a[i], b[i], 3) then
+			return false
+		end
+	end
+	return true
+end
+local function modListsEqual(refList, curList)
+	if #refList ~= #curList then
+		return false
+	end
+	for i = 1, #refList do
+		if not modsEqual(refList[i], curList[i]) then
+			return false
+		end
+	end
+	return true
+end
+
+-- Capture the coupling surface of an environment: the state through which one skill's gems
+-- can influence other skills' results - buffs/auras/curses each skill provides (buffList)
+-- and exposure it can inflict. While this surface is unchanged, a skill whose own mod list
+-- is unchanged must produce unchanged results.
+local exposureElements = { "Fire", "Cold", "Lightning", "Chaos" }
+local function captureCouplingSurface(env)
+	local surface = { mods = { }, meta = { } }
+	for _, skill in ipairs(env.player.activeSkillList) do
+		for _, buff in ipairs(skill.buffList or { }) do
+			surface.meta[#surface.meta + 1] = tostring(buff.type) .. "/" .. tostring(buff.name)
+			for _, mod in ipairs(buff.modList or { }) do
+				surface.mods[#surface.mods + 1] = mod
+			end
+		end
+		local modList = skill.baseSkillModList
+		if modList then
+			if modList:HasMod("FLAG", nil, "InflictExposure") then
+				surface.meta[#surface.meta + 1] = "expoFlag"
+			end
+			for _, element in ipairs(exposureElements) do
+				if modList:HasMod("BASE", nil, element .. "ExposureChance") then
+					surface.meta[#surface.meta + 1] = "expo" .. element
+				end
+			end
+		end
+	end
+	surface.metaStr = table.concat(surface.meta, ";")
+	return surface
+end
+local function surfacesEqual(refSurface, curSurface)
+	return refSurface.metaStr == curSurface.metaStr and modListsEqual(refSurface.mods, curSurface.mods)
+end
+
 function calcs.calcFullDPS(build, mode, override, specEnv)
 	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
 	local usedEnv = nil
+	-- Optional per-skill result cache driven by input diffing (specEnv.fullDPSCache):
+	-- with capture set, each skill's harvested results are stored in the cache store along
+	-- with its input references (own mod list + the env's coupling surface); on later calls,
+	-- a skill whose references are unchanged merges its cached results instead of recalculating
+	local fullDPSCache = specEnv and specEnv.fullDPSCache
+	local cacheStore = fullDPSCache and fullDPSCache.store
+	local surfaceSame = false
+	if cacheStore then
+		local curSurface = captureCouplingSurface(fullEnv)
+		if fullDPSCache.capture then
+			cacheStore.snapshots = { }
+			cacheStore.refs = { }
+			cacheStore.surface = curSurface
+		else
+			surfaceSame = cacheStore.surface ~= nil and surfacesEqual(cacheStore.surface, curSurface)
+		end
+	end
 
 	local fullDPS = {
 		combinedDPS = 0,
@@ -200,132 +325,208 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	local burningGroundSource = ""
 	local causticGroundSource = ""
 
+	-- Merge one captured minion pass into the Full DPS totals
+	local function mergeMinionPass(pass)
+		local minionOut = pass.minion
+		if minionOut.TotalDPS and minionOut.TotalDPS > 0 then
+			t_insert(fullDPS.skills, { name = pass.skillName, dps = minionOut.TotalDPS, count = pass.minionCount, trigger = pass.trigger, skillPart = pass.minionSkillPart })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + minionOut.TotalDPS * pass.minionCount
+		end
+		if minionOut.BleedDPS and minionOut.BleedDPS > fullDPS.bleedDPS then
+			fullDPS.bleedDPS = minionOut.BleedDPS
+			bleedSource = pass.skillName
+		end
+		if minionOut.IgniteDPS and minionOut.IgniteDPS > fullDPS.igniteDPS then
+			fullDPS.igniteDPS = minionOut.IgniteDPS
+			igniteSource = pass.skillName
+		end
+		if minionOut.PoisonDPS and minionOut.PoisonDPS > fullDPS.poisonDPS then
+			fullDPS.poisonDPS = minionOut.PoisonDPS
+			poisonSource = pass.skillName
+		end
+		if minionOut.ImpaleDPS and minionOut.ImpaleDPS > 0 then
+			fullDPS.impaleDPS = fullDPS.impaleDPS + minionOut.ImpaleDPS * pass.minionCount
+		end
+		if minionOut.DecayDPS and minionOut.DecayDPS > 0 then
+			fullDPS.decayDPS = fullDPS.decayDPS + minionOut.DecayDPS
+		end
+		if minionOut.TotalDot and minionOut.TotalDot > 0 then
+			fullDPS.dotDPS = fullDPS.dotDPS + minionOut.TotalDot
+		end
+		if minionOut.CullMultiplier and minionOut.CullMultiplier > 1 and minionOut.CullMultiplier > fullDPS.cullingMulti then
+			fullDPS.cullingMulti = minionOut.CullMultiplier
+		end
+	end
+
+	-- Merge one captured mirage result into the Full DPS totals
+	local function mergeMiragePass(pass)
+		local mirage = pass.mirage
+		local mirageOut = mirage.fields
+		if mirageOut.TotalDPS and mirageOut.TotalDPS > 0 then
+			t_insert(fullDPS.skills, { name = mirage.name, dps = mirageOut.TotalDPS, count = mirage.count, trigger = mirage.trigger, skillPart = mirage.skillPart })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + mirageOut.TotalDPS * mirage.count
+		end
+		if mirageOut.BleedDPS and mirageOut.BleedDPS > fullDPS.bleedDPS then
+			fullDPS.bleedDPS = mirageOut.BleedDPS
+			bleedSource = mirage.sourceName
+		end
+		if mirageOut.IgniteDPS and mirageOut.IgniteDPS > fullDPS.igniteDPS then
+			fullDPS.igniteDPS = mirageOut.IgniteDPS
+			igniteSource = mirage.sourceName
+		end
+		if mirageOut.PoisonDPS and mirageOut.PoisonDPS > fullDPS.poisonDPS then
+			fullDPS.poisonDPS = mirageOut.PoisonDPS
+			poisonSource = mirage.sourceName
+		end
+		if mirageOut.ImpaleDPS and mirageOut.ImpaleDPS > 0 then
+			fullDPS.impaleDPS = fullDPS.impaleDPS + mirageOut.ImpaleDPS * mirage.count
+		end
+		if mirageOut.DecayDPS and mirageOut.DecayDPS > 0 then
+			fullDPS.decayDPS = fullDPS.decayDPS + mirageOut.DecayDPS
+		end
+		-- This will only take skillFlags from main env. Needs rework if trigger section is to be kept.
+		if mirageOut.TotalDot and mirageOut.TotalDot > 0 and (pass.dotCanStack or (pass.player.TotalDot and pass.player.TotalDot == 0)) then
+			fullDPS.dotDPS = fullDPS.dotDPS + mirageOut.TotalDot * (pass.dotCanStack and mirage.count or 1)
+		end
+		if mirageOut.CullMultiplier and mirageOut.CullMultiplier > 1 and mirageOut.CullMultiplier > fullDPS.cullingMulti then
+			fullDPS.cullingMulti = mirageOut.CullMultiplier
+		end
+		if mirageOut.BurningGroundDPS and mirageOut.BurningGroundDPS > fullDPS.burningGroundDPS then
+			fullDPS.burningGroundDPS = mirageOut.BurningGroundDPS
+			burningGroundSource = mirage.sourceName
+		end
+		if mirageOut.CausticGroundDPS and mirageOut.CausticGroundDPS > fullDPS.causticGroundDPS then
+			fullDPS.causticGroundDPS = mirageOut.CausticGroundDPS
+			causticGroundSource = mirage.sourceName
+		end
+	end
+
+	-- Merge one captured player result into the Full DPS totals
+	local function mergePlayerPass(pass)
+		local playerOut = pass.player
+		if playerOut.TotalDPS and playerOut.TotalDPS > 0 then
+			t_insert(fullDPS.skills, { name = pass.skillName, dps = playerOut.TotalDPS, count = pass.count, trigger = pass.trigger, skillPart = pass.skillPart })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + playerOut.TotalDPS * pass.count
+		end
+		if playerOut.BleedDPS and playerOut.BleedDPS > fullDPS.bleedDPS then
+			fullDPS.bleedDPS = playerOut.BleedDPS
+			bleedSource = pass.skillName
+		end
+		if playerOut.CorruptingBloodDPS and playerOut.CorruptingBloodDPS > fullDPS.corruptingBloodDPS then
+			fullDPS.corruptingBloodDPS = playerOut.CorruptingBloodDPS
+			corruptingBloodSource = pass.skillName
+		end
+		if playerOut.IgniteDPS and playerOut.IgniteDPS > fullDPS.igniteDPS then
+			fullDPS.igniteDPS = playerOut.IgniteDPS
+			igniteSource = pass.skillName
+		end
+		if playerOut.BurningGroundDPS and playerOut.BurningGroundDPS > fullDPS.burningGroundDPS then
+			fullDPS.burningGroundDPS = playerOut.BurningGroundDPS
+			burningGroundSource = pass.skillName
+		end
+		if playerOut.PoisonDPS and playerOut.PoisonDPS > fullDPS.poisonDPS then
+			fullDPS.poisonDPS = playerOut.PoisonDPS
+			poisonSource = pass.skillName
+		end
+		if playerOut.CausticGroundDPS and playerOut.CausticGroundDPS > fullDPS.causticGroundDPS then
+			fullDPS.causticGroundDPS = playerOut.CausticGroundDPS
+			causticGroundSource = pass.skillName
+		end
+		if playerOut.ImpaleDPS and playerOut.ImpaleDPS > 0 then
+			fullDPS.impaleDPS = fullDPS.impaleDPS + playerOut.ImpaleDPS * pass.count
+		end
+		if playerOut.DecayDPS and playerOut.DecayDPS > 0 then
+			fullDPS.decayDPS = fullDPS.decayDPS + playerOut.DecayDPS
+		end
+		-- This will only take skillFlags from main env. Needs rework.
+		if playerOut.TotalDot and playerOut.TotalDot > 0 then
+			fullDPS.dotDPS = fullDPS.dotDPS + playerOut.TotalDot * (pass.dotCanStack and pass.count or 1)
+		end
+		if playerOut.CullMultiplier and playerOut.CullMultiplier > 1 and playerOut.CullMultiplier > fullDPS.cullingMulti then
+			fullDPS.cullingMulti = playerOut.CullMultiplier
+		end
+	end
+
+	-- Merge one captured calc pass (minion, then mirage, then player sections,
+	-- preserving the original harvest order) into the Full DPS totals
+	local function mergePass(pass)
+		if pass.minion then
+			mergeMinionPass(pass)
+		end
+		if pass.mirage then
+			mergeMiragePass(pass)
+		end
+		if pass.player then
+			mergePlayerPass(pass)
+		end
+	end
+
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
-			local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
-			if enabled then
+			local uuid = cacheStore and cacheSkillUUID(activeSkill, fullEnv)
+			local cachedPasses
+			if surfaceSame and activeSkill.baseSkillModList then
+				local ref = cacheStore.refs[uuid]
+				if ref and cacheStore.snapshots[uuid] and modListsEqual(ref, activeSkill.baseSkillModList) then
+					cachedPasses = cacheStore.snapshots[uuid]
+				end
+			end
+			local activeSkillCount, enabled
+			if not cachedPasses then
+				activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
+			end
+			if cachedPasses then
+				-- This skill's own mod list and the coupling surface are unchanged since the
+				-- capture pass, so its results cannot have changed: merge the cached passes
+				for _, pass in ipairs(cachedPasses) do
+					mergePass(pass)
+				end
+			elseif enabled then
+				local ownRef
+				if cacheStore and fullDPSCache.capture and activeSkill.baseSkillModList then
+					-- Reference the skill's pre-perform mod list for later input diffing
+					ownRef = { }
+					for i, mod in ipairs(activeSkill.baseSkillModList) do
+						ownRef[i] = mod
+					end
+				end
 				fullEnv.player.mainSkill = activeSkill
 				calcs.perform(fullEnv, true)
 				usedEnv = fullEnv
-				local minionName = nil
+				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
+				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
+				local pass = { skillName = activeSkill.activeEffect.grantedEffect.name, trigger = activeSkill.infoTrigger, count = activeSkillCount, dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack }
 				if activeSkill.minion or usedEnv.minion then
-					if usedEnv.minion.output.TotalDPS and usedEnv.minion.output.TotalDPS > 0 then
-						minionName = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
-						t_insert(fullDPS.skills, { name = activeSkill.activeEffect.grantedEffect.name, dps = usedEnv.minion.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName..activeSkill.skillPartName })
-						fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.minion.output.TotalDPS * activeSkillCount
-					end
-					if usedEnv.minion.output.BleedDPS and usedEnv.minion.output.BleedDPS > fullDPS.bleedDPS then
-						fullDPS.bleedDPS = usedEnv.minion.output.BleedDPS
-						bleedSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
-						fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
-						igniteSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > fullDPS.poisonDPS then
-						fullDPS.poisonDPS = usedEnv.minion.output.PoisonDPS
-						poisonSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.ImpaleDPS and usedEnv.minion.output.ImpaleDPS > 0 then
-						fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.minion.output.ImpaleDPS * activeSkillCount
-					end
-					if usedEnv.minion.output.DecayDPS and usedEnv.minion.output.DecayDPS > 0 then
-						fullDPS.decayDPS = fullDPS.decayDPS + usedEnv.minion.output.DecayDPS
-					end
-					if usedEnv.minion.output.TotalDot and usedEnv.minion.output.TotalDot > 0 then
-						fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.minion.output.TotalDot
-					end
-					if usedEnv.minion.output.CullMultiplier and usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
-						fullDPS.cullingMulti = usedEnv.minion.output.CullMultiplier
-					end
+					pass.minion = captureFields(usedEnv.minion.output, minionHarvestFields)
+					pass.minionCount = activeSkillCount
+					local minionNamePrefix = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
+					pass.minionSkillPart = minionNamePrefix .. activeSkill.skillPartName
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
 					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
 						activeSkillCount = 1
 						activeSkill.infoMessage2 = "Skill Damage"
+						pass.count = 1
 					end
 				end
 
 				if activeSkill.mirage then
-					local mirageCount = (activeSkill.mirage.count or 1) * activeSkillCount
-					if activeSkill.mirage.output.TotalDPS and activeSkill.mirage.output.TotalDPS > 0 then
-						t_insert(fullDPS.skills, { name = activeSkill.mirage.name .. " (Mirage)", dps = activeSkill.mirage.output.TotalDPS, count = mirageCount, trigger = activeSkill.mirage.infoTrigger, skillPart = activeSkill.mirage.skillPartName })
-						fullDPS.combinedDPS = fullDPS.combinedDPS + activeSkill.mirage.output.TotalDPS * mirageCount
-					end
-					if activeSkill.mirage.output.BleedDPS and activeSkill.mirage.output.BleedDPS > fullDPS.bleedDPS then
-						fullDPS.bleedDPS = activeSkill.mirage.output.BleedDPS
-						bleedSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
-					end
-					if activeSkill.mirage.output.IgniteDPS and activeSkill.mirage.output.IgniteDPS > fullDPS.igniteDPS then
-						fullDPS.igniteDPS = activeSkill.mirage.output.IgniteDPS
-						igniteSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
-					end
-					if activeSkill.mirage.output.PoisonDPS and activeSkill.mirage.output.PoisonDPS > fullDPS.poisonDPS then
-						fullDPS.poisonDPS = activeSkill.mirage.output.PoisonDPS
-						poisonSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
-					end
-					if activeSkill.mirage.output.ImpaleDPS and activeSkill.mirage.output.ImpaleDPS > 0 then
-						fullDPS.impaleDPS = fullDPS.impaleDPS + activeSkill.mirage.output.ImpaleDPS * mirageCount
-					end
-					if activeSkill.mirage.output.DecayDPS and activeSkill.mirage.output.DecayDPS > 0 then
-						fullDPS.decayDPS = fullDPS.decayDPS + activeSkill.mirage.output.DecayDPS
-					end
-					-- This will only take skillFlags from main env. Needs rework if trigger section is to be kept.
-					if activeSkill.mirage.output.TotalDot and activeSkill.mirage.output.TotalDot > 0 and (activeSkill.activeEffect.statSet.skillFlags.DotCanStack or (usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot == 0)) then
-						fullDPS.dotDPS = fullDPS.dotDPS + activeSkill.mirage.output.TotalDot * (activeSkill.activeEffect.statSet.skillFlags.DotCanStack and mirageCount or 1)
-					end
-					if activeSkill.mirage.output.CullMultiplier and activeSkill.mirage.output.CullMultiplier > 1 and activeSkill.mirage.output.CullMultiplier > fullDPS.cullingMulti then
-						fullDPS.cullingMulti = activeSkill.mirage.output.CullMultiplier
-					end
-					if activeSkill.mirage.output.BurningGroundDPS and activeSkill.mirage.output.BurningGroundDPS > fullDPS.burningGroundDPS then
-						fullDPS.burningGroundDPS = activeSkill.mirage.output.BurningGroundDPS
-						burningGroundSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
-					end
-					if activeSkill.mirage.output.CausticGroundDPS and activeSkill.mirage.output.CausticGroundDPS > fullDPS.causticGroundDPS then
-						fullDPS.causticGroundDPS = activeSkill.mirage.output.CausticGroundDPS
-						causticGroundSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
-					end
+					pass.mirage = {
+						fields = captureFields(activeSkill.mirage.output, mirageHarvestFields),
+						name = activeSkill.mirage.name .. " (Mirage)",
+						sourceName = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)",
+						count = (activeSkill.mirage.count or 1) * activeSkillCount,
+						trigger = activeSkill.mirage.infoTrigger,
+						skillPart = activeSkill.mirage.skillPartName,
+					}
 				end
 
-				if usedEnv.player.output.TotalDPS and usedEnv.player.output.TotalDPS > 0 then
-					t_insert(fullDPS.skills, { name = activeSkill.activeEffect.grantedEffect.name, dps = usedEnv.player.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName and activeSkill.infoMessage2 or activeSkill.skillPartName })
-					fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.player.output.TotalDPS * activeSkillCount
-				end
-				if usedEnv.player.output.BleedDPS and usedEnv.player.output.BleedDPS > fullDPS.bleedDPS then
-					fullDPS.bleedDPS = usedEnv.player.output.BleedDPS
-					bleedSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.CorruptingBloodDPS and usedEnv.player.output.CorruptingBloodDPS > fullDPS.corruptingBloodDPS then
-					fullDPS.corruptingBloodDPS = usedEnv.player.output.CorruptingBloodDPS
-					corruptingBloodSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.IgniteDPS and usedEnv.player.output.IgniteDPS > fullDPS.igniteDPS then
-					fullDPS.igniteDPS = usedEnv.player.output.IgniteDPS
-					igniteSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.BurningGroundDPS and usedEnv.player.output.BurningGroundDPS > fullDPS.burningGroundDPS then
-					fullDPS.burningGroundDPS = usedEnv.player.output.BurningGroundDPS
-					burningGroundSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.PoisonDPS and usedEnv.player.output.PoisonDPS > fullDPS.poisonDPS then
-					fullDPS.poisonDPS = usedEnv.player.output.PoisonDPS
-					poisonSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.CausticGroundDPS and usedEnv.player.output.CausticGroundDPS > fullDPS.causticGroundDPS then
-					fullDPS.causticGroundDPS = usedEnv.player.output.CausticGroundDPS
-					causticGroundSource = activeSkill.activeEffect.grantedEffect.name
-				end
-				if usedEnv.player.output.ImpaleDPS and usedEnv.player.output.ImpaleDPS > 0 then
-					fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.player.output.ImpaleDPS * activeSkillCount
-				end
-				if usedEnv.player.output.DecayDPS and usedEnv.player.output.DecayDPS > 0 then
-					fullDPS.decayDPS = fullDPS.decayDPS + usedEnv.player.output.DecayDPS
-				end
-					-- This will only take skillFlags from main env. Needs rework.
-				if usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot > 0 then
-					fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.player.output.TotalDot * (activeSkill.activeEffect.statSet.skillFlags.DotCanStack and activeSkillCount or 1)
-				end
-				if usedEnv.player.output.CullMultiplier and usedEnv.player.output.CullMultiplier > 1 and usedEnv.player.output.CullMultiplier > fullDPS.cullingMulti then
-					fullDPS.cullingMulti = usedEnv.player.output.CullMultiplier
+				pass.player = captureFields(usedEnv.player.output, playerHarvestFields)
+				local minionContributed = pass.minion and pass.minion.TotalDPS and pass.minion.TotalDPS > 0
+				pass.skillPart = minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName
+				mergePass(pass)
+				if cacheStore and fullDPSCache.capture and ownRef then
+					cacheStore.snapshots[uuid] = { pass }
+					cacheStore.refs[uuid] = ownRef
 				end
 
 				-- Re-Build env calculator for new run
