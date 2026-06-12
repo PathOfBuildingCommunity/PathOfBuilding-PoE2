@@ -248,6 +248,62 @@ describe("TestItemParse", function()
 		assert.are.equals("+44 to Spirit", item.explicitModLines[1].line)
 	end)
 
+	it("Crafted affixes matching base implicits stay explicit", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			New Item
+			Gemini Crossbow
+			Crafted: true
+			Prefix: None
+			Prefix: None
+			Prefix: None
+			Suffix: {range:0}AdditionalAmmo1
+			Suffix: None
+			Suffix: None
+			Implicits: 1
+			Loads an additional bolt
+		]])
+
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Loads an additional bolt", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+
+		item.suffixes[1].range = 0.2
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+	end)
+
+	it("Pasted affixes matching base implicits stay explicit", function()
+		local item = new("Item", [[
+			Item Class: Crossbows
+			Rarity: Rare
+			New Item
+			Gemini Crossbow
+			--------
+			Physical Damage: 28-112
+			Critical Hit Chance: 5.00%
+			Attacks per Second: 1.60
+			Reload Time: 1.10
+			--------
+			Requires: Level 78, 89 Str, 89 Dex
+			--------
+			Item Level: 82
+			--------
+			Loads an additional bolt (implicit)
+			--------
+			Loads an additional bolt
+		]])
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Loads an additional bolt", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+	end)
+
 	--TODO: POB2 Leagues?
 	--it("League", function()
 	--end)
