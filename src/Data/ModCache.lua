@@ -4899,7 +4899,11 @@ c["Buffs on you expire 10% slower"]={{[1]={[1]={skillType=5,type="SkillType"},fl
 c["Bulwark"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Bulwark"}},nil}
 c["Burning Enemies you kill have a 5% chance to Explode, dealing a"]={nil,"Burning Enemies you kill have a 5% chance to Explode, dealing a "}
 c["Burning Enemies you kill have a 5% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Burning"},flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,keyOfScaledMod="value",type="Fire",value=5}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
+c["Can Allocate Passive Skills from the Mercenary's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Mercenary"}},nil}
+c["Can Allocate Passive Skills from the Ranger's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Ranger"}},nil}
+c["Can Allocate Passive Skills from the Shadow's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Shadow"}},nil}
 c["Can Allocate Passive Skills from the Sorceress's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Sorceress"}},nil}
+c["Can Allocate Passive Skills from the Templar's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Templar"}},nil}
 c["Can Allocate Passive Skills from the Warrior's starting point"]={{[1]={flags=0,keywordFlags=0,name="AlternateClassStart",type="LIST",value="Warrior"}},nil}
 c["Can Attack as though using a One Handed Mace while both of your hand slots are empty"]={{[1]={flags=0,keywordFlags=0,name="CanAttackAsOneHandMaceUnarmed",type="FLAG",value=true}},nil}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty "}

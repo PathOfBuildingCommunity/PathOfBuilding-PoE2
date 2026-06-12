@@ -1231,8 +1231,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		if self.allocNodes[socketNodeId] then
 			local item = self:GetJewel(itemId)
 			local className = item and item.jewelData.alternateClassStart
-			local classData = className and self.tree.classes[self.tree.classNameMap[className]]
-			local startNode = classData and self.nodes[classData.startNodeId]
+			local startNodeId = self.tree.classStartNodeNameMap[className]
+			local startNode = startNodeId and self.nodes[startNodeId]
 			if startNode then
 				alternateClassStartNodes[startNode.id] = startNode
 			end
