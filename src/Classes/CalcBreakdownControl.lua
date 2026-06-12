@@ -558,10 +558,10 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 			col.x = colX
 			if index > 1 then
 				-- Skip the separator for the first column
-				SetDrawColor(0.5, 0.5, 0.5)
+				SetDrawStyle('calc_breakdown_tooltip_table')
 				DrawImage(nil, colX - 2, y, 1, section.height - (section.label and 16 or 0) - (section.footer and 12 or 0))
 			end
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('text_calc_breakdown')
 			StyledDrawString(colX, y + 2, "LEFT", 16, 'text_calc_breakdown', col.label)
 			colX = colX + col.width
 		end
@@ -569,7 +569,7 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 	local rowY = y + 20
 	for _, row in ipairs(section.rowList) do
 		-- Draw row separator
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('calc_breakdown_tooltip_table')
 		DrawImage(nil, x + 2, rowY - 1, section.width - 4, 1)
 		for _, col in ipairs(section.colList) do
 			if col.width and row[col.key] then
@@ -689,7 +689,7 @@ function CalcBreakdownClass:Draw(viewPort)
 	self.y = y
 	-- Draw background
 	SetDrawLayer(nil, 10)
-	SetDrawColor(0, 0, 0, 0.9)
+	SetDrawStyle('tooltip_background')
 	DrawImage(nil, x + 2, y + 2, width - 4, height - 4)
 	-- Draw border (this is put in sub layer 11 so it draws over the contents, in case they don't fit the screen)
 	SetDrawLayer(nil, 11)
@@ -711,7 +711,7 @@ function CalcBreakdownClass:Draw(viewPort)
 		if section.type == "TEXT" then
 			local lineY = sectionY + 2
 			for i, line in ipairs(section.lines) do
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('text_calc_breakdown')
 				local _, dec = string.gsub(line, "%.%d%d.", " ") -- counts decimals with 2 or more digits
 				StyledDrawString(x + 4, lineY, "LEFT", section.textSize, 'text_calc_breakdown', formatNumSep(line))
 				lineY = lineY + section.textSize
@@ -719,7 +719,7 @@ function CalcBreakdownClass:Draw(viewPort)
 		elseif section.type == "TABLE" then
 			self:DrawBreakdownTable(viewPort, x, sectionY, section)
 		elseif section.type == "RADIUS" then
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('calc_breakdown_tooltip_image_border')
 			DrawImage(nil, x + 2, sectionY, section.width - 4, section.height)
 			self:DrawRadiusVisual(x + 4, sectionY + 2, section.width - 8, section.height - 4, section.radius)
 		end

@@ -24,6 +24,8 @@
 ---| "'text_calc_section_label'"
 ---| "'text_calc_section_value'"
 ---| "'text_calc_breakdown'"
+---| "'text_compare_primary_build_name'"
+---| "'text_compare_secondary_build_name'"
 ---| "'text_current_build'"
 ---| "'text_button'"
 ---| "'text_button_disabled'"
@@ -183,9 +185,12 @@
 ---| "'calc_section_label_background'"
 ---| "'calc_section_value_background'"
 ---| "'calc_section_value_background_hover'"
+---| "'calc_breakdown_border_hover'"
 ---| "'calc_breakdown_tooltip_border'"
 ---| "'calc_breakdown_tooltip_border_pinned'"
----| "'calc_breakdown_border_hover'"
+---| "'calc_breakdown_tooltip_image_border'"
+---| "'calc_breakdown_tooltip_table'"
+---| "'compare_header_background_hover'"
 ---| "'rectangle_outline_border'"
 ---| "'popup_background'"
 ---| "'popup_background_title'"
@@ -249,6 +254,7 @@ local colors = {
 	white_50 = "#FFFFFF80",			 -- 100% brightness, 50% opacity
 	yellow_overlay = "#FFFF0033",
 	blue_highlight = "#7393B3",
+	green_highlight = "#264026",
 	red_highlight = "#C08080",
 	brownish = "#804D00",
 	green_black = "#000D00",
@@ -299,6 +305,8 @@ local themes = {
 		text_calc_section_label = {color = colors.white, font = fonts.VAR},
 		text_calc_section_value = {color = colors.white, font = fonts.VAR},
 		text_calc_breakdown = {color = colors.white, font = fonts.VAR},
+		text_compare_primary_build_name = {color = colorCodes.POSITIVE, font = fonts.VAR},
+		text_compare_secondary_build_name = {color = colorCodes.WARNING, font = fonts.VAR},
 		text_current_build = {color = colors.white, font = fonts.VAR},
 		text_button = {color = colors.white, font = fonts.VAR},
 		text_button_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -502,9 +510,13 @@ local themes = {
 		calc_section_value_background = colors.black,
 		calc_section_value_background_hover = colors.black,
 		-- calc breakdown
+		calc_breakdown_border_hover = colors.lime,
 		calc_breakdown_tooltip_border = colors.dark_green,
 		calc_breakdown_tooltip_border_pinned = colors.lime,
-		calc_breakdown_border_hover = colors.lime,
+		calc_breakdown_tooltip_image_border = colors.white,
+		calc_breakdown_tooltip_table = colors.grey,
+		-- compare tab
+		compare_header_background_hover = colors.green_highlight,
 		-- rectangle outline
 		rectangle_outline_border = colors.white,
 		-- popup background
@@ -566,6 +578,8 @@ local themes = {
 		text_calc_section_label = {color = colors.white, font = fonts.FONTIN},
 		text_calc_section_value = {color = colors.white, font = fonts.FONTIN},
 		text_calc_breakdown = {color = colors.white, font = fonts.FONTIN},
+		text_compare_primary_build_name = {color = colorCodes.POSITIVE, font = fonts.FONTIN},
+		text_compare_secondary_build_name = {color = colorCodes.WARNING, font = fonts.FONTIN},
 		text_current_build = {color = colors.light, font = fonts.FONTIN},
 		text_button = {color = colors.light, font = fonts.FONTIN_SC},
 		text_button_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
@@ -769,9 +783,13 @@ local themes = {
 		calc_section_value_background = poe2trade_colors.row_background,
 		calc_section_value_background_hover = colors.dark,
 		-- calc breakdown
+		calc_breakdown_border_hover = poe2trade_colors.clickable_active,
 		calc_breakdown_tooltip_border = poe2trade_colors.tooltip_border,
 		calc_breakdown_tooltip_border_pinned = poe2trade_colors.button_raised_hover,
-		calc_breakdown_border_hover = poe2trade_colors.button_raised_hover,
+		calc_breakdown_tooltip_image_border = poe2trade_colors.tooltip_border,
+		calc_breakdown_tooltip_table = poe2trade_colors.clickable_background_hover,
+		-- compare tab
+		compare_header_background_hover = poe2trade_colors.clickable_background_hover,
 		-- rectangle outline
 		rectangle_outline_border = poe2trade_colors.brown_transparancy,
 		-- popup background
