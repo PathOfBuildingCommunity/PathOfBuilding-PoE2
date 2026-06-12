@@ -5512,6 +5512,7 @@ local specialModList = {
 	["only affects passives in massive ring"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 12 }) },
 	["upgrades radius to medium"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 2 })},
 	["upgrades radius to large"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 3 })},
+	["upgrades radius to very large"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 4 })},
 	["primordial"] = { mod("Multiplier:PrimordialItem", "BASE", 1) },
 	["spectres have a base duration of (%d+) seconds"] = { mod("SkillData", "LIST", { key = "duration", value = 6 }, { type = "SkillName", skillName = "Raise Spectre", includeTransfigured = true }) },
 	["flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
