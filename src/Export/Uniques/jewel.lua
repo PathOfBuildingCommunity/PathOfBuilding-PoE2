@@ -56,6 +56,24 @@ Limited to: 3
 {variant:1}UniqueAllResistancePerStackableJewel1[4,4]
 {variant:2}UniqueAllResistancePerStackableJewel1
 ]],[[
+Split Personality
+Ruby
+Variant: Mercenary
+Variant: Ranger
+Variant: Shadow
+Variant: Sorceress
+Variant: Templar
+Variant: Warrior
+League: Runes of Aldur
+Limited to: 1
+{variant:1}UniqueJewelSplitPersonalityClassStart4
+{variant:2}UniqueJewelSplitPersonalityClassStart2
+{variant:3}UniqueJewelSplitPersonalityClassStart6
+{variant:4}UniqueJewelSplitPersonalityClassStart3
+{variant:5}UniqueJewelSplitPersonalityClassStart5
+{variant:6}UniqueJewelSplitPersonalityClassStart1
+Corrupted
+]],[[
 Voices
 Sapphire
 Variant: 2 Sinister Sockets
