@@ -1110,6 +1110,21 @@ function calcs.perform(env, skipEHP)
 		for _, mod in ipairs(env.player.mainSkill.extraSkillModList) do
 			env.minion.modDB:AddMod(mod)
 		end
+		-- Rolled monster mods on rare tamed beast companions (imported from tamedBeastProperties).
+		local mainActiveEffect = env.player.mainSkill.activeEffect
+		local mainGrantedEffect = mainActiveEffect and mainActiveEffect.grantedEffect
+		local mainSrcInstance = mainActiveEffect and mainActiveEffect.srcInstance
+		if mainSrcInstance and mainSrcInstance.tamedBeastModList and mainGrantedEffect and mainGrantedEffect.minionList and mainGrantedEffect.name:match("^Companion") then
+			for _, beastMod in ipairs(mainSrcInstance.tamedBeastModList) do
+				local beastModData = beastMod.enabled and beastMod.modId and env.data.tamedBeastMods[beastMod.modId]
+				-- A mod the beast's tags can never roll is ignoreed
+				if beastModData and data.beastModCanSpawn(beastModData, env.minion.minionData.monsterTags) then
+					for _, mod in ipairs(beastModData.modList) do
+						env.minion.modDB:AddMod(mod)
+					end
+				end
+			end
+		end
 		if env.talismanModList then
 			-- Adding mods provided by "Necromantic Talisman"
 			env.minion.modDB:AddList(env.talismanModList)

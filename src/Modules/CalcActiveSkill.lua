@@ -1105,7 +1105,12 @@ function calcs.createMinionSkills(env, activeSkill)
 		t_insert(minion.activeSkillList, minionSkill)
 	end
 	local skillIndex
-	if env.mode == "CALCS" then
+	if activeSkill.minionSkillIndexOverride then
+		-- Transient override used by calcFullDPS to evaluate each selected companion
+		-- attack in turn; never written back to srcInstance so saved builds and the
+		-- sidebar's active attack selection are unaffected
+		skillIndex = m_max(m_min(activeSkill.minionSkillIndexOverride, #minion.activeSkillList), 1)
+	elseif env.mode == "CALCS" then
 		skillIndex = m_max(m_min(activeEffect.srcInstance.skillMinionSkillCalcs or 1, #minion.activeSkillList), 1)
 		activeEffect.srcInstance.skillMinionSkillCalcs = skillIndex
 	else

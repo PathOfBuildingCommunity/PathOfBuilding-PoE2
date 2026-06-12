@@ -176,6 +176,56 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	local burningGroundSource = ""
 	local causticGroundSource = ""
 
+	-- Re-Build env calculator for new run
+	local function reinitEnv()
+		local accelerationTbl = {
+			nodeAlloc = true,
+			requirementsItems = true,
+			requirementsGems = true,
+			skills = true,
+			everything = true,
+		}
+		fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+	end
+
+	-- Collect the minion's output of one calc pass into the Full DPS totals;
+	-- returns the minion name prefix when the minion contributed hit DPS
+	local function harvestMinionOutput(usedEnv, activeSkill, skillName, activeSkillCount)
+		local minionName = nil
+		if usedEnv.minion.output.TotalDPS and usedEnv.minion.output.TotalDPS > 0 then
+			minionName = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
+			-- Minion attacks list as their own entries: the attack name leads and the
+			-- owning skill is shown as the source ("from Companion: <beast>")
+			t_insert(fullDPS.skills, { name = activeSkill.skillPartName, dps = usedEnv.minion.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, source = skillName })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.minion.output.TotalDPS * activeSkillCount
+		end
+		if usedEnv.minion.output.BleedDPS and usedEnv.minion.output.BleedDPS > fullDPS.bleedDPS then
+			fullDPS.bleedDPS = usedEnv.minion.output.BleedDPS
+			bleedSource = skillName
+		end
+		if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
+			fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
+			igniteSource = skillName
+		end
+		if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > fullDPS.poisonDPS then
+			fullDPS.poisonDPS = usedEnv.minion.output.PoisonDPS
+			poisonSource = skillName
+		end
+		if usedEnv.minion.output.ImpaleDPS and usedEnv.minion.output.ImpaleDPS > 0 then
+			fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.minion.output.ImpaleDPS * activeSkillCount
+		end
+		if usedEnv.minion.output.DecayDPS and usedEnv.minion.output.DecayDPS > 0 then
+			fullDPS.decayDPS = fullDPS.decayDPS + usedEnv.minion.output.DecayDPS
+		end
+		if usedEnv.minion.output.TotalDot and usedEnv.minion.output.TotalDot > 0 then
+			fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.minion.output.TotalDot
+		end
+		if usedEnv.minion.output.CullMultiplier and usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
+			fullDPS.cullingMulti = usedEnv.minion.output.CullMultiplier
+		end
+		return minionName
+	end
+
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
@@ -183,36 +233,44 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				fullEnv.player.mainSkill = activeSkill
 				calcs.perform(fullEnv, true)
 				usedEnv = fullEnv
+				-- Companion/Spectre gems all share a single granted effect ("Companion: {0}"/"Spectre: {0}"),
+				-- whose name is mutated globally for display, so derive the entry name from this skill's own minion
+				local skillName = activeSkill.activeEffect.grantedEffect.name
+				local skillMinion = activeSkill.minion or usedEnv.minion
+				if skillMinion and skillMinion.minionData then
+					if skillName:match("^Companion:") then
+						skillName = "Companion: "..skillMinion.minionData.name
+					elseif skillName:match("^Spectre:") then
+						skillName = "Spectre: "..skillMinion.minionData.name
+					end
+				end
+				-- Resolve the companion attack multi-select: each selected attack is
+				-- evaluated as its own Full DPS entry; the active attack only counts
+				-- if selected. Ids that don't match this beast's attacks are stale
+				-- (e.g. the beast was swapped) and leave the default behaviour.
+				local extraPasses = { }
+				local harvestPass1 = true
+				local selection = activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.fullDPSMinionSkills
+				local minionSkills = activeSkill.minion and activeSkill.minion.activeSkillList
+				if selection and minionSkills and skillName:match("^Companion") then
+					local activeIndex = isValueInArray(minionSkills, activeSkill.minion.mainSkill)
+					local anyMatch = false
+					for i, minionSkill in ipairs(minionSkills) do
+						if selection[minionSkill.activeEffect.grantedEffect.id] then
+							anyMatch = true
+							if i ~= activeIndex then
+								t_insert(extraPasses, i)
+							end
+						end
+					end
+					if anyMatch then
+						harvestPass1 = activeIndex and selection[minionSkills[activeIndex].activeEffect.grantedEffect.id] or false
+					end
+				end
 				local minionName = nil
 				if activeSkill.minion or usedEnv.minion then
-					if usedEnv.minion.output.TotalDPS and usedEnv.minion.output.TotalDPS > 0 then
-						minionName = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
-						t_insert(fullDPS.skills, { name = activeSkill.activeEffect.grantedEffect.name, dps = usedEnv.minion.output.TotalDPS, count = activeSkillCount, trigger = activeSkill.infoTrigger, skillPart = minionName..activeSkill.skillPartName })
-						fullDPS.combinedDPS = fullDPS.combinedDPS + usedEnv.minion.output.TotalDPS * activeSkillCount
-					end
-					if usedEnv.minion.output.BleedDPS and usedEnv.minion.output.BleedDPS > fullDPS.bleedDPS then
-						fullDPS.bleedDPS = usedEnv.minion.output.BleedDPS
-						bleedSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
-						fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
-						igniteSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > fullDPS.poisonDPS then
-						fullDPS.poisonDPS = usedEnv.minion.output.PoisonDPS
-						poisonSource = activeSkill.activeEffect.grantedEffect.name
-					end
-					if usedEnv.minion.output.ImpaleDPS and usedEnv.minion.output.ImpaleDPS > 0 then
-						fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.minion.output.ImpaleDPS * activeSkillCount
-					end
-					if usedEnv.minion.output.DecayDPS and usedEnv.minion.output.DecayDPS > 0 then
-						fullDPS.decayDPS = fullDPS.decayDPS + usedEnv.minion.output.DecayDPS
-					end
-					if usedEnv.minion.output.TotalDot and usedEnv.minion.output.TotalDot > 0 then
-						fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.minion.output.TotalDot
-					end
-					if usedEnv.minion.output.CullMultiplier and usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
-						fullDPS.cullingMulti = usedEnv.minion.output.CullMultiplier
+					if harvestPass1 then
+						minionName = harvestMinionOutput(usedEnv, activeSkill, skillName, activeSkillCount)
 					end
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
 					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
@@ -304,15 +362,20 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					fullDPS.cullingMulti = usedEnv.player.output.CullMultiplier
 				end
 
-				-- Re-Build env calculator for new run
-				local accelerationTbl = {
-					nodeAlloc = true,
-					requirementsItems = true,
-					requirementsGems = true,
-					skills = true,
-					everything = true,
-				}
-				fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+				reinitEnv()
+
+				-- Evaluate the remaining selected companion attacks, one Full DPS entry each
+				for _, attackIndex in ipairs(extraPasses) do
+					activeSkill.minionSkillIndexOverride = attackIndex
+					fullEnv.player.mainSkill = activeSkill
+					calcs.perform(fullEnv, true)
+					usedEnv = fullEnv
+					if usedEnv.minion then
+						harvestMinionOutput(usedEnv, activeSkill, skillName, activeSkillCount)
+					end
+					reinitEnv()
+				end
+				activeSkill.minionSkillIndexOverride = nil
 			end
 		end
 	end
