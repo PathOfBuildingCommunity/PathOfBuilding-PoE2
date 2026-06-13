@@ -1662,10 +1662,10 @@ itemBases["Runemastered Hardwood Targe"] = {
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
-	tags = { armour = true, buckler = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
+	tags = { armour = true, default = true, ezomyte_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 44, Evasion = 39, Ward = 18, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 55, Evasion = 49, Ward = 23, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, dex = 31, },
 }
 itemBases["Runemastered Crescent Targe"] = {
@@ -1674,10 +1674,10 @@ itemBases["Runemastered Crescent Targe"] = {
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
-	tags = { armour = true, buckler = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
+	tags = { armour = true, default = true, maraketh_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 41, Evasion = 37, Ward = 23, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 52, Evasion = 46, Ward = 28, MovementPenalty = 0.015, },
 	req = { level = 38, str = 31, dex = 31, },
 }
 itemBases["Venerable Defender"] = {
@@ -1698,10 +1698,10 @@ itemBases["Runemastered Venerable Defender"] = {
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
-	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
+	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 162, Ward = 42, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 203, Ward = 53, MovementPenalty = 0.03, },
 	req = { level = 65, str = 107, },
 }
 itemBases["Runemastered Venerable Defender"] = {
@@ -1710,10 +1710,10 @@ itemBases["Runemastered Venerable Defender"] = {
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
-	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
+	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, EnergyShield = 45, Ward = 42, },
+	armour = { BlockChance = 25, EnergyShield = 135, Ward = 53, },
 	req = { level = 65, int = 107, },
 }
 itemBases["Runemastered Venerable Defender"] = {
@@ -1723,7 +1723,7 @@ itemBases["Runemastered Venerable Defender"] = {
 	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
-	implicit = "Grants Skill: Level (1-20) Parry",
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
 	armour = { BlockChance = 20, Evasion = 148, Ward = 42, },
 	req = { level = 65, dex = 107, },
@@ -1734,10 +1734,10 @@ itemBases["Runemastered Venerable Defender"] = {
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
-	tags = { armour = true, buckler = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
+	tags = { armour = true, default = true, karui_basetype = true, runeforged = true, shield = true, str_dex_armour = true, str_dex_shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 89, Evasion = 81, Ward = 42, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 112, Evasion = 102, Ward = 53, MovementPenalty = 0.015, },
 	req = { level = 65, str = 67, dex = 67, },
 }
 

@@ -3036,7 +3036,7 @@ itemBases["Runemastered Ornate Ringmail"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 210, EnergyShield = 60, Ward = 112, MovementPenalty = 0.04, },
+	armour = { Armour = 725, EnergyShield = 206, Ward = 130, MovementPenalty = 0.04, },
 	req = { level = 55, str = 57, int = 57, },
 }
 itemBases["Runemastered Ancient Mail"] = {

@@ -8,12 +8,12 @@ local skills, mod, flag, skill = ...
 
 skills["SupportAbidingHexPlayer"] = {
 	name = "Abiding Hex",
-	description = "Supports Curse Skills you cast yourself. Supported Skills will consume Power Charges on use, gaining significant Curse duration if they do.",
+	description = "Supports Curse Skills you cast yourself. Supported Skills will consume Power Charges on use, gaining significant Curse duration if they do. Cannot Support Skills which consume Power Charges.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Aura, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
+	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByAbidingHex, },
+	excludeSkillTypes = { SkillType.Aura, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByAbidingHex, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "AbidingHex",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -825,8 +825,8 @@ skills["SupportBitingFrostPlayer"] = {
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByElementalDischarge, },
+	addSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByBitingFrost, },
+	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByBitingFrost, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "BitingFrost",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
@@ -865,8 +865,8 @@ skills["SupportBitingFrostPlayerTwo"] = {
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByElementalDischarge, },
+	addSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByBitingFrost, },
+	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByBitingFrost, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "BitingFrost",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
@@ -1357,7 +1357,7 @@ skills["TriggeredCatalysingDischargePlayer"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill is boosted by an Elemental Ground Surface to deal damage of the matching Element.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
 	},
@@ -2422,8 +2422,8 @@ skills["SupportCreepingChillPlayer"] = {
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.IceCrystal, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
+	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByCreepingChill, },
+	excludeSkillTypes = { SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByCreepingChill, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "CreepingChill",},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3333,8 +3333,8 @@ skills["SupportDrainedAilmentPlayer"] = {
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
+	addSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.SkillConsumesShock, SkillType.SkillConsumesBleeding, SkillType.SkillConsumesPoison, SkillType.SupportedByDrainedAilment, },
+	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.OR, SkillType.SkillConsumesShock, SkillType.OR, SkillType.SkillConsumesBleeding, SkillType.OR, SkillType.SkillConsumesPoison, SkillType.OR, SkillType.SupportedByDrainedAilment, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "DrainAilments",},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3618,12 +3618,12 @@ skills["SupportElementalArmyPlayer"] = {
 }
 skills["SupportElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
-	description = "Supports any Spell that Hits enemies, causing it to consume Elemental Ailments on hit to trigger an Elemental Discharge. Cannot support the skills of Minions.",
+	description = "Supports any Spell that Hits enemies, causing it to Consume Elemental Ailments on hit to trigger an Elemental Discharge. Cannot support the skills of Minions or skills which already Consume Elemental Ailments.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Damage, SkillType.AND, },
-	addSkillTypes = { SkillType.SupportedByElementalDischarge, },
-	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.SkillConsumesShock, },
+	addSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.SkillConsumesShock, SkillType.SupportedByElementalDischarge, },
+	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.OR, SkillType.SkillConsumesShock, SkillType.OR, SkillType.SupportedByElementalDischarge, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "ElementalDischarge",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -3651,7 +3651,7 @@ skills["TriggeredElementalDischargePlayer"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill Consumes Ignite, Shock, or Freeze, to deal damage of Types matching the Consumed Ailments.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5083,12 +5083,12 @@ skills["SupportChillingIcePlayer"] = {
 }
 skills["SupportFrostfirePlayer"] = {
 	name = "Frostfire",
-	description = "Supports any skill that Hits enemies, causing it to Consume Freeze on Igniting a Frozen enemy to boost the effect of the Ignite.",
+	description = "Supports any skill that Hits enemies, causing it to Consume Freeze on Igniting a Frozen enemy to boost the effect of the Ignite. Cannot support skills that Consume Freeze or Ignite.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SupportedByElementalDischarge, },
+	addSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByFrostfire, },
+	excludeSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SkillConsumesFreeze, SkillType.SupportedByFrostfire, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "FrostFire",},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8075,9 +8075,8 @@ skills["TriggeredStaticShocksPlayer"] = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 				"never_shock",
-				"shapeshift_ignore_form_check",
-				"usable_with_talisman",
-				"usable_while_shapeshifted",
+				"triggerable_in_any_set",
+				"display_statset_hide_usage_stats",
 			},
 			notMinionStat = {
 				"spell_minimum_base_lightning_damage",
