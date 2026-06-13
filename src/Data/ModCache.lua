@@ -1758,6 +1758,7 @@ c["15% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharge
 c["15% reduced Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=-15}},nil}
 c["15% reduced Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=-15}},nil}
 c["15% reduced Duration of Ailments on You"]={{[1]={flags=0,keywordFlags=0,name="SelfAilmentDuration",type="INC",value=-15}},nil}
+c["15% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-15}},nil}
 c["15% reduced Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-15}},nil}
 c["15% reduced Grenade Detonation Time"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="DetonationTime",type="INC",value=-15}},nil}
 c["15% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-15}},nil}
@@ -1766,6 +1767,7 @@ c["15% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debu
 c["15% reduced Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=-15}},nil}
 c["15% reduced Volatility Explosion delay"]={{}," Volatility Explosion delay "}
 c["15% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-15}},nil}
+c["15% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-15}},nil}
 c["15% reduced maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-15}},nil}
 c["150% increased Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=150}},nil}
 c["150% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=150}},nil}
@@ -6021,7 +6023,6 @@ c["Invoked Spells consume 50% less Energy"]={nil,"Invoked Spells consume 50% les
 c["Iron Grip"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
 c["Iron Reflexes"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Iron Reflexes"}},nil}
 c["Iron Will"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
-c["Jewel Socket"]={nil,"Jewel Socket "}
 c["Knockback direction is reversed"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-200}},nil}
 c["Knocks Back Enemies if you get a Critical Hit with a Quarterstaff"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2097152,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=100}},nil}
 c["Knocks Back Enemies on Hit"]={nil,"Knocks Back Enemies on Hit "}
@@ -6630,6 +6631,7 @@ c["Shapeshift Skills have 30% increased Skill Effect Duration"]={{[1]={[1]={skil
 c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
+c["Sinister Jewel Socket"]={nil,"Sinister Jewel Socket "}
 c["Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created"]={{[1]={flags=0,keywordFlags=0,name="UmbralWell",type="FLAG",value=true}},nil}
 c["Skill Gems have no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=-100}},nil}
 c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
@@ -6809,9 +6811,7 @@ c["Triple Attribute requirements of Martial Weapons"]={{[1]={flags=0,keywordFlag
 c["Trusted Kinship"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Trusted Kinship"}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
-c["Unaffected by Chilled Ground"]={nil,"Unaffected by Chilled Ground "}
 c["Unaffected by Elemental Weakness"]={nil,"Unaffected by Elemental Weakness "}
-c["Unaffected by Shocked Ground"]={nil,"Unaffected by Shocked Ground "}
 c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={{[1]={flags=0,keywordFlags=0,name="UseFacebreakerItemDamage",type="FLAG",value=true}},nil}
 c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=-25}}}},nil}
 c["Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
