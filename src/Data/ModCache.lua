@@ -5414,7 +5414,7 @@ c["Gain 1 Life Flask Charge per 2% Life spent"]={{[1]={flags=0,keywordFlags=0,na
 c["Gain 1 Life Flask Charge per 2% Life spent On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed"]={{[1]={flags=4,keywordFlags=0,name="Life",type="BASE",value=1}},"  Flask Charge per 2% Life spent ting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed "}
 c["Gain 1 Life Flask Charge per 2% Life spent On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage as Physical damage for 5 seconds per Charge consumed this way"]={{[1]={flags=4,keywordFlags=0,name="LifeAsPhysical",type="BASE",value=1}},"  Flask Charge per 2% Life spent ting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage   per Charge consumed this way "}
 c["Gain 1 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
+c["Gain 1 Rage on Melee Hit"]={{[1]={flags=256,keywordFlags=0,name="RageOnHit",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Rage when your Hit Ignites a target"]={{}," Rage when your Hit Ignites a target "}
 c["Gain 1 Runefather's Boast per Power of targets affected by Runefather's Challenge you kill"]={{}," Runefather's Boast per Power of targets affected by Runefather's Challenge you kill "}
 c["Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds"]={{}," Runic Binding , no more than once every 0.5 seconds "}
@@ -5464,7 +5464,7 @@ c["Gain 15% of maximum Life as Extra maximum Energy Shield"]={{[1]={flags=0,keyw
 c["Gain 18 Mana per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=18}},nil}
 c["Gain 18% of Physical Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsLightning",type="BASE",value=18}},nil}
 c["Gain 2 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Gain 2 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
+c["Gain 2 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="RageWhenHit",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 2% of Damage as Extra Fire Damage per Endurance Charge consumed Recently"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=2}},"    consumed Recently "}
 c["Gain 20 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=20}},nil}
 c["Gain 20% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=20}},nil}
@@ -5486,7 +5486,7 @@ c["Gain 26% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,
 c["Gain 27% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=27}},nil}
 c["Gain 3 Life per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,name="LifeOnHit",type="BASE",value=3}},nil}
 c["Gain 3 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=3}},nil}
-c["Gain 3 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
+c["Gain 3 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="RageWhenHit",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 3 Volatility when an Allied Persistent Reviving Minion is Killed"]={{}," Volatility when an Allied Persistent Reviving  is Killed "}
 c["Gain 3% of Damage as Chaos Damage per Undead Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=3}}}},"   per Undead  "}
 c["Gain 3% of Damage as Chaos Damage per Undead Minion Gain 5% of Damage as Chaos Damage per Undead Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=3}}}},"   per Undead  Gain 5% of Damage as Chaos Damage per Undead Minion "}
@@ -5513,7 +5513,7 @@ c["Gain 5 Life per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,na
 c["Gain 5 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=5}},nil}
 c["Gain 5 Mana per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=5}},nil}
 c["Gain 5 Rage on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Gain 5 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
+c["Gain 5 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="RageWhenHit",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 5 Rage when Hit by an Enemy during effect"]={{}," Rage when Hit by an Enemy  "}
 c["Gain 5 Rage when Hit by an Enemy during effect No Inherent loss of Rage during effect"]={{}," Rage when Hit by an Enemy  No Inherent loss of Rage  "}
 c["Gain 5% of Damage as Chaos Damage per Undead Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=5}}}},"   per Undead  "}

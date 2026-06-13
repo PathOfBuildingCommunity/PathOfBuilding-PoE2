@@ -2892,9 +2892,11 @@ return {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),
 },
 ["gain_x_rage_on_attack_hit"] = {
+	mod("RageOnHit", "BASE", nil),
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["gain_x_rage_on_melee_hit"] = {
+	mod("RageOnHit", "BASE", nil, ModFlag.Melee),
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["gain_x%_of_maximum_rage_on_melee_hit"] = {
