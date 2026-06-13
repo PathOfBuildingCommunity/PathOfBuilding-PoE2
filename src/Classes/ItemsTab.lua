@@ -1366,7 +1366,7 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	if main.portraitMode then
 		self.controls.itemList:SetAnchor("TOPRIGHT", self.lastSlot, "BOTTOMRIGHT", 0, 40)
 	else
-		self.controls.itemList:SetAnchor("TOPLEFT", self.controls.setManage, "TOPRIGHT", 20, 20)
+		self.controls.itemList:SetAnchor("TOPLEFT", self.controls.setManage, "TOPRIGHT", 40, 20)
 	end
 	self.controls.craftDisplayItem:SetAnchor("TOPLEFT", main.portraitMode and self.controls.setManage or self.controls.itemList, "TOPRIGHT", 20, main.portraitMode and 0 or -20)
 	self.anchorDisplayItem:SetAnchor("TOPLEFT", main.portraitMode and self.controls.setManage or self.controls.itemList, "TOPRIGHT", 20, main.portraitMode and 0)

@@ -1709,7 +1709,7 @@ end
 function main:OpenNoteEditPopup(title, initial, onSave)
 	local controls = { }
 	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Note shown on this entry in the exported .build (BuildPlanner) file.\nLeave blank to remove.")
-	controls.edit = new("EditControl", nil, {0, 60, 460, 120}, initial or "", nil, nil, 500, function(buf)
+	controls.edit = new("EditControl", nil, {0, 60, 460, 120}, initial or "", nil, nil, 960, function(buf)
 		controls.save.enabled = true
 	end, 16)
 	controls.save = new("ButtonControl", nil, {-45, 195, 80, 20}, "Save", function()

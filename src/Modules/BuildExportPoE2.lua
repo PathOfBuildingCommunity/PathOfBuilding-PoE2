@@ -99,8 +99,6 @@ local function bracketsFor(orderList, getEntry)
 			out[i] = { lo, hi }
 		elseif hasAnyExplicit then
 			out[i] = nil
-		else
-			out[i] = autoBracket(i, n)
 		end
 	end
 	return out
@@ -195,8 +193,6 @@ local function buildAscendancy(build)
 	return asc.internalId
 end
 
-local warnedNoStringId = false
-
 local function buildPassives(build, brackets)
 	local specList = build.treeTab and build.treeTab.specList
 	if not specList then return {} end
@@ -206,12 +202,10 @@ local function buildPassives(build, brackets)
 	-- the union span (min lo, max hi) of all contributing specs.
 	local merged = {}
 	local order = {}
-	local sawStringId = false
-	local sawMissingStringId = false
 	for specIdx, spec in ipairs(specList) do
 		local interval = brackets and brackets[specIdx]
 		local notes = spec.nodeNotes or {}
-		for nodeId, node in pairs(spec.allocNodes or {}) do
+		for nodeId, node in pairs(spec.allocNodes) do
 			-- Skip cluster-jewel synthetic subgraph nodes; they aren't in the
 			-- vanilla PassiveSkills table the loader looks up.
 			if type(nodeId) == "number" and nodeId < 65536 then
@@ -238,46 +232,26 @@ local function buildPassives(build, brackets)
 						if interval[2] > existing.interval[2] then existing.interval[2] = interval[2] end
 					end
 				end
-				if nodeTable and nodeTable.stringId then
-					sawStringId = true
-				else
-					sawMissingStringId = true
-				end
 			end
 		end
-	end
-	-- The PoE2 BuildPlanner expects PassiveSkills.Id strings (e.g. "projectiles18",
-	-- "AscendancyMercenary2Notable5"). PoB's tree.lua only carries numeric ids
-	-- until src/Export/Scripts/passivetree.lua is re-run against GGPK to emit
-	-- the stringId field. Warn once when that hasn't happened — the file will
-	-- still write but the loader probably won't recognise the passive ids.
-	if sawMissingStringId and not sawStringId and not warnedNoStringId then
-		warnedNoStringId = true
-		ConPrintf("[PoE2Export] tree.lua has no stringId fields; passive ids will be numeric and may not be recognised by the in-game BuildPlanner. Regenerate tree.lua via src/Export/Scripts/passivetree.lua to fix.")
 	end
 	local out = {}
 	for _, nodeId in ipairs(order) do
 		local m = merged[nodeId]
-		local idStr = (m.node and m.node.stringId) or tostring(nodeId)
-		if not m.interval and not m.note then
-			-- Bare-string shorthand when there's nothing else to attach.
-			t_insert(out, idStr)
-		else
-			local entry = { id = idStr }
-			if m.interval then entry.level_interval = { m.interval[1], m.interval[2] } end
-			if m.note then entry.additional_text = m.note end
-			t_insert(out, entry)
+		local idStr = (m.node and m.node.stringId)
+		if idStr then
+			if not m.interval and not m.note then
+				-- Bare-string shorthand when there's nothing else to attach.
+				t_insert(out, idStr)
+			else
+				local entry = { id = idStr }
+				if m.interval then entry.level_interval = { m.interval[1], m.interval[2] } end
+				if m.note then entry.additional_text = m.note end
+				t_insert(out, entry)
+			end
 		end
 	end
 	return out
-end
-
--- The auto-generated Gems.lua has a typo in ~486 entries' `gameId` field
--- ("Metadata/Items/Gem/" vs the canonical "Metadata/Items/Gems/"). The table
--- KEY is correct; `gemInstance.gemId` stores that key, so prefer it.
-local function gemIdFor(gem)
-	if gem and gem.gemId then return gem.gemId end
-	return gem and gem.gemData and gem.gemData.gameId or nil
 end
 
 -- Build the additional_text for a gem instance. An author-set note (via
@@ -320,7 +294,7 @@ local function buildSkills(build, brackets)
 				if group.enabled ~= false and group.gemList and #group.gemList > 0 then
 					local activeIdx = tonumber(group.mainActiveSkill) or 1
 					local activeGem = group.gemList[activeIdx] or group.gemList[1]
-					local activeId = gemIdFor(activeGem)
+					local activeId = activeGem.gemData.gameId
 					if activeId then
 						local entry = { id = activeId }
 						if interval then entry.level_interval = { interval[1], interval[2] } end
@@ -329,7 +303,7 @@ local function buildSkills(build, brackets)
 						local supports = {}
 						for gi, gem in ipairs(group.gemList) do
 							if gem ~= activeGem and gem.enabled ~= false then
-								local supId = gemIdFor(gem)
+								local supId = gem.gemData.gameId
 								if supId then
 									local supText = gemAdditionalText(gem, true)
 									if not interval and not supText then
@@ -375,23 +349,23 @@ end
 
 -- Header for non-unique gear. Bold the item's name; for rares with a rolled
 -- title (e.g. "Mire Spike"), put the base type on the next line. Examples:
---   <bold>{Mire Spike}\nAncestral Tiara     (rare with a rolled title)
---   <bold>{Magic Ultimate Mana Flask}        (magic)
---   <bold>{Ancestral Tiara}                  (normal)
+--   <b>{Mire Spike}\nAncestral Tiara     (rare with a rolled title)
+--   <b>{Magic Ultimate Mana Flask}        (magic)
+--   <b>{Ancestral Tiara}                  (normal)
 local function itemHeader(item)
 	local title = item.title
 	local base = item.baseName
 	if title and title ~= "" and base and title ~= base then
-		return "<bold>{" .. stripBraces(title) .. "}\n" .. stripBraces(base)
+		return "<b>{" .. stripBraces(title) .. "}\n" .. stripBraces(base)
 	elseif title and title ~= "" then
-		return "<bold>{" .. stripBraces(title) .. "}"
+		return "<b>{" .. stripBraces(title) .. "}"
 	elseif base then
 		if item.rarity and item.rarity ~= "NORMAL" then
-			return "<bold>{" .. titleCaseRarity(item.rarity) .. " " .. stripBraces(base) .. "}"
+			return "<b>{" .. titleCaseRarity(item.rarity) .. " " .. stripBraces(base) .. "}"
 		end
-		return "<bold>{" .. stripBraces(base) .. "}"
+		return "<b>{" .. stripBraces(base) .. "}"
 	end
-	return "<bold>{" .. titleCaseRarity(item.rarity) .. "}"
+	return "<b>{" .. titleCaseRarity(item.rarity) .. "}"
 end
 
 -- Builds a styled hint for non-unique gear. Implicit/rune/enchant mods are
@@ -402,7 +376,7 @@ local function itemAdditionalText(item)
 		if not modLines then return end
 		for _, modLine in ipairs(modLines) do
 			if modLine.line and modLine.line ~= "" then
-				t_insert(parts, "<italic>{" .. stripBraces(modLine.line) .. "}")
+				t_insert(parts, "<i>{" .. stripBraces(modLine.line) .. "}")
 			end
 		end
 	end
@@ -429,40 +403,32 @@ local function uniqueNameOf(item)
 	return item.title or item.name
 end
 
-local function buildItems(build, brackets)
+local function buildItems(build)
 	local out = {}
 	local itemsTab = build.itemsTab
 	if not itemsTab or not itemsTab.itemSets then return out end
 	local orderList = itemsTab.itemSetOrderList or {}
-	for setIdx, setId in ipairs(orderList) do
+	for _, setId in ipairs(orderList) do
 		local itemSet = itemsTab.itemSets[setId]
-		local interval = brackets and brackets[setIdx] or nil
 		if itemSet then
-			for pobSlotName, mapping in pairs(M.SlotMap) do
+			for pobSlotName, mapping in pairs(data.buildFileInventorySlotMap) do
 				local slotEntry = itemSet[pobSlotName]
-				if slotEntry and slotEntry.selItemId and slotEntry.selItemId ~= 0 then
+				if slotEntry and (slotEntry.selItemId or slotEntry.note) then
 					local item = itemsTab.items[slotEntry.selItemId]
-					if item then
-						local entry = {
-							inventory_id = mapping.inventory_id,
-							slot_x = 0,
-							slot_y = 0,
-						}
-						if mapping.weapon_set then entry.weapon_set = mapping.weapon_set end
-						if interval then entry.level_interval = { interval[1], interval[2] } end
-						if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
-							local name = uniqueNameOf(item)
-							if name and name ~= "" and name ~= "?" then
-								entry.unique_name = name
-							else
-								entry.additional_text = itemAdditionalText(item)
-								ConPrintf("[PoE2Export] UNIQUE item in slot '%s' has no title; falling back to additional_text", pobSlotName)
-							end
-						else
-							entry.additional_text = itemAdditionalText(item)
+					local entry = {
+						inventory_id = mapping.id,
+						slot_x = mapping.slot_x,
+					}
+					if interval then entry.level_interval = { interval[1], interval[2] } end
+					if item and (item.rarity == "UNIQUE" or item.rarity == "RELIC") then
+						local name = uniqueNameOf(item)
+						if name and name ~= "" and name ~= "?" then
+							entry.unique_name = name
 						end
-						t_insert(out, entry)
 					end
+					entry.additional_text = slotEntry.note or (item and itemAdditionalText(item))
+
+					t_insert(out, entry)
 				end
 			end
 		end
@@ -505,7 +471,7 @@ function M.BuildTable(build)
 
 	root.passives = buildPassives(build, treeBrackets)
 	root.skills   = buildSkills(build, skillBrackets)
-	root.items    = buildItems(build, itemBrackets)
+	root.inventory_slots    = buildItems(build, itemBrackets)
 	return root
 end
 

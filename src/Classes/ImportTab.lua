@@ -347,21 +347,34 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Path of Exile 2 BuildPlanner export
 	local BuildExportPoE2 = require("Modules/BuildExportPoE2")
-	self.controls.sectionPoE2Export = new("SectionControl", {"TOPLEFT",self.controls.sectionBuild,"BOTTOMLEFT",true}, {0, 18, 650, 112}, "Export to Path of Exile 2 BuildPlanner")
-	self.controls.poe2ExportDesc = new("LabelControl", {"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game BuildPlanner can load.")
-	self.controls.poe2ExportDesc2 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^xAAAAAATree specs, item sets and skill sets are exported as level-bracketed loadouts.")
-	self.controls.poe2ExportDesc3 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc2,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^xAAAAAAEdit each set's level range in its Manage popup.")
-	self.poe2ExportStatus = ""
-	self.controls.poe2ExportPath = new("EditControl", {"TOPLEFT",self.controls.poe2ExportDesc3,"BOTTOMLEFT"}, {0, 8, 560, 20}, BuildExportPoE2.DefaultPath(self.build), "Path", nil, 260)
-	self.controls.poe2ExportSave = new("ButtonControl", {"LEFT",self.controls.poe2ExportPath,"RIGHT"}, {8, 0, 80, 20}, "Save", function()
-		self:DoPoE2Export(BuildExportPoE2, self.controls.poe2ExportPath.buf)
+	self.controls.sectionPoE2Export = new("SectionControl", {"TOPLEFT",self.controls.sectionBuild,"BOTTOMLEFT",true}, {0, 18, 650, 124}, "Export to in-game build planner")
+	self.controls.poe2ExportDesc = new("LabelControl", {"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
+	self.controls.poe2ExportDesc2 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^8Tree specs, item sets and skill sets are exported as level-bracketed loadouts.")
+	self.controls.poe2ExportDesc3 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc2,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^8Edit each set's level range in its Manage popup.")
+	
+	self.controls.buildPlannerBuildName = new("EditControl", {"TOPLEFT",self.controls.poe2ExportDesc3,"BOTTOMLEFT"}, {0, 8, 200, 20}, self.build.buildName or "New Build", "Build name", nil, nil, function(buf)
+		-- BuildExportPoE2.
+	end)
+	self.controls.poe2ExportPath = new("EditControl", {"TOPLEFT",self.controls.buildPlannerBuildName,"BOTTOMLEFT"}, {0, 8, 560, 20}, main.userPath .. "BuildPlanner/" .. self.build.buildName .. ".build", "Path", nil, 260)
+	self.controls.poe2ExportSave = new("ButtonControl", {"TOPLEFT",self.controls.poe2ExportPath,"BOTTOMLEFT"}, {0, 8, 80, 20}, "Save", function()
+		local function doWrite()
+			local ok, err = BuildExportPoE2.WriteFile(self.build, self.controls.poe2ExportPath.buf)
+			if not ok then
+				main:OpenMessagePopup("Error", "Couldn't save the build file:\n"..err.."\nMake sure the save folder exists and is writable.")
+			end
+		end
+		-- Confirm overwrite if the file already exists.
+		local existing = io.open(self.controls.poe2ExportPath.buf, "r")
+		if existing then
+			existing:close()
+			main:OpenConfirmPopup("Overwrite?", "A file already exists at:\n" .. self.controls.poe2ExportPath.buf .. "\n\nOverwrite it?", "Overwrite", doWrite)
+		else
+			doWrite()
+		end
 	end)
 	self.controls.poe2ExportSave.enabled = function()
 		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
 	end
-	self.controls.poe2ExportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportPath,"BOTTOMLEFT"}, {0, 4, 0, 14}, function()
-		return self.poe2ExportStatus or ""
-	end)
 
 	-- validate the status of the api the first time
 	self:RefreshAuthStatus()
@@ -389,26 +402,6 @@ function ImportTabClass:SaveApiSettings()
 	main.lastRefreshToken = main.api.refreshToken
 	main.tokenExpiry = main.api.tokenExpiry
 	main:SaveSettings()
-end
-
-function ImportTabClass:DoPoE2Export(Exporter, path)
-	local function doWrite()
-		local ok, err = Exporter.WriteFile(self.build, path)
-		if ok then
-			self.poe2ExportStatus = colorCodes.POSITIVE .. "Saved to " .. path
-		else
-			self.poe2ExportStatus = colorCodes.NEGATIVE .. (err or "Export failed")
-			main:OpenMessagePopup("Export Failed", err or "Unknown error")
-		end
-	end
-	-- Confirm overwrite if the file already exists.
-	local existing = io.open(path, "r")
-	if existing then
-		existing:close()
-		main:OpenConfirmPopup("Overwrite?", "A file already exists at:\n" .. path .. "\n\nOverwrite it?", "Overwrite", doWrite)
-	else
-		doWrite()
-	end
 end
 
 function ImportTabClass:Load(xml, fileName)
