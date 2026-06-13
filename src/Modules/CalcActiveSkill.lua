@@ -698,6 +698,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if level.spiritReservationFlat then
 				skillModList:NewMod("ExtraSpirit", "BASE", level.spiritReservationFlat, skillEffect.grantedEffect.modSource)
 			end
+			if level.cooldown then
+				skillModList:NewMod("CooldownRecovery", "BASE", level.cooldown, skillEffect.grantedEffect.modSource)
+			end
 			-- Handle multiple triggers situation and if triggered by a trigger skill save a reference to the trigger.
 			local match = skillEffect.grantedEffect.addSkillTypes and (not skillFlags.disable)
 			if match and skillEffect.grantedEffect.isTrigger then
