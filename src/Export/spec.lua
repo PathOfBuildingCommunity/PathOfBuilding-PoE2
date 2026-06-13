@@ -35715,7 +35715,7 @@ return {
 			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=300
 		},
 		[2]={
 			list=false,
