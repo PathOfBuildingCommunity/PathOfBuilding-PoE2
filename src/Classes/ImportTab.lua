@@ -349,18 +349,23 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Path of Exile 2 BuildPlanner export
 	local BuildExportPoE2 = require("Modules/BuildExportPoE2")
-	self.controls.sectionPoE2Export = new("SectionControl", {"TOPLEFT",self.controls.sectionBuild,"BOTTOMLEFT",true}, {0, 18, 650, 124}, "Export to in-game build planner")
+	self.controls.sectionPoE2Export = new("SectionControl", {"TOPLEFT",self.controls.sectionBuild,"BOTTOMLEFT",true}, {0, 18, 650, 252}, "Export to in-game build planner")
 	self.controls.poe2ExportDesc = new("LabelControl", {"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
 	self.controls.poe2ExportDesc2 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^8Tree specs, item sets and skill sets are exported as level-bracketed loadouts.")
 	self.controls.poe2ExportDesc3 = new("LabelControl", {"TOPLEFT",self.controls.poe2ExportDesc2,"BOTTOMLEFT"}, {0, 2, 0, 14}, "^8Edit each set's level range in its Manage popup.")
 	
-	self.controls.buildPlannerBuildName = new("EditControl", {"TOPLEFT",self.controls.poe2ExportDesc3,"BOTTOMLEFT"}, {0, 8, 200, 20}, self.build.buildName or "New Build", "Build name", nil, nil, function(buf)
-		-- BuildExportPoE2.
-	end)
-	self.controls.poe2ExportPath = new("EditControl", {"TOPLEFT",self.controls.buildPlannerBuildName,"BOTTOMLEFT"}, {0, 8, 560, 20}, main.userPath .. "BuildPlanner/" .. self.build.buildName .. ".build", "Path", nil, 260)
+	self.controls.buildPlannerBuildName = new("EditControl", {"TOPLEFT",self.controls.poe2ExportDesc3,"BOTTOMLEFT"}, {0, 8, 200, 20}, self.build.buildName or "New Build", "Build name", nil, nil)
+	self.controls.buildPlannerAuthorName = new("EditControl", {"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, "Author", "Author name", nil, nil)
+	self.controls.buildPlannerDescLabel = new("LabelControl", {"TOPLEFT",self.controls.buildPlannerBuildName,"BOTTOMLEFT"}, {0, 8, 0, 16}, "^7Description:")
+	self.controls.buildPlannerDescription = new("EditControl", {"TOPLEFT",self.controls.buildPlannerDescLabel,"BOTTOMLEFT"}, {0, 8, 560, 64}, "", nil, "^%C\t\n", nil, nil, 16)
+	self.controls.poe2ExportPath = new("EditControl", {"TOPLEFT",self.controls.buildPlannerDescription,"BOTTOMLEFT"}, {0, 8, 408, 20}, main.userPath .. "BuildPlanner/" .. self.build.buildName .. ".build", "Path", nil, 260)
 	self.controls.poe2ExportSave = new("ButtonControl", {"TOPLEFT",self.controls.poe2ExportPath,"BOTTOMLEFT"}, {0, 8, 80, 20}, "Save", function()
 		local function doWrite()
-			local ok, err = BuildExportPoE2.WriteFile(self.build, self.controls.poe2ExportPath.buf)
+			local ok, err = BuildExportPoE2.WriteFile(self.build, self.controls.poe2ExportPath.buf, {
+				name = self.controls.buildPlannerBuildName.buf,
+				author = self.controls.buildPlannerAuthorName.buf,
+				description = self.controls.buildPlannerDescription.buf,
+			})
 			if not ok then
 				main:OpenMessagePopup("Error", "Couldn't save the build file:\n"..err.."\nMake sure the save folder exists and is writable.")
 			end
