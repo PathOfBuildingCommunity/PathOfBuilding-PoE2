@@ -445,12 +445,15 @@ end
 
 --- Build the in-memory table that will be JSON-encoded as the .build file.
 --- Exposed for testing.
-function M.BuildTable(build)
+function M.BuildTable(build, metadata)
 	local root = {
 		name = (build.buildName and build.buildName ~= "") and build.buildName or "Unnamed",
 	}
 	local ascendancy = buildAscendancy(build)
 	if ascendancy then root.ascendancy = ascendancy end
+	root.author = metadata.author
+	root.name = metadata.name
+	root.description = metadata.description
 
 	-- Bracket each section independently so users can tag tree/items/skills
 	-- with different level ranges without forcing the set counts to match.
@@ -470,14 +473,14 @@ function M.BuildTable(build)
 	end
 
 	root.passives = buildPassives(build, treeBrackets)
-	root.skills   = buildSkills(build, skillBrackets)
-	root.inventory_slots    = buildItems(build, itemBrackets)
+	root.skills = buildSkills(build, skillBrackets)
+	root.inventory_slots = buildItems(build, itemBrackets)
 	return root
 end
 
 --- Returns (jsonString, nil) on success, or (nil, errorMessage) on failure.
-function M.Export(build)
-	local root = M.BuildTable(build)
+function M.Export(build, metadata)
+	local root = M.BuildTable(build, metadata)
 	-- Force array-ness on the three top-level lists even when empty so the
 	-- loader sees `[]` instead of `{}`.
 	local state = { indent = true, level = 0 }
@@ -487,8 +490,8 @@ function M.Export(build)
 end
 
 --- Writes the exported build to disk. Returns (path, nil) on success.
-function M.WriteFile(build, path)
-	local json, err = M.Export(build)
+function M.WriteFile(build, path, metadata)
+	local json, err = M.Export(build, metadata)
 	if not json then return nil, err end
 	-- Best-effort: ensure the target directory exists.
 	local dir = path:match("^(.*[/\\])")
