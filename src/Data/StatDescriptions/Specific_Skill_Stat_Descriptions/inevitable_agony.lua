@@ -16,15 +16,29 @@ return {
 					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} Metres to initial cast radius"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]=10,
 						[2]=10
 					}
 				},
-				text="Curse radius is {0} metre"
+				text="Initial cast radius is {0} metre"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1
@@ -35,7 +49,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Curse radius is {0} metres"
+				text="Initial cast radius is {0} metres"
 			}
 		},
 		stats={
@@ -55,7 +69,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Curse duration is {0} second"
+				text="Debuff duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -68,7 +82,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Curse duration is {0} seconds"
+				text="Debuff duration is {0} seconds"
 			}
 		},
 		stats={
@@ -84,7 +98,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cursed targets take {0}% of Hit Damage dealt to them while Cursed again when Curse expires\nTaking Damage again this way cannot inflict Ailments on the Cursed target"
+				text="Debuffed targets lose life equal to {0}% of Hit Damage dealt to them while Debuffed when Debuff expires\n Culls enemies if Debuff reaches Culling Strike Threshold"
 			}
 		},
 		stats={

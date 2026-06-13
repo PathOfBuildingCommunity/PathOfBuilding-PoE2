@@ -94,6 +94,7 @@ directiveTable.base = function(state, args, out)
 	if displayName:find("DNT") then
 		return
 	end
+	local hidden = (state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow) or baseTypeId:find("Unique", 1, true) or displayName:find("Runemastered", 1, true)
 	out:write('itemBases["', displayName, '"] = {\n')
 	out:write('\ttype = "', state.type, '",\n')
 	if state.subType and #state.subType > 0 then
@@ -109,7 +110,7 @@ directiveTable.base = function(state, args, out)
 	if itemSpirit then
 		out:write('\tspirit = ', itemSpirit.Value, ',\n')
 	end
-	if state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow then
+	if hidden then
 		out:write('\thidden = true,\n')
 	end
 	if state.socketLimit then
@@ -134,6 +135,7 @@ directiveTable.base = function(state, args, out)
 	out:write('},\n')
 	local implicitLines = { }
 	local implicitModTypes = { }
+	local variantList = { }
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
 		local modDesc = describeMod(mod)
 		for _, line in ipairs(modDesc) do
@@ -147,17 +149,31 @@ directiveTable.base = function(state, args, out)
 	if state.type == "Belt" then
 		table.insert(implicitLines, "Has (1-3) Charm Slots")
 	end
-	if #implicitLines > 0 then
-		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
-	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
-		local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
 		if #inherentSkillType.Skill > 1 then
-			print("Unhandled Instance - Inherent Skill number more than 1")
+			for index, skill in ipairs(inherentSkillType.Skill) do
+				local skillGem = dat("SkillGems"):GetRow("BaseItemType", skill.BaseItemType)
+				local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
+				local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+				table.insert(variantList, skillName)
+				table.insert(implicitLines, "{variant:" .. index .. "}Grants Skill: Level (1-20) " .. skillName)
+			end
+		else
+			local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
+			local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
+			table.insert(implicitLines, "Grants Skill: Level (1-20) " .. gemEffect.GrantedEffect.ActiveSkill.DisplayName)
 		end
-		out:write('\timplicit = "Grants Skill: Level (1-20) ', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')
+	end
+	if #variantList > 0 then
+		out:write('\tvariantList = { ')
+		for _, variant in ipairs(variantList) do
+			out:write('"', variant:gsub('"', '\\"'), '", ')
+		end
+		out:write('},\n')
+	end
+	if #implicitLines > 0 then
+		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
@@ -275,6 +291,10 @@ directiveTable.base = function(state, args, out)
 			out:write('EnergyShield = ', armourType.EnergyShield, ', ')
 			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
+		if armourType.Ward > 0 then
+			out:write('Ward = ', armourType.Ward, ', ')
+			itemValueSum = itemValueSum + armourType.Ward
+		end
 		if armourType.MovementPenalty ~= 0 then
 			out:write('MovementPenalty = ', -armourType.MovementPenalty / 10000, ', ')
 		end
@@ -320,7 +340,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
+	if state.type == "Flask" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -345,7 +365,7 @@ directiveTable.base = function(state, args, out)
 	end
 	out:write('},\n}\n')
 	
-	if not (state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow) then
+	if not hidden then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""
 		if not bases[state.type][subtype] or itemValueSum > bases[state.type][subtype][2] then

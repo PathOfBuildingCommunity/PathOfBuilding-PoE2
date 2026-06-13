@@ -1,5 +1,157 @@
 # Changelog
 
+## [v0.21.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.0) (2026/06/13)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.20.0...v0.21.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add 0.5.2 Passive tree changes [\#2162](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2162) ([trompetin17](https://github.com/justjuangui))
+- Add support for very large time-lost jewel mod [\#2182](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2182) ([vaisest](https://github.com/vaisest))
+### User Interface
+- Fix window title changing in compare tab [\#2179](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2179) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix many supports not adding cooldown [\#2185](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2185) ([Peechey](https://github.com/Peechey))
+- Fix calculation of inverted Resistances when having a source of Penetration [\#2177](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2177) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Discipline not being converted by Eldritch Battery [\#2172](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2172) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Fix Split Personality not working with Monk and Druid starting points [\#2171](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2171) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix mods duplicating when crafting some Crossbows [\#2173](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2173) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Full DPS breakdown and gem dropdowns showing the wrong name for Companion / Spectre skills [\#2160](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2160) ([ltogniolli](https://github.com/ltogniolli))
+- Fix PoB Trader search not working correctly after comparing a build [\#2180](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2180) ([vaisest](https://github.com/vaisest))
+- Fix Mageblood mods merging in item crafter [\#2186](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2186) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
+## [v0.20.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.20.0) (2026/06/11)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.19.0...v0.20.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add new 0.5 Uniques with support for some of them [\#2138](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2138) ([Blitz54](https://github.com/Blitz54))
+- Update Uniques with 0.5 changes [\#2116](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2116) ([Blitz54](https://github.com/Blitz54))
+- Add trader support for Heart of the Well, Against the Darkness, Desecrated mods, Rune-only mods and Breach tree mods [\#2121](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2121) ([vaisest](https://github.com/vaisest))
+- Add missing base types + hide unique-only bases from crafter [\#2111](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2111) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support various immunity mods and dynamic immunity mod parsing [\#2142](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2142) ([majochem](https://github.com/majochem))
+- Add support for various ailment and debuff mods [\#2134](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2134) ([majochem](https://github.com/majochem))
+- Add Predator's Mark support (Pounce's ally-based Damage Taken curse) [\#2135](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2135) ([mataide](https://github.com/mataide))
+- Add Bloodbarrier support [\#2125](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2125) ([DS-Koala](https://github.com/DS-Koala))
+- Add support for Fire Penetration II, ignoring Fire Resistance stat [\#2114](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2114) ([Ariacell](https://github.com/Ariacell))
+- Add support for Idolatry Spirit Walker Ascendancy [\#2144](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2144) ([ltogniolli](https://github.com/ltogniolli))
+### User Interface
+- Add unique item base type origin to tooltip [\#2105](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2105) ([Blitz54](https://github.com/Blitz54))
+- Combine same stats from different mods in compare trade UI [\#2118](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2118) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix calculation of Bifurcated Crits [\#2149](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2149) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update calculation of added damage on Spectres and Beasts until GGG fixes the calculation [\#2150](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2150) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix damage rounding for some player and minion skills [\#2150](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2150) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Evasion and Deflection granted by Tangmazu's Thurible [\#2129](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2129) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Cooldown recovery granted by Atziri's Impatience support [\#2128](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2128) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Fist of Stone more ES/Evasion mod on gloves [\#2127](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2127) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Fix Split Personality not allowing connection from other Ascendancies [\#2126](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2126) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix parsing for Tree mods that scale based on item Evasion [\#2145](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2145) ([vaisest](https://github.com/vaisest))
+- Fix some beast companions not importing correctly [\#2139](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2139) ([Blitz54](https://github.com/Blitz54))
+### Accuracy Improvements
+- Fix pasting of legacy unique mods [\#2141](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2141) ([Blitz54](https://github.com/Blitz54))
+
+
+## [v0.19.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.19.0) (2026/06/05)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.18.0...v0.19.0)
+
+
+## What's Changed
+### New to Path of Building
+- Update passive tree with 0.5.1 changes [\#2096](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2096) ([trompetin17](https://github.com/justjuangui))
+- Update skills with 0.5.1 changes by [LocalIdentity](https://github.com/LocalIdentity)
+- Add Facebreaker unique gloves support [\#2097](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2097) ([Anakior](https://github.com/Anakior), [LocalIdentity](https://github.com/LocalIdentity))
+- Add support for various Parry modifiers (Debuff Magnitude, Range, Duration) [\#2080](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2080) ([majochem](https://github.com/majochem))
+- Implement parsing for remnant effect mods [\#2093](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2093) ([moxaj](https://github.com/moxaj))
+### Fixed Crashes
+- Fix crash when importing a character that uses Facebreaker gloves [\#2098](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2098) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix crash when clicking on empty rune list [\#2091](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2091) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix Deflect chance not being capped at 95% [\#2100](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2100) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Hollow Form support effects being switched [\#2099](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2099) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Virtuous Barrier not factoring the base 3 of each type of mote [\#2103](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2103) ([LocalIdentity](https://github.com/LocalIdentity))
+### User Interface
+- Fix hidden Oracle nodes being included in power report and missing connector lines [\#2090](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2090) ([MrHB212](https://github.com/MrHB212))
+
+
+## [v0.18.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.18.0) (2026/06/04)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.17.1...v0.18.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add missing 0.5 skill gems [\#2067](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2067) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add new 0.5 Spectres [\#2026](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2026) ([Blitz54](https://github.com/Blitz54))
+- Add new 0.5 Minions [\#2084](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2084) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Eye of Winter ground damage buffs [\#2069](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2069) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Flask instant recovery belt mod [\#2068](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2068) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for additional Warcry Empowers [\#2071](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2071) ([Peechey](https://github.com/Peechey))
+- Preserve skill selection on character reimport [\#2079](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2079) ([LocalIdentity](https://github.com/LocalIdentity))
+- Disable right click to paste in the notes tab [\#2085](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2085) ([LocalIdentity](https://github.com/LocalIdentity))
+### User Interface
+- Show Runic item headers and change "Ward" text on items to "Runic Ward" [\#2059](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2059) ([Blitz54](https://github.com/Blitz54))
+### Fixed Calculations
+- Fix Shrine sceptre Auras not making linked buffs have no Spirit cost [\#2077](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2077) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Volcanic Eruption not scaling with Projectile damage [\#2062](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2062) ([MrHB212](https://github.com/MrHB212))
+- Fix Smith of Kitava Flowing Metal node not working [\#2016](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2016) ([vaisest](https://github.com/vaisest))
+- Fix some bonded Rune affects applying without Wisdom of the Maji [\#2076](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2076) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Cold damage contributing to stun buildup [\#2070](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2070) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Fix Crafted mods not importing from items [\#2064](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2064) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Gloves not importing when using Way of the Stonefist [\#2072](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2072) ([Eucelia](https://github.com/Eucelia))
+- Fix trade search not working [\#2020](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2020) ([vaisest](https://github.com/vaisest))
+- Fix Jewel mod sorting not working [\#2074](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2074) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Comet not showing DPS values [\#2046](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2046) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix parsing for Hollow Palm Technique [\#2063](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2063) ([Eucelia](https://github.com/Eucelia))
+
+
+
+## [v0.17.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.17.1) (2026/06/02)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.17.0...v0.17.1)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix crash on trying to use Trarthan Cannon [\#2048](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2048) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Calculations
+- Fix Zarokh's Revolt granting infinite DPS [\#2045](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2045) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix incorrect Aggravated bleeding multiplier [\#2054](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2054) ([Wires77](https://github.com/Wires77))
+
+
+
+## [v0.17.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.17.0) (2026/06/01)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.16.0...v0.17.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add new 0.5 Data [\#2035](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2035) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add new runes from 0.5 [\#2019](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2019) ([Blitz54](https://github.com/Blitz54))
+- Add support for Rapid Casting III [\#1965](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1965) ([TarikBeentjes61](https://github.com/TarikBeentjes61))
+### User Interface
+- Fix showing hidden Unseen Path nodes on search [\#2023](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2023) ([MrHB212](https://github.com/MrHB212))
+### Fixed Crashes
+- Fix issue creating Loadouts with link identifiers [\#2038](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2038) ([FenikSRT4](https://github.com/FenikSRT4))
+### Fixed Calculations
+- Fix rangeless mods not getting pasted properly [\#2013](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2013) ([Wires77](https://github.com/Wires77))
+- Update quest rewards for 0.5 [\#2027](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2027) ([rasmuskl](https://github.com/rasmuskl))
+- Fix Amazon's Critical Strike [\#2039](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2039) ([Peechey](https://github.com/Peechey))
+### Fixed Bugs
+- Fix various tree bugs by using patch data [\#2018](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2018) ([trompetin17](https://github.com/justjuangui))
+
+
+
 ## [v0.16.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.16.0) (2026/05/30)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.15.0...v0.16.0)
@@ -86,7 +238,7 @@
 - Fix crash on import from private league [\#1874](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1874) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash on loading build due to some minion skills [\#1880](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1880) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash when opening some old builds [\#1925](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1925) ([LocalIdentity](https://github.com/LocalIdentity))
-- Fix Adnonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Adonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
 ### User Interface
 - Add legacy toggle for gems that are no longer obtainable [\#1935](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1935) ([Peechey](https://github.com/Peechey))
 - Show "The Unseen Paths" nodes only when allocated [\#1742](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1742) ([MrHB212](https://github.com/MrHB212))

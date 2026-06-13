@@ -12,7 +12,7 @@ Grants Skill: Spear Throw
 Grants Skill: Level (1-20) Shattering Spite
 UniqueLocalIncreasedPhysicalDamagePercent20
 UniqueLocalAddedFireDamage8
-UniqueLocalAddedLightningDamage7
+UniqueLocalAddedLightningDamage8
 UniqueLocalIncreasedAttackSpeed27
 UniquePresenceRadius5
 UniqueSpearsInflictBloodstoneLanceOnHit1
@@ -40,6 +40,19 @@ UniqueIncreasedEvasionRating4
 UniqueLocalIncreasedAttackSpeed20
 UniqueMeleeDamageIfProjectileHitRecently1
 UniqueProjectileDamageIfMeleeHitRecently1
+]],[[
+The Ordained
+Grand Spear
+League: Runes of Aldur
+Implicits: 3
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Righteous Descent
+SpearImplicitWeaponRange1
+UniqueLocalIncreasedPhysicalDamagePercent21
+UniqueLocalAddedLightningDamage11
+UniqueLocalCriticalStrikeChance10
+UniqueLifeLeechAlsoBasedOnLightningDamage1
+UniqueDivineFragments1
 ]],[[
 Saitha's Spear
 Barbed Spear
@@ -83,7 +96,7 @@ Variant: Pre 0.2.1
 Variant: Current
 Implicits: 2
 Grants Skill: Spear Throw
-Grants Skill: Level (1-20) Chaotic Infusion
+Grants Skill: Level (1-20) Chaotic Surge
 UniqueLocalIncreasedAttackSpeed21
 {variant:1}UniqueLifeLeechLocal3[6,10]
 {variant:2}UniqueLifeLeechLocal3

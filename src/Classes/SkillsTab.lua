@@ -994,7 +994,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		if gemInstance then
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 			for index, grantedEffect in ipairs(grantedEffectList) do
-				if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+				if not grantedEffect.support and not grantedEffect.hideFromSideBar and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
 					return true
 				end
 			end
@@ -1040,7 +1040,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			end
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 			for index, grantedEffect in ipairs(grantedEffectList) do
-				if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+				if not grantedEffect.support and not grantedEffect.hideFromSideBar and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
 					return true
 				end
 			end
@@ -1237,8 +1237,8 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		else
 			gemInstance.errMsg, gemInstance.gemData, gemInstance.skillId = nil
 		end
-		if gemInstance.gemData and gemInstance.gemData.grantedEffect.unsupported then
-			gemInstance.errMsg = gemInstance.nameSpec .. " is not supported yet"
+		if gemInstance.gemData and gemInstance.gemData.grantedEffect.hideFromSideBar then
+			gemInstance.errMsg = gemInstance.nameSpec .. " cannot be used as an active skill"
 			gemInstance.gemData = nil
 		end
 		if gemInstance.gemData or gemInstance.grantedEffect then

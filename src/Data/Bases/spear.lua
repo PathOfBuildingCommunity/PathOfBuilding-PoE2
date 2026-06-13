@@ -68,7 +68,7 @@ itemBases["Barbed Spear"] = {
 	socketLimit = 3,
 	tags = { default = true, one_hand_weapon = true, onehand = true, spear = true, vaal_basetype = true, weapon = true, },
 	implicit = "Grants Skill: Spear Throw\nBleeding you inflict deals Damage (10-20)% faster",
-	implicitModTypes = { { "physical_damage", "bleed", "damage", "physical", "attack", "ailment" }, },
+	implicitModTypes = { { "bleed", "physical_damage", "damage", "physical", "attack", "ailment" }, },
 	weapon = { PhysicalMin = 20, PhysicalMax = 38, CritChanceBase = 6, AttackRateBase = 1.5, Range = 15, },
 	req = { level = 33, str = 20, dex = 47, },
 }
@@ -178,7 +178,7 @@ itemBases["Jagged Spear"] = {
 	socketLimit = 3,
 	tags = { default = true, one_hand_weapon = true, onehand = true, spear = true, weapon = true, },
 	implicit = "Grants Skill: Spear Throw\nBleeding you inflict deals Damage (10-20)% faster",
-	implicitModTypes = { { "physical_damage", "bleed", "damage", "physical", "attack", "ailment" }, },
+	implicitModTypes = { { "bleed", "physical_damage", "damage", "physical", "attack", "ailment" }, },
 	weapon = { PhysicalMin = 33, PhysicalMax = 61, CritChanceBase = 6, AttackRateBase = 1.5, Range = 15, },
 	req = { level = 59, str = 33, dex = 81, },
 }
@@ -191,6 +191,87 @@ itemBases["Massive Spear"] = {
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 46, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.4, Range = 15, },
 	req = { level = 62, str = 40, dex = 80, },
+}
+itemBases["Runeforged Hardwood Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 24, PhysicalMax = 45, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
+	req = { level = 40, str = 23, dex = 56, },
+}
+itemBases["Runeforged Ironhead Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 40, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
+	req = { level = 38, str = 23, dex = 54, },
+}
+itemBases["Runemastered Ironhead Spear"] = {
+	type = "Spear",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 94, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.25, Range = 15, },
+	req = { level = 55, str = 31, dex = 76, },
+}
+itemBases["Runeforged Hunting Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw\n(15-25)% chance to Maim on Hit",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 65, PhysicalMax = 108, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
+	req = { level = 38, str = 23, dex = 54, },
+}
+itemBases["Runeforged Winged Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw",
+	implicitModTypes = { },
+	weapon = { LightningMin = 0, LightningMax = 125, CritChanceBase = 5, AttackRateBase = 1.7, Range = 15, },
+	req = { level = 40, str = 23, dex = 56, },
+}
+itemBases["Runeforged War Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw\n(25-35)% increased Projectile Speed with this Weapon",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 59, PhysicalMax = 98, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
+	req = { level = 40, str = 23, dex = 56, },
+}
+itemBases["Runeforged Forked Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 8, PhysicalMax = 57, CritChanceBase = 7, AttackRateBase = 1.6, Range = 15, },
+	req = { level = 55, str = 31, dex = 76, },
+}
+itemBases["Runeforged Barbed Spear"] = {
+	type = "Spear",
+	quality = 20,
+	socketLimit = 3,
+	tags = { default = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, vaal_basetype = true, weapon = true, },
+	implicit = "Grants Skill: Spear Throw\nBleeding you inflict deals Damage (10-20)% faster",
+	implicitModTypes = { { "bleed", "physical_damage", "damage", "physical", "attack", "ailment" }, },
+	weapon = { PhysicalMin = 26, PhysicalMax = 49, FireMin = 51, FireMax = 95, CritChanceBase = 6, AttackRateBase = 1.5, Range = 15, },
+	req = { level = 55, str = 31, dex = 76, },
 }
 itemBases["Orichalcum Spear"] = {
 	type = "Spear",
@@ -258,7 +339,7 @@ itemBases["Spiked Spear"] = {
 	socketLimit = 3,
 	tags = { default = true, one_hand_weapon = true, onehand = true, spear = true, weapon = true, },
 	implicit = "Grants Skill: Spear Throw\nBleeding you inflict deals Damage (10-20)% faster",
-	implicitModTypes = { { "physical_damage", "bleed", "damage", "physical", "attack", "ailment" }, },
+	implicitModTypes = { { "bleed", "physical_damage", "damage", "physical", "attack", "ailment" }, },
 	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 6, AttackRateBase = 1.5, Range = 15, },
 	req = { level = 77, str = 50, dex = 127, },
 }

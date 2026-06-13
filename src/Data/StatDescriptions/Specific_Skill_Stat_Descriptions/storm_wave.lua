@@ -16,6 +16,20 @@ return {
 					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Wave length is +{0} metres"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]=10,
@@ -24,7 +38,7 @@ return {
 				},
 				text="Wave length is {0} metre"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1

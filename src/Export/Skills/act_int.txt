@@ -222,8 +222,10 @@ statMap = {
 	["charge_mastery_crit_chance_+%_final_with_power_charges"] = {
 		mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 	},
-	["charge_mastery_defences_+%_final_with_endurance_charges"] = {
-		mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+	["charge_mastery_armour_evasion_energy_shield_+%_final_with_endurance_charges"] = {
+		mod("Armour", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+		mod("Evasion", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+		mod("EnergyShield", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 	},
 },
 #flags
@@ -253,12 +255,29 @@ statMap = {
 #mods
 #skillEnd
 
+#skill CoilingBoltsPlayer
+#set CoilingBoltsPlayer
+#flags spell projectile
+#mods
+#set CoilingBoltsChaosPlayer
+#flags spell projectile
+#mods
+#skillEnd
+
 #skill CometPlayer
 #set CometPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #set CometFireInfusionPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #skillEnd
 
@@ -455,6 +474,13 @@ statMap = {
 #skill EyeOfWinterPlayer
 #set EyeOfWinterPlayer
 #flags spell projectile
+statMap = {
+	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"] = {
+		mod("SkillDamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterCold"}),
+		mod("SkillDamageGainAsFire", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterFire"}),
+		mod("SkillDamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterLightning"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -551,7 +577,7 @@ statMap = {
 
 #skill FlameWallPlayer
 #set FlameWallPlayer
-#flags
+#flags spell area
 #mods
 #set FlameWallProjectileBuffPlayer
 #flags
@@ -728,6 +754,9 @@ end,
 #flags attack area melee channelRelease
 #mods
 #set GatheringStormExplodePlayer
+#flags attack area melee channelRelease duration
+#mods
+#set GatheringStormExplodeBetterPlayer
 #flags attack area melee channelRelease duration
 #mods
 #skillEnd
@@ -1337,6 +1366,25 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#minionList MistRaven
+#skill SummonSpiralingConspiracyPlayer
+#set SummonSpiralingConspiracyPlayer
+#flags spell minion
+statMap = {
+	["base_skill_area_of_effect_+%"] = {
+		mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", nil) }),
+	},
+},
+#mods
+#skillEnd
+
+#skill CommandMadFlightPlayer
+#set CommandMadFlightPlayer
+#flags
+#mods
+#skillEnd
+
 #skill StaggeringPalmPlayer
 #set StaggeringPalmPlayer
 #flags attack area melee
@@ -1442,10 +1490,13 @@ statMap = {
 #from item
 #skill VolatileDeadPlayer
 #set VolatileDeadPlayer
-#flags spell area
+#flags spell area duration
+#mods
+#set VolatileDeadExplosionPlayer
+#flags spell area duration
 #mods
 #set VolatileDeadIgniteAuraPlayer
-#flags spell area
+#flags spell area duration
 #mods
 #skillEnd
 

@@ -207,6 +207,35 @@ return {
 	[9]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Skills have {0}% increased Cooldown Recovery Rate"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Skills have {0}% reduced Cooldown Recovery Rate"
+			}
+		},
+		stats={
+			[1]="base_cooldown_speed_+%"
+		}
+	},
+	[10]={
+		[1]={
+			[1]={
 				["gem_quality"]=true,
 				limit={
 					[1]={
@@ -243,7 +272,7 @@ return {
 			[1]="base_curse_duration_+%"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -272,7 +301,68 @@ return {
 			[1]="base_skill_area_of_effect_+%"
 		}
 	},
-	[11]={
+	[12]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Skills have {0}% increased Cost Efficiency"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Skills have {0}% reduced Cost Efficiency"
+			}
+		},
+		stats={
+			[1]="base_skill_cost_efficiency_+%"
+		}
+	},
+	[13]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Socketed Skills Gain {0}% of Life and Mana Cost as Extra Runic Ward Cost"
+			}
+		},
+		stats={
+			[1]="base_skill_ward_cost_as_%_of_life_and_mana_cost"
+		}
+	},
+	[14]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Socketed Skills cannot consume Charges"
+			}
+		},
+		stats={
+			[1]="cannot_consume_power_frenzy_endurance_charges"
+		}
+	},
+	[15]={
 		[1]={
 			[1]={
 				["gem_quality"]=true,
@@ -311,7 +401,7 @@ return {
 			[1]="curse_effect_+%"
 		}
 	},
-	[12]={
+	[16]={
 		[1]={
 			[1]={
 				limit={
@@ -340,7 +430,7 @@ return {
 			[1]="damage_+%"
 		}
 	},
-	[13]={
+	[17]={
 		[1]={
 			[1]={
 				[1]={
@@ -360,7 +450,7 @@ return {
 			[1]="feral_invocation_energy_cost_per_X_ms_of_base_attack_time"
 		}
 	},
-	[14]={
+	[18]={
 		[1]={
 			[1]={
 				[1]={
@@ -402,7 +492,65 @@ return {
 			[2]="generic_ongoing_trigger_triggers_at_maximum_energy"
 		}
 	},
-	[15]={
+	[19]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Skills have {0}% more Attack speed"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Skills have {0}% less Attack speed"
+			}
+		},
+		stats={
+			[1]="mantra_of_illusions_triggered_skill_attack_speed_+%_final"
+		}
+	},
+	[20]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Skills deal {0}% more damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Skills deal {0}% less damage"
+			}
+		},
+		stats={
+			[1]="mantra_of_illusions_triggered_skill_damage_+%_final"
+		}
+	},
+	[21]={
 		[1]={
 			[1]={
 				["gem_quality"]=true,
@@ -441,7 +589,65 @@ return {
 			[1]="mark_effect_+%"
 		}
 	},
-	[16]={
+	[22]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Skills have {0}% increased Skill Effect Duration"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Skills have {0}% reduced Skill Effect Duration"
+			}
+		},
+		stats={
+			[1]="skill_effect_duration_+%"
+		}
+	},
+	[23]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Socketed Curses have {0}% increased Magnitudes"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Socketed Curses have {0}% reduced Magnitudes"
+			}
+		},
+		stats={
+			[1]="curse_effect_+%"
+		}
+	},
+	[24]={
 		[1]={
 			[1]={
 				limit={
@@ -470,7 +676,7 @@ return {
 			[1]="trigger_meta_gem_damage_+%_final"
 		}
 	},
-	[17]={
+	[25]={
 		[1]={
 			[1]={
 				limit={
@@ -499,7 +705,7 @@ return {
 			[1]="warcry_buff_effect_+%"
 		}
 	},
-	[18]={
+	[26]={
 		[1]={
 			[1]={
 				limit={
@@ -533,7 +739,7 @@ return {
 			[2]="skill_empower_limitation_specifier_for_stat_description"
 		}
 	},
-	[19]={
+	[27]={
 		[1]={
 			[1]={
 				limit={
@@ -550,26 +756,33 @@ return {
 		}
 	},
 	["active_skill_base_area_of_effect_radius"]=8,
-	["base_curse_duration_+%"]=9,
-	["base_skill_area_of_effect_+%"]=10,
-	["curse_effect_+%"]=11,
-	["damage_+%"]=12,
+	["base_cooldown_speed_+%"]=9,
+	["base_curse_duration_+%"]=10,
+	["base_skill_area_of_effect_+%"]=11,
+	["base_skill_cost_efficiency_+%"]=12,
+	["base_skill_ward_cost_as_%_of_life_and_mana_cost"]=13,
+	["cannot_consume_power_frenzy_endurance_charges"]=14,
+	["curse_effect_+%"]=23,
+	["damage_+%"]=16,
 	["disable_skill_if_melee_attack"]=7,
 	["display_bear_warcry"]=1,
-	["feral_invocation_energy_cost_per_X_ms_of_base_attack_time"]=13,
-	["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"]=14,
-	["generic_ongoing_trigger_triggers_at_maximum_energy"]=14,
-	["mark_effect_+%"]=15,
+	["feral_invocation_energy_cost_per_X_ms_of_base_attack_time"]=17,
+	["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"]=18,
+	["generic_ongoing_trigger_triggers_at_maximum_energy"]=18,
+	["mantra_of_illusions_triggered_skill_attack_speed_+%_final"]=19,
+	["mantra_of_illusions_triggered_skill_damage_+%_final"]=20,
+	["mark_effect_+%"]=21,
 	parent="gem_stat_descriptions",
 	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=8,
-	["skill_empower_limitation_specifier_for_stat_description"]=18,
-	["skill_empowers_next_x_melee_attacks"]=18,
+	["skill_effect_duration_+%"]=22,
+	["skill_empower_limitation_specifier_for_stat_description"]=26,
+	["skill_empowers_next_x_melee_attacks"]=26,
 	["support_additional_totem_damage_+%_final"]=3,
 	["support_attack_totem_attack_speed_+%_final"]=6,
 	["support_blasphemy_curse_effect_+%_final"]=4,
 	["support_spell_totem_cast_speed_+%_final"]=5,
 	["support_totem_damage_+%_final"]=2,
-	["trigger_meta_gem_damage_+%_final"]=16,
-	["warcry_buff_effect_+%"]=17,
-	["warcry_grant_damage_+%_to_exerted_attacks"]=19
+	["trigger_meta_gem_damage_+%_final"]=24,
+	["warcry_buff_effect_+%"]=25,
+	["warcry_grant_damage_+%_to_exerted_attacks"]=27
 }

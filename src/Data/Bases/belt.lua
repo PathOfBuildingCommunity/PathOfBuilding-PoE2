@@ -39,15 +39,15 @@ itemBases["Long Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, },
 	implicit = "(15-20)% increased Charm Effect Duration\nHas (1-3) Charm Slots",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "charm" }, },
 	req = { level = 20, },
 }
 itemBases["Plate Belt"] = {
 	type = "Belt",
 	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "+(100-140) to Armour\nHas (1-3) Charm Slots",
-	implicitModTypes = { { "armour", "defences" }, },
+	implicit = "+(140-180) to Armour\nHas (1-3) Charm Slots",
+	implicitModTypes = { { "defences", "armour" }, },
 	req = { level = 24, },
 }
 itemBases["Ornate Belt"] = {
@@ -55,7 +55,7 @@ itemBases["Ornate Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, },
 	implicit = "(10-15)% reduced Charm Charges used\nHas (1-3) Charm Slots",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "charm" }, },
 	req = { level = 31, },
 }
 itemBases["Mail Belt"] = {
@@ -71,7 +71,7 @@ itemBases["Double Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, },
 	implicit = "(20-30)% increased Charm Charges gained\nHas (1-3) Charm Slots",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "charm" }, },
 	req = { level = 44, },
 }
 itemBases["Heavy Belt"] = {
@@ -80,6 +80,42 @@ itemBases["Heavy Belt"] = {
 	tags = { belt = true, default = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
+	req = { level = 50, },
+}
+itemBases["Runemastered Heavy Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	hidden = true,
+	tags = { belt = true, default = true, runeforged = true, },
+	implicit = "(20-30)% increased Stun Threshold\n(15-25)% Life Recovery from Flasks also applies to Runic Ward\nHas (1-3) Charm Slots",
+	implicitModTypes = { {  }, {  }, },
+	req = { level = 50, },
+}
+itemBases["Runemastered Heavy Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	hidden = true,
+	tags = { belt = true, default = true, runeforged = true, },
+	implicit = "(20-30)% increased Stun Threshold\n(20-40)% increased Runic Ward Regeneration Rate\nHas (1-3) Charm Slots",
+	implicitModTypes = { {  }, { "runic_ward" }, },
+	req = { level = 50, },
+}
+itemBases["Runemastered Heavy Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	hidden = true,
+	tags = { belt = true, default = true, runeforged = true, },
+	implicit = "(20-30)% increased Stun Threshold\nRunic Ward recovery can can Overflow maximum Runic Ward\nHas (1-3) Charm Slots",
+	implicitModTypes = { {  }, {  }, },
+	req = { level = 50, },
+}
+itemBases["Runemastered Heavy Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	hidden = true,
+	tags = { belt = true, default = true, runeforged = true, },
+	implicit = "(20-30)% increased Stun Threshold\nFlasks gain (0.5-1) charges per Second\nHas (1-3) Charm Slots",
+	implicitModTypes = { {  }, {  }, },
 	req = { level = 50, },
 }
 itemBases["Utility Belt"] = {
@@ -97,4 +133,36 @@ itemBases["Fine Belt"] = {
 	implicit = "Flasks gain 0.17 charges per Second\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 62, },
+}
+itemBases["Stalking Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	tags = { belt = true, default = true, },
+	implicit = "Has 1 Charm Slot\nThis item gains bonuses from Socketed Items as though it was Boots\nHas (1-3) Charm Slots",
+	implicitModTypes = { { "charm" }, {  }, },
+	req = { level = 40, },
+}
+itemBases["Invoking Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	tags = { belt = true, default = true, },
+	implicit = "Has 1 Charm Slot\n(8-12)% increased Cast Speed\nHas (1-3) Charm Slots",
+	implicitModTypes = { { "charm" }, { "caster_speed", "caster", "speed" }, },
+	req = { level = 32, },
+}
+itemBases["Sinew Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	tags = { belt = true, default = true, },
+	implicit = "Has 1 Charm Slot\n+(15-20) to Strength\nHas (1-3) Charm Slots",
+	implicitModTypes = { { "charm" }, { "attribute" }, },
+	req = { level = 32, },
+}
+itemBases["Forking Belt"] = {
+	type = "Belt",
+	charmLimit = 0,
+	tags = { belt = true, default = true, },
+	implicit = "Has 1 Charm Slot\nAdds 1 to (20-30) Lightning damage to Attacks\nHas (1-3) Charm Slots",
+	implicitModTypes = { { "charm" }, { "elemental_damage", "damage", "elemental", "lightning", "attack" }, },
+	req = { level = 32, },
 }

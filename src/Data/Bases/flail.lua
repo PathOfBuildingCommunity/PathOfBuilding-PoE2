@@ -8,7 +8,7 @@ itemBases["Splintered Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, ezomyte_basetype = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { },
 }
 itemBases["Chain Flail"] = {
@@ -17,7 +17,7 @@ itemBases["Chain Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, ezomyte_basetype = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 8, PhysicalMax = 14, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 8, PhysicalMax = 14, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 6, str = 12, },
 }
 itemBases["Holy Flail"] = {
@@ -26,7 +26,7 @@ itemBases["Holy Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, ezomyte_basetype = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 10, PhysicalMax = 17, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 10, PhysicalMax = 17, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 11, str = 18, int = 9, },
 }
 itemBases["Iron Flail"] = {
@@ -35,7 +35,7 @@ itemBases["Iron Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 16, str = 25, int = 12, },
 }
 itemBases["Twin Flail"] = {
@@ -45,7 +45,7 @@ itemBases["Twin Flail"] = {
 	tags = { default = true, flail = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicit = "Bifurcates Critical Hits",
 	implicitModTypes = { { "critical" }, },
-	weapon = { PhysicalMin = 8, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 11, },
+	weapon = { PhysicalMin = 8, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 20, str = 30, int = 14, },
 }
 itemBases["Slender Flail"] = {
@@ -54,7 +54,7 @@ itemBases["Slender Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 8, AttackRateBase = 1.5, Range = 11, },
+	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 8, AttackRateBase = 1.5, Range = 13, },
 	req = { level = 26, str = 38, int = 17, },
 }
 itemBases["Stone Flail"] = {
@@ -64,7 +64,7 @@ itemBases["Stone Flail"] = {
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
 	implicit = "Unblockable",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 23, PhysicalMax = 38, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 23, PhysicalMax = 38, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 33, str = 47, int = 20, },
 }
 itemBases["Ring Flail"] = {
@@ -73,7 +73,7 @@ itemBases["Ring Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 23, PhysicalMax = 44, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 23, PhysicalMax = 44, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 38, str = 54, int = 23, },
 }
 itemBases["Guarded Flail"] = {
@@ -82,7 +82,7 @@ itemBases["Guarded Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 31, PhysicalMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 11, },
+	weapon = { PhysicalMin = 31, PhysicalMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 45, str = 63, int = 26, },
 }
 itemBases["Icicle Flail"] = {
@@ -91,7 +91,7 @@ itemBases["Icicle Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { ColdMin = 24, ColdMax = 55, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { ColdMin = 24, ColdMax = 55, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 47, str = 66, int = 27, },
 }
 itemBases["Tearing Flail"] = {
@@ -100,7 +100,7 @@ itemBases["Tearing Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 27, PhysicalMax = 56, CritChanceBase = 12.5, AttackRateBase = 1.4, Range = 11, },
+	weapon = { PhysicalMin = 27, PhysicalMax = 56, CritChanceBase = 12.5, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 52, str = 72, int = 29, },
 }
 itemBases["Great Flail"] = {
@@ -109,7 +109,7 @@ itemBases["Great Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 35, PhysicalMax = 58, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 35, PhysicalMax = 58, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 58, str = 80, int = 32, },
 }
 itemBases["Abyssal Flail"] = {
@@ -118,6 +118,6 @@ itemBases["Abyssal Flail"] = {
 	socketLimit = 3,
 	tags = { default = true, flail = true, one_hand_weapon = true, onehand = true, weapon = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 36, PhysicalMax = 66, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 36, PhysicalMax = 66, CritChanceBase = 10, AttackRateBase = 1.45, Range = 13, },
 	req = { level = 65, str = 89, int = 36, },
 }

@@ -220,6 +220,9 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 						ifRequired = true
 					elseif format == "divide_by_one_thousand" then
 						precision = 1000
+					elseif format == "divide_by_ten_thousand_1dp" then
+						precision = 10000
+						displayPrecision = 1
 					elseif format == "per_minute_to_per_second" then
 						precision = 60
 					elseif format == "per_minute_to_per_second_0dp" then
@@ -323,7 +326,8 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 end
 
 function itemLib.formatModLine(modLine, dbMode)
-	local line = (not dbMode and modLine.range and itemLib.applyRange(modLine.line, modLine.range, modLine.valueScalar, modLine.corruptedRange)) or modLine.line
+	local valueScalar = modLine.displayValueScalar and (modLine.valueScalar or 1) * modLine.displayValueScalar or modLine.valueScalar
+	local line = (not dbMode and (modLine.range or modLine.displayValueScalar) and itemLib.applyRange(modLine.line, modLine.range or main.defaultItemAffixQuality, valueScalar, modLine.corruptedRange)) or modLine.line
 	if itemLib.isZeroValueLine(line) then -- Hack to hide 0-value modifiers
 		return
 	end
@@ -335,7 +339,7 @@ function itemLib.formatModLine(modLine, dbMode)
 			line = line .. "   ^1'" .. modLine.extra .. "'"
 		end
 	else
-		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.mutated and colorCodes.MUTATED) or (modLine.custom and (not modLine.desecrated and colorCodes.CUSTOM)) or colorCodes.MAGIC
+		colorCode = (modLine.crafted and colorCodes.CRAFTED) or (modLine.enchant and colorCodes.ENCHANTED) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.mutated and colorCodes.MUTATED) or (modLine.custom and (not modLine.desecrated and colorCodes.CUSTOM)) or colorCodes.MAGIC
 	end
 	return colorCode..line
 end

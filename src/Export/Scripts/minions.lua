@@ -38,7 +38,13 @@ local function tableToString(tbl, pre)
 	return tableString .. " }"
 end
 
-local function getOTStats(OTFile, modList)
+local function getOTStats(OTFile, modList, visited)
+	visited = visited or {}
+	if visited[OTFile] then
+		return modList
+	end
+	visited[OTFile] = true
+
 	local file = OTFile..".ot"
 	local text
 	if main.ggpk.ot[file] then
@@ -55,7 +61,7 @@ local function getOTStats(OTFile, modList)
 		for line in text:gmatch("[^\r\n]+") do
 			local superClass = line:match("extends \"(.+)\"")
 			if superClass and superClass ~= "Metadata/Monsters/Monster" and superClass ~= "nothing" then
-				modList = getOTStats(superClass, modList)
+				modList = getOTStats(superClass, modList, visited)
 			end
 			-- Detect start of a block
 			if line:match("^Stats") then
@@ -224,29 +230,23 @@ directiveTable.emit = function(state, args, out)
 			if mapRow.NativePacks then
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
-						local areaIds = {}
-						if mapRow.BossVersion and mapRow.BossVersion.Id then
-							table.insert(areaIds, mapRow.BossVersion.Id)
-						end
-						for _, areaId in ipairs(areaIds) do
-							local area = dat("WorldAreas"):GetRow("Id", areaId)
-							if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
-								local isMap = false
-								for _, tag in ipairs(area.Tags or {}) do
-									if tag.Id == "map" then
-										isMap = true
-									end
+						local area = dat("WorldAreas"):GetRow("Id", mapRow.Id.Id)
+						if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
+							local isMap = false
+							for _, tag in ipairs(area.Tags or {}) do
+								if tag.Id == "map" then
+									isMap = true
 								end
-								local displayName = area.Name
-								if isMap then
-									displayName = displayName .. " (Map)"
-								elseif area.Act and area.Act ~= 10 then
-									displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
-								end
-								if not seenAreas[displayName] then
-									table.insert(worldAreaNames, displayName)
-									seenAreas[displayName] = true
-								end
+							end
+							local displayName = area.Name
+							if isMap then
+								displayName = displayName .. " (Map)"
+							elseif area.Act and area.Act ~= 10 then
+								displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
+							end
+							if not seenAreas[displayName] then
+								table.insert(worldAreaNames, displayName)
+								seenAreas[displayName] = true
 							end
 						end
 					end
@@ -290,6 +290,7 @@ directiveTable.emit = function(state, args, out)
 	out:write('\tattackTime = ', (monsterVariety.AttackDuration/1000), ',\n')
 	out:write('\tattackRange = ', monsterVariety.MaximumAttackRange, ',\n')
 	out:write('\taccuracy = 1,\n') -- minions don't need accuracy as of 0.3. Printing 1 just so nothing breaks.
+	out:write('\tcritChance = ', round(monsterVariety.AttackCrit * 100, 2), ',\n')
 	for _, mod in ipairs(monsterVariety.Mods) do
 		if mod.Id == "MonsterSpeedAndDamageFixupSmall" then
 			out:write('\tdamageFixup = 0.11,\n')
@@ -311,7 +312,7 @@ directiveTable.emit = function(state, args, out)
 	out:write('\tbaseMovementSpeed = ', monsterVariety.MovementSpeed, ',\n')
 	if monsterVariety.ExperienceMultiplier then
 		out:write('\tspectreReservation = ', math.floor(((monsterVariety.ExperienceMultiplier/100) ^ 0.75) * 50), ',\n')
-		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 
+		out:write('\tcompanionReservation = ', (math.floor(math.sqrt(monsterVariety.ExperienceMultiplier / 100) * 100) / 100 * 30), ',\n')
 	end
 	if monsterVariety.MonsterCategory then
 		out:write('\tmonsterCategory = "', (monsterVariety.MonsterCategory.Type), '",\n')

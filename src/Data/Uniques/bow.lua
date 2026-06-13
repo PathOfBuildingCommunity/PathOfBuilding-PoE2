@@ -7,15 +7,17 @@ Death's Harp
 Dualstring Bow
 Variant: 0.2.0
 Variant: 0.3.0
+Variant: 0.5.0
 Variant: Current
 Implicits: 1
 +50% Surpassing chance to fire an additional Arrow
 {variant:1}+(50-70)% to Critical Damage Bonus
 {variant:2}+(30-40)% to Critical Damage Bonus
-{variant:3}+(20-25)% to Critical Damage Bonus
-Bow Attacks fire 3 additional Arrows
+{variant:3,4}+(20-25)% to Critical Damage Bonus
+{variant:1,2,3}Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per enemy killed
 Gain (12-18) Mana per enemy killed
+{variant:4}+(250-330)% Surpassing chance to fire an additional Arrow
 ]],[[
 Doomfletch
 Composite Bow
@@ -41,6 +43,29 @@ Adds (76-98) to (126-193) Fire Damage
 -30 Physical Damage taken from Hits
 Attack Hits inflict Spectral Fire for 8 seconds
 ]],[[
+Ironbound
+Warden Bow
+League: Runes of Aldur
+Implicits: 1
+(25-35)% chance to Chain an additional time
++(100-150) to Armour
+(5-10)% increased Attack Speed
++12% to Block chance
+(3-5)% increased Block chance per 100 total Item Armour on Equipped Armour Items
+Hits with this weapon have (1-2) to (4-5) Added Physical Damage per 1% Block Chance
+Arrows Return if they have Pierced a target which had Fully Broken Armour
+]],[[
+Periphery
+Heartwood Shortbow
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Azmerian Swarms
+Adds (48-59) to (75-97) Fire Damage
+Adds (35-53) to (65-80) Cold Damage
+Adds (1-8) to (123-152) Lightning Damage
+(8-14)% increased Attack Speed
+Elemental Damage from Hits Contributes to Flammability, Ignite, and Chill Magnitudes, Freeze Buildup, and Shock Chance
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt
@@ -52,8 +77,8 @@ Variant: Current
 +(20-30) to Dexterity
 +2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently
 -1 metre to Dodge Roll distance if you've Dodge Rolled Recently
-{variant:1}Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
-{variant:2}Barrageable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
+{variant:1}Repeatable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
+{variant:2}Repeatable Attacks with this Bow Repeat +2 times if no enemies are in your Presence
 ]],[[
 Quill Rain
 Shortbow

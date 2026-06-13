@@ -44,7 +44,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 	self.dat = { }
 	self.txt = { }
 	self.ot = { }
-	
+
 	self:AddDat64Files()
 end)
 
@@ -366,6 +366,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/SupportGemFamily.dat",
 		"Data/Balance/TormentSpirits.dat",
 		"Data/Balance/CharacterShapeshiftBasicSkills.dat",
+		"Data/Balance/UniqueOrigins.dat",
+		"Data/Balance/Origin.dat",
 		"Data/Balance/BuildPlannerInventories.dat",
 		"Data/Balance/Inventories.dat",
 	}
@@ -426,6 +428,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
 		"Metadata/Items/Amulets/AbstractAmulet.it",
 	}
-	
+
 	return datFiles, csdFiles, otFiles, itFiles
 end

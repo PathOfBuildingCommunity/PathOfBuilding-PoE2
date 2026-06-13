@@ -41,7 +41,7 @@ itemBases["Lunar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(20-30) to maximum Energy Shield",
-	implicitModTypes = { { "energy_shield", "defences" }, },
+	implicitModTypes = { { "defences", "energy_shield" }, },
 	req = { level = 14, },
 }
 itemBases["Bloodstone Amulet"] = {
@@ -76,8 +76,71 @@ itemBases["Pearlescent Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 30, },
+}
+itemBases["Veridical Chain"] = {
+	type = "Amulet",
+	hidden = true,
+	tags = { amulet = true, default = true, },
+	implicit = "+(30-40) to maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	hidden = true,
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "+(30-40) to maximum Runic Ward\n+(2-3)% to Maximum Cold Resistance",
+	implicitModTypes = { { "runic_ward" }, { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	hidden = true,
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "+(30-40) to maximum Runic Ward\n+(1-2) to Level of all Cold Skills",
+	implicitModTypes = { { "runic_ward" }, { "elemental", "cold", "gem" }, },
+	req = { level = 18, },
+}
+itemBases["Runemastered Veridical Chain"] = {
+	type = "Amulet",
+	hidden = true,
+	tags = { amulet = true, default = true, runeforged = true, },
+	implicit = "(15-20)% increased maximum Runic Ward",
+	implicitModTypes = { { "runic_ward" }, },
+	req = { },
+}
+itemBases["Lament Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	variantList = { "Arctic Armour", "Herald of Ash", "Herald of Ice", "Herald of Thunder", "Plague Bearer", "Barrier Invocation", "Lingering Illusion", "Ghost Dance", "Mana Remnants", "Magma Barrier", "Raging Spirits", "Wind Dancer", "Cast on Minion Death", "Scavenged Plating", "War Banner", "Defiance Banner", "Dread Banner", "Time of Need", "Attrition", "Charge Regulation", "Shard Scavenger", "Overwhelming Presence", "Alchemist's Boon", "Reaper's Invocation", "Berserk", "Herald of Plague", "Herald of Blood", "Withering Presence", "Ravenous Swarm", "Combat Frenzy", "Trail of Caltrops", "Convalescence", "Iron Ward", "Siphon Elements", "Briarpatch", "Savage Fury", "Barkskin", },
+	implicit = "-1 Prefix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Arctic Armour\n{variant:2}Grants Skill: Level (1-20) Herald of Ash\n{variant:3}Grants Skill: Level (1-20) Herald of Ice\n{variant:4}Grants Skill: Level (1-20) Herald of Thunder\n{variant:5}Grants Skill: Level (1-20) Plague Bearer\n{variant:6}Grants Skill: Level (1-20) Barrier Invocation\n{variant:7}Grants Skill: Level (1-20) Lingering Illusion\n{variant:8}Grants Skill: Level (1-20) Ghost Dance\n{variant:9}Grants Skill: Level (1-20) Mana Remnants\n{variant:10}Grants Skill: Level (1-20) Magma Barrier\n{variant:11}Grants Skill: Level (1-20) Raging Spirits\n{variant:12}Grants Skill: Level (1-20) Wind Dancer\n{variant:13}Grants Skill: Level (1-20) Cast on Minion Death\n{variant:14}Grants Skill: Level (1-20) Scavenged Plating\n{variant:15}Grants Skill: Level (1-20) War Banner\n{variant:16}Grants Skill: Level (1-20) Defiance Banner\n{variant:17}Grants Skill: Level (1-20) Dread Banner\n{variant:18}Grants Skill: Level (1-20) Time of Need\n{variant:19}Grants Skill: Level (1-20) Attrition\n{variant:20}Grants Skill: Level (1-20) Charge Regulation\n{variant:21}Grants Skill: Level (1-20) Shard Scavenger\n{variant:22}Grants Skill: Level (1-20) Overwhelming Presence\n{variant:23}Grants Skill: Level (1-20) Alchemist's Boon\n{variant:24}Grants Skill: Level (1-20) Reaper's Invocation\n{variant:25}Grants Skill: Level (1-20) Berserk\n{variant:26}Grants Skill: Level (1-20) Herald of Plague\n{variant:27}Grants Skill: Level (1-20) Herald of Blood\n{variant:28}Grants Skill: Level (1-20) Withering Presence\n{variant:29}Grants Skill: Level (1-20) Ravenous Swarm\n{variant:30}Grants Skill: Level (1-20) Combat Frenzy\n{variant:31}Grants Skill: Level (1-20) Trail of Caltrops\n{variant:32}Grants Skill: Level (1-20) Convalescence\n{variant:33}Grants Skill: Level (1-20) Iron Ward\n{variant:34}Grants Skill: Level (1-20) Siphon Elements\n{variant:35}Grants Skill: Level (1-20) Briarpatch\n{variant:36}Grants Skill: Level (1-20) Savage Fury\n{variant:37}Grants Skill: Level (1-20) Barkskin",
+	implicitModTypes = { {  }, },
+	req = { level = 42, },
+}
+itemBases["Portent Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	variantList = { "Wolf Pack", "Blink", "Elemental Invocation", "Elemental Conflux", "Sacrifice", "Mirage Archer", "Feral Invocation", },
+	implicit = "-1 Suffix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Wolf Pack\n{variant:2}Grants Skill: Level (1-20) Blink\n{variant:3}Grants Skill: Level (1-20) Elemental Invocation\n{variant:4}Grants Skill: Level (1-20) Elemental Conflux\n{variant:5}Grants Skill: Level (1-20) Sacrifice\n{variant:6}Grants Skill: Level (1-20) Mirage Archer\n{variant:7}Grants Skill: Level (1-20) Feral Invocation",
+	implicitModTypes = { {  }, },
+	req = { level = 42, },
+}
+itemBases["Absent Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	variantList = { "Cast on Elemental Ailment", "Cast on Critical", "Cast on Dodge", "Rhoa Mount", "Archmage", "Trinity", "Eternal Rage", },
+	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Cast on Elemental Ailment\n{variant:2}Grants Skill: Level (1-20) Cast on Critical\n{variant:3}Grants Skill: Level (1-20) Cast on Dodge\n{variant:4}Grants Skill: Level (1-20) Rhoa Mount\n{variant:5}Grants Skill: Level (1-20) Archmage\n{variant:6}Grants Skill: Level (1-20) Trinity\n{variant:7}Grants Skill: Level (1-20) Eternal Rage",
+	implicitModTypes = { {  }, {  }, },
+	req = { level = 49, },
+}
+itemBases["Corona Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "This item gains bonuses from Socketed Items as though it was a Helmet",
+	implicitModTypes = { {  }, },
+	req = { level = 40, },
 }
 itemBases["Dusk Amulet"] = {
 	type = "Amulet",
@@ -107,10 +170,17 @@ itemBases["Tenebrous Amulet"] = {
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
+itemBases["Twisted Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed",
+	implicitModTypes = { {  }, },
+	req = { },
+}
 itemBases["Distorted Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
-	implicitModTypes = { {  }, {  }, },
+	implicit = "-1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, },
 	req = { },
 }

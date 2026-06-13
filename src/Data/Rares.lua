@@ -5,42 +5,42 @@
 -- Helmet
 [[
 Armour Helmet
-Imperial Greathelm
+Runeforged Paragon Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Evasion Helmet
-Freebooter Cap
+Runeforged Trapper Hood
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Energy Shield Helmet
-Ancestral Tiara
+Runeforged Magus Tiara
 Crafted: true
 Prefix: IncreasedLife7
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Gladiatorial Helm
+Runeforged Champion Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife7
 ]],[[
 Armour/Energy Shield Helmet
-Cryptic Crown
+Runeforged Cryptic Crown
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife7
 ]],[[
 Evasion/Energy Shield Helmet
-Grinning Mask
+Runeforged Grinning Mask
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -49,21 +49,21 @@ Prefix: IncreasedLife7
 -- Gloves
 [[
 Armour Gloves
-Massive Mitts
+Runeforged Vaal Mitts
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating4
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Evasion Gloves
-Polished Bracers
+Runeforged Barbed Bracers
 Crafted: true
 Prefix: LocalIncreasedEvasionRating3
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Energy Shield Gloves
-Sirenscale Gloves
+Runeforged Adorned Gloves
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
@@ -77,14 +77,14 @@ Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 ]],[[
 Armour/Energy Shield Gloves
-Adherent Cuffs
+Runeforged Adherent Cuffs
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3_
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 ]],[[
 Evasion/Energy Shield Gloves
-Secured Wraps
+Runeforged Secured Wraps
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -93,42 +93,42 @@ Prefix: IncreasedLife6
 -- Body Armour
 [[
 Armour Chest
-Glorious Plate
+Runeforged Conqueror Plate
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Evasion Chest
-Exquisite Vest
+Runeforged Slipstrike Vest
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Energy Shield Chest
-Havoc Raiment
+Runeforged Havoc Raiment
 Crafted: true
 Prefix: IncreasedLife9
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield10
 ]],[[
 Armour/Evasion Chest
-Slayer Armour
+Death Mail
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife9
 ]],[[
 Armour/Energy Shield Chest
-Zenith Vestments
+Runeforged Wolfskin Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife9
 ]],[[
 Evasion/Energy Shield Chest
-Torment Jacket
+Runeforged Sleek Jacket
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield5_
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -151,21 +151,21 @@ Prefix: IncreasedSpirit6
 -- Boots
 [[
 Armour Boots
-Tasalian Greaves
+Runeforged Vaal Greaves
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion Boots
-Drakeskin Boots
+Runeforged Dragonscale Boots
 Crafted: true
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Energy Shield Boots
-Sekhema Sandals
+Runeforged Elaborate Sandals
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
@@ -179,14 +179,14 @@ Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Armour/Energy Shield Boots
-Cryptic Leggings
+Runeforged Cryptic Leggings
 Crafted: true
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion/Energy Shield Boots
-Daggerfoot Shoes
+Runeforged Daggerfoot Shoes
 Crafted: true
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
 Prefix: IncreasedLife6
@@ -202,7 +202,7 @@ Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Evasion Shield
-Desert Buckler
+Runeforged Desert Buckler
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedEvasionRatingPercent5
@@ -216,7 +216,7 @@ Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Energy Shield Shield
-Blacksteel Crest Shield
+Runeforged Blacksteel Crest Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEnergyShield5

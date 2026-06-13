@@ -181,6 +181,71 @@ itemBases["Bleak Crossbow"] = {
 	weapon = { PhysicalMin = 27, PhysicalMax = 109, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
 	req = { level = 62, str = 60, dex = 60, },
 }
+itemBases["Runeforged Makeshift Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 41, PhysicalMax = 77, ColdMin = 33, ColdMax = 63, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
+	req = { level = 38, str = 39, dex = 39, },
+}
+itemBases["Runeforged Tense Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 44, PhysicalMax = 83, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 38, str = 39, dex = 39, },
+}
+itemBases["Runemastered Tense Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 62, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.6, },
+	req = { level = 55, str = 54, dex = 54, },
+}
+itemBases["Runeforged Sturdy Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, ezomyte_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 4, PhysicalMax = 41, LightningMin = 26, LightningMax = 234, LightningMax = 67, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 38, str = 39, dex = 39, },
+}
+itemBases["Runeforged Dyad Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 32, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 1.1, },
+	req = { level = 40, str = 40, dex = 40, },
+}
+itemBases["Runemastered Dyad Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, maraketh_basetype = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 43, PhysicalMax = 171, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.75, },
+	req = { level = 65, str = 63, dex = 63, },
+}
+itemBases["Runeforged Bombard Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { crossbow = true, default = true, ranged = true, runeforged = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 21, PhysicalMax = 85, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.75, },
+	req = { level = 55, str = 54, dex = 54, },
+}
 itemBases["Stout Crossbow"] = {
 	type = "Crossbow",
 	quality = 20,
@@ -247,4 +312,14 @@ itemBases["Elegant Crossbow"] = {
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 31, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.85, },
 	req = { level = 78, str = 89, dex = 89, },
+}
+itemBases["Trarthan Cannon"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { cannon = true, crossbow = true, default = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicit = "Cannot load or fire Ammunition",
+	implicitModTypes = { { "skill" }, },
+	weapon = { PhysicalMin = 58, PhysicalMax = 134, CritChanceBase = 5, AttackRateBase = 1.4, Range = 120, },
+	req = { level = 65, str = 114, dex = 63, },
 }

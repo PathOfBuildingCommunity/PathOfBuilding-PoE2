@@ -7,6 +7,32 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("shows duplicate selected variants in item tooltips when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+		local tooltip = new("Tooltip")
+
+		build.itemsTab:AddItemTooltip(tooltip, item)
+
+		local legacyLines = 0
+		for _, line in ipairs(tooltip.lines) do
+			if line.text and line.text:find("Legacy of Amethyst", 1, true) then
+				legacyLines = legacyLines + 1
+			end
+		end
+		assert.are.equals(2, legacyLines)
+	end)
+
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
 		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
 		build.configTab:BuildModList()
@@ -246,7 +272,7 @@ describe("TetsItemMods", function()
 			{range:1}(15-20)% increased Cold Damage per 1% Missing Cold Resistance, up to a maximum of 300%
 			{range:1}(15-20)% increased Fire Damage per 1% Missing Fire Resistance, up to a maximum of 300%]])
 		build.itemsTab:AddDisplayItem()
-		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0 Default  1\n")
+		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.are_not.equals(340, build.calcsTab.mainEnv.modDB:Sum("INC", "FireDamage"))
@@ -493,8 +519,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Glorious Plate
-			Armour: 534
+			Champion Cuirass
+			Armour: 526
 			Crafted: true
 			Prefix: None
 			Prefix: None
@@ -502,7 +528,7 @@ describe("TetsItemMods", function()
 			Suffix: None
 			Suffix: None
 			Suffix: None
-			Quality: 0
+			Quality: 18
 			LevelReq: 65
 			Implicits: 0
 		]])

@@ -149,9 +149,10 @@ skills["GasShotSkeletonSniperMinion"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/WitchArcherSkeleton.dds",
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.MirageArcherCanUse] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0.001 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -270,6 +271,7 @@ skills["BoneshatterBruteMinion"] = {
 			baseFlags = {
 				attack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_range_+", 2 },
@@ -277,6 +279,7 @@ skills["BoneshatterBruteMinion"] = {
 			},
 			stats = {
 				"crushing_blow",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -738,6 +741,7 @@ skills["FireBombSkeletonMinion"] = {
 				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -761,6 +765,7 @@ skills["FireBombSkeletonMinion"] = {
 				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "base_secondary_skill_effect_duration", 0 },
 			},
 			stats = {
@@ -1332,7 +1337,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 	name = "Death From Above",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/TacticianDeathFromAboveSkillIcon.dds",
-	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one, then launches a series of arrow volleys centred around the flare.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1370,7 +1375,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
-				"modifiers_to_projectile_count_do_not_apply",
+				"base_modifiers_to_projectile_count_do_not_apply",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1741,6 +1746,7 @@ skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 			stats = {
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"monster_skill_triggered_by_geal",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2343,6 +2349,465 @@ skills["HandSlamSandDjinn"] = {
 			notMinionStat = {
 				"spell_minimum_base_physical_damage",
 				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ApplyTangmazuSwarmAuraPlayer"] = {
+	name = "Winged Entropy",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	description = "The Flock damages enemies around you.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Winged Entropy",
+			baseEffectiveness = 7.1999998092651,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "apply_tangmazu_swarm_aura",
+			statMap = {
+				["flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+				["flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+			},
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "skill_desired_amount_override", 1 },
+				{ "flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"base_chaos_damage_to_deal_per_minute",
+				"base_physical_damage_to_deal_per_minute",
+				"display_statset_no_hit_damage",
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { 26.666667660077, 6.6666669150194, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TangmazuMadFlightMinion"] = {
+	name = "Mad Flight",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RoostOfTheRavenKingCommand.dds",
+	description = "Command part of your flock to leave and crash through a set of illusory mirrors, Attacking enemies in the area between the mirrors with frequent Hits.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 5.5, cooldown = 10, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mad Flight",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tangmazu_mad_flight",
+			baseFlags = {
+				attack = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 22 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 70 },
+				{ "base_skill_effect_duration", 5000 },
+				{ "tangmazu_mad_flight_damage_tick_delay_ms", 120 },
+				{ "display_commanded_skill_ravens_expended", 10 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 70 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"is_area_damage",
+				"skill_does_not_pathfind",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["AzmerianSwarmAttack"] = {
+	name = "Basic Attack",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.75, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 4 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MeleeAtAnimationSpeedWolfPackleader"] = {
+	name = "Basic Attack",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Melee",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "maim_on_hit_%", 100 },
+				{ "attack_maximum_action_distance_+", 15 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WolfPackleaderDashAttack"] = {
+	name = "Dash",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 7, cooldown = 7.5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dash",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 35 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WolfPackleaderLungeBite"] = {
+	name = "Bite",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 3.5, cooldown = 3.5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lunge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 30 },
+				{ "bleed_on_hit_with_attacks_%", 100 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GreatHuntPackleaderMinion"] = {
+	name = "Eternal Hunt",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ThePackleaderCommandSkill.dds",
+	description = "The Azmerian Wolf howls, reaching out to the spirits to begin an Eternal Hunt. While the Eternal Hunt persists, spirits manifest as spectral wolves to ambush foes, damaging and Maiming enemies they Hit before disappearing.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, },
+	castTime = 4,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 50, baseMultiplier = 10, cooldown = 15, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Hunt",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "packleader_great_hunt",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 14 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "skill_specific_stat_description_mode", 7 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearMaul"] = {
+	name = "Maul",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidBearMaul.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Maul",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "melee_conditional_step_distance", 5 },
+				{ "moving_melee_conditional_step_distance", 15 },
+				{ "armour_break_damage_%_dealt_as_armour_break", 5 },
+				{ "attack_maximum_action_distance_+", -6 },
+				{ "melee_range_+", 6 },
+			},
+			stats = {
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearSlam"] = {
+	name = "Slam",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Slam] = true, [SkillType.Melee] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 5, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "bear_skills_additional_base_attack_time_when_performing_from_standing_stance", -500 },
+				{ "base_life_leech_from_any_attack_damage_permyriad", 5000 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"global_knockback",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CompanionBearLeapImpact"] = {
+	name = "Leap Slam",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "generic_knockback_+%_final_at_min_distance", 200 },
+				{ "generic_knockback_+%_final_at_max_distance", -90 },
+				{ "generic_knockback_distance_limit", 25 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
+				"global_knockback",
+				"global_maim_on_hit",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSWardboundMinionBlast"] = {
+	name = "Cold Spell",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Cold Spell",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -65 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },

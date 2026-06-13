@@ -42,6 +42,25 @@ describe("TestItemParse", function()
 		assert.are.equals("40f9711d5bd7ad2bcbddaf71c705607aef0eecd3dcadaafec6c0192f79b82863", item.uniqueID)
 	end)
 
+	it("Unique ID line is not parsed as a modifier", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Evergrasping Ring
+			Pearl Ring
+			Unique ID: 5d96bc922c2ae073676c4149a2ecf0ebd0951f213ef894895bd2afe206845539
+			Item Level: 66
+			LevelReq: 32
+			Implicits: 1
+			7% increased Cast Speed
+			+91 to maximum Mana
+			Allies in your Presence Gain 22% of Damage as Extra Chaos Damage
+			Enemies in your Presence Gain 8% of Damage as Extra Chaos Damage
+		]])
+
+		assert.are.equals("5d96bc922c2ae073676c4149a2ecf0ebd0951f213ef894895bd2afe206845539", item.uniqueID)
+		assert.are.equals(3, #item.explicitModLines)
+	end)
+
 	it("Item Level", function()
 		local item = new("Item", raw("Item Level: 10"))
 		assert.are.equals(10, item.itemLevel)
@@ -66,8 +85,45 @@ describe("TestItemParse", function()
 	--it("Variant name", function()
 	--end)
 
-	--it("variant", function()
-	--end)
+	it("allows duplicate selected variants when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Has Alt Variant Two: true
+			Has Alt Variant Three: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Selected Alt Variant Two: 2
+			Selected Alt Variant Three: 2
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Variant: Legacy of Basalt
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+			{variant:2}Legacy of Basalt
+		]])
+
+		assert.are.equals(2, item.baseModList:Sum("BASE", nil, "LegacyOfAmethyst"))
+		assert.are.equals(2, item.baseModList:Sum("BASE", nil, "LegacyOfBasalt"))
+	end)
+
+	it("does not duplicate selected variants by default", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+
+		assert.are.equals(1, item.baseModList:Sum("BASE", nil, "LegacyOfAmethyst"))
+	end)
 	
 	--TODO: Alt variants for POB2
 	--it("Alt Variant", function()
@@ -229,6 +285,62 @@ describe("TestItemParse", function()
 		assert.are.equals("+44 to Spirit", item.explicitModLines[1].line)
 	end)
 
+	it("Crafted affixes matching base implicits stay explicit", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			New Item
+			Gemini Crossbow
+			Crafted: true
+			Prefix: None
+			Prefix: None
+			Prefix: None
+			Suffix: {range:0}AdditionalAmmo1
+			Suffix: None
+			Suffix: None
+			Implicits: 1
+			Loads an additional bolt
+		]])
+
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Loads an additional bolt", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+
+		item.suffixes[1].range = 0.2
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+	end)
+
+	it("Pasted affixes matching base implicits stay explicit", function()
+		local item = new("Item", [[
+			Item Class: Crossbows
+			Rarity: Rare
+			New Item
+			Gemini Crossbow
+			--------
+			Physical Damage: 28-112
+			Critical Hit Chance: 5.00%
+			Attacks per Second: 1.60
+			Reload Time: 1.10
+			--------
+			Requires: Level 78, 89 Str, 89 Dex
+			--------
+			Item Level: 82
+			--------
+			Loads an additional bolt (implicit)
+			--------
+			Loads an additional bolt
+		]])
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Loads an additional bolt", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Loads an additional bolt", item.explicitModLines[1].line)
+	end)
+
 	--TODO: POB2 Leagues?
 	--it("League", function()
 	--end)
@@ -308,6 +420,18 @@ describe("TestItemParse", function()
 	it("custom", function()
 		local item = new("Item", raw("{custom}+8 to Strength"))
 		assert.truthy(item.explicitModLines[1].custom)
+	end)
+
+	it("crafted", function()
+		local item = new("Item", raw("{crafted}+8 to Strength"))
+		assert.truthy(item.explicitModLines[1].crafted)
+	end)
+
+	it("preserves crafted mod lines when rebuilding raw text", function()
+		local item = new("Item", raw("+8 to Strength"))
+		item.explicitModLines[1].crafted = true
+		item:BuildAndParseRaw()
+		assert.truthy(item.explicitModLines[1].crafted)
 	end)
 
 	it("enchant", function()
@@ -419,7 +543,7 @@ describe("TestItemParse", function()
 		]])
 
 		assert.are.equals(3, item.itemSocketCount)
-		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
+		assert.are.same({ "Greater Glacial Rune", "Lesser Body Rune" }, item.runes)
 		assert.are.equals(1, item.runeModLines[1].runeCount)
 		assert.are.equals(1, item.runeModLines[2].runeCount)
 		assert.is_nil(item.runeModLines[3].runeCount)
@@ -427,6 +551,152 @@ describe("TestItemParse", function()
 		for _, rune in ipairs(item.runes) do
 			assert.are_not.equals("Lesser Glacial Rune", rune)
 		end
+	end)
+
+	it("keeps bonded rune stats separate from normal rune stats", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Test Body
+			Rusted Cuirass
+		]])
+		item.itemSocketCount = 1
+		item.runes = { "Lesser Body Rune" }
+		item:UpdateRunes()
+
+		assert.are.equals(3, #item.runeModLines)
+		assert.are.equals("+30 to maximum Life", item.runeModLines[1].line)
+		assert.are.equals("Bonded: +20 to maximum Life", item.runeModLines[2].line)
+		assert.are.equals("Bonded: +20 to maximum Mana", item.runeModLines[3].line)
+	end)
+
+	it("applies increased effect of socketed runes", function()
+		local item = new("Item", [[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Lesser Desert Rune
+			Implicits: 1
+			{enchant}{rune}Gain 6% of Damage as Extra Fire Damage
+			200% increased effect of Socketed Runes
+		]])
+		item:BuildAndParseRaw()
+
+		local damageGainAsFire = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsFire" and mod.type == "BASE" then
+				damageGainAsFire = damageGainAsFire + mod.value
+			end
+		end
+		assert.are.equals(18, damageGainAsFire)
+		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 18%% of Damage as Extra Fire Damage"))
+	end)
+
+	it("does not double-scale imported socketed rune text", function()
+		local item = new("Item", [[
+			Runeseeker's Call
+			Runic Fork
+			Unique ID: bbcd083b0a9da5650f3ac0a001364b1c99d6b866c1f52f0568fafab863b44ccb
+			Item Level: 86
+			Quality: 20
+			Sockets: S S S S S S
+			Rune: Hedgewitch Assandra's Rune of Wisdom
+			Rune: Saqawal's Rune of the Sky
+			Rune: Perfect Iron Rune
+			Rune: Perfect Iron Rune
+			Rune: Perfect Vision Rune
+			Rune: Legacy of Lifesprig
+			LevelReq: 90
+			Implicits: 11
+			{enchant}{rune}210% increased Spell Damage
+			{enchant}{rune}+9 to Level of all Spell Skills
+			{enchant}{rune}84% increased Critical Hit Chance for Spells
+			{enchant}{rune}Gain 15% of Damage as Extra Damage of all Elements
+			{enchant}{rune}Bonded: 75% increased Critical Damage Bonus
+			{enchant}{rune}Bonded: 36% chance when collecting an Elemental Infusion to gain an
+			{enchant}{rune}additional Elemental Infusion of the same type
+			{enchant}{rune}Bonded: Archon recovery period expires 90% faster
+			{enchant}{rune}Bonded: Break Armour on Critical Hit with Spells equal to 72% of Physical Damage dealt
+			{enchant}{rune}Bonded: Leeches 3% of maximum Life when you Cast a Spell
+			Grants Skill: Level 20 The Stars Answer
+			Only Runes can be Socketed in this item
+			200% increased effect of Socketed Runes
+			Corrupted
+		]])
+		item:BuildAndParseRaw()
+
+		local spellDamage = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "Damage" and mod.type == "INC" and mod.flags == ModFlag.Spell then
+				spellDamage = spellDamage + mod.value
+			end
+		end
+		assert.are.equals(210, spellDamage)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("{enchant}{rune}210%% increased Spell Damage"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}%+9 to Level of all Spell Skills"))
+	end)
+
+	it("infers pasted game rune lines with socketed rune effect", function()
+		local item = new("Item", [[
+			Item Class: Wands
+			Rarity: Unique
+			Runeseeker's Call
+			Runic Fork
+			--------
+			Quality: +20% (augmented)
+			--------
+			Requires: Level 90 (unmet)
+			--------
+			Sockets: S S S S S
+			--------
+			Item Level: 86
+			--------
+			Gain 120% of Damage as Extra Lightning Damage (rune)
+			Remnants you create have 75% reduced effect (rune)
+			Remnants can be collected from 150% further away (rune)
+			--------
+			Grants Skill: Level 20 The Stars Answer
+			--------
+			{ Unique Modifier }
+			Only Runes can be Socketed in this item — Unscalable Value
+			{ Unique Modifier }
+			200% increased effect of Socketed Runes — Unscalable Value
+			--------
+			Smithed from ancient metal
+			wrought from the very stars.
+			It is a means to call upon them,
+			for one capable of wielding it.
+			--------
+			Corrupted
+		]])
+
+		local damageGainAsLightning = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsLightning" and mod.type == "BASE" then
+				damageGainAsLightning = damageGainAsLightning + mod.value
+			end
+		end
+		assert.are.equals(120, damageGainAsLightning)
+
+		item:BuildAndParseRaw()
+
+		assert.are.equals(5, item.itemSocketCount)
+		assert.are.equals(5, #item.runes)
+		for _, rune in ipairs(item.runes) do
+			assert.are_not.equals("None", rune)
+		end
+
+		damageGainAsLightning = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsLightning" and mod.type == "BASE" then
+				damageGainAsLightning = damageGainAsLightning + mod.value
+			end
+		end
+		assert.are.equals(120, damageGainAsLightning)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Gain 120%% of Damage as Extra Lightning Damage"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants you create have 75%% reduced effect"))
+		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants can be collected from 150%% further away"))
 	end)
 
 	it("multi-line rune mod", function()

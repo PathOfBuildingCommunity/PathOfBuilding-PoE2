@@ -19,7 +19,7 @@ return {
 						[2]=0
 					}
 				},
-				text="{0:+d} second to Stolen Modifier duration"
+				text="{0:+d} second to Modifier duration"
 			},
 			[2]={
 				[1]={
@@ -36,7 +36,7 @@ return {
 						[2]=0
 					}
 				},
-				text="{0:+d} seconds to Stolen Modifier duration"
+				text="{0:+d} seconds to Modifier duration"
 			},
 			[3]={
 				[1]={
@@ -53,7 +53,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Stolen Modifier duration is {0} second"
+				text="Modifier duration is {0} second"
 			},
 			[4]={
 				[1]={
@@ -70,7 +70,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Stolen Modifier duration is {0} seconds"
+				text="Modifier duration is {0} seconds"
 			}
 		},
 		stats={
@@ -80,13 +80,30 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="When used on yourself, removes {0}% of maximum Life to grant a random Monster Modifier, replacing any previous\nModifier gained this way"
+			}
+		},
+		stats={
+			[1]="head_hunt_%_life_to_remove_on_self_stab"
+		}
+	},
+	[3]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
 	["base_skill_effect_duration"]=1,
+	["head_hunt_%_life_to_remove_on_self_stab"]=2,
 	parent="skill_stat_descriptions",
 	["quality_display_base_skill_effect_duration_is_gem"]=1,
-	["skill_effect_duration"]=2
+	["skill_effect_duration"]=3
 }

@@ -944,6 +944,7 @@ function PassiveSpecClass:GetEffectiveAllocationPath(node, altPath)
 end
 
 function PassiveSpecClass:AllocNode(node, altPath)
+	self.build.treeTab.viewer.searchStrCached = ""
 	if not node.path then
 		-- Node cannot be connected to the tree as there is no possible path
 		return
@@ -1003,6 +1004,7 @@ end
 
 -- Deallocate the given node, and all nodes which depend on it (i.e. which are only connected to the tree through this node)
 function PassiveSpecClass:DeallocNode(node)
+	self.build.treeTab.viewer.searchStrCached = ""
 	for _, depNode in ipairs(node.depends) do
 		-- reset any switched attribute nodes
 		if depNode.isAttribute then
@@ -1047,7 +1049,7 @@ end
 
 -- Attempt to find a class start node starting from the given node
 -- Unless noAscent == true it will also look for an ascendancy class start node
-function PassiveSpecClass:FindStartFromNode(node, visited, noAscend, allocMode)
+function PassiveSpecClass:FindStartFromNode(node, visited, noAscend, allocMode, alternateClassStartNodes)
 	allocMode = allocMode or node.allocMode or 0
 	-- Mark the current node as visited so we don't go around in circles
 	node.visited = true
@@ -1058,9 +1060,10 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend, allocMode)
 		--  - the other node is a start node, or
 		--  - there is a path to a start node through the other node which didn't pass through any nodes which have already been visited
 		local startIndex = #visited + 1
-		if other.alloc and self:CanPathThroughAllocMode(allocMode, other) and
+		local otherAlloc = other.alloc or (alternateClassStartNodes and alternateClassStartNodes[other.id])
+		if otherAlloc and self:CanPathThroughAllocMode(allocMode, other) and
 		  (other.type == "ClassStart" or other.type == "AscendClassStart" or
-		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend, allocMode))
+		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend, allocMode, alternateClassStartNodes))
 		  ) then
 			if node.ascendancyName and not other.ascendancyName then
 				-- Pathing out of Ascendant, un-visit the outside nodes
@@ -1254,6 +1257,18 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- First check for mods that affect intuitive leap-like properties of other nodes
 	local processed = { }
 	local intuitiveLeapLikeNodes = self.intuitiveLeapLikeNodes
+	local alternateClassStartNodes = { }
+	for socketNodeId, itemId in pairs(self.jewels) do
+		if self.allocNodes[socketNodeId] then
+			local item = self:GetJewel(itemId)
+			local className = item and item.jewelData.alternateClassStart
+			local startNodeId = self.tree.classStartNodeNameMap[className]
+			local startNode = startNodeId and self.nodes[startNodeId]
+			if startNode then
+				alternateClassStartNodes[startNode.id] = startNode
+			end
+		end
+	end
 	wipeTable(intuitiveLeapLikeNodes)
 	for id, node in pairs(self.allocNodes) do
 		if node.ascendancyName then -- avoid processing potentially replaceable nodes
@@ -1606,13 +1621,14 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		node.connectedToStart = false
 		local anyStartFound = (node.type == "ClassStart" or node.type == "AscendClassStart")
 		for _, other in ipairs(node.linked) do
-			if other.alloc and self:CanPathThroughAllocMode(node.allocMode or 0, other) and not isValueInArray(node.depends, other) then
+			local otherAlloc = other.alloc or alternateClassStartNodes[other.id]
+			if otherAlloc and self:CanPathThroughAllocMode(node.allocMode or 0, other) and not isValueInArray(node.depends, other) then
 				-- The other node is allocated and isn't already dependent on this node, so try and find a path to a start node through it
 				if other.type == "ClassStart" or other.type == "AscendClassStart" then
 					-- Well that was easy!
 					anyStartFound = true
 					node.connectedToStart = true
-				elseif self:FindStartFromNode(other, visited, nil, node.allocMode or 0) then
+				elseif self:FindStartFromNode(other, visited, nil, node.allocMode or 0, alternateClassStartNodes) then
 					-- We found a path through the other node, therefore the other node cannot be dependent on this node
 					anyStartFound = true
 					node.connectedToStart = true
@@ -1823,6 +1839,9 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				self:SetNodeDistanceToClassStart(node)
 			end
 		end
+	end
+	for _, node in pairs(alternateClassStartNodes) do
+		self:BuildPathFromNode(node)
 	end
 end
 

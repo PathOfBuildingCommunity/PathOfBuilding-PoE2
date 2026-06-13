@@ -40,7 +40,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Defences while you have an Endurance Charge"
+				text="{0}% more Armour, Evasion and Energy Shield while you have an Endurance Charge"
 			},
 			[2]={
 				[1]={
@@ -53,11 +53,11 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less Defences while you have an Endurance Charge"
+				text="{0}% less Armour, Evasion and Energy Shield while you have an Endurance Charge"
 			}
 		},
 		stats={
-			[1]="charge_mastery_defences_+%_final_with_endurance_charges"
+			[1]="charge_mastery_armour_evasion_energy_shield_+%_final_with_endurance_charges"
 		}
 	},
 	[3]={
@@ -147,8 +147,8 @@ return {
 			[1]="consume_frenzy_power_and_endurance_charge_every_x_ms"
 		}
 	},
+	["charge_mastery_armour_evasion_energy_shield_+%_final_with_endurance_charges"]=2,
 	["charge_mastery_crit_chance_+%_final_with_power_charges"]=1,
-	["charge_mastery_defences_+%_final_with_endurance_charges"]=2,
 	["charge_mastery_skill_speed_+%_final_with_frenzy_charges"]=3,
 	["charge_mastery_skill_speed_+%_with_frenzy_charges"]=4,
 	["consume_frenzy_power_and_endurance_charge_every_x_ms"]=5,

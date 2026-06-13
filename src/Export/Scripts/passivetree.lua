@@ -831,13 +831,6 @@ for i, group in ipairs(psg.groups) do
 				local totalStats = 0
 				local namesStats = ""
 				for k, stat in ipairs(passiveRow.Stats) do
-					if k > 5 then
-						printf("HERE ===========================================================================================>>>")
-						printf(" - more than 5 stats, skipping the rest for passive " .. passiveRow.Name .. " " .. passive.id)
-						print(namesStats .. stat.Id .. " | ")
-						printf("HERE ===========================================================================================>>>")
-						break
-					end
 					parseStats[stat.Id] = { min = passiveRow["Stat" .. k], max = passiveRow["Stat" .. k] }
 					totalStats = totalStats + 1
 					namesStats = namesStats .. stat.Id .. " | "

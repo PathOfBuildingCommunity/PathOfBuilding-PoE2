@@ -15,7 +15,7 @@ local m_ceil = math.ceil
 local m_floor = math.floor
 local m_modf = math.modf
 
-local rarityDropList = { 
+local rarityDropList = {
 	{ label = colorCodes.NORMAL.."Normal", rarity = "NORMAL" },
 	{ label = colorCodes.MAGIC.."Magic", rarity = "MAGIC" },
 	{ label = colorCodes.RARE.."Rare", rarity = "RARE" },
@@ -49,7 +49,10 @@ local flavourLookup = {}
 for _, entry in pairs(data.flavourText) do
     if entry.name and entry.id and entry.text then
         flavourLookup[entry.name] = flavourLookup[entry.name] or {}
-        flavourLookup[entry.name][entry.id] = entry.text
+        flavourLookup[entry.name][entry.id] = {
+            text = entry.text,
+            origin = entry.origin
+        }
     end
 end
 
@@ -138,7 +141,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.Control()
 
 	self.build = build
-	
+
 	self.socketViewer = new("PassiveTreeView")
 
 	self.items = { }
@@ -336,13 +339,13 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	    self.selectedDB = "UNIQUE"
 	end)
 	self.controls.uniqueButton.locked = function() return self.selectedDB == "UNIQUE" end
-	
+
 	-- Rare Templates Button
 	self.controls.rareButton = new("ButtonControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, {120, 0, 110, 18}, "Rare Templates", function()
 	    self.selectedDB = "RARE"
 	end)
 	self.controls.rareButton.locked = function() return self.selectedDB == "RARE" end
-	
+
 	-- Unique database
 	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end}, self, main.uniqueDB, "UNIQUE")
 	self.controls.uniqueDB.y = function()
@@ -351,7 +354,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.uniqueDB.shown = function()
 		return not self.controls.selectDBLabel:IsShown() or self.selectedDB == "UNIQUE"
 	end
-	
+
 	-- Rare template database
 	self.controls.rareDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(284, self.maxY - select(2, c:GetPos())) end}, self, main.rareDB, "RARE")
 	self.controls.rareDB.y = function()
@@ -359,30 +362,30 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	end
 	self.controls.rareDB.shown = function()
 		return not self.controls.selectDBLabel:IsShown() or self.selectedDB == "RARE"
-	end	
+	end
 
 	-- Create/import item
 	self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, {20, main.portraitMode and 0 or -20, 120, 20}, "Craft item...", function()
 		self:CraftItem()
 	end)
 	self.controls.craftDisplayItem.shown = function()
-		return self.displayItem == nil 
+		return self.displayItem == nil
 	end
 	self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.craftDisplayItem,"TOPRIGHT"}, {8, 0, 120, 20}, "Create custom...", function()
 		self:EditDisplayItemText()
 	end)
-	self.controls.displayItemTip = new("LabelControl", {"TOPLEFT",self.controls.craftDisplayItem,"BOTTOMLEFT"}, {0, 8, 100, 16}, 
+	self.controls.displayItemTip = new("LabelControl", {"TOPLEFT",self.controls.craftDisplayItem,"BOTTOMLEFT"}, {0, 8, 100, 16},
 [[^7Double-click an item from one of the lists,
 or copy and paste an item from in game
 (hover over the item and Ctrl+C) to view or edit
-the item and add it to your build. You can 
-also clone an item within Path of Building by 
+the item and add it to your build. You can
+also clone an item within Path of Building by
 copying and pasting it with Ctrl+C and Ctrl+V.
 
-You can Control + Click an item to equip it, or 
-drag it onto the slot.  This will also add it to 
+You can Control + Click an item to equip it, or
+drag it onto the slot.  This will also add it to
 your build if it's from the unique/template list.
-If there's 2 slots an item can go in, 
+If there's 2 slots an item can go in,
 holding Shift will put it in the second.]])
 	self.controls.sharedItemList = new("SharedItemListControl", {"TOPLEFT",self.controls.craftDisplayItem, "BOTTOMLEFT"}, {0, 232, 340, 308}, self, true)
 
@@ -412,11 +415,11 @@ holding Shift will put it in the second.]])
 		if not self.controls.displayItemVariant:IsShown() then
 			return 0
 		end
-		return (28 + 
-		(self.displayItem.hasAltVariant and 24 or 0) + 
-		(self.displayItem.hasAltVariant2 and 24 or 0) + 
+		return (28 +
+		(self.displayItem.hasAltVariant and 24 or 0) +
+		(self.displayItem.hasAltVariant2 and 24 or 0) +
 		(self.displayItem.hasAltVariant3 and 24 or 0) +
-		(self.displayItem.hasAltVariant4 and 24 or 0) + 
+		(self.displayItem.hasAltVariant4 and 24 or 0) +
 		(self.displayItem.hasAltVariant5 and 24 or 0))
 	end})
 	self.controls.displayItemVariant = new("DropDownControl", {"TOPLEFT", self.controls.displayItemSectionVariant,"TOPLEFT"}, {0, 0, 300, 20}, nil, function(index, value)
@@ -514,7 +517,7 @@ holding Shift will put it in the second.]])
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateDisplayItemTooltip()
 	end)
-	
+
 	-- Section: Enchant / Anoint / Corrupt
 	self.controls.displayItemSectionEnchant = new("Control", {"TOPLEFT",self.controls.displayItemSectionSockets,"BOTTOMLEFT"}, {0, 0, 0, function()
 		return (self.controls.displayItemAnoint:IsShown() or self.controls.displayItemCorrupt:IsShown() ) and 28 or 0
@@ -593,11 +596,11 @@ holding Shift will put it in the second.]])
 		function(index, value)
 			self.displayItem.catalyst = index - 1
 			if not self.displayItem.catalystQuality then
-				if string.match(self.displayItem.name, "Breach Ring") then 
-					self.displayItem.catalystQuality = 50 
-				else 
-					self.displayItem.catalystQuality = 20 
-				end 
+				if string.match(self.displayItem.name, "Breach Ring") then
+					self.displayItem.catalystQuality = 50
+				else
+					self.displayItem.catalystQuality = 20
+				end
 				self.controls.displayItemCatalystQualityEdit:SetText(self.displayItem.catalystQuality)
 			end
 			if self.displayItem.crafted then
@@ -641,7 +644,7 @@ holding Shift will put it in the second.]])
 			return self.displayItem and self.displayItem.crafted and self.displayItem.clusterJewel
 		end
 	}
-	
+
 	self.controls.displayItemClusterJewelNodeCountLabel = new("LabelControl", {"TOPLEFT",self.controls.displayItemClusterJewelSkill,"BOTTOMLEFT"}, {0, 7, 0, 14}, "^7Added Passives:")
 	self.controls.displayItemClusterJewelNodeCount = new("SliderControl", {"LEFT",self.controls.displayItemClusterJewelNodeCountLabel,"RIGHT"}, {2, 0, 150, 20}, function(val)
 		local divVal = self.controls.displayItemClusterJewelNodeCount:GetDivVal()
@@ -693,7 +696,7 @@ holding Shift will put it in the second.]])
 		drop.shown = function()
 			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre)
 		end
-		
+
 		self.controls["displayItemRune"..i] = drop
 		self.controls["displayItemRuneLabel"..i] = new("LabelControl", {"RIGHT",drop,"LEFT"}, {-4, 0, 0, 14}, "^7Rune #"..i)
 	end
@@ -745,7 +748,7 @@ holding Shift will put it in the second.]])
 				end
 				return false
 			end
-			
+
 			if priorMod then
 				if flipRange(priorMod, self.displayItem.affixes[drop.list[drop.selIndex].modList[index]]) then
 					range = 1 - range
@@ -883,7 +886,7 @@ holding Shift will put it in the second.]])
 					else
 						mod = self.displayItem.affixes[modList[1 + round((#modList - 1) * main.defaultItemAffixQuality)]]
 					end
-					
+
 					-- Adding Mod
 					self:AddModComparisonTooltip(tooltip, mod)
 				end
@@ -1168,17 +1171,17 @@ function ItemsTabClass:Save(xml)
 	}
 	for _, id in ipairs(self.itemOrderList) do
 		local item = self.items[id]
-		local child = { 
-			elem = "Item", 
-			attrib = { 
-				id = tostring(id), 
-				variant = item.variant and tostring(item.variant), 
-				variantAlt = item.variantAlt and tostring(item.variantAlt), 
+		local child = {
+			elem = "Item",
+			attrib = {
+				id = tostring(id),
+				variant = item.variant and tostring(item.variant),
+				variantAlt = item.variantAlt and tostring(item.variantAlt),
 				variantAlt2 = item.variantAlt2 and tostring(item.variantAlt2),
-				variantAlt3 = item.variantAlt3 and tostring(item.variantAlt3), 
-				variantAlt4 = item.variantAlt4 and tostring(item.variantAlt4), 
+				variantAlt3 = item.variantAlt3 and tostring(item.variantAlt3),
+				variantAlt4 = item.variantAlt4 and tostring(item.variantAlt4),
 				variantAlt5 = item.variantAlt5 and tostring(item.variantAlt5)
-			} 
+			}
 		}
 		item:BuildAndParseRaw()
 		t_insert(child, item.raw)
@@ -1285,9 +1288,9 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	end
 	self.x = self.x - self.controls.scrollBarH.offset
 	self.y = self.y - self.controls.scrollBarV.offset
-	
+
 	for _, event in ipairs(inputEvents) do
-		if event.type == "KeyDown" then	
+		if event.type == "KeyDown" then
 			if event.key == "v" and IsKeyDown("CTRL") then
 				local newItem = Paste()
 				if newItem then
@@ -1362,7 +1365,7 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	-- Update weapon slots in case we got Giant's Blood from somewhere
 	self.slots["Weapon 2"]:Populate()
 	self.slots["Weapon 2 Swap"]:Populate()
-	
+
 	if main.portraitMode then
 		self.controls.itemList:SetAnchor("TOPRIGHT", self.lastSlot, "BOTTOMRIGHT", 0, 40)
 	else
@@ -1565,12 +1568,12 @@ function ItemsTabClass:AddItem(item, noAutoEquip, index)
 			end
 		end
 	end
-	
+
 	-- Add it to the list
 	local replacing = self.items[item.id]
 	self.items[item.id] = item
 	item:BuildModList()
-	
+
 	if replacing and (replacing.clusterJewel or item.clusterJewel or replacing.baseName == "Timeless Jewel") then
 		-- We're replacing an existing item, and either the new or old one is a cluster jewel
 		if isValueInTable(self.build.spec.jewels, item.id) then
@@ -1702,7 +1705,7 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 				local currentAnoint = currentItem.enchantModLines
 				newItem.enchantModLines = currentAnoint
 			end
-			
+
 			--https://www.poe2wiki.net/wiki/Augment_socket
 			-- augments, given there are enough sockets
 
@@ -1734,10 +1737,22 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 				newItem.itemSocketCount = #newItem.sockets
 				newItem:UpdateRunes()
 			end
+
+			local validRunes = self:GetValidRunesForItem(newItem)
+
 			-- replace runes with current ones, or set to none
 			if shouldChangeAugments then
 				for i = 1, #newItem.sockets do
-					newItem.runes[i] = currentRunes[i] or "None"
+					newItem.runes[i] = "None"
+					if currentRunes[i] then
+						for _, rune in ipairs(validRunes) do
+							-- we only copy runes which fit the new item type
+							if rune.name == currentRunes[i] then
+								newItem.runes[i] = currentRunes[i]
+								break
+							end
+						end
+					end
 				end
 				newItem:UpdateRunes()
 			end
@@ -1883,7 +1898,7 @@ function ItemsTabClass:UpdateAffixControls()
 		else
 			self:UpdateAffixControl(self.controls["displayItemAffix"..i], item, "Suffix", "suffixes", i - prefixLimit)
 		end
-	end	
+	end
 	-- The custom affixes may have had their indexes changed, so the custom control UI is also rebuilt so that it will
 	-- reference the correct affix index.
 	self:UpdateCustomControls()
@@ -1905,39 +1920,74 @@ table.sort(runeModLines, function(a, b)
 		return a.group < b.group
 	end
 end)
+
+function ItemsTabClass:GetValidRunesForItem(item)
+	local runes = { }
+	local socketedItemType
+	if item.baseModList then
+		if item.baseModList:Flag(nil, "SocketedSoulCoresOnly") then
+			socketedItemType = "SoulCore"
+		elseif item.baseModList:Flag(nil, "SocketedRunesOnly") then
+			socketedItemType = "Rune"
+		end
+	end
+	for _, rune in pairs(runeModLines) do
+		local subType = item.base.subType and item.base.subType:lower()
+		local itemType = item.base.type:lower()
+		local function isRuneValidForSlot(runeSlot)
+			if runeSlot == "None" then
+				return true
+			elseif runeSlot == "warstaff" then
+				return subType == "warstaff"
+			elseif runeSlot == "buckler" then
+				return itemType == "shield" and subType == "evasion"
+			elseif runeSlot == "weapon" then
+				return item.base.weapon
+			elseif runeSlot == "armour" then
+				return item.base.armour
+			elseif runeSlot == "caster" then
+				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
+			else
+				return itemType == runeSlot
+			end
+		end
+		if isRuneValidForSlot(rune.slot) then
+			if rune.slot == "None" or not socketedItemType or rune.type == socketedItemType then
+				table.insert(runes, rune)
+			end
+		end
+	end
+	return runes
+end
+
 -- Update rune selection controls
 function ItemsTabClass:UpdateRuneControls()
 	local item = self.displayItem
 	-- Build rune selection for item
-	local runes = { }
-	for _, rune in pairs(runeModLines) do
-		if rune.slot == "None" or -- Needed "None" for Items Tab
-			item.base.type:lower() == rune.slot or
-			item.base.type == rune.slot or
-			item.base.weapon and rune.slot == "weapon" or
-			item.base.armour and rune.slot == "armour" or
-			(item.base.tags.wand or item.base.tags.staff) and rune.slot == "caster" then
-				if item.title == "Atziri's Splendour" then
-					if rune.slot == "None" or rune.type == "SoulCore" then
-						table.insert(runes, rune)
-					end
-				else
-					table.insert(runes, rune)
-				end
-		end
-	end
+	local runes = self:GetValidRunesForItem(item)
+	local runesUpdated = false
 
 	for i = 1, item.itemSocketCount do
 		self.controls["displayItemRune"..i].list = runes
 		if item.runes[i] then
+			local found = false
 			for j, modLine in ipairs(self.controls["displayItemRune"..i].list) do
 				if item.runes[i] == modLine.name then
 					self.controls["displayItemRune"..i].selIndex = j
+					found = true
 				end
+			end
+			if not found then
+				self.controls["displayItemRune"..i].selIndex = 1
+				item.runes[i] = "None"
+				runesUpdated = true
 			end
 		else
 			self.controls["displayItemRune"..i].selIndex = 1
 		end
+	end
+	if runesUpdated then
+		item:UpdateRunes()
 	end
 end
 
@@ -1961,7 +2011,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 			end
 		end
 	end
-	if item.clusterJewel and item.clusterJewelSkill then	
+	if item.clusterJewel and item.clusterJewelSkill then
 		local skill = item.clusterJewel.skills[item.clusterJewelSkill]
 		if skill then
 			extraTags[skill.tag] = true
@@ -2086,7 +2136,7 @@ function ItemsTabClass:UpdateCustomControls()
 						local id = item.id
 						self:CreateDisplayItemFromRaw(item:BuildRaw())
 						self.displayItem.id = id
-					end				
+					end
 					i = i + 1
 				end
 			end
@@ -2127,9 +2177,9 @@ local function checkLineForAllocates(line, nodes)
 end
 
 function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
-	local slotName = self.displayItem:GetPrimarySlot()
+	local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 	local newItem = new("Item", self.displayItem:BuildRaw())
-	
+
 	for _, subMod in ipairs(mod) do
 		t_insert(newItem.explicitModLines, { line = checkLineForAllocates(subMod, self.build.spec.nodes), modTags = mod.modTags, [mod.type or "Suffix"] = true })
 	end
@@ -2139,7 +2189,7 @@ function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
 	local calcFunc = self.build.calcsTab:GetMiscCalculator()
 	local outputBase = calcFunc({ repSlotName = slotName, repItem = self.displayItem })
 	local outputNew = calcFunc({ repSlotName = slotName, repItem = newItem })
-	self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\nAdding this mod will give: ")	
+	self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\nAdding this mod will give: ")
 end
 
 -- Returns the first slot in which the given item is equipped
@@ -2157,6 +2207,21 @@ function ItemsTabClass:GetEquippedSlotForItem(item)
 			end
 		end
 	end
+end
+
+function ItemsTabClass:GetComparisonSlotNameForItem(item)
+	local equippedSlot = self:GetEquippedSlotForItem(item)
+	if equippedSlot then
+		return equippedSlot.slotName
+	end
+	if item.type == "Jewel" then
+		for _, slot in ipairs(self.orderedSlots) do
+			if not slot.inactive and slot.selItemId == 0 and slot:IsShown() and self:IsItemValidForSlot(item, slot.slotName) then
+				return slot.slotName
+			end
+		end
+	end
+	return item:GetPrimarySlot()
 end
 
 -- Check if the given item could be equipped in the given slot, taking into account possible conflicts with currently equipped items
@@ -2322,11 +2387,6 @@ function ItemsTabClass:CraftItem()
 				raritySel = 2
 			end
 		end
-		if base.base.type == "SoulCore" or base.base.type == "Rune" then
-			if raritySel == 3 or raritySel == 2 then
-				raritySel = 1
-			end
-		end
 		if base.base.type == "Transcendent Limb" then
 			raritySel = 1
 		end
@@ -2344,6 +2404,11 @@ function ItemsTabClass:CraftItem()
 				t_insert(item.implicitModLines, { line = line, extra = extra, modList = modList or { }, modTags = base.base.implicitModTypes and base.base.implicitModTypes[implicitIndex] or { } })
 				implicitIndex = implicitIndex + 1
 			end
+		end
+		if base.base.variantList then
+			item.variantList = copyTable(base.base.variantList, true)
+			item.variant = 1
+			item.baseLines = { }
 		end
 		if base.base.type == "Jewel" and base.base.subType == "Radius" then
 			item.jewelRadiusLabel = "Small"
@@ -2439,7 +2504,7 @@ function ItemsTabClass:EditDisplayItemText(alsoAddItem)
 			tooltip:AddLine(14, "For Normal and Magic items, the base name must be somewhere in the first line. E.g.:")
 			tooltip:AddLine(14, "Scholar's Platinum Kris of Joy")
 		end
-	end	
+	end
 	controls.cancel = new("ButtonControl", nil, {45, 470, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
@@ -2543,7 +2608,7 @@ end
 function ItemsTabClass:AnointDisplayItem(enchantSlot)
 	self.anointEnchantSlot = enchantSlot or 1
 
-	local controls = { } 
+	local controls = { }
 	controls.notableDB = new("NotableDBControl", {"TOPLEFT",nil,"TOPLEFT"}, {10, 20, 360, 400}, self, self.build.spec.tree.nodes, "ANOINT")
 
 	local function saveLabel()
@@ -2572,7 +2637,7 @@ function ItemsTabClass:AnointDisplayItem(enchantSlot)
 	controls.save.tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		self:AppendAnointTooltip(tooltip, controls.notableDB.selValue)
-	end	
+	end
 	controls.close = new("ButtonControl", {"TOPLEFT", controls.save, "TOPRIGHT" }, {10, 0, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
@@ -2674,7 +2739,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	end
 	local function sortEnchantList(stat)
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(enchantList[currentModType], stat, function(listMod)
@@ -2883,7 +2948,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	controls.save.tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		self:AddItemTooltip(tooltip, corruptItem(controls.enchant1.shown), nil, true)
-	end	
+	end
 	controls.close = new("ButtonControl", nil, {45, 69 + enchantNum * 20, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
@@ -2902,7 +2967,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		end
 		local selected = not selectFirst and modList[controls.modSelect.selIndex] or nil
 		if stat then
-			local slotName = self.displayItem:GetPrimarySlot()
+			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
 			local useFullDPS = stat == "FullDPS"
 			sortModList(modList, stat, function(listMod)
@@ -3113,11 +3178,11 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	controls.save.tooltipFunc = function(tooltip)
 		tooltip:Clear()
 		self:AddItemTooltip(tooltip, addModifier())
-	end	
+	end
 	controls.close = new("ButtonControl", nil, {45, 75, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(710, 105, "Add Modifier to Item", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
+	main:OpenPopup(710, 105, "Add Modifier to Item", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")
 end
 
 function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
@@ -3174,7 +3239,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
-	self:SetTooltipHeaderInfluence(tooltip, item)
 	-- Item name
 	if item.title then
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.title, "FONTIN SC")
@@ -3182,7 +3246,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	else
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix, "FONTIN SC")
 	end
-
+	tooltip.runicItem = item.runicItem
 	tooltip:AddSeparator(10)
 
 	-- Special fields for database items
@@ -3215,7 +3279,61 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	local slotNum = slot and slot.slotNum or (IsKeyDown("SHIFT") and 2 or 1)
 	local modList = item.modList or item.slotModList[slotNum]
 
-	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type), "FONTIN SC")
+	-- Find matching flavour entry and extract origin ONCE
+	local itemOrigin = nil
+	local flavourText = nil
+	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type == "Transcendent Limb" then
+		if main.showFlavourText then
+			local flavourTable
+			if item.base.type == "Transcendent Limb" then
+				flavourTable = flavourLookup["Transcendent Limb"]
+			else
+				flavourTable = flavourLookup[item.title]
+			end
+			if flavourTable then
+				local flavour = nil
+
+				if item.title == "Grand Spectrum" then
+					local selectedFlavourId = nil
+					local baseName = item.baseName
+					if baseName == "Ruby" then
+						selectedFlavourId = "FourUniqueJewel1"
+					elseif baseName == "Emerald" then
+						selectedFlavourId = "FourUniqueJewel2"
+					elseif baseName == "Sapphire" then
+						selectedFlavourId = "FourUniqueJewel3"
+					end
+					if selectedFlavourId then
+						flavour = flavourTable[selectedFlavourId]
+					end
+
+				else
+					for _, text in pairs(flavourTable) do
+						flavour = text
+						break
+					end
+				end
+
+				if flavour then
+					if flavour.origin then
+						itemOrigin = flavour.origin
+					end
+					flavourText = flavour.text or flavour
+				end
+			end
+		end
+	end
+
+	-- Combine base type with origin if available
+	local typeStr = base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type
+	if itemOrigin then
+		typeStr = itemOrigin .. " " .. typeStr
+		if itemOrigin == "Vaal" then
+			item.mutated = true
+		end
+	end
+	self:SetTooltipHeaderInfluence(tooltip, item)
+	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", typeStr), "FONTIN SC")
 	if item.quality and item.quality > 0 then
 		tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FQuality: "..colorCodes.MAGIC.."+%d%%", item.quality), "FONTIN SC")
 	end
@@ -3245,7 +3363,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 			tooltip:AddLine(fontSizeBig, elemLine, "FONTIN SC")
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FElemental DPS: "..colorCodes.MAGIC.."%.1f", weaponData.ElementalDPS), "FONTIN SC")
-			totalDamageTypes = totalDamageTypes + 1	
+			totalDamageTypes = totalDamageTypes + 1
 		end
 		if weaponData.ChaosDPS then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChaos Damage: "..colorCodes.CHAOS.."%d-%d "..colorCodes.MAGIC.."(%.1f DPS)", weaponData.ChaosMin, weaponData.ChaosMax, weaponData.ChaosDPS), "FONTIN SC")
@@ -3265,20 +3383,25 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	elseif base.armour then
 		-- Armour-specific info
 		local armourData = item.armourData
+		local level = self.build.characterLevel
+		local armour = item:GetArmourDataValue("Armour", level)
+		local evasion = item:GetArmourDataValue("Evasion", level)
+		local energyShield = item:GetArmourDataValue("EnergyShield", level)
+		local ward = item:GetArmourDataValue("Ward", level)
 		if base.armour.BlockChance and armourData.BlockChance > 0 then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
-		if armourData.Armour > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armourData.Armour, base.armour.ArmourBase), armourData.Armour), "FONTIN SC")
+		if armour > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, base.armour.ArmourBase), armour), "FONTIN SC")
 		end
-		if armourData.Evasion > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(armourData.Evasion, base.armour.EvasionBase), armourData.Evasion), "FONTIN SC")
+		if evasion > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, base.armour.EvasionBase), evasion), "FONTIN SC")
 		end
-		if armourData.EnergyShield > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(armourData.EnergyShield, base.armour.EnergyShieldBase), armourData.EnergyShield), "FONTIN SC")
+		if energyShield > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, base.armour.EnergyShieldBase), energyShield), "FONTIN SC")
 		end
-		if armourData.Ward > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FWard: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward), "FONTIN SC")
+		if ward > 0 then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, base.armour.WardBase), ward), "FONTIN SC")
 		end
 	elseif base.flask then
 		-- Flask-specific info
@@ -3321,7 +3444,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	elseif base.charm then
 		-- Charm-specific info
 		local charmData = item.charmData
-		
+
 		tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FLasts %s%.2f ^x7F7F7FSeconds", main:StatColor(charmData.duration, base.charm.duration), charmData.duration), "FONTIN SC")
 		tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FConsumes %s%d ^x7F7F7Fof %s%d ^x7F7F7FCharges on use",
 			main:StatColor(charmData.chargesUsed, base.charm.chargesUsed), charmData.chargesUsed,
@@ -3361,7 +3484,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 		end
 	end
-	
+
 	if item.catalyst and item.catalyst > 0 and item.catalyst <= #catalystQualityFormat and item.catalystQuality and item.catalystQuality > 0 then
 		tooltip:AddLine(fontSizeBig, s_format(catalystQualityFormat[item.catalyst], item.catalystQuality), "FONTIN SC")
 		tooltip:AddSeparator(10)
@@ -3391,8 +3514,8 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	end
 
 	-- Requirements
-	self.build:AddRequirementsToTooltip(tooltip, item.requirements.level, 
-		item.requirements.strMod, item.requirements.dexMod, item.requirements.intMod, 
+	self.build:AddRequirementsToTooltip(tooltip, item.requirements.level,
+		item.requirements.strMod, item.requirements.dexMod, item.requirements.intMod,
 		item.requirements.str or 0, item.requirements.dex or 0, item.requirements.int or 0)
 
 	-- Modifiers
@@ -3404,14 +3527,14 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		local node = self.build.spec.nodes[slot.nodeId]
 		if node and node.containJewelSocket then
 			local jewelEffect = node.modList:Sum("INC", nil, "SocketedJewelEffect")
-			extraTooltip = "^x7F7F7FSocketed Jewel Effect: "			
+			extraTooltip = "^x7F7F7FSocketed Jewel Effect: "
 			if jewelEffect > 0 then
 				extraTooltip = extraTooltip .. s_format(colorCodes.MAGIC.."+%d%%", jewelEffect)
 				tooltip:AddSeparator(10)
 				tooltip:AddLine(fontSizeBig, extraTooltip, "FONTIN SC")
 				tooltip:AddSeparator(10)
 			end
-			
+
 			scale = scale + (jewelEffect / 100)
 		end
 	end
@@ -3419,8 +3542,10 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	for _, modList in ipairs{item.enchantModLines, item.runeModLines, item.implicitModLines, item.explicitModLines} do
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
-				if item:CheckModLineVariant(modLine) then
+				local variantCount = item:GetModLineVariantCount(modLine)
+				if variantCount > 0 then
 					local bg = modLine.desecrated and "HoverModBgAbyss" or nil
+					local formattedModLine
 					if scale ~= 1 then
 						local copyModLine = copyTable(modLine)
 						local modsList = copyTable(modLine.modList)
@@ -3441,9 +3566,12 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 								copyModLine.line = copyModLine.line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
 							end
 						end
-						tooltip:AddLine(fontSizeBig, itemLib.formatModLine(copyModLine, dbMode), "FONTIN SC", bg)
+						formattedModLine = itemLib.formatModLine(copyModLine, dbMode)
 					else
-						tooltip:AddLine(fontSizeBig, itemLib.formatModLine(modLine, dbMode), "FONTIN SC", bg)
+						formattedModLine = itemLib.formatModLine(modLine, dbMode)
+					end
+					for _ = 1, variantCount do
+						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
 					end
 
 					-- Show mods from granted Notables
@@ -3510,63 +3638,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type =="Transcendent Limb" and main.showFlavourText then
-		local flavourTable
-		if item.base.type =="Transcendent Limb" then
-			flavourTable = flavourLookup["Transcendent Limb"]
-		else
-			flavourTable = flavourLookup[item.title]
+	if flavourText then
+		for _, line in ipairs(flavourText) do
+			tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
 		end
-		if flavourTable then
-			local flavour = nil
-
-			if item.title == "Sekhema's Resolve" then
-				local selectedFlavourId = nil
-				for _, lineEntry in ipairs(tooltip.lines or {}) do
-					local lineText = lineEntry.text or ""
-					if lineText:find("Emerald") then
-						selectedFlavourId = "FourUniqueSanctum4a"
-						break
-					elseif lineText:find("Sapphire") then
-						selectedFlavourId = "FourUniqueSanctum4b"
-						break
-					elseif lineText:find("Ruby") then
-						selectedFlavourId = "FourUniqueSanctum4c"
-						break
-					end
-				end
-				if selectedFlavourId then
-					flavour = flavourTable[selectedFlavourId]
-				end
-
-			elseif item.title == "Grand Spectrum" then
-				local selectedFlavourId = nil
-				local baseName = item.baseName
-				if baseName == "Ruby" then
-					selectedFlavourId = "FourUniqueJewel1"
-				elseif baseName == "Emerald" then
-					selectedFlavourId = "FourUniqueJewel2"
-				elseif baseName == "Sapphire" then
-					selectedFlavourId = "FourUniqueJewel3"
-				end
-				if selectedFlavourId then
-					flavour = flavourTable[selectedFlavourId]
-				end
-
-			else
-				for _, text in pairs(flavourTable) do
-					flavour = text
-					break
-				end
-			end
-
-			if flavour then
-				for _, line in ipairs(flavour) do
-					tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
-				end
-				tooltip:AddSeparator(14)
-			end
-		end
+		tooltip:AddSeparator(14)
 	end
 
 	-- Stat differences
@@ -3593,7 +3669,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local lifeInc = modDB:Sum("INC", nil, "FlaskLifeRecovery")
 				local lifeMore = modDB:More(nil, "FlaskLifeRecovery")
 				local lifeRateInc = modDB:Sum("INC", nil, "FlaskLifeRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "LifeFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery", "LifeFlaskInstantRecovery")
 
 				-- More life recovery while on low life is not affected by flask effect (verified ingame).
 				-- Since this will be multiplied by the flask effect value below we have to counteract this by removing the flask effect from the value beforehand.
@@ -3656,7 +3732,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 				local manaInc = modDB:Sum("INC", nil, "FlaskManaRecovery")
 				local manaMore = modDB:More(nil, "FlaskManaRecovery")
 				local manaRateInc = modDB:Sum("INC", nil, "FlaskManaRecoveryRate")
-				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "ManaFlaskInstantRecovery")
+				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "FlaskInstantRecovery",  "ManaFlaskInstantRecovery")
 				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100)
 				local base = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100) * (1 + durInc / 100)
 				local grad = base * output.ManaRecoveryRateMod

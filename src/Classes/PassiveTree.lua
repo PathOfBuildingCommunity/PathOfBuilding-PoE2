@@ -89,6 +89,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.ascendNameMap = { }
 	self.classIntegerIdMap = { }
 	self.internalAscendNameMap = { }
+	self.classStartNodeNameMap = { }
 	self.classNotables = { }
 
 	for classId, class in pairs(self.classes) do
@@ -204,6 +205,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		if node.classesStart then
 			node.type = "ClassStart"
 			for _, className in ipairs(node.classesStart) do
+				self.classStartNodeNameMap[className] = node.id
 				local class = self.classes[self.classNameMap[className]]
 				if class ~= nil then
 					class.startNodeId = node.id

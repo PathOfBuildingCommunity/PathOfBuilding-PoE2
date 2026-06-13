@@ -246,21 +246,21 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.spec:AddUndoState()
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
-				self.treeTab.viewer.searchNeedsForceUpdate = true
+				self.treeTab.viewer.searchStrCached = ""
 			else
 				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
 					self.buildFlag = true
-					self.treeTab.viewer.searchNeedsForceUpdate = true
+					self.treeTab.viewer.searchStrCached = ""
 				end, "Connect Path", function()
 					if self.spec:ConnectToClass(value.classId) then
 						self.spec:SelectClass(value.classId)
 						self.spec:AddUndoState()
 						self.spec:SetWindowTitleWithBuildClass()
 						self.buildFlag = true
-						self.treeTab.viewer.searchNeedsForceUpdate = true
+						self.treeTab.viewer.searchStrCached = ""
 					end
 				end)
 			end
@@ -760,6 +760,7 @@ function buildMode:NewLoadout(loadoutName)
 
 	newSpec.title = loadoutName
 	t_insert(self.treeTab.specList, newSpec)
+	self:SyncLoadouts() -- Sync loadouts to update the dropdown with the new loadout and select it
 	self:SetActiveLoadout(self:GetLoadoutByName(loadoutName))
 
 	self.modFlag = true
@@ -813,7 +814,7 @@ function buildMode:CustomLoadout(specId, itemSetId, skillSetId, configSetId, nam
 	else
 		newConfigSet = self.configTab:CopyConfigSet(configSetId, name)
 	end
-	
+
 	local customLoadout = self:GetLoadoutByName(name)
 	self:SetActiveLoadout(customLoadout)
 
@@ -1720,8 +1721,8 @@ function buildMode:OpenSpectreLibrary(library)
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
-	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "Show All " .. firstToUpper(library) .. "s:")
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
+	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "^7Show All " .. firstToUpper(library) .. "s:")
 	controls.save = new("ButtonControl", nil, {-45, 420, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
@@ -1954,7 +1955,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 			local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 			local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or activeSkill.activeEffect.grantedEffect.name })
+			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
 		end
 		controls.mainSkill.enabled = #displaySkillList > 1
 		controls.mainSkill.selIndex = mainActiveSkill

@@ -9,7 +9,7 @@ return {
 	},
 	[2]={
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[3]={
@@ -97,5 +97,5 @@ return {
 	["base_skill_effect_duration"]=5,
 	parent="specific_skill_stat_descriptions/toxic_grenade_statset_0",
 	["skill_effect_duration"]=6,
-	["total_number_of_projectiles_to_fire"]=2
+	["total_number_of_projectiles_to_fire_from_stats"]=2
 }
