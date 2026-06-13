@@ -6412,7 +6412,7 @@ local deprecatedSkillNames = { ["Flammability"] = true }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	local skillName = grantedEffect.baseTypeName or grantedEffect.name
-	if not grantedEffect.hidden and not grantedEffect.support and not deprecatedSkillNames[skillName] then
+	if not grantedEffect.hidden and not grantedEffect.support and not grantedEffect.fromItem and not deprecatedSkillNames[skillName] then
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
