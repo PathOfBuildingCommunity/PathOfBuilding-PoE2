@@ -179,62 +179,32 @@ end
 
 -- Output fields harvested from each Full DPS calc pass; captured into plain snapshot
 -- tables so that cached passes can be merged identically to freshly computed ones
-local playerHarvestFields = { "TotalDPS", "BleedDPS", "CorruptingBloodDPS", "IgniteDPS", "BurningGroundDPS", "PoisonDPS", "CausticGroundDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier" }
-local minionHarvestFields = { "TotalDPS", "BleedDPS", "IgniteDPS", "PoisonDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier" }
-local mirageHarvestFields = { "TotalDPS", "BleedDPS", "IgniteDPS", "PoisonDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier", "BurningGroundDPS", "CausticGroundDPS" }
-local function captureFields(output, fields)
+local harvestFields = { "TotalDPS", "BleedDPS", "CorruptingBloodDPS", "IgniteDPS", "BurningGroundDPS", "PoisonDPS", "CausticGroundDPS", "ImpaleDPS", "DecayDPS", "TotalDot", "CullMultiplier" }
+local function captureFields(output)
 	local captured = { }
-	for _, field in ipairs(fields) do
+	for _, field in ipairs(harvestFields) do
 		captured[field] = output[field]
 	end
 	return captured
 end
 
+local mergeStatsSpec = {
+	{ key = "BleedDPS", target = "bleedDPS", mode = "max" },
+	{ key = "CorruptingBloodDPS", target = "corruptingBloodDPS", mode = "max" },
+	{ key = "IgniteDPS", target = "igniteDPS", mode = "max" },
+	{ key = "BurningGroundDPS", target = "burningGroundDPS", mode = "max" },
+	{ key = "PoisonDPS", target = "poisonDPS", mode = "max" },
+	{ key = "CausticGroundDPS", target = "causticGroundDPS", mode = "max" },
+	{ key = "ImpaleDPS", target = "impaleDPS", mode = "add", scaled = true },
+	{ key = "DecayDPS", target = "decayDPS", mode = "add" },
+	{ key = "CullMultiplier", target = "cullingMulti", mode = "cull" },
+}
+
 -- Tolerant modifier equality for the Full DPS input diff: mod tables are pointer-stable
 -- across initEnv calls within one build revision, except for a few mods constructed per
 -- pass (e.g. GemLevel, level-scaled support mods), which are compared structurally instead.
--- Comparison is depth-limited; anything deeper or non-plain stays conservatively unequal.
-local function valuesEqual(a, b, depth)
-	if a == b then
-		return true
-	end
-	if type(a) ~= "table" or type(b) ~= "table" or depth <= 0 then
-		return false
-	end
-	local keyCount = 0
-	for k, v in pairs(a) do
-		keyCount = keyCount + 1
-		if not valuesEqual(v, b[k], depth - 1) then
-			return false
-		end
-	end
-	for _ in pairs(b) do
-		keyCount = keyCount - 1
-	end
-	return keyCount == 0
-end
 local function modsEqual(a, b)
-	if a == b then
-		return true
-	end
-	if type(a) ~= "table" or type(b) ~= "table" then
-		return false
-	end
-	if a.name ~= b.name or a.type ~= b.type or a.flags ~= b.flags or a.keywordFlags ~= b.keywordFlags or a.source ~= b.source then
-		return false
-	end
-	if not valuesEqual(a.value, b.value, 3) then
-		return false
-	end
-	if #a ~= #b then
-		return false
-	end
-	for i = 1, #a do
-		if not valuesEqual(a[i], b[i], 3) then
-			return false
-		end
-	end
-	return true
+	return a == b or (type(a) == "table" and type(b) == "table" and tableDeepEquals(a, b) and tableDeepEquals(b, a))
 end
 local function modListsEqual(refList, curList)
 	if #refList ~= #curList then
@@ -318,146 +288,43 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		cullingMulti = 0
 	}
 
-	local poisonSource = ""
-	local bleedSource = ""
-	local corruptingBloodSource = ""
-	local igniteSource = ""
-	local burningGroundSource = ""
-	local causticGroundSource = ""
 
-	-- Merge one captured minion pass into the Full DPS totals
-	local function mergeMinionPass(pass)
-		local minionOut = pass.minion
-		if minionOut.TotalDPS and minionOut.TotalDPS > 0 then
-			t_insert(fullDPS.skills, { name = pass.skillName, dps = minionOut.TotalDPS, count = pass.minionCount, trigger = pass.trigger, skillPart = pass.minionSkillPart })
-			fullDPS.combinedDPS = fullDPS.combinedDPS + minionOut.TotalDPS * pass.minionCount
-		end
-		if minionOut.BleedDPS and minionOut.BleedDPS > fullDPS.bleedDPS then
-			fullDPS.bleedDPS = minionOut.BleedDPS
-			bleedSource = pass.skillName
-		end
-		if minionOut.IgniteDPS and minionOut.IgniteDPS > fullDPS.igniteDPS then
-			fullDPS.igniteDPS = minionOut.IgniteDPS
-			igniteSource = pass.skillName
-		end
-		if minionOut.PoisonDPS and minionOut.PoisonDPS > fullDPS.poisonDPS then
-			fullDPS.poisonDPS = minionOut.PoisonDPS
-			poisonSource = pass.skillName
-		end
-		if minionOut.ImpaleDPS and minionOut.ImpaleDPS > 0 then
-			fullDPS.impaleDPS = fullDPS.impaleDPS + minionOut.ImpaleDPS * pass.minionCount
-		end
-		if minionOut.DecayDPS and minionOut.DecayDPS > 0 then
-			fullDPS.decayDPS = fullDPS.decayDPS + minionOut.DecayDPS
-		end
-		if minionOut.TotalDot and minionOut.TotalDot > 0 then
-			fullDPS.dotDPS = fullDPS.dotDPS + minionOut.TotalDot
-		end
-		if minionOut.CullMultiplier and minionOut.CullMultiplier > 1 and minionOut.CullMultiplier > fullDPS.cullingMulti then
-			fullDPS.cullingMulti = minionOut.CullMultiplier
+	local sources = { }
+
+	local function mergeStats(out, count, sourceName)
+		for _, stat in ipairs(mergeStatsSpec) do
+			local value = out[stat.key]
+			if value then
+				if stat.mode == "max" then
+					if value > fullDPS[stat.target] then
+						fullDPS[stat.target] = value
+						sources[stat.target] = sourceName
+					end
+				elseif stat.mode == "add" then
+					if value > 0 then
+						fullDPS[stat.target] = fullDPS[stat.target] + value * (stat.scaled and count or 1)
+					end
+				elseif stat.mode == "cull" then
+					if value > 1 and value > fullDPS[stat.target] then
+						fullDPS[stat.target] = value
+					end
+				end
+			end
 		end
 	end
 
-	-- Merge one captured mirage result into the Full DPS totals
-	local function mergeMiragePass(pass)
-		local mirage = pass.mirage
-		local mirageOut = mirage.fields
-		if mirageOut.TotalDPS and mirageOut.TotalDPS > 0 then
-			t_insert(fullDPS.skills, { name = mirage.name, dps = mirageOut.TotalDPS, count = mirage.count, trigger = mirage.trigger, skillPart = mirage.skillPart })
-			fullDPS.combinedDPS = fullDPS.combinedDPS + mirageOut.TotalDPS * mirage.count
-		end
-		if mirageOut.BleedDPS and mirageOut.BleedDPS > fullDPS.bleedDPS then
-			fullDPS.bleedDPS = mirageOut.BleedDPS
-			bleedSource = mirage.sourceName
-		end
-		if mirageOut.IgniteDPS and mirageOut.IgniteDPS > fullDPS.igniteDPS then
-			fullDPS.igniteDPS = mirageOut.IgniteDPS
-			igniteSource = mirage.sourceName
-		end
-		if mirageOut.PoisonDPS and mirageOut.PoisonDPS > fullDPS.poisonDPS then
-			fullDPS.poisonDPS = mirageOut.PoisonDPS
-			poisonSource = mirage.sourceName
-		end
-		if mirageOut.ImpaleDPS and mirageOut.ImpaleDPS > 0 then
-			fullDPS.impaleDPS = fullDPS.impaleDPS + mirageOut.ImpaleDPS * mirage.count
-		end
-		if mirageOut.DecayDPS and mirageOut.DecayDPS > 0 then
-			fullDPS.decayDPS = fullDPS.decayDPS + mirageOut.DecayDPS
-		end
-		-- This will only take skillFlags from main env. Needs rework if trigger section is to be kept.
-		if mirageOut.TotalDot and mirageOut.TotalDot > 0 and (pass.dotCanStack or (pass.player.TotalDot and pass.player.TotalDot == 0)) then
-			fullDPS.dotDPS = fullDPS.dotDPS + mirageOut.TotalDot * (pass.dotCanStack and mirage.count or 1)
-		end
-		if mirageOut.CullMultiplier and mirageOut.CullMultiplier > 1 and mirageOut.CullMultiplier > fullDPS.cullingMulti then
-			fullDPS.cullingMulti = mirageOut.CullMultiplier
-		end
-		if mirageOut.BurningGroundDPS and mirageOut.BurningGroundDPS > fullDPS.burningGroundDPS then
-			fullDPS.burningGroundDPS = mirageOut.BurningGroundDPS
-			burningGroundSource = mirage.sourceName
-		end
-		if mirageOut.CausticGroundDPS and mirageOut.CausticGroundDPS > fullDPS.causticGroundDPS then
-			fullDPS.causticGroundDPS = mirageOut.CausticGroundDPS
-			causticGroundSource = mirage.sourceName
-		end
-	end
-
-	-- Merge one captured player result into the Full DPS totals
-	local function mergePlayerPass(pass)
-		local playerOut = pass.player
-		if playerOut.TotalDPS and playerOut.TotalDPS > 0 then
-			t_insert(fullDPS.skills, { name = pass.skillName, dps = playerOut.TotalDPS, count = pass.count, trigger = pass.trigger, skillPart = pass.skillPart })
-			fullDPS.combinedDPS = fullDPS.combinedDPS + playerOut.TotalDPS * pass.count
-		end
-		if playerOut.BleedDPS and playerOut.BleedDPS > fullDPS.bleedDPS then
-			fullDPS.bleedDPS = playerOut.BleedDPS
-			bleedSource = pass.skillName
-		end
-		if playerOut.CorruptingBloodDPS and playerOut.CorruptingBloodDPS > fullDPS.corruptingBloodDPS then
-			fullDPS.corruptingBloodDPS = playerOut.CorruptingBloodDPS
-			corruptingBloodSource = pass.skillName
-		end
-		if playerOut.IgniteDPS and playerOut.IgniteDPS > fullDPS.igniteDPS then
-			fullDPS.igniteDPS = playerOut.IgniteDPS
-			igniteSource = pass.skillName
-		end
-		if playerOut.BurningGroundDPS and playerOut.BurningGroundDPS > fullDPS.burningGroundDPS then
-			fullDPS.burningGroundDPS = playerOut.BurningGroundDPS
-			burningGroundSource = pass.skillName
-		end
-		if playerOut.PoisonDPS and playerOut.PoisonDPS > fullDPS.poisonDPS then
-			fullDPS.poisonDPS = playerOut.PoisonDPS
-			poisonSource = pass.skillName
-		end
-		if playerOut.CausticGroundDPS and playerOut.CausticGroundDPS > fullDPS.causticGroundDPS then
-			fullDPS.causticGroundDPS = playerOut.CausticGroundDPS
-			causticGroundSource = pass.skillName
-		end
-		if playerOut.ImpaleDPS and playerOut.ImpaleDPS > 0 then
-			fullDPS.impaleDPS = fullDPS.impaleDPS + playerOut.ImpaleDPS * pass.count
-		end
-		if playerOut.DecayDPS and playerOut.DecayDPS > 0 then
-			fullDPS.decayDPS = fullDPS.decayDPS + playerOut.DecayDPS
-		end
-		-- This will only take skillFlags from main env. Needs rework.
-		if playerOut.TotalDot and playerOut.TotalDot > 0 then
-			fullDPS.dotDPS = fullDPS.dotDPS + playerOut.TotalDot * (pass.dotCanStack and pass.count or 1)
-		end
-		if playerOut.CullMultiplier and playerOut.CullMultiplier > 1 and playerOut.CullMultiplier > fullDPS.cullingMulti then
-			fullDPS.cullingMulti = playerOut.CullMultiplier
-		end
-	end
-
-	-- Merge one captured calc pass (minion, then mirage, then player sections,
-	-- preserving the original harvest order) into the Full DPS totals
-	local function mergePass(pass)
-		if pass.minion then
-			mergeMinionPass(pass)
-		end
-		if pass.mirage then
-			mergeMiragePass(pass)
-		end
-		if pass.player then
-			mergePlayerPass(pass)
+	-- Merge one captured calc pass into the Full DPS totals
+		local function mergePass(pass)
+		for _, actor in ipairs(pass.actors) do
+			local out = actor.out
+			if out.TotalDPS and out.TotalDPS > 0 then
+				t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart })
+				fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * actor.count
+			end
+			mergeStats(out, actor.count, actor.sourceName)
+			if out.TotalDot and out.TotalDot > 0 and actor.dotScale then
+				fullDPS.dotDPS = fullDPS.dotDPS + out.TotalDot * actor.dotScale
+			end
 		end
 	end
 
@@ -495,34 +362,53 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				usedEnv = fullEnv
 				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
 				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
-				local pass = { skillName = activeSkill.activeEffect.grantedEffect.name, trigger = activeSkill.infoTrigger, count = activeSkillCount, dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack }
+				local skillName = activeSkill.activeEffect.grantedEffect.name
+				local dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack
+				local pass = { actors = { } }
+				local minionOut
 				if activeSkill.minion or usedEnv.minion then
-					pass.minion = captureFields(usedEnv.minion.output, minionHarvestFields)
-					pass.minionCount = activeSkillCount
+					minionOut = captureFields(usedEnv.minion.output)
 					local minionNamePrefix = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
-					pass.minionSkillPart = minionNamePrefix .. activeSkill.skillPartName
+					t_insert(pass.actors, {
+						out = minionOut,
+						name = skillName,
+						count = activeSkillCount,
+						trigger = activeSkill.infoTrigger,
+						skillPart = minionNamePrefix .. activeSkill.skillPartName,
+						sourceName = skillName,
+						dotScale = 1,
+					})
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
 					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
 						activeSkillCount = 1
 						activeSkill.infoMessage2 = "Skill Damage"
-						pass.count = 1
 					end
 				end
 
+				local playerOut = captureFields(usedEnv.player.output)
 				if activeSkill.mirage then
-					pass.mirage = {
-						fields = captureFields(activeSkill.mirage.output, mirageHarvestFields),
+					local mirageCount = (activeSkill.mirage.count or 1) * activeSkillCount
+					t_insert(pass.actors, {
+						out = captureFields(activeSkill.mirage.output),
 						name = activeSkill.mirage.name .. " (Mirage)",
-						sourceName = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)",
-						count = (activeSkill.mirage.count or 1) * activeSkillCount,
+						count = mirageCount,
 						trigger = activeSkill.mirage.infoTrigger,
 						skillPart = activeSkill.mirage.skillPartName,
-					}
+						sourceName = skillName .. " (Mirage)",
+						dotScale = (dotCanStack or (playerOut.TotalDot and playerOut.TotalDot == 0)) and (dotCanStack and mirageCount or 1) or nil,
+					})
 				end
 
-				pass.player = captureFields(usedEnv.player.output, playerHarvestFields)
-				local minionContributed = pass.minion and pass.minion.TotalDPS and pass.minion.TotalDPS > 0
-				pass.skillPart = minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName
+				local minionContributed = minionOut and minionOut.TotalDPS and minionOut.TotalDPS > 0
+				t_insert(pass.actors, {
+					out = playerOut,
+					name = skillName,
+					count = activeSkillCount,
+					trigger = activeSkill.infoTrigger,
+					skillPart = minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName,
+					sourceName = skillName,
+					dotScale = dotCanStack and activeSkillCount or 1,
+				})
 				mergePass(pass)
 				if cacheStore and fullDPSCache.capture and ownRef then
 					cacheStore.snapshots[uuid] = { pass }
@@ -545,27 +431,27 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	-- Re-Add ailment DPS components
 	fullDPS.TotalDotDPS = 0
 	if fullDPS.bleedDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Bleed DPS", dps = fullDPS.bleedDPS, count = 1, source = bleedSource })
+		t_insert(fullDPS.skills, { name = "Best Bleed DPS", dps = fullDPS.bleedDPS, count = 1, source = sources.bleedDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.bleedDPS
 	end
 	if fullDPS.corruptingBloodDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Corr. Blood DPS", dps = fullDPS.corruptingBloodDPS, count = 1, source = corruptingBloodSource })
+		t_insert(fullDPS.skills, { name = "Best Corr. Blood DPS", dps = fullDPS.corruptingBloodDPS, count = 1, source = sources.corruptingBloodDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.corruptingBloodDPS
 	end
 	if fullDPS.igniteDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Ignite DPS", dps = fullDPS.igniteDPS, count = 1, source = igniteSource })
+		t_insert(fullDPS.skills, { name = "Best Ignite DPS", dps = fullDPS.igniteDPS, count = 1, source = sources.igniteDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.igniteDPS
 	end
 	if fullDPS.burningGroundDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Burning Ground DPS", dps = fullDPS.burningGroundDPS, count = 1, source = burningGroundSource })
+		t_insert(fullDPS.skills, { name = "Best Burning Ground DPS", dps = fullDPS.burningGroundDPS, count = 1, source = sources.burningGroundDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.burningGroundDPS
 	end
 	if fullDPS.poisonDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Poison DPS", dps = fullDPS.poisonDPS, count = 1, source = poisonSource })
+		t_insert(fullDPS.skills, { name = "Best Poison DPS", dps = fullDPS.poisonDPS, count = 1, source = sources.poisonDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.poisonDPS
 	end
 	if fullDPS.causticGroundDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Best Caustic Ground DPS", dps = fullDPS.causticGroundDPS, count = 1, source = causticGroundSource })
+		t_insert(fullDPS.skills, { name = "Best Caustic Ground DPS", dps = fullDPS.causticGroundDPS, count = 1, source = sources.causticGroundDPS or "" })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.causticGroundDPS
 	end
 	if fullDPS.impaleDPS > 0 then
