@@ -230,6 +230,19 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	return activeSkill
 end
 
+function calcs.getActiveSkillDisplayName(activeSkill)
+	local skillName = activeSkill.activeEffect.grantedEffect.name
+	local skillMinion = activeSkill.minion
+	if skillMinion and skillMinion.minionData then
+		if skillName:match("^Companion:") then
+			return "Companion: "..skillMinion.minionData.name
+		elseif skillName:match("^Spectre:") then
+			return "Spectre: "..skillMinion.minionData.name
+		end
+	end
+	return skillName
+end
+
 -- Copy an Active Skill
 function calcs.copyActiveSkill(env, mode, skill)
 	local activeEffect = {
@@ -697,6 +710,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			end
 			if level.spiritReservationFlat then
 				skillModList:NewMod("ExtraSpirit", "BASE", level.spiritReservationFlat, skillEffect.grantedEffect.modSource)
+			end
+			if level.cooldown then
+				skillModList:NewMod("CooldownRecovery", "BASE", level.cooldown, skillEffect.grantedEffect.modSource)
 			end
 			-- Handle multiple triggers situation and if triggered by a trigger skill save a reference to the trigger.
 			local match = skillEffect.grantedEffect.addSkillTypes and (not skillFlags.disable)

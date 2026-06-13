@@ -156,7 +156,7 @@ skills["AncestralCryShockwavePlayer"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/WarriorAncestralCry.dds",
 	description = "Slam the ground around you, dealing damage to nearby enemies.",
-	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.Slam] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Melee] = true, [SkillType.AttackInPlace] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.Slam] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Melee] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -272,7 +272,7 @@ skills["AncestralCryProjectilePlayer"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/VolcanicEruptionSkillIcon.dds",
 	description = "Fire molten Projectiles from the struck enemy, which will land nearby dealing Attack damage in an area.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CannotChain] = true, [SkillType.Fire] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CannotChain] = true, [SkillType.Fire] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1971,7 +1971,7 @@ skills["BriarpatchPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/DruidBriarpatch.dds",
 	color = 1,
 	description = "While active, a portion of the Physical Attack damage you deal is stored. Casting a Spell uses the stored damage to create a patch of Thorny Ground that deals Spell damage to moving enemies.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Physical] = true, [SkillType.Limit] = true, [SkillType.Plant] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Sustained] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Physical] = true, [SkillType.Limit] = true, [SkillType.Plant] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Sustained] = true, [SkillType.Damage] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "spells_chance_to_hinder_on_hit_%", 0.25 },
@@ -13510,6 +13510,7 @@ skills["MoltenBlastPlayer"] = {
 				{ "attack_maximum_action_distance_+", 8 },
 				{ "active_skill_ignite_chance_+%_final", 200 },
 				{ "active_skill_ignite_duration_+%_final", 100 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -15230,7 +15231,6 @@ skills["WolfPounceMarkPlayer"] = {
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"secondary_skill_triggered_by_primary_skill_of_gem",
 			},
 			levels = {
@@ -15351,7 +15351,6 @@ skills["WolfPounceSummonWolfPlayer"] = {
 				"no_minion_duration",
 				"any_weapon_type_allowed",
 				"usable_with_talisman",
-				"usable_while_shapeshifted",
 				"triggerable_in_any_set",
 				"display_statset_no_hit_damage",
 				"secondary_skill_triggered_by_primary_skill_of_gem",

@@ -13266,10 +13266,10 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboBrequel",
-		"MPSBreachEliteFallenLunarisMonsterChaosSpark",
 		"CGBreachEliteFallenLunarisMonsterChaosQuicksand",
 		"SGLBreachEliteFallenLunarisMonsterChaosQuicksand",
 		"BreachLunarisChaosSpark",
+		"GABreachEliteFallenLunarisMonsterMeleeFlurry",
 	},
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
@@ -19591,7 +19591,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion1"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.3,
+	damage = 0.78,
 	damageSpread = 0.2,
 	attackTime = 1.665,
 	attackRange = 12,
@@ -19689,7 +19689,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion4"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 0.8,
+	damage = 0.48,
 	damageSpread = 0.2,
 	attackTime = 0.675,
 	attackRange = 8,

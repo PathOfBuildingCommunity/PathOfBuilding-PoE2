@@ -5512,6 +5512,7 @@ local specialModList = {
 	["only affects passives in massive ring"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 12 }) },
 	["upgrades radius to medium"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 2 })},
 	["upgrades radius to large"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 3 })},
+	["upgrades radius to very large"] = { mod("JewelData", "LIST", { key = "timeLostJewelRadiusOverride", value = 4 })},
 	["primordial"] = { mod("Multiplier:PrimordialItem", "BASE", 1) },
 	["spectres have a base duration of (%d+) seconds"] = { mod("SkillData", "LIST", { key = "duration", value = 6 }, { type = "SkillName", skillName = "Raise Spectre", includeTransfigured = true }) },
 	["flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
@@ -6721,13 +6722,17 @@ local function parseMod(line, order)
 		modType = type(modValue) == "table" and modValue.type or "FLAG"
 		modValue = type(modValue) == "table" and modValue.value or true
 	elseif modForm == "IMMUNE" then
-		local effectLine = line:gsub("%s+$","") -- remove trailing spaces
+		local effectLine = line:gsub("%s+$",""):lower() -- remove trailing spaces and lower case
 		local _, numWords = effectLine:gsub("%S+", "")
 		local multiEffect = effectLine:find(" and ")
 
 		local function getEffectFromStatus(statusString)
 			return statusToEffectMap[statusString:lower()] or statusString
 		end
+		-- list of known false positives that should be excluded as they don't provide "immunity"
+		local effectBlacklist = {
+			["used manually"] = true, -- "Cannot be used manually" from "Opportunity, Ultimate Life Flask"
+		}
 
 		-- Check number of words, as 99% of effects consist of only one or two words
 		-- NOTE: needs exception for wordings like "freeze and chill"
@@ -6742,6 +6747,8 @@ local function parseMod(line, order)
 			end
 		elseif (numWords < 1) or (numWords > 2) then
 			return { }, line -- no words or more than 2 unlikely for single effect
+		elseif effectBlacklist[effectLine] then
+				return { }, line
 		end
 
 		-- Process effect strings to valid mod names

@@ -1,3 +1,25 @@
+VERSION[0.21.0][2026/06/13]
+
+--- New to Path of Building ---
+* Add 0.5.2 Passive tree changes (trompetin17)
+* Add support for very large time-lost jewel mod (vaisest)
+
+--- User Interface ---
+* Fix window title changing in compare tab (vaisest)
+
+--- Fixed Calculations ---
+* Fix many supports not adding cooldown (Peechey)
+* Fix calculation of inverted Resistances when having a source of Penetration (LocalIdentity)
+* Fix Discipline not being converted by Eldritch Battery (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix Split Personality not working with Monk and Druid starting points (LocalIdentity)
+* Fix mods duplicating when crafting some Crossbows (LocalIdentity)
+* Fix Full DPS breakdown and gem dropdowns showing the wrong name for Companion / Spectre skills (ltogniolli)
+* Fix PoB Trader search not working correctly after comparing a build (vaisest)
+* Fix Mageblood mods merging in item crafter (LocalIdentity)
+
+
 VERSION[0.20.0][2026/06/11]
 
 --- New to Path of Building ---

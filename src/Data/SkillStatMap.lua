@@ -576,8 +576,7 @@ return {
 	div = 1000,
 },
 ["support_hourglass_display_cooldown_time_ms"] = {
-	mod("CooldownRecovery", "BASE", nil),
-	div = 1000,
+	-- handled around 700 of CalcActiveSkill, search for level.cooldown
 },
 ["base_cooldown_modifiable_repeat_interval_ms"] = {
 	mod("CooldownRecovery", "BASE", nil),

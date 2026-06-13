@@ -72,7 +72,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+		if implicitLine:match("^Grants Skill:") and (implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$")) then
 			return true
 		end
 	end
@@ -482,7 +482,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 		else
 			line = linePrefix .. line .. linePostfix
-			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
+			local lineIsBaseImplicit = mode == "GAME" and not self.crafted and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
 					if foundImplicit and not lineIsBaseImplicit then
@@ -630,6 +630,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.variantAlt4 = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant Five" then
 					self.variantAlt5 = specToNumber(specVal)
+				elseif specName == "Allow Duplicate Variants" then
+					self.allowDuplicateVariants = specVal == "true"
 				elseif specName == "Has Variants" or specName == "Selected Variants" then
 					-- Need to skip this line for backwards compatibility
 					-- with builds that used an old Watcher's Eye implementation
@@ -1462,6 +1464,9 @@ function ItemClass:BuildRaw()
 			t_insert(rawLines, "Has Alt Variant Five: true")
 			t_insert(rawLines, "Selected Alt Variant Five: " .. self.variantAlt5)
 		end
+		if self.allowDuplicateVariants then
+			t_insert(rawLines, "Allow Duplicate Variants: true")
+		end
 	end
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
@@ -1681,6 +1686,24 @@ function ItemClass:CheckModLineVariant(modLine)
 		or (self.hasAltVariant3 and modLine.variantList[self.variantAlt3])
 		or (self.hasAltVariant4 and modLine.variantList[self.variantAlt4])
 		or (self.hasAltVariant5 and modLine.variantList[self.variantAlt5])
+end
+
+function ItemClass:GetModLineVariantCount(modLine)
+	if not self.allowDuplicateVariants or not modLine.variantList then
+		return self:CheckModLineVariant(modLine) and 1 or 0
+	end
+
+	-- Mageblood can intentionally select the same variant more than once.
+	local variantList = modLine.variantList
+	local count = variantList[self.variant] and 1 or 0
+	for i = 1, 5 do
+		local suffix = i == 1 and "" or i
+		local variant = self["variantAlt" .. suffix]
+		if self["hasAltVariant" .. suffix] and variant and variantList[variant] then
+			count = count + 1
+		end
+	end
+	return count
 end
 
 -- Return the name of the slot this item is equipped in
@@ -2027,7 +2050,8 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
-		if self:CheckModLineVariant(modLine) then
+		local variantCount = self:GetModLineVariantCount(modLine)
+		if variantCount > 0 then
 			-- special section for variant over-ride of pre-modifier item parameters
 			if modLine.line:find("Requires Class") then
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
@@ -2054,8 +2078,9 @@ function ItemClass:BuildModList()
 					end
 				end
 				for _, mod in ipairs(modLine.modList) do
-					mod = modLib.setSource(mod, self.modSource)
-					baseList:AddMod(mod)
+					for _ = 1, variantCount do
+						baseList:AddMod(modLib.setSource(mod, self.modSource))
+					end
 				end
 				if modLine.modTags and #modLine.modTags > 0 then
 					self.hasModTags = true

@@ -13311,7 +13311,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1689748350",
-				["text"] = "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour",
+				["text"] = "Shield Skills fully Break Armour when they Heavy Stun targets",
 				["type"] = "explicit",
 			},
 		},
@@ -22346,6 +22346,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["4011431182"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_4011431182",
+				["text"] = "Gain #% of Damage as Extra Chaos Damage while you are missing Runic Ward",
+				["type"] = "explicit",
+			},
+		},
 		["4015621042"] = {
 			["Body Armour"] = {
 				["max"] = 52,
@@ -24704,6 +24713,15 @@ return {
 				["type"] = "explicit",
 			},
 		},
+		["731781020"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_731781020",
+				["text"] = "Flasks gain # charges per Second",
+				["type"] = "explicit",
+			},
+		},
 		["734614379"] = {
 			["Amulet"] = {
 				["max"] = 10,
@@ -25478,8 +25496,8 @@ return {
 				["min"] = -10,
 			},
 			["Boots"] = {
-				["max"] = 25,
-				["min"] = -20,
+				["max"] = -10,
+				["min"] = -25,
 			},
 			["invertOnNegative"] = true,
 			["specialCaseData"] = {
@@ -27678,8 +27696,16 @@ return {
 				["max"] = 300,
 				["min"] = 100,
 			},
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Amulet"] = {
 				["max"] = 40,
+				["min"] = 30,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
 				["min"] = 30,
 			},
 			["Wand"] = {
@@ -27740,6 +27766,20 @@ return {
 				["text"] = "#% increased Projectile Range",
 				["type"] = "implicit",
 			},
+		},
+		["3489782002"] = {
+			["Amulet"] = {
+				["max"] = 30,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3489782002",
+				["text"] = "# to maximum Energy Shield",
+				["type"] = "implicit",
+			},
+			["usePositiveSign"] = true,
 		},
 		["3544800472"] = {
 			["Chest"] = {
@@ -28208,17 +28248,9 @@ return {
 			},
 		},
 		["774059442"] = {
-			["2HWeapon"] = {
-				["max"] = 50,
-				["min"] = 30,
-			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
-			},
-			["Quarterstaff"] = {
-				["max"] = 50,
-				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28944,6 +28976,20 @@ return {
 				["text"] = "#% of Physical Damage prevented Recouped as Life",
 				["type"] = "augment",
 			},
+		},
+		["1379411836"] = {
+			["Helmet"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1379411836",
+				["text"] = "# to all Attributes",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["1382805233"] = {
 			["Boots"] = {
@@ -29787,6 +29833,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1879206848",
 				["text"] = "#% increased effect of Fully Broken Armour",
+				["type"] = "augment",
+			},
+		},
+		["1895552497"] = {
+			["2HWeapon"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["Talisman"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1895552497",
+				["text"] = "Every 5 Rage also grants #% of Damage taken Recouped as Life",
 				["type"] = "augment",
 			},
 		},
@@ -31042,6 +31105,39 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_263495202",
 				["text"] = "#% increased Cost Efficiency",
+				["type"] = "augment",
+			},
+		},
+		["2650263616"] = {
+			["Boots"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Chest"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Focus"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Gloves"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Helmet"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["Shield"] = {
+				["max"] = 15,
+				["min"] = 15,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2650263616",
+				["text"] = "#% Life Recovery from Flasks also applies to Runic Ward",
 				["type"] = "augment",
 			},
 		},
@@ -32465,6 +32561,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_331731406",
 				["text"] = "Cannot be Ignited",
+				["type"] = "augment",
+			},
+		},
+		["3325883026"] = {
+			["Helmet"] = {
+				["max"] = 3,
+				["min"] = 3,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3325883026",
+				["text"] = "# Life Regeneration per second",
 				["type"] = "augment",
 			},
 		},
@@ -34626,6 +34735,23 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["704409219"] = {
+			["1HWeapon"] = {
+				["max"] = 75,
+				["min"] = 75,
+			},
+			["Wand"] = {
+				["max"] = 75,
+				["min"] = 75,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_704409219",
+				["text"] = "#% increased effect of Socketed Runes",
+				["type"] = "augment",
+			},
+		},
 		["709508406"] = {
 			["1HMace"] = {
 				["max"] = 18.5,
@@ -35157,6 +35283,20 @@ return {
 				["text"] = "Causes #% increased Stun Buildup",
 				["type"] = "augment",
 			},
+		},
+		["803737631"] = {
+			["Helmet"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_803737631",
+				["text"] = "# to Accuracy Rating",
+				["type"] = "augment",
+			},
+			["usePositiveSign"] = true,
 		},
 		["805298720"] = {
 			["1HWeapon"] = {

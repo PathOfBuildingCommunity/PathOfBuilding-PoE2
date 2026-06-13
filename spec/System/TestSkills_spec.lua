@@ -377,6 +377,27 @@ describe("TestSkills", function()
 		end
 	end)
 
+	it("uses selected companion names in skill displays", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local skillNames = { }
+		for _, skill in ipairs(build.calcsTab.mainOutput.SkillDPS) do
+			skillNames[skill.name] = true
+		end
+		assert.is_true(skillNames["Companion: Lightless Abomination"])
+		assert.is_true(skillNames["Companion: Lightless Moray"])
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+		assert.are.equals("Companion: Lightless Abomination", build.controls.mainSkill.list[1].label)
+
+		build:RefreshSkillSelectControls(build.controls, 2, "")
+		assert.are.equals("Companion: Lightless Moray", build.controls.mainSkill.list[1].label)
+	end)
+
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -796,6 +817,20 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
 		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
+	end)
+
+	it("averages inverted elemental resistance after penetration", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nDamage Penetrates 50% of Enemy Fire Resistance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("inverted hit"))
+		assert.truthy(breakdownText:match("weighted average"))
 	end)
 
 	it("Test granted skills with exposure stats make exposure configurable", function()
