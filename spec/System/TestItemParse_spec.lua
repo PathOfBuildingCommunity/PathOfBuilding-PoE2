@@ -85,8 +85,45 @@ describe("TestItemParse", function()
 	--it("Variant name", function()
 	--end)
 
-	--it("variant", function()
-	--end)
+	it("allows duplicate selected variants when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Has Alt Variant Two: true
+			Has Alt Variant Three: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Selected Alt Variant Two: 2
+			Selected Alt Variant Three: 2
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Variant: Legacy of Basalt
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+			{variant:2}Legacy of Basalt
+		]])
+
+		assert.are.equals(2, item.baseModList:Sum("BASE", nil, "LegacyOfAmethyst"))
+		assert.are.equals(2, item.baseModList:Sum("BASE", nil, "LegacyOfBasalt"))
+	end)
+
+	it("does not duplicate selected variants by default", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+
+		assert.are.equals(1, item.baseModList:Sum("BASE", nil, "LegacyOfAmethyst"))
+	end)
 	
 	--TODO: Alt variants for POB2
 	--it("Alt Variant", function()
