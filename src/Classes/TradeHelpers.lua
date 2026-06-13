@@ -256,8 +256,8 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			end
 		end
 	end
-	-- essence mods don't seem to have spawn weights and are tested last
-	for _, dbMod in pairs(data.itemMods.Item) do
+	-- essence and emotion mods don't seem to have spawn weights and are tested last
+	for _, dbMod in pairs(item.affixes) do
 		local tradeHashMaybe = findStat(dbMod, true)
 		if tradeHashMaybe then
 			return tradeHashMaybe
