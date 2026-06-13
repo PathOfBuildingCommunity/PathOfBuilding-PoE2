@@ -4951,7 +4951,8 @@ c["Cannot be Light Stunned if you haven't been Hit Recently"]={{[1]={[1]={neg=tr
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Cannot be Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
-c["Cannot be Used manually"]={{[1]={flags=0,keywordFlags=0,name="UsedManuallyImmune",type="FLAG",value=true}},nil}
+c["Cannot be Used manually"]={{},"Used manually "}
+c["Cannot be Used manually Used when you release a skill with Perfect Timing"]={{},"Used manually Used when you release a skill with Perfect Timing "}
 c["Cannot collide with targets"]={nil,"Cannot collide with targets "}
 c["Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="CannotGainSpiritFromEquipment",type="FLAG",value=true}},nil}
 c["Cannot have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="CannotHaveES",type="FLAG",value=true}},nil}
