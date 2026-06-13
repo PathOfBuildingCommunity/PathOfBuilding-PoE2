@@ -2904,8 +2904,7 @@ return {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["warcry_count_power_from_enemies"] = {
-	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Warcry" }),
-	flag("Condition:Empowered", { type = "GlobalEffect", effectType = "Warcry" }),
+	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Warcry" })
 },
 ["chance_to_gain_1_more_charge_%"] = {
 	mod("AdditionalChargeChance", "BASE", nil)
