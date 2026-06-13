@@ -3035,10 +3035,46 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					return a.essence.tierLevel > b.essence.tierLevel
 				end
 			end)
+		elseif sourceId == "EMOTION" then
+			local radiusJewel = not not (self.displayItem.type and self.displayItem.base.subType and
+				self.displayItem.base.subType:match("Radius"))
+			local baseColour
+			for _, itemName in ipairs({ "Ruby", "Emerald", "Sapphire", "Diamond" }) do
+				if self.displayItem.baseName:match(itemName) then
+					baseColour = itemName
+					break
+				end
+			end
+			if not baseColour then
+				error("Base is a gem but has no colour. Base name: ", self.displayItem.baseName)
+			end
+			for _, emotion in pairs(data.emotions) do
+				if emotion.radiusJewel == radiusJewel then
+					for modType, modId in pairs(emotion.mods[baseColour] or {}) do
+						local mod = data.itemMods.Jewel[modId]
+						if mod then
+							t_insert(modList, {
+								label = string.format("%s ^8[%s] (%s)", emotion.name, table.concat(mod, "/"),
+									mod.type or ""),
+								mod = mod,
+								type = "custom",
+								emotion = emotion,
+							})
+						end
+					end
+				end
+			end
+			table.sort(modList, function(a, b)
+				if a.emotion.tierLevel ~= b.emotion.tierLevel then
+					return a.emotion.tierLevel > b.emotion.tierLevel
+				else
+					return a.emotion.name > b.emotion.name
+				end
+			end)
 		elseif sourceId == "DESECRATED" then
 			local function isDesecratedMod(mod)
 				for _, tag in ipairs(mod.modTags or { }) do
-					if tag == "ulaman_mod" or tag == "amanamu_mod" or tag == "kurgal_mod" then
+					if tag == "ulaman_mod" or tag == "amanamu_mod" or tag == "kurgal_mod" or tag == "unveiled_mod" then
 						return true
 					end
 				end
@@ -3101,6 +3137,10 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	if hasDesecratedMods then
 		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
+	end
+	if self.displayItem.base.type == "Jewel" then
+		buildMods("EMOTION")
+		t_insert(sourceList, { label = "Emotion", sourceId = "EMOTION" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)

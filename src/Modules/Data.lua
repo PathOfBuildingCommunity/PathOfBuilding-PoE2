@@ -642,6 +642,7 @@ do
 end
 
 data.essences = LoadModule("Data/Essence")
+data.emotions = LoadModule("Data/LiquidEmotions")
 data.costs = LoadModule("Data/Costs")
 do
 	local map = { }
