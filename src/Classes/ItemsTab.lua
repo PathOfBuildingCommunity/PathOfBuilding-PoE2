@@ -3036,8 +3036,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 			end)
 		elseif sourceId == "EMOTION" then
-			local radiusJewel = not not (self.displayItem.type and self.displayItem.base.subType and
-				self.displayItem.base.subType:match("Radius"))
+			local radiusJewel = not not (self.displayItem.base.subType and self.displayItem.base.subType:match("Radius"))
 			local baseColour
 			for _, itemName in ipairs({ "Ruby", "Emerald", "Sapphire", "Diamond" }) do
 				if self.displayItem.baseName:match(itemName) then
@@ -3046,7 +3045,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 			end
 			if not baseColour then
-				error("Base is a gem but has no colour. Base name: ", self.displayItem.baseName)
+				error("Base is a gem but has no colour. Base name: " .. tostring(self.displayItem.baseName))
 			end
 			for _, emotion in pairs(data.emotions) do
 				if emotion.radiusJewel == radiusJewel then
@@ -3140,7 +3139,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	if self.displayItem.base.type == "Jewel" then
 		buildMods("EMOTION")
-		t_insert(sourceList, { label = "Emotion", sourceId = "EMOTION" })
+		if #modList > 0 then
+			t_insert(sourceList, { label = "Emotion", sourceId = "EMOTION" })
+		end
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
