@@ -377,6 +377,27 @@ describe("TestSkills", function()
 		end
 	end)
 
+	it("uses selected companion names in skill displays", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local skillNames = { }
+		for _, skill in ipairs(build.calcsTab.mainOutput.SkillDPS) do
+			skillNames[skill.name] = true
+		end
+		assert.is_true(skillNames["Companion: Lightless Abomination"])
+		assert.is_true(skillNames["Companion: Lightless Moray"])
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+		assert.are.equals("Companion: Lightless Abomination", build.controls.mainSkill.list[1].label)
+
+		build:RefreshSkillSelectControls(build.controls, 2, "")
+		assert.are.equals("Companion: Lightless Moray", build.controls.mainSkill.list[1].label)
+	end)
+
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
