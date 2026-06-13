@@ -230,6 +230,19 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	return activeSkill
 end
 
+function calcs.getActiveSkillDisplayName(activeSkill)
+	local skillName = activeSkill.activeEffect.grantedEffect.name
+	local skillMinion = activeSkill.minion
+	if skillMinion and skillMinion.minionData then
+		if skillName:match("^Companion:") then
+			return "Companion: "..skillMinion.minionData.name
+		elseif skillName:match("^Spectre:") then
+			return "Spectre: "..skillMinion.minionData.name
+		end
+	end
+	return skillName
+end
+
 -- Copy an Active Skill
 function calcs.copyActiveSkill(env, mode, skill)
 	local activeEffect = {

@@ -183,17 +183,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				fullEnv.player.mainSkill = activeSkill
 				calcs.perform(fullEnv, true)
 				usedEnv = fullEnv
-				-- Companion/Spectre gems all share a single granted effect ("Companion: {0}"/"Spectre: {0}"),
-				-- whose name is mutated globally for display, so derive the entry name from this skill's own minion
-				local skillName = activeSkill.activeEffect.grantedEffect.name
-				local skillMinion = activeSkill.minion or usedEnv.minion
-				if skillMinion and skillMinion.minionData then
-					if skillName:match("^Companion:") then
-						skillName = "Companion: "..skillMinion.minionData.name
-					elseif skillName:match("^Spectre:") then
-						skillName = "Spectre: "..skillMinion.minionData.name
-					end
-				end
+				local skillName = calcs.getActiveSkillDisplayName(activeSkill)
 				local minionName = nil
 				if activeSkill.minion or usedEnv.minion then
 					if usedEnv.minion.output.TotalDPS and usedEnv.minion.output.TotalDPS > 0 then
