@@ -72,7 +72,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+		if implicitLine:match("^Grants Skill:") and (implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$")) then
 			return true
 		end
 	end
@@ -482,7 +482,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 		else
 			line = linePrefix .. line .. linePostfix
-			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
+			local lineIsBaseImplicit = mode == "GAME" and not self.crafted and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
 					if foundImplicit and not lineIsBaseImplicit then
