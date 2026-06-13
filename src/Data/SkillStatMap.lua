@@ -576,8 +576,7 @@ return {
 	div = 1000,
 },
 ["support_hourglass_display_cooldown_time_ms"] = {
-	mod("CooldownRecovery", "BASE", nil),
-	div = 1000,
+	-- handled around 700 of CalcActiveSkill, search for level.cooldown
 },
 ["base_cooldown_modifiable_repeat_interval_ms"] = {
 	mod("CooldownRecovery", "BASE", nil),
@@ -2905,7 +2904,8 @@ return {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["warcry_count_power_from_enemies"] = {
-	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Warcry" })
+	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Warcry" }),
+	flag("Condition:Empowered", { type = "GlobalEffect", effectType = "Warcry" }),
 },
 ["chance_to_gain_1_more_charge_%"] = {
 	mod("AdditionalChargeChance", "BASE", nil)
