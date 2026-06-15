@@ -15,6 +15,7 @@ local m_ceil = math.ceil
 local m_floor = math.floor
 local m_modf = math.modf
 
+local gemTooltip = LoadModule("Classes/GemTooltip")
 local rarityDropList = {
 	{ label = colorCodes.NORMAL.."Normal", rarity = "NORMAL" },
 	{ label = colorCodes.MAGIC.."Magic", rarity = "MAGIC" },
@@ -3637,6 +3638,49 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		tooltip:AddSeparator(14)
 	end
 
+	-- Skill tooltip. We add child tooltips, which will be rendered to the right of the main
+	-- tooltip, growing downwards
+	if not tooltip.childTooltips then
+		tooltip.childTooltips = {}
+	end
+	local gemMaxWidth = 450
+	for _, tt in ipairs(tooltip.childTooltips) do
+		tt:Clear()
+		tt.maxWidth = gemMaxWidth
+	end
+	if item.grantedSkills and #item.grantedSkills > 0 then
+		tooltip:AddSeparator(14)
+		tooltip:AddLine(14,
+			colorCodes.TIP ..
+			"Tip: Hold Shift to display a tooltip for the granted skill" ..
+			(#item.grantedSkills > 1 and "s" or "") .. ".")
+		for i, itemSkill in ipairs(item.grantedSkills) do
+			if not tooltip.childTooltips[i] then
+				tooltip.childTooltips[i] = new("Tooltip")
+				tooltip.childTooltips[i].maxWidth = gemMaxWidth
+			end
+			-- find gem since the item data only contains the skill id
+			local skill = data.skills[itemSkill.skillId]
+			if skill and skill.id and IsKeyDown("SHIFT") then
+				for grantedEffect, gemId in pairs(data.gemForSkill) do
+					if grantedEffect.id == skill.id then
+						local gem = data.gems[gemId]
+						local gemInst = {
+							gemData = gem,
+							level = itemSkill.level or 1,
+							quality = 0,
+							grantedEffect =
+								grantedEffect
+						}
+						gemTooltip.AddGemTooltip(tooltip.childTooltips[i], self.build, gemInst, {
+							includeQualityRange = true,
+						})
+						break
+					end
+				end
+			end
+		end
+	end
 	-- Stat differences
 	if not self.showStatDifferences then
 		tooltip:AddSeparator(14)
