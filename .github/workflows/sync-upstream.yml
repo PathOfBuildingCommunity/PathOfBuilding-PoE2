@@ -42,6 +42,7 @@ jobs:
         with:
           ref: dev
           fetch-depth: 0
+          fetch-tags: true   # need existing v*-macos.* tags to detect last-synced version
           # Use the PAT if present so the tag push can trigger macos-release.yml.
           token: ${{ secrets.SYNC_PAT || github.token }}
 
