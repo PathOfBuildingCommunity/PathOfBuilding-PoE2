@@ -1,9 +1,9 @@
 name: Lua syntax check
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
   workflow_dispatch:
 jobs:
   lua_syntax:
