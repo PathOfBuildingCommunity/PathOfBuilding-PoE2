@@ -1,6 +1,7 @@
 local M = {}
 
--- draws a small display window of a jewel socket's position
+-- Draws a small display window of a jewel socket's position. Note that this will reset the
+-- viewport and the draw layer.
 ---@param nodeId integer
 ---@param x integer
 ---@param y integer
