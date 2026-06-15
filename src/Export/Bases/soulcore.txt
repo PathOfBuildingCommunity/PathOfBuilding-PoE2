@@ -18,6 +18,7 @@ local itemBases = ...
 #type Idol
 #baseMatch Metadata/Items/SoulCores/Talisman
 #baseMatch Metadata/Items/SoulCores/Idol
+#baseMatch Metadata/Items/SoulCores/Carved
 
 #type CongealedMist
 #baseMatch Metadata/Items/SoulCores/AugmentAnoint

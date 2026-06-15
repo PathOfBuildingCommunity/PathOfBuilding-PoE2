@@ -6,10 +6,10 @@ return {
 Black Sun Crest
 Wrapped Greathelm
 (50-80)% increased Armour
-20% reduced Light Radius
 (5-15)% increased Strength
 (5-15)% increased Dexterity
 (5-15)% increased Intelligence
+20% reduced Light Radius
 ]],[[
 Blood Price
 Fierce Greathelm
@@ -107,12 +107,15 @@ Variant: Current
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 (50-80)% increased Evasion Rating
 {variant:1}+(10-20) to Dexterity
-{variant:2}+(20-30) to Dexterity
-Charms gain 0.5 charges per Second
+{variant:2,3}+(20-30) to Dexterity
+{variant:1,2}Charms gain 0.5 charges per Second
+{variant:3}Charms gain 1 charge per Second
 {variant:2}+1 Charm Slot
+{variant:3}+(1-2) Charm Slot
 ]],[[
 Goldrim
 Felt Cap
@@ -148,10 +151,13 @@ Covert Hood
 ]],[[
 Radiant Grief
 Lace Hood
+Variant: Pre 0.5.0
+Variant: Current
 (80-100)% increased Evasion Rating
 +(15-25)% to Fire Resistance
 30% increased Light Radius
-Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
+{variant:1}Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
+{variant:2}Enemies in your Presence are Ignited as though dealt 200 Base Fire Damage
 ]],[[
 Starkonja's Head
 Leatherbound Hood
@@ -172,10 +178,10 @@ Variant: Current
 {variant:2}+(60-100) to maximum Mana
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
-{variant:1}(20-25)% of Damage taken bypasses Energy Shield
-{variant:2}10% of Damage taken bypasses Energy Shield
 {variant:1}Gain (25-30)% of maximum Life as Extra maximum Energy Shield
 {variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
+{variant:1}(20-25)% of Damage taken bypasses Energy Shield
+{variant:2}10% of Damage taken bypasses Energy Shield
 ]],[[
 Crown of Eyes
 Vermeil Circlet
@@ -295,6 +301,15 @@ You can wield Two-Handed Axes, Maces and Swords in one hand
 {variant:3}This item gains bonuses from Socketed Items as though it was a Body Armour
 {variant:3}Has 4 Augment Sockets
 ]],[[
+Decree of Acuity
+Ancient Visor
+League: Runes of Aldur
+(150-250)% increased Armour and Evasion
++(25-35) to Dexterity
+Gain (15-30)% of Evasion Rating as extra Armour
+You are Blind
+The Effect of Blind on you is reversed
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1
@@ -404,9 +419,9 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
++1 to Level of all Skills
 Gain 10 Life per enemy killed
 Gain 10 Mana per enemy killed
-+1 to Level of all Skills
 ]],[[
 The Deepest Tower
 Spiritbone Crown
@@ -423,17 +438,28 @@ Keeper of the Arc
 Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}(100-150)% increased Armour and Energy Shield
 {variant:2}(150-250)% increased Armour and Energy Shield
+{variant:3}(240-340)% increased Armour and Energy Shield
 (15-25) Life Regeneration per second
 (15-25)% increased Mana Regeneration Rate
 {variant:1}Alternating every 5 seconds:
 {variant:1}Take 30% less Damage from Hits
 {variant:1}Take 30% less Damage over time
-{variant:2}Alternating every 5 seconds:
-{variant:2}Take 40% less Damage from Hits
-{variant:2}Take 40% less Damage over time
+{variant:2,3}Alternating every 5 seconds:
+{variant:2,3}Take 40% less Damage from Hits
+{variant:2,3}Take 40% less Damage over time
+]],[[
+Vestige of Darkness
+Tenebrous Crown
+League: Runes of Aldur
+(150-200)% increased Armour and Energy Shield
++(20-30) to Strength and Intelligence
+Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup
+Enemies in your Presence are Blinded
+The Bodach haunts your Presence
 ]],[[
 Veil of the Night
 Martyr Crown
@@ -469,11 +495,16 @@ Chaos Resistance is zero
 The Hollow Mask
 Hewn Mask
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Wildwood's Gifts
 +(60-80) to maximum Life
 15% additional Physical Damage Reduction
 -10% to all Elemental Resistances
-{variant:2}+13% to Chaos Resistance
+{variant:2,3}+13% to Chaos Resistance
+{variant:3}Remnants you create affect Allies in your Presence as well as you when collected
+{variant:3}(80-100)% increased Reservation Efficiency of Remnant Skills
 ]],[[
 Leer Cast
 Hooded Mask

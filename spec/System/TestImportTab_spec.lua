@@ -43,6 +43,57 @@ describe("ImportTab", function()
 		assert.are.equals(1, #importTab.controls.charSelect.list)
 		assert.True(importTab.controls.charSelect.list[1].detail:match("Future Ascendancy") ~= nil)
 	end)
+
+	it("imports Split Personality alternate class start from character JSON", function()
+		local spec = build.spec
+		local socketNode = spec.nodes[60735]
+		local templarStartPassive = spec.nodes[13855]
+		assert.is_not_nil(socketNode)
+		assert.is_not_nil(templarStartPassive)
+		assert.is_nil(spec.tree.classNameMap.Templar)
+		assert.are.equals(61525, spec.tree.classStartNodeNameMap.Templar)
+
+		local hashes = { socketNode.id, templarStartPassive.id }
+		for _, pathNode in ipairs(socketNode.path or { }) do
+			table.insert(hashes, pathNode.id)
+		end
+
+		build.importTab:ImportPassiveTreeAndJewels({
+			name = "Split Import Test",
+			class = "Witch2",
+			league = "Test",
+			level = 90,
+			jewels = {
+				{
+					id = "split-personality-test",
+					frameType = 3,
+					name = "Split Personality",
+					typeLine = "Ruby",
+					inventoryId = "PassiveJewels",
+					x = 4,
+					ilvl = 84,
+					properties = { },
+					explicitMods = {
+						"Can Allocate Passive Skills from the Templar's starting point",
+					},
+				},
+			},
+			passives = {
+				hashes = hashes,
+				specialisations = { },
+				skill_overrides = { },
+				jewel_data = { },
+				quest_stats = { },
+			},
+		})
+
+		local importedSpec = build.spec
+		local importedJewel = build.itemsTab.items[importedSpec.jewels[socketNode.id]]
+		assert.are.equals("Templar", importedJewel.jewelData.alternateClassStart)
+		assert.are.equals(0, importedSpec.nodes[spec.tree.classStartNodeNameMap.Templar].pathDist)
+		assert.True(importedSpec.nodes[templarStartPassive.id].alloc)
+		assert.True(importedSpec.nodes[templarStartPassive.id].connectedToStart)
+	end)
 end)
 
 describe("ImportTab quest reward import", function()

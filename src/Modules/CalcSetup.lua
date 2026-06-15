@@ -61,6 +61,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("Evasion", "INC", -15, "Base", { type = "Condition", var = "Maimed" })
+	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Hindered" })
 	modDB:NewMod("AilmentThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("PoiseThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", { type = "Condition", var = "Intimidated"})
@@ -1090,28 +1091,31 @@ function calcs.initEnv(build, mode, override, specEnv)
 						Int = item.requirements.intMod,
 					})
 				end
-				-- Rune / Soul Core Sockets
+				-- Rune / Soul Core / Idol Sockets
 				local socketed = 0
 				for i = 1, item.itemSocketCount do
-					if item.runes[i] ~= "None" then
+					local runeName = item.runes[i]
+					if runeName and runeName ~= "None" then
 						socketed = socketed + 1
-					end
-				end
-				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
-
-				if item.socketedSoulCoreEffectModifier ~= 0 then
-					for _, modLine in ipairs(item.runeModLines) do
-						if modLine.soulcore then
-							for _, mod in ipairs(modLine.modList) do
-								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
+						local runeData = data.itemMods.Runes[runeName]
+						local augType
+						if runeData then
+							for _, baseEntry in pairs(runeData) do
+								if type(baseEntry) == "table" and baseEntry.type then
+									augType = baseEntry.type
+									break
 								end
 							end
 						end
+						if augType == "Idol" then
+							env.itemModDB.multipliers["IdolsInEquipment"] = (env.itemModDB.multipliers["IdolsInEquipment"] or 0) + 1
+						elseif augType then
+							env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] = (env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] or 0) + 1
+						end
 					end
 				end
+				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
 
 				if item.type == "Jewel" and item.base.subType == "Abyss" then
 					-- Update Abyss Jewel conditions/multipliers
@@ -1928,7 +1932,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemName or grantedEffect.name
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. (gemName or grantedEffect.name)
 							end
 						end
 					end

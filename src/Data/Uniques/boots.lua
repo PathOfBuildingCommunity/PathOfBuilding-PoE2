@@ -53,8 +53,8 @@ Variant: Current
 {variant:1}(50-80)% increased Armour
 {variant:1}+(30-50) to Stun Threshold
 {variant:2}+(50-70) to Stun Threshold
--10 Physical damage taken from Projectile Attacks
 +10% to Block chance
+-10 Physical damage taken from Projectile Attacks
 ]],[[
 Trampletoe
 Trimmed Greaves
@@ -210,6 +210,16 @@ You cannot Sprint
 ]],
 -- Boots: Armour/Energy Shield
 [[
+Decree of Flight
+Ancient Leggings
+League: Runes of Aldur
+30% increased Movement Speed
+(150-200)% increased Armour and Energy Shield
+(20-30)% faster Dodge Roll
+Gain Guard equal to (10-20)% of missing Energy Shield for 4 seconds when you Dodge Roll
+Maximum amount of Guard is based on maximum Energy Shield instead
+Divine Flight
+]],[[
 Wake of Destruction
 Secured Leggings
 Variant: Pre 0.1.1
@@ -258,11 +268,15 @@ Ab Aeterno
 Grand Cuisses
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 (15-30)% increased Movement Speed
 {variant:1}(60-80)% increased Armour, Evasion and Energy Shield
 {variant:2}(100-150)% increased Armour, Evasion and Energy Shield
+{variant:3}(200-250)% increased Armour, Evasion and Energy Shield
 Dodge Roll avoids all Hits
-10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds
+{variant:3}Gain Overencumbrance for 4 seconds when you Dodge Roll
+{variant:3}Your speed is Unaffected by Slows while Sprinting
+{variant:1,2}10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds
 ]],
 }

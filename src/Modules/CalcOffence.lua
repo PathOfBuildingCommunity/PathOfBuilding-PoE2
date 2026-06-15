@@ -92,8 +92,8 @@ local function calcGainedDamage(activeSkill, output, cfg, damageType)
 
 	local gainedMin, gainedMax = 0, 0
 	for _, otherType in ipairs(dmgTypeList) do
-		local baseMin = m_floor(output[otherType.."MinBase"] * activeSkill.conversionTable[otherType].mult)
-		local baseMax = m_floor(output[otherType.."MaxBase"] * activeSkill.conversionTable[otherType].mult)
+		local baseMin = output[otherType.."MinBase"] * activeSkill.conversionTable[otherType].mult
+		local baseMax = output[otherType.."MaxBase"] * activeSkill.conversionTable[otherType].mult
 		local gainMult = gainTable[otherType][damageType]
 		if gainMult and gainMult > 0 then
 			-- Damage is being converted/gained from the other damage type
@@ -3808,18 +3808,22 @@ function calcs.offence(env, actor, activeSkill)
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreBifurcateCritChance
 					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100
-					output.CritBifurcates = bifurcateMultiChance
+					local effectiveCritChance = output.CritChance
+					local conditionalBifurcateChance = effectiveCritChance > 0 and bifurcateMultiChance / effectiveCritChance or 0
+					output.CritBifurcates = 1 + conditionalBifurcateChance
 					local damageBonus = extraDamage
-					local bifurcatedBonus = bifurcateMultiChance * extraDamage / 100
-					if breakdown and enemyInc ~= 1 then
+					local bifurcatedBonus = conditionalBifurcateChance * extraDamage
+					if breakdown then
 						breakdown.CritBifurcates = {
-							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
+							s_format("%.2f%% ^8(pre-bifurcate crit chance)", critChancePercentage),
 							s_format("x %.2f%%", critChancePercentage),
-							s_format("= %.2f%% ^8(crit Bifurcates chance)", bifurcateMultiChance),
+							s_format("= %.2f%% ^8(chance both crit rolls succeed)", bifurcateMultiChance),
+							s_format("/ %.2f%% ^8(chance at least one crit roll succeeds)", effectiveCritChance),
+							s_format("= %.2f ^8(crit Bifurcates effect)", 1 + conditionalBifurcateChance),
 						}
 					end
 					extraDamage = damageBonus + bifurcatedBonus
-					skillModList:NewMod("CritMultiplier", "MORE", floor(bifurcateMultiChance, 2), "Bifurcated Crit Damage Bonus")
+					skillModList:NewMod("CritMultiplier", "MORE", floor(conditionalBifurcateChance * 100, 2), "Bifurcated Crit Damage Bonus")
 				end
 
 				if env.mode_effective then
@@ -3953,8 +3957,8 @@ function calcs.offence(env, actor, activeSkill)
 			local baseMax = output[damageTypeMax.."Base"]
 			local summedMin = baseMin * convMult + convertedMin + gainedMin
 			local summedMax = baseMax * convMult + convertedMax + gainedMax
-			output[damageType.."SummedMinBase"] = round(summedMin)
-			output[damageType.."SummedMaxBase"] = round(summedMax)
+			output[damageType.."SummedMinBase"] = summedMin
+			output[damageType.."SummedMaxBase"] = summedMax
 			if breakdown then
 				if (baseMin ~= 0 or baseMax ~= 0) then
 					if convMult ~= 1 then
@@ -4153,11 +4157,7 @@ function calcs.offence(env, actor, activeSkill)
 							end
 						end
 
-						local invertChance = m_max(m_min(skillModList:Sum("CHANCE", cfg, "HitsInvertEleResChance"), 1), 0)
-						if isElemental[damageType] and invertChance > 0 then
-							-- resist = (1 - invertChance) * resist + invertChance * (-1 * resist)
-							resist = resist - 2 * invertChance * resist
-						end
+						local invertChance = isElemental[damageType] and m_max(m_min(skillModList:Sum("CHANCE", cfg, "HitsInvertEleResChance"), 1), 0) or 0
 						sourceRes = env.modDB:Flag(nil, "Enemy"..sourceRes.."ResistEqualToYours") and "Your "..sourceRes.." Resistance" or (env.partyMembers.modDB:Flag(nil, "Enemy"..sourceRes.."ResistEqualToYours") and "Party Member "..sourceRes.." Resistance" or sourceRes)
 						if skillFlags.projectile then
 							takenInc = takenInc + enemyDB:Sum("INC", nil, "ProjectileDamageTaken")
@@ -4170,10 +4170,20 @@ function calcs.offence(env, actor, activeSkill)
 						end
 						local effMult = (1 + takenInc / 100) * takenMore
 						local useRes = useThisResist(damageType)
+						local effectiveResist = resist
+						local calcPenResist = function(resist)
+							return resist > minPen and m_max(resist - pen, minPen) or resist
+						end
 						if skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
-							effMult = effMult * (1 - resist / 100)
+							effectiveResist = (isElemental[damageType] and invertChance > 0) and (resist - 2 * invertChance * resist) or resist
+							effMult = effMult * (1 - effectiveResist / 100)
 						elseif useRes then
-							effMult = effMult * (1 - (resist > minPen and m_max(resist - pen, minPen) or resist) / 100)
+							if isElemental[damageType] and invertChance > 0 then
+								effectiveResist = calcPenResist(resist) * (1 - invertChance) + calcPenResist(-resist) * invertChance
+							else
+								effectiveResist = calcPenResist(resist)
+							end
+							effMult = effMult * (1 - effectiveResist / 100)
 						end
 						damageTypeHitMin = damageTypeHitMin * effMult
 						damageTypeHitMax = damageTypeHitMax * effMult
@@ -4181,12 +4191,12 @@ function calcs.offence(env, actor, activeSkill)
 						if env.mode == "CALCS" then
 							output[damageType.."EffMult"] = effMult
 						end
-						if pass == 2 and breakdown and (effMult ~= 1 or sourceRes ~= damageType) and skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
+						if pass == 2 and breakdown and (effMult ~= 1 or sourceRes ~= damageType or invertChance > 0) and skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
 							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
-							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, 0, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen)
-						elseif pass == 2 and breakdown and (effMult ~= 1 or (resist - pen) < minPen or sourceRes ~= damageType) then
+							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, 0, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist)
+						elseif pass == 2 and breakdown and (effMult ~= 1 or (resist - pen) < minPen or sourceRes ~= damageType or invertChance > 0) then
 							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
-							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, pen, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen)
+							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, pen, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist)
 						end
 					end
 					if pass == 2 and breakdown then

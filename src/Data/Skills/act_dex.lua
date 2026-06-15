@@ -2117,8 +2117,8 @@ skills["EscapeShotIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
@@ -4010,9 +4010,9 @@ skills["IceTippedArrowsIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
 				"secondary_skill_triggered_by_primary_skill_of_gem",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6624,7 +6624,7 @@ skills["RhoaMountPlayer"] = {
 	color = 2,
 	description = "Harnesses a Companion Rhoa you can mount while you're wielding a Bow or Spear. While mounted you can use Bow, thrown Spear, and Mark Skills, and are much less slowed while using Skills, but being Hit will cause Heavy Stun buildup. While you aren't mounted, the Rhoa will attack your enemies alongside you with its beak, but can be damaged.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Companion] = true, [SkillType.CreatesCompanion] = true, [SkillType.AttackInPlace] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_minion_life_+%_final", 1 },

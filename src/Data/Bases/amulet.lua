@@ -81,6 +81,7 @@ itemBases["Pearlescent Amulet"] = {
 }
 itemBases["Veridical Chain"] = {
 	type = "Amulet",
+	hidden = true,
 	tags = { amulet = true, default = true, },
 	implicit = "+(30-40) to maximum Runic Ward",
 	implicitModTypes = { { "runic_ward" }, },
@@ -88,6 +89,7 @@ itemBases["Veridical Chain"] = {
 }
 itemBases["Runemastered Veridical Chain"] = {
 	type = "Amulet",
+	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "+(30-40) to maximum Runic Ward\n+(2-3)% to Maximum Cold Resistance",
 	implicitModTypes = { { "runic_ward" }, { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
@@ -95,6 +97,7 @@ itemBases["Runemastered Veridical Chain"] = {
 }
 itemBases["Runemastered Veridical Chain"] = {
 	type = "Amulet",
+	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "+(30-40) to maximum Runic Ward\n+(1-2) to Level of all Cold Skills",
 	implicitModTypes = { { "runic_ward" }, { "elemental", "cold", "gem" }, },
@@ -102,6 +105,7 @@ itemBases["Runemastered Veridical Chain"] = {
 }
 itemBases["Runemastered Veridical Chain"] = {
 	type = "Amulet",
+	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "(15-20)% increased maximum Runic Ward",
 	implicitModTypes = { { "runic_ward" }, },

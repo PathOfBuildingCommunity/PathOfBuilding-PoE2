@@ -7,6 +7,32 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("shows duplicate selected variants in item tooltips when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+		local tooltip = new("Tooltip")
+
+		build.itemsTab:AddItemTooltip(tooltip, item)
+
+		local legacyLines = 0
+		for _, line in ipairs(tooltip.lines) do
+			if line.text and line.text:find("Legacy of Amethyst", 1, true) then
+				legacyLines = legacyLines + 1
+			end
+		end
+		assert.are.equals(2, legacyLines)
+	end)
+
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
 		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
 		build.configTab:BuildModList()

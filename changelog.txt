@@ -1,3 +1,59 @@
+VERSION[0.21.0][2026/06/13]
+
+--- New to Path of Building ---
+* Add 0.5.2 Passive tree changes (trompetin17)
+* Add support for very large time-lost jewel mod (vaisest)
+
+--- User Interface ---
+* Fix window title changing in compare tab (vaisest)
+
+--- Fixed Calculations ---
+* Fix many supports not adding cooldown (Peechey)
+* Fix calculation of inverted Resistances when having a source of Penetration (LocalIdentity)
+* Fix Discipline not being converted by Eldritch Battery (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix Split Personality not working with Monk and Druid starting points (LocalIdentity)
+* Fix mods duplicating when crafting some Crossbows (LocalIdentity)
+* Fix Full DPS breakdown and gem dropdowns showing the wrong name for Companion / Spectre skills (ltogniolli)
+* Fix PoB Trader search not working correctly after comparing a build (vaisest)
+* Fix Mageblood mods merging in item crafter (LocalIdentity)
+
+
+VERSION[0.20.0][2026/06/11]
+
+--- New to Path of Building ---
+* Add new 0.5 Uniques with support for some of them (Blitz54)
+* Update Uniques with 0.5 changes (Blitz54)
+* Add trader support for Heart of the Well, Against the Darkness, Desecrated mods, Rune-only mods and Breach tree mods (vaisest)
+* Add missing base types + hide unique-only bases from crafter (LocalIdentity)
+* Add support various immunity mods and dynamic immunity mod parsing (majochem)
+* Add support for various ailment and debuff mods (majochem)
+* Add Predator's Mark support (Pounce's ally-based Damage Taken curse) (mataide)
+* Add Bloodbarrier support (DS-Koala)
+* Add support for Fire Penetration II, ignoring Fire Resistance stat (Ariacell)
+* Add support for Idolatry Spirit Walker Ascendancy (ltogniolli)
+
+--- User Interface ---
+* Add unique item base type origin to tooltip (Blitz54)
+* Combine same stats from different mods in compare trade UI (vaisest)
+
+--- Fixed Calculations ---
+* Fix calculation of Bifurcated Crits (LocalIdentity)
+* Update calculation of added damage on Spectres and Beasts until GGG fixes the calculation (LocalIdentity)
+* Fix damage rounding for some player and minion skills (LocalIdentity)
+* Fix Evasion and Deflection granted by Tangmazu's Thurible (LocalIdentity)
+* Fix Cooldown recovery granted by Atziri's Impatience support (LocalIdentity)
+* Fix Fist of Stone more ES/Evasion mod on gloves (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix Split Personality not allowing connection from other Ascendancies (LocalIdentity)
+* Fix parsing for Tree mods that scale based on item Evasion (vaisest)
+* Fix some beast companions not importing correctly (Blitz54)
+
+--- Accuracy Improvements ---
+* Fix pasting of legacy unique mods (Blitz54)
+
 VERSION[0.19.0][2026/06/05]
 
 --- New to Path of Building ---

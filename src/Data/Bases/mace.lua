@@ -125,6 +125,7 @@ itemBases["Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "100% of Lightning Damage Converted to Cold Damage",
@@ -135,6 +136,7 @@ itemBases["Runemastered Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "Skills Gain (4-6)% of damage as Extra Lightning damage per 50 Runic Ward Cost",
@@ -145,6 +147,7 @@ itemBases["Runemastered Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "+(1.5-2) metres to Melee Strike Range",
@@ -155,6 +158,7 @@ itemBases["Runemastered Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "(40-60)% increased Lightning Damage",
@@ -165,6 +169,7 @@ itemBases["Runemastered Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "(50-100)% chance for Lightning Skills to Chain an additional time",
@@ -175,6 +180,7 @@ itemBases["Runemastered Torment Club"] = {
 itemBases["Runemastered Torment Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicitModTypes = { },
@@ -231,6 +237,7 @@ itemBases["Marching Mace"] = {
 itemBases["Runeforged Marching Mace"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicitModTypes = { },
@@ -269,6 +276,7 @@ itemBases["Runeforged Wooden Club"] = {
 itemBases["Runemastered Wooden Club"] = {
 	type = "One Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, ezomyte_basetype = true, mace = true, one_hand_weapon = true, onehand = true, runeforged = true, weapon = true, },
 	implicit = "(20-30)% increased Area of Effect for Attacks",
@@ -612,6 +620,7 @@ itemBases["Runeforged Felled Greatclub"] = {
 itemBases["Runemastered Felled Greatclub"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, ezomyte_basetype = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
@@ -631,6 +640,7 @@ itemBases["Runeforged Oak Greathammer"] = {
 itemBases["Runemastered Oak Greathammer"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, ezomyte_basetype = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Causes (20-40)% increased Stun Buildup",
@@ -660,6 +670,7 @@ itemBases["Runeforged Studded Greatclub"] = {
 itemBases["Runemastered Studded Greatclub"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, maraketh_basetype = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
@@ -785,6 +796,7 @@ itemBases["Tawhoan Greatclub"] = {
 itemBases["Aberrant Sledge"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
@@ -794,6 +806,7 @@ itemBases["Aberrant Sledge"] = {
 itemBases["Runemastered Aberrant Sledge"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
@@ -803,6 +816,7 @@ itemBases["Runemastered Aberrant Sledge"] = {
 itemBases["Runemastered Aberrant Sledge"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Skills which create Fissures have a 50% chance to create an additional Fissure",
@@ -813,6 +827,7 @@ itemBases["Runemastered Aberrant Sledge"] = {
 itemBases["Runemastered Aberrant Sledge"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "(200-300)% increased Freeze Buildup",
@@ -823,6 +838,7 @@ itemBases["Runemastered Aberrant Sledge"] = {
 itemBases["Runemastered Aberrant Sledge"] = {
 	type = "Two Hand Mace",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { default = true, mace = true, runeforged = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },

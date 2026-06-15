@@ -118,7 +118,7 @@ describe("TestSkills", function()
 
 		local normalArmour = env.player.output.Armour
 		local normalDPS = env.player.output.TotalDPS
-		assert.are.equals(1050, normalArmour)
+		assert.are.equals(1200, normalArmour)
 		assert.is_true(normalDPS > 0)
 
 		env = calcs.initEnv(build, "CALCULATOR", {}, {
@@ -354,15 +354,48 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
-	it("applies minion offensive multiplier to all attack damage", function()
+	it("applies generated minion offensive multiplier to attack damage", function()
 		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
 		runCallback("OnFrame")
 
 		local minion = build.calcsTab.mainEnv.minion
-		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+		local expectedPhysicalMax = floor(floor(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage * (1 + minion.minionData.damageSpread))
 
 		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
-		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"), 0.0001)
+		assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"))
+	end)
+
+	it("does not apply minion offensive multiplier to spectre or companion added damage", function()
+		for _, skill in ipairs({ "Spectre: Lightless Abomination 20/0  1", "Companion: Lightless Abomination 20/0  1" }) do
+			newBuild()
+			build.skillsTab:PasteSocketGroup(skill)
+			runCallback("OnFrame")
+
+			local minion = build.calcsTab.mainEnv.minion
+			assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"))
+		end
+	end)
+
+	it("uses selected companion names in skill displays", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local skillNames = { }
+		for _, skill in ipairs(build.calcsTab.mainOutput.SkillDPS) do
+			skillNames[skill.name] = true
+		end
+		assert.is_true(skillNames["Companion: Lightless Abomination"])
+		assert.is_true(skillNames["Companion: Lightless Moray"])
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+		assert.are.equals("Companion: Lightless Abomination", build.controls.mainSkill.list[1].label)
+
+		build:RefreshSkillSelectControls(build.controls, 2, "")
+		assert.are.equals("Companion: Lightless Moray", build.controls.mainSkill.list[1].label)
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
@@ -786,6 +819,20 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
 	end)
 
+	it("averages inverted elemental resistance after penetration", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nDamage Penetrates 50% of Enemy Fire Resistance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("inverted hit"))
+		assert.truthy(breakdownText:match("weighted average"))
+	end)
+
 	it("Test granted skills with exposure stats make exposure configurable", function()
 		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
 		local spec = build.spec
@@ -1106,4 +1153,5 @@ describe("TestSkills", function()
 		local noParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
 		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
 	end)
+	
 end)

@@ -622,6 +622,18 @@ SkillType = {
 	SupportedByHollowForm = 276,
 	SupportedByAnimusSplinters = 277,
 	HasNoCost = 278,
+	SupportedByBattershout = 279,
+	SupportedByRuneforgedBlades = 280,
+	SupportedByExploitWeakness = 281,
+	SupportedByDrainedAilment = 282,
+	SkillConsumesDazed = 283,
+	SupportedByDazzle = 284,
+	SupportedByFrostfire = 285,
+	SupportedByBitingFrost = 286,
+	SupportedByJaggedGround = 287,
+	SupportedByAbidingHex = 288,
+	SupportedByFrenziedRiposte = 289,
+	SupportedByCreepingChill = 290,
 }
 
 -- build reverse lookup

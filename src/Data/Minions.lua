@@ -1225,7 +1225,7 @@ minions["BearCompanion"] = {
 		-- override_turn_duration_ms [override_turn_duration_ms = 600]
 		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
-		-- base_presence_radius [base_presence_radius = 40]
+		-- base_presence_radius [base_presence_radius = 80]
 		mod("DamageTaken", "INC", -50, 0, 0), -- set_base_damage_taken_+% [set_base_damage_taken_+% = -50]
 	},
 }

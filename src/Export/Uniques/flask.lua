@@ -20,6 +20,17 @@ UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
 {variant:1}UniqueFlaskOverhealToGuard1[10,10]
 {variant:2}UniqueFlaskOverhealToGuard1
+]],[[
+Opportunity
+Ultimate Life Flask
+League: Runes of Aldur
+UniqueFlaskEffectNotRemovedOnFullLife__2
+UniqueCannotDrinkFlaskManually1
+UniqueFlaskUsedOnPerfectTiming1
+UniquePerfectTimingWindowDuringFlaskEffect1
+UniqueFlaskRecoveryAmount2
+UniqueFlaskIncreasedRecoverySpeed2
+UniqueFlaskChargesUsed3
 ]],
 -- Flask: Mana
 [[
@@ -41,6 +52,15 @@ UniqueFlaskEffectNotRemovedOnFullMana1
 {variant:3}UniqueFlaskDealChaosDamageNova1
 {variant:1}UniqueFlaskRecoverAllMana1
 UniqueFlaskTakeDamageWhenEnds1
+]],[[
+Uhtred's Chalice
+Transcendent Mana Flask
+League: Runes of Aldur
+UniqueFlaskRecoveryAmount3
+UniqueFlaskIncreasedRecoverySpeed3
+UniqueFlaskExtraCharges2
+UniqueLosePercentLifeWhileNoRunicWardDuringEffect1
+UniqueManaFlaskRecoveryCanOverflowManaDuringEffect1
 ]],
 -- Charm
 [[

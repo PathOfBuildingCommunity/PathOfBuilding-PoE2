@@ -190,7 +190,7 @@ function CalcSectionClass:FormatStr(str, actor, colData)
 			local modCfg = (sectionData.cfg and actor.mainSkill[sectionData.cfg.."Cfg"]) or { }
 			if sectionData.modSource then
 				modCfg.source = sectionData.modSource
-				modCfg.ignoreSourceinCheckConditions = true
+				modCfg.ignoreSourceInCheckConditions = true
 			end
 			if sectionData.actor then
 				modCfg.actor = sectionData.actor

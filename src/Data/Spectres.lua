@@ -214,7 +214,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 53,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Abyssal Depths (Act 2)",
@@ -246,7 +246,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Abyssal Depths (Act 2)",
@@ -603,7 +603,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 40,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Abyssal Depths (Act 2)",
@@ -886,7 +886,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"]
 	weaponType1 = "None",
 	baseMovementSpeed = 51,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -952,7 +952,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] 
 	weaponType1 = "None",
 	baseMovementSpeed = 48,
 	spectreReservation = 87,
-	companionReservation = 43.5,
+	companionReservation = 43.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -1056,7 +1056,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"]
 	weaponType1 = "None",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -1199,7 +1199,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] =
 	weaponType1 = "None",
 	baseMovementSpeed = 23,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -1480,7 +1480,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	critChance = 5,
 	baseMovementSpeed = 23,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"The Riverbank (Act 1)",
@@ -1519,7 +1519,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	critChance = 5,
 	baseMovementSpeed = 23,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Glacial Tarn (Act 6)",
@@ -1602,7 +1602,7 @@ minions["Metadata/Monsters/CrabMonsters/CrabCoconut"] = {
 	critChance = 5,
 	baseMovementSpeed = 29,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Shoreline Hideout (Act 4)",
@@ -1669,7 +1669,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 	critChance = 5,
 	baseMovementSpeed = 23,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
@@ -2044,7 +2044,7 @@ minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 	critChance = 5,
 	baseMovementSpeed = 41,
 	spectreReservation = 88,
-	companionReservation = 44.1,
+	companionReservation = 43.8,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -2080,7 +2080,7 @@ minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 	critChance = 5,
 	baseMovementSpeed = 51,
 	spectreReservation = 88,
-	companionReservation = 44.1,
+	companionReservation = 43.8,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -2311,7 +2311,7 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	weaponType1 = "Spear",
 	baseMovementSpeed = 41,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2354,7 +2354,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	weaponType2 = "One Hand Sword",
 	baseMovementSpeed = 45,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2397,7 +2397,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	weaponType2 = "Shield",
 	baseMovementSpeed = 41,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2482,7 +2482,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	weaponType2 = "One Hand Sword",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2614,7 +2614,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorroded__"] = {
 	weaponType1 = "Spear",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2660,7 +2660,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 	weaponType2 = "Shield",
 	baseMovementSpeed = 37,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -2817,7 +2817,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 	critChance = 5,
 	baseMovementSpeed = 44,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Holten Estate (Act 6)",
@@ -3112,7 +3112,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 	critChance = 5,
 	baseMovementSpeed = 14,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Mastodon Badlands (Act 2)",
@@ -3422,7 +3422,7 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	critChance = 5,
 	baseMovementSpeed = 38,
 	spectreReservation = 40,
-	companionReservation = 26.1,
+	companionReservation = 25.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Jiquani's Machinarium (Act 3)",
@@ -4054,7 +4054,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	weaponType1 = "One Hand Mace",
 	baseMovementSpeed = 16,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -4090,7 +4090,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 	weaponType1 = "One Hand Mace",
 	baseMovementSpeed = 16,
 	spectreReservation = 16,
-	companionReservation = 14.1,
+	companionReservation = 13.8,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -4122,7 +4122,7 @@ minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier"] = {
 	weaponType1 = "One Hand Sword",
 	baseMovementSpeed = 34,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -4552,7 +4552,7 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	critChance = 5,
 	baseMovementSpeed = 46,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
@@ -4779,7 +4779,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyColdSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 37,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
@@ -5060,7 +5060,7 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 	critChance = 5,
 	baseMovementSpeed = 37,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Clearfell (Act 1)",
@@ -5291,7 +5291,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	critChance = 5,
 	baseMovementSpeed = 40,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Holten Estate (Act 6)",
@@ -5523,7 +5523,7 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	weaponType1 = "One Hand Axe",
 	baseMovementSpeed = 28,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Bastille (Map)",
@@ -5562,7 +5562,7 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 	critChance = 5,
 	baseMovementSpeed = 18,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ogham Farmlands (Act 1)",
@@ -5699,7 +5699,7 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	critChance = 5,
 	baseMovementSpeed = 8,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
@@ -5739,7 +5739,7 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 	critChance = 5,
 	baseMovementSpeed = 15,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
@@ -5772,7 +5772,7 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 	weaponType1 = "Two Hand Mace",
 	baseMovementSpeed = 8,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
@@ -5847,7 +5847,7 @@ minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 	critChance = 5,
 	baseMovementSpeed = 22,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"The Red Vale (Act 1)",
@@ -5914,7 +5914,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	critChance = 5,
 	baseMovementSpeed = 44,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Derelict Mansion (Map)",
@@ -6532,7 +6532,7 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 	critChance = 5,
 	baseMovementSpeed = 33,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
@@ -6653,7 +6653,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_"] = {
 	critChance = 5,
 	baseMovementSpeed = 44,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Pools of Khatal (Act 6)",
@@ -6686,7 +6686,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_"] = {
 	critChance = 5,
 	baseMovementSpeed = 44,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Mawdun Quarry (Act 2)",
@@ -6940,7 +6940,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	critChance = 5,
 	baseMovementSpeed = 41,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Deserted Post (Act 4)",
@@ -7320,7 +7320,7 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	critChance = 8,
 	baseMovementSpeed = 20,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
@@ -7357,7 +7357,7 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 	critChance = 5,
 	baseMovementSpeed = 17,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
@@ -7784,7 +7784,7 @@ minions["Metadata/Monsters/VultureZombie/VultureDemonSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 44,
 	spectreReservation = 93,
-	companionReservation = 45.6,
+	companionReservation = 45.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Confluence (Map)",
@@ -8406,7 +8406,7 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge"] = {
 	critChance = 5,
 	baseMovementSpeed = 26,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
@@ -8442,7 +8442,7 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	critChance = 5,
 	baseMovementSpeed = 40,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Arid Plains (Map)",
@@ -8485,7 +8485,7 @@ minions["Metadata/Monsters/Kinarha/KinarhaSpectre"] = {
 	weaponType1 = "Claw",
 	baseMovementSpeed = 41,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -8590,7 +8590,7 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 	critChance = 5,
 	baseMovementSpeed = 50,
 	spectreReservation = 29,
-	companionReservation = 21.3,
+	companionReservation = 21,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Dreadnought (Act 2)",
@@ -8625,7 +8625,7 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	critChance = 5,
 	baseMovementSpeed = 25,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Hive (Map)",
@@ -8816,7 +8816,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	critChance = 5,
 	baseMovementSpeed = 12,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Cenotes (Map)",
@@ -9159,7 +9159,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 	weaponType1 = "Dagger",
 	baseMovementSpeed = 51,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Reservoir (Map)",
@@ -9204,7 +9204,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 	weaponType1 = "Spear",
 	baseMovementSpeed = 51,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Reservoir (Map)",
@@ -9503,7 +9503,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 	critChance = 5,
 	baseMovementSpeed = 50,
 	spectreReservation = 29,
-	companionReservation = 21.3,
+	companionReservation = 21,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Qimah (Act 6)",
@@ -9607,7 +9607,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	critChance = 5,
 	baseMovementSpeed = 27,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
@@ -9727,7 +9727,7 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Glacial Tarn (Act 6)",
@@ -9878,7 +9878,7 @@ minions["Metadata/Monsters/NettleAnt/NettleAntSummoned"] = {
 	critChance = 5,
 	baseMovementSpeed = 39,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -10021,7 +10021,7 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	critChance = 5,
 	baseMovementSpeed = 17,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Augury (Map)",
@@ -10220,7 +10220,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 	weaponType1 = "One Hand Axe",
 	baseMovementSpeed = 13,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Deforestation (Map)",
@@ -10332,7 +10332,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 	critChance = 5,
 	baseMovementSpeed = 28,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
@@ -10440,7 +10440,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncientAct
 	critChance = 5,
 	baseMovementSpeed = 11,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Etched Ravine (Act 6)",
@@ -10479,7 +10479,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] 
 	critChance = 5,
 	baseMovementSpeed = 27,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -10660,7 +10660,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 	critChance = 5,
 	baseMovementSpeed = 40,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Jiquani's Sanctum (Act 3)",
@@ -10735,7 +10735,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 	critChance = 5,
 	baseMovementSpeed = 25,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
@@ -10885,7 +10885,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	weaponType2 = "One Hand Axe",
 	baseMovementSpeed = 37,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
@@ -11457,7 +11457,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving"] = {
 	critChance = 5,
 	baseMovementSpeed = 6,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Library of Kamasa (Act 3)",
@@ -11506,7 +11506,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 	critChance = 5,
 	baseMovementSpeed = 37,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"The Cuachic Vault (Act 6)",
@@ -11542,7 +11542,7 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	weaponType2 = "Shield",
 	baseMovementSpeed = 35,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
@@ -11576,7 +11576,7 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 	weaponType1 = "Warstaff",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
@@ -11608,7 +11608,7 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 	weaponType1 = "Dagger",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
@@ -11676,7 +11676,7 @@ minions["Metadata/Monsters/Procession/ProcessionBannerSpectre"] = {
 	critChance = 5,
 	baseMovementSpeed = 31,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
@@ -11857,7 +11857,7 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 	weaponType2 = "One Hand Mace",
 	baseMovementSpeed = 36,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Sun Temple (Map)",
@@ -12035,7 +12035,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 	weaponType2 = "One Hand Axe",
 	baseMovementSpeed = 46,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Aggorat (Act 3)",
@@ -12071,7 +12071,7 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 93,
-	companionReservation = 45.6,
+	companionReservation = 45.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
@@ -12526,7 +12526,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 	critChance = 5,
 	baseMovementSpeed = 56,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
@@ -12562,7 +12562,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 	critChance = 5,
 	baseMovementSpeed = 50,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
@@ -12599,7 +12599,7 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 	critChance = 5,
 	baseMovementSpeed = 43,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
@@ -12737,7 +12737,7 @@ minions["Metadata/Monsters/KaruiBoar/ExplosivePig"] = {
 	critChance = 5,
 	baseMovementSpeed = 36,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -12848,7 +12848,7 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	critChance = 5,
 	baseMovementSpeed = 14,
 	spectreReservation = 88,
-	companionReservation = 44.1,
+	companionReservation = 43.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Khari Crossing (Act 6)",
@@ -13075,7 +13075,7 @@ minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 	critChance = 5,
 	baseMovementSpeed = 17,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -13219,7 +13219,7 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 	critChance = 5,
 	baseMovementSpeed = 12,
 	spectreReservation = 122,
-	companionReservation = 54.6,
+	companionReservation = 54.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -13266,10 +13266,10 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboBrequel",
-		"MPSBreachEliteFallenLunarisMonsterChaosSpark",
 		"CGBreachEliteFallenLunarisMonsterChaosQuicksand",
 		"SGLBreachEliteFallenLunarisMonsterChaosQuicksand",
 		"BreachLunarisChaosSpark",
+		"GABreachEliteFallenLunarisMonsterMeleeFlurry",
 	},
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
@@ -13296,7 +13296,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	critChance = 5,
 	baseMovementSpeed = 14,
 	spectreReservation = 93,
-	companionReservation = 45.6,
+	companionReservation = 45.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Hive Colony",
@@ -13333,7 +13333,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 	critChance = 5,
 	baseMovementSpeed = 37,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Hive Colony",
@@ -13370,7 +13370,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 	critChance = 5,
 	baseMovementSpeed = 54,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Hive Colony",
@@ -13489,7 +13489,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	critChance = 5,
 	baseMovementSpeed = 49,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Twisted Domain",
@@ -13555,7 +13555,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	critChance = 5,
 	baseMovementSpeed = 58,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Twisted Domain",
@@ -13772,7 +13772,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 	critChance = 5,
 	baseMovementSpeed = 43,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"The Blackwood (Act 6)",
@@ -14069,7 +14069,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 	critChance = 5,
 	baseMovementSpeed = 38,
 	spectreReservation = 40,
-	companionReservation = 26.1,
+	companionReservation = 25.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Blackwood (Act 6)",
@@ -14181,7 +14181,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 	critChance = 5,
 	baseMovementSpeed = 33,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -14957,7 +14957,7 @@ minions["Metadata/Monsters/GullMen/GullMen"] = {
 	weaponType1 = "One Hand Mace",
 	baseMovementSpeed = 37,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Secluded Temple",
@@ -14990,7 +14990,7 @@ minions["Metadata/Monsters/GullCarrion/GullCarrion"] = {
 	critChance = 5,
 	baseMovementSpeed = 18,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Shrike Island (Act 4)",
@@ -15086,7 +15086,7 @@ minions["Metadata/Monsters/HarpyMonster/RavenHarpyShrikeIsland"] = {
 	critChance = 5,
 	baseMovementSpeed = 22,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Shrike Island (Act 4)",
@@ -15120,7 +15120,7 @@ minions["Metadata/Monsters/HarpyMonster/GullHarpy"] = {
 	critChance = 5,
 	baseMovementSpeed = 22,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"Castaway (Map)",
@@ -15266,7 +15266,7 @@ minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
 	critChance = 5,
 	baseMovementSpeed = 41,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Abandoned Prison (Act 4)",
@@ -15302,7 +15302,7 @@ minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
 	critChance = 5,
 	baseMovementSpeed = 38,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Abandoned Prison (Act 4)",
@@ -15370,7 +15370,7 @@ minions["Metadata/Monsters/PaleWalker/PaleWalkerWave"] = {
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Frozen Falls (Map)",
@@ -15405,7 +15405,7 @@ minions["Metadata/Monsters/PaleWalker/PaleWalkerMirage"] = {
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Frozen Falls (Map)",
@@ -15440,7 +15440,7 @@ minions["Metadata/Monsters/PaleWalker/PaleWalkerShield_"] = {
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Frozen Falls (Map)",
@@ -15510,7 +15510,7 @@ minions["Metadata/Monsters/TarHulk/PaleHulk_"] = {
 	critChance = 5,
 	baseMovementSpeed = 11,
 	spectreReservation = 88,
-	companionReservation = 44.1,
+	companionReservation = 43.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Frozen Falls (Map)",
@@ -15811,7 +15811,7 @@ minions["Metadata/Monsters/Goblins/GoblinStabber"] = {
 	weaponType1 = "Dagger",
 	baseMovementSpeed = 40,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -15847,7 +15847,7 @@ minions["Metadata/Monsters/Goblins/GoblinStabberNoSkull"] = {
 	weaponType1 = "Dagger",
 	baseMovementSpeed = 40,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -15884,7 +15884,7 @@ minions["Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman"] = {
 	weaponType1 = "Spear",
 	baseMovementSpeed = 32,
 	spectreReservation = 40,
-	companionReservation = 26.1,
+	companionReservation = 25.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -15922,7 +15922,7 @@ minions["Metadata/Monsters/Goblins/GoblinStiltsFighter/GoblinStiltsFighter"] = {
 	weaponType2 = "Shield",
 	baseMovementSpeed = 32,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -16002,7 +16002,7 @@ minions["Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker"] = {
 	weaponType2 = "Spear",
 	baseMovementSpeed = 32,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -16076,7 +16076,7 @@ minions["Metadata/Monsters/HarpyMonster/MagmaHarpy/MagmaHarpy"] = {
 	critChance = 5,
 	baseMovementSpeed = 22,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
 		"The Galai Gates (Act 6)",
@@ -16116,7 +16116,7 @@ minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerMining"] = {
 	weaponType1 = "One Hand Mace",
 	baseMovementSpeed = 46,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -16149,7 +16149,7 @@ minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerTorch"] = {
 	weaponType1 = "One Hand Mace",
 	baseMovementSpeed = 46,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Caldera (Map)",
@@ -16216,7 +16216,7 @@ minions["Metadata/Monsters/JellfishNettler/JellyfishNettlerSmall"] = {
 	critChance = 5,
 	baseMovementSpeed = 29,
 	spectreReservation = 38,
-	companionReservation = 25.2,
+	companionReservation = 24.9,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Obscure Island",
@@ -16288,7 +16288,7 @@ minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
 	critChance = 5,
 	baseMovementSpeed = 13,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Howling Caves (Act 6)",
@@ -16375,7 +16375,7 @@ minions["Metadata/Monsters/CarrionWing/CarrionWing_"] = {
 	critChance = 5,
 	baseMovementSpeed = 39,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Singing Caverns (Act 4)",
@@ -16413,7 +16413,7 @@ minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Howling Caves (Act 6)",
@@ -16516,7 +16516,7 @@ minions["Metadata/Monsters/KaruiSoulCaster/KaruiSoulCaster_"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Halls of the Dead (Act 4)",
@@ -16798,7 +16798,7 @@ minions["Metadata/Monsters/LeagueAncestral/StandaloneTasalio/RiptideStandalone"]
 	critChance = 5,
 	baseMovementSpeed = 46,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -16830,7 +16830,7 @@ minions["Metadata/Monsters/LeagueAncestral/StandaloneTasalio/TrawlerStandalone_"
 	critChance = 5,
 	baseMovementSpeed = 39,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -16867,7 +16867,7 @@ minions["Metadata/Monsters/PlagueSwarm/TwilightOrderPlagueSwarm"] = {
 	critChance = 5,
 	baseMovementSpeed = 50,
 	spectreReservation = 29,
-	companionReservation = 21.3,
+	companionReservation = 21,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17318,7 +17318,7 @@ minions["Metadata/Monsters/BloodFeverKarui/BloodFeverHook"] = {
 	critChance = 5,
 	baseMovementSpeed = 35,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Heart of the Tribe (Act 4)",
@@ -17646,7 +17646,7 @@ minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataAxe_"] = {
 	weaponType1 = "Two Hand Axe",
 	baseMovementSpeed = 45,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17683,7 +17683,7 @@ minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataMace_"] = 
 	weaponType1 = "Two Hand Mace",
 	baseMovementSpeed = 42,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17722,7 +17722,7 @@ minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataArcher_"] 
 	weaponType1 = "Bow",
 	baseMovementSpeed = 32,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17757,7 +17757,7 @@ minions["Metadata/Monsters/TwilightOrderSorceror/TwilightOrderSorcerer"] = {
 	weaponType1 = "Warstaff",
 	baseMovementSpeed = 13,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17793,7 +17793,7 @@ minions["Metadata/Monsters/TwilightOrderCleric/TwilightOrderCleric"] = {
 	critChance = 5,
 	baseMovementSpeed = 17,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Arastas (Act 4)",
@@ -17953,7 +17953,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionSwordShieldIncurs
 	weaponType2 = "Shield",
 	baseMovementSpeed = 32,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 	},
@@ -18112,7 +18112,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/MonkeyExperiment"] = {
 	critChance = 5,
 	baseMovementSpeed = 46,
 	spectreReservation = 36,
-	companionReservation = 24.3,
+	companionReservation = 24,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -18180,7 +18180,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperimen
 	critChance = 5,
 	baseMovementSpeed = 17,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -18286,7 +18286,7 @@ minions["Metadata/Monsters/PrecursorCorruptionProcessor/PrecursorCorruptionProce
 	critChance = 5,
 	baseMovementSpeed = 18,
 	spectreReservation = 88,
-	companionReservation = 44.1,
+	companionReservation = 43.8,
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Ancient Gateway (Map)",
@@ -18556,7 +18556,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/ArachnidFaction/Tumou
 	critChance = 6,
 	baseMovementSpeed = 38,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -18587,7 +18587,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/Ang
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -18618,7 +18618,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/She
 	critChance = 5,
 	baseMovementSpeed = 22,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -18690,7 +18690,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/MassG
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 	},
@@ -18751,7 +18751,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/Octop
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -18819,7 +18819,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/Cocoon3Expedit
 	critChance = 5,
 	baseMovementSpeed = 29,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -19007,7 +19007,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueNymphExp
 	critChance = 5,
 	baseMovementSpeed = 25,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -19258,7 +19258,7 @@ minions["Metadata/Monsters/BloodClan/BloodClanKina"] = {
 	critChance = 5,
 	baseMovementSpeed = 12,
 	spectreReservation = 46,
-	companionReservation = 28.5,
+	companionReservation = 28.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -19289,7 +19289,7 @@ minions["Metadata/Monsters/BloodClan/BloodClanHarpooner"] = {
 	weaponType1 = "Spear",
 	baseMovementSpeed = 41,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -19320,7 +19320,7 @@ minions["Metadata/Monsters/BloodClan/BloodClanBirdFisherman"] = {
 	weaponType1 = "Warstaff",
 	baseMovementSpeed = 31,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 	},
@@ -19570,7 +19570,7 @@ minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
 	critChance = 5,
 	baseMovementSpeed = 18,
 	spectreReservation = 29,
-	companionReservation = 21.3,
+	companionReservation = 21,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},
@@ -19591,7 +19591,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion1"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.3,
+	damage = 0.78,
 	damageSpread = 0.2,
 	attackTime = 1.665,
 	attackRange = 12,
@@ -19630,7 +19630,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion2"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 40,
-	companionReservation = 26.1,
+	companionReservation = 25.8,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -19689,7 +19689,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion4"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 0.8,
+	damage = 0.48,
 	damageSpread = 0.2,
 	attackTime = 0.675,
 	attackRange = 8,
@@ -19761,7 +19761,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion6_"] = {
 	critChance = 5,
 	baseMovementSpeed = 32,
 	spectreReservation = 40,
-	companionReservation = 26.1,
+	companionReservation = 25.8,
 	monsterCategory = "Demon",
 	spawnLocation = {
 	},
@@ -20074,7 +20074,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionBannerIncursion"]
 	critChance = 5,
 	baseMovementSpeed = 31,
 	spectreReservation = 57,
-	companionReservation = 33,
+	companionReservation = 32.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
@@ -20221,7 +20221,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/CommanderNew/VaalGuardSpearIncursi
 	weaponType1 = "Warstaff",
 	baseMovementSpeed = 11,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Library of Kamasa (Act 3)",
@@ -20260,7 +20260,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/CommanderOld/UndeadVaalGuardSpearI
 	weaponType1 = "Spear",
 	baseMovementSpeed = 30,
 	spectreReservation = 59,
-	companionReservation = 33.6,
+	companionReservation = 33.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Jiquani's Sanctum (Act 3)",
@@ -20487,7 +20487,7 @@ minions["Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructPyramidInc
 	critChance = 5,
 	baseMovementSpeed = 16,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -20683,7 +20683,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/Golde
 	critChance = 5,
 	baseMovementSpeed = 11,
 	spectreReservation = 53,
-	companionReservation = 31.5,
+	companionReservation = 31.2,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Molten Vault (Map)",

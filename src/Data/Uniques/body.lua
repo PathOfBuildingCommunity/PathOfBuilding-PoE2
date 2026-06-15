@@ -52,12 +52,14 @@ The Brass Dome
 Champion Cuirass
 Variant: Pre 0.1.1
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 {variant:1}(300-400)% increased Armour
 {variant:2}(400-500)% increased Armour
 {variant:3}(700-800)% increased Armour
+{variant:4}(500-600)% increased Armour
 {variant:1}+5% to all Maximum Elemental Resistances
-{variant:2,3}-(5-1)% to all Maximum Elemental Resistances
+{variant:2,3,4}-(5-1)% to all Maximum Elemental Resistances
 +(200-300) to Stun Threshold
 Take no Extra Damage from Critical Hits
 ]],[[
@@ -70,6 +72,18 @@ Variant: Current
 {variant:2}50% chance to inflict Bleeding on Hit
 50% reduced Slowing Potency of Debuffs on You
 (15-20) to (25-30) Physical Thorns damage
+]],[[
+Geofri's Sanctuary
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
++1% to all Maximum Elemental Resistances
+(150-200)% increased Armour
++(10-20)% to all Elemental Resistances
+Your maximum Energy Shield is equal to (200-300)% of your Strength
+Maximum Energy Shield cannot be Converted
+Regenerate 2 Life per second for every 10 Intelligence
+Zealot's Oath
 ]],[[
 Greed's Embrace
 Vaal Cuirass
@@ -145,6 +159,17 @@ Variant: Current
 Cannot be Ignited
 -10 Physical Damage taken from Attack Hits
 ]],[[
+The Auspex
+Exquisite Vest
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Mist Raven
+(210-240)% increased Evasion Rating
++(70-120) to maximum Life
+100% increased Attribute Requirements
+Chance to Deflect is Lucky while on Low Life
+Enemies in your Presence gain 1 Gruelling Madness each second
+]],[[
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
@@ -189,17 +214,20 @@ Quilted Vest
 Hyrri's Ire
 Armoured Vest
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 (30-40)% increased Elemental Ailment Threshold
 {variant:1}(100-130)% increased Evasion Rating
 {variant:2}(200-250)% increased Evasion Rating
+{variant:3}(100-150)% increased Evasion Rating
 {variant:1}Adds (13-20) to (21-31) Cold damage to Attacks
 {variant:2}Gain (15-25)% of Damage as Extra Cold Damage
+{variant:3}Gain (10-20)% of Damage as Extra Cold Damage
 +(30-40) to Dexterity
 {variant:1}25% increased Chill Duration on Enemies
-{variant:2}25% increased Freeze Duration on Enemies
+{variant:2,3}25% increased Freeze Duration on Enemies
 Evasion Rating is doubled if you have not been Hit Recently
 ]],[[
 Quatl's Molt
@@ -257,8 +285,8 @@ League: Dawn of the Hunt
 +(80-120) to maximum Life
 +(10-30) to Spirit
 (40-60)% reduced Poison Duration on you
-You can have two Companions of different types
 (40-60)% reduced Duration of Bleeding on You
+You can have two Companions of different types
 ]],
 
 -- Body: Energy Shield
@@ -312,8 +340,8 @@ Variant: Current
 +(100-150) to maximum Life
 {variant:1}5% of Spell Damage Leeched as Life
 {variant:2}10% of Spell Damage Leeched as Life
-{variant:1}Skills gain a Base Life Cost equal to 50% of Base Mana Cost
-{variant:2}Skills gain a Base Life Cost equal to 100% of Base Mana Cost
+{variant:1}Skills Gain 50% of Mana Cost as Extra Life Cost
+{variant:2}Skills Gain 100% of Mana Cost as Extra Life Cost
 ]],[[
 Ghostwrithe
 Tattered Robe
@@ -341,8 +369,8 @@ Variant: Pre 0.1.1
 Variant: Current
 +(40-60) to maximum Life
 +(30-50) to maximum Mana
-{variant:2}Minions have +(17-23)% to Chaos Resistance
 Minions gain (20-30)% of their maximum Life as Extra maximum Energy Shield
+{variant:2}Minions have +(17-23)% to Chaos Resistance
 Minions Revive 50% faster
 ]],[[
 Prayers for Rain
@@ -521,6 +549,16 @@ Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 -17% to Chaos Resistance
 Charms use no Charges
 ]],[[
+The Sunken Vessel
+Knight Armour
+League: Runes of Aldur
+(120-180)% increased Armour and Evasion
++(80-120) to maximum Life
+30% reduced Life Recovery rate
+33% chance to avoid Projectiles
+Physical Damage of Enemies Hitting you is Unlucky
+Convert All Armour to Evasion Rating
+]],[[
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt
@@ -547,6 +585,16 @@ Variant: Current
 Life Leech can Overflow Maximum Life
 (40-60)% reduced Duration of Bleeding on You
 ]],[[
+Decree of Loyalty
+Ancient Mail
+League: Runes of Aldur
+(200-300)% increased Armour and Energy Shield
++(15-25) to Strength and Intelligence
++(1-5)% to Maximum Chaos Resistance
+Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%
+Defend with (150-200)% of Armour while you have Energy Shield
+Damage over Time cannot bypass your Energy Shield
+]],[[
 Enfolding Dawn
 Pilgrim Vestments
 (50-100)% increased Armour and Energy Shield
@@ -554,17 +602,25 @@ Pilgrim Vestments
 +(5-15)% to all Elemental Resistances
 Gain no inherent bonus from Intelligence
 ]],[[
-Husk of Dreams
+Reverie
 Shaman Mantle
 Variant: Pre 0.1.1
+Variant: 0.5.0
 Variant: Current
+Implicits: 1
+{variant:3}Grants Skill: Level (1-20) Rite of Restoration
 (100-150)% increased Armour and Energy Shield
 -10% to Fire Resistance
 {variant:1}+(13-17)% to Chaos Resistance
-{variant:2}+(13-17)% to Chaos Resistance
+{variant:2,3}+(13-17)% to Chaos Resistance
 {variant:1}(25-50)% increased Flask Charges gained
 {variant:2}(20-30)% increased Flask Charges gained
-50% less Flask Charges used
+{variant:1,2}50% less Flask Charges used
+{variant:3}Cannot use Life Flasks
+{variant:3}Non-Unique Life Flasks apply their Effects constantly
+{variant:3}Recovery from Life Flasks cannot be Instant
+{variant:3}Recovery from your Life Flasks cannot be applied to anything other than you
+{variant:3}(40-60)% less Life Flask Recovery
 ]],[[
 Icetomb
 Mail Vestments
@@ -601,12 +657,26 @@ Damage taken Recouped as Life is also Recouped as Energy Shield
 Soul Mantle
 Sacrificial Mantle
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 (80-120)% increased Armour and Energy Shield
+{variant:2}+75 to Spirit
 +10 to Strength
 +15 to Intelligence
-(20-30)% reduced Totem Life
+{variant:1}(20-30)% reduced Totem Life
 +1 to maximum number of Summoned Totems
 Inflicts a random Curse on you when your Totems die, ignoring Curse limit
+]],[[
+The Unleashed
+Revered Vestments
+League: Runes of Aldur
+Implicits: 1
++1% to all Maximum Elemental Resistances
+(150-250)% increased Armour and Energy Shield
++(10-20) to Strength and Intelligence
+(15-25)% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half
+Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds
+Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential
 ]],[[
 Voll's Protector
 {variant:1}Ironclad Vestments
@@ -662,6 +732,17 @@ Variant: Current
 20% less Damage taken if you have not been Hit Recently
 100% increased Evasion Rating if you have been Hit Recently
 ]],[[
+Forgotten Warden
+Primal Markings
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Spirit Vessel
++(70-100) to Deflection Rating per 50 missing Energy Shield
+(200-300)% increased Evasion and Energy Shield
++(20-30) to Dexterity
+Companions have (30-50)% increased maximum Life
+(10-15)% of Damage from Deflected Hits is taken from Damageable Companion's Life before you
+]],[[
 Gloomform
 Waxed Jacket
 Variant: Pre 0.1.1
@@ -687,11 +768,13 @@ Shocks you when you reach maximum Power Charges
 Sierran Inheritance
 Marabout Garb
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 (50-80)% increased Evasion and Energy Shield
 +(15-25)% to Lightning Resistance
-(30-50)% faster start of Energy Shield Recharge
-{variant:2}All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you
+{variant:3}(15-30)% increased Energy Shield Recharge Rate
+{variant:1,2}(30-50)% faster start of Energy Shield Recharge
+{variant:2,3}All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you
 The Effect of Chill on you is reversed
 ]],[[
 Zerphi's Serape
@@ -761,9 +844,9 @@ Sockets: S S S S
 {variant:9}+(50-60) to maximum Mana per Socket filled
 {variant:26}Hits against you have (10-15)% reduced Critical Damage Bonus per Socket filled
 {variant:27}Hits against you have (15-20)% reduced Critical Damage Bonus per Socket filled
-{variant:10}10% increased Global Defences per Socket filled
-{variant:11}(6-10)% increased Global Defences per Socket filled
-{variant:12}(9-12)% increased Global Defences per Socket filled
+{variant:10}10% increased Global Armour, Evasion and Energy Shield per Socket filled
+{variant:11}(6-10)% increased Global Armour, Evasion and Energy Shield per Socket filled
+{variant:12}(9-12)% increased Global Armour, Evasion and Energy Shield per Socket filled
 {variant:13}10% increased Rarity of Items found per Socket filled
 {variant:4}5% increased Maximum Life per Socket filled
 {variant:7}5% increased Maximum Mana per Socket filled
