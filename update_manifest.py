@@ -73,16 +73,15 @@ def create_manifest(version: str | None = None, replace: bool = False) -> None:
         logging.critical(f"Manifest configuration file not found in path '{base_path}'")
         return
 
-    base_url = "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/{branch}/"
+    base_url = "https://raw.githubusercontent.com/stevep51/PathOfBuilding-PoE2-MacOS/main/"
     parts: list[dict[str, str]] = []
     for part in config.sections():
         url = base_url + config[part]["path"]
         url_with_trailing_slash = url if url.endswith("/") else url + "/"
-        attributes = (
-            {"part": part, "platform": "win32", "url": url_with_trailing_slash}
-            if part == "runtime"
-            else {"part": part, "url": url_with_trailing_slash}
-        )
+        if part == "runtime-macos-arm64":
+            attributes = {"part": part, "platform": "macos-arm64", "url": url_with_trailing_slash}
+        else:
+            attributes = {"part": part, "url": url_with_trailing_slash}
         parts.append(attributes)
 
     files: list[dict[str, str]] = []
@@ -104,11 +103,10 @@ def create_manifest(version: str | None = None, replace: bool = False) -> None:
             data = path.read_bytes()
             sha1 = hashlib.sha1(data).hexdigest()
             name = path.relative_to(config[section]["path"]).as_posix()
-            attributes = (
-                {"name": name, "part": section, "runtime": "win32", "sha1": sha1}
-                if path.suffix in [".dll", ".exe"]
-                else {"name": name, "part": section, "sha1": sha1}
-            )
+            if section == "runtime-macos-arm64":
+                attributes = {"name": name, "part": section, "runtime": "macos-arm64", "sha1": sha1}
+            else:
+                attributes = {"name": name, "part": section, "sha1": sha1}
             files.append(attributes)
 
     files.sort(key=lambda attr: (attr["part"], _alphanumeric(attr["name"])))

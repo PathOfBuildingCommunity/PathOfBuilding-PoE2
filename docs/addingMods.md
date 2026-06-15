@@ -65,7 +65,7 @@ Our example is fairly simple, as some mod forms will slightly alter mod names an
 
 ## Important notes and tips ##
 
-- `ModParser.lua` is actually not where most mods really come from.  When you refresh the dev mode version of PoB with `Ctrl` + `F5`, `ModParser.lua` runs and regenerates `ModCache.lua`, which stores the actual parsed version of the mod.  `ModParser.lua` only gets used if the mod doesn't already exist somewhere when loading PoB (passive tree, unique list, or rare item list).  If you hold left alt while hovering over a mod, you can see how it gets parsed: ![Parsed Mod](https://i.imgur.com/ArVupKs.png)
+- `ModParser.lua` is actually not where most mods really come from.  When you refresh the dev mode version of PoB (press `F5` to restart while holding `Cmd`), `ModParser.lua` runs and regenerates `ModCache.lua`, which stores the actual parsed version of the mod.  `ModParser.lua` only gets used if the mod doesn't already exist somewhere when loading PoB (passive tree, unique list, or rare item list).  If you hold left alt while hovering over a mod, you can see how it gets parsed: ![Parsed Mod](https://i.imgur.com/ArVupKs.png)
 
   If you're missing something, you can also see what is unable to be parsed: ![Unparsed Mods](https://i.imgur.com/RiIH0u4.png)
 

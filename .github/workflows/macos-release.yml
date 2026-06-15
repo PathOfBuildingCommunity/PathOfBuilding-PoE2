@@ -1,0 +1,74 @@
+name: macOS release
+# Builds the native macOS app and publishes it to a GitHub Release whenever a
+# version tag like `v0.16.0-macos.1` is pushed. Can also be run manually against
+# an existing tag via the Actions tab.
+on:
+  push:
+    tags:
+      - 'v*-macos.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to build and attach release assets to (e.g. v0.16.0-macos.1)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-14
+    steps:
+      - name: Resolve tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ github.event.inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.tag.outputs.tag }}
+      - name: Install dependencies
+        run: brew install cmake ninja sdl3 luajit curl zlib zstd
+      - name: Build and package
+        run: |
+          tools/macos/build_app.sh
+          tools/macos/package_app.sh
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tag.outputs.tag }}"
+          ZIP="dist/macos-arm64/PathOfBuilding-PoE2-macos-arm64.zip"
+          SUM="${ZIP}.sha256"
+          SHA="$(awk '{print $1}' "$SUM")"
+
+          cat > notes.md <<EOF
+          Native macOS (Apple Silicon) build for \`${TAG}\`.
+
+          ## Install
+          1. Download \`PathOfBuilding-PoE2-macos-arm64.zip\` below and unzip it.
+          2. Move **Path of Building (PoE2).app** to /Applications.
+          3. The app is **not notarized**, so on first launch right-click it and choose **Open**, or run:
+             \`\`\`bash
+             xattr -dr com.apple.quarantine "/Applications/Path of Building (PoE2).app"
+             \`\`\`
+
+          ## Verify the download (optional)
+          \`\`\`bash
+          shasum -a 256 -c PathOfBuilding-PoE2-macos-arm64.zip.sha256
+          \`\`\`
+          SHA-256: \`${SHA}\`
+
+          See [SECURITY.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/SECURITY.md) for account sign-in and data handling details.
+          EOF
+
+          # Create the release if it doesn't exist yet, then (re)upload assets.
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "$TAG" --notes-file notes.md
+          fi
+          gh release upload "$TAG" "$ZIP" "$SUM" --clobber

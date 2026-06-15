@@ -5,9 +5,10 @@ describe("TradeQueryGenerator", function()
 		-- Pass: Mod line maps correctly to trade stat entry without error
 		-- Fail: Mapping fails (e.g., no match found), indicating incomplete stat parsing for curse mods, potentially missing curse-enabling items in queries
 		it("handles special curse case", function()
-			local mod = { tradeHashes = {[30642521] = {"You can apply an additional Curse"}}, type = "Prefix", weightKey = {}, weightVal = {} }
-			mock_queryGen.modData = { Explicit = {} }
-			mock_queryGen:ProcessMod(mod)
+			local mod = { tradeHashes = {[30642521] = {"You can apply an additional Curse"}} }
+			local tradeStatsParsed = { result = { [2] = { entries = { { text = "You can apply # additional Curses", id = "explicit.stat_30642521" } } } } }
+			mock_queryGen.modData = { Explicit = true }
+			mock_queryGen:ProcessMod(mod, tradeStatsParsed, 1)
 			-- Simplified assertion; in full impl, check modData
 			assert.is_true(true)
 		end)

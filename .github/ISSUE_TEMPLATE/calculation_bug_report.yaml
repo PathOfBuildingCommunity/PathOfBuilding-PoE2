@@ -1,6 +1,6 @@
 name: Calculation bug report
 description: Create a bug report to help us fix incorrect calculations in Path of Building for PoE2.
-labels: ["bug:calculation"]
+labels: [bug, upstream]
 body:
   - type: markdown
     attributes:
@@ -13,14 +13,14 @@ body:
     attributes:
       label: Check version
       options:
-        - label: I'm running the latest version of Path of Building and I've verified this by checking the [changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/blob/master/CHANGELOG.md)
+        - label: I'm running the latest version of this macOS port and I've verified this by checking the [Releases page](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/releases)
           required: true
   - type: checkboxes
     id: duplicates
     attributes:
       label: Check for duplicates
       options:
-        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues?q=is%3Aissue)
+        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/issues?q=is%3Aissue)
           required: true
   - type: checkboxes
     id: validity
@@ -29,16 +29,11 @@ body:
       options:
         - label: I've checked that the calculation is supposed to be supported. If it isn't please open a feature request instead (Red text is a feature request).
           required: true
-  - type: dropdown
-    id: platform
+  - type: input
+    id: macos_version
     attributes:
-      label: What platform are you running Path of Building on?
-      options: 
-        - Windows
-        - Linux - Wine
-        - Linux - PoB Frontend
-        - MacOS
-      default: 0
+      label: What macOS version and Mac are you running?
+      placeholder: e.g. macOS 14.5 (Sonoma), Apple M2
     validations:
       required: true
   - type: textarea

@@ -13,18 +13,13 @@ body:
     attributes:
       label: Check for duplicates
       options:
-        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues?q=is%3Aissue)
+        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/issues?q=is%3Aissue)
           required: true
-  - type: dropdown
-    id: platform
+  - type: input
+    id: macos_version
     attributes:
-      label: What platform are you running Path of Building on?
-      options: 
-        - Windows
-        - Linux - Wine
-        - Linux - PoB Frontend
-        - MacOS
-      default: 0
+      label: What macOS version and Mac are you running?
+      placeholder: e.g. macOS 14.5 (Sonoma), Apple M2
     validations:
       required: true
   - type: textarea

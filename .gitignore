@@ -11,6 +11,7 @@ inspect.lua
 # Application files
 Builds/
 *.cfg
+!manifest.cfg
 Settings.xml
 
 # Testing
@@ -19,8 +20,11 @@ spec/test_results.log
 spec/test_generation.log
 src/luacov.stats.out
 
-# Release
+# Release / generated macOS build outputs (regenerate with tools/macos/package_app.sh)
 manifest-updated.xml
+build/
+dist/
+runtime-macos-arm64/
 
 # GGPK Export
 src/Export/ggpk/metadata/

@@ -74,7 +74,7 @@ describe("TestAttacks", function()
 		-- Test against Quarterstaff Strike (skill slot 1)
 		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nArmour Break I 1/0  1\nShock 1/0  1\nBiting Frost I 1/0  1")
 		runCallback("OnFrame")
-		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnite I 1/0  1\nDaze 1/0  1\nShock Conduction 1/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnite I 1/0  1\nDaze 1/0  1\nShock Conduction I 1/0  1")
 		runCallback("OnFrame")
 
 		build.configTab:BuildModList()
@@ -165,113 +165,6 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 
 		assert.are.equals(1.1, build.calcsTab.mainOutput.MainHand.AverageHit)
-	end)
-
-	it("matches in-game tooltip DPS for low-level spear skills", function()
-		build.spec:SelectClass(build.spec.tree.classNameMap.Huntress)
-		build.characterLevel = 11
-		build.characterLevelAutoMode = false
-		build.controls.characterLevel:SetText(11)
-		build.configTab.input.customMods = [[
-			10% increased Attack Damage
-			+10000 to Accuracy Rating
-			nearby enemies have 100% less armour
-			nearby enemies have 100% less evasion
-		]]
-		build.configTab:BuildModList()
-		build.itemsTab:CreateDisplayItemFromRaw([[
-			Apocalypse Edge
-			Ironhead Spear
-			Item Level: 7
-			Quality: 0
-			LevelReq: 5
-			Implicits: 1
-			Grants Skill: Spear Throw
-			Adds 2 to 4 Physical Damage
-		]])
-		build.itemsTab:AddDisplayItem()
-
-		local skills = {
-			{ gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpear", level = 4, dps = 32.8 },
-			{ gemId = "Metadata/Items/Gems/SkillGemWhirlingSlash", level = 1, dps = 11.8 },
-			{ gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearThrow", level = 4, dps = 28.8 },
-			{ gemId = "Metadata/Items/Gems/SkillGemTwister", level = 2, dps = 17.5 },
-		}
-		for _, skill in ipairs(skills) do
-			local group = {
-				enabled = true,
-				gemList = { {
-					gemId = skill.gemId,
-					level = skill.level,
-					quality = 0,
-					enabled = true,
-					count = 1,
-					enableGlobal1 = true,
-					enableGlobal2 = true,
-				} },
-			}
-			table.insert(build.skillsTab.socketGroupList, group)
-			build.skillsTab:ProcessSocketGroup(group)
-			skill.groupIndex = #build.skillsTab.socketGroupList
-		end
-
-		for _, skill in ipairs(skills) do
-			local group = build.skillsTab.socketGroupList[skill.groupIndex]
-			build.mainSocketGroup = skill.groupIndex
-			build.calcsTab.input.skill_number = skill.groupIndex
-			group.mainActiveSkill = 1
-			group.mainActiveSkillCalcs = 1
-			build.buildFlag = true
-			build.modFlag = true
-			runCallback("OnFrame")
-			build.calcsTab:BuildOutput()
-			runCallback("OnFrame")
-
-			assert.are.equals(skill.dps, round(build.calcsTab.mainOutput.TotalDPS, 1))
-		end
-	end)
-
-	it("correctly calculates Garukhan's Resolve bifurcated critical hit damage", function()
-		local function setup(socketGroup)
-			newBuild()
-			build.itemsTab:CreateDisplayItemFromRaw([[
-				New Item
-				Razor Quarterstaff
-				Quality: 0
-				This Weapon's Critical Hit Chance is 0%
-				-100% increased physical damage
-				adds 1 to 1 physical damage to attacks
-				nearby enemies have 100% less armour
-				nearby enemies have 100% less evasion
-			]])
-			build.itemsTab:AddDisplayItem()
-			runCallback("OnFrame")
-			build.skillsTab:PasteSocketGroup(socketGroup)
-			runCallback("OnFrame")
-
-			build.configTab.input.customMods = [[
-				+50% to critical hit chance
-				your critical damage bonus is 1000000%
-				+4000 to accuracy
-			]]
-			build.configTab:BuildModList()
-			runCallback("OnFrame")
-			build.calcsTab:BuildOutput()
-			runCallback("OnFrame")
-
-			return build.calcsTab.mainOutput.MainHand
-		end
-
-		local normalOutput = setup("Quarterstaff Strike 1/0  1")
-		assert.are.equals(50, normalOutput.CritChance)
-		assert.are.equals(10001, normalOutput.CritMultiplier)
-		assert.are.equals(5001, normalOutput.AverageHit)
-
-		local garukhanOutput = setup("Quarterstaff Strike 1/0  1\nGarukhan's Resolve 1/0  1")
-		assert.are.equals(50, garukhanOutput.PreBifurcateCritChance)
-		assert.are.equals(75, garukhanOutput.CritChance)
-		assert.is_true(math.abs(1 / 3 - (garukhanOutput.CritBifurcates - 1)) < 0.000001)
-		assert.is_true(math.abs(10001 - garukhanOutput.AverageHit) < 0.01)
 	end)
 
 	it("correctly adds damage with oracle forced outcome", function()

@@ -13,25 +13,20 @@ body:
     attributes:
       label: Check version
       options:
-        - label: I'm running the latest version of Path of Building and I've verified this by checking the [changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/blob/master/CHANGELOG.md)
+        - label: I'm running the latest version of this macOS port and I've verified this by checking the [Releases page](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/releases)
           required: true
   - type: checkboxes
     id: duplicates
     attributes:
       label: Check for duplicates
       options:
-        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues?q=is%3Aissue)
+        - label: I've checked for duplicate open **and closed** issues by using the search function of the [issue tracker](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/issues?q=is%3Aissue)
           required: true
-  - type: dropdown
-    id: platform
+  - type: input
+    id: macos_version
     attributes:
-      label: What platform are you running Path of Building on?
-      options: 
-        - Windows
-        - Linux - Wine
-        - Linux - PoB Frontend
-        - MacOS
-      default: 0
+      label: What macOS version and Mac are you running?
+      placeholder: e.g. macOS 14.5 (Sonoma), Apple M2
     validations:
       required: true
   - type: textarea
@@ -49,9 +44,9 @@ body:
       description: Please write a clear and concise description of your system details.
       placeholder: |
         E.g.
-        Operating System: Windows 10
-        Graphics: Nvidia gtx 1060; Driver xxxx
-        File Path / File Permissions: e.g. non-ascii characters.
+        macOS version: 14.5 (Sonoma)
+        Mac model / chip: MacBook Pro, Apple M2
+        File Path / File Permissions: e.g. non-ascii characters in the build path.
         Other notable system configuration information: e.g. a certain app might be conflicting with Path of Building.
     validations:
       required: true
@@ -76,7 +71,7 @@ body:
       placeholder: |
         This can be either a code copied from the "Import/Export Build" tab or a link to a PoB build. 
         In the case where Path of Building crashes/doesn't work on startup or when you open a build.
-        Go to your builds folder (default %userprofile%/Documents/Path of Building/Builds) and copy the problematic build's .xml contents into a pastebin and supply the link.
+        Go to your builds folder (default ~/Library/Application Support/Path of Building (PoE2)/Builds) and copy the problematic build's .xml contents into a pastebin and supply the link.
       render: shell
     validations:
       required: false

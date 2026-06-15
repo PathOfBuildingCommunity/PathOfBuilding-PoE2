@@ -149,8 +149,14 @@
     Contains file name : SHA-1 hash pairings used to determine which files to update.
 * **README.md**
     Project overview
-* **runtime-win32.zip**
-    Contains PoB executable, update executable, compiled libraries `libcurl` (HTTPS requests), `lcurl` (libcurl bindings for Lua), `lua51` (LuaJIT 5.1), `lzip` (DEFLATE), `SimpleGraphic` (custom 2D graphics host), Lua libraries for Base64, JSON, SHA-1, XML, and fonts.
+* **macOS host (`macos/`)**
+    This port replaces the upstream Windows `runtime-win32.zip` bundle (PoB/update
+    executables and the Windows `SimpleGraphic` host) with a native macOS host
+    built from `macos/src/*.mm`. It provides the same Lua globals via SDL3
+    rendering, a bitmap font renderer, DDS/TGA decoders, libcurl-backed downloads,
+    and a loopback OAuth server. Built with `tools/macos/build_app.sh`. The shared
+    Lua libraries (Base64, JSON, SHA, XML, etc.) and fonts are retained under
+    `runtime/`.
 * **tree-2_6.zip**
 * **tree-3_6.zip**
 * **tree-3_7.zip**

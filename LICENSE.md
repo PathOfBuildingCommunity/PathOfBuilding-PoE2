@@ -3,6 +3,7 @@ Path of Building Community:
 *******************************************************************************
 
 Copyright (c) 2016 David Gowor
+Copyright (c) 2026 stevep51 (native macOS / Apple Silicon port)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

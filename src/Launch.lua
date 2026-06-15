@@ -336,6 +336,12 @@ function launch:CheckForUpdate(inBackground)
 	if self.updateCheckRunning then
 		return
 	end
+	if self.versionPlatform == "macos-arm64" then
+		-- The native macOS build has no in-app updater (the Windows Update.exe
+		-- runtime is not shipped); skip update checks to avoid staging an
+		-- update that cannot be applied.
+		return
+	end
 	self.updateCheckBackground = inBackground
 	self.updateMsg = "Initialising..."
 	self.updateProgress = "Checking..."
@@ -372,7 +378,7 @@ function launch:ShowErrMsg(fmt, ...)
 		local version = self.versionNumber and 
 			"^8v"..self.versionNumber..(self.versionBranch and " "..self.versionBranch or "")
 			or ""
-		self:ShowPrompt(1, 0, 0, "^1Error:\n\n^0"..string.format(fmt, ...).."\n"..version.."\n^0Press Enter/Escape to dismiss, or F5 to restart the application.\nPress CTRL + C to copy error text.")
+		self:ShowPrompt(1, 0, 0, "^1Error:\n\n^0"..string.format(fmt, ...).."\n"..version.."\n^0Press Enter/Escape to dismiss, or F5 to restart the application.\nPress Cmd + C to copy error text.")
 	end
 end
 

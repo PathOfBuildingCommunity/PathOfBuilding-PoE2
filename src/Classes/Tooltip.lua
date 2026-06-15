@@ -299,7 +299,9 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				end
 				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, font, rn})
 				curX = curX + textW
-				t_insert(drawStack, {sprite, curX, y, iconW, iconW})
+				if sprite then
+					t_insert(drawStack, {sprite, curX, y, iconW, iconW})
+				end
 				curX = curX + iconW + padding
 				maxOilHeight = m_max(maxOilHeight, recipeTextSize, iconW)
 			end

@@ -1,0 +1,20 @@
+name: Require label
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+jobs:
+  require_label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure the PR has at least one label
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          count=$(gh pr view "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" --json labels --jq '.labels | length')
+          echo "Label count: $count"
+          if [ "$count" -lt 1 ]; then
+            echo "::error::This PR must have at least one label (e.g. macos-host, build, packaging, ci, documentation, security, bug, enhancement)."
+            exit 1
+          fi
+          echo "PR is labeled."

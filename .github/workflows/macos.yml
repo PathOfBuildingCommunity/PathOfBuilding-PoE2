@@ -1,0 +1,27 @@
+name: macOS build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build_macos:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: brew install cmake ninja sdl3 luajit curl zlib zstd
+      - name: Build app
+        run: tools/macos/build_app.sh
+      - name: Package app
+        run: tools/macos/package_app.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PathOfBuilding-PoE2-macos-arm64
+          path: |
+            dist/macos-arm64/PathOfBuilding-PoE2-macos-arm64.zip
+            dist/macos-arm64/PathOfBuilding-PoE2-macos-arm64.zip.sha256
+

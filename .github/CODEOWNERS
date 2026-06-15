@@ -1,0 +1,6 @@
+# Code owners for the macOS port.
+# Pull requests touching these paths require review/approval from the owner(s)
+# listed here (enforced via branch protection on `main`).
+
+# Everything defaults to the port maintainer.
+* @stevep51
