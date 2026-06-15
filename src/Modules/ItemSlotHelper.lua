@@ -30,8 +30,8 @@ function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
 	SetDrawLayer(nil, 30)
 	SetDrawColor(1, 1, 1, 0.2)
 	-- draw crosshair
-	DrawImage(nil, math.floor(w / 2) - 1, 0, 2, w)
-	DrawImage(nil, 0, math.floor(h / 2) - 1, h, 2)
+	DrawImage(nil, math.floor(w / 2) - 1, 0, 2, h)
+	DrawImage(nil, 0, math.floor(h / 2) - 1, w, 2)
 	SetViewport()
 	SetDrawLayer(nil, 0)
 end
