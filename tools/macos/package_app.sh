@@ -15,6 +15,10 @@ rm -rf "${dist_dir}"
 mkdir -p "${dist_dir}"
 cp -R "${app_src}" "${app_dst}"
 
+# Make the app self-contained (bundle Homebrew dylibs into Contents/Frameworks
+# and rewrite install names) so it launches on Macs without Homebrew.
+"${repo_root}/tools/macos/bundle_dylibs.sh" "${app_dst}"
+
 resources="${app_dst}/Contents/Resources"
 mkdir -p "${resources}"
 rsync -a --delete \

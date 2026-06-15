@@ -32,14 +32,60 @@ jobs:
         with:
           ref: ${{ steps.tag.outputs.tag }}
       - name: Install dependencies
-        run: brew install cmake ninja sdl3 luajit curl zlib zstd
-      - name: Build and package
+        run: brew install cmake ninja sdl3 luajit curl zlib zstd dylibbundler
+
+      - name: Configure signing
+        id: cfg
+        # true only if the Developer ID cert secret is present; keeps the
+        # workflow working (unsigned) for forks / before secrets are added.
+        run: echo "sign=${{ secrets.MACOS_CERT_P12 != '' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Build and package (self-contained .app)
         run: |
           tools/macos/build_app.sh
           tools/macos/package_app.sh
+
+      - name: Import Developer ID certificate
+        if: steps.cfg.outputs.sign == 'true'
+        env:
+          MACOS_CERT_P12: ${{ secrets.MACOS_CERT_P12 }}
+          MACOS_CERT_PASSWORD: ${{ secrets.MACOS_CERT_PASSWORD }}
+        run: |
+          set -euo pipefail
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PWD="$(uuidgen)"
+          echo "KEYCHAIN=$KEYCHAIN" >> "$GITHUB_ENV"
+          printf '%s' "$MACOS_CERT_P12" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/cert.p12" -k "$KEYCHAIN" -P "$MACOS_CERT_PASSWORD" \
+            -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PWD" "$KEYCHAIN"
+          # Add our keychain to the search list (keeping the existing ones).
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | sed 's/"//g')
+          rm -f "$RUNNER_TEMP/cert.p12"
+
+      - name: Sign, notarize and staple
+        if: steps.cfg.outputs.sign == 'true'
+        env:
+          MACOS_SIGN_IDENTITY: ${{ secrets.MACOS_SIGN_IDENTITY }}
+          NOTARY_KEY: ${{ secrets.NOTARY_KEY }}
+          NOTARY_KEY_ID: ${{ secrets.NOTARY_KEY_ID }}
+          NOTARY_ISSUER_ID: ${{ secrets.NOTARY_ISSUER_ID }}
+          NOTARY_APPLE_ID: ${{ secrets.NOTARY_APPLE_ID }}
+          NOTARY_PASSWORD: ${{ secrets.NOTARY_PASSWORD }}
+          NOTARY_TEAM_ID: ${{ secrets.NOTARY_TEAM_ID }}
+        run: tools/macos/sign_and_notarize.sh
+
+      - name: Clean up keychain
+        if: always() && steps.cfg.outputs.sign == 'true'
+        run: security delete-keychain "$KEYCHAIN" 2>/dev/null || true
+
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
+          SIGNED: ${{ steps.cfg.outputs.sign }}
         run: |
           set -euo pipefail
           TAG="${{ steps.tag.outputs.tag }}"
@@ -47,28 +93,29 @@ jobs:
           SUM="${ZIP}.sha256"
           SHA="$(awk '{print $1}' "$SUM")"
 
+          if [ "$SIGNED" = "true" ]; then
+            INSTALL=$'1. Download the zip below and unzip it.\n2. Move **Path of Building (PoE2).app** to /Applications and open it normally — it is signed and notarized, so Gatekeeper allows it.'
+          else
+            INSTALL=$'1. Download the zip below and unzip it.\n2. Move **Path of Building (PoE2).app** to /Applications.\n3. The app is **not notarized**, so on first launch right-click it and choose **Open**, or run:  xattr -dr com.apple.quarantine "/Applications/Path of Building (PoE2).app"'
+          fi
+
           cat > notes.md <<EOF
           Native macOS (Apple Silicon) build for \`${TAG}\`.
 
           ## Install
-          1. Download \`PathOfBuilding-PoE2-macos-arm64.zip\` below and unzip it.
-          2. Move **Path of Building (PoE2).app** to /Applications.
-          3. The app is **not notarized**, so on first launch right-click it and choose **Open**, or run:
-             \`\`\`bash
-             xattr -dr com.apple.quarantine "/Applications/Path of Building (PoE2).app"
-             \`\`\`
+          ${INSTALL}
 
           ## Verify the download (optional)
-          \`\`\`bash
-          shasum -a 256 -c PathOfBuilding-PoE2-macos-arm64.zip.sha256
-          \`\`\`
+          Run \`shasum -a 256 -c PathOfBuilding-PoE2-macos-arm64.zip.sha256\` in the download folder.
           SHA-256: \`${SHA}\`
 
           See [SECURITY.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/SECURITY.md) for account sign-in and data handling details.
           EOF
 
-          # Create the release if it doesn't exist yet, then (re)upload assets.
+          # Create the release if it doesn't exist yet (else refresh notes), then (re)upload assets.
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" --title "$TAG" --notes-file notes.md
+          else
+            gh release edit "$TAG" --notes-file notes.md
           fi
           gh release upload "$TAG" "$ZIP" "$SUM" --clobber
