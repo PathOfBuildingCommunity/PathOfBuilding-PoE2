@@ -3812,7 +3812,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 			local labelX = (scrollOffsetX or 0) + 10
 			-- draw passive tree view when hovering over the label, if the slot is a jewel socket
 			if labelX <= cursorX and cursorX <= (labelX + labelW)
-				and drawY <= cursorY and cursorY <= (drawY + 20) then
+				and drawY < cursorY and cursorY <= (drawY + 20) then
 				if nodeId then
 					local boxSize = 250
 					-- anchor bottom left to label top left, keeping in mind what our viewport was
