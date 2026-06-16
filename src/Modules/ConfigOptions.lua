@@ -158,6 +158,9 @@ local configSettings = {
 		modList:NewMod("Condition:UseCurrentEnergyShield", "FLAG", true, "Config")
 		modList:NewMod("Multiplier:CurrentEnergyShield", "BASE", val, "Config")
 	end },
+	{ var = "conditionLowRunicWard", type = "check", label = "Are you on low ^xFFFF77Runic Ward?", ifCond = "LowRunicWard", tooltip = "You are on Low Runic Ward if you have 35% of your maximum ^xFFFF77Runic Ward^7 or less.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LowRunicWard", "FLAG", true, "Config")
+	end },
 	{ var = "minionsConditionFullLife", type = "check", label = "Are your Minions always on Full ^xE05030Life?", ifMinionCond = "FullLife", apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:FullLife", "FLAG", true, "Config") }, "Config")
 	end },
