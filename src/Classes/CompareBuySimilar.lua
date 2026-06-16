@@ -134,7 +134,7 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 				filter.value = { min = entry.value, max = entry.value }
 			elseif entry.value then
 				local minVal = tonumber(controls[prefix .. "Min"].buf)
-				
+
 				local maxVal = tonumber(controls[prefix .. "Max"].buf)
 				local value = {}
 				if minVal then
@@ -259,7 +259,7 @@ function M.openPopup(item, slotName, primaryBuild)
 			{ key = "Armour", label = "Armour", tradeKey = "ar" },
 			{ key = "Evasion", label = "Evasion", tradeKey = "ev" },
 			{ key = "EnergyShield", label = "Energy Shield", tradeKey = "es" },
-			{ key = "Ward", label = "Ward", tradeKey = "ward" },
+			{ key = "RunicWard", label = "Ward", tradeKey = "ward" },
 		}
 		for _, def in ipairs(defences) do
 			local val = item.armourData[def.key]
@@ -434,7 +434,7 @@ function M.openPopup(item, slotName, primaryBuild)
 			end
 			displayTexts[index] = displayText
 		end
-		
+
 
 		local displayText = table.concat(displayTexts, "\n")
 		-- labels anchor based on the first row instead of the middle row, so adjust upwards
