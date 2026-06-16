@@ -72,7 +72,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+		if implicitLine:match("^Grants Skill:") and (implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$")) then
 			return true
 		end
 	end
@@ -482,7 +482,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 		else
 			line = linePrefix .. line .. linePostfix
-			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
+			local lineIsBaseImplicit = mode == "GAME" and not self.crafted and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
 					if foundImplicit and not lineIsBaseImplicit then
@@ -632,6 +632,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.variantAlt4 = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant Five" then
 					self.variantAlt5 = specToNumber(specVal)
+				elseif specName == "Allow Duplicate Variants" then
+					self.allowDuplicateVariants = specVal == "true"
 				elseif specName == "Has Variants" or specName == "Selected Variants" then
 					-- Need to skip this line for backwards compatibility
 					-- with builds that used an old Watcher's Eye implementation
@@ -821,7 +823,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item
-						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore" and self.base.type ~= "Transcendent Limb"
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Transcendent Limb"
 						self.requirements.str = self.base.req.str or 0
 						self.requirements.dex = self.base.req.dex or 0
 						self.requirements.int = self.base.req.int or 0
@@ -852,8 +854,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					gameModeStage = "IMPLICIT"
 				end
 				local catalystScalar = 1
-				if line:match(" %- Unscalable Value$") then
-					line = line:gsub(" %- Unscalable Value$", "")
+				if line:match(" %- Unscalable Value$") or line:match(" — Unscalable Value$") then
+					line = line:gsub(" %- Unscalable Value$", ""):gsub(" — Unscalable Value$", "")
 					modLine.unscalable = true
 				else
 					catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
@@ -903,6 +905,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 					-- Replace non-number ranges as unsupported
 					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
+
+					-- Strip single values like 25(50) -> 25
+					line = line:gsub("(%d+)%((%d+)%)", "%1")
 
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
@@ -1013,6 +1018,18 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base then
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
 			local shouldFixRunesOnItem = #self.runes == 0
+			if not shouldFixRunesOnItem and #self.runeModLines > 0 then
+				local canRebuildRunes = true
+				for _, rune in ipairs(self.runes) do
+					if rune ~= "None" and not data.itemMods.Runes[rune] then
+						canRebuildRunes = false
+						break
+					end
+				end
+				if canRebuildRunes then
+					self:UpdateRunes()
+				end
+			end
 
 			local function getRuneLineParts(modLine)
 				local values = { }
@@ -1104,17 +1121,17 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local broadItemType = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff) and "caster" or "armour" -- minor optimisation
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
-				local addModToGroupedRunes = function (modLine)
+				local addModToGroupedRunes = function (modLine, augmentType)
 					local runeStrippedModLine, runeValues = getRuneLineParts(modLine)
 					if statGroupedRunes[runeStrippedModLine] == nil then
 						statGroupedRunes[runeStrippedModLine] = { }
 					end
-					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, values = runeValues })
+					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, type = augmentType, values = runeValues })
 				end
 				for slotType, slotMod in pairs(runeMods) do
 					if slotType == broadItemType or slotType == specificItemType then
 						for _, mod in ipairs(slotMod) do
-							addModToGroupedRunes(mod)
+							addModToGroupedRunes(mod, slotMod.type)
 						end
 					end
 				end
@@ -1125,19 +1142,45 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
+			local gameSocketedRuneEffectModifier = 0
+			if mode == "GAME" and shouldFixRunesOnItem then
+				for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
+					for _, effectModLine in ipairs(modLines) do
+						for _, mod in ipairs(effectModLine.modList or { }) do
+							if mod.name == "SocketedRuneEffect" and mod.type == "INC" then
+								gameSocketedRuneEffectModifier = gameSocketedRuneEffectModifier + mod.value / 100
+							end
+						end
+					end
+				end
+			end
+
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
 				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
 				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
-					local result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
+					local result, numRunes
+					local socketedRuneEffectAlreadyApplied
+					if gameSocketedRuneEffectModifier ~= 0 then
+						local unscaledTargetValues = { }
+						for valueIndex, value in ipairs(targetValues) do
+							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedRuneEffectModifier)
+						end
+						result, numRunes = findRuneCombination(groupedRunes, unscaledTargetValues, remainingRunes)
+						socketedRuneEffectAlreadyApplied = result ~= nil
+					end
+					if not result then
+						result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
+					end
 
 					if result then -- we have found a valid combo for that rune category
 						remainingRunes = remainingRunes - numRunes
 						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulCore = groupedRunes[1].name:match("Soul Core") ~= nil
+						modLine.augmentType = groupedRunes[1].type
 						modLine.runeCount = numRunes
+						modLine.socketedRuneEffectAlreadyApplied = socketedRuneEffectAlreadyApplied
 
 						if shouldFixRunesOnItem then
 							for index, rune in ipairs(groupedRunes) do
@@ -1285,6 +1328,9 @@ end
 
 function ItemClass:BuildRaw()
 	local rawLines = { }
+	if self.runeModLines and self.runeModLines[1] then
+		self:ApplySocketedRuneDisplayScalars()
+	end
 	t_insert(rawLines, "Rarity: " .. self.rarity)
 	if self.title then
 		t_insert(rawLines, self.title)
@@ -1344,7 +1390,8 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Item Level: " .. self.itemLevel)
 	end
 	local function writeModLine(modLine)
-		local line = modLine.line
+		local displayValueScalar = modLine.displayValueScalar and (modLine.valueScalar or 1) * modLine.displayValueScalar
+		local line = displayValueScalar and itemLib.applyRange(modLine.line, modLine.range or main.defaultItemAffixQuality, displayValueScalar, modLine.corruptedRange) or modLine.line
 		if modLine.range and line:match("%(%-?[%d%.]+%-%-?[%d%.]+%)") then
 			line = "{range:" .. round(modLine.range, 3) .. "}" .. line
 		end
@@ -1418,6 +1465,9 @@ function ItemClass:BuildRaw()
 		if self.hasAltVariant5 then
 			t_insert(rawLines, "Has Alt Variant Five: true")
 			t_insert(rawLines, "Selected Alt Variant Five: " .. self.variantAlt5)
+		end
+		if self.allowDuplicateVariants then
+			t_insert(rawLines, "Allow Duplicate Variants: true")
 		end
 	end
 	if self.quality then
@@ -1525,7 +1575,7 @@ function ItemClass:UpdateRunes()
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
-					local orderKey = modLine:match("^Bonded:") and "Bonded:"..order or order
+					local orderKey = mod.type .. ":" .. (modLine:match("^Bonded:") and "Bonded:"..order or order)
 					if statOrder[orderKey] then
 						-- Combine stats
 						local start = 1
@@ -1534,8 +1584,12 @@ function ItemClass:UpdateRunes()
 							start = e + 1
 							return tonumber(num) + tonumber(other)
 						end)
+						local modList, extra = modLib.parseMod(statOrder[orderKey].line)
+						statOrder[orderKey].modList = modList or { }
+						statOrder[orderKey].extra = extra
 					else
-						local modLine = { line = modLine, order = order, rune = true, enchant = true }
+						local modList, extra = modLib.parseMod(modLine)
+						local modLine = { line = modLine, order = order, modList = modList or { }, extra = extra, rune = true, enchant = true, augmentType = mod.type }
 						for l = 1, #self.runeModLines + 1 do
 							if not self.runeModLines[l] or self.runeModLines[l].order > order then
 								t_insert(self.runeModLines, l, modLine)
@@ -1546,6 +1600,18 @@ function ItemClass:UpdateRunes()
 					end
 				end
 			end
+		end
+	end
+end
+
+function ItemClass:ApplySocketedRuneDisplayScalars()
+	for _, modLine in ipairs(self.runeModLines or { }) do
+		local effectModifier = modLine.augmentType == "SoulCore" and (self.socketedSoulCoreEffectModifier or 0)
+			or modLine.augmentType == "Rune" and (self.socketedRuneEffectModifier or 0)
+		if effectModifier and effectModifier ~= 0 and not modLine.socketedRuneEffectAlreadyApplied then
+			modLine.displayValueScalar = 1 + effectModifier
+		else
+			modLine.displayValueScalar = nil
 		end
 	end
 end
@@ -1622,6 +1688,24 @@ function ItemClass:CheckModLineVariant(modLine)
 		or (self.hasAltVariant3 and modLine.variantList[self.variantAlt3])
 		or (self.hasAltVariant4 and modLine.variantList[self.variantAlt4])
 		or (self.hasAltVariant5 and modLine.variantList[self.variantAlt5])
+end
+
+function ItemClass:GetModLineVariantCount(modLine)
+	if not self.allowDuplicateVariants or not modLine.variantList then
+		return self:CheckModLineVariant(modLine) and 1 or 0
+	end
+
+	-- Mageblood can intentionally select the same variant more than once.
+	local variantList = modLine.variantList
+	local count = variantList[self.variant] and 1 or 0
+	for i = 1, 5 do
+		local suffix = i == 1 and "" or i
+		local variant = self["variantAlt" .. suffix]
+		if self["hasAltVariant" .. suffix] and variant and variantList[variant] then
+			count = count + 1
+		end
+	end
+	return count
 end
 
 -- Return the name of the slot this item is equipped in
@@ -1968,7 +2052,8 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
-		if self:CheckModLineVariant(modLine) then
+		local variantCount = self:GetModLineVariantCount(modLine)
+		if variantCount > 0 then
 			-- special section for variant over-ride of pre-modifier item parameters
 			if modLine.line:find("Requires Class") then
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
@@ -1995,8 +2080,9 @@ function ItemClass:BuildModList()
 					end
 				end
 				for _, mod in ipairs(modLine.modList) do
-					mod = modLib.setSource(mod, self.modSource)
-					baseList:AddMod(mod)
+					for _ = 1, variantCount do
+						baseList:AddMod(modLib.setSource(mod, self.modSource))
+					end
 				end
 				if modLine.modTags and #modLine.modTags > 0 then
 					self.hasModTags = true
@@ -2018,6 +2104,20 @@ function ItemClass:BuildModList()
 	end
 	for _, modLine in ipairs(self.explicitModLines) do
 		processModLine(modLine)
+	end
+	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
+	self.socketedRuneEffectModifier = calcLocal(baseList, "SocketedRuneEffect", "INC", 0) / 100
+	if self.runeModLines[1] then
+		self:ApplySocketedRuneDisplayScalars()
+	end
+	for _, modLine in ipairs(self.runeModLines) do
+		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
+			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
+		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
+			for _, mod in ipairs(modLine.modList) do
+				baseList:ScaleAddMod(mod, effectModifier)
+			end
+		end
 	end
 	self.grantedSkills = { }
 	for _, skill in ipairs(baseList:List(nil, "ExtraSkill")) do
@@ -2084,6 +2184,9 @@ function ItemClass:BuildModList()
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
 		self.requirements.int = 0
 	end
+	if self.name == "Geofri's Sanctuary, Revered Vestments" then
+		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
+	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
 		self.requirements.strMod = 0
 		self.requirements.dexMod = 0
@@ -2125,5 +2228,4 @@ function ItemClass:BuildModList()
 	else
 		self.modList = self:BuildModListForSlotNum(baseList)
 	end
-	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 end

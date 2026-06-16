@@ -16187,7 +16187,7 @@ skills["RagingSpiritsPlayer"] = {
 	color = 3,
 	description = "While active, Fire Spells you use yourself will also summon Raging Spirits, which are short-lived flaming skulls that rush at nearby enemies and rapidly Attack them, ignoring commands. Enemies will not directly engage these Minions, and can pass through them.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.Fire] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, [SkillType.AttackInPlace] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Fire] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "base_number_of_raging_spirits_allowed", 0.1 },
@@ -18202,7 +18202,7 @@ skills["SummonSkeletalReaversPlayer"] = {
 	color = 3,
 	description = "Activate to summon aggressive, Reviving Skeletal Reavers that can enrage on Command. Skeletal Reavers do more Attack Damage and gain increased Attack speed based on their Rage",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, [SkillType.CommandableMinion] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "minion_rage_effect_+%", 1 },
@@ -18568,7 +18568,7 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 	color = 3,
 	description = "Activate to summon Reviving Skeletal Warriors.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "active_skill_minion_life_+%_final", 1 },
@@ -21518,7 +21518,7 @@ skills["UnearthPlayer"] = {
 	color = 3,
 	description = "Raise spikes of bone from the earth in front of you, damaging enemies. The bones of Corpses and dead Reviving Minions in the area are ripped out and reassembled into short-lived Bone Construct Minions that fight for you. Larger Corpses create more than one Bone Construct.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Minion] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesMinion] = true, [SkillType.Damage] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Limit] = true, [SkillType.Triggerable] = true, [SkillType.Necrotic] = true, [SkillType.Totemable] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 0.95,
 	qualityStats = {
 		{ "base_skill_effect_duration", 250 },

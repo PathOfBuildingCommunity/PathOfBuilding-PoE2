@@ -3,6 +3,17 @@
 return {
 -- Weapon: One Handed Mace
 [[
+Brutus' Lead Sprinkler
+Morning Star
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Molten Shower
+Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength
+(80-120)% increased Physical Damage
+(5-10)% increased Attack Speed
++(15-25) to Strength
+5 to 10 Added Attack Fire Damage per 25 Strength
+]],[[
 Brynhand's Mark
 Wooden Club
 Variant: Pre 0.1.1
@@ -75,6 +86,17 @@ Variant: Current
 On Hitting an enemy, gains maximum added Lightning damage equal to
 the enemy's Power for 20 seconds, up to a total of 500
 ]],[[
+Sadist's Mercy
+Flanged Mace
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Harbinger of Madness
+(240-300)% increased Physical Damage
++(5-8)% to Critical Hit Chance
+(14-22)% increased Attack Speed
+Hits with this Weapon inflict (2-5) Gruelling Madness
+Enemies in your Presence have additional Power equal to their Gruelling Madness
+]],[[
 Sculpted Suffering
 Warpick
 Variant: Pre 0.3.0
@@ -127,7 +149,7 @@ Variant: Current
 {variant:2}+(10-20) to Strength
 {variant:2}+(20-30)% to Fire Resistance
 Hits Break (30-50) Armour
-Inflicts Fire Exposure when this Weapon Fully Breaks Armour
+Inflicts Elemental Exposure when this Weapon Fully Breaks Armour
 ]],
 -- Weapon: Two Handed Mace
 [[
@@ -145,13 +167,15 @@ All damage with this Weapon causes Electrocution buildup
 Chober Chaber
 Leaden Greathammer
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 +100 Intelligence Requirement
 {variant:1}(80-120)% increased Physical Damage
-{variant:2}Adds (58-65) to (102-110) Physical Damage
+{variant:2,3}Adds (58-65) to (102-110) Physical Damage
 +(80-100) to maximum Mana
-{variant:2}+50 to Spirit
+{variant:2,3}+50 to Spirit
 {variant:1}+5% to Critical Hit Chance
+{variant:3}+(2-3) to Level of all Minion Skills
 Increases and Reductions to Minion Damage also affect you
 ]],[[
 The Empty Roar
@@ -209,8 +233,21 @@ Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Da
 (80-120)% increased Physical Damage
 +(10-15) to all Attributes
 Gain 30 Life per enemy killed
+Hits with this Weapon have no Critical Damage Bonus
 This Weapon's Critical Hit Chance is 100%
-Critical Hits do not deal extra Damage
+]],[[
+Serle's Grit
+Kalguuran Forgehammer
+League: Runes of Aldur
+Sockets: S S S
+Implicits: 2
+Grants Skill: Level (1-20) Runic Tempering
+Has 3 Sockets
+Maximum Quality is 40%
+Adds (23-30) to (35-55) Physical Damage
++(20-30) to Strength
+Skills which Empower an Attack have (10-20)% chance to not count that Attack
+(40-50) to (80-100) added Physical Thorns damage per Runic Plate
 ]],[[
 Tidebreaker
 Pointed Maul
@@ -220,6 +257,19 @@ League: Dawn of the Hunt
 +(20-30) to Intelligence
 Causes (150-200)% increased Stun Buildup
 All Damage from Hits with this Weapon Contributes to Chill Magnitude
+]],[[
+Twisted Empyrean
+Aberrant Sledge
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Level (1-20) Starborn Onslaught
+(80-100)% increased Physical Damage
+Adds (150-200) to (350-400) Cold Damage
++(300-400) to maximum Mana
++(4-6)% to Critical Hit Chance
+(10-20)% of Damage is taken from Mana before Life
+Attacks with this Weapon have Added Cold Damage equal to (6-8)% to (10-12)% of maximum Mana
+Convert 100% of Fire Damage with Mace Skills to Cold Damage
 ]],[[
 Trephina
 Forge Maul

@@ -326,7 +326,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 		local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 		local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or activeSkill.activeEffect.grantedEffect.name })
+		t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
 	end
 	controls.mainSkill.enabled = #displaySkillList > 1
 	controls.mainSkill.selIndex = mainActiveSkill

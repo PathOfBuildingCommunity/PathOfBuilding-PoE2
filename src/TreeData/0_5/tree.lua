@@ -28285,12 +28285,12 @@ return {
 			},
 			group=762,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infusion Consumption Chance",
+			name="Infused Spell Damage",
 			orbit=1,
 			orbitIndex=7,
 			skill=3091,
 			stats={
-				[1]="Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"
+				[1]="15% increased Spell Damage if you have consumed an Elemental Infusion Recently"
 			}
 		},
 		[3109]={
@@ -41911,7 +41911,7 @@ return {
 			},
 			skill=11184,
 			stats={
-				[1]="Jewel Socket"
+				[1]="Sinister Jewel Socket"
 			}
 		},
 		[11230]={
@@ -54525,12 +54525,12 @@ return {
 			},
 			group=762,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infused Spell Damage",
+			name="Infusion Consumption Chance",
 			orbit=7,
 			orbitIndex=22,
 			skill=18793,
 			stats={
-				[1]="15% increased Spell Damage if you have consumed an Elemental Infusion Recently"
+				[1]="Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"
 			}
 		},
 		[18801]={
@@ -62357,8 +62357,9 @@ return {
 			},
 			skill=23907,
 			stats={
-				[1]="Gain 6% of Cold damage as Extra Lightning damage",
-				[2]="Unaffected by Chilled Ground"
+				[1]="15% reduced Effect of Chill on you",
+				[2]="Gain 6% of Cold damage as Extra Lightning damage",
+				[3]="15% increased Magnitude of Chill you inflict"
 			}
 		},
 		[23915]={
@@ -62639,12 +62640,12 @@ return {
 			},
 			group=762,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infusion Consumption Chance",
+			name="Infused Spell Damage",
 			orbit=1,
 			orbitIndex=2,
 			skill=24060,
 			stats={
-				[1]="Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"
+				[1]="15% increased Spell Damage if you have consumed an Elemental Infusion Recently"
 			}
 		},
 		[24062]={
@@ -78513,12 +78514,12 @@ return {
 			},
 			group=762,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infused Spell Damage",
+			name="Infusion Consumption Chance",
 			orbit=7,
 			orbitIndex=20,
 			skill=33639,
 			stats={
-				[1]="15% increased Spell Damage if you have consumed an Elemental Infusion Recently"
+				[1]="Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"
 			}
 		},
 		[33713]={
@@ -124765,7 +124766,8 @@ return {
 			skill=60878,
 			stats={
 				[1]="Gain 6% of Lightning damage as Extra Cold damage",
-				[2]="Unaffected by Shocked Ground"
+				[2]="15% reduced effect of Shock on you",
+				[3]="15% increased Magnitude of Shock you inflict"
 			}
 		},
 		[60886]={

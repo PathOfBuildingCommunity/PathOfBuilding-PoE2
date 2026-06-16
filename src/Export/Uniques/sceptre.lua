@@ -107,5 +107,17 @@ UniqueDamageGainedAsFire1
 UniqueNearbyAlliesDamageAsFire1
 UniqueNearbyAlliesPercentLifeRegeneration1
 UniqueEnemiesInPresenceLowestResistance1
+]],[[
+Sylvan's Effigy
+Stoic Sceptre
+League: Runes of Aldur
+Implicits: 2
+Grants Skill: Level (1-20) Discipline
+Grants Skill: Level (1-20) Azmerian Wolf
+UniqueLocalIncreasedSpiritPercent4
+UniqueNearbyAlliesLifeRegeneration1
+UniqueAllAttributes19
+UniqueCompanionDamageAgainstMarkedTargets1
+UniqueUnlimitedCompanionsOfDifferentTypes1
 ]],
 }

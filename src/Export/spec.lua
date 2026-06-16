@@ -56018,8 +56018,8 @@ return {
 			list=false,
 			name="TierHigher",
 			refTo="SoulCores",
-			type="Key",
-			width=150
+			type="ShortKey",
+			width=260
 		},
 		[7]={
 			list=false,
