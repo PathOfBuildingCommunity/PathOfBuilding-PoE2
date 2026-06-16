@@ -2215,6 +2215,12 @@ int Host::l_IsKeyDown(lua_State* L) {
     if (current) {
         setModifierStates(current->keyState);
         std::string key = luaString(L, 1);
+        // Letter keys are tracked lowercase (see keyNameFromSdl), but PoB queries
+        // some as uppercase, e.g. IsKeyDown("S")/"D"/"I" for the attribute-node
+        // hotkeys. Match single letters case-insensitively.
+        if (key.size() == 1 && key[0] >= 'A' && key[0] <= 'Z') {
+            key[0] = static_cast<char>(key[0] - 'A' + 'a');
+        }
         lua_pushboolean(L, current->keyState.contains(key));
     } else {
         lua_pushboolean(L, 0);
