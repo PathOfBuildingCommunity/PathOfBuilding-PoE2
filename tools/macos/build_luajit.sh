@@ -34,12 +34,18 @@ fi
     git fetch -q --depth 1 origin "${commit}"
     git checkout -q FETCH_HEAD
   )
+  # LuaJIT's hardened-runtime path has a `return 0;` in the void function
+  # mcode_setprot which clang rejects as an error. The warning's name varies by
+  # clang version (-Wreturn-type / -Wreturn-mismatch), so patch the source.
+  perl -0pi -e 's/(pthread_jit_write_protect_np\(\(prot & PROT_EXEC\)\);)\s*\n\s*return 0;/$1\n  return;/' \
+    "${src}/src/lj_mcode.c"
+  grep -q 'pthread_jit_write_protect_np((prot & PROT_EXEC));' "${src}/src/lj_mcode.c" || {
+    echo "build_luajit: HRT code path not found in lj_mcode.c (LuaJIT changed?)" >&2; exit 1; }
+
   export MACOSX_DEPLOYMENT_TARGET=11.0
   # -DLUAJIT_ENABLE_OSX_HRT: use the MAP_JIT mcode allocator (the actual fix).
-  # -Wno-return-mismatch: silence a void-return bug in LuaJIT's HRT path that
-  #   newer clang rejects as an error.
   make -C "${src}" \
-    XCFLAGS="-DLUAJIT_ENABLE_OSX_HRT -Wno-return-mismatch" \
+    XCFLAGS="-DLUAJIT_ENABLE_OSX_HRT" \
     amalg -j"$(sysctl -n hw.ncpu)"
   make -C "${src}" install PREFIX="${prefix}" INSTALL_STRIP=
 
