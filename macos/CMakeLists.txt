@@ -8,8 +8,22 @@ set(CMAKE_OSX_ARCHITECTURES arm64 CACHE STRING "Build Apple Silicon runtime")
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(SDL3 REQUIRED sdl3)
-pkg_check_modules(LUAJIT REQUIRED luajit)
 pkg_check_modules(ZSTD REQUIRED libzstd)
+
+# LuaJIT: prefer a vendored build (built with LUAJIT_ENABLE_OSX_HRT by
+# tools/macos/build_luajit.sh) so JIT mcode allocation works on Apple Silicon.
+# Homebrew's LuaJIT lacks that path -> MCODEAL -> no JIT -> the app is ~9 fps.
+# Fall back to pkg-config when no prefix is provided.
+if(DEFINED LUAJIT_PREFIX AND EXISTS "${LUAJIT_PREFIX}")
+  find_library(LUAJIT_LIB NAMES luajit-5.1 PATHS "${LUAJIT_PREFIX}/lib" NO_DEFAULT_PATH REQUIRED)
+  set(LUAJIT_LIBRARIES "${LUAJIT_LIB}")
+  set(LUAJIT_INCLUDE_DIRS "${LUAJIT_PREFIX}/include/luajit-2.1")
+  set(LUAJIT_LIBRARY_DIRS "${LUAJIT_PREFIX}/lib")
+  message(STATUS "Using vendored LuaJIT (OSX_HRT): ${LUAJIT_LIB}")
+else()
+  pkg_check_modules(LUAJIT REQUIRED luajit)
+  message(WARNING "Using system LuaJIT (no LUAJIT_PREFIX) - JIT may fail on Apple Silicon")
+endif()
 
 find_package(CURL REQUIRED)
 find_package(ZLIB REQUIRED)

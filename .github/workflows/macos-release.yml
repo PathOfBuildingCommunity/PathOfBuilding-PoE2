@@ -32,7 +32,7 @@ jobs:
         with:
           ref: ${{ steps.tag.outputs.tag }}
       - name: Install dependencies
-        run: brew install cmake ninja sdl3 luajit curl zlib zstd dylibbundler
+        run: brew install cmake ninja sdl3 curl zlib zstd dylibbundler
 
       - name: Configure signing
         id: cfg
