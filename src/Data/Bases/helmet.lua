@@ -1809,7 +1809,7 @@ itemBases["Runemastered Ancient Visor"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 168, Evasion = 153, Ward = 59, },
+	armour = { Armour = 168, Evasion = 153, RunicWard = 59, },
 	req = { level = 65, str = 59, dex = 59, },
 }
 
