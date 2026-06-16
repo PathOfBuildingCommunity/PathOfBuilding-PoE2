@@ -997,6 +997,16 @@ statMap = {
 
 #skill SupportRunicInfusionPlayer
 #set SupportRunicInfusionPlayer
+#flags
+statMap = {
+	["base_ward_cost_+_%_of_maximum_ward"] = {
+		mod("WardCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Ward", percent = 1 }),
+	},
+	["added_physical_damage_%_ward_cost"] = {
+		mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+		mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+	},
+},
 #mods
 #skillEnd
 
