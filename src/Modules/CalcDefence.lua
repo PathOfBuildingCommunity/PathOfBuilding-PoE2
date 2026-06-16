@@ -3910,7 +3910,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					end
 					totalLifeDegen = totalLifeDegen + lifeDegen
 					totalManaDegen = totalManaDegen + manaDegen
-					totalWanaDegen = totalWanaDegen + wardDegen
+					totalWardDegen = totalWardDegen + wardDegen
 					totalEnergyShieldDegen = totalEnergyShieldDegen + energyShieldDegen
 					if breakdown then
 						t_insert(breakdown.NetLifeRegen.rowList, {
