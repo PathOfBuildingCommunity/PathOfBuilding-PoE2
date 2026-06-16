@@ -682,17 +682,16 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		end
 		-- if the whole group would go over the bottom edge, we apply a negative offset to keep them
 		-- in
-		local yOffset = math.min(0, viewPort.height - totalH - ttY / 2)
+		local yOffset = math.min(0, viewPort.height - totalH / 2 - ttY)
 		-- movement to the left happens individually. i.e. the right edges are aligned
 		local yPos = ttY
 		for _, tt in ipairs(self.childTooltips) do
 			local childW, childH = tt:GetSize(viewPort)
 			local furthestAllowedX = viewPort.width - childW / 2
-			local furthestAllowedY = -totalH / 2
 			tt:Draw(math.min(ttX + 4 + ttW, furthestAllowedX), math.max(yPos + yOffset, 0), nil, nil,
 				viewPort)
 			-- next tooltip goes below this one
-			yPos = yPos + childH + 2
+			yPos = yPos + childH + 4
 		end
 	end
 	return ttW, ttH

@@ -3662,21 +3662,18 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			-- find gem since the item data only contains the skill id
 			local skill = data.skills[itemSkill.skillId]
 			if skill and skill.id and IsKeyDown("SHIFT") then
-				for grantedEffect, gemId in pairs(data.gemForSkill) do
-					if grantedEffect.id == skill.id then
-						local gem = data.gems[gemId]
-						local gemInst = {
-							gemData = gem,
-							level = itemSkill.level or 1,
-							quality = 0,
-							grantedEffect =
-								grantedEffect
-						}
-						gemTooltip.AddGemTooltip(tooltip.childTooltips[i], self.build, gemInst, {
-							includeQualityRange = true,
-						})
-						break
-					end
+				local gemId = data.gemForSkill[skill] or ""
+				local gem = data.gems[gemId]
+				if gem then
+					local gemInst = {
+						gemData = gem,
+						level = itemSkill.level or 1,
+						quality = 0,
+						grantedEffect = skill
+					}
+					gemTooltip.AddGemTooltip(tooltip.childTooltips[i], self.build, gemInst, {
+						includeQualityRange = true,
+					})
 				end
 			end
 		end
