@@ -5781,8 +5781,8 @@ local specialModList = {
 		flag("CannotHeavyStun"),
 		flag("CannotPin"),
 	},
-	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num, _, base) return {
-		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",-num) }),
+	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num) return {
+		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",(num - 100)) }),
 	} end,
 	["the effect of blind on you is reversed"] = { flag("BlindEffectReversed") },
 	["blind does not affect your chance to hit"] = { flag("IgnoreBlindHitChance") },
