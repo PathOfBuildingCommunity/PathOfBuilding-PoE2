@@ -1566,7 +1566,7 @@ function ItemClass:UpdateRunes()
 			local itemType = self.base.type:lower()
 			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
 			local specificType =
-				(subType == "warstaff" and "warstaff") or
+				(subType == "warstaff" and "quarterstaff") or
 				(itemType == "shield" and subType == "evasion" and "buckler") or
 				itemType
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
