@@ -920,7 +920,7 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Blazing Critical", unscalable = true }),
 				},
 				["support_blazing_crits_base_duration_ms"] = {
 					-- Display only
