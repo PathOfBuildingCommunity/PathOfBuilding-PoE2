@@ -1795,13 +1795,13 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 		-- tree artifacts that bled into those regions via high sublayers
 		local layout = self.treeLayout
 		if layout then
-			SetDrawColor(0.05, 0.05, 0.05)
+			SetDrawStyle('compare_tree_top_bar_background')
 			DrawImage(nil, contentVP.x, contentVP.y, contentVP.width, layout.headerHeight)
-			SetDrawColor(0.85, 0.85, 0.85)
+			SetDrawStyle('compare_tree_top_bar_border')
 			DrawImage(nil, contentVP.x, contentVP.y + layout.headerHeight - 2, contentVP.width, 2)
-			SetDrawColor(0.05, 0.05, 0.05)
+			SetDrawStyle('bottom_bar_background')
 			DrawImage(nil, contentVP.x, layout.footerY, contentVP.width, layout.footerHeight)
-			SetDrawColor(0.85, 0.85, 0.85)
+			SetDrawStyle('bottom_bar_border')
 			DrawImage(nil, contentVP.x, layout.footerY, contentVP.width, 2)
 		end
 		SetDrawColor(1, 1, 1)
@@ -3183,11 +3183,11 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	SetViewport(vp.x, vp.y, vp.width, headerReserve)
 	SetDrawColor(1, 1, 1)
-	DrawString(col1, 4, "LEFT", headerHeight, "VAR", "^7Stat")
-	StyledDrawString(col2R, 4, "RIGHT_X", headerHeight, 'text_compare_primary_build_name', GetStyleColor('text_compare_primary_build_name') .. primaryName)
-	StyledDrawString(col3R, 4, "RIGHT_X", headerHeight, 'text_compare_secondary_build_name',
+	StyledDrawString(col1, 4, "LEFT", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Stat")
+	StyledDrawString(col2R, 4, "RIGHT_X", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_primary_build_name') .. primaryName)
+	StyledDrawString(col3R, 4, "RIGHT_X", headerHeight, 'text_compare_summary_heading',
 		GetStyleColor('text_compare_secondary_build_name') .. compareName)
-	DrawString(col4, 4, "LEFT", headerHeight, "VAR", "^7Difference")
+	StyledDrawString(col4, 4, "LEFT", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Difference")
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, 4, headerHeight + 8, vp.width - 8, 2)
 
@@ -3213,7 +3213,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	-- Header
 	SetDrawColor(1, 1, 1)
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, "VAR", "^7Compare Power Report")
+	StyledDrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Compare Power Report")
 	drawY = drawY + 24
 
 	-- Run the coroutine driver (advances calculation each frame)
@@ -3229,7 +3229,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	self.controls.comparePowerStatSelect.y = controlY
 
 	-- Label for dropdown
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, "VAR", "^7Metric:")
+	StyledDrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, 'text_label', GetStyleColor('text_label').."Metric:")
 
 	-- Category checkboxes (positioned to the right of dropdown)
 	local checkX = ctrlBaseX + 280
@@ -3355,11 +3355,11 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 
 				-- Draw stat row
 				local labelColor = statData.color or "^7"
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. (statData.label or statData.stat))
-				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. primaryStr)
-				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.SPLITPERSONALITY .. compareStr)
+				StyledDrawString(col1, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', labelColor .. (statData.label or statData.stat))
+				StyledDrawString(col2R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', "^7" .. primaryStr)
+				StyledDrawString(col3R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', colorCodes.SPLITPERSONALITY .. compareStr)
 				if diffStr ~= "" then
-					DrawString(col4, drawY, "LEFT", lineHeight, "VAR", diffColor .. diffStr)
+					StyledDrawString(col4, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', diffColor .. diffStr)
 				end
 				drawY = drawY + lineHeight + 1
 			end
@@ -3370,9 +3370,9 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 				local valStr = statData.val or ""
 				local primaryShown = statData.condFunc(primaryOutput)
 				local compareShown = statData.condFunc(compareOutput)
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. statData.label)
-				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. (primaryShown and valStr or "-"))
-				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.WARNING .. (compareShown and valStr or "-"))
+				StyledDrawString(col1, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', labelColor .. statData.label)
+				StyledDrawString(col2R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', "^7" .. (primaryShown and valStr or "-"))
+				StyledDrawString(col3R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', colorCodes.WARNING .. (compareShown and valStr or "-"))
 				drawY = drawY + lineHeight + 1
 			end
 		end
@@ -3481,40 +3481,41 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 	local drawY = startY
 
 	if not item then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", "^8(empty)")
+		StyledDrawString(x, drawY, "LEFT", fontSize, 'text_itembox', "^8(empty)")
 		return lineHeight
 	end
 
 	-- Item name
 	local rarityColor = tradeHelpers.getRarityColor(item)
-	DrawString(x, drawY, "LEFT", 16, "VAR", rarityColor .. item.name)
+	DrawString(x, drawY, "LEFT", 16, "FONTIN SC", rarityColor .. item.name)
 	drawY = drawY + 18
 
 	-- Base type label
 	local base = item.base
+	local itemFont = "FONTIN SC"
 	if base then
 		if base.weapon then
 			local weaponData = item.weaponData and item.weaponData[1]
 			if weaponData then
 				if weaponData.PhysicalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FPhys DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.PhysicalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FPhys DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.PhysicalDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ElementalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEle DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ElementalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FEle DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ElementalDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ChaosDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FChaos DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ChaosDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FChaos DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ChaosDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.TotalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FTotal DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.TotalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FTotal DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.TotalDPS))
 					drawY = drawY + lineHeight
 				end
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCrit: " .. colorCodes.MAGIC .. "%.2f%%", weaponData.CritChance))
+				DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FCrit: " .. colorCodes.MAGIC .. "%.2f%%", weaponData.CritChance))
 				drawY = drawY + lineHeight
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FAPS: " .. colorCodes.MAGIC .. "%.2f", weaponData.AttackRate))
+				DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FAPS: " .. colorCodes.MAGIC .. "%.2f", weaponData.AttackRate))
 				drawY = drawY + lineHeight
 			end
 		elseif base.armour then
@@ -3526,23 +3527,23 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 				local energyShield = item:GetArmourDataValue("EnergyShield", level)
 				local ward = item:GetArmourDataValue("Ward", level)
 				if armour > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
 					drawY = drawY + lineHeight
 				end
 				if evasion > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
 					drawY = drawY + lineHeight
 				end
 				if energyShield > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
 					drawY = drawY + lineHeight
 				end
 				if ward > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
 					drawY = drawY + lineHeight
 				end
 				if armourData.BlockChance and armourData.BlockChance > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FBlock: " .. colorCodes.MAGIC .. "%d%%", armourData.BlockChance))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FBlock: " .. colorCodes.MAGIC .. "%d%%", armourData.BlockChance))
 					drawY = drawY + lineHeight
 				end
 			end
@@ -3550,26 +3551,26 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 			local flaskData = item.flaskData
 			if flaskData then
 				if flaskData.lifeTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FLife: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.lifeTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FLife: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.lifeTotal, flaskData.duration or 0))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.manaTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FMana: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.manaTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FMana: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.manaTotal, flaskData.duration or 0))
 					drawY = drawY + lineHeight
 				end
 				if not flaskData.lifeTotal and not flaskData.manaTotal and flaskData.duration then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FDuration: " .. colorCodes.MAGIC .. "%.2fs", flaskData.duration))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FDuration: " .. colorCodes.MAGIC .. "%.2fs", flaskData.duration))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.chargesUsed and flaskData.chargesMax then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCharges: " .. colorCodes.MAGIC .. "%d/%d", flaskData.chargesUsed, flaskData.chargesMax))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FCharges: " .. colorCodes.MAGIC .. "%d/%d", flaskData.chargesUsed, flaskData.chargesMax))
 					drawY = drawY + lineHeight
 				end
 				-- Flask buff mods
 				if item.buffModLines then
 					for _, modLine in pairs(item.buffModLines) do
 						local color = modLine.extra and colorCodes.UNSUPPORTED or colorCodes.MAGIC
-						DrawString(x, drawY, "LEFT", fontSize, "VAR", color .. modLine.line)
+						DrawString(x, drawY, "LEFT", fontSize, itemFont, color .. modLine.line)
 						drawY = drawY + lineHeight
 					end
 				end
@@ -3578,7 +3579,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 		-- Quality (if not shown in type-specific section)
 		if item.quality and item.quality > 0 and not base.weapon and not base.armour and not base.flask then
-			DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FQuality: " .. colorCodes.MAGIC .. "+%d%%", item.quality))
+			DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FQuality: " .. colorCodes.MAGIC .. "+%d%%", item.quality))
 			drawY = drawY + lineHeight
 		end
 	end
@@ -3589,6 +3590,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 	end
 
 	-- Mod lines with diff highlighting
+	local modsFont = "FONTIN SC"
 	for _, modListData in ipairs{item.enchantModLines or {}, item.scourgeModLines or {}, item.implicitModLines or {}, item.explicitModLines or {}, item.crucibleModLines or {}} do
 		local drewAny = false
 		for _, modLine in ipairs(modListData) do
@@ -3614,7 +3616,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 						end
 						-- If exact match (same line text), no indicator — it's identical
 					end
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", formatted)
+					DrawString(x, drawY, "LEFT", fontSize, modsFont, formatted)
 					drawY = drawY + lineHeight
 					drewAny = true
 				end
@@ -3627,15 +3629,15 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 	-- Corrupted/Split/Mirrored
 	if item.corrupted then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Corrupted")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Corrupted")
 		drawY = drawY + lineHeight
 	end
 	if item.split then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Split")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Split")
 		drawY = drawY + lineHeight
 	end
 	if item.mirrored then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Mirrored")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Mirrored")
 		drawY = drawY + lineHeight
 	end
 
@@ -3665,7 +3667,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	-- move when jewel names or modifier detail state changes.
 	local maxBaseLabelW = 0
 	for _, sn in ipairs(baseSlots) do
-		local w = DrawStringWidth(16, "VAR", "^7" .. sn .. ":")
+		local w = StyledDrawStringWidth(16, 'text_label', "^7" .. sn .. ":")
 		if w > maxBaseLabelW then maxBaseLabelW = w end
 	end
 	maxBaseLabelW = maxBaseLabelW + 2
@@ -3772,10 +3774,10 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	local function drawSlotEntry(label, pItem, cItem, copySlotName, equipSlotName, labelW, pWarn, cWarn, slotMissing)
 		if self.itemsExpandedMode then
 			-- === EXPANDED MODE ===
-			SetDrawColor(1, 1, 1)
-			DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
-			local labelEndW = DrawStringWidth(16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
-			DrawString(scrollOffsetX + 10 + labelEndW + 8, drawY + 2, "LEFT", 14, "VAR", tradeHelpers.getSlotDiffLabel(pItem, cItem))
+			SetDrawStyle('text_label')
+			StyledDrawString(scrollOffsetX + 10, drawY, "LEFT", 16, 'text_label', label .. ":" .. (pWarn or ""))
+			local labelEndW = StyledDrawStringWidth(16, 'text_label', label .. ":" .. (pWarn or ""))
+			StyledDrawString(scrollOffsetX + 10 + labelEndW + 8, drawY + 2, "LEFT", 14, 'text_compare_diff_indicator', tradeHelpers.getSlotDiffLabel(pItem, cItem))
 
 			if cItem then
 				local b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H = tradeHelpers.drawCopyButtons(cursorX, cursorY, scrollOffsetX + contentWidth - 214, drawY + 21, slotMissing, LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW)
@@ -3830,7 +3832,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Convert drawY to absolute screen coords for control positioning
 	local absY = vp.y + checkboxOffset + drawY
-	local treeSetLabelW = DrawStringWidth(16, "VAR", "^7Tree set:") + 4
+	local treeSetLabelW = StyledDrawStringWidth(16, 'text_label', "^7Tree set:") + 4
 
 	self.controls.primaryTreeSetLabel.x = vp.x + scrollOffsetX + 10
 	self.controls.primaryTreeSetLabel.y = absY + 2
@@ -4166,10 +4168,10 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 		local y = startY
 		for _, entry in ipairs(displayList) do
 			if entry.status == "missing" then
-				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", colorCodes.NEGATIVE .. "- " .. entry.name .. "^7")
+				StyledDrawString(xOffset, y, "LEFT", gemFontSize, 'text_compare_gem', colorCodes.NEGATIVE .. "- " .. entry.name .. "^7")
 			elseif entry.gem then
 				if highlightSet[entry.gem] then
-					SetDrawColor(0.33, 1, 0.33, 0.25)
+					SetDrawStyle('compare_header_background_hover')
 					DrawImage(nil, xOffset, y, gemTextWidth, gemLineHeight)
 				end
 				local gemName = entry.gem.grantedEffect and entry.gem.grantedEffect.name or entry.gem.nameSpec or "?"
@@ -4178,7 +4180,7 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 				if entry.status == "additional" then
 					prefix = colorCodes.POSITIVE .. "+ "
 				end
-				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem))
+				StyledDrawString(xOffset, y, "LEFT", gemFontSize, 'text_compare_gem', prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem))
 			end
 			y = y + gemLineHeight
 		end
@@ -4196,10 +4198,10 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	local groupHeaderX = 10
 	local groupHeaderTextX = groupHeaderX
 	local function getGroupHeaderWidth(group, idx)
-		return groupHeaderTextX + DrawStringWidth(18, "VAR", "^7" .. getGroupLabel(group, idx))
+		return groupHeaderTextX + StyledDrawStringWidth(18, 'text_compare_gem', "^7" .. getGroupLabel(group, idx))
 	end
 	local function drawGroupHeader(group, idx, x, y)
-		DrawString(x, y, "LEFT", 18, "VAR", "^7" .. getGroupLabel(group, idx))
+		StyledDrawString(x, y, "LEFT", 18, 'text_compare_gem', "^7" .. getGroupLabel(group, idx))
 	end
 
 	local displayListsByPair = {}

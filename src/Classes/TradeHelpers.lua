@@ -378,23 +378,23 @@ function M.drawCopyButtons(cursorX, cursorY, btnStartX, btnY, slotMissing, copyB
 		local pressed = hover and IsKeyDown("LEFTBUTTON")
 		-- Outer border
 		if hover then
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('button_border_hover')
 		else
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('button_border')
 		end
 		DrawImage(nil, x, btnY, w, btnH)
 		-- Inner fill
 		if pressed then
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('button_background_clicked')
 		elseif hover then
-			SetDrawColor(0.33, 0.33, 0.33)
+			SetDrawStyle('button_background_hover')
 		else
-			SetDrawColor(0, 0, 0)
+			SetDrawStyle('button_background')
 		end
 		DrawImage(nil, x + 1, btnY + 1, w - 2, btnH - 2)
 		-- Label
-		SetDrawColor(1, 1, 1)
-		DrawString(x + w / 2, btnY + 1, "CENTER_X", 14, "VAR", label)
+		SetDrawStyle('text_button')
+		StyledDrawString(x + w / 2, btnY + 1, "CENTER_X", 14, 'text_button', label)
 	end
 
 	-- "Buy" button
@@ -426,13 +426,13 @@ end
 -- Helper: fit a colored item name within maxW pixels, truncating with "..." if needed.
 local function fitItemName(colorCode, name, maxW)
 	local display = colorCode .. name
-	if DrawStringWidth(16, "VAR", display) <= maxW then
+	if StyledDrawStringWidth(16, 'text_itembox', display) <= maxW then
 		return display
 	end
 	local lo, hi = 0, #name
 	while lo < hi do
 		local mid = m_floor((lo + hi + 1) / 2)
-		if DrawStringWidth(16, "VAR", colorCode .. name:sub(1, mid) .. "...") <= maxW then
+		if StyledDrawStringWidth(16, 'text_itembox', colorCode .. name:sub(1, mid) .. "...") <= maxW then
 			lo = mid
 		else
 			hi = mid - 1
@@ -479,29 +479,44 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 		and cursorY >= drawY and cursorY < drawY + ITEM_BOX_H
 
 	-- Draw slot label
-	SetDrawColor(1, 1, 1)
-	DrawString(labelX, drawY + 2, "LEFT", 16, "VAR", "^7" .. slotLabel .. ":")
+	SetDrawStyle('text_label')
+	StyledDrawString(labelX, drawY + 2, "LEFT", 16, 'text_label', slotLabel .. ":")
 
 	-- Draw primary item box
-	local pBorderGray = pHover and 0.5 or 0.33
-	SetDrawColor(pBorderGray, pBorderGray, pBorderGray)
+	if pHover then
+		SetDrawStyle('itembox_border_hover')
+	else
+		SetDrawStyle('itembox_border')
+	end
 	DrawImage(nil, pBoxX, drawY, pBoxW, ITEM_BOX_H)
-	SetDrawColor(0.05, 0.05, 0.05)
+	if pHover then
+		SetDrawStyle('itembox_background_hover')
+	else
+		SetDrawStyle('itembox_background')
+	end
 	DrawImage(nil, pBoxX + 1, drawY + 1, pBoxW - 2, ITEM_BOX_H - 2)
-	SetDrawColor(1, 1, 1)
-	DrawString(pBoxX + 4, drawY + 2, "LEFT", 16, "VAR", fitItemName(pColor, pName, pBoxW - 8))
+	SetDrawStyle('text_itembox')
+	StyledDrawString(pBoxX + 4, drawY + 2, "LEFT", 16, 'text_itembox', fitItemName(pColor, pName, pBoxW - 8))
 
 	-- Draw diff indicator (between the two item boxes)
-	DrawString(diffX, drawY + 3, "LEFT", 14, "VAR", diffLabel)
+	SetDrawStyle('text_compare_diff_indicator')
+	StyledDrawString(diffX, drawY + 3, "LEFT", 14, 'text_compare_diff_indicator', diffLabel)
 
 	-- Draw compare item box
-	local cBorderGray = cHover and 0.5 or 0.33
-	SetDrawColor(cBorderGray, cBorderGray, cBorderGray)
+	if cHover then
+		SetDrawStyle('itembox_border_hover')
+	else
+		SetDrawStyle('itembox_border')
+	end
 	DrawImage(nil, cBoxX, drawY, cBoxW, ITEM_BOX_H)
-	SetDrawColor(0.05, 0.05, 0.05)
+	if cHover then
+		SetDrawStyle('itembox_background_hover')
+	else
+		SetDrawStyle('itembox_background')
+	end
 	DrawImage(nil, cBoxX + 1, drawY + 1, cBoxW - 2, ITEM_BOX_H - 2)
-	SetDrawColor(1, 1, 1)
-	DrawString(cBoxX + 4, drawY + 2, "LEFT", 16, "VAR", fitItemName(cColor, cName, cBoxW - 8))
+	SetDrawStyle('text_itembox')
+	StyledDrawString(cBoxX + 4, drawY + 2, "LEFT", 16, 'text_itembox', fitItemName(cColor, cName, cBoxW - 8))
 
 	-- Draw buttons
 	local b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H

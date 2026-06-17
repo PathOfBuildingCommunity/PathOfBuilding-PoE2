@@ -26,6 +26,10 @@
 ---| "'text_calc_breakdown'"
 ---| "'text_compare_primary_build_name'"
 ---| "'text_compare_secondary_build_name'"
+---| "'text_compare_summary_heading'"
+---| "'text_compare_summary_stat'"
+---| "'text_compare_diff_indicator'"
+---| "'text_compare_gem'"
 ---| "'text_current_build'"
 ---| "'text_button'"
 ---| "'text_button_disabled'"
@@ -35,6 +39,8 @@
 ---| "'text_list'"
 ---| "'text_list_placeholder'"
 ---| "'text_list_column_label'"
+---| "'text_itembox'"
+---| "'text_gemlist'"
 ---| "'text_textlist'"
 ---| "'text_textbox'"
 ---| "'text_textbox_disabled'"
@@ -73,6 +79,10 @@
 ---| "'textbox_border_disabled'"
 ---| "'textbox_border_selected'"
 ---| "'textbox_border_hover'"
+---| "'itembox_background'"
+---| "'itembox_background_hover'"
+---| "'itembox_border'"
+---| "'itembox_border_hover'"
 ---| "'dropdown_background'"
 ---| "'dropdown_background_disabled'"
 ---| "'dropdown_background_toggled'"
@@ -191,6 +201,8 @@
 ---| "'calc_breakdown_tooltip_image_border'"
 ---| "'calc_breakdown_tooltip_table'"
 ---| "'compare_header_background_hover'"
+---| "'compare_tree_top_bar_background'"
+---| "'compare_tree_top_bar_border'"
 ---| "'rectangle_outline_border'"
 ---| "'popup_background'"
 ---| "'popup_background_title'"
@@ -307,6 +319,10 @@ local themes = {
 		text_calc_breakdown = {color = colors.white, font = fonts.VAR},
 		text_compare_primary_build_name = {color = colorCodes.POSITIVE, font = fonts.VAR},
 		text_compare_secondary_build_name = {color = colorCodes.WARNING, font = fonts.VAR},
+		text_compare_summary_heading = {color = colors.white, font = fonts.VAR},
+		text_compare_summary_stat = {color = colors.white, font = fonts.VAR},
+		text_compare_diff_indicator = {color = colors.white, font = fonts.VAR},
+		text_compare_gem = {color = colors.white, font = fonts.VAR},
 		text_current_build = {color = colors.white, font = fonts.VAR},
 		text_button = {color = colors.white, font = fonts.VAR},
 		text_button_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -315,6 +331,8 @@ local themes = {
 		text_list = {color = colors.white, font = fonts.VAR},
 		text_list_placeholder = {color = colors.grey, font = fonts.VAR},
 		text_list_column_label = {color = colors.white, font = fonts.VAR},
+		text_itembox = {color = colors.white, font = fonts.VAR},
+		text_gemlist = {color = colors.white, font = fonts.VAR},
 		text_textlist = {color = colors.white, font = fonts.VAR},
 		text_textbox = {color = colors.white, font = fonts.VAR},
 		text_textbox_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -366,6 +384,12 @@ local themes = {
 		textbox_border_hover = colors.white,
 		textbox_border_highlight = colors.blue_highlight,
 		textbox_border_highlight_negative = colors.red_highlight,
+		-- itembox background
+		itembox_background = colors.light_black,
+		itembox_background_hover = colors.light_black,
+		-- itembox border
+		itembox_border = colors.dark_grey,
+		itembox_border_hover = colors.grey,
 		-- dropdown background
 		dropdown_background = colors.black,
 		dropdown_background_disabled = colors.black,
@@ -517,6 +541,8 @@ local themes = {
 		calc_breakdown_tooltip_table = colors.grey,
 		-- compare tab
 		compare_header_background_hover = colors.green_highlight,
+		compare_tree_top_bar_background = colors.light_black,
+		compare_tree_top_bar_border = colors.lighter_grey,
 		-- rectangle outline
 		rectangle_outline_border = colors.white,
 		-- popup background
@@ -578,8 +604,12 @@ local themes = {
 		text_calc_section_label = {color = colors.white, font = fonts.FONTIN},
 		text_calc_section_value = {color = colors.white, font = fonts.FONTIN},
 		text_calc_breakdown = {color = colors.white, font = fonts.FONTIN},
-		text_compare_primary_build_name = {color = colorCodes.POSITIVE, font = fonts.FONTIN},
-		text_compare_secondary_build_name = {color = colorCodes.WARNING, font = fonts.FONTIN},
+		text_compare_primary_build_name = {color = colorCodes.POSITIVE, font = fonts.FONTIN_SC},
+		text_compare_secondary_build_name = {color = colorCodes.WARNING, font = fonts.FONTIN_SC},
+		text_compare_summary_heading = {color = poe2trade_colors.white_warm, font = fonts.FONTIN_SC},
+		text_compare_summary_stat = {color = colors.white, font = fonts.FONTIN},
+		text_compare_diff_indicator = {color = colors.white, font = fonts.FONTIN},
+		text_compare_gem = {color = colors.white, font = fonts.FONTIN_SC},
 		text_current_build = {color = colors.light, font = fonts.FONTIN},
 		text_button = {color = colors.light, font = fonts.FONTIN_SC},
 		text_button_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
@@ -588,6 +618,8 @@ local themes = {
 		text_list = {color = colors.light, font = fonts.FONTIN_SC},
 		text_list_placeholder = {color = colors.grey, font = fonts.FONTIN},
 		text_list_column_label = {color = colors.light, font = fonts.FONTIN_SC},
+		text_itembox = {color = colors.light, font = fonts.FONTIN_SC},
+		text_gemlist = {color = colors.light, font = fonts.FONTIN},
 		text_textlist = {color = colors.light, font = fonts.FONTIN},
 		text_textbox = {color = colors.light, font = fonts.FONTIN},
 		text_textbox_disabled = {color = colors.grey, font = fonts.FONTIN},
@@ -639,6 +671,12 @@ local themes = {
 		textbox_border_hover = poe2trade_colors.clickable_background_hover,
 		textbox_border_highlight = colors.blue_highlight,
 		textbox_border_highlight_negative = colors.red_highlight,
+		-- itembox background
+		itembox_background = poe2trade_colors.clickable_enabled,
+		itembox_background_hover = poe2trade_colors.clickable_background_hover,
+		-- itembox border
+		itembox_border = poe2trade_colors.clickable_background_hover,
+		itembox_border_hover = poe2trade_colors.clickable_background_hover,
 		-- dropdown background
 		dropdown_background = poe2trade_colors.clickable_enabled,
 		dropdown_background_disabled = poe2trade_colors.clickable_background_disabled,
@@ -790,6 +828,8 @@ local themes = {
 		calc_breakdown_tooltip_table = poe2trade_colors.clickable_background_hover,
 		-- compare tab
 		compare_header_background_hover = poe2trade_colors.clickable_background_hover,
+		compare_tree_top_bar_background = poe2trade_colors.row_background,
+		compare_tree_top_bar_border = poe2trade_colors.brown,
 		-- rectangle outline
 		rectangle_outline_border = poe2trade_colors.brown_transparancy,
 		-- popup background
