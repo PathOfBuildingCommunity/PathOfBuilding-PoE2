@@ -510,7 +510,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 	end
 
 	local ward = poolTbl.RunicWard or output.RunicWard or 0
-	local restoreWard = modDB:Flag(nil, "WardNotBreak") and ward or 0
 
 	local energyShield = poolTbl.EnergyShield or output.EnergyShieldRecoveryCap
 	local mana = poolTbl.Mana or output.ManaUnreserved or 0
@@ -568,12 +567,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				guard.shared = guard.shared - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].sharedGuard = tempDamage >= 1 and tempDamage or nil
-			end
-			if ward > 0 then
-				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "RunicWardBypass") or 0) / 100), ward)
-				ward = ward - tempDamage
-				damageRemainder = damageRemainder - tempDamage
-				resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
 			end
 			damageRemaindersBeforeES[damageType] = damageRemainder > 0 and damageRemainder or nil
 		end
@@ -656,6 +649,12 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].life = (resourcesLostToTypeDamage[damageType].life or 0) + (tempDamage > 0 and tempDamage or 0)
 			end
+			if ward > 0 then
+				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "RunicWardBypass") or 0) / 100), ward)
+				ward = ward - tempDamage
+				damageRemainder = damageRemainder - tempDamage
+				resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
+			end
 			overkillDamage = overkillDamage + damageRemainder
 			resourcesLostToTypeDamage[damageType].overkill = damageRemainder >= 1 and damageRemainder or nil
 		end
@@ -667,7 +666,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		AlliesTakenBeforeYou = alliesTakenBeforeYou,
 		Aegis = aegis,
 		Guard = guard,
-		RunicWard = restoreWard,
+		RunicWard = ward,
 		EnergyShield = energyShield,
 		Mana = mana,
 		Life = life,
@@ -726,9 +725,6 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	if output.sharedGuardAbsorb and output.sharedGuardAbsorb > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge ^7(%d remaining)", output.sharedGuardAbsorb - poolsRemaining.Guard.shared, poolsRemaining.Guard.shared))
 	end
-	if output.RunicWard and output.RunicWard > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", output.RunicWard))
-	end
 	if output.EnergyShieldRecoveryCap ~= poolsRemaining.EnergyShield and output.EnergyShieldRecoveryCap and output.EnergyShieldRecoveryCap > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield ^7(%d remaining)", output.EnergyShieldRecoveryCap - poolsRemaining.EnergyShield, poolsRemaining.EnergyShield))
 	end
@@ -742,6 +738,9 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime))
 	end
 	t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7(%d remaining)", output.LifeRecoverable - poolsRemaining.Life, poolsRemaining.Life))
+	if output.RunicWard and output.RunicWard > 0 then
+		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward ^7(%d remaining)", output.RunicWard - poolsRemaining.RunicWard, poolsRemaining.RunicWard))
+	end
 	if poolsRemaining.OverkillDamage >= 1 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.NEGATIVE.."Overkill damage", poolsRemaining.OverkillDamage))
 	end
@@ -1913,6 +1912,7 @@ function calcs.defence(env, actor)
 	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
 
 	output.RunicWardOnBlock = modDB:Sum("BASE", nil, "RunicWardOnBlock")
+	output.RunicWardOnSuppress = modDB:Sum("BASE", nil, "RunicWardOnSuppress")
 
 	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
 	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
@@ -3064,7 +3064,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		local damageTotal = 0
 		local maxDamage = data.misc.ehpCalcMaxDamage
 		local maxIterations = data.misc.ehpCalcMaxIterationsToCalc
-		while poolTable.Life > 0 and DamageIn["iterations"] < maxIterations do
+		while (poolTable.Life > 0 or poolTable.RunicWard > 0) and DamageIn["iterations"] < maxIterations do
 			DamageIn["iterations"] = DamageIn["iterations"] + 1
 			local Damage = { }
 			damageTotal = 0
@@ -3080,17 +3080,19 @@ function calcs.buildDefenceEstimations(env, actor)
 				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit * (gainMult - 1), gainMult * (output.LifeRecoverable or 0))
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1), gainMult * (output.ManaUnreserved or 0))
 				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1), gainMult * output.EnergyShieldRecoveryCap)
+				poolTable.RunicWard = m_min(poolTable.RunicWard + DamageIn.RunicWardWhenHit * (gainMult - 1), gainMult * (output.RunicWard or 0))
 			end
 			poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
 
 			-- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
-			if poolTable.Life > 0 and damageTotal >= maxDamage then
+			if (poolTable.Life > 0 or poolTable.RunicWard > 0) and damageTotal >= maxDamage then
 				return m_huge
 			end
-			if DamageIn.GainWhenHit and poolTable.Life > 0 then
+			if DamageIn.GainWhenHit and (poolTable.Life > 0 or poolTable.RunicWard > 0) then
 				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
 				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.ManaUnreserved or 0)
 				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit, output.EnergyShieldRecoveryCap)
+				poolTable.RunicWard = m_min(poolTable.RunicWard + (DamageIn.RunicWardWhenHit or 0), output.RunicWard or 0)
 			end
 			iterationMultiplier = 1
 			-- to speed it up, run recursively but accelerated
@@ -3109,6 +3111,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
 					Damage.ManaWhenHit = DamageIn.ManaWhenHit
 					Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
+					Damage.RunicWardWhenHit = DamageIn.RunicWardWhenHit
 				end
 				Damage["cycles"] = DamageIn["cycles"] * speedUp
 				Damage["iterations"] = DamageIn["iterations"]
@@ -3175,6 +3178,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.LifeWhenHit = output.LifeOnBlock * BlockChance
 				DamageIn.ManaWhenHit = output.ManaOnBlock * BlockChance
 				DamageIn.EnergyShieldWhenHit = output.EnergyShieldOnBlock * BlockChance
+				DamageIn.RunicWardWhenHit = output.RunicWardOnBlock * BlockChance
 				if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
 					DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock * BlockChance
 				elseif damageCategoryConfig == "Average" then
@@ -3192,10 +3196,12 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 				DamageIn.EnergyShieldWhenHit = (DamageIn.EnergyShieldWhenHit or 0) + output.EnergyShieldOnSuppress * suppressChance
 				DamageIn.LifeWhenHit = (DamageIn.LifeWhenHit or 0) + output.LifeOnSuppress * suppressChance
+				DamageIn.RunicWardWhenHit = (DamageIn.RunicWardWhenHit or 0) + output.RunicWardOnSuppress * suppressChance
 				suppressionEffect = 1 - suppressChance * output.SpellSuppressionEffect / 100
 			else
 				DamageIn.EnergyShieldWhenHit = (DamageIn.EnergyShieldWhenHit or 0) + output.EnergyShieldOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 				DamageIn.LifeWhenHit = (DamageIn.LifeWhenHit or 0) + output.LifeOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
+				DamageIn.RunicWardWhenHit = (DamageIn.RunicWardWhenHit or 0) + output.RunicWardOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 			end
 			local effectiveDeflectMulti = output.DeflectChance < 100 and 1 - output.DeflectChance * output.DeflectEffect / 10000 or 1
 			-- extra avoid chance
@@ -3206,13 +3212,14 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			-- gain when hit (currently just gain on block/suppress)
 			if not env.configInput.DisableEHPGainOnBlock then
-				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0 or DamageIn.EnergyShieldWhenHit ~= 0 then
+				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0 or DamageIn.EnergyShieldWhenHit ~= 0 or DamageIn.RunicWardWhenHit ~= 0 then
 					DamageIn.GainWhenHit = true
 				end
 			else
 				DamageIn.LifeWhenHit = 0
 				DamageIn.ManaWhenHit = 0
 				DamageIn.EnergyShieldWhenHit = 0
+				DamageIn.RunicWardWhenHit = 0
 			end
 			for _, damageType in ipairs(dmgTypeList) do
 				 -- Emperor's Vigilance (this needs to fail with divine flesh as it can't override it, hence the check for high bypass)
@@ -4292,10 +4299,6 @@ function calcs.buildDefenceEstimations(env, actor)
 				resourcesLostSum = resourcesLostSum + resourcesLost.sharedGuard
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge", resourcesLost.sharedGuard))
 			end
-			if resourcesLost.runicWard then
-				resourcesLostSum = resourcesLostSum + resourcesLost.runicWard
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", resourcesLost.runicWard))
-			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
@@ -4314,6 +4317,10 @@ function calcs.buildDefenceEstimations(env, actor)
 			if resourcesLost.life and resourcesLost.life > 0 then
 				resourcesLostSum = resourcesLostSum + resourcesLost.life
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life", resourcesLost.life))
+			end
+			if resourcesLost.runicWard then
+				resourcesLostSum = resourcesLostSum + resourcesLost.runicWard
+				t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", resourcesLost.runicWard))
 			end
 			if resourcesLost.overkill then
 				resourcesLostSum = resourcesLostSum + resourcesLost.overkill

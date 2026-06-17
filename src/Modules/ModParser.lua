@@ -5040,7 +5040,7 @@ local specialModList = {
 	["damage t?a?k?e?n? from blocked hits cannot bypass energy shield"] = { flag("BlockedDamageDoesntBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["damage t?a?k?e?n? from unblocked hits always bypasses energy shield"] = { flag("UnblockedDamageDoesBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["recover (%d+) life when you block"] = function(num) return { mod("LifeOnBlock", "BASE", num) } end,
-	["recover (%d+) runic ward when you block"] = function(num) return { mod("WardOnBlock", "BASE", num) } end,
+	["recover (%d+) runic ward when you block"] = function(num) return { mod("RunicWardOnBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you block spell damage"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you suppress spell damage"] = function(num) return { mod("EnergyShieldOnSuppress", "BASE", num) } end,
 	["recover (%d+) life when you suppress spell damage"] = function(num) return { mod("LifeOnSuppress", "BASE", num) } end,
