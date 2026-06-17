@@ -12410,6 +12410,19 @@ skills["SupportOlrothsHubrisPlayer"] = {
 			label = "Olroth's Hubris",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["base_ward_cost_+_%_of_maximum_ward"] = {
+					mod("RunicWardCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWard", percent = 1 }),
+				},
+				["added_physical_damage_%_ward_cost"] = {
+					mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWardCost", percent = 1 }),
+					mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWardCost", percent = 1 }),
+				},
+				["added_cold_damage_%_ward_cost"] = {
+					mod("ColdMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWardCost", percent = 1 }),
+					mod("ColdMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWardCost", percent = 1 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -14670,7 +14683,7 @@ skills["SupportRunicInfusionPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["base_ward_cost_+_%_of_maximum_ward"] = {
-					mod("WardCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWard", percent = 1 }),
+					mod("RunicWardCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWard", percent = 1 }),
 				},
 				["added_physical_damage_%_ward_cost"] = {
 					mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "RunicWardCost", percent = 1 }),
