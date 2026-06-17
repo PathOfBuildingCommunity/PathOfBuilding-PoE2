@@ -570,7 +570,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				resourcesLostToTypeDamage[damageType].sharedGuard = tempDamage >= 1 and tempDamage or nil
 			end
 			if ward > 0 then
-				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100), ward)
+				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "RunicWardBypass") or 0) / 100), ward)
 				ward = ward - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
@@ -3053,7 +3053,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			DamageIn["TrackRecoupable"] = false
 			DamageIn["TrackLifeLossOverTime"] = false
 		end
-		DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
+		DamageIn["RunicWardBypass"] = DamageIn["RunicWardBypass"] or modDB:Sum("BASE", nil, "RunicWardBypass") or 0
 
 		local VaalArcticArmourHitsLeft = output.VaalArcticArmourLife
 		if DamageIn["cycles"] > 1 then
@@ -3548,7 +3548,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		-- fix total pools, as they aren't used anymore
 		for _, damageType in ipairs(dmgTypeList) do
 			-- ward
-			local wardBypass = modDB:Sum("BASE", nil, "WardBypass") or 0
+			local wardBypass = modDB:Sum("BASE", nil, "RunicWardBypass") or 0
 			if wardBypass > 0 then
 				local poolProtected = output.RunicWard / (1 - wardBypass / 100) * (wardBypass / 100)
 				local sourcePool = output[damageType.."TotalHitPool"]
