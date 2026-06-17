@@ -770,7 +770,7 @@ end
 function TradeQueryClass:ReduceOutput(output)
 	local smallOutput = {}
 	for _, statTable in ipairs(self.statSortSelectionList) do
-		smallOutput[statTable.stat] = output[statTable.stat]
+		smallOutput[statTable.stat] = output.Minion and output.Minion[statTable.stat] or output[statTable.stat]
 	end
 	return smallOutput
 end
