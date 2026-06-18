@@ -1599,6 +1599,7 @@ local modTagList = {
 	["per (%d+) of maximum life or maximum mana, whichever is lower"] = function(num) return { tag = { type = "PerStat", stat = "LowestOfMaximumLifeAndMaximumMana", div = num } } end,
 	["per (%d+) player maximum life"] = function(num) return { tag = { type = "PerStat", stat = "Life", div = num, actor = "parent" } } end,
 	["per (%d+) life cost"] = function(num) return { tag = { type = "PerStat", stat = "LifeCost", div = num}} end,
+	["per (%d+) runic ward cost"] = function(num) return { tag = { type = "PerStat", stat = "WardCost", div = num}} end,
 	["per (%d+) maximum runic ward"] = function(num) return { tag = { type = "PerStat", stat = "Ward", div = num } } end,
 	["per (%d+) maximum mana"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["per (%d+) maximum mana, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
