@@ -139,7 +139,7 @@ data.powerStatList = {
 	{ stat="Mana", label="Mana" },
 	{ stat="ManaRegen", label="Mana regen" },
 	{ stat="ManaLeechRate", label="Mana leech" },
-	{ stat="RunicWard", label="Runic Ward" },
+	{ stat="Ward", label="Runic Ward" },
 	{ stat="Spirit", label="Spirit" },
 	{ stat="Str", label="Strength" },
 	{ stat="Dex", label="Dexterity" },
@@ -428,7 +428,7 @@ data.highPrecisionMods = {
 	["EnergyShieldRegenPercent"] = {
 		["BASE"] = 2,
 	},
-	["RunicWardRegenPercent"] = {
+	["WardRegenPercent"] = {
 		["BASE"] = 2,
 	},
 	["LifeRegen"] = {
@@ -440,7 +440,7 @@ data.highPrecisionMods = {
 	["EnergyShieldRegen"] = {
 		["BASE"] = 1,
 	},
-	["RunicWardRegen"] = {
+	["WardRegen"] = {
 		["BASE"] = 1,
 	},
 	["RageRegen"] = {

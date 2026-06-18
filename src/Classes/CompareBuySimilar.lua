@@ -259,7 +259,7 @@ function M.openPopup(item, slotName, primaryBuild)
 			{ key = "Armour", label = "Armour", tradeKey = "ar" },
 			{ key = "Evasion", label = "Evasion", tradeKey = "ev" },
 			{ key = "EnergyShield", label = "Energy Shield", tradeKey = "es" },
-			{ key = "RunicWard", label = "Ward", tradeKey = "ward" },
+			{ key = "Ward", label = "Ward", tradeKey = "ward" },
 		}
 		for _, def in ipairs(defences) do
 			local val = item.armourData[def.key]

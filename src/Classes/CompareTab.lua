@@ -3524,7 +3524,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 				local armour = item:GetArmourDataValue("Armour", level)
 				local evasion = item:GetArmourDataValue("Evasion", level)
 				local energyShield = item:GetArmourDataValue("EnergyShield", level)
-				local ward = item:GetArmourDataValue("RunicWard", level)
+				local ward = item:GetArmourDataValue("Ward", level)
 				if armour > 0 then
 					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
 					drawY = drawY + lineHeight

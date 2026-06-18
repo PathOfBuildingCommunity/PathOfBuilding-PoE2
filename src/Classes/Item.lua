@@ -597,7 +597,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							self.base = data.itemBases[self.baseName]
 						end
 					elseif specName == "Runic Ward" then
-						specName = "RunicWard"
+						specName = "Ward"
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
@@ -1345,9 +1345,9 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Spirit: " .. self.spiritValue)
 	end
 	if self.armourData then
-		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "RunicWard" }) do
+		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "Ward" }) do
 			if self.armourData[type] and self.armourData[type] > 0 then
-				t_insert(rawLines, type:gsub("EnergyShield", "Energy Shield"):gsub("RunicWard", "Runic Ward")  .. ": " .. self.armourData[type])
+				t_insert(rawLines, type:gsub("EnergyShield", "Energy Shield"):gsub("Ward", "Runic Ward")  .. ": " .. self.armourData[type])
 			end
 		end
 	end
@@ -1883,16 +1883,16 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local evasionEnergyShieldBase = calcLocal(modList, "EvasionAndEnergyShield", "BASE", 0)
 		local energyShieldBase = calcLocal(modList, "EnergyShield", "BASE", 0) + (self.base.armour.EnergyShield or 0)
 		local armourEnergyShieldBase = calcLocal(modList, "ArmourAndEnergyShield", "BASE", 0)
-		local wardBase = calcLocal(modList, "RunicWard", "BASE", 0) + (self.base.armour.RunicWard or 0)
+		local wardBase = calcLocal(modList, "Ward", "BASE", 0) + (self.base.armour.Ward or 0)
 		local evasionPerLevel = calcLocal(modList, "EvasionPerLevel", "BASE", 0)
 		local energyShieldPerLevel = calcLocal(modList, "EnergyShieldPerLevel", "BASE", 0)
-		local wardPerLevel = calcLocal(modList, "RunicWardPerLevel", "BASE", 0)
+		local wardPerLevel = calcLocal(modList, "WardPerLevel", "BASE", 0)
 		local armourInc = calcLocal(modList, "Armour", "INC", 0)
 		local armourEvasionInc = calcLocal(modList, "ArmourAndEvasion", "INC", 0)
 		local evasionInc = calcLocal(modList, "Evasion", "INC", 0)
 		local evasionEnergyShieldInc = calcLocal(modList, "EvasionAndEnergyShield", "INC", 0)
 		local energyShieldInc = calcLocal(modList, "EnergyShield", "INC", 0)
-		local wardInc = calcLocal(modList, "RunicWard", "INC", 0)
+		local wardInc = calcLocal(modList, "Ward", "INC", 0)
 		local armourEnergyShieldInc = calcLocal(modList, "ArmourAndEnergyShield", "INC", 0)
 		local defencesInc = calcLocal(modList, "Defences", "INC", 0)
 		local qualityScalar = self.quality
@@ -1903,10 +1903,10 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		armourData.Armour = round((armourBase + armourEvasionBase + armourEnergyShieldBase) * (1 + (armourInc + armourEvasionInc + armourEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.Evasion = round((evasionBase + armourEvasionBase + evasionEnergyShieldBase) * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.EnergyShield = round((energyShieldBase + evasionEnergyShieldBase + armourEnergyShieldBase) * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
-		armourData.RunicWard = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.Ward = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.EvasionPerLevel = evasionPerLevel * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
 		armourData.EnergyShieldPerLevel = energyShieldPerLevel * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
-		armourData.RunicWardPerLevel = wardPerLevel * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
+		armourData.WardPerLevel = wardPerLevel * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
 
 		if self.base.armour.BlockChance then
 			armourData.BlockChance = m_floor((self.base.armour.BlockChance * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100) + calcLocal(modList, "BlockChance", "BASE", 0)))
