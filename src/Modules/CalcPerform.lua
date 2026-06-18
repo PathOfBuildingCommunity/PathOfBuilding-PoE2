@@ -779,7 +779,7 @@ local function doActorMisc(env, actor)
 			condList["LeechingEnergyShield"] = true
 		end
 		if modDB:Flag(nil, "Condition:CanGainRage") or modDB:Sum("BASE", nil, "RageRegen") > 0 then
-			local maxStacks = modDB:Sum("BASE", skillCfg, "MaximumRage")
+			local maxStacks = modDB:Sum("BASE", skillCfg, "MaximumRage") * calcLib.mod(modDB, nil, "MaximumRage")
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
 			local stacks = m_max(m_min(rageConfig, maxStacks), (minStacks > 0 and minStacks) or 0)
