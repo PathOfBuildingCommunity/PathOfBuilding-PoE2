@@ -6318,6 +6318,7 @@ local resourceTypes = {
 	["life"] = "Life",
 	["mana"] = "Mana",
 	["energy shield"] = "EnergyShield",
+	["runic ward"] = "Ward",
 	["life and mana"] = { "Life", "Mana" },
 	["life and energy shield"] = { "Life", "EnergyShield" },
 	["life, mana and energy shield"] = { "Life", "Mana", "EnergyShield" },
