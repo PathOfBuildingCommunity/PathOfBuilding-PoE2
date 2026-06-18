@@ -2395,6 +2395,7 @@ local specialModList = {
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
+	["mana recovery from regeneration is also applied to runic ward"] = { flag("RuneOfEquinox") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life regeneration has no effect"] = { flag("NoLifeRegen") },
 	["life recharges instead of energy shield"] = { flag("EnergyShieldRechargeAppliesToLife") },

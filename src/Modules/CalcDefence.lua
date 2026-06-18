@@ -1694,6 +1694,10 @@ function calcs.defence(env, actor)
 			modDB:NewMod("OverflowEnergyShieldRecovery", "BASE", output.LifeRegenRecovery - recoveryRate, "Zealot's Oath")
 			output[resource.."RegenRecovery"] = 0
 		end
+		if resource == "Mana" and modDB:Flag(nil, "RuneOfEquinox") and output[resource.."RegenRecovery"] > 0 then
+			ConPrintf("YES")
+			modDB:NewMod("WardRegen", "BASE", output[resource.."RegenRecovery"], "Rune of Equinox")
+		end
 		if output[resource.."RegenRecovery"] > 0 then
 			modDB:NewMod("Condition:CanGain"..resource, "FLAG", true, resourceName.."Regen")
 		end
