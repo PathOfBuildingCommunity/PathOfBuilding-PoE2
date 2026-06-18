@@ -1649,7 +1649,7 @@ function calcs.defence(env, actor)
 	end
 
 	-- Regeneration
-	local resources = {"Mana", "Life", "Energy Shield", "Rage", "Runic Ward"}
+	local resources = {"Mana", "Life", "Energy Shield", "Rage", "Ward"}
 	for i, resourceName in ipairs(resources) do
 		local resource = resourceName:gsub(" ", "")
 		local pool = output[resource] or 0
