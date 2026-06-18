@@ -15330,6 +15330,11 @@ skills["SupportScouringFlamePlayer"] = {
 			label = "Scouring Flame",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_scouring_flame_ignite_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

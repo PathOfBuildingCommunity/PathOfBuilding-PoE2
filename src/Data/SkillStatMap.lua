@@ -1753,6 +1753,10 @@ return {
 ["gain_energy_shield_cost_equal_to_intelligence"] = {
 	mod("ESCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Int", percent = 100 }),
 },
+["base_skill_ward_cost_as_%_of_life_and_mana_cost"] = {
+	mod("WardCostAsPercentOfManaCost", "BASE", nil),
+	mod("WardCostAsPercentOfLifeCost", "BASE", nil),
+},
 -- Projectiles
 ["skill_can_fire_arrows"] = {
 	skillFlag = "arrow",

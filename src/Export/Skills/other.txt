@@ -1071,6 +1071,12 @@ statMap = {
 
 #skill SupportScouringFlamePlayer
 #set SupportScouringFlamePlayer
+#flags
+statMap = {
+	["support_scouring_flame_ignite_effect_+%_final"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite),
+	},
+},
 #mods
 #skillEnd
 

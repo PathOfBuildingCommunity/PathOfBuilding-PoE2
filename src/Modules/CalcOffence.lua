@@ -2062,6 +2062,8 @@ function calcs.offence(env, actor, activeSkill)
 		local additionalLifeCost = skillModList:Sum("BASE", skillCfg, "BaseManaCostAsLifeCost") / 100 -- Extra cost (e.g. Petrified Blood) calculations
 		local additionalESCost = skillModList:Sum("BASE", skillCfg, "ManaCostAsEnergyShieldCost") / 100 -- Extra cost (e.g. Replica Covenant) calculations
 		local hybridLifeCost = m_min(skillModList:Sum("BASE", skillCfg, "HybridManaAndLifeCost_Life"), 100) / 100 -- Blood Magic, Lifetap and tree mods capped at 100
+		local wardCostPctOfLife = skillModList:Sum("BASE", skillCfg, "WardCostAsPercentOfLifeCost") / 100 -- Extra cost (e.g. Scouring Flame) calculations
+		local wardCostPctOfMana = skillModList:Sum("BASE", skillCfg, "WardCostAsPercentOfManaCost") / 100
 		for _, resource in ipairs(costs.order) do
 			local val = costs[resource]
 			local skillCost = skillModList:Override(skillCfg, "Base"..resource.."CostOverride") or activeSkill.activeEffect.grantedEffectLevel.cost and activeSkill.activeEffect.grantedEffectLevel.cost[resource] or nil
@@ -2104,6 +2106,18 @@ function calcs.offence(env, actor, activeSkill)
 				if additionalESCost > 0 then
 					val.baseCost = costs[manaType].baseCost
 					val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * additionalESCost))
+				end
+			elseif val.type == "Ward" then
+				local wardCostFromOtherCosts = 0
+				if wardCostPctOfMana ~= 0 then
+					wardCostFromOtherCosts = wardCostFromOtherCosts + round(costs["Mana"].finalBaseCost * wardCostPctOfMana)
+				end
+				if wardCostPctOfLife ~= 0 then
+					wardCostFromOtherCosts = wardCostFromOtherCosts + round(costs["Life"].finalBaseCost * wardCostPctOfLife)
+				end
+				if wardCostFromOtherCosts > 0 then
+					val.baseCost = val.baseCost + wardCostFromOtherCosts
+					val.finalBaseCost = val.finalBaseCost + wardCostFromOtherCosts
 				end
 			elseif val.type == "Rage" then
 				if skillModList:Flag(skillCfg, "CostRageInsteadOfSouls") then -- Hateforge
