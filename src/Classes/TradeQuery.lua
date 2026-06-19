@@ -375,10 +375,10 @@ Lowest Price - Sorts from lowest to highest price of retrieved items
 Highest Weight - Displays the order retrieved from trade]]
 	-- avoid calling selFunc to avoid updating controls before they are initialised
 	self.controls.itemSortSelection:SetSel(self.pbItemSortSelectionIndex, true)
-	self.controls.itemSortSelectionLabel = new("LabelControl", {"TOPRIGHT", self.controls.itemSortSelection, "TOPLEFT"}, {-4, 0, 56, 16}, "^7Sort By:")
+	self.controls.itemSortSelectionLabel = new("LabelControl", {"TOPRIGHT", self.controls.itemSortSelection, "TOPLEFT"}, {-4, 0, 56, 16}, "Sort By:")
 
 	-- Realm selection
-	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "^7Realm:")
+	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "Realm:")
 	self.controls.realm = new("DropDownControl", {"LEFT", self.controls.realmLabel, "RIGHT"}, {6, 0, 150, row_height}, self.realmDropList, function(index, value)
 		self.pbRealmIndex = index
 		self.pbRealm = self.realmIds[value]
@@ -417,7 +417,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	-- League selection
-	self.controls.leagueLabel = new("LabelControl", {"TOPRIGHT", self.controls.realmLabel, "TOPRIGHT"}, {0, row_height + row_vertical_padding, 20, row_height - 4}, "^7League:")
+	self.controls.leagueLabel = new("LabelControl", {"TOPRIGHT", self.controls.realmLabel, "TOPRIGHT"}, {0, row_height + row_vertical_padding, 20, row_height - 4}, "League:")
 	self.controls.league = new("DropDownControl", {"LEFT", self.controls.leagueLabel, "RIGHT"}, {6, 0, 150, row_height}, self.itemsTab.leagueDropList, function(index, value)
 		self.pbLeagueIndex = index
 		self.pbLeague = value
@@ -520,7 +520,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 
-	self.controls.otherTradesLabel = new("LabelControl", top_pane_alignment_ref, {0, (#slotTables+1)*(row_height + row_vertical_padding), 100, 16}, "^8Other trades:")
+	self.controls.otherTradesLabel = new("LabelControl", top_pane_alignment_ref, {0, (#slotTables+1)*(row_height + row_vertical_padding), 100, 16}, GetStyleColor('text_disabled').."Other trades:")
 	self.controls.otherTradesLabel.shown = function()
 		return hideRowFunc(self, #slotTables+1)
 	end
@@ -959,7 +959,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName] or
 						slotTbl.slotName == "Watcher's Eye" and self:findValidSlotForWatchersEye() or
 						slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
-	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
+	local nameColor = slotTbl.unique and colorCodes.UNIQUE or GetStyleColor('text_label')
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 135, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "Find best", function()
 		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, function(context, query, errMsg)

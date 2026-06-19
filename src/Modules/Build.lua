@@ -353,7 +353,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end)
 	self.controls.modeCompare.locked = function() return self.viewMode == "COMPARE" end
 	-- Skills
-	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 80, 300, 16}, "^7Main Skill:")
+	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 80, 300, 16}, "Main Skill:")
 	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true

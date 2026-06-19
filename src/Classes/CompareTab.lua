@@ -1814,10 +1814,10 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 	if not compareEntry then
 		-- No comparison build loaded - show instructions
 		SetViewport(contentVP.x, contentVP.y, contentVP.width, contentVP.height)
-		SetDrawColor(1, 1, 1)
-		DrawString(0, 40, "CENTER", 20, "VAR",
+		SetDrawStyle('text_compare_load_info')
+		StyledDrawString(0, 40, "CENTER", 20, 'text_compare_load_info',
 			"^7No comparison build loaded.")
-		DrawString(0, 70, "CENTER", 16, "VAR",
+		StyledDrawString(0, 70, "CENTER", 16, 'text_compare_load_info',
 			"^7Click " .. colorCodes.POSITIVE .. "Import..." .. "^7 above to import a build to compare against.")
 		SetViewport()
 	else
@@ -1828,7 +1828,7 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 			self.controls.itemsExpandedCheck.y = contentVP.y + 8
 
 			local colWidth = self.itemsColWidth or m_floor(contentVP.width / 2)
-			local itemSetLabelW = DrawStringWidth(16, "VAR", "^7Item set:") + 4
+			local itemSetLabelW = StyledDrawStringWidth(16, 'text_label', "Item set:") + 4
 			local scrollOffsetX = -((self.controls.itemsHScrollBar and self.controls.itemsHScrollBar.offset) or 0)
 
 			-- Item set dropdowns
@@ -3832,7 +3832,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Convert drawY to absolute screen coords for control positioning
 	local absY = vp.y + checkboxOffset + drawY
-	local treeSetLabelW = StyledDrawStringWidth(16, 'text_label', "^7Tree set:") + 4
+	local treeSetLabelW = StyledDrawStringWidth(16, 'text_label', "Tree set:") + 4
 
 	self.controls.primaryTreeSetLabel.x = vp.x + scrollOffsetX + 10
 	self.controls.primaryTreeSetLabel.y = absY + 2
@@ -3859,8 +3859,8 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	-- === JEWELS SECTION ===
 	if #jewelSlots > 0 then
 		-- Section header
-		SetDrawColor(1, 1, 1)
-		DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7-- Jewels --")
+		SetDrawStyle('text_heading')
+		StyledDrawString(scrollOffsetX + 10, drawY, "LEFT", 16, 'text_heading', "-- Jewels --")
 		drawY = drawY + 20
 
 		for _, jEntry in ipairs(jewelSlots) do

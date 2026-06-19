@@ -3880,7 +3880,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 		end
 
-		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.")
 
 		local function getReplacedItemAndOutput(compareSlot)
 			local selItem = self.items[compareSlot.selItemId]

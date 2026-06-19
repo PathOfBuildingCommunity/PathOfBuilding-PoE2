@@ -30,6 +30,7 @@
 ---| "'text_compare_summary_stat'"
 ---| "'text_compare_diff_indicator'"
 ---| "'text_compare_gem'"
+---| "'text_compare_load_info'"
 ---| "'text_current_build'"
 ---| "'text_button'"
 ---| "'text_button_disabled'"
@@ -323,6 +324,7 @@ local themes = {
 		text_compare_summary_stat = {color = colors.white, font = fonts.VAR},
 		text_compare_diff_indicator = {color = colors.white, font = fonts.VAR},
 		text_compare_gem = {color = colors.white, font = fonts.VAR},
+		text_compare_load_info = {color = colors.white, font = fonts.VAR},
 		text_current_build = {color = colors.white, font = fonts.VAR},
 		text_button = {color = colors.white, font = fonts.VAR},
 		text_button_disabled = {color = colors.dark_grey, font = fonts.VAR},
@@ -610,6 +612,7 @@ local themes = {
 		text_compare_summary_stat = {color = colors.white, font = fonts.FONTIN},
 		text_compare_diff_indicator = {color = colors.white, font = fonts.FONTIN},
 		text_compare_gem = {color = colors.white, font = fonts.FONTIN_SC},
+		text_compare_load_info = {color = colors.white, font = fonts.FONTIN},
 		text_current_build = {color = colors.light, font = fonts.FONTIN},
 		text_button = {color = colors.light, font = fonts.FONTIN_SC},
 		text_button_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
