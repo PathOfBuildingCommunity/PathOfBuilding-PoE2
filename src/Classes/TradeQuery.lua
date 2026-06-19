@@ -1087,7 +1087,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				else
 					self:SetNotice(controls.pbNotice, "")
 					self.lastQueries[row_idx] = query
-					local itemsSafe = self:FilterToSafeItems(items, activeSlot.slotName)
+					local itemsSafe = self:FilterToSafeItems(items, activeSlot and activeSlot.slotName)
 					self.resultTbl[row_idx] = itemsSafe
 					self:UpdateControlsWithItems(row_idx)
 				end
