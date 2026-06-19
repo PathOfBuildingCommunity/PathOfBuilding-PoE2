@@ -969,7 +969,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local controls = self.controls
 	local slotTbl = self.slotTables[row_idx]
 	local activeSlotRef = slotTbl.nodeId and self.itemsTab.activeItemSet[slotTbl.nodeId] or self.itemsTab.activeItemSet[slotTbl.slotName]
-	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or
+	local nodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+	local activeSlot = nodeId and self.itemsTab.sockets[nodeId] or
 						slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName] or
 						slotTbl.slotName == "Watcher's Eye" and self:findValidSlotForWatchersEye() or
 						slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
