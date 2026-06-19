@@ -1187,7 +1187,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	end
 
 
-	if isJewelSlot then
+	if isJewelSlot and not context.slotTbl.unique then
 		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
 		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")

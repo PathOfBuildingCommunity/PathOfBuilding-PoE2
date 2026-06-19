@@ -958,7 +958,7 @@ function TradeQueryClass:FilterToSafeItems(itemEntries, slotName)
 	local itemsSafe = {}
 	for _, entry in ipairs(itemEntries) do
 		local item = new("Item", entry.item_string)
-		if item.base and self.itemsTab:IsItemValidForSlot(item, slotName) then
+		if item.base and ((not slotName) or self.itemsTab:IsItemValidForSlot(item, slotName)) then
 			t_insert(itemsSafe, entry)
 		end
 	end
@@ -1002,7 +1002,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						self:SetNotice(context.controls.pbNotice, "")
 					end
 
-					local itemsSafe = self:FilterToSafeItems(items, activeSlot.slotName)
+					local itemsSafe = self:FilterToSafeItems(items, activeSlot and activeSlot.slotName)
 
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
 						for i, _ in ipairs(itemsSafe) do
