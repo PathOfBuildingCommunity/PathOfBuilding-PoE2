@@ -859,7 +859,7 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 		currency = self.resultTbl[row_idx][pb_index].currency,
 		amount = self.resultTbl[row_idx][pb_index].amount,
 	}
-	self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
 	self:UpdateDropdownList(row_idx)
 end
 
@@ -870,7 +870,7 @@ function TradeQueryClass:SetFetchResultReturn(row_idx, index)
 			currency = self.resultTbl[row_idx][index].currency,
 			amount = self.resultTbl[row_idx][index].amount,
 		}
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
 	end
 end
 
@@ -1120,7 +1120,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		self.sortedResultTbl[row_idx] = nil
 		self.resultTbl[row_idx] = nil
 		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
 	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 351, row_height}, {}, function(index)
