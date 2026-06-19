@@ -950,6 +950,20 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 	return newTbl
 end
 
+-- ensure we only take in items that parse properly to avoid crash issues and fit in the
+-- provided slotName
+---@param itemEntries table
+---@param slotName string
+function TradeQueryClass:FilterToSafeItems(itemEntries, slotName)
+	local itemsSafe = {}
+	for _, entry in ipairs(itemEntries) do
+		local item = new("Item", entry.item_string)
+		if item.base and self.itemsTab:IsItemValidForSlot(item, slotName) then
+			t_insert(itemsSafe, entry)
+		end
+	end
+	return itemsSafe
+end
 -- Method to generate pane elements for each item slot
 function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, row_vertical_padding, row_height)
 	local controls = self.controls
@@ -987,14 +1001,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						self:SetNotice(context.controls.pbNotice, "")
 					end
 
-					-- ensure we only take in items that parse properly to avoid crash issues.
-					local itemsSafe = {}
-					for _, entry in ipairs(items) do
-						local item = new("Item", entry.item_string)
-						if item.base then
-							t_insert(itemsSafe, entry)
-						end
-					end
+					local itemsSafe = self:FilterToSafeItems(items, activeSlot.slotName)
 
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
 						for i, _ in ipairs(itemsSafe) do
@@ -1079,7 +1086,8 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				else
 					self:SetNotice(controls.pbNotice, "")
 					self.lastQueries[row_idx] = query
-					self.resultTbl[row_idx] = items
+					local itemsSafe = self:FilterToSafeItems(items, activeSlot.slotName)
+					self.resultTbl[row_idx] = itemsSafe
 					self:UpdateControlsWithItems(row_idx)
 				end
 				controls["priceButton"..row_idx].label = "Price Item"
