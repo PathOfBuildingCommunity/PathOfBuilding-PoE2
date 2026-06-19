@@ -3852,6 +3852,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetWardRegen = output.WardRegenRecovery
 			local totalLifeDegen = 0
 			local totalManaDegen = 0
+			local totalWardDegen = 0
 			local totalEnergyShieldDegen = 0
 			if breakdown then
 				breakdown.NetLifeRegen = {
