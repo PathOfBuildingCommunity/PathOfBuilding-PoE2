@@ -399,6 +399,9 @@ function TradeQueryGeneratorClass:InitMods()
 
 	for catIdx, _ in ipairs(body.result) do
 		table.sort(body.result[catIdx].entries, function(a, b)
+			if a.text == b.text then
+				return a.id < b.id
+			end
 			return a.text < b.text
 		end)
 	end
