@@ -73,6 +73,21 @@ describe("TestItemParse", function()
 		assert.are.equals(12, item.quality)
 	end)
 
+	it("parses '+X% to Fire Spell Critical Hit Chance' (issue #2226)", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Xoph's Test Band
+			Amethyst Ring
+			Implicits: 0
+			+5% to Fire Spell Critical Hit Chance
+		]])
+		-- grants base critical hit chance to fire spells specifically
+		assert.are.equals(5, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		-- must NOT apply to attacks, nor to non-fire spells
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold }, "CritChance"))
+	end)
+
 	--TODO: impl sockets for POB2
 	--it("Sockets", function()
 	--end)

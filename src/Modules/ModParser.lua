@@ -755,6 +755,7 @@ local modNameList = {
 	["critical hit chance"] = "CritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
 	["thorns critical hit chance"] = { "CritChance", flags = ModFlag.Thorns },
+	["fire spell critical hit chance"] = { "CritChance", flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire },
 	["critical damage bonus"] = "CritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
