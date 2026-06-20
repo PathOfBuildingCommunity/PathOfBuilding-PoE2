@@ -415,6 +415,9 @@ function TradeQueryGeneratorClass:InitMods()
 
 	for catIdx, _ in ipairs(body.result) do
 		table.sort(body.result[catIdx].entries, function(a, b)
+			if a.text == b.text then
+				return a.id < b.id
+			end
 			return a.text < b.text
 		end)
 	end
@@ -1178,10 +1181,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 		options.special = { itemName = context.slotTbl.slotName }
 	end
 
-	if context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
+	if context.slotTbl.slotName == "Megalomaniac" or context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
 		local activeSocketList = { }
 		for nodeId, jewelSlot in pairs(self.itemsTab.sockets) do
-			if not jewelSlot.inactive then
+			if not jewelSlot.inactive and not self.itemsTab.build.spec.nodes[nodeId].containJewelSocket then
 				t_insert(activeSocketList, jewelSlot)
 			end
 		end
@@ -1200,7 +1203,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	end
 
 
-	if isJewelSlot then
+	if isJewelSlot and not context.slotTbl.unique then
 		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
 		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")
