@@ -643,6 +643,7 @@ end
 
 data.essences = LoadModule("Data/Essence")
 data.costs = LoadModule("Data/Costs")
+data.buildFileInventorySlotMap = LoadModule("Data/InventorySlots")
 do
 	local map = { }
 	for i, value in ipairs(data.costs) do

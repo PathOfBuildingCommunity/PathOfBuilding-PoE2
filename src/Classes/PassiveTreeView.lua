@@ -539,7 +539,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	elseif treeClick == "RIGHT" then
 		-- User right-clicked on a node
 		if hoverNode then
-			if hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
+			if IsKeyDown("SHIFT") then
+				-- Shift+Right-Click: open a popup to edit the per-node author note
+				-- (consumed by the PoE2 .build export as the node's additional_text).
+				local nodeId = hoverNode.id
+				local title = "Note: " .. (hoverNode.dn or hoverNode.name or "Passive")
+				main:OpenNoteEditPopup(title, spec.nodeNotes[nodeId], function(text)
+					spec.nodeNotes[nodeId] = text
+					build.modFlag = true
+				end)
+			elseif hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
 				local slot = build.itemsTab.sockets[hoverNode.id]
 				if slot:IsEnabled() then
 					-- User right-clicked a jewel socket, jump to the item page and focus the corresponding item slot control
@@ -1557,7 +1566,7 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 		nodeName = "^xF8E6CA" .. node.dn
 	end
 	tooltip.center = true
-	tooltip:AddLine(24, nodeName..(launch.devModeAlt and " ["..node.id.."]" or ""), "FONTIN")
+	tooltip:AddLine(24, launch.devModeAlt and (node.iname .. " ["..node.id.."]") or nodeName, "FONTIN")
 	tooltip.center = false
 	if launch.devModeAlt and node.id > 65535 then
 		-- Decompose cluster node Id
@@ -1989,6 +1998,15 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	else
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.")
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+C to copy this node's text.")
+	end
+	-- Per-node author note (Shift+Right-Click to set/edit) emitted into the PoE2 .build export.
+	if node.id and build.spec and build.spec.nodeNotes then
+		local existing = build.spec.nodeNotes[node.id]
+		tooltip:AddSeparator(10)
+		tooltip:AddLine(14, colorCodes.TIP.."Shift + Right-Click to add a build note (PoE2 .build export)")
+		if existing and existing ~= "" then
+			tooltip:AddLine(14, "^7Note: "..existing)
+		end
 	end
 end
 

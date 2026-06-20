@@ -1703,6 +1703,27 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 	end
 end
 
+-- Multi-line edit popup used by the PoE2 .build export to capture per-passive
+-- and per-gem author notes (Shift+Right-Click on a node or gem).
+-- Saving an empty buffer calls onSave(nil) so the caller can delete the note.
+function main:OpenNoteEditPopup(title, initial, onSave)
+	local controls = { }
+	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Note shown on this entry in the exported .build (BuildPlanner) file.\nLeave blank to remove.")
+	controls.edit = new("EditControl", nil, {0, 60, 460, 120}, initial or "", nil, nil, 960, function(buf)
+		controls.save.enabled = true
+	end, 16)
+	controls.save = new("ButtonControl", nil, {-45, 195, 80, 20}, "Save", function()
+		local buf = controls.edit.buf
+		if buf == "" then buf = nil end
+		onSave(buf)
+		main:ClosePopup()
+	end)
+	controls.cancel = new("ButtonControl", nil, {45, 195, 80, 20}, "Cancel", function()
+		main:ClosePopup()
+	end)
+	self:OpenPopup(480, 230, title or "Edit Note", controls, "save", "edit", "cancel")
+end
+
 function main:OpenNewFolderPopup(path, onClose)
 	local controls = { }
 	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter folder name:")

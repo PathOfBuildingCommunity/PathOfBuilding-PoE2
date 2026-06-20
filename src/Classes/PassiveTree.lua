@@ -190,6 +190,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	local nodeMap = { }
 	for _, node in pairs(self.nodes) do
 		node.id = node.skill
+		node.iname = node.stringId
 		node.g = node.group
 		node.o = node.orbit
 		node.oidx = node.orbitIndex

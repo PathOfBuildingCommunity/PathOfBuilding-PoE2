@@ -368,6 +368,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/CharacterShapeshiftBasicSkills.dat",
 		"Data/Balance/UniqueOrigins.dat",
 		"Data/Balance/Origin.dat",
+		"Data/Balance/BuildPlannerInventories.dat",
+		"Data/Balance/Inventories.dat",
 	}
 	local csdFiles = {
 		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

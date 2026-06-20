@@ -667,6 +667,18 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 				self:ScrollSelIntoView()
 			end
 		end
+	elseif key == "RIGHTBUTTON" and IsKeyDown("SHIFT") then
+		-- Shift+Right-Click: edit the per-gem author note for the PoE2 .build export.
+		local gemList = self.skillsTab.displayGroup and self.skillsTab.displayGroup.gemList
+		local gemInstance = gemList and gemList[self.index]
+		if gemInstance then
+			local title = "Note: " .. ((gemInstance.nameSpec and gemInstance.nameSpec ~= "") and gemInstance.nameSpec or "Gem")
+			main:OpenNoteEditPopup(title, gemInstance.note, function(text)
+				gemInstance.note = text
+				self.skillsTab.build.modFlag = true
+			end)
+		end
+		return self
 	elseif key == "RETURN" or key == "RIGHTBUTTON" then
 		self.dropped = true
 		self:UpdateSortCache()

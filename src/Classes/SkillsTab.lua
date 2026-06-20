@@ -347,6 +347,8 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		end
 		gemInstance.level = tonumber(child.attrib.level)
 		gemInstance.quality = tonumber(child.attrib.quality)
+		-- Optional author note for the PoE2 .build export (Shift+Right-Click on the gem to set).
+		gemInstance.note = child.attrib.note
 		gemInstance.enabled = not child.attrib.enabled and true or child.attrib.enabled == "true"
 		gemInstance.enableGlobal1 = not child.attrib.enableGlobal1 or child.attrib.enableGlobal1 == "true"
 		gemInstance.enableGlobal2 = child.attrib.enableGlobal2 == "true"
@@ -438,6 +440,8 @@ function SkillsTabClass:Load(xml, fileName)
 		if node.elem == "SkillSet" then
 			local skillSet = self:CreateSkillSet(tonumber(node.attrib.id))
 			skillSet.title = node.attrib.title
+			skillSet.levelMin = tonumber(node.attrib.levelMin)
+			skillSet.levelMax = tonumber(node.attrib.levelMax)
 			t_insert(self.skillSetOrderList, skillSet.id)
 			for _, subNode in ipairs(node) do
 				self:LoadSkill(subNode, skillSet.id)
@@ -460,7 +464,7 @@ function SkillsTabClass:Save(xml)
 	}
 	for _, skillSetId in ipairs(self.skillSetOrderList) do
 		local skillSet = self.skillSets[skillSetId]
-		local child = { elem = "SkillSet", attrib = { id = tostring(skillSetId), title = skillSet.title } }
+		local child = { elem = "SkillSet", attrib = { id = tostring(skillSetId), title = skillSet.title, levelMin = skillSet.levelMin and tostring(skillSet.levelMin) or nil, levelMax = skillSet.levelMax and tostring(skillSet.levelMax) or nil } }
 		t_insert(xml, child)
 
 		for _, socketGroup in ipairs(skillSet.socketGroupList) do
@@ -500,6 +504,7 @@ function SkillsTabClass:Save(xml)
 					skillMinionItemSetCalcs = gemInstance.skillMinionItemSetCalcs and tostring(gemInstance.skillMinionItemSetCalcs),
 					skillMinionSkill = gemInstance.skillMinionSkill and tostring(gemInstance.skillMinionSkill),
 					skillMinionSkillCalcs = gemInstance.skillMinionSkillCalcs and tostring(gemInstance.skillMinionSkillCalcs),
+					note = (gemInstance.note and gemInstance.note ~= "") and gemInstance.note or nil,
 					corrupted = tostring(gemInstance.corrupted),
 					corruptLevel = tostring(gemInstance.corruptLevel),
 				} }
@@ -1426,12 +1431,15 @@ end
 
 -- Opens the skill set manager
 function SkillsTabClass:OpenSkillSetManagePopup()
-	main:OpenPopup(370, 290, "Manage Skill Sets", {
-		new("SkillSetListControl", nil, {0, 50, 350, 200}, self),
-		new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
-			main:ClosePopup()
-		end),
-	})
+	local controls = { }
+	controls.setList = new("SkillSetListControl", nil, {0, 50, 350, 200}, self)
+	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.skillSets[self.activeSkillSetId])
+	controls.setList.levelRange = controls.levelRange
+
+	controls.close = new("ButtonControl", nil, {0, 290, 90, 20}, "Done", function()
+		main:ClosePopup()
+	end)
+	main:OpenPopup(370, 320, "Manage Skill Sets", controls)
 end
 
 -- Creates a new skill set without adding to order list

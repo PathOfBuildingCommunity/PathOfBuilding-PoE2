@@ -28,6 +28,17 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 	self.selItemId = 0
 	self.slotName = slotName
 	self.slotNum = tonumber(slotName:match("%d+$") or slotName:match("%d+"))
+	if data.buildFileInventorySlotMap[slotName] then
+		self.controls.noteButton = new("ButtonControl", {"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
+			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
+				self.note = note
+				itemsTab:PopulateSlots()
+				itemsTab:AddUndoState()
+				itemsTab.build.buildFlag = true
+			end)
+		end)
+		self.controls.noteButton.tooltipText = function() return self.note or "Add a note for this item slot" end
+	end
 	if slotName:match("Flask") then
 		self.controls.activate = new("CheckBoxControl", {"RIGHT",self,"LEFT"}, {-2, 0, 20}, nil, function(state)
 			self.active = state
@@ -60,7 +71,9 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 	self.tooltipFunc = function(tooltip, mode, index, itemId)
 		local item = itemsTab.items[self.items[index]]
 		-- not selControl.ListControl allows hover when All Items or Unique/Rare DB Sections are in focus
-		if main.popups[1] or mode == "OUT" or not item or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
+		if main.popups[1] or mode == "OUT" or not item
+			or self:GetMouseOverControl() == self.controls.noteButton -- Note button has its own tooltip
+			or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
 			tooltip:Clear(true)
 		elseif tooltip:CheckForUpdate(item, launch.devModeAlt, itemsTab.build.outputRevision) then
 			itemsTab:AddItemTooltip(tooltip, item, self)
@@ -101,6 +114,9 @@ function ItemSlotClass:Populate()
 	end
 	if not self.selItemId or not self.itemsTab.items[self.selItemId] or not self.itemsTab:IsItemValidForSlot(self.itemsTab.items[self.selItemId], self.slotName) then
 		self:SetSelItemId(0)
+	end
+	if not self.nodeId then
+		self.itemsTab.activeItemSet[self.slotName].note = self.note
 	end
 
 	-- Update Jewel Sockets
@@ -167,10 +183,17 @@ function ItemSlotClass:Draw(viewPort)
 end
 
 function ItemSlotClass:OnKeyDown(key)
-	if not self:IsShown() or not self:IsEnabled() then
+	if not self:IsShown() then
 		return
 	end
 	local mOverControl = self:GetMouseOverControl()
+	-- Notes don't care if the item slot is enabled or not
+	if mOverControl and mOverControl == self.controls.noteButton then
+		return mOverControl:OnKeyDown(key)
+	end
+	if not self:IsEnabled() then
+		return
+	end
 	if mOverControl and mOverControl == self.controls.activate then
 		return mOverControl:OnKeyDown(key)
 	end

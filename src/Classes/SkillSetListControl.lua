@@ -46,6 +46,9 @@ function SkillSetListClass:CreateSkillSet()
 	end)
 	controls.save = new("ButtonControl", nil, { -45, 70, 80, 20 }, "Save", function()
 		self.skillsSetService:NewSkillSet(controls.edit.buf)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.skillsTab.skillSets[self.skillsTab.activeSkillSetId])
+		end
 		main:ClosePopup()
 	end)
 	controls.save.enabled = false
@@ -107,6 +110,9 @@ end
 function SkillSetListClass:OnSelClick(index, skillSetId, doubleClick)
 	if doubleClick and skillSetId ~= self.skillsTab.activeSkillSetId then
 		self.skillsTab:SetActiveSkillSet(skillSetId)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.skillsTab.skillSets[skillSetId])
+		end
 		self.skillsTab:AddUndoState()
 	end
 end
@@ -118,6 +124,9 @@ function SkillSetListClass:OnSelDelete(index, skillSetId)
 			"Are you sure you want to delete '" .. (skillSet.title or "Default") .. "'?", "Delete", function()
 				self.skillsSetService:DeleteSkillSet(skillSetId, index)
 
+				if self.levelRange then
+					self.levelRange:LoadSet(self.skillsTab.skillSets[self.skillsTab.activeSkillSetId])
+				end
 				self.selIndex = nil
 				self.selValue = nil
 			end)

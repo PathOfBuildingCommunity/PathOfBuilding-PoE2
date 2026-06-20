@@ -40,6 +40,9 @@ function ItemSetListClass:CreateItemSet()
 	end)
 	controls.save = new("ButtonControl", nil, { -45, 70, 80, 20 }, "Save", function()
 		self.itemSetService:NewItemSet(controls.edit.buf)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.itemsTab.activeItemSet)
+		end
 		main:ClosePopup()
 	end)
 	controls.save.enabled = false
@@ -129,6 +132,9 @@ end
 function ItemSetListClass:OnSelClick(index, itemSetId, doubleClick)
 	if doubleClick and itemSetId ~= self.itemsTab.activeItemSetId then
 		self.itemsTab:SetActiveItemSet(itemSetId)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.itemsTab.activeItemSet)
+		end
 		self.itemsTab:AddUndoState()
 	end
 end
@@ -140,6 +146,9 @@ function ItemSetListClass:OnSelDelete(index, itemSetId)
 			"Are you sure you want to delete '" ..
 			(itemSet.title or "Default") .. "'?\nThis will not delete any items used by the set.", "Delete", function()
 				self.itemSetService:DeleteItemSet(itemSetId, index)
+				if self.levelRange then
+					self.levelRange:LoadSet(self.itemsTab.activeItemSet)
+				end
 				self.selIndex = nil
 				self.selValue = nil
 			end)

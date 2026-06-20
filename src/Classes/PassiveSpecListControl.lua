@@ -57,6 +57,9 @@ function PassiveSpecListClass:RenameSpec(spec, popupTitle, addOnName)
 			t_insert(self.list, spec)
 			self.selIndex = #self.list
 			self.selValue = spec
+			if self.levelRange then
+				self.levelRange:LoadSet(spec)
+			end
 		end
 		self:UpdateItemsTabPassiveTreeDropdown()
 		self.treeTab.build:SyncLoadouts()
@@ -90,6 +93,9 @@ end
 function PassiveSpecListClass:OnSelClick(index, spec, doubleClick)
 	if doubleClick and index ~= self.treeTab.activeSpec then
 		self.treeTab:SetActiveSpec(index)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.treeTab.specList[index])
+		end
 	end
 end
 
@@ -101,6 +107,9 @@ function PassiveSpecListClass:OnSelDelete(index, spec)
 			self.selValue = nil
 			if index == self.treeTab.activeSpec then 
 				self.treeTab:SetActiveSpec(m_max(1, index - 1))
+				if self.levelRange then
+					self.levelRange:LoadSet(self.treeTab.specList[self.treeTab.activeSpec])
+				end
 			else
 				self.treeTab.activeSpec = isValueInArray(self.list, self.treeTab.build.spec)
 			end
