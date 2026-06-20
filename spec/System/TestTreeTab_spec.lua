@@ -146,4 +146,22 @@ describe("TreeTab", function()
 			assert.is_nil(build.treeTab.specList[1].allocNodes[2])
 		end)
 	end)
+
+	describe("Power stat calculation", function()
+		it("uses minion output for non-FullDPS stats when minion output is available", function()
+			local selection = { stat = "AverageDamage" }
+			local outputWithNode = { AverageDamage = 10, Minion = { AverageDamage = 250 } }
+			local baseOutput = { AverageDamage = 10, Minion = { AverageDamage = 100 } }
+
+			assert.are.equals(150, build.calcsTab:CalculatePowerStat(selection, outputWithNode, baseOutput))
+		end)
+
+		it("uses player output for FullDPS even when minion output is available", function()
+			local selection = { stat = "FullDPS" }
+			local outputWithNode = { FullDPS = 250, Minion = { FullDPS = 1000 } }
+			local baseOutput = { FullDPS = 100, Minion = { FullDPS = 1000 } }
+
+			assert.are.equals(150, build.calcsTab:CalculatePowerStat(selection, outputWithNode, baseOutput))
+		end)
+	end)
 end)

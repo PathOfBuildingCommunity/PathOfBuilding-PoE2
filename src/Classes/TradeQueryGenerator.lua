@@ -157,12 +157,26 @@ end
 
 function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 	local meanStatDiff = 0
+	local function getOutputStatValue(output, stat)
+		if stat == "FullDPS" then
+			if output[stat] ~= nil then
+				return output[stat]
+			end
+			if output.Minion and output.Minion.CombinedDPS ~= nil then
+				return output.Minion.CombinedDPS
+			end
+		end
+		if output.Minion and output.Minion[stat] ~= nil then
+			return output.Minion[stat]
+		end
+		return output[stat] or 0
+	end
 	local function ratioModSums(...)
 		local baseModSum = 0
 		local newModSum = 0
 		for _, mod in ipairs({ ... }) do
-			baseModSum = baseModSum + (baseOutput[mod] or 0)
-			newModSum = newModSum + (newOutput[mod] or 0)
+			baseModSum = baseModSum + getOutputStatValue(baseOutput, mod)
+			newModSum = newModSum + getOutputStatValue(newOutput, mod)
 		end
 
 		if baseModSum == math.huge then
@@ -176,10 +190,12 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 		end
 	end
 	for _, statTable in ipairs(statWeights) do
+		local modSumRatio
 		if statTable.stat == "FullDPS" and not (baseOutput["FullDPS"] and newOutput["FullDPS"]) then
-			meanStatDiff = meanStatDiff + ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS") * statTable.weightMult
+			modSumRatio = ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS")
+		else
+			modSumRatio = ratioModSums(statTable.stat)
 		end
-		local modSumRatio = ratioModSums(statTable.stat)
 		-- some weights, such as damage taken from hit need to be negated as lower is better for them
 		if statTable.transform then
 			modSumRatio = statTable.transform(modSumRatio)
