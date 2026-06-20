@@ -1199,7 +1199,7 @@ c["10% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,
 c["10% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=10}},nil}
 c["10% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeThreshold",type="INC",value=10}},nil}
 c["10% increased Global Armour, Evasion and Energy Shield per Socket filled"]={{[1]={[1]={type="Global"},[2]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Defences",type="INC",value=10}},nil}
-c["10% increased Grenade Area of Effect"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
+c["10% increased Grenade Area of Effect"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Hazard Area of Effect"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=10}},nil}
 c["10% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=10}},nil}
@@ -1472,7 +1472,7 @@ c["12% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["12% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=12}},nil}
 c["12% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=12}},nil}
 c["12% increased Global Armour, Evasion and Energy Shield per Socket filled"]={{[1]={[1]={type="Global"},[2]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Defences",type="INC",value=12}},nil}
-c["12% increased Grenade Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
+c["12% increased Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=12}},nil}
 c["12% increased Immobilisation buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=12}},nil}
 c["12% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=12}},nil}
@@ -1611,7 +1611,7 @@ c["15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="
 c["15% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=15}},nil}
 c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
-c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},"  forSkills "}
+c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency of Attacks"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
@@ -2866,8 +2866,7 @@ c["40% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name=
 c["40% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=40}},nil}
 c["40% increased Cold Damage while affected by Herald of Ice"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofIce"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=40}},nil}
 c["40% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},nil}
-c["40% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},"  forSkills "}
-c["40% increased Cooldown Recovery Rate for Grenade Skills 80% reduced Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},[2]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},"  forSkills 80% reduced  Damage "}
+c["40% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus with One Handed Melee Weapons"]={{[1]={flags=21474836484,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
@@ -3581,7 +3580,7 @@ c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlag
 c["80% less Knockback Distance for Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-80}},"  for Blocked Hits "}
 c["80% of Maximum Mana is Converted to twice that much Armour"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=80}},"  is Converted to twice that much Armour "}
 c["80% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-80}},nil}
-c["80% reduced Grenade Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
+c["80% reduced Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["800% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=800}},nil}
 c["800% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=800}},nil}
 c["82% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=82}},nil}
@@ -5406,8 +5405,8 @@ c["Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence 40%
 c["Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence Curses you inflict can affect Hexproof Enemies"]={{}," Dark Whisper every second there is a Cursed Enemy in your Presence Curses you inflict can affect Hexproof Enemies "}
 c["Gain 1 Druidic Prowess for every 20 total Rage spent"]={{}," Druidic Prowess for every 20 total Rage spent "}
 c["Gain 1 Endurance Charge every second if you've been Hit Recently"]={{}," Endurance Charge every second  "}
-c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosive Rhythm every 3 times you use aSkill "}
-c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use aSkill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
+c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosive Rhythm every 3 times you use a  Skill "}
+c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Fear Incarnate when you Cull a target"]={{}," Fear Incarnate when you Cull a target "}
 c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Life Flask Charge per 2% Life spent"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"  Flask Charge per 2% Life spent "}
@@ -5919,8 +5918,8 @@ c["Hits have 15% chance to treat Enemy Monster Elemental Resistance values as in
 c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywordFlags=0,name="EnemyCritChance",type="INC",value=-25}},nil}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
-c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength"]={{}," to Trigger "}
-c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength 120% increased Physical Damage"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},[3]={div=25,stat="Str",type="PerStat"},[4]={includeTransfigured=true,skillName="Molten Shower",type="SkillName"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Trigger 120% increased  "}
+c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength"]={{}," to Trigger Molten Shower  "}
+c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength 120% increased Physical Damage"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},[3]={div=25,stat="Str",type="PerStat"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Trigger Molten Shower  120% increased  "}
 c["Hits with this Weapon have no Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Hits with this Weapon inflict 5 Gruelling Madness"]={nil,"Hits with this Weapon inflict 5 Gruelling Madness "}
 c["Hits with this Weapon inflict 5 Gruelling Madness Enemies in your Presence have additional Power equal to their Gruelling Madness"]={nil,"Hits with this Weapon inflict 5 Gruelling Madness Enemies in your Presence have additional Power equal to their Gruelling Madness "}
@@ -6480,7 +6479,7 @@ c["Projectiles have 6% chance to Chain an additional time from terrain"]={{[1]={
 c["Projectiles have 64% increased Critical Hit chance for each time they have Pierced"]={{[1]={flags=1024,keywordFlags=0,name="CritChance",type="INC",value=64}},"  for each time they have Pierced "}
 c["Projectiles have 75% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=75}}," for an additional  when Forking "}
 c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=1,keywordFlags=0,name="Multiplier:ExtraConsumablePowerCharges",type="BASE",value=1}},nil}
-c["Raise Shield inflicts Parried for 2 seconds on Hit"]={nil,"inflicts Parried for 2 seconds on Hit "}
+c["Raise Shield inflicts Parried for 2 seconds on Hit"]={nil,"Raise Shield inflicts Parried for 2 seconds on Hit "}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recover 1% of maximum Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
