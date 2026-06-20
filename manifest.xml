@@ -1058,7 +1058,7 @@
 	<File name="GameVersions.lua" part="program" sha1="5c28a199dbe6eb2066394ff795befdf6679d7342" />
 	<File name="Launch.lua" part="program" sha1="7a126f75050d0f0a46dc96eaacc27118e25c5234" />
 	<File name="LaunchServer.lua" part="program" sha1="3c9c4c6f14d18d331e34ac32b4716774cc11ac34" />
-	<File name="Modules/Build.lua" part="program" sha1="5c9ed4aed9f62b58826a90ce50ca1c94b2f566eb" />
+	<File name="Modules/Build.lua" part="program" sha1="8ac2e1444a54f55dae54edac352cf094d48431bc" />
 	<File name="Modules/BuildDisplayStats.lua" part="program" sha1="5f94217a5eea930a3605969dbf06a8bd118eca55" />
 	<File name="Modules/BuildList.lua" part="program" sha1="d4ad3ff8e13558339f0c6d2f92157645618e0d65" />
 	<File name="Modules/BuildListHelpers.lua" part="program" sha1="e8e954bdc12c4c0899915d71f04f9f6cf39c1647" />
@@ -1073,7 +1073,7 @@
 	<File name="Modules/Calcs.lua" part="program" sha1="d0bb7f88fb578ad4734e54beb58992e884a43d3a" />
 	<File name="Modules/CalcSections.lua" part="program" sha1="4aaaf44e3564d9cb966e04d9eeddb4a80fa9bdea" />
 	<File name="Modules/CalcSetup.lua" part="program" sha1="9f66530a0698c8c0b27d20d603ebbbbd910256c9" />
-	<File name="Modules/CalcTools.lua" part="program" sha1="aa1ec36e61d2869fa1149a1fc2a3aa95ad22771c" />
+	<File name="Modules/CalcTools.lua" part="program" sha1="1b401e86b0ad473bd3fc908e2e99e72e0a1482a2" />
 	<File name="Modules/CalcTriggers.lua" part="program" sha1="1888a1e3610aa6ac26600678d74e522ddd9789f1" />
 	<File name="Modules/Common.lua" part="program" sha1="8c542bcb64fc42aab30c2780882ccd00ee1f89ad" />
 	<File name="Modules/ConfigOptions.lua" part="program" sha1="b9eff821313c03cb14832a16c7d3d9458e557268" />
