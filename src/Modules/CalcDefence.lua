@@ -2968,6 +2968,16 @@ function calcs.buildDefenceEstimations(env, actor)
 				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.EnergyShieldRecoveryCap / chaosESMultiplier
 			end
 		end
+		local ward = output.Ward or 0
+		if ward > 0 then
+			local wardBypass = (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100
+			if wardBypass > 0 then
+				local poolProtected = ward / (1 - wardBypass) * wardBypass
+				output[damageType.."TotalPool"] = m_max(output[damageType.."TotalPool"] - poolProtected, 0) + m_min(output[damageType.."TotalPool"], poolProtected) / wardBypass
+			else
+				output[damageType.."TotalPool"] = output[damageType.."TotalPool"] + ward
+			end
+		end
 		if breakdown then
 			breakdown[damageType.."TotalPool"] = {
 				s_format("Life: %d", output.LifeRecoverable)
@@ -2980,6 +2990,9 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Life change prevented by Eternal Life: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier))
 			elseif esBypass < 1 then
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
+			end
+			if ward > 0 then
+				t_insert(breakdown[damageType.."TotalPool"], s_format("Runic Ward: %d", ward))
 			end
 			t_insert(breakdown[damageType.."TotalPool"], s_format("Total Pool: %d", output[damageType.."TotalPool"]))
 		end
