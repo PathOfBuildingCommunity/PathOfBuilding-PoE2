@@ -4066,6 +4066,9 @@ local specialModList = {
 		flag("ColdCanIgnite"), flag("ColdCanShock"),
 		flag("LightningCanIgnite"), flag("LightningCanChill"), flag("LightningCanFreeze"),
 	},
+	["physical damage from hits contributes to chill magnitude and freeze buildup"] = {
+		flag("PhysicalCanChill"), flag("PhysicalCanFreeze"),
+	},
 	-- Bleed
 	["melee attacks cause bleeding"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Melee) },
 	["attacks cause bleeding when hitting cursed enemies"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Attack, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
