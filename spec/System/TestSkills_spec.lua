@@ -140,6 +140,22 @@ describe("TestSkills", function()
 		assert.is_true(#build.controls.mainSkillMinionSkill.list > 0, "minion skill dropdown should have entries")
 	end)
 
+	it("does not crash rendering socket tooltip when minion skill selection is missing", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		socketGroup.displaySkillList[1].minion.mainSkill = nil
+
+		local tooltip = {
+			AddLine = function() end,
+			AddSeparator = function() end,
+		}
+		assert.has_no.errors(function()
+			build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
+		end)
+	end)
+
 	it("applies minion skill stat set selections to the selected minion skill only", function()
 
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
