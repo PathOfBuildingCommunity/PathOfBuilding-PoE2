@@ -1165,10 +1165,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 		options.special = { itemName = context.slotTbl.slotName }
 	end
 
-	if context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
+	if context.slotTbl.slotName == "Megalomaniac" or context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
 		local activeSocketList = { }
 		for nodeId, jewelSlot in pairs(self.itemsTab.sockets) do
-			if not jewelSlot.inactive then
+			if not jewelSlot.inactive and not self.itemsTab.build.spec.nodes[nodeId].containJewelSocket then
 				t_insert(activeSocketList, jewelSlot)
 			end
 		end

@@ -469,7 +469,11 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 	table.sort(activeSocketList)
+	local activeUniqueJewelSocket
 	for _, nodeId in ipairs(activeSocketList) do
+		if not activeUniqueJewelSocket and not self.itemsTab.build.spec.nodes[nodeId].containJewelSocket then
+			activeUniqueJewelSocket = nodeId
+		end
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
 
@@ -525,7 +529,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		return hideRowFunc(self, #slotTables+1)
 	end
 	local row_count = #slotTables + 1
-	self.slotTables[row_count] = { slotName = "Megalomaniac", unique = true, alreadyCorrupted = true }
+	self.slotTables[row_count] = { slotName = "Megalomaniac", unique = true, alreadyCorrupted = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding) -- Megalomaniac needs to drop an extra row for "Other Trades"
 	self.controls["name"..row_count].shown = function()
@@ -533,7 +537,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true, selectedJewelNodeId = activeSocketList[1] }
+	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -541,7 +545,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true, selectedJewelNodeId = activeSocketList[1] }
+	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -798,7 +802,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 	local slotTbl = self.slotTables[row_idx]
 	local jewelNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
 	local slotName = jewelNodeId and "Jewel " .. tostring(jewelNodeId) or slotTbl.slotName
-	if slotName == "Megalomaniac" then
+	if slotTbl.slotName == "Megalomaniac" then
 		local addedNodes = {}
 		for nodeName in (result.item_string.."\r\n"):gmatch("Allocates (.-)\r?\n") do
 			local node = self.itemsTab.build.spec.tree.notableMap[nodeName:lower()]
@@ -852,7 +856,15 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	end
 
 	self.sortedResultTbl[row_idx] = sortedItems
-	local pb_index = self.sortedResultTbl[row_idx][1].index
+	if not sortedItems[1] then
+		self.itemIndexTbl[row_idx] = nil
+		self.totalPrice[row_idx] = nil
+		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		self:UpdateDropdownList(row_idx)
+		self:SetNotice(self.controls.pbNotice, "^4No compatible items found for this slot.")
+		return
+	end
+	local pb_index = sortedItems[1].index
 	self.itemIndexTbl[row_idx] = pb_index
 	self.controls["priceButton".. row_idx].tooltipText = "Sorted by " .. self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	self.totalPrice[row_idx] = {
@@ -974,6 +986,10 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName] or
 						slotTbl.slotName == "Watcher's Eye" and self:findValidSlotForWatchersEye() or
 						slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
+	local function getSelectedSlot()
+		local selectedNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+		return selectedNodeId and self.itemsTab.sockets[selectedNodeId] or activeSlot
+	end
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 135, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "Find best", function()
@@ -1002,7 +1018,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						self:SetNotice(context.controls.pbNotice, "")
 					end
 
-					local itemsSafe = self:FilterToSafeItems(items, activeSlot and activeSlot.slotName)
+					local selectedSlot = getSelectedSlot()
+					local itemsSafe = self:FilterToSafeItems(items, selectedSlot and selectedSlot.slotName)
 
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
 						for i, _ in ipairs(itemsSafe) do
@@ -1087,7 +1104,8 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				else
 					self:SetNotice(controls.pbNotice, "")
 					self.lastQueries[row_idx] = query
-					local itemsSafe = self:FilterToSafeItems(items, activeSlot and activeSlot.slotName)
+					local selectedSlot = getSelectedSlot()
+					local itemsSafe = self:FilterToSafeItems(items, selectedSlot and selectedSlot.slotName)
 					self.resultTbl[row_idx] = itemsSafe
 					self:UpdateControlsWithItems(row_idx)
 				end
@@ -1099,7 +1117,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
 		local selectedJewelSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId]
-		local hasRequiredJewelSlot = not slotTbl.unique or slotTbl.slotName == "Megalomaniac" or selectedJewelSlot and not selectedJewelSlot.inactive
+		local hasRequiredJewelSlot = not slotTbl.unique or selectedJewelSlot and not selectedJewelSlot.inactive
 		return isAuthorized and validURL and not isSearching and hasRequiredJewelSlot
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
@@ -1108,8 +1126,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")
-		elseif slotTbl.unique and slotTbl.slotName ~= "Megalomaniac"
-			and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
+		elseif slotTbl.unique and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
 			tooltip:AddLine(16, "Requires an active Jewel Socket")
 		end
 	end
