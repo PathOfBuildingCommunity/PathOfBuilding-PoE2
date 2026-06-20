@@ -1,3 +1,22 @@
+VERSION[0.21.1][2026/06/20]
+
+--- Fixed Crashes ---
+* Fix crash when trying to use PoB trader after 0.5.3 (vaisest)
+
+--- Fixed Calculations ---
+* Fix more Maximum Rage mod not working (Blitz54)
+* Fix general Grenade mods not working (LocalIdentity)
+* Fix Blazing Critical not applying as a global buff (LocalIdentity)
+* Fix Sine Aequo Immobilisation buildup calculation (LocalIdentity)
+* Fix Daze not applying 50% more Stun Buildup (LocalIdentity)
+* Fix Overwhelming Presence quality mod multiplying Aura magnitude (LocalIdentity)
+* Fix "+% to Critical Damage Bonus"  mods on weapons applying to Spells (luther-rotmg)
+
+--- Fixed Behaviours ---
+* Fix Ice Bite and Innervate only supporting Attacks (vaisest)
+* Fix power report and trade search not working with Minions (LocalIdentity)
+* Fix Bloodhounds Mark not counting the enemy as Marked (LocalIdentity)
+
 VERSION[0.21.0][2026/06/13]
 
 --- New to Path of Building ---
