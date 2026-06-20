@@ -466,7 +466,7 @@ function calcs.buildOutput(build, mode)
 			for _, skillEffect in ipairs(activeSkill.effectList) do
 				env.skillsUsed[skillEffect.grantedEffect.name] = true
 			end
-			if activeSkill.minion then
+			if activeSkill.minion and activeSkill.minion.activeSkillList then
 				for	_, activeSkill in ipairs(activeSkill.minion.activeSkillList) do
 					env.skillsUsed[activeSkill.activeEffect.grantedEffect.id] = true
 				end
@@ -575,7 +575,7 @@ function calcs.buildOutput(build, mode)
 					addTo(env.tagTypesUsed, tag.type, mod)
 				end
 			end
-			if activeSkill.minion then
+			if activeSkill.minion and activeSkill.minion.activeSkillList then
 				for _, activeSkill in pairs(activeSkill.minion.activeSkillList) do
 					for _, mod in ipairs(activeSkill.baseSkillModList) do
 						addModTags(env.minion, mod)

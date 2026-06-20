@@ -117,7 +117,31 @@ describe("TestSkills", function()
 		assert.is_false(build.controls.mainSkillMinionSkill.shown)
 	end)
 
+	it("populates minion skill list and UI controls after full OnFrame cycle", function()
+		-- End-to-end test: exercises the complete pipeline including
+		-- calcs.buildOutput, calcs.perform, createMinionSkills, and
+		-- RefreshSkillSelectControls in a single OnFrame frame.
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		-- Verify the calculation engine populated the minion correctly
+		local minion = build.calcsTab.mainEnv.minion
+		assert.is_not_nil(minion, "minion should be created by the calc engine")
+		assert.is_not_nil(minion.activeSkillList, "activeSkillList should be populated by createMinionSkills")
+		assert.is_true(#minion.activeSkillList > 0, "minion should have at least one skill")
+		assert.is_not_nil(minion.mainSkill, "mainSkill should be selected from activeSkillList")
+
+		-- Verify the UI controls were populated by RefreshSkillSelectControls
+		assert.is_true(build.controls.mainSkillMinion.shown, "minion dropdown should be visible")
+		assert.is_true(build.controls.mainSkillMinionSkill.shown, "minion skill dropdown should be visible")
+		assert.is_true(#build.controls.mainSkillMinionSkill.list > 0, "minion skill dropdown should have entries")
+	end)
+
 	it("applies minion skill stat set selections to the selected minion skill only", function()
+
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 		runCallback("OnFrame")
 
