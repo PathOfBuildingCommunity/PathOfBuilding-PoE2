@@ -58,6 +58,65 @@ describe("TestSkills", function()
 		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
 	end)
 
+	it("does not crash when minion activeSkillList is missing", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Minion: Test" }
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestMinionSkill",
+				name = "Minion: Test",
+				statSets = { { label = "Default" } },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			minion = {
+				-- activeSkillList is absent, reproducing the crash fix in #2243
+			}
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		assert.has_no.errors(function()
+			build:RefreshSkillSelectControls(build.controls, 1, "")
+		end)
+	end)
+
+	it("does not crash when minion activeSkillList is an empty table", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Minion: Test" }
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestMinionSkill",
+				name = "Minion: Test",
+				statSets = { { label = "Default" } },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			minion = {
+				activeSkillList = { }  -- empty list, guard must check [1] as well
+			}
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		assert.has_no.errors(function()
+			build:RefreshSkillSelectControls(build.controls, 1, "")
+		end)
+
+		-- Minion skill dropdown should remain hidden when there are no skills
+		assert.is_false(build.controls.mainSkillMinionSkill.shown)
+	end)
+
 	it("applies minion skill stat set selections to the selected minion skill only", function()
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 		runCallback("OnFrame")
