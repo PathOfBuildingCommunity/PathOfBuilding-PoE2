@@ -515,7 +515,7 @@ return {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "LeechingEnergyShield" }),
 },
 ["aura_effect_+%"] = {
-	mod("AuraEffect", "INC", nil),
+	mod("Magnitude", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Aura }),
 },
 ["elusive_effect_+%"] = {
 	mod("ElusiveEffect", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),

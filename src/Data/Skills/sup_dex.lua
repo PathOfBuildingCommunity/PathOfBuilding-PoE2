@@ -2648,7 +2648,7 @@ skills["SupportInnervatePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
-					mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
 				},
 				["support_innervate_buff_base_duration_ms"] = {
 					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff" }),

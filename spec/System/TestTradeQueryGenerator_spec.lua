@@ -34,6 +34,50 @@ describe("TradeQueryGenerator", function()
 			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 			assert.are.equal(result, 100)
 		end)
+
+		it("uses minion output for non-FullDPS stats when minion output is available", function()
+			local baseOutput = { AverageDamage = 10, Minion = { AverageDamage = 100 } }
+			local newOutput = { AverageDamage = 10, Minion = { AverageDamage = 250 } }
+			local statWeights = { { stat = "AverageDamage", weightMult = 1 } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
+
+			assert.are.equal(result, 2.5)
+		end)
+
+		it("uses player output for FullDPS even when minion output is available", function()
+			local baseOutput = { FullDPS = 100, Minion = { FullDPS = 100 } }
+			local newOutput = { FullDPS = 250, Minion = { FullDPS = 1000 } }
+			local statWeights = { { stat = "FullDPS", weightMult = 1 } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
+
+			assert.are.equal(result, 2.5)
+		end)
+
+		it("uses the fallback DPS ratio once when FullDPS is unavailable", function()
+			local baseOutput = { Minion = { TotalDPS = 10, TotalDotDPS = 0, CombinedDPS = 10 } }
+			local newOutput = { Minion = { TotalDPS = 25, TotalDotDPS = 0, CombinedDPS = 25 } }
+			local statWeights = { { stat = "FullDPS", weightMult = 1 } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
+
+			assert.are.equal(result, 2.5)
+		end)
+
+		it("falls back to player output when the selected stat is not on minion output", function()
+			local baseOutput = { Spirit = 100, Minion = { AverageDamage = 100 } }
+			local newOutput = { Spirit = 120, Minion = { AverageDamage = 100 } }
+			local statWeights = { { stat = "Spirit", weightMult = 1 } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
+
+			assert.are.equal(result, 1.2)
+		end)
 	end)
 
 	describe("Filter prioritization", function()

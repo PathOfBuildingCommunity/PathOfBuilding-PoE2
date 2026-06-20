@@ -975,6 +975,7 @@ Powered by Verisium           		----		PoweredByVerisiumPlayer
 Primal Bounty                 		----		PrimalBountyPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
+Queen's Procession            		----		QueensProcessionReservationPlayer
 Rain of Blades                		----		RainOfBladesPlayer	RainOfBladesTriggeredPlayer
 Raise Shield                  		----		ShieldBlockPlayer
 Refutation                    		----		RefutationPlayer

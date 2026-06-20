@@ -6830,6 +6830,11 @@ worldAreas["RitualLeagueBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Cultist Archer",
+		"Cultist Brute",
+		"Cultist Daggerdancer",
+		"Cultist Warrior",
+		"Cultist Witch",
 	},
 	bossVarieties = {
 		"The King in the Mists",
@@ -6892,14 +6897,12 @@ worldAreas["Abyss_Depths1"] = {
 		"Abyssal Shambler",
 		"Abyssal Strangler",
 		"Abyssal Walker",
-		"Faridun Plaguebringer",
 		"Flesh Larva",
 		"Gargantuan Larva",
 		"Lightless Abomination",
 		"Lightless Moray",
 		"Lightless Serpent",
 		"Lightless Vengewing",
-		"Plague Harvester",
 	},
 }
 
@@ -6961,14 +6964,12 @@ worldAreas["Abyss_Boss1"] = {
 		"Abyssal Shambler",
 		"Abyssal Strangler",
 		"Abyssal Walker",
-		"Faridun Plaguebringer",
 		"Flesh Larva",
 		"Gargantuan Larva",
 		"Lightless Abomination",
 		"Lightless Moray",
 		"Lightless Serpent",
 		"Lightless Vengewing",
-		"Plague Harvester",
 	},
 	bossVarieties = {
 		"Tasgul, Swallower of Light",

@@ -157,12 +157,26 @@ end
 
 function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 	local meanStatDiff = 0
+	local function getOutputStatValue(output, stat)
+		if stat == "FullDPS" then
+			if output[stat] ~= nil then
+				return output[stat]
+			end
+			if output.Minion and output.Minion.CombinedDPS ~= nil then
+				return output.Minion.CombinedDPS
+			end
+		end
+		if output.Minion and output.Minion[stat] ~= nil then
+			return output.Minion[stat]
+		end
+		return output[stat] or 0
+	end
 	local function ratioModSums(...)
 		local baseModSum = 0
 		local newModSum = 0
 		for _, mod in ipairs({ ... }) do
-			baseModSum = baseModSum + (baseOutput[mod] or 0)
-			newModSum = newModSum + (newOutput[mod] or 0)
+			baseModSum = baseModSum + getOutputStatValue(baseOutput, mod)
+			newModSum = newModSum + getOutputStatValue(newOutput, mod)
 		end
 
 		if baseModSum == math.huge then
@@ -176,10 +190,12 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 		end
 	end
 	for _, statTable in ipairs(statWeights) do
+		local modSumRatio
 		if statTable.stat == "FullDPS" and not (baseOutput["FullDPS"] and newOutput["FullDPS"]) then
-			meanStatDiff = meanStatDiff + ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS") * statTable.weightMult
+			modSumRatio = ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS")
+		else
+			modSumRatio = ratioModSums(statTable.stat)
 		end
-		local modSumRatio = ratioModSums(statTable.stat)
 		-- some weights, such as damage taken from hit need to be negated as lower is better for them
 		if statTable.transform then
 			modSumRatio = statTable.transform(modSumRatio)
@@ -399,6 +415,9 @@ function TradeQueryGeneratorClass:InitMods()
 
 	for catIdx, _ in ipairs(body.result) do
 		table.sort(body.result[catIdx].entries, function(a, b)
+			if a.text == b.text then
+				return a.id < b.id
+			end
 			return a.text < b.text
 		end)
 	end
@@ -1162,10 +1181,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 		options.special = { itemName = context.slotTbl.slotName }
 	end
 
-	if context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
+	if context.slotTbl.slotName == "Megalomaniac" or context.slotTbl.slotName == "Heart of the Well" or context.slotTbl.slotName == "Against the Darkness" then
 		local activeSocketList = { }
 		for nodeId, jewelSlot in pairs(self.itemsTab.sockets) do
-			if not jewelSlot.inactive then
+			if not jewelSlot.inactive and not self.itemsTab.build.spec.nodes[nodeId].containJewelSocket then
 				t_insert(activeSocketList, jewelSlot)
 			end
 		end
@@ -1184,7 +1203,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	end
 
 
-	if isJewelSlot then
+	if isJewelSlot and not context.slotTbl.unique then
 		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
 		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")

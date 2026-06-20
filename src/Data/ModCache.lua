@@ -409,7 +409,6 @@ c["+25 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",v
 c["+25 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=25}},nil}
 c["+25% chance to be Poisoned"]={{}," to be Poisoned "}
 c["+25% chance to be Poisoned 100% chance to Poison on Hit with Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="PoisonChance",type="BASE",value=25}}," to be Poisoned 100% chance   "}
-c["+25% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=25}},nil}
 c["+25% to Block Chance while holding a Focus"]={{[1]={[1]={type="Condition",varList={[1]="UsingFocus"}},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=25}},nil}
 c["+25% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=25}},nil}
 c["+25% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=25}},nil}
@@ -1086,6 +1085,10 @@ c["10% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="B
 c["10% chance to inflict Cold Exposure on Hit if you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="ColdExposureChance",type="BASE",value=10}},nil}
 c["10% chance to inflict Fire Exposure on Hit if you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="FireExposureChance",type="BASE",value=10}},nil}
 c["10% chance to inflict Lightning Exposure on Hit if you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="LightningExposureChance",type="BASE",value=10}},nil}
+c["10% chance to inflict Withered with Hits against targets affected by Abyssal Wasting"]={{}," to inflict Withered  against targets affected by Abyssal Wasting "}
+c["10% chance to inflict Withered with Hits against targets affected by Abyssal Wasting 40% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=262144,name="EnemyChillMagnitude",type="BASE",value=10}}," to inflict Withered  against targets affected by Abyssal Wasting 40% increased  "}
+c["10% chance to revive one of your Persistent Minions when you kill an"]={{}," to revive one of your Persistent s when you kill an "}
+c["10% chance to revive one of your Persistent Minions when you kill an Gain 1 Volatility when you kill an enemy affected by Abyssal Wasting"]={{}," to revive one of your Persistent s when you kill an Gain 1 Volatility  affected by Abyssal Wasting "}
 c["10% chance when a Charm is used to use another Charm without consuming Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=10}}," when a Charm is used to use another Charm without consuming  "}
 c["10% chance when collecting an Elemental Infusion to gain an"]={{}," when collecting an Elemental Infusion to gain an "}
 c["10% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type"]={{}," when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type "}
@@ -1199,7 +1202,7 @@ c["10% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,
 c["10% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=10}},nil}
 c["10% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeThreshold",type="INC",value=10}},nil}
 c["10% increased Global Armour, Evasion and Energy Shield per Socket filled"]={{[1]={[1]={type="Global"},[2]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Defences",type="INC",value=10}},nil}
-c["10% increased Grenade Area of Effect"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
+c["10% increased Grenade Area of Effect"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Hazard Area of Effect"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=10}},nil}
 c["10% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=10}},nil}
@@ -1380,6 +1383,7 @@ c["100% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",typ
 c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},"  during Empowered Attacks "}
 c["100% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={[1]={type="Multiplier",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
 c["100% increased Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
+c["100% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
 c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items "}
@@ -1472,7 +1476,7 @@ c["12% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["12% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=12}},nil}
 c["12% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=12}},nil}
 c["12% increased Global Armour, Evasion and Energy Shield per Socket filled"]={{[1]={[1]={type="Global"},[2]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Defences",type="INC",value=12}},nil}
-c["12% increased Grenade Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
+c["12% increased Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=12}},nil}
 c["12% increased Immobilisation buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=12}},nil}
 c["12% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=12}},nil}
@@ -1611,7 +1615,7 @@ c["15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="
 c["15% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=15}},nil}
 c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
-c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},"  forSkills "}
+c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency of Attacks"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
@@ -1939,6 +1943,8 @@ c["20% chance to Knock Enemies Back with Hits at Close Range"]={{}," to Knock En
 c["20% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=20}},nil}
 c["20% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["20% chance to cause Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=20}},nil}
+c["20% chance to gain Onslaught for 3 seconds when you kill an"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},"  when you kill an "}
+c["20% chance to gain Onslaught for 3 seconds when you kill an Abyssal Wasting you inflict also prevents targets from dealing Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},"  when you kill an Abyssal Wasting you inflict also prevents targets from dealing Critical Hits "}
 c["20% chance to gain a Power Charge on Hit"]={nil,"a Power Charge on Hit "}
 c["20% chance to gain a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges"]={nil,"a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges "}
 c["20% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=20}},nil}
@@ -2616,7 +2622,6 @@ c["30% increased Freeze Buildup with Quarterstaves"]={{[1]={flags=2097156,keywor
 c["30% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeThreshold",type="INC",value=30}},nil}
 c["30% increased Hazard Duration"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["30% increased Hazard Immobilisation buildup"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=30}},nil}
-c["30% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Life Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="LifeCost",type="INC",value=30}},nil}
 c["30% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=30}},nil}
 c["30% increased Life Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=30}},nil}
@@ -2698,7 +2703,7 @@ c["30% of Damage taken during effect Recouped as Life Gain 5 Rage when Hit by an
 c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant "}
 c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Lightning Resistance "}
 c["30% of Mana Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant "}
-c["30% of Mana Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Cold Resistance "}
+c["30% of Mana Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaAsPhysical",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life  "}
 c["30% reduced Accuracy Rating while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-30}},nil}
 c["30% reduced Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=-30}},nil}
 c["30% reduced Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-30}},nil}
@@ -2844,7 +2849,7 @@ c["40% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",t
 c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=40}},nil}
 c["40% faster start of Energy Shield Recharge if you've been Stunned Recently"]={{[1]={[1]={type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["40% increased Accuracy Rating against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting "}
-c["40% increased Accuracy Rating against Enemies affected by Abyssal Wasting 30% of Mana Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting 30% of Mana Leeched from targets affected by Abyssal Wasting is Instant "}
+c["40% increased Accuracy Rating against Enemies affected by Abyssal Wasting Targets affected by Abyssal Wasting you inflict are Debilitated"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting Targets affected by Abyssal Wasting you inflict are Debilitated "}
 c["40% increased Ailment and Stun Threshold while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=40},[2]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}},nil}
 c["40% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=40}},nil}
 c["40% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=40}},nil}
@@ -2866,8 +2871,7 @@ c["40% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name=
 c["40% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=40}},nil}
 c["40% increased Cold Damage while affected by Herald of Ice"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofIce"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=40}},nil}
 c["40% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},nil}
-c["40% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},"  forSkills "}
-c["40% increased Cooldown Recovery Rate for Grenade Skills 80% reduced Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},[2]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},"  forSkills 80% reduced  Damage "}
+c["40% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Critical Damage Bonus with One Handed Melee Weapons"]={{[1]={flags=21474836484,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
@@ -2910,6 +2914,9 @@ c["40% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="En
 c["40% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=40}},nil}
 c["40% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=40}},nil}
 c["40% increased Hazard Damage"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
+c["40% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=40}},nil}
+c["40% increased Immobilisation buildup against targets affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=40}},"  against targets affected by Abyssal Wasting "}
+c["40% increased Immobilisation buildup against targets affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=40}},"  against targets affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant "}
 c["40% increased Jagged Ground Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=40}}," Jagged Ground  "}
 c["40% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=40}},nil}
 c["40% increased Life Recovery from Flasks used when on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=40}},nil}
@@ -2921,6 +2928,8 @@ c["40% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius"
 c["40% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=40}},nil}
 c["40% increased Lightning Damage while affected by Herald of Thunder"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofThunder"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=40}},nil}
 c["40% increased Magnitude of Bleeding you inflict against Pinned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Pinned"},flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=40}},nil}
+c["40% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=40}},nil}
+c["40% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=40}},nil}
 c["40% increased Magnitude of Shock you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=40}},nil}
 c["40% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=40}},nil}
 c["40% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=40}},nil}
@@ -2956,8 +2965,6 @@ c["40% increased Stun buildup if you have Shapeshifted to an Animal form Recentl
 c["40% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
 c["40% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=40}},nil}
 c["40% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}},nil}
-c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting "}
-c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant "}
 c["40% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=40}},nil}
 c["40% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% less Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="MORE",value=-40}},nil}
@@ -3202,9 +3209,10 @@ c["50% increased Strength Requirement"]={{[1]={flags=0,keywordFlags=0,name="StrR
 c["50% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=50}},nil}
 c["50% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=50}},nil}
 c["50% increased Surrounded Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="SurroundedArea",type="INC",value=50}},nil}
-c["50% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Totem Placement range"]={{},"  Placement range "}
 c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=50}},nil}
+c["50% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=50}},"  against Enemies affected by Abyssal Wasting "}
+c["50% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting Targets affected by Abyssal Wasting you inflict are Blinded"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=50}},"  against Enemies affected by Abyssal Wasting Targets affected by Abyssal Wasting you inflict are Blinded "}
 c["50% increased effect of Incision"]={{[1]={flags=0,keywordFlags=0,name="IncisionEffect",type="INC",value=50}},nil}
 c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="SmallPassiveSkillEffect",type="INC",value=50}},nil}
 c["50% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=50}},nil}
@@ -3581,7 +3589,7 @@ c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlag
 c["80% less Knockback Distance for Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-80}},"  for Blocked Hits "}
 c["80% of Maximum Mana is Converted to twice that much Armour"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=80}},"  is Converted to twice that much Armour "}
 c["80% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-80}},nil}
-c["80% reduced Grenade Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Grenade",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
+c["80% reduced Grenade Damage"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["800% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=800}},nil}
 c["800% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=800}},nil}
 c["82% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=82}},nil}
@@ -3610,13 +3618,19 @@ c["90% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["90% less Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="MORE",value=-90}},nil}
 c["92% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=92}},nil}
 c["Abyssal Wasting also applies % to Cold Resistance"]={nil,"Abyssal Wasting also applies % to Cold Resistance "}
-c["Abyssal Wasting also applies % to Cold Resistance 30% increased Magnitude of Chill you inflict"]={nil,"Abyssal Wasting also applies % to Cold Resistance 30% increased Magnitude of Chill you inflict "}
+c["Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an"]={nil,"Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an "}
 c["Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting also applies % to Fire Resistance "}
 c["Abyssal Wasting also applies % to Fire Resistance +30% of Armour also applies to Elemental Damage"]={nil,"Abyssal Wasting also applies % to Fire Resistance +30% of Armour also applies to Elemental Damage "}
 c["Abyssal Wasting also applies % to Lightning Resistance"]={nil,"Abyssal Wasting also applies % to Lightning Resistance "}
 c["Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking"]={nil,"Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking "}
+c["Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage"]={nil,"Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage "}
+c["Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"]={nil,"Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments "}
+c["Abyssal Wasting you inflict also prevents targets from dealing Critical Hits"]={nil,"Abyssal Wasting you inflict also prevents targets from dealing Critical Hits "}
+c["Abyssal Wasting you inflict also prevents targets from dealing Critical Hits Gain 1 Rage when you kill an enemy affected by Abyssal Wasting"]={nil,"Abyssal Wasting you inflict also prevents targets from dealing Critical Hits Gain 1 Rage when you kill an enemy affected by Abyssal Wasting "}
+c["Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"]={nil,"Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments "}
+c["Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies % to Cold Resistance"]={nil,"Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies % to Cold Resistance "}
 c["Abyssal Wasting you inflict has Infinite Duration"]={nil,"Abyssal Wasting you inflict has Infinite Duration "}
-c["Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance "}
+c["Abyssal Wasting you inflict has Infinite Duration 20% chance to gain Onslaught for 3 seconds when you kill an"]={nil,"Abyssal Wasting you inflict has Infinite Duration 20% chance to gain Onslaught for 3 seconds when you kill an "}
 c["Accuracy Rating is Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AccuracyDoubledLimit",type="Multiplier",var="AccuracyDoubled"},flags=0,keywordFlags=0,name="Accuracy",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AccuracyDoubled",type="OVERRIDE",value=1}},nil}
 c["Adapt to the highest Elemental Damage Type of each Hit you take"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take "}
 c["Adapt to the highest Elemental Damage Type of each Hit you take 10% less Damage taken of each Elemental Damage Type per matching Adaptation"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take 10% less Damage taken of each Elemental Damage Type per matching Adaptation "}
@@ -5169,6 +5183,7 @@ c["Debuffs you inflict have 10% increased Slow Magnitude"]={nil,"Debuffs you inf
 c["Debuffs you inflict have 10% increased Slow Magnitude Debuffs on you expire 20% faster"]={nil,"Debuffs you inflict have 10% increased Slow Magnitude Debuffs on you expire 20% faster "}
 c["Debuffs you inflict have 20% increased Slow Magnitude"]={nil,"Debuffs you inflict have 20% increased Slow Magnitude "}
 c["Debuffs you inflict have 20% increased Slow Magnitude 10% increased Spirit"]={nil,"Debuffs you inflict have 20% increased Slow Magnitude 10% increased Spirit "}
+c["Debuffs you inflict have 20% increased Slow Magnitude Gain 12% of Damage as Extra Fire Damage"]={nil,"Debuffs you inflict have 20% increased Slow Magnitude Gain 12% of Damage as Extra Fire Damage "}
 c["Debuffs you inflict have 30% increased Slow Magnitude"]={nil,"Debuffs you inflict have 30% increased Slow Magnitude "}
 c["Debuffs you inflict have 30% increased Slow Magnitude Cannot Immobilise enemies"]={nil,"Debuffs you inflict have 30% increased Slow Magnitude Cannot Immobilise enemies "}
 c["Debuffs you inflict have 4% increased Slow Magnitude"]={nil,"Debuffs you inflict have 4% increased Slow Magnitude "}
@@ -5314,6 +5329,8 @@ c["Enemies you Mark take 10% increased Damage"]={{[1]={[1]={actor="enemy",type="
 c["Enemies you apply Incision to take 2% increased Physical Damage per Incision"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="IncisionStack"},flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="INC",value=2}}}},nil}
 c["Enemies you inflict Bleeding on cannot Regenerate Life"]={nil,"Enemies you inflict Bleeding on cannot Regenerate Life "}
 c["Enemies you kill have a 10% chance to explode, dealing a quarter of their maximum Life as Chaos damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=25,keyOfScaledMod="value",type="Chaos",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
+c["Enemies you kill while they are affected by Abyssal Wasting"]={nil,"Enemies you kill while they are affected by Abyssal Wasting "}
+c["Enemies you kill while they are affected by Abyssal Wasting 40% increased Immobilisation buildup against targets affected by Abyssal Wasting"]={nil,"Enemies you kill while they are affected by Abyssal Wasting 40% increased Immobilisation buildup against targets affected by Abyssal Wasting "}
 c["Enemies you kill with Empowered Attacks have a 10% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,keyOfScaledMod="value",type="Fire",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Enemies' Damage with Critical Hits against you is Lucky"]={nil,"Enemies' Damage with Critical Hits  is Lucky "}
 c["Enemy Critical Hit Chance against you is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="EnemyUnluckyCrit",type="FLAG",value=true}},nil}
@@ -5406,8 +5423,8 @@ c["Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence 40%
 c["Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence Curses you inflict can affect Hexproof Enemies"]={{}," Dark Whisper every second there is a Cursed Enemy in your Presence Curses you inflict can affect Hexproof Enemies "}
 c["Gain 1 Druidic Prowess for every 20 total Rage spent"]={{}," Druidic Prowess for every 20 total Rage spent "}
 c["Gain 1 Endurance Charge every second if you've been Hit Recently"]={{}," Endurance Charge every second  "}
-c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosive Rhythm every 3 times you use aSkill "}
-c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use aSkill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
+c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosive Rhythm every 3 times you use a  Skill "}
+c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Fear Incarnate when you Cull a target"]={{}," Fear Incarnate when you Cull a target "}
 c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Life Flask Charge per 2% Life spent"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"  Flask Charge per 2% Life spent "}
@@ -5415,12 +5432,16 @@ c["Gain 1 Life Flask Charge per 2% Life spent On Hitting an Enemy while a Life F
 c["Gain 1 Life Flask Charge per 2% Life spent On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage as Physical damage for 5 seconds per Charge consumed this way"]={{[1]={flags=4,keywordFlags=0,name="LifeAsPhysical",type="BASE",value=1}},"  Flask Charge per 2% Life spent ting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage   per Charge consumed this way "}
 c["Gain 1 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
+c["Gain 1 Rage when you kill an enemy affected by Abyssal Wasting"]={{}," Rage  affected by Abyssal Wasting "}
+c["Gain 1 Rage when you kill an enemy affected by Abyssal Wasting Abyssal Wasting also applies % to Fire Resistance"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}}," Rage  affected by Abyssal Wasting Abyssal Wasting also applies % to  "}
 c["Gain 1 Rage when your Hit Ignites a target"]={{}," Rage when your Hit Ignites a target "}
 c["Gain 1 Runefather's Boast per Power of targets affected by Runefather's Challenge you kill"]={{}," Runefather's Boast per Power of targets affected by Runefather's Challenge you kill "}
 c["Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds"]={{}," Runic Binding , no more than once every 0.5 seconds "}
 c["Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential"]={{}," Runic Binding , no more than once every 0.5 seconds Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential "}
 c["Gain 1 Volatility on inflicting an Elemental Ailment"]={{}," Volatility on inflicting an Elemental Ailment "}
 c["Gain 1 Volatility on inflicting an Elemental Ailment Take no Damage from Volatility"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=1}}," Volatility on inflicting an Elemental Ailment Take no  from Volatility "}
+c["Gain 1 Volatility when you kill an enemy affected by Abyssal Wasting"]={{}," Volatility  affected by Abyssal Wasting "}
+c["Gain 1 Volatility when you kill an enemy affected by Abyssal Wasting 10% chance to inflict Withered with Hits against targets affected by Abyssal Wasting"]={{}," Volatility  affected by Abyssal Wasting 10% chance to inflict Withered  against targets affected by Abyssal Wasting "}
 c["Gain 1 fewer Lightning Surge from Triggering Elemental Surge"]={{}," fewer Lightning Surge from Triggering"}
 c["Gain 1% of Cold damage as Extra Fire damage per 1% Chill Magnitude on enemy"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
 c["Gain 1% of damage as Fire damage per 1% Chance to Block"]={{[1]={[1]={div=1,stat="BlockChance",type="PerStat"},flags=0,keywordFlags=0,name="DamageAsFire",type="BASE",value=1}},nil}
@@ -5561,6 +5582,7 @@ c["Gain Ailment Threshold equal to the lowest of Evasion and Armour on your Boot
 c["Gain Arcane Surge on Hit with Spells if you have at least 150 Devotion"]={{[1]={[1]={type="Condition",var="HitSpellRecently"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["Gain Arcane Surge when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}}}," when a  Dies "}
 c["Gain Arcane Surge when a Minion Dies 40% increased maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}}}," when a  Dies 40% increased  "}
+c["Gain Arcane Surge when a Minion Dies Gain Arcane Surge when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}}}," when a  Dies Gain  when a Minion Dies "}
 c["Gain Arcane Surge when a Minion Dies Recover 5% of your maximum Life when an Enemy dies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}}}," when a  Dies Recover 5% of your  when an Enemy dies in your Presence "}
 c["Gain Arcane Surge when you Shapeshift to Human form after"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}," when you Shapeshift to Human form after "}
 c["Gain Arcane Surge when you Shapeshift to Human form after being Shapeshifted for at least 8 seconds"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}," when you Shapeshift to Human form after being Shapeshifted for at least 8 seconds "}
@@ -5602,7 +5624,8 @@ c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Lif
 c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
 c["Gain Onslaught for 4 seconds when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies "}
 c["Gain Onslaught for 4 seconds when a Minion Dies +25 to Spirit while you have at least 200 Strength"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={stat="Str",threshold=200,type="StatThreshold"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies +25 to   "}
-c["Gain Onslaught for 4 seconds when a Minion Dies 18% increased Area of Effect for Attacks"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies 18% increased  for Attacks "}
+c["Gain Onslaught for 4 seconds when a Minion Dies Gain Onslaught for 4 seconds when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies Gain   when a Minion Dies "}
+c["Gain Onslaught for 4 seconds when a Minion Dies Projectiles have 50% chance for an additional Projectile when Forking"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies  have 50% chance for an additional Projectile when Forking "}
 c["Gain Overencumbrance for 4 seconds when you Dodge Roll"]={nil,"Overencumbrance  when you Dodge Roll "}
 c["Gain Overencumbrance for 4 seconds when you Dodge Roll Your speed is Unaffected by Slows while Sprinting"]={nil,"Overencumbrance  when you Dodge Roll Your speed is Unaffected by Slows  "}
 c["Gain Owl Feathers 50% faster"]={nil,"Owl Feathers 50% faster "}
@@ -5919,8 +5942,8 @@ c["Hits have 15% chance to treat Enemy Monster Elemental Resistance values as in
 c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywordFlags=0,name="EnemyCritChance",type="INC",value=-25}},nil}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
-c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength"]={{}," to Trigger "}
-c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength 120% increased Physical Damage"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},[3]={div=25,stat="Str",type="PerStat"},[4]={includeTransfigured=true,skillName="Molten Shower",type="SkillName"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Trigger 120% increased  "}
+c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength"]={{}," to Trigger Molten Shower  "}
+c["Hits with this Weapon have 5% chance to Trigger Molten Shower per 25 Strength 120% increased Physical Damage"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},[3]={div=25,stat="Str",type="PerStat"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Trigger Molten Shower  120% increased  "}
 c["Hits with this Weapon have no Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Hits with this Weapon inflict 5 Gruelling Madness"]={nil,"Hits with this Weapon inflict 5 Gruelling Madness "}
 c["Hits with this Weapon inflict 5 Gruelling Madness Enemies in your Presence have additional Power equal to their Gruelling Madness"]={nil,"Hits with this Weapon inflict 5 Gruelling Madness Enemies in your Presence have additional Power equal to their Gruelling Madness "}
@@ -5981,8 +6004,8 @@ c["Inevitable Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="InevitableCrit
 c["Infinite Parry Range"]={nil,"Infinite Parry Range "}
 c["Infinite Parry Range 50% increased Parried Debuff Duration"]={nil,"Infinite Parry Range 50% increased Parried Debuff Duration "}
 c["Inflict Abyssal Wasting on Hit"]={nil,"Inflict Abyssal Wasting on Hit "}
-c["Inflict Abyssal Wasting on Hit 100% increased Magnitude of Abyssal Wasting you inflict"]={nil,"Inflict Abyssal Wasting on Hit 100% increased Magnitude of Abyssal Wasting you inflict "}
 c["Inflict Abyssal Wasting on Hit Projectiles have 16% chance to Chain an additional time from terrain"]={nil,"Inflict Abyssal Wasting on Hit Projectiles have 16% chance to Chain an additional time from terrain "}
+c["Inflict Abyssal Wasting on Hit Targets affected by Abyssal Wasting you inflict are Hindered"]={nil,"Inflict Abyssal Wasting on Hit Targets affected by Abyssal Wasting you inflict are Hindered "}
 c["Inflict Cold Exposure on Igniting an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy "}
 c["Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy "}
 c["Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of"]={nil,"Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of "}
@@ -6476,11 +6499,12 @@ c["Projectiles have 40% increased Critical Damage Bonus against Enemies within 2
 c["Projectiles have 5% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=5}},nil}
 c["Projectiles have 50% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=50}}," for an additional  when Forking "}
 c["Projectiles have 50% chance for an additional Projectile when Forking 25% increased Critical Damage Bonus"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=50}}," for an additional  when Forking 25% increased Critical Damage Bonus "}
+c["Projectiles have 50% chance for an additional Projectile when Forking Gain 12% of Damage as Extra Lightning Damage"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=50}}," for an additional  when Forking Gain 12% of Damage as Extra Lightning Damage "}
 c["Projectiles have 6% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=6}},nil}
 c["Projectiles have 64% increased Critical Hit chance for each time they have Pierced"]={{[1]={flags=1024,keywordFlags=0,name="CritChance",type="INC",value=64}},"  for each time they have Pierced "}
 c["Projectiles have 75% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=75}}," for an additional  when Forking "}
 c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=1,keywordFlags=0,name="Multiplier:ExtraConsumablePowerCharges",type="BASE",value=1}},nil}
-c["Raise Shield inflicts Parried for 2 seconds on Hit"]={nil,"inflicts Parried for 2 seconds on Hit "}
+c["Raise Shield inflicts Parried for 2 seconds on Hit"]={nil,"Raise Shield inflicts Parried for 2 seconds on Hit "}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recover 1% of maximum Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
@@ -6747,6 +6771,12 @@ c["Tame Beast can capture Unique Beasts Can have up to one Unique Tamed Beast su
 c["Targets Cursed by you have 100% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-100}}}},nil}
 c["Targets Cursed by you have 50% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-50}}}},nil}
 c["Targets Cursed by you have at least 15% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeReservationPercent",type="BASE",value=15}}}},nil}
+c["Targets affected by Abyssal Wasting you inflict are Blinded"]={nil,"Targets affected by Abyssal Wasting you inflict are Blinded "}
+c["Targets affected by Abyssal Wasting you inflict are Blinded Enemies you kill while they are affected by Abyssal Wasting"]={nil,"Targets affected by Abyssal Wasting you inflict are Blinded Enemies you kill while they are affected by Abyssal Wasting "}
+c["Targets affected by Abyssal Wasting you inflict are Debilitated"]={nil,"Targets affected by Abyssal Wasting you inflict are Debilitated "}
+c["Targets affected by Abyssal Wasting you inflict are Debilitated 30% of Mana Leeched from targets affected by Abyssal Wasting is Instant"]={nil,"Targets affected by Abyssal Wasting you inflict are Debilitated 30% of Mana Leeched from targets affected by Abyssal Wasting is Instant "}
+c["Targets affected by Abyssal Wasting you inflict are Hindered"]={nil,"Targets affected by Abyssal Wasting you inflict are Hindered "}
+c["Targets affected by Abyssal Wasting you inflict are Hindered 100% increased Magnitude of Abyssal Wasting you inflict"]={nil,"Targets affected by Abyssal Wasting you inflict are Hindered 100% increased Magnitude of Abyssal Wasting you inflict "}
 c["Targets can be affected by +1 of your Poisons at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PoisonStacks",type="BASE",value=1}},nil}
 c["Targets can be affected by two of your Chills at the same time"]={{[1]={flags=0,keywordFlags=0,name="ChillCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChillStacksMax",type="OVERRIDE",value=2}},nil}
 c["Targets can be affected by two of your Shocks at the same time"]={{[1]={flags=0,keywordFlags=0,name="ShockCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ShockStacksMax",type="OVERRIDE",value=2}},nil}

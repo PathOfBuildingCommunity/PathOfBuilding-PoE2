@@ -1,5 +1,27 @@
 # Changelog
 
+## [v0.21.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.1) (2026/06/20)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.21.0...v0.21.1)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix crash when trying to use PoB trader after 0.5.3 [\#2238](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2238) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix more Maximum Rage mod not working [\#2228](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2228) ([Blitz54](https://github.com/Blitz54))
+- Fix general Grenade mods not working [\#2196](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2196) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Blazing Critical not applying as a global buff [\#2221](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2221) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Sine Aequo Immobilisation buildup calculation [\#2222](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2222) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Daze not applying 50% more Stun Buildup [\#2223](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2223) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Overwhelming Presence quality mod multiplying Aura magnitude [\#2224](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2224) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix "+% to Critical Damage Bonus"  mods on weapons applying to Spells [\#2247](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2247) ([luther-rotmg](https://github.com/luther-rotmg))
+### Fixed Behaviours
+- Fix Ice Bite and Innervate only supporting Attacks [\#2207](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2207) ([vaisest](https://github.com/vaisest))
+- Fix power report and trade search not working with Minions [\#2219](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2219) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Bloodhounds Mark not counting the enemy as Marked [\#2220](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2220) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
 ## [v0.21.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.0) (2026/06/13)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.20.0...v0.21.0)

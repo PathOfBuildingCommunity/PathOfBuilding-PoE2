@@ -5781,8 +5781,8 @@ local specialModList = {
 		flag("CannotHeavyStun"),
 		flag("CannotPin"),
 	},
-	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num, _, base) return {
-		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",-num) }),
+	["immobilise enemies at (%d+)%% buildup instead of (%d+)%%"] = function(num) return {
+		mod("EnemyModifier", "LIST", { mod = mod("PoiseThreshold", "MORE",(num - 100)) }),
 	} end,
 	["the effect of blind on you is reversed"] = { flag("BlindEffectReversed") },
 	["blind does not affect your chance to hit"] = { flag("IgnoreBlindHitChance") },
@@ -6412,7 +6412,7 @@ local deprecatedSkillNames = { ["Flammability"] = true }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	local skillName = grantedEffect.baseTypeName or grantedEffect.name
-	if not grantedEffect.hidden and not grantedEffect.support and not deprecatedSkillNames[skillName] then
+	if not grantedEffect.hidden and not grantedEffect.support and not grantedEffect.fromItem and not deprecatedSkillNames[skillName] then
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }

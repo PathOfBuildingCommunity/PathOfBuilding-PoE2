@@ -30,6 +30,35 @@ describe("TestAttacks", function()
 		assert.are.equals(2 + 0.25, build.calcsTab.mainOutput.CritMultiplier)
 	end)
 
+	it("local Critical Damage Bonus on a weapon does not apply to spells (issue #2199)", function()
+		-- baseline: a spell's crit multi with a plain quarterstaff (no local crit damage)
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.mainSocketGroup = 1
+		runCallback("OnFrame")
+		local baseSpellCritMulti = build.calcsTab.mainOutput.CritMultiplier
+
+		newBuild()
+
+		-- same spell + quarterstaff, now with a local "+X% to Critical Damage Bonus" affix
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			+50% to Critical Damage Bonus
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.mainSocketGroup = 1
+		runCallback("OnFrame")
+
+		-- the weapon-local crit damage must NOT reach the spell (it isn't using the weapon)
+		assert.are.equals(baseSpellCritMulti, build.calcsTab.mainOutput.CritMultiplier)
+	end)
+
 	it("correctly converts spell damage per stat to attack damage", function()
 		assert.are.equals(0, build.calcsTab.mainEnv.player.modDB:Sum("INC", { flags = ModFlag.Attack }, "Damage"))
 		build.itemsTab:CreateDisplayItemFromRaw([[
