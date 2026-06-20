@@ -644,16 +644,22 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				end
 			end
 			if life > 0 then
-				local tempDamage = m_min(damageRemainder, life)
+				local tempDamage = m_min(damageRemainder, life - 1)
 				life = life - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].life = (resourcesLostToTypeDamage[damageType].life or 0) + (tempDamage > 0 and tempDamage or 0)
-			end
-			if ward > 0 then
-				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100), ward)
-				ward = ward - tempDamage
-				damageRemainder = damageRemainder - tempDamage
-				resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
+				if ward > 0 then
+					local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100), ward)
+					ward = ward - tempDamage
+					damageRemainder = damageRemainder - tempDamage
+					resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
+				end
+				if damageRemainder > 0 then
+					local tempDamage = m_min(damageRemainder, life)
+					life = life - tempDamage
+					damageRemainder = damageRemainder - tempDamage
+					resourcesLostToTypeDamage[damageType].life = (resourcesLostToTypeDamage[damageType].life or 0) + (tempDamage > 0 and tempDamage or 0)
+				end
 			end
 			overkillDamage = overkillDamage + damageRemainder
 			resourcesLostToTypeDamage[damageType].overkill = damageRemainder >= 1 and damageRemainder or nil
@@ -3635,7 +3641,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					local hitTaken = 0
 					local effectiveAppliedArmour = output[damageConvertedType.."EffectiveAppliedArmour"]
 					local damageConvertedMulti = convertPercent / 100
-					local totalHitPool = output[damageConvertedType.."TotalHitPool"]
+					local totalHitPool = output[damageConvertedType.."TotalHitPool"] - 1
 					local totalTakenMulti = output[damageConvertedType.."AfterReductionTakenHitMulti"] * (1 - output["VaalArcticArmourMitigation"])
 					if damageConvertedMulti <= 0 then
 						local takenWithoutIncoming = m_max(takenFlat, 0) * totalTakenMulti

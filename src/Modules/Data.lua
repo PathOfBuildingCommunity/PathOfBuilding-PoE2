@@ -195,7 +195,6 @@ data.misc = { -- magic numbers
 	ManaRegenBase = data.characterConstants["character_inherent_mana_regeneration_rate_per_minute_%"] / 60 / 100,
 	EnergyShieldRechargeBase = data.characterConstants["energy_shield_recharge_rate_per_minute_%"] / 60 / 100,
 	EnergyShieldRechargeDelay = 4,
-	WardRechargeDelay = 2,
 	Transfiguration = 0.3,
 	EnemyMaxResist = data.monsterConstants["base_maximum_all_resistances_%"],
 	LeechRateBase = 0.02,
