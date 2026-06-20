@@ -11,38 +11,38 @@ While holding shift scroll bars in the help section and version history will jum
 
 General Shortcuts:
 
-Ctrl + 1	Jump to tree tab
-Ctrl + 2	Jump to skills tab
-Ctrl + 3	Jump to items tab
-Ctrl + 4	Jump to calcs tab
-Ctrl + 5	Jump to config tab
-Ctrl + 6	Jump to notes tab
-Ctrl + 7	Jump to party tab
-Ctrl + I	Jump to import tab
-Ctrl + A	Select all
-Ctrl + C	Copy
-Ctrl + D	Toggle stat diff display (Passive Tree tab / Items tab)
-Ctrl + F	Show find / search box (e.g. unique item / tree)
-Ctrl + M	Manage Trees (Tree tab only)
-Ctrl + N	New build (in build selection menu)
-Ctrl + S	Save build to file
-Ctrl + U	Check for update
-Ctrl + V or RMB	Paste
-Ctrl + W or
+Cmd + 1	Jump to tree tab
+Cmd + 2	Jump to skills tab
+Cmd + 3	Jump to items tab
+Cmd + 4	Jump to calcs tab
+Cmd + 5	Jump to config tab
+Cmd + 6	Jump to notes tab
+Cmd + 7	Jump to party tab
+Cmd + I	Jump to import tab
+Cmd + A	Select all
+Cmd + C	Copy
+Cmd + D	Toggle stat diff display (Passive Tree tab / Items tab)
+Cmd + F	Show find / search box (e.g. unique item / tree)
+Cmd + M	Manage Trees (Tree tab only)
+Cmd + N	New build (in build selection menu)
+Cmd + S	Save build to file
+Cmd + U	Check for update
+Cmd + V or RMB	Paste
+Cmd + W or
 Mouse 4	Close Build (gives save prompt if unsaved)
-Ctrl + X	Cut
-Ctrl + Y	Redo
-Ctrl + Z	Undo
-Ctrl + BSP / DEL	Faster text delete
-Ctrl + + /-/0	Zoom in / Out / Reset
+Cmd + X	Cut
+Cmd + Y	Redo
+Cmd + Z	Undo
+Cmd + BSP / DEL	Faster text delete
+Cmd + + /-/0	Zoom in / Out / Reset
 F1	Open item/gem/etc in poe2wiki.net, or if nothing to open, opens help file
 F2	Rename item, set, etc.
 E	On an equipped item will open it on the edit menu on the right.
-Ctrl + LMB	Enable / disable gems
-Ctrl + RMB	Enable / disable gems from Full DPS
+Cmd + LMB	Enable / disable gems
+Cmd + RMB	Enable / disable gems from Full DPS
 Mouse 4/5	Undo / Redo path respectively (in build selection menu)
 Shift	While scrolling on a slider makes it 5* times faster
-Ctrl	While scrolling on a slider makes it 5* times slower
+Cmd	While scrolling on a slider makes it 5* times slower
 * default of 5, some scroll bars have more or less extreme modifiers to scroll speed
   and scroll bars in help section and version history will jump to the previous/next section
 
@@ -69,10 +69,10 @@ When creating an item either through item creator or adding an item pressing ctr
 
 Passive Tree Shortcuts:
 
-Ctrl	Hide tooltips while held
+Cmd	Hide tooltips while held
 P	Toggle node power
 PgUp/PgDn/MWheel	Zoom in / out (hold with shift to increase the amount of zoom x 3)
-Ctrl + LMB	Zoom in on mouse cursor position
+Cmd + LMB	Zoom in on mouse cursor position
 Hold Shift	Enable "path trace mode"
 	(highlighted nodes will stay highlighted, and will be allocated when a node is clicked on the tree)
 Up/Down arrow	Select previous/next tree respectively
@@ -81,13 +81,13 @@ Developer Use
 
 General Shortcuts:
 
-Ctrl + `	Toggle console (console supports most standard editing shortcuts)
+Cmd + `	Toggle console (console supports most standard editing shortcuts)
 Pause	Toggle profiling
 DEV[ ]
 DEV[Developer Mode Shortcuts:]
 DEV[ ]
-DEV[Ctrl	Rebuild mod cache (hold key during reload / refresh)]
-DEV[Ctrl + Shift	Allow tree download]
+DEV[Cmd	Rebuild mod cache (hold key during reload / refresh)]
+DEV[Cmd + Shift	Allow tree download]
 DEV[Alt	Show advanced mod breakdown / passing]
 DEV[F5	Restart]
 DEV[F6	Run garbage collector]

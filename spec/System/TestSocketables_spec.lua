@@ -3,6 +3,25 @@ describe("TestSocketables", function()
         newBuild()
     end)
 
+    it("ModRunes matches Data/Soulcores", function()
+        local modRunes = LoadModule("../src/Data/ModRunes")
+        local soulCores = {}
+        LoadModule("../src/Data/Bases/soulcore", soulCores)
+        local soulCoreCount = 0
+        for name, _ in pairs(soulCores) do
+            assert.is_not.equals(modRunes[name], nil)
+            soulCoreCount = soulCoreCount + 1
+        end
+
+        local modRunesCount = 0
+        for name, _ in pairs(modRunes) do
+            assert.is_not.equals(soulCores[name], nil)
+            modRunesCount = modRunesCount + 1
+        end
+        -- Final check that Bases/soulcore has same number of entries as ModRunes
+        assert.are.equals(modRunesCount, soulCoreCount)
+    end)
+
     -- Item Tab display Tests
     -- Also checks slot type runes
 

@@ -1,5 +1,12 @@
 # Changelog
 
+> This is the **upstream Path of Building Community (PoE2) engine changelog**,
+> retained so the in-app version history matches the bundled engine version.
+> It tracks calculation/data/UI changes from the
+> [upstream project](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2),
+> **not** changes specific to this macOS port. For macOS-port changes (the native
+> host, build, packaging), see this repository's
+> [GitHub Releases](https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/releases).
 ## [v0.21.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.0) (2026/06/13)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.20.0...v0.21.0)
@@ -238,7 +245,7 @@
 - Fix crash on import from private league [\#1874](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1874) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash on loading build due to some minion skills [\#1880](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1880) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash when opening some old builds [\#1925](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1925) ([LocalIdentity](https://github.com/LocalIdentity))
-- Fix Adonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Adnonia's Ego power charge mod slider crash [\#1936](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1936) ([LocalIdentity](https://github.com/LocalIdentity))
 ### User Interface
 - Add legacy toggle for gems that are no longer obtainable [\#1935](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1935) ([Peechey](https://github.com/Peechey))
 - Show "The Unseen Paths" nodes only when allocated [\#1742](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1742) ([MrHB212](https://github.com/MrHB212))

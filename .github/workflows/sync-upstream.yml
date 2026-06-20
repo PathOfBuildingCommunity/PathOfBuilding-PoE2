@@ -1,0 +1,158 @@
+name: Sync upstream release
+
+# Watches the upstream Path of Building (PoE2) project for new GitHub Releases
+# and brings them into this macOS fork automatically.
+#
+# On a new upstream release it merges the upstream tag into `dev` (the macOS
+# layer is the only local delta, so the merge is normally clean), then:
+#   * clean merge  -> pushes dev and pushes a `vX.Y.Z-macos.N` tag, which
+#                     triggers macos-release.yml to build + publish the .app.
+#   * conflicts    -> opens a PR with the conflicted merge for manual
+#                     resolution; nothing is released until a human merges it.
+#
+# Chaining note: pushing a tag with the default GITHUB_TOKEN will NOT trigger
+# macos-release.yml (GitHub blocks token-triggered workflow chains). To get a
+# fully automatic build, add a fine-grained PAT secret named SYNC_PAT with
+# "Contents: read/write" on this repo. Without it, the sync still merges and
+# tags; just run macos-release.yml manually (Actions tab) for that tag.
+
+on:
+  schedule:
+    - cron: '17 6 * * *'   # daily at 06:17 UTC
+  workflow_dispatch:
+    inputs:
+      upstream_tag:
+        description: 'Upstream tag to sync (blank = latest upstream release)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  UPSTREAM: PathOfBuildingCommunity/PathOfBuilding-PoE2
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev (full history)
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+          fetch-tags: true   # need existing v*-macos.* tags to detect last-synced version
+          # Use the PAT if present so the tag push can trigger macos-release.yml.
+          token: ${{ secrets.SYNC_PAT || github.token }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "macos-sync-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Resolve upstream tag to sync
+        id: up
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          IN="${{ github.event.inputs.upstream_tag }}"
+          if [ -n "$IN" ]; then
+            TAG="$IN"
+          else
+            TAG=$(gh api "repos/${UPSTREAM}/releases/latest" --jq .tag_name)
+          fi
+          echo "Upstream target tag: $TAG"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Determine last-synced upstream version
+        id: cur
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Newest local tag of the form vX.Y.Z-macos.N -> strip the -macos.N suffix.
+          LAST=$(git tag -l 'v*-macos.*' | sort -V | tail -n1 || true)
+          BASE="${LAST%%-macos.*}"
+          echo "Last macOS tag: ${LAST:-<none>} (upstream base: ${BASE:-<none>})"
+          echo "last_macos=$LAST" >> "$GITHUB_OUTPUT"
+          echo "synced_base=$BASE" >> "$GITHUB_OUTPUT"
+
+      - name: Decide whether a sync is needed
+        id: need
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.up.outputs.tag }}" = "${{ steps.cur.outputs.synced_base }}" ]; then
+            echo "Already synced to ${{ steps.up.outputs.tag }} - nothing to do."
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute next macOS build tag
+        id: tag
+        if: steps.need.outputs.go == 'true'
+        run: |
+          set -euo pipefail
+          UP="${{ steps.up.outputs.tag }}"
+          # Next build counter for this upstream version (1 if first).
+          N=$(git tag -l "${UP}-macos.*" | sed -E 's/.*-macos\.//' | sort -n | tail -n1 || true)
+          N=$(( ${N:-0} + 1 ))
+          echo "tag=${UP}-macos.${N}" >> "$GITHUB_OUTPUT"
+          echo "branch=sync/${UP}-macos.${N}" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch and merge upstream tag
+        id: merge
+        if: steps.need.outputs.go == 'true'
+        run: |
+          set -euo pipefail
+          git remote add upstream "https://github.com/${UPSTREAM}.git"
+          git fetch --no-tags upstream tag "${{ steps.up.outputs.tag }}"
+          set +e
+          git merge --no-edit "${{ steps.up.outputs.tag }}"
+          code=$?
+          set -e
+          if [ "$code" -eq 0 ]; then
+            echo "conflict=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "conflict=true" >> "$GITHUB_OUTPUT"
+            echo "Conflicted files:"
+            git diff --name-only --diff-filter=U | tee /tmp/conflicts.txt
+          fi
+
+      # ---- Clean merge: ship it ----
+      - name: Push dev and release tag (clean merge)
+        if: steps.need.outputs.go == 'true' && steps.merge.outputs.conflict == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_PAT || github.token }}
+        run: |
+          set -euo pipefail
+          git push origin dev
+          git tag "${{ steps.tag.outputs.tag }}"
+          git push origin "${{ steps.tag.outputs.tag }}"
+          echo "Pushed ${{ steps.tag.outputs.tag }} -> macos-release.yml will build & publish."
+          if [ -z "${{ secrets.SYNC_PAT }}" ]; then
+            echo "::warning::No SYNC_PAT secret set; the tag push may not auto-trigger the build. Kicking macos-release.yml directly."
+            gh workflow run macos-release.yml -f tag="${{ steps.tag.outputs.tag }}" || \
+              echo "::warning::Could not dispatch macos-release.yml; run it manually for ${{ steps.tag.outputs.tag }}."
+          fi
+
+      # ---- Conflicts: open a PR for a human ----
+      - name: Open conflict PR (manual resolution)
+        if: steps.need.outputs.go == 'true' && steps.merge.outputs.conflict == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Commit the conflicted tree (with markers) onto a branch so the PR
+          # shows exactly what needs resolving; CI on the PR will stay red until fixed.
+          git add -A
+          git commit --no-edit -m "WIP: merge upstream ${{ steps.up.outputs.tag }} (conflicts to resolve)"
+          git checkout -b "${{ steps.tag.outputs.branch }}"
+          git push -f origin "${{ steps.tag.outputs.branch }}"
+          BODY=$(printf 'Automated sync of upstream **%s** hit merge conflicts.\n\nResolve the conflict markers, then merge to `dev`. Pushing tag `%s` (or merging this PR and tagging) will trigger the macOS build.\n\n### Conflicted files\n```\n%s\n```\n' \
+            "${{ steps.up.outputs.tag }}" "${{ steps.tag.outputs.tag }}" "$(cat /tmp/conflicts.txt)")
+          gh pr create --base dev --head "${{ steps.tag.outputs.branch }}" \
+            --title "Sync upstream ${{ steps.up.outputs.tag }} (conflicts)" \
+            --body "$BODY" || echo "PR may already exist."

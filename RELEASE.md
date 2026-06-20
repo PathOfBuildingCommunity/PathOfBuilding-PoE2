@@ -94,7 +94,74 @@ If updated this way making a PR to https://github.com/Regisle/TimelessJewelData 
 To do this follow steps 1-5 the same and choose the other option for step 6.
 
 
-## Installer creation
+## macOS (Apple Silicon) release
+
+The native macOS app is built and packaged from this repository — no installer
+repo or NSIS is involved.
+
+### Versioning
+
+This port keeps the **upstream Path of Building engine version** as its base and
+adds a port-specific build counter, so it is always clear which upstream engine
+is bundled. Do **not** invent an independent version (e.g. `1.0.0`).
+
+- **Engine version** = upstream's version (currently `0.16.0`). This is the value
+  in `manifest.xml` (`<Version number="..."/>`) and in `CFBundleShortVersionString`
+  (`macos/Info.plist.in`). Only changes when you rebase onto a new upstream release.
+- **Port build counter** = a number you own, for macOS-host / packaging / bug-fix
+  releases that share the same engine version. It lives in two places that must
+  stay in sync:
+  - `CFBundleVersion` in `macos/Info.plist.in` (macOS requires this to increase), and
+  - `macPortBuild` near the top of `src/Modules/Main.lua` (drives the in-app
+    version display).
+- **Release tags** combine the two: `v0.16.0-macos.1`, `v0.16.0-macos.2`, …
+  After a rebase onto upstream `0.17.0`, reset the counter: `v0.17.0-macos.1`.
+- The app shows both, e.g. `Version: 0.16.0 — macOS port build 1`.
+
+Prerequisites (via Homebrew): `cmake ninja sdl3 luajit curl zlib zstd`.
+
+### Automated release (recommended)
+
+Pushing a version tag matching `v*-macos.*` triggers the **macOS release**
+workflow (`.github/workflows/macos-release.yml`), which builds and packages the
+app on an Apple Silicon runner and publishes the `.zip` + `.zip.sha256` to a new
+GitHub Release with install/verify notes:
+
+```bash
+# after bumping the version fields below and merging to main:
+git tag v0.16.0-macos.1
+git push origin v0.16.0-macos.1
+```
+
+You can also run it manually from the Actions tab against an existing tag. The
+manual steps below remain available if you prefer to build/upload locally.
+
+Steps (manual):
+1. Set the versions:
+   - **Engine version** (only when rebasing onto new upstream): `manifest.xml`
+     (`<Version number="..."/>`) and `CFBundleShortVersionString` in
+     `macos/Info.plist.in`.
+   - **Port build counter** (every port release): bump `CFBundleVersion` in
+     `macos/Info.plist.in` **and** `macPortBuild` in `src/Modules/Main.lua`.
+2. Build and package:
+
+       tools/macos/package_app.sh
+
+   This builds `build/macos-arm64/PathOfBuilding-PoE2.app`, refreshes
+   `runtime-macos-arm64/`, and writes the release artifact
+   `dist/macos-arm64/PathOfBuilding-PoE2-macos-arm64.zip` along with its
+   checksum `dist/macos-arm64/PathOfBuilding-PoE2-macos-arm64.zip.sha256`.
+3. The packaging step tags the shipped `manifest.xml`'s `<Version>` with
+   `platform="macos-arm64"` so the app runs as a release (not Dev Mode) and stores
+   user data under `~/Library/Application Support/Path of Building (PoE2)/`.
+4. **Upload both the `.zip` and the `.zip.sha256` file** to the GitHub release.
+   `SECURITY.md` tells users to verify the download against this checksum, so it
+   must be attached to every release.
+5. The macOS build has no in-app updater; ship the `.zip` for users to download.
+
+See [docs/macos.md](docs/macos.md) for build/test details.
+
+## Installer creation (Windows)
 
 Path of Building Community offers both installable and standalone releases. They're
 built with automation scripts found in the repository described below.

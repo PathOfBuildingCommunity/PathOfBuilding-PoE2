@@ -14,6 +14,12 @@ local m_sin = math.sin
 local m_cos = math.cos
 local m_pi = math.pi
 
+-- macOS port release counter. This increments for port-specific releases
+-- (native host, packaging, bug fixes) that share the same upstream engine
+-- version (launch.versionNumber). When bumping, also update CFBundleVersion in
+-- macos/Info.plist.in. See RELEASE.md ("Versioning").
+local macPortBuild = 2
+
 LoadModule("GameVersions")
 LoadModule("Modules/Common")
 LoadModule("Modules/CalcFormat")
@@ -211,12 +217,21 @@ function main:Init()
 		return launch.updateAvailable and launch.updateAvailable ~= "none"
 	end
 	self.controls.checkUpdate = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, {0, -24, 140, 20}, "", function()
-		launch:CheckForUpdate()
+		if launch.versionPlatform == "macos-arm64" then
+			-- The native macOS build has no in-app updater, so send the user to
+			-- this port's Releases page to download the latest version.
+			OpenURL("https://github.com/stevep51/PathOfBuilding-PoE2-MacOS/releases/latest")
+		else
+			launch:CheckForUpdate()
+		end
 	end)
 	self.controls.checkUpdate.shown = function()
 		return not launch.devMode and (not launch.updateAvailable or launch.updateAvailable == "none")
 	end
 	self.controls.checkUpdate.label = function()
+		if launch.versionPlatform == "macos-arm64" then
+			return "Check for Update"
+		end
 		return launch.updateCheckRunning and launch.updateProgress or "Check for Update"
 	end
 	self.controls.checkUpdate.enabled = function()
@@ -224,11 +239,11 @@ function main:Init()
 	end
 	self.controls.forkLabel = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, {148, -26, 0, 16}, "")
 	self.controls.forkLabel.label = function()
-		return "^8PoB Community Fork"
+		return "^8macOS Port (build "..macPortBuild..")"
 	end
 	self.controls.versionLabel = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, {148, -2, 0, 16}, "")
 	self.controls.versionLabel.label = function()
-		return "^8Version: "..launch.versionNumber..(launch.versionBranch == "dev" and " (Dev)" or launch.versionBranch == "beta" and " (Beta)" or "")
+		return "^8Version: "..launch.versionNumber..(launch.devMode and " (Dev)" or "")
 	end
 	self.controls.devMode = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, {0, -26, 0, 20}, colorCodes.NEGATIVE.."Dev Mode")
 	self.controls.devMode.shown = function()
@@ -1439,10 +1454,10 @@ function main:OpenAboutPopup(helpSectionIndex)
 	controls.close = new("ButtonControl", {"TOPRIGHT",nil,"TOPRIGHT"}, {-10, 10, 50, 20}, "Close", function()
 		self:ClosePopup()
 	end)
-	controls.version = new("LabelControl", nil, {0, 18, 0, 18}, "^7Path of Building Community Fork v"..launch.versionNumber)
-	controls.forum = new("LabelControl", nil, {0, 36, 0, 18}, "^7Based on Openarl's Path of Building")
-	controls.github = new("ButtonControl", nil, {0, 62, 480, 18}, "^7GitHub page: ^x4040FFhttps://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2", function(control)
-		OpenURL("https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2")
+	controls.version = new("LabelControl", nil, {0, 18, 0, 18}, "^7Path of Building (PoE2) - macOS Port v"..launch.versionNumber.." (build "..macPortBuild..")")
+	controls.forum = new("LabelControl", nil, {0, 36, 0, 18}, "^7Native macOS port - based on Path of Building Community (PoE2)")
+	controls.github = new("ButtonControl", nil, {0, 62, 480, 18}, "^7GitHub page: ^x4040FFhttps://github.com/stevep51/PathOfBuilding-PoE2-MacOS", function(control)
+		OpenURL("https://github.com/stevep51/PathOfBuilding-PoE2-MacOS")
 	end)
 	controls.verLabel = new("ButtonControl", {"TOPLEFT", nil, "TOPLEFT"}, {10, 85, 100, 18}, "^7Version history:", function()
 		controls.changelog.list = changeList
