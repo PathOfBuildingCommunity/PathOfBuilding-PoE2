@@ -766,7 +766,7 @@ function calcs.defence(env, actor)
 		local item = actor.itemList[slot]
 		local armourData = item and item.armourData
 		if armourData then
-			local wardBase = item:GetArmourDataValue("RunicWard", actor.level)
+			local wardBase = item:GetArmourDataValue("Ward", actor.level)
 			if wardBase > 0 then
 				output["WardOnAllArmourItems"] = (output["WardOnAllArmourItems"] or 0) + wardBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1159,7 +1159,7 @@ function calcs.defence(env, actor)
 			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				wardBase = item:GetArmourDataValue("RunicWard", actor.level)
+				wardBase = item:GetArmourDataValue("Ward", actor.level)
 				if wardBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						wardBase = wardBase * 2
@@ -1413,7 +1413,7 @@ function calcs.defence(env, actor)
 		output.SpellProjectileEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "SpellProjectileEvasion")), 0)
 		output.LowestOfArmourAndEvasion = m_min(output.Armour, output.Evasion)
 		output.Ward = m_max(round(output.Ward), 0)
-		output["Gear:RunicWard"] = gearWard
+		output["Gear:Ward"] = gearWard
 		output["Gear:EnergyShield"] = gearEnergyShield
 		output["Gear:Armour"] = gearArmour
 		output["Gear:Evasion"] = gearEvasion
