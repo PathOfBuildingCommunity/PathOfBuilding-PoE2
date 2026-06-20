@@ -369,6 +369,9 @@ local function doActorAttribsConditions(env, actor)
 			modDB:NewMod("StunThreshold", "INC", 50, "Wyvern Form")
 			modDB:NewMod("AilmentThreshold", "INC", 50, "Wyvern Form")
 		end
+		if env.configInput.inDemonForm then
+			condList["Shapeshifted"] = true
+		end
 		if skillFlags.hit and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			condList["HitRecently"] = true
 			if skillFlags.spell then
