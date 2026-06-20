@@ -688,21 +688,6 @@ minions["RavenousSwarm"] = {
 	modList = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
-		mod("CurseImmune", "FLAG", 1, 0, 0), -- immune_to_curses [immune_to_curses = 1]
-		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
-		-- set_item_drop_slots [set_item_drop_slots = 0]
-		-- mana_regeneration_rate_per_minute_% [mana_regeneration_rate_per_minute_% = 100]
-		-- base_maximum_mana [base_maximum_mana = 100000]
-		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
-		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
-		mod("FrenzyChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_frenzy_charges [set_max_frenzy_charges = 0]
-		mod("EnduranceChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_endurance_charges [set_max_endurance_charges = 0]
-		mod("PowerChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_power_charges [set_max_power_charges = 0]
-		mod("Condition:CannotBeDamaged", "FLAG", 1, 0, 0), -- base_cannot_be_damaged [base_cannot_be_damaged = 1]
-		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
-		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
-		mod("FreezeImmune", "FLAG", 1, 0, 0), -- base_cannot_be_frozen [base_cannot_be_frozen = 1]
-		mod("Life", "OVERRIDE", 1, 0, 0), -- base_maximum_life_is_one [base_maximum_life_is_one = 1]
 	},
 }
 

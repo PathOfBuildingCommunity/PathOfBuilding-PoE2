@@ -20234,6 +20234,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|31773",
+				["text"] = "Allocates Resurging Archon",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|7395",
 				["text"] = "Allocates Retaliation",
 				["type"] = "fractured",
@@ -22513,6 +22518,11 @@ return {
 				["text"] = "Warcry Skills have #% increased Area of Effect",
 				["type"] = "fractured",
 			},
+			{
+				["id"] = "fractured.stat_1265767008",
+				["text"] = "Your Minions are Gigantic if they have Revived Recently",
+				["type"] = "fractured",
+			},
 		},
 		["id"] = "fractured",
 		["label"] = "Fractured",
@@ -24235,6 +24245,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|60692",
+				["text"] = "Allocates Echoing Flames",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|5257",
 				["text"] = "Allocates Echoing Frost",
 				["type"] = "crafted",
@@ -24352,6 +24367,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|10727",
 				["text"] = "Allocates Emboldening Casts",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|34553",
+				["text"] = "Allocates Emboldening Lead",
 				["type"] = "crafted",
 			},
 			{
@@ -24507,6 +24527,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|52191",
 				["text"] = "Allocates Event Horizon",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|13524",
+				["text"] = "Allocates Everlasting Glory",
 				["type"] = "crafted",
 			},
 			{
@@ -25835,6 +25860,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|42390",
+				["text"] = "Allocates Overheating Blow",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|47635",
 				["text"] = "Allocates Overload",
 				["type"] = "crafted",
@@ -26457,6 +26487,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|64415",
 				["text"] = "Allocates Shattering Daze",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|15644",
+				["text"] = "Allocates Shedding Skin",
 				["type"] = "crafted",
 			},
 			{
