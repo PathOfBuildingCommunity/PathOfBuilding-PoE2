@@ -12565,6 +12565,14 @@ return {
 			},
 		},
 		["1484026495"] = {
+			["2HWeapon"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
+			["Staff"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13420,12 +13428,12 @@ return {
 		},
 		["1702195217"] = {
 			["2HWeapon"] = {
-				["max"] = 16,
-				["min"] = 12,
+				["max"] = 25,
+				["min"] = 20,
 			},
 			["Staff"] = {
-				["max"] = 16,
-				["min"] = 12,
+				["max"] = 25,
+				["min"] = 20,
 			},
 			["specialCaseData"] = {
 			},
@@ -20137,6 +20145,14 @@ return {
 			},
 		},
 		["3398787959"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 40,
+			},
+			["Staff"] = {
+				["max"] = 50,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -27767,20 +27783,6 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002",
-				["text"] = "# to maximum Energy Shield",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
-		},
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40,
@@ -29900,6 +29902,23 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1936645603"] = {
+			["2HWeapon"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["Staff"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1936645603",
+				["text"] = "Gain #% of Physical Damage as Extra Fire Damage",
+				["type"] = "augment",
+			},
+		},
 		["1937310173"] = {
 			["Chest"] = {
 				["max"] = 50,
@@ -30993,6 +31012,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2586152168",
 				["text"] = "Archon recovery period expires #% faster",
+				["type"] = "augment",
+			},
+		},
+		["258955603"] = {
+			["Helmet"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_258955603",
+				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
 				["type"] = "augment",
 			},
 		},
@@ -32968,6 +33000,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3515226849",
 				["text"] = "Recover #% of maximum Runic Ward when one of your Reviving Minions is Killed",
+				["type"] = "augment",
+			},
+		},
+		["352044736"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_352044736",
+				["text"] = "Every Rage also grants #% increased Stun Threshold",
 				["type"] = "augment",
 			},
 		},

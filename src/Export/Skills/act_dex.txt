@@ -66,6 +66,11 @@ statMap = {
 #skill BloodhoundsMarkPlayer
 #set BloodhoundsMarkPlayer
 #flags
+statMap = {
+	["hunters_mark_%_of_max_threshold_to_trigger_explosion_on_death"] = {
+		mod("ExplosionThreshold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 

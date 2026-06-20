@@ -6594,6 +6594,12 @@
 #mods
 #skillEnd
 
+#skill QueensProcessionReservationPlayer
+#set QueensProcessionReservationPlayer
+#flags
+#mods
+#skillEnd
+
 #skill RainOfBladesPlayer
 #set RainOfBladesPlayer
 #flags

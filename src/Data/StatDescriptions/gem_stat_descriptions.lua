@@ -21050,7 +21050,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Supported Attacks deal {0}% more non-Chaos Damage"
+				text="Supported Skills deal {0}% more non-Chaos Damage"
 			},
 			[2]={
 				[1]={
@@ -21063,7 +21063,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Supported Attacks deal {0}% less non-Chaos Damage"
+				text="Supported Skills deal {0}% less non-Chaos Damage"
 			}
 		},
 		stats={
