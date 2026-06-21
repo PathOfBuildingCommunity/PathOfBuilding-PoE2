@@ -15,7 +15,6 @@ local m_max = math.max
 local m_min = math.min
 local m_ceil = math.ceil
 local s_format = string.format
-local tradeHelpers = LoadModule("Classes/TradeHelpers")
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
