@@ -1222,10 +1222,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	-- Draw ring overlays for jewel sockets
 	local function drawJewelRadius(jewel, scrX, scrY, tint)
-		local effectiveRadiusIndex = jewel.jewelRadiusIndex
 		-- (check for Time-Lost upgrades such as Baryanic Leylines) --
 		local effectiveRadiusIndex = jewel.jewelRadiusIndex
-		if effectiveRadiusIndex  and jewel.base and jewel.base.subType == "Radius"
+		if effectiveRadiusIndex and jewel.base and jewel.base.subType == "Radius"
 			and jewel.rarity ~= "UNIQUE" and jewel.rarity ~= "RELIC"
 			and build.calcsTab and build.calcsTab.mainEnv and build.calcsTab.mainEnv.modDB then
 			effectiveRadiusIndex = data.resolveTimeLostRadiusIndex(effectiveRadiusIndex, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "NonUniqueTimeLostJewelRadius"))

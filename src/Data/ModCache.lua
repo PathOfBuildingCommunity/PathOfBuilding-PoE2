@@ -6348,11 +6348,11 @@ c["Non-Unique Time-Lost Jewels have 40% increased radius"]={{[1]={flags=0,keywor
 c["Oasis"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Oasis"}},nil}
 c["Off-hand Hits inflict Runefather's Challenge"]={nil,"Off-hand Hits inflict Runefather's Challenge "}
 c["Off-hand Hits inflict Runefather's Challenge Inflicts Runefather's Challenge on enemies 6 metres in front of you when raised, no more than once every 2 seconds"]={nil,"Off-hand Hits inflict Runefather's Challenge Inflicts Runefather's Challenge on enemies 6 metres in front of you when raised, no more than once every 2 seconds "}
-c["Offering Skills have 15% increased Buff effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=15}},nil}
-c["Offering Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
-c["Offering Skills have 20% increased Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
-c["Offering Skills have 30% increased Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
-c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
+c["Offering Skills have 15% increased Buff effect"]={{[1]={[1]={skillType=155,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=15}},nil}
+c["Offering Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=155,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
+c["Offering Skills have 20% increased Duration"]={{[1]={[1]={skillType=155,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
+c["Offering Skills have 30% increased Duration"]={{[1]={[1]={skillType=155,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
+c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=155,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
 c["Offerings cannot be damaged if they have been created Recently"]={nil,"Offerings cannot be damaged if they have been created Recently "}
 c["Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={{[1]={flags=0,keywordFlags=0,name="UnwillingOffering",type="FLAG",value=true},[2]={[1]={skillNameList={[1]="Bone Offering",[2]="Pain Offering",[3]="Soul Offering"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={[1]={limit=20,type="Multiplier",var="UnwillingOfferingPower"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=1}}}},nil}
 c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increased Maximum Life "}
