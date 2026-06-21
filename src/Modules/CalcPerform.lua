@@ -345,10 +345,6 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 
-		if env.configInput.conditionShapeshifted then
-			condList["Shapeshifted"] = true
-		end
-
 		if actor.mainSkill.skillTypes[SkillType.Bear] then
 			condList["Shapeshifted"] = true
 			condList["BearForm"] = true
