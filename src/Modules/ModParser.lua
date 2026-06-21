@@ -7019,8 +7019,9 @@ local jewelOtherFuncs = {
 	["^(%w+) Passive Skills in Radius also grant (.*)$"] = function(passiveType, mod)
 		return function(node, out, data)
 			if node and (node.type == firstToUpper(passiveType) or (node.type == "Normal" and not node.isAttribute and firstToUpper(passiveType) == "Small")) then
-				local modList, line = parseMod(mod)
-				if not line and modList[1] then
+				local modList, extra = parseMod(mod)
+				-- avoid adding mods if mod line wasn't parsed correctly
+				if not extra and modList[1] then
 					for _, modListMod in ipairs(modList) do
 						modListMod.parsedLine = capitalizeWordsInString(mod)
 						modListMod.source = data.modSource
@@ -7036,8 +7037,9 @@ local jewelOtherFuncs = {
 	["conquered (%w+) Passive Skills also grant (.*)$"] = function(passiveType, mod)
 		return function(node, out, data)
 			if node and (node.type == firstToUpper(passiveType) or (node.type == "Normal" and not node.isAttribute and firstToUpper(passiveType) == "Small") or (node.type == "Normal" and node.isAttribute and firstToUpper(passiveType) == "Attribute")) then
-				local modList, line = parseMod(mod)
-				if not line and modList[1] then
+				local modList, extra = parseMod(mod)
+				-- avoid adding mods if mod line wasn't parsed correctly
+				if not extra and modList[1] then
 					for _, modListMod in ipairs(modList) do
 						modListMod.parsedLine = capitalizeWordsInString(mod)
 						modListMod.source = data.modSource
