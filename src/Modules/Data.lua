@@ -180,27 +180,34 @@ data.powerStatList = {
 
 ---@param output any Calc output
 ---@param statTable StatTable Table with stats as in data.powerStatList
+---@param skipTransform? boolean Whether the stat transform should be skipped. This is useful if you want to e.g. divide two less is better stats
 ---@return number
-function data.powerStatList.GetFromOutput(output, statTable)
-	if statTable.stat == "FullDPS" then
-		if output[statTable.stat] ~= nil then
-			return output[statTable.stat] or 0
+function data.powerStatList.GetFromOutput(output, statTable, skipTransform)
+	local function getEntry()
+		if statTable.stat == "FullDPS" then
+			if output[statTable.stat] ~= nil then
+				return output[statTable.stat] or 0
+			end
+			-- if the user doesn't have full dps, we default to adding the player and minion dps together
+			return (output.CombinedDPS or 0) + (output.Minion and output.Minion.CombinedDPS)
 		end
-		-- if the user doesn't have full dps, we default to adding the player and minion dps together
-		return (output.CombinedDPS or 0) + (output.Minion and output.Minion.CombinedDPS)
+		-- minion-only stats
+		local minionStat = statTable.stat:match("^Minion(.+)")
+		if minionStat then
+			return output.Minion and output.Minion[minionStat] or 0
+		end
+		-- damage stats use a combination of player and minion dps
+		local isDamageStat = statTable.stat == "AverageDamage" or statTable.stat == "TotalDot" or
+			statTable.stat:match("DPS")
+		if isDamageStat then
+			return (output[statTable.stat] or 0) + (output.Minion and output.Minion[statTable.stat] or 0)
+		end
+		return output[statTable.stat] or 0
 	end
-	-- minion-only stats
-	local minionStat = statTable.stat:match("^Minion(.+)")
-	if minionStat then
-		return output.Minion and output.Minion[minionStat] or 0
+	if statTable.transform and not skipTransform then
+		return statTable.transform(getEntry())
 	end
-	-- damage stats use a combination of player and minion dps
-	local isDamageStat = statTable.stat == "AverageDamage" or statTable.stat == "TotalDot" or
-		statTable.stat:match("DPS")
-	if isDamageStat then
-		return (output[statTable.stat] or 0) + (output.Minion and output.Minion[statTable.stat] or 0)
-	end
-	return output[statTable.stat] or 0
+	return getEntry()
 end
 -- these stats don't exist on minions or generally don't exist on both player and minion
 local minionNonApplicableStats = {

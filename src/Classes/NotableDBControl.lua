@@ -135,7 +135,7 @@ end
 
 function NotableDBClass:BuildSortOrder()
 	wipeTable(self.sortDropList)
-	for id,stat in pairs(data.powerStatList) do
+	for id, stat in ipairs(data.powerStatList) do
 		if not stat.ignoreForItems then
 			t_insert(self.sortDropList, {
 				label="Sort by "..stat.label,
@@ -161,10 +161,6 @@ end
 function NotableDBClass:CalculatePowerStat(selection, original, modified)
 	local originalValue = data.powerStatList.GetFromOutput(original, selection)
 	local modifiedValue = data.powerStatList.GetFromOutput(modified, selection)
-	if selection.transform then
-		originalValue = selection.transform(originalValue)
-		modifiedValue = selection.transform(modifiedValue)
-	end
 	return originalValue - modifiedValue
 end
 
