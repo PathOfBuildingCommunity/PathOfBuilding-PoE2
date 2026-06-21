@@ -755,7 +755,6 @@ local modNameList = {
 	["critical hit chance"] = "CritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
 	["thorns critical hit chance"] = { "CritChance", flags = ModFlag.Thorns },
-	["fire spell critical hit chance"] = { "CritChance", flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire },
 	["critical damage bonus"] = "CritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
@@ -1038,6 +1037,10 @@ local modFlagList = {
 	["with ranged weapons"] = { flags = bor(ModFlag.WeaponRanged, ModFlag.Hit) },
 	-- Skill types
 	["spell"] = { flags = ModFlag.Spell },
+	["fire spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire },
+	["cold spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold },
+	["lightning spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Lightning },
+	["chaos spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Chaos },
 	["for spells"] = { flags = ModFlag.Spell },
 	["for spell skills"] = { flags = ModFlag.Spell },
 	["for spell damage"] = { flags = ModFlag.Spell },
