@@ -6372,8 +6372,7 @@ c["Only affects Passives in Massive Ring"]={{[1]={flags=0,keywordFlags=0,name="J
 c["Only affects Passives in Medium Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=8}}},nil}
 c["Only affects Passives in Medium-Large Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=9}}},nil}
 c["Only affects Passives in Medium-Small Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=7}}},nil}
-c["Only affects Passives in Small Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=6}}},nil}
-c["Only affects Passives in Very Large Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=11}}},nil}
+c["Only affects Passives in Small Ring"] = { { [1] = { flags = 0, keywordFlags = 0, name = "JewelData", type = "LIST", value = { key = "radiusIndex", value = 6 } } }, nil }
 c["Only affects Passives in Very Small Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=5}}},nil}
 c["Onslaught"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["Orb Skills have +1 to Limit"]={nil,"Orb Skills have +1 to Limit "}
