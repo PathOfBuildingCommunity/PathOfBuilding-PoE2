@@ -15,6 +15,7 @@ local m_max = math.max
 local m_min = math.min
 local m_ceil = math.ceil
 local s_format = string.format
+local tradeHelpers = LoadModule("Classes/TradeHelpers")
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
@@ -627,7 +628,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 
 	controls.ListControl = new("TradeStatWeightMultiplierListControl", {"TOPLEFT", nil, "TOPRIGHT"}, {-410, 45, 400, 200}, statList, sliderController)
 
-	for id, stat in pairs(data.powerStatList) do
+	for _, stat in ipairs(data.powerStatList) do
 		if not stat.ignoreForItems and stat.label ~= "Name" then
 			t_insert(statList, {
 				label = "0      :  "..stat.label,
@@ -774,7 +775,7 @@ end
 function TradeQueryClass:ReduceOutput(output)
 	local smallOutput = {}
 	for _, statTable in ipairs(self.statSortSelectionList) do
-		smallOutput[statTable.stat] = output.Minion and output.Minion[statTable.stat] or output[statTable.stat]
+		smallOutput[statTable.stat] = data.powerStatList.GetFromOutput(output, statTable)
 	end
 	return smallOutput
 end

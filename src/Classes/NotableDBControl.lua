@@ -159,12 +159,8 @@ function NotableDBClass:BuildSortOrder()
 end
 
 function NotableDBClass:CalculatePowerStat(selection, original, modified)
-	if modified.Minion then
-		original = original.Minion
-		modified = modified.Minion
-	end
-	local originalValue = original[selection.stat] or 0
-	local modifiedValue = modified[selection.stat] or 0
+	local originalValue = data.powerStatList.GetFromOutput(original, selection)
+	local modifiedValue = data.powerStatList.GetFromOutput(modified, selection)
 	if selection.transform then
 		originalValue = selection.transform(originalValue)
 		modifiedValue = selection.transform(modifiedValue)

@@ -2652,7 +2652,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 	end
 
 	-- Get baseline stat value for percentage calculation
-	local baseStatValue = calcBase[powerStat.stat] or 0
+	local baseStatValue = data.powerStatList.GetFromOutput(calcBase, powerStat)[powerStat.stat]
 	if powerStat.transform then
 		baseStatValue = powerStat.transform(baseStatValue)
 	end
