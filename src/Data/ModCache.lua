@@ -6849,6 +6849,7 @@ c["Unique Tamed Beasts have 30% increased movement speed"]={nil,"Unique Tamed Be
 c["Unique Tamed Beasts have 30% increased movement speed Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts have 30% increased movement speed Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
+c["Upgrades Radius to Very Large"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="timeLostJewelRadiusOverride",value=4}}},nil}
 c["Used when you are affected by a Slow"]={nil,"Used when you are affected by a Slow "}
 c["Used when you are affected by a Slow Grants Onslaught during effect"]={nil,"Used when you are affected by a Slow Grants Onslaught during effect "}
 c["Used when you become Frozen"]={nil,"Used when you become Frozen "}
