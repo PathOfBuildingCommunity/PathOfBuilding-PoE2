@@ -156,6 +156,63 @@ describe("TestSkills", function()
 		end)
 	end)
 
+	it("does not crash when importing a character with a minion main skill and passive tree (issue #2243)", function()
+		-- Reproduces the exact bug scenario: ImportItemsAndSkills adds a minion
+		-- skill, ImportPassiveTreeAndJewels triggers a rebuild, and OnFrame must
+		-- complete without crashing in RefreshSkillSelectControls or Calcs.
+		local charData = {
+			level = 50,
+			class = "Witch2",
+			league = "Test",
+			equipment = {},
+			skills = {
+				{
+					support = false,
+					typeLine = "Skeletal Sniper",
+					properties = {
+						{ name = "Level", values = { { "20", 0 } } },
+						{ name = "Quality", values = { { "+0%", 0 } } },
+					},
+				},
+			},
+		}
+
+		build.importTab.controls.charImportItemsClearSkills.state = true
+		build.importTab.controls.charImportItemsClearItems.state = false
+		build.importTab:ImportItemsAndSkills(charData)
+
+		-- At this point the minion skill is in socketGroupList but the calc
+		-- engine hasn't run yet, so activeSkillList may be nil — the bug state.
+		runCallback("OnFrame")
+
+		-- Now import the passive tree, which sets buildFlag and triggers another
+		-- full rebuild — this is the step that originally caused the crash.
+		build.importTab:ImportPassiveTreeAndJewels({
+			name = "TestMinionImport",
+			class = "Witch2",
+			league = "Test",
+			level = 50,
+			jewels = {},
+			passives = {
+				hashes = {},
+				specialisations = {},
+				skill_overrides = {},
+				jewel_data = {},
+				quest_stats = {},
+			},
+		})
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		-- Verify the minion skill was properly initialised after the full cycle
+		local mainEnv = build.calcsTab.mainEnv
+		assert.is_not_nil(mainEnv.minion, "minion should exist after import")
+		assert.is_not_nil(mainEnv.minion.activeSkillList, "activeSkillList should be populated")
+		assert.is_not_nil(mainEnv.minion.mainSkill, "mainSkill should be set")
+	end)
+
 	it("applies minion skill stat set selections to the selected minion skill only", function()
 
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
