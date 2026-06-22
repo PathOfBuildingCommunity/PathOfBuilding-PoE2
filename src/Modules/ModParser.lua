@@ -3296,7 +3296,7 @@ local specialModList = {
 	},
 	-- Mutable Star // assumed 150% limit because overflow, could not verify in wiki
 	["defend against hits as though you had (%d+)%% more armour per (%d+)%% current energy shield"] =  function(armour, _, perCurrentES) return {
-		mod("ArmourDefense", "MAX", armour, { typebarkskin = "Multiplier", var = "CurrentEnergyShield", div = perCurrentES, limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
+		mod("ArmourDefense", "MAX", armour, { type = "Multiplier", var = "CurrentEnergyShield", div = perCurrentES, limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
 	} end,
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
