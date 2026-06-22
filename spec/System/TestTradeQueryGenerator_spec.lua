@@ -54,7 +54,7 @@ describe("TradeQueryGenerator", function()
 
 			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 
-			local close_enough = (result - -0.1) < 0.0001
+			local close_enough = math.abs(result - -0.1) < 0.0001
 			assert.True(close_enough)
 		end)
 

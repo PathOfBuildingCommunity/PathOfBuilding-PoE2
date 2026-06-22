@@ -684,9 +684,9 @@ function CalcsTabClass:CalculateCombinedOffDefStat(original, modified)
 					(original.Evasion - modified.Evasion) / m_max(10000, modified.Evasion) +
 					(original.LifeRegenRecovery - modified.LifeRegenRecovery) / 500 +
 					(original.EnergyShieldRegenRecovery - modified.EnergyShieldRegenRecovery) / 1000
-	local modifiedDps = modified.CombinedDPS + (modified.Minion.CombinedDPS or 0)
-	local dpsIncr = original.CombinedDPS + (original.Minion.CombinedDPS or 0) - modifiedDps
-	return (original.CombinedDPS - modified.CombinedDPS) / modifiedDps, defence
+	local modifiedDps = modified.CombinedDPS + (modified.Minion and modified.Minion.CombinedDPS or 0)
+	local dpsIncr = original.CombinedDPS + (original.Minion and original.Minion.CombinedDPS or 0) - modifiedDps
+	return dpsIncr / modifiedDps, defence
 end
 
 function CalcsTabClass:GetNodeCalculator()
