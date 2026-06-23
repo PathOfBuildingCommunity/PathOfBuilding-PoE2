@@ -210,6 +210,10 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
+	{ label = "Arc:", ifSkill = "Arc"},
+	{ var = "arcLightningInfused", type = "check", label = "Lightning Infused?", ifSkill = "Arc", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ArcLightningInfused", "FLAG", true, "Config", { type = "Condition", var = "CannotConsumeInfusion", neg = true })
+	end },
 	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
 	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
