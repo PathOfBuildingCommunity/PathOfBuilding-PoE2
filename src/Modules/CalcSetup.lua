@@ -770,6 +770,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			nodes = copyTable(env.spec.allocNodes, true)
 		end
 		env.allocNodes = nodes
+		for nodeId, node in pairs(env.allocNodes) do
+			if node.isGrantedPassive and node.isFreeAllocate then
+				env.allocNodes[nodeId] = nil
+			end
+		end
 	end
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
@@ -812,6 +817,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
+		local grantedNodes = env.spec:CollectGrantedPassiveNodesFromItems(build.itemsTab, env.allocNodes, env.configInput.ignoreJewelLimits, override, nodesModsList)
+		if mode == "MAIN" then
+			if build.spec:SetGrantedPassiveNodes(grantedNodes) then
+				build.itemsTab:UpdateSockets()
+			end
+		end
+		for nodeId, node in pairs(grantedNodes) do
+			env.allocNodes[nodeId] = env.spec.nodes[nodeId] or node
+			env.grantedPassives[nodeId] = true
+			env.extraRadiusNodeList[nodeId] = nil
+		end
+
 		local items = {}
 		local jewelLimits = {}
 		local giantsBlood = weaponFlagState.giantsBlood
@@ -863,6 +880,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if slot.nodeId then
 				-- Slot is a jewel socket, check if socket is allocated
 				if not env.allocNodes[slot.nodeId] then
+					goto continue
+				elseif item and not build.itemsTab:IsItemValidForSlot(item, slot.slotName) then
 					goto continue
 				elseif item then
 					if item.jewelData then
@@ -1326,11 +1345,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Add granted passives (e.g., amulet anoints)
 	if not accelerate.nodeAlloc then
 		for _, passive in pairs(env.modDB:List(nil, "GrantedPassive")) do
-			local node = env.spec.tree.notableMap[passive]
-			if node and (not override.removeNodes or not override.removeNodes[node.id]) then
-				env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
-				env.grantedPassives[node.id] = true
-				env.extraRadiusNodeList[node.id] = nil
+			for _, node in ipairs(env.spec:ResolveGrantedPassiveNodes(passive)) do
+				if node and (not override.removeNodes or not override.removeNodes[node.id]) then
+					env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
+					env.grantedPassives[node.id] = true
+					env.extraRadiusNodeList[node.id] = nil
+				end
 			end
 		end
 	end
