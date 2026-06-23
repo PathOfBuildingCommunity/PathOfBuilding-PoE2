@@ -890,6 +890,7 @@ Implicits: 0]]
 		calcFunc = calcFunc,
 		options = options,
 		slot = slot,
+		requiredMods = options.requiredMods,
 	}
 
 	-- OnFrame will pick this up and begin the work
@@ -990,6 +991,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	local selectedTradeType = self.tradeTypes[self.tradeTypeIndex]
 	-- Generate trade query str and open in browser
 	local filters = 0
+	local requiredMods = self.calcContext.requiredMods
 	local queryTable = {
 		query = {
 			filters = self.calcContext.special.queryFilters or {
@@ -1006,6 +1008,10 @@ function TradeQueryGeneratorClass:FinishQuery()
 					type = "weight",
 					value = { min = minWeight },
 					filters = { }
+				},
+				requiredMods and {
+					type = "and",
+					filters = {}
 				}
 			}
 		},
@@ -1032,6 +1038,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	if options.sockets and options.sockets > 0 then
 		num_extra = num_extra + 1
 	end
+	num_extra = num_extra + #requiredMods
 
 	local effective_max = MAX_FILTERS - num_extra
 
@@ -1056,6 +1063,10 @@ function TradeQueryGeneratorClass:FinishQuery()
 		if filters == effective_max then
 			break
 		end
+	end
+	for _, entry in ipairs(requiredMods) do
+		local filters = queryTable.query.stats[2].filters
+		t_insert(filters, { id = entry.tradeId, value = { min = entry.value } })
 	end
 	if not options.includeMirrored then
 		queryTable.query.filters.misc_filters = {
@@ -1119,6 +1130,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	local controls = { }
 	local options = { }
 	local popupHeight = 110
+	local popupWidth = 400
 
 	local isJewelSlot = slot and slot.slotName:find("Jewel") ~= nil
 
@@ -1258,6 +1270,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	end
 	popupHeight = popupHeight + 4
 
+	local selectedMods = {}
 	controls.generateQuery = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-45, -10, 80, 20}, "Execute", function()
 		local selectedJewelSlot = controls.jewelSlot and controls.jewelSlot:GetSelValue()
 		if controls.jewelSlot and not selectedJewelSlot then
@@ -1309,6 +1322,9 @@ Remove: anoints are completely ignored, and removed from items.]]
 			options.sockets = tonumber(controls.sockets.buf)
 			self.lastSockets = options.sockets
 		end
+		if #selectedMods > 0 then
+			options.requiredMods = copyTable(selectedMods)
+		end
 		options.statWeights = statWeights
 
 		self:StartQuery(slot, options)
@@ -1320,5 +1336,93 @@ Remove: anoints are completely ignored, and removed from items.]]
 	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(400, popupHeight, "Query Options", controls)
+
+	itemCategoryQueryStr, itemCategory = tradeHelpers.getTradeCategory(slot.slotName, existingItem)
+
+	local _, headerYPos = lastItemAnchor:GetPos()
+	-- intended width of the whole row, inclding dropdown and aux controls
+	local totalWidth = 340
+	-- size of min value input
+	local fieldWidth = 60
+	-- size of clear button
+	local buttonSize = 20
+	-- gap between controls
+	local xSpacing = 4
+	local auxControlWidth = buttonSize + fieldWidth + 2 * xSpacing
+
+	local _, lastItemY = lastItemAnchor:GetPos()
+	local _, lastItemH = lastItemAnchor:GetSize()
+	controls.modSelectorHeaderAnchor = new("Control", { "TOPLEFT", nil, "TOPLEFT" },
+		-- position right below last item, centered horizontally
+		{ (popupWidth - totalWidth) / 2, lastItemH + lastItemY, 0, 0 },
+		"")
+	updateLastAnchor(controls.modSelectorHeaderAnchor)
+	local mods = { { label = "+ Add Required Stat" } }
+	for idStr, modData in pairs(self.modData["Explicit"]) do
+		if modData[itemCategory] ~= nil then
+			t_insert(mods, { label = modData.tradeMod.text, tradeId = modData.tradeMod.id })
+		end
+	end
+	local maxSelectors = 3
+	-- set dropdown labels and adjust width
+	local function setModSelectors()
+		for i = 1, maxSelectors do
+			local mod = selectedMods[i]
+			local selector = controls["modSelector" .. i]
+			local minimumBox = controls["modSelectorMin" .. i]
+			if mod then
+				selector:SelByValue(mod.label, "label")
+				selector.width = totalWidth - auxControlWidth
+				minimumBox.buf = mod.value or ""
+			else
+				selector.selIndex = 1
+				selector.width = totalWidth
+			end
+			selector:CheckDroppedWidth(true)
+		end
+	end
+	-- create dropdown and aux controls
+	for i = 1, maxSelectors do
+		-- dropdown which lists all mods that fit
+		local dropdown = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
+			{ 0, 4, totalWidth, 20 }, nil,
+			function(idx, val)
+				if idx == 1 then
+					table.remove(selectedMods, i)
+				else
+					selectedMods[i] = copyTable(val)
+				end
+				setModSelectors()
+			end)
+		dropdown.shown = function()
+			return not not selectedMods[i - 1] or i == 1
+		end
+		updateLastAnchor(dropdown)
+		dropdown:SetList(mods)
+		controls["modSelector" .. i] = dropdown
+
+		-- box that sets minimum value for filter
+		local minimumBox = tradeHelpers.newPlainNumericEdit({ "LEFT", lastItemAnchor, "RIGHT" },
+			{ xSpacing, 0, fieldWidth, buttonSize }, "", "Min", 6, false, function(val)
+				selectedMods[i].value = tonumber(val)
+			end)
+		minimumBox.shown = function()
+			return not not selectedMods[i]
+		end
+		controls["modSelectorMin" .. i] = minimumBox
+
+		-- button which removes the mod row
+		local clearButton = new("ButtonControl", { "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
+			"x", function()
+				table.remove(selectedMods, i)
+				setModSelectors()
+			end)
+		clearButton.shown = function()
+			return not not selectedMods[i]
+		end
+		controls["modSelectorClear" .. i] = clearButton
+	end
+	setModSelectors()
+
+	main:OpenPopup(popupWidth, popupHeight, "Query Options", controls)
 end

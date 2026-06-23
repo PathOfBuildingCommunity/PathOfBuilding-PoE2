@@ -529,4 +529,17 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 		hoverItem, hoverItemsTab, hoverBoxX, hoverBoxY, hoverBoxW, hoverBoxH
 end
 
+-- Helper: create a numeric EditControl without +/- spinner buttons, and
+-- with a preset changeFunc intended for mod values
+function M.newPlainNumericEdit(anchor, rect, init, prompt, limit, integer, changeFunc)
+	local format = integer and "%D" or "^%d."
+	local ctrl = new("EditControl", anchor, rect, init, prompt, format, limit, changeFunc)
+	-- Remove the +/- spinner buttons that "%D" filter triggers
+	ctrl.isNumeric = false
+	if ctrl.controls then
+		if ctrl.controls.buttonDown then ctrl.controls.buttonDown.shown = false end
+		if ctrl.controls.buttonUp then ctrl.controls.buttonUp.shown = false end
+	end
+	return ctrl
+end
 return M
