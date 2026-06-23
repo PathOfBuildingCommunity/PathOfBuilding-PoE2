@@ -56,6 +56,18 @@ UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
 {variant:2,3}UniquePoisonOnBlock1
 ]],[[
+Nightfall
+Fortress Tower Shield
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueStrengthRequirements5
+UniqueLocalBlockChance15
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent31
+UniqueColdResist35
+UniqueFireDamageTakenAsCold1
+UniqueLightningDamageTakenAsCold1
+]],[[
 Redblade Banner
 Heraldric Tower Shield
 Variant: Pre 0.3.0
@@ -86,6 +98,7 @@ Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
 Variant: Pre 0.4.0
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
@@ -93,11 +106,12 @@ Grants Skill: Raise Shield
 Grants Skill: Cast on Block
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[150,200]
-{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:3,4}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
 {variant:1}UniqueMaximumBlockChance2
 {variant:2}UniqueBaseBlockDamageTaken3[15,20]
-{variant:3}UniqueBaseBlockDamageTaken3
+{variant:3,4}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
+{variant:4}UniqueLocalRunicWard1
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
@@ -262,6 +276,16 @@ UniqueLocalIncreasedArmourAndEvasion2
 UniqueMaximumLifeOnKillPercent2
 UniqueMaximumManaOnKillPercent1
 UniqueSkillEffectDuration1
+]],[[
+Eyes of the Runefather
+Venerable Defender
+League: Runes of Aldur
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedArmourAndEvasion32
+UniqueColdResist36
+UniqueAncientsChallengeOnOffHandDamage1
+UniqueRaiseShieldAncientsChallenge1
 ]],[[
 Feathered Fortress
 Crescent Targe

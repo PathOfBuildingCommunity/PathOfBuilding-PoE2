@@ -61,6 +61,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("Evasion", "INC", -15, "Base", { type = "Condition", var = "Maimed" })
+	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Hindered" })
 	modDB:NewMod("AilmentThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("PoiseThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", { type = "Condition", var = "Intimidated"})
@@ -70,6 +71,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Spell, { type = "Condition", var = "Unnerved"})
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Spell, { type = "Condition", var = "Unnerved", neg = true}, { type = "Condition", var = "Party:Unnerved"})
 	modDB:NewMod("Damage", "MORE", -10, "Base", { type = "Condition", var = "Debilitated"})
+	modDB:NewMod("DamageGainAsRandom", "BASE", 2, "Faerie Fire", { type = "Multiplier", var = "FaerieFireStack", limit = 10, actor = "enemy" })
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
 	modDB:NewMod("ShockBase", "BASE", data.gameConstants["BaseShockMagnitude"], "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
@@ -90,6 +92,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("MassiveShrine", "FLAG", true, "Base", { type = "Condition", var = "MassiveShrine" })
 	modDB:NewMod("AlchemistsGenius", "FLAG", true, "Base", { type = "Condition", var = "AlchemistsGenius" })
 	modDB:NewMod("LuckyHits", "FLAG", true, "Base", { type = "Condition", var = "LuckyHits" })
+	modDB:NewMod("HeavyStunBuildup", "MORE", 50, "Base", { type = "Condition", var = "Dazed"})
+	modDB:NewMod("ColdCannotHeavyStun", "FLAG", true)
 	modDB:NewMod("Convergence", "FLAG", true, "Base", { type = "Condition", var = "Convergence" })
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
@@ -649,7 +653,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 		modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.characterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
 		modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.characterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
-		modDB:NewMod("AilmentMagnitude", "MORE", data.monsterConstants["bleeding_moving_damage_%_of_base_override"] - 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
+		modDB:NewMod("AilmentMagnitude", "MORE", 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
 		modDB:NewMod("MovementSpeed", "INC", 50, "Base", { type = "Condition", var = "Sprinting" })
@@ -960,7 +964,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			for _, slot in pairs(build.itemsTab.orderedSlots) do
 				local slotName = slot.slotName
 				if items[slotName] then
-					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum]
+					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum] or {}
 					for _, mod in ipairs(srcList) do
 						-- checks if it disables another slot
 						for _, tag in ipairs(mod) do
@@ -1088,28 +1092,31 @@ function calcs.initEnv(build, mode, override, specEnv)
 						Int = item.requirements.intMod,
 					})
 				end
-				-- Rune / Soul Core Sockets
+				-- Rune / Soul Core / Idol Sockets
 				local socketed = 0
 				for i = 1, item.itemSocketCount do
-					if item.runes[i] ~= "None" then
+					local runeName = item.runes[i]
+					if runeName and runeName ~= "None" then
 						socketed = socketed + 1
-					end
-				end
-				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
-
-				if item.socketedSoulCoreEffectModifier ~= 0 then
-					for _, modLine in ipairs(item.runeModLines) do
-						if modLine.soulcore then
-							for _, mod in ipairs(modLine.modList) do
-								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
+						local runeData = data.itemMods.Runes[runeName]
+						local augType
+						if runeData then
+							for _, baseEntry in pairs(runeData) do
+								if type(baseEntry) == "table" and baseEntry.type then
+									augType = baseEntry.type
+									break
 								end
 							end
 						end
+						if augType == "Idol" then
+							env.itemModDB.multipliers["IdolsInEquipment"] = (env.itemModDB.multipliers["IdolsInEquipment"] or 0) + 1
+						elseif augType then
+							env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] = (env.itemModDB.multipliers["NonIdolAugmentsInEquipment"] or 0) + 1
+						end
 					end
 				end
+				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
 
 				if item.type == "Jewel" and item.base.subType == "Abyss" then
 					-- Update Abyss Jewel conditions/multipliers
@@ -1387,6 +1394,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
 
+	local virtuousMoteSkillCount = accelerate.skills and env.virtuousMoteSkillCount or { Str = 3, Dex = 3, Int = 3 }
+	local virtuousMoteSkillCounted = { }
+
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
 			local function getNormalizedSkillLevel(grantedSkill)
@@ -1588,6 +1598,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 			end
+			-- Facebreaker: Can Attack as though using a One Handed Mace while both of your hand slots are empty
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "CanAttackAsOneHandMaceUnarmed") then
+				env.player.weaponData1.asThoughUsing = env.player.weaponData1.asThoughUsing or { }
+				env.player.weaponData1.asThoughUsing["One Hand Mace"] = true
+			end
+			if (not env.player.itemList["Weapon 1"]) and env.modDB:Flag(nil, "UseFacebreakerItemDamage") then
+				env.player.weaponData1.FacebreakerItemDamage = true
+				for _, damageType in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+					env.player.weaponData1["Facebreaker"..damageType.."Min"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Min")
+					env.player.weaponData1["Facebreaker"..damageType.."Max"] = env.modDB:Sum("BASE", nil, "Facebreaker"..damageType.."Max")
+				end
+			end
 			env.player.weaponData2 = env.player.weaponData2 or { }
 		else
 			env.player.weaponData2 = env.player.itemList["Weapon 2"].weaponData and env.player.itemList["Weapon 2"].weaponData[2] or { }
@@ -1740,8 +1762,25 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if gemInstance.enabled and (gemInstance.gemData or gemInstance.grantedEffect) then
 						local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 						for index, grantedEffect in ipairs(grantedEffectList) do
-							if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+							if not grantedEffect.support and not grantedEffect.hideFromSideBar and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
 								slotHasActiveSkill = true
+								if gemInstance.gemData and not virtuousMoteSkillCounted[gemInstance] and not (group.gemList[gemIndex].fromNode or group.gemList[gemIndex].fromItem) then
+									virtuousMoteSkillCounted[gemInstance] = true
+									local requiredAttributes = { }
+									if gemInstance.gemData.reqStr > 0 then
+										t_insert(requiredAttributes, "Str")
+									end
+									if gemInstance.gemData.reqDex > 0 then
+										t_insert(requiredAttributes, "Dex")
+									end
+									if gemInstance.gemData.reqInt > 0 then
+										t_insert(requiredAttributes, "Int")
+									end
+									local moteValue = #requiredAttributes == 1 and 2 or 1
+									for _, attr in ipairs(requiredAttributes) do
+										virtuousMoteSkillCount[attr] = virtuousMoteSkillCount[attr] + moteValue
+									end
+								end
 								local activeEffect = {
 									grantedEffect = grantedEffect,
 									level = gemInstance.level,
@@ -1894,7 +1933,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = gemName and ((group.displayLabel and group.displayLabel..", " or "") .. gemName) or grantedEffect.name
+								group.displayLabel = gemName and ((group.displayLabel and group.displayLabel..", " or "") .. (gemName) or grantedEffect.name)
 							end
 						end
 					end
@@ -1963,6 +2002,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
 		end
 	end
+
+	env.virtuousMoteSkillCount = virtuousMoteSkillCount
+	env.modDB.multipliers.StrengthMoteSkillCount = virtuousMoteSkillCount.Str
+	env.modDB.multipliers.DexterityMoteSkillCount = virtuousMoteSkillCount.Dex
+	env.modDB.multipliers.IntelligenceMoteSkillCount = virtuousMoteSkillCount.Int
 
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group

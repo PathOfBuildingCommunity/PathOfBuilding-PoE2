@@ -14,6 +14,7 @@ colorCodes = {
 	GEMINFO = "^x6F9A98",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
+	CRAFTED = "^xB8DAF1",
 	ENCHANTED = "^xB8DAF1",
 	CUSTOM = "^x5CF0BB",
 	SOURCE = "^x88FFFF",
@@ -620,6 +621,18 @@ SkillType = {
 	SupportedByHollowForm = 276,
 	SupportedByAnimusSplinters = 277,
 	HasNoCost = 278,
+	SupportedByBattershout = 279,
+	SupportedByRuneforgedBlades = 280,
+	SupportedByExploitWeakness = 281,
+	SupportedByDrainedAilment = 282,
+	SkillConsumesDazed = 283,
+	SupportedByDazzle = 284,
+	SupportedByFrostfire = 285,
+	SupportedByBitingFrost = 286,
+	SupportedByJaggedGround = 287,
+	SupportedByAbidingHex = 288,
+	SupportedByFrenziedRiposte = 289,
+	SupportedByCreepingChill = 290,
 }
 
 -- build reverse lookup

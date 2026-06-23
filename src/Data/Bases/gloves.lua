@@ -250,7 +250,7 @@ itemBases["Runeforged Ancient Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 103, Ward = 48, },
+	armour = { Armour = 110, Ward = 48, },
 	req = { level = 54, str = 67, },
 }
 itemBases["Runeforged Feathered Mitts"] = {
@@ -260,7 +260,7 @@ itemBases["Runeforged Feathered Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 134, Ward = 32, },
+	armour = { Armour = 137, Ward = 32, },
 	req = { level = 59, str = 73, },
 }
 itemBases["Runeforged Knightly Mitts"] = {
@@ -270,7 +270,7 @@ itemBases["Runeforged Knightly Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 146, Ward = 28, },
+	armour = { Armour = 153, Ward = 28, },
 	req = { level = 65, str = 80, },
 }
 itemBases["Runeforged Ornate Mitts"] = {
@@ -280,7 +280,7 @@ itemBases["Runeforged Ornate Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 106, Ward = 63, },
+	armour = { Armour = 120, Ward = 63, },
 	req = { level = 70, str = 87, },
 }
 itemBases["Runeforged Vaal Mitts"] = {
@@ -290,7 +290,7 @@ itemBases["Runeforged Vaal Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 162, Ward = 28, },
+	armour = { Armour = 169, Ward = 28, },
 	req = { level = 75, str = 94, },
 }
 itemBases["Runeforged Massive Mitts"] = {
@@ -300,13 +300,14 @@ itemBases["Runeforged Massive Mitts"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, karui_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 49, Ward = 127, },
+	armour = { Armour = 78, Ward = 127, },
 	req = { level = 80, str = 101, },
 }
 itemBases["Runemastered Stocky Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -317,6 +318,7 @@ itemBases["Runemastered Riveted Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -327,6 +329,7 @@ itemBases["Runemastered Tempered Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -337,6 +340,7 @@ itemBases["Runemastered Bolstered Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -347,6 +351,7 @@ itemBases["Runemastered Moulded Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -357,6 +362,7 @@ itemBases["Runemastered Titan Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -611,7 +617,7 @@ itemBases["Runeforged Refined Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 118, Ward = 24, },
+	armour = { Evasion = 119, Ward = 24, },
 	req = { level = 54, dex = 67, },
 }
 itemBases["Runeforged Spiked Bracers"] = {
@@ -621,7 +627,7 @@ itemBases["Runeforged Spiked Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 108, Ward = 45, },
+	armour = { Evasion = 113, Ward = 45, },
 	req = { level = 59, dex = 73, },
 }
 itemBases["Runeforged Stalking Bracers"] = {
@@ -631,7 +637,7 @@ itemBases["Runeforged Stalking Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 133, Ward = 28, },
+	armour = { Evasion = 139, Ward = 28, },
 	req = { level = 65, dex = 80, },
 }
 itemBases["Runeforged Grand Bracers"] = {
@@ -641,7 +647,7 @@ itemBases["Runeforged Grand Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 96, Ward = 63, },
+	armour = { Evasion = 109, Ward = 63, },
 	req = { level = 70, dex = 87, },
 }
 itemBases["Runeforged Barbed Bracers"] = {
@@ -651,7 +657,7 @@ itemBases["Runeforged Barbed Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 141, Ward = 35, },
+	armour = { Evasion = 148, Ward = 35, },
 	req = { level = 75, dex = 94, },
 }
 itemBases["Runeforged Polished Bracers"] = {
@@ -661,13 +667,14 @@ itemBases["Runeforged Polished Bracers"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 52, Ward = 120, },
+	armour = { Evasion = 77, Ward = 120, },
 	req = { level = 80, dex = 101, },
 }
 itemBases["Runemastered Suede Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, ezomyte_basetype = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
@@ -678,6 +685,7 @@ itemBases["Runemastered Firm Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, ezomyte_basetype = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
@@ -688,6 +696,7 @@ itemBases["Runemastered Sectioned Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -698,6 +707,7 @@ itemBases["Runemastered Spined Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -708,6 +718,7 @@ itemBases["Runemastered Fine Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, gloves = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -962,7 +973,7 @@ itemBases["Runeforged Baroque Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 33, Ward = 36, },
+	armour = { EnergyShield = 34, Ward = 36, },
 	req = { level = 54, int = 67, },
 }
 itemBases["Runeforged Gold Gloves"] = {
@@ -972,7 +983,7 @@ itemBases["Runeforged Gold Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 31, Ward = 52, },
+	armour = { EnergyShield = 33, Ward = 52, },
 	req = { level = 59, int = 73, },
 }
 itemBases["Runeforged Grim Gloves"] = {
@@ -982,7 +993,7 @@ itemBases["Runeforged Grim Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 41, Ward = 28, },
+	armour = { EnergyShield = 42, Ward = 28, },
 	req = { level = 65, int = 80, },
 }
 itemBases["Runeforged Opulent Gloves"] = {
@@ -992,7 +1003,7 @@ itemBases["Runeforged Opulent Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 29, Ward = 63, },
+	armour = { EnergyShield = 33, Ward = 63, },
 	req = { level = 70, int = 87, },
 }
 itemBases["Runeforged Vaal Gloves"] = {
@@ -1002,7 +1013,7 @@ itemBases["Runeforged Vaal Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 47, Ward = 21, },
+	armour = { EnergyShield = 49, Ward = 21, },
 	req = { level = 75, int = 94, },
 }
 itemBases["Runeforged Sirenscale Gloves"] = {
@@ -1012,13 +1023,14 @@ itemBases["Runeforged Sirenscale Gloves"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 13, Ward = 128, },
+	armour = { EnergyShield = 21, Ward = 128, },
 	req = { level = 80, int = 101, },
 }
 itemBases["Runemastered Torn Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1029,6 +1041,7 @@ itemBases["Runemastered Sombre Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1039,6 +1052,7 @@ itemBases["Runemastered Stitched Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1049,6 +1063,7 @@ itemBases["Runemastered Jewelled Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1059,6 +1074,7 @@ itemBases["Runemastered Intricate Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1069,6 +1085,7 @@ itemBases["Runemastered Pauascale Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1079,6 +1096,7 @@ itemBases["Runemastered Embroidered Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1293,7 +1311,7 @@ itemBases["Runeforged Steelmail Gauntlets"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 80, Evasion = 73, Ward = 28, },
+	armour = { Armour = 84, Evasion = 76, Ward = 28, },
 	req = { level = 65, str = 44, dex = 44, },
 }
 itemBases["Runeforged Commander Gauntlets"] = {
@@ -1303,7 +1321,7 @@ itemBases["Runeforged Commander Gauntlets"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 58, Evasion = 53, Ward = 63, },
+	armour = { Armour = 66, Evasion = 60, Ward = 63, },
 	req = { level = 70, str = 48, dex = 48, },
 }
 itemBases["Runeforged Cultist Gauntlets"] = {
@@ -1313,7 +1331,7 @@ itemBases["Runeforged Cultist Gauntlets"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 85, Evasion = 77, Ward = 35, },
+	armour = { Armour = 89, Evasion = 81, Ward = 35, },
 	req = { level = 75, str = 52, dex = 52, },
 }
 itemBases["Runeforged Blacksteel Gauntlets"] = {
@@ -1323,13 +1341,14 @@ itemBases["Runeforged Blacksteel Gauntlets"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 18, Evasion = 16, Ward = 141, },
+	armour = { Armour = 36, Evasion = 33, Ward = 141, },
 	req = { level = 80, str = 55, dex = 55, },
 }
 itemBases["Runemastered Ringmail Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -1340,6 +1359,7 @@ itemBases["Runemastered Layered Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, maraketh_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -1350,6 +1370,7 @@ itemBases["Runemastered Doubled Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1360,6 +1381,7 @@ itemBases["Runemastered Plate Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -1370,11 +1392,23 @@ itemBases["Runemastered Burnished Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
 	armour = { Armour = 36, Evasion = 33, Ward = 58, },
 	req = { level = 52, str = 36, dex = 36, },
+}
+itemBases["Ancient Gauntlets"] = {
+	type = "Gloves",
+	subType = "Armour/Evasion",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, gloves = true, str_dex_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 89, Evasion = 81, },
+	req = { level = 70, str = 52, dex = 52, },
 }
 
 itemBases["Rope Cuffs"] = {
@@ -1574,7 +1608,7 @@ itemBases["Runeforged Ornate Cuffs"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 65, EnergyShield = 18, Ward = 45, },
+	armour = { Armour = 69, EnergyShield = 19, Ward = 45, },
 	req = { level = 59, str = 41, int = 41, },
 }
 itemBases["Runeforged Bound Cuffs"] = {
@@ -1584,7 +1618,7 @@ itemBases["Runeforged Bound Cuffs"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 80, EnergyShield = 22, Ward = 28, },
+	armour = { Armour = 84, EnergyShield = 23, Ward = 28, },
 	req = { level = 65, str = 44, int = 44, },
 }
 itemBases["Runeforged Ancient Cuffs"] = {
@@ -1594,7 +1628,7 @@ itemBases["Runeforged Ancient Cuffs"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 58, EnergyShield = 16, Ward = 63, },
+	armour = { Armour = 66, EnergyShield = 18, Ward = 63, },
 	req = { level = 70, str = 48, int = 48, },
 }
 itemBases["Runeforged Gleaming Cuffs"] = {
@@ -1604,7 +1638,7 @@ itemBases["Runeforged Gleaming Cuffs"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 89, EnergyShield = 25, Ward = 28, },
+	armour = { Armour = 93, EnergyShield = 26, Ward = 28, },
 	req = { level = 75, str = 52, int = 52, },
 }
 itemBases["Runeforged Adherent Cuffs"] = {
@@ -1614,13 +1648,14 @@ itemBases["Runeforged Adherent Cuffs"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 22, EnergyShield = 6, Ward = 134, },
+	armour = { Armour = 39, EnergyShield = 11, Ward = 134, },
 	req = { level = 80, str = 55, int = 55, },
 }
 itemBases["Runemastered Rope Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, gloves = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -1631,6 +1666,7 @@ itemBases["Runemastered Aged Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, maraketh_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -1641,6 +1677,7 @@ itemBases["Runemastered Goldcast Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1651,6 +1688,7 @@ itemBases["Runemastered Verisium Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -1855,7 +1893,7 @@ itemBases["Runeforged Adorned Wraps"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 63, EnergyShield = 20, Ward = 39, },
+	armour = { Evasion = 65, EnergyShield = 20, Ward = 39, },
 	req = { level = 59, dex = 41, int = 41, },
 }
 itemBases["Runeforged War Wraps"] = {
@@ -1865,7 +1903,7 @@ itemBases["Runeforged War Wraps"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 73, EnergyShield = 22, Ward = 28, },
+	armour = { Evasion = 76, EnergyShield = 23, Ward = 28, },
 	req = { level = 65, dex = 44, int = 44, },
 }
 itemBases["Runeforged Elegant Wraps"] = {
@@ -1875,7 +1913,7 @@ itemBases["Runeforged Elegant Wraps"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 53, EnergyShield = 16, Ward = 63, },
+	armour = { Evasion = 60, EnergyShield = 18, Ward = 63, },
 	req = { level = 70, dex = 48, int = 48, },
 }
 itemBases["Runeforged Vaal Wraps"] = {
@@ -1885,7 +1923,7 @@ itemBases["Runeforged Vaal Wraps"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 81, EnergyShield = 25, Ward = 28, },
+	armour = { Evasion = 85, EnergyShield = 26, Ward = 28, },
 	req = { level = 75, dex = 52, int = 52, },
 }
 itemBases["Runeforged Secured Wraps"] = {
@@ -1895,13 +1933,14 @@ itemBases["Runeforged Secured Wraps"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 18, EnergyShield = 5, Ward = 138, },
+	armour = { Evasion = 34, EnergyShield = 10, Ward = 138, },
 	req = { level = 80, dex = 55, int = 55, },
 }
 itemBases["Runemastered Gauze Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, ezomyte_basetype = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1912,6 +1951,7 @@ itemBases["Runemastered Linen Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1922,6 +1962,7 @@ itemBases["Runemastered Spiral Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1932,6 +1973,7 @@ itemBases["Runemastered Furtive Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1942,6 +1984,7 @@ itemBases["Runemastered Utility Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1973,6 +2016,7 @@ itemBases["Runemastered Grand Manchettes"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, gloves = true, runeforged = true, str_dex_int_armour = true, },
 	implicitModTypes = { },
@@ -1980,4 +2024,27 @@ itemBases["Runemastered Grand Manchettes"] = {
 	req = { level = 65, str = 32, dex = 32, int = 32, },
 }
 
+
+itemBases["Fists of Stone"] = {
+	type = "Gloves",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, },
+	implicit = "Has +3 to Evasion Rating per player level\nHas +1 to maximum Energy Shield per player level",
+	implicitModTypes = { {  }, {  }, },
+	armour = { },
+	req = { },
+}
+itemBases["Runeforged Fists of Stone"] = {
+	type = "Gloves",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, dex_int_armour = true, gloves = true, runeforged = true, },
+	implicit = "Has +2 to Evasion Rating per player level\nHas +1 to maximum Energy Shield per player level\nHas +1 to maximum Runic Ward per player level",
+	implicitModTypes = { {  }, {  }, {  }, },
+	armour = { },
+	req = { },
+}
 

@@ -1445,11 +1445,6 @@ skills["SupportCooldownRecoveryPlayer"] = {
 			label = "Cooldown Recovery I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_cooldown_reduction_cooldown_recovery_+%"] = {
-					mod("CooldownRecovery", "INC", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1481,11 +1476,6 @@ skills["SupportCooldownRecoveryPlayerTwo"] = {
 			label = "Cooldown Recovery II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_cooldown_reduction_cooldown_recovery_+%"] = {
-					mod("CooldownRecovery", "INC", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2116,8 +2106,9 @@ skills["TriggeredLightningDetonateDeadPlayer"] = {
 				"active_skill_base_area_of_effect_radius",
 				"skill_specific_stat_description_mode",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"cannot_electrocute",
+				"display_statset_hide_usage_stats",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 15, 5, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -2206,12 +2197,12 @@ skills["SupportEscalatingPoisonPlayer"] = {
 }
 skills["SupportFerocityPlayer"] = {
 	name = "Ferocity",
-	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do. Supported Skills cannot generate Frenzy Charges.",
+	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do, but cannot generate Frenzy Charges. Cannot Support Skills which consume Frenzy Charges.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { SkillType.SupportedByFerocity, },
-	excludeSkillTypes = { SkillType.SupportedByTumult, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
+	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SupportedByFerocity, SkillType.SkillConsumesFrenzyChargesOnUse, },
+	excludeSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Ferocity",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -2286,8 +2277,8 @@ skills["SupportFrenziedRipostePlayer"] = {
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, SkillType.SkillConsumesParried, },
+	addSkillTypes = { SkillType.SkillConsumesParried, SkillType.SupportedByFrenziedRiposte, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, SkillType.SkillConsumesParried, SkillType.SupportedByFrenziedRiposte, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "Retort",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -2377,7 +2368,6 @@ skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
 				"never_freeze",
 			},
@@ -2640,10 +2630,10 @@ skills["SupportChargeInhibitionPlayer"] = {
 }
 skills["SupportInnervatePlayer"] = {
 	name = "Innervate",
-	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills imbues all of your Attacks with Lightning damage for a short time.",
+	description = "Supports damaging skills you use yourself. Killing a Shocked enemy with supported skills imbues your damage with Lightning damage for a short time.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Innervate",},
@@ -2658,7 +2648,7 @@ skills["SupportInnervatePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
-					mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
 				},
 				["support_innervate_buff_base_duration_ms"] = {
 					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff" }),
@@ -2777,10 +2767,10 @@ skills["SupportLifeOnCullPlayer"] = {
 }
 skills["SupportAddedLightningDamagePlayer"] = {
 	name = "Lightning Attunement",
-	description = "Supports Attacks, causing them to Gain Lightning Damage but deal less Cold and Fire Damage.",
+	description = "Supports any skill that deals damage, causing them to Gain Lightning Damage but deal less Cold and Fire Damage.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "LightningAttunement",},
@@ -2802,7 +2792,7 @@ skills["SupportAddedLightningDamagePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks", 25 },
+				{ "non_skill_base_all_damage_%_to_gain_as_lightning", 25 },
 				{ "support_cold_and_fire_damage_+%_final", -50 },
 			},
 			stats = {
@@ -5068,7 +5058,7 @@ skills["SupportSecondWindPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, SkillType.AffectedByCooldownRate, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, SkillType.UsedByProxy, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5100,7 +5090,7 @@ skills["SupportSecondWindPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, SkillType.AffectedByCooldownRate, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, SkillType.UsedByProxy, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5132,7 +5122,7 @@ skills["SupportSecondWindPlayerThree"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, SkillType.AffectedByCooldownRate, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, SkillType.UsedByProxy, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {

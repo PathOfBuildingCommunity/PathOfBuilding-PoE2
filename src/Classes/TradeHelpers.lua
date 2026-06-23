@@ -26,36 +26,34 @@ function M.modLineTemplate(line)
 	return line:gsub("%-?[%d]+%.?[%d]*", "#")
 end
 
--- Helper: extract the first number from a mod line for value comparison
+-- Helper: extract the first number from a mod line for value comparison, or in the case of # to #
+-- mods, the midpoint of that range
 --- @param line string
 function M.modLineValue(line)
+	local low, high = line:match("(%-?%d+%.?%d*) to (%-?%d+%.?%d*)")
+	if low and high then
+		return (tonumber(low) + tonumber(high)) / 2
+	end
 	return tonumber(line:match("%-?[%d]+%.?[%d]*"))
 end
 
--- Helper: fetch and cache the trade API stats
-local _tradeStats = nil
-local _tradeStatsFetched = false
--- contains data for stats which have options, like allocates #
-local optionTradeStatMap = {}
---- @return table
-local function getTradeStatsLookup()
-	if _tradeStats then return _tradeStats end
-	local tradeStats = ""
-	local easy = common.curl.easy()
-	if not easy then return nil end
-	easy:setopt_url("https://www.pathofexile.com/api/trade2/data/stats")
-	easy:setopt_useragent("Path of Building/" .. (launch.versionNumber or ""))
-	easy:setopt_writefunction(function(d)
-		tradeStats = tradeStats .. d
-		return true
-	end)
-	local ok = easy:perform()
-	easy:close()
-	if not ok or tradeStats == "" then return {} end
-	local parsed = dkjson.decode(tradeStats)
-	_tradeStats = parsed.result
+local _tradeStats
 
-	for _, cat in ipairs(_tradeStats) do
+---@return table? tradeStats
+function M.getTradeStats()
+	if _tradeStats then return _tradeStats end
+	_tradeStats = LoadModule("Data/TradeSiteStats")
+	return _tradeStats
+end
+
+local _optionTradeStatMap
+
+---@param tradeStats table table of data from https://www.pathofexile.com/api/trade2/data/stats
+---@return table optionTradeStatMap table containing helper data for matching trade option filters
+local function getOptionTradeStatMap(tradeStats)
+	if _optionTradeStatMap then return _optionTradeStatMap end
+	local optionTradeStatMap = {}
+	for _, cat in ipairs(tradeStats) do
 		if cat.id == "enchant" or cat.id == "explicit" or cat.id == "implicit" then
 			optionTradeStatMap[cat.id] = {}
 			for _, entry in ipairs(cat.entries) do
@@ -72,7 +70,8 @@ local function getTradeStatsLookup()
 			end
 		end
 	end
-	return _tradeStats
+	_optionTradeStatMap = optionTradeStatMap
+	return _optionTradeStatMap
 end
 
 -- Map source types used in OpenBuySimilarPopup to trade API category labels
@@ -120,7 +119,7 @@ function M.shouldBeInverted(tradeId, modLine, modType)
 	if not inverseKey then
 		return false
 	end
-	for _, category in ipairs(getTradeStatsLookup()) do
+	for _, category in ipairs(M.getTradeStats() or {}) do
 		if category.id == modType then
 			for _, stat in ipairs(category.entries) do
 				if tradeId == stat.id then
@@ -132,7 +131,9 @@ function M.shouldBeInverted(tradeId, modLine, modType)
 					end
 
 					-- test for inverted mod
-					if inverseKey and ((invertedLine == formattedTradeSiteText) or (invertedLine:gsub("^%+", "") == formattedTradeSiteText)) then
+					if inverseKey
+						and ((invertedLine == formattedTradeSiteText)
+							or (invertedLine:gsub("^%+", "") == formattedTradeSiteText)) then
 						return true
 					end
 
@@ -153,22 +154,18 @@ function M.formatDatabaseText(text)
 	-- (123-124) -> #
 	text = text:gsub("%(%d+%-%d+%)", "#")
 	text = text:gsub("%d+", "#")
-	-- remove radius jewel text. the same description is used for regular and
-	-- radius jewels in the exports
-	text = text:gsub("^Notable Passive Skills in Radius also grant ", "")
-	text = text:gsub("^Small Passive Skills in Radius also grant ", "")
 	return text
 end
 
+
 -- Helper: find the trade stat ID for a mod line
---- @param item table
---- @param modLine string
---- @param modType string
---- @param isDesecrated boolean
---- the
---- @return number? hash returned for most mods
---- @return string? optionTradeId returned if the mod is an option. e.g. Allocates X
---- @return number value returned if the mod is an option and uses values. e.g. timeless jewel
+---@param item         table
+---@param modLine      string
+---@param modType      string
+---@param isDesecrated boolean
+---@return number? hash          returned for most mods
+---@return string? optionTradeId returned if the mod is an option. e.g. Allocates X
+---@return number? value         returned if the mod is an option and uses values. e.g. timeless jewel
 function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local formattedLine = M.formatDatabaseText(modLine)
 	-- the data export splits some mods into different parts, even though they
@@ -176,7 +173,8 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
 	local function findStat(dbMod, ignoreWeights)
 		local excludeTags = (not isUnique) and { default = true } or nil
-		if not ignoreWeights and #(dbMod.weightKey or {}) > 0 and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
+		if not ignoreWeights and #(dbMod.weightKey or {}) > 0
+			and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
 			return nil
 		end
 		for tradeHash, description in pairs(dbMod.tradeHashes) do
@@ -196,10 +194,9 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 		end
 	end
 
-	-- initialise optionTradeStatMap
-	if not _tradeStats then
-		getTradeStatsLookup()
-	end
+	local tradeStats = M.getTradeStats()
+	local optionTradeStatMap = getOptionTradeStatMap(tradeStats)
+	if not tradeStats or not optionTradeStatMap then return end
 
 	for _, v in ipairs(optionTradeStatMap[modType] or {}) do
 		if v.pattern then
@@ -211,7 +208,6 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			return nil, v.tradeId
 		end
 	end
-	
 
 	-- desecrate-only mods
 	if isDesecrated then
@@ -230,8 +226,8 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 				return tradeHashMaybe
 			end
 		end
-	-- most implicit and explicit applicable to the type
-	elseif modType ~= "implicit" or modType ~= "explicit" then
+		-- most implicit and explicit applicable to the type
+	elseif modType == "implicit" or modType == "explicit" then
 		for _, dbMod in pairs(item.affixes) do
 			local tradeHashMaybe = findStat(dbMod)
 			if tradeHashMaybe then

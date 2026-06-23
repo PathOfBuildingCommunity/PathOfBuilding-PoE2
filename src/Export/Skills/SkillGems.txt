@@ -962,6 +962,7 @@ Manifest Weapon               		----		ManifestWeaponPlayer
 Maul                          		----		BearMaulPlayer
 Meditate                      		----		MeditatePlayer
 Midnight Zenith               		----		MidnightStarPlayer
+Mirage Deadeye                		----		MetaMirageDeadeyePlayer	SupportMirageDeadeyePlayer	MirageDeadeyeSpawnPlayer
 Mist Raven                    		----		SummonMistRavenPlayer	CommandMistRavenPlayer
 Molten Crash                  		----		MoltenCrashPlayer
 Molten Shower                 		----		TriggeredMoltenShowerPlayer
@@ -974,6 +975,7 @@ Powered by Verisium           		----		PoweredByVerisiumPlayer
 Primal Bounty                 		----		PrimalBountyPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
+Queen's Procession            		----		QueensProcessionReservationPlayer
 Rain of Blades                		----		RainOfBladesPlayer	RainOfBladesTriggeredPlayer
 Raise Shield                  		----		ShieldBlockPlayer
 Refutation                    		----		RefutationPlayer
@@ -1073,7 +1075,6 @@ Harbinger of Madness          		----		HarbingerOfMadnessPlayer
 Herald of the Royal Queen     		----		UniqueAtziriHeraldPlayer
 Ice Fragments                 		----		IceFragmentsPlayer
 Kinetic Bash                  		----		HazardousHoldoutPlayer
-Mirage Deadeye                		----		MetaMirageDeadeyePlayer	SupportMirageDeadeyePlayer	MirageDeadeyeSpawnPlayer
 Sanguine Revelry              		----		SanguineRevelryPlayer
 Smash to Smithereens          		----		SmashToSmithereensPlayer
 Summon Companion              		----		SummonMercenaryCompanionPlayer	SummonMercenaryCompanionSupportPlayer	UnloadAmmoPlayer

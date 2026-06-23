@@ -418,7 +418,7 @@ itemBases["Runeforged Elegant Plate"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 397, Ward = 73, MovementPenalty = 0.05, },
+	armour = { Armour = 401, Ward = 73, MovementPenalty = 0.05, },
 	req = { level = 54, str = 86, },
 }
 itemBases["Runeforged Heavy Plate"] = {
@@ -428,7 +428,7 @@ itemBases["Runeforged Heavy Plate"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 340, Ward = 158, MovementPenalty = 0.05, },
+	armour = { Armour = 363, Ward = 158, MovementPenalty = 0.05, },
 	req = { level = 59, str = 94, },
 }
 itemBases["Runeforged Stone Cuirass"] = {
@@ -438,7 +438,7 @@ itemBases["Runeforged Stone Cuirass"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 403, Ward = 103, MovementPenalty = 0.05, },
+	armour = { Armour = 417, Ward = 103, MovementPenalty = 0.05, },
 	req = { level = 62, str = 98, },
 }
 itemBases["Runeforged Soldier Cuirass"] = {
@@ -448,7 +448,7 @@ itemBases["Runeforged Soldier Cuirass"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 173, Ward = 365, MovementPenalty = 0.05, },
+	armour = { Armour = 258, Ward = 365, MovementPenalty = 0.05, },
 	req = { level = 65, str = 121, },
 }
 itemBases["Runeforged Ornate Plate"] = {
@@ -459,7 +459,7 @@ itemBases["Runeforged Ornate Plate"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicit = "Regenerate (1.5-2.5)% of maximum Life per second",
 	implicitModTypes = { { "resource", "life" }, },
-	armour = { Armour = 273, Ward = 236, MovementPenalty = 0.05, },
+	armour = { Armour = 327, Ward = 236, MovementPenalty = 0.05, },
 	req = { level = 70, str = 121, },
 }
 itemBases["Runeforged Utzaal Cuirass"] = {
@@ -470,7 +470,7 @@ itemBases["Runeforged Utzaal Cuirass"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, },
 	implicit = "(30-40)% increased Stun Threshold",
 	implicitModTypes = { {  }, },
-	armour = { Armour = 421, Ward = 107, MovementPenalty = 0.05, },
+	armour = { Armour = 446, Ward = 107, MovementPenalty = 0.05, },
 	req = { level = 75, str = 121, },
 }
 itemBases["Runeforged Warlord Cuirass"] = {
@@ -481,13 +481,14 @@ itemBases["Runeforged Warlord Cuirass"] = {
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_armour = true, },
 	implicit = "+(15-25)% of Armour also applies to Elemental Damage",
 	implicitModTypes = { { "defences", "armour", "elemental" }, },
-	armour = { Armour = 446, Ward = 86, MovementPenalty = 0.05, },
+	armour = { Armour = 466, Ward = 86, MovementPenalty = 0.05, },
 	req = { level = 80, str = 121, },
 }
 itemBases["Runeforged Fur Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -498,6 +499,7 @@ itemBases["Runemastered Rusted Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -508,6 +510,7 @@ itemBases["Runemastered Iron Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -518,6 +521,7 @@ itemBases["Runemastered Raider Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -528,6 +532,7 @@ itemBases["Runemastered Maraketh Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -538,6 +543,7 @@ itemBases["Runemastered Steel Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
@@ -548,6 +554,7 @@ itemBases["Runemastered Full Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -558,6 +565,7 @@ itemBases["Runemastered Vaal Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -979,7 +987,7 @@ itemBases["Runeforged Layered Vest"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 360, Ward = 73, MovementPenalty = 0.03, },
+	armour = { Evasion = 364, Ward = 73, MovementPenalty = 0.03, },
 	req = { level = 54, dex = 86, },
 }
 itemBases["Runeforged Runner Vest"] = {
@@ -989,7 +997,7 @@ itemBases["Runeforged Runner Vest"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 350, Ward = 119, MovementPenalty = 0.03, },
+	armour = { Evasion = 362, Ward = 119, MovementPenalty = 0.03, },
 	req = { level = 59, dex = 94, },
 }
 itemBases["Runeforged Lizardscale Coat"] = {
@@ -999,7 +1007,7 @@ itemBases["Runeforged Lizardscale Coat"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 324, Ward = 144, MovementPenalty = 0.03, },
+	armour = { Evasion = 345, Ward = 144, MovementPenalty = 0.03, },
 	req = { level = 62, dex = 98, },
 }
 itemBases["Runeforged Swiftstalker Coat"] = {
@@ -1010,7 +1018,7 @@ itemBases["Runeforged Swiftstalker Coat"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicit = "(20-30)% reduced Slowing Potency of Debuffs on You",
 	implicitModTypes = { {  }, },
-	armour = { Evasion = 429, Ward = 64, MovementPenalty = 0.03, },
+	armour = { Evasion = 442, Ward = 64, MovementPenalty = 0.03, },
 	req = { level = 65, dex = 121, },
 }
 itemBases["Runeforged Slipstrike Vest"] = {
@@ -1020,7 +1028,7 @@ itemBases["Runeforged Slipstrike Vest"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 144, Ward = 378, MovementPenalty = 0.03, },
+	armour = { Evasion = 226, Ward = 378, MovementPenalty = 0.03, },
 	req = { level = 70, dex = 121, },
 }
 itemBases["Runeforged Wyrmscale Coat"] = {
@@ -1031,7 +1039,7 @@ itemBases["Runeforged Wyrmscale Coat"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicit = "(30-40)% increased Elemental Ailment Threshold",
 	implicitModTypes = { { "ailment" }, },
-	armour = { Evasion = 248, Ward = 236, MovementPenalty = 0.03, },
+	armour = { Evasion = 298, Ward = 236, MovementPenalty = 0.03, },
 	req = { level = 75, dex = 121, },
 }
 itemBases["Runeforged Corsair Coat"] = {
@@ -1042,13 +1050,14 @@ itemBases["Runeforged Corsair Coat"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, karui_basetype = true, runeforged = true, },
 	implicit = "5% increased Movement Speed",
 	implicitModTypes = { { "speed" }, },
-	armour = { Evasion = 384, Ward = 107, MovementPenalty = 0.03, },
+	armour = { Evasion = 406, Ward = 107, MovementPenalty = 0.03, },
 	req = { level = 80, dex = 121, },
 }
 itemBases["Runemastered Leather Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1059,6 +1068,7 @@ itemBases["Runemastered Quilted Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1069,6 +1079,7 @@ itemBases["Runemastered Pathfinder Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, ezomyte_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1079,6 +1090,7 @@ itemBases["Runemastered Shrouded Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1089,6 +1101,7 @@ itemBases["Runemastered Rhoahide Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1099,6 +1112,7 @@ itemBases["Runemastered Studded Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1109,6 +1123,7 @@ itemBases["Runemastered Scout's Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1119,6 +1134,7 @@ itemBases["Runemastered Serpentscale Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1129,6 +1145,7 @@ itemBases["Runemastered Smuggler Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1139,6 +1156,7 @@ itemBases["Runemastered Strider Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1149,6 +1167,7 @@ itemBases["Runemastered Exquisite Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1159,6 +1178,7 @@ itemBases["Runemastered Armoured Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_armour = true, runeforged = true, },
 	implicit = "(30-40)% increased Elemental Ailment Threshold",
@@ -1581,7 +1601,7 @@ itemBases["Runeforged River Raiment"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 113, Ward = 73, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 114, Ward = 73, MovementPenalty = 0.03, },
 	req = { level = 54, int = 86, },
 }
 itemBases["Runeforged Adherent's Raiment"] = {
@@ -1591,7 +1611,7 @@ itemBases["Runeforged Adherent's Raiment"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 102, Ward = 138, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 107, Ward = 138, MovementPenalty = 0.03, },
 	req = { level = 59, int = 94, },
 }
 itemBases["Runeforged Ceremonial Robe"] = {
@@ -1601,7 +1621,7 @@ itemBases["Runeforged Ceremonial Robe"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 113, Ward = 103, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 117, Ward = 103, MovementPenalty = 0.03, },
 	req = { level = 62, int = 98, },
 }
 itemBases["Runeforged Vile Robe"] = {
@@ -1611,7 +1631,7 @@ itemBases["Runeforged Vile Robe"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 41, Ward = 387, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 66, Ward = 387, MovementPenalty = 0.03, },
 	req = { level = 65, int = 121, },
 }
 itemBases["Runeforged Flowing Raiment"] = {
@@ -1622,7 +1642,7 @@ itemBases["Runeforged Flowing Raiment"] = {
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicit = "(30-40)% increased Runic Ward Regeneration Rate",
 	implicitModTypes = { { "runic_ward" }, },
-	armour = { EnergyShield = 76, Ward = 236, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 91, Ward = 236, MovementPenalty = 0.03, },
 	req = { level = 70, int = 121, },
 }
 itemBases["Runeforged Sacramental Robe"] = {
@@ -1633,7 +1653,7 @@ itemBases["Runeforged Sacramental Robe"] = {
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicit = "(20-25)% increased Energy Shield Recharge Rate",
 	implicitModTypes = { { "defences", "energy_shield" }, },
-	armour = { EnergyShield = 138, Ward = 64, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 142, Ward = 64, MovementPenalty = 0.03, },
 	req = { level = 75, int = 121, },
 }
 itemBases["Runeforged Feathered Raiment"] = {
@@ -1644,13 +1664,14 @@ itemBases["Runeforged Feathered Raiment"] = {
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicit = "(5-10)% of Damage is taken from Mana before Life",
 	implicitModTypes = { { "resource", "life", "mana" }, },
-	armour = { EnergyShield = 124, Ward = 133, MovementPenalty = 0.03, },
+	armour = { EnergyShield = 132, Ward = 133, MovementPenalty = 0.03, },
 	req = { level = 80, int = 121, },
 }
 itemBases["Runemastered Tattered Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1661,6 +1682,7 @@ itemBases["Runemastered Feathered Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1671,6 +1693,7 @@ itemBases["Runemastered Hexer's Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1681,6 +1704,7 @@ itemBases["Runemastered Bone Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1691,6 +1715,7 @@ itemBases["Runemastered Silk Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1701,6 +1726,7 @@ itemBases["Runemastered Keth Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1711,6 +1737,7 @@ itemBases["Runemastered Votive Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1721,6 +1748,7 @@ itemBases["Runemastered Altar Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -1731,6 +1759,7 @@ itemBases["Runemastered Elementalist Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1741,6 +1770,7 @@ itemBases["Runemastered Plated Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1751,6 +1781,7 @@ itemBases["Runemastered Havoc Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -1761,6 +1792,7 @@ itemBases["Runemastered Enlightened Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, int_armour = true, runeforged = true, },
 	implicit = "(40-50)% increased Mana Regeneration Rate",
@@ -2209,7 +2241,7 @@ itemBases["Runeforged Mantled Mail"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 218, Evasion = 198, Ward = 73, MovementPenalty = 0.04, },
+	armour = { Armour = 221, Evasion = 200, Ward = 73, MovementPenalty = 0.04, },
 	req = { level = 54, str = 48, dex = 48, },
 }
 itemBases["Runeforged Trailblazer Armour"] = {
@@ -2219,7 +2251,7 @@ itemBases["Runeforged Trailblazer Armour"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 187, Evasion = 170, Ward = 158, MovementPenalty = 0.04, },
+	armour = { Armour = 199, Evasion = 181, Ward = 158, MovementPenalty = 0.04, },
 	req = { level = 59, str = 52, dex = 52, },
 }
 itemBases["Runeforged Golden Mail"] = {
@@ -2240,7 +2272,7 @@ itemBases["Runeforged Dastard Armour"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicit = "+(60-80) to maximum Life",
 	implicitModTypes = { { "resource", "life" }, },
-	armour = { Armour = 150, Evasion = 137, Ward = 236, MovementPenalty = 0.04, },
+	armour = { Armour = 180, Evasion = 164, Ward = 236, MovementPenalty = 0.04, },
 	req = { level = 65, str = 67, dex = 67, },
 }
 itemBases["Runeforged Shrouded Mail"] = {
@@ -2251,7 +2283,7 @@ itemBases["Runeforged Shrouded Mail"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicit = "+(20-25)% to Fire Resistance",
 	implicitModTypes = { { "elemental_resistance", "fire_resistance", "elemental", "fire", "resistance" }, },
-	armour = { Armour = 232, Evasion = 211, Ward = 107, MovementPenalty = 0.04, },
+	armour = { Armour = 245, Evasion = 223, Ward = 107, MovementPenalty = 0.04, },
 	req = { level = 70, str = 67, dex = 67, },
 }
 itemBases["Runeforged Shrouded Mail"] = {
@@ -2262,7 +2294,7 @@ itemBases["Runeforged Shrouded Mail"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicit = "+(20-25)% to Cold Resistance",
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
-	armour = { Armour = 232, Evasion = 211, Ward = 107, MovementPenalty = 0.04, },
+	armour = { Armour = 245, Evasion = 223, Ward = 107, MovementPenalty = 0.04, },
 	req = { level = 70, str = 67, dex = 67, },
 }
 itemBases["Runeforged Shrouded Mail"] = {
@@ -2273,7 +2305,7 @@ itemBases["Runeforged Shrouded Mail"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicit = "+(20-25)% to Lightning Resistance",
 	implicitModTypes = { { "elemental_resistance", "lightning_resistance", "elemental", "lightning", "resistance" }, },
-	armour = { Armour = 232, Evasion = 211, Ward = 107, MovementPenalty = 0.04, },
+	armour = { Armour = 245, Evasion = 223, Ward = 107, MovementPenalty = 0.04, },
 	req = { level = 70, str = 67, dex = 67, },
 }
 itemBases["Runeforged Death Mail"] = {
@@ -2283,7 +2315,7 @@ itemBases["Runeforged Death Mail"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 68, Evasion = 62, Ward = 408, MovementPenalty = 0.04, },
+	armour = { Armour = 120, Evasion = 109, Ward = 408, MovementPenalty = 0.04, },
 	req = { level = 75, str = 67, dex = 67, },
 }
 itemBases["Runeforged Thane Mail"] = {
@@ -2294,13 +2326,14 @@ itemBases["Runeforged Thane Mail"] = {
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicit = "Hits against you have (15-25)% reduced Critical Damage Bonus",
 	implicitModTypes = { { "damage", "critical" }, },
-	armour = { Armour = 259, Evasion = 236, Ward = 64, MovementPenalty = 0.04, },
+	armour = { Armour = 267, Evasion = 243, Ward = 64, MovementPenalty = 0.04, },
 	req = { level = 80, str = 67, dex = 67, },
 }
 itemBases["Runemastered Chain Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2311,6 +2344,7 @@ itemBases["Runemastered Rogue Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2321,6 +2355,7 @@ itemBases["Runemastered Vagabond Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2331,6 +2366,7 @@ itemBases["Runemastered Cloaked Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2341,6 +2377,7 @@ itemBases["Runemastered Explorer Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -2351,6 +2388,7 @@ itemBases["Runemastered Scale Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -2361,6 +2399,7 @@ itemBases["Runemastered Knight Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2371,6 +2410,7 @@ itemBases["Runemastered Ancestral Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
@@ -2381,6 +2421,7 @@ itemBases["Runemastered Heroic Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_armour = true, },
 	implicit = "+(60-80) to maximum Life",
@@ -2763,7 +2804,7 @@ itemBases["Runeforged Occultist Mantle"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 184, EnergyShield = 52, Ward = 128, MovementPenalty = 0.04, },
+	armour = { Armour = 193, EnergyShield = 55, Ward = 128, MovementPenalty = 0.04, },
 	req = { level = 54, str = 48, int = 48, },
 }
 itemBases["Runeforged Plated Vestments"] = {
@@ -2773,7 +2814,7 @@ itemBases["Runeforged Plated Vestments"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 187, EnergyShield = 53, Ward = 158, MovementPenalty = 0.04, },
+	armour = { Armour = 199, EnergyShield = 56, Ward = 158, MovementPenalty = 0.04, },
 	req = { level = 59, str = 52, int = 52, },
 }
 itemBases["Runeforged Heartcarver Mantle"] = {
@@ -2783,7 +2824,7 @@ itemBases["Runeforged Heartcarver Mantle"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 222, EnergyShield = 62, Ward = 103, MovementPenalty = 0.04, },
+	armour = { Armour = 230, EnergyShield = 64, Ward = 103, MovementPenalty = 0.04, },
 	req = { level = 62, str = 54, int = 54, },
 }
 itemBases["Runeforged Wolfskin Mantle"] = {
@@ -2793,7 +2834,7 @@ itemBases["Runeforged Wolfskin Mantle"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 63, EnergyShield = 17, Ward = 417, MovementPenalty = 0.04, },
+	armour = { Armour = 114, EnergyShield = 32, Ward = 417, MovementPenalty = 0.04, },
 	req = { level = 65, str = 67, int = 67, },
 }
 itemBases["Runeforged Conjurer Mantle"] = {
@@ -2804,7 +2845,7 @@ itemBases["Runeforged Conjurer Mantle"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicit = "+(20-30) to Spirit",
 	implicitModTypes = { {  }, },
-	armour = { Armour = 232, EnergyShield = 64, Ward = 107, MovementPenalty = 0.04, },
+	armour = { Armour = 245, EnergyShield = 68, Ward = 107, MovementPenalty = 0.04, },
 	req = { level = 70, str = 67, int = 67, },
 }
 itemBases["Runeforged Death Mantle"] = {
@@ -2815,7 +2856,7 @@ itemBases["Runeforged Death Mantle"] = {
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicit = "+1% to all Maximum Elemental Resistances",
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
-	armour = { Armour = 164, EnergyShield = 45, Ward = 215, MovementPenalty = 0.04, },
+	armour = { Armour = 191, EnergyShield = 53, Ward = 215, MovementPenalty = 0.04, },
 	req = { level = 75, str = 67, int = 67, },
 }
 itemBases["Runeforged Seastorm Mantle"] = {
@@ -2826,13 +2867,14 @@ itemBases["Runeforged Seastorm Mantle"] = {
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicit = "(8-14)% of Damage taken Recouped as Life",
 	implicitModTypes = { { "resource", "life" }, },
-	armour = { Armour = 68, EnergyShield = 19, Ward = 344, MovementPenalty = 0.04, },
+	armour = { Armour = 112, EnergyShield = 31, Ward = 344, MovementPenalty = 0.04, },
 	req = { level = 80, str = 67, int = 67, },
 }
 itemBases["Runemastered Pilgrim Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, ezomyte_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2843,6 +2885,7 @@ itemBases["Runemastered Mail Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2853,6 +2896,7 @@ itemBases["Runemastered Shaman Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, maraketh_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2863,6 +2907,7 @@ itemBases["Runemastered Ironclad Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -2873,6 +2918,7 @@ itemBases["Runemastered Sacrificial Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -2883,6 +2929,7 @@ itemBases["Runemastered Cleric Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2893,6 +2940,7 @@ itemBases["Runemastered Tideseer Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2903,6 +2951,7 @@ itemBases["Runemastered Gilded Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
@@ -2913,6 +2962,7 @@ itemBases["Runemastered Revered Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicit = "+1% to all Maximum Elemental Resistances\n(30-50)% increased effect of Arcane Surge on you",
@@ -2924,10 +2974,11 @@ itemBases["Runemastered Revered Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
-	implicit = "+1% to all Maximum Elemental Resistances\n(10-15)% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
-	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, {  }, },
+	implicit = "+1% to all Maximum Elemental Resistances\n(10-15)% increased Energy Shield Recharge Rate",
+	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, { "defences", "energy_shield" }, },
 	armour = { Armour = 199, EnergyShield = 88, Ward = 86, MovementPenalty = 0.04, },
 	req = { level = 70, str = 57, int = 85, },
 }
@@ -2935,6 +2986,7 @@ itemBases["Runemastered Revered Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicit = "+1% to all Maximum Elemental Resistances",
@@ -2946,10 +2998,55 @@ itemBases["Runemastered Corvus Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
 	implicit = "+(20-30) to Spirit",
 	implicitModTypes = { {  }, },
+	armour = { Armour = 218, EnergyShield = 61, Ward = 86, MovementPenalty = 0.04, },
+	req = { level = 70, str = 67, int = 67, },
+}
+itemBases["Ornate Ringmail"] = {
+	type = "Body Armour",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 749, EnergyShield = 220, MovementPenalty = 0.04, },
+	req = { level = 43, str = 45, int = 45, },
+}
+itemBases["Ancient Mail"] = {
+	type = "Body Armour",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 273, EnergyShield = 76, MovementPenalty = 0.04, },
+	req = { level = 70, str = 67, int = 67, },
+}
+itemBases["Runemastered Ornate Ringmail"] = {
+	type = "Body Armour",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 725, EnergyShield = 206, Ward = 130, MovementPenalty = 0.04, },
+	req = { level = 55, str = 57, int = 57, },
+}
+itemBases["Runemastered Ancient Mail"] = {
+	type = "Body Armour",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_int_armour = true, },
+	implicitModTypes = { },
 	armour = { Armour = 218, EnergyShield = 61, Ward = 86, MovementPenalty = 0.04, },
 	req = { level = 70, str = 67, int = 67, },
 }
@@ -3328,7 +3425,7 @@ itemBases["Runeforged Itinerant Jacket"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 188, EnergyShield = 59, Ward = 92, MovementPenalty = 0.03, },
+	armour = { Evasion = 192, EnergyShield = 60, Ward = 92, MovementPenalty = 0.03, },
 	req = { level = 54, dex = 48, int = 48, },
 }
 itemBases["Runeforged Hatungo Garb"] = {
@@ -3338,7 +3435,7 @@ itemBases["Runeforged Hatungo Garb"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 170, EnergyShield = 53, Ward = 158, MovementPenalty = 0.03, },
+	armour = { Evasion = 181, EnergyShield = 56, Ward = 158, MovementPenalty = 0.03, },
 	req = { level = 59, dex = 52, int = 52, },
 }
 itemBases["Runeforged Hawker's Jacket"] = {
@@ -3348,7 +3445,7 @@ itemBases["Runeforged Hawker's Jacket"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 202, EnergyShield = 62, Ward = 103, MovementPenalty = 0.03, },
+	armour = { Evasion = 209, EnergyShield = 64, Ward = 103, MovementPenalty = 0.03, },
 	req = { level = 62, dex = 54, int = 54, },
 }
 itemBases["Runeforged Sleek Jacket"] = {
@@ -3358,7 +3455,7 @@ itemBases["Runeforged Sleek Jacket"] = {
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 69, EnergyShield = 21, Ward = 395, MovementPenalty = 0.03, },
+	armour = { Evasion = 114, EnergyShield = 35, Ward = 395, MovementPenalty = 0.03, },
 	req = { level = 65, dex = 67, int = 67, },
 }
 itemBases["Runeforged Rambler Jacket"] = {
@@ -3369,7 +3466,7 @@ itemBases["Runeforged Rambler Jacket"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
 	implicitModTypes = { { "chaos_resistance", "chaos", "resistance" }, },
-	armour = { Evasion = 211, EnergyShield = 64, Ward = 107, MovementPenalty = 0.03, },
+	armour = { Evasion = 223, EnergyShield = 68, Ward = 107, MovementPenalty = 0.03, },
 	req = { level = 70, dex = 67, int = 67, },
 }
 itemBases["Runeforged Falconer's Jacket"] = {
@@ -3380,7 +3477,7 @@ itemBases["Runeforged Falconer's Jacket"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicit = "5% increased Movement Speed",
 	implicitModTypes = { { "speed" }, },
-	armour = { Evasion = 164, EnergyShield = 50, Ward = 189, MovementPenalty = 0.03, },
+	armour = { Evasion = 186, EnergyShield = 57, Ward = 189, MovementPenalty = 0.03, },
 	req = { level = 75, dex = 67, int = 67, },
 }
 itemBases["Runeforged Austere Garb"] = {
@@ -3391,13 +3488,14 @@ itemBases["Runeforged Austere Garb"] = {
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, karui_basetype = true, runeforged = true, },
 	implicit = "(10-15)% reduced Elemental Ailment Duration on you",
 	implicitModTypes = { { "elemental", "ailment" }, },
-	armour = { Evasion = 236, EnergyShield = 72, Ward = 86, MovementPenalty = 0.03, },
+	armour = { Evasion = 246, EnergyShield = 75, Ward = 86, MovementPenalty = 0.03, },
 	req = { level = 80, dex = 67, int = 67, },
 }
 itemBases["Runemastered Hermit Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, ezomyte_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -3408,6 +3506,7 @@ itemBases["Runemastered Waxed Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, ezomyte_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -3418,6 +3517,7 @@ itemBases["Runemastered Marabout Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -3428,6 +3528,7 @@ itemBases["Runemastered Wayfarer Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -3438,6 +3539,7 @@ itemBases["Runemastered Anchorite Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -3448,6 +3550,7 @@ itemBases["Runemastered Scalper's Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -3458,12 +3561,46 @@ itemBases["Runemastered Assassin Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
 	implicit = "5% increased Movement Speed",
 	implicitModTypes = { { "speed" }, },
 	armour = { Evasion = 223, EnergyShield = 68, Ward = 43, MovementPenalty = 0.03, },
 	req = { level = 73, dex = 67, int = 67, },
+}
+itemBases["Primal Markings"] = {
+	type = "Body Armour",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 268, EnergyShield = 82, MovementPenalty = 0.03, },
+	req = { level = 70, dex = 67, int = 67, },
+}
+itemBases["Runeforged Primal Markings"] = {
+	type = "Body Armour",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 236, EnergyShield = 72, Ward = 86, MovementPenalty = 0.03, },
+	req = { level = 70, dex = 67, int = 67, },
+}
+itemBases["Runemastered Primal Markings"] = {
+	type = "Body Armour",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { armour = true, body_armour = true, default = true, dex_int_armour = true, runeforged = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 223, EnergyShield = 68, Ward = 107, MovementPenalty = 0.03, },
+	req = { level = 80, dex = 67, int = 67, },
 }
 
 itemBases["Grand Regalia"] = {
@@ -3546,6 +3683,7 @@ itemBases["Runemastered Grasping Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicit = "Can roll Ring Modifiers\nCatalysts can be applied to this item",
@@ -3557,6 +3695,7 @@ itemBases["Runemastered Grasping Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicit = "Can roll Ring Modifiers\nCatalysts can be applied to this item",
@@ -3568,6 +3707,7 @@ itemBases["Runemastered Grasping Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicit = "Can roll Ring Modifiers\nCatalysts can be applied to this item",
@@ -3579,6 +3719,7 @@ itemBases["Runemastered Grasping Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicit = "Can roll Ring Modifiers\nCatalysts can be applied to this item",
@@ -3655,6 +3796,7 @@ itemBases["Runemastered Grand Regalia"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicitModTypes = { },
@@ -3665,6 +3807,7 @@ itemBases["Runemastered Sacrificial Regalia"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicit = "+1 to Level of all Corrupted Skill Gems",
@@ -3696,6 +3839,7 @@ itemBases["Runemastered Garment"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion/Energy Shield",
 	quality = 20,
+	hidden = true,
 	socketLimit = 4,
 	tags = { armour = true, body_armour = true, default = true, runeforged = true, str_dex_int_armour = true, },
 	implicitModTypes = { },

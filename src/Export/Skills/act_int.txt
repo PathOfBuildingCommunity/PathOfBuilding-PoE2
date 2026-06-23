@@ -267,9 +267,17 @@ statMap = {
 #skill CometPlayer
 #set CometPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #set CometFireInfusionPlayer
 #flags area spell
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #skillEnd
 
@@ -466,6 +474,13 @@ statMap = {
 #skill EyeOfWinterPlayer
 #set EyeOfWinterPlayer
 #flags spell projectile
+statMap = {
+	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"] = {
+		mod("SkillDamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterCold"}),
+		mod("SkillDamageGainAsFire", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterFire"}),
+		mod("SkillDamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "EyeOfWinterLightning"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -562,7 +577,7 @@ statMap = {
 
 #skill FlameWallPlayer
 #set FlameWallPlayer
-#flags
+#flags spell area
 #mods
 #set FlameWallProjectileBuffPlayer
 #flags

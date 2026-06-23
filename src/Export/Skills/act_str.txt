@@ -884,6 +884,14 @@ end,
 #skill WolfPounceMarkPlayer
 #set WolfPounceMarkPlayer
 #flags duration
+statMap = {
+	["skill_wolf_mark_damage_taken_+%_per_nearby_enemy"] = {
+		mod("DamageTaken", "INC", nil, 0, 0, { type = "Multiplier", var = "MinionPresenceCount", actor = "player", limitVar = "PredatorsMarkLimit", limitTotal = true }, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["skill_wolf_mark_damage_taken_+%_cap"] = {
+		mod("Multiplier:PredatorsMarkLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -921,6 +929,28 @@ end,
 #mods
 #set RollingSlamSecondSlamPlayer
 #flags attack area melee
+#mods
+#skillEnd
+
+#skill SavageFuryPlayer
+#set SavageFuryPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SavageFuryActivePlayer
+#set SavageFuryActivePlayer
+#flags duration
+statMap = {
+	["wild_beast_life_lost_%_per_minute_nonlethal"] = {
+		mod("LifeDegen", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		div = 60,
+	},
+	["wild_beast_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } }),
+		flag("Onslaught", { type = "GlobalEffect", effectType = "Buff", effectName = "Savage Fury" }, { type = "SkillType", skillTypeList = { SkillType.UsableWhileShapeshifted, SkillType.UsableWhileShapeshifted } })
+	},
+},
 #mods
 #skillEnd
 

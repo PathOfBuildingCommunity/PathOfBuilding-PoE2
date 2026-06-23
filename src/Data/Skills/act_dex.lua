@@ -535,6 +535,11 @@ skills["BloodhoundsMarkPlayer"] = {
 			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "bloodhounds_mark",
+			statMap = {
+				["hunters_mark_%_of_max_threshold_to_trigger_explosion_on_death"] = {
+					mod("ExplosionThreshold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2117,8 +2122,8 @@ skills["EscapeShotIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
@@ -4010,9 +4015,9 @@ skills["IceTippedArrowsIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
 				"secondary_skill_triggered_by_primary_skill_of_gem",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4817,6 +4822,7 @@ skills["MetaMirageArcherPlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 60, },
@@ -6623,7 +6629,7 @@ skills["RhoaMountPlayer"] = {
 	color = 2,
 	description = "Harnesses a Companion Rhoa you can mount while you're wielding a Bow or Spear. While mounted you can use Bow, thrown Spear, and Mark Skills, and are much less slowed while using Skills, but being Hit will cause Heavy Stun buildup. While you aren't mounted, the Rhoa will attack your enemies alongside you with its beak, but can be damaged.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Companion] = true, [SkillType.CreatesCompanion] = true, [SkillType.AttackInPlace] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_minion_life_+%_final", 1 },
@@ -8186,6 +8192,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -8266,6 +8273,7 @@ skills["StormLancePlayer"] = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 30 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "base_skill_effect_duration", 1500 },
 				{ "base_secondary_skill_effect_duration", 8000 },
 				{ "overcharged_spear_base_frequency_ms", 200 },
@@ -8352,6 +8360,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "arc_chain_distance", 30 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 70 },
 			},
@@ -8429,6 +8438,7 @@ skills["StormLancePlayer"] = {
 				{ "overcharged_spear_base_frequency_ms", 800 },
 				{ "overcharged_spear_detonated_duration_ms", 200 },
 				{ "overcharged_spear_detonate_number_of_beams", 16 },
+				{ "base_number_of_projectiles", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 70 },
 			},
 			stats = {
@@ -8557,6 +8567,7 @@ skills["StormcallerArrowPlayer"] = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
+				{ "base_number_of_projectiles", 1 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -8627,6 +8638,7 @@ skills["StormcallerArrowPlayer"] = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
+				{ "base_number_of_projectiles", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 20 },
 				{ "active_skill_shock_chance_+%_final", 500 },
 				{ "active_skill_shock_as_though_damage_+%_final", 50 },

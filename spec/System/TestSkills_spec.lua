@@ -94,6 +94,54 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
+		build.skillsTab:PasteSocketGroup("Purity of Fire 20/0  1\nVitality II 1/0  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReserved)
+	end)
+
+	it("Keeps Virtuous armour scaling during Full DPS loop", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Virtuous Barrier 20/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 20/0  1")
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.mainSocketGroup = 3
+		runCallback("OnFrame")
+
+		local calcs = LoadModule("Modules/Calcs")
+		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		local normalArmour = env.player.output.Armour
+		local normalDPS = env.player.output.TotalDPS
+		assert.are.equals(1200, normalArmour)
+		assert.is_true(normalDPS > 0)
+
+		env = calcs.initEnv(build, "CALCULATOR", {}, {
+			cachedPlayerDB = cachedPlayerDB,
+			cachedEnemyDB = cachedEnemyDB,
+			cachedMinionDB = cachedMinionDB,
+			env = env,
+			accelerate = {
+				nodeAlloc = true,
+				requirementsItems = true,
+				requirementsGems = true,
+				skills = true,
+				everything = true,
+			},
+		})
+		env.modDB:NewMod("Armour", "BASE", 1000, "Test Armour")
+		env.modDB:NewMod("Damage", "INC", 10, "Test Armour Damage", ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 1 })
+		calcs.perform(env)
+
+		assert.are.equals(normalArmour, env.player.output.Armour)
+		assert.are.near(normalDPS, env.player.output.TotalDPS, 0.001)
+	end)
+
 	it("Test cost efficiency modifiers", function()
 		-- Test Mana Cost Efficiency
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
@@ -306,15 +354,48 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
-	it("applies minion offensive multiplier to all attack damage", function()
+	it("applies generated minion offensive multiplier to attack damage", function()
 		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
 		runCallback("OnFrame")
 
 		local minion = build.calcsTab.mainEnv.minion
-		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+		local expectedPhysicalMax = floor(floor(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage * (1 + minion.minionData.damageSpread))
 
 		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
-		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"), 0.0001)
+		assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"))
+	end)
+
+	it("does not apply minion offensive multiplier to spectre or companion added damage", function()
+		for _, skill in ipairs({ "Spectre: Lightless Abomination 20/0  1", "Companion: Lightless Abomination 20/0  1" }) do
+			newBuild()
+			build.skillsTab:PasteSocketGroup(skill)
+			runCallback("OnFrame")
+
+			local minion = build.calcsTab.mainEnv.minion
+			assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"))
+		end
+	end)
+
+	it("uses selected companion names in skill displays", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local skillNames = { }
+		for _, skill in ipairs(build.calcsTab.mainOutput.SkillDPS) do
+			skillNames[skill.name] = true
+		end
+		assert.is_true(skillNames["Companion: Lightless Abomination"])
+		assert.is_true(skillNames["Companion: Lightless Moray"])
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+		assert.are.equals("Companion: Lightless Abomination", build.controls.mainSkill.list[1].label)
+
+		build:RefreshSkillSelectControls(build.controls, 2, "")
+		assert.are.equals("Companion: Lightless Moray", build.controls.mainSkill.list[1].label)
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
@@ -738,6 +819,20 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
 	end)
 
+	it("averages inverted elemental resistance after penetration", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nDamage Penetrates 50% of Enemy Fire Resistance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("inverted hit"))
+		assert.truthy(breakdownText:match("weighted average"))
+	end)
+
 	it("Test granted skills with exposure stats make exposure configurable", function()
 		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
 		local spec = build.spec
@@ -948,6 +1043,25 @@ describe("TestSkills", function()
 		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
 	end)
 
+	it("Test chance to empower additional attacks contributes to average count", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Wrapped Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.skillsTab:PasteSocketGroup("Infernal Cry 20/0  1")
+		build.configTab.input.multiplierWarcryPower = 20
+		build.configTab.input.customMods = "Warcries have 15% chance to Empower 3 additional Attacks"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2.45, round(build.calcsTab.calcsOutput.InfernalEmpoweredCount, 2))
+	end)
+
 	it("Test Combined Ancestral Boosts - Ancestral Empowerment and Fist of War", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -987,4 +1101,57 @@ describe("TestSkills", function()
 		local expectedAverageEffect = 1 + (build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect - 1) * build.calcsTab.calcsOutput.AncestralEmpowermentCombinedUptimeRatio / 100
 		assert.are.equals(round(expectedAverageEffect, 4), round(build.calcsTab.calcsOutput.AvgAncestralEmpowermentCombinedDamageEffect, 4))
 	end)
+
+	it("calculates effects of parry debuff correctly", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Generic EV Shield
+			Desert Buckler
+			Evasion: 230
+			Quality: 20
+			LevelReq: 80
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Parry 20/0  1")
+		runCallback("OnFrame")
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Test general debuff
+		local preParryDmg = build.calcsTab.mainOutput.AverageDamage
+		build.configTab.configSets[1].input.parryActive = true
+		build.configTab:BuildModList()
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		local postParryDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.True(postParryDmg > preParryDmg, "Damage should be higher with Parry active")
+		
+		-- Test Magnitude
+		build.configTab.input.customMods = "50% increased parried debuff magnitude"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		local incMagnitudeDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.True(incMagnitudeDmg > postParryDmg, "Damage should be higher with increased parried debuff magnitude")
+
+		-- Test effect on spells
+		build.skillsTab:PasteSocketGroup("Bone Cage 20/0  1")
+		runCallback("OnFrame")
+		selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "BoneCagePlayer")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		local withParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
+		build.configTab.configSets[1].input.parryActive = false
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		local noParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
+	end)
+	
 end)

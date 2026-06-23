@@ -215,6 +215,7 @@ itemBases["Runeforged Ironhead Spear"] = {
 itemBases["Runemastered Ironhead Spear"] = {
 	type = "Spear",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, runeforged = true, spear = true, weapon = true, },
 	implicit = "Grants Skill: Spear Throw",

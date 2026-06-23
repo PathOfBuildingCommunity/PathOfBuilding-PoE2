@@ -5,12 +5,15 @@ return {
 [[
 Apep's Supremacy
 Voodoo Focus
+Variant: Pre 0.5.0
+Variant: Current
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent13
 UniqueEnergyShieldRechargeRate7
-UniqueEnergyShieldDelay5
+{variant:1}UniqueEnergyShieldDelay5
 UniqueElementalDamageTakenAsChaos1
 UniqueChanceToBePoisoned1
+{variant:2}UniqueChanceToPoisonOnSpellHit1
 ]],[[
 Carrion Call
 Engraved Focus

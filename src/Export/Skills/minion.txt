@@ -354,3 +354,57 @@ statMap = {
 #flags attack area duration
 #mods
 #skillEnd
+
+#skill AzmerianSwarmAttack
+#set AzmerianSwarmAttack
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedWolfPackleader
+#set WolfPackleaderMeleeAtAnimationSpeed
+#flags attack melee
+#mods
+#skillEnd
+
+#skill WolfPackleaderDashAttack Dash
+#set WolfPackleaderDashAttack
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill WolfPackleaderLungeBite Bite
+#set WolfPackleaderLungeBite
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GreatHuntPackleaderMinion
+#set GreatHuntPackleaderMinion
+#flags attack melee
+#mods
+#skillEnd
+
+#skill CompanionBearMaul
+#set CompanionBearMaul
+#flags attack melee
+#mods
+#skillEnd
+
+#skill CompanionBearSlam
+#set CompanionBearSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill CompanionBearLeapImpact Leap Slam
+#set CompanionBearLeapImpact
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GSWardboundMinionBlast Cold Spell
+#set GSWardboundMinionBlast
+#flags spell area
+#mods
+#skillEnd

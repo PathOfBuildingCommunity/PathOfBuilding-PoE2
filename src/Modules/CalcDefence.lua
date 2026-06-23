@@ -50,7 +50,7 @@ function calcs.deflectChance(deflection, accuracy)
 		return 0
 	end
 	local chanceToNotDeflect = accuracy / ( accuracy + deflection * 0.12 ) * 150 - 50
-	return 100 - m_max(m_min(round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
+	return m_max(m_min(100 - round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
@@ -86,14 +86,15 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 	for _, res in ipairs({ "Life", "Mana", "Spirit" }) do
 		local base = modDB:Sum("BASE", nil, res)
 		local extra = modDB:Sum("BASE", nil, "Extra" .. res)
+		local total = modDB:Sum("BASE", nil, res .. "Total")
 		local inc = modDB:Sum("INC", nil, res)
 		local more = modDB:More(nil, res)
 		local conv = m_min(modDB:Sum("BASE", nil, res .. "ConvertToEnergyShield", res .. "ConvertToArmour", res .. "ConvertToEvasion"), 100)
 		local override = modDB:Override(nil, res)
 		output[res.."HasOverride"] = override ~= nil
-		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more), 1)
+		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more + total), 1)
 		if breakdown then
-			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 then
+			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 or total ~= 0 then
 				breakdown[res][1] = s_format("%g ^8(base)", base)
 				if conv ~= 0 then
 					t_insert(breakdown[res], s_format("x %.2f ^8(converted from)", 1 - conv/100))
@@ -110,7 +111,10 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 				if more ~= 1 then
 					t_insert(breakdown[res], s_format("x %.2f ^8(more/less)", more))
 				end
-				if inc ~= 0 or more ~= 1 then
+				if total ~= 0 then
+					t_insert(breakdown[res], s_format("+ %g ^8(total)", total))
+				end
+				if inc ~= 0 or more ~= 1 or total ~= 0 then
 					t_insert(breakdown[res], s_format("= %g", output[res]))
 				end
 			end
@@ -760,9 +764,10 @@ function calcs.defence(env, actor)
 
 	-- Armour defence types for conditionals
 	for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-		local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
+		local item = actor.itemList[slot]
+		local armourData = item and item.armourData
 		if armourData then
-			local wardBase = armourData.Ward or 0
+			local wardBase = item:GetArmourDataValue("Ward", actor.level)
 			if wardBase > 0 then
 				output["WardOnAllArmourItems"] = (output["WardOnAllArmourItems"] or 0) + wardBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -772,7 +777,7 @@ function calcs.defence(env, actor)
 
 			end
 
-			local energyShieldBase = armourData.EnergyShield or 0
+			local energyShieldBase = item:GetArmourDataValue("EnergyShield", actor.level)
 			if energyShieldBase > 0 then
 				output["EnergyShieldOnAllArmourItems"] = (output["EnergyShieldOnAllArmourItems"] or 0) + energyShieldBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -781,7 +786,7 @@ function calcs.defence(env, actor)
 				output["EnergyShieldOn"..slot] = energyShieldBase
 			end
 
-			local armourBase = armourData.Armour or 0
+			local armourBase = item:GetArmourDataValue("Armour", actor.level)
 			if armourBase > 0 then
 				output["ArmourOnAllArmourItems"] = (output["ArmourOnAllArmourItems"] or 0) + armourBase
 				if slot == "Body Armour" then
@@ -795,7 +800,7 @@ function calcs.defence(env, actor)
 				output["ArmourOn"..slot] = armourBase
 			end
 
-			local evasionBase = armourData.Evasion or 0
+			local evasionBase = item:GetArmourDataValue("Evasion", actor.level)
 			if evasionBase > 0 then
 				output["EvasionOnAllArmourItems"] = (output["EvasionOnAllArmourItems"] or 0) + evasionBase
 				if slot == "Body Armour" then
@@ -1151,10 +1156,11 @@ function calcs.defence(env, actor)
 		local gearEvasion = 0
 		local slotCfg = wipeTable(tempTable1)
 		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-			local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
+			local item = actor.itemList[slot]
+			local armourData = item and item.armourData
 			if armourData then
 				slotCfg.slotName = slot
-				wardBase = armourData.Ward or 0
+				wardBase = item:GetArmourDataValue("Ward", actor.level)
 				if wardBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						wardBase = wardBase * 2
@@ -1182,7 +1188,7 @@ function calcs.defence(env, actor)
 						end
 					end
 				end
-				energyShieldBase = armourData.EnergyShield or 0
+				energyShieldBase = item:GetArmourDataValue("EnergyShield", actor.level)
 				if energyShieldBase > 0 then
 					if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						energyShieldBase = energyShieldBase * 2
@@ -1206,7 +1212,7 @@ function calcs.defence(env, actor)
 						end
 					end
 				end
-				armourBase = armourData.Armour or 0
+				armourBase = item:GetArmourDataValue("Armour", actor.level)
 				if armourBase > 0 then
 					if slot == "Body Armour" then
 						if modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1224,7 +1230,7 @@ function calcs.defence(env, actor)
 						breakdown.slot(slot, nil, slotCfg, armourBase, nil, "Armour", "ArmourAndEvasion", "Defences", slot.."ESAndArmour")
 					end
 				end
-				evasionBase = armourData.Evasion or 0
+				evasionBase = item:GetArmourDataValue("Evasion", actor.level)
 				if evasionBase > 0 then
 					if slot == "Body Armour" then
 						if modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -1319,8 +1325,10 @@ function calcs.defence(env, actor)
 			end
 			source.totalConversion = totalConversion
 			for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-				source.basePerSlot[slot] = actor.itemList[slot] and actor.itemList[slot].armourData and actor.itemList[slot].armourData[source.name] or 0
+				local item = actor.itemList[slot]
+				source.basePerSlot[slot] = item and item.armourData and item:GetArmourDataValue(source.name, actor.level) or 0
 			end
+			source.totalBase = modDB:Sum("BASE", nil, unpack(source.modsTotal))
 		end
 		for _, source in ipairs(resourceList) do
 			local globalBase = modDB:Sum("BASE", nil, unpack(source.mods)) + source.globalBase
@@ -1328,6 +1336,7 @@ function calcs.defence(env, actor)
 			if globalOverride then
 				globalBase = globalOverride
 			end
+			local totalBase = source.totalBase
 			for _, target in ipairs(resourceList) do
 				if source.name ~= target.name then
 					if source.defence then
@@ -1348,18 +1357,22 @@ function calcs.defence(env, actor)
 									source.basePerSlot[slot] = source.basePerSlot[slot] * (100 - source.totalConversion) / 100
 								end
 							end
-							target.globalBase = target.globalBase + globalBase * rate / 100
+							local targetBase = globalBase * rate / 100
+							local targetTotalBase = totalBase * rate / 100
+							target.globalBase = target.globalBase + targetBase
+							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
-								breakdown.slot("Global", source.name .. " to " .. target.name .. " conversion", nil, globalBase, nil, unpack(target.mods))
+								breakdown.slot("Global", source.name .. " to " .. target.name .. " conversion", nil, targetBase, nil, unpack(target.mods))
 							end
 						end
-						source.globalBase = globalBase * (100 - source.totalConversion) / 100
 					else
 						local gainRate = modDB:Sum("BASE", nil, source.name .. "GainAs" .. target.name)
 						local rate = source.conversionRate[target.name] + gainRate
 						if rate > 0 then
 							local targetBase = math.ceil(globalBase * rate / 100)
+							local targetTotalBase = math.ceil(totalBase * rate / 100)
 							target.globalBase = target.globalBase + targetBase
+							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
 								breakdown.slot("Conversion", source.name .. " to " .. target.name, nil, targetBase, nil, unpack(target.mods))
 							end
@@ -1367,15 +1380,20 @@ function calcs.defence(env, actor)
 					end
 				end
 			end
+			if source.defence then
+				source.globalBase = globalBase * (100 - source.totalConversion) / 100
+				source.totalBase = totalBase * (100 - source.totalConversion) / 100
+			end
 		end
 		for _, res in ipairs(resourceList) do
 			if res.defence then
 				for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
 					output[res.name] = output[res.name] + res.basePerSlot[slot] * calcLib.mod(modDB, { slotName = slot }, unpack(res.mods))
 				end
-				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + modDB:Sum("BASE", nil, unpack(res.modsTotal))
+				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + res.totalBase
 			else
 				modDB:NewMod("Extra"..res.name, "BASE", res.globalBase, "Conversion")
+				modDB:NewMod(res.name.."Total", "BASE", res.totalBase, "Conversion")
 			end
 		end
 
@@ -2330,7 +2348,13 @@ function calcs.buildDefenceEstimations(env, actor)
 		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
-		local percentOfArmourApplies = (not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
+		local percentOfArmourApplies = 0
+		if not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") then
+			percentOfArmourApplies = modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken")
+		end
+		if isElemental[damageType] and not modDB:Flag(nil, "ArmourDoesNotApplyToElementalDamageTaken") then
+			percentOfArmourApplies = percentOfArmourApplies + modDB:Sum("BASE", nil, "ArmourAppliesToElementalDamageTaken")
+		end
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }

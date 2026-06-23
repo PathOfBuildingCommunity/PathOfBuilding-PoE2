@@ -27,6 +27,7 @@ end
 
 local uniqueNameLookup = {}
 local unmatchedIds = {}
+local originLookup = {}
 local forcedNameMap = {
 	["FourUniqueSceptre6"]   = "Guiding Palm",
 	["FourUniqueSceptre6a"]  = "Guiding Palm of the Heart",
@@ -37,10 +38,18 @@ local forcedNameMap = {
 
 for row in dat("UniqueStashLayout"):Rows() do
 	-- We use Text2 because Words.Text has "The Immortan" instead of "The Road Warrior". Everything else so far matches up.
-	local name = row.WordsKey.Text2
+	local name = sanitiseText(row.WordsKey.Text2)
 	local id = normalizeId(row.ItemVisualIdentity.Id)
 	uniqueNameLookup[id] = name
 	unmatchedIds[id] = name
+
+	-- Look for origin in UniqueOrigins
+	for originRow in dat("UniqueOrigins"):Rows() do
+		if tostring(sanitiseText(originRow.Unique.Text2)) == name then
+			originLookup[id] = originRow.Origin.Id
+			break
+		end
+	end
 end
 
 local out = io.open("../Data/FlavourText.lua", "w")
@@ -52,12 +61,16 @@ local index = 1
 for c in dat("FlavourText"):Rows() do
 	local id = normalizeId(c.Id)
 	local name = forcedNameMap[id] or uniqueNameLookup[id]
+	local origin = originLookup[id]
 
 	if name then
 		local lines = cleanAndSplit(tostring(c.Text))
 		out:write('\t[', index, '] = {\n')
 		out:write('\t\tid = "', tostring(c.Id), '",\n')
 		out:write('\t\tname = "', name, '",\n')
+		if origin then
+			out:write('\t\torigin = "', origin, '",\n')
+		end
 		out:write('\t\ttext = {\n')
 		for _, line in ipairs(lines) do
 			out:write('\t\t\t"', line, '",\n')

@@ -32,6 +32,7 @@ Below are some common color codes PoB uses:	]]
 	self.controls.default = new("ButtonControl", {"TOPLEFT",self.controls.intelligence,"TOPLEFT"}, {120, 0, 100, 18}, "^7DEFAULT", function() self:SetColor("^7") end)
 
 	self.controls.edit = new("EditControl", {"TOPLEFT",self.controls.fire,"TOPLEFT"}, {0, 48, 0, 0}, "", nil, "^%C\t\n", nil, nil, 16, true)
+	self.controls.edit.disableRightClickPaste = true
 	self.controls.edit.width = function()
 		return self.width - 16
 	end

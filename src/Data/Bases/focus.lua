@@ -333,7 +333,7 @@ itemBases["Runeforged Arrayed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 41, Ward = 45, },
+	armour = { EnergyShield = 43, Ward = 45, },
 	req = { level = 54, int = 77, },
 }
 itemBases["Runeforged Cultist Focus"] = {
@@ -351,7 +351,7 @@ itemBases["Runeforged Hallowed Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 40, Ward = 58, },
+	armour = { EnergyShield = 43, Ward = 58, },
 	req = { level = 61, int = 86, },
 }
 itemBases["Runeforged Druidic Focus"] = {
@@ -360,7 +360,7 @@ itemBases["Runeforged Druidic Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 51, Ward = 62, },
+	armour = { EnergyShield = 55, Ward = 62, },
 	req = { level = 65, int = 91, },
 }
 itemBases["Runeforged Leyline Focus"] = {
@@ -369,7 +369,7 @@ itemBases["Runeforged Leyline Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 39, Ward = 114, },
+	armour = { EnergyShield = 47, Ward = 114, },
 	req = { level = 70, int = 99, },
 }
 itemBases["Runeforged Sacred Focus"] = {
@@ -378,7 +378,7 @@ itemBases["Runeforged Sacred Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 65, Ward = 53, },
+	armour = { EnergyShield = 68, Ward = 53, },
 	req = { level = 75, int = 107, },
 }
 itemBases["Runeforged Tasalian Focus"] = {
@@ -387,12 +387,13 @@ itemBases["Runeforged Tasalian Focus"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 24, Ward = 181, },
+	armour = { EnergyShield = 36, Ward = 181, },
 	req = { level = 80, int = 115, },
 }
 itemBases["Runemastered Twig Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -402,6 +403,7 @@ itemBases["Runemastered Twig Focus"] = {
 itemBases["Runemastered Woven Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -411,6 +413,7 @@ itemBases["Runemastered Woven Focus"] = {
 itemBases["Runemastered Antler Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, ezomyte_basetype = true, focus = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
@@ -420,6 +423,7 @@ itemBases["Runemastered Antler Focus"] = {
 itemBases["Runemastered Engraved Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -429,6 +433,7 @@ itemBases["Runemastered Engraved Focus"] = {
 itemBases["Runemastered Tonal Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -438,6 +443,7 @@ itemBases["Runemastered Tonal Focus"] = {
 itemBases["Runemastered Crystal Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, maraketh_basetype = true, runeforged = true, },
 	implicitModTypes = { },
@@ -447,6 +453,7 @@ itemBases["Runemastered Crystal Focus"] = {
 itemBases["Runemastered Voodoo Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },
@@ -456,6 +463,7 @@ itemBases["Runemastered Voodoo Focus"] = {
 itemBases["Runemastered Plumed Focus"] = {
 	type = "Focus",
 	quality = 20,
+	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, focus = true, int_armour = true, runeforged = true, vaal_basetype = true, },
 	implicitModTypes = { },

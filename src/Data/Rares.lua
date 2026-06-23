@@ -5,28 +5,28 @@
 -- Helmet
 [[
 Armour Helmet
-Runemastered Rusted Greathelm
+Runeforged Imperial Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Evasion Helmet
-Runeforged Trapper Hood
+Runeforged Freebooter Cap
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Energy Shield Helmet
-Runeforged Magus Tiara
+Runeforged Ancestral Tiara
 Crafted: true
 Prefix: IncreasedLife7
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Runemastered Guarded Helm
+Runeforged Gladiatorial Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
@@ -49,28 +49,28 @@ Prefix: IncreasedLife7
 -- Gloves
 [[
 Armour Gloves
-Runeforged Vaal Mitts
+Runeforged Massive Mitts
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating4
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Evasion Gloves
-Runeforged Barbed Bracers
+Runeforged Polished Bracers
 Crafted: true
 Prefix: LocalIncreasedEvasionRating3
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Energy Shield Gloves
-Runeforged Adorned Gloves
+Runeforged Sirenscale Gloves
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield6
 ]],[[
 Armour/Evasion Gloves
-Blacksteel Gauntlets
+Runeforged Blacksteel Gauntlets
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
@@ -93,7 +93,7 @@ Prefix: IncreasedLife6
 -- Body Armour
 [[
 Armour Chest
-Runeforged Conqueror Plate
+Runeforged Soldier Cuirass
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
@@ -107,21 +107,21 @@ Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Energy Shield Chest
-Runeforged Havoc Raiment
+Runeforged Vile Robe
 Crafted: true
 Prefix: IncreasedLife9
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield10
 ]],[[
 Armour/Evasion Chest
-Death Mail
+Runeforged Death Mail
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife9
 ]],[[
 Armour/Energy Shield Chest
-Runemastered Revered Vestments
+Runeforged Wolfskin Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
@@ -151,28 +151,28 @@ Prefix: IncreasedSpirit6
 -- Boots
 [[
 Armour Boots
-Runeforged Vaal Greaves
+Runeforged Tasalian Greaves
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion Boots
-Runeforged Dragonscale Boots
+Runeforged Drakeskin Boots
 Crafted: true
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Energy Shield Boots
-Runeforged Elaborate Sandals
+Runeforged Sekhema Sandals
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Runemastered Stacked Sabatons
+Runeforged Blacksteel Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
@@ -195,7 +195,7 @@ Prefix: MovementVelocity5
 -- Shields
 [[
 Armour Shield
-Runemastered Vaal Tower Shield
+Runeforged Tawhoan Tower Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
@@ -209,7 +209,7 @@ Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Evasion Shield
-Golden Targe
+Runeforged Golden Targe
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEvasion5

@@ -22,6 +22,17 @@ Instant Recovery
 (100-150)% increased Charges per use
 {variant:1}Excess Life Recovery added as Guard for 10 seconds
 {variant:2}Excess Life Recovery added as Guard for 20 seconds
+]],[[
+Opportunity
+Ultimate Life Flask
+League: Runes of Aldur
+Effect is not removed when Unreserved Life is Filled
+Cannot be Used manually
+Used when you release a skill with Perfect Timing
+Skills have (80-120)% longer Perfect Timing window during effect
+(100-150)% increased Amount Recovered
+(25-50)% reduced Recovery rate
+(50-75)% reduced Charges per use
 ]],
 -- Flask: Mana
 [[
@@ -44,6 +55,15 @@ Effect is not removed when Unreserved Mana is Filled
 {variant:3}Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres
 {variant:1}Recover all Mana when Used
 Deals 25% of current Mana as Chaos Damage to you when Effect ends
+]],[[
+Uhtred's Chalice
+Transcendent Mana Flask
+League: Runes of Aldur
+(200-300)% increased Amount Recovered
+70% reduced Recovery rate
+(50-60)% reduced Charges
+Lose 5% Life per second while you have no Runic Ward during Effect
+Mana Recovery from Flasks can Overflow maximum Mana during Effect
 ]],
 -- Charm
 [[

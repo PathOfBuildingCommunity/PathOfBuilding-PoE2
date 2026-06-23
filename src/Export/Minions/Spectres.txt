@@ -356,7 +356,7 @@ local minions, mod, flag = ...
 
 -- Serpent Shaman
 #spectre Metadata/Monsters/SerpentClanMonster/SerpentClanCaster
-#flags recommendedSpectre recommendedBeast
+#flags recommendedSpectre
 #emit
 
 -- Shade
@@ -415,6 +415,9 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/Spiker/Spiker3_
+#emit
+
+#spectre Metadata/Monsters/Spiker/Spiker3SanctumTrial__
 #emit
 
 #spectre Metadata/Monsters/MudBurrower/BrambleBurrower
@@ -528,6 +531,30 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmedHusbandWife
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmedStance2
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonOneHandSword__
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonOneHandSwordHusbandWife
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonOneHandSwordShield
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonOneHandSwordShieldHusbandWife
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonBowHusbandWife
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonCasterColdHusbandWife
 #emit
 
 #spectre Metadata/Monsters/SnakeFlowerMan/BloomSerpent1
@@ -668,6 +695,10 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication02
 #flags recommendedSpectre
 #emit
 
@@ -1176,6 +1207,36 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 #emit
 
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedKnifestickBloodUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedKnifestickChaosUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedKnifestickColdUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedKnifestickFireUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedKnifestickLightning__Ultimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedSpearBloodUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedSpearChaosUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedSpearColdUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedSpearFireUltimatium
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedSpearLightningUltimatium_
+#emit
+
 #spectre Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_
 #emit
 
@@ -1480,4 +1541,342 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment
+#emit
+
+#spectre Metadata/Monsters/PrecursorDrillSphere/DrillSphere
+#emit
+
+#spectre Metadata/Monsters/PrecursorCannisterMover/PrecursorCannisterMover
+#emit
+
+#spectre Metadata/Monsters/PrecursorCorruptionProcessor/PrecursorCorruptionProcessor
+#emit
+
+#spectre Metadata/Monsters/PrecursorRaptorDefender/RaptorDefender_
+#emit
+
+#spectre Metadata/Monsters/PrecursorCentipedeTrain/PrecursorCentipedeTrainHead
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/AntCarrierExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/BaneSaplingExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/HoneyAntExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/NettleAntExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ArachnidFaction/ShakariExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ArachnidFaction/TumourSpiderExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/AnglerFishParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/ShellMonsterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/IceCasterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/MassGoldSkeletonExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/MantaRayParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/OctopusParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/ParasiteHostMonsterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/Cocoon3Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueBringerExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph1Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph2Expedition_
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph3Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph4Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueNymphExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatue2Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatueSnakeExpedition
+#emit
+
+#spectre Metadata/Monsters/CorpseWheel/PlagueCorpseWheel
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanTrapper
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanVillager
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanCaster
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanVaulter
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanDagger
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanKina
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanHarpooner
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanBirdFisherman
+#emit
+
+#spectre Metadata/Monsters/BloodClan/BloodClanBird
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_
+#emit
+
+#spectre Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion1
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion2
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion3
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion4
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion5_
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumMinion6_
+#emit
+
+#spectre Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutch_Strongbox_
+#emit
+
+#spectre Metadata/Monsters/SkeletonSnake/SandSkeletonSnake
+#emit
+
+#spectre Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionDisgust
+#emit
+
+#spectre Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionFury
+#emit
+
+#spectre Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionMalice
+#emit
+
+#spectre Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionRage
+#emit
+
+#spectre Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionSpite
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionBannerIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Smithy/VaalForgemanIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Doctor/DoctorIncursionTier1_
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/CommanderNew/VaalGuardClawsIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/CommanderNew/VaalGuardSpearIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/CommanderOld/UndeadVaalGuardSpearIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Garrison/VaalOverseerLivingIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Garrison/VaalOverseerLivingIncursionRare
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidBladeHandsIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidStalkerIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/ViperLegionnaire/ViperLegionnaireSwordIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructPyramidIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructSkitterbotIncursion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/VaalThaumaturgeSpear
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/SoulCoreQuadrillaMinion
+#emit
+
+#spectre Metadata/Monsters/LeagueIncursionNew/MiniBosses/IncursionChainedBeastBoss/ChainedBeastBossMinion_
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/GoldenOnesUnarmedExpedition_
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/VaalForgeManExpedition
+#emit
+
+-- Unique Bosses
+
+#spectre Metadata/Monsters/CrowBell/CrowBellBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/CrowBell/CrowBellBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Bird2/MutantBird2Minion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Bird2/MutantBird2Minion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Quadrilla/QuadrillaBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Quadrilla/QuadrillaBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion
+#flags recommendedBeast
 #emit

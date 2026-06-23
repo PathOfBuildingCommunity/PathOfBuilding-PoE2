@@ -83,7 +83,7 @@ end
 
 -- Check if given support skill can support the given active skill
 function calcLib.canGrantedEffectSupportActiveSkill(grantedEffect, activeSkill)
-	if grantedEffect.unsupported or activeSkill.activeEffect.grantedEffect.cannotBeSupported then
+	if activeSkill.activeEffect.grantedEffect.cannotBeSupported then
 		return false
 	end
 	if grantedEffect.supportGemsOnly and not activeSkill.activeEffect.gemData then

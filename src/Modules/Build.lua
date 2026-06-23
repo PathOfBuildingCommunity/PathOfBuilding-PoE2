@@ -814,7 +814,7 @@ function buildMode:CustomLoadout(specId, itemSetId, skillSetId, configSetId, nam
 	else
 		newConfigSet = self.configTab:CopyConfigSet(configSetId, name)
 	end
-	
+
 	local customLoadout = self:GetLoadoutByName(name)
 	self:SetActiveLoadout(customLoadout)
 
@@ -1721,8 +1721,8 @@ function buildMode:OpenSpectreLibrary(library)
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
-	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "Show All " .. firstToUpper(library) .. "s:")
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
+	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "^7Show All " .. firstToUpper(library) .. "s:")
 	controls.save = new("ButtonControl", nil, {-45, 420, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
@@ -1955,7 +1955,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			local explodeSource = activeSkill.activeEffect.srcInstance.explodeSource
 			local explodeSourceName = explodeSource and (explodeSource.name or explodeSource.dn)
 			local colourCoded = explodeSourceName and ("From "..colorCodes[explodeSource.rarity or "NORMAL"]..explodeSourceName)
-			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or activeSkill.activeEffect.grantedEffect.name })
+			t_insert(controls.mainSkill.list, { val = i, label = colourCoded or self.calcsTab.calcs.getActiveSkillDisplayName(activeSkill) })
 		end
 		controls.mainSkill.enabled = #displaySkillList > 1
 		controls.mainSkill.selIndex = mainActiveSkill

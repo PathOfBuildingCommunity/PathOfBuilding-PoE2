@@ -38,6 +38,18 @@ UniqueIncreasedMana7
 UniqueLifeRegeneration2
 Cannot be Shocked
 ]],[[
+Cat O' Nine Tails
+Utility Belt
+League: Runes of Aldur
+Implicits: 2
+BeltImplicitInstantFlaskRecoveryPercent1
+BeltImplicitCharmSlots3
+UniqueIncreasedLife51
+UniqueRegeneratePercentLifeIfHitRecently1
+UniqueLifeRecoveryRate1
+UniqueCannotRecoverAboveLowLifeExceptFlasks1
+UniqueGainPercentLifeAsThorns1
+]],[[
 Coward's Legacy
 Mail Belt
 Implicits: 2
@@ -81,9 +93,12 @@ UniqueLifeFlasksOvercapLife1
 Goregirdle
 Plate Belt
 League: Dawn of the Hunt
+Variant: Pre 0.5.0
+Variant: Current
 Implicits: 2
 BeltImplicitCharmSlots3
-BeltImplicitPhysicalDamageReductionRating1
+{variant:2}BeltImplicitPhysicalDamageReductionRating1
+{variant:1}BeltImplicitPhysicalDamageReductionRating1[100,140]
 UniqueStrength10
 UniqueLifeRegeneration17
 UniqueDoubleArmourEffect1
@@ -103,15 +118,17 @@ Infernoclasp
 Plate Belt
 Source: No longer obtainable
 Variant: Pre 0.1.1
+Variant: Pre 0.5.0
 Variant: Current
 Implicits: 2
 BeltImplicitCharmSlots3
-BeltImplicitPhysicalDamageReductionRating1
+{variant:3}BeltImplicitPhysicalDamageReductionRating1
+{variant:1,2}BeltImplicitPhysicalDamageReductionRating1[100,140]
 UniqueIncreasedPhysicalDamageReductionRating1
 UniqueStrength2
 UniqueMaximumFireResist1
 {variant:1}UniqueFireResist3[25,35]
-{variant:2}UniqueFireResist3
+{variant:2,3}UniqueFireResist3
 ]],[[
 Ingenuity
 Utility Belt
@@ -142,6 +159,50 @@ UniqueFlaskManaRecoveryRate2
 {variant:2}UniqueLifeFlaskChargeGeneration1
 {variant:1}UniqueManaFlaskChargeGeneration1[0,15]
 {variant:2}UniqueManaFlaskChargeGeneration1
+]],[[
+Mageblood
+Utility Belt
+Has Alt Variant: true
+Has Alt Variant Two: true
+Has Alt Variant Three: true
+Selected Variant: 1
+Selected Alt Variant: 2
+Selected Alt Variant Two: 3
+Selected Alt Variant Three: 4
+Allow Duplicate Variants: true
+Variant: Legacy of Amethyst
+Variant: Legacy of Basalt
+Variant: Legacy of Bismuth
+Variant: Legacy of Diamond
+Variant: Legacy of Gold
+Variant: Legacy of Granite
+Variant: Legacy of Jade
+Variant: Legacy of Quicksilver
+Variant: Legacy of Ruby
+Variant: Legacy of Sapphire
+Variant: Legacy of Silver
+Variant: Legacy of Stibnite
+Variant: Legacy of Sulphur
+Variant: Legacy of Topaz
+League: Runes of Aldur
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitInstantFlaskRecoveryPercent1
+{variant:1}Legacy of Amethyst
+{variant:2}Legacy of Basalt
+{variant:3}Legacy of Bismuth
+{variant:4}Legacy of Diamond
+{variant:5}Legacy of Gold
+{variant:6}Legacy of Granite
+{variant:7}Legacy of Jade
+{variant:8}Legacy of Quicksilver
+{variant:9}Legacy of Ruby
+{variant:10}Legacy of Sapphire
+{variant:11}Legacy of Silver
+{variant:12}Legacy of Stibnite
+{variant:13}Legacy of Sulphur
+{variant:14}Legacy of Topaz
+UniqueIncreasedMagesLegacyEffectPerDuplicateMagesLegacy
 ]],[[
 Meginord's Girdle
 Rawhide Belt
@@ -221,6 +282,7 @@ UniqueLifeManaFlaskAnySlot1
 Zerphi's Genesis
 Heavy Belt
 Variant: Pre 0.2.0f
+Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
@@ -231,6 +293,9 @@ BeltImplicitIncreasedStunThreshold1
 UniqueStrength28
 UniqueCorruptedBloodImmunity1
 UniqueCharmChargesToLifeFlasks1
-UniqueReducedCharmChargesUsed1
+{variant:1,2}UniqueReducedCharmChargesUsed1
+{variant:3}UniqueLifeFlaskChargesToCharms1
+{variant:3}UniqueCorruptedSkillCostEfficiencyDuringFlaskEffect1
+{variant:3}UniqueCorruptedCharmDuration1
 ]],
 }
