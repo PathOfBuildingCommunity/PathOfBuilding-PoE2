@@ -3017,23 +3017,23 @@ return {
 --
 --Fire
 ["supported_fire_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Fire }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Fire" }),
 },
 --Cold
 ["supported_cold_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Cold }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Cold" }),
 },
 --Lightning
 ["supported_lightning_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Lightning }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Lightning" }),
 },
 --Chaos
 ["supported_chaos_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Chaos }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Chaos" }),
 },
 --Physical
 ["supported_physical_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Physical }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Physical" }),
 },
 --Active
 ["supported_active_skill_gem_level_+"] = {
@@ -3044,23 +3044,23 @@ return {
 },
 --Aura
 ["supported_aura_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Aura }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Aura" }),
 },
 --Curse
 ["supported_curse_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, KeywordFlag.Curse),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Curse" }),
 },
 --Strike
 ["supported_strike_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.MeleeSingleTarget }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Strike" }),
 },
 --Elemental
 ["supported_elemental_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, OR64(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire)),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTagList = { "Lightning", "Cold", "Fire" } }),
 },
 --Minion
 ["supported_minion_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "GemTag", gemTag = "Minion" }),
 },
 -- Remnant stats
 ["remnant_effect_+%"] = {

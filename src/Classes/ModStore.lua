@@ -827,6 +827,25 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			if not match then
 				return
 			end
+		elseif tag.type == "GemTag" then
+			local match = false
+			local gemTags = cfg and cfg.skillGem and cfg.skillGem.tags
+			if tag.gemTagList then
+				for _, gemTag in pairs(tag.gemTagList) do
+					if gemTags and gemTags[gemTag:lower()] then
+						match = true
+						break
+					end
+				end
+			else
+				match = gemTags and gemTags[tag.gemTag:lower()]
+			end
+			if tag.neg then
+				match = not match
+			end
+			if not match then
+				return
+			end
 		elseif tag.type == "BaseFlag" then
 			local match = false
 			if cfg and cfg.skillGem and cfg.skillGem.grantedEffect and cfg.skillGem.grantedEffect.statSets and cfg.skillGem.grantedEffect.statSets[1] then
