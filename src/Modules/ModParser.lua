@@ -1433,8 +1433,6 @@ local preFlagList = {
 	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^enemies in your presence [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
-	-- Bonded
-	["^bonded: "] = { tag = { type = "Condition", var = "CanUseBondedModifiers" } },
 }
 
 -- List of modifier tags
@@ -6216,13 +6214,13 @@ end
 -- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
 specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
 	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
-	
+
 	-- look for static or dynamically phrased base immunity mod
 	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
 	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
 	local lowerAilment = ailment and string.lower(ailment) or ""
 	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
-	
+
 	-- look if condition exists
 	-- todo make more dynamic
 	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
@@ -6497,34 +6495,61 @@ end
 local jewelFuncList = { }
 
 local function parseMod(line, order)
-	-- Check if this is a special modifier
+	-- Check for "Bonded: " prefix FIRST and strip it
 	local lineLower = line:lower()
+	local bondedTag
+	if lineLower:match("^bonded: ") then
+		bondedTag = { type = "Condition", var = "CanUseBondedModifiers" }
+		line = line:sub(9) -- Strip "Bonded: "
+		lineLower = line:lower()
+	end
+
+	-- Check if this is a special modifier (Jewel Functions)
 	for pattern, patternVal in pairs(jewelFuncList) do
 		local _, _, cap1, cap2, cap3, cap4, cap5 = lineLower:find(pattern, 1)
 		if cap1 then
-			return {mod("JewelFunc", "LIST", {func = patternVal.func(cap1, cap2, cap3, cap4, cap5), type = patternVal.type }) }
+			local m = mod("JewelFunc", "LIST", {func = patternVal.func(cap1, cap2, cap3, cap4, cap5), type = patternVal.type })
+			if m and bondedTag then t_insert(m, bondedTag) end
+			return { m }
 		end
 	end
 	local jewelFunc = jewelFuncList[lineLower]
 	if jewelFunc then
-		return { mod("JewelFunc", "LIST", jewelFunc) }
+		local m = mod("JewelFunc", "LIST", jewelFunc)
+		if m and bondedTag then t_insert(m, bondedTag) end
+		return { m }
 	end
 	if unsupportedModList[lineLower] then
 		return { }, line
 	end
+
+	-- Check for special mods via scan
 	local specialMod, specialLine, cap = scan(line, specialModList)
 	if specialMod and #specialLine == 0 then
 		if type(specialMod) == "function" then
-			return specialMod(tonumber(cap[1]), unpack(cap))
+			local mods = specialMod(tonumber(cap[1]), unpack(cap))
+			if not mods then return { }, line end
+			if mods.name then mods = { mods } end -- Convert single mod to list
+			if bondedTag then
+				for _, m in ipairs(mods) do t_insert(m, bondedTag) end
+			end
+			return mods
 		else
-			return copyTable(specialMod)
+			local mods = copyTable(specialMod)
+			if mods.name then mods = { mods } end
+			if bondedTag then
+				for _, m in ipairs(mods) do t_insert(m, bondedTag) end
+			end
+			return mods
 		end
 	end
 
 	-- Check for add-to-cluster-jewel special
 	local addToCluster = line:match("^Added Small Passive Skills also grant: (.+)$")
 	if addToCluster then
-		return { mod("AddToClusterJewelNode", "LIST", addToCluster) }
+		local m = mod("AddToClusterJewelNode", "LIST", addToCluster)
+		if bondedTag then t_insert(m, bondedTag) end
+		return { m }
 	end
 
 	line = line .. " "
@@ -6764,7 +6789,7 @@ local function parseMod(line, order)
 			effect = getEffectFromStatus(effectLine)
 			effect = combineToUpper(effect)
 		end
-		
+
 		if type(effect) == "table" then
 			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
 			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }
@@ -6852,36 +6877,50 @@ local function parseMod(line, order)
 			unpack(tagList),
 			}
 		if modTagList and modTagList[i] then t_insert(modList[i], unpack(modTagList[i])) end
+
+		-- If it's a normal player mod, add the bonded requirement here
+		if bondedTag and not (misc.addToMinion or misc.applyToEnemy or misc.addToAura or misc.addToSkill or misc.newAura) then
+			t_insert(modList[i], bondedTag)
+		end
 	end
+
 	if modList[1] then
 		-- Special handling for various modifier types
 		if misc.addToAura then
 			if misc.onlyAddToBanners then
 				for i, effectMod in ipairs(modList) do
-					modList[i] = mod("ExtraAuraEffect", "LIST", { mod = effectMod }, { type = "SkillType", skillType = SkillType.Banner })
+					local tags = { { type = "SkillType", skillType = SkillType.Banner } }
+					if bondedTag then t_insert(tags, bondedTag) end
+					modList[i] = mod("ExtraAuraEffect", "LIST", { mod = effectMod }, unpack(tags))
 				end
 			else
 				-- Modifiers that add effects to your auras
 				for i, effectMod in ipairs(modList) do
-					modList[i] = mod("ExtraAuraEffect", "LIST", { mod = effectMod })
+					if bondedTag then
+						modList[i] = mod("ExtraAuraEffect", "LIST", { mod = effectMod }, bondedTag)
+					else
+						modList[i] = mod("ExtraAuraEffect", "LIST", { mod = effectMod })
+					end
 				end
 			end
 		elseif misc.newAura then
 			-- Modifiers that add extra auras
 			for i, effectMod in ipairs(modList) do
-				local tagList = { }
+				local tags = { }
+				if bondedTag then t_insert(tags, bondedTag) end
 				for i, tag in ipairs(effectMod) do
-					tagList[i] = tag
+					t_insert(tags, tag)
 					effectMod[i] = nil
 				end
-				modList[i] = mod("ExtraAura", "LIST", { mod = effectMod, onlyAllies = misc.newAuraOnlyAllies }, unpack(tagList))
+				modList[i] = mod("ExtraAura", "LIST", { mod = effectMod, onlyAllies = misc.newAuraOnlyAllies }, unpack(tags))
 			end
 		elseif misc.addToMinion then
 			-- Minion modifiers
 			for i, effectMod in ipairs(modList) do
 				local tagList = { }
+				if bondedTag then t_insert(tagList, bondedTag) end
 				if misc.playerTag then t_insert(tagList, misc.playerTag) end
-				if misc.addToMinionTag then t_insert(tagList, misc.addToMinionTag) end
+				if misc.addToMinionTag then t_insert(tags, misc.addToMinionTag) end
 				if misc.playerTagList then
 					for _, tag in ipairs(misc.playerTagList) do
 						t_insert(tagList, tag)
@@ -6892,11 +6931,16 @@ local function parseMod(line, order)
 		elseif misc.addToSkill then
 			-- Skill enchants or socketed gem modifiers that add additional effects
 			for i, effectMod in ipairs(modList) do
-				modList[i] = mod("ExtraSkillMod", "LIST", { mod = effectMod }, misc.addToSkill)
+				if bondedTag then
+					modList[i] = mod("ExtraSkillMod", "LIST", { mod = effectMod }, misc.addToSkill, bondedTag)
+				else
+					modList[i] = mod("ExtraSkillMod", "LIST", { mod = effectMod }, misc.addToSkill)
+				end
 			end
 		elseif misc.applyToEnemy then
 			for i, effectMod in ipairs(modList) do
 				local tagList = { }
+				if bondedTag then t_insert(tagList, bondedTag) end
 				if misc.playerTag then t_insert(tagList, misc.playerTag) end
 				if misc.playerTagList then
 					for _, tag in ipairs(misc.playerTagList) do
