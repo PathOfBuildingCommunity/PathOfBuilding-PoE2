@@ -42,7 +42,8 @@ local function getActor(self, actorType)
 	end
 end
 
-function ModStoreClass:ScaleAddMod(mod, scale)
+-- roundToNearest is reserved for effects that the game rounds instead of truncates.
+function ModStoreClass:ScaleAddMod(mod, scale, roundToNearest)
 	local unscalable = false
 	for _, effects in ipairs(mod) do
 		if effects.unscalable then
@@ -71,6 +72,8 @@ function ModStoreClass:ScaleAddMod(mod, scale)
 			if precision then
 				local power = 10 ^ precision
 				subMod.value = m_floor(subMod.value * scale * power) / power
+			elseif roundToNearest then
+				subMod.value = roundSymmetric(subMod.value * scale)
 			else
 				subMod.value = m_modf(round(subMod.value * scale, 2))
 			end
@@ -85,12 +88,12 @@ function ModStoreClass:CopyList(modList)
 	end
 end
 
-function ModStoreClass:ScaleAddList(modList, scale)
+function ModStoreClass:ScaleAddList(modList, scale, roundToNearest)
 	if scale == 1 then
 		self:AddList(modList)
 	else
 		for i = 1, #modList do
-			self:ScaleAddMod(modList[i], scale)
+			self:ScaleAddMod(modList[i], scale, roundToNearest)
 		end
 	end
 end
