@@ -6076,11 +6076,12 @@ local specialModList = {
 		mod("LightningMax", "BASE", 1, { type = "PercentStat", stat = "Mana" , percent = num }, { type = "SkillType", skillType = SkillType.Attack }),
 	} end,
 	["(%d+)%% reduced movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num) } end,
+	["(%d+)%% reduced movement speed penalty while actively blocking"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num, { type = "SkillType", skillType = SkillType.ActiveBlock }) } end,
 	["(%d+)%% less movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "MORE", -num) } end,
 	["no movement speed penalty while shield is raised"] = function(num) return {
-		mod("MovementSpeedPenalty", "MORE", -100, { type = "SkillName", skillName = "Raise Shield"})
+		mod("MovementSpeedPenalty", "MORE", -100, { type = "SkillType", skillType = SkillType.ActiveBlock })
 	} end,
-		-- Conditional Player Quantity / Rarity
+	-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,
 	-- Skill-specific enchantment modifiers
