@@ -1570,6 +1570,6 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 			end
 		end
 	end
-	GlobalGemAssignments["GemGroupCount"] = self:CountGemGroups()
+	GlobalGemAssignments["GemGroupCount"] = SkillsTabClass.CountGemGroups(self)
 end
 
