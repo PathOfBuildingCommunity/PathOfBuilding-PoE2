@@ -1720,6 +1720,7 @@ statMap = {
 #skillEnd
 
 #skill SupportUnderminePlayer
+legacy = true
 #set SupportUnderminePlayer
 #mods
 #skillEnd
