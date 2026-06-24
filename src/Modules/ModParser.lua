@@ -6906,13 +6906,13 @@ local function parseMod(line, order)
 		elseif misc.newAura then
 			-- Modifiers that add extra auras
 			for i, effectMod in ipairs(modList) do
-				local tags = { }
+				local tagList = { }
 				if bondedTag then t_insert(tags, bondedTag) end
 				for i, tag in ipairs(effectMod) do
 					t_insert(tags, tag)
 					effectMod[i] = nil
 				end
-				modList[i] = mod("ExtraAura", "LIST", { mod = effectMod, onlyAllies = misc.newAuraOnlyAllies }, unpack(tags))
+				modList[i] = mod("ExtraAura", "LIST", { mod = effectMod, onlyAllies = misc.newAuraOnlyAllies }, unpack(tagList))
 			end
 		elseif misc.addToMinion then
 			-- Minion modifiers
@@ -6920,7 +6920,7 @@ local function parseMod(line, order)
 				local tagList = { }
 				if bondedTag then t_insert(tagList, bondedTag) end
 				if misc.playerTag then t_insert(tagList, misc.playerTag) end
-				if misc.addToMinionTag then t_insert(tags, misc.addToMinionTag) end
+				if misc.addToMinionTag then t_insert(tagList, misc.addToMinionTag) end
 				if misc.playerTagList then
 					for _, tag in ipairs(misc.playerTagList) do
 						t_insert(tagList, tag)
