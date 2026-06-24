@@ -2040,7 +2040,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 					controls.mainSkillMinion.enabled = #controls.mainSkillMinion.list > 1
 					controls.mainSkillMinion.shown = true
 					wipeTable(controls.mainSkillMinionSkill.list)
-					if activeSkill.minion then
+					if activeSkill.minion and activeSkill.minion.activeSkillList then
 						for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
 							t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
 						end
