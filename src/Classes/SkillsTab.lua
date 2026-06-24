@@ -1517,19 +1517,37 @@ function SkillsTabClass:SetActiveSkillSet(skillSetId, deferSync)
 	end
 end
 
+-- Count the number of gem groups that have at least one enabled non-provided gem
+function SkillsTabClass:CountGemGroups()
+	local gemGroupCount = 0
+	for _, socketGroup in ipairs(self.socketGroupList) do
+		if socketGroup.enabled then
+			local hasEnabledNonProvidedGem = false
+			for _, gem in ipairs(socketGroup.gemList) do
+				if gem.enabled then
+					local grantedEffect = gem and (gem.grantedEffect or gem.gemData and gem.gemData.grantedEffect)
+					local provided = ((gem and (gem.fromItem or gem.fromTree)
+						or (grantedEffect and (grantedEffect.fromItem or grantedEffect.fromTree))))
+					if not provided then
+						hasEnabledNonProvidedGem = true
+						break
+					end
+				end
+			end
+			if hasEnabledNonProvidedGem then
+				gemGroupCount = gemGroupCount + 1
+			end
+		end
+	end
+	return gemGroupCount
+end
+
 -- Loop over all socket groups and gem instances
 -- to updated global gem count assignments
 function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	wipeTable(GlobalGemAssignments)
-	local countSocketGroups = 0
 	for _, socketGroup in ipairs(self.socketGroupList) do
-		local countGroup = true
 		if socketGroup.enabled then
-			local activeGem = socketGroup.gemList[1]
-			local activeGrantedEffect = activeGem and (activeGem.grantedEffect or activeGem.gemData and activeGem.gemData.grantedEffect)
-			if activeGem and (activeGem.fromItem or activeGem.fromTree or activeGrantedEffect and (activeGrantedEffect.fromItem or activeGrantedEffect.fromTree)) then
-				countGroup = false
-			end
 			for _, gemInstance in ipairs(socketGroup.gemList) do
 				if gemInstance.gemData and gemInstance.enabled then
 					if GlobalGemAssignments[gemInstance.gemData.name] then
@@ -1551,10 +1569,7 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 				end
 			end
 		end
-		if countGroup then
-			countSocketGroups = countSocketGroups + 1
-		end
 	end
-	GlobalGemAssignments["GemGroupCount"] = countSocketGroups
+	GlobalGemAssignments["GemGroupCount"] = self:CountGemGroups()
 end
 
