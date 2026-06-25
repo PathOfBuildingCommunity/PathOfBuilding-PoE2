@@ -240,7 +240,6 @@ c["+13% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+13% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=13}},nil}
 c["+13% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=13}},nil}
 c["+135 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=135}},nil}
-c["+137 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=137}},nil}
 c["+14 to Spirit per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=14}},nil}
 c["+14 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=14}},nil}
 c["+14% to Cold and Lightning Resistances"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=14},[2]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=14}},nil}
@@ -1533,7 +1532,6 @@ c["125% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["125% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=125}},nil}
 c["125% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=125}},nil}
 c["13 to 23 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="PhysicalMin",type="BASE",value=13},[2]={flags=32,keywordFlags=0,name="PhysicalMax",type="BASE",value=23}},nil}
-c["13% chance to Gain Arcane Surge when you deal a Critical Hit"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["13% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
 c["13% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=13}},nil}
 c["13% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
@@ -2465,7 +2463,6 @@ c["250% of Melee Physical Damage taken reflected to Attacker Regenerate 5% of ma
 c["253% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=253}},nil}
 c["26 to 41 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="PhysicalMin",type="BASE",value=26},[2]={flags=32,keywordFlags=0,name="PhysicalMax",type="BASE",value=41}},nil}
 c["26% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-26}},nil}
-c["27% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=27}},nil}
 c["270% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=270}},nil}
 c["275% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=275}},nil}
 c["28 to 38 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="PhysicalMin",type="BASE",value=28},[2]={flags=32,keywordFlags=0,name="PhysicalMax",type="BASE",value=38}},nil}
@@ -3388,8 +3385,6 @@ c["60% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="P
 c["60% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=60}},nil}
 c["60% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},nil}
-c["60% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=60}},"  of Socketed Augment Items "}
-c["60% increased effect of Socketed Augment Items 27% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=60}},"  of Socketed Augment Items 27% increased Critical Damage Bonus "}
 c["60% less Life Flask Recovery"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=-60}},"  Flask Recovery "}
 c["60% of your current Energy Shield is added to your Armour for"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=60}}," your current  is added to your Armour for "}
 c["60% of your current Energy Shield is added to your Armour for determining your Physical Damage Reduction from Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldAppliesToPhysicalDamageTaken",type="BASE",value=60}},nil}
@@ -3622,7 +3617,6 @@ c["90% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["90% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=90}},nil}
 c["90% less Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="MORE",value=-90}},nil}
 c["92% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=92}},nil}
-c["95% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=95}},nil}
 c["Abyssal Wasting also applies % to Cold Resistance"]={nil,"Abyssal Wasting also applies % to Cold Resistance "}
 c["Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an"]={nil,"Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an "}
 c["Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting also applies % to Fire Resistance "}
@@ -5215,8 +5209,6 @@ c["Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot i
 c["Deflected Hits cannot inflict Maim on you"]={nil,"Deflected Hits cannot inflict Maim on you "}
 c["Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you "}
 c["Demonflame has no maximum"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:DemonFlameMaximum",type="BASE",value=999}},nil}
-c["Destroys all Augment Sockets on the item to create a Jewel Socket"]={nil,"Destroys all Augment Sockets on the item to create a Jewel Socket "}
-c["Destroys all Augment Sockets on the item to create a Jewel Socket 95% increased Energy Shield"]={nil,"Destroys all Augment Sockets on the item to create a Jewel Socket 95% increased Energy Shield "}
 c["Detonator skills have 40% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},nil}
 c["Detonator skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
 c["Detonator skills have 80% reduced damage"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
