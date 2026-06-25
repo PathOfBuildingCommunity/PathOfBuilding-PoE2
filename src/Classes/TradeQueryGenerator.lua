@@ -1369,7 +1369,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	updateLastAnchor(controls.modSelectorHeaderAnchor)
 	-- get mod selector list
 	getModList = function()
-		_, itemCategory = tradeHelpers.getTradeCategory(slot.slotName)
+		_, itemCategory = tradeHelpers.getTradeCategory(slot.slotName, slot and self.itemsTab.items[slot.selItemId])
 		-- add radius/base as they have different mods
 		if controls.jewelType then
 			itemCategory = controls.jewelType:GetSelValue() .. itemCategory
