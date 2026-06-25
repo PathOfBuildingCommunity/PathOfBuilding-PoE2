@@ -991,7 +991,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	local selectedTradeType = self.tradeTypes[self.tradeTypeIndex]
 	-- Generate trade query str and open in browser
 	local filters = 0
-	local requiredMods = self.calcContext.requiredMods
+	local requiredMods = self.calcContext.requiredMods or {}
 	local queryTable = {
 		query = {
 			filters = self.calcContext.special.queryFilters or {
@@ -1129,7 +1129,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 
 	local controls = { }
 	local options = { }
-	local popupHeight = 110
+	local popupHeight = 80
 	local popupWidth = 400
 
 	local isJewelSlot = slot and slot.slotName:find("Jewel") ~= nil
@@ -1363,6 +1363,12 @@ Remove: anoints are completely ignored, and removed from items.]]
 			t_insert(mods, { label = modData.tradeMod.text, tradeId = modData.tradeMod.id })
 		end
 	end
+	if #mods == 1 then
+		main:OpenPopup(popupWidth, popupHeight, "Query Options", controls)
+		return
+	end
+	-- technically we could have 40, but the more we have the fewer stats fit in the weighted sum,
+	-- and this means a static popup size is ok
 	local maxSelectors = 3
 	-- set dropdown labels and adjust width
 	local function setModSelectors()
