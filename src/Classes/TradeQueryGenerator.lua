@@ -1350,7 +1350,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	end
 
 	local _, headerYPos = lastItemAnchor:GetPos()
-	-- intended width of the whole row, inclding dropdown and aux controls
+	-- intended width of the whole row, including dropdown and aux controls
 	local totalWidth = 340
 	-- size of min value input
 	local fieldWidth = 60
