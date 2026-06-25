@@ -1213,15 +1213,22 @@ Remove: anoints are completely ignored, and removed from items.]]
 		end
 		updateLastAnchor(controls.jewelSlot)
 	end
-
-
+	-- forward declarations for functions interacting with mod filter selectors
+	---@type fun(): table
+	local getModList
+	---@type fun(controls: any, modList: any)
+	local setModSelectors
+	-- jewel type selector
 	if isJewelSlot and not context.slotTbl.unique then
-		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
+		controls.jewelType = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 100, 18 }, { "Base", "Radius" }, function(index, value)
+			-- update mod list for selectors
+			local mods = getModList()
+			setModSelectors(controls, mods)
+		end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
-		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")
+		controls.jewelTypeLabel = new("LabelControl", { "RIGHT", controls.jewelType, "LEFT" }, { -5, 0, 0, 16 }, "Jewel Type:")
 		updateLastAnchor(controls.jewelType)
 	end
-
 	-- Add max price limit selection dropbox
 	local currencyDropdownNames = { }
 	for _, currency in ipairs(currencyTable) do
@@ -1337,7 +1344,10 @@ Remove: anoints are completely ignored, and removed from items.]]
 		main:ClosePopup()
 	end)
 
-	itemCategoryQueryStr, itemCategory = tradeHelpers.getTradeCategory(slot.slotName, existingItem)
+	if context.slotTbl.unique then
+		main:OpenPopup(popupWidth, popupHeight, "Query Options", controls)
+		return
+	end
 
 	local _, headerYPos = lastItemAnchor:GetPos()
 	-- intended width of the whole row, inclding dropdown and aux controls
@@ -1357,25 +1367,45 @@ Remove: anoints are completely ignored, and removed from items.]]
 		{ (popupWidth - totalWidth) / 2, lastItemH + lastItemY, 0, 0 },
 		"")
 	updateLastAnchor(controls.modSelectorHeaderAnchor)
-	local mods = { { label = "+ Add Required Stat" } }
-	for idStr, modData in pairs(self.modData["Explicit"]) do
-		if modData[itemCategory] ~= nil then
-			t_insert(mods, { label = modData.tradeMod.text, tradeId = modData.tradeMod.id })
+	-- get mod selector list
+	getModList = function()
+		_, itemCategory = tradeHelpers.getTradeCategory(slot.slotName)
+		-- add radius/base as they have different mods
+		if controls.jewelType then
+			itemCategory = controls.jewelType:GetSelValue() .. itemCategory
 		end
+		local mods = { { label = "^7+ Add Required Stat" } }
+		for _, modType in ipairs({ "Explicit", "Implicit", "Corrupted" }) do
+			for idStr, modData in pairs(self.modData[modType]) do
+				if modData[itemCategory] ~= nil then
+					local text = "^7" .. modData.tradeMod.text:gsub("(%a+) Passive Skills in Radius also grant ", "%1: ")
+					if modType ~= "Explicit" then
+						-- dim-ish red or the greenish yellow trade site uses for implicits slightly brightened
+						local colour = modType == "Corrupted" and "^x9E3E38" or "^x989654"
+						text = text .. string.format(" %s(%s)", colour, modType)
+					end
+					t_insert(mods, { label = text, tradeId = modData.tradeMod.id })
+				end
+			end
+		end
+		return mods
 	end
-	if #mods == 1 then
-		main:OpenPopup(popupWidth, popupHeight, "Query Options", controls)
-		return
-	end
-	-- technically we could have 40, but the more we have the fewer stats fit in the weighted sum,
-	-- and this means a static popup size is ok
+	-- amount of mod selectors: technically we could have 40, but the more we have the fewer
+	-- stats fit in the weighted sum, and this means a static popup size is ok
 	local maxSelectors = 3
-	-- set dropdown labels and adjust width
-	local function setModSelectors()
+	-- set mod selector dropdown labels, adjust width, and possibly change the mod list
+	setModSelectors = function(controls, modList)
+		-- reset selections
+		if modList then
+			selectedMods = {}
+		end
 		for i = 1, maxSelectors do
 			local mod = selectedMods[i]
 			local selector = controls["modSelector" .. i]
 			local minimumBox = controls["modSelectorMin" .. i]
+			if modList then
+				selector:SetList(modList)
+			end
 			if mod then
 				selector:SelByValue(mod.label, "label")
 				selector.width = totalWidth - auxControlWidth
@@ -1387,7 +1417,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 			selector:CheckDroppedWidth(true)
 		end
 	end
-	-- create dropdown and aux controls
+	-- mod filter dropdown and aux controls
 	for i = 1, maxSelectors do
 		-- dropdown which lists all mods that fit
 		local dropdown = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
@@ -1398,7 +1428,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 				else
 					selectedMods[i] = copyTable(val)
 				end
-				setModSelectors()
+				setModSelectors(controls)
 			end)
 		dropdown.shown = function()
 			return not not selectedMods[i - 1] or i == 1
@@ -1421,14 +1451,14 @@ Remove: anoints are completely ignored, and removed from items.]]
 		local clearButton = new("ButtonControl", { "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
 			"x", function()
 				table.remove(selectedMods, i)
-				setModSelectors()
+				setModSelectors(controls)
 			end)
 		clearButton.shown = function()
 			return not not selectedMods[i]
 		end
 		controls["modSelectorClear" .. i] = clearButton
 	end
-	setModSelectors()
+	setModSelectors(controls, getModList())
 
 	main:OpenPopup(popupWidth, popupHeight, "Query Options", controls)
 end
