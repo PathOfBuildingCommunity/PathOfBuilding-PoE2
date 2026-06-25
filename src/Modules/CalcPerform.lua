@@ -86,7 +86,7 @@ local legacies = {
 	},
 	LegacyOfGold = {
 		effects = {
-			{ stat = "ItemRarity", type = "INC", value = 45 },
+			{ stat = "LootRarity", type = "INC", value = 45 },
 		}
 	},
 	LegacyOfGranite = {
