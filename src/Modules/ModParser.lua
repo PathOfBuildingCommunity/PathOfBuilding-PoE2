@@ -897,6 +897,7 @@ local modNameList = {
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
 	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
 	["effect of socketed runes"] = "SocketedRuneEffect",
+	["effect of socketed augment items"] = "SocketedAugmentItemEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",
