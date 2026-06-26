@@ -107,11 +107,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportAtzirisCommunionPlayer
-#set SupportAtzirisCommunionPlayer
-#mods
-#skillEnd
-
 #skill SupportAtzirisAllurePlayer
 #set SupportAtzirisAllurePlayer
 statMap = {
@@ -119,6 +114,11 @@ statMap = {
 		mod("CurseEffect", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportAtzirisCommunionPlayer
+#set SupportAtzirisCommunionPlayer
 #mods
 #skillEnd
 

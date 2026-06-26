@@ -654,38 +654,6 @@ skills["SupportAstralProjectionPlayer"] = {
 		},
 	}
 }
-skills["SupportAtzirisCommunionPlayer"] = {
-	name = "Atziri's Communion",
-	description = "Supports Persistent Skills, making them Reserve Life instead of Spirit. Cannot Support Skills which create Minions.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Persistent, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.CreatesMinion, },
-	gemFamily = { "AtziriCommunionLineage",},
-	isLineage = true,
-	flavourText = {"The Red Communion was meant to transcend the limits", "of the soul, to transfigure the flesh, to bestow immortality.", "It accomplished all of these things... most horribly.", },
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Atziri's Communion",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "skill_reserves_X_life_permyriad_per_spirit_instead_of_spirit", 66 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportAtzirisAllurePlayer"] = {
 	name = "Atziri's Allure",
 	description = "Supports Curse Spells you cast yourself, causing those Curses to ignore the usual Curse Limit, but be reflected back to you when inflicted.",
@@ -719,6 +687,38 @@ skills["SupportAtzirisAllurePlayer"] = {
 			stats = {
 				"curses_reflected_to_self",
 				"curse_ignores_curse_limit",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportAtzirisCommunionPlayer"] = {
+	name = "Atziri's Communion",
+	description = "Supports Persistent Skills, making them Reserve Life instead of Spirit. Cannot Support Skills which create Minions.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.CreatesMinion, },
+	gemFamily = { "AtziriCommunionLineage",},
+	isLineage = true,
+	flavourText = {"The Red Communion was meant to transcend the limits", "of the soul, to transfigure the flesh, to bestow immortality.", "It accomplished all of these things... most horribly.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Atziri's Communion",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_reserves_X_life_permyriad_per_spirit_instead_of_spirit", 66 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
