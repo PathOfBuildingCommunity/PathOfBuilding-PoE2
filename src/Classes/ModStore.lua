@@ -560,8 +560,8 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			local stat
 			if tag.statList then
 				stat = 0
-				for _, stat in ipairs(tag.statList) do
-					stat = stat + GetStat(self, stat, cfg)
+				for _, statName in ipairs(tag.statList) do
+					stat = stat + GetStat(self, statName, cfg)
 				end
 			else
 				stat = GetStat(self, tag.stat, cfg)
