@@ -6563,7 +6563,6 @@ skills["TBAbyssCarrionWingBeam"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
-				attack = true,
 				hit = true,
 				triggerable = true,
 			},
@@ -6721,7 +6720,6 @@ skills["TBVaalPyramidBeam"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
-				attack = true,
 				triggerable = true,
 			},
 			constantStats = {
@@ -7523,7 +7521,6 @@ skills["TBExcavatorSceptreErraticBeam"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
-				attack = true,
 				triggerable = true,
 				hit = true,
 			},

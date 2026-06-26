@@ -2386,9 +2386,6 @@ function calcs.offence(env, actor, activeSkill)
 			-- Unarmed override for Concoction skills
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
-				if skillData.CritChance then
-					source.CritChance = skillData.CritChance
-				end
 			end
 			if source.FacebreakerItemDamage and activeSkill.activeEffect.grantedEffect.weaponTypes and activeSkill.activeEffect.grantedEffect.weaponTypes["One Hand Mace"] then
 				for _, damageType in ipairs(dmgTypeList) do
@@ -2398,6 +2395,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
+			end
+			if skillData.CritChance then
+				source.CritChance = skillData.CritChance
 			end
 			t_insert(passList, {
 				label = "Main Hand",
@@ -2416,9 +2416,6 @@ function calcs.offence(env, actor, activeSkill)
 			-- Unarmed override for Concoction skills
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
-				if skillData.CritChance then
-					source.CritChance = skillData.CritChance
-				end
 			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride

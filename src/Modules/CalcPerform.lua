@@ -86,7 +86,7 @@ local legacies = {
 	},
 	LegacyOfGold = {
 		effects = {
-			{ stat = "ItemRarity", type = "INC", value = 45 },
+			{ stat = "LootRarity", type = "INC", value = 45 },
 		}
 	},
 	LegacyOfGranite = {
@@ -1415,7 +1415,7 @@ function calcs.perform(env, skipEHP)
 
 	for slot, item in pairs(env.player.itemList) do
 		local slotEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFrom" .. slot) / 100
-		if slotEffectMod > 0 then
+		if slotEffectMod > 0 and slot ~= "Amulet" then
 			if item.name:match("Kalandra's Touch") then
 				if slot == "Ring 2" then
 					item = env.player.itemList["Ring 1"]
@@ -2414,23 +2414,23 @@ function calcs.perform(env, skipEHP)
 					end
 					if buff.type == "Curse" then
 						curse.modList = new("ModList")
-						curse.modList:ScaleAddList(buff.modList, mult)
+						curse.modList:ScaleAddList(buff.modList, mult, true)
 						if partyTabEnableExportBuffs then
 							buffExports["Curse"][buff.name] = { isMark = curse.isMark, effectMult = curse.isMark and mult or (1 + inc / 100) * moreMark, modList = buff.modList }
 						end
 					else
 						-- Curse applies a buff; scale by curse effect, then buff effect
 						local temp = new("ModList")
-						temp:ScaleAddList(buff.modList, mult)
+						temp:ScaleAddList(buff.modList, mult, true)
 						curse.buffModList = new("ModList")
 						local buffInc = modDB:Sum("INC", skillCfg, "BuffEffectOnSelf")
 						local buffMore = modDB:More(skillCfg, "BuffEffectOnSelf")
-						curse.buffModList:ScaleAddList(temp, (1 + buffInc / 100) * buffMore)
+						curse.buffModList:ScaleAddList(temp, (1 + buffInc / 100) * buffMore, true)
 						if env.minion then
 							curse.minionBuffModList = new("ModList")
 							local buffInc = env.minion.modDB:Sum("INC", nil, "BuffEffectOnSelf")
 							local buffMore = env.minion.modDB:More(nil, "BuffEffectOnSelf")
-							curse.minionBuffModList:ScaleAddList(temp, (1 + buffInc / 100) * buffMore)
+							curse.minionBuffModList:ScaleAddList(temp, (1 + buffInc / 100) * buffMore, true)
 						end
 					end
 					t_insert(curses, curse)
@@ -2894,7 +2894,7 @@ function calcs.perform(env, skipEHP)
 						local cfg = { skillName = grantedEffect.name }
 						local inc = modDB:Sum("INC", cfg, "CurseEffectOnSelf") + gemModList:Sum("INC", nil, "CurseEffectAgainstPlayer")
 						local more = modDB:More(cfg, "CurseEffectOnSelf") * gemModList:More(nil, "CurseEffectAgainstPlayer")
-						modDB:ScaleAddList(curseModList, m_max((1 + inc / 100) * more, 0))
+						modDB:ScaleAddList(curseModList, m_max((1 + inc / 100) * more, 0), true)
 					end
 				elseif not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") then
 					local curse = {
@@ -2903,7 +2903,7 @@ function calcs.perform(env, skipEHP)
 						priority = determineCursePriority(grantedEffect.name),
 					}
 					curse.modList = new("ModList")
-					curse.modList:ScaleAddList(curseModList, (1 + enemyDB:Sum("INC", nil, "CurseEffectOnSelf") / 100) * enemyDB:More(nil, "CurseEffectOnSelf"))
+					curse.modList:ScaleAddList(curseModList, (1 + enemyDB:Sum("INC", nil, "CurseEffectOnSelf") / 100) * enemyDB:More(nil, "CurseEffectOnSelf"), true)
 					t_insert(dest, curse)
 				end
 			end
@@ -2928,7 +2928,7 @@ function calcs.perform(env, skipEHP)
 		else
 			mult = mult * enemyDB:More(nil, "CurseEffectOnSelf")
 		end
-		newCurse.modList:ScaleAddList(curse.modList, mult)
+		newCurse.modList:ScaleAddList(curse.modList, mult, true)
 		t_insert(allyCurses, newCurse)
 	end
 

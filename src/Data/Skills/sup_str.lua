@@ -988,6 +988,7 @@ skills["SupportBloodlustPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Bloodlust",
@@ -4882,6 +4883,7 @@ skills["SupportLastingGroundPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -7624,6 +7626,7 @@ skills["SupportUnderminePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Undermine",

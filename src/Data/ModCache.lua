@@ -1386,8 +1386,8 @@ c["100% increased Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",t
 c["100% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
-c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items "}
-c["100% increased effect of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour "}
+c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=100}},nil}
+c["100% increased effect of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=100}}," This item gains bonuses from Socketed Items as though it was a Body Armour "}
 c["100% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=100}},nil}
 c["100% increased maximum Divinity"]={{}," maximum Divinity "}
 c["100% increased maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped"]={{}," maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped "}
@@ -1500,7 +1500,7 @@ c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]=
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
+c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
 c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=12}},nil}
 c["12% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
@@ -2954,7 +2954,7 @@ c["40% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Dur
 c["40% increased Skill Speed while an enemy with an Open Weakness is in your Presence"]={{[1]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="Speed",type="INC",value=40},[2]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=40},[3]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=40}},nil}
 c["40% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spell Damage if one of your Minions has died Recently"]={{[1]={[1]={type="Condition",var="MinionsDiedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
-c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
+c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=40}},nil}
 c["40% increased Spirit Reservation Efficiency"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=40}},nil}
 c["40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
@@ -3338,7 +3338,7 @@ c["6% increased Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=
 c["6% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=6}},nil}
 c["6% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=6}},nil}
 c["6% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
-c["6% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=6}},nil}
+c["6% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=6}},nil}
 c["6% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=6}},nil}
 c["6% increased Trap Throwing Speed"]={{[1]={flags=0,keywordFlags=0,name="TrapThrowingSpeed",type="INC",value=6}},nil}
 c["6% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=6}},nil}
@@ -6726,8 +6726,8 @@ c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="Pr
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
 c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={{[1]={flags=0,keywordFlags=0,name="EldritchEmpowerment",type="FLAG",value=true},[2]={[1]={type="Condition",var="EldritchEmpowermentSacrifice"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=30}},nil}
 c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to inflict Withered   "}
-c["Spells which cost Life Gain 100% of Damage as Extra Physical Damage"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=100}},nil}
-c["Spells which cost Life Gain 120% of Damage as Extra Physical Damage"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=120}},nil}
+c["Spells which cost Life Gain 100% of Damage as Extra Physical Damage"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=100}},nil}
+c["Spells which cost Life Gain 120% of Damage as Extra Physical Damage"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=120}},nil}
 c["Stags deal 20% more damage per leap"]={nil,"Stags deal 20% more damage per leap "}
 c["Stags deal 20% more damage per leap Stags have 20% more Shock Magnitude per leap"]={nil,"Stags deal 20% more damage per leap Stags have 20% more Shock Magnitude per leap "}
 c["Stags have 20% more Shock Magnitude per leap"]={nil,"Stags have 20% more Shock Magnitude per leap "}

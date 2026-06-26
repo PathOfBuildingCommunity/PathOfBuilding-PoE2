@@ -210,6 +210,10 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
+	{ label = "Arc:", ifSkill = "Arc"},
+	{ var = "arcLightningInfused", type = "check", label = "Lightning Infused?", ifSkill = "Arc", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ArcLightningInfused", "FLAG", true, "Config", { type = "Condition", var = "CannotConsumeInfusion", neg = true })
+	end },
 	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
 	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
@@ -246,11 +250,6 @@ local configSettings = {
 	end },
 	{ var = "bannerValour", type = "count", label = "Banner Valour:", tooltip = "The amount of valour consumed for the placed banner", ifSkill = { "Dread Banner", "War Banner", "Defiance Banner" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:ValourStacks", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })
-	end },
-	{ label = "Barkskin:", ifSkill = "Barkskin" },
-	{ var = "barkskinStacks", type = "count", label = "# of Barkskin Stacks:", ifSkill = "Barkskin", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:BarkskinStacks", "BASE",  m_min(val, 10), "Config")
-		modList:NewMod("Multiplier:MissingBarkskinStacks", "BASE", m_max(-val, -10), "Config")
 	end },
 	{ label = "Unbound Avatar:", ifSkill = "Unbound Avatar" },
 	{ var = "Unbound", type = "check", label = "Are you Unbound?", ifSkill = "Unbound Avatar", apply = function(val, modList, enemyModList)

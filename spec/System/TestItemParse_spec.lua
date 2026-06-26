@@ -591,6 +591,28 @@ describe("TestItemParse", function()
 		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 18%% of Damage as Extra Fire Damage"))
 	end)
 
+	it("applies increased effect of socketed augment items", function()
+		local item = new("Item", [[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Lesser Desert Rune
+			Implicits: 1
+			{enchant}{rune}Gain 6% of Damage as Extra Fire Damage
+			100% increased effect of Socketed Augment Items
+		]])
+		item:BuildAndParseRaw()
+
+		local damageGainAsFire = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsFire" and mod.type == "BASE" then
+				damageGainAsFire = damageGainAsFire + mod.value
+			end
+		end
+		assert.are.equals(12, damageGainAsFire)
+		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 12%% of Damage as Extra Fire Damage"))
+	end)
+
 	it("does not double-scale imported socketed rune text", function()
 		local item = new("Item", [[
 			Runeseeker's Call

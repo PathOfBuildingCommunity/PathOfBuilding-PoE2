@@ -395,6 +395,7 @@ function wipeEnv(env, accelerate)
 	if not accelerate.skills then
 		-- Player Active Skills generation
 		wipeTable(env.player.activeSkillList)
+		env.sourceGemPropertyInfo = { }
 
 		-- Enhances Active Skills with skill ModFlags, KeywordFlags
 		-- and modifiers that affect skill scaling (e.g., global buffs/effects)
@@ -1373,8 +1374,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local modList = env.player.itemList["Weapon 2"].modList
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
-			modCopy.source = "Many Sources:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
+			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
 			modDB:ScaleAddMod(modCopy, quiverEffectMod)
+		end
+	end
+	
+	if env.player.itemList["Amulet"] and env.player.itemList["Amulet"].type == "Amulet" then
+		local amuletEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromAmulet") / 100
+		local modList = env.player.itemList["Amulet"].modList
+		for _, mod in ipairs(modList) do
+			local modCopy = copyTable(mod)
+			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletEffectMod * 100) .. "% Amulet Bonus Effect"
+			modDB:ScaleAddMod(modCopy, amuletEffectMod)
 		end
 	end
 
@@ -1678,6 +1689,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									level = value.level,
 									quality = 0,
 									enabled = true,
+									isSupporting = { },
 								})
 							end
 						end

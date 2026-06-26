@@ -481,6 +481,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 					else
 						desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(SkillTypeName[tag.skillType])
 					end
+				elseif tag.type == "GemTag" then
+					desc = "Gem tag: "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.gemTag, tag.gemTagList)
 				elseif tag.type == "BaseFlag" then
 					desc = "Base flag: "..(tag.neg and "Not " or "")..self:FormatModName(tostring(tag.baseFlag))
 				elseif tag.type == "SlotNumber" then

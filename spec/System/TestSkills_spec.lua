@@ -28,6 +28,41 @@ describe("TestSkills", function()
 		end
 	end
 
+	local function assertGemSupportLevel(gemName, expectedLevel, expectedCount)
+		local count = 0
+		for _, activeSkill in ipairs(build.calcsTab.calcsEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.gemData and activeSkill.activeEffect.gemData.name == gemName then
+				count = count + 1
+				assert.are.equals(expectedLevel, activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "GemSupportLevel"))
+			end
+		end
+		assert.are.equals(expectedCount, count)
+	end
+
+	it("evaluates GemTag mod tags against active skill gem tags", function()
+		local modDB = build.calcsTab.mainEnv.modDB
+
+		modDB:NewMod("Damage", "INC", 10, "Test Fire GemTag", { type = "GemTag", gemTag = "Fire" })
+		modDB:NewMod("Damage", "INC", 20, "Test Elemental GemTagList", { type = "GemTag", gemTagList = { "Cold", "Lightning" } })
+		modDB:NewMod("Damage", "INC", 40, "Test Not Minion GemTag", { type = "GemTag", gemTag = "Minion", neg = true })
+
+		assert.are.equals(50, modDB:Sum("INC", { skillGem = { tags = { fire = true } } }, "Damage"))
+		assert.are.equals(60, modDB:Sum("INC", { skillGem = { tags = { cold = true } } }, "Damage"))
+		assert.are.equals(0, modDB:Sum("INC", { skillGem = { tags = { minion = true } } }, "Damage"))
+	end)
+
+	it("applies Fire Mastery level to Apocalypse through the source gem tag", function()
+		build.skillsTab:PasteSocketGroup("Apocalypse 20/0  1\nFire Mastery 1/0  1")
+		runCallback("OnFrame")
+		assertGemSupportLevel("Apocalypse", 1, 4)
+	end)
+
+	it("evaluates conditional gem levels using the source gem support count", function()
+		build.skillsTab:PasteSocketGroup("Apocalypse 20/0  1\nFire Mastery 1/0  1\nUhtred's Omen 1/0  1")
+		runCallback("OnFrame")
+		assertGemSupportLevel("Apocalypse", 3, 4)
+	end)
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -109,6 +144,17 @@ describe("TestSkills", function()
 
 		assert.are.equals(13, build.calcsTab.mainOutput.LifeReserved)
 		assert.are.equals(20, build.calcsTab.mainOutput.LifeReservedPercent)
+	end)
+
+	it("rounds Blasphemy curse magnitudes to the nearest integer", function()
+		build.configTab.input.customMods = "79% increased Curse Magnitudes"
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Blasphemy 10/0  1\nDespair 12/0  1\n")
+
+		runCallback("OnFrame")
+
+		assert.are.equals(-42, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "ChaosResist"))
 	end)
 
 	it("applies active skill reservation multiplier to linked buff spirit reservation", function()

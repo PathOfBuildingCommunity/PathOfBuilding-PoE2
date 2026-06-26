@@ -897,6 +897,7 @@ local modNameList = {
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
 	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
 	["effect of socketed runes"] = "SocketedRuneEffect",
+	["effect of socketed augment items"] = "SocketedAugmentItemEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",
@@ -1285,7 +1286,7 @@ local preFlagList = {
 	["^attacks used by ballistas [hd][ae][va][el] "] = { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Totem, tag = { type = "Condition", var = "BallistaSkill" } },
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hgdf][aei][ivar][nel] a? ?"] = { flags = ModFlag.Spell },
-	["^spells which cost life gain "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
+	["^spells which cost life gain "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", statList = { "LifeCost", "LifePerSecondCost" }, threshold = 1 } },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
 	["^spell hits [ghd][ae][iva][eln] "] = { flags = ModFlag.Hit, keywordFlags = KeywordFlag.Spell },
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
@@ -1472,6 +1473,7 @@ local modTagList = {
 	["per level"] = { tag = { type = "Multiplier", var = "Level" } },
 	["per player level"] = { tag = { type = "Multiplier", var = "Level" } },
 	["per (%d+) player levels"] = function(num) return { tag = { type = "Multiplier", var = "Level", div = num } } end,
+	["per (%d+) levels"] = function(num) return { tag = { type = "Multiplier", var = "Level", div = num } } end,
 	["per defiance"] = { tag = { type = "Multiplier", var = "Defiance" } },
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
 	["per socketed rune or soul core"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
@@ -1562,8 +1564,6 @@ local modTagList = {
 	["per animated weapon"] = { tag = { type = "Multiplier", var = "AnimatedWeapon", actor = "parent" } },
 	["per grasping vine"] = { tag =  { type = "Multiplier", var = "GraspingVinesCount" } },
 	["per fragile regrowth"] = { tag =  { type = "Multiplier", var = "FragileRegrowthCount" } },
-	["per bark"] = { tag =  { type = "Multiplier", var = "BarkskinStacks" } },
-	["per bark below maximum"] = { tag =  { type = "Multiplier", var = "MissingBarkskinStacks" } },
 	["per allocated mastery passive skill"] = { tag = { type = "Multiplier", var = "AllocatedMastery" } },
 	["per allocated notable passive skill"] = { tag = { type = "Multiplier", var = "AllocatedNotable" } },
 	["for each connected notable passive skill allocated"] = { tag = { type = "Multiplier", var = "AllocatedConnectedNotable" } },
@@ -1691,8 +1691,8 @@ local modTagList = {
 	["while affected by a normal abyss jewel"] = { tag = { type = "MultiplierThreshold", var = "NormalAbyssJewels", threshold = 1 } },
 	["while an enemy with an open weakness is in your presence"] = { tag = { type = "Condition", var = "OpenWeaknessEnemyPresence" } }, -- This one means there's an enemy that has open weakness "nearby"
 	["against enemies with an open weakness"] = { tag = { type = "Condition", var = "EnemyHasOpenWeakness" } }, -- This one means the enemy you're targeting has open weakness
-	["with skills that cost life"] = { tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
-	["with spells that cost life"] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
+	["with skills that cost life"] = { tag = { type = "StatThreshold", statList = { "LifeCost", "LifePerSecondCost" }, threshold = 1 } },
+	["with spells that cost life"] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", statList = { "LifeCost", "LifePerSecondCost" }, threshold = 1 } },
 	-- Gem conditions
 	["if you have at least (%d+) (%a+) support gems socketed"] = function(count, _, color) return { tag = { type = "MultiplierThreshold", var = firstToUpper(color) .. "SupportGems", threshold = count } }  end,
 	["if you have at least (%d+) red, green and blue support gems socketed"] = function(count)
@@ -3326,9 +3326,6 @@ local specialModList = {
 		mod("DamageTakenOverTime", "MORE", -num * tonumber(duration) / 10, { type = "Condition", var = "HeartstopperAVERAGE" })
 	} end,
 	-- Warden
-	["prevent %+(%d+)%% of suppressed spell damage per bark below maximum"] = function(num) return {
-	    mod("SpellSuppressionEffect", "BASE", num, { type = "Multiplier", var = "MissingBarkskinStacks" })
-	} end,
 	["hits that would ignite instead scorch"] = { flag("IgniteCanScorch"), flag("CannotIgnite") },
 	["you can inflict an additional scorch on each enemy"] = { flag("ScorchCanStack"), mod("ScorchStacksMax", "BASE", 1) },
 	["maximum effect of shock is (%d+)%% increased damage taken"] = function (num) return { mod("ShockMax", "OVERRIDE", num) } end,
