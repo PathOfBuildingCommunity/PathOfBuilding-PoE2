@@ -94,6 +94,23 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("applies life reservation efficiency to Atziri's Communion Blasphemy reservation", function()
+		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nAtziri's Communion 1/0  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReserved)
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReservedPercent)
+		assert.are.equals(26, build.calcsTab.mainOutput.LifeReserved)
+		assert.are.equals(40, build.calcsTab.mainOutput.LifeReservedPercent)
+
+		build.configTab.input.customMods = "100% increased Life Reservation Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(13, build.calcsTab.mainOutput.LifeReserved)
+		assert.are.equals(20, build.calcsTab.mainOutput.LifeReservedPercent)
+	end)
+
 	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
 		build.skillsTab:PasteSocketGroup("Purity of Fire 20/0  1\nVitality II 1/0  1\n")
 		runCallback("OnFrame")
