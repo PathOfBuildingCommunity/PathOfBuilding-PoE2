@@ -395,6 +395,7 @@ function wipeEnv(env, accelerate)
 	if not accelerate.skills then
 		-- Player Active Skills generation
 		wipeTable(env.player.activeSkillList)
+		env.sourceGemPropertyInfo = { }
 
 		-- Enhances Active Skills with skill ModFlags, KeywordFlags
 		-- and modifiers that affect skill scaling (e.g., global buffs/effects)
@@ -1688,6 +1689,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									level = value.level,
 									quality = 0,
 									enabled = true,
+									isSupporting = { },
 								})
 							end
 						end
