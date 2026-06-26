@@ -670,5 +670,29 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	DrawImage(nil, ttX, ttY, totalDrawWidth, BORDER_WIDTH) -- top
 	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, totalDrawWidth, BORDER_WIDTH) -- bottom
 
+	-- draw child tooltips for item skills. these are placed directly to the right of the main
+	-- tooltip, growing downwards, unless they would go outside the viewport, in which case they
+	-- will draw over the main tooltip
+	if self.childTooltips then
+		local totalH = 0
+		-- we will move the tooltips up as a group, so get the total height
+		for _, tt in ipairs(self.childTooltips) do
+			local _, childH = tt:GetDynamicSize(viewPort)
+			totalH = totalH + childH
+		end
+		-- if the whole group would go over the bottom edge, we apply a negative offset to keep them
+		-- in
+		local yOffset = math.min(0, viewPort.height - totalH - ttY)
+		-- movement to the left happens individually. i.e. the right edges are aligned
+		local yPos = math.max(ttY + yOffset, viewPort.y)
+		for _, tt in ipairs(self.childTooltips) do
+			local childW, childH = tt:GetSize(viewPort)
+			local furthestAllowedX = viewPort.width - childW / 2
+			tt:Draw(math.min(ttX + ttW, furthestAllowedX), yPos, nil, nil,
+				viewPort)
+			-- next tooltip goes below this one
+			yPos = yPos + childH
+		end
+	end
 	return ttW, ttH
 end

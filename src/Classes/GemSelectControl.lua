@@ -463,6 +463,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				self.tooltip:Clear()
+				self.tooltip.maxWidth = 500
 				local gemData = self.gems[self.list[self.hoverSel]]
 				local output = self:CalcOutputWithThisGem(calcFunc, gemData, self.skillsTab.sortGemsByDPSField == "FullDPS", nil, calcBase)
 				local gemInstance = {
@@ -508,6 +509,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local gemInstance = self.skillsTab.displayGroup.gemList[self.index]
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
+			self.tooltip.maxWidth = 600
 			if gemInstance and gemInstance.gemData then
 				self:AddGemTooltip(gemInstance)
 			else
