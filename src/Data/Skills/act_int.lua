@@ -73,6 +73,12 @@ skills["ArcPlayer"] = {
 				["quality_display_arc_is_gem"] = {
 					-- Display only
 				},
+				["arc_damage_+%_final_from_infusion_consumption"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "ArcLightningInfused" }),
+				},
+				["arc_chains_gained_from_infusion_consumption"] = {
+					mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Condition", var = "ArcLightningInfused" }),
+				},
 			},
 			baseFlags = {
 				spell = true,
