@@ -358,7 +358,11 @@ function launch:ShowPrompt(r, g, b, str, func)
 		if key == "RETURN" or key == "ESCAPE" then
 			return true
 		elseif key == "F4" then
-			self.main:SetMode("LIST")
+			if self.main then
+				self.main.popups = { }
+				self.main.inputEvents = { }
+				self.main:SetMode("LIST")
+			end
 			return true
 		elseif key == "c" and IsKeyDown("CTRL") then
 			local cleanStr = str:gsub("%^%d", "")
