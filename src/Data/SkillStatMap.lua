@@ -179,6 +179,10 @@ return {
 ["base_skill_reserve_life_instead_of_mana"] = {
 	flag("BloodMagicReserved"),
 },
+["skill_reserves_X_life_permyriad_per_spirit_instead_of_spirit"] = {
+	mod("LifeReservePercentPerSpirit", "BASE", nil),
+	div = 100,
+},
 ["base_skill_cost_life_instead_of_mana"] = {
 	flag("CostLifeInsteadOfMana"),
 },

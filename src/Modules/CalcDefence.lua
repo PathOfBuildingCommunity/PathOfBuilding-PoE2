@@ -225,6 +225,16 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
 			end
 			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
+			if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				-- Sadly no better way to get key/val table element count in lua.
+				local instances = 0
+				for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
+					instances = instances + 1
+				end
+				for name, values in pairs(pool) do
+					values.baseFlat = values.baseFlat + (activeSkill.skillData["blasphemyReservationFlat" .. name] or 0) * instances
+				end
+			end
 			if skillModList:Flag(skillCfg, "BloodMagicReserved") then
 				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
 				pool.Mana.baseFlat = 0
@@ -234,6 +244,13 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Mana.basePercent = 0
 				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
 				activeSkill.skillData["ManaReservationPercentForced"] = nil
+			end
+			local spiritToLifeReservation = skillModList:Sum("BASE", skillCfg, "LifeReservePercentPerSpirit")
+			if spiritToLifeReservation > 0 then
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.baseFlat * spiritToLifeReservation
+				pool.Spirit.baseFlat = 0
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.basePercent * spiritToLifeReservation
+				pool.Spirit.basePercent = 0
 			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
@@ -269,18 +286,6 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
 					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
-				end
-				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting and activeSkill.skillData["blasphemyReservationFlat" .. name] then
-					-- Sadly no better way to get key/val table element count in lua.
-					local instances = 0
-					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
-						instances = instances + 1
-					end
-
-					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
-					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
-					local blasphemyEffectiveFlat = m_max(round(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100) / values.efficiencyMore, 0), 0)
-					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
