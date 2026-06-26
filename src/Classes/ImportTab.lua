@@ -328,8 +328,9 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 
 		if self.importCodeJson then
-			self:ImportItemsAndSkills(self.importCodeJson)
 			self:ImportPassiveTreeAndJewels(self.importCodeJson)
+			self.build.calcsTab:BuildOutput()
+			self:ImportItemsAndSkills(self.importCodeJson)
 			return
 		end
 
