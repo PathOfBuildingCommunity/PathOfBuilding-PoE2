@@ -1004,7 +1004,7 @@ statMap = {
 
 #skill TBAbyssCarrionWingBeam Beam
 #set TBAbyssCarrionWingBeam
-#flags spell attack hit triggerable
+#flags spell hit triggerable
 #mods
 #skillEnd
 
@@ -1028,7 +1028,7 @@ statMap = {
 
 #skill TBVaalPyramidBeam Pyramid Beam
 #set TBVaalPyramidBeam
-#flags spell attack triggerable
+#flags spell triggerable
 #mods
 #skillEnd
 
@@ -1143,7 +1143,7 @@ statMap = {
 
 #skill TBExcavatorSceptreErraticBeam Beam
 #set TBExcavatorSceptreErraticBeam
-#flags spell attack triggerable hit
+#flags spell triggerable hit
 #mods
 #skillEnd
 
