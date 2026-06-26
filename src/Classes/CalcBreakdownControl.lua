@@ -490,7 +490,11 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				elseif tag.type == "GlobalEffect" then
 					desc = self:FormatModName(tag.effectType)
 				elseif tag.type == "Limit" then
-					desc = "Limited to "..(tag.limitVar and self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, tag.limit))
+					if tag.neg then
+						desc = "Limited to "..(tag.limitVar and "-"..self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, -tag.limit))
+					else
+						desc = "Limited to "..(tag.limitVar and self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, tag.limit))
+					end
 				elseif tag.type == "MonsterTag" then
 					desc = "Monster Tag: "..(tag.monsterTagList and table.concat(tag.monsterTagList, "/") or tag.monsterTag)
 				else

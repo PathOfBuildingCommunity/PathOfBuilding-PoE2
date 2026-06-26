@@ -313,6 +313,16 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 	end)
 
+	it("negative limit mods after scaling", function()
+		local baseModList = new("ModList")
+		local scaledModList = new("ModList")
+		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
+
+		scaledModList:ScaleAddList(baseModList, 4)
+
+		assert.are.equals(-90, scaledModList:Sum("INC", nil, "EnemyAilmentThreshold"))
+	end)
+
 	it("Jarngreipr - strength satisfies melee weapons and skills", function()
 		build.configTab.input.customMods = "+1000 Strength"
 		build.configTab:BuildModList()
