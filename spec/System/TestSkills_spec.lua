@@ -94,6 +94,17 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
 	end)
 
+	it("rounds Blasphemy curse magnitudes to the nearest integer", function()
+		build.configTab.input.customMods = "79% increased Curse Magnitudes"
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Blasphemy 10/0  1\nDespair 12/0  1\n")
+
+		runCallback("OnFrame")
+
+		assert.are.equals(-42, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "ChaosResist"))
+	end)
+
 	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
 		build.skillsTab:PasteSocketGroup("Purity of Fire 20/0  1\nVitality II 1/0  1\n")
 		runCallback("OnFrame")
