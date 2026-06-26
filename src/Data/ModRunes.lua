@@ -3300,7 +3300,7 @@ return {
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
 				rank = { 15 },
 		},
-		["warstaff"] = {
+		["quarterstaff"] = {
 				type = "Rune",
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				"Bonded: 20% increased Bleeding Duration",
@@ -3475,7 +3475,7 @@ return {
 		},
 	},
 	["Rune of Confrontation"] = {
-		["warstaff"] = {
+		["quarterstaff"] = {
 				type = "Rune",
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",

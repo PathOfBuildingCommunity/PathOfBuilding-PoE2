@@ -1942,7 +1942,7 @@ function ItemsTabClass:GetValidRunesForItem(item)
 		local function isRuneValidForSlot(runeSlot)
 			if runeSlot == "None" then
 				return true
-			elseif runeSlot == "warstaff" then
+			elseif runeSlot == "quarterstaff" then
 				return subType == "warstaff"
 			elseif runeSlot == "buckler" then
 				return itemType == "shield" and subType == "evasion"
@@ -1953,7 +1953,7 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			elseif runeSlot == "caster" then
 				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
 			else
-				return itemType == runeSlot
+				return itemType == runeSlot and not (subType == "warstaff")
 			end
 		end
 		if isRuneValidForSlot(rune.slot) then
