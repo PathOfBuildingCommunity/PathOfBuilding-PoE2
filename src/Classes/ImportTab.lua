@@ -1287,7 +1287,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 
 	item.runes = { }
 	if itemData.socketedItems then
-		self:ImportSocketedItems(item, itemData.socketedItems, slotName)
+		self:ImportSocketedItems(item, itemData.socketedItems, slotName, itemData.sockets)
 	end
 	if itemData.requirements and (not itemData.socketedItems or not itemData.socketedItems[1]) then
 		-- Requirements cannot be trusted if there are socketed gems, as they may override the item's natural requirements
@@ -1438,11 +1438,19 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 end
 
-function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
+function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName, sockets)
 	-- Build socket group list
 	for _, socketedItem in ipairs(socketedItems) do
 		if isValueInTable({ "Diamond", "Emerald", "Ruby", "Sapphire" }, socketedItem.baseType) then
-			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..socketedItem.socket + 1)
+			local jewelSocketIndex = socketedItem.socket + 1
+			if sockets then
+				for index = 1, socketedItem.socket + 1 do
+					if sockets[index] and sockets[index].type ~= "jewel" then
+						jewelSocketIndex = jewelSocketIndex - 1
+					end
+				end
+			end
+			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..jewelSocketIndex)
 		else
 			t_insert(item.runes, socketedItem.baseType)
 		end
