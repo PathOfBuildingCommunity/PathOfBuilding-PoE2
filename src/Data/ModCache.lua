@@ -1386,8 +1386,8 @@ c["100% increased Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",t
 c["100% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
-c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items "}
-c["100% increased effect of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour "}
+c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=100}},nil}
+c["100% increased effect of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=100}}," This item gains bonuses from Socketed Items as though it was a Body Armour "}
 c["100% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=100}},nil}
 c["100% increased maximum Divinity"]={{}," maximum Divinity "}
 c["100% increased maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped"]={{}," maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped "}
