@@ -3799,7 +3799,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 		else
 			-- === COMPACT MODE ===
 			local slot = self.primaryBuild.itemsTab.slots[equipSlotName]
-			local nodeId = slot.nodeId
+			local nodeId = slot and slot.nodeId
 			local shouldUnderline = not not nodeId
 			local pHover, cHover, b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H,
 				rowHoverItem, rowHoverItemsTab, rowHoverX, rowHoverY, rowHoverW, rowHoverH =
