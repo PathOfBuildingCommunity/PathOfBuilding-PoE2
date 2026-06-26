@@ -235,6 +235,15 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
 				activeSkill.skillData["ManaReservationPercentForced"] = nil
 			end
+			do
+				local lifePerSpirit = skillModList:Sum("BASE", skillCfg, "LifeReservePercentPerSpirit")
+				if lifePerSpirit > 0 then
+					pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.baseFlat * lifePerSpirit
+					pool.Spirit.baseFlat = 0
+					pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.basePercent * lifePerSpirit
+					pool.Spirit.basePercent = 0
+				end
+			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
 				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")
@@ -280,7 +289,26 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
 					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
 					local blasphemyEffectiveFlat = m_max(round(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100) / values.efficiencyMore, 0), 0)
-					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
+					local lifePerSpirit = skillModList:Sum("BASE", skillCfg, "LifeReservePercentPerSpirit")
+					if name == "Spirit" and lifePerSpirit > 0 then
+						local lifeBasePercent = blasphemyFlat * instances * lifePerSpirit
+						local lifeEffectivePercent = m_max(round(lifeBasePercent * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100) / values.efficiencyMore, 2), 0)
+						actor["reserved_LifePercent"] = actor["reserved_LifePercent"] + lifeEffectivePercent
+						if breakdown then
+							t_insert(breakdown["LifeReserved"].reservations, {
+								skillName = activeSkill.activeEffect.grantedEffect.name,
+								base = lifeBasePercent .. "%",
+								mult = mult ~= 1 and ("x "..mult),
+								more = values.more ~= 1 and ("x "..values.more),
+								inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
+								efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
+								efficiencyMore = values.efficiencyMore ~= 1 and ("x "..values.efficiencyMore),
+								total = lifeEffectivePercent .. "%",
+							})
+						end
+					else
+						values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
+					end
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then

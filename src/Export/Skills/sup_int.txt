@@ -107,6 +107,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportAtzirisCommunionPlayer
+#set SupportAtzirisCommunionPlayer
+#mods
+#skillEnd
+
 #skill SupportAtzirisAllurePlayer
 #set SupportAtzirisAllurePlayer
 statMap = {
