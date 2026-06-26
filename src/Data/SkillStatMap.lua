@@ -1232,10 +1232,10 @@ return {
 },
 -- Ailments
 ["skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%"] = {
-	mod("EnemyAilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "AuraDebuff", effectName = "Overwhelming Presence"}),
+	mod("EnemyAilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "AuraDebuff", effectName = "Overwhelming Presence" }, { type = "Limit", limit = 90, neg = true }),
 },
 ["skill_overwhelming_pressure_aura_enemy_stun_threshold_+%"] = {
-	mod("EnemyStunThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "AuraDebuff", effectName = "Overwhelming Presence"}),
+	mod("EnemyStunThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "AuraDebuff", effectName = "Overwhelming Presence" }, { type = "Limit", limit = 90, neg = true }),
 },
 ["bleed_on_hit_with_attacks_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Attack),

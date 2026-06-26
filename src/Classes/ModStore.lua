@@ -592,7 +592,8 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 				end
 			end
 		elseif tag.type == "Limit" then
-			value = m_min(value, tag.limit or GetMultiplier(self, tag.limitVar, cfg))
+			local limit = tag.limit or GetMultiplier(self, tag.limitVar, cfg)
+			value = tag.neg and m_max(value, -limit) or m_min(value, limit)
 		elseif tag.type == "Condition" then
 			local match = false
 			local allOneH = ((self.actor.weaponData1 and self.actor.weaponData1.countsAsAll1H) and self.actor.weaponData1) or ((self.actor.weaponData2 and self.actor.weaponData2.countsAsAll1H) and self.actor.weaponData2)
