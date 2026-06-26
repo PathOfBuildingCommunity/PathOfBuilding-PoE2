@@ -462,7 +462,7 @@ function DropDownClass:OnKeyUp(key)
 		if self.dropped and self.controls.scrollBar.enabled then
 			self.controls.scrollBar:Scroll(1)
 		else
-			if main.disableScrollControlInteraction then
+			if main.disableScrollControlInteraction and key == "WHEELDOWN" then
 				return
 			end
 			self:SetSel(self:ListIndexToDropIndex(self.selIndex, 0) + 1)
@@ -476,7 +476,7 @@ function DropDownClass:OnKeyUp(key)
 		if self.dropped and self.controls.scrollBar.enabled then
 			self.controls.scrollBar:Scroll(-1)
 		else
-			if main.disableScrollControlInteraction then
+			if main.disableScrollControlInteraction and key == "WHEELUP" then
 				return
 			end
 			self:SetSel(self:ListIndexToDropIndex(self.selIndex, 0) - 1)
