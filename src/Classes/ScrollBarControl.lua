@@ -148,22 +148,24 @@ function ScrollBarClass:Draw()
 		end
 	end
 	-- Draw up/left button background
+	-- Scrollbar-Arrow-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_border_disabled')
 	elseif mOverComp == "UP" then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('scrollbar_arrow_border_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('scrollbar_arrow_border')
 	end
 	if dir == "HORIZONTAL" then
 		DrawImage(nil, x, y, height, height)
 	else
 		DrawImage(nil, x, y, width, width)
 	end
+	-- Scrollbar-Arrow-Background
 	if enabled and mOverComp == "UP" then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('scrollbar_arrow_background')
 	end
 	if dir == "HORIZONTAL" then
 		DrawImage(nil, x + 1, y + 1, height - 2, height - 2)
@@ -172,11 +174,11 @@ function ScrollBarClass:Draw()
 	end
 	-- Draw up/left arrow
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_disabled')
 	elseif mOverComp == "UP" then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('scrollbar_arrow_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('scrollbar_arrow')
 	end
 	if dir == "HORIZONTAL" then
 		main:DrawArrow(x + height/2, y + height/2, height/2, height/2, "LEFT")
@@ -184,22 +186,24 @@ function ScrollBarClass:Draw()
 		main:DrawArrow(x + width/2, y + width/2, width/2, width/2, "UP")
 	end
 	-- Draw down/right button background
+	-- Scrollbar-Arrow-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_border_disabled')
 	elseif mOverComp == "DOWN" then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('scrollbar_arrow_border_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('scrollbar_arrow_border')
 	end
 	if dir == "HORIZONTAL" then
 		DrawImage(nil, x + width - height, y, height, height)
 	else
 		DrawImage(nil, x, y + height - width, width, width)
 	end
+	-- Scrollbar-Arrow-Background
 	if enabled and mOverComp == "DOWN" then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('scrollbar_arrow_background')
 	end
 	if dir == "HORIZONTAL" then
 		DrawImage(nil, x + width - height + 1, y + 1, height - 2, height - 2)
@@ -208,11 +212,11 @@ function ScrollBarClass:Draw()
 	end
 	-- Draw down/right arrow
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('scrollbar_arrow_disabled')
 	elseif mOverComp == "DOWN" then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('scrollbar_arrow_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('scrollbar_arrow')
 	end
 	if dir == "HORIZONTAL" then
 		main:DrawArrow(x + width - height/2, y + height/2, height/2, height/2, "RIGHT")
@@ -220,28 +224,44 @@ function ScrollBarClass:Draw()
 		main:DrawArrow(x + width/2, y + height - width/2, width/2, width/2, "DOWN")
 	end
 	-- Draw slide background
+	-- Scrollbar-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif self.dragging or mOverComp == "KNOB" or mOverComp == "SLIDEUP" or mOverComp == "SLIDEDOWN" then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('scrollbar_border_disabled')
+	elseif self.dragging then
+		SetDrawStyle('scrollbar_border_selected')
+	elseif mOverComp == "KNOB" or mOverComp == "SLIDEUP" or mOverComp == "SLIDEDOWN" then
+		SetDrawStyle('scrollbar_border_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('scrollbar_border')
 	end
 	if dir == "HORIZONTAL" then
 		DrawImage(nil, x + height, y, width - height * 2, height)
-		SetDrawColor(0, 0, 0)
-		DrawImage(nil, x + height, y + 1, width - height * 2, height - 2)
 	else
 		DrawImage(nil, x, y + width, width, height - width * 2)
-		SetDrawColor(0, 0, 0)
+	end
+	-- Scrollbar-Fill
+	if not enabled then
+		SetDrawStyle('scrollbar_background_disabled')
+	elseif self.dragging then
+		SetDrawStyle('scrollbar_background_selected')
+	elseif mOverComp == "KNOB" or mOverComp == "SLIDEUP" or mOverComp == "SLIDEDOWN" then
+		SetDrawStyle('scrollbar_background_hover')
+	else
+		SetDrawStyle('scrollbar_background')
+	end
+	if dir == "HORIZONTAL" then
+		DrawImage(nil, x + height, y + 1, width - height * 2, height - 2)
+	else
 		DrawImage(nil, x + 1, y + width, width - 2, height - width * 2)
 	end
 	-- Draw knob
 	if enabled then
-		if self.dragging or mOverComp == "KNOB" then
-			SetDrawColor(1, 1, 1)
+		if self.dragging then
+			SetDrawStyle('scrollbar_knob_selected')
+		elseif mOverComp == "KNOB" then
+			SetDrawStyle('scrollbar_knob_hover')
 		else
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('scrollbar_knob')
 		end
 		local knobPos = self:GetKnobPosForOffset()
 		if dir == "HORIZONTAL" then

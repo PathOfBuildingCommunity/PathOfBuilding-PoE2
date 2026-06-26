@@ -32,9 +32,9 @@ function TextListClass:Draw(viewPort)
 		contentHeight = contentHeight + lineInfo.height
 	end
 	scrollBar:SetContentDimension(contentHeight, height - 4)
-	SetDrawColor(0.66, 0.66, 0.66)
+	SetDrawStyle('textlist_border')
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0.05, 0.05, 0.05)
+	SetDrawStyle('textlist_background')
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 	self:DrawControls(viewPort)
 	SetViewport(x + 2, y + 2, width - 20, height - 4)
@@ -42,7 +42,7 @@ function TextListClass:Draw(viewPort)
 		local lineY = -scrollBar.offset
 		for _, lineInfo in ipairs(self.list) do
 			if lineInfo[colIndex] then
-				DrawString(lineInfo.x or colInfo.x, lineY, lineInfo.align or colInfo.align, lineInfo.height, lineInfo.font or "VAR", lineInfo[colIndex])
+				StyledDrawString(lineInfo.x or colInfo.x, lineY, lineInfo.align or colInfo.align, lineInfo.height, lineInfo.font or 'text_textlist', lineInfo[colIndex])
 			end
 			lineY = lineY + lineInfo.height
 		end

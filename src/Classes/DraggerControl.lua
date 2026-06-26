@@ -38,43 +38,50 @@ function DraggerClass:Draw(viewPort, noTooltip)
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
 	local locked = self:GetProperty("locked")
-
+	-- Dragger-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('dragger_border_disabled')
+	elseif self.dragging then
+		SetDrawStyle('dragger_border_dragged')
 	elseif mOver or locked then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('dragger_border_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('dragger_border')
 	end
 	DrawImage(nil, x, y, width, height)
+	-- Dragger-Fill
 	if not enabled then
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('dragger_background_disabled')
 	elseif self.clicked and mOver then
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('dragger_background_dragged')
 	elseif mOver or locked then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('dragger_background_hover')
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('dragger_background')
 	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
+	-- Dragger-Image
 	if self.image then
 		if enabled then
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('dragger_knobimage')
 		else
-			SetDrawColor(0.33, 0.33, 0.33)
+			SetDrawStyle('dragger_knobimage_disabled')
 		end
 		DrawImage(self.image, x + 2, y + 2, width - 4, height - 4)
 		if self.clicked and mOver then
-			SetDrawColor(1, 1, 1, 0.5)
+			SetDrawStyle('dragger_knobimage_overlay_dragged')
 			DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 		end
 	end
+	-- Dragger-Knob
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif mOver or locked or self.dragging then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('dragger_knob_disabled')
+	elseif self.dragging then
+		SetDrawStyle('dragger_knob_dragged')
+	elseif mOver or locked then
+		SetDrawStyle('dragger_knob_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('dragger_knob')
 	end
 	local label = self:GetProperty("label")
 	if label == "+" then
@@ -90,7 +97,7 @@ function DraggerClass:Draw(viewPort, noTooltip)
 		DrawImageQuad(nil,  x + width * 0.75, y + height * 0.5, x + width * 0.85, y + height * 0.6, x + width * 0.6, y + height * 0.85, x + width * 0.5, y + height * 0.75)
 	else
 		local overSize = self.overSizeText or 0
-		DrawString(x + width / 2, y + 2 - overSize, "CENTER_X", height - 4 + overSize * 2, "VAR", label)
+		StyledDrawString(x + width / 2, y + 2 - overSize, "CENTER_X", height - 4 + overSize * 2, 'text_label', label)
 	end
 	if mOver then
 		if not noTooltip or self.forceTooltip then

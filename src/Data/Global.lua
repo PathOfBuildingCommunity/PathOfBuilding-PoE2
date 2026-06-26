@@ -94,6 +94,7 @@ function updateColorCode(code, color)
 end
 
 function hexToRGB(hex)
+	hex = hex:gsub("%^x", "") -- Remove "^x" prefix
 	hex = hex:gsub("0x", "") -- Remove "0x" prefix
 	hex = hex:gsub("#","") -- Remove '#' if present
 	if #hex ~= 6 then

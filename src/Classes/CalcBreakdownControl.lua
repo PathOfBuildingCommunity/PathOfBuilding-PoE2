@@ -72,9 +72,9 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
 			for _, line in ipairs(section.lines) do
 				local _, num = string.gsub(line, "%d%d%d%d", "") -- count how many commas will be added
 				if main.showThousandsSeparators and num > 0 then
-					section.width = m_max(section.width, DrawStringWidth(section.textSize, "VAR", line) + 8 + (4 * num))
+					section.width = m_max(section.width, StyledDrawStringWidth(section.textSize, 'text_calc_breakdown', line) + 8 + (4 * num))
 				else
-					section.width = m_max(section.width, DrawStringWidth(section.textSize, "VAR", line) + 8)
+					section.width = m_max(section.width, StyledDrawStringWidth(section.textSize, 'text_calc_breakdown', line) + 8)
 				end
 			end
 			section.height = #section.lines * section.textSize + 4
@@ -86,9 +86,9 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
 					if row[col.key] then
 						local _, num = string.gsub(row[col.key], "%d%d%d%d", "") -- count how many commas will be added
 						if main.showThousandsSeparators and num > 0 then
-							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", col.label) + 6, DrawStringWidth(12, "VAR", row[col.key]) + 6 + (4 * num))
+							col.width = m_max(col.width or 0, StyledDrawStringWidth(16, 'text_calc_breakdown', col.label) + 6, StyledDrawStringWidth(12, 'text_calc_breakdown', row[col.key]) + 6 + (4 * num))
 						else 
-							col.width = m_max(col.width or 0, DrawStringWidth(16, "VAR", col.label) + 6, DrawStringWidth(12, "VAR", row[col.key]) + 6)
+							col.width = m_max(col.width or 0, StyledDrawStringWidth(16, 'text_calc_breakdown', col.label) + 6, StyledDrawStringWidth(12, 'text_calc_breakdown', row[col.key]) + 6)
 						end
 					end
 				end
@@ -98,11 +98,11 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
 			end
 			section.height = #section.rowList * 14 + 20
 			if section.label then
-				self.contentWidth = m_max(self.contentWidth, 6 + DrawStringWidth(16, "VAR", section.label..":"))
+				self.contentWidth = m_max(self.contentWidth, 6 + StyledDrawStringWidth(16, 'text_calc_breakdown', section.label..":"))
 				section.height = section.height + 16
 			end
 			if section.footer then
-				self.contentWidth = m_max(self.contentWidth, 6 + DrawStringWidth(12, "VAR", section.footer))
+				self.contentWidth = m_max(self.contentWidth, 6 + StyledDrawStringWidth(12, 'text_calc_breakdown', section.footer))
 				local _, lines = string.gsub(section.footer, "\n", "\n") -- counts newlines in the string
 				section.height = section.height + 12 * (lines + 1)
 			end
@@ -550,7 +550,7 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 	local cursorX, cursorY = GetCursorPos()
 	if section.label then
 		-- Draw table label if able
-		DrawString(x + 2, y, "LEFT", 16, "VAR", "^7"..section.label..":")
+		StyledDrawString(x + 2, y, "LEFT", 16, 'text_calc_breakdown', "^7"..section.label..":")
 		y = y + 16
 	end
 	local colX = x + 4
@@ -560,18 +560,18 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 			col.x = colX
 			if index > 1 then
 				-- Skip the separator for the first column
-				SetDrawColor(0.5, 0.5, 0.5)
+				SetDrawStyle('calc_breakdown_tooltip_table')
 				DrawImage(nil, colX - 2, y, 1, section.height - (section.label and 16 or 0) - (section.footer and 12 or 0))
 			end
-			SetDrawColor(1, 1, 1)
-			DrawString(colX, y + 2, "LEFT", 16, "VAR", col.label)
+			SetDrawStyle('text_calc_breakdown')
+			StyledDrawString(colX, y + 2, "LEFT", 16, 'text_calc_breakdown', col.label)
 			colX = colX + col.width
 		end
 	end
 	local rowY = y + 20
 	for _, row in ipairs(section.rowList) do
 		-- Draw row separator
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('calc_breakdown_tooltip_table')
 		DrawImage(nil, x + 2, rowY - 1, section.width - 4, 1)
 		for _, col in ipairs(section.colList) do
 			if col.width and row[col.key] then
@@ -580,18 +580,18 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 				local _, notes = string.gsub(row[col.key], " to ", " ") -- counts " to " in the string
 				local _, paren = string.gsub(row[col.key], "%b()", " ") -- counts parenthesis in the string
 				if (alpha == 0 or notes > 0 or paren > 0) and col.right then
-					DrawString(col.x + col.width - 4, rowY + 1, "RIGHT_X", 12, "VAR", "^7"..formatNumSep(tostring(row[col.key])))
+					StyledDrawString(col.x + col.width - 4, rowY + 1, "RIGHT_X", 12, 'text_calc_breakdown', "^7"..formatNumSep(tostring(row[col.key])))
 				elseif (alpha == 0 or notes > 0 or paren > 0) then
-					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..formatNumSep(tostring(row[col.key])))
+					StyledDrawString(col.x, rowY + 1, "LEFT", 12, 'text_calc_breakdown', "^7"..formatNumSep(tostring(row[col.key])))
 				else
-					DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7"..tostring(row[col.key]))
+					StyledDrawString(col.x, rowY + 1, "LEFT", 12, 'text_calc_breakdown', "^7"..tostring(row[col.key]))
 				end
 				local ttFunc = row[col.key.."Tooltip"]
 				local ttNode = row[col.key.."Node"]
 				if (ttFunc or ttNode) and cursorY >= viewPort.y + 2 and cursorY < viewPort.y + viewPort.height - 2 and cursorX >= col.x and cursorY >= rowY and cursorX < col.x + col.width and cursorY < rowY + 14 then
 					-- Mouse is over the cell, draw highlighting lines and show the tooltip/node location
 					SetDrawLayer(nil, 15)
-					SetDrawColor(0, 1, 0)
+					SetDrawStyle('calc_breakdown_border_hover')
 					DrawImage(nil, col.x - 2, rowY - 1, col.width, 1)
 					DrawImage(nil, col.x - 2, rowY + 13, col.width, 1)
 					if ttFunc then
@@ -626,7 +626,7 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 	end
 	if section.footer then
 		-- Draw table footer if able
-		DrawString(x + 2, rowY, "LEFT", 12, "VAR", "^7"..section.footer)
+		StyledDrawString(x + 2, rowY, "LEFT", 12, 'text_calc_breakdown', "^7"..section.footer)
 	end
 end
 
@@ -691,14 +691,14 @@ function CalcBreakdownClass:Draw(viewPort)
 	self.y = y
 	-- Draw background
 	SetDrawLayer(nil, 10)
-	SetDrawColor(0, 0, 0, 0.9)
+	SetDrawStyle('tooltip_background')
 	DrawImage(nil, x + 2, y + 2, width - 4, height - 4)
 	-- Draw border (this is put in sub layer 11 so it draws over the contents, in case they don't fit the screen)
 	SetDrawLayer(nil, 11)
 	if self.pinned then
-		SetDrawColor(0.25, 1, 0.25)
+		SetDrawStyle('calc_breakdown_tooltip_border_pinned')
 	else
-		SetDrawColor(0.33, 0.66, 0.33)
+		SetDrawStyle('calc_breakdown_tooltip_border')
 	end
 	DrawImage(nil, x, y, width, 2)
 	DrawImage(nil, x, y + height - 2, width, 2)
@@ -713,15 +713,15 @@ function CalcBreakdownClass:Draw(viewPort)
 		if section.type == "TEXT" then
 			local lineY = sectionY + 2
 			for i, line in ipairs(section.lines) do
-				SetDrawColor(1, 1, 1)
+				SetDrawStyle('text_calc_breakdown')
 				local _, dec = string.gsub(line, "%.%d%d.", " ") -- counts decimals with 2 or more digits
-				DrawString(x + 4, lineY, "LEFT", section.textSize, "VAR", formatNumSep(line))
+				StyledDrawString(x + 4, lineY, "LEFT", section.textSize, 'text_calc_breakdown', formatNumSep(line))
 				lineY = lineY + section.textSize
 			end
 		elseif section.type == "TABLE" then
 			self:DrawBreakdownTable(viewPort, x, sectionY, section)
 		elseif section.type == "RADIUS" then
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('calc_breakdown_tooltip_image_border')
 			DrawImage(nil, x + 2, sectionY, section.width - 4, section.height)
 			self:DrawRadiusVisual(x + 4, sectionY + 2, section.width - 8, section.height - 4, section.radius)
 		end

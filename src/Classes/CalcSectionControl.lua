@@ -225,7 +225,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 	SetDrawLayer(nil, -10)
 	SetDrawColor(self.colour)
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0.10, 0.10, 0.10)
+	SetDrawStyle('calc_section_background')
 	DrawImage(nil, x + 2, y + 2, width - 4, height - 4)
 	
 	local primary = true
@@ -237,16 +237,17 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 		SetDrawColor(0.10, 0.10, 0.10)
 		-- Draw label
 		if not self.enabled then
-			DrawString(x + 3, lineY + 3, "LEFT", 16, "VAR BOLD", "^8"..subSec.label)
+			SetDrawStyle('text_calc_section_title_disabled')
+			StyledDrawString(x + 3, lineY + 3, "LEFT", 16, 'text_calc_section_title_disabled', subSec.label)
 		else
-			local textColor = "^7"
+			local textColor = GetStyleColor('text_calc_section_title')
 			if self.calcsTab:SearchMatch(subSec.label) then
 				textColor = colorCodes.HIGHLIGHT
 			end
-			DrawString(x + 3, lineY + 3, "LEFT", 16, "VAR BOLD", textColor..subSec.label..":")
+			StyledDrawString(x + 3, lineY + 3, "LEFT", 16, 'text_calc_section_title', textColor..subSec.label..":")
 			if subSec.data.extra then
-				local x = x + 3 + DrawStringWidth(16, "VAR BOLD", subSec.label) + 10
-				DrawString(x, lineY + 3, "LEFT", 16, "VAR", "^7"..formatCalcStr(subSec.data.extra, actor))
+				local x = x + 3 + StyledDrawStringWidth(16, 'text_calc_section_title', subSec.label) + 10
+				StyledDrawString(x, lineY + 3, "LEFT", 16, 'text_calc_section_title_value', GetStyleColor('text_calc_section_title_value')..formatCalcStr(subSec.data.extra, actor))
 			end
 		end
 		-- Draw line below label
@@ -269,17 +270,17 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 			for _, rowData in ipairs(subSec.data) do
 				if rowData.enabled then
 					rows = rows + 1
-					local textColor = "^7"
+					local textColor = GetStyleColor('text_calc_section_label')
 					if rowData.color then
 						textColor = rowData.color
 					end
 					if rowData.label then
-						SetDrawColor(rowData.bgCol or "^0")
+						SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_label_background'))
 						DrawImage(nil, x + 2, lineY + 2, 130, 18)
 						if self.calcsTab:SearchMatch(rowData.label) then
 							textColor = colorCodes.HIGHLIGHT
 						end
-						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label..":")
+						StyledDrawString(x + 132, lineY + 2, "RIGHT_X", 16, 'text_calc_section_label', textColor..rowData.label..":")
 					end
 					for colour, colData in ipairs(rowData) do
 						-- Draw column separator at the left end of the cell
@@ -291,17 +292,17 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 							end
 							if self.calcsTab.displayData == colData then
 								-- This is the display stat, draw a green border around this cell
-								SetDrawColor(0.25, 1, 0.25)
+								SetDrawStyle('calc_breakdown_border_hover')
 								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
-								SetDrawColor(rowData.bgCol or "^0")
+								SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_value_background_hover'))
 								DrawImage(nil, colData.x + 3, colData.y + 1, colData.width - 4, colData.height - 2)
 							else
-								SetDrawColor(rowData.bgCol or "^0")
+								SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_value_background'))
 								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
 							end
 							local textSize = rowData.textSize or 14
 							SetViewport(colData.x + 3, colData.y, colData.width - 4, colData.height)
-							DrawString(1, 9 - textSize/2, "LEFT", textSize, "VAR", "^7"..formatCalcStr(colData.format, actor, colData))
+							StyledDrawString(1, 9 - textSize/2, "LEFT", textSize, 'text_calc_section_value', GetStyleColor('text_calc_section_value')..formatCalcStr(colData.format, actor, colData))
 							SetViewport()
 						end
 					end

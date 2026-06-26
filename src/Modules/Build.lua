@@ -133,7 +133,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			(self.anchorTopBarRight:GetPos() - 98 - 58
 			- self.controls.pointDisplay:GetSize() - self.controls.levelScalingButton:GetSize() - self.controls.characterLevel:GetSize()
 			- self.controls.back:GetSize() - self.controls.save:GetSize() - self.controls.saveAs:GetSize())
-		local bnw = DrawStringWidth(16, "VAR", self.buildName)
+		local bnw = StyledDrawStringWidth(16, 'text_current_build', self.buildName)
 		self.strWidth = m_min(bnw, limit)
 		self.strLimited = bnw > limit
 		return self.strWidth + 98
@@ -141,13 +141,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.controls.buildName.Draw = function(control)
 		local x, y = control:GetPos()
 		local width, height = control:GetSize()
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('current_build_box_border')
 		DrawImage(nil, x + 91, y, self.strWidth + 6, 20)
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('current_build_box_background')
 		DrawImage(nil, x + 92, y + 1, self.strWidth + 4, 18)
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('text_current_build')
 		SetViewport(x, y + 2, self.strWidth + 94, 16)
-		DrawString(0, 0, "LEFT", 16, "VAR", "Current build:  "..self.buildName)
+		StyledDrawString(0, 0, "LEFT", 16, 'text_current_build', "Current build:  "..self.buildName)
 		SetViewport()
 		if control:IsMouseInBounds() then
 			SetDrawLayer(nil, 10)
@@ -181,9 +181,9 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.controls.pointDisplay.Draw = function(control)
 		local x, y = control:GetPos()
 		local width, height = control:GetSize()
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('points_box_border')
 		DrawImage(nil, x, y, width, height)
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('points_box_background')
 		DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(x + 4, y + 2, "LEFT", 16, "FIXED", control.str)
@@ -353,7 +353,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end)
 	self.controls.modeCompare.locked = function() return self.viewMode == "COMPARE" end
 	-- Skills
-	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 80, 300, 16}, "^7Main Skill:")
+	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 80, 300, 16}, "Main Skill:")
 	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true
@@ -1376,16 +1376,16 @@ function buildMode:OnFrame(inputEvents)
 	SetDrawLayer(5)
 
 	-- Draw top bar background
-	SetDrawColor(0.2, 0.2, 0.2)
+	SetDrawStyle('top_bar_background')
 	DrawImage(nil, 0, 0, main.screenW, 28)
-	SetDrawColor(0.85, 0.85, 0.85)
+	SetDrawStyle('top_bar_border')
 	DrawImage(nil, 0, 28, main.screenW, 4)
 	DrawImage(nil, main.screenW/2 - 2, 0, 4, 28)
 
 	-- Draw side bar background
-	SetDrawColor(0.1, 0.1, 0.1)
+	SetDrawStyle('side_bar_background')
 	DrawImage(nil, 0, 32, sideBarWidth - 4, main.screenH - 32)
-	SetDrawColor(0.85, 0.85, 0.85)
+	SetDrawStyle('side_bar_border')
 	DrawImage(nil, sideBarWidth - 4, 32, 4, main.screenH - 32)
 
 

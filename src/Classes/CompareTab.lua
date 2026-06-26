@@ -210,7 +210,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Build B selector dropdown
-	self.controls.compareBuildLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -88, 0, 16}, "^7Compare with:")
+	self.controls.compareBuildLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -88, 0, 16}, "Compare with:")
 	self.controls.compareBuildSelect = new("DropDownControl", {"LEFT", self.controls.compareBuildLabel, "RIGHT"}, {4, 0, 250, 20}, {}, function(index, value)
 		if index and index > 0 and index <= #self.compareEntries then
 			self.activeCompareIndex = index
@@ -271,7 +271,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Tree spec selector for comparison build
-	self.controls.compareSpecLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -54, 0, 16}, "^7Tree set:")
+	self.controls.compareSpecLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -54, 0, 16}, "Tree set:")
 	self.controls.compareSpecLabel.shown = setsEnabled
 	self.controls.compareSpecSelect = new("DropDownControl", {"LEFT", self.controls.compareSpecLabel, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -288,7 +288,7 @@ function CompareTabClass:InitControls()
 	self.controls.compareSpecSelect.enableDroppedWidth = true
 
 	-- Skill set selector for comparison build
-	self.controls.compareSkillSetLabel = new("LabelControl", {"LEFT", self.controls.compareSpecSelect, "RIGHT"}, {8, 0, 0, 16}, "^7Skill set:")
+	self.controls.compareSkillSetLabel = new("LabelControl", {"LEFT", self.controls.compareSpecSelect, "RIGHT"}, {8, 0, 0, 16}, "Skill set:")
 	self.controls.compareSkillSetLabel.shown = setsEnabled
 	self.controls.compareSkillSetSelect = new("DropDownControl", {"LEFT", self.controls.compareSkillSetLabel, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -298,7 +298,7 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.compareSkillSetSelect.enabled = setsEnabled
 	-- Item set selector for comparison build
-	self.controls.compareItemSetLabel = new("LabelControl", {"LEFT", self.controls.compareSkillSetSelect, "RIGHT"}, {8, 0, 0, 16}, "^7Item set:")
+	self.controls.compareItemSetLabel = new("LabelControl", {"LEFT", self.controls.compareSkillSetSelect, "RIGHT"}, {8, 0, 0, 16}, "Item set:")
 	self.controls.compareItemSetLabel.shown = setsEnabled
 	self.controls.compareItemSetSelect = new("DropDownControl", {"LEFT", self.controls.compareItemSetLabel, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -308,7 +308,7 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.compareItemSetSelect.enabled = setsEnabled
 	-- Config set selector for comparison build
-	self.controls.compareConfigSetLabel = new("LabelControl", {"LEFT", self.controls.compareItemSetSelect, "RIGHT"}, {8, 0, 0, 16}, "^7Config set:")
+	self.controls.compareConfigSetLabel = new("LabelControl", {"LEFT", self.controls.compareItemSetSelect, "RIGHT"}, {8, 0, 0, 16}, "Config set:")
 	self.controls.compareConfigSetLabel.shown = setsEnabled
 	self.controls.compareConfigSetSelect = new("DropDownControl", {"LEFT", self.controls.compareConfigSetLabel, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -327,7 +327,7 @@ function CompareTabClass:InitControls()
 	-- ============================================================
 	-- Comparison build main skill selector (row between sets and sub-tabs)
 	-- ============================================================
-	self.controls.cmpSkillLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -32, 0, 16}, "^7Skill:")
+	self.controls.cmpSkillLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -32, 0, 16}, "Skill:")
 	self.controls.cmpSkillLabel.shown = setsEnabled
 
 	-- Socket group dropdown
@@ -823,7 +823,7 @@ function CompareTabClass:InitControls()
 	local itemsShown = function()
 		return self.compareViewMode == "ITEMS" and self:GetActiveCompare() ~= nil
 	end
-	self.controls.primaryItemSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "^7Item set:")
+	self.controls.primaryItemSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "Item set:")
 	self.controls.primaryItemSetLabel.shown = itemsShown
 	self.controls.primaryItemSetSelect = new("DropDownControl", nil, {0, 0, 216, 20}, {}, function(index, value)
 		if self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.itemSetOrderList[index] then
@@ -835,7 +835,7 @@ function CompareTabClass:InitControls()
 	self.controls.primaryItemSetSelect.shown = itemsShown
 
 	-- Item set dropdown for compare build
-	self.controls.compareItemSetLabel2 = new("LabelControl", nil, {0, 0, 0, 16}, "^7Item set:")
+	self.controls.compareItemSetLabel2 = new("LabelControl", nil, {0, 0, 0, 16}, "Item set:")
 	self.controls.compareItemSetLabel2.shown = itemsShown
 	self.controls.compareItemSetSelect2 = new("DropDownControl", nil, {0, 0, 216, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -847,7 +847,7 @@ function CompareTabClass:InitControls()
 	self.controls.compareItemSetSelect2.shown = itemsShown
 
 	-- Tree set dropdown for primary build
-	self.controls.primaryTreeSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "^7Tree set:")
+	self.controls.primaryTreeSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "Tree set:")
 	self.controls.primaryTreeSetLabel.shown = itemsShown
 	self.controls.primaryTreeSetSelect = new("DropDownControl", nil, {0, 0, 216, 20}, {}, function(index, value)
 		if self.primaryBuild.treeTab and self.primaryBuild.treeTab.specList[index] then
@@ -861,7 +861,7 @@ function CompareTabClass:InitControls()
 	self.controls.primaryTreeSetSelect.enableDroppedWidth = true
 
 	-- Tree set dropdown for compare build
-	self.controls.compareTreeSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "^7Tree set:")
+	self.controls.compareTreeSetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "Tree set:")
 	self.controls.compareTreeSetLabel.shown = itemsShown
 	self.controls.compareTreeSetSelect = new("DropDownControl", nil, {0, 0, 216, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -989,7 +989,7 @@ function CompareTabClass:InitControls()
 	local configShown = function()
 		return self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
 	end
-	self.controls.configPrimarySetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "^7Config set:")
+	self.controls.configPrimarySetLabel = new("LabelControl", nil, {0, 0, 0, 16}, "Config set:")
 	self.controls.configPrimarySetLabel.shown = configShown
 	self.controls.configPrimarySetSelect = new("DropDownControl", nil, {0, 0, 150, 20}, nil, function(index, value)
 		local configTab = self.primaryBuild.configTab
@@ -1514,7 +1514,7 @@ function CompareTabClass:OpenImportPopup()
 	-- Use a local variable for state text so it doesn't go into the controls table
 	-- (PopupDialog iterates all controls table entries and expects them to be control objects)
 	local stateText = ""
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Paste a build code or URL to import as comparison:")
+	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "Paste a build code or URL to import as comparison:")
 	controls.input = new("EditControl", nil, {0, 50, 450, 20}, "", nil, nil, nil, nil, nil, nil, true)
 	controls.input.enterFunc = function()
 		if controls.input.buf and controls.input.buf ~= "" then
@@ -1795,29 +1795,29 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 		-- tree artifacts that bled into those regions via high sublayers
 		local layout = self.treeLayout
 		if layout then
-			SetDrawColor(0.05, 0.05, 0.05)
+			SetDrawStyle('compare_tree_top_bar_background')
 			DrawImage(nil, contentVP.x, contentVP.y, contentVP.width, layout.headerHeight)
-			SetDrawColor(0.85, 0.85, 0.85)
+			SetDrawStyle('compare_tree_top_bar_border')
 			DrawImage(nil, contentVP.x, contentVP.y + layout.headerHeight - 2, contentVP.width, 2)
-			SetDrawColor(0.05, 0.05, 0.05)
+			SetDrawStyle('bottom_bar_background')
 			DrawImage(nil, contentVP.x, layout.footerY, contentVP.width, layout.footerHeight)
-			SetDrawColor(0.85, 0.85, 0.85)
+			SetDrawStyle('bottom_bar_border')
 			DrawImage(nil, contentVP.x, layout.footerY, contentVP.width, 2)
 		end
 		SetDrawColor(1, 1, 1)
-		DrawString(self.controls.leftSpecSelect.x, contentVP.y + 4, "LEFT", 18, "VAR",
-			colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-		DrawString(self.controls.rightSpecSelect.x, contentVP.y + 4, "LEFT", 18, "VAR",
-			colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+		StyledDrawString(self.controls.leftSpecSelect.x, contentVP.y + 4, "LEFT", 18, 'text_compare_primary_build_name',
+			GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+		StyledDrawString(self.controls.rightSpecSelect.x, contentVP.y + 4, "LEFT", 18, 'text_compare_secondary_build_name',
+			GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 	end
 
 	if not compareEntry then
 		-- No comparison build loaded - show instructions
 		SetViewport(contentVP.x, contentVP.y, contentVP.width, contentVP.height)
-		SetDrawColor(1, 1, 1)
-		DrawString(0, 40, "CENTER", 20, "VAR",
+		SetDrawStyle('text_compare_load_info')
+		StyledDrawString(0, 40, "CENTER", 20, 'text_compare_load_info',
 			"^7No comparison build loaded.")
-		DrawString(0, 70, "CENTER", 16, "VAR",
+		StyledDrawString(0, 70, "CENTER", 16, 'text_compare_load_info',
 			"^7Click " .. colorCodes.POSITIVE .. "Import..." .. "^7 above to import a build to compare against.")
 		SetViewport()
 	else
@@ -1828,7 +1828,7 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 			self.controls.itemsExpandedCheck.y = contentVP.y + 8
 
 			local colWidth = self.itemsColWidth or m_floor(contentVP.width / 2)
-			local itemSetLabelW = DrawStringWidth(16, "VAR", "^7Item set:") + 4
+			local itemSetLabelW = StyledDrawStringWidth(16, 'text_label', "Item set:") + 4
 			local scrollOffsetX = -((self.controls.itemsHScrollBar and self.controls.itemsHScrollBar.offset) or 0)
 
 			-- Item set dropdowns
@@ -1848,10 +1848,10 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 			self.controls.compareItemSetSelect2.y = row1Y
 
 			SetDrawColor(1, 1, 1)
-			DrawString(self.controls.primaryItemSetLabel.x, buildLabelY, "LEFT", 18, "VAR",
-				colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-			DrawString(self.controls.compareItemSetLabel2.x, buildLabelY, "LEFT", 18, "VAR",
-				colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+			StyledDrawString(self.controls.primaryItemSetLabel.x, buildLabelY, "LEFT", 18, 'text_compare_primary_build_name',
+				GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+			StyledDrawString(self.controls.compareItemSetLabel2.x, buildLabelY, "LEFT", 18, 'text_compare_secondary_build_name',
+				GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 			SetDrawColor(0.5, 0.5, 0.5)
 			DrawImage(nil, contentVP.x + 4, contentVP.y + LAYOUT.itemsCheckboxOffset - 2, contentVP.width - 8, 2)
 
@@ -3173,8 +3173,8 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	local primaryName = self:GetShortBuildName(self.primaryBuild.buildName)
 	local compareName = compareEntry.label or "Compare Build"
-	local primaryNameW = DrawStringWidth(headerHeight, "VAR", primaryName)
-	local compareNameW = DrawStringWidth(headerHeight, "VAR", compareName)
+	local primaryNameW = StyledDrawStringWidth(headerHeight, 'text_compare_primary_build_name', primaryName)
+	local compareNameW = StyledDrawStringWidth(headerHeight, 'text_compare_secondary_build_name', compareName)
 
 	local minCol3R = col2R + compareNameW + 16
 	local maxCol3R = vp.width - 200
@@ -3183,11 +3183,11 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	SetViewport(vp.x, vp.y, vp.width, headerReserve)
 	SetDrawColor(1, 1, 1)
-	DrawString(col1, 4, "LEFT", headerHeight, "VAR", "^7Stat")
-	DrawString(col2R, 4, "RIGHT_X", headerHeight, "VAR", colorCodes.POSITIVE .. primaryName)
-	DrawString(col3R, 4, "RIGHT_X", headerHeight, "VAR",
-		colorCodes.WARNING .. compareName)
-	DrawString(col4, 4, "LEFT", headerHeight, "VAR", "^7Difference")
+	StyledDrawString(col1, 4, "LEFT", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Stat")
+	StyledDrawString(col2R, 4, "RIGHT_X", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_primary_build_name') .. primaryName)
+	StyledDrawString(col3R, 4, "RIGHT_X", headerHeight, 'text_compare_summary_heading',
+		GetStyleColor('text_compare_secondary_build_name') .. compareName)
+	StyledDrawString(col4, 4, "LEFT", headerHeight, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Difference")
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, 4, headerHeight + 8, vp.width - 8, 2)
 
@@ -3213,7 +3213,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	-- Header
 	SetDrawColor(1, 1, 1)
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, "VAR", "^7Compare Power Report")
+	StyledDrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 20, 'text_compare_summary_heading', GetStyleColor('text_compare_summary_heading').."Compare Power Report")
 	drawY = drawY + 24
 
 	-- Run the coroutine driver (advances calculation each frame)
@@ -3229,7 +3229,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	self.controls.comparePowerStatSelect.y = controlY
 
 	-- Label for dropdown
-	DrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, "VAR", "^7Metric:")
+	StyledDrawString(LAYOUT.powerReportLeft, drawY, "LEFT", 16, 'text_label', GetStyleColor('text_label').."Metric:")
 
 	-- Category checkboxes (positioned to the right of dropdown)
 	local checkX = ctrlBaseX + 280
@@ -3355,11 +3355,11 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 
 				-- Draw stat row
 				local labelColor = statData.color or "^7"
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. (statData.label or statData.stat))
-				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. primaryStr)
-				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.SPLITPERSONALITY .. compareStr)
+				StyledDrawString(col1, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', labelColor .. (statData.label or statData.stat))
+				StyledDrawString(col2R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', "^7" .. primaryStr)
+				StyledDrawString(col3R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', colorCodes.SPLITPERSONALITY .. compareStr)
 				if diffStr ~= "" then
-					DrawString(col4, drawY, "LEFT", lineHeight, "VAR", diffColor .. diffStr)
+					StyledDrawString(col4, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', diffColor .. diffStr)
 				end
 				drawY = drawY + lineHeight + 1
 			end
@@ -3370,9 +3370,9 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 				local valStr = statData.val or ""
 				local primaryShown = statData.condFunc(primaryOutput)
 				local compareShown = statData.condFunc(compareOutput)
-				DrawString(col1, drawY, "LEFT", lineHeight, "VAR", labelColor .. statData.label)
-				DrawString(col2R, drawY, "RIGHT_X", lineHeight, "VAR", "^7" .. (primaryShown and valStr or "-"))
-				DrawString(col3R, drawY, "RIGHT_X", lineHeight, "VAR", colorCodes.WARNING .. (compareShown and valStr or "-"))
+				StyledDrawString(col1, drawY, "LEFT", lineHeight, 'text_compare_summary_stat', labelColor .. statData.label)
+				StyledDrawString(col2R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', "^7" .. (primaryShown and valStr or "-"))
+				StyledDrawString(col3R, drawY, "RIGHT_X", lineHeight, 'text_compare_summary_stat', colorCodes.WARNING .. (compareShown and valStr or "-"))
 				drawY = drawY + lineHeight + 1
 			end
 		end
@@ -3481,40 +3481,41 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 	local drawY = startY
 
 	if not item then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", "^8(empty)")
+		StyledDrawString(x, drawY, "LEFT", fontSize, 'text_itembox', "^8(empty)")
 		return lineHeight
 	end
 
 	-- Item name
 	local rarityColor = tradeHelpers.getRarityColor(item)
-	DrawString(x, drawY, "LEFT", 16, "VAR", rarityColor .. item.name)
+	DrawString(x, drawY, "LEFT", 16, "FONTIN SC", rarityColor .. item.name)
 	drawY = drawY + 18
 
 	-- Base type label
 	local base = item.base
+	local itemFont = "FONTIN SC"
 	if base then
 		if base.weapon then
 			local weaponData = item.weaponData and item.weaponData[1]
 			if weaponData then
 				if weaponData.PhysicalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FPhys DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.PhysicalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FPhys DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.PhysicalDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ElementalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEle DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ElementalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FEle DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ElementalDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.ChaosDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FChaos DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ChaosDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FChaos DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.ChaosDPS))
 					drawY = drawY + lineHeight
 				end
 				if weaponData.TotalDPS then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FTotal DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.TotalDPS))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FTotal DPS: " .. colorCodes.MAGIC .. "%.1f", weaponData.TotalDPS))
 					drawY = drawY + lineHeight
 				end
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCrit: " .. colorCodes.MAGIC .. "%.2f%%", weaponData.CritChance))
+				DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FCrit: " .. colorCodes.MAGIC .. "%.2f%%", weaponData.CritChance))
 				drawY = drawY + lineHeight
-				DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FAPS: " .. colorCodes.MAGIC .. "%.2f", weaponData.AttackRate))
+				DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FAPS: " .. colorCodes.MAGIC .. "%.2f", weaponData.AttackRate))
 				drawY = drawY + lineHeight
 			end
 		elseif base.armour then
@@ -3526,23 +3527,23 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 				local energyShield = item:GetArmourDataValue("EnergyShield", level)
 				local ward = item:GetArmourDataValue("Ward", level)
 				if armour > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FArmour: " .. colorCodes.MAGIC .. "%d", armour))
 					drawY = drawY + lineHeight
 				end
 				if evasion > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FEvasion: " .. colorCodes.MAGIC .. "%d", evasion))
 					drawY = drawY + lineHeight
 				end
 				if energyShield > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FES: " .. colorCodes.MAGIC .. "%d", energyShield))
 					drawY = drawY + lineHeight
 				end
 				if ward > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
 					drawY = drawY + lineHeight
 				end
 				if armourData.BlockChance and armourData.BlockChance > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FBlock: " .. colorCodes.MAGIC .. "%d%%", armourData.BlockChance))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FBlock: " .. colorCodes.MAGIC .. "%d%%", armourData.BlockChance))
 					drawY = drawY + lineHeight
 				end
 			end
@@ -3550,26 +3551,26 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 			local flaskData = item.flaskData
 			if flaskData then
 				if flaskData.lifeTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FLife: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.lifeTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FLife: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.lifeTotal, flaskData.duration or 0))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.manaTotal then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FMana: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.manaTotal, flaskData.duration or 0))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FMana: " .. colorCodes.MAGIC .. "%d ^x7F7F7F(%.1fs)", flaskData.manaTotal, flaskData.duration or 0))
 					drawY = drawY + lineHeight
 				end
 				if not flaskData.lifeTotal and not flaskData.manaTotal and flaskData.duration then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FDuration: " .. colorCodes.MAGIC .. "%.2fs", flaskData.duration))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FDuration: " .. colorCodes.MAGIC .. "%.2fs", flaskData.duration))
 					drawY = drawY + lineHeight
 				end
 				if flaskData.chargesUsed and flaskData.chargesMax then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FCharges: " .. colorCodes.MAGIC .. "%d/%d", flaskData.chargesUsed, flaskData.chargesMax))
+					DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FCharges: " .. colorCodes.MAGIC .. "%d/%d", flaskData.chargesUsed, flaskData.chargesMax))
 					drawY = drawY + lineHeight
 				end
 				-- Flask buff mods
 				if item.buffModLines then
 					for _, modLine in pairs(item.buffModLines) do
 						local color = modLine.extra and colorCodes.UNSUPPORTED or colorCodes.MAGIC
-						DrawString(x, drawY, "LEFT", fontSize, "VAR", color .. modLine.line)
+						DrawString(x, drawY, "LEFT", fontSize, itemFont, color .. modLine.line)
 						drawY = drawY + lineHeight
 					end
 				end
@@ -3578,7 +3579,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 		-- Quality (if not shown in type-specific section)
 		if item.quality and item.quality > 0 and not base.weapon and not base.armour and not base.flask then
-			DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FQuality: " .. colorCodes.MAGIC .. "+%d%%", item.quality))
+			DrawString(x, drawY, "LEFT", fontSize, itemFont, s_format("^x7F7F7FQuality: " .. colorCodes.MAGIC .. "+%d%%", item.quality))
 			drawY = drawY + lineHeight
 		end
 	end
@@ -3589,6 +3590,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 	end
 
 	-- Mod lines with diff highlighting
+	local modsFont = "FONTIN SC"
 	for _, modListData in ipairs{item.enchantModLines or {}, item.scourgeModLines or {}, item.implicitModLines or {}, item.explicitModLines or {}, item.crucibleModLines or {}} do
 		local drewAny = false
 		for _, modLine in ipairs(modListData) do
@@ -3614,7 +3616,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 						end
 						-- If exact match (same line text), no indicator — it's identical
 					end
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", formatted)
+					DrawString(x, drawY, "LEFT", fontSize, modsFont, formatted)
 					drawY = drawY + lineHeight
 					drewAny = true
 				end
@@ -3627,15 +3629,15 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 
 	-- Corrupted/Split/Mirrored
 	if item.corrupted then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Corrupted")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Corrupted")
 		drawY = drawY + lineHeight
 	end
 	if item.split then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Split")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Split")
 		drawY = drawY + lineHeight
 	end
 	if item.mirrored then
-		DrawString(x, drawY, "LEFT", fontSize, "VAR", colorCodes.NEGATIVE .. "Mirrored")
+		DrawString(x, drawY, "LEFT", fontSize, modsFont, colorCodes.NEGATIVE .. "Mirrored")
 		drawY = drawY + lineHeight
 	end
 
@@ -3665,7 +3667,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	-- move when jewel names or modifier detail state changes.
 	local maxBaseLabelW = 0
 	for _, sn in ipairs(baseSlots) do
-		local w = DrawStringWidth(16, "VAR", "^7" .. sn .. ":")
+		local w = StyledDrawStringWidth(16, 'text_label', "^7" .. sn .. ":")
 		if w > maxBaseLabelW then maxBaseLabelW = w end
 	end
 	maxBaseLabelW = maxBaseLabelW + 2
@@ -3735,8 +3737,8 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Headers
 	SetDrawColor(1, 1, 1)
-	DrawString(scrollOffsetX + 10, drawY, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(scrollOffsetX + colWidth + 10, drawY, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	StyledDrawString(scrollOffsetX + 10, drawY, "LEFT", 18, 'text_compare_primary_build_name', GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+	StyledDrawString(scrollOffsetX + colWidth + 10, drawY, "LEFT", 18, 'text_compare_secondary_build_name', GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 	drawY = drawY + 24
 
 	-- Helper: process copy/buy button hover state and click events for a slot.
@@ -3772,10 +3774,10 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	local function drawSlotEntry(label, pItem, cItem, copySlotName, equipSlotName, labelW, pWarn, cWarn, slotMissing)
 		if self.itemsExpandedMode then
 			-- === EXPANDED MODE ===
-			SetDrawColor(1, 1, 1)
-			DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
-			local labelEndW = DrawStringWidth(16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
-			DrawString(scrollOffsetX + 10 + labelEndW + 8, drawY + 2, "LEFT", 14, "VAR", tradeHelpers.getSlotDiffLabel(pItem, cItem))
+			SetDrawStyle('text_label')
+			StyledDrawString(scrollOffsetX + 10, drawY, "LEFT", 16, 'text_label', label .. ":" .. (pWarn or ""))
+			local labelEndW = StyledDrawStringWidth(16, 'text_label', label .. ":" .. (pWarn or ""))
+			StyledDrawString(scrollOffsetX + 10 + labelEndW + 8, drawY + 2, "LEFT", 14, 'text_compare_diff_indicator', tradeHelpers.getSlotDiffLabel(pItem, cItem))
 
 			if cItem then
 				local b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H = tradeHelpers.drawCopyButtons(cursorX, cursorY, scrollOffsetX + contentWidth - 214, drawY + 21, slotMissing, LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW)
@@ -3830,7 +3832,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Convert drawY to absolute screen coords for control positioning
 	local absY = vp.y + checkboxOffset + drawY
-	local treeSetLabelW = DrawStringWidth(16, "VAR", "^7Tree set:") + 4
+	local treeSetLabelW = StyledDrawStringWidth(16, 'text_label', "Tree set:") + 4
 
 	self.controls.primaryTreeSetLabel.x = vp.x + scrollOffsetX + 10
 	self.controls.primaryTreeSetLabel.y = absY + 2
@@ -3857,8 +3859,8 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	-- === JEWELS SECTION ===
 	if #jewelSlots > 0 then
 		-- Section header
-		SetDrawColor(1, 1, 1)
-		DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7-- Jewels --")
+		SetDrawStyle('text_heading')
+		StyledDrawString(scrollOffsetX + 10, drawY, "LEFT", 16, 'text_heading', "-- Jewels --")
 		drawY = drawY + 20
 
 		for _, jEntry in ipairs(jewelSlots) do
@@ -4166,10 +4168,10 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 		local y = startY
 		for _, entry in ipairs(displayList) do
 			if entry.status == "missing" then
-				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", colorCodes.NEGATIVE .. "- " .. entry.name .. "^7")
+				StyledDrawString(xOffset, y, "LEFT", gemFontSize, 'text_compare_gem', colorCodes.NEGATIVE .. "- " .. entry.name .. "^7")
 			elseif entry.gem then
 				if highlightSet[entry.gem] then
-					SetDrawColor(0.33, 1, 0.33, 0.25)
+					SetDrawStyle('compare_header_background_hover')
 					DrawImage(nil, xOffset, y, gemTextWidth, gemLineHeight)
 				end
 				local gemName = entry.gem.grantedEffect and entry.gem.grantedEffect.name or entry.gem.nameSpec or "?"
@@ -4178,7 +4180,7 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 				if entry.status == "additional" then
 					prefix = colorCodes.POSITIVE .. "+ "
 				end
-				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem))
+				StyledDrawString(xOffset, y, "LEFT", gemFontSize, 'text_compare_gem', prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem))
 			end
 			y = y + gemLineHeight
 		end
@@ -4196,10 +4198,10 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	local groupHeaderX = 10
 	local groupHeaderTextX = groupHeaderX
 	local function getGroupHeaderWidth(group, idx)
-		return groupHeaderTextX + DrawStringWidth(18, "VAR", "^7" .. getGroupLabel(group, idx))
+		return groupHeaderTextX + StyledDrawStringWidth(18, 'text_compare_gem', "^7" .. getGroupLabel(group, idx))
 	end
 	local function drawGroupHeader(group, idx, x, y)
-		DrawString(x, y, "LEFT", 18, "VAR", "^7" .. getGroupLabel(group, idx))
+		StyledDrawString(x, y, "LEFT", 18, 'text_compare_gem', "^7" .. getGroupLabel(group, idx))
 	end
 
 	local displayListsByPair = {}
@@ -4224,7 +4226,7 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	end
 
 	-- Include primary header width so the compare header has room too
-	local primaryHeaderW = 10 + DrawStringWidth(18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+	local primaryHeaderW = 10 + StyledDrawStringWidth(18, 'text_compare_primary_build_name', GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
 	if primaryHeaderW > maxPrimaryW then maxPrimaryW = primaryHeaderW end
 
 	local colWidth = maxPrimaryW + LAYOUT.compareColGap
@@ -4246,8 +4248,8 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	local scrollOffsetX = -self.skillsScrollX
 
 	SetDrawColor(1, 1, 1)
-	DrawString(vp.x + scrollOffsetX + 10, vp.y + 4, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(vp.x + scrollOffsetX + colWidth + 10, vp.y + 4, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	StyledDrawString(vp.x + scrollOffsetX + 10, vp.y + 4, "LEFT", 18, 'text_compare_primary_build_name', GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+	StyledDrawString(vp.x + scrollOffsetX + colWidth + 10, vp.y + 4, "LEFT", 18, 'text_compare_secondary_build_name', GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, vp.x + 4, vp.y + headerReserve, vp.width - 8, 2)
 
@@ -4370,10 +4372,10 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 
 	-- Build name headers
 	SetDrawColor(1, 1, 1)
-	DrawString(leftX, y + 2, "LEFT", 18, "VAR",
-		colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(rightX, y + 2, "LEFT", 18, "VAR",
-		colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	StyledDrawString(leftX, y + 2, "LEFT", 18, 'text_compare_primary_build_name',
+		GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+	StyledDrawString(rightX, y + 2, "LEFT", 18, 'text_compare_secondary_build_name',
+		GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 	y = y + rowH
 
 	-- Draw labels next to each control row
@@ -4381,7 +4383,7 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 		if control.shown == false or (type(control.shown) == "function" and not control:IsShown()) then
 			return false
 		end
-		DrawString(x, cy + 2, "LEFT", 14, "VAR", "^7" .. label .. ":")
+		StyledDrawString(x, cy + 2, "LEFT", 14, 'text_label', GetStyleColor('text_label') .. label .. ":")
 		return true
 	end
 
@@ -4454,8 +4456,8 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 			local primaryValue = primaryOutput and primaryOutput[info.key]
 			local compareValue = compareOutput and compareOutput[info.key]
 			if (primaryValue and primaryValue ~= "") or (compareValue and compareValue ~= "") then
-				local primaryLines = (primaryValue and primaryValue ~= "") and wrapInfoLine(info.label .. ": " .. primaryValue, wrapWidth) or {}
-				local compareLines = (compareValue and compareValue ~= "") and wrapInfoLine(info.label .. ": " .. compareValue, wrapWidth) or {}
+				local primaryLines = (primaryValue and primaryValue ~= "") and wrapInfoLine(info.label .. ": ^7" .. primaryValue, wrapWidth) or {}
+				local compareLines = (compareValue and compareValue ~= "") and wrapInfoLine(info.label .. ": ^7" .. compareValue, wrapWidth) or {}
 				local primaryHeight = #primaryLines * 18
 				local compareHeight = #compareLines * 18
 				local rowH = m_max(primaryHeight, compareHeight, 18)
@@ -4464,7 +4466,7 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 					local onLeft = cursorX >= leftX and cursorX < rightX and primaryHeight > 0 and cursorY < textY + primaryHeight
 					local onRight = cursorX >= rightX and cursorX < vp.x + vp.width and compareHeight > 0 and cursorY < textY + compareHeight
 					if onLeft then
-						SetDrawColor(0.15, 0.25, 0.15)
+						SetDrawStyle('compare_header_background_hover')
 						DrawImage(nil, leftX, textY, colWidth, primaryHeight)
 						self.calcsSkillHeaderHover = {
 							breakdown = info.breakdown,
@@ -4473,7 +4475,7 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 							x = leftX, y = textY, w = colWidth, h = primaryHeight,
 						}
 					elseif onRight then
-						SetDrawColor(0.15, 0.25, 0.15)
+						SetDrawStyle('compare_header_background_hover')
 						DrawImage(nil, rightX, textY, colWidth, compareHeight)
 						self.calcsSkillHeaderHover = {
 							breakdown = info.breakdown,
@@ -4484,10 +4486,12 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 					end
 				end
 				for i, line in ipairs(primaryLines) do
-					DrawString(leftX, textY + 1 + (i - 1) * 18, "LEFT", 14, "VAR", "^7" .. line)
+					SetDrawStyle('text_label')
+					StyledDrawString(leftX, textY + 1 + (i - 1) * 18, "LEFT", 14, 'text_label', line)
 				end
 				for i, line in ipairs(compareLines) do
-					DrawString(rightX, textY + 1 + (i - 1) * 18, "LEFT", 14, "VAR", "^7" .. line)
+					SetDrawStyle('text_label')
+					StyledDrawString(rightX, textY + 1 + (i - 1) * 18, "LEFT", 14, 'text_label', line)
 				end
 				textY = textY + rowH
 			end
@@ -4680,7 +4684,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 			SetDrawColor(sec.colour)
 			DrawImage(nil, x, y, cardWidth, sec.height)
 			-- Draw background
-			SetDrawColor(0.10, 0.10, 0.10)
+			SetDrawStyle('calc_section_background')
 			DrawImage(nil, x + 2, y + 2, cardWidth - 4, sec.height - 4)
 			SetDrawLayer(nil, 0)
 
@@ -4690,16 +4694,17 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 				SetDrawColor(sec.colour)
 				DrawImage(nil, x + 2, lineY, cardWidth - 4, 2)
 				-- Header text
-				DrawString(x + 3, lineY + 3, "LEFT", 16, "VAR BOLD", "^7" .. subSec.label .. ":")
+				SetDrawStyle('text_calc_section_title')
+				StyledDrawString(x + 3, lineY + 3, "LEFT", 16, 'text_calc_section_title', subSec.label .. ":")
 				-- Show extra info (e.g. "4521/5000 | 3800/4200")
 				if subSec.data and subSec.data.extra then
-					local extraTextW = DrawStringWidth(16, "VAR BOLD", subSec.label .. ":")
+					local extraTextW = StyledDrawStringWidth(16, 'text_calc_section_title', subSec.label .. ":")
 					local extraX = x + 3 + extraTextW + 8
 					local primaryExtraOk, primaryExtraText = pcall(formatCalcStr, subSec.data.extra, primaryActor)
 					local compareExtraOk, compareExtraText = pcall(formatCalcStr, subSec.data.extra, compareActor)
 					if primaryExtraOk and compareExtraOk then
-						DrawString(extraX, lineY + 3, "LEFT", 16, "VAR",
-							colorCodes.POSITIVE .. primaryExtraText .. "  ^8|  " .. colorCodes.WARNING .. compareExtraText)
+						StyledDrawString(extraX, lineY + 3, "LEFT", 16, 'text_calc_section_title_value',
+							GetStyleColor('text_compare_primary_build_name') .. primaryExtraText .. "  ^8|  " .. GetStyleColor('text_compare_secondary_build_name') .. compareExtraText)
 					end
 				end
 				-- Separator below header
@@ -4719,9 +4724,9 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 					local rowHovered = isHovered and colData
 					if rowHovered then
 						-- Draw green border around hovered row (matching normal CalcsTab style)
-						SetDrawColor(0.25, 1, 0.25)
+						SetDrawStyle('calc_breakdown_border_hover')
 						DrawImage(nil, x + 2, lineY, cardWidth - 4, 18)
-						SetDrawColor(rowData.bgCol or "^0")
+						SetDrawColor(rowData.bgCol or GetStyleColor('calc_section_value_background_hover'))
 						DrawImage(nil, x + 3, lineY + 1, cardWidth - 6, 16)
 						hoverColData = colData
 						hoverRowLabel = rowData.label
@@ -4732,13 +4737,13 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 					end
 
 					-- Label background and text
-					local bgCol = rowData.bgCol or "^0"
+					local bgCol = rowData.bgCol or GetStyleColor('calc_section_label_background')
 					if not rowHovered then
 						SetDrawColor(bgCol)
 						DrawImage(nil, x + 2, lineY, labelWidth - 2, 18)
 					end
-					local textColor = rowData.color or "^7"
-					DrawString(x + labelWidth, lineY + 1, "RIGHT_X", 16, "VAR", textColor .. rowData.label .. "^7:")
+					local textColor = rowData.color or GetStyleColor('text_calc_section_label')
+					StyledDrawString(x + labelWidth, lineY + 1, "RIGHT_X", 16, 'text_calc_section_label', textColor .. rowData.label .. GetStyleColor('text_calc_section_label') .. ":")
 
 					-- Primary value column
 					if not rowHovered then
@@ -4750,7 +4755,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 					if colData and colData.format then
 						local ok, str = pcall(formatCalcStr, colData.format, primaryActor, colData)
 						if ok and str then
-							DrawString(x + valCol1X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, "VAR", "^7" .. str)
+							StyledDrawString(x + valCol1X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, 'text_calc_section_value', GetStyleColor('text_calc_section_value') .. str)
 						end
 					end
 
@@ -4764,7 +4769,7 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 					if colData and colData.format then
 						local ok, str = pcall(formatCalcStr, colData.format, compareActor, colData)
 						if ok and str then
-							DrawString(x + valCol2X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, "VAR", "^7" .. str)
+							StyledDrawString(x + valCol2X + 2, lineY + 9 - textSize / 2, "LEFT", textSize, 'text_calc_section_value', GetStyleColor('text_calc_section_value') .. str)
 						end
 					end
 
@@ -4813,10 +4818,10 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 	SetDrawColor(1, 1, 1)
 	-- Column headers aligned with first column's control offsets
 	local headerBaseX = 10
-	DrawString(headerBaseX + LAYOUT.configCol3 - 8, colHeaderY, "RIGHT_X", columnHeaderHeight, "VAR",
-		colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(headerBaseX + LAYOUT.configCol3, colHeaderY, "LEFT", columnHeaderHeight, "VAR",
-		colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	StyledDrawString(headerBaseX + LAYOUT.configCol3 - 8, colHeaderY, "RIGHT_X", columnHeaderHeight, 'text_compare_primary_build_name',
+		GetStyleColor('text_compare_primary_build_name') .. self:GetShortBuildName(self.primaryBuild.buildName))
+	StyledDrawString(headerBaseX + LAYOUT.configCol3, colHeaderY, "LEFT", columnHeaderHeight, 'text_compare_secondary_build_name',
+		GetStyleColor('text_compare_secondary_build_name') .. (compareEntry.label or "Compare Build"))
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, 4, colHeaderY + columnHeaderHeight + 4, vp.width - 8, 2)
 	if headerOnly then
@@ -4842,9 +4847,9 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 		if boxY + boxH >= 0 and boxY < scrollH then
 			-- Draw section box
 			SetDrawLayer(nil, -10)
-			SetDrawColor(0.66, 0.66, 0.66)
+			SetDrawStyle('section_border')
 			DrawImage(nil, boxX, boxY, sectionWidth, boxH)
-			SetDrawColor(0.1, 0.1, 0.1)
+			SetDrawStyle('section_background')
 			DrawImage(nil, boxX + 2, boxY + 2, sectionWidth - 4, boxH - 4)
 			SetDrawLayer(nil, 0)
 
@@ -4853,13 +4858,13 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 			if sec.diffCount > 0 then
 				labelText = labelText .. "  (" .. sec.diffCount .. " diff)"
 			end
-			local labelWidth = DrawStringWidth(14, "VAR", labelText)
-			SetDrawColor(0.66, 0.66, 0.66)
+			local labelWidth = StyledDrawStringWidth(14, 'text_section_title', labelText)
+			SetDrawStyle('section_border_title')
 			DrawImage(nil, boxX + 6, boxY - 8, labelWidth + 6, 18)
-			SetDrawColor(0, 0, 0)
+			SetDrawStyle('section_background_title')
 			DrawImage(nil, boxX + 7, boxY - 7, labelWidth + 4, 16)
-			SetDrawColor(1, 1, 1)
-			DrawString(boxX + 9, boxY - 6, "LEFT", 14, "VAR", labelText)
+			SetDrawStyle('text_section_title')
+			StyledDrawString(boxX + 9, boxY - 6, "LEFT", 14, 'text_section_title', labelText)
 
 			-- Draw rows inside section
 			local rowY = boxY + sectionInnerPad
@@ -4875,10 +4880,9 @@ function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 					end
 					-- Label (reduce font size for long labels, matching ConfigTab behavior)
 					local labelStr = varData.label or varData.var
-					local labelSize = DrawStringWidth(14, "VAR", labelStr) > 228 and 12 or 14
-					SetDrawColor(1, 1, 1)
-					DrawString(boxX + labelOffset, rowY + 2, "LEFT", labelSize, "VAR",
-						"^7" .. labelStr)
+					local labelSize = StyledDrawStringWidth(14, 'text_label', labelStr) > 228 and 12 or 14
+					SetDrawStyle('text_label')
+					StyledDrawString(boxX + labelOffset, rowY + 2, "LEFT", labelSize, 'text_label', labelStr)
 					-- Controls are drawn by ControlHost (positioned in LayoutConfigView)
 				end
 				rowY = rowY + rowHeight

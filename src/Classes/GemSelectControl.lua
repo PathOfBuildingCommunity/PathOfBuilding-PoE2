@@ -411,9 +411,9 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 	scrollBar:SetContentDimension((height - 4) * #self.list, dropHeight)
 	if self.dropped then
 		SetDrawLayer(nil, 5)
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('list_border_selected')
 		DrawImage(nil, x, y + height, width, dropHeight + 4)
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('list_background_selected')
 		DrawImage(nil, x + 1, y + height + 1, width - 2, dropHeight + 2)
 		SetDrawLayer(nil, 0)
 	end
@@ -430,7 +430,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		for index = minIndex, maxIndex do
 			local y = (index - 1) * (height - 4) - scrollBar.offset
 			if index == self.hoverSel or index == self.selIndex or (index == 1 and self.selIndex == 0) then
-				SetDrawColor(0.2, 0.2, 0.2)
+				SetDrawStyle('list_entry_background_hover')
 				DrawImage(nil, 0, y, width - 4, height - 4)
 			end
 			SetDrawColor(1, 1, 1)
@@ -446,14 +446,14 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 				end
 			end
 			local gemText = gemData and gemData.name or "<No matches>"
-			DrawString(0, y, "LEFT", height - 4, "VAR", gemText)
+			StyledDrawString(0, y, "LEFT", height - 4, 'text_gemlist', gemText)
 			if gemData then
 				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] then
 					SetDrawColor(self.sortCache.dpsColor[gemId])
 					main:DrawCheckMark(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y + (height - 4) / 2, (height - 4) * 0.8)
 				elseif gemData.grantedEffect.hasGlobalEffect then
 					SetDrawColor(self.sortCache.dpsColor[gemId])
-					DrawString(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y - 2, "CENTER_X", height, "VAR", "+")
+					StyledDrawString(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y - 2, "CENTER_X", height, 'text_gemlist', "+")
 				end
 			end
 		end
@@ -533,7 +533,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			SetDrawColor(0,0,0)
 			DrawImage(nil, sx+1, y+2, 16-2, height-4)
 			SetDrawColor(colorS,colorS,colorS)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "S")
+			StyledDrawString(sx + 8, y, "CENTER_X", height - 2, 'text_gemlist', "S")
 
 			-- active shortcut
 			sx = x + width - (16*2) - (2*2)
@@ -542,7 +542,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			SetDrawColor(0,0,0)
 			DrawImage(nil, sx+1, y+2, 16-2, height-4)
 			SetDrawColor(colorA,colorA,colorA)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
+			StyledDrawString(sx + 8, y, "CENTER_X", height - 2, 'text_gemlist', "A")
 
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)

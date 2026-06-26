@@ -167,7 +167,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			self:AddItemSetTooltip(tooltip, self.itemSets[self.itemSetOrderList[index]])
 		end
 	end
-	self.controls.setLabel = new("LabelControl", {"RIGHT",self.controls.setSelect,"LEFT"}, {-2, 0, 0, 16}, "^7Item set:")
+	self.controls.setLabel = new("LabelControl", {"RIGHT",self.controls.setSelect,"LEFT"}, {-2, 0, 0, 16}, "Item set:")
 	self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"RIGHT"}, {4, 0, 90, 20}, "Manage...", function()
 		self:OpenItemSetManagePopup()
 	end)
@@ -260,7 +260,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.specButton = new("ButtonControl", {"LEFT",prevSlot,"RIGHT"}, {4, 0, 90, 20}, "Manage...", function()
 		self.build.treeTab:OpenSpecManagePopup()
 	end)
-	self.controls.specLabel = new("LabelControl", {"RIGHT",prevSlot,"LEFT"}, {-2, 0, 0, 16}, "^7Passive tree:")
+	self.controls.specLabel = new("LabelControl", {"RIGHT",prevSlot,"LEFT"}, {-2, 0, 0, 16}, "Passive tree:")
 
 	self.sockets = { }
 	local socketOrder = { }
@@ -277,7 +277,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		self.sockets[node.id] = socketControl
 		addSlot(socketControl)
 	end
-	self.controls.slotHeader = new("LabelControl", {"BOTTOMLEFT",self.slotAnchor,"TOPLEFT"}, {0, -4, 0, 16}, "^7Equipped items:")
+	self.controls.slotHeader = new("LabelControl", {"BOTTOMLEFT",self.slotAnchor,"TOPLEFT"}, {0, -4, 0, 16}, "Equipped items:")
 	self.controls.weaponSwap1 = new("ButtonControl", {"BOTTOMRIGHT",self.slotAnchor,"TOPRIGHT"}, {-20, -2, 18, 18}, "I", function()
 		if self.activeItemSet.useSecondWeaponSet then
 			self.activeItemSet.useSecondWeaponSet = false
@@ -318,7 +318,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.weaponSwap2.locked = function()
 		return self.activeItemSet.useSecondWeaponSet
 	end
-	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "^7Weapon Set:")
+	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "Weapon Set:")
 
 	-- All items list
 	if main.portraitMode then
@@ -560,7 +560,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemSectionQuality = new("Control", {"TOPLEFT",self.controls.displayItemSectionEnchant,"BOTTOMLEFT"}, {0, 0, 0, function()
 		return (self.controls.displayItemQuality:IsShown() and self.controls.displayItemQualityEdit:IsShown()) and 28 or 0
 	end})
-	self.controls.displayItemQuality = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionQuality,"TOPRIGHT"}, {-4, 0, 0, 16}, "^7Quality:")
+	self.controls.displayItemQuality = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionQuality,"TOPRIGHT"}, {-4, 0, 0, 16}, "Quality:")
 	self.controls.displayItemQuality.shown = function()
 		return self.displayItem and self.displayItem.quality and self.displayItem.base.quality
 	end
@@ -698,7 +698,7 @@ holding Shift will put it in the second.]])
 		end
 
 		self.controls["displayItemRune"..i] = drop
-		self.controls["displayItemRuneLabel"..i] = new("LabelControl", {"RIGHT",drop,"LEFT"}, {-4, 0, 0, 14}, "^7Rune #"..i)
+		self.controls["displayItemRuneLabel"..i] = new("LabelControl", {"RIGHT",drop,"LEFT"}, {-4, 0, 0, 14}, "Rune #"..i)
 	end
 
 	-- Section: Affix Selection
@@ -937,11 +937,11 @@ holding Shift will put it in the second.]])
 		drop.slider = slider
 		self.controls["displayItemAffix"..i] = drop
 		self.controls["displayItemAffixLabel"..i] = new("LabelControl", {"RIGHT",drop,"LEFT"}, {-4, 0, 0, 14}, function()
-			return drop.outputTable == "prefixes" and "^7Prefix:" or "^7Suffix:"
+			return drop.outputTable == "prefixes" and "Prefix:" or "Suffix:"
 		end)
 		self.controls["displayItemAffixRange"..i] = slider
 		self.controls["displayItemAffixRangeLabel"..i] = new("LabelControl", {"RIGHT",slider,"LEFT"}, {-4, 0, 0, 14}, function()
-			return drop.selIndex > 1 and "^7Roll:" or "^x7F7F7FRoll:"
+			return drop.selIndex > 1 and "Roll:" or "^x7F7F7FRoll:"
 		end)
 	end
 
@@ -2113,7 +2113,7 @@ function ItemsTabClass:UpdateCustomControls()
 				local line = itemLib.formatModLine(modLine)
 				if line then
 					if not self.controls["displayItemCustomModifierRemove"..i] then
-						self.controls["displayItemCustomModifierRemove"..i] = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, {0, i * 22 + 4, 70, 20}, "^7Remove")
+						self.controls["displayItemCustomModifierRemove"..i] = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, {0, i * 22 + 4, 70, 20}, "Remove")
 						self.controls["displayItemCustomModifier"..i] = new("LabelControl", {"LEFT",self.controls["displayItemCustomModifierRemove"..i],"RIGHT"}, {65, 0, 0, 16})
 						self.controls["displayItemCustomModifierLabel"..i] = new("LabelControl", {"LEFT",self.controls["displayItemCustomModifierRemove"..i],"RIGHT"}, {5, 0, 0, 16})
 					end
@@ -2881,7 +2881,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	controls.rolls.shown = function ()
 		return self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC"
 	end
-	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 30, 0, 16}, "^7Source:")
+	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 30, 0, 16}, "Source:")
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 30, 150, 18}, sourceList, function(index, value)
 		if value == "Corrupted" then
 			currentModType = "Corrupted"
@@ -2912,13 +2912,13 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		if i == 1 then
 			controls.enchant1Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 55, 0, 16}, function()
 				if enchantNum == 1 then -- update label so 1 doesn't appear in case of 1 enchant.
-					return "^7Enchant:"
+					return "Enchant:"
 				else
-					return "^7Enchant #1:"
+					return "Enchant #1:"
 				end
 			end)
 		else
-			controls["enchant"..i.."Label"] = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 35 + i * 20 , 0, 16}, "^7Enchant #"..i..":")
+			controls["enchant"..i.."Label"] = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 35 + i * 20 , 0, 16}, "Enchant #"..i..":")
 		end
 		controls["enchant"..i] = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 35 + i * 20, 440, 18}, nil, function()
 			rebuildEnchantControls()
@@ -3127,7 +3127,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 20, 0, 16}, "^7Source:")
+	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 20, 0, 16}, "Source:")
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 20, 150, 18}, sourceList, function(index, value)
 		buildMods(value.sourceId)
 		controls.modSelect:SetSel(1)
@@ -3136,7 +3136,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		end
 	end)
 	controls.source.enabled = #sourceList > 1
-	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 20, 0, 16}, "^7Sort by:")
+	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 20, 0, 16}, "Sort by:")
 	controls.sortLabel.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
@@ -3146,7 +3146,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	controls.sort.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
-	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 45, 0, 16}, "^7Modifier:")
+	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 45, 0, 16}, "Modifier:")
 	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 45, 600, 18}, modList)
 	controls.modSelect.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
@@ -3888,7 +3888,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 		end
 
-		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.")
 
 		local function getReplacedItemAndOutput(compareSlot)
 			local selItem = self.items[compareSlot.selItemId]

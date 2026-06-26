@@ -85,7 +85,7 @@ function TooltipClass:Clear(clearUpdateParams)
 	self.center = false
 	self.maxWidth = nil
 	self.minWidth = nil
-	self.color = { 0.5, 0.3, 0 }
+	self.color = hexToRGB(GetStyleColor('tooltip_border'))
 	t_insert(self.blocks, { height = 0 })
 end
 
@@ -113,9 +113,9 @@ function TooltipClass:AddLine(size, text, font, background)
 	if text then
 		local fontToUse
 		if main.showFlavourText then
-			fontToUse = font or "VAR"
+			fontToUse = font or GetStyleFont('text_tooltip')
 		else
-			fontToUse = "VAR"
+			fontToUse = GetStyleFont('text_tooltip')
 		end
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
@@ -443,6 +443,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		end
 	end
 
+	-- TODO: ?
 	SetDrawColor(1, 1, 1)
 
 	-- Initial column calculation
@@ -470,10 +471,11 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	end
 
 	-- background shading currently must be drawn before text lines.  API change will allow something like the commented lines below
-	SetDrawColor(0, 0, 0, .85)
+	SetDrawStyle('tooltip_background')
 	--SetDrawLayer(nil, GetDrawLayer() - 5)
 	DrawImage(nil, ttX, ttY + BORDER_WIDTH, totalDrawWidth - BORDER_WIDTH, maxColumnHeight - 2 * BORDER_WIDTH)
 	--SetDrawLayer(nil, GetDrawLayer())
+	-- Initial tooltip text color
 	SetDrawColor(1, 1, 1)
 
 	-- Item header (drawn within borders)
