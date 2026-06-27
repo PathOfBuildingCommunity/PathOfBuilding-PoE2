@@ -6005,6 +6005,9 @@ local specialModList = {
 	["attack skills cost life instead of (%d+)%% of mana cost"] = function(num) return {
 		mod("HybridManaAndLifeCost_Life", "BASE", num, nil, ModFlag.Attack)
 	} end,
+	["skills from corrupted gems have (%d+)%% of mana costs converted to life costs"] = function(num) return {
+		mod("HybridManaAndLifeCost_Life", "BASE", num, { type = "Condition", var = "GemCorrupted" }),
+	} end,
 	["non%-channelling spells cost an additional (%d+)%% of your maximum life"] = function(num) return {
 		mod("LifeCostBase", "BASE", 1, nil, 0, KeywordFlag.Spell, { type = "PercentStat", percent = num, stat = "Life", floor = true }, { type = "SkillType", skillType = SkillType.Channel, neg = true })
 	} end,

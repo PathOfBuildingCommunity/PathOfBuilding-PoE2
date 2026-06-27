@@ -694,6 +694,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.weapon2Cfg.skillCond = setmetatable({ ["OffHandAttack"] = true }, { __index = activeSkill.skillCfg.skillCond })
 		activeSkill.weapon2Cfg.flags = bor(skillModFlags, activeSkill.weapon2Flags)
 	end
+	if activeEffect.srcInstance and activeEffect.srcInstance.corrupted then
+		activeSkill.skillCfg.skillCond["GemCorrupted"] = true
+	end
 
 	-- The damage fixup stat applies x% less base Attack Damage and x% more base Attack Speed as confirmed by Openarl Jan 4th 2024
 	-- Implemented in this manner as the stat exists on the minion not the skills 
