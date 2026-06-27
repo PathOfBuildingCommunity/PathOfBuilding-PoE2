@@ -428,6 +428,7 @@ holding Shift will put it in the second.]])
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
+		self:UpdateRuneControls()
 	end)
 	self.controls.displayItemVariant.maxDroppedWidth = 1000
 	self.controls.displayItemVariant.shown = function()
@@ -1929,17 +1930,24 @@ end)
 function ItemsTabClass:GetValidRunesForItem(item)
 	local runes = { }
 	local socketedItemType
+	local subType = item.base.subType and item.base.subType:lower()
+	local itemType = item.base.type:lower()
+	local alsoAsSoulCoreTypes = { }
 	if item.baseModList then
 		if item.baseModList:Flag(nil, "SocketedSoulCoresOnly") then
 			socketedItemType = "SoulCore"
 		elseif item.baseModList:Flag(nil, "SocketedRunesOnly") then
 			socketedItemType = "Rune"
 		end
+		alsoAsSoulCoreTypes["boots"] = item.baseModList:Flag(nil, "SocketSoulCoresAlsoAsBoots")
+		alsoAsSoulCoreTypes["gloves"] = item.baseModList:Flag(nil, "SocketSoulCoresAlsoAsGloves")
+		alsoAsSoulCoreTypes["helmet"] = item.baseModList:Flag(nil, "SocketSoulCoresAlsoAsHelmet")
+		alsoAsSoulCoreTypes["shield"] = item.baseModList:Flag(nil, "SocketSoulCoresAlsoAsShield")
 	end
 	for _, rune in pairs(runeModLines) do
-		local subType = item.base.subType and item.base.subType:lower()
-		local itemType = item.base.type:lower()
-		local function isRuneValidForSlot(runeSlot)
+		local function isRuneValidForSlot(rune)
+			local runeSlot = rune.slot
+			local runeType = rune.type
 			if runeSlot == "None" then
 				return true
 			elseif runeSlot == "quarterstaff" then
@@ -1953,10 +1961,10 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			elseif runeSlot == "caster" then
 				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
 			else
-				return itemType == runeSlot and not (subType == "warstaff")
+				return (itemType == runeSlot and not (subType == "warstaff")) or (alsoAsSoulCoreTypes[runeSlot] and runeType == "SoulCore")
 			end
 		end
-		if isRuneValidForSlot(rune.slot) then
+		if isRuneValidForSlot(rune) then
 			if rune.slot == "None" or not socketedItemType or rune.type == socketedItemType then
 				table.insert(runes, rune)
 			end

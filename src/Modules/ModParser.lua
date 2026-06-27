@@ -3436,6 +3436,10 @@ local specialModList = {
 		-- Handled in Item.lua
 	} end,
 	["only soul cores can be socketed in this item"] = { flag("SocketedSoulCoresOnly") },
+	["this item gains bonuses from socketed soul cores as though it was also boots"] = { flag("SocketSoulCoresAlsoAsBoots") },
+	["this item gains bonuses from socketed soul cores as though it was also gloves"] = { flag("SocketSoulCoresAlsoAsGloves") },
+	["this item gains bonuses from socketed soul cores as though it was also a helmet"] = { flag("SocketSoulCoresAlsoAsHelmet") },
+	["this item gains bonuses from socketed soul cores as though it was also a shield"] = { flag("SocketSoulCoresAlsoAsShield") },
 	["only runes can be socketed in this item"] = { flag("SocketedRunesOnly") },
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
