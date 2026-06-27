@@ -557,9 +557,15 @@ function CalcsTabClass:PowerBuilder()
 				end
 			end
 			if not hiddenByLockedAscendancyNode then
-				distanceMap[node.pathDist or 1000] = distanceMap[node.pathDist or 1000] or { }
-				distanceMap[node.pathDist or 1000][nodeId] = node
-				if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
+				local dist = node.pathDist or 1000
+				for _, leap in ipairs(node.intuitiveLeapLikesAffecting or {}) do
+					if leap.alloc then
+						dist = math.min(leap.pathDist or 1000, dist)
+					end
+				end
+				distanceMap[dist] = distanceMap[dist] or {}
+				distanceMap[dist][nodeId] = node
+				if (not self.nodePowerMaxDepth) or dist <= self.nodePowerMaxDepth then
 					total = total + 1
 				end
 			end
