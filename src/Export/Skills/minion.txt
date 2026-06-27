@@ -164,6 +164,131 @@ skills["MinionInstability"] = {
 	}
 }
 
+skills["InfernalLegion"] = {
+	name = "Infernal Legion",
+	hidden = true,
+	skillTypes = {
+		[SkillType.Damage] = true,
+		[SkillType.Area] = true,
+		[SkillType.Fire] = true,
+		[SkillType.CausesBurning] = true,
+	},
+	qualityStats = {
+	},
+	levels = {
+		-- no crit chance of its own; only enemy Critical Weakness can crit it
+		-- (the increased-crit half-effect is injected in preDamageFunc)
+		[1] = { critChance = 0, levelRequirement = 0, },
+	},
+	preDamageFunc = function(activeSkill, output)
+		local skillData = activeSkill.skillData
+		local sml = activeSkill.skillModList
+		local cfg = activeSkill.skillCfg
+		-- Fold non-fire damage into the ignite only if its <Type>CanIgnite flag
+		-- is set (Uul-Netol's Embrace, Xoph's Pyre, etc). Fire always folds in.
+		-- Two sources: flat BASE per-type damage, and %gain-as-extra-X (gated on
+		-- the destination type, e.g. PhysicalDamageGainAsCold needs ColdCanIgnite).
+		-- conditionIlNoAddedConversion turns it off.
+		local convertedBase = 0
+		local extraGainMult = 0
+		if sml and not sml:Flag(cfg, "Condition:IlNoAddedConversion")
+			and activeSkill.actor and activeSkill.actor.modDB then
+			local mdb = activeSkill.actor.modDB
+			local typeFlag = {
+				Physical  = "PhysicalCanIgnite",
+				Cold      = "ColdCanIgnite",
+				Lightning = "LightningCanIgnite",
+				Chaos     = "ChaosCanIgnite",
+			}
+			-- the flag can be on the skill's modlist (a support like Xoph's Pyre)
+			-- or the minion's modDB (passive/item/buff), so check both
+			local function ignites(dt)
+				if dt == "Fire" then return true end
+				local f = typeFlag[dt]
+				return sml:Flag(cfg, f) or mdb:Flag(nil, f)
+			end
+			-- flat damage: only types whose CanIgnite flag is set
+			for _, dt in ipairs({ "Physical", "Fire", "Cold", "Lightning", "Chaos" }) do
+				if ignites(dt) then
+					local lo = mdb:Sum("BASE", nil, dt .. "Min") or 0
+					local hi = mdb:Sum("BASE", nil, dt .. "Max") or 0
+					convertedBase = convertedBase + (lo + hi) / 2
+				end
+			end
+			-- gain-as-extra: gated on the destination type
+			local gainByDest = {
+				Fire      = { "PhysicalDamageGainAsFire",      "DamageGainAsFire" },
+				Cold      = { "PhysicalDamageGainAsCold",      "DamageGainAsCold" },
+				Lightning = { "PhysicalDamageGainAsLightning", "DamageGainAsLightning" },
+				Chaos     = { "PhysicalDamageGainAsChaos",     "DamageGainAsChaos", "FireDamageGainAsChaos" },
+			}
+			for dest, mods in pairs(gainByDest) do
+				if ignites(dest) then
+					for _, name in ipairs(mods) do
+						extraGainMult = extraGainMult + (mdb:Sum("BASE", nil, name) or 0)
+					end
+				end
+			end
+		end
+		-- fire base = Life * selfFireExplosionLifeMultiplier * (1 + gain-as-extra%)
+		-- plus the flat damage (already converted to fire). Magnitude gets applied
+		-- later by the normal ignite path.
+		local lifeBase = output.Life * skillData.selfFireExplosionLifeMultiplier
+		local base = (lifeBase * (1 + extraGainMult / 100) + convertedBase)
+		skillData.FireBonusMin = base
+		skillData.FireBonusMax = base
+		-- IL's increased crit chance and crit damage each count for half. Inject a
+		-- negative INC worth -50% of the current increased so the normal crit calc
+		-- reads the halved value (Transfiguration injects increased the same way).
+		if sml then
+			sml:NewMod("CritChance", "INC", -0.5 * sml:Sum("INC", cfg, "CritChance"), "Infernal Legion")
+			sml:NewMod("CritMultiplier", "INC", -0.5 * sml:Sum("INC", cfg, "CritMultiplier"), "Infernal Legion")
+		end
+	end,
+	statSets = {
+		[1] = {
+			label = "Infernal Legion",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				area = true,
+				fire = true,
+			},
+			baseMods = {
+				skill("selfFireExplosionLifeMultiplier", 0.01, { type = "Multiplier", var = "InfernalLegionBaseDamage" }),
+				-- IL doesn't really hit; the "hit" just seeds the ignite ("as though
+				-- dealing X"). hitIsPseudoHit zeroes its DPS in CalcOffence, but the
+				-- ignite is still built from it. It's a sustained ignite, so the DPS
+				-- is the ongoing IgniteDPS, not a per-hit burst.
+				skill("hitIsPseudoHit", true),
+				-- IL ignites on a fixed cadence, not the minion's attack speed.
+				-- timeOverride pins it: Speed = 1/timeOverride, so 1.25 -> 0.8/sec.
+				-- That gives StackPotential = duration(4) * 0.8 = 3.2 = N, the number
+				-- of overlapping rolling ignites that feeds the roll average and the
+				-- crit amplification. 0.8/sec matched the in-game timing tests.
+				skill("timeOverride", 1.25),
+				-- IL always ignites, so force 100% chance, otherwise PoE2's ailment
+				-- threshold drops it to almost never.
+				mod("EnemyIgniteChance", "BASE", 100),
+				-- gem crit chance is 0 (above), so the ignite only crits off enemy
+				-- Critical Weakness (SelfCritChance), which the normal crit path adds
+				-- in. The half-effect on the minion's increased crit chance/damage is
+				-- injected in preDamageFunc above.
+				-- IL crits for a 50% bonus, not the minion's 100%; the base +100 comes
+				-- from base_critical_hit_damage_bonus, so just knock 50 off it.
+				mod("CritMultiplier", "BASE", -50),
+			},
+			constantStats = {
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { },
+			},
+		},
+	}
+}
+
 #addSkillTypes Melee MeleeSingleTarget Area
 #skill GAAnimateWeaponMaceSlam Mace Slam
 #set GAAnimateWeaponMaceSlam

@@ -8164,7 +8164,7 @@ skills["SupportStormfirePlayer"] = {
 	description = "Supports any skill that Hits enemies. Enemies Shocked by Supported Skills take a percentage of damage from Ignite as Lightning damage as well as Fire damage.",
 	color = 3,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StormFire",},
@@ -8176,6 +8176,11 @@ skills["SupportStormfirePlayer"] = {
 			label = "Stormfire",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_stormfire_targets_shocked_by_this_take_%_of_damage_from_ignite_as_lightning_damage"] = {
+					mod("IgniteAsExtraLightning", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

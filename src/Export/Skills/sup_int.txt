@@ -1458,8 +1458,14 @@ statMap = {
 #mods
 #skillEnd
 
+#requireSkillTypes CreatesMinion
 #skill SupportStormfirePlayer
 #set SupportStormfirePlayer
+statMap = {
+	["support_stormfire_targets_shocked_by_this_take_%_of_damage_from_ignite_as_lightning_damage"] = {
+		mod("IgniteAsExtraLightning", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 

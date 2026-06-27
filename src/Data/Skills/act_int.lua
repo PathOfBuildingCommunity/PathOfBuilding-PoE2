@@ -8915,6 +8915,14 @@ skills["FrostBombPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "frost_bomb",
+			statMap = {
+				-- Elemental Exposure starts at the base 20% magnitude (applied via the global exposure
+				-- mapping) and compounds 2% per pulse up to this cap (quality-scaled). Expose the cap as a
+				-- multiplier; the "# of Frost Bomb pulses" config reads it to apply the compounded value.
+				["active_skill_all_elemental_exposure_compounding_magnitude_cap"] = {
+					mod("Multiplier:FrostBombExposureCap", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

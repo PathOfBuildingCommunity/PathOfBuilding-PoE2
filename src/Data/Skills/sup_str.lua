@@ -4612,9 +4612,8 @@ skills["SupportInfernalLegionPlayer"] = {
 					mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
 					div = 6000,
 				},
-				["support_minion_instability_minion_base_fire_area_damage_per_minute"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }) }),
-					div = 60,
+				["support_minions_ignite_for_%_max_life"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil) }),
 					mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
 				},
 			},
@@ -4655,9 +4654,8 @@ skills["SupportInfernalLegionPlayerTwo"] = {
 					mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
 					div = 6000,
 				},
-				["support_minion_instability_minion_base_fire_area_damage_per_minute"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }) }),
-					div = 60,
+				["support_minions_ignite_for_%_max_life"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil) }),
 					mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
 				},
 			},
@@ -4700,9 +4698,8 @@ skills["SupportInfernalLegionPlayerThree"] = {
 					mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
 					div = 6000,
 				},
-				["support_minion_instability_minion_base_fire_area_damage_per_minute"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }) }),
-					div = 60,
+				["support_minions_ignite_for_%_max_life"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil) }),
 					mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
 				},
 			},

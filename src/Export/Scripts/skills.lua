@@ -121,6 +121,15 @@ directiveTable.addSkillTypes = function(state, args, out)
 	end
 end
 
+-- #requireSkillTypes <flag>[ <flag>[...]]
+-- extra skill types appended to a support's requireSkillTypes (the rest come from game data)
+directiveTable.requireSkillTypes = function(state, args, out)
+	state.requireSkillTypes = {}
+	for flag in args:gmatch("%a+") do
+		table.insert(state.requireSkillTypes, flag)
+	end
+end
+
 -- #skill <GrantedEffectId> [<Display name>]
 -- Initialises the skill data and emits the skill header
 directiveTable.skill = function(state, args, out)
@@ -220,6 +229,8 @@ directiveTable.skill = function(state, args, out)
 	skill.setIndex = 1
 	skill.addSkillTypes = state.addSkillTypes
 	state.addSkillTypes = nil
+	skill.requireSkillTypes = state.requireSkillTypes
+	state.requireSkillTypes = nil
 	if skillGem and not state.noGem then
 		out:write('\tcolor = ', gemColor, ',\n')
 	end
@@ -317,6 +328,11 @@ directiveTable.skill = function(state, args, out)
 		out:write('\trequireSkillTypes = { ')
 		for _, type in ipairs(granted.SupportTypes) do
 			out:write(mapAST(type), ', ')
+		end
+		if skill.requireSkillTypes then
+			for _, flag in ipairs(skill.requireSkillTypes) do
+				out:write('SkillType.', flag, ', ')
+			end
 		end
 		out:write('},\n')
 		out:write('\taddSkillTypes = { ')

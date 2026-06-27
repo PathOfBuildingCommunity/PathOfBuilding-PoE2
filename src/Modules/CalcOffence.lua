@@ -5161,6 +5161,10 @@ function calcs.offence(env, actor, activeSkill)
 			-- Over-stacking stacks increases the chance a critical is present
 			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, m_max(globalOutput[ailment .. "StackPotential"], 1)))
 			globalOutput[ailment .. "MagnitudeEffect"] = calcLib.mod(skillModList, dotCfg, "AilmentMagnitude")
+			if ailment == "Ignite" and enemyDB:Flag(nil, "Condition:IgniteAggravated") then
+				-- Aggravated Ignite deals 100% extra damage (mirrors Aggravated Bleed)
+				globalOutput[ailment .. "MagnitudeEffect"] = globalOutput[ailment .. "MagnitudeEffect"] * 2
+			end
 			local ailmentPercentBase = data.misc[ailment .. "PercentBase"] * globalOutput[ailment .. "MagnitudeEffect"]
 			local baseMinVal = calcAilmentDamage(ailment, ailmentCritChance, hitMin, 0, true) * ailmentPercentBase
 			local baseMaxVal = calcAilmentDamage(ailment, 100, hitMax, critMax, true) * ailmentPercentBase
@@ -5201,6 +5205,37 @@ function calcs.offence(env, actor, activeSkill)
 							local sourceRes = env.modDB:Flag(nil, "Enemy" .. ailmentDamageType .."ResistEqualToYours") and "Your ".. ailmentDamageType .. " Resistance"
 								or (env.partyMembers.modDB:Flag(nil, "Enemy" .. ailmentDamageType .."ResistEqualToYours") and "Party Member ".. ailmentDamageType .. " Resistance" or ailmentDamageType)
 							globalBreakdown[ailment .. "EffMult"] = breakdown.effMult(ailmentDamageType, resist, 0, takenInc, effMult, takenMore, sourceRes, true)
+						end
+					end
+				end
+
+				-- Stormfire: shocked enemies take part of the Ignite as extra Lightning.
+				-- The skill carrying Stormfire might not be the one igniting, so scan every
+				-- active skill rather than just this one. Works for player and minion Ignite.
+				if env.mode_effective and ailment == "Ignite" then
+					local asLightning = 0
+					for _, otherSkill in ipairs(env.player.activeSkillList) do
+						if otherSkill.skillModList then
+							asLightning = m_max(asLightning, otherSkill.skillModList:Sum("BASE", nil, "IgniteAsExtraLightning"))
+						end
+					end
+					if env.minion and env.minion.activeSkillList then
+						for _, otherSkill in ipairs(env.minion.activeSkillList) do
+							if otherSkill.skillModList then
+								asLightning = m_max(asLightning, otherSkill.skillModList:Sum("BASE", nil, "IgniteAsExtraLightning"))
+							end
+						end
+					end
+					if asLightning > 0 and enemyDB:Flag(nil, "Condition:Shocked") then
+						local lightResist = calcResistForType("Lightning", dotCfg)
+						local lightTakenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", "LightningDamageTaken", "LightningDamageTakenOverTime", "ElementalDamageTaken")
+						local lightTakenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", "LightningDamageTaken", "LightningDamageTakenOverTime", "ElementalDamageTaken")
+						local lightEffMult = (1 - lightResist / 100) * (1 + lightTakenInc / 100) * lightTakenMore
+						effMult = effMult + asLightning / 100 * lightEffMult
+						globalOutput[ailment .. "EffMult"] = effMult
+						if globalBreakdown and globalBreakdown[ailment .. "EffMult"] then
+							t_insert(globalBreakdown[ailment .. "EffMult"], s_format("+ %.0f%% as Lightning (Stormfire) x %.3f ^8(Lightning effective DPS modifier)", asLightning, lightEffMult))
+							t_insert(globalBreakdown[ailment .. "EffMult"], s_format("= %.3f ^8(total effective DPS modifier with Lightning)", effMult))
 						end
 					end
 				end
@@ -5463,8 +5498,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		-- Calculate damaging ailment values
-		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
+		-- Calculate damaging ailment values. A pseudo-hit (Infernal Legion) deals no
+		-- real hit, so it only seeds its own Ignite; it must not inflict Bleed/Poison
+		-- off the big notional hit damage.
+		for _, damagingAilment in ipairs(skillData.hitIsPseudoHit and { "Ignite" } or { "Bleed", "Poison", "Ignite" }) do
 			local damageType = data.defaultAilmentDamageTypes[damagingAilment]["DamageType"]
 			if not canDeal[damageType] then
 				for _, type in ipairs(dmgTypeList) do
@@ -6106,6 +6143,16 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown and breakdown.SelfHitDamage then
 			breakdown.SelfHitDamage[#breakdown.SelfHitDamage] = nil -- Remove new line at the end
 		end
+	end
+
+	-- hitIsPseudoHit: the hit deals no damage of its own (e.g. Infernal Legion
+	-- "ignites as though dealing X"), it only seeds the ailment, which was already
+	-- derived from the stored hit damage above. Zero the hit outputs so only the
+	-- ailment/DoT counts toward DPS.
+	if skillData.hitIsPseudoHit then
+		output.AverageDamage = 0
+		output.AverageHit = 0
+		output.TotalDPS = 0
 	end
 
 	-- Calculate combined DPS estimate, including DoTs

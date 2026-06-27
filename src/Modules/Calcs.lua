@@ -220,6 +220,23 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 						activeSkillCount = 1
 						activeSkill.infoMessage2 = "Skill Damage"
 					end
+					-- Infernal Legion is an always-active burning aura the minion emits.
+					-- When the minion is in Full DPS, evaluate its IL extra-skill ignite
+					-- (even when a different skill is selected) and feed it into the best
+					-- ignite, since only the strongest ignite can be on a target at once.
+					local ilSkill
+					for _, s in ipairs(usedEnv.minion.activeSkillList or {}) do
+						local ge = s.activeEffect and s.activeEffect.grantedEffect
+						if ge and ge.id == "InfernalLegion" and s ~= usedEnv.minion.mainSkill then ilSkill = s break end
+					end
+					if ilSkill then
+						usedEnv.minion.mainSkill = ilSkill
+						calcs.offence(usedEnv, usedEnv.minion, ilSkill)
+						if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
+							fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
+							igniteSource = skillName .. " (Infernal Legion)"
+						end
+					end
 				end
 
 				if activeSkill.mirage then

@@ -636,6 +636,9 @@ return {
 ["active_skill_base_radius_+"] = {
 	skill("radiusExtra", nil),
 },
+["infernal_legion_minion_burning_effect_radius"] = {
+	skill("radius", nil),
+},
 ["base_skill_area_of_effect_+%"] = {
 	mod("AreaOfEffect", "INC", nil),
 },

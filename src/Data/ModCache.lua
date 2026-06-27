@@ -6935,8 +6935,7 @@ c["Wind Skills which can be boosted by Elemental Ground Surfaces count as being 
 c["Withered also causes enemies to deal 1% reduced Damage"]={nil,"Withered also causes enemies to deal 1% reduced Damage "}
 c["Withered does not expire on Enemies Ignited by you"]={nil,"Withered does not expire on Enemies Ignited by you "}
 c["Withered does not expire on Enemies Ignited by you 25% chance to Intimidate Enemies for 4 seconds on Hit"]={nil,"Withered does not expire on Enemies Ignited by you 25% chance to Intimidate Enemies for 4 seconds on Hit "}
-c["Withered you inflict also increases Fire Damage taken"]={nil,"Withered you inflict also increases Fire Damage taken "}
-c["Withered you inflict also increases Fire Damage taken Withered does not expire on Enemies Ignited by you"]={nil,"Withered you inflict also increases Fire Damage taken Withered does not expire on Enemies Ignited by you "}
+c["Withered you inflict also increases Fire Damage taken"]={{[1]={flags=0,keywordFlags=0,name="WitherIncreasesFireDamageTaken",type="FLAG",value=true}},nil}
 c["Withered you inflict has infinite Duration"]={nil,"Withered you inflict has infinite Duration "}
 c["You and Allies in your Presence have +23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}}}},nil}
 c["You and Allies in your Presence have +37% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=37}}}},nil}
