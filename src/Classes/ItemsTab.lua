@@ -43,6 +43,7 @@ local catalystQualityFormat = {
 	"^x7F7F7FQuality (Caster Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Speed Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Attribute Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
+	"^x7F7F7FQuality (Minion Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 }
 
 local flavourLookup = {}
@@ -593,6 +594,7 @@ holding Shift will put it in the second.]])
 		"Sibilant (Caster)",
 		"Skittering (Speed)",
 		"Adaptive (Attribute)",
+		"Necrotic (Minion)",
 		},
 		function(index, value)
 			self.displayItem.catalyst = index - 1
