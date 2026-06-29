@@ -15,6 +15,12 @@ local band = AND64
 
 local tempTable1 = { }
 
+local function addGrantedPassiveNode(env, node)
+	env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
+	env.grantedPassives[node.id] = true
+	env.extraRadiusNodeList[node.id] = nil
+end
+
 -- Initialise modifier database with stats and conditions common to all actors
 function calcs.initModDB(env, modDB)
 	modDB:NewMod("FireResistMax", "BASE", data.characterConstants["base_maximum_all_resistances_%"], "Base")
@@ -824,10 +830,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 				build.itemsTab:UpdateSockets()
 			end
 		end
-		for nodeId, node in pairs(grantedNodes) do
-			env.allocNodes[nodeId] = env.spec.nodes[nodeId] or node
-			env.grantedPassives[nodeId] = true
-			env.extraRadiusNodeList[nodeId] = nil
+		for _, node in pairs(grantedNodes) do
+			addGrantedPassiveNode(env, node)
 		end
 
 		local items = {}
@@ -1348,9 +1352,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		for _, passive in pairs(env.modDB:List(nil, "GrantedPassive")) do
 			for _, node in ipairs(env.spec:ResolveGrantedPassiveNodes(passive)) do
 				if node and (not override.removeNodes or not override.removeNodes[node.id]) then
-					env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
-					env.grantedPassives[node.id] = true
-					env.extraRadiusNodeList[node.id] = nil
+					addGrantedPassiveNode(env, node)
 				end
 			end
 		end

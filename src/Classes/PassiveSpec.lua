@@ -1064,24 +1064,13 @@ local function normalisePassiveName(name)
 	return type(name) == "string" and name:lower():gsub("^%s+", ""):gsub("%s+$", "") or nil
 end
 
-function PassiveSpecClass:FindNodesByDisplayName(name, predicate)
-	local key = normalisePassiveName(name)
-	local out = { }
-	if not key then
-		return out
-	end
-	for _, node in pairs(self.nodes) do
+local function findSocketByDisplayName(spec, key)
+	for _, node in pairs(spec.tree.sockets) do
 		local nodeName = normalisePassiveName(node.name or node.dn)
-		if nodeName == key and (not predicate or predicate(node)) then
-			t_insert(out, node)
+		if nodeName == key then
+			return spec.nodes[node.id] or node
 		end
 	end
-	table.sort(out, function(a, b) return a.id < b.id end)
-	return out
-end
-
-function PassiveSpecClass:FindNodeByDisplayName(name, predicate)
-	return self:FindNodesByDisplayName(name, predicate)[1]
 end
 
 local voicesSinisterSocketAliases = {
@@ -1092,10 +1081,10 @@ local voicesSinisterSocketAliases = {
 	"voices_jewel_slot5",
 }
 
-function PassiveSpecClass:GetVoicesSinisterJewelSocketNodes(count)
+local function getVoicesSinisterJewelSocketNodes(spec, count)
 	local byAlias = { }
-	for _, node in pairs(self.nodes) do
-		if node.isJewelSocket and node.name == "Sinister Jewel Socket" and node.aliasPassiveSocket then
+	for _, node in pairs(spec.tree.sockets) do
+		if node.name == "Sinister Jewel Socket" and node.aliasPassiveSocket then
 			byAlias[node.aliasPassiveSocket] = node
 		end
 	end
@@ -1103,7 +1092,7 @@ function PassiveSpecClass:GetVoicesSinisterJewelSocketNodes(count)
 	for i = 1, m_min(count or 0, #voicesSinisterSocketAliases) do
 		local node = byAlias[voicesSinisterSocketAliases[i]]
 		if node then
-			t_insert(out, node)
+			t_insert(out, spec.nodes[node.id] or node)
 		end
 	end
 	return out
@@ -1111,24 +1100,25 @@ end
 
 function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 	local out = { }
-	if type(passive) ~= "string" then
+	if type(passive) == "table" then
+		if passive.type == "SinisterJewelSockets" then
+			return getVoicesSinisterJewelSocketNodes(self, passive.count)
+		end
 		return out
 	end
 
-	local notable = self.tree.notableMap[passive]
+	local passiveName = normalisePassiveName(passive)
+	if not passiveName then
+		return out
+	end
+
+	local notable = self.tree.notableMap[passiveName]
 	if notable then
 		t_insert(out, self.nodes[notable.id] or notable)
 		return out
 	end
 
-	local sinisterCount = passive:match("^(%d+)%s+sinister jewel sockets$")
-	if sinisterCount then
-		return self:GetVoicesSinisterJewelSocketNodes(tonumber(sinisterCount))
-	end
-
-	local node = self:FindNodeByDisplayName(passive, function(node)
-		return node.isJewelSocket or node.type == "Socket" or node.type == "Notable" or node.type == "Keystone"
-	end)
+	local node = self.tree.keystoneMap[passiveName] or findSocketByDisplayName(self, passiveName)
 	if node then
 		t_insert(out, node)
 	end

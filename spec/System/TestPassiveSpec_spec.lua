@@ -229,7 +229,7 @@ Corrupted
 	end)
 
 	it("resolves Voices sinister socket grants by alias order", function()
-		local nodes = build.spec:ResolveGrantedPassiveNodes("3 sinister jewel sockets")
+		local nodes = build.spec:ResolveGrantedPassiveNodes({ type = "SinisterJewelSockets", count = 3 })
 		assert.are.equals(3, #nodes)
 		assert.are.equals("voices_jewel_slot1", nodes[1].aliasPassiveSocket)
 		assert.are.equals("voices_jewel_slot2", nodes[2].aliasPassiveSocket)
