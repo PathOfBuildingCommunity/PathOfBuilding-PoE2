@@ -168,6 +168,10 @@ end
 ---@return number? value         returned if the mod is an option and uses values. e.g. timeless jewel
 function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local formattedLine = M.formatDatabaseText(modLine)
+	-- hack for belt implicits not matching. TODO: use stat_descriptions instead, which define what
+	-- description is the canonical form that is used on the trade site, either by assuming it's the
+	-- first one, or one with a marker called "canonical_line"
+	formattedLine = formattedLine:gsub("Has # Charm Slots", "Has # Charm Slot")
 	-- the data export splits some mods into different parts, even though they
 	-- are technically just one stat. we handle that here
 	local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
@@ -252,8 +256,8 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			end
 		end
 	end
-	-- essence mods don't seem to have spawn weights and are tested last
-	for _, dbMod in pairs(data.itemMods.Item) do
+	-- essence and emotion mods don't seem to have spawn weights and are tested last
+	for _, dbMod in pairs(item.affixes) do
 		local tradeHashMaybe = findStat(dbMod, true)
 		if tradeHashMaybe then
 			return tradeHashMaybe
