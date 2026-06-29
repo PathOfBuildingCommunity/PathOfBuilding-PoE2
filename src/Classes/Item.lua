@@ -604,10 +604,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
-				elseif specName == "Requires Level" then
+				elseif specName == "Requires: Level" then
 					self.requirements.level = specToNumber(specVal)
-					minimumReqLevel = minimumReqLevel or {}
-					table.insert(minimumReqLevel, { name = self.name, level = specVal })
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
@@ -1210,19 +1208,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.requirements.level = self.base.req.level
 		end
 	end
-	if self.base and not self.requirements.baseLevel then
-		-- Add only if not already present, to prevent overwriting original value.
-		local exists = false
-		for _, entry in ipairs(minimumReqLevel) do
-			if entry.name == self.title then
-				exists = true
-				break
-			end
-		end
-		if not exists then
-			self.requirements.baseLevel = self.base.req.level
-		end
-	end
 	self.affixLimit = 0
 	if self.crafted then
 		if not self.affixes then
@@ -1651,7 +1636,7 @@ function ItemClass:Craft()
 				elseif mod.type == "Suffix" then
 					self.nameSuffix = self.nameSuffix .. " " .. mod.affix
 				end
-				self.requirements.level = m_max(self.requirements.level or 0, m_floor(mod.level * 0.8))
+				self.requirements.level = m_max(self.requirements.level or 0, m_floor(mod.level * 0.8), self.requirements.runeLevel or 0)
 				local rangeScalar = getCatalystScalar(self.catalyst, mod, self.catalystQuality)
 				for i, line in ipairs(mod) do
 					line = itemLib.applyRange(line, affix.range or 0.5, rangeScalar)
@@ -2152,44 +2137,6 @@ function ItemClass:BuildModList()
 		self.canSocketJewelBase["Emerald"] = calcLocal(baseList, "CanSocketJewelBaseEmerald", "FLAG", 0)
 		self.canSocketJewelBase["Ruby"] = calcLocal(baseList, "CanSocketJewelBaseRuby", "FLAG", 0)
 	end
-
-	local reqLevel = 0
-	local minReqLevel
-
-	for _, entry in ipairs(minimumReqLevel) do
-		if entry.name == self.title then
-			minReqLevel = tonumber(entry.level)
-			break
-		end
-	end
-
-	if #self.grantedSkills >= 1 then
-		local skillDef = data.skills[self.grantedSkills[1].skillId]
-		local gemId = data.gemForSkill[skillDef]
-		local gem = data.gems[gemId]
-
-		local skillLevel = self.grantedSkills[1].level or #skillDef.levels
-		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
-		local gemLevelReq = chosenLevel.levelRequirement
-
-		reqLevel = m_max(gemLevelReq, minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
-
-		-- Rune level and unique base level don't scale attribute requirements. Example, Cursecarver has 33 minimum required level
-		-- but the intelligence requirement will be 21 at level 4 skill.
-		local attrLevel = m_max(gemLevelReq, self.requirements.baseLevel or 0)
-
-		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
-			self.requirements.int = calcLib.getGemStatRequirement(attrLevel, gem.reqInt)
-			self.requirements.dex = calcLib.getGemStatRequirement(attrLevel, gem.reqDex)
-			self.requirements.str = calcLib.getGemStatRequirement(attrLevel, gem.reqStr)
-		end
-	else
-		-- If no granted skills, we want to use the "Requires Level" from the unique instead of the base armour type level requirement.
-		-- Currently there are no Uniques that use a lower level than the base, but maybe in the future.
-		reqLevel = m_max(minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
-	end
-
-	self.requirements.level = reqLevel
 
 	if self.name == "Tabula Rasa, Simple Robe" or self.name == "Skin of the Loyal, Simple Robe" or self.name == "Skin of the Lords, Simple Robe" or self.name == "The Apostate, Cabalist Regalia" then
 		-- Hack to remove the energy shield and base int requirement
