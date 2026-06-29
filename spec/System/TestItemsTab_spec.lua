@@ -619,7 +619,8 @@ describe("TestItemsTab", function()
 			build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
 
 			assert.are.equals(1, #newItem.enchantModLines)
-
+		end)
+	end)
 	describe("TestMartialArtistRunes", function()
 		before_each(function()
 			newBuild()
