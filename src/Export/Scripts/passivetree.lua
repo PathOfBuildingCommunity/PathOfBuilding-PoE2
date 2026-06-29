@@ -729,6 +729,7 @@ for i, group in ipairs(psg.groups) do
 			-- Sinister jewel support
 			if passiveRow.JewelSocket and passiveRow.AnointOnly then
 				node["aliasPassiveSocket"] = passiveRow.Id
+				node["sinister"] = true
 				node["noRadius"] = true
 			end
 

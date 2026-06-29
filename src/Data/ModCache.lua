@@ -3862,9 +3862,9 @@ c["Allies in your Presence have 50% increased Critical Hit Chance"]={{[1]={flags
 c["Allies in your Presence have 6% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=6},onlyAllies=true}}},nil}
 c["Allies in your Presence have 6% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=6},onlyAllies=true}}},nil}
 c["Allies in your Presence have Block Chance equal to yours"]={nil,"Block Chance equal to yours "}
-c["Allocates 2 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="2 sinister jewel sockets"}},nil}
-c["Allocates 3 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="3 sinister jewel sockets"}},nil}
-c["Allocates 4 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="4 sinister jewel sockets"}},nil}
+c["Allocates 2 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value={count=2,type="SinisterJewelSockets"}}},nil}
+c["Allocates 3 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value={count=3,type="SinisterJewelSockets"}}},nil}
+c["Allocates 4 Sinister Jewel sockets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value={count=4,type="SinisterJewelSockets"}}},nil}
 c["Allocates Abasement"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="abasement"}},nil}
 c["Allocates Acceleration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="acceleration"}},nil}
 c["Allocates Adaptable Assault"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adaptable assault"}},nil}

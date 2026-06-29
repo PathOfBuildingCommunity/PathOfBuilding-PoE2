@@ -2254,6 +2254,9 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
 		if not node or item.type ~= "Jewel" then
 			return false
+		elseif node.sinister and (item.rarity == "UNIQUE" or item.rarity == "RELIC") then
+			-- Sinister Jewel Sockets can only accept non-unique jewels
+			return false
 		elseif node.containJewelSocket  then
 			if item.rarity == "UNIQUE" or item.rarity == "RELIC" or (item.base and item.base.subType ~= nil) then
 				-- Lich socket can only accept basic non-unique jewels
@@ -3635,12 +3638,18 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
 					end
 
-					-- Show mods from granted Notables
+					-- Show mods from granted passives
 					if modLine.modList[1] and modLine.modList[1].name == "GrantedPassive" then
-						local node = self.build.spec.tree.notableMap[modLine.modList[1].value]
-						if node then
-							for _, stat in ipairs(node.sd) do
-								tooltip:AddLine(fontSizeBig, "^x7F7F7F"..stat, "FONTIN SC")
+						for _, node in ipairs(self.build.spec:ResolveGrantedPassiveNodes(modLine.modList[1].value)) do
+							local displayed = false
+							if node.sd then
+								for _, stat in ipairs(node.sd) do
+									tooltip:AddLine(fontSizeBig, "^x7F7F7F"..stat, "FONTIN SC")
+									displayed = true
+								end
+							end
+							if not displayed and node.isJewelSocket then
+								tooltip:AddLine(fontSizeBig, "^x7F7F7F"..(node.name or "Jewel Socket"), "FONTIN SC")
 							end
 						end
 						-- Add separator only for anoints
