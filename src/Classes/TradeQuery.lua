@@ -851,6 +851,14 @@ function TradeQueryClass:UpdateDropdownList(row_idx)
 	self.controls["resultDropdown".. row_idx].selIndex = 1
 	self.controls["resultDropdown".. row_idx]:SetList(dropdownLabels)
 end
+function TradeQueryClass:ResetResultRow(rowIdx)
+	self.itemIndexTbl[rowIdx] = nil
+	self.sortedResultTbl[rowIdx] = nil
+	self.resultTbl[rowIdx] = nil
+	self.totalPrice[rowIdx] = nil
+	self:UpdateDropdownList(rowIdx)
+	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+end
 function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	local sortedItems, errMsg = self:SortFetchResults(row_idx, sortMode)
@@ -867,10 +875,7 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 
 	self.sortedResultTbl[row_idx] = sortedItems
 	if not sortedItems[1] then
-		self.itemIndexTbl[row_idx] = nil
-		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
-		self:UpdateDropdownList(row_idx)
+		self:ResetResultRow(row_idx)
 		self:SetNotice(self.controls.pbNotice, "^4No compatible items found for this slot.")
 		return
 	end
@@ -1144,11 +1149,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		return m_min(m_max(index or 1, 1), self.sortedResultTbl[row_idx] and #self.sortedResultTbl[row_idx] or 1)
 	end
 	controls["changeButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "<< Search", function()
-		self.itemIndexTbl[row_idx] = nil
-		self.sortedResultTbl[row_idx] = nil
-		self.resultTbl[row_idx] = nil
-		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+		self:ResetResultRow(row_idx)
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
 	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 351, row_height}, {}, function(index)
