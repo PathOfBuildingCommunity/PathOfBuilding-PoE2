@@ -4792,12 +4792,19 @@ function calcs.offence(env, actor, activeSkill)
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
 
 		-- Legacy PoE1 ailments (to be removed later): Scorched, Brittle, Sapped, Impale
-		output.ImpaleChance = 0
-		output.ImpaleChanceOnCrit = 0
 		output.ScorchChance = 0
 		output.BrittleChance = 0
 		output.SappedChance = 0
 		output.ChaosPoisonChance = 0
+
+		cfg.skillCond["CriticalStrike"] = true
+		if not skillFlags.hit then
+			output.ImpaleChanceOnCrit = 0
+		else
+			output.ImpaleChanceOnCrit = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
+		end
+		cfg.skillCond["CriticalStrike"] = false
+		output.ImpaleChance = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
 
 		-- address Weapon1H interaction with Ailment for nodes like Coated Arms (PoE1: Sleight of Hand)
 		-- bit.and on cfg.flags confirms if the skill has the 1H flag
@@ -5732,7 +5739,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			if breakdown then
 				breakdown.ImpaleStoredDamage = {}
-				t_insert(breakdown.ImpaleStoredDamage, "10% ^8(base value)")
+				t_insert(breakdown.ImpaleStoredDamage, (data.misc.ImpaleStoredDamageBase * 100).."% ^8(base value)")
 				t_insert(breakdown.ImpaleStoredDamage, s_format("x %.2f ^8(increased effectiveness)", storedExpectedDamageModifier))
 				t_insert(breakdown.ImpaleStoredDamage, s_format("= %.1f%%", output.ImpaleStoredDamage))
 

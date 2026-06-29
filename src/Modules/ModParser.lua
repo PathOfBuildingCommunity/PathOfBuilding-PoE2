@@ -591,7 +591,9 @@ local modNameList = {
 	["to impale enemies on hit"] = "ImpaleChance",
 	["to impale on spell hit"] = { "ImpaleChance", flags = ModFlag.Spell },
 	["impale effect"] = "ImpaleEffect",
+	["impale magnitude"] = "ImpaleEffect",
 	["effect of impales you inflict"] = "ImpaleEffect",
+	["magnitude of impales you inflict"] = "ImpaleEffect",
 	["effects of impale inflicted"] = "ImpaleEffect", -- typo / old wording change
 	["effect of impales inflicted"] = "ImpaleEffect",
 	["magnitude of impales inflicted"] = "ImpaleEffect",
@@ -4109,6 +4111,7 @@ local specialModList = {
 	} end,
 	["(%d+)%% chance for blade vortex and blade blast to impale enemies on hit"] = function(num) return {  mod("ImpaleChance", "BASE", num, { type = "SkillName", skillNameList = { "Blade Vortex", "Blade Blast" }, includeTransfigured = true }) } end,
 	["critical hits with spells inflict impale"] = { mod("ImpaleChance", "BASE", 100, nil, ModFlag.Spell, { type = "Condition", var = "CriticalStrike" }) },
+	["critical hits inflict impale"] = { mod("ImpaleChance", "BASE", 100, nil, 0, KeywordFlag.Hit, { type = "Condition", var = "CriticalStrike" }) },
 	["(%d+)%% chance on hitting an enemy for all impales on that enemy to last for an additional hit"] = function(num) return {
 		mod("ImpaleAdditionalDurationChance", "BASE", num)
 	} end,

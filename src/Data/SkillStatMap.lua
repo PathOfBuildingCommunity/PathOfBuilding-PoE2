@@ -1636,6 +1636,12 @@ return {
 	mod("EnemyImpalePhysicalDamageReduction", "BASE", nil),
 	mult = -1,
 },
+["impale_magnitude_+%"] = {
+	mod("ImpaleEffect", "MORE", nil),
+},
+["active_skill_impale_magnitude_+%_final"] = {
+	mod("ImpaleEffect", "MORE", nil),
+},
 ["support_brink_hit_damage_stun_multiplier_+%_final"] = {
 	mod("EnemyHeavyStunBuildup", "MORE", nil),
 },
