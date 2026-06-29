@@ -1038,6 +1038,10 @@ local modFlagList = {
 	["with ranged weapons"] = { flags = bor(ModFlag.WeaponRanged, ModFlag.Hit) },
 	-- Skill types
 	["spell"] = { flags = ModFlag.Spell },
+	["fire spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire },
+	["cold spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold },
+	["lightning spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Lightning },
+	["chaos spell"] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Chaos },
 	["for spells"] = { flags = ModFlag.Spell },
 	["for spell skills"] = { flags = ModFlag.Spell },
 	["for spell damage"] = { flags = ModFlag.Spell },
