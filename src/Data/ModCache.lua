@@ -6345,7 +6345,7 @@ c["Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Sk
 c["Non-Minion Skills have 50% less Reservation Efficiency"]={{[1]={[1]={neg=true,skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="MORE",value=-50}},nil}
 c["Non-Unique Life Flasks apply their Effects constantly"]={nil,"Non-Unique Life Flasks apply their Effects constantly "}
 c["Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant"]={nil,"Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant "}
-c["Non-Unique Time-Lost Jewels have 40% increased radius"]={nil,"Non-Unique Time-Lost Jewels have 40% increased radius "}
+c["Non-Unique Time-Lost Jewels have 40% increased radius"]={{[1]={flags=0,keywordFlags=0,name="NonUniqueTimeLostJewelRadius",type="INC",value=40}},nil}
 c["Oasis"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Oasis"}},nil}
 c["Off-hand Hits inflict Runefather's Challenge"]={nil,"Off-hand Hits inflict Runefather's Challenge "}
 c["Off-hand Hits inflict Runefather's Challenge Inflicts Runefather's Challenge on enemies 6 metres in front of you when raised, no more than once every 2 seconds"]={nil,"Off-hand Hits inflict Runefather's Challenge Inflicts Runefather's Challenge on enemies 6 metres in front of you when raised, no more than once every 2 seconds "}

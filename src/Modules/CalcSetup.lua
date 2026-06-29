@@ -891,6 +891,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					end
 					if item and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
+						-- Non-unique Time-Lost Jewels use an upgraded radius tier when the build
+						-- has e.g. Baryanic Leylines allocated.
+						local effectiveRadiusIndex = item.jewelRadiusIndex
+						if effectiveRadiusIndex and item.base and item.base.subType == "Radius"
+							and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC" then
+							effectiveRadiusIndex = data.resolveTimeLostRadiusIndex(effectiveRadiusIndex, nodesModsList:Sum("INC", nil, "NonUniqueTimeLostJewelRadius"))
+						end
 						-- Jewel has a radius, add it to the list
 						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
 							-- Default function just tallies all stats in radius
@@ -903,19 +910,19 @@ function calcs.initEnv(build, mode, override, specEnv)
 						for _, func in ipairs(funcList) do
 							local node = env.spec.nodes[slot.nodeId]
 							t_insert(env.radiusJewelList, {
-								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
+								nodes = node.nodesInRadius and node.nodesInRadius[effectiveRadiusIndex] or { },
 								func = func.func,
 								type = func.type,
 								item = item,
 								nodeId = slot.nodeId,
-								attributes = node.attributesInRadius and node.attributesInRadius[item.jewelRadiusIndex] or { },
+								attributes = node.attributesInRadius and node.attributesInRadius[effectiveRadiusIndex] or { },
 								data = { },
 								-- store this to compare with cache later
 								jewelHash = getHashFromString(item.modSource..item.raw)
 							})
 							if func.type ~= "Self" and node.nodesInRadius then
 								-- Add nearby unallocated nodes to the extra node list
-								for nodeId, node in pairs(node.nodesInRadius[item.jewelRadiusIndex]) do
+								for nodeId, node in pairs(node.nodesInRadius[effectiveRadiusIndex]) do
 									if not env.allocNodes[nodeId] then
 										env.extraRadiusNodeList[nodeId] = env.spec.nodes[nodeId]
 									end

@@ -3519,7 +3519,16 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, "^x7F7F7FRequires Class "..(self.build.spec.curClassName == item.classRestriction and colorCodes.POSITIVE or colorCodes.NEGATIVE)..item.classRestriction, "FONTIN SC")
 		end
 		if item.jewelRadiusLabel then
-			tooltip:AddLine(fontSizeBig, "^x7F7F7FRadius: ^7"..item.jewelRadiusLabel, "FONTIN SC")
+			local radiusLine = "^x7F7F7FRadius: ^7"..item.jewelRadiusLabel
+			if item.base and item.base.subType == "Radius"
+				and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
+				and self.build.calcsTab and self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.modDB then
+				local upgradePct = self.build.calcsTab.mainEnv.modDB:Sum("INC", nil, "NonUniqueTimeLostJewelRadius")
+				if upgradePct > 0 then
+					radiusLine = radiusLine .. " ^x7F7F7F(+"..upgradePct.."% from tree)"
+				end
+			end
+			tooltip:AddLine(fontSizeBig, radiusLine, "FONTIN SC")
 		end
 		if item.jewelRadiusData and slot and item.jewelRadiusData[slot.nodeId] then
 			local radiusData = item.jewelRadiusData[slot.nodeId]
