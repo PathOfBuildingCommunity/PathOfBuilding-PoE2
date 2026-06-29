@@ -1064,15 +1064,6 @@ local function normalisePassiveName(name)
 	return type(name) == "string" and name:lower():gsub("^%s+", ""):gsub("%s+$", "") or nil
 end
 
-local function findSocketByDisplayName(spec, key)
-	for _, node in pairs(spec.tree.sockets) do
-		local nodeName = normalisePassiveName(node.name or node.dn)
-		if nodeName == key then
-			return spec.nodes[node.id] or node
-		end
-	end
-end
-
 local voicesSinisterSocketAliases = {
 	"voices_jewel_slot1",
 	"voices_jewel_slot2",
@@ -1081,28 +1072,22 @@ local voicesSinisterSocketAliases = {
 	"voices_jewel_slot5",
 }
 
-local function getVoicesSinisterJewelSocketNodes(spec, count)
-	local byAlias = { }
-	for _, node in pairs(spec.tree.sockets) do
-		if node.name == "Sinister Jewel Socket" and node.aliasPassiveSocket then
-			byAlias[node.aliasPassiveSocket] = node
-		end
-	end
-	local out = { }
-	for i = 1, m_min(count or 0, #voicesSinisterSocketAliases) do
-		local node = byAlias[voicesSinisterSocketAliases[i]]
-		if node then
-			t_insert(out, spec.nodes[node.id] or node)
-		end
-	end
-	return out
-end
-
 function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 	local out = { }
 	if type(passive) == "table" then
 		if passive.type == "SinisterJewelSockets" then
-			return getVoicesSinisterJewelSocketNodes(self, passive.count)
+			local byAlias = { }
+			for _, node in pairs(self.tree.sockets) do
+				if node.name == "Sinister Jewel Socket" and node.aliasPassiveSocket then
+					byAlias[node.aliasPassiveSocket] = node
+				end
+			end
+			for i = 1, m_min(passive.count or 0, #voicesSinisterSocketAliases) do
+				local node = byAlias[voicesSinisterSocketAliases[i]]
+				if node then
+					t_insert(out, self.nodes[node.id] or node)
+				end
+			end
 		end
 		return out
 	end
@@ -1118,9 +1103,17 @@ function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 		return out
 	end
 
-	local node = self.tree.keystoneMap[passiveName] or findSocketByDisplayName(self, passiveName)
+	local node = self.tree.keystoneMap[passiveName]
+	if not node then
+		for _, socket in pairs(self.tree.sockets) do
+			if normalisePassiveName(socket.name or socket.dn) == passiveName then
+				node = socket
+				break
+			end
+		end
+	end
 	if node then
-		t_insert(out, node)
+		t_insert(out, self.nodes[node.id] or node)
 	end
 	return out
 end
@@ -1138,10 +1131,6 @@ function PassiveSpecClass:IsSinisterJewelSocketNode(node)
 		end
 	end
 	return false
-end
-
-local function isPersistentGrantedPassiveNode(node)
-	return node and (node.isJewelSocket or node.type == "Socket")
 end
 
 local function getItemForGrantedPassiveSlot(spec, itemsTab, slot, allocNodes, override, activeWeaponSet, nodesModsList)
@@ -1163,7 +1152,7 @@ local function getItemForGrantedPassiveSlot(spec, itemsTab, slot, allocNodes, ov
 	if slot.weaponSet and slot.weaponSet ~= activeWeaponSet then
 		return
 	end
-	if slotName == "Ring 3" and nodesModsList and not nodesModsList:Flag(nil, "AdditionalRingSlot") then
+	if slotName == "Ring 3" and not nodesModsList:Flag(nil, "AdditionalRingSlot") then
 		return
 	end
 	if slotName == override.repSlotName then
@@ -1225,24 +1214,28 @@ function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllo
 		for _, slot in pairs(itemsTab.orderedSlots) do
 			local item = getItemForGrantedPassiveSlot(self, itemsTab, slot, allocNodes, override, activeWeaponSet, nodesModsList)
 
-			if item and item.modList and not (slot.nodeId and not itemsTab:IsItemValidForSlot(item, slot.slotName)) then
-				if slot.nodeId and item.limit and not ignoreJewelLimits then
-					local limitKey = item.base.subType == "Timeless" and "Historic" or item.title
-					if jewelLimits[limitKey] and jewelLimits[limitKey] >= item.limit then
-						goto continue
-					end
-					jewelLimits[limitKey] = (jewelLimits[limitKey] or 0) + 1
+			if not item or not item.modList then
+				goto continue
+			end
+			if slot.nodeId and not itemsTab:IsItemValidForSlot(item, slot.slotName) then
+				goto continue
+			end
+			if slot.nodeId and item.limit and not ignoreJewelLimits then
+				local limitKey = item.base.subType == "Timeless" and "Historic" or item.title
+				if jewelLimits[limitKey] and jewelLimits[limitKey] >= item.limit then
+					goto continue
 				end
-				for _, mod in ipairs(item.modList) do
-					if mod.name == "GrantedPassive" then
-						local passive = mod.value
-						for _, node in ipairs(self:ResolveGrantedPassiveNodes(passive)) do
-							if isPersistentGrantedPassiveNode(node) and not granted[node.id] then
-								local specNode = self.nodes[node.id] or node
-								granted[node.id] = specNode
-								allocNodes[node.id] = specNode
-								changed = true
-							end
+				jewelLimits[limitKey] = (jewelLimits[limitKey] or 0) + 1
+			end
+			for _, mod in ipairs(item.modList) do
+				if mod.name == "GrantedPassive" then
+					local passive = mod.value
+					for _, node in ipairs(self:ResolveGrantedPassiveNodes(passive)) do
+						if (node.isJewelSocket or node.type == "Socket") and not granted[node.id] then
+							local specNode = self.nodes[node.id] or node
+							granted[node.id] = specNode
+							allocNodes[node.id] = specNode
+							changed = true
 						end
 					end
 				end
