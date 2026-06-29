@@ -61,19 +61,25 @@ function main:Init()
 	self.gameAccounts = { }
 
 	local ignoreBuild
+	local pendingBuildFile
 	if arg[1] then
-		local importLink = buildSites.ParseImportLinkFromURI(arg[1])
-		buildSites.DownloadBuild(arg[1], nil, function(isSuccess, data, importLink)
-			if not isSuccess then
-				self:SetMode("BUILD", false, data)
-			else
-				local xmlText = Inflate(common.base64.decode(data:gsub("-","+"):gsub("_","/")))
-				self:SetMode("BUILD", false, "Imported Build", xmlText, false, importLink)
-				self.newModeChangeToTree = true
-			end
-		end)
+		if arg[1]:lower():match("%.xml$") then
+			pendingBuildFile = arg[1]:gsub("\\", "/")
+			ignoreBuild = true
+		else
+			local importLink = buildSites.ParseImportLinkFromURI(arg[1])
+			buildSites.DownloadBuild(arg[1], nil, function(isSuccess, data, importLink)
+				if not isSuccess then
+					self:SetMode("BUILD", false, data)
+				else
+					local xmlText = Inflate(common.base64.decode(data:gsub("-","+"):gsub("_","/")))
+					self:SetMode("BUILD", false, "Imported Build", xmlText, false, importLink)
+					self.newModeChangeToTree = true
+				end
+			end)
+			ignoreBuild = true
+		end
 		arg[1] = nil -- Protect against downloading again this session.
-		ignoreBuild = true
 	end
 
 	if not ignoreBuild then
@@ -143,6 +149,23 @@ function main:Init()
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
+	end
+
+	-- Open a build file from the builds folder (passed via command line)
+	if pendingBuildFile and not pendingBuildFile:match("%.%.") then
+		local buildFile
+		-- Check if it's an absolute path (drive letter on Windows or / on Unix)
+		if pendingBuildFile:match("^%a:/") or pendingBuildFile:match("^/") then
+			buildFile = pendingBuildFile
+		elseif self.buildPath then
+			buildFile = self.buildPath .. pendingBuildFile
+		end
+		local file = buildFile and io.open(buildFile, "r")
+		if file then
+			file:close()
+			local buildName = pendingBuildFile:match("([^/]+)%.xml$") or pendingBuildFile
+			self:SetMode("BUILD", buildFile, buildName)
+		end
 	end
 
 	self.uniqueDB = { list = { }, loading = true }
