@@ -12,7 +12,7 @@ local m_floor = math.floor
 local m_huge = math.huge
 local s_format = string.format
 
-local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Suffering", "Isolation", "Melancholy", "Ferocity", "Contempt" }
+local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Suffering", "Isolation" }
 
 ---@param node table
 ---@return boolean
@@ -22,7 +22,7 @@ end
 
 ---@class NotableDBControl : ListControl
 local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self, anchor, rect, itemsTab, db, dbType)
-	local headerHeight = 96
+	local headerHeight = 68
 	local innerRect = {rect[1], rect[2]+headerHeight, rect[3], rect[4]-headerHeight}
 	self.ListControl(anchor, innerRect, 16, "VERTICAL", false)
 	self.itemsTab = itemsTab
@@ -67,9 +67,9 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 			self.listBuildFlag = true
 		end
 	end
-	local function emoCheck(name, relTo, newRow)
-		local anchor = newRow and {"TOPLEFT", relTo, "BOTTOMLEFT"} or {"LEFT", relTo, "RIGHT"}
-		local rect = newRow and {0, 2, 26, 26} or {2, 0, 26, 26}
+	local function emoCheck(name, relTo)
+		local anchor = {"LEFT", relTo, "RIGHT"}
+		local rect = {2, 0, 26, 26}
 		local ctl = new("CheckBoxControl", anchor, rect, "", emoCheckOnChange(name), "Distilled "..name, true)
 		if self.emotionImages then ctl:SetCheckImage(self.emotionImages[name]) end
 		return ctl
@@ -77,9 +77,7 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 
 	local emotionCheckBoxes = {}
 	for i,emo in ipairs(emotionList) do
-		local newRow = i == 8
-		local relTo = newRow and emotionCheckBoxes[1] or emotionCheckBoxes[i-1] or self.controls.emotionLabel
-		local emoCtl = emoCheck(emo, relTo, newRow)
+		local emoCtl = emoCheck(emo, emotionCheckBoxes[i-1] or self.controls.emotionLabel)
 		emotionCheckBoxes[i] = emoCtl
 		self.controls["emotionCheckbox"..emo] = emoCtl
 	end
@@ -304,8 +302,7 @@ function NotableDBClass:AddValueTooltip(tooltip, index, node)
 		if node.sd[1] then
 			tooltip:AddLine(16, "")
 			for i, line in ipairs(node.sd) do
-				local mod = node.mods and node.mods[i]
-				if line ~= " " and (not mod or mod.extra or not mod.list) then
+				if line ~= " " and (node.mods[i].extra or not node.mods[i].list) then
 					local line = colorCodes.UNSUPPORTED..line
 					line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
 					tooltip:AddLine(16, line)

@@ -323,23 +323,6 @@ Corrupted
 		assert.are.equals(1.03, build.calcsTab.mainOutput.MovementSpeedMod)
 	end)
 
-	it("shows Zarokh's Gift in the amulet anoint lookup", function()
-		if not common.classes.NotableDBControl then
-			LoadModule("Classes/NotableDBControl")
-		end
-		local control = new("NotableDBControl", {"TOPLEFT", nil, "TOPLEFT"}, {0, 0, 360, 400}, build.itemsTab, build.spec.tree.nodes, "ANOINT")
-		control:ListBuilder()
-
-		local found
-		for _, node in ipairs(control.list) do
-			if node.dn == "Zarokh's Gift" then
-				found = true
-				break
-			end
-		end
-		assert.is_true(found)
-	end)
-
 	it("anoint tooltip comparison includes jewels in a prospective Zarokh's Gift socket", function()
 		makeCustomAmulet("")
 		runCallback("OnFrame")
