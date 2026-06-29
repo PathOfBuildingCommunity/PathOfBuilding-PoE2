@@ -166,6 +166,62 @@ Item Level: 80
 		assert.True((build.calcsTab.mainOutput.Int or 0) >= beforeInt + 10)
 	end)
 
+	it("does not apply radius effects from jewels in item-granted Zarokh's Gift", function()
+		makeCustomAmulet("Allocates Zarokh's Gift")
+		runCallback("OnFrame")
+
+		local nodeId = assert(findNodeByName(build.spec, "Zarokh's Gift"))
+		local beforeInt = build.calcsTab.mainOutput.Int or 0
+		local jewel = socketJewel(nodeId, [[
+Rarity: RARE
+Test Mind
+Time-Lost Sapphire
+--------
+Item Level: 80
+--------
++10 to Intelligence
+]])
+		runCallback("OnFrame")
+
+		assert.are.equals(beforeInt + 10, build.calcsTab.mainOutput.Int or 0)
+		assert.is_nil(jewel.jewelRadiusData and jewel.jewelRadiusData[nodeId])
+		for _, radiusJewel in pairs(build.calcsTab.mainEnv.radiusJewelList) do
+			assert.are_not.equals(nodeId, radiusJewel.nodeId)
+		end
+	end)
+
+	it("does not apply jewel socket passive skill effect to jewels in item-granted Zarokh's Gift", function()
+		local normalNodeId, normalNode = firstNormalJewelSocket(build.spec)
+		build.spec:AllocNode(normalNode)
+		socketJewel(normalNodeId, [[
+Rarity: UNIQUE
+The Adorned
+Diamond
+--------
+Limited to: 1
+--------
+100% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels
+]])
+		makeCustomAmulet("Allocates Zarokh's Gift")
+		runCallback("OnFrame")
+
+		local zarokhNodeId = assert(findNodeByName(build.spec, "Zarokh's Gift"))
+		local beforeInt = build.calcsTab.mainOutput.Int or 0
+		socketJewel(zarokhNodeId, [[
+Rarity: MAGIC
+Test Mind
+Sapphire
+--------
+Item Level: 80
+--------
++10 to Intelligence
+Corrupted
+]])
+		runCallback("OnFrame")
+
+		assert.are.equals(beforeInt + 10, build.calcsTab.mainOutput.Int or 0)
+	end)
+
 	it("calculator replacement without Zarokh's Gift ignores jewels in stale granted sockets", function()
 		makeCustomAmulet("Allocates Zarokh's Gift")
 		runCallback("OnFrame")
@@ -253,7 +309,7 @@ Corrupted
 
 		local activeSinister = { }
 		for _, node in pairs(build.spec.allocNodes) do
-			if node.name == "Sinister Jewel Socket" then
+			if node.sinister then
 				activeSinister[node.aliasPassiveSocket] = true
 				assert.is_true(node.isFreeAllocate)
 			end
@@ -424,7 +480,7 @@ Corrupted
 
 		local activeSinister = { }
 		for _, node in pairs(build.spec.allocNodes) do
-			if node.name == "Sinister Jewel Socket" then
+			if node.sinister then
 				activeSinister[node.aliasPassiveSocket] = true
 			end
 		end

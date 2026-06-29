@@ -2254,7 +2254,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
 		if not node or item.type ~= "Jewel" then
 			return false
-		elseif self.build.spec:IsSinisterJewelSocketNode(node) and (item.rarity == "UNIQUE" or item.rarity == "RELIC") then
+		elseif node.sinister and (item.rarity == "UNIQUE" or item.rarity == "RELIC") then
 			-- Sinister Jewel Sockets can only accept non-unique jewels
 			return false
 		elseif node.containJewelSocket  then

@@ -28834,6 +28834,7 @@ return {
 			},
 			orbit=0,
 			orbitIndex=0,
+			sinister=true,
 			skill=3367,
 			stats={
 			}
@@ -41911,6 +41912,7 @@ return {
 				[2]="Ferocity",
 				[3]="Contempt"
 			},
+			sinister=true,
 			skill=11184,
 			stats={
 				[1]="Sinister Jewel Socket"
@@ -62497,6 +62499,7 @@ return {
 			},
 			orbit=0,
 			orbitIndex=0,
+			sinister=true,
 			skill=23960,
 			stats={
 			}
@@ -66113,6 +66116,7 @@ return {
 			},
 			orbit=0,
 			orbitIndex=0,
+			sinister=true,
 			skill=26178,
 			stats={
 			}
@@ -88266,6 +88270,7 @@ return {
 			},
 			orbit=0,
 			orbitIndex=0,
+			sinister=true,
 			skill=39087,
 			stats={
 			}
@@ -127131,6 +127136,7 @@ return {
 			},
 			orbit=0,
 			orbitIndex=0,
+			sinister=true,
 			skill=62152,
 			stats={
 			}

@@ -1078,7 +1078,7 @@ function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 		if passive.type == "SinisterJewelSockets" then
 			local byAlias = { }
 			for _, node in pairs(self.tree.sockets) do
-				if node.name == "Sinister Jewel Socket" and node.aliasPassiveSocket then
+				if node.sinister and node.aliasPassiveSocket then
 					byAlias[node.aliasPassiveSocket] = node
 				end
 			end
@@ -1106,7 +1106,7 @@ function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 	local node = self.tree.keystoneMap[passiveName]
 	if not node then
 		for _, socket in pairs(self.tree.sockets) do
-			if normalisePassiveName(socket.name or socket.dn) == passiveName then
+			if normalisePassiveName(socket.dn) == passiveName then
 				node = socket
 				break
 			end
@@ -1116,21 +1116,6 @@ function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
 		t_insert(out, self.nodes[node.id] or node)
 	end
 	return out
-end
-
-function PassiveSpecClass:IsSinisterJewelSocketNode(node)
-	if not node then
-		return false
-	end
-	if node.name == "Sinister Jewel Socket" then
-		return true
-	end
-	for _, stat in ipairs(node.stats or node.sd or { }) do
-		if stat == "Sinister Jewel Socket" then
-			return true
-		end
-	end
-	return false
 end
 
 local function getItemForGrantedPassiveSlot(spec, itemsTab, slot, allocNodes, override, activeWeaponSet, nodesModsList)
@@ -1231,7 +1216,7 @@ function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllo
 				if mod.name == "GrantedPassive" then
 					local passive = mod.value
 					for _, node in ipairs(self:ResolveGrantedPassiveNodes(passive)) do
-						if (node.isJewelSocket or node.type == "Socket") and not granted[node.id] then
+						if node.type == "Socket" and not granted[node.id] then
 							local specNode = self.nodes[node.id] or node
 							granted[node.id] = specNode
 							allocNodes[node.id] = specNode
