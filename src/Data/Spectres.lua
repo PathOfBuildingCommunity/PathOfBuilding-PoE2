@@ -20948,7 +20948,6 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1800]
 	},
 }
 
@@ -21011,7 +21010,6 @@ minions["Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1800]
 	},
 }
 

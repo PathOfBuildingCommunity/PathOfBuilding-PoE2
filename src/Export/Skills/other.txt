@@ -1250,7 +1250,7 @@ statMap = {
 #from tree
 #skill TemperWeaponCombustionPlayer
 #set TemperWeaponCombustionPlayer
-#flags attack area
+#flags attack area melee
 #mods
 #skillEnd
 

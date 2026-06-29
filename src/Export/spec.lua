@@ -35715,7 +35715,7 @@ return {
 			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=300
 		},
 		[2]={
 			list=false,
@@ -39583,7 +39583,7 @@ return {
 		},
 		[22]={
 			list=false,
-			name="",
+			name="Invulnerable",
 			refTo="",
 			type="Bool",
 			width=150
@@ -48415,7 +48415,7 @@ return {
 		},
 		[55]={
 			list=false,
-			name="",
+			name="RequiresQuest",
 			refTo="",
 			type="Bool",
 			width=150
@@ -54379,7 +54379,7 @@ return {
 		},
 		[5]={
 			list=false,
-			name="",
+			name="RandomSpawnWeight",
 			refTo="",
 			type="Int",
 			width=150

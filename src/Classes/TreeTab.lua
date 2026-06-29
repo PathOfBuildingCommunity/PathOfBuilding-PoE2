@@ -961,7 +961,7 @@ function TreeTabClass:BuildPowerReportList(currentStat)
 			if isAlloc then
 				pathDist = #(node.depends or { }) == 0 and 1 or #node.depends
 			else
-				pathDist = #(node.path or { }) == 0 and 1 or #node.path
+				pathDist = node.power.distance or #(node.path or {}) == 0 and 1 or #node.path
 			end
 			local nodePower = (node.power.singleStat or 0) * ((displayStat.pc or displayStat.mod) and 100 or 1)
 			local pathPower = (node.power.pathPower or 0) / pathDist * ((displayStat.pc or displayStat.mod) and 100 or 1)
@@ -1850,7 +1850,7 @@ function TreeTabClass:FindTimelessJewel()
 
 	controls.fallbackWeightsLabel = new("LabelControl", {"TOPRIGHT", nil, "TOPLEFT"}, {405, 225, 0, 16}, "^7Fallback Weight Mode:")
 	local fallbackWeightsList = { }
-	for id, stat in pairs(data.powerStatList) do
+	for _, stat in ipairs(data.powerStatList) do
 		if not stat.ignoreForItems and stat.label ~= "Name" then
 			t_insert(fallbackWeightsList, {
 				label = "Sort by " .. stat.label,

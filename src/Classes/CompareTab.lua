@@ -2067,7 +2067,11 @@ local function syncControlValue(ctrl, varData, val)
 		ctrl.state = val or false
 	elseif varData.type == "count" or varData.type == "integer"
 			or varData.type == "countAllowZero" or varData.type == "float" then
-		ctrl:SetText(tostring(val or ""))
+		local text = tostring(val or "")
+		-- avoid setting text every time as otherwise this clears user selections on every frame
+		if not ctrl.hasFocus and text ~= ctrl.buf then
+			ctrl:SetText(text)
+		end
 	elseif varData.type == "list" then
 		ctrl:SelByValue(val or (varData.list[1] and varData.list[1].val), "val")
 	end
@@ -2652,10 +2656,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 	end
 
 	-- Get baseline stat value for percentage calculation
-	local baseStatValue = calcBase[powerStat.stat] or 0
-	if powerStat.transform then
-		baseStatValue = powerStat.transform(baseStatValue)
-	end
+	local baseStatValue = data.powerStatList.GetFromOutput(calcBase, powerStat)
 
 	-- Helper to format an impact value and compute percentage
 	local function formatImpact(impact)

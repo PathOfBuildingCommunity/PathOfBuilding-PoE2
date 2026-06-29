@@ -90,7 +90,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		if corruptLevel > 0 then
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. corruptLevel .. " Level from Corruption", "FONTIN SC")
 		elseif corruptLevel < 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   " .. corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 		if totalGlobalLevels > 0 then
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
@@ -195,10 +195,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 	tooltip.center = true
 	if grantedEffect.description then
 		tooltip:AddSeparator(10)
-		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
-		for _, line in ipairs(wrap) do
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
-		end
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. grantedEffect.description, "FONTIN ITALIC")
 	end
 	if displayInstance.corrupted == true then
 		tooltip:AddSeparator(10)

@@ -710,6 +710,7 @@ statMap = {
 #skillEnd
 
 #skill SupportEmpoweredCullPlayer
+legacy = true
 #set SupportEmpoweredCullPlayer
 statMap = {
 	["support_empowered_culling_strike"] = {

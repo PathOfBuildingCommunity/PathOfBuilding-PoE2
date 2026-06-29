@@ -12,7 +12,7 @@ local m_floor = math.floor
 local m_huge = math.huge
 local s_format = string.format
 
-local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Suffering", "Isolation" }
+local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Suffering", "Isolation", "Contempt", "Ferocity",  "Melancholy"}
 
 ---@param node table
 ---@return boolean
@@ -22,7 +22,7 @@ end
 
 ---@class NotableDBControl : ListControl
 local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self, anchor, rect, itemsTab, db, dbType)
-	local headerHeight = 68
+	local headerHeight = 96
 	local innerRect = {rect[1], rect[2]+headerHeight, rect[3], rect[4]-headerHeight}
 	self.ListControl(anchor, innerRect, 16, "VERTICAL", false)
 	self.itemsTab = itemsTab
@@ -77,7 +77,14 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 
 	local emotionCheckBoxes = {}
 	for i,emo in ipairs(emotionList) do
-		local emoCtl = emoCheck(emo, emotionCheckBoxes[i-1] or self.controls.emotionLabel)
+		local emoCtl
+		if i == 11 then
+			local ctl = new("CheckBoxControl", {"TOPLEFT", emotionCheckBoxes[1], "BOTTOMLEFT"}, {0, 2, 26, 26}, "", emoCheckOnChange(emo), "Distilled "..emo, true)
+			if self.emotionImages then ctl:SetCheckImage(self.emotionImages[emo]) end
+			emoCtl = ctl
+		else
+			emoCtl = emoCheck(emo, emotionCheckBoxes[i-1] or self.controls.emotionLabel)
+		end
 		emotionCheckBoxes[i] = emoCtl
 		self.controls["emotionCheckbox"..emo] = emoCtl
 	end
@@ -135,7 +142,7 @@ end
 
 function NotableDBClass:BuildSortOrder()
 	wipeTable(self.sortDropList)
-	for id,stat in pairs(data.powerStatList) do
+	for id, stat in ipairs(data.powerStatList) do
 		if not stat.ignoreForItems then
 			t_insert(self.sortDropList, {
 				label="Sort by "..stat.label,
@@ -159,16 +166,8 @@ function NotableDBClass:BuildSortOrder()
 end
 
 function NotableDBClass:CalculatePowerStat(selection, original, modified)
-	if modified.Minion then
-		original = original.Minion
-		modified = modified.Minion
-	end
-	local originalValue = original[selection.stat] or 0
-	local modifiedValue = modified[selection.stat] or 0
-	if selection.transform then
-		originalValue = selection.transform(originalValue)
-		modifiedValue = selection.transform(modifiedValue)
-	end
+	local originalValue = data.powerStatList.GetFromOutput(original, selection)
+	local modifiedValue = data.powerStatList.GetFromOutput(modified, selection)
 	return originalValue - modifiedValue
 end
 

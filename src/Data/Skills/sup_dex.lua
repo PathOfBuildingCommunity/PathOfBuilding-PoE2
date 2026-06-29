@@ -3221,6 +3221,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Murderous Intent",

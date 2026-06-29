@@ -1314,7 +1314,7 @@ c["10% reduced Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC
 c["10% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-10}},nil}
 c["10% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-10}},nil}
 c["10% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},nil}
-c["10% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},"  Penalty ly Blocking "}
+c["10% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={[1]={skillType=262,type="SkillType"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-10}},nil}
 c["10% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-10}},nil}
 c["10% reduced Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-10}},nil}
 c["10% reduced Projectile Speed for Spell Skills"]={{[1]={flags=2,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-10}},nil}
@@ -1386,8 +1386,7 @@ c["100% increased Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Damage",t
 c["100% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
-c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items "}
-c["100% increased effect of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Augment Items This item gains bonuses from Socketed Items as though it was a Body Armour "}
+c["100% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=100}},nil}
 c["100% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=100}},nil}
 c["100% increased maximum Divinity"]={{}," maximum Divinity "}
 c["100% increased maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped"]={{}," maximum Divinity 20% reduced maximum Divinity per Corrupted Item Equipped "}
@@ -1500,7 +1499,7 @@ c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]=
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
+c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
 c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=12}},nil}
 c["12% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
@@ -2954,7 +2953,7 @@ c["40% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Dur
 c["40% increased Skill Speed while an enemy with an Open Weakness is in your Presence"]={{[1]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="Speed",type="INC",value=40},[2]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=40},[3]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=40}},nil}
 c["40% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spell Damage if one of your Minions has died Recently"]={{[1]={[1]={type="Condition",var="MinionsDiedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
-c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
+c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=40}},nil}
 c["40% increased Spirit Reservation Efficiency"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=40}},nil}
 c["40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
@@ -3107,7 +3106,7 @@ c["5% reduced Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChar
 c["5% reduced Movement Speed Penalty from using Cold Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-5}},"  Penalty from using Cold Skills  "}
 c["5% reduced Movement Speed Penalty from using Fire Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-5}},"  Penalty from using Fire Skills  "}
 c["5% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-5}},nil}
-c["5% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-5}},"  Penalty ly Blocking "}
+c["5% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={[1]={skillType=262,type="SkillType"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-5}},nil}
 c["5% reduced Projectile Speed for Spell Skills"]={{[1]={flags=2,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-5}},nil}
 c["5% reduced Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=-5},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=-5},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=-5}},nil}
 c["5% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
@@ -3338,7 +3337,7 @@ c["6% increased Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=
 c["6% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=6}},nil}
 c["6% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=6}},nil}
 c["6% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
-c["6% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=6}},nil}
+c["6% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=6}},nil}
 c["6% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=6}},nil}
 c["6% increased Trap Throwing Speed"]={{[1]={flags=0,keywordFlags=0,name="TrapThrowingSpeed",type="INC",value=6}},nil}
 c["6% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=6}},nil}
@@ -3448,6 +3447,7 @@ c["75% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["75% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=32,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
+c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
@@ -4466,6 +4466,7 @@ c["Allocates Puppet Master chance"]={{[1]={flags=0,keywordFlags=0,name="GrantedP
 c["Allocates Pure Chaos"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure chaos"}},nil}
 c["Allocates Pure Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure power"}},nil}
 c["Allocates Push the Advantage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="push the advantage"}},nil}
+c["Allocates Pyromancer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pyromancer"}},nil}
 c["Allocates Quick Fingers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick fingers"}},nil}
 c["Allocates Quick Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick recovery"}},nil}
 c["Allocates Rallying Form"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rallying form"}},nil}
@@ -6005,7 +6006,7 @@ c["Infinite Parry Range"]={nil,"Infinite Parry Range "}
 c["Infinite Parry Range 50% increased Parried Debuff Duration"]={nil,"Infinite Parry Range 50% increased Parried Debuff Duration "}
 c["Inflict Abyssal Wasting on Hit"]={nil,"Inflict Abyssal Wasting on Hit "}
 c["Inflict Abyssal Wasting on Hit Projectiles have 16% chance to Chain an additional time from terrain"]={nil,"Inflict Abyssal Wasting on Hit Projectiles have 16% chance to Chain an additional time from terrain "}
-c["Inflict Abyssal Wasting on Hit Targets affected by Abyssal Wasting you inflict are Hindered"]={nil,"Inflict Abyssal Wasting on Hit Targets affected by Abyssal Wasting you inflict are Hindered "}
+c["Inflict Abyssal Wasting on Hit Targets affected by Abyssal Wasting in your Presence have double Power"]={{},"Inflict Abyssal Wasting  Targets affected by Abyssal Wasting in your Presence have  Power "}
 c["Inflict Cold Exposure on Igniting an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy "}
 c["Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy Inflict Fire Exposure on Shocking an Enemy "}
 c["Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of"]={nil,"Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of "}
@@ -6331,7 +6332,7 @@ c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increa
 c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost +7 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCost",type="BASE",value=7}},"No Inherent loss of  Regenerate 6% of your  per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage  to Maximum Rage "}
 c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage during effect "}
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
-c["No Movement Speed Penalty while Shield is Raised"]={{[1]={[1]={skillName="Raise Shield",type="SkillName"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-100}},nil}
+c["No Movement Speed Penalty while Shield is Raised"]={{[1]={[1]={skillType=262,type="SkillType"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-100}},nil}
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
 c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="RageEffect",type="OVERRIDE",value=0}},nil}
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
@@ -6431,8 +6432,7 @@ c["Physical Damage is Pinning"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanP
 c["Physical Damage of Enemies Hitting you is Unlucky"]={nil,"Physical Damage of Enemies Hitting you is Unlucky "}
 c["Physical Damage of Enemies Hitting you is Unlucky Convert All Armour to Evasion Rating"]={nil,"Physical Damage of Enemies Hitting you is Unlucky Convert All Armour to Evasion Rating "}
 c["Physical Spell Critical Hits build Pin"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2,keywordFlags=16,name="CanPin",type="FLAG",value=true}},nil}
-c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup"]={nil,"Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup "}
-c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup Enemies in your Presence are Blinded"]={nil,"Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup Enemies in your Presence are Blinded "}
+c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanChill",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalCanFreeze",type="FLAG",value=true}},nil}
 c["Pin Enemies which are Primed for Pinning"]={nil,"Pin Enemies which are Primed for Pinning "}
 c["Pin Enemies which are Primed for Pinning Require 4 fewer enemies to be Surrounded"]={nil,"Pin Enemies which are Primed for Pinning Require 4 fewer enemies to be Surrounded "}
 c["Pinned Enemies cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
@@ -6671,7 +6671,7 @@ c["Skills deal 8% increased Damage per Combo consumed, up to 40%"]={{[1]={[1]={l
 c["Skills fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
 c["Skills from Corrupted Gems have 25% increased Cost Efficiency during any Flask Effect"]={nil,"Skills from Corrupted Gems have 25% increased Cost Efficiency during any Flask Effect "}
 c["Skills from Corrupted Gems have 25% increased Cost Efficiency during any Flask Effect Corrupted Blood cannot be inflicted on you"]={nil,"Skills from Corrupted Gems have 25% increased Cost Efficiency during any Flask Effect Corrupted Blood cannot be inflicted on you "}
-c["Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs"]={nil,"Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs "}
+c["Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs"]={{[1]={[1]={type="Condition",var="GemCorrupted"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=50}},nil}
 c["Skills gain 1 Glory every 2 seconds for each Rare or Unique monster in your Presence"]={{}," Glory every 2 seconds for each Rare or Unique monster in your Presence "}
 c["Skills gain 1% of Damage as Chaos Damage per 3 Life Cost"]={{[1]={[1]={div=3,stat="LifeCost",type="PerStat"},flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=1}},nil}
 c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=100}},nil}
@@ -6725,8 +6725,8 @@ c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="Pr
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
 c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={{[1]={flags=0,keywordFlags=0,name="EldritchEmpowerment",type="FLAG",value=true},[2]={[1]={type="Condition",var="EldritchEmpowermentSacrifice"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=30}},nil}
 c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to inflict Withered   "}
-c["Spells which cost Life Gain 100% of Damage as Extra Physical Damage"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=100}},nil}
-c["Spells which cost Life Gain 120% of Damage as Extra Physical Damage"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=120}},nil}
+c["Spells which cost Life Gain 100% of Damage as Extra Physical Damage"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=100}},nil}
+c["Spells which cost Life Gain 120% of Damage as Extra Physical Damage"]={{[1]={[1]={statList={[1]="LifeCost",[2]="LifePerSecondCost"},threshold=1,type="StatThreshold"},flags=0,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=120}},nil}
 c["Stags deal 20% more damage per leap"]={nil,"Stags deal 20% more damage per leap "}
 c["Stags deal 20% more damage per leap Stags have 20% more Shock Magnitude per leap"]={nil,"Stags deal 20% more damage per leap Stags have 20% more Shock Magnitude per leap "}
 c["Stags have 20% more Shock Magnitude per leap"]={nil,"Stags have 20% more Shock Magnitude per leap "}
@@ -6771,6 +6771,8 @@ c["Tame Beast can capture Unique Beasts Can have up to one Unique Tamed Beast su
 c["Targets Cursed by you have 100% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-100}}}},nil}
 c["Targets Cursed by you have 50% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-50}}}},nil}
 c["Targets Cursed by you have at least 15% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeReservationPercent",type="BASE",value=15}}}},nil}
+c["Targets affected by Abyssal Wasting in your Presence have double Power"]={{},"Targets affected by Abyssal Wasting in your Presence have  Power "}
+c["Targets affected by Abyssal Wasting in your Presence have double Power Targets affected by Abyssal Wasting you inflict are Hindered"]={{},"Targets affected by Abyssal Wasting in your Presence have  Power Targets affected by Abyssal Wasting you inflict are Hindered "}
 c["Targets affected by Abyssal Wasting you inflict are Blinded"]={nil,"Targets affected by Abyssal Wasting you inflict are Blinded "}
 c["Targets affected by Abyssal Wasting you inflict are Blinded Enemies you kill while they are affected by Abyssal Wasting"]={nil,"Targets affected by Abyssal Wasting you inflict are Blinded Enemies you kill while they are affected by Abyssal Wasting "}
 c["Targets affected by Abyssal Wasting you inflict are Debilitated"]={nil,"Targets affected by Abyssal Wasting you inflict are Debilitated "}

@@ -47125,7 +47125,7 @@ return {
 			group=428,
 			icon="Art/2DArt/SkillIcons/passives/firedamageint.dds",
 			isNotable=true,
-			name="Arsonist",
+			name="Pyromancer",
 			orbit=0,
 			orbitIndex=0,
 			recipe={

@@ -3352,6 +3352,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2285766967",
+				["text"] = "#% of damage taken from enemies with an Open Weakness Recouped as Life",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_3175722882",
 				["text"] = "#% of maximum Life Regenerated per second per Fragile Regrowth",
 				["type"] = "explicit",
@@ -5393,11 +5398,6 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2954116742|12245",
-				["text"] = "Allocates Arsonist",
-				["type"] = "explicit",
-			},
-			{
-				["id"] = "explicit.stat_2954116742|14265",
 				["text"] = "Allocates Arsonist",
 				["type"] = "explicit",
 			},
@@ -8212,6 +8212,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|33542",
 				["text"] = "Allocates Quick Fingers",
 				["type"] = "explicit",
@@ -10872,6 +10877,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_1393838912",
+				["text"] = "Eat a Soul on Hitting an enemy with an Open Weakness",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2103621252",
 				["text"] = "Eat a Soul when you Hit a Unique Enemy, no more than once every second",
 				["type"] = "explicit",
@@ -11389,6 +11399,11 @@ return {
 			{
 				["id"] = "explicit.stat_3278136794",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_457920946",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage while you are missing Runic Ward",
 				["type"] = "explicit",
 			},
 			{
@@ -14257,6 +14272,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_110659965",
+				["text"] = "Reveal Weaknesses against Rare and Unique enemies",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_1031644647",
 				["text"] = "Revived Monsters from Ritual Altars in Area have #% increased chance to be Magic",
 				["type"] = "explicit",
@@ -14314,6 +14334,11 @@ return {
 			{
 				["id"] = "explicit.stat_3108672983",
 				["text"] = "Rolls only the minimum or maximum Damage value for each Damage Type",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2816104578",
+				["text"] = "Runic Monsters are Duplicated",
 				["type"] = "explicit",
 			},
 			{
@@ -15099,6 +15124,11 @@ return {
 			{
 				["id"] = "explicit.stat_4294267596",
 				["text"] = "Take no Extra Damage from Critical Hits",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_1153919467",
+				["text"] = "Targets affected by Abyssal Wasting in your Presence have double Power",
 				["type"] = "explicit",
 			},
 			{
@@ -18209,6 +18239,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|17696",
+				["text"] = "Allocates Augmented Flesh",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|20397",
 				["text"] = "Allocates Authority",
 				["type"] = "fractured",
@@ -18929,6 +18964,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|9928",
+				["text"] = "Allocates Embracing Frost",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|8397",
 				["text"] = "Allocates Empowering Remains",
 				["type"] = "fractured",
@@ -19476,6 +19516,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|1823",
 				["text"] = "Allocates Illuminated Crown",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|50912",
+				["text"] = "Allocates Imbibed Power",
 				["type"] = "fractured",
 			},
 			{
@@ -20624,6 +20669,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|8791",
+				["text"] = "Allocates Sturdy Ally",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|60138",
 				["text"] = "Allocates Stylebender",
 				["type"] = "fractured",
@@ -21474,6 +21524,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3877264671",
+				["text"] = "Monster have #% increased Elemental Ailment Application",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_1879340377",
 				["text"] = "Monsters Break Armour equal to #% of Physical Damage dealt",
 				["type"] = "fractured",
@@ -21906,6 +21961,11 @@ return {
 			{
 				["id"] = "fractured.stat_3386297724",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Skill Mana Costs Converted to Life Costs",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_248192092",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Chaos Resistance",
 				["type"] = "fractured",
 			},
 			{
@@ -23355,11 +23415,6 @@ return {
 				["type"] = "crafted",
 			},
 			{
-				["id"] = "crafted.stat_2954116742|14265",
-				["text"] = "Allocates Arsonist",
-				["type"] = "crafted",
-			},
-			{
 				["id"] = "crafted.stat_2954116742|58817",
 				["text"] = "Allocates Artillery Strike",
 				["type"] = "crafted",
@@ -24185,6 +24240,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|44765",
+				["text"] = "Allocates Distracting Presence",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|47514",
 				["text"] = "Allocates Dizzying Hits",
 				["type"] = "crafted",
@@ -24597,6 +24657,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|60464",
 				["text"] = "Allocates Fan the Flames",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|35477",
+				["text"] = "Allocates Far Sighted",
 				["type"] = "crafted",
 			},
 			{
@@ -26090,6 +26155,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|19236",
+				["text"] = "Allocates Projectile Bulwark",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|45874",
 				["text"] = "Allocates Proliferating Weeds",
 				["type"] = "crafted",
@@ -26142,6 +26212,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|6229",
 				["text"] = "Allocates Push the Advantage",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
 				["type"] = "crafted",
 			},
 			{
@@ -26587,6 +26662,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|12906",
 				["text"] = "Allocates Sitting Duck",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|2645",
+				["text"] = "Allocates Skullcrusher",
 				["type"] = "crafted",
 			},
 			{
@@ -27577,6 +27657,11 @@ return {
 			{
 				["id"] = "crafted.stat_3278136794",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_457920946",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage while you are missing Runic Ward",
 				["type"] = "crafted",
 			},
 			{
@@ -28572,11 +28657,6 @@ return {
 			},
 			{
 				["id"] = "enchant.stat_2954116742|12245",
-				["text"] = "Allocates Arsonist",
-				["type"] = "enchant",
-			},
-			{
-				["id"] = "enchant.stat_2954116742|14265",
 				["text"] = "Allocates Arsonist",
 				["type"] = "enchant",
 			},
@@ -31391,6 +31471,11 @@ return {
 				["type"] = "enchant",
 			},
 			{
+				["id"] = "enchant.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
+				["type"] = "enchant",
+			},
+			{
 				["id"] = "enchant.stat_2954116742|33542",
 				["text"] = "Allocates Quick Fingers",
 				["type"] = "enchant",
@@ -33122,6 +33207,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2174054121",
+				["text"] = "#% chance to inflict Bleeding on Hit",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1555237944",
 				["text"] = "#% chance when you gain a Charge to gain an additional Charge",
 				["type"] = "augment",
@@ -33927,6 +34017,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1261474324",
+				["text"] = "Bonded: # to Dexterity",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3533065815",
 				["text"] = "Bonded: # to Evasion Rating",
 				["type"] = "augment",
@@ -33959,6 +34054,11 @@ return {
 			{
 				["id"] = "rune.stat_921688168",
 				["text"] = "Bonded: # to Maximum Power Charges",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_10502714",
+				["text"] = "Bonded: # to Maximum Rage",
 				["type"] = "augment",
 			},
 			{
@@ -34094,6 +34194,11 @@ return {
 			{
 				["id"] = "rune.stat_1777925108",
 				["text"] = "Bonded: #% increased Attack Speed while your Companion is in your Presence",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_96906928",
+				["text"] = "Bonded: #% increased Bleeding Duration",
 				["type"] = "augment",
 			},
 			{
@@ -34369,6 +34474,11 @@ return {
 			{
 				["id"] = "rune.stat_3126632036",
 				["text"] = "Bonded: #% increased Parry Range",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2894111835",
+				["text"] = "Bonded: #% increased Presence Area of Effect",
 				["type"] = "augment",
 			},
 			{
@@ -34684,6 +34794,11 @@ return {
 			{
 				["id"] = "rune.stat_2342427527",
 				["text"] = "Bonded: Companions in your Presence have #% to Chaos Resistance",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_589270455",
+				["text"] = "Bonded: Curse zones erupt after #% increased delay",
 				["type"] = "augment",
 			},
 			{
@@ -35017,6 +35132,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_4258409981",
+				["text"] = "Deal #% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2301852600",
 				["text"] = "Deal #% of Overkill damage to enemies within 2 metres of the enemy killed",
 				["type"] = "augment",
@@ -35074,6 +35194,11 @@ return {
 			{
 				["id"] = "rune.stat_1895552497",
 				["text"] = "Every 5 Rage also grants #% of Damage taken Recouped as Life",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2995914769",
+				["text"] = "Every Rage also grants #% increased Armour",
 				["type"] = "augment",
 			},
 			{
@@ -35252,6 +35377,21 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2211478554",
+				["text"] = "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_4226127445",
+				["text"] = "If you would gain a Power Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1881314095",
+				["text"] = "If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3570773271",
 				["text"] = "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				["type"] = "augment",
@@ -35354,6 +35494,11 @@ return {
 			{
 				["id"] = "rune.stat_98977150",
 				["text"] = "Pain Attunement",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2041668411",
+				["text"] = "Physical Damage is Pinning",
 				["type"] = "augment",
 			},
 			{
@@ -40772,6 +40917,11 @@ return {
 			{
 				["id"] = "skill.unleash",
 				["text"] = "Grants Skill: Level # Unleash",
+				["type"] = "skill",
+			},
+			{
+				["id"] = "skill.abyssal_living_bomb",
+				["text"] = "Grants Skill: Level # Untether",
 				["type"] = "skill",
 			},
 			{

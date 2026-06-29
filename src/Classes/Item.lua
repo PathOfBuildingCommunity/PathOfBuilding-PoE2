@@ -11,8 +11,8 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
-local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive", "Necrotic"}
+local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute", "Minion"}
 local catalystTags = {
 	{ "life" },
 	{ "mana" },
@@ -26,6 +26,7 @@ local catalystTags = {
 	{ "caster" },
 	{ "speed" },
 	{ "attribute" },
+	{ "minion" },
 }
 
 local minimumReqLevel = { }
@@ -442,6 +443,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				self.pendingAffixList = { }
 				local backupAffixList = { }
 				for modId, modData in pairs(self.affixes) do
+					-- these can produce false positives, and only ever exist on the monk glove base
+					if modId:match("^HandWraps") and not self.name:match("Fists of Stone") then
+						goto modContinue
+					end
 					if modData.affix == modName then
 						if self:GetModSpawnWeight(modData) > 0 then
 							if modData.type == "Prefix" then
@@ -458,6 +463,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							end
 						end
 					end
+					::modContinue::
 				end
 				if #self.pendingAffixList == 0 and #backupAffixList > 0 then
 					self.pendingAffixList = backupAffixList
@@ -1140,13 +1146,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
-			local gameSocketedRuneEffectModifier = 0
+			local gameSocketedAugmentEffectModifier = 0
 			if mode == "GAME" and shouldFixRunesOnItem then
 				for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
 					for _, effectModLine in ipairs(modLines) do
 						for _, mod in ipairs(effectModLine.modList or { }) do
-							if mod.name == "SocketedRuneEffect" and mod.type == "INC" then
-								gameSocketedRuneEffectModifier = gameSocketedRuneEffectModifier + mod.value / 100
+							if (mod.name == "SocketedRuneEffect" or mod.name == "SocketedAugmentItemEffect") and mod.type == "INC" then
+								gameSocketedAugmentEffectModifier = gameSocketedAugmentEffectModifier + mod.value / 100
 							end
 						end
 					end
@@ -1160,10 +1166,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
 					local result, numRunes
 					local socketedRuneEffectAlreadyApplied
-					if gameSocketedRuneEffectModifier ~= 0 then
+					if gameSocketedAugmentEffectModifier ~= 0 then
 						local unscaledTargetValues = { }
 						for valueIndex, value in ipairs(targetValues) do
-							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedRuneEffectModifier)
+							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedAugmentEffectModifier)
 						end
 						result, numRunes = findRuneCombination(groupedRunes, unscaledTargetValues, remainingRunes)
 						socketedRuneEffectAlreadyApplied = result ~= nil
@@ -1566,7 +1572,7 @@ function ItemClass:UpdateRunes()
 			local itemType = self.base.type:lower()
 			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
 			local specificType =
-				(subType == "warstaff" and "warstaff") or
+				(subType == "warstaff" and "quarterstaff") or
 				(itemType == "shield" and subType == "evasion" and "buckler") or
 				itemType
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
@@ -1604,8 +1610,12 @@ end
 
 function ItemClass:ApplySocketedRuneDisplayScalars()
 	for _, modLine in ipairs(self.runeModLines or { }) do
-		local effectModifier = modLine.augmentType == "SoulCore" and (self.socketedSoulCoreEffectModifier or 0)
-			or modLine.augmentType == "Rune" and (self.socketedRuneEffectModifier or 0)
+		local effectModifier = self.socketedAugmentItemEffectModifier or 0
+		if modLine.augmentType == "SoulCore" then
+			effectModifier = effectModifier + (self.socketedSoulCoreEffectModifier or 0)
+		elseif modLine.augmentType == "Rune" then
+			effectModifier = effectModifier + (self.socketedRuneEffectModifier or 0)
+		end
 		if effectModifier and effectModifier ~= 0 and not modLine.socketedRuneEffectAlreadyApplied then
 			modLine.displayValueScalar = 1 + effectModifier
 		else
@@ -2105,12 +2115,17 @@ function ItemClass:BuildModList()
 	end
 	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 	self.socketedRuneEffectModifier = calcLocal(baseList, "SocketedRuneEffect", "INC", 0) / 100
+	self.socketedAugmentItemEffectModifier = calcLocal(baseList, "SocketedAugmentItemEffect", "INC", 0) / 100
 	if self.runeModLines[1] then
 		self:ApplySocketedRuneDisplayScalars()
 	end
 	for _, modLine in ipairs(self.runeModLines) do
-		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
-			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
+		local effectModifier = self.socketedAugmentItemEffectModifier or 0
+		if modLine.augmentType == "SoulCore" then
+			effectModifier = effectModifier + self.socketedSoulCoreEffectModifier
+		elseif modLine.augmentType == "Rune" then
+			effectModifier = effectModifier + self.socketedRuneEffectModifier
+		end
 		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
 			for _, mod in ipairs(modLine.modList) do
 				baseList:ScaleAddMod(mod, effectModifier)
