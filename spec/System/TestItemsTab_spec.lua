@@ -592,6 +592,21 @@ describe("TestItemsTab", function()
 				assert.are.equals(newItem.runes[1], rune)
 				assert.are.equals(newItem.runes[2], "None")
 			end)
+
+			it("identifies socket bound runes", function ()
+				local item = new("Item", [[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S S
+					Rune: Kolr's Hunt
+					Rune: Lesser Robust Rune
+				]])
+				local validRunes = build.itemsTab:GetValidRunesForItem(item)
+
+				assert.is_true(build.itemsTab:IsSocketBoundRune(item, item.runes[1], validRunes))
+				assert.is_false(build.itemsTab:IsSocketBoundRune(item, item.runes[2], validRunes))
+			end)
 		end)
 
 		it("does nothing when no matching item is equipped", function ()

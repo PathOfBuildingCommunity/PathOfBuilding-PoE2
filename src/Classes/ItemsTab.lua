@@ -1749,15 +1749,13 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 			local skipped = 0
 			if shouldChangeAugments then
 				for i = 1, #newItem.sockets do
-					for _, rune in ipairs(validRunes) do
-						-- avoid overwriting socket bound runes as removing these from e.g. trade results
-						-- will be confusing
-						if rune.name == newItem.runes[i] and rune.isSocketBound then
-							-- if the new item has more slots than the old item, we still copy old
-							-- runes in order after skipping the socket bound rune
-							skipped = skipped + 1
-							goto continue
-						end
+					-- avoid overwriting socket bound runes as removing these from e.g. trade results
+					-- will be confusing
+					if self:IsSocketBoundRune(newItem, newItem.runes[i], validRunes) then
+						-- if the new item has more slots than the old item, we still copy old
+						-- runes in order after skipping the socket bound rune
+						skipped = skipped + 1
+						goto continue
 					end
 					newItem.runes[i] = "None"
 					if currentRunes[i - skipped] then
@@ -1975,6 +1973,18 @@ function ItemsTabClass:GetValidRunesForItem(item)
 		end
 	end
 	return runes
+end
+
+function ItemsTabClass:IsSocketBoundRune(item, runeName, validRunes)
+	if not runeName or runeName == "None" then
+		return false
+	end
+	for _, rune in ipairs(validRunes or self:GetValidRunesForItem(item)) do
+		if rune.name == runeName then
+			return rune.isSocketBound
+		end
+	end
+	return false
 end
 
 -- Update rune selection controls

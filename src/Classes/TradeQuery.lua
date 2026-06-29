@@ -1044,8 +1044,11 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						for item_idx, _ in ipairs(itemsSafe) do
 							local item = new("Item", itemsSafe[item_idx].item_string)
 							-- sockets are kept as-is so the user can see e.g. exceptional or corrupted sockets
+							local validRunes = self.itemsTab:GetValidRunesForItem(item)
 							for rune_idx, _ in ipairs(item.runes or {}) do
-								item.runes[rune_idx] = "None"
+								if not self.itemsTab:IsSocketBoundRune(item, item.runes[rune_idx], validRunes) then
+									item.runes[rune_idx] = "None"
+								end
 							end
 							item:UpdateRunes()
 							itemsSafe[item_idx].item_string = item:BuildRaw()
