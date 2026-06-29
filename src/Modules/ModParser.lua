@@ -3893,6 +3893,7 @@ local specialModList = {
 	["your chaos damage can ignite"] = { flag("ChaosCanIgnite") },
 	["chaos damage can ignite, chill and shock"] = { flag("ChaosCanIgnite"), flag("ChaosCanChill"), flag("ChaosCanShock") },
 	["your physical damage can chill"] = { flag("PhysicalCanChill") },
+	["physical damage from hits contributes to chill magnitude and freeze buildup"] = {	flag("PhysicalCanChill"), flag("PhysicalCanFreeze")	},
 	["your physical damage can shock"] = { flag("PhysicalCanShock") },
 	["your physical damage can freeze"] = { flag("PhysicalCanFreeze") },
 	["your lightning damage can freeze"] = { flag("LightningCanFreeze") },

@@ -6432,8 +6432,7 @@ c["Physical Damage is Pinning"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanP
 c["Physical Damage of Enemies Hitting you is Unlucky"]={nil,"Physical Damage of Enemies Hitting you is Unlucky "}
 c["Physical Damage of Enemies Hitting you is Unlucky Convert All Armour to Evasion Rating"]={nil,"Physical Damage of Enemies Hitting you is Unlucky Convert All Armour to Evasion Rating "}
 c["Physical Spell Critical Hits build Pin"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2,keywordFlags=16,name="CanPin",type="FLAG",value=true}},nil}
-c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup"]={nil,"Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup "}
-c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup Enemies in your Presence are Blinded"]={nil,"Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup Enemies in your Presence are Blinded "}
+c["Physical damage from Hits Contributes to Chill Magnitude and Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanChill",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalCanFreeze",type="FLAG",value=true}},nil}
 c["Pin Enemies which are Primed for Pinning"]={nil,"Pin Enemies which are Primed for Pinning "}
 c["Pin Enemies which are Primed for Pinning Require 4 fewer enemies to be Surrounded"]={nil,"Pin Enemies which are Primed for Pinning Require 4 fewer enemies to be Surrounded "}
 c["Pinned Enemies cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
