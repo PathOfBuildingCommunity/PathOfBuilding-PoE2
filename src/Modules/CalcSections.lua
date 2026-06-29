@@ -954,6 +954,10 @@ return {
 		{ label = "Enemy Evasion modifiers", modName = { "Evasion", "CannotEvade" }, enemy = true },
 		{ label = "Player modifiers", modName = { "HitChance", "CannotBeEvaded", "IgnoreBlindHitChance" } },
 	}, },
+
+	{ label = "Accuracy needed", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.AccuracyNeeded}",
+	}, },
+
 	{ label = "MH Chance to Hit", haveOutput = "MainHand.enemyBlockChance", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.HitChance}%",
 		{ breakdown = "MainHand.HitChance" }, 
 		{ label = "Enemy Evasion modifiers", modName = { "Evasion", "CannotEvade" }, enemy = true },
