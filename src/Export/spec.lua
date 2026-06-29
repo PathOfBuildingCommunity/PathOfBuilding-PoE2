@@ -56019,11 +56019,11 @@ return {
 			name="TierHigher",
 			refTo="SoulCores",
 			type="ShortKey",
-			width=260
+			width=150
 		},
 		[7]={
 			list=false,
-			name="",
+			name="IsSocketBound",
 			refTo="",
 			type="Bool",
 			width=150
