@@ -54,7 +54,6 @@ UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
 The Raven's Flock
 Perching Staff
-LevelReq: 65
 League: Runes of Aldur
 Implicits: 1
 Grants Skill: Level (1-20) Spiraling Conspiracy

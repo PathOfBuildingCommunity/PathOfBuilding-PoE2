@@ -333,9 +333,10 @@ directiveTable.base = function(state, args, out)
 			out:write('},\n')
 		end
 	end
+	local inherentSkillsType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	out:write('\treq = { ')
 	local reqLevel = 1
-	if weaponType or armourType then
+	if weaponType or armourType or inherentSkillsType then
 		if baseItemType.DropLevel > 4 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -364,7 +365,7 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	out:write('},\n}\n')
-	
+
 	if not hidden then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""

@@ -36,7 +36,7 @@ itemBases["Siphoning Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Power Siphon",
 	implicitModTypes = { },
-	req = { int = 23, },
+	req = { level = 11, int = 23, },
 }
 itemBases["Volatile Wand"] = {
 	type = "Wand",
@@ -45,7 +45,7 @@ itemBases["Volatile Wand"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Volatile Dead",
 	implicitModTypes = { },
-	req = { int = 31, },
+	req = { level = 16, int = 31, },
 }
 itemBases["Galvanic Wand"] = {
 	type = "Wand",
@@ -54,7 +54,7 @@ itemBases["Galvanic Wand"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Galvanic Field",
 	implicitModTypes = { },
-	req = { int = 46, },
+	req = { level = 25, int = 46, },
 }
 itemBases["Acrid Wand"] = {
 	type = "Wand",
@@ -63,7 +63,7 @@ itemBases["Acrid Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Decompose",
 	implicitModTypes = { },
-	req = { int = 60, },
+	req = { level = 33, int = 60, },
 }
 itemBases["Offering Wand"] = {
 	type = "Wand",
@@ -72,7 +72,7 @@ itemBases["Offering Wand"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Exsanguinate",
 	implicitModTypes = { },
-	req = { int = 68, },
+	req = { level = 38, int = 68, },
 }
 itemBases["Frigid Wand"] = {
 	type = "Wand",
@@ -81,7 +81,7 @@ itemBases["Frigid Wand"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
 	implicitModTypes = { },
-	req = { int = 80, },
+	req = { level = 45, int = 80, },
 }
 itemBases["Torture Wand"] = {
 	type = "Wand",
@@ -90,7 +90,7 @@ itemBases["Torture Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
 	implicitModTypes = { },
-	req = { int = 87, },
+	req = { level = 49, int = 87, },
 }
 itemBases["Critical Wand"] = {
 	type = "Wand",
@@ -99,7 +99,7 @@ itemBases["Critical Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
 	implicitModTypes = { },
-	req = { int = 92, },
+	req = { level = 52, int = 92, },
 }
 itemBases["Primordial Wand"] = {
 	type = "Wand",
@@ -108,7 +108,7 @@ itemBases["Primordial Wand"] = {
 	tags = { default = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Wither",
 	implicitModTypes = { },
-	req = { int = 99, },
+	req = { level = 56, int = 99, },
 }
 itemBases["Dueling Wand"] = {
 	type = "Wand",
@@ -117,7 +117,7 @@ itemBases["Dueling Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Spellslinger",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Twisted Wand"] = {
 	type = "Wand",
@@ -127,7 +127,7 @@ itemBases["Twisted Wand"] = {
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Coiling Bolts",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Runic Fork"] = {
 	type = "Wand",

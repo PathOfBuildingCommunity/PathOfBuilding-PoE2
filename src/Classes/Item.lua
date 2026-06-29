@@ -506,6 +506,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				self.checkSection = false
 			end
+			local levelReq = line:match("^Requires:? Level (%d+)")
+			if levelReq then
+				self.requirements.level = tonumber(levelReq)
+				goto continue
+			end
 			local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
 			if specName then
 				if specName == "Class:" then
@@ -604,11 +609,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
-				elseif specName == "Requires: Level" then
-					self.requirements.level = specToNumber(specVal)
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
+				elseif specName == "Requires Level" then
+					self.requirements.level = specToNumber(specVal)
 				elseif specName == "LevelReq" then
 					self.requirements.level = specToNumber(specVal)
 				elseif specName == "Has Alt Variant" then
@@ -688,9 +693,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.catalystQuality = specToNumber(specVal)
 				elseif specName == "Note" then
 					self.note = specVal
-				elseif specName == "Str" or specName == "Strength" or specName == "Dex" or specName == "Dexterity" or
-				       specName == "Int" or specName == "Intelligence" then
-					self.requirements[specName:sub(1,3):lower()] = specToNumber(specVal)
 				elseif specName == "Critical Hit Range" or specName == "Attacks per Second" or specName == "Weapon Range" or
 				       specName == "Critical Hit Chance" or specName == "Physical Damage" or specName == "Elemental Damage" or
 				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or

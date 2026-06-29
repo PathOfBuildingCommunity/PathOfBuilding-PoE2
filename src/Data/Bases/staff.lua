@@ -36,7 +36,7 @@ itemBases["Spriggan Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
-	req = { int = 23, },
+	req = { level = 11, int = 23, },
 }
 itemBases["Pyrophyte Staff"] = {
 	type = "Staff",
@@ -45,7 +45,7 @@ itemBases["Pyrophyte Staff"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Solar Orb",
 	implicitModTypes = { },
-	req = { int = 31, },
+	req = { level = 16, int = 31, },
 }
 itemBases["Chiming Staff"] = {
 	type = "Staff",
@@ -54,7 +54,7 @@ itemBases["Chiming Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Sigil of Power",
 	implicitModTypes = { },
-	req = { int = 46, },
+	req = { level = 25, int = 46, },
 }
 itemBases["Rending Staff"] = {
 	type = "Staff",
@@ -63,7 +63,7 @@ itemBases["Rending Staff"] = {
 	tags = { default = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Soulrend",
 	implicitModTypes = { },
-	req = { int = 60, },
+	req = { level = 33, int = 60, },
 }
 itemBases["Reaping Staff"] = {
 	type = "Staff",
@@ -72,7 +72,7 @@ itemBases["Reaping Staff"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Reap",
 	implicitModTypes = { },
-	req = { int = 68, },
+	req = { level = 38, int = 68, },
 }
 itemBases["Icicle Staff"] = {
 	type = "Staff",
@@ -81,7 +81,7 @@ itemBases["Icicle Staff"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
-	req = { int = 80, },
+	req = { level = 45, int = 80, },
 }
 itemBases["Roaring Staff"] = {
 	type = "Staff",
@@ -90,7 +90,7 @@ itemBases["Roaring Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Unleash",
 	implicitModTypes = { },
-	req = { int = 87, },
+	req = { level = 49, int = 87, },
 }
 itemBases["Paralysing Staff"] = {
 	type = "Staff",
@@ -99,7 +99,7 @@ itemBases["Paralysing Staff"] = {
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Enervating Nova",
 	implicitModTypes = { },
-	req = { int = 92, },
+	req = { level = 52, int = 92, },
 }
 itemBases["Sanctified Staff"] = {
 	type = "Staff",
@@ -108,7 +108,7 @@ itemBases["Sanctified Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Consecrate",
 	implicitModTypes = { },
-	req = { int = 99, },
+	req = { level = 56, int = 99, },
 }
 itemBases["Dark Staff"] = {
 	type = "Staff",
@@ -117,7 +117,7 @@ itemBases["Dark Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Dark Pact",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Ravenous Staff"] = {
 	type = "Staff",
@@ -126,7 +126,7 @@ itemBases["Ravenous Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Feast of Flesh",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Permafrost Staff"] = {
 	type = "Staff",
@@ -136,7 +136,7 @@ itemBases["Permafrost Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Heart of Ice",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 75, int = 114, },
 }
 itemBases["Reflecting Staff"] = {
 	type = "Staff",
@@ -146,7 +146,7 @@ itemBases["Reflecting Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Mirror of Refraction",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 70, int = 114, },
 }
 itemBases["Perching Staff"] = {
 	type = "Staff",
@@ -156,7 +156,7 @@ itemBases["Perching Staff"] = {
 	tags = { default = true, staff = true, twohand = true, },
 	implicit = "Grants Skill: Level (1-20) Spiraling Conspiracy",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 
 itemBases["Wrapped Quarterstaff"] = {

@@ -55,7 +55,6 @@ Trigger Spark Skill on killing a Shocked Enemy
 The Raven's Flock
 Perching Staff
 League: Runes of Aldur
-LevelReq: 65
 Implicits: 1
 Grants Skill: Level (1-20) Spiraling Conspiracy
 (8-16)% increased Cast Speed
