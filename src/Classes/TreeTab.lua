@@ -961,7 +961,7 @@ function TreeTabClass:BuildPowerReportList(currentStat)
 			if isAlloc then
 				pathDist = #(node.depends or { }) == 0 and 1 or #node.depends
 			else
-				pathDist = #(node.path or { }) == 0 and 1 or #node.path
+				pathDist = node.power.distance or #(node.path or {}) == 0 and 1 or #node.path
 			end
 			local nodePower = (node.power.singleStat or 0) * ((displayStat.pc or displayStat.mod) and 100 or 1)
 			local pathPower = (node.power.pathPower or 0) / pathDist * ((displayStat.pc or displayStat.mod) and 100 or 1)
