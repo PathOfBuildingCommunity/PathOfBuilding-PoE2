@@ -929,6 +929,7 @@ Metadata/Monsters/Monkeys/MonkeyJunglePale                                      
 Metadata/Monsters/Monkeys/MonkeyJungleTamedBossSpectator                                  		----		Feral Primate
 Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
 Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
+Metadata/Monsters/CrowBell/CrowBellBossEnragedSTANDALONE                                  		----		The Black Crow
 Metadata/Monsters/CrowBell/CrowBellBossMinion1                                            		----		The Crowbell
 Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
 Metadata/Monsters/Wraith/WraithSpookyColdSpectre                                          		----		Frost Wraith
