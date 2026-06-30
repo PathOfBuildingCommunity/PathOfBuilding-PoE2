@@ -1033,6 +1033,12 @@ end
 -- Initialises a minion's modifier database with its base stats (life, defences, resists),
 -- monster type mods, tamed beast mods and player-granted mods, for the given owning skill
 local function initMinionModDB(env, activeSkill)
+	local skillFlags
+	if env.mode == "CALCS" then
+		skillFlags = activeSkill.activeEffect.statSetCalcs.skillFlags
+	else
+		skillFlags = activeSkill.activeEffect.statSet.skillFlags
+	end
 	local modDB = env.modDB
 	local minion = activeSkill.minion
 	minion.modDB.multipliers["Level"] = minion.level
@@ -1056,10 +1062,17 @@ local function initMinionModDB(env, activeSkill)
 		minion.modDB:NewMod("CannotBeEvaded", "FLAG", 1, "Minion Attacks always hit")
 	end
 	minion.modDB:NewMod("CritMultiplier", "BASE", env.data.monsterConstants["base_critical_hit_damage_bonus"] + env.data.playerMinionIntrinsicStats["base_critical_hit_damage_bonus"], "Base")
-	minion.modDB:NewMod("FireResist", "BASE", minion.minionData.fireResist, "Base")
-	minion.modDB:NewMod("ColdResist", "BASE", minion.minionData.coldResist, "Base")
-	minion.modDB:NewMod("LightningResist", "BASE", minion.minionData.lightningResist, "Base")
-	minion.modDB:NewMod("ChaosResist", "BASE", minion.minionData.chaosResist, "Base")
+	if skillFlags.summonBeast then
+		minion.modDB:NewMod("FireResist", "BASE", minion.minionData.companionFireResist, "Base")
+		minion.modDB:NewMod("ColdResist", "BASE", minion.minionData.companionColdResist, "Base")
+		minion.modDB:NewMod("LightningResist", "BASE", minion.minionData.companionLightningResist, "Base")
+		minion.modDB:NewMod("ChaosResist", "BASE", minion.minionData.companionChaosResist, "Base")
+	else
+		minion.modDB:NewMod("FireResist", "BASE", minion.minionData.fireResist, "Base")
+		minion.modDB:NewMod("ColdResist", "BASE", minion.minionData.coldResist, "Base")
+		minion.modDB:NewMod("LightningResist", "BASE", minion.minionData.lightningResist, "Base")
+		minion.modDB:NewMod("ChaosResist", "BASE", minion.minionData.chaosResist, "Base")
+	end
 	minion.modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 	minion.modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.monsterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
 	minion.modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.monsterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
