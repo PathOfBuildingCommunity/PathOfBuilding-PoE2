@@ -1197,7 +1197,7 @@ statMap = {
 
 #skill ShatteringPalmExplosionPlayer
 #set ShatteringPalmExplosionPlayer
-#flags area nonWeaponAttack hit unarmed
+#flags attack area
 #mods
 #skillEnd
 
