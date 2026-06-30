@@ -2114,6 +2114,11 @@ skills["MetaCastOnCritPlayer"] = {
 			label = "Cast on Critical",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["cast_on_crit_global_critical_hit_chance_granted_+%"] = {
+					mod("CritChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3185,6 +3190,9 @@ skills["ChargeRegulationPlayer"] = {
 					mod("Armour", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 					mod("Evasion", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 					mod("EnergyShield", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+				},
+				["charge_regulation_damage_per_charge_granted_+%"] = {
+					mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "TotalCharges" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 			},
 			baseFlags = {
@@ -8526,6 +8534,9 @@ skills["FlameblastPlayer"] = {
 				["flameblast_maximum_stages"] = {
 					mod("Multiplier:FlameblastMaxStages", "BASE", nil),
 				},
+				["gem_quality_flameblast_damaging_ailment_effect_per_stage_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, bit.bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite), { type = "Multiplier", var = "FlameblastStage" }),
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -11795,6 +11806,9 @@ skills["HeraldOfIcePlayer"] = {
 			statMap = {
 				["display_herald_of_ice_behaviour"] = {
 					flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+				},
+				["herald_of_ice_cold_damage_+%"] = {
+					mod("ColdDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
 				},
 			},
 			baseFlags = {
@@ -15127,6 +15141,11 @@ skills["ManaRemnantsPlayer"] = {
 			incrementalEffectiveness = 0.050000000745058,
 			damageIncrementalEffectiveness = 0.0089999996125698,
 			statDescriptionScope = "mana_remnants",
+			statMap = {
+				["mana_remnants_global_mana_regeneration_rate_granted_+%"] = {
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -17269,6 +17288,9 @@ skills["SacrificePlayer"] = {
 			statMap = {
 				["harvester_minion_resummon_speed_+%_final"] = {
 					mod("MinionRevivalSpeed", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+				},
+				["sacrifice_minion_life_granted_+%"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Life", "INC", nil) }, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 				},
 			},
 			baseFlags = {
@@ -21832,6 +21854,9 @@ skills["TrinityPlayer"] = {
 				["trinity_loss_per_hit"] = {
 					-- Display only
 				},
+				["trinity_%_physical_damage_to_convert_to_random_element_granted"] = {
+					mod("PhysicalDamageConvertToRandom", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" } )
+				},
 			},
 			baseFlags = {
 				buff = true,
@@ -22781,6 +22806,11 @@ skills["WaveOfFrostPlayer"] = {
 			label = "Wave of Frost",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "wave_of_frost",
+			statMap = {
+				["frozen_monsters_take_increased_damage"] = {
+					mod("DamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "Frozen" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -23040,6 +23070,11 @@ skills["GaleStrikePlayer"] = {
 			label = "Wind Blast",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "wind_blast",
+			statMap = {
+				["wind_blast_damage_+%_final_from_distance"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{15,1},{40,0}} }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,

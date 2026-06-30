@@ -1261,6 +1261,9 @@ skills["AttritionPlayer"] = {
 				["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
 					mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
+				["presence_area_+%"] = {
+					mod("PresenceArea", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -1506,7 +1509,7 @@ skills["BerserkPlayer"] = {
 					mod("RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 				},
 				["berserk_maximum_rage_granted_+"] = {
-					mod("MaxRage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+					mod("MaximumRage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 				},
 			},
 			baseFlags = {
@@ -4128,6 +4131,9 @@ skills["EarthquakePlayer"] = {
 				["skill_jagged_ground_base_duration_ms"] = {
 					skill("duration", nil),
 					div = 1000,
+				},
+				["gem_quality_earthquake_damaging_ailment_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, bit.bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite)),
 				},
 			},
 			baseFlags = {
@@ -7332,6 +7338,9 @@ skills["HeraldOfAshPlayer"] = {
 				["herald_of_ash_overkill_threshold_%"] = {
 					mod("HeraldOfAshBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ash" }),
 				},
+				["herald_of_ash_fire_damage_+%"] = {
+					mod("FireDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ash" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -7525,6 +7534,9 @@ skills["HeraldOfBloodPlayer"] = {
 			statMap = {
 				["display_herald_of_blood_behaviour"] = {
 					flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
+				},
+				["herald_of_blood_global_physical_damage_granted_+%"] = {
+					mod("PhysicalDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" }),
 				},
 			},
 			baseFlags = {
@@ -13501,6 +13513,9 @@ skills["MagmaBarrierPlayer"] = {
 				["skill_igneous_shield_grants_block_chance_+%"] = {
 					mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
 				},
+				["magma_barrier_maximum_block_chance_granted_%"] = {
+					mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -18266,6 +18281,14 @@ skills["SupportMetaTotemSpellTotemPlayer"] = {
 			label = "SupportMetaTotemSpellTotemPlayer",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "meta_gem_stat_descriptions",
+			statMap = {
+				["support_spell_totem_cast_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Cast),
+				},
+				["totems_spells_cast_speed_+%_per_active_totem"] = {
+					mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "PerStat", stat = "TotemsSummoned" }),
+				},
+			},
 			baseFlags = {
 			},
 			baseMods = {
@@ -19627,6 +19650,11 @@ skills["TimeOfNeedPlayer"] = {
 			label = "Time of Need",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "time_of_need",
+			statMap = {
+				["time_of_need_global_life_regeneration_rate_granted_+%"] = {
+					mod("LifeRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},

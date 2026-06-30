@@ -74,6 +74,12 @@ skills["AlchemistsBoonPlayer"] = {
 					mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Alchemists Boon" }),
 					div = 60,
 				},
+				["alchemists_boon_attack_speed_granted_+%_during_life_flask"] = {
+					mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Alchemists Boon" }, { type = "Condition", var = "UsingLifeFlask" }),
+				},
+				["alchemists_boon_cast_speed_granted_+%_during_mana_flask"] = {
+					mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Alchemists Boon" }, { type = "Condition", var = "UsingManaFlask" }),
+				},
 				--["recovery_from_flasks_applies_to_allies_in_presence_%"] = {
 				-- how to apply this in calc perform?
 					--mod("FlasksApplyToMinionPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
@@ -1562,6 +1568,12 @@ skills["ElectrocutingArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "electrocuting_arrow",
 			statMap = {
+				["electrocuting_arrow_%_damage_gained_as_extra_lightning_on_debuffed_target"] = {
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+				["electrocuting_arrow_damage_taken_+%"] = {
+					mod("DamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+				},
 				["quality_display_base_skill_effect_duration_is_gem"] = {
 					-- Display only
 				},
@@ -3569,6 +3581,9 @@ skills["HeraldOfThunderPlayer"] = {
 				["herald_of_thunder_storm_max_hits"] = {
 					mod("HeraldOfThunderHits", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Thunder" }),
 				},
+				["herald_of_thunder_lightning_damage_+%"] = {
+					mod("LightningDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Thunder" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -5518,6 +5533,9 @@ skills["PlagueBearerPlayer"] = {
 				["plague_bearer_maximum_stored_poison_damage"] = {
 					mod("PlagueBearerMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Plague Bearer" }),
 				},
+				["poison_effect_+%_vs_non_poisoned_enemies"] = {
+					mod("AilmentMagnitude", "INC", nil, 0, KeywordFlag.Poison, { type = "GlobalEffect", effectType = "Buff", effectName = "Plague Bearer" }, { type = "MultiplierThreshold", actor = "enemy", var = "PoisonStacks", threshold = 1, upper = true }),
+				},
 			},
 			baseFlags = {
 			},
@@ -5760,6 +5778,11 @@ skills["PoisonBurstArrowPlayer"] = {
 			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "poison_burst_arrow",
+			statMap = {
+				["armour_break_for_%_of_poison_damage_over_poison_duration"] = {
+					flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7559,6 +7582,9 @@ skills["SnipersMarkPlayer"] = {
 			statMap = {
 				["enemy_additional_critical_strike_multiplier_against_self"] = {
 					mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["gem_quality_marked_enemy_damage_dealt_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 				},
 			},
 			baseFlags = {
