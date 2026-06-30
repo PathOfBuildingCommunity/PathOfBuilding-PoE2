@@ -471,6 +471,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 				-- Rebuilding this tooltip runs a full build calculation, so only rebuild when the hovered gem or the underlying build changes
 				if self.tooltip:CheckForUpdate(gemData, self.skillsTab.build.outputRevision, self.skillsTab.displayGroup, self.skillsTab.sortGemsByDPSField,
 						self.skillsTab.defaultGemLevel, self.skillsTab.defaultGemQuality, self.skillsTab.defaultCorruptionLevel, self.skillsTab.defaultCorruptionState) then
+					self.tooltip.maxWidth = 500
 					-- No fastCalcOptions here: the tooltip's stat compare shows defensive stats too, so it needs the full (unaccelerated) calc
 					local output = self:CalcOutputWithThisGem(calcFunc, gemData, self.skillsTab.sortGemsByDPSField == "FullDPS")
 					local gemInstance = {

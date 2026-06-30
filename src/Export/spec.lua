@@ -24696,14 +24696,14 @@ return {
 		},
 		[8]={
 			list=true,
-			name="AltStatValuesPermille",
+			name="AltStatValues",
 			refTo="",
 			type="Int",
 			width=300
 		},
 		[9]={
 			list=true,
-			name="AltApplyToStatSets",
+			name="AltStatSetIndex",
 			refTo="",
 			type="Int",
 			width=300

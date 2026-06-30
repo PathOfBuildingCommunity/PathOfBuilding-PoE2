@@ -5680,7 +5680,7 @@ c["Gain no inherent bonuses from Attributes"]={{[1]={flags=0,keywordFlags=0,name
 c["Gain the benefits of Bonded modifiers on Runes and Idols"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanUseBondedModifiers",type="FLAG",value=true}},nil}
 c["Gains 0.18 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.18}},nil}
 c["Gains 0.20 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.2}},nil}
-c["Gem Quality grants Socketed Skills an additional effect"]={nil,"Gem Quality grants Socketed Skills an additional effect "}
+c["Gem Quality grants Socketed Skills an additional effect"]={{[1]={flags=0,keywordFlags=0,name="GemlingQuality",type="FLAG",value=true}},nil}
 c["Giant's Blood"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Giant's Blood"}},nil}
 c["Glancing Blows"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Glancing Blows"}},nil}
 c["Glorifying the defilement of 4050 souls in tribute to Ulaman"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=5,type="abyss"},id=4050}}}},nil}

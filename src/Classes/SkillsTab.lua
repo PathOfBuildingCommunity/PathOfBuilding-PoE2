@@ -890,6 +890,25 @@ function SkillsTabClass:CreateGemSlot(index)
 		if not gemData then
 			return
 		end
+		local includeAltQualityStats = self.build.calcsTab.mainEnv.modDB:Flag(nil, "GemlingQuality")
+		local hasQualityStats = function(grantedEffect)
+			return grantedEffect and (
+				(grantedEffect.qualityStats and #grantedEffect.qualityStats > 0) or
+				(includeAltQualityStats and grantedEffect.altQualityStats and #grantedEffect.altQualityStats > 0)
+			)
+		end
+		local getQualityStats = function(grantedEffect)
+			local qualityStats = { }
+			for _, stat in ipairs(grantedEffect.qualityStats or { }) do
+				qualityStats[#qualityStats + 1] = { stat = stat[1], value = stat[2], statSetIndexes = stat[3], color = colorCodes.MAGIC }
+			end
+			if includeAltQualityStats then
+				for _, stat in ipairs(grantedEffect.altQualityStats or { }) do
+					qualityStats[#qualityStats + 1] = { stat = stat[1], value = stat[2], statSetIndexes = stat[3], color = colorCodes.ENCHANTED }
+				end
+			end
+			return qualityStats
+		end
 		-- Function for both granted effect and secondary such as vaal
 		local addQualityLines = function(qualityList, grantedEffect)
 			if #qualityList > 0 then
@@ -900,17 +919,19 @@ function SkillsTabClass:CreateGemSlot(index)
 				end
 				-- Hardcoded to use 20% quality instead of grabbing from gem, this is for consistency and so we always show something
 				tooltip:AddLine(16, colorCodes.NORMAL.."At +20% Quality:")
-				for k, qual in pairs(qualityList) do
+				for _, qual in ipairs(qualityList) do
 					-- Do the stats one at a time because we're not guaranteed to get the descriptions in the same order we look at them here
 					local stats = { }
-					stats[qual[1]] = qual[2] * 20
-					local descriptions = self.build.data.describeStats(stats, grantedEffect.statSets[1].statDescriptionScope, true)
+					stats[qual.stat] = qual.value * 20
+					local statSet = grantedEffect.statSets[(qual.statSetIndexes[1] or 0) + 1] or grantedEffect.statSets[1]
+					local descriptions, lineMap = self.build.data.describeStats(stats, statSet.statDescriptionScope, true)
 					-- line may be nil if the value results in no line due to not being enough quality
 					for _, line in ipairs(descriptions) do
 						if line then
+							local statName = lineMap[line] or qual.stat
 							-- Check if we have a handler for the mod in the gem's statMap or in the shared stat map for skills
-							if grantedEffect.statSets[1].statMap[qual[1]] or self.build.data.skillStatMap[qual[1]] then
-								tooltip:AddLine(16, colorCodes.MAGIC..line)
+							if statSet.statMap[statName] or self.build.data.skillStatMap[statName] then
+								tooltip:AddLine(16, qual.color..line)
 							else
 								local line = colorCodes.UNSUPPORTED..line
 								line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
@@ -921,24 +942,22 @@ function SkillsTabClass:CreateGemSlot(index)
 				end
 			end
 		end
-		-- Check if there is a quality of this type for the effect
-		-- Currently only checks the first 2 additionalGrantedEffects. Will need to fix if gems ever add more
-		if gemData and gemData.grantedEffect.qualityStats and #gemData.grantedEffect.qualityStats > 0 then
-			local qualityTable = gemData.grantedEffect.qualityStats
-			addQualityLines(qualityTable, gemData.grantedEffect)
+		local qualityStatsShown = false
+		if hasQualityStats(gemData.grantedEffect) then
+			addQualityLines(getQualityStats(gemData.grantedEffect), gemData.grantedEffect)
+			qualityStatsShown = true
 		end
-		if gemData and gemData.additionalGrantedEffects[1] and gemData.additionalGrantedEffects[1].qualityStats and #gemData.additionalGrantedEffects[1].qualityStats > 0 then
-			local qualityTable = gemData.additionalGrantedEffects[1].qualityStats
-			tooltip:AddSeparator(10)
-			addQualityLines(qualityTable, gemData.additionalGrantedEffects[1])
-		end
-		if gemData and gemData.additionalGrantedEffects[2] and gemData.additionalGrantedEffects[2].qualityStats and #gemData.additionalGrantedEffects[2].qualityStats > 0  then
-			local qualityTable = gemData.additionalGrantedEffects[2].qualityStats
-			tooltip:AddSeparator(10)
-			addQualityLines(qualityTable, gemData.additionalGrantedEffects[2])
+		for _, effect in ipairs(gemData.additionalGrantedEffects or { }) do
+			if hasQualityStats(effect) then
+				if qualityStatsShown then
+					tooltip:AddSeparator(10)
+				end
+				addQualityLines(getQualityStats(effect), effect)
+				qualityStatsShown = true
+			end
 		end
 		-- Add stat comparisons for hovered quality (based on set quality)
-		if gemData and (gemData.grantedEffect.qualityStats or (gemData.additionalGrantedEffects[1] and gemData.additionalGrantedEffects[1].qualityStats or gemData.additionalGrantedEffects[2] and gemData.additionalGrantedEffects[2].qualityStats)) and self.displayGroup.gemList[index] then
+		if qualityStatsShown and self.displayGroup.gemList[index] then
 			local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				local storedQuality = self.displayGroup.gemList[index].quality

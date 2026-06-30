@@ -352,6 +352,9 @@ return {
 ["support_deliberation_movement_speed_penalty_+%_final_while_performing_action"] = {
 	mod("MovementSpeedPenalty", "MORE", nil),
 },
+["movement_speed_penalty_+%_while_performing_action"] = {
+	mod("MovementSpeedPenalty", "INC", nil),
+},
 --
 -- Defensive modifiers
 --
@@ -792,6 +795,9 @@ return {
 ["chance_for_extra_damage_roll_%"] = {
 	mod("LuckyHitsChance", "BASE", nil)
 },
+["chance_for_extra_damage_roll_with_lightning_damage_%"] = {
+	mod("LightningLuckyHitsChance", "BASE", nil)
+},
 ["chance_to_deal_double_damage_%"] = {
 	mod("DoubleDamageChance", "BASE", nil)
 },
@@ -925,6 +931,9 @@ return {
 },
 ["active_skill_damage_+%_final_vs_immobilised_enemies"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+},
+["active_skill_damage_+%_final_vs_burning_enemies"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
 },
 ["base_reduce_enemy_fire_resistance_%"] = {
 	mod("FirePenetration", "BASE", nil),
@@ -1078,7 +1087,10 @@ return {
 	mod("PhysicalDamageGainAsLightning", "BASE", nil),
 },
 ["active_skill_base_physical_damage_%_to_gain_as_cold"] = {
-	mod("SkillPhysicalDamageGainAsCold", "BASE", nil),
+	mod("PhysicalDamageGainAsCold", "BASE", nil),
+},
+["active_skill_base_physical_damage_%_to_gain_as_fire"] = {
+	mod("PhysicalDamageGainAsFire", "BASE", nil),
 },
 ["physical_damage_%_to_add_as_cold"] = {
 	mod("PhysicalDamageGainAsCold", "BASE", nil),
@@ -1104,14 +1116,29 @@ return {
 ["lightning_damage_%_to_add_as_chaos"] = {
 	mod("LightningDamageGainAsChaos", "BASE", nil),
 },
+["active_skill_base_all_damage_%_to_gain_as_physical"] = {
+	mod("DamageGainAsPhysical", "BASE", nil),
+},
+["active_skill_base_all_damage_%_to_gain_as_lightning"] = {
+	mod("DamageGainAsLightning", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
 	mod("DamageGainAsLightning", "BASE", nil),
+},
+["active_skill_base_all_damage_%_to_gain_as_cold"] = {
+	mod("DamageGainAsCold", "BASE", nil),
 },
 ["non_skill_base_all_damage_%_to_gain_as_cold"] = {
 	mod("DamageGainAsCold", "BASE", nil),
 },
+["active_skill_base_all_damage_%_to_gain_as_fire"] = {
+	mod("DamageGainAsFire", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_fire"] = {
 	mod("DamageGainAsFire", "BASE", nil),
+},
+["active_skill_base_all_damage_%_to_gain_as_chaos"] = {
+	mod("DamageGainAsChaos", "BASE", nil),
 },
 ["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
 	mod("DamageGainAsChaos", "BASE", nil),
@@ -1520,7 +1547,9 @@ return {
 ["active_skill_pins_as_though_dealt_damage_+%_final"] = {
 	mod("EnemyPinBuildup", "MORE", nil),
 },
-
+["hit_damage_immobilisation_multiplier_+%"] = {
+	mod("EnemyImmobilisationBuildup", "INC", nil),
+},
 -- Global flags
 ["never_ignite"] = {
 	flag("CannotIgnite"),
@@ -2763,6 +2792,9 @@ return {
 ["base_reservation_efficiency_+%"] = {
 	mod("ReservationEfficiency", "INC", nil)
 },
+["base_spirit_reservation_efficiency_+%"] = {
+	mod("SpiritReservationEfficiency", "INC", nil)
+},
 -- Brand
 ["sigil_attached_target_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "BrandsAttachedToEnemy", threshold = 1 }),
@@ -2960,6 +2992,9 @@ return {
 ["minions_deal_no_damage"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 	value = -100,
+},
+["minion_damage_taken_+%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "INC", nil) }),
 },
 ["base_cannot_be_stunned"] = {
 	flag("StunImmune"),
