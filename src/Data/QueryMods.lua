@@ -27784,20 +27784,6 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002",
-				["text"] = "# to maximum Energy Shield",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
-		},
 		["3544800472"] = {
 			["Chest"] = {
 				["max"] = 40,
@@ -28544,14 +28530,6 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
-			["2HWeapon"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["Quarterstaff"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28726,17 +28704,9 @@ return {
 				["max"] = -10,
 				["min"] = -10,
 			},
-			["2HWeapon"] = {
-				["max"] = -10,
-				["min"] = -10,
-			},
 			["Helmet"] = {
 				["max"] = 4,
 				["min"] = 4,
-			},
-			["Quarterstaff"] = {
-				["max"] = -10,
-				["min"] = -10,
 			},
 			["Spear"] = {
 				["max"] = -10,
@@ -31410,17 +31380,9 @@ return {
 				["max"] = 4,
 				["min"] = 4,
 			},
-			["2HWeapon"] = {
-				["max"] = 4,
-				["min"] = 4,
-			},
 			["Helmet"] = {
 				["max"] = 1,
 				["min"] = 1,
-			},
-			["Quarterstaff"] = {
-				["max"] = 4,
-				["min"] = 4,
 			},
 			["Spear"] = {
 				["max"] = 4,
