@@ -4,6 +4,7 @@
 -- Shared renderer for gem-style tooltips.
 
 local m_max = math.max
+local m_min = math.min
 
 local GemTooltip = { }
 
@@ -306,6 +307,7 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	tooltip.center = false
 	tooltip.color = colorCodes.GEM
 	tooltip.minWidth = 600
+	tooltip.maxWidth = m_min(tooltip.maxWidth or 600, 600)
 	tooltip.tooltipHeader = "GEM"
 	tooltip.gemIcon = gemInstance.gemData.grantedEffect.icon
 	tooltip.gemBackground = gemInstance.gemData.grantedEffect.id
