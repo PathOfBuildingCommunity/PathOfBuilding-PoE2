@@ -3367,7 +3367,9 @@ local specialModList = {
 	["blue: skills have (%d+)%% less cost"] = function(count) return {
 		mod("ManaCost", "MORE", -count, { type = "Condition", var = "MostNumerousBlueSocketedSupports" })
 	} end,
-
+	["green: (%d+)%% less movement speed penalty from using skills while moving"] = function(num) return {
+		mod("MovementSpeedPenalty", "MORE", -num, { type = "Condition", var = "MostNumerousGreenSocketedSupports" })
+	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
@@ -6223,13 +6225,13 @@ end
 -- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
 specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
 	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
-	
+
 	-- look for static or dynamically phrased base immunity mod
 	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
 	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
 	local lowerAilment = ailment and string.lower(ailment) or ""
 	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
-	
+
 	-- look if condition exists
 	-- todo make more dynamic
 	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
@@ -6771,7 +6773,7 @@ local function parseMod(line, order)
 			effect = getEffectFromStatus(effectLine)
 			effect = combineToUpper(effect)
 		end
-		
+
 		if type(effect) == "table" then
 			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
 			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }

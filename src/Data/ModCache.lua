@@ -5901,7 +5901,7 @@ c["Grants effect of Guided Freezing Shrine"]={nil,"Grants effect of Guided Freez
 c["Grants effect of Guided Meteoric Shrine"]={nil,"Grants effect of Guided Meteoric Shrine "}
 c["Grants effect of Guided Tempest Shrine"]={nil,"Grants effect of Guided Tempest Shrine "}
 c["Grants up to your maximum Rage on use"]={nil,"Grants up to your maximum Rage on use "}
-c["Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"Green: 40% less Movement Speed Penalty from using Skills while Moving "}
+c["Green: 40% less Movement Speed Penalty from using Skills while Moving"]={{[1]={[1]={type="Condition",var="MostNumerousGreenSocketedSupports"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-40}},nil}
 c["Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=159,type="SkillType"},flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
 c["Grenade Skills have +1 Cooldown Use"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value=1}},nil}
 c["Grenades have 15% chance to activate a second time"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="GrenadeActivateTwice",type="BASE",value=15}},nil}
