@@ -160,11 +160,11 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 					refreshJewelStatCache(env)
 				end
 				if node.type == "Normal" and node.isAttribute and cache and #cache.attributeModList > 0 then
-					modList:AddList(cache.attributeModList)
+					modList:CopyList(cache.attributeModList)
 				elseif node.type == "Normal" and not node.isAttribute and cache and #cache.smallModList > 0 then
-					modList:AddList(cache.smallModList)
+					modList:CopyList(cache.smallModList)
 				elseif node.type == "Notable" and cache and #cache.notableModList > 0 then
-					modList:AddList(cache.notableModList)
+					modList:CopyList(cache.notableModList)
 				end
 				break
 			end
