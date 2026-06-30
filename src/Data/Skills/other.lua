@@ -18,6 +18,8 @@ skills["TriggeredAbyssalApparitionPlayer"] = {
 	cannotBeSupported = true,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -132,7 +134,9 @@ skills["AcidicConcoctionPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, { 0 } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 0.7, critChance = 5, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -351,7 +355,9 @@ skills["AlignFatePlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.ReserveInAllSets] = true, [SkillType.AffectedByCooldownRate] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "spellflux_frequency_+%_final", 1 },
+		{ "spellflux_frequency_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -476,7 +482,9 @@ skills["AncestralSpiritsPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Chains] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_minion_life_+%_final", 1 },
+		{ "active_skill_minion_life_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -602,7 +610,10 @@ skills["AnimusExchangePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, [SkillType.Triggerable] = true, },
 	castTime = 0.6,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 1 },
+		{ "base_cooldown_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
+		{ "animus_exchange_gain_%_maximum_life_spent_as_ward", 0.25, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 4, levelRequirement = 0, storedUses = 1, cost = { Mana = 15, }, },
@@ -718,7 +729,10 @@ skills["MetaAnimusSplintersPlayer"] = {
 	skillTypes = { [SkillType.Meta] = true, [SkillType.Instant] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.Cooldown] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_skill_cost_efficiency_+%", 1 },
+		{ "base_skill_cost_efficiency_+%", 1, {  } },
+	},
+	altQualityStats = {
+		{ "skill_effect_duration_+%", 1, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
@@ -833,6 +847,8 @@ skills["SupportAnimusSplintersPlayer"] = {
 	ignoreMinionTypes = true,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -886,7 +902,9 @@ skills["ApocalypsePlayer"] = {
 	skillTypes = { [SkillType.Triggers] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "unleash_the_elements_trigger_frequency_+%", 0.75 },
+		{ "unleash_the_elements_trigger_frequency_+%", 0.75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 8, }, },
@@ -1006,6 +1024,8 @@ skills["ApocalypseColdPlayer"] = {
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cold] = true, [SkillType.Storm] = true, },
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 12, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -1135,6 +1155,8 @@ skills["ApocalypseFirePlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -1259,6 +1281,8 @@ skills["ApocalypseLightningPlayer"] = {
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 10, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -1503,7 +1527,9 @@ skills["ArchonOfChayulaPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "archon_of_chayula_physical_and_chaos_damage_+%_final", 0.25 },
+		{ "archon_of_chayula_physical_and_chaos_damage_+%_final", 0.25, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1639,6 +1665,8 @@ skills["ArchonOfChayulaTornadoPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.45, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 0.49, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -1769,7 +1797,9 @@ skills["AzmerianSwarmPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "max_azmerian_swarms", 0.1 },
+		{ "max_azmerian_swarms", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1905,7 +1935,9 @@ skills["SummonAzmerianWolfPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_minion_life_+%_final", 1 },
+		{ "active_skill_minion_life_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -2019,6 +2051,8 @@ skills["CommandPackleaderPlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 8, }, },
@@ -2136,7 +2170,10 @@ skills["BitterDeadPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.TargetsDestructibleCorpses] = true, },
 	castTime = 0.75,
 	qualityStats = {
-		{ "volatile_dead_base_number_of_corpses_to_consume", 0.05 },
+		{ "volatile_dead_base_number_of_corpses_to_consume", 0.05, {  } },
+	},
+	altQualityStats = {
+		{ "base_chance_to_not_consume_corpse_%", 0.5, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Ward = 11, }, },
@@ -2465,7 +2502,9 @@ skills["BleedingConcoctionPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 0.7, critChance = 5, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -2600,7 +2639,9 @@ skills["BloodBoilPlayer"] = {
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_skill_effect_duration", 75 },
+		{ "base_skill_effect_duration", 75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -2721,6 +2762,8 @@ skills["MeleeBowPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -2918,7 +2961,9 @@ skills["ExplodingPoisonToadPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Physical] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.NonWeaponAttack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.UseGlobalStats] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "trigger_toad_spawn_chance_%", 0.5 },
+		{ "trigger_toad_spawn_chance_%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2.25, critChance = 5, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -3041,7 +3086,9 @@ skills["MetaDeadeyeMarksPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Triggers] = true, [SkillType.Area] = true, [SkillType.HasReservation] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3156,6 +3203,8 @@ skills["SupportMetaDeadeyeMarksPlayer"] = {
 	excludeSkillTypes = { },
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -3266,7 +3315,9 @@ skills["MetaCastOnCharmUsePlayer"] = {
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "energy_generated_+%", 0.75 },
+		{ "energy_generated_+%", 0.75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3382,6 +3433,8 @@ skills["SupportMetaCastOnCharmUsePlayer"] = {
 	excludeSkillTypes = { SkillType.InbuiltTrigger, },
 	isTrigger = true,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3529,6 +3582,8 @@ skills["ChaosSpearTriggerChaosSurgePlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, levelRequirement = 0, },
 		[2] = { baseMultiplier = 0.55, levelRequirement = 3, },
@@ -3646,8 +3701,11 @@ skills["ConductiveRunesPlayer"] = {
 	skillTypes = { [SkillType.Area] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Limit] = true, [SkillType.UseGlobalStats] = true, [SkillType.NonWeaponAttack] = true, [SkillType.Lightning] = true, [SkillType.Totemable] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "rune_hazard_arming_time_ms", -5 },
-		{ "rune_hazard_detonate_time_ms", -5 },
+		{ "rune_hazard_arming_time_ms", -5, {  } },
+		{ "rune_hazard_detonate_time_ms", -5, {  } },
+	},
+	altQualityStats = {
+		{ "active_skill_base_area_of_effect_radius", 0.3, {  } },
 	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, cost = { Ward = 15, }, },
@@ -3854,6 +3912,8 @@ skills["MeleeCrossbowPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 1.1, levelRequirement = 3, cost = { Mana = 0, }, },
@@ -3988,6 +4048,8 @@ skills["UnloadAmmoPlayer"] = {
 	castTime = 0.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -4107,7 +4169,9 @@ skills["CrushingFearPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_area_of_effect_+%_final", 0.5 },
+		{ "active_skill_area_of_effect_+%_final", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 4, levelRequirement = 0, cost = { Mana = 6, }, },
@@ -4329,7 +4393,9 @@ skills["DemonFormPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Shapeshift] = true, [SkillType.ManualCooldownConsumption] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "demon_form_grants_cast_speed_+%", 0.5 },
+		{ "demon_form_grants_cast_speed_+%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 15, levelRequirement = 0, storedUses = 1, cost = { Mana = 6, }, },
@@ -4455,7 +4521,10 @@ skills["DetonateLivingPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.65,
 	qualityStats = {
-		{ "corpse_explosion_monster_life_permillage_physical", 1 },
+		{ "corpse_explosion_monster_life_permillage_physical", 1, { 1 } },
+	},
+	altQualityStats = {
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
 	},
 	levels = {
 		[1] = { critChance = 12, levelRequirement = 0, cost = { Ward = 11, }, },
@@ -4656,7 +4725,9 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Chains] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 1 },
+		{ "base_cooldown_speed_+%", 1, { 0 } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 0.25, levelRequirement = 0, storedUses = 1, cost = { Mana = 3, }, },
@@ -4967,7 +5038,9 @@ skills["ElementalStormPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cooldown] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 0.5 },
+		{ "base_cooldown_speed_+%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 3, levelRequirement = 0, storedUses = 1, cost = { Mana = 8, }, },
@@ -5341,7 +5414,9 @@ skills["AmazonTriggerElementalSurgePlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.CannotConsumeCharges] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.15 },
+		{ "active_skill_base_area_of_effect_radius", 0.15, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -5587,7 +5662,9 @@ skills["EncaseInJadePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Guard] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, },
 	castTime = 0.3,
 	qualityStats = {
-		{ "maximum_life_%_damage_absorbed_per_jade_consumed", 0.05 },
+		{ "maximum_life_%_damage_absorbed_per_jade_consumed", 0.05, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 15, }, },
@@ -5736,7 +5813,10 @@ skills["EternalMarchPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Minion] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Instant] = true, [SkillType.Triggerable] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "skill_eternal_march_maximum_ward_cost", 10 },
+		{ "skill_eternal_march_maximum_ward_cost", 10, {  } },
+	},
+	altQualityStats = {
+		{ "base_cooldown_speed_+%", 2, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 4, levelRequirement = 0, storedUses = 1, },
@@ -5853,7 +5933,9 @@ skills["ExplosiveConcoctionPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "explosive_concoction_number_of_secondary_projectiles", 0.1 },
+		{ "explosive_concoction_number_of_secondary_projectiles", 0.1, { 1 } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 0.7, critChance = 5, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -5983,6 +6065,8 @@ skills["ExplosiveTransmutationPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 		[2] = { levelRequirement = 3, spiritReservationFlat = 30, },
@@ -6090,7 +6174,10 @@ skills["TriggeredExplosiveTransmutationExplosionPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Cascadable] = true, [SkillType.Physical] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cooldown] = true, [SkillType.Damage] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.1 },
+		{ "active_skill_base_area_of_effect_radius", 0.1, {  } },
+	},
+	altQualityStats = {
+		{ "base_ward_cost_efficiency_+%", 1.5, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 0.5, critChance = 14, levelRequirement = 0, storedUses = 5, cost = { Ward = 7, }, },
@@ -6503,7 +6590,9 @@ skills["MetaCastFireSpellOnHitPlayer"] = {
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Fire] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "energy_generated_+%", 0.75 },
+		{ "energy_generated_+%", 0.75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -6619,6 +6708,8 @@ skills["SupportMetaCastFireSpellOnHitPlayer"] = {
 	excludeSkillTypes = { SkillType.InbuiltTrigger, },
 	isTrigger = true,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -6779,6 +6870,8 @@ skills["TriggeredFistOfKalguurPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
 		[2] = { baseMultiplier = 1.32, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
@@ -6906,7 +6999,10 @@ skills["FragmentsOfThePastPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
+	},
+	altQualityStats = {
+		{ "base_skill_effect_duration", 50, {  } },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -40, baseMultiplier = 0.5, levelRequirement = 0, cost = { Ward = 11, }, },
@@ -7024,7 +7120,9 @@ skills["FragmentsOfThePastFragmentPlayer"] = {
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.45, levelRequirement = 0, },
@@ -7152,7 +7250,10 @@ skills["FrostflameNovaPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cascadable] = true, [SkillType.Fire] = true, },
 	castTime = 0.7,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.5 },
+		{ "active_skill_base_area_of_effect_radius", 0.5, { 0 } },
+	},
+	altQualityStats = {
+		{ "damage_+%_vs_frozen_enemies", 1, { 1 } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Ward = 11, }, },
@@ -7342,7 +7443,9 @@ skills["FulminatingConcoctionPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_shock_chance_+%_final", 2 },
+		{ "active_skill_shock_chance_+%_final", 2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 0.7, critChance = 8, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -7474,7 +7577,9 @@ skills["FuturePastPlayer"] = {
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_secondary_skill_effect_duration", 15 },
+		{ "base_secondary_skill_effect_duration", 15, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7595,6 +7700,8 @@ skills["GelidPalmPlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7778,6 +7885,8 @@ skills["MeleeGrenadeLauncherPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.65, cooldown = 1, levelRequirement = 0, storedUses = 3, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 0.71, cooldown = 1, levelRequirement = 3, storedUses = 3, cost = { Mana = 0, }, },
@@ -7907,7 +8016,10 @@ skills["GrimPillarsPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.IceCrystal] = true, [SkillType.Area] = true, [SkillType.Nova] = true, [SkillType.Cascadable] = true, [SkillType.ToggleSpawnedObjectTargetable_DefaultOn] = true, [SkillType.Limit] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, },
 	castTime = 0.7,
 	qualityStats = {
-		{ "grim_pillars_number_of_pillars_to_create", 0.1 },
+		{ "grim_pillars_number_of_pillars_to_create", 0.1, { 0 } },
+	},
+	altQualityStats = {
+		{ "active_skill_base_secondary_area_of_effect_radius", 0.2, {  } },
 	},
 	levels = {
 		[1] = { critChance = 12, levelRequirement = 0, cost = { Ward = 15, }, },
@@ -8123,6 +8235,8 @@ skills["HarbingerOfMadnessPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -8254,7 +8368,9 @@ skills["UniqueAtziriHeraldPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Herald] = true, [SkillType.UseGlobalStats] = true, [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Physical] = true, [SkillType.SkillConsumesBleeding] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_damage_+%_final", 0.5 },
+		{ "active_skill_damage_+%_final", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8514,7 +8630,9 @@ skills["HollowFocusPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_secondary_area_of_effect_radius", -0.2 },
+		{ "active_skill_base_secondary_area_of_effect_radius", -0.2, { 0 } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8716,7 +8834,9 @@ skills["MetaHollowFormPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "base_power_charge_skip_consume_chance_%", 0.5 },
+		{ "base_power_charge_skip_consume_chance_%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -30, levelRequirement = 0, },
@@ -8839,6 +8959,8 @@ skills["SupportHollowFormPlayer"] = {
 	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.Meta, SkillType.Triggered, SkillType.Persistent, SkillType.Channel, SkillType.UsedByProxy, SkillType.SupportedByHollowForm, SkillType.NOT, SkillType.AND, },
 	ignoreMinionTypes = true,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8973,7 +9095,9 @@ skills["HollowResonancePlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_hit_damage_stun_multiplier_+%_final", 1.5 },
+		{ "active_skill_hit_damage_stun_multiplier_+%_final", 1.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.6, cooldown = 0.5, levelRequirement = 0, storedUses = 3, },
@@ -9090,7 +9214,10 @@ skills["HollowShellPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Cascadable] = true, [SkillType.Nova] = true, [SkillType.Triggerable] = true, },
 	castTime = 0.6,
 	qualityStats = {
-		{ "skill_hollow_shell_spent_ward_%_to_grant_as_guard", 0.25 },
+		{ "skill_hollow_shell_spent_ward_%_to_grant_as_guard", 0.25, {  } },
+	},
+	altQualityStats = {
+		{ "base_skill_effect_duration", 100, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Ward = 3, }, },
@@ -9209,7 +9336,9 @@ skills["InevitableAgonyPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.7,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.25 },
+		{ "active_skill_base_area_of_effect_radius", 0.25, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 2, levelRequirement = 0, storedUses = 1, cost = { Mana = 41, }, },
@@ -9332,7 +9461,9 @@ skills["IntoTheBreachPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.GeneratesRemnants] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "remnant_effect_+%", 0.75 },
+		{ "remnant_effect_+%", 0.75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9455,7 +9586,9 @@ skills["CorpseBeetlesPlayer"] = {
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Damage] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "maximum_corpse_beetles_allowed", 0.2 },
+		{ "maximum_corpse_beetles_allowed", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9571,6 +9704,8 @@ skills["CommandCorpseBeetleExplodePlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 7, }, },
@@ -9696,6 +9831,8 @@ skills["SummonSandDjinnPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -9808,6 +9945,8 @@ skills["CommandSandDjinnKnifeThrowPlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 3, }, },
@@ -9924,7 +10063,10 @@ skills["LeylinesPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "skill_leylines_spell_damage_+%_final", 0.5 },
+		{ "skill_leylines_spell_damage_+%_final", 0.5, {  } },
+	},
+	altQualityStats = {
+		{ "active_skill_base_area_of_effect_radius", 0.5, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
@@ -10044,7 +10186,9 @@ skills["LifeRemnantsPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.GeneratesRemnants] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "life_remnants_chance_to_spawn_orb_on_killing_enemy_%", 0.5 },
+		{ "life_remnants_chance_to_spawn_orb_on_killing_enemy_%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -10165,6 +10309,8 @@ skills["Melee1HMacePlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 1.1, levelRequirement = 3, cost = { Mana = 0, }, },
@@ -10282,6 +10428,8 @@ skills["Melee2HMacePlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -10401,6 +10549,8 @@ skills["MeleeMaceMacePlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -10536,7 +10686,9 @@ skills["ManifestWeaponPlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
-		{ "minion_attack_speed_+%", 1 },
+		{ "minion_attack_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -10668,7 +10820,9 @@ skills["BearMaulPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "gain_x_rage_on_attack_hit", 0.1 },
+		{ "gain_x_rage_on_attack_hit", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.8, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -10787,7 +10941,9 @@ skills["MeditatePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "meditate_energy_shield_recharge_rate_+%_final", 0.5 },
+		{ "meditate_energy_shield_recharge_rate_+%_final", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
@@ -10938,7 +11094,9 @@ skills["MidnightStarPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cold] = true, [SkillType.IceCrystal] = true, [SkillType.Area] = true, [SkillType.Limit] = true, [SkillType.Damage] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "midnight_star_max_ice_crystals", 0.1 },
+		{ "midnight_star_max_ice_crystals", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 11, levelRequirement = 0, },
@@ -11142,6 +11300,8 @@ skills["MetaMirageDeadeyePlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -11251,6 +11411,8 @@ skills["SupportMirageDeadeyePlayer"] = {
 	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.Melee, SkillType.Meta, SkillType.Triggered, SkillType.Persistent, SkillType.UsedByProxy, SkillType.SupportedByMirageDeadeye, SkillType.NOT, SkillType.AND, },
 	ignoreMinionTypes = true,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -11371,7 +11533,9 @@ skills["MirageDeadeyeSpawnPlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
-		{ "base_skill_effect_duration", 50 },
+		{ "base_skill_effect_duration", 50, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
@@ -11488,7 +11652,9 @@ skills["SummonMistRavenPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Melee] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "chance_to_gain_1_more_frenzy_charge_%", 1 },
+		{ "chance_to_gain_1_more_frenzy_charge_%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -11603,6 +11769,8 @@ skills["CommandMistRavenPlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 8, }, },
@@ -11721,7 +11889,9 @@ skills["TriggeredMoltenShowerPlayer"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Instant] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 1 },
+		{ "base_cooldown_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, cooldown = 0.25, levelRequirement = 0, storedUses = 3, cost = { Mana = 0, }, },
@@ -11842,7 +12012,9 @@ skills["MomentOfVulnerabilityPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Nova] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.65,
 	qualityStats = {
-		{ "time_rip_damage_share_%", 1 },
+		{ "time_rip_damage_share_%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 1, levelRequirement = 0, storedUses = 1, cost = { Mana = 6, }, },
@@ -12009,6 +12181,8 @@ skills["TriggeredMorrigansInsightPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
 		[2] = { cooldown = 8, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
@@ -12137,6 +12311,8 @@ skills["SummonWaterDjinnPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -12249,6 +12425,8 @@ skills["CommandWaterDjinnBubblePlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 7, }, },
@@ -12437,6 +12615,8 @@ skills["ParryPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackTime = 750, baseMultiplier = 0.65, critChance = 5, levelRequirement = 0, cost = { Mana = 0, ManaPerMinute = 0, }, },
 	},
@@ -12508,7 +12688,9 @@ skills["PinnacleOfPowerPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.Instant] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "elemental_power_elemental_damage_+%_final_per_power_charge", 0.1 },
+		{ "elemental_power_elemental_damage_+%_final_per_power_charge", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[20] = { cooldown = 4, levelRequirement = 0, storedUses = 1, cost = { Mana = 93, }, },
@@ -12561,7 +12743,10 @@ skills["PoweredByVerisiumPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.GeneratesInfusion] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.7,
 	qualityStats = {
-		{ "verisium_infusion_duration_+%", 2.5 },
+		{ "verisium_infusion_duration_+%", 2.5, {  } },
+	},
+	altQualityStats = {
+		{ "additional_infusion_gain_chance_%", 1, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, cost = { Ward = 20, }, },
@@ -12670,7 +12855,9 @@ skills["PrimalBountyPlayer"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Instant] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Buff] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "multishot_empowered_projectile_speed_+%", 1.5 },
+		{ "multishot_empowered_projectile_speed_+%", 1.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -12820,6 +13007,8 @@ skills["MeleeUnarmedPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 1.1, levelRequirement = 3, cost = { Mana = 0, }, },
@@ -12937,6 +13126,8 @@ skills["MeleeQuarterstaffPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -13067,7 +13258,9 @@ skills["RainOfBladesPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 1 },
+		{ "base_cooldown_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 10, levelRequirement = 0, storedUses = 1, cost = { Ward = 11, }, },
@@ -13196,7 +13389,10 @@ skills["RainOfBladesTriggeredPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 1 },
+		{ "base_cooldown_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
+		{ "hit_damage_immobilisation_multiplier_+%", 1.5, {  } },
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.8, cooldown = 0.3, levelRequirement = 0, storedUses = 5, cost = { Ward = 5, }, },
@@ -13315,6 +13511,8 @@ skills["ShieldBlockPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackTime = 550, baseMultiplier = 0.8, critChance = 5, levelRequirement = 0, cost = { Mana = 0, ManaPerMinute = 0, }, },
 	},
@@ -13371,7 +13569,10 @@ skills["RefutationPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.65,
 	qualityStats = {
-		{ "runic_fortress_stun_threshold_+%_final", 1 },
+		{ "runic_fortress_stun_threshold_+%_final", 1, {  } },
+	},
+	altQualityStats = {
+		{ "base_skill_effect_duration", 50, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 11.9, levelRequirement = 0, storedUses = 1, cost = { Ward = 3, }, },
@@ -13496,8 +13697,11 @@ skills["MetaRemnantsOfKalguurPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.GeneratesRemnants] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "ward_remnants_chance_to_spawn_orb_on_killing_enemy_%", 0.25 },
-		{ "ward_remnants_chance_to_spawn_remnant_on_stun_%", 0.25 },
+		{ "ward_remnants_chance_to_spawn_orb_on_killing_enemy_%", 0.25, {  } },
+		{ "ward_remnants_chance_to_spawn_remnant_on_stun_%", 0.25, {  } },
+	},
+	altQualityStats = {
+		{ "ward_remnants_spawn_remnant_on_stun_cooldown_ms", -2.5, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
@@ -13616,7 +13820,9 @@ skills["WyvernRendPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "wyvern_devour_base_all_damage_%_to_gain_as_lightning", 0.5 },
+		{ "wyvern_devour_base_all_damage_%_to_gain_as_lightning", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -10, baseMultiplier = 1.1, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -13797,6 +14003,8 @@ skills["CurseOfRepulsionPlayer"] = {
 	castTime = 0.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Ward = 15, }, },
 		[2] = { levelRequirement = 3, cost = { Ward = 18, }, },
@@ -13917,7 +14125,10 @@ skills["CurseOfRepulsionShockwavePlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Physical] = true, [SkillType.UseGlobalStats] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.NonWeaponAttack] = true, [SkillType.Cooldown] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_hit_damage_stun_multiplier_+%_final", 2 },
+		{ "active_skill_hit_damage_stun_multiplier_+%_final", 2, {  } },
+	},
+	altQualityStats = {
+		{ "active_skill_damage_+%_final_vs_immobilised_enemies", 1, {  } },
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, cooldown = 0.5, critChance = 6, levelRequirement = 0, storedUses = 5, cost = { Ward = 0, }, },
@@ -14047,7 +14258,9 @@ skills["RighteousDescentPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Physical] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Movement] = true, [SkillType.Cooldown] = true, [SkillType.Spear] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.1 },
+		{ "active_skill_base_area_of_effect_radius", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 4, cooldown = 10, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
@@ -14235,7 +14448,9 @@ skills["SacredGroundPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, [SkillType.Totemable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.GainsStages] = true, },
 	castTime = 0.6,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.4 },
+		{ "active_skill_base_area_of_effect_radius", 0.4, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 10, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
@@ -14362,7 +14577,9 @@ skills["RitualSacrificePlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.TargetsDestructibleRareCorpses] = true, },
 	castTime = 5,
 	qualityStats = {
-		{ "base_skill_effect_duration", 1000 },
+		{ "base_skill_effect_duration", 1000, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 20, }, },
@@ -14511,6 +14728,8 @@ skills["TriggeredRuneforgedBladesPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, cost = { Ward = 7, }, },
@@ -14691,7 +14910,10 @@ skills["RunicReprievePlayer"] = {
 	skillTypes = { [SkillType.Channel] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Spell] = true, [SkillType.ActiveBlock] = true, [SkillType.CanCancelActions] = true, },
 	castTime = 0.12,
 	qualityStats = {
-		{ "active_skill_stun_threshold_+%_while_performing_action", 2 },
+		{ "active_skill_stun_threshold_+%_while_performing_action", 2, {  } },
+	},
+	altQualityStats = {
+		{ "rune_ward_block_%_damage_taken", 0.5, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { WardPerMinute = 180, }, },
@@ -14820,6 +15042,8 @@ skills["RunicTemperingPlayer"] = {
 	castTime = 1.125,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 5, levelRequirement = 0, storedUses = 1, cost = { ManaPerMinute = 174, }, },
 		[2] = { cooldown = 5, levelRequirement = 3, storedUses = 1, cost = { ManaPerMinute = 201, }, },
@@ -14946,6 +15170,8 @@ skills["SummonFireDjinnPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -15059,6 +15285,8 @@ skills["CommandFireDjinnLivingBombPlayer"] = {
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 2, }, },
@@ -15176,7 +15404,9 @@ skills["SanguineRevelryPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.TotemCastsAlone] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.GeneratesRemnants] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "sanguine_revelry_rage_gain_per_pickup", 0.1 },
+		{ "sanguine_revelry_rage_gain_per_pickup", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -15368,7 +15598,9 @@ skills["ShatteringConcoctionPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "freeze_duration_+%", 1 },
+		{ "freeze_duration_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 0.7, critChance = 11, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -15504,7 +15736,9 @@ skills["WolfShredPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "attack_speed_+%", 1 },
+		{ "attack_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 100, baseMultiplier = 0.4, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -15767,6 +16001,8 @@ skills["IceFragmentsPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.45, levelRequirement = 0, },
 		[2] = { baseMultiplier = 0.49, levelRequirement = 3, },
@@ -15893,7 +16129,10 @@ skills["SkyfallPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cold] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "base_spell_%_chance_to_echo", 0.5 },
+		{ "base_spell_%_chance_to_echo", 0.5, {  } },
+	},
+	altQualityStats = {
+		{ "damage_+%_vs_frozen_enemies", 1, {  } },
 	},
 	levels = {
 		[1] = { critChance = 14, levelRequirement = 0, cost = { Ward = 25, }, },
@@ -16137,6 +16376,8 @@ skills["SmashToSmithereensPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.3, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 1.43, cooldown = 0.5, levelRequirement = 3, storedUses = 1, cost = { Mana = 0, }, },
@@ -16255,7 +16496,9 @@ skills["NightfallSoaringMidnightPlayer"] = {
 	skillTypes = { [SkillType.ManualCooldownConsumption] = true, [SkillType.Cooldown] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.RequiresShield] = true, [SkillType.Travel] = true, [SkillType.Physical] = true, [SkillType.Cold] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "projectile_base_number_of_targets_to_pierce", 0.1 },
+		{ "projectile_base_number_of_targets_to_pierce", 0.1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackTime = 1000, baseMultiplier = 0.5, cooldown = 4, critChance = 10, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
@@ -16389,6 +16632,8 @@ skills["NightfallEmbraceTheFallPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackTime = 650, critChance = 15, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { attackTime = 650, baseMultiplier = 1.1, critChance = 15, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -16515,7 +16760,9 @@ skills["SorceryWardPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Aegis] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.HasReservation] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "aegis_unique_shield_max_value_from_%_armour_evasion", 0.25 },
+		{ "aegis_unique_shield_max_value_from_%_armour_evasion", 0.25, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -16641,6 +16888,8 @@ skills["MeleeSpearOffHandPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { baseMultiplier = 1.1, levelRequirement = 3, cost = { Mana = 0, }, },
@@ -16758,6 +17007,8 @@ skills["MeleeSpearPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -16877,6 +17128,8 @@ skills["SpearThrowPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -30, baseMultiplier = 1.25, levelRequirement = 0, },
@@ -17068,7 +17321,9 @@ skills["SpiritVesselPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_minion_life_+%_final", 1 },
+		{ "active_skill_minion_life_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -17184,6 +17439,8 @@ skills["SpiritVesselSupport"] = {
 	ignoreMinionTypes = true,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -17297,7 +17554,9 @@ skills["StarbornOnslaughtPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "empyrean_descent_number_of_explosions", 0.2 },
+		{ "empyrean_descent_number_of_explosions", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -17579,7 +17838,9 @@ skills["SummonInfernalHoundPlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_minion_life_+%_final", 1 },
+		{ "active_skill_minion_life_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -17701,7 +17962,9 @@ skills["SupportingFirePlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.Cooldown] = true, [SkillType.CannotChain] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_minion_damage_+%_final", 1 },
+		{ "active_skill_minion_damage_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -17882,7 +18145,9 @@ skills["TemperWeaponPlayer"] = {
 	},
 	castTime = 1.125,
 	qualityStats = {
-		{ "skill_speed_+%", 1 },
+		{ "skill_speed_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 5, levelRequirement = 0, storedUses = 1, cost = { ManaPerMinute = 174, }, },
@@ -18020,6 +18285,8 @@ skills["TemperWeaponCombustionPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { baseMultiplier = 1.1, levelRequirement = 0, },
@@ -18137,7 +18404,9 @@ skills["TemporalRiftPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.OngoingSkill] = true, [SkillType.PersistentShowsCastTime] = true, [SkillType.FixedCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0.1,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 0.5 },
+		{ "base_cooldown_speed_+%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
@@ -18253,6 +18522,8 @@ skills["TheStarsAnswerPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Physical] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 10000, }, },
@@ -18374,7 +18645,9 @@ skills["TheStarsAnswerCometPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_skill_area_of_effect_+%", 1 },
+		{ "base_skill_area_of_effect_+%", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 8, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -18588,7 +18861,9 @@ skills["TimeFreezePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0.7,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 0.5 },
+		{ "base_cooldown_speed_+%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 65, levelRequirement = 0, storedUses = 1, cost = { Mana = 20, }, },
@@ -18704,7 +18979,9 @@ skills["TimeSnapPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0.6,
 	qualityStats = {
-		{ "base_cooldown_speed_+%", 0.5 },
+		{ "base_cooldown_speed_+%", 0.5, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 40, levelRequirement = 0, storedUses = 1, cost = { Mana = 20, }, },
@@ -18845,6 +19122,8 @@ skills["TriggeredFracturedSelfPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -18956,7 +19235,10 @@ skills["TriskelionCascadePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Duration] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.45,
 	qualityStats = {
-		{ "triskelion_cascade_next_skill_damage_+%_final", 0.5 },
+		{ "triskelion_cascade_next_skill_damage_+%_final", 0.5, {  } },
+	},
+	altQualityStats = {
+		{ "triskelion_cascade_next_skill_area_of_effect_+%_final", 0.25, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 1, levelRequirement = 0, storedUses = 1, cost = { Ward = 20, }, },
@@ -19112,7 +19394,9 @@ skills["UnboundAvatarPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Instant] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Duration] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "base_skill_effect_duration", 50 },
+		{ "base_skill_effect_duration", 50, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
@@ -19309,8 +19593,10 @@ skills["VirtuousBarrierPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.ReserveInAllSets] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "gem_barrier_blue_grants_life_regeneration_rate_+%", 0.125 },
-		{ "gem_barrier_blue_grants_mana_regeneration_rate_+%", 0.125 },
+		{ "gem_barrier_blue_grants_life_regeneration_rate_+%", 0.125, {  } },
+		{ "gem_barrier_blue_grants_mana_regeneration_rate_+%", 0.125, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -19451,6 +19737,8 @@ skills["VerisiumManifestationPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 		[2] = { levelRequirement = 3, spiritReservationFlat = 30, },
@@ -19560,7 +19848,10 @@ skills["TriggeredManifestRunePlayer"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "base_skill_effect_duration", 100 },
+		{ "base_skill_effect_duration", 100, {  } },
+	},
+	altQualityStats = {
+		{ "base_number_of_verisium_runes_allowed", 0.1, {  } },
 	},
 	levels = {
 		[1] = { cooldown = 0.5, levelRequirement = 0, storedUses = 5, cost = { Ward = 7, }, },
@@ -19692,7 +19983,9 @@ skills["VividStampedePlayer"] = {
 	},
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.25 },
+		{ "active_skill_base_area_of_effect_radius", 0.25, { 0 } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 0.3, levelRequirement = 0, storedUses = 1, },
@@ -19834,6 +20127,8 @@ skills["VoidIllusionPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 3, },
@@ -19943,7 +20238,9 @@ skills["VoidIllusionSpawnPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, [SkillType.UsedByClone] = true, [SkillType.UsedByProxy] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_base_area_of_effect_radius", 0.2 },
+		{ "active_skill_base_area_of_effect_radius", 0.2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 3.5, cooldown = 4, levelRequirement = 0, storedUses = 3, },
@@ -20073,7 +20370,9 @@ skills["VoltaicBarrierPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "skill_effect_duration_+%", 2 },
+		{ "skill_effect_duration_+%", 2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackTime = 750, baseMultiplier = 0.2, levelRequirement = 0, cost = { Ward = 20, }, },
@@ -20210,7 +20509,10 @@ skills["VoltaicBarrierTriggeredChainLightningPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "dummy_stat_display_nothing", 0 },
+		{ "dummy_stat_display_nothing", 0, {  } },
+	},
+	altQualityStats = {
+		{ "number_of_chains", 0.1, {  } },
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.4, levelRequirement = 0, cost = { Ward = 0, }, },
@@ -20404,7 +20706,10 @@ skills["WardboundMinionsPlayer"] = {
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, },
 	castTime = 0.75,
 	qualityStats = {
-		{ "wardbound_minion_maximum_number_of_casts", 0.1 },
+		{ "wardbound_minion_maximum_number_of_casts", 0.1, {  } },
+	},
+	altQualityStats = {
+		{ "base_skill_effect_duration", 250, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Ward = 11, }, },
@@ -20528,8 +20833,10 @@ skills["WildProtectorPlayer"] = {
 	minionSkillTypes = { [SkillType.Area] = true, [SkillType.Warcry] = true, [SkillType.Attack] = true, [SkillType.Slam] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
 	castTime = 0,
 	qualityStats = {
-		{ "active_skill_minion_damage_+%_final", 1 },
-		{ "active_skill_minion_life_+%_final", 1 },
+		{ "active_skill_minion_damage_+%_final", 1, {  } },
+		{ "active_skill_minion_life_+%_final", 1, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -20642,7 +20949,9 @@ skills["AncientGiftsPlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.GeneratesRemnants] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "remnant_effect_+%", 0.75 },
+		{ "remnant_effect_+%", 0.75, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },

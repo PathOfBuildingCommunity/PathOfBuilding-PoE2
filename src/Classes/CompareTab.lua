@@ -2973,7 +2973,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 							nameSpec = cGem.nameSpec,
 							level = cGem.level,
 							quality = cGem.quality,
-							qualityId = cGem.qualityId,
 							enabled = cGem.enabled,
 							grantedEffect = cGem.grantedEffect,
 							gemData = cGem.gemData,

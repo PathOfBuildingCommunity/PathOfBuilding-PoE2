@@ -9,8 +9,8 @@ local skills, mod, flag, skill = ...
 #set ArcPlayer
 #flags spell chaining projectile
 statMap = {
-	["arc_damage_+%_final_for_each_remaining_chain"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+	["active_skill_projectile_damage_+%_final_for_each_remaining_chain"] = {
+		mod("Damage", "MORE", nil, bit.bor(ModFlag.Projectile, ModFlag.Hit), 0, { type = "PerStat", stat = "ChainRemaining" }),
 	},
 	["quality_display_arc_is_gem"] = {
 		-- Display only

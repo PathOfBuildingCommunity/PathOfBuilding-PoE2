@@ -88,7 +88,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	local grantedEffect = skillEffect.grantedEffect
 	local selectedGlobalStats = { }
 	local function mergeStatSet(set, onlyGlobals)
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
@@ -554,7 +554,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Apply stat-map flagged skill flags.
-	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet)) do
+	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet, env.useAltGemQualityStats)) do
 		local map = activeGrantedEffect.statMap[stat]
 		if statValue ~= 0 and map and map.skillFlag then
 			skillFlags[map.skillFlag] = true

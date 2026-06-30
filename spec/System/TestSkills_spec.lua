@@ -63,6 +63,45 @@ describe("TestSkills", function()
 		assertGemSupportLevel("Apocalypse", 3, 4)
 	end)
 
+	it("applies Advanced Thaumaturgy quality stats only when enabled", function()
+		local advancedThaumaturgy = build.spec.nodes[14429]
+		assert.is_not_nil(advancedThaumaturgy)
+		assert.True(advancedThaumaturgy.modList:Flag(nil, "GemlingQuality"))
+
+		local grantedEffect = data.skills["AlchemistsBoonPlayer"]
+		local statSet = grantedEffect.statSets[1]
+		local skillInstance = {
+			level = 20,
+			quality = 20,
+		}
+
+		local stats = calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
+		assert.is_not_nil(stats["skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute"])
+		assert.is_nil(stats["alchemists_boon_attack_speed_granted_+%_during_life_flask"])
+		assert.is_nil(stats["alchemists_boon_cast_speed_granted_+%_during_mana_flask"])
+
+		stats = calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, true)
+		assert.are.equals(20, stats["alchemists_boon_attack_speed_granted_+%_during_life_flask"])
+		assert.are.equals(20, stats["alchemists_boon_cast_speed_granted_+%_during_mana_flask"])
+	end)
+
+	it("describes quality stats from secondary skill stat sets", function()
+		local grantedEffect = data.skills["ExplosiveSpearPlayer"]
+		local qualityStat = grantedEffect.qualityStats[1]
+		local stats = {
+			active_skill_base_area_of_effect_radius = 4,
+		}
+
+		assert.same({ 1, 2 }, qualityStat[3])
+		local firstDescriptions = build.data.describeStats(stats, grantedEffect.statSets[1].statDescriptionScope, true)
+		local qualityStatSet = grantedEffect.statSets[qualityStat[3][1] + 1]
+		local qualityDescriptions = build.data.describeStats(stats, qualityStatSet.statDescriptionScope, true)
+
+		assert.are.equals(0, #firstDescriptions)
+		assert.is_true(#qualityDescriptions > 0)
+		assert.matches("Explosion radius", qualityDescriptions[1])
+	end)
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }

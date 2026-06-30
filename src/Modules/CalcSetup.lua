@@ -832,6 +832,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
+	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)

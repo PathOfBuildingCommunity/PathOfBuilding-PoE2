@@ -321,7 +321,7 @@ describe("TestSkillsTab", function()
 					label = "Test Group",
 					enabled = true,
 					gemList = {
-						{ nameSpec = "TestGem", level = 20, quality = 0, qualityId = "Default", enabled = true, count = 1 }
+						{ nameSpec = "TestGem", level = 20, quality = 0, enabled = true, count = 1 }
 					}
 				}
 

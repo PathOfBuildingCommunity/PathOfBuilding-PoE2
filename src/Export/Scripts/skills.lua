@@ -303,10 +303,15 @@ directiveTable.skill = function(state, args, out)
 	end
 	if not (skillGem and granted.IsSupport) then
 		skill.qualityStats = { }
+		skill.altQualityStats = { }
 		local qualityStats = dat("GrantedEffectQualityStats"):GetRow("GrantedEffect", granted)
 		if qualityStats and qualityStats.GrantedStats then
 			for i, stat in ipairs(qualityStats.GrantedStats) do
-				table.insert(skill.qualityStats, { stat.Id, qualityStats.StatValues[i] / 1000 })
+				table.insert(skill.qualityStats, { stat.Id, qualityStats.StatValues[i] / 1000, qualityStats.StatSetIndex })
+				--ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
+			end
+			for i, stat in ipairs(qualityStats.AltStats) do
+				table.insert(skill.altQualityStats, { stat.Id, qualityStats.AltStatValues[i] / 1000, qualityStats.AltStatSetIndex })
 				--ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
 			end
 		end
@@ -427,7 +432,14 @@ directiveTable.skill = function(state, args, out)
 	if skill.qualityStats then
 		out:write('\tqualityStats = {\n')
 		for _, stat in ipairs(skill.qualityStats) do
-			out:write('\t\t{ "', stat[1], '", ', stat[2], ' },\n')
+			out:write('\t\t{ "', stat[1], '", ', stat[2], ', { ', table.concat(stat[3], ", "), ' } },\n')
+		end
+		out:write('\t},\n')
+	end
+	if skill.altQualityStats then
+		out:write('\taltQualityStats = {\n')
+		for _, stat in ipairs(skill.altQualityStats) do
+			out:write('\t\t{ "', stat[1], '", ', stat[2], ', { ', table.concat(stat[3], ", "), ' } },\n')
 		end
 		out:write('\t},\n')
 	end

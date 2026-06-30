@@ -105,8 +105,11 @@ statMap = {
 		div = 100,
 	},
 	["skill_base_rage_effect_+%_to_apply"] = {
-		mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
-	}
+		mod("RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+	},
+	["berserk_maximum_rage_granted_+"] = {
+		mod("MaxRage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+	},
 },
 #mods
 #skillEnd
