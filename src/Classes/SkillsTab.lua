@@ -629,6 +629,21 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 	Copy(skillText)
 end
 
+--- Parses pasted socketGroup or custom test string to generate new socketGroup
+--- @param testInput string? optional string input mainly used for tests
+---
+--- **Expected `testInput` Format:**
+--- ```text
+--- [Label: <Group Label>] (Optional)
+--- [Slot: <Equipment Slot>] (Optional)
+--- [skillId:<id>] <Skill Name> <Level>/<Quality> [STATE] <Count> [C] [+/-CorruptLevel]
+--- ```
+--- `skillId` is only needed if skill name is not unique
+--- `STATE` only used to disable gem via `DISABLED`
+---
+--- **Example lines:**
+--- * `"skillId:LightningSpearPlayer Lightning Spear 20/7 2 C +1"` (Level 20, 7 Quality Lightning Spear, with +1 Level Corruption and Count set to 2 )
+--- * `"RhoaMountPlayer Rhoa Mount 10/0 DISABLED 1"` (Level 10, 0 quality Rhoa Mount with count 1 that has been disabled)
 function SkillsTabClass:PasteSocketGroup(testInput)
 	local skillText = sanitiseText(Paste() or testInput)
 	if skillText then
@@ -642,8 +657,21 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 			newGroup.slot = slot
 		end
 		for line in skillText:gmatch("([^\r\n]+)") do
+			local currentLine = line -- reassignment to local var to avoid modifying iter var
+			
+			-- Check if specific skillId was provided via `testInput`
+			local skillId = currentLine:match("^skillId:(%w+) ")
+			if skillId then
+				currentLine = currentLine:gsub("^skillId:%w+ ", "")
+			end
+
 			local nameSpec, level, quality, state, count, cFlag, cLevel =
-				line:match("^([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+				currentLine:match("^([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+
+			-- Ignore invalid or mismatched skillId
+			if skillId and not (self.build.data.skills[skillId] and self.build.data.skills[skillId].baseTypeName == nameSpec) then
+				skillId = nil
+			end
 			if nameSpec then
 				local skillMinion = nil
 				local skillMinionCalcs = nil
@@ -685,7 +713,8 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 					enableGlobal1 = true,
 					enableGlobal2 = true,
 					skillMinion = skillMinion,
-					skillMinionCalcs = skillMinionCalcs
+					skillMinionCalcs = skillMinionCalcs,
+					skillId = skillId
 				})
 			end
 		end
@@ -1329,7 +1358,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 				gemShown[skillEffect.srcInstance] = true
 			end
 		end
-		if activeSkill.minion then
+		if activeSkill.minion and activeSkill.minion.mainSkill then
 			tooltip:AddSeparator(10)
 			tooltip:AddLine(16, "^7Active Skill #" .. index .. "'s Main Minion Skill:")
 			local activeEffect = activeSkill.minion.mainSkill.effectList[1]
@@ -1557,4 +1586,3 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	end
 	GlobalGemAssignments["GemGroupCount"] = countSocketGroups
 end
-

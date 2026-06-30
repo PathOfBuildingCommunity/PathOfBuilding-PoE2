@@ -37,7 +37,6 @@ Fury of the Mountain          		----		BearFuryOfTheMountainPlayer
 Gas Grenade                   		----		ToxicGrenadePlayer
 Hammer of the Gods            		----		HammerOfTheGodsPlayer
 Herald of Ash                 		----		HeraldOfAshPlayer
-Herald of Ash                 		----		UniqueHeraldOfAshPlayer
 Herald of Blood               		----		HeraldOfBloodPlayer
 Infernal Cry                  		----		InfernalCryPlayer	InfernalCryCorpseExplosionPlayer
 Iron Ward                     		----		IronWardPlayer	IronWardNovaPlayer
@@ -343,7 +342,6 @@ Gas Arrow                     		----		GasArrowPlayer
 Glacial Lance                 		----		GlacialLancePlayer
 Herald of Plague              		----		HeraldOfPlaguePlayer
 Herald of Thunder             		----		HeraldOfThunderPlayer
-Herald of Thunder             		----		UniqueHeraldOfThunderPlayer
 Ice Shot                      		----		IceShotPlayer
 Ice-Tipped Arrows             		----		IceTippedArrowsPlayer	IceTippedArrowsIceFragmentPlayer
 Lightning Arrow               		----		LightningArrowPlayer
@@ -616,7 +614,6 @@ Grim Feast                    		----		GrimFeastPlayer	GrimFeastResummonPlayer
 Hand of Chayula               		----		HandOfChayulaPlayer	SupportHandOfChayulaPlayer
 Heart of Ice                  		----		HeartOfIcePlayer
 Herald of Ice                 		----		HeraldOfIcePlayer
-Herald of Ice                 		----		UniqueHeraldOfIcePlayer
 Hexblast                      		----		HexblastPlayer
 His Foul Emergence            		----		HisFoulEmergencePlayer
 His Scattering Calamity       		----		ScatteringCalamityPlayer
@@ -945,6 +942,9 @@ Future-Past                   		----		FuturePastPlayer
 Gemini Surge                  		----		GeminiSurgePlayer
 Grenade                       		----		MeleeGrenadeLauncherPlayer
 Grim Pillars                  		----		GrimPillarsPlayer
+Herald of Ash                 		----		UniqueHeraldOfAshPlayer
+Herald of Ice                 		----		UniqueHeraldOfIcePlayer
+Herald of Thunder             		----		UniqueHeraldOfThunderPlayer
 Hollow Focus                  		----		HollowFocusPlayer
 Hollow Form                   		----		MetaHollowFormPlayer	SupportHollowFormPlayer
 Hollow Resonance              		----		HollowResonancePlayer
@@ -975,6 +975,7 @@ Powered by Verisium           		----		PoweredByVerisiumPlayer
 Primal Bounty                 		----		PrimalBountyPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
+Queen's Procession            		----		QueensProcessionReservationPlayer
 Rain of Blades                		----		RainOfBladesPlayer	RainOfBladesTriggeredPlayer
 Raise Shield                  		----		ShieldBlockPlayer
 Refutation                    		----		RefutationPlayer

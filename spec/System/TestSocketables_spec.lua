@@ -87,7 +87,7 @@ describe("TestSocketables", function()
 
     it("'(Caster) Staff' runes appear in Items tab", slotTypeTest("staff", "Voltaic Staff"))
 
-    it("'(Quarterstaff) War Staff' runes appear in Items tab", slotTypeTest("warstaff", "Striking Quarterstaff"))
+	it("'Quarterstaff' runes appear in Items tab", slotTypeTest("quarterstaff", "Striking Quarterstaff"))
 
     it("'Spear' runes appear in Items tab", slotTypeTest("spear", "Flying Spear"))
 

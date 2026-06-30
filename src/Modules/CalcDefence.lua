@@ -225,6 +225,16 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
 			end
 			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
+			if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				-- Sadly no better way to get key/val table element count in lua.
+				local instances = 0
+				for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
+					instances = instances + 1
+				end
+				for name, values in pairs(pool) do
+					values.baseFlat = values.baseFlat + (activeSkill.skillData["blasphemyReservationFlat" .. name] or 0) * instances
+				end
+			end
 			if skillModList:Flag(skillCfg, "BloodMagicReserved") then
 				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
 				pool.Mana.baseFlat = 0
@@ -234,6 +244,13 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Mana.basePercent = 0
 				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
 				activeSkill.skillData["ManaReservationPercentForced"] = nil
+			end
+			local spiritToLifeReservation = skillModList:Sum("BASE", skillCfg, "LifeReservePercentPerSpirit")
+			if spiritToLifeReservation > 0 then
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.baseFlat * spiritToLifeReservation
+				pool.Spirit.baseFlat = 0
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.basePercent * spiritToLifeReservation
+				pool.Spirit.basePercent = 0
 			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
@@ -269,18 +286,6 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
 					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
-				end
-				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting and activeSkill.skillData["blasphemyReservationFlat" .. name] then
-					-- Sadly no better way to get key/val table element count in lua.
-					local instances = 0
-					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
-						instances = instances + 1
-					end
-
-					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
-					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
-					local blasphemyEffectiveFlat = m_max(round(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100) / values.efficiencyMore, 0), 0)
-					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
@@ -484,6 +489,9 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		end
 		if output.TotalRadianceSentinelLife then
 			alliesTakenBeforeYou["radianceSentinel"] = { remaining = output.TotalRadianceSentinelLife, percent = output.RadianceSentinelAllyDamageMitigation / 100 }
+		end
+		if output.TotalCompanionLife then
+			alliesTakenBeforeYou["companion"] = { remaining = output.TotalCompanionLife, percent = output.CompanionAllyDamageMitigation / 100 }
 		end
 		if output.AlliedEnergyShield then
 			alliesTakenBeforeYou["soulLink"] = { remaining = output.AlliedEnergyShield, percent = output.SoulLinkMitigation / 100 }
@@ -706,6 +714,9 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	end
 	if output.TotalRadianceSentinelLife and output.TotalRadianceSentinelLife > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Sentinel of Radiance Life ^7(%d remaining)", output.TotalRadianceSentinelLife - poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining, poolsRemaining.AlliesTakenBeforeYou["radianceSentinel"].remaining))
+	end
+	if output.TotalCompanionLife and output.TotalCompanionLife > 0 then
+		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Companion Life ^7(%d remaining)", output.TotalCompanionLife - poolsRemaining.AlliesTakenBeforeYou["companion"].remaining, poolsRemaining.AlliesTakenBeforeYou["companion"].remaining))
 	end
 	if output.AlliedEnergyShield and output.AlliedEnergyShield > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.GEM.."Total Allied Energy shield ^7(%d remaining)", output.AlliedEnergyShield - poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining, poolsRemaining.AlliesTakenBeforeYou["soulLink"].remaining))
@@ -2914,13 +2925,23 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 
 		-- from spectres
-		output["SpectreAllyDamageMitigation"] = modDB:Sum("BASE", nil, "takenFromSpectresBeforeYou")
+		output["SpectreAllyDamageMitigation"] = modDB:Sum("BASE", nil, "TakenFromSpectresBeforeYou")
 		if output["SpectreAllyDamageMitigation"] ~= 0 then
-			output["TotalSpectreLife"] = modDB:Sum("BASE", nil, "TotalSpectreLife")
+			output["TotalSpectreLife"] = modDB:Override(nil, "TotalSpectreLife") or modDB:Sum("BASE", nil, "TotalSpectreLife")
+			if breakdown then
+				breakdown["TotalSpectreLife"] = { }
+				if modDB:Override(nil, "TotalSpectreLife") then
+					t_insert(breakdown["TotalSpectreLife"], s_format("%d ^8(from config)", output["TotalSpectreLife"]))
+				else
+					for _, spectre in ipairs(actor.spectreLifeList or { }) do
+						t_insert(breakdown["TotalSpectreLife"], s_format("%d ^8(%s)", spectre.life, spectre.name))
+					end
+				end
+			end
 		end
 
 		-- from totems
-		output["TotemAllyDamageMitigation"] = modDB:Sum("BASE", nil, "takenFromTotemsBeforeYou")
+		output["TotemAllyDamageMitigation"] = modDB:Sum("BASE", nil, "TakenFromTotemsBeforeYou")
 		if output["TotemAllyDamageMitigation"] ~= 0 then
 			output["TotalTotemLife"] = modDB:Sum("BASE", nil, "TotalTotemLife")
 		end
@@ -2935,6 +2956,31 @@ function calcs.buildDefenceEstimations(env, actor)
 		output["RadianceSentinelAllyDamageMitigation"] = modDB:Sum("BASE", nil, "takenFromRadianceSentinelBeforeYou")
 		if output["RadianceSentinelAllyDamageMitigation"] ~= 0 then
 			output["TotalRadianceSentinelLife"] = modDB:Sum("BASE", nil, "TotalRadianceSentinelLife")
+		end
+
+		-- from companions
+		local companionMitigation = modDB:Sum("BASE", nil, "TakenFromCompanionBeforeYou")
+		local companionMitigationFromDeflected = modDB:Sum("BASE", nil, "TakenFromCompanionBeforeYouFromDeflected")
+		output["CompanionAllyDamageMitigation"] = companionMitigation + companionMitigationFromDeflected * (output.DeflectChance or 0) / 100
+		if output["CompanionAllyDamageMitigation"] ~= 0 then
+			output["TotalCompanionLife"] = modDB:Override(nil, "TotalCompanionLife") or modDB:Sum("BASE", nil, "TotalCompanionLife")
+			if breakdown then
+				breakdown["TotalCompanionLife"] = { }
+				if modDB:Override(nil, "TotalCompanionLife") then
+					t_insert(breakdown["TotalCompanionLife"], s_format("%d ^8(from config)", output["TotalCompanionLife"]))
+				else
+					for _, companion in ipairs(actor.companionLifeList or { }) do
+						t_insert(breakdown["TotalCompanionLife"], s_format("%d ^8(%s)", companion.life, companion.name))
+					end
+				end
+				if companionMitigationFromDeflected ~= 0 then
+					breakdown["CompanionAllyDamageMitigation"] = {
+						s_format("%d%% ^8(taken from hits)", companionMitigation),
+						s_format("+ %d%% x %.2f ^8(taken from deflected hits, scaled by deflect chance)", companionMitigationFromDeflected, (output.DeflectChance or 0) / 100),
+						s_format("= %.1f%%", output["CompanionAllyDamageMitigation"]),
+					}
+				end
+			end
 		end
 
 		-- from Allied Energy Shield
@@ -3051,6 +3097,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 		if output.TotalRadianceSentinelLife then
 			alliesTakenBeforeYou["radianceSentinel"] = { remaining = output.TotalRadianceSentinelLife, percent = output.RadianceSentinelAllyDamageMitigation / 100 }
+		end
+		if output.TotalCompanionLife then
+			alliesTakenBeforeYou["companion"] = { remaining = output.TotalCompanionLife, percent = output.CompanionAllyDamageMitigation / 100 }
 		end
 		if output.AlliedEnergyShield then
 			alliesTakenBeforeYou["soulLink"] = { remaining = output.AlliedEnergyShield, percent = output.SoulLinkMitigation / 100 }
@@ -3623,6 +3672,15 @@ function calcs.buildDefenceEstimations(env, actor)
 			if output["TotalRadianceSentinelLife"] and output["TotalRadianceSentinelLife"] > 0 then
 				local poolProtected = output["TotalRadianceSentinelLife"] / (output["RadianceSentinelAllyDamageMitigation"] / 100) * (1 - output["RadianceSentinelAllyDamageMitigation"] / 100)
 				output[damageType.."TotalHitPool"] = m_max(output[damageType.."TotalHitPool"] - poolProtected, 0) + m_min(output[damageType.."TotalHitPool"], poolProtected) / (1 - output["RadianceSentinelAllyDamageMitigation"] / 100)
+			end
+			-- companions
+			if output["TotalCompanionLife"] and output["TotalCompanionLife"] > 0 then
+				if output["CompanionAllyDamageMitigation"] >= 100 then
+					output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output["TotalCompanionLife"]
+				else
+					local poolProtected = output["TotalCompanionLife"] / (output["CompanionAllyDamageMitigation"] / 100) * (1 - output["CompanionAllyDamageMitigation"] / 100)
+					output[damageType.."TotalHitPool"] = m_max(output[damageType.."TotalHitPool"] - poolProtected, 0) + m_min(output[damageType.."TotalHitPool"], poolProtected) / (1 - output["CompanionAllyDamageMitigation"] / 100)
+				end
 			end
 			-- soul link
 			if output["AlliedEnergyShield"] and output["AlliedEnergyShield"] > 0 then

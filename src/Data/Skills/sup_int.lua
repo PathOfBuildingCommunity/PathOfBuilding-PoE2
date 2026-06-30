@@ -694,6 +694,38 @@ skills["SupportAtzirisAllurePlayer"] = {
 		},
 	}
 }
+skills["SupportAtzirisCommunionPlayer"] = {
+	name = "Atziri's Communion",
+	description = "Supports Persistent Skills, making them Reserve Life instead of Spirit. Cannot Support Skills which create Minions.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.CreatesMinion, },
+	gemFamily = { "AtziriCommunionLineage",},
+	isLineage = true,
+	flavourText = {"The Red Communion was meant to transcend the limits", "of the soul, to transfigure the flesh, to bestow immortality.", "It accomplished all of these things... most horribly.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Atziri's Communion",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_reserves_X_life_permyriad_per_spirit_instead_of_spirit", 66 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportBhatairsVengeancePlayer"] = {
 	name = "Bhatair's Vengeance",
 	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with Supported Skills infuses you and your allies with Cold damage for a short time. ",
@@ -920,7 +952,7 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Blazing Critical", unscalable = true }),
 				},
 				["support_blazing_crits_base_duration_ms"] = {
 					-- Display only
@@ -5615,7 +5647,7 @@ skills["SupportIceBitePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
-					mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+					mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
 				},
 				["support_ice_bite_base_buff_duration"] = {
 					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),
@@ -5656,7 +5688,7 @@ skills["SupportIceBitePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
-					mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+					mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
 				},
 				["support_ice_bite_base_buff_duration"] = {
 					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),

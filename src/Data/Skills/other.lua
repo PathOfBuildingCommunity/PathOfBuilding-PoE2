@@ -18097,6 +18097,7 @@ skills["TemperWeaponCombustionPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "imbue_weapon_combust_trigger_chance_%", 100 },

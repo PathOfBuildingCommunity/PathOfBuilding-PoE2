@@ -866,7 +866,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|14265",
-				["text"] = "Allocates Arsonist",
+				["text"] = "Allocates Pyromancer",
 				["type"] = "enchant",
 			},
 		},
@@ -12565,6 +12565,14 @@ return {
 			},
 		},
 		["1484026495"] = {
+			["2HWeapon"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
+			["Staff"] = {
+				["max"] = 4,
+				["min"] = 3,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -13420,12 +13428,12 @@ return {
 		},
 		["1702195217"] = {
 			["2HWeapon"] = {
-				["max"] = 16,
-				["min"] = 12,
+				["max"] = 25,
+				["min"] = 20,
 			},
 			["Staff"] = {
-				["max"] = 16,
-				["min"] = 12,
+				["max"] = 25,
+				["min"] = 20,
 			},
 			["specialCaseData"] = {
 			},
@@ -20137,6 +20145,14 @@ return {
 			},
 		},
 		["3398787959"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 40,
+			},
+			["Staff"] = {
+				["max"] = 50,
+				["min"] = 40,
+			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -23445,6 +23461,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_455816363",
 				["text"] = "Small Passive Skills in Radius also grant #% increased Projectile Damage",
+				["type"] = "explicit",
+			},
+		},
+		["457920946"] = {
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "explicit.stat_457920946",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage while you are missing Runic Ward",
 				["type"] = "explicit",
 			},
 		},
@@ -27696,16 +27721,8 @@ return {
 				["max"] = 300,
 				["min"] = 100,
 			},
-			["2HWeapon"] = {
-				["max"] = 50,
-				["min"] = 30,
-			},
 			["Amulet"] = {
 				["max"] = 40,
-				["min"] = 30,
-			},
-			["Quarterstaff"] = {
-				["max"] = 50,
 				["min"] = 30,
 			},
 			["Wand"] = {
@@ -27766,20 +27783,6 @@ return {
 				["text"] = "#% increased Projectile Range",
 				["type"] = "implicit",
 			},
-		},
-		["3489782002"] = {
-			["Amulet"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_3489782002",
-				["text"] = "# to maximum Energy Shield",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
 		},
 		["3544800472"] = {
 			["Chest"] = {
@@ -28248,9 +28251,17 @@ return {
 			},
 		},
 		["774059442"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
+				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28519,14 +28530,6 @@ return {
 				["max"] = 1,
 				["min"] = 1,
 			},
-			["2HWeapon"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["Quarterstaff"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
@@ -28701,17 +28704,9 @@ return {
 				["max"] = -10,
 				["min"] = -10,
 			},
-			["2HWeapon"] = {
-				["max"] = -10,
-				["min"] = -10,
-			},
 			["Helmet"] = {
 				["max"] = 4,
 				["min"] = 4,
-			},
-			["Quarterstaff"] = {
-				["max"] = -10,
-				["min"] = -10,
 			},
 			["Spear"] = {
 				["max"] = -10,
@@ -28891,23 +28886,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1311130924",
 				["text"] = "#% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
-				["type"] = "augment",
-			},
-		},
-		["1323701627"] = {
-			["1HWeapon"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["Sceptre"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1323701627",
-				["text"] = "When you generate a Power Charge, Allies in your Presence generate that Charge instead",
 				["type"] = "augment",
 			},
 		},
@@ -29836,6 +29814,23 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1881314095"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1881314095",
+				["text"] = "If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+		},
 		["1895552497"] = {
 			["2HWeapon"] = {
 				["max"] = 5,
@@ -29897,6 +29892,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1927467683",
 				["text"] = "Can roll Soul modifiers",
+				["type"] = "augment",
+			},
+		},
+		["1936645603"] = {
+			["2HWeapon"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["Staff"] = {
+				["max"] = 30,
+				["min"] = 30,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1936645603",
+				["text"] = "Gain #% of Physical Damage as Extra Fire Damage",
 				["type"] = "augment",
 			},
 		},
@@ -30299,6 +30311,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["2041668411"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2041668411",
+				["text"] = "Physical Damage is Pinning",
+				["type"] = "augment",
+			},
+		},
 		["2045949233"] = {
 			["2HMace"] = {
 				["max"] = 25,
@@ -30453,6 +30478,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["2174054121"] = {
+			["Chest"] = {
+				["max"] = 50,
+				["min"] = 50,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2174054121",
+				["text"] = "#% chance to inflict Bleeding on Hit",
+				["type"] = "augment",
+			},
+		},
 		["2191621386"] = {
 			["Chest"] = {
 				["max"] = 75,
@@ -30480,6 +30518,23 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
+		},
+		["2211478554"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2211478554",
+				["text"] = "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
 		},
 		["2223678961"] = {
 			["1HMace"] = {
@@ -30996,6 +31051,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["258955603"] = {
+			["Helmet"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_258955603",
+				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
+				["type"] = "augment",
+			},
+		},
 		["2608793552"] = {
 			["1HMace"] = {
 				["max"] = 15,
@@ -31312,17 +31380,9 @@ return {
 				["max"] = 4,
 				["min"] = 4,
 			},
-			["2HWeapon"] = {
-				["max"] = 4,
-				["min"] = 4,
-			},
 			["Helmet"] = {
 				["max"] = 1,
 				["min"] = 1,
-			},
-			["Quarterstaff"] = {
-				["max"] = 4,
-				["min"] = 4,
 			},
 			["Spear"] = {
 				["max"] = 4,
@@ -31971,6 +32031,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["2995914769"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2995914769",
+				["text"] = "Every Rage also grants #% increased Armour",
+				["type"] = "augment",
+			},
+		},
 		["3015669065"] = {
 			["1HWeapon"] = {
 				["max"] = 12,
@@ -32248,23 +32321,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3203854378",
 				["text"] = "#% increased Attack Speed if you have Blocked Recently",
-				["type"] = "augment",
-			},
-		},
-		["3257561708"] = {
-			["1HWeapon"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["Sceptre"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3257561708",
-				["text"] = "When you generate an Endurance Charge, Allies in your Presence generate that Charge instead",
 				["type"] = "augment",
 			},
 		},
@@ -32647,23 +32703,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3353733343"] = {
-			["1HWeapon"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["Sceptre"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3353733343",
-				["text"] = "When you generate a Frenzy Charge, Allies in your Presence generate that Charge instead",
-				["type"] = "augment",
-			},
-		},
 		["3362812763"] = {
 			["Chest"] = {
 				["max"] = 50,
@@ -32968,6 +33007,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3515226849",
 				["text"] = "Recover #% of maximum Runic Ward when one of your Reviving Minions is Killed",
+				["type"] = "augment",
+			},
+		},
+		["352044736"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_352044736",
+				["text"] = "Every Rage also grants #% increased Stun Threshold",
 				["type"] = "augment",
 			},
 		},
@@ -33435,9 +33487,17 @@ return {
 			},
 		},
 		["3824372849"] = {
+			["1HWeapon"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
 			["Boots"] = {
 				["max"] = 15,
 				["min"] = 15,
+			},
+			["Sceptre"] = {
+				["max"] = 20,
+				["min"] = 20,
 			},
 			["specialCaseData"] = {
 			},
@@ -34114,6 +34174,23 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["4226127445"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Sceptre"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_4226127445",
+				["text"] = "If you would gain a Power Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+		},
 		["4236566306"] = {
 			["1HMace"] = {
 				["max"] = 10,
@@ -34164,6 +34241,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_4236566306",
 				["text"] = "Meta Skills gain #% increased Energy",
+				["type"] = "augment",
+			},
+		},
+		["4258409981"] = {
+			["Helmet"] = {
+				["max"] = 4,
+				["min"] = 4,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_4258409981",
+				["text"] = "Deal #% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
 				["type"] = "augment",
 			},
 		},

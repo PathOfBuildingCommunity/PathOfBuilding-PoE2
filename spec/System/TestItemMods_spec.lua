@@ -33,6 +33,20 @@ describe("TetsItemMods", function()
 		assert.are.equals(2, legacyLines)
 	end)
 
+	it("shows a fallback tooltip when an item's base is no longer supported", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Legacy Item
+			Removed Base
+		]])
+		local tooltip = new("Tooltip")
+
+		assert.has_no.errors(function()
+			build.itemsTab:AddItemTooltip(tooltip, item)
+		end)
+		assert.is_truthy(tooltip.lines[#tooltip.lines].text:find("Item base is not supported", 1, true))
+	end)
+
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
 		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
 		build.configTab:BuildModList()
@@ -297,6 +311,16 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(20, build.calcsTab.mainEnv.modDB:Sum("MORE", { flags = ModFlag.Cast }, "Speed"))
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
+	end)
+
+	it("negative limit mods after scaling", function()
+		local baseModList = new("ModList")
+		local scaledModList = new("ModList")
+		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
+
+		scaledModList:ScaleAddList(baseModList, 4)
+
+		assert.are.equals(-90, scaledModList:Sum("INC", nil, "EnemyAilmentThreshold"))
 	end)
 
 	it("Jarngreipr - strength satisfies melee weapons and skills", function()

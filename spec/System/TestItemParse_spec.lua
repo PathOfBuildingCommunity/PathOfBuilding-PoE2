@@ -73,6 +73,26 @@ describe("TestItemParse", function()
 		assert.are.equals(12, item.quality)
 	end)
 
+	it("parses '<element> spell' as a composable Spell + element tag (issue #2226)", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Xoph's Test Band
+			Amethyst Ring
+			Implicits: 0
+			+5% to Fire Spell Critical Hit Chance
+			+30% to Fire Spell Critical Damage Bonus
+			+7% to Cold Spell Critical Hit Chance
+		]])
+		-- the "fire spell" tag composes with any crit stat (chance and damage bonus)
+		assert.are.equals(5, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		assert.are.equals(30, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire }, "CritMultiplier"))
+		-- ...and works per element
+		assert.are.equals(7, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold }, "CritChance"))
+		-- still correctly scoped: not attacks, and not the wrong element
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold }, "CritMultiplier"))
+	end)
+
 	--TODO: impl sockets for POB2
 	--it("Sockets", function()
 	--end)
@@ -589,6 +609,28 @@ describe("TestItemParse", function()
 		end
 		assert.are.equals(18, damageGainAsFire)
 		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 18%% of Damage as Extra Fire Damage"))
+	end)
+
+	it("applies increased effect of socketed augment items", function()
+		local item = new("Item", [[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Lesser Desert Rune
+			Implicits: 1
+			{enchant}{rune}Gain 6% of Damage as Extra Fire Damage
+			100% increased effect of Socketed Augment Items
+		]])
+		item:BuildAndParseRaw()
+
+		local damageGainAsFire = 0
+		for _, mod in ipairs(item.slotModList[1]) do
+			if mod.name == "DamageGainAsFire" and mod.type == "BASE" then
+				damageGainAsFire = damageGainAsFire + mod.value
+			end
+		end
+		assert.are.equals(12, damageGainAsFire)
+		assert.is_not_nil(item:BuildRaw():match("{enchant}{rune}Gain 12%% of Damage as Extra Fire Damage"))
 	end)
 
 	it("does not double-scale imported socketed rune text", function()

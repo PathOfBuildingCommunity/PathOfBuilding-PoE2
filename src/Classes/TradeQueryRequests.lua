@@ -398,25 +398,22 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 
 				t_insert(rawLines, "Implicits: " .. (#item.enchantMods + #item.runeMods + #item.implicitMods))
 				for _, modLine in ipairs(item.enchantMods) do
-					t_insert(rawLines, "{enchant}"	.. escapeGGGString(modLine))
+					t_insert(rawLines, "{enchant}" .. escapeGGGString(modLine))
 				end
 				for _, modLine in ipairs(item.runeMods) do
-					t_insert(rawLines, "{enchant}{rune}"	.. escapeGGGString(modLine))
+					t_insert(rawLines, "{enchant}{rune}" .. escapeGGGString(modLine))
 				end
 				for _, modLine in ipairs(item.implicitMods) do
 					t_insert(rawLines, escapeGGGString(modLine))
 				end
-				for _, modLine in ipairs(item.fracturedMods) do
-					t_insert(rawLines, "{fractured}"	.. escapeGGGString(modLine))
-				end
 				for _, modLine in ipairs(item.explicitMods) do
-					t_insert(rawLines, escapeGGGString(modLine))
-				end
-				for _, modLine in ipairs(item.desecratedMods) do
-					t_insert(rawLines, "{desecrated}"	.. escapeGGGString(modLine))
-				end
-				for _, modLine in ipairs(item.craftedMods) do
-					t_insert(rawLines, "{crafted}"	.. escapeGGGString(modLine))
+					local s = ""
+					for flagName, flag in pairs(modLine.flags or {}) do
+						if flag then
+							s = s .. string.format("{%s}", flagName)
+						end
+					end
+					t_insert(rawLines, s .. escapeGGGString(modLine.description))
 				end
 				if item.mirrored then
 					t_insert(rawLines, "Mirrored")

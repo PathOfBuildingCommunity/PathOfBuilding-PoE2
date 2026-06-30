@@ -535,6 +535,11 @@ skills["BloodhoundsMarkPlayer"] = {
 			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "bloodhounds_mark",
+			statMap = {
+				["hunters_mark_%_of_max_threshold_to_trigger_explosion_on_death"] = {
+					mod("ExplosionThreshold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
