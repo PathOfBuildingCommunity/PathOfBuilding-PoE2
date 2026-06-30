@@ -111,6 +111,53 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
+local function getCorruptedJewelEffect(env, item, node)
+	if not item or item.type ~= "Jewel" or not item.corrupted or not node or node.containJewelSocket or node.sinister or item.base.subType == "Charm" then
+		return 0
+	end
+	local rarity = item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end)
+	return env.modDB.multipliers["Corrupted" .. rarity .. "JewelEffect"] or 0
+end
+
+local function runRadiusJewelFunc(rad, node, out, data)
+	local scale = rad.effectScale
+	if not scale or scale == 1 then
+		rad.func(node, out, data)
+		return
+	end
+
+	local start = #out
+	rad.func(node, out, data)
+	if #out == start then
+		return
+	end
+
+	local scaledList = new("ModList")
+	for i = start + 1, #out do
+		scaledList:AddMod(out[i])
+	end
+	for i = #out, start + 1, -1 do
+		t_remove(out, i)
+	end
+	out:ScaleAddList(scaledList, scale)
+
+	for i = start + 1, #out do
+		local mod = out[i]
+		if mod.parsedLine then
+			local value = mod.value
+			while type(value) == "table" and value.mod do
+				value = value.mod.value
+			end
+			if type(value) == "table" then
+				value = value.value
+			end
+			if type(value) == "number" then
+				mod.parsedLine = mod.parsedLine:gsub("%d*%.?%d+", math.abs(value), 1)
+			end
+		end
+	end
+end
+
 local function refreshJewelStatCache(env)
 	local normalNode = { type = "Normal" }
 	local attributeNode = { type = "Normal", isAttribute = true }
@@ -125,9 +172,9 @@ local function refreshJewelStatCache(env)
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList = new("ModList")
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList = new("ModList")
 		end
-		rad.func(normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
-		rad.func(attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
-		rad.func(notableNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList, rad.data)
+		runRadiusJewelFunc(rad, normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
+		runRadiusJewelFunc(rad, attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
+		runRadiusJewelFunc(rad, notableNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList, rad.data)
 	end
 end
 
@@ -153,7 +200,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil and rad.item.baseName:find("Timeless Jewel") == nil then
-				rad.func(node, modList, rad.data)
+				runRadiusJewelFunc(rad, node, modList, rad.data)
 			elseif node.type == "Normal" or node.type == "Notable" then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				if not cache or (cache.hash ~= rad.jewelHash) then
@@ -186,7 +233,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
-			rad.func(node, modList, rad.data)
+			runRadiusJewelFunc(rad, node, modList, rad.data)
 		end
 	end
 
@@ -319,7 +366,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 
 		-- Finalise radius jewels
 		for _, rad in pairs(env.radiusJewelList) do
-			rad.func(nil, modList, rad.data)
+			runRadiusJewelFunc(rad, nil, modList, rad.data)
 			if env.mode == "MAIN" then
 				if not rad.item.jewelRadiusData then
 					rad.item.jewelRadiusData = { }
@@ -978,6 +1025,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			::continue::
 		end
 
+		for _, rad in ipairs(env.radiusJewelList) do
+			local effect = getCorruptedJewelEffect(env, rad.item, env.spec.nodes[rad.nodeId])
+			if effect ~= 0 then
+				rad.effectScale = 1 + effect
+				rad.jewelHash = tostring(rad.jewelHash or getHashFromString(rad.item.modSource..rad.item.raw)) .. ":" .. rad.effectScale
+			end
+		end
+
 		if not env.configInput.ignoreItemDisablers then
 			local itemDisabled = {}
 			local itemDisablers = {}
@@ -1035,6 +1090,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
+			local node = slot.nodeId and env.spec.nodes[slot.nodeId]
 			if item and item.type == "Flask" then
 				if slot.active then
 					env.flasks[item] = true
@@ -1084,6 +1140,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+				local corruptedJewelEffect = slot.nodeId and getCorruptedJewelEffect(env, item, node) or 0
 
 				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
 				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
@@ -1281,8 +1338,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"] and item.type == "Jewel" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and node and not node.containJewelSocket and not node.sinister then
-					scale = scale + env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"]
+				elseif corruptedJewelEffect ~= 0 then
+					scale = scale + corruptedJewelEffect
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
