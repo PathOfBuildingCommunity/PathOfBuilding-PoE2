@@ -22,6 +22,7 @@ LoadModule("Modules/ModTools")
 LoadModule("Modules/ItemTools")
 LoadModule("Modules/CalcTools")
 LoadModule("Modules/BuildSiteTools")
+LoadModule("Modules/ChineseItemTranslator") -- 国服 fork: defines translateChineseItem()
 
 --[[if launch.devMode then
 	for skillName, skill in pairs(data.enchantments.Helmet) do

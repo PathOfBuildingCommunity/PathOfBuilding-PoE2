@@ -1,0 +1,2 @@
+# Shell scripts must stay LF so they run under WSL even on Windows checkouts.
+*.sh text eol=lf
