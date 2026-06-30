@@ -608,6 +608,30 @@ describe("TestDefence", function()
 		assert.is_true(block.TotalEHP > base.TotalEHP)
 	end)
 
+	describe("damage taken from spectres' life before you", function()
+		it("sums spectre life automatically", function()
+			build.skillsTab:PasteSocketGroup("Spectre: Lightless Abomination 20/0  1")
+			build.configTab:BuildModList()
+			build.configTab.modList:NewMod("TakenFromSpectresBeforeYou", "BASE", 15, "Test")
+			build.calcsTab:BuildOutput()
+
+			local output = build.calcsTab.mainOutput
+			assert.are.equals(15, output.SpectreAllyDamageMitigation)
+			local spectreLife = build.calcsTab.mainEnv.player.spectreLifeList[1].life
+			assert.are.equals(spectreLife, output.TotalSpectreLife)
+		end)
+
+		it("uses configured spectre life as an override", function()
+			build.skillsTab:PasteSocketGroup("Spectre: Lightless Abomination 20/0  1")
+			build.configTab.input.TotalSpectreLife = 1000
+			build.configTab:BuildModList()
+			build.configTab.modList:NewMod("TakenFromSpectresBeforeYou", "BASE", 15, "Test")
+			build.calcsTab:BuildOutput()
+
+			assert.are.equals(1000, build.calcsTab.mainOutput.TotalSpectreLife)
+		end)
+	end)
+
 	describe("damage taken from companion's life before you", function()
 		it("redirects damage to the configured companion life pool", function()
 			build.configTab.input.enemyIsBoss = "None"
@@ -686,6 +710,23 @@ describe("TestDefence", function()
 			local output = build.calcsTab.calcsOutput
 			assert.are.equals(10, output.CompanionAllyDamageMitigation)
 			assert.are.near(mainSkillCompanionLife, output.TotalCompanionLife, 1)
+		end)
+
+		it("stacks Loyalty's redirect from multiple companion skills", function()
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1\nLoyalty 1/0  1")
+			runCallback("OnFrame")
+
+			assert.are.equals(20, build.calcsTab.calcsOutput.CompanionAllyDamageMitigation)
+		end)
+
+		it("does not count global companion redirect once per companion skill", function()
+			build.configTab.input.customMods = "5% of Damage from Hits is taken from your Damageable Companion's Life before you"
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+			pob1and2Compat()
+
+			assert.are.equals(5, build.calcsTab.calcsOutput.CompanionAllyDamageMitigation)
 		end)
 
 		it("has no effect with no companions and no config override", function()
