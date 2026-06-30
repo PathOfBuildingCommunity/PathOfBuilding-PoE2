@@ -6214,7 +6214,10 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
-	["can be modified while corrupted"] = {}
+	["can be modified while corrupted"] = {},
+	["can tattoo runes onto your body, gaining"] = { flag("SocketRunesOnCharacter") },
+	["additional rune%-only sockets:"] = {},
+	["(%d+) (.+) socket"] =  {}
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

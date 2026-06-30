@@ -155,8 +155,11 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	-- PoB Trader class initialization
 	self.tradeQuery = new("TradeQuery", self)
 
+	-- x offset for all of the left side item tab controls since they are
+	-- anchored to one another from top to bottom
+	local selectorsXOffset = 109
 	-- Set selector
-	self.controls.setSelect = new("DropDownControl", {"TOPLEFT",self,"TOPLEFT"}, {96, 8, 216, 20}, nil, function(index, value)
+	self.controls.setSelect = new("DropDownControl", {"TOPLEFT",self,"TOPLEFT"}, { selectorsXOffset, 8, 216, 20 }, nil, function(index, value)
 		self:SetActiveItemSet(self.itemSetOrderList[index])
 		self:AddUndoState()
 	end)
@@ -176,7 +179,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	end)
 
 	-- Price Items
-	self.controls.priceDisplayItem = new("ButtonControl", {"TOPLEFT",self,"TOPLEFT"}, {96, 32, 310, 20}, "Trade for these items", function()
+	self.controls.priceDisplayItem = new("ButtonControl", {"TOPLEFT",self,"TOPLEFT"}, { selectorsXOffset, 32, 310, 20 }, "Trade for these items", function()
 		self.tradeQuery:PriceItem()
 	end)
 	self.controls.priceDisplayItem.tooltipFunc = function(tooltip)
@@ -185,12 +188,63 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		tooltip:AddLine(16, "^7similar or better items for this build")
 	end
 
+	-- list of runes that fit the martial artist slots, and which have global
+	-- effects
+	local runeList = { helmet = {}, ["body armour"] = {}, gloves = {}, boots = {} }
+
+	for name, runeMods in pairs(data.itemMods.Runes) do
+		for slot, mod in pairs(runeMods) do
+			if mod.type == "Rune" and not mod.localMod and (runeList[slot] or (slot == "armour")) then
+				local rune = {mods = {}}
+
+				for _, line in ipairs(mod) do
+					local modList, extra = modLib.parseMod(line)
+					t_insert(rune, line)
+					for _, mod in ipairs(modList or {}) do
+						t_insert(rune.mods, mod)
+					end
+				end
+
+				rune.name = name
+				rune.label = mod[1]
+				rune.order = mod.statOrder[1]
+				rune.req = mod.rank
+				rune.group = #mod
+				rune.limit = mod.limit
+
+				if slot == "armour" then
+					for _, v in pairs(runeList) do
+						table.insert(v, rune)
+					end
+				else
+					table.insert(runeList[slot], rune)
+				end
+			end
+		end
+	end
+
+	for _, v in pairs(runeList) do
+		local sortKeys = {"req", "order", "group"}
+		table.sort(v, function(a, b)
+			for _, key in ipairs(sortKeys) do
+				if a[key] > b[key] then
+					return true
+				elseif a[key] < b[key] then
+					return false
+				end
+			end
+			return false
+		end)
+		table.insert(v, 1, { label = "None", name = "None", mods = {}, order = -1, group = -1, req = 1 })
+	end
+
 	-- Item slots
 	self.slots = { }
 	self.orderedSlots = { }
 	self.slotOrder = { }
+	self.runeSlots = { }
 	self.initSockets = true
-	self.slotAnchor = new("Control", {"TOPLEFT",self,"TOPLEFT"}, {96, 76, 310, 0})
+	self.slotAnchor = new("Control", {"TOPLEFT",self,"TOPLEFT"}, {selectorsXOffset, 76, 310, 0})
 	local prevSlot = self.slotAnchor
 	local function addSlot(slot)
 		prevSlot = slot
@@ -209,6 +263,65 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 				return not jewel.inactive and shownFunc()
 			end
 			parentSlot.jewelSocketList[i] = jewel
+		end
+	end
+	local function addRuneSockets()
+		-- TODO: use game data for this from chakra slots table
+		local slots = { { type = "Helmet", n = 1 }, { type = "Body Armour", n = 2 }, { type = "Gloves", n = 1 }, { type = "Boots", n = 1 } }
+		for _, slot in ipairs(slots) do
+			for i = 1, slot.n do
+				local slotName = s_format("%s Rune #%d", slot.type, i)
+				local label = slotName:gsub(" Armour", ""):gsub("#", "")
+
+				local runeSlot = new("DropDownControl", { "TOPLEFT", prevSlot, "BOTTOMLEFT" }, {0, 2, 310, 20}, runeList[slot.type:lower()], function (_, value)
+					self.activeItemSet[slotName] = { runeName = value.name }
+					self.build.buildFlag = true
+				end)
+				runeSlot.anchor.collapse = true
+
+				runeSlot.tooltipFunc = function(tooltip, mode, index, rune)
+					tooltip:Clear()
+					if rune.label ~= "None" then
+						tooltip:AddLine(16, "^7" .. rune.name)
+
+						if rune.limit then
+							tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", rune.limit))
+						end
+
+						if rune.req > 1 then
+							tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", rune.req))
+						end
+						for _, line in ipairs(rune) do
+							-- skip bonded lines as monks cannot use these
+							if not line:match("^Bonded:") then
+								tooltip:AddLine(14, colorCodes.MAGIC .. line)
+							end
+						end
+						-- Adding Comparison
+						local compLines = { type = "Rune" }
+						for _, line in ipairs(rune) do
+							t_insert(compLines, line)
+						end
+						local calcFunc = self.build.calcsTab:GetMiscCalculator()
+						local outputBase = calcFunc()
+						local outputNew = calcFunc({ repSlotName = slotName, repItem = rune })
+						self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew,
+							"\n^7Adding this mod will give: ")
+					end
+				end
+
+				self.controls[slotName .. " Label"] = new("LabelControl", { "RIGHT", runeSlot, "LEFT" },
+					{ -2, 0, 16, 16 },
+					s_format("^7%s:", label))
+
+				prevSlot = runeSlot
+				t_insert(self.controls, runeSlot)
+				self.runeSlots[slotName] = runeSlot
+				runeSlot.shown = function()
+					return self.build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter")
+				end
+			end
+
 		end
 	end
 	for index, slotName in ipairs(baseSlots) do
@@ -249,6 +362,8 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 	end
 
+	addRuneSockets()
+
 	-- Passive tree dropdown controls
 	self.controls.specSelect = new("DropDownControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, {0, 8, 216, 20}, nil, function(index, value)
 		if self.build.treeTab.specList[index] then
@@ -256,6 +371,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			self.build.treeTab:SetActiveSpec(index)
 		end
 	end)
+	self.controls.specSelect.anchor.collapse = true
 	self.controls.specSelect.enabled = function()
 		return #self.controls.specSelect.list > 1
 	end
@@ -263,7 +379,9 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.specButton = new("ButtonControl", {"LEFT",prevSlot,"RIGHT"}, {4, 0, 90, 20}, "Manage...", function()
 		self.build.treeTab:OpenSpecManagePopup()
 	end)
+	self.controls.specButton.anchor.collapse = true
 	self.controls.specLabel = new("LabelControl", {"RIGHT",prevSlot,"LEFT"}, {-2, 0, 0, 16}, "^7Passive tree:")
+	self.controls.specLabel.anchor.collapse = true
 
 	self.sockets = { }
 	local socketOrder = { }
@@ -694,9 +812,17 @@ holding Shift will put it in the second.]])
 		drop.tooltipFunc = function(tooltip, mode, index, value)
 			tooltip:Clear()
 			if value.lines and value.lines[1] ~= "None" then
-				tooltip:AddLine(14, "^7"..value.name)
+				tooltip:AddLine(16, "^7" .. value.name)
+
+				if value.lines and value.lines.limit then
+					tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", value.lines.limit))
+				end
+
+				if value.req > 1 then
+					tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", value.req))
+				end
 				for _, line in ipairs(value.lines) do
-					tooltip:AddLine(14, "^7"..line)
+					tooltip:AddLine(14, colorCodes.MAGIC .. line)
 				end
 				-- Adding Comparison
 				local compLines = { type = "Rune" }
@@ -1145,6 +1271,13 @@ function ItemsTabClass:Load(xml, dbFileName)
 						itemSet[slotName].active = child.attrib.active == "true"
 						itemSet[slotName].pbURL = child.attrib.itemPbURL or ""
 					end
+				elseif child.elem == "RuneSlot" then
+					local slotName = child.attrib.slotName or ""
+					local slot = itemSet[slotName]
+					if slot then
+						local runeName = child.attrib.runeName or "None"
+						slot.runeName = runeName
+					end
 				elseif child.elem == "SocketIdURL" then
 					local id = tonumber(child.attrib.nodeId)
 					itemSet[id] = { pbURL = child.attrib.itemPbURL or "" }
@@ -1244,6 +1377,11 @@ function ItemsTabClass:Save(xml)
 					end
 				end
 			end
+		end
+		for slotName, _ in pairs(self.runeSlots) do
+			local runeName = (itemSet[slotName] and itemSet[slotName].runeName) or "None"
+			local node = { elem = "RuneSlot", attrib = { slotName = slotName, runeName = runeName } }
+			t_insert(child, node)
 		end
 		t_insert(xml, child)
 	end
@@ -1418,6 +1556,9 @@ function ItemsTabClass:CreateItemSet(itemSetId, name)
 			itemSet[slotName] = { selItemId = 0 }
 		end
 	end
+	for slotName, _ in pairs(self.runeSlots) do
+		itemSet[slotName] = { runeName = "None" }
+	end
 	self.itemSets[itemSet.id] = itemSet
 	return itemSet
 end
@@ -1484,6 +1625,15 @@ function ItemsTabClass:SetActiveItemSet(itemSetId, deferSync)
 				slot.controls.activate.state = slot.active
 			end
 		end
+	end
+	for slotName, slot in pairs(self.runeSlots) do
+		if prevSet then
+			-- Update the previous set
+			prevSet[slotName] = { runeName = slot:GetSelValue().name }
+		end
+		-- Equip incoming set's rune
+		local currentRune = curSet[slotName] and curSet[slotName].runeName or "None"
+		slot:SelByValue(currentRune, "name", true)
 	end
 	self.build.buildFlag = true
 	self:PopulateSlots()
@@ -1935,7 +2085,9 @@ local runeModLines = { { name = "None", label = "None", lines = { "None" }, orde
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod, isSocketBound = runeMod.isSocketBound })
+		t_insert(runeModLines,
+			{ name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank, order = runeMod.statOrder[1], slot =
+			slotType, type = runeMod.type, group = #runeMod, isSocketBound = runeMod.isSocketBound })
 	end
 end
 table.sort(runeModLines, function(a, b)
