@@ -1131,8 +1131,7 @@ c["10% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifie
 c["10% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=10}},nil}
 c["10% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed if you've Attacked Recently"]={{[1]={[1]={type="Condition",var="AttackedRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["10% increased Cast Speed if you've used a Mana Flask Recently"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},"  if you've used a Mana Flask Recently "}
-c["10% increased Cast Speed if you've used a Mana Flask Recently Mana Flasks gain 0.1 charges per Second"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},"  if you've used a Mana Flask Recently Mana Flasks gain 0.1 charges per Second "}
+c["10% increased Cast Speed if you've used a Mana Flask Recently"]={{[1]={[1]={type="Condition",var="UsingManaFlask"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed while Chilled"]={{[1]={[1]={type="Condition",var="Chilled"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed while Ignited"]={{[1]={[1]={type="Condition",var="Ignited"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
