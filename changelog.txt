@@ -1,3 +1,76 @@
+VERSION[beta][2026/06/30]
+
+--- New to Path of Building ---
+* Support more movement speed penalty mods for Resonating Shield, Raise Shield and Parry (moxaj)
+* Add support for Effect of Socketed Augments mod (LocalIdentity)
+* Add support for Arc Lightning Infusion stats (majochem)
+* Add support for Atziri's Communion support gem (cupkax)
+* Added missing emotions from new league (cupkax)
+* Add minion stats to sorting options for trade and tree (vaisest)
+* Add option to return to build selection when crashing (vaisest)
+* Change border size to be 1 px (vaisest)
+* Add item skill tooltips (vaisest)
+* Add Liquid Emotions and more Desecrate mods to crafter (vaisest)
+* Add option to disable scroll wheel interacting with controls (vaisest)
+* Add Necrotic Catalyst (Minion) (Blitz54)
+* Add support for Atziri's Splendour mana to life cost conversion for corrupted gems (slaren)
+* Support Vestige of Darkness physical damage to Chill/Freeze modifier (bct8925)
+* Allow From Nothing to shorten power report distance (vaisest)
+* Add "Buy similar" button to item view (vaisest)
+* Add required stats filter to trader (vaisest)
+* Add support for Sinister Jewel sockets (followingthefasciaplane)
+* Add support for "+X% to Fire Spell Critical Hit Chance" mod (luther-rotmg)
+* Add missing genesis tree exclusive mods to Rings and Belts (ltogniolli)
+* Add socket position view to trader and compare tab (vaisest)
+* Respect socket-bound augments in trader (vaisest)
+* Add missing tamable beasts and their skills (ltogniolli)
+* Performance improvements for gem dropdown sort (ltogniolli)
+* Add support for Loyalty/damage taken from Companion's Life before you (ltogniolli)
+* Add support for Gemling's additional quality Stats (LocalIdentity)
+* Add support for some tree mods (Blitz54)
+
+--- Fixed Crashes ---
+* Fix crash when importing items with +1 suffix rune (vaisest)
+* Fix crash on hovering over legacy shared items (LocalIdentity)
+* Fix crash importing a character with a minion main skill (xh-forge)
+
+--- User Interface ---
+* Fix colour of Fractured crafted mods on items (Blitz54)
+* Fix "- level from corrupt" tooltip spacing and Item title spacing (Blitz54)
+
+--- Fixed Calculations ---
+* Fix Crit chance for Living Lightning and Caltrops (LocalIdentity)
+* Fix Ritualist Mystic Attunement node not scaling gem level mods (LocalIdentity)
+* Fix Curse rounding on enemies (LocalIdentity)
+* Fix Melee mods not affecting the damage of Combust (LocalIdentity)
+* Fix gem level supports not working properly with some skills (LocalIdentity)
+* Fix Overwhelming Presence not limiting to 90% (LocalIdentity)
+* Allow warcries for channeled skills (vaisest)
+* Fix dual wield skills with "both weapons hit..." combining into a single hit (majochem)
+* Fix Adorned not scaling Time-Lost jewels (LocalIdentity)
+* Fix Tamed Beast resistances (LocalIdentity)
+* Fix Shattering Palm Explosion using unarmed damage (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix Legacy of Gold mods not increasing Item Rarity value (LocalIdentity)
+* Fix jewels socketed in gloves not importing correctly (LocalIdentity)
+* Fix Undermine, Murderous Intent, Bloodlust and Lasting Ground missing the legacy tag (LocalIdentity)
+* Fix some radius jewels mods not working correctly (vaisest)
+* Fix not being able to highlight text in compare config tab (vaisest)
+* Fix staff runes showing on quarterstaves (vaisest)
+* Fix desecrate-only mods becoming monk glove mods (vaisest)
+* Fix Demon Form not counting as being Shapeshifted (cupkax)
+* Fix number of times block recently gated behind unique enemies (cupkax)
+* Fix Time-Lost jewel bonuses applying across weapon sets (cupkax)
+
+--- Accuracy Improvements ---
+* Fix searching for Low Life in Config tab (Blitz54)
+* Fix formatting of 'Waistgate Heavy Belt' entry (Pcodcsja)
+
+--- Other changes ---
+* Channeling skills now benefit from Spell Damage with Spells that cost Life mods (cupkax)
+* Release 0.22.0 (github-actions[bot])
+
 VERSION[0.22.0][2026/07/01]
 
 --- 0.5 Return of the Ancients ---
