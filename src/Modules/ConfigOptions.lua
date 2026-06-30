@@ -792,7 +792,7 @@ Huge sets the radius to 11.
 	{ var = "TotalVaalRejuvenationTotemLife", type = "countAllowZero", label = "Total Vaal Rejuvenation Totem Life:", ifSkill = { "Vaal Rejuvenation Totem" }, ifMod = "takenFromVaalRejuvenationTotemsBeforeYou", tooltip = "The total life of your Vaal Rejuvenation Totems that can be taken before yours", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalVaalRejuvenationTotemLife", "BASE", val, "Config")
 	end },
-	{ var = "TotalCompanionLife", type = "countAllowZero", label = "Total Companion Life:", ifMod = { "takenFromCompanionBeforeYou", "takenFromCompanionBeforeYouFromDeflected" }, tooltip = "Overrides the automatically calculated total life of your damageable Companions\nthat can be taken before yours (e.g. Starkonja's Head, Loyalty)", apply = function(val, modList, enemyModList)
+	{ var = "TotalCompanionLife", type = "countAllowZero", label = "Total Companion Life override:", ifMod = { "takenFromCompanionBeforeYou", "takenFromCompanionBeforeYouFromDeflected" }, tooltip = "Overrides the automatically calculated total life of your damageable Companions\nthat can be taken before yours (e.g. Starkonja's Head, Loyalty)", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalCompanionLife", "OVERRIDE", val, "Config")
 	end },
 	-- Section: Combat options

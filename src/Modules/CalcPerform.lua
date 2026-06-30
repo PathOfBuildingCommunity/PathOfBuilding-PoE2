@@ -1128,6 +1128,14 @@ local function initMinionModDB(env, activeSkill)
 	end
 end
 
+local function addMinionModifiers(modList, skillCfg, minion)
+	for _, value in ipairs(modList:List(skillCfg, "MinionModifier")) do
+		if not value.type or minion.type == value.type then
+			minion.modDB:AddMod(value.mod)
+		end
+	end
+end
+
 -- Finalises the environment and performs the stat calculations:
 -- 1. Merges keystone modifiers
 -- 2. Initialises minion skills
@@ -1778,11 +1786,7 @@ function calcs.perform(env, skipEHP)
 				end
 			end
 		else
-			for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
-				if not value.type or env.minion.type == value.type then
-					env.minion.modDB:AddMod(value.mod)
-				end
-			end
+			addMinionModifiers(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, env.minion)
 			for _, name in ipairs(env.minion.modDB:List(nil, "Keystone")) do
 				if env.spec.tree.keystoneMap[name] then
 					env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
@@ -3061,11 +3065,7 @@ function calcs.perform(env, skipEHP)
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
 		end
 		if env.minion then
-			for _, value in ipairs(modList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
-				if not value.type or env.minion.type == value.type then
-					env.minion.modDB:AddMod(value.mod)
-				end
-			end
+			addMinionModifiers(modList, env.player.mainSkill.skillCfg, env.minion)
 		end
 	end
 	if env.minion then
@@ -3313,22 +3313,14 @@ function calcs.perform(env, skipEHP)
 				if minion ~= env.minion then
 					minion.output = minion.output or { }
 					initMinionModDB(env, activeSkill)
-					for _, value in ipairs(activeSkill.skillModList:List(activeSkill.skillCfg, "MinionModifier")) do
-						if not value.type or minion.type == value.type then
-							minion.modDB:AddMod(value.mod)
-						end
-					end
+					addMinionModifiers(activeSkill.skillModList, activeSkill.skillCfg, minion)
 					for _, name in ipairs(minion.modDB:List(nil, "Keystone")) do
 						if env.spec.tree.keystoneMap[name] then
 							minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
 						end
 					end
 					for _, modList in pairs(buffs) do
-						for _, value in ipairs(modList:List(activeSkill.skillCfg, "MinionModifier")) do
-							if not value.type or minion.type == value.type then
-								minion.modDB:AddMod(value.mod)
-							end
-						end
+						addMinionModifiers(modList, activeSkill.skillCfg, minion)
 					end
 					doActorAttribsConditions(env, minion)
 				end

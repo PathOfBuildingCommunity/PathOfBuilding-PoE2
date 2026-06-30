@@ -5339,7 +5339,7 @@ local specialModList = {
 	} end,
 	["(%d+)%% of damage from hits is taken from your spectres' life before you"] = function(num) return { mod("takenFromSpectresBeforeYou", "BASE", num) } end,
 	["(%d+)%% of damage from hits is taken from your nearest totem's life before you"] = function(num) return { mod("takenFromTotemsBeforeYou", "BASE", num, { type = "Condition", var = "HaveTotem" }) } end,
-	["(%d+)%% of damage from hits is taken from your d?a?m?a?g?e?a?b?l?e? ?companion's life before you"] = function(num) return { mod("takenFromCompanionBeforeYou", "BASE", num) } end,
+	["(%d+)%% of damage from hits is taken from your damageable companion's life before you"] = function(num) return { mod("takenFromCompanionBeforeYou", "BASE", num) } end,
 	["(%d+)%% of damage from deflected hits is taken from damageable companion's life before you"] = function(num) return { mod("takenFromCompanionBeforeYouFromDeflected", "BASE", num) } end,
 	["(%a+) resistance cannot be penetrated"] = function(_, res) return { flag("EnemyCannotPen"..(res:gsub("^%l", string.upper)).."Resistance") } end,
 	["your base energy shield recharge delay is (%d+) seconds"] = function(num) return { mod("EnergyShieldRechargeBase", "OVERRIDE", num), } end,
