@@ -1,6 +1,6 @@
 # Changelog
 
-## [v0.22.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.22.0) (2026/06/30)
+## [v0.22.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.22.0) (2026/07/01)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.21.1...v0.22.0)
 
@@ -69,7 +69,6 @@
 ### Accuracy Improvements
 - Fix searching for Low Life in Config tab [\#2326](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2326) ([Blitz54](https://github.com/Blitz54))
 - Fix formatting of 'Waistgate Heavy Belt' in unique list [\#2308](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2308) ([Pcodcsja](https://github.com/Pcodcsja))
-### Other changes
 
 
 ## [v0.21.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.1) (2026/06/20)

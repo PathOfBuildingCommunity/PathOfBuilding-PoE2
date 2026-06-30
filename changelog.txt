@@ -1,4 +1,4 @@
-VERSION[0.22.0][2026/06/30]
+VERSION[0.22.0][2026/07/01]
 
 --- 0.5 Return of the Ancients ---
 * Add support for Sinister Jewel sockets (followingthefasciaplane, LocalIdentity)
@@ -69,8 +69,6 @@ VERSION[0.22.0][2026/06/30]
 --- Accuracy Improvements ---
 * Fix searching for Low Life in Config tab (Blitz54)
 * Fix formatting of 'Waistgate Heavy Belt' in unique list (Pcodcsja)
-
---- Other changes ---
 
 VERSION[0.21.1][2026/06/20]
 
