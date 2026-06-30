@@ -282,6 +282,9 @@ return {
 ["skill_double_hits_when_dual_wielding"] = {
 	skill("doubleHitsWhenDualWielding", true),
 },
+["skill_combines_hits_when_dual_wielding"] = { -- NOTE: This is before PoE2 has "combined hit" dual wield skills, so stat will have to be updated in the future
+	skill("combinesHitsWhenDualWielding", true),
+},
 ["support_spell_echo_number_of_echo_cascades"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, {type = "SkillType", skillType = SkillType.Cascadable }),
 },
