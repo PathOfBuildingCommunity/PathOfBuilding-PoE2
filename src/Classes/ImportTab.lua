@@ -223,15 +223,20 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 
 		for j=1,#buildSites.websiteList do
-			if urlText:match(buildSites.websiteList[j].matchURL) then
-				self.controls.importCodeIn.text = urlText
-				self.importCodeValid = true
-				self.importCodeDetail = colorCodes.POSITIVE.."URL is valid ("..buildSites.websiteList[j].label..")"
-				self.importCodeSite = j
-				if buf ~= urlText then
-					self.controls.importCodeIn:SetText(urlText, false)
+			local matchURL = buildSites.websiteList[j].matchURL
+			local matchURLs = type() == "table" and matchURL or { matchURL }
+			for _, v in ipairs(matchURLs) do
+				if urlText:match(v) then
+					self.controls.importCodeIn.text = urlText
+					self.importCodeValid = true
+					self.importCodeDetail = colorCodes.POSITIVE ..
+						"URL is valid (" .. buildSites.websiteList[j].label .. ")"
+					self.importCodeSite = j
+					if buf ~= urlText then
+						self.controls.importCodeIn:SetText(urlText, false)
+					end
+					return
 				end
-				return
 			end
 		end
 

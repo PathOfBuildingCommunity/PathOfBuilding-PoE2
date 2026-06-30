@@ -26,7 +26,11 @@ buildSites.websiteList = {
 		codeOut = "https://pobb.in/", postUrl = "https://pobb.in/pob/", postFields = "", linkURL = "pobb.in/%1"
 	},
 	{
-		label = "poe.ninja", id = "PoeNinja", matchURL = "^https://poe2?%.ninja/?p?o?e?2?/pob/.+", regexURL = "poe2?%.ninja/?p?o?e?2?/pob/(.+)%s*$", downloadURL = "poe.ninja/poe2/pob/raw/%1",
+		label = "poe.ninja",
+		id = "PoeNinja",
+		matchURL = { "^https://poe2?%.ninja/?p?o?e?2?/pob/.+", "^https://poe2?%.ninja/?p?o?e?2?/profile/.+/.+/character/.+" },
+		regexURL = { "poe2?%.ninja/?p?o?e?2?/pob/(.+)%s*$", "poe2?%.ninja/?p?o?e?2?/profile/(.+)/(.+)/character/(.+)%s*$" },
+		downloadURL = { "poe.ninja/poe2/pob/raw/%1", "poe.ninja/poe2/pob/raw/profile/code/%1/%2/%3" },
 		codeOut = "", postUrl = "https://poe.ninja/poe2/pob/api/upload", postFields = "code=", linkURL="poe.ninja/poe2/pob/%1"
 	},
 	{ 
@@ -96,7 +100,18 @@ function buildSites.DownloadBuild(link, websiteInfo, callback)
 			end
 		end
 	else -- called via the ImportTab
-		siteCodeURL = link:gsub(websiteInfo.regexURL, websiteInfo.downloadURL)
+		-- if the site supports multiple endpoints, use the first one that matches
+		if type(websiteInfo.regexURL) == "table" then
+			for i = 1, #websiteInfo.regexURL do
+				if link:match(websiteInfo.matchURL[i]) then
+					siteCodeURL = link:gsub(websiteInfo.regexURL[i], websiteInfo.downloadURL[i])
+					break
+				end
+			end
+		else
+			siteCodeURL = link:gsub(websiteInfo.regexURL, websiteInfo.downloadURL)
+		end
+		ConPrintf("%s", siteCodeURL)
 	end
 	if websiteInfo then
 		launch:DownloadPage(siteCodeURL, function(response, errMsg)
