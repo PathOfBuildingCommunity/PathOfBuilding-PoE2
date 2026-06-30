@@ -275,6 +275,13 @@ will automatically apply to the skill.]]
 	-- Skill gem slots
 	self.anchorGemSlots = new("Control", {"TOPLEFT",self.anchorGroupDetail,"TOPLEFT"}, {0, 28 + 28 + 16, 0, 0})
 	self.gemSlots = { }
+
+	-- Gem drag-reorder state (see CreateGemSlot dragHandle + Draw drop-line)
+	self.gemDragIndex = nil
+	self.gemDragCX = 0
+	self.gemDragCY = 0
+	self.gemDragActive = false
+	self.gemDropIndex = nil
 	self:CreateGemSlot(1)
 	self.controls.gemNameHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].nameSpec, "TOPLEFT"}, {0, -2, 0, 16}, "^7Gem name:")
 	self.controls.gemLevelHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].level, "TOPLEFT"}, {0, -2, 0, 16}, "^7Level:")
@@ -604,7 +611,61 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 
 	self:UpdateGemSlots()
 
+	-- Resolve gem drag state (activation + drop-index) before drawing controls
+	-- so the insertion line draws above them.
+	if self.gemDragIndex and self.displayGroup and self.displayGroup.gemList[self.gemDragIndex] then
+		local cx, cy = GetCursorPos()
+		if not self.gemDragActive then
+			local dx = cx - self.gemDragCX
+			local dy = cy - self.gemDragCY
+			if dx * dx + dy * dy > 100 then
+				self.gemDragActive = true
+			end
+		end
+		if self.gemDragActive then
+			local gemCount = #self.displayGroup.gemList
+			local dropIndex = gemCount + 1
+			for i = 1, gemCount do
+				local s = self.gemSlots[i]
+				if s then
+					local _, sy = s.delete:GetPos()
+					local _, sh = s.delete:GetSize()
+					if cy < sy + sh / 2 then
+						dropIndex = i
+						break
+					end
+				end
+			end
+			self.gemDropIndex = m_max(dropIndex, 2)
+		end
+	else
+		self.gemDragIndex = nil
+		self.gemDragActive = false
+		self.gemDropIndex = nil
+	end
+
 	self:DrawControls(viewPort)
+
+	-- Draw the gem drag insertion line on top of the controls.
+	if self.gemDragActive and self.gemDropIndex and self.displayGroup then
+		local gemCount = #self.displayGroup.gemList
+		local refIndex = m_min(self.gemDropIndex, gemCount)
+		local refSlot = self.gemSlots[refIndex]
+		if refSlot then
+			local lineStart = (refSlot.dragHandle and refSlot.dragHandle:IsShown()) and refSlot.dragHandle or refSlot.delete
+			local hx = lineStart:GetPos()
+			local _, ry = refSlot.delete:GetPos()
+			local _, rh = refSlot.delete:GetSize()
+			local cxEnd = refSlot.count:GetPos()
+			local cw = refSlot.count:GetSize()
+			local lineY = (self.gemDropIndex > gemCount) and (ry + rh) or ry
+			local lineWidth = (cxEnd + cw) - hx
+			SetDrawColor(1, 1, 1)
+			DrawImage(nil, hx, lineY - 1, lineWidth, 3)
+			SetDrawColor(0, 0, 0)
+			DrawImage(nil, hx, lineY, lineWidth, 1)
+		end
+	end
 end
 
 function SkillsTabClass:CopySocketGroup(socketGroup)
@@ -753,10 +814,27 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	-- Delete gem
 	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+		if index == 1 then
+			-- Slot 1 (main active skill) cannot be removed; instead open the
+			-- gem selector so the user can change which active skill is here.
+			local ns = slot.nameSpec
+			if ns then
+				self:SelectControl(ns)
+				ns.dropped = true
+				ns:BuildList(ns.buf or "")
+				ns:SelectAll()
+			end
+			return
+		end
 		return deleteGem()
 	end)
 	if index == 1 then
-		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 0, 0)
+		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 14, 0)
+	elseif index == 2 then
+		local prevSlot = self.gemSlots[index-1]
+		slot.delete:SetAnchor("TOPLEFT", prevSlot.delete, "BOTTOMLEFT", 22, function()
+			return (prevSlot.enableGlobal1:IsShown() or prevSlot.enableGlobal2:IsShown()) and 24 or 2
+		end)
 	else
 		local prevSlot = self.gemSlots[index-1]
 		slot.delete:SetAnchor("TOPLEFT", prevSlot.delete, "BOTTOMLEFT", 0, function()
@@ -769,11 +847,15 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.delete.enabled = function()
 		return index <= #self.displayGroup.gemList
 	end
-	slot.delete.tooltipText = "Remove this gem."
+	slot.delete.tooltipText = index == 1 and "Change the main skill gem." or "Remove this gem."
 	self.controls["gemSlot"..index.."Delete"] = slot.delete
 
+	local skillsTab = self
+
 	-- Gem name specification
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
+	-- Row 1 widens by indentOffset (22px) so Level/Quality columns align with the indented rows 2+
+	local indentOffset = 22
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (290 + indentOffset) or 290, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
 		if not self.displayGroup then
 			return
 		end
@@ -803,6 +885,10 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enableGlobal2.state = true
 			slot.count:SetText(gemInstance.count)
 		elseif focusLost and not bufMatchesGem then
+			if index == 1 then
+				-- Slot 1 (main active skill) must never auto-delete on focus loss
+				return
+			end
 			return deleteGem()
 		elseif gemId == gemInstance.gemId then
 			if addUndo then
@@ -835,6 +921,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end, true)
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
+	slot.nameSpec.activeOnly = (index == 1)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
 
 	-- Gem level
@@ -856,8 +943,15 @@ function SkillsTabClass:CreateGemSlot(index)
 	end)
 	slot.level:AddToTabGroup(self.controls.groupLabel)
 	slot.level.enabled = function()
-		return index <= #self.displayGroup.gemList
+		if index > #self.displayGroup.gemList then return false end
+		local gemInstance = self.displayGroup.gemList[index]
+		local gemData = gemInstance and gemInstance.gemData
+		if gemData and gemData.grantedEffect and gemData.grantedEffect.support then
+			return false
+		end
+		return true
 	end
+	slot.level.hideWhenDisabled = true
 	self.controls["gemSlot"..index.."Level"] = slot.level
 
 	-- Gem quality
@@ -952,12 +1046,82 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.quality:AddToTabGroup(self.controls.groupLabel)
 	slot.quality.enabled = function()
-		return index <= #self.displayGroup.gemList
+		if index > #self.displayGroup.gemList then return false end
+		local gemInstance = self.displayGroup.gemList[index]
+		local gemData = gemInstance and gemInstance.gemData
+		if gemData and gemData.grantedEffect and gemData.grantedEffect.support then
+			return false
+		end
+		return true
 	end
+	slot.quality.hideWhenDisabled = true
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
 
+	-- Drag handle (reorder gems within the socket group). Sits to the left of
+	-- the delete button so its right edge aligns with the x button on row 1.
+	slot.dragHandle = new("ButtonControl", {"RIGHT", slot.delete, "LEFT"}, {-2, 0, 12, 20}, ":::", nil)
+	slot.dragHandle.shown = function()
+		return index > 1
+		   and index <= #skillsTab.displayGroup.gemList
+		   and skillsTab.displayGroup.source == nil
+	end
+	slot.dragHandle.enabled = function()
+		return #skillsTab.displayGroup.gemList > 1
+	end
+	slot.dragHandle.tooltipText = "Drag to reorder this gem."
+	slot.dragHandle.OnKeyDown = function(btnSelf, key)
+		if not btnSelf:IsShown() or not btnSelf:IsEnabled() then
+			return
+		end
+		if key == "LEFTBUTTON" then
+			local cx, cy = GetCursorPos()
+			skillsTab.gemDragIndex = index
+			skillsTab.gemDragCX = cx
+			skillsTab.gemDragCY = cy
+			skillsTab.gemDragActive = false
+			skillsTab.gemDropIndex = nil
+			return btnSelf
+		end
+	end
+	slot.dragHandle.OnKeyUp = function(btnSelf, key)
+		if key ~= "LEFTBUTTON" then
+			return
+		end
+		local fromIndex = skillsTab.gemDragIndex
+		local dropIndex = skillsTab.gemDropIndex
+		if skillsTab.gemDragActive and fromIndex and dropIndex
+		   and dropIndex ~= fromIndex and dropIndex ~= fromIndex + 1 then
+			local moved = t_remove(skillsTab.displayGroup.gemList, fromIndex)
+			if dropIndex > fromIndex then
+				dropIndex = dropIndex - 1
+			end
+			t_insert(skillsTab.displayGroup.gemList, dropIndex, moved)
+			-- Resync visible slot widgets from gemList (mirrors the delete-button refresh).
+			for i = 1, #skillsTab.displayGroup.gemList do
+				local g = skillsTab.displayGroup.gemList[i]
+				local s = skillsTab.gemSlots[i]
+				if s then
+					s.nameSpec:SetText(g.nameSpec)
+					s.level:SetText(g.level)
+					s.quality:SetText(g.quality)
+					s.enabled.state = g.enabled
+					s.enableGlobal1.state = g.enableGlobal1
+					s.enableGlobal2.state = g.enableGlobal2
+					s.count:SetText(g.count or 1)
+				end
+			end
+			skillsTab:ProcessSocketGroup(skillsTab.displayGroup)
+			skillsTab:AddUndoState()
+			skillsTab.build.buildFlag = true
+		end
+		skillsTab.gemDragIndex = nil
+		skillsTab.gemDragActive = false
+		skillsTab.gemDropIndex = nil
+	end
+	self.controls["gemSlot"..index.."DragHandle"] = slot.dragHandle
+
 	-- Enable gem
-	slot.enabled = new("CheckBoxControl", {"LEFT",slot.quality,"RIGHT"}, {18, 0, 20}, nil, function(state)
+	slot.enabled = new("CheckBoxControl", {"LEFT",slot.quality,"RIGHT"}, {33, 0, 20}, nil, function(state)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
 			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }

@@ -111,6 +111,9 @@ function GemSelectClass:PopulateGemList()
 end
 
 function GemSelectClass:FilterSupport(gemId, gemData)
+	if self.activeOnly and gemData.grantedEffect.support then
+		return false
+	end
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
 	if gemData.grantedEffect.legacy and not self.skillsTab.showLegacyGems then
 		return false
@@ -527,33 +530,35 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 
 			colorS = 0.5
 			colorA = 0.5
-			if cursorX > (x + width - 18) then
-				colorS = 1
-				self.tooltip:Clear()
-				self.tooltip:AddLine(16, "Only show Support gems")
-			elseif (cursorX > (x + width - 40) and cursorX < (cursorX + width - 20)) then
-				colorA = 1
-				self.tooltip:Clear()
-				self.tooltip:AddLine(16, "Only show Active gems")
+			if not self.activeOnly then
+				if cursorX > (x + width - 18) then
+					colorS = 1
+					self.tooltip:Clear()
+					self.tooltip:AddLine(16, "Only show Support gems")
+				elseif (cursorX > (x + width - 40) and cursorX < (cursorX + width - 20)) then
+					colorA = 1
+					self.tooltip:Clear()
+					self.tooltip:AddLine(16, "Only show Active gems")
+				end
+
+				-- support shortcut
+				sx = x + width - 16 - 2
+				SetDrawColor(colorS,colorS,colorS)
+				DrawImage(nil, sx, y+2, 16, height-4)
+				SetDrawColor(0,0,0)
+				DrawImage(nil, sx+1, y+2, 16-2, height-4)
+				SetDrawColor(colorS,colorS,colorS)
+				DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "S")
+
+				-- active shortcut
+				sx = x + width - (16*2) - (2*2)
+				SetDrawColor(colorA,colorA,colorA)
+				DrawImage(nil, sx, y+2, 16, height-4)
+				SetDrawColor(0,0,0)
+				DrawImage(nil, sx+1, y+2, 16-2, height-4)
+				SetDrawColor(colorA,colorA,colorA)
+				DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
 			end
-
-			-- support shortcut
-			sx = x + width - 16 - 2
-			SetDrawColor(colorS,colorS,colorS)
-			DrawImage(nil, sx, y+2, 16, height-4)
-			SetDrawColor(0,0,0)
-			DrawImage(nil, sx+1, y+2, 16-2, height-4)
-			SetDrawColor(colorS,colorS,colorS)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "S")
-
-			-- active shortcut
-			sx = x + width - (16*2) - (2*2)
-			SetDrawColor(colorA,colorA,colorA)
-			DrawImage(nil, sx, y+2, 16, height-4)
-			SetDrawColor(0,0,0)
-			DrawImage(nil, sx+1, y+2, 16-2, height-4)
-			SetDrawColor(colorA,colorA,colorA)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
 
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)
@@ -576,8 +581,9 @@ function GemSelectClass:OnFocusGained()
 	self.selIndex = 0
 	self:UpdateSortCache()
 	self:BuildList("")
-	for index, gemId in pairs(self.list) do
-		if self.gems[gemId].name == self.buf then
+	for index, gemId in ipairs(self.list) do
+		local gemData = self.gems[gemId]
+		if gemData and gemData.name == self.buf then
 			self.selIndex = index
 			self:ScrollSelIntoView()
 			break
@@ -607,7 +613,7 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 	local width, height = self:GetSize()
 	local cursorX, cursorY = GetCursorPos()
 	-- constrain cursor to the height of the control
-	if key == "LEFTBUTTON" and (cursorY > y and cursorY < (y + height)) then
+	if key == "LEFTBUTTON" and (cursorY > y and cursorY < (y + height)) and not self.activeOnly then
 		-- no need to constrain right side of the S overlay as that's outside hover
 		if cursorX > (x + width - 18) then
 			self.sortGemsBy = "support" -- only need to change sortBy, code will continue to UpdateSortCache
