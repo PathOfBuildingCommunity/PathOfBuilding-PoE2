@@ -363,7 +363,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				usedEnv = fullEnv
 				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
 				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
-				local skillName = activeSkill.activeEffect.grantedEffect.name
+				local skillName = calcs.getActiveSkillDisplayName(activeSkill)
 				local dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack
 				local pass = { actors = { } }
 				local minionOut
