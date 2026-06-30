@@ -1870,6 +1870,7 @@ local modTagList = {
 	["during any life flask effect"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
 	["if you've used a life flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
 	["if you've used a mana flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
+	["if you've used a mana flask recently"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
 	["while you have no life flask uses left"] = { tag = { type = "Condition", var = "NoLifeFlaskUsesLeft" } },
 	["during effect of any life or mana flask"] = { tag = { type = "Condition", varList = { "UsingManaFlask", "UsingLifeFlask" } } },
 	["while on consecrated ground"] = { tag = { type = "Condition", var = "OnConsecratedGround" } },
@@ -3368,7 +3369,9 @@ local specialModList = {
 	["blue: skills have (%d+)%% less cost"] = function(count) return {
 		mod("ManaCost", "MORE", -count, { type = "Condition", var = "MostNumerousBlueSocketedSupports" })
 	} end,
-
+	["green: (%d+)%% less movement speed penalty from using skills while moving"] = function(num) return {
+		mod("MovementSpeedPenalty", "MORE", -num, { type = "Condition", var = "MostNumerousGreenSocketedSupports" })
+	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
@@ -5552,6 +5555,10 @@ local specialModList = {
 	-- Misc
 	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
 	["fully broken armour you inflict also increases fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
+	["fully broken armour you inflict also increases cold and lightning damage taken from hits"] = {
+		flag("ArmourBreakColdDamageTaken"),
+		flag("ArmourBreakLightningDamageTaken"),
+	},
 	["can't use c?h?e?s?t? ?b?o?d?y? ?armour"] = { mod("CanNotUseBody", "Flag", 1, { type = "DisablesItem", slotName = "Body Armour" }) },
 	--["can't use helmets"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this one does not work due to being on a passive?
 	["can't use helmet"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this is to allow for custom mod without saying the other is parsed
@@ -5584,7 +5591,7 @@ local specialModList = {
 	["(%d+)%% increased accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["(%d+)%% more accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["%+(%d+) to accuracy against bleeding enemies"] = function(num) return { mod("AccuracyVsEnemy", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Bleeding" } ) } end,
-	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
+	["y?o?u? ?cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
 	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
 	["warcries empower (%d+) additional attacks?"] = function(num) return { mod("ExtraEmpoweredAttacks", "BASE", num) } end,
 	["warcries empower an additional attack"] = function(num) return { mod("ExtraEmpoweredAttacks", "BASE", 1) } end,
@@ -5843,6 +5850,7 @@ local specialModList = {
 	["rage grants spell damage instead of attack damage"] = { flag("Condition:RageSpellDamage") },
 	["inherent loss of rage is (%d+)%% slower"] = function(num) return { mod("InherentRageLoss", "INC", -num) } end,
 	["inherent loss of rage is (%d+)%% faster"] = function(num) return { mod("InherentRageLoss", "INC", num) } end,
+	["no inherent loss of rage"] = { flag("InherentRageLossIsPrevented") },
 	["inherent rage loss starts (%d+) seconds? later"] = function(num) return { mod("InherentRageLossDelay", "BASE", num) } end,
 	["your critical damage bonus is (%d+)%%"] = function(num) return { mod("CritMultiplier", "OVERRIDE", num) } end,
 	["base critical hit chance for attacks with weapons is ([%d%.]+)%%"] = function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,
@@ -6226,13 +6234,13 @@ end
 -- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
 specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
 	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
-	
+
 	-- look for static or dynamically phrased base immunity mod
 	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
 	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
 	local lowerAilment = ailment and string.lower(ailment) or ""
 	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
-	
+
 	-- look if condition exists
 	-- todo make more dynamic
 	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
@@ -6774,7 +6782,7 @@ local function parseMod(line, order)
 			effect = getEffectFromStatus(effectLine)
 			effect = combineToUpper(effect)
 		end
-		
+
 		if type(effect) == "table" then
 			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
 			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }

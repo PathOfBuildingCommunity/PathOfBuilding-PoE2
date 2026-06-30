@@ -1131,8 +1131,7 @@ c["10% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifie
 c["10% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=10}},nil}
 c["10% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed if you've Attacked Recently"]={{[1]={[1]={type="Condition",var="AttackedRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["10% increased Cast Speed if you've used a Mana Flask Recently"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},"  if you've used a Mana Flask Recently "}
-c["10% increased Cast Speed if you've used a Mana Flask Recently Mana Flasks gain 0.1 charges per Second"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},"  if you've used a Mana Flask Recently Mana Flasks gain 0.1 charges per Second "}
+c["10% increased Cast Speed if you've used a Mana Flask Recently"]={{[1]={[1]={type="Condition",var="UsingManaFlask"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed while Chilled"]={{[1]={[1]={type="Condition",var="Chilled"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Cast Speed while Ignited"]={{[1]={[1]={type="Condition",var="Ignited"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
@@ -5415,7 +5414,7 @@ c["Fork an additional time Chain an additional time Chain from Terrain an additi
 c["Fork an additional time Chain an additional time Chain from Terrain an additional time Cannot collide with targets"]={nil,"Fork an additional time Chain an additional time Chain from Terrain an additional time Cannot collide with targets "}
 c["Frenzy or Power Charge"]={nil,"Frenzy or Power Charge "}
 c["Fully Armour Broken enemies you kill with Hits Shatter"]={nil,"Fully Armour Broken enemies you kill with Hits Shatter "}
-c["Fully Broken Armour you inflict also increases Cold and Lightning Damage Taken from Hits"]={nil,"Fully Broken Armour you inflict also increases Cold and Lightning Damage Taken from Hits "}
+c["Fully Broken Armour you inflict also increases Cold and Lightning Damage Taken from Hits"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakColdDamageTaken",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ArmourBreakLightningDamageTaken",type="FLAG",value=true}},nil}
 c["Fully Broken Armour you inflict also increases Fire Damage Taken from Hits"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakFireDamageTaken",type="FLAG",value=true}},nil}
 c["Fully Broken Armour you inflict increases all Damage Taken from Hits instead"]={{[1]={[1]={effectName="ImplodingImpacts",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="FullyBrokenArmourIncreasesAllDamageFromHits",type="FLAG",value=true}},nil}
 c["Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again"]={{[1]={flags=0,keywordFlags=0,name="Condition:HaveGamblesprint",type="FLAG",value=true}},nil}
@@ -5901,7 +5900,7 @@ c["Grants effect of Guided Freezing Shrine"]={nil,"Grants effect of Guided Freez
 c["Grants effect of Guided Meteoric Shrine"]={nil,"Grants effect of Guided Meteoric Shrine "}
 c["Grants effect of Guided Tempest Shrine"]={nil,"Grants effect of Guided Tempest Shrine "}
 c["Grants up to your maximum Rage on use"]={nil,"Grants up to your maximum Rage on use "}
-c["Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"Green: 40% less Movement Speed Penalty from using Skills while Moving "}
+c["Green: 40% less Movement Speed Penalty from using Skills while Moving"]={{[1]={[1]={type="Condition",var="MostNumerousGreenSocketedSupports"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-40}},nil}
 c["Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=159,type="SkillType"},flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
 c["Grenade Skills have +1 Cooldown Use"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value=1}},nil}
 c["Grenades have 15% chance to activate a second time"]={{[1]={[1]={skillType=159,type="SkillType"},flags=0,keywordFlags=0,name="GrenadeActivateTwice",type="BASE",value=15}},nil}
@@ -6325,11 +6324,7 @@ c["Necromantic Talisman"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LI
 c["Never deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}},nil}
 c["No Charge requirement for placing Totems"]={nil,"No Charge requirement for placing Totems "}
 c["No Charge requirement for placing Totems Totems reserve 75 Spirit each"]={nil,"No Charge requirement for placing Totems Totems reserve 75 Spirit each "}
-c["No Inherent loss of Rage"]={nil,"No Inherent loss of Rage "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost +7 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCost",type="BASE",value=7}},"No Inherent loss of  Regenerate 6% of your  per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage  to Maximum Rage "}
+c["No Inherent loss of Rage"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLossIsPrevented",type="FLAG",value=true}},nil}
 c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage during effect "}
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
 c["No Movement Speed Penalty while Shield is Raised"]={{[1]={[1]={skillType=262,type="SkillType"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-100}},nil}
@@ -6973,7 +6968,7 @@ c["You can only Socket Sapphire Jewels in this item"]={{[1]={flags=0,keywordFlag
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Recover Energy Shield from Regeneration"]={nil,"You cannot Recover Energy Shield from Regeneration "}
 c["You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour "}
-c["You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield to above Armour "}
+c["You cannot Recover Energy Shield to above Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourESRecoveryCap",type="FLAG",value=true}},nil}
 c["You cannot Sprint"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotSprint",type="FLAG",value=true}},nil}
 c["You cannot be Chilled for 6 seconds after being Chilled"]={nil,"You cannot be Chilled for 6 seconds after being Chilled "}
 c["You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen"]={nil,"You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen "}
