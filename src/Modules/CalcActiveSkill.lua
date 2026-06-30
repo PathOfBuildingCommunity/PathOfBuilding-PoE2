@@ -668,7 +668,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Calculate distance from enemy
-	effectiveRange = env.configInput.enemyDistance
+	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
 	activeSkill.skillCfg = {
