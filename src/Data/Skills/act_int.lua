@@ -17210,10 +17210,9 @@ skills["ShatteringPalmExplosionPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_freezing_word_explosion",
 			baseFlags = {
+				attack = true,
 				area = true,
-				nonWeaponAttack = true,
-				hit = true,
-				unarmed = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
