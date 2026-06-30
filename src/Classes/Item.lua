@@ -60,6 +60,12 @@ end
 
 local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 	if raw then
+		-- 国服 fork: auto-translate a Simplified-Chinese (WeGame) item paste to the
+		-- English text the parser expects. Must run BEFORE sanitiseText(), which
+		-- turns every CJK byte into '?'. No-op when the text has no CJK.
+		if translateChineseItem then
+			raw = translateChineseItem(raw)
+		end
 		self:ParseRaw(sanitiseText(raw), rarity, highQuality)
 	end
 end)
