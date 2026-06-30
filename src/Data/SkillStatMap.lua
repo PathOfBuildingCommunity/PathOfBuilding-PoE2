@@ -2527,6 +2527,9 @@ return {
 ["companions_are_gigantic"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
 },
+["companion_takes_%_damage_before_you_from_support"] = {
+	mod("TakenFromCompanionBeforeYou", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+},
 ["minion_damage_+%_final_per_different_elemental_ailment_on_target"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }) }),
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) }),
