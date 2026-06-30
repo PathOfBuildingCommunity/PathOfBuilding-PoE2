@@ -3699,7 +3699,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					local hitTaken = 0
 					local effectiveAppliedArmour = output[damageConvertedType.."EffectiveAppliedArmour"]
 					local damageConvertedMulti = convertPercent / 100
-					local totalHitPool = output[damageConvertedType.."TotalHitPool"] - 1
+					local totalHitPool = output[damageConvertedType.."TotalHitPool"]
 					local totalTakenMulti = output[damageConvertedType.."AfterReductionTakenHitMulti"] * (1 - output["VaalArcticArmourMitigation"])
 					if damageConvertedMulti <= 0 then
 						local takenWithoutIncoming = m_max(takenFlat, 0) * totalTakenMulti
