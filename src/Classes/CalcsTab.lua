@@ -35,6 +35,16 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.search = new("EditControl", {"TOPLEFT",self,"TOPLEFT"}, {4, 5, 260, 20}, "", "Search", "%c", 100, nil, nil, nil, true)
 	t_insert(self.controls, self.controls.search)
 
+
+	self.controls.clearSidebarLabel = new("LabelControl", {"TOPLEFT", self, "TOPLEFT"}, {425, 5, 150, 18}, "Right-click any Calcs value to pin/unpin it to the sidebar.")
+	self.controls.clearSideBarPinnedStats = new("ButtonControl", {"TOPLEFT", self, "TOPLEFT"}, {270, 5, 150, 20}, "Clear Pinned Stats", function()
+		if self.sidebarPinnedStats and #self.sidebarPinnedStats > 0 then
+			self:ClearSidebarPinnedStats()
+			return
+		end
+		
+	end)
+
 	-- Special section for skill/mode selection
 	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
 		{ label = "Socket Group", { controlName = "mainSocketGroup", 
@@ -411,6 +421,39 @@ function CalcsTabClass:SetDisplayStat(displayData, pin)
 	self.controls.breakdown:SetBreakdownData(displayData, pin)
 end
 
+function CalcsTabClass:ToggleSidebarPinnedStat(displayData)
+	if not displayData or not displayData.format then
+		return
+	end
+
+	self.sidebarPinnedStats = self.sidebarPinnedStats or { }
+
+	local displayLabel = displayData.pinnedLabel or ""
+	local displayFormat = displayData.format or ""
+
+	for index, pinned in ipairs(self.sidebarPinnedStats) do
+		local pinnedLabel = pinned.pinnedLabel or ""
+		local pinnedFormat = pinned.format or ""
+
+		if pinnedLabel == displayLabel and pinnedFormat == displayFormat then
+			table.remove(self.sidebarPinnedStats, index)
+			self.build:RefreshStatList()
+			return
+		end
+	end
+
+	table.insert(self.sidebarPinnedStats, displayData)
+
+	self.build:RefreshStatList()
+end
+
+function CalcsTabClass:ClearSidebarPinnedStats()
+	if not self.sidebarPinnedStats or #self.sidebarPinnedStats == 0 then
+		return
+	end
+	wipeTable(self.sidebarPinnedStats)
+	self.build:RefreshStatList()
+end
 function CalcsTabClass:CheckFlag(obj)
 	local actor = self.input.showMinion and self.calcsEnv.minion or self.calcsEnv.player
 	local skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags
