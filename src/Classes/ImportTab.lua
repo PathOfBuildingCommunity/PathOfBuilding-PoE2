@@ -860,6 +860,7 @@ local function snapshotSocketGroupReimportState(socketGroup, isMainGroup)
 			skillMinionSkillCalcs = gem.skillMinionSkillCalcs,
 			skillMinionSkillStatSetIndexLookup = gem.skillMinionSkillStatSetIndexLookup and copyTable(gem.skillMinionSkillStatSetIndexLookup),
 			skillMinionSkillStatSetIndexLookupCalcs = gem.skillMinionSkillStatSetIndexLookupCalcs and copyTable(gem.skillMinionSkillStatSetIndexLookupCalcs),
+			tamedBeastModList = gem.tamedBeastModList and copyTable(gem.tamedBeastModList),
 			enableGlobal1 = gem.enableGlobal1,
 			enableGlobal2 = gem.enableGlobal2,
 		}
@@ -895,6 +896,23 @@ local function applyGemReimportState(gem, state)
 	gem.skillMinionSkillCalcs = state.skillMinionSkillCalcs
 	gem.skillMinionSkillStatSetIndexLookup = state.skillMinionSkillStatSetIndexLookup and copyTable(state.skillMinionSkillStatSetIndexLookup)
 	gem.skillMinionSkillStatSetIndexLookupCalcs = state.skillMinionSkillStatSetIndexLookupCalcs and copyTable(state.skillMinionSkillStatSetIndexLookupCalcs)
+	if state.tamedBeastModList then
+		if gem.tamedBeastModList then
+			local preservedEnabled = { }
+			for _, entry in ipairs(state.tamedBeastModList) do
+				if entry.modId and entry.enabled ~= nil then
+					preservedEnabled[entry.modId] = entry.enabled
+				end
+			end
+			for _, entry in ipairs(gem.tamedBeastModList) do
+				if entry.modId and preservedEnabled[entry.modId] ~= nil then
+					entry.enabled = preservedEnabled[entry.modId]
+				end
+			end
+		else
+			gem.tamedBeastModList = copyTable(state.tamedBeastModList)
+		end
+	end
 	gem.enableGlobal1 = state.enableGlobal1
 	gem.enableGlobal2 = state.enableGlobal2
 end
@@ -913,6 +931,28 @@ local function applySocketGroupReimportState(socketGroup, state)
 			end
 		end
 	end
+end
+
+-- Parses the "tamedBeastProperties" field on rare tamed beast Companion gems into a list of
+-- { modId, display, enabled } entries. Each newline-separated line is one rolled monster mod;
+-- most lead with a "[ModId|Display]" token, the rest are matched by display line.
+function ImportTabClass:ParseTamedBeastProperties(tamedBeastProperties)
+	local data = self.build.data
+	local list = { }
+	for _, property in ipairs(tamedBeastProperties or { }) do
+		local text = property.values and property.values[1] and property.values[1][1]
+		if type(text) == "string" then
+			for line in text:gmatch("[^\n]+") do
+				local display = escapeGGGString(line)
+				local modId = line:match("^%[([%w_]+)|[^%]]*%]$")
+				if not (modId and data.tamedBeastMods[modId]) then
+					modId = data.tamedBeastModsByDisplay[data.normaliseBeastModLine(display)]
+				end
+				t_insert(list, { modId = modId, display = display, enabled = true })
+			end
+		end
+	end
+	return list[1] and list or nil
 end
 
 function ImportTabClass:ImportItemsAndSkills(charData)
@@ -1035,6 +1075,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 						break
 					end
 				end
+				gemInstance.tamedBeastModList = self:ParseTamedBeastProperties(skillData.tamedBeastProperties)
 			end
 
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
