@@ -314,7 +314,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	end
 
 	-- Merge one captured calc pass into the Full DPS totals
-		local function mergePass(pass)
+	local function mergePass(pass)
 		for _, actor in ipairs(pass.actors) do
 			local out = actor.out
 			if out.TotalDPS and out.TotalDPS > 0 then
