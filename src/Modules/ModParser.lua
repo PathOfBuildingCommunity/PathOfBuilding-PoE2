@@ -5847,6 +5847,7 @@ local specialModList = {
 	["rage grants spell damage instead of attack damage"] = { flag("Condition:RageSpellDamage") },
 	["inherent loss of rage is (%d+)%% slower"] = function(num) return { mod("InherentRageLoss", "INC", -num) } end,
 	["inherent loss of rage is (%d+)%% faster"] = function(num) return { mod("InherentRageLoss", "INC", num) } end,
+	["no inherent loss of rage"] = { flag("InherentRageLossIsPrevented") },
 	["inherent rage loss starts (%d+) seconds? later"] = function(num) return { mod("InherentRageLossDelay", "BASE", num) } end,
 	["your critical damage bonus is (%d+)%%"] = function(num) return { mod("CritMultiplier", "OVERRIDE", num) } end,
 	["base critical hit chance for attacks with weapons is ([%d%.]+)%%"] = function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,

@@ -6324,11 +6324,7 @@ c["Necromantic Talisman"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LI
 c["Never deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}},nil}
 c["No Charge requirement for placing Totems"]={nil,"No Charge requirement for placing Totems "}
 c["No Charge requirement for placing Totems Totems reserve 75 Spirit each"]={nil,"No Charge requirement for placing Totems Totems reserve 75 Spirit each "}
-c["No Inherent loss of Rage"]={nil,"No Inherent loss of Rage "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost"]={nil,"No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost "}
-c["No Inherent loss of Rage Regenerate 6% of your maximum Rage per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage cost +7 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCost",type="BASE",value=7}},"No Inherent loss of  Regenerate 6% of your  per second Increases and Reductions to Mana Regeneration Rate also apply to Rage Regeneration Rate Skills have +5 to Rage  to Maximum Rage "}
+c["No Inherent loss of Rage"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLossIsPrevented",type="FLAG",value=true}},nil}
 c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage during effect "}
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
 c["No Movement Speed Penalty while Shield is Raised"]={{[1]={[1]={skillType=262,type="SkillType"},flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-100}},nil}
