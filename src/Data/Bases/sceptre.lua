@@ -20,7 +20,7 @@ itemBases["Stoic Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Discipline",
 	implicitModTypes = { },
-	req = { int = 12, },
+	req = { level = 6, int = 12, },
 }
 itemBases["Lupine Sceptre"] = {
 	type = "Sceptre",
@@ -30,7 +30,7 @@ itemBases["Lupine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 24, },
+	req = { level = 12, int = 24, },
 }
 itemBases["Omen Sceptre"] = {
 	type = "Sceptre",
@@ -40,7 +40,7 @@ itemBases["Omen Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Malice",
 	implicitModTypes = { },
-	req = { str = 12, int = 25, },
+	req = { level = 16, str = 12, int = 25, },
 }
 itemBases["Ochre Sceptre"] = {
 	type = "Sceptre",
@@ -50,7 +50,7 @@ itemBases["Ochre Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 40, },
+	req = { level = 21, int = 40, },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
@@ -60,7 +60,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
@@ -70,7 +70,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
@@ -80,7 +80,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Devouring Sceptre"] = {
 	type = "Sceptre",
@@ -90,7 +90,7 @@ itemBases["Devouring Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 60, },
+	req = { level = 33, int = 60, },
 }
 itemBases["Clasped Sceptre"] = {
 	type = "Sceptre",
@@ -100,7 +100,7 @@ itemBases["Clasped Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Heart of Ice",
 	implicitModTypes = { },
-	req = { int = 65, },
+	req = { level = 36, int = 65, },
 }
 itemBases["Devotional Sceptre"] = {
 	type = "Sceptre",
@@ -110,7 +110,7 @@ itemBases["Devotional Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { str = 26, int = 63, },
+	req = { level = 45, str = 26, int = 63, },
 }
 itemBases["Wrath Sceptre"] = {
 	type = "Sceptre",
@@ -120,7 +120,7 @@ itemBases["Wrath Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Fulmination",
 	implicitModTypes = { },
-	req = { int = 87, },
+	req = { level = 49, int = 87, },
 }
 itemBases["Aromatic Sceptre"] = {
 	type = "Sceptre",
@@ -130,7 +130,7 @@ itemBases["Aromatic Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 92, },
+	req = { level = 52, int = 92, },
 }
 itemBases["Pious Sceptre"] = {
 	type = "Sceptre",
@@ -140,7 +140,7 @@ itemBases["Pious Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 102, },
+	req = { level = 58, int = 102, },
 }
 itemBases["Hallowed Sceptre"] = {
 	type = "Sceptre",
@@ -150,7 +150,7 @@ itemBases["Hallowed Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 
 itemBases["Shrine Sceptre"] = {
@@ -162,7 +162,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
@@ -173,7 +173,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
@@ -184,7 +184,7 @@ itemBases["Shrine Sceptre"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 
 itemBases["Shrine Sceptre (Purity of Fire)"] = {
@@ -195,7 +195,7 @@ itemBases["Shrine Sceptre (Purity of Fire)"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre (Purity of Cold)"] = {
 	type = "Sceptre",
@@ -205,7 +205,7 @@ itemBases["Shrine Sceptre (Purity of Cold)"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }
 itemBases["Shrine Sceptre (Purity of Lighting)"] = {
 	type = "Sceptre",
@@ -215,5 +215,5 @@ itemBases["Shrine Sceptre (Purity of Lighting)"] = {
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
 	implicitModTypes = { },
-	req = { str = 17, int = 38, },
+	req = { level = 26, str = 17, int = 38, },
 }

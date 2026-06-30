@@ -112,6 +112,7 @@ Enemies in your Presence Resist Elemental Damage based on their Lowest Resistanc
 Sylvan's Effigy
 Stoic Sceptre
 League: Runes of Aldur
+Requires Level 62
 Implicits: 2
 Grants Skill: Level (1-20) Discipline
 Grants Skill: Level (1-20) Azmerian Wolf

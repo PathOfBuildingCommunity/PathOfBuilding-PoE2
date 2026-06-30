@@ -111,6 +111,7 @@ UniqueEnemiesInPresenceLowestResistance1
 Sylvan's Effigy
 Stoic Sceptre
 League: Runes of Aldur
+Requires Level 62
 Implicits: 2
 Grants Skill: Level (1-20) Discipline
 Grants Skill: Level (1-20) Azmerian Wolf

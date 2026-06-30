@@ -48,7 +48,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.logoutApiButton.shown = function()
 		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
 	end
-	
+
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
 	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 200 end
 
@@ -442,7 +442,7 @@ function ImportTabClass:DownloadCharacterList()
 			return "Standard"
 		end
 	end
-	
+
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
@@ -954,10 +954,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	local funcGetGemInstance = function(skillData)
 		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
-		
+
 		if typeLine:match("^Spectre:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
-		end		
+		end
 		if typeLine:match("^Companion:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
@@ -1061,7 +1061,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	end
 	for _, skillData in pairs(charData.skills) do
 		local gemInstance = funcGetGemInstance(skillData)
-		
+
 		if gemInstance then
 			local group = { label = "", enabled = true, gemList = { } }
 			t_insert(group.gemList, gemInstance )
@@ -1291,6 +1291,9 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.requirements and (not itemData.socketedItems or not itemData.socketedItems[1]) then
 		-- Requirements cannot be trusted if there are socketed gems, as they may override the item's natural requirements
+		-- This means some uniques will not import Level requirement properly for now. We probably need to compare the level to the equipped rune levels,
+		-- and only accept the imported level if it's higher than the runes. Problem with that, when we remove the runes, the required level will drop back
+		-- to the base item level. Which is sometimes incorrect for uniques (they can be higher than the base, like Sylvan's Effigy)
 		item.requirements = { }
 		for _, req in ipairs(itemData.requirements) do
 			if req.name == "Level" then
