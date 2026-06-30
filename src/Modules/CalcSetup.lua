@@ -1933,7 +1933,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = gemName and ((group.displayLabel and group.displayLabel..", " or "") .. (gemName) or grantedEffect.name)
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. (gemName or grantedEffect.name)
 							end
 						end
 					end
