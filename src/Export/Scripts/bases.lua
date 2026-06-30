@@ -371,7 +371,7 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	out:write('},\n}\n')
-	
+
 	if not hidden then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""

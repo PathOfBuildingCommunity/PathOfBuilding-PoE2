@@ -3478,16 +3478,16 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
 		if armour > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, base.armour.ArmourBase), armour), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, base.armour.Armour), armour), "FONTIN SC")
 		end
 		if evasion > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, base.armour.EvasionBase), evasion), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, base.armour.Evasion), evasion), "FONTIN SC")
 		end
 		if energyShield > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, base.armour.EnergyShieldBase), energyShield), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, base.armour.EnergyShield), energyShield), "FONTIN SC")
 		end
 		if ward > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, base.armour.WardBase), ward), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, base.armour.Ward), ward), "FONTIN SC")
 		end
 	elseif base.flask then
 		-- Flask-specific info

@@ -48,7 +48,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.logoutApiButton.shown = function()
 		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
 	end
-	
+
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
 	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 200 end
 
@@ -442,7 +442,7 @@ function ImportTabClass:DownloadCharacterList()
 			return "Standard"
 		end
 	end
-	
+
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
@@ -954,10 +954,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	local funcGetGemInstance = function(skillData)
 		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
-		
+
 		if typeLine:match("^Spectre:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
-		end		
+		end
 		if typeLine:match("^Companion:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
@@ -1061,7 +1061,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	end
 	for _, skillData in pairs(charData.skills) do
 		local gemInstance = funcGetGemInstance(skillData)
-		
+
 		if gemInstance then
 			local group = { label = "", enabled = true, gemList = { } }
 			t_insert(group.gemList, gemInstance )

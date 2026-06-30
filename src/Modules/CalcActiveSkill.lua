@@ -696,7 +696,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- The damage fixup stat applies x% less base Attack Damage and x% more base Attack Speed as confirmed by Openarl Jan 4th 2024
-	-- Implemented in this manner as the stat exists on the minion not the skills 
+	-- Implemented in this manner as the stat exists on the minion not the skills
 	if activeSkill.actor and activeSkill.actor.minionData then
 		if activeSkill.actor.minionData.damageFixup then
 			skillModList:NewMod("Damage", "MORE", -100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)

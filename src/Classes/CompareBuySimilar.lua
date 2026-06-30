@@ -472,7 +472,7 @@ function M.openPopup(item, slotName, primaryBuild)
 			end
 			displayTexts[index] = displayText
 		end
-		
+
 
 		local displayText = table.concat(displayTexts, "\n")
 		-- labels anchor based on the first row instead of the middle row, so adjust upwards

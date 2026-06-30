@@ -170,7 +170,7 @@ local modNameList = {
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
 	["tribute"] = "Tribute",
-	-- Life/Mana/Spirit/Darkness
+	-- Life/Mana/Spirit/Runic Ward/Darkness
 	["maximum darkness"] = "Darkness",
 	["spirit"] = "Spirit",
 	["maximum spirit"] = "Spirit",
@@ -183,6 +183,7 @@ local modNameList = {
 	["maximum mana"] = "Mana",
 	["mana regeneration"] = "ManaRegen",
 	["mana regeneration rate"] = "ManaRegen",
+	["runic ward regeneration rate"] = "WardRegen",
 	["mana cost"] = "ManaCost",
 	["mana cost of"] = "ManaCost",
 	["mana cost of skills"] = "ManaCost",
@@ -208,6 +209,7 @@ local modNameList = {
 	["life cost efficiency of skills"] = "LifeCostEfficiency",
 	["spirit cost efficiency"] = "SpiritCostEfficiency",
 	["spirit cost efficiency of skills"] = "SpiritCostEfficiency",
+	["runic ward cost efficiency"] = "WardCostEfficiency",
 	["energy shield cost efficiency"] = "ESCostEfficiency",
 	["energy shield cost efficiency of skills"] = "ESCostEfficiency",
 	["es cost efficiency"] = "ESCostEfficiency",
@@ -242,7 +244,8 @@ local modNameList = {
 	["evasion"] = "Evasion",
 	["evasion rating"] = "Evasion",
 	["energy shield"] = "EnergyShield",
-	["ward"] = "Ward",
+	["runic ward"] = "Ward",
+	["maximum runic ward"] = "Ward",
 	["armour and evasion"] = "ArmourAndEvasion",
 	["armour and evasion rating"] = "ArmourAndEvasion",
 	["evasion rating and armour"] = "ArmourAndEvasion",
@@ -250,7 +253,7 @@ local modNameList = {
 	["evasion rating and energy shield"] = "EvasionAndEnergyShield",
 	["global evasion rating and energy shield"] = { "Evasion", "EnergyShield" },
 	["evasion and energy shield"] = "EvasionAndEnergyShield",
-	["armour, evasion and energy shield"] = "Defences",
+	["armour, evasion and energy shield"] = { "Armour", "Evasion", "EnergyShield" },
 	["defences"] = "Defences",
 	["to evade"] = "EvadeChance",
 	["chance to evade"] = "EvadeChance",
@@ -1600,6 +1603,8 @@ local modTagList = {
 	["per (%d+) of maximum life or maximum mana, whichever is lower"] = function(num) return { tag = { type = "PerStat", stat = "LowestOfMaximumLifeAndMaximumMana", div = num } } end,
 	["per (%d+) player maximum life"] = function(num) return { tag = { type = "PerStat", stat = "Life", div = num, actor = "parent" } } end,
 	["per (%d+) life cost"] = function(num) return { tag = { type = "PerStat", stat = "LifeCost", div = num}} end,
+	["per (%d+) runic ward cost"] = function(num) return { tag = { type = "PerStat", stat = "WardCost", div = num}} end,
+	["per (%d+) maximum runic ward"] = function(num) return { tag = { type = "PerStat", stat = "Ward", div = num } } end,
 	["per (%d+) maximum mana"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["per (%d+) maximum mana, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
 	["per (%d+) maximum mana, up to a maximum of (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
@@ -1781,6 +1786,8 @@ local modTagList = {
 	["if used while y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["on reaching low life"] = { tag = { type = "Condition", var = "LowLife" } },
+	["while you are missing runic ward"] = { tag = { type = "Condition", var = "MissingRunicWard" } },
+	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low runic ward"] = { tag = { type = "Condition", var = "LowRunicWard" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?not on low life"] = { tag = { type = "Condition", var = "LowLife", neg = true } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
 	["if y?o?u?%s?a?r?e?%s?on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
@@ -2392,6 +2399,7 @@ local specialModList = {
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
+	["mana recovery from regeneration is also applied to runic ward"] = { flag("RuneOfEquinox") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life regeneration has no effect"] = { flag("NoLifeRegen") },
 	["life recharges instead of energy shield"] = { flag("EnergyShieldRechargeAppliesToLife") },
@@ -2529,7 +2537,7 @@ local specialModList = {
 	["auras from your skills have (%d+)%% increased effect on you"] = function(num) return { mod("SkillAuraEffectOnSelf", "INC", num) } end,
 	["increases and reductions to mana regeneration rate instead apply to rage regeneration rate"] = { flag("ManaRegenToRageRegen") },
 	["increases and reductions to maximum energy shield instead apply to ward"] = { flag("EnergyShieldToWard") },
-	["(%d+)%% of damage taken bypasses ward"] = function(num) return { mod("WardBypass", "BASE", num) } end,
+	["all damage taken bypasses runic ward"] = { mod("WardBypass", "BASE", 100) },
 	["maximum energy shield is (%d+)"] = function(num) return { mod("EnergyShield", "OVERRIDE", num ) } end,
 	["cannot have energy shield"] = { flag("CannotHaveES") },
 	["regenerate ([%d%.]+) life per second per maximum energy shield"] = function(num) return {
@@ -5036,6 +5044,7 @@ local specialModList = {
 	["damage t?a?k?e?n? from blocked hits cannot bypass energy shield"] = { flag("BlockedDamageDoesntBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["damage t?a?k?e?n? from unblocked hits always bypasses energy shield"] = { flag("UnblockedDamageDoesBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["recover (%d+) life when you block"] = function(num) return { mod("LifeOnBlock", "BASE", num) } end,
+	["recover (%d+) runic ward when you block"] = function(num) return { mod("WardOnBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you block spell damage"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you suppress spell damage"] = function(num) return { mod("EnergyShieldOnSuppress", "BASE", num) } end,
 	["recover (%d+) life when you suppress spell damage"] = function(num) return { mod("LifeOnSuppress", "BASE", num) } end,
@@ -6225,13 +6234,13 @@ end
 -- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
 specialModList["immune to (.-) w?h?i[lf]e? (.*)"] = = function(_, debuff, cond)
 	-- NOTE: this only handles cases for which unconditional immunity mods exist to avoid false positives that don't actually get calculated
-	
+
 	-- look for static or dynamically phrased base immunity mod
 	local searchPrefix1 = "immun[ei]t?y? to " .. ailment and string.lower(debuff)
 	local searchPrefix2 = "immune to " .. ailment and string.lower(debuff)
 	local lowerAilment = ailment and string.lower(ailment) or ""
 	local validDebuff = (specialModList[searchPrefix1 .. lowerAilment] or specialModList[searchPrefix2 .. lowerAilment]) and true or false
-	
+
 	-- look if condition exists
 	-- todo make more dynamic
 	local tagKey = (validDebuff and cond) and "while " .. string.lower(cond)
@@ -6282,6 +6291,7 @@ local suffixTypes = {
 	["converted to chaos damage"] = "ConvertToChaos",
 	["added as energy shield"] = "GainAsEnergyShield",
 	["as extra maximum energy shield"] = "GainAsEnergyShield",
+	["as extra maximum runic ward"] = "GainAsWard",
 	["converted to energy shield"] = "ConvertToEnergyShield",
 	["as armour"] = "GainAsArmour",
 	["as extra armour"] = "GainAsArmour",
@@ -6318,6 +6328,7 @@ local resourceTypes = {
 	["life"] = "Life",
 	["mana"] = "Mana",
 	["energy shield"] = "EnergyShield",
+	["runic ward"] = "Ward",
 	["life and mana"] = { "Life", "Mana" },
 	["life and energy shield"] = { "Life", "EnergyShield" },
 	["life, mana and energy shield"] = { "Life", "Mana", "EnergyShield" },
@@ -6773,7 +6784,7 @@ local function parseMod(line, order)
 			effect = getEffectFromStatus(effectLine)
 			effect = combineToUpper(effect)
 		end
-		
+
 		if type(effect) == "table" then
 			modName = { effect[1] .. "Immune", effect[2] .. "Immune" }
 			modType = { type(modValue) == "table" and modValue.type or "FLAG", type(modValue) == "table" and modValue.type or "FLAG" }

@@ -117,7 +117,7 @@ function main:Init()
 	self.showAllItemAffixes = true
 	self.disableScrollControlInteraction = false
 	self.errorReadingSettings = false
-	
+
 	if not SetDPIScaleOverridePercent then SetDPIScaleOverridePercent = function(scale) end end
 
 	if launch.devMode and IsKeyDown("CTRL") or os.getenv("REGENERATE_MOD_CACHE") == "1" then
@@ -469,7 +469,7 @@ function main:OnFrame()
 	SetDrawColor(0, 0, 0)
 	DrawImage(nil, par + 500, 200, 2, 750)
 	DrawImage(nil, 500, par + 200, 759, 2)]]
-	
+
 	if self.inputEvents and not itemLib.wiki.triggered then
 		for _, event in ipairs(self.inputEvents) do
 			if event.type == "KeyUp" and event.key == "F1" then
@@ -893,7 +893,7 @@ function main:OpenOptionsPopup(savedState)
 	-- NOTE: Height needs to be adjusted if more menu options are added
 	local oneColumnHeightReq = 850 -- Min height required to not split menu into two columns
 	local columnWidth = 600
-	
+
 	local startingY = 20
 	local currentY = startingY
 	local currentX = 0 -- initialized at `0`, only used for two-column layouts
@@ -902,7 +902,7 @@ function main:OpenOptionsPopup(savedState)
 	local useTwoColumns = self.screenH < oneColumnHeightReq and self.screenW >= columnWidth * 2
 	local useScrollBar = self.screenH < oneColumnHeightReq and not useTwoColumns
 	local scrollBarWidth = useScrollBar and 18 or 0
-	
+
 	local popupWidth = useTwoColumns and columnWidth * 2 or columnWidth
 
 	-- Scrollbar anchor
@@ -1053,7 +1053,7 @@ function main:OpenOptionsPopup(savedState)
 	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
 		self.showAnimations = state
 	end)
-	
+
 	nextRow()
 	controls.showAllItemAffixes = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show all item affixes sliders:", function(state)
 		self.showAllItemAffixes = state
@@ -1067,7 +1067,7 @@ function main:OpenOptionsPopup(savedState)
 	controls.disableScrollControlInteraction.tooltipText = "Disable changing the values in controls such as dropdowns or numeric inputs when using the scroll wheel."
 
 	nextRow()
-	
+
 	local leftColumnMaxY = currentY -- store left column height
 
 	-- Check for two column layout
@@ -1150,21 +1150,21 @@ function main:OpenOptionsPopup(savedState)
 	end)
 	controls.migrateAugments.tooltipText = "Apply augments and anoints from current gear when comparing new gear, given they are possible to add to the new item."
 	controls.migrateAugments.state = self.migrateAugments
-	
+
 	nextRow()
 	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
 		self.notSupportedModTooltips = state
 	end)
 	controls.notSupportedModTooltips.tooltipText = "Show ^8(Not supported in PoB yet) ^7next to unsupported mods\nRequires PoB to restart for it to take effect"
 	controls.notSupportedModTooltips.state = self.notSupportedModTooltips
-	
+
 	nextRow()
 	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
 		self.invertSliderScrollDirection = state
 	end)
 	controls.invertSliderScrollDirection.tooltipText = "Default scroll direction is:\nScroll Up = Move right\nScroll Down = Move left"
 	controls.invertSliderScrollDirection.state = self.invertSliderScrollDirection
-	
+
 	if launch.devMode then
 		nextRow()
 		controls.disableDevAutoSave = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Disable Dev AutoSave:", function(state)
@@ -1248,14 +1248,14 @@ function main:OpenOptionsPopup(savedState)
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
-	
+
 	local popupHeight = useScrollBar and (self.screenH - 20) or currentY + 30
-	
+
 	if useScrollBar then
 		controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-2, 25, scrollBarWidth, popupHeight - 65}, 50, "VERTICAL", true)
 		controls.scrollBar:SetContentDimension(currentY, popupHeight - 65)
 	end
-	
+
 	local function scrollBarFunc()
 		if useScrollBar then
 			controls.sectionAnchor.y = -controls.scrollBar.offset
@@ -1564,7 +1564,7 @@ end
 function main:StatColor(stat, base, limit)
 	if limit and stat > limit then
 		return colorCodes.NEGATIVE
-	elseif base and stat ~= base then
+	elseif stat ~= base then
 		return colorCodes.MAGIC
 	else
 		return "^7"
@@ -1678,7 +1678,7 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 		numMsgLines = numMsgLines + 1
 	end
 	local confirmWidth = m_max(80, DrawStringWidth(16, "VAR", confirmLabel) + 10)
-	
+
 	if extraLabel and onExtra then
 		-- Three button layout: Continue (left), Connect Path (center), Cancel (right)
 		local extraWidth = m_max(80, DrawStringWidth(16, "VAR", extraLabel) + 10)
