@@ -210,6 +210,10 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
+	{ label = "Arc:", ifSkill = "Arc"},
+	{ var = "arcLightningInfused", type = "check", label = "Lightning Infused?", ifSkill = "Arc", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ArcLightningInfused", "FLAG", true, "Config", { type = "Condition", var = "CannotConsumeInfusion", neg = true })
+	end },
 	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
 	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
@@ -246,11 +250,6 @@ local configSettings = {
 	end },
 	{ var = "bannerValour", type = "count", label = "Banner Valour:", tooltip = "The amount of valour consumed for the placed banner", ifSkill = { "Dread Banner", "War Banner", "Defiance Banner" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:ValourStacks", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })
-	end },
-	{ label = "Barkskin:", ifSkill = "Barkskin" },
-	{ var = "barkskinStacks", type = "count", label = "# of Barkskin Stacks:", ifSkill = "Barkskin", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:BarkskinStacks", "BASE",  m_min(val, 10), "Config")
-		modList:NewMod("Multiplier:MissingBarkskinStacks", "BASE", m_max(-val, -10), "Config")
 	end },
 	{ label = "Unbound Avatar:", ifSkill = "Unbound Avatar" },
 	{ var = "Unbound", type = "check", label = "Are you Unbound?", ifSkill = "Unbound Avatar", apply = function(val, modList, enemyModList)
@@ -343,6 +342,7 @@ local configSettings = {
 	end },
 	{ label = "Demon Form:", ifSkill = "Demon Form" },
 	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, tooltip = "Players need a minimum of 2 ^xE05030Life ^7to enter Demon Form, so you cannot use it with Chaos Inoculation", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
 		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "StatThreshold", stat = "Life", threshold = 2 })
 	end },
 	{ var = "demonFormStacks", type = "count", label = "Demonflame Stacks", ifSkill = "Demon Form", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
@@ -1265,9 +1265,7 @@ Huge sets the radius to 11.
 		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
 	{ var = "conditionShapeshifted", type = "check", label = "Currently Shapeshifted?", apply = function(val, modList, enemyModList)
-		if val then
-			modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
-		end
+		modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
 	end },
 	{ var = "conditionShapeshiftToAnimal", type = "check", label = "Shapeshifted to animal recently?", ifSkillType = { SkillType.Bear, SkillType.Wolf, SkillType.Wyvern }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ShapeshiftToAnimal", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1559,7 +1557,7 @@ Huge sets the radius to 11.
 	{ var = "conditionKilledUniqueEnemy", type = "check", label = "Killed a Rare or Unique enemy Recently?", ifCond = "KilledUniqueEnemy", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:KilledUniqueEnemy", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "BlockedPast10Sec", type = "count", label = "Number of times you've Blocked in the past 10s", ifCond = "BlockedHitFromUniqueEnemyInPast10Sec", apply = function(val, modList, enemyModList)
+	{ var = "multiplierBlockedPast10Sec", type = "count", label = "Number of times you've Blocked in the past 10s", ifMult = "BlockedPast10Sec", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BlockedPast10Sec", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionImpaledRecently", type = "check", ifCond = "ImpaledRecently", label = "Impaled an enemy recently?", apply = function(val, modList, enemyModLIst)
@@ -1574,7 +1572,7 @@ Huge sets the radius to 11.
 	{ var = "conditionHaveArborix", type = "check", label = "Do you have Iron Reflexes?", ifFlag = "Condition:HaveArborix", tooltip = "This option is specific to Arborix.",apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveIronReflexes", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Keystone", "LIST", "Iron Reflexes", "Config")
-	end },	
+	end },
 	{ var = "conditionHaveAugyre", type = "list", label = "Augyre rotating buff:", ifFlag = "Condition:HaveAugyre", list = {{val="EleOverload",label="Elemental Overload"},{val="ResTechnique",label="Resolute Technique"}}, tooltip = "This option is specific to Augyre.", apply = function(val, modList, enemyModList)
 		if val == "EleOverload" then
 			modList:NewMod("Condition:HaveElementalOverload", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1583,7 +1581,7 @@ Huge sets the radius to 11.
 			modList:NewMod("Condition:HaveResoluteTechnique", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 			modList:NewMod("Keystone", "LIST", "Resolute Technique", "Config")
 		end
-	end },	
+	end },
 	{ var = "conditionHaveVulconus", type = "check", label = "Do you have Avatar Of Fire?", ifFlag = "Condition:HaveVulconus", tooltip = "This option is specific to Vulconus.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveAvatarOfFire", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Keystone", "LIST", "Avatar of Fire", "Config")
@@ -2183,7 +2181,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyColdDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyFireDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyChaosDamage']:SetPlaceholder(defaultDamage, true)
-			
+
 			local rollRangeMult = m_min(m_max(build.configTab.input['enemyDamageRollRange'] or build.configTab.varControls['enemyDamageRollRange'].placeholder, 0), 100)
 			for damageType, damageMult in pairs(bossData.DamageMultipliers) do
 				if isUber and bossData.UberDamageMultiplier then
@@ -2198,7 +2196,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyLightningPen']:SetPlaceholder(defaultPen, true)
 			build.configTab.varControls['enemyColdPen']:SetPlaceholder(defaultPen, true)
 			build.configTab.varControls['enemyFirePen']:SetPlaceholder(defaultPen, true)
-			
+
 			if bossData.DamagePenetrations then
 				for penType, pen in pairs(bossData.DamagePenetrations) do
 					if isUber and bossData.UberDamagePenetrations and bossData.UberDamagePenetrations[penType] then
@@ -2208,13 +2206,13 @@ Huge sets the radius to 11.
 					end
 				end
 			end
-			
+
 			if bossData.DamageType then
 				build.configTab.varControls['enemyDamageType']:SelByValue(bossData.DamageType, "val")
 				build.configTab.input['enemyDamageType'] = bossData.DamageType
 			end
 			build.configTab.varControls['enemyDamageType'].enabled = false
-			
+
 			if isUber and bossData.UberSpeed then
 				build.configTab.varControls['enemySpeed']:SetPlaceholder(bossData.UberSpeed, true)
 			elseif bossData.speed then
@@ -2223,7 +2221,7 @@ Huge sets the radius to 11.
 			if bossData.critChance then
 				build.configTab.varControls['enemyCritChance']:SetPlaceholder(bossData.critChance, true)
 			end
-			
+
 			modList:NewMod("BossSkillActive", "FLAG", true, "Config")
 
 			-- boss specific mods
@@ -2275,7 +2273,7 @@ Huge sets the radius to 11.
 	{ var = "enemyFireDamage", type = "countAllowZero", label = "Enemy Skill ^xB97123Fire Damage:"},
 	{ var = "enemyFirePen", type = "countAllowZero", label = "Enemy Skill ^xB97123Fire Pen:"},
 	{ var = "enemyChaosDamage", type = "countAllowZero", label = "Enemy Skill ^xD02090Chaos Damage:"},
-	
+
 	-- Section: Custom mods
 	{ section = "Custom Modifiers", col = 1 },
 	{ var = "customMods", type = "text", label = "", doNotHighlight = true, resizable = true,

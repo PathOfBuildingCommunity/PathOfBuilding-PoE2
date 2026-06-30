@@ -320,7 +320,7 @@ itemBases["Runeforged Elegant Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 247, Ward = 60, },
+	armour = { Armour = 252, Ward = 60, },
 	req = { level = 54, str = 77, },
 }
 itemBases["Runeforged Noble Greathelm"] = {
@@ -330,7 +330,7 @@ itemBases["Runeforged Noble Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 223, Ward = 104, },
+	armour = { Armour = 238, Ward = 104, },
 	req = { level = 59, str = 83, },
 }
 itemBases["Runeforged Warmonger Greathelm"] = {
@@ -340,7 +340,7 @@ itemBases["Runeforged Warmonger Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 292, Ward = 56, },
+	armour = { Armour = 305, Ward = 56, },
 	req = { level = 65, str = 91, },
 }
 itemBases["Runeforged Masked Greathelm"] = {
@@ -350,7 +350,7 @@ itemBases["Runeforged Masked Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 260, Ward = 85, },
+	armour = { Armour = 279, Ward = 85, },
 	req = { level = 70, str = 99, },
 }
 itemBases["Runeforged Paragon Greathelm"] = {
@@ -360,7 +360,7 @@ itemBases["Runeforged Paragon Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 341, Ward = 42, },
+	armour = { Armour = 351, Ward = 42, },
 	req = { level = 75, str = 107, },
 }
 itemBases["Runeforged Imperial Greathelm"] = {
@@ -370,7 +370,7 @@ itemBases["Runeforged Imperial Greathelm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, karui_basetype = true, runeforged = true, str_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 114, Ward = 240, },
+	armour = { Armour = 169, Ward = 240, },
 	req = { level = 80, str = 115, },
 }
 itemBases["Runemastered Rusted Greathelm"] = {
@@ -768,7 +768,7 @@ itemBases["Runeforged Wrapped Cap"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 211, Ward = 72, },
+	armour = { Evasion = 219, Ward = 72, },
 	req = { level = 54, dex = 77, },
 }
 itemBases["Runeforged Deerstalker Hood"] = {
@@ -778,7 +778,7 @@ itemBases["Runeforged Deerstalker Hood"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 216, Ward = 91, },
+	armour = { Evasion = 227, Ward = 91, },
 	req = { level = 59, dex = 83, },
 }
 itemBases["Runeforged Woven Cap"] = {
@@ -788,7 +788,7 @@ itemBases["Runeforged Woven Cap"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 281, Ward = 42, },
+	armour = { Evasion = 290, Ward = 42, },
 	req = { level = 65, dex = 91, },
 }
 itemBases["Runeforged Desert Cap"] = {
@@ -798,7 +798,7 @@ itemBases["Runeforged Desert Cap"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 222, Ward = 99, },
+	armour = { Evasion = 243, Ward = 99, },
 	req = { level = 70, dex = 99, },
 }
 itemBases["Runeforged Trapper Hood"] = {
@@ -808,7 +808,7 @@ itemBases["Runeforged Trapper Hood"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 311, Ward = 42, },
+	armour = { Evasion = 320, Ward = 42, },
 	req = { level = 75, dex = 107, },
 }
 itemBases["Runeforged Freebooter Cap"] = {
@@ -818,7 +818,7 @@ itemBases["Runeforged Freebooter Cap"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_armour = true, helmet = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 104, Ward = 240, },
+	armour = { Evasion = 154, Ward = 240, },
 	req = { level = 80, dex = 115, },
 }
 itemBases["Runeforged Lace Hood"] = {
@@ -1250,7 +1250,7 @@ itemBases["Runeforged Sandsworn Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 74, Ward = 48, },
+	armour = { EnergyShield = 75, Ward = 48, },
 	req = { level = 54, int = 77, },
 }
 itemBases["Runeforged Jungle Tiara"] = {
@@ -1260,7 +1260,7 @@ itemBases["Runeforged Jungle Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 63, Ward = 104, },
+	armour = { EnergyShield = 67, Ward = 104, },
 	req = { level = 59, int = 83, },
 }
 itemBases["Runeforged Skycrown Tiara"] = {
@@ -1270,7 +1270,7 @@ itemBases["Runeforged Skycrown Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 81, Ward = 56, },
+	armour = { EnergyShield = 85, Ward = 56, },
 	req = { level = 65, int = 91, },
 }
 itemBases["Runeforged Sorcerous Tiara"] = {
@@ -1280,7 +1280,7 @@ itemBases["Runeforged Sorcerous Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 63, Ward = 113, },
+	armour = { EnergyShield = 70, Ward = 113, },
 	req = { level = 70, int = 99, },
 }
 itemBases["Runeforged Kamasan Tiara"] = {
@@ -1290,7 +1290,7 @@ itemBases["Runeforged Kamasan Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 95, Ward = 42, },
+	armour = { EnergyShield = 97, Ward = 42, },
 	req = { level = 75, int = 107, },
 }
 itemBases["Runeforged Ancestral Tiara"] = {
@@ -1300,7 +1300,7 @@ itemBases["Runeforged Ancestral Tiara"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, int_armour = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 32, Ward = 240, },
+	armour = { EnergyShield = 47, Ward = 240, },
 	req = { level = 80, int = 115, },
 }
 itemBases["Runemastered Twig Circlet"] = {
@@ -1671,7 +1671,7 @@ itemBases["Runeforged Cabalist Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 113, Evasion = 102, Ward = 96, },
+	armour = { Armour = 121, Evasion = 109, Ward = 96, },
 	req = { level = 54, str = 42, dex = 42, },
 }
 itemBases["Runeforged Gladiatorial Helm"] = {
@@ -1681,7 +1681,7 @@ itemBases["Runeforged Gladiatorial Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 147, Evasion = 134, Ward = 65, },
+	armour = { Armour = 150, Evasion = 137, Ward = 65, },
 	req = { level = 59, str = 46, dex = 46, },
 }
 itemBases["Runeforged Warded Helm"] = {
@@ -1691,7 +1691,7 @@ itemBases["Runeforged Warded Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 166, Evasion = 151, Ward = 48, },
+	armour = { Armour = 172, Evasion = 156, Ward = 48, },
 	req = { level = 65, str = 50, dex = 50, },
 }
 itemBases["Runeforged Cryptic Helm"] = {
@@ -1701,7 +1701,7 @@ itemBases["Runeforged Cryptic Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 143, Evasion = 130, Ward = 85, },
+	armour = { Armour = 154, Evasion = 140, Ward = 85, },
 	req = { level = 70, str = 54, dex = 54, },
 }
 itemBases["Runeforged Champion Helm"] = {
@@ -1711,7 +1711,7 @@ itemBases["Runeforged Champion Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 179, Evasion = 163, Ward = 56, },
+	armour = { Armour = 186, Evasion = 169, Ward = 56, },
 	req = { level = 75, str = 59, dex = 59, },
 }
 itemBases["Runeforged Gladiatorial Helm"] = {
@@ -1721,7 +1721,7 @@ itemBases["Runeforged Gladiatorial Helm"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, karui_basetype = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 54, Evasion = 49, Ward = 254, },
+	armour = { Armour = 86, Evasion = 78, Ward = 254, },
 	req = { level = 80, str = 63, dex = 63, },
 }
 itemBases["Runemastered Brimmed Helm"] = {
@@ -1809,7 +1809,7 @@ itemBases["Runemastered Ancient Visor"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_dex_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 179, Evasion = 163, },
+	armour = { Armour = 168, Evasion = 153, Ward = 59, },
 	req = { level = 65, str = 59, dex = 59, },
 }
 
@@ -2070,7 +2070,7 @@ itemBases["Runeforged Hallowed Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 121, EnergyShield = 34, Ward = 84, },
+	armour = { Armour = 127, EnergyShield = 36, Ward = 84, },
 	req = { level = 54, str = 42, int = 42, },
 }
 itemBases["Runeforged Inquisitor Crown"] = {
@@ -2080,7 +2080,7 @@ itemBases["Runeforged Inquisitor Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 155, EnergyShield = 44, Ward = 52, },
+	armour = { Armour = 157, EnergyShield = 44, Ward = 52, },
 	req = { level = 59, str = 46, int = 46, },
 }
 itemBases["Runeforged Druidic Crown"] = {
@@ -2090,7 +2090,7 @@ itemBases["Runeforged Druidic Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 161, EnergyShield = 45, Ward = 56, },
+	armour = { Armour = 168, EnergyShield = 47, Ward = 56, },
 	req = { level = 65, str = 50, int = 50, },
 }
 itemBases["Runeforged Saintly Crown"] = {
@@ -2100,7 +2100,7 @@ itemBases["Runeforged Saintly Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 125, EnergyShield = 35, Ward = 113, },
+	armour = { Armour = 139, EnergyShield = 39, Ward = 113, },
 	req = { level = 70, str = 54, int = 54, },
 }
 itemBases["Runeforged Divine Crown"] = {
@@ -2110,7 +2110,7 @@ itemBases["Runeforged Divine Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 179, EnergyShield = 50, Ward = 56, },
+	armour = { Armour = 186, EnergyShield = 52, Ward = 56, },
 	req = { level = 75, str = 59, int = 59, },
 }
 itemBases["Runeforged Cryptic Crown"] = {
@@ -2120,7 +2120,7 @@ itemBases["Runeforged Cryptic Crown"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Armour = 54, EnergyShield = 15, Ward = 254, },
+	armour = { Armour = 86, EnergyShield = 24, Ward = 254, },
 	req = { level = 80, str = 63, int = 63, },
 }
 itemBases["Runemastered Iron Crown"] = {
@@ -2494,7 +2494,7 @@ itemBases["Runeforged Pariah Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 123, EnergyShield = 39, Ward = 60, },
+	armour = { Evasion = 126, EnergyShield = 39, Ward = 60, },
 	req = { level = 54, dex = 42, int = 42, },
 }
 itemBases["Runeforged Avian Mask"] = {
@@ -2504,7 +2504,7 @@ itemBases["Runeforged Avian Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 119, EnergyShield = 37, Ward = 91, },
+	armour = { Evasion = 125, EnergyShield = 39, Ward = 91, },
 	req = { level = 59, dex = 46, int = 46, },
 }
 itemBases["Runeforged Brigand Mask"] = {
@@ -2514,7 +2514,7 @@ itemBases["Runeforged Brigand Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 155, EnergyShield = 47, Ward = 42, },
+	armour = { Evasion = 160, EnergyShield = 49, Ward = 42, },
 	req = { level = 65, dex = 50, int = 50, },
 }
 itemBases["Runeforged Faridun Mask"] = {
@@ -2524,7 +2524,7 @@ itemBases["Runeforged Faridun Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 122, EnergyShield = 37, Ward = 99, },
+	armour = { Evasion = 133, EnergyShield = 41, Ward = 99, },
 	req = { level = 70, dex = 54, int = 54, },
 }
 itemBases["Runeforged Soaring Mask"] = {
@@ -2534,7 +2534,7 @@ itemBases["Runeforged Soaring Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 163, EnergyShield = 50, Ward = 56, },
+	armour = { Evasion = 169, EnergyShield = 52, Ward = 56, },
 	req = { level = 75, dex = 59, int = 59, },
 }
 itemBases["Runeforged Grinning Mask"] = {
@@ -2544,7 +2544,7 @@ itemBases["Runeforged Grinning Mask"] = {
 	socketLimit = 3,
 	tags = { armour = true, default = true, dex_int_armour = true, helmet = true, karui_basetype = true, runeforged = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 49, EnergyShield = 15, Ward = 254, },
+	armour = { Evasion = 78, EnergyShield = 24, Ward = 254, },
 	req = { level = 80, dex = 63, int = 63, },
 }
 itemBases["Runemastered Hewn Mask"] = {

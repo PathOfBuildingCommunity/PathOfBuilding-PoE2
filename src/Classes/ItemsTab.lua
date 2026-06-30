@@ -14,7 +14,9 @@ local m_min = math.min
 local m_ceil = math.ceil
 local m_floor = math.floor
 local m_modf = math.modf
+local buySimilar = LoadModule("Classes/CompareBuySimilar")
 
+local gemTooltip = LoadModule("Classes/GemTooltip")
 local rarityDropList = {
 	{ label = colorCodes.NORMAL.."Normal", rarity = "NORMAL" },
 	{ label = colorCodes.MAGIC.."Magic", rarity = "MAGIC" },
@@ -42,6 +44,7 @@ local catalystQualityFormat = {
 	"^x7F7F7FQuality (Caster Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Speed Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Attribute Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
+	"^x7F7F7FQuality (Minion Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 }
 
 local flavourLookup = {}
@@ -409,6 +412,15 @@ holding Shift will put it in the second.]])
 		self:SetDisplayItem()
 	end)
 
+	self.controls.displayItemBuySimilar = new("ButtonControl",
+		{ "LEFT", self.controls.removeDisplayItem, "RIGHT", true },
+		{ 8, 0, 100, 20 }, "Buy similar", function()
+			local itemSlot = self:GetComparisonSlotNameForItem(self.displayItem)
+			buySimilar.openPopup(self.displayItem, itemSlot, self.build)
+		end)
+	self.controls.displayItemBuySimilar.shown = function()
+		return self.displayItem
+	end
 	-- Section: Variant(s)
 
 	self.controls.displayItemSectionVariant = new("Control", {"TOPLEFT",self.controls.addDisplayItem,"BOTTOMLEFT"}, {0, 8, 0, function()
@@ -592,6 +604,7 @@ holding Shift will put it in the second.]])
 		"Sibilant (Caster)",
 		"Skittering (Speed)",
 		"Adaptive (Attribute)",
+		"Necrotic (Minion)",
 		},
 		function(index, value)
 			self.displayItem.catalyst = index - 1
@@ -702,12 +715,13 @@ holding Shift will put it in the second.]])
 	end
 
 	-- Section: Affix Selection
+	local maxModCount = 9
 	self.controls.displayItemSectionAffix = new("Control", {"TOPLEFT",self.controls.displayItemSectionRune,"BOTTOMLEFT"}, {0, 0, 0, function()
 		if not self.displayItem or not self.displayItem.crafted then
 			return 0
 		end
 		local h = 6
-		for i = 1, 6 do
+		for i = 1, maxModCount do
 			if self.controls["displayItemAffix"..i]:IsShown() then
 				h = h + 24
 				if self.controls["displayItemAffixRange"..i]:IsShown() then
@@ -717,7 +731,7 @@ holding Shift will put it in the second.]])
 		end
 		return h
 	end})
-	for i = 1, 6 do
+	for i = 1, maxModCount do
 		local prev = self.controls["displayItemAffix"..(i-1)] or self.controls.displayItemSectionAffix
 		local drop, slider
 		local function verifyRange(range, index, drop) -- flips range if it will form discontinuous values
@@ -1144,7 +1158,15 @@ function ItemsTabClass:Load(xml, dbFileName)
 					stat = child.attrib.stat,
 					weightMult = tonumber(child.attrib.weightMult)
 				}
-				t_insert(self.tradeQuery.statSortSelectionList, statSort)
+				for _, statEntry in ipairs(data.powerStatList) do
+					if statSort.stat == statEntry.stat then
+						-- update information which can be out of data or missing in the xml
+						statSort.label = statEntry.label
+						statSort.transform = statEntry.transform
+						t_insert(self.tradeQuery.statSortSelectionList, statSort)
+						break
+					end
+				end
 			end
 		end
 	end
@@ -1736,18 +1758,28 @@ function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, 
 			local validRunes = self:GetValidRunesForItem(newItem)
 
 			-- replace runes with current ones, or set to none
+			local skipped = 0
 			if shouldChangeAugments then
 				for i = 1, #newItem.sockets do
+					-- avoid overwriting socket bound runes as removing these from e.g. trade results
+					-- will be confusing
+					if self:IsSocketBoundRune(newItem, newItem.runes[i], validRunes) then
+						-- if the new item has more slots than the old item, we still copy old
+						-- runes in order after skipping the socket bound rune
+						skipped = skipped + 1
+						goto continue
+					end
 					newItem.runes[i] = "None"
-					if currentRunes[i] then
+					if currentRunes[i - skipped] then
 						for _, rune in ipairs(validRunes) do
 							-- we only copy runes which fit the new item type
-							if rune.name == currentRunes[i] then
-								newItem.runes[i] = currentRunes[i]
+							if rune.name == currentRunes[i - skipped] then
+								newItem.runes[i] = currentRunes[i - skipped]
 								break
 							end
 						end
 					end
+					::continue::
 				end
 				newItem:UpdateRunes()
 			end
@@ -1899,11 +1931,11 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1 } }
+local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1, isSocketBound = false } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod, isSocketBound = runeMod.isSocketBound })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -1932,7 +1964,7 @@ function ItemsTabClass:GetValidRunesForItem(item)
 		local function isRuneValidForSlot(runeSlot)
 			if runeSlot == "None" then
 				return true
-			elseif runeSlot == "warstaff" then
+			elseif runeSlot == "quarterstaff" then
 				return subType == "warstaff"
 			elseif runeSlot == "buckler" then
 				return itemType == "shield" and subType == "evasion"
@@ -1943,7 +1975,7 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			elseif runeSlot == "caster" then
 				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
 			else
-				return itemType == runeSlot
+				return itemType == runeSlot and not (subType == "warstaff")
 			end
 		end
 		if isRuneValidForSlot(rune.slot) then
@@ -1953,6 +1985,18 @@ function ItemsTabClass:GetValidRunesForItem(item)
 		end
 	end
 	return runes
+end
+
+function ItemsTabClass:IsSocketBoundRune(item, runeName, validRunes)
+	if not runeName or runeName == "None" then
+		return false
+	end
+	for _, rune in ipairs(validRunes or self:GetValidRunesForItem(item)) do
+		if rune.name == runeName then
+			return rune.isSocketBound
+		end
+	end
+	return false
 end
 
 -- Update rune selection controls
@@ -2231,6 +2275,9 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		-- Special checks for jewel sockets
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
 		if not node or item.type ~= "Jewel" then
+			return false
+		elseif node.sinister and (item.rarity == "UNIQUE" or item.rarity == "RELIC") then
+			-- Sinister Jewel Sockets can only accept non-unique jewels
 			return false
 		elseif node.containJewelSocket  then
 			if item.rarity == "UNIQUE" or item.rarity == "RELIC" or (item.base and item.base.subType ~= nil) then
@@ -3035,10 +3082,44 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					return a.essence.tierLevel > b.essence.tierLevel
 				end
 			end)
+		elseif sourceId == "EMOTION" then
+			local radiusJewel = not not (self.displayItem.base.subType and self.displayItem.base.subType:match("Radius"))
+			local baseColour
+			for _, itemName in ipairs({ "Ruby", "Emerald", "Sapphire", "Diamond" }) do
+				if self.displayItem.baseName:match(itemName) then
+					baseColour = itemName
+					break
+				end
+			end
+			if baseColour then
+				for _, emotion in pairs(data.emotions) do
+					if emotion.radiusJewel == radiusJewel then
+						for modType, modId in pairs(emotion.mods[baseColour] or {}) do
+							local mod = data.itemMods.Jewel[modId]
+							if mod then
+								t_insert(modList, {
+									label = string.format("%s ^8[%s] (%s)", emotion.name, table.concat(mod, "/"),
+										mod.type or ""),
+									mod = mod,
+									type = "custom",
+									emotion = emotion,
+								})
+							end
+						end
+					end
+				end
+				table.sort(modList, function(a, b)
+					if a.emotion.tierLevel ~= b.emotion.tierLevel then
+						return a.emotion.tierLevel > b.emotion.tierLevel
+					else
+						return a.emotion.name > b.emotion.name
+					end
+				end)
+			end
 		elseif sourceId == "DESECRATED" then
 			local function isDesecratedMod(mod)
 				for _, tag in ipairs(mod.modTags or { }) do
-					if tag == "ulaman_mod" or tag == "amanamu_mod" or tag == "kurgal_mod" then
+					if tag == "ulaman_mod" or tag == "amanamu_mod" or tag == "kurgal_mod" or tag == "unveiled_mod" then
 						return true
 					end
 				end
@@ -3101,6 +3182,12 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	if hasDesecratedMods then
 		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
+	end
+	if self.displayItem.base.type == "Jewel" then
+		buildMods("EMOTION")
+		if #modList > 0 then
+			t_insert(sourceList, { label = "Emotion", sourceId = "EMOTION" })
+		end
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
@@ -3231,6 +3318,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
+	-- Shared items can use old base names that no longer exist. Add a tooltip so they can be copied or removed without causing a crash.
+	if not item.base or not item.baseName then
+		tooltip:AddLine(fontSizeTitle, rarityCode..(item.title or item.name or "Unknown Item"), "FONTIN SC")
+		tooltip:AddSeparator(30)
+		tooltip:AddLine(fontSizeTitle, colorCodes.NEGATIVE.."Item base is not supported by the current version.", "FONTIN SC")
+		return
+	end
 	-- Item name
 	if item.title then
 		tooltip:AddLine(fontSizeTitle, rarityCode..item.title, "FONTIN SC")
@@ -3534,8 +3628,10 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	for _, modList in ipairs{item.enchantModLines, item.runeModLines, item.implicitModLines, item.explicitModLines} do
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
-				if item:CheckModLineVariant(modLine) then
+				local variantCount = item:GetModLineVariantCount(modLine)
+				if variantCount > 0 then
 					local bg = modLine.desecrated and "HoverModBgAbyss" or nil
+					local formattedModLine
 					if scale ~= 1 then
 						local copyModLine = copyTable(modLine)
 						local modsList = copyTable(modLine.modList)
@@ -3556,17 +3652,26 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 								copyModLine.line = copyModLine.line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
 							end
 						end
-						tooltip:AddLine(fontSizeBig, itemLib.formatModLine(copyModLine, dbMode), "FONTIN SC", bg)
+						formattedModLine = itemLib.formatModLine(copyModLine, dbMode)
 					else
-						tooltip:AddLine(fontSizeBig, itemLib.formatModLine(modLine, dbMode), "FONTIN SC", bg)
+						formattedModLine = itemLib.formatModLine(modLine, dbMode)
+					end
+					for _ = 1, variantCount do
+						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
 					end
 
-					-- Show mods from granted Notables
+					-- Show mods from granted passives
 					if modLine.modList[1] and modLine.modList[1].name == "GrantedPassive" then
-						local node = self.build.spec.tree.notableMap[modLine.modList[1].value]
-						if node then
-							for _, stat in ipairs(node.sd) do
-								tooltip:AddLine(fontSizeBig, "^x7F7F7F"..stat, "FONTIN SC")
+						for _, node in ipairs(self.build.spec:ResolveGrantedPassiveNodes(modLine.modList[1].value)) do
+							local displayed = false
+							if node.sd then
+								for _, stat in ipairs(node.sd) do
+									tooltip:AddLine(fontSizeBig, "^x7F7F7F"..stat, "FONTIN SC")
+									displayed = true
+								end
+							end
+							if not displayed and node.isJewelSocket then
+								tooltip:AddLine(fontSizeBig, "^x7F7F7F"..(node.name or "Jewel Socket"), "FONTIN SC")
 							end
 						end
 						-- Add separator only for anoints
@@ -3632,6 +3737,46 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		tooltip:AddSeparator(14)
 	end
 
+	-- Skill tooltip. We add child tooltips, which will be rendered to the right of the main
+	-- tooltip, growing downwards
+	if not tooltip.childTooltips then
+		tooltip.childTooltips = {}
+	end
+	local gemMaxWidth = 450
+	for _, tt in ipairs(tooltip.childTooltips) do
+		tt:Clear()
+		tt.maxWidth = gemMaxWidth
+	end
+	if item.grantedSkills and #item.grantedSkills > 0 then
+		tooltip:AddSeparator(14)
+		tooltip:AddLine(14,
+			colorCodes.TIP ..
+			"Tip: Hold Shift to display a tooltip for the granted skill" ..
+			(#item.grantedSkills > 1 and "s" or "") .. ".")
+		for i, itemSkill in ipairs(item.grantedSkills) do
+			if not tooltip.childTooltips[i] then
+				tooltip.childTooltips[i] = new("Tooltip")
+				tooltip.childTooltips[i].maxWidth = gemMaxWidth
+			end
+			-- find gem since the item data only contains the skill id
+			local skill = data.skills[itemSkill.skillId]
+			if skill and skill.id and IsKeyDown("SHIFT") then
+				local gemId = data.gemForSkill[skill] or ""
+				local gem = data.gems[gemId]
+				if gem then
+					local gemInst = {
+						gemData = gem,
+						level = itemSkill.level or 1,
+						quality = 0,
+						grantedEffect = skill
+					}
+					gemTooltip.AddGemTooltip(tooltip.childTooltips[i], self.build, gemInst, {
+						includeQualityRange = true,
+					})
+				end
+			end
+		end
+	end
 	-- Stat differences
 	if not self.showStatDifferences then
 		tooltip:AddSeparator(14)

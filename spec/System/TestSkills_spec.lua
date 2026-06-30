@@ -28,6 +28,41 @@ describe("TestSkills", function()
 		end
 	end
 
+	local function assertGemSupportLevel(gemName, expectedLevel, expectedCount)
+		local count = 0
+		for _, activeSkill in ipairs(build.calcsTab.calcsEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.gemData and activeSkill.activeEffect.gemData.name == gemName then
+				count = count + 1
+				assert.are.equals(expectedLevel, activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "GemSupportLevel"))
+			end
+		end
+		assert.are.equals(expectedCount, count)
+	end
+
+	it("evaluates GemTag mod tags against active skill gem tags", function()
+		local modDB = build.calcsTab.mainEnv.modDB
+
+		modDB:NewMod("Damage", "INC", 10, "Test Fire GemTag", { type = "GemTag", gemTag = "Fire" })
+		modDB:NewMod("Damage", "INC", 20, "Test Elemental GemTagList", { type = "GemTag", gemTagList = { "Cold", "Lightning" } })
+		modDB:NewMod("Damage", "INC", 40, "Test Not Minion GemTag", { type = "GemTag", gemTag = "Minion", neg = true })
+
+		assert.are.equals(50, modDB:Sum("INC", { skillGem = { tags = { fire = true } } }, "Damage"))
+		assert.are.equals(60, modDB:Sum("INC", { skillGem = { tags = { cold = true } } }, "Damage"))
+		assert.are.equals(0, modDB:Sum("INC", { skillGem = { tags = { minion = true } } }, "Damage"))
+	end)
+
+	it("applies Fire Mastery level to Apocalypse through the source gem tag", function()
+		build.skillsTab:PasteSocketGroup("Apocalypse 20/0  1\nFire Mastery 1/0  1")
+		runCallback("OnFrame")
+		assertGemSupportLevel("Apocalypse", 1, 4)
+	end)
+
+	it("evaluates conditional gem levels using the source gem support count", function()
+		build.skillsTab:PasteSocketGroup("Apocalypse 20/0  1\nFire Mastery 1/0  1\nUhtred's Omen 1/0  1")
+		runCallback("OnFrame")
+		assertGemSupportLevel("Apocalypse", 3, 4)
+	end)
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -58,7 +93,163 @@ describe("TestSkills", function()
 		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
 	end)
 
+	it("does not crash when minion activeSkillList is missing", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Minion: Test" }
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestMinionSkill",
+				name = "Minion: Test",
+				statSets = { { label = "Default" } },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			minion = {
+				-- activeSkillList is absent, reproducing the crash fix in #2243
+			}
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		assert.has_no.errors(function()
+			build:RefreshSkillSelectControls(build.controls, 1, "")
+		end)
+	end)
+
+	it("does not crash when minion activeSkillList is an empty table", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Minion: Test" }
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestMinionSkill",
+				name = "Minion: Test",
+				statSets = { { label = "Default" } },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			minion = {
+				activeSkillList = { }  -- empty list, guard must check [1] as well
+			}
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		assert.has_no.errors(function()
+			build:RefreshSkillSelectControls(build.controls, 1, "")
+		end)
+
+		-- Minion skill dropdown should remain hidden when there are no skills
+		assert.is_false(build.controls.mainSkillMinionSkill.shown)
+	end)
+
+	it("populates minion skill list and UI controls after full OnFrame cycle", function()
+		-- End-to-end test: exercises the complete pipeline including
+		-- calcs.buildOutput, calcs.perform, createMinionSkills, and
+		-- RefreshSkillSelectControls in a single OnFrame frame.
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		-- Verify the calculation engine populated the minion correctly
+		local minion = build.calcsTab.mainEnv.minion
+		assert.is_not_nil(minion, "minion should be created by the calc engine")
+		assert.is_not_nil(minion.activeSkillList, "activeSkillList should be populated by createMinionSkills")
+		assert.is_true(#minion.activeSkillList > 0, "minion should have at least one skill")
+		assert.is_not_nil(minion.mainSkill, "mainSkill should be selected from activeSkillList")
+
+		-- Verify the UI controls were populated by RefreshSkillSelectControls
+		assert.is_true(build.controls.mainSkillMinion.shown, "minion dropdown should be visible")
+		assert.is_true(build.controls.mainSkillMinionSkill.shown, "minion skill dropdown should be visible")
+		assert.is_true(#build.controls.mainSkillMinionSkill.list > 0, "minion skill dropdown should have entries")
+	end)
+
+	it("does not crash rendering socket tooltip when minion skill selection is missing", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		socketGroup.displaySkillList[1].minion.mainSkill = nil
+
+		local tooltip = {
+			AddLine = function() end,
+			AddSeparator = function() end,
+		}
+		assert.has_no.errors(function()
+			build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
+		end)
+	end)
+
+	it("does not crash when importing a character with a minion main skill and passive tree (issue #2243)", function()
+		-- Reproduces the exact bug scenario: ImportItemsAndSkills adds a minion
+		-- skill, ImportPassiveTreeAndJewels triggers a rebuild, and OnFrame must
+		-- complete without crashing in RefreshSkillSelectControls or Calcs.
+		local charData = {
+			level = 50,
+			class = "Witch2",
+			league = "Test",
+			equipment = {},
+			skills = {
+				{
+					support = false,
+					typeLine = "Skeletal Sniper",
+					properties = {
+						{ name = "Level", values = { { "20", 0 } } },
+						{ name = "Quality", values = { { "+0%", 0 } } },
+					},
+				},
+			},
+		}
+
+		build.importTab.controls.charImportItemsClearSkills.state = true
+		build.importTab.controls.charImportItemsClearItems.state = false
+		build.importTab:ImportItemsAndSkills(charData)
+
+		-- At this point the minion skill is in socketGroupList but the calc
+		-- engine hasn't run yet, so activeSkillList may be nil — the bug state.
+		runCallback("OnFrame")
+
+		-- Now import the passive tree, which sets buildFlag and triggers another
+		-- full rebuild — this is the step that originally caused the crash.
+		build.importTab:ImportPassiveTreeAndJewels({
+			name = "TestMinionImport",
+			class = "Witch2",
+			league = "Test",
+			level = 50,
+			jewels = {},
+			passives = {
+				hashes = {},
+				specialisations = {},
+				skill_overrides = {},
+				jewel_data = {},
+				quest_stats = {},
+			},
+		})
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		-- Verify the minion skill was properly initialised after the full cycle
+		local mainEnv = build.calcsTab.mainEnv
+		assert.is_not_nil(mainEnv.minion, "minion should exist after import")
+		assert.is_not_nil(mainEnv.minion.activeSkillList, "activeSkillList should be populated")
+		assert.is_not_nil(mainEnv.minion.mainSkill, "mainSkill should be set")
+	end)
+
 	it("applies minion skill stat set selections to the selected minion skill only", function()
+
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 		runCallback("OnFrame")
 
@@ -92,6 +283,34 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
+	end)
+
+	it("applies life reservation efficiency to Atziri's Communion Blasphemy reservation", function()
+		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nAtziri's Communion 1/0  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReserved)
+		assert.are.equals(0, build.calcsTab.mainOutput.SpiritReservedPercent)
+		assert.are.equals(26, build.calcsTab.mainOutput.LifeReserved)
+		assert.are.equals(40, build.calcsTab.mainOutput.LifeReservedPercent)
+
+		build.configTab.input.customMods = "100% increased Life Reservation Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(13, build.calcsTab.mainOutput.LifeReserved)
+		assert.are.equals(20, build.calcsTab.mainOutput.LifeReservedPercent)
+	end)
+
+	it("rounds Blasphemy curse magnitudes to the nearest integer", function()
+		build.configTab.input.customMods = "79% increased Curse Magnitudes"
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Blasphemy 10/0  1\nDespair 12/0  1\n")
+
+		runCallback("OnFrame")
+
+		assert.are.equals(-42, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "ChaosResist"))
 	end)
 
 	it("applies active skill reservation multiplier to linked buff spirit reservation", function()
@@ -375,6 +594,27 @@ describe("TestSkills", function()
 			local minion = build.calcsTab.mainEnv.minion
 			assert.are.equals(0, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "AddedDamage"))
 		end
+	end)
+
+	it("uses selected companion names in skill displays", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local skillNames = { }
+		for _, skill in ipairs(build.calcsTab.mainOutput.SkillDPS) do
+			skillNames[skill.name] = true
+		end
+		assert.is_true(skillNames["Companion: Lightless Abomination"])
+		assert.is_true(skillNames["Companion: Lightless Moray"])
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+		assert.are.equals("Companion: Lightless Abomination", build.controls.mainSkill.list[1].label)
+
+		build:RefreshSkillSelectControls(build.controls, 2, "")
+		assert.are.equals("Companion: Lightless Moray", build.controls.mainSkill.list[1].label)
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
@@ -796,6 +1036,20 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
 		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
+	end)
+
+	it("averages inverted elemental resistance after penetration", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nDamage Penetrates 50% of Enemy Fire Resistance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("inverted hit"))
+		assert.truthy(breakdownText:match("weighted average"))
 	end)
 
 	it("Test granted skills with exposure stats make exposure configurable", function()

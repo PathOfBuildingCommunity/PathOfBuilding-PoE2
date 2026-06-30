@@ -30,6 +30,25 @@ describe("TestDefence", function()
 		return build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 	end
 
+	it("converts total energy shield modifiers to mana", function()
+		build.configTab.input.customMods = "Convert 100% of maximum Energy Shield to maximum Mana\n100% increased maximum Mana"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local manaWithoutTotalEnergyShield = build.calcsTab.mainOutput.Mana
+		local env = build.calcsTab.mainEnv
+		local player = env.player
+
+		player.modDB:NewMod("EnergyShieldTotal", "BASE", 100, "Test")
+		player.output = { }
+		build.calcsTab.calcs.defence(env, player)
+
+		assert.are.equals(0, player.output.EnergyShield)
+		assert.are.equals(0, player.modDB:Sum("BASE", nil, "ExtraMana"))
+		assert.are.equals(100, player.modDB:Sum("BASE", nil, "ManaTotal"))
+		assert.are.equals(manaWithoutTotalEnergyShield + 100, player.output.Mana)
+	end)
+
 	it("no armour max hits", function()
 		build.configTab.input.enemyIsBoss = "None"
 		build.configTab.input.customMods = ""

@@ -11,24 +11,24 @@ local s_gmatch = string.gmatch
 
 -- Constants
 
-local BORDER_WIDTH = 3
+local BORDER_WIDTH = 1
 local H_PAD	= 12
 local V_PAD = 10
 -- spell-checker: disable
 local headerConfigs = {
-	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6, allowInfluenceIcon=true},
+	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6, allowInfluenceIcon=true},
+	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
+	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
+	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
 }
 -- spell-checker: enable
 
@@ -670,5 +670,29 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	DrawImage(nil, ttX, ttY, totalDrawWidth, BORDER_WIDTH) -- top
 	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, totalDrawWidth, BORDER_WIDTH) -- bottom
 
+	-- draw child tooltips for item skills. these are placed directly to the right of the main
+	-- tooltip, growing downwards, unless they would go outside the viewport, in which case they
+	-- will draw over the main tooltip
+	if self.childTooltips then
+		local totalH = 0
+		-- we will move the tooltips up as a group, so get the total height
+		for _, tt in ipairs(self.childTooltips) do
+			local _, childH = tt:GetDynamicSize(viewPort)
+			totalH = totalH + childH
+		end
+		-- if the whole group would go over the bottom edge, we apply a negative offset to keep them
+		-- in
+		local yOffset = math.min(0, viewPort.height - totalH - ttY)
+		-- movement to the left happens individually. i.e. the right edges are aligned
+		local yPos = math.max(ttY + yOffset, viewPort.y)
+		for _, tt in ipairs(self.childTooltips) do
+			local childW, childH = tt:GetSize(viewPort)
+			local furthestAllowedX = viewPort.width - childW / 2
+			tt:Draw(math.min(ttX + ttW, furthestAllowedX), yPos, nil, nil,
+				viewPort)
+			-- next tooltip goes below this one
+			yPos = yPos + childH
+		end
+	end
 	return ttW, ttH
 end

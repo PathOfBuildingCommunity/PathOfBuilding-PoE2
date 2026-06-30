@@ -7,6 +7,46 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("shows duplicate selected variants in item tooltips when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+		local tooltip = new("Tooltip")
+
+		build.itemsTab:AddItemTooltip(tooltip, item)
+
+		local legacyLines = 0
+		for _, line in ipairs(tooltip.lines) do
+			if line.text and line.text:find("Legacy of Amethyst", 1, true) then
+				legacyLines = legacyLines + 1
+			end
+		end
+		assert.are.equals(2, legacyLines)
+	end)
+
+	it("shows a fallback tooltip when an item's base is no longer supported", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Legacy Item
+			Removed Base
+		]])
+		local tooltip = new("Tooltip")
+
+		assert.has_no.errors(function()
+			build.itemsTab:AddItemTooltip(tooltip, item)
+		end)
+		assert.is_truthy(tooltip.lines[#tooltip.lines].text:find("Item base is not supported", 1, true))
+	end)
+
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
 		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
 		build.configTab:BuildModList()
@@ -271,6 +311,16 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(20, build.calcsTab.mainEnv.modDB:Sum("MORE", { flags = ModFlag.Cast }, "Speed"))
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
+	end)
+
+	it("negative limit mods after scaling", function()
+		local baseModList = new("ModList")
+		local scaledModList = new("ModList")
+		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
+
+		scaledModList:ScaleAddList(baseModList, 4)
+
+		assert.are.equals(-90, scaledModList:Sum("INC", nil, "EnemyAilmentThreshold"))
 	end)
 
 	it("Jarngreipr - strength satisfies melee weapons and skills", function()

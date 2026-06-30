@@ -11,8 +11,8 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
-local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive", "Necrotic"}
+local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute", "Minion"}
 local catalystTags = {
 	{ "life" },
 	{ "mana" },
@@ -26,6 +26,7 @@ local catalystTags = {
 	{ "caster" },
 	{ "speed" },
 	{ "attribute" },
+	{ "minion" },
 }
 
 local minimumReqLevel = { }
@@ -72,7 +73,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+		if implicitLine:match("^Grants Skill:") and (implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$")) then
 			return true
 		end
 	end
@@ -442,6 +443,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				self.pendingAffixList = { }
 				local backupAffixList = { }
 				for modId, modData in pairs(self.affixes) do
+					-- these can produce false positives, and only ever exist on the monk glove base
+					if modId:match("^HandWraps") and not self.name:match("Fists of Stone") then
+						goto modContinue
+					end
 					if modData.affix == modName then
 						if self:GetModSpawnWeight(modData) > 0 then
 							if modData.type == "Prefix" then
@@ -458,6 +463,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							end
 						end
 					end
+					::modContinue::
 				end
 				if #self.pendingAffixList == 0 and #backupAffixList > 0 then
 					self.pendingAffixList = backupAffixList
@@ -482,7 +488,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 		else
 			line = linePrefix .. line .. linePostfix
-			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
+			local lineIsBaseImplicit = mode == "GAME" and not self.crafted and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
 					if foundImplicit and not lineIsBaseImplicit then
@@ -630,6 +636,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.variantAlt4 = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant Five" then
 					self.variantAlt5 = specToNumber(specVal)
+				elseif specName == "Allow Duplicate Variants" then
+					self.allowDuplicateVariants = specVal == "true"
 				elseif specName == "Has Variants" or specName == "Selected Variants" then
 					-- Need to skip this line for backwards compatibility
 					-- with builds that used an old Watcher's Eye implementation
@@ -1138,13 +1146,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
-			local gameSocketedRuneEffectModifier = 0
+			local gameSocketedAugmentEffectModifier = 0
 			if mode == "GAME" and shouldFixRunesOnItem then
 				for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
 					for _, effectModLine in ipairs(modLines) do
 						for _, mod in ipairs(effectModLine.modList or { }) do
-							if mod.name == "SocketedRuneEffect" and mod.type == "INC" then
-								gameSocketedRuneEffectModifier = gameSocketedRuneEffectModifier + mod.value / 100
+							if (mod.name == "SocketedRuneEffect" or mod.name == "SocketedAugmentItemEffect") and mod.type == "INC" then
+								gameSocketedAugmentEffectModifier = gameSocketedAugmentEffectModifier + mod.value / 100
 							end
 						end
 					end
@@ -1158,10 +1166,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
 					local result, numRunes
 					local socketedRuneEffectAlreadyApplied
-					if gameSocketedRuneEffectModifier ~= 0 then
+					if gameSocketedAugmentEffectModifier ~= 0 then
 						local unscaledTargetValues = { }
 						for valueIndex, value in ipairs(targetValues) do
-							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedRuneEffectModifier)
+							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedAugmentEffectModifier)
 						end
 						result, numRunes = findRuneCombination(groupedRunes, unscaledTargetValues, remainingRunes)
 						socketedRuneEffectAlreadyApplied = result ~= nil
@@ -1462,6 +1470,9 @@ function ItemClass:BuildRaw()
 			t_insert(rawLines, "Has Alt Variant Five: true")
 			t_insert(rawLines, "Selected Alt Variant Five: " .. self.variantAlt5)
 		end
+		if self.allowDuplicateVariants then
+			t_insert(rawLines, "Allow Duplicate Variants: true")
+		end
 	end
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
@@ -1561,7 +1572,7 @@ function ItemClass:UpdateRunes()
 			local itemType = self.base.type:lower()
 			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
 			local specificType =
-				(subType == "warstaff" and "warstaff") or
+				(subType == "warstaff" and "quarterstaff") or
 				(itemType == "shield" and subType == "evasion" and "buckler") or
 				itemType
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
@@ -1599,8 +1610,12 @@ end
 
 function ItemClass:ApplySocketedRuneDisplayScalars()
 	for _, modLine in ipairs(self.runeModLines or { }) do
-		local effectModifier = modLine.augmentType == "SoulCore" and (self.socketedSoulCoreEffectModifier or 0)
-			or modLine.augmentType == "Rune" and (self.socketedRuneEffectModifier or 0)
+		local effectModifier = self.socketedAugmentItemEffectModifier or 0
+		if modLine.augmentType == "SoulCore" then
+			effectModifier = effectModifier + (self.socketedSoulCoreEffectModifier or 0)
+		elseif modLine.augmentType == "Rune" then
+			effectModifier = effectModifier + (self.socketedRuneEffectModifier or 0)
+		end
 		if effectModifier and effectModifier ~= 0 and not modLine.socketedRuneEffectAlreadyApplied then
 			modLine.displayValueScalar = 1 + effectModifier
 		else
@@ -1681,6 +1696,24 @@ function ItemClass:CheckModLineVariant(modLine)
 		or (self.hasAltVariant3 and modLine.variantList[self.variantAlt3])
 		or (self.hasAltVariant4 and modLine.variantList[self.variantAlt4])
 		or (self.hasAltVariant5 and modLine.variantList[self.variantAlt5])
+end
+
+function ItemClass:GetModLineVariantCount(modLine)
+	if not self.allowDuplicateVariants or not modLine.variantList then
+		return self:CheckModLineVariant(modLine) and 1 or 0
+	end
+
+	-- Mageblood can intentionally select the same variant more than once.
+	local variantList = modLine.variantList
+	local count = variantList[self.variant] and 1 or 0
+	for i = 1, 5 do
+		local suffix = i == 1 and "" or i
+		local variant = self["variantAlt" .. suffix]
+		if self["hasAltVariant" .. suffix] and variant and variantList[variant] then
+			count = count + 1
+		end
+	end
+	return count
 end
 
 -- Return the name of the slot this item is equipped in
@@ -1835,9 +1868,9 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			weaponData[value.key] = value.value
 		end
 		for _, mod in ipairs(modList) do
-			-- Convert accuracy, L/MGoH and PAD Leech modifiers to local
+			-- Convert accuracy, crit damage bonus, L/MGoH and PAD Leech modifiers to local
 			if (
-				(mod.name == "Accuracy" and mod.flags == 0) or (mod.name == "ImpaleChance" and mod.flags ~= ModFlag.Spell) or
+				(mod.name == "Accuracy" and mod.flags == 0) or (mod.name == "CritMultiplier" and mod.flags == 0) or (mod.name == "ImpaleChance" and mod.flags ~= ModFlag.Spell) or
 				((mod.name == "LifeOnHit" or mod.name == "ManaOnHit") and mod.flags == ModFlag.Attack) or
 				((mod.name == "PhysicalDamageLifeLeech" or mod.name == "PhysicalDamageManaLeech") and mod.flags == ModFlag.Attack)
 			   ) and (mod.keywordFlags == 0 or mod.keywordFlags == KeywordFlag.Attack) and not mod[1] then
@@ -2027,7 +2060,8 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
-		if self:CheckModLineVariant(modLine) then
+		local variantCount = self:GetModLineVariantCount(modLine)
+		if variantCount > 0 then
 			-- special section for variant over-ride of pre-modifier item parameters
 			if modLine.line:find("Requires Class") then
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
@@ -2054,8 +2088,9 @@ function ItemClass:BuildModList()
 					end
 				end
 				for _, mod in ipairs(modLine.modList) do
-					mod = modLib.setSource(mod, self.modSource)
-					baseList:AddMod(mod)
+					for _ = 1, variantCount do
+						baseList:AddMod(modLib.setSource(mod, self.modSource))
+					end
 				end
 				if modLine.modTags and #modLine.modTags > 0 then
 					self.hasModTags = true
@@ -2080,12 +2115,17 @@ function ItemClass:BuildModList()
 	end
 	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 	self.socketedRuneEffectModifier = calcLocal(baseList, "SocketedRuneEffect", "INC", 0) / 100
+	self.socketedAugmentItemEffectModifier = calcLocal(baseList, "SocketedAugmentItemEffect", "INC", 0) / 100
 	if self.runeModLines[1] then
 		self:ApplySocketedRuneDisplayScalars()
 	end
 	for _, modLine in ipairs(self.runeModLines) do
-		local effectModifier = modLine.augmentType == "SoulCore" and self.socketedSoulCoreEffectModifier
-			or modLine.augmentType == "Rune" and self.socketedRuneEffectModifier
+		local effectModifier = self.socketedAugmentItemEffectModifier or 0
+		if modLine.augmentType == "SoulCore" then
+			effectModifier = effectModifier + self.socketedSoulCoreEffectModifier
+		elseif modLine.augmentType == "Rune" then
+			effectModifier = effectModifier + self.socketedRuneEffectModifier
+		end
 		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
 			for _, mod in ipairs(modLine.modList) do
 				baseList:ScaleAddMod(mod, effectModifier)

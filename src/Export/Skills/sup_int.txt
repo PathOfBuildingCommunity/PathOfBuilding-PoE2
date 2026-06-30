@@ -117,6 +117,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportAtzirisCommunionPlayer
+#set SupportAtzirisCommunionPlayer
+#mods
+#skillEnd
+
 #skill SupportBhatairsVengeancePlayer
 #set SupportBhatairsVengeancePlayer
 #mods
@@ -167,7 +172,7 @@ statMap = {
 #set SupportBlazingCriticalPlayer
 statMap = {
 	["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-		mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+		mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Blazing Critical", unscalable = true }),
 	},
 	["support_blazing_crits_base_duration_ms"] = {
 		-- Display only
@@ -948,7 +953,7 @@ statMap = {
 #set SupportIceBitePlayer
 statMap = {
 	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
-		mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+		mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
 	},
 	["support_ice_bite_base_buff_duration"] = {
 		mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),
@@ -962,7 +967,7 @@ statMap = {
 #set SupportIceBitePlayerTwo
 statMap = {
 	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
-		mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+		mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
 	},
 	["support_ice_bite_base_buff_duration"] = {
 		mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),

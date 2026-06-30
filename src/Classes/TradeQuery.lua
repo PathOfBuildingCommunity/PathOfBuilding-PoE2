@@ -6,6 +6,7 @@
 
 
 local dkjson = require "dkjson"
+local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
 
 local get_time = os.time
 local t_insert = table.insert
@@ -55,31 +56,6 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.lastQueries = {}
 
 	self.tradeQueryRequests = new("TradeQueryRequests")
-	local function onRateLimit(backoff)
-		self.backoffFinish = get_time() + backoff
-		self.countDown = coroutine.create(function()
-			while self.backoffFinish  do
-				local now = get_time()
-				if self.backoffFinish < (now + 0.5) then
-					self.backoffFinish = nil
-					self:SetNotice(self.controls.pbNotice, "")
-					return
-				end
-				local msg = s_format("Rate limited. Retrying after %s seconds...",  self.backoffFinish - now)
-				self:SetNotice(self.controls.pbNotice, colorCodes.WARNING..msg)
-				coroutine.yield()
-			end
-		end)
-	end
-	main.onFrameFuncs["TradeQueryRequests"] = function()
-		self.tradeQueryRequests:ProcessQueue(onRateLimit)
-		if self.countDown then
-			coroutine.resume(self.countDown)
-			if coroutine.status(self.countDown) == "dead" then
-				self.countDown = nil
-			end
-		end
-	end
 	if not main.api then
 		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 	end
@@ -494,7 +470,11 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 	table.sort(activeSocketList)
+	local activeUniqueJewelSocket
 	for _, nodeId in ipairs(activeSocketList) do
+		if not activeUniqueJewelSocket and not self.itemsTab.build.spec.nodes[nodeId].containJewelSocket then
+			activeUniqueJewelSocket = nodeId
+		end
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
 
@@ -550,7 +530,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		return hideRowFunc(self, #slotTables+1)
 	end
 	local row_count = #slotTables + 1
-	self.slotTables[row_count] = { slotName = "Megalomaniac", unique = true, alreadyCorrupted = true }
+	self.slotTables[row_count] = { slotName = "Megalomaniac", unique = true, alreadyCorrupted = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding) -- Megalomaniac needs to drop an extra row for "Other Trades"
 	self.controls["name"..row_count].shown = function()
@@ -558,7 +538,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true, selectedJewelNodeId = activeSocketList[1] }
+	self.slotTables[row_count] = { slotName = "Heart of the Well", unique = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -566,7 +546,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 1
-	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true, selectedJewelNodeId = activeSocketList[1] }
+	self.slotTables[row_count] = { slotName = "Against the Darkness", unique = true, selectedJewelNodeId = activeUniqueJewelSocket }
 	self:PriceItemRowDisplay(row_count, top_pane_alignment_ref, row_vertical_padding, row_height)
 	self.controls["name"..row_count].y = self.controls["name"..row_count].y + (row_height + row_vertical_padding)
 	self.controls["name"..row_count].shown = function()
@@ -609,6 +589,32 @@ Highest Weight - Displays the order retrieved from trade]]
 		self.controls.scrollBar:SetContentDimension(self.pane_height-100, self.effective_rows_height)
 		self.controls.sectionAnchor.y = -self.controls.scrollBar.offset
 	end
+
+	local function onRateLimit(backoff)
+		self.backoffFinish = get_time() + backoff
+		self.countDown = coroutine.create(function()
+			while self.backoffFinish  do
+				local now = get_time()
+				if self.backoffFinish < (now + 0.5) then
+					self.backoffFinish = nil
+					self:SetNotice(self.controls.pbNotice, "")
+					return
+				end
+				local msg = s_format("Rate limited. Retrying after %s seconds...",  self.backoffFinish - now)
+				self:SetNotice(self.controls.pbNotice, colorCodes.WARNING..msg)
+				coroutine.yield()
+			end
+		end)
+	end
+	main.onFrameFuncs["TradeQueryRequests"] = function()
+		self.tradeQueryRequests:ProcessQueue(onRateLimit)
+		if self.countDown then
+			coroutine.resume(self.countDown)
+			if coroutine.status(self.countDown) == "dead" then
+				self.countDown = nil
+			end
+		end
+	end
 	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil))
 end
 
@@ -618,11 +624,16 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 	local controls = { }
 	local statList = { }
 	local sliderController = { index = 1 }
-	local popupHeight = 285
+	local popupHeight = 500
 
-	controls.ListControl = new("TradeStatWeightMultiplierListControl", {"TOPLEFT", nil, "TOPRIGHT"}, {-410, 45, 400, 200}, statList, sliderController)
+	local listYOffset = 45
+	-- account for top gap, bottom button size and gap, and a gap before buttons
+	local listHeight = popupHeight - 45 - 30 - 10
 
-	for id, stat in pairs(data.powerStatList) do
+	controls.ListControl = new("TradeStatWeightMultiplierListControl", { "TOPLEFT", nil, "TOPRIGHT" },
+		{ -410, 45, 400, listHeight }, statList, sliderController)
+
+	for _, stat in ipairs(data.powerStatList) do
 		if not stat.ignoreForItems and stat.label ~= "Name" then
 			t_insert(statList, {
 				label = "0      :  "..stat.label,
@@ -769,7 +780,12 @@ end
 function TradeQueryClass:ReduceOutput(output)
 	local smallOutput = {}
 	for _, statTable in ipairs(self.statSortSelectionList) do
-		smallOutput[statTable.stat] = output[statTable.stat]
+		smallOutput[statTable.stat] = data.powerStatList.GetFromOutput(output, statTable)
+		if statTable.stat == "FullDPS" and not output.FullDPS then
+			smallOutput.TotalDPS = data.powerStatList.GetFromOutput(output, { stat = "TotalDPS" })
+			smallOutput.TotalDotDPS = data.powerStatList.GetFromOutput(output, { stat = "TotalDotDPS" })
+			smallOutput.CombinedDPS = data.powerStatList.GetFromOutput(output, { stat = "CombinedDPS" })
+		end
 	end
 	return smallOutput
 end
@@ -797,7 +813,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 	local slotTbl = self.slotTables[row_idx]
 	local jewelNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
 	local slotName = jewelNodeId and "Jewel " .. tostring(jewelNodeId) or slotTbl.slotName
-	if slotName == "Megalomaniac" then
+	if slotTbl.slotName == "Megalomaniac" then
 		local addedNodes = {}
 		for nodeName in (result.item_string.."\r\n"):gmatch("Allocates (.-)\r?\n") do
 			local node = self.itemsTab.build.spec.tree.notableMap[nodeName:lower()]
@@ -836,6 +852,14 @@ function TradeQueryClass:UpdateDropdownList(row_idx)
 	self.controls["resultDropdown".. row_idx].selIndex = 1
 	self.controls["resultDropdown".. row_idx]:SetList(dropdownLabels)
 end
+function TradeQueryClass:ResetResultRow(rowIdx)
+	self.itemIndexTbl[rowIdx] = nil
+	self.sortedResultTbl[rowIdx] = nil
+	self.resultTbl[rowIdx] = nil
+	self.totalPrice[rowIdx] = nil
+	self:UpdateDropdownList(rowIdx)
+	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+end
 function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	local sortedItems, errMsg = self:SortFetchResults(row_idx, sortMode)
@@ -851,14 +875,19 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	end
 
 	self.sortedResultTbl[row_idx] = sortedItems
-	local pb_index = self.sortedResultTbl[row_idx][1].index
+	if not sortedItems[1] then
+		self:ResetResultRow(row_idx)
+		self:SetNotice(self.controls.pbNotice, "^4No compatible items found for this slot.")
+		return
+	end
+	local pb_index = sortedItems[1].index
 	self.itemIndexTbl[row_idx] = pb_index
 	self.controls["priceButton".. row_idx].tooltipText = "Sorted by " .. self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	self.totalPrice[row_idx] = {
 		currency = self.resultTbl[row_idx][pb_index].currency,
 		amount = self.resultTbl[row_idx][pb_index].amount,
 	}
-	self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
 	self:UpdateDropdownList(row_idx)
 end
 
@@ -869,7 +898,7 @@ function TradeQueryClass:SetFetchResultReturn(row_idx, index)
 			currency = self.resultTbl[row_idx][index].currency,
 			amount = self.resultTbl[row_idx][index].amount,
 		}
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
 	end
 end
 
@@ -949,15 +978,34 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 	return newTbl
 end
 
+-- ensure we only take in items that parse properly to avoid crash issues and fit in the
+-- provided slotName
+---@param itemEntries table
+---@param slotName string
+function TradeQueryClass:FilterToSafeItems(itemEntries, slotName)
+	local itemsSafe = {}
+	for _, entry in ipairs(itemEntries) do
+		local item = new("Item", entry.item_string)
+		if item.base and ((not slotName) or self.itemsTab:IsItemValidForSlot(item, slotName)) then
+			t_insert(itemsSafe, entry)
+		end
+	end
+	return itemsSafe
+end
 -- Method to generate pane elements for each item slot
 function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, row_vertical_padding, row_height)
 	local controls = self.controls
 	local slotTbl = self.slotTables[row_idx]
 	local activeSlotRef = slotTbl.nodeId and self.itemsTab.activeItemSet[slotTbl.nodeId] or self.itemsTab.activeItemSet[slotTbl.slotName]
-	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or
+	local nodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+	local activeSlot = nodeId and self.itemsTab.sockets[nodeId] or
 						slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName] or
 						slotTbl.slotName == "Watcher's Eye" and self:findValidSlotForWatchersEye() or
 						slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
+	local function getSelectedSlot()
+		local selectedNodeId = slotTbl.nodeId or slotTbl.selectedJewelNodeId
+		return selectedNodeId and self.itemsTab.sockets[selectedNodeId] or activeSlot
+	end
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 135, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "Find best", function()
@@ -986,14 +1034,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						self:SetNotice(context.controls.pbNotice, "")
 					end
 
-					-- ensure we only take in items that parse properly to avoid crash issues.
-					local itemsSafe = {}
-					for _, entry in ipairs(items) do
-						local item = new("Item", entry.item_string)
-						if item.base then
-							t_insert(itemsSafe, entry)
-						end
-					end
+					local selectedSlot = getSelectedSlot()
+					local itemsSafe = self:FilterToSafeItems(items, selectedSlot and selectedSlot.slotName)
 
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
 						for i, _ in ipairs(itemsSafe) do
@@ -1008,8 +1050,11 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						for item_idx, _ in ipairs(itemsSafe) do
 							local item = new("Item", itemsSafe[item_idx].item_string)
 							-- sockets are kept as-is so the user can see e.g. exceptional or corrupted sockets
+							local validRunes = self.itemsTab:GetValidRunesForItem(item)
 							for rune_idx, _ in ipairs(item.runes or {}) do
-								item.runes[rune_idx] = "None"
+								if not self.itemsTab:IsSocketBoundRune(item, item.runes[rune_idx], validRunes) then
+									item.runes[rune_idx] = "None"
+								end
 							end
 							item:UpdateRunes()
 							itemsSafe[item_idx].item_string = item:BuildRaw()
@@ -1041,6 +1086,22 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 Note that even if you are authenticated, you can click this button again to show the search link.
 If you have additional requirements that the trade tool doesn't cover (e.g. Adorned Magic jewels),
 you can add them, copy the link here, and press "Price Item" to evaluate the items.]]
+	controls["bestButton" .. row_idx].onHover = function()
+		local button = controls["bestButton" .. row_idx]
+
+		local x, y = button:GetPos()
+		local buttonWidth, _ = button:GetSize()
+
+		local nodeId = slotTbl.nodeId
+
+		if not nodeId then return end
+
+		local boxSize = 250
+		-- anchor bottom to top of button
+		local viewerY = y - boxSize - 4
+		local viewerX = x - boxSize / 2 + buttonWidth / 2
+		itemSlotHelper.DrawViewer(self.itemsTab, nodeId, viewerX, viewerY, boxSize, boxSize)
+	end
 	local pbURL
 	controls["uri"..row_idx] = new("EditControl", { "TOPLEFT", controls["bestButton"..row_idx], "TOPRIGHT"}, {8, 0, 514, row_height}, nil, nil, "^%C\t\n", nil, function(buf)
 		local subpath = buf:match(self.hostName .. "trade2/search/(.+)$") or ""
@@ -1078,7 +1139,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				else
 					self:SetNotice(controls.pbNotice, "")
 					self.lastQueries[row_idx] = query
-					self.resultTbl[row_idx] = items
+					local selectedSlot = getSelectedSlot()
+					local itemsSafe = self:FilterToSafeItems(items, selectedSlot and selectedSlot.slotName)
+					self.resultTbl[row_idx] = itemsSafe
 					self:UpdateControlsWithItems(row_idx)
 				end
 				controls["priceButton"..row_idx].label = "Price Item"
@@ -1089,7 +1152,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
 		local selectedJewelSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId]
-		local hasRequiredJewelSlot = not slotTbl.unique or slotTbl.slotName == "Megalomaniac" or selectedJewelSlot and not selectedJewelSlot.inactive
+		local hasRequiredJewelSlot = not slotTbl.unique or selectedJewelSlot and not selectedJewelSlot.inactive
 		return isAuthorized and validURL and not isSearching and hasRequiredJewelSlot
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
@@ -1098,8 +1161,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")
-		elseif slotTbl.unique and slotTbl.slotName ~= "Megalomaniac"
-			and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
+		elseif slotTbl.unique and (not slotTbl.selectedJewelNodeId or not self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or self.itemsTab.sockets[slotTbl.selectedJewelNodeId].inactive) then
 			tooltip:AddLine(16, "Requires an active Jewel Socket")
 		end
 	end
@@ -1107,11 +1169,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		return m_min(m_max(index or 1, 1), self.sortedResultTbl[row_idx] and #self.sortedResultTbl[row_idx] or 1)
 	end
 	controls["changeButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "<< Search", function()
-		self.itemIndexTbl[row_idx] = nil
-		self.sortedResultTbl[row_idx] = nil
-		self.resultTbl[row_idx] = nil
-		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		self:ResetResultRow(row_idx)
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
 	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 351, row_height}, {}, function(index)

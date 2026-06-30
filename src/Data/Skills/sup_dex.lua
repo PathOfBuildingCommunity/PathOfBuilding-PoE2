@@ -2106,8 +2106,9 @@ skills["TriggeredLightningDetonateDeadPlayer"] = {
 				"active_skill_base_area_of_effect_radius",
 				"skill_specific_stat_description_mode",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"cannot_electrocute",
+				"display_statset_hide_usage_stats",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 15, 5, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -2196,12 +2197,12 @@ skills["SupportEscalatingPoisonPlayer"] = {
 }
 skills["SupportFerocityPlayer"] = {
 	name = "Ferocity",
-	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do. Supported Skills cannot generate Frenzy Charges.",
+	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do, but cannot generate Frenzy Charges. Cannot Support Skills which consume Frenzy Charges.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { SkillType.SupportedByFerocity, },
-	excludeSkillTypes = { SkillType.SupportedByTumult, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
+	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SupportedByFerocity, SkillType.SkillConsumesFrenzyChargesOnUse, },
+	excludeSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Ferocity",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -2276,8 +2277,8 @@ skills["SupportFrenziedRipostePlayer"] = {
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, SkillType.SkillConsumesParried, },
+	addSkillTypes = { SkillType.SkillConsumesParried, SkillType.SupportedByFrenziedRiposte, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, SkillType.SkillConsumesParried, SkillType.SupportedByFrenziedRiposte, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "Retort",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -2367,7 +2368,6 @@ skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 				"base_is_projectile",
 				"ballistic_projectiles_always_bounce",
 				"triggerable_in_any_set",
-				"usable_while_shapeshifted",
 				"is_area_damage",
 				"never_freeze",
 			},
@@ -2648,7 +2648,7 @@ skills["SupportInnervatePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
-					mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" }),
 				},
 				["support_innervate_buff_base_duration_ms"] = {
 					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff" }),
@@ -3221,6 +3221,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Murderous Intent",

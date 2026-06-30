@@ -169,6 +169,7 @@ Selected Variant: 1
 Selected Alt Variant: 2
 Selected Alt Variant Two: 3
 Selected Alt Variant Three: 4
+Allow Duplicate Variants: true
 Variant: Legacy of Amethyst
 Variant: Legacy of Basalt
 Variant: Legacy of Bismuth
@@ -266,7 +267,7 @@ Your Life Flask also applies to your Minions
 Minions cannot Die while affected by a Life Flask
 (20-30)% increased Flask Charges gained
 ]],[[
-Waistgate Heavy Belt
+Waistgate
 Heavy Belt
 League: Dawn of the Hunt
 Implicits: 2

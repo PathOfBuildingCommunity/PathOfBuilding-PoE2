@@ -42,7 +42,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Barrier can take Elemental Damage up to an additional {0:+d}% of your Armour and Evasion Rating"
+				text="Barrier can take Elemental Damage equal to {0:+d}% of your Armour and Evasion Rating"
 			},
 			[2]={
 				limit={
@@ -51,7 +51,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Elemental Damage from Hits is taken from the Barrier before your Life, Mana or Energy Shield\nBarrier can take Elemental Damage up to {0}% of your Armour and Evasion Rating"
+				text="Elemental Damage from Hits is taken from the Barrier before your Life, Mana or Energy Shield\nBarrier can take Elemental Damage equal to {0}% of your Armour and Evasion Rating, up to a maximum of 32,000"
 			}
 		},
 		stats={

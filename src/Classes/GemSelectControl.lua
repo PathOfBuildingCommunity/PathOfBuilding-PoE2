@@ -466,6 +466,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		if self.hoverSel then
 			local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
+				self.tooltip.maxWidth = 500
 				local gemData = self.gems[self.list[self.hoverSel]]
 				-- Rebuilding this tooltip runs a full build calculation, so only rebuild when the hovered gem or the underlying build changes
 				if self.tooltip:CheckForUpdate(gemData, self.skillsTab.build.outputRevision, self.skillsTab.displayGroup, self.skillsTab.sortGemsByDPSField,
@@ -515,8 +516,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		if mOver and (not self.skillsTab.selControl or self.skillsTab.selControl._className ~= "GemSelectControl" or not self.skillsTab.selControl.dropped) and (not noTooltip or self.forceTooltip) then
 			local gemInstance = self.skillsTab.displayGroup.gemList[self.index]
 			local cursorX, cursorY = GetCursorPos()
-			-- Clear the update params too, so the dropdown hover tooltip above knows to rebuild
-			self.tooltip:Clear(true)
+			self.tooltip.maxWidth = 600
 			if gemInstance and gemInstance.gemData then
 				self:AddGemTooltip(gemInstance)
 			else

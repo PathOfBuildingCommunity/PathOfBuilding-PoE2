@@ -206,11 +206,11 @@ Heartbound Loop
 Pearl Ring
 Implicits: 1
 {tags:caster,speed}(7-10)% increased Cast Speed
-{tags:life}Minions have (10-15)% increased maximum Life
+{tags:life,minion}Minions have (10-15)% increased maximum Life
 {tags:life}(10-15) Life Regeneration per second
 {tags:mana}(20-40)% increased Mana Regeneration Rate
 {tags:physical}300 Physical Damage taken on Minion Death
-Minions Revive (10-15)% faster
+{tags:minion}Minions Revive (10-15)% faster
 ]],[[
 Icefang Orbit
 Iron Ring
