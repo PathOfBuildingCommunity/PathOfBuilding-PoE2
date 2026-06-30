@@ -30,6 +30,7 @@ Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRanger_     
 Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedEliteBloater        		----		Iron Enforcer
 Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1                                  		----		The Devourer
 Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadTrap                                         		----		The Devourer
 Metadata/Monsters/MudBurrower/MudBurrowerTailBoss_                                        		----		The Devourer
 Metadata/Monsters/FungusZombie/FungusZombieMedium                                         		----		Fungal Zombie
 Metadata/Monsters/FungusZombie/FungusZombieLarge                                          		----		Fungal Zombie
@@ -43,6 +44,7 @@ Metadata/Monsters/BitterGuy/BitterGuyWifeSurge                                  
 Metadata/Monsters/BitterGuy/BitterGuyChild1Surge_                                         		----		Calum, Weeping Child
 Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                          		----		Torcall, Sobbing Child
 Metadata/Monsters/QuillCrab/QuillCrab                                                     		----		Porcupine Crab
+Metadata/Monsters/QuillCrab/QuillCrabBig                                                  		----		Porcupine Crab
 Metadata/Monsters/QuillCrab/QuillCrabBigElite                                             		----		Porcupine Crab
 Metadata/Monsters/QuillCrab/QuillCrabPoison                                               		----		Venomous Crab
 Metadata/Monsters/QuillCrab/QuillCrabBigPoison_                                           		----		Venomous Crab Matriarch
@@ -216,6 +218,7 @@ Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                         
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre                           		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreStatue                     		----		Terracotta Soldier
+Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreStatueBridge               		----		Terracotta Soldier
 Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage__                  		----		Lost-men Subjugator
 Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast                        		----		Drudge Osseodon
 Metadata/Monsters/BoneCultists/BoneCultists_Beast/Runemarked/BoneCultistBeastRunemarked   		----		Drudge Osseodon
@@ -230,7 +233,10 @@ Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_             
 Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_                         		----		Sandflesh Warrior
 Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster                         		----		Sandflesh Mage
 Metadata/Monsters/PorcupineAnt/PorcupineAntSmall                                          		----		Rasp Scavenger
+Metadata/Monsters/PorcupineAnt/PorcupineAntMedium                                         		----		Rasp Scavenger
 Metadata/Monsters/PorcupineAnt/PorcupineAntMediumSanctumTrial                             		----		Rasp Scavenger
+Metadata/Monsters/PorcupineAnt/PorcupineAntLarge                                          		----		Rasp Scavenger
+Metadata/Monsters/PorcupineAnt/PorcupineAntLargeSanctumTrial                              		----		Rasp Scavenger
 Metadata/Monsters/CaveDweller/CaveDweller                                                 		----		Tombshrieker
 Metadata/Monsters/CaveDweller/CaveDwellerSanctumTrial__                                   		----		Tombshrieker
 Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge                                       		----		Vesper Bat
@@ -321,6 +327,8 @@ Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff                           
 Metadata/Monsters/CrazedCannibalPicts/Runemarked/PictFemaleStaffRunemarked                		----		Cultist Witch
 Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe                                         		----		Cultist Warrior
 Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeAxe                                      		----		Cultist Warrior
+Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeDagger                                   		----		Cultist Warrior
+Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeShield                                   		----		Cultist Warrior
 Metadata/Monsters/CrazedCannibalPicts/PictBigMale                                         		----		Cultist Brute
 Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02                         		----		Ribrattle
 Metadata/Monsters/WereCat/TigerChimeral                                                   		----		Prowling Chimeral
@@ -397,6 +405,7 @@ Metadata/Monsters/Procession/ProcessionDagger                                   
 Metadata/Monsters/Procession/ProcessionBow                                                		----		Vaal Embalmed Archer
 Metadata/Monsters/Procession/ProcessionBannerSpectre                                      		----		Vaal Embalmed Bearer
 Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword                                       		----		Gold-Melted Shambler
+Metadata/Monsters/GoldenOnes/GoldenOnesOneHandMace                                        		----		Gold-Melted Shambler
 Metadata/Monsters/DrownedCrew/DrownedCrewSword_                                           		----		Drowned Explorer
 Metadata/Monsters/DrownedCrew/DrownedCrewGhost                                            		----		Drowned Spectre
 Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead                                       		----		Drowned Bearer
@@ -447,6 +456,8 @@ Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer                       
 Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer                                 		----		Forael, the Soulkeeper
 Metadata/Monsters/SkeletonProwler/SkeletonProwler_                                        		----		Prowling Skeleton
 Metadata/Monsters/RatMonster/RatMonsterPrison                                             		----		Eaten Rat
+Metadata/Monsters/RatMonster/RatMonsterPrisonMedium                                       		----		Eaten Rat
+Metadata/Monsters/RatMonster/RatMonsterPrisonSmall                                        		----		Eaten Rat
 Metadata/Monsters/Skeletons/Basic/PrisonSkeletonUnarmed                                   		----		Risen Rattler
 Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_                                		----		Eternal Prisoner
 Metadata/Monsters/PaleWalker/PaleWalkerWave                                               		----		Pale Tidecrasher
@@ -474,7 +485,8 @@ Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker                             
 Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman                                       		----		Shaman Kin
 Metadata/Monsters/Goblins/GoblinShaman/Runemarked/GoblinShamanRunemarked                  		----		Shaman Kin
 Metadata/Monsters/HarpyMonster/MagmaHarpy/MagmaHarpy                                      		----		Molten Imp
-Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Ravenous Fang
+Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Blind Beast
+Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2                                     		----		The Ravenous Fang
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion3                                     		----		The Blind Brute
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion4                                     		----		The Blind Mauler
 Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerMining                                   		----		Prospector Kin
@@ -545,6 +557,7 @@ Metadata/Monsters/FallenGods/FallenGodMinibossClubHandMinion                    
 Metadata/Monsters/FallenGods/FallenGodMinibossCrawlerMinion                               		----		Forgotten Crawler
 Metadata/Monsters/FallenGods/FallenGodMinibossStagMinion                                  		----		Forgotten Stag
 Metadata/Monsters/RabidFeralDogMonster/RabidDog                                           		----		Rabid Dog
+Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName                       		----		Rabid Dog
 Metadata/Monsters/KaruiBoar/ExplosivePig                                                  		----		Volatile Boar
 Metadata/Monsters/Ghouls/FarudinCrawler                                                   		----		Faridun Crawler
 Metadata/Monsters/FarudinMiniboss/Runemarked/FarudinCorpseStriderRunemarked               		----		Faridun Corpse Strider
@@ -666,6 +679,8 @@ Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy                            
 Metadata/Monsters/PrecursorDungeon/PrecursorCentipede                                     		----		Precursor Centipede
 Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1                        		----		Vornas, the Fell Flame
 Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2                        		----		Morvak, the Infernal
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion                       		----		Anundr, the Sandworm
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoTailMAP_                         		----		Anundr, the Sandworm
 Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion                      		----		Akthi, the Final Sting
 Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre                                 		----		Blackblooded Proboscite
 Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre                                    		----		Blackblooded Cretin
@@ -690,6 +705,7 @@ Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre       
 Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre                     		----		Abyssal Shambler
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                          		----		Primordium of the Pit
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre                          		----		Hound of the Pit
 Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Boar/TawhoaBoarStandalone              		----		Tawhoa's Boar
 Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Tuatata/TawhoaTuataraStandalone        		----		Tawhoa's Tuatara
 Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/MedicineWoman/TawhoaMedicineWomanStandalone__		----		Tawhoa Mystic
@@ -757,11 +773,11 @@ Metadata/Monsters/PrecursorCentipedeTrain/PrecursorCentipedeTrainHead           
 -- Spectres Not Yet Imported --
 -- These spectres are not in PoB yet. Could be false spectres or disabled server-side. --
 
-Metadata/Monsters/Monkeys/MonkeyJungleTamed                                               		----		Feral Primate
 Metadata/Monsters/MudBurrower/Runemarked/BurrowerRunemarked                               		----		Bramble Burrower
 Metadata/Monsters/Wraith/WraithSpookyColdSanctumTrialTime                                 		----		Frost Wraith
 Metadata/Monsters/Wraith/Runemarked/WraithSpookyRunemarked                                		----		Tempest Wraith
 Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Runemarked/CorruptedEliteGuardRunemarked		----		Iron Thaumaturgist
+Metadata/Monsters/MudBurrower/MudBurrowerHeadTrap                                         		----		The Devourer
 Metadata/Monsters/MudBurrower/MudBurrowerTailBoss_                                        		----		The Devourer
 Metadata/Monsters/FungusZombie/FungusZombieLarge                                          		----		Fungal Zombie
 Metadata/Monsters/FungusZombie/Runemarked/FungusZombieFungalmancerRunemarked              		----		Fungal Proliferator
@@ -770,10 +786,7 @@ Metadata/Monsters/BitterGuy/BitterGuyWifeGhost                                  
 Metadata/Monsters/BitterGuy/BitterGuyWifeSurge                                            		----		Isabel, Mourning Wife
 Metadata/Monsters/BitterGuy/BitterGuyChild1Surge_                                         		----		Calum, Weeping Child
 Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                          		----		Torcall, Sobbing Child
-Metadata/Monsters/QuillCrab/QuillCrabBigElite                                             		----		Porcupine Crab
-Metadata/Monsters/QuillCrab/QuillCrabBigPoisonElite                                       		----		Venomous Crab Matriarch
 Metadata/Monsters/Urchins/MeleeUrchin1                                                    		----		Vile Imp
-Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeRanged1Spectre                                   		----		Flesh Larva
 Metadata/Monsters/Werewolves/Runemarked/WerewolfProwlerRunemarked                         		----		Werewolf Prowler
 Metadata/Monsters/Gargoyle/Runemarked/GargoyleGolemRunemarked                             		----		Gargoyle Demon
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryCrossbow                            		----		Decrepit Mercenary
@@ -802,18 +815,10 @@ Metadata/Monsters/Mutewind/MutewindGirlCorroded_                                
 Metadata/Monsters/Mutewind/MutewindManDualSwordGrim                                       		----		Faridun Swordsman
 Metadata/Monsters/Mutewind/MutewindMan2HSpearGrim                                         		----		Faridun Spearman
 Metadata/Monsters/Mutewind/MutewindWomanDualDaggerGrim                                    		----		Faridun Wind-slicer
-Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Black Strider
-Metadata/Monsters/DemonSpiders/BlackStriderSanctumTrial                                   		----		Black Strider
-Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Ashen Arachnid
 Metadata/Monsters/DemonSpiders/BlackStrider/Runemarked/BlackStriderRunemarked             		----		Black Strider
-Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDullSanctumScorpionBoss          		----		Tarnished Beetle
-Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWideSanctumTrial            		----		Adorned Scarab
-Metadata/Monsters/EtchedBeetles/LargeEtchedBeetleBossMinion                               		----		Adorned Beetle
 Metadata/Monsters/SerpentClanMonster/SerpentClan1SanctumTrial                             		----		Serpent Clan
 Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                            		----		Quake Golem
 Metadata/Monsters/SaltGolem/SaltGolemNoEmergeSanctumTrial                                 		----		Quake Golem
-Metadata/Monsters/HyenaMonster/HyenaMonsterHighAggro                                      		----		Hyena Demon
-Metadata/Monsters/HyenaMonster/HyenaCentaurSpearBossMinion_                               		----		Sun Clan Scavenger
 Metadata/Monsters/HyenaMonster/Runemarked/HyenaCentaurRunemarked                          		----		Sun Clan Scavenger
 Metadata/Monsters/SandGolemancer/SandGolemancerSanctumTrial                               		----		Desiccated Lich
 Metadata/Monsters/SandGolemancer/Runemarked/SandGolemancerRunemarked                      		----		Desiccated Lich
@@ -825,25 +830,24 @@ Metadata/Monsters/BoneCultists/BoneCultist_Zealots/Runemarked/BoneCultistZealotR
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreStatue                     		----		Terracotta Soldier
+Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreStatueBridge               		----		Terracotta Soldier
 Metadata/Monsters/BoneCultists/BoneCultists_Beast/Runemarked/BoneCultistBeastRunemarked   		----		Drudge Osseodon
 Metadata/Monsters/SerpentClanMonster/SerpentClanCasterSanctumTrial                        		----		Serpent Shaman
 Metadata/Monsters/SerpentClanMonster/Runemarked/SerpentClanCasterRunemarked               		----		Serpent Shaman
-Metadata/Monsters/PorcupineAnt/PorcupineAntMediumSanctumTrial                             		----		Rasp Scavenger
-Metadata/Monsters/CaveDweller/CaveDwellerSanctumTrial__                                   		----		Tombshrieker
 Metadata/Monsters/VultureZombie/Runemarked/VultureDemonRunemarked                         		----		Vile Vulture
-Metadata/Monsters/PlagueNymph/PlagueNymphFoundry                                          		----		Plague Nymph
 Metadata/Monsters/TwilightOrderExcavationOverseer/Runemarked/TwilightOrderOverseerRunemarked		----		Twilight Overseer
 Metadata/Monsters/WingedCreature/Runemarked/WingedCreatureRunemarked                      		----		Winged Horror
 Metadata/Monsters/VaalSavage/VaalSavageShamanWaterways                                    		----		Azak Shaman
 Metadata/Monsters/VaalSavage/Runemarked/VaalSavageGiantRunemarked                         		----		Azak Mauler
 Metadata/Monsters/BloodClan/BloodClanDagger                                               		----		Sea-tribe Daggerbearer
 Metadata/Monsters/Anchorite/Runemarked/AnchoriteMotherRunemarked                          		----		Pyromushroom Cultivator
-Metadata/Monsters/ChawMongrel/ChawMongrelLeashBoss                                        		----		Chaw Mongrel
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer2                                 		----		Ill-fated Explorer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSpores1                         		----		Ill-fated Explorer
 Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
 Metadata/Monsters/CrazedCannibalPicts/Runemarked/PictFemaleStaffRunemarked                		----		Cultist Witch
 Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeAxe                                      		----		Cultist Warrior
+Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeDagger                                   		----		Cultist Warrior
+Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeShield                                   		----		Cultist Warrior
 Metadata/Monsters/VaalConstructs/Golem/Runemarked/VaalConstructGolemRunemarked            		----		Shockblade Construct
 Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbotAncient_               		----		Crawler Sentinel
 Metadata/Monsters/VaalMonsters/Machinarium/Wraith/Runemarked/ProwlingShadeRunemarked      		----		Prowling Shade
@@ -864,6 +868,7 @@ Metadata/Monsters/VaalMonsters/Living/VaalGuardSpearLiving                      
 Metadata/Monsters/VaalMonsters/Living/VaalGuardBowLiving                                  		----		Vaal Guard
 Metadata/Monsters/VaalMonsters/Living/VaalGoliathLivingCrystalThrower                     		----		Vaal Goliath
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/Runemarked/VaalBloodPriestFemaleRunemarked		----		Blood Priestess
+Metadata/Monsters/GoldenOnes/GoldenOnesOneHandMace                                        		----		Gold-Melted Shambler
 Metadata/Monsters/VaalForgeMan/Runemarked/VaalForgeManRunemarked                          		----		Gold-melted Blacksmith
 Metadata/Monsters/BloodBathers/BloodBatherMace/BloodBatherMace                            		----		Bloodrite Guard
 Metadata/Monsters/BloodBathers/BloodBatherFlail/BloodBatherFlail                          		----		Bloodrite Guard
@@ -871,19 +876,17 @@ Metadata/Monsters/BloodBathers/BloodBatherSpear/BloodBatherSpear                
 Metadata/Monsters/BloodBathers/VaalApparition/Runemarked/SunVaalApparitionRunemarked      		----		Priest of the Sun
 Metadata/Monsters/Pirates/CaptainRothBossCannon                                           		----		Ghost Cannon
 Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_		----		Skitter Mine
+Metadata/Monsters/RatMonster/RatMonsterPrisonMedium                                       		----		Eaten Rat
+Metadata/Monsters/RatMonster/RatMonsterPrisonSmall                                        		----		Eaten Rat
 Metadata/Monsters/Skeletons/Basic/PrisonSkeletonUnarmed                                   		----		Risen Rattler
 Metadata/Monsters/PaleWalker/PaleWalkerMirageClone                                        		----		Pale Brinesplitter
 Metadata/Monsters/Goblins/GoblinShaman/Runemarked/GoblinShamanRunemarked                  		----		Shaman Kin
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion3                                     		----		The Blind Brute
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion4                                     		----		The Blind Mauler
 Metadata/Monsters/KaruiSoulCaster/KaruiSpiritSummon                                       		----		Ancestral Mask
-Metadata/Monsters/ParasiteMonsters/ParasiteMonster01                                      		----		Armoured Parasite
-Metadata/Monsters/ParasiteMonsters/ParasiteMonster02                                      		----		Kreth Parasite
-Metadata/Monsters/MorayClanMonster/MorayClan                                              		----		Moray Clan
 Metadata/Monsters/RootedGuys/RootedGuy01/RootedGuy1____                                   		----		Blightstalker
 Metadata/Monsters/RootedGuys/RootedGuy03/RootedGuy3                                       		----		Sporebearer
 Metadata/Monsters/RootedGuys/RootedGuy04/RootedGuy4                                       		----		Fungal Reaver
-Metadata/Monsters/Baron/BaronWerewolfProwlerSummon                                        		----		Tendril Prowler
 Metadata/Monsters/ScarecrowBeast/Runemarked/ScarecrowBeastRunemarked                      		----		Scarecrow Beast
 Metadata/Monsters/RootedGuys/Cocoons2/Cocoons2__                                          		----		Infested Cadaver
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
@@ -916,20 +919,30 @@ Metadata/Monsters/Skeletons/Essence/EssenceSkeletonCasterFire                   
 Metadata/Monsters/Skeletons/Essence/EssenceSkeletonCasterCold                             		----		Risen Rattler
 Metadata/Monsters/Skeletons/Essence/EssenceSkeletonCasterLightning                        		----		Risen Rattler
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
-Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
 Metadata/Monsters/PrecursorDungeon/PrecursorCentipede                                     		----		Precursor Centipede
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoTailMAP_                         		----		Anundr, the Sandworm
 
 -- Duplicate Spectre Names --
 -- Same name but different skill sets (should likely be separate imports). --
 
 Metadata/Monsters/Monkeys/MonkeyJunglePale                                                		----		Feral Primate
 Metadata/Monsters/Monkeys/MonkeyJungleTamedBossSpectator                                  		----		Feral Primate
+Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
+Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
+Metadata/Monsters/CrowBell/CrowBellBossMinion1                                            		----		The Crowbell
+Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
 Metadata/Monsters/Wraith/WraithSpookyColdSpectre                                          		----		Frost Wraith
 Metadata/Monsters/Wraith/WraithSpookyLightningSpectre                                     		----		Lightning Wraith
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossTAMED                                    		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion1                                  		----		The Devourer
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
+Metadata/Monsters/MudBurrower/MudBurrowerHeadTrap2                                        		----		The Devourer
 Metadata/Monsters/MudGolem/MudGolemWet1                                                   		----		Mud Simulacrum
 Metadata/Monsters/MudGolem/MudGolemWetEmerge1                                             		----		Mud Simulacrum
 Metadata/Monsters/MudGolem/MudGolemWetEncased1                                            		----		Mud Simulacrum
-Metadata/Monsters/QuillCrab/QuillCrabBig                                                  		----		Porcupine Crab
 Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmedPhysics                       		----		Drowned
 Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedOneHandAxe                           		----		Drowned
 Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedOneHandAxePhysics                    		----		Drowned
@@ -965,7 +978,17 @@ Metadata/Monsters/Mercenary/Infected/InfectedMercenaryCrossbowExecutionerMinionS
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeShieldExecutionerMinion_STANDALONE		----		Decrepit Mercenary
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeAxeExecutionerMinion             		----		Decrepit Mercenary
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeAxeExecutionerMinionSTANDALONE   		----		Decrepit Mercenary
+Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2                          		----		Xilozoma, the Maw-Beast
+Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1                          		----		Xyclucian, the Chimera
+Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2                          		----		Xilozoma, the Maw-Beast
+Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2                                   		----		Gressor-Kul, the Apex
+Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1                                   		----		Uxmal, the Beastlord
+Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2                                   		----		Gressor-Kul, the Apex
 Metadata/Monsters/Bird2/MutantBird2Minion1                                                		----		Scourge of the Skies
+Metadata/Monsters/Bird2/MutantBird2Minion2                                                		----		Chetza, the Feathered Plague
+Metadata/Monsters/Bird2/MutantBird2Minion2                                                		----		Chetza, the Feathered Plague
+Metadata/Monsters/Bird2/MutantBird2Minion1                                                		----		Scourge of the Skies
+Metadata/Monsters/Bird2/MutantBird2Minion2                                                		----		Chetza, the Feathered Plague
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonOneHandAxeNoArmour_                  		----		Risen Maraketh
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonOneHandAxeClothArmour                		----		Risen Maraketh
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonOneHandAxeMediumArmour               		----		Risen Maraketh
@@ -1040,6 +1063,9 @@ Metadata/Monsters/SaltGolem/SaltGolemNoEmergeSanctumTrial                       
 Metadata/Monsters/SaltGolem/SaltGolemBlackNoEmerge                                        		----		Quake Golem
 Metadata/Monsters/SaltGolem/SaltGolemBlackNoEmerge                                        		----		Quake Golem
 Metadata/Monsters/HyenaMonster/HyenaMonsterBossMinion                                     		----		Hyena Demon
+Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2                                     		----		Caedron, the Hyena Lord
+Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1                                     		----		Rathbreaker
+Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2                                     		----		Caedron, the Hyena Lord
 Metadata/Monsters/ShellMonster/ShellMonsterSmall                                          		----		Brimstone Crab
 Metadata/Monsters/ShellMonster/ShellMonsterPoisonSmall                                    		----		Caustic Crab
 Metadata/Monsters/ShellMonster/ShellMonsterPoison_                                        		----		Caustic Crab
@@ -1058,7 +1084,6 @@ Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSickleShieldSanctumTrial
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreSanctumTrialNoEmerge       		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSickleShieldSanctumTrialNoEmerge  		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreFormation                  		----		Terracotta Soldier
-Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreStatueBridge               		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre                           		----		Terracotta Soldier
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonOneHandSwordNoArmour                 		----		Risen Maraketh
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed                              		----		Risen Maraketh
@@ -1069,9 +1094,6 @@ Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonCrossbow                   
 Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonCrossbowSanctumTrial_                		----		Risen Maraketh
 Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSwordShield                    		----		Sandflesh Warrior
 Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCasterSanctumTrial             		----		Sandflesh Mage
-Metadata/Monsters/PorcupineAnt/PorcupineAntMedium                                         		----		Rasp Scavenger
-Metadata/Monsters/PorcupineAnt/PorcupineAntLarge                                          		----		Rasp Scavenger
-Metadata/Monsters/PorcupineAnt/PorcupineAntLargeSanctumTrial                              		----		Rasp Scavenger
 Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge                                       		----		Vesper Bat
 Metadata/Monsters/MineBat/MineBatDesertCaveSanctumTrial_NoEmerge                          		----		Vesper Bat
 Metadata/Monsters/MineBat/MineBatDesertCaveSanctumTrial_NoEmerge                          		----		Vesper Bat
@@ -1107,12 +1129,17 @@ Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange2         
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange3                   		----		Ill-fated Explorer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange4                   		----		Ill-fated Explorer
 Metadata/Monsters/Quadrilla/Runemarked/QuadrillaRunemarked                                		----		Quadrilla
+Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
+Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
+Metadata/Monsters/Quadrilla/QuadrillaBossMinion1                                          		----		Mighty Silverfist
+Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
+Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2                                       		----		The Frostborn Fiend
+Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1                                       		----		The Abominable Yeti
+Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2                                       		----		The Frostborn Fiend
 Metadata/Monsters/NettleAnt/NettleAntSummoned                                             		----		Nettle Ant
 Metadata/Monsters/SnakeHulk/Runemarked/SnakeHulkRunemarked                                		----		Entwined Hulk
 Metadata/Monsters/SpiderMonkey/SpiderMonkeyTropical                                       		----		Scorpion Monkey
 Metadata/Monsters/GoreCharger/Runemarked/GoreChargerRunemarked                            		----		Diretusk Boar
-Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeDagger                                   		----		Cultist Warrior
-Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeShield                                   		----		Cultist Warrior
 Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication01                         		----		Skullslinger
 Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication03_                        		----		Spinesnatcher
 Metadata/Monsters/Taniwha/RiverTaniwhaNoJank                                              		----		River Drake
@@ -1165,7 +1192,6 @@ Metadata/Monsters/VaalMonsters/Living/VaalGoliathLivingPatrol_                  
 Metadata/Monsters/VaalMonsters/Living/VaalShapeshifterBloodied__                          		----		Vaal Formshifter
 Metadata/Monsters/VaalMonsters/Living/VaalShapeshifterPatrol                              		----		Vaal Formshifter
 Metadata/Monsters/Procession/ProcessionBannerSpectre                                      		----		Vaal Embalmed Bearer
-Metadata/Monsters/GoldenOnes/GoldenOnesOneHandMace                                        		----		Gold-Melted Shambler
 Metadata/Monsters/GoldenOnes/GoldenOnesOneHandClub                                        		----		Gold-Melted Shambler
 Metadata/Monsters/GoldenOnes/GoldenOnesSpear                                              		----		Gold-Melted Shambler
 Metadata/Monsters/DrownedCrew/DrownedCrewAxe                                              		----		Drowned Explorer
@@ -1190,8 +1216,6 @@ Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/Runemarked/VaalPyramidH
 Metadata/Monsters/GullGoliath/Runemarked/GullGoliathRunemarked                            		----		Goliath Shrike
 Metadata/Monsters/Skeletons/FleshPicked/FleshPickedSkeletonNoEmerge                       		----		Scavenged Skeleton
 Metadata/Monsters/NecromancerRemakeBook/Runemarked/SpinedNecromancerRunemarked            		----		Spined Necromancer
-Metadata/Monsters/RatMonster/RatMonsterPrisonMedium                                       		----		Eaten Rat
-Metadata/Monsters/RatMonster/RatMonsterPrisonSmall                                        		----		Eaten Rat
 Metadata/Monsters/Skeletons/Basic/PrisonSkeletonOneHandSword                              		----		Risen Rattler
 Metadata/Monsters/Skeletons/Basic/PrisonSkeletonOneHandSwordShield                        		----		Risen Rattler
 Metadata/Monsters/Zombies/UpperPrison/PrisonZombieOneHandAxe                              		----		Eternal Prisoner
@@ -1199,6 +1223,9 @@ Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_                      
 Metadata/Monsters/SkeletonProwler/SkeletonProwlerWet_                                     		----		Prowling Skeleton
 Metadata/Monsters/TarHulk/Runemarked/PaleHulkRunemarked_                                  		----		Pale Abductor
 Metadata/Monsters/DeepDwellerBoss/Runemarked/SpikedDwellerRunemarked                      		----		Spiked Scuttler
+Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2                                      		----		The Sandstrider
+Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1                                      		----		Great White One
+Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2                                      		----		The Sandstrider
 Metadata/Monsters/Goblins/GoblinStabberNoSkullRider                                       		----		Feral Kin
 Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman                                   		----		Spearbearer Kin
 Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman                                   		----		Spearbearer Kin
@@ -1207,6 +1234,8 @@ Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker                             
 Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker                                       		----		Tuskbearer Kin
 Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman                                       		----		Shaman Kin
 Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman                                       		----		Shaman Kin
+Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Ravenous Fang
+Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Ravenous Fang
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2                                     		----		The Ravenous Fang
 Metadata/Monsters/ElectricStingray/Runemarked/ElectricStingrayRunemarked                  		----		Spiked Ray
 Metadata/Monsters/KaruiTuatara/KaruiTuatara_                                              		----		Guardian Lizard
@@ -1245,7 +1274,6 @@ Metadata/Monsters/FallenGods/FallenHooks                                        
 Metadata/Monsters/TwilightOrderCleric/TwilightOrderCleric                                 		----		Twilight Order Priest
 Metadata/Monsters/FallenGods/FallenGodMinibossStalkerMinion                               		----		Forgotten Stalker
 Metadata/Monsters/FallenGods/FallenGodMinibossHooksMinion__                               		----		Forgotten Satyr
-Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName                       		----		Rabid Dog
 Metadata/Monsters/Ghouls/FarudinCrawlerQuarry                                             		----		Faridun Crawler
 Metadata/Monsters/TitanWalker/TitanWalkerSanctumTrial                                     		----		Walking Goliath
 Metadata/Monsters/TitanWalker/TitanWalkerCorpse                                           		----		Walking Goliath
@@ -1259,6 +1287,15 @@ Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriestSanctumTrialTime     
 Metadata/Monsters/Zombies/CourtGuardZombieUnarmed                                         		----		Rotting Guard
 Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBatInterlude                         		----		Cerberic Bat
 Metadata/Monsters/ChaosGodGorilla/ChaosGodGorillaInterlude                                		----		Stoneclad Gorilla
+Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
+Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
+Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Rakkar, the Frozen Talon
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Rakkar, the Frozen Talon
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2                                       		----		Thraeven, Wing of Winter
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2                        		----		Karash, The Dune Dweller
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_                       		----		Ashar, the Sand Mother
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2                        		----		Karash, The Dune Dweller
 Metadata/Monsters/LeagueDelirium/DeliriumMinionEssence1                                   		----		Rage
 Metadata/Monsters/LeagueDelirium/DeliriumMinionEssence2                                   		----		Spite
 Metadata/Monsters/LeagueDelirium/DeliriumMinionEssence3                                   		----		Disgust
@@ -1318,6 +1355,15 @@ Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                          
 Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre                         		----		Bloodbilge
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyBig                                   		----		Fettered Hook
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyMinion                                		----		Fettered Hook
+Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2                        		----		Morvak, the Infernal
+Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1                        		----		Vornas, the Fell Flame
+Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2                        		----		Morvak, the Infernal
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion                       		----		Anundr, the Sandworm
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion                       		----		Anundr, the Sandworm
+Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion                       		----		Anundr, the Sandworm
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion                      		----		Akthi, the Final Sting
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion                      		----		Akthi, the Final Sting
+Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion                      		----		Akthi, the Final Sting
 Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre                                 		----		Blackblooded Proboscite
 Metadata/Monsters/LeagueAbyss/Blackblood/CollectorStrongbox                               		----		Blackblooded Proboscite
 Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre                                    		----		Blackblooded Cretin
@@ -1364,7 +1410,6 @@ Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssStrongbox                        		----		Primordium of the Pit
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Strongbox                             		----		Hound of the Pit
-Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre                          		----		Hound of the Pit
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre                          		----		Hound of the Pit
 Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeStrongbox                        		----		Hound of the Pit
 Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionAxeShieldIncursion                  		----		Vaal Embalmed Axeman
@@ -1457,6 +1502,10 @@ Metadata/Monsters/LeagueIncursionNew/Corruption/SunVaalApparitionIncursion      
 Metadata/Monsters/LeagueIncursionNew/SynthfleshLab/VaalScientistIncursion                 		----		Surgical Experimentalist
 Metadata/Monsters/LeagueIncursionNew/SynthfleshLab/ExperimentBladeHands                   		----		Warrior Transcendent
 Metadata/Monsters/LeagueIncursionNew/SynthfleshLab/ExperimentStalker                      		----		Bladelash Transcendent
+Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/SoulCoreQuadrillaMinion		----		Quadrilla Sergeant
+Metadata/Monsters/LeagueIncursionNew/MiniBosses/SoulCoreQuadrillaBoss/SoulCoreQuadrillaMinion		----		Quadrilla Sergeant
+Metadata/Monsters/LeagueIncursionNew/MiniBosses/IncursionChainedBeastBoss/ChainedBeastBossMinion_		----		Unchained Beast
+Metadata/Monsters/LeagueIncursionNew/MiniBosses/IncursionChainedBeastBoss/ChainedBeastBossMinion_		----		Unchained Beast
 Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/GoldenOnesTwoHandSwordExpedition		----		Gold-Melted Shambler
 Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/GoldenOnesOneHandMaceExpedition		----		Gold-Melted Shambler
 Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/GoldenOnesDualAxesExpedition		----		Gold-Melted Shambler
