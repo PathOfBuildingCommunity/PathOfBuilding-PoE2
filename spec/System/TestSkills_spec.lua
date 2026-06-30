@@ -102,6 +102,46 @@ describe("TestSkills", function()
 		assert.matches("Explosion radius", qualityDescriptions[1])
 	end)
 
+	it("uses companion resistances in the beast library controls", function()
+		local minionId = "Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"
+		local testData = {
+			skills = build.data.skills,
+			minions = {
+				A = copyTable(build.data.minions[minionId]),
+				B = copyTable(build.data.minions[minionId]),
+			},
+		}
+		testData.minions.B.name = "B"
+		testData.minions.B.fireResist = 0
+		testData.minions.B.companionFireResist = 60
+
+		local tooltip = {
+			lines = { },
+			CheckForUpdate = function()
+				return true
+			end,
+			AddLine = function(self, _, text)
+				table.insert(self.lines, text)
+			end,
+			AddSeparator = function()
+			end,
+		}
+		local spectreList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
+		local beastList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
+
+		spectreList:AddValueTooltip(tooltip, 1, "A")
+		assert.matches("Resistances:.*75", table.concat(tooltip.lines, "\n"))
+		tooltip.lines = { }
+		beastList:AddValueTooltip(tooltip, 1, "A")
+		assert.matches("Resistances:.*50", table.concat(tooltip.lines, "\n"))
+
+		local sourceList = { "A", "B" }
+		local sourceControl = new("MinionSearchListControl", nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
+		sourceControl.controls.sortModeDropDown.selIndex = 9
+		sourceControl:sortSourceList()
+		assert.are.equals("B", sourceControl.list[1])
+	end)
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }

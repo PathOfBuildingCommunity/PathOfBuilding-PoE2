@@ -9,10 +9,11 @@ local t_remove = table.remove
 local s_format = string.format
 local m_max = math.max
 
-local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest, label)
+local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest, label, showCompanionStats)
 	self.ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
 	self.data = data
 	self.dest = dest
+	self.showCompanionStats = showCompanionStats
 	if dest then
 		self.dragTargetList = { dest }
 		self.label = label or "^7Available Spectres:"
@@ -49,6 +50,10 @@ end
 function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
+		local fireResist = self.showCompanionStats and minion.companionFireResist or minion.fireResist
+		local coldResist = self.showCompanionStats and minion.companionColdResist or minion.coldResist
+		local lightningResist = self.showCompanionStats and minion.companionLightningResist or minion.lightningResist
+		local chaosResist = self.showCompanionStats and minion.companionChaosResist or minion.chaosResist
 		tooltip.center = true
 		tooltip:AddLine(20, "^7"..minion.name, "FONTIN SC")
 		tooltip.center = false
@@ -67,10 +72,10 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 			tooltip:AddLine(14, s_format("^7Evasion Multiplier: x%.2f", 1 + minion.evasion))
 		end
 		tooltip:AddLine(14, s_format("^7Resistances: %s%d ^7/ %s%d ^7/ %s%d ^7/ %s%d",
-			colorCodes.FIRE, minion.fireResist,
-			colorCodes.COLD, minion.coldResist,
-			colorCodes.LIGHTNING, minion.lightningResist,
-			colorCodes.CHAOS, minion.chaosResist
+			colorCodes.FIRE, fireResist,
+			colorCodes.COLD, coldResist,
+			colorCodes.LIGHTNING, lightningResist,
+			colorCodes.CHAOS, chaosResist
 		))
 		tooltip:AddLine(14, s_format("^7Base Damage: x%.2f", minion.damage))
 		tooltip:AddLine(14, s_format("^7Base Attack Speed: %.2f", 1 / minion.attackTime))
