@@ -9,39 +9,33 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
 					}
 				},
-				text="DNT Take {0} to {1} Physical Damage if Swarm Hits any target"
+				text="Swarm deals {0}% more Damage per Swarm's Advance"
 			}
 		},
 		stats={
-			[1]="secondary_minimum_base_physical_damage",
-			[2]="secondary_maximum_base_physical_damage"
+			[1]="locust_dash_damage_+%_final_per_stack"
 		}
 	},
 	[2]={
 		[1]={
 			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
 					}
 				},
-				text="DNT Gain a stack of Swarm's Advance if Swarm Hits any Target, max {1} stacks\n{0}% More Damage to Enemies per stack of Swarm's Advance"
+				text="Swarm radius is {0} metres"
 			}
 		},
 		stats={
-			[1]="locust_dash_damage_+%_final_per_stack",
-			[2]="maximum_locust_stacks"
+			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
 	[3]={
@@ -53,11 +47,24 @@ return {
 				},
 				limit={
 					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Swarm Hits all targets in area every {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT Swarm Hits all targets in area Every {0}s"
+				text="Swarm Hits all targets in area every {0} seconds"
 			}
 		},
 		stats={
@@ -73,7 +80,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Modifiers to Cooldown Recovery Rate also apply to\nHit frequency"
+				text="Modifiers to Cooldown Recovery Rate apply to Hit frequency"
 			}
 		},
 		stats={
@@ -83,21 +90,27 @@ return {
 	[5]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
-				text="DNT Swarm radius is {0} metres"
+				text="If Swarm Hits any targets, you take {0} to {1} Physical Damage and gain 1 Swarm's Advance, to a maximum of {2}"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_minimum_physical_self_damage_to_take",
+			[2]="active_skill_maximum_physical_self_damage_to_take",
+			[3]="maximum_locust_stacks"
 		}
 	},
 	[6]={
@@ -109,7 +122,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Damage taken from this Skill applies Stun Buildup as if dealing {0}% more damage"
+				text="Damage taken this way applies {0}% more Stun buildup to you"
 			}
 		},
 		stats={
@@ -119,15 +132,6 @@ return {
 	[7]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=4000,
-						[2]=4000
-					}
-				},
-				text="DNT Heavy Stun Buildup only Empties if you haven't sprinted Recently\nLose all stacks of Swarm's Advance if you haven't sprinted Recently"
-			},
-			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -138,7 +142,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Heavy Stun Buildup only Empties if you haven't sprinted in the last {0}s\nLose all stacks of Swarm's Advance if you haven't sprinted in the last {0}s"
+				text="Stun Buildup cannot empty while you have Swarm's Advance\nLose all Swarm's Advance {0} seconds after you finish sprinting"
 			}
 		},
 		stats={
@@ -160,15 +164,15 @@ return {
 		}
 	},
 	["active_skill_area_of_effect_radius"]=8,
-	["active_skill_base_area_of_effect_radius"]=5,
+	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_heavy_stun_decay_after_action_delay_ms"]=7,
+	["active_skill_maximum_physical_self_damage_to_take"]=5,
+	["active_skill_minimum_physical_self_damage_to_take"]=5,
 	["base_cooldown_modifiable_repeat_interval_ms"]=3,
 	["cooldown_recovery_modifiers_also_apply_to_repeat_interval"]=4,
-	["locust_dash_damage_+%_final_per_stack"]=2,
+	["locust_dash_damage_+%_final_per_stack"]=1,
 	["locust_dash_self_hit_stun_multiplier_+%_final"]=6,
-	["maximum_locust_stacks"]=2,
+	["maximum_locust_stacks"]=5,
 	parent="skill_stat_descriptions",
-	["secondary_maximum_base_physical_damage"]=1,
-	["secondary_minimum_base_physical_damage"]=1,
 	["virtual_cooldown_modifiable_repeat_interval_ms"]=9
 }

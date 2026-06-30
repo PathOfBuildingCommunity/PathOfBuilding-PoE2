@@ -267,7 +267,7 @@ UniqueLifeFlasksApplyToMinions1
 MinionsCannotDieWhileAffectedByYourLifeFlasks1
 UniqueIncreasedFlaskChargesGained4
 ]],[[
-Waistgate Heavy Belt
+Waistgate
 Heavy Belt
 League: Dawn of the Hunt
 Implicits: 2

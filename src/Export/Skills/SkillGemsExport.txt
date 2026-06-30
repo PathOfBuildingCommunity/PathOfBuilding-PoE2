@@ -306,15 +306,6 @@
 #mods
 #skillEnd
 
-#skill UniqueHeraldOfAshPlayer
-#set UniqueHeraldOfAshPlayer
-#flags
-#mods
-#set UniqueHeraldOfAshOnKillPlayer
-#flags
-#mods
-#skillEnd
-
 #skill HeraldOfBloodPlayer
 #set HeraldOfBloodPlayer
 #flags
@@ -2323,15 +2314,6 @@
 #mods
 #skillEnd
 
-#skill UniqueHeraldOfThunderPlayer
-#set UniqueHeraldOfThunderPlayer
-#flags
-#mods
-#set UniqueHeraldOfThunderOnKillPlayer
-#flags
-#mods
-#skillEnd
-
 #skill IceShotPlayer
 #set IceShotPlayer
 #flags
@@ -4089,15 +4071,6 @@
 #flags
 #mods
 #set HeraldOfIceOnKillPlayer
-#flags
-#mods
-#skillEnd
-
-#skill UniqueHeraldOfIcePlayer
-#set UniqueHeraldOfIcePlayer
-#flags
-#mods
-#set UniqueHeraldOfIceOnKillPlayer
 #flags
 #mods
 #skillEnd
@@ -6358,6 +6331,33 @@
 #flags
 #mods
 #set GrimPillarsExplodePlayer
+#flags
+#mods
+#skillEnd
+
+#skill UniqueHeraldOfAshPlayer
+#set UniqueHeraldOfAshPlayer
+#flags
+#mods
+#set UniqueHeraldOfAshOnKillPlayer
+#flags
+#mods
+#skillEnd
+
+#skill UniqueHeraldOfIcePlayer
+#set UniqueHeraldOfIcePlayer
+#flags
+#mods
+#set UniqueHeraldOfIceOnKillPlayer
+#flags
+#mods
+#skillEnd
+
+#skill UniqueHeraldOfThunderPlayer
+#set UniqueHeraldOfThunderPlayer
+#flags
+#mods
+#set UniqueHeraldOfThunderOnKillPlayer
 #flags
 #mods
 #skillEnd

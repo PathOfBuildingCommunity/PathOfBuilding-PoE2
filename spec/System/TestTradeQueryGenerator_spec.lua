@@ -35,10 +35,10 @@ describe("TradeQueryGenerator", function()
 			assert.are.equal(result, 100)
 		end)
 
-		it("uses minion output for non-FullDPS stats when minion output is available", function()
-			local baseOutput = { AverageDamage = 10, Minion = { AverageDamage = 100 } }
-			local newOutput = { AverageDamage = 10, Minion = { AverageDamage = 250 } }
-			local statWeights = { { stat = "AverageDamage", weightMult = 1 } }
+		it("uses minion output for non-FullDPS stats when minion output is desired", function()
+			local baseOutput = { Life = 10, Minion = { Life = 100 } }
+			local newOutput = { Life = 10, Minion = { Life = 250 } }
+			local statWeights = { { stat = "MinionLife", weightMult = 1 } }
 			data.misc.maxStatIncrease = 1000
 
 			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
@@ -46,7 +46,20 @@ describe("TradeQueryGenerator", function()
 			assert.are.equal(result, 2.5)
 		end)
 
-		it("uses player output for FullDPS even when minion output is available", function()
+		it("uses lower is better stats correctly", function()
+			local baseOutput = { MaxHit = 100 }
+			local newOutput = { MaxHit = 10 }
+			local statWeights = { { stat = "MaxHit", weightMult = 1, transform = function(number) return -number end } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
+
+			local close_enough = math.abs(result - -0.1) < 0.0001
+			assert.True(close_enough)
+		end)
+
+		it("uses player and minion output for FullDPS", function()
+			-- minion output gets assigned to the player's full dps in reality
 			local baseOutput = { FullDPS = 100, Minion = { FullDPS = 100 } }
 			local newOutput = { FullDPS = 250, Minion = { FullDPS = 1000 } }
 			local statWeights = { { stat = "FullDPS", weightMult = 1 } }
@@ -54,6 +67,16 @@ describe("TradeQueryGenerator", function()
 
 			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 
+			assert.are.equal(result, 2.5)
+		end)
+
+		it("uses player output for non-FullDPS even when minion output is available", function()
+			local baseOutput = { Life = 100, Minion = { Life = 100 } }
+			local newOutput = { Life = 250, Minion = { Life = 1000 } }
+			local statWeights = { { stat = "Life", weightMult = 1 } }
+			data.misc.maxStatIncrease = 1000
+
+			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, newOutput, statWeights)
 			assert.are.equal(result, 2.5)
 		end)
 

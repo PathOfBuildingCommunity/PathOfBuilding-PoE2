@@ -408,4 +408,217 @@ describe("TestItemsTab", function()
 			end)
 		end)
 	end)
+
+	describe("TestCopyAnointsAndAugments", function ()
+		before_each(function ()
+			newBuild()
+		end)
+
+		-- Equips an item into the active item set's appropriate slot
+		local function equip(raw)
+			local item = new("Item", raw)
+			build.itemsTab:AddItem(item)
+			build.itemsTab:EquipItemInSet(item, build.itemsTab.activeItemSetId)
+			return item
+		end
+
+		describe("Anoints", function ()
+			it("copies an anoint from the equipped item onto a new item", function ()
+				equip([[
+					Rarity: RARE
+					Equipped
+					Crimson Amulet
+					Allocates Serrated Edges (enchant)
+				]])
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					New
+					Azure Amulet
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
+
+				assert.are.equals(1, #newItem.enchantModLines)
+			end)
+
+			it("does not overwrite an existing anoint when overwrite is false", function ()
+				equip([[
+					Rarity: RARE
+					Equipped
+					Crimson Amulet
+					Allocates Serrated Edges (enchant)
+				]])
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					New
+					Azure Amulet
+					Allocates Unbound Forces (enchant)
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
+
+				assert.are.equals(1, #newItem.enchantModLines)
+				assert.is_not_nil(newItem.enchantModLines[1].line:find("Unbound Forces"))
+			end)
+
+			it("overwrites an existing anoint when overwrite is true", function ()
+				equip([[
+					Rarity: RARE
+					Equipped
+					Crimson Amulet
+					Allocates Serrated Edges (enchant)
+				]])
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					New
+					Azure Amulet
+					Allocates Unbound Forces (enchant)
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, false, true)
+
+				assert.are.equals(1, #newItem.enchantModLines)
+				assert.is_not_nil(newItem.enchantModLines[1].line:find("Serrated Edges"))
+			end)
+
+			it("does not modify a corrupted item", function ()
+				equip([[
+					Rarity: RARE
+					Equipped
+					Crimson Amulet
+					Allocates Serrated Edges (enchant)
+				]])
+
+				for _, status in ipairs({ "Corrupted", "Mirrored", "Sanctified" }) do
+					local newItem = new("Item", string.format([[
+						Rarity: RARE
+						New
+						Azure Amulet
+						%s
+					]], status))
+					build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
+
+					assert.are.equals(0, #newItem.enchantModLines)
+				end
+			end)
+		end)
+
+		describe("Augments", function ()
+			local rune = "Greater Robust Rune"
+
+			local existingItemText = string.format([[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S
+					Rune: %s
+				]], rune)
+
+			local newItemText = [[
+					Rarity: RARE
+					New
+					Stocky Mitts
+				]]
+
+			it("copies runes from the equipped item when copyAugments is true", function ()
+				equip(existingItemText)
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					New
+					Stocky Mitts
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
+
+				assert.are.equals(rune, newItem.runes[1])
+			end)
+
+			it("adds sockets to the new item to fit the copied runes", function ()
+				equip(existingItemText)
+
+				local newItem = new("Item", newItemText)
+				assert.are.equals(0, #newItem.sockets)
+
+				build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
+
+				assert.are.equals(1, #newItem.sockets)
+			end)
+
+			it("does not copy runes when copyAugments is false", function ()
+				equip(existingItemText)
+
+				local newItem = new("Item", newItemText)
+				build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
+
+				assert.are.equals(0, #newItem.sockets)
+			end)
+
+			it("does not replace socket bound runes", function ()
+				equip(existingItemText)
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S
+					Rune: Kolr's Hunt
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, true, true)
+				assert.are.equals(newItem.runes[1], "Kolr's Hunt")
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S S
+					Rune: Kolr's Hunt
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, true, true)
+				assert.are.equals(newItem.runes[1], "Kolr's Hunt")
+				assert.are.equals(newItem.runes[2], rune)
+			end)
+
+			it("replaces runes when overwrite is true", function ()
+				equip(existingItemText)
+
+				local newItem = new("Item", [[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S S
+					Rune: Lesser Robust Rune
+				]])
+				build.itemsTab:CopyAnointsAndAugments(newItem, true, true)
+				assert.are.equals(newItem.runes[1], rune)
+				assert.are.equals(newItem.runes[2], "None")
+			end)
+
+			it("identifies socket bound runes", function ()
+				local item = new("Item", [[
+					Rarity: RARE
+					Equipped
+					Stocky Mitts
+					Sockets: S S
+					Rune: Kolr's Hunt
+					Rune: Lesser Robust Rune
+				]])
+				local validRunes = build.itemsTab:GetValidRunesForItem(item)
+
+				assert.is_true(build.itemsTab:IsSocketBoundRune(item, item.runes[1], validRunes))
+				assert.is_false(build.itemsTab:IsSocketBoundRune(item, item.runes[2], validRunes))
+			end)
+		end)
+
+		it("does nothing when no matching item is equipped", function ()
+			local newItem = new("Item", [[
+				Rarity: RARE
+				New
+				Azure Amulet
+				+8 to Strength (enchant)
+			]])
+			build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
+
+			assert.are.equals(1, #newItem.enchantModLines)
+		end)
+	end)
 end)

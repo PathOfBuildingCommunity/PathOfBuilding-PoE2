@@ -74,6 +74,8 @@ skills["TriggeredExplosiveGrowthPlayerTwo"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 10, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { critChance = 10, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -222,6 +224,8 @@ skills["TriggeredExplosiveGrowthPlayer"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 10, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -694,6 +698,38 @@ skills["SupportAtzirisAllurePlayer"] = {
 		},
 	}
 }
+skills["SupportAtzirisCommunionPlayer"] = {
+	name = "Atziri's Communion",
+	description = "Supports Persistent Skills, making them Reserve Life instead of Spirit. Cannot Support Skills which create Minions.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.CreatesMinion, },
+	gemFamily = { "AtziriCommunionLineage",},
+	isLineage = true,
+	flavourText = {"The Red Communion was meant to transcend the limits", "of the soul, to transfigure the flesh, to bestow immortality.", "It accomplished all of these things... most horribly.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Atziri's Communion",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_reserves_X_life_permyriad_per_spirit_instead_of_spirit", 66 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportBhatairsVengeancePlayer"] = {
 	name = "Bhatair's Vengeance",
 	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with Supported Skills infuses you and your allies with Cold damage for a short time. ",
@@ -978,6 +1014,8 @@ skills["TriggeredBoneShrapnelPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 13, levelRequirement = 0, cost = { Mana = 0, }, },
 	},
@@ -1210,6 +1248,8 @@ skills["TriggeredBurningRunesPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -1360,6 +1400,8 @@ skills["TriggeredCatalysingDischargePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 1, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
@@ -2237,6 +2279,8 @@ skills["TriggeredDeadlyCurrentPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, cost = { Mana = 0, }, },
 		[2] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, cost = { Mana = 0, }, },
@@ -2454,6 +2498,8 @@ skills["TriggeredCreepingChillPlayer"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -2831,6 +2877,8 @@ skills["TriggeredDecayingHexPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { levelRequirement = 0, cost = { Mana = 0, }, },
@@ -3088,6 +3136,8 @@ skills["ChaosFrogExplosionPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -3216,6 +3266,8 @@ skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Spell] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -3401,6 +3453,8 @@ skills["TriggeredShockingRiftPlayer"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Damage] = true, [SkillType.Spell] = true, },
 	castTime = 0,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 9, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -3655,6 +3709,8 @@ skills["TriggeredElementalDischargePlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 1, critChance = 10, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
 	},
@@ -3816,6 +3872,8 @@ skills["TriggeredSparkEmpowerPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -3923,6 +3981,8 @@ skills["TriggeredEmpoweredSparkPlayer"] = {
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Lightning] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.InbuiltTrigger] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 9, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -4232,7 +4292,9 @@ skills["EnervatingNovaPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cascadable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "active_skill_electrocutes_as_though_dealt_damage_+%_final", 2 },
+		{ "active_skill_electrocutes_as_though_dealt_damage_+%_final", 2, {  } },
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 11, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -4746,6 +4808,8 @@ skills["TriggeredFieryDeathPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 8, levelRequirement = 0, manaMultiplier = 20, cost = { Mana = 0, }, },
@@ -5358,6 +5422,8 @@ skills["SupportTriggeredAnnihilationPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 9, levelRequirement = 0, cost = { Mana = 0, }, },
 		[2] = { critChance = 9, levelRequirement = 0, cost = { Mana = 0, }, },
@@ -5749,6 +5815,8 @@ skills["DoomBlastPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 0.15, critChance = 7, levelRequirement = 0, storedUses = 3, },
@@ -6259,6 +6327,8 @@ skills["TriggeredLivingLightningPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 0.2, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
 		[2] = { cooldown = 0.2, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
@@ -6415,6 +6485,8 @@ skills["TriggeredLivingLightningPlayerTwo"] = {
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 0.2, levelRequirement = 0, storedUses = 8, cost = { Mana = 0, }, },
@@ -6713,6 +6785,8 @@ skills["TriggeredManaFlarePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 1, critChance = 7, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
@@ -8012,6 +8086,8 @@ skills["TriggeredStaticShocksPlayer"] = {
 	castTime = 0,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, cost = { Mana = 0, }, },
 		[2] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, cost = { Mana = 0, }, },
@@ -8720,6 +8796,8 @@ skills["TriggeredXibaquasRendingPlayer"] = {
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.TargetsDestructibleCorpses] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },

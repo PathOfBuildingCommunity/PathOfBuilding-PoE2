@@ -4,6 +4,7 @@
 -- Shared renderer for gem-style tooltips.
 
 local m_max = math.max
+local m_min = math.min
 
 local GemTooltip = { }
 
@@ -11,7 +12,7 @@ local function getFontSizes()
 	return main.showFlavourText and 18 or 16, main.showFlavourText and 24 or 20
 end
 
-local function addDescriptionLine(tooltip, build, statSet, line, stat, index)
+local function addDescriptionLine(tooltip, build, statSet, line, stat, index, colorCode)
 	local fontSizeBig = getFontSizes()
 	local source = statSet.statMap[stat] or build.data.skillStatMap[stat]
 	local bg = (index % 2 == 0) and "GemHoverModBg" or nil
@@ -26,7 +27,7 @@ local function addDescriptionLine(tooltip, build, statSet, line, stat, index)
 			end
 			line = line .. " ^2" .. devText
 		end
-		tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. line, "FONTIN SC", bg)
+		tooltip:AddLine(fontSizeBig, (colorCode or colorCodes.MAGIC) .. line, "FONTIN SC", bg)
 	else
 		if launch.devModeAlt then
 			line = line .. " ^1" .. stat
@@ -90,7 +91,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		if corruptLevel > 0 then
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. corruptLevel .. " Level from Corruption", "FONTIN SC")
 		elseif corruptLevel < 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   " .. corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 		if totalGlobalLevels > 0 then
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
@@ -195,10 +196,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 	tooltip.center = true
 	if grantedEffect.description then
 		tooltip:AddSeparator(10)
-		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
-		for _, line in ipairs(wrap) do
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
-		end
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. grantedEffect.description, "FONTIN ITALIC")
 	end
 	if displayInstance.corrupted == true then
 		tooltip:AddSeparator(10)
@@ -209,6 +207,7 @@ end
 local function addStatSetInfo(tooltip, build, gemInstance, grantedEffect, statSet, noLabel, index, levelRange)
 	local fontSizeBig, fontSizeTitle = getFontSizes()
 	local displayInstance = getDisplayInstance(gemInstance)
+	local includeAltQualityStats = build.calcsTab.mainEnv.modDB:Flag(nil, "GemlingQuality")
 	local statSetLevel = statSet.levels[levelRange and gemInstance.level or displayInstance.level] or statSet.levels[1] or { }
 	if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
 		tooltip:AddSeparator(10)
@@ -229,18 +228,25 @@ local function addStatSetInfo(tooltip, build, gemInstance, grantedEffect, statSe
 			local copiedInstance = copyTable(gemInstance, true)
 			copiedInstance.quality = 0
 			copiedInstance.level = 20
-			local statsLevel20 = calcLib.buildSkillInstanceStats(copiedInstance, grantedEffect, statSet)
+			local statsLevel20 = calcLib.buildSkillInstanceStats(copiedInstance, grantedEffect, statSet, includeAltQualityStats)
 			copiedInstance.level = 1
-			stats = calcLib.buildSkillInstanceStats(copiedInstance, grantedEffect, statSet)
+			stats = calcLib.buildSkillInstanceStats(copiedInstance, grantedEffect, statSet, includeAltQualityStats)
 			for statName, min in pairs(stats) do
 				stats[statName] = { min = min, max = statsLevel20[statName] or min }
 			end
 		else
-			stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet)
+			stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet, includeAltQualityStats)
 		end
 		local descriptions, lineMap = build.data.describeStats(stats, statSet.statDescriptionScope)
+		local altQualityStatColor = { }
+		if includeAltQualityStats then
+			for _, stat in ipairs(grantedEffect.altQualityStats or { }) do
+				altQualityStatColor[stat[1]] = colorCodes.ENCHANTED
+			end
+		end
 		for i, line in ipairs(descriptions) do
-			addDescriptionLine(tooltip, build, statSet, line, lineMap[line], i)
+			local stat = lineMap[line]
+			addDescriptionLine(tooltip, build, statSet, line, stat, i, stat and altQualityStatColor[stat])
 		end
 	end
 end
@@ -251,19 +257,29 @@ local function addEffectStats(tooltip, build, gemInstance, grantedEffect, noLabe
 	end
 end
 
-local function addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader)
+local function addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader, includeAltQualityStats)
 	-- Quality ranges are tree-only. SkillsTab shows the 20 quality value separately, but tree nodes need the 0-20 range inline.
-	if not grantedEffect.qualityStats or #grantedEffect.qualityStats == 0 then
+	local qualityStats = { }
+	for _, stat in ipairs(grantedEffect.qualityStats or { }) do
+		qualityStats[#qualityStats + 1] = { stat = stat[1], value = stat[2], statSetIndexes = stat[3], color = colorCodes.MAGIC }
+	end
+	if includeAltQualityStats then
+		for _, stat in ipairs(grantedEffect.altQualityStats or { }) do
+			qualityStats[#qualityStats + 1] = { stat = stat[1], value = stat[2], statSetIndexes = stat[3], color = colorCodes.ENCHANTED }
+		end
+	end
+	if #qualityStats == 0 then
 		return addedHeader
 	end
 	local fontSizeBig = getFontSizes()
 	local lineIndex = 1
-	for _, stat in ipairs(grantedEffect.qualityStats) do
-		if stat[1] and stat[2] then
-			local stats = { [stat[1]] = 20 * stat[2] }
-			local descriptions, lineMap = build.data.describeStats(stats, grantedEffect.statSets[1].statDescriptionScope, true)
+	for _, stat in ipairs(qualityStats) do
+		if stat.stat and stat.value then
+			local stats = { [stat.stat] = 20 * stat.value }
+			local statSet = grantedEffect.statSets[(stat.statSetIndexes[1] or 0) + 1] or grantedEffect.statSets[1]
+			local descriptions, lineMap = build.data.describeStats(stats, statSet.statDescriptionScope, true)
 			for _, line in ipairs(descriptions) do
-				local statName = lineMap[line] or stat[1]
+				local statName = lineMap[line] or stat.stat
 				if not addedHeader then
 					tooltip:AddLine(fontSizeBig, "\n^7Additional Effects From Quality:", "FONTIN SC")
 					addedHeader = true
@@ -276,7 +292,7 @@ local function addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader)
 					end
 					return "(0-" .. value .. ")"
 				end, 1)
-				addDescriptionLine(tooltip, build, grantedEffect.statSets[1], line, statName, lineIndex)
+				addDescriptionLine(tooltip, build, statSet, line, statName, lineIndex, stat.color)
 				lineIndex = lineIndex + 1
 			end
 		end
@@ -291,6 +307,7 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	tooltip.center = false
 	tooltip.color = colorCodes.GEM
 	tooltip.minWidth = 600
+	tooltip.maxWidth = m_min(tooltip.maxWidth or 600, 600)
 	tooltip.tooltipHeader = "GEM"
 	tooltip.gemIcon = gemInstance.gemData.grantedEffect.icon
 	tooltip.gemBackground = gemInstance.gemData.grantedEffect.id
@@ -346,9 +363,10 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 
 	if options.includeQualityRange then
 		local addedHeader
-		addedHeader = addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader)
+		local includeAltQualityStats = build.calcsTab.mainEnv.modDB:Flag(nil, "GemlingQuality")
+		addedHeader = addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader, includeAltQualityStats)
 		for _, effect in ipairs(additionalEffects or { }) do
-			addedHeader = addQualityRangeInfo(tooltip, build, effect, addedHeader)
+			addedHeader = addQualityRangeInfo(tooltip, build, effect, addedHeader, includeAltQualityStats)
 		end
 	end
 

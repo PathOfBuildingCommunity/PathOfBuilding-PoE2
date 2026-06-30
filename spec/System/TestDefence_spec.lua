@@ -607,4 +607,139 @@ describe("TestDefence", function()
 		assertClose(block.EffectiveBlockChance, 10)
 		assert.is_true(block.TotalEHP > base.TotalEHP)
 	end)
+
+	describe("damage taken from spectres' life before you", function()
+		it("sums spectre life automatically", function()
+			build.skillsTab:PasteSocketGroup("Spectre: Lightless Abomination 20/0  1")
+			build.configTab:BuildModList()
+			build.configTab.modList:NewMod("TakenFromSpectresBeforeYou", "BASE", 15, "Test")
+			build.calcsTab:BuildOutput()
+
+			local output = build.calcsTab.mainOutput
+			assert.are.equals(15, output.SpectreAllyDamageMitigation)
+			local spectreLife = build.calcsTab.mainEnv.player.spectreLifeList[1].life
+			assert.are.equals(spectreLife, output.TotalSpectreLife)
+		end)
+
+		it("uses configured spectre life as an override", function()
+			build.skillsTab:PasteSocketGroup("Spectre: Lightless Abomination 20/0  1")
+			build.configTab.input.TotalSpectreLife = 1000
+			build.configTab:BuildModList()
+			build.configTab.modList:NewMod("TakenFromSpectresBeforeYou", "BASE", 15, "Test")
+			build.calcsTab:BuildOutput()
+
+			assert.are.equals(1000, build.calcsTab.mainOutput.TotalSpectreLife)
+		end)
+	end)
+
+	describe("damage taken from companion's life before you", function()
+		it("redirects damage to the configured companion life pool", function()
+			build.configTab.input.enemyIsBoss = "None"
+			build.configTab.input.customMods = ""
+			pob1and2Compat()
+			local baseMaxHit = build.calcsTab.calcsOutput.PhysicalMaximumHitTaken
+
+			build.configTab.input.customMods = "15% of Damage from Hits is taken from your Damageable Companion's Life before you"
+			build.configTab.input.TotalCompanionLife = 1000
+			pob1and2Compat()
+
+			local output = build.calcsTab.calcsOutput
+			assert.are.equals(15, output.CompanionAllyDamageMitigation)
+			assert.are.equals(1000, output.TotalCompanionLife)
+			assert.is_true(output.PhysicalMaximumHitTaken > baseMaxHit)
+
+			local totalTaken = takenHitFromTypeMaxHit("Physical")
+			local pools = poolsRemainingAfterTypeMaxHit("Physical")
+			local drained = 1000 - pools.AlliesTakenBeforeYou["companion"].remaining
+			assert.are.near(totalTaken * 0.15, drained, 1)
+		end)
+
+		it("stacks redirect sources additively", function()
+			build.configTab.input.enemyIsBoss = "None"
+			build.configTab.input.customMods = "\z
+			5% of Damage from Hits is taken from your Damageable Companion's Life before you\n\z
+			15% of Damage from Hits is taken from your Damageable Companion's Life before you\n\z
+			"
+			build.configTab.input.TotalCompanionLife = 100
+			pob1and2Compat()
+
+			assert.are.equals(20, build.calcsTab.calcsOutput.CompanionAllyDamageMitigation)
+		end)
+
+		it("scales the deflected-hits redirect by deflect chance", function()
+			build.configTab.input.enemyIsBoss = "None"
+			build.configTab.input.customMods = "\z
+			10% of Damage from Deflected Hits is taken from Damageable Companion's Life before you\n\z
+			+1000 to Deflection Rating\n\z
+			"
+			build.configTab.input.TotalCompanionLife = 500
+			pob1and2Compat()
+
+			local output = build.calcsTab.calcsOutput
+			assert.is_true(output.DeflectChance > 0)
+			assert.are.near(10 * output.DeflectChance / 100, output.CompanionAllyDamageMitigation, 0.001)
+		end)
+
+		it("sums companion life automatically and applies Loyalty's redirect and life penalty", function()
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+			runCallback("OnFrame")
+			local unsupportedLife = build.calcsTab.calcsEnv.minion.output.Life
+
+			newBuild()
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			local companionLife = build.calcsTab.calcsEnv.minion.output.Life
+			assert.are.equals(10, output.CompanionAllyDamageMitigation)
+			assert.are.equals(companionLife, output.TotalCompanionLife)
+			assert.are.near(unsupportedLife * 0.7, companionLife, 1)
+		end)
+
+		it("sums companion life when the companion is not the main skill", function()
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+			runCallback("OnFrame")
+			local mainSkillCompanionLife = build.calcsTab.calcsOutput.TotalCompanionLife
+
+			newBuild()
+			build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+			build.mainSocketGroup = 1
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			assert.are.equals(10, output.CompanionAllyDamageMitigation)
+			assert.are.near(mainSkillCompanionLife, output.TotalCompanionLife, 1)
+		end)
+
+		it("stacks Loyalty's redirect from multiple companion skills", function()
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Moray 20/0  1\nLoyalty 1/0  1")
+			runCallback("OnFrame")
+
+			assert.are.equals(20, build.calcsTab.calcsOutput.CompanionAllyDamageMitigation)
+		end)
+
+		it("does not count global companion redirect once per companion skill", function()
+			build.configTab.input.customMods = "5% of Damage from Hits is taken from your Damageable Companion's Life before you"
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+			build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1")
+			pob1and2Compat()
+
+			assert.are.equals(5, build.calcsTab.calcsOutput.CompanionAllyDamageMitigation)
+		end)
+
+		it("has no effect with no companions and no config override", function()
+			build.configTab.input.enemyIsBoss = "None"
+			build.configTab.input.customMods = ""
+			pob1and2Compat()
+			local baseMaxHit = build.calcsTab.calcsOutput.PhysicalMaximumHitTaken
+
+			build.configTab.input.customMods = "15% of Damage from Hits is taken from your Damageable Companion's Life before you"
+			pob1and2Compat()
+
+			assert.are.equals(0, build.calcsTab.calcsOutput.TotalCompanionLife)
+			assert.are.equals(baseMaxHit, build.calcsTab.calcsOutput.PhysicalMaximumHitTaken)
+		end)
+	end)
 end)

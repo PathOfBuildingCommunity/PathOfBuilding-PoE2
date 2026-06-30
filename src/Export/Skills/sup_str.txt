@@ -272,6 +272,7 @@ statMap = {
 #skillEnd
 
 #skill SupportBloodlustPlayer
+legacy = true
 #set SupportBloodlustPlayer
 statMap = {
 	["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
@@ -1124,6 +1125,7 @@ statMap = {
 #skillEnd
 
 #skill SupportLastingGroundPlayer
+legacy = true
 #set SupportLastingGroundPlayer
 #mods
 #skillEnd
@@ -1720,6 +1722,7 @@ statMap = {
 #skillEnd
 
 #skill SupportUnderminePlayer
+legacy = true
 #set SupportUnderminePlayer
 #mods
 #skillEnd

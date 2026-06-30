@@ -14,6 +14,7 @@ local tradeHelpers = LoadModule("Classes/TradeHelpers")
 local buySimilar = LoadModule("Classes/CompareBuySimilar")
 local calcsHelpers = LoadModule("Classes/CompareCalcsHelpers")
 local buildListHelpers = LoadModule("Modules/BuildListHelpers")
+local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
 
 -- Node IDs below this value are normal passive tree nodes; IDs at or above are cluster jewel nodes
 local CLUSTER_NODE_OFFSET = 65536
@@ -2067,7 +2068,11 @@ local function syncControlValue(ctrl, varData, val)
 		ctrl.state = val or false
 	elseif varData.type == "count" or varData.type == "integer"
 			or varData.type == "countAllowZero" or varData.type == "float" then
-		ctrl:SetText(tostring(val or ""))
+		local text = tostring(val or "")
+		-- avoid setting text every time as otherwise this clears user selections on every frame
+		if not ctrl.hasFocus and text ~= ctrl.buf then
+			ctrl:SetText(text)
+		end
 	elseif varData.type == "list" then
 		ctrl:SelByValue(val or (varData.list[1] and varData.list[1].val), "val")
 	end
@@ -2652,10 +2657,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 	end
 
 	-- Get baseline stat value for percentage calculation
-	local baseStatValue = calcBase[powerStat.stat] or 0
-	if powerStat.transform then
-		baseStatValue = powerStat.transform(baseStatValue)
-	end
+	local baseStatValue = data.powerStatList.GetFromOutput(calcBase, powerStat)
 
 	-- Helper to format an impact value and compute percentage
 	local function formatImpact(impact)
@@ -2971,7 +2973,6 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 							nameSpec = cGem.nameSpec,
 							level = cGem.level,
 							quality = cGem.quality,
-							qualityId = cGem.qualityId,
 							enabled = cGem.enabled,
 							grantedEffect = cGem.grantedEffect,
 							gemData = cGem.gemData,
@@ -3797,13 +3798,33 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 			drawY = drawY + maxH + 6
 		else
 			-- === COMPACT MODE ===
+			local slot = self.primaryBuild.itemsTab.slots[equipSlotName]
+			local nodeId = slot and slot.nodeId
+			local shouldUnderline = not not nodeId
 			local pHover, cHover, b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H,
 				rowHoverItem, rowHoverItemsTab, rowHoverX, rowHoverY, rowHoverW, rowHoverH =
 				tradeHelpers.drawCompactSlotRow(drawY, label, pItem, cItem,
 					colWidth, cursorX, cursorY, labelW,
 					self.primaryBuild.itemsTab, compareEntry.itemsTab, pWarn, cWarn, slotMissing,
-					LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW, scrollOffsetX)
+					LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW, scrollOffsetX,
+					shouldUnderline)
 
+			local labelX = (scrollOffsetX or 0) + 10
+			-- draw passive tree view when hovering over the label, if the slot is a jewel socket
+			if labelX <= cursorX and cursorX <= (labelX + labelW)
+				and drawY < cursorY and cursorY <= (drawY + 20) then
+				if nodeId then
+					local boxSize = 250
+					-- anchor bottom left to label top left, keeping in mind what our viewport was
+					SetViewport()
+					local boxX = vp.x + labelX
+					local boxY = (vp.y + checkboxOffset) + drawY - boxSize
+					itemSlotHelper.DrawViewer(self.primaryBuild.itemsTab, nodeId, boxX, boxY, boxSize,
+						boxSize)
+					-- restore viewport
+					SetViewport(vp.x, vp.y + checkboxOffset, vp.width, scrollViewH)
+				end
+			end
 			if rowHoverItem then
 				hoverItem = rowHoverItem
 				hoverItemsTab = rowHoverItemsTab
