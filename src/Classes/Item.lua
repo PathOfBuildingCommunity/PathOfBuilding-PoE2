@@ -1546,7 +1546,7 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType)
+	local getModRunesForTypes = function(runeName, baseType, specificType, alsoAsSoulCoreTypes)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1560,8 +1560,33 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[specificType])
 				-- end
 			end
+			for alsoAsType, _ in pairs(alsoAsSoulCoreTypes) do
+				if rune[alsoAsType] and rune[alsoAsType].type == "SoulCore" then
+					-- for _, mod in pairs(rune[alsoAsType]) do
+						t_insert(gatheredRuneMods, rune[alsoAsType])
+					-- end
+				end
+			end
 		end
 		return gatheredRuneMods
+	end
+
+	-- baseModList may not be populated at the time this function is called
+	local alsoAsSoulCoreTypes = { }
+	for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
+		for _, effectModLine in ipairs(modLines) do
+			for _, mod in ipairs(effectModLine.modList or { }) do
+				if mod.name == "SocketSoulCoresAlsoAsBoots" and mod.type == "FLAG" and mod.value then
+					alsoAsSoulCoreTypes["boots"] = true
+				elseif mod.name == "SocketSoulCoresAlsoAsGloves" and mod.type == "FLAG" and mod.value then
+					alsoAsSoulCoreTypes["gloves"] = true
+				elseif mod.name == "SocketSoulCoresAlsoAsHelmet" and mod.type == "FLAG" and mod.value then
+					alsoAsSoulCoreTypes["helmet"] = true
+				elseif mod.name == "SocketSoulCoresAlsoAsShield" and mod.type == "FLAG" and mod.value then
+					alsoAsSoulCoreTypes["shield"] = true
+				end
+			end
+		end
 	end
 
 	local statOrder = {}
@@ -1575,7 +1600,7 @@ function ItemClass:UpdateRunes()
 				(subType == "warstaff" and "quarterstaff") or
 				(itemType == "shield" and subType == "evasion" and "buckler") or
 				itemType
-			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
+			local gatheredMods = getModRunesForTypes(name, baseType, specificType, alsoAsSoulCoreTypes)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
