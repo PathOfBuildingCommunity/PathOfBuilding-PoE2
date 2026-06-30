@@ -1547,7 +1547,9 @@ return {
 ["active_skill_pins_as_though_dealt_damage_+%_final"] = {
 	mod("EnemyPinBuildup", "MORE", nil),
 },
-
+["hit_damage_immobilisation_multiplier_+%"] = {
+	mod("EnemyImmobilisationBuildup", "INC", nil),
+},
 -- Global flags
 ["never_ignite"] = {
 	flag("CannotIgnite"),
