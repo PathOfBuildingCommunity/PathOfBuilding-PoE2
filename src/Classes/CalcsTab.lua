@@ -557,9 +557,16 @@ function CalcsTabClass:PowerBuilder()
 				end
 			end
 			if not hiddenByLockedAscendancyNode then
-				distanceMap[node.pathDist or 1000] = distanceMap[node.pathDist or 1000] or { }
-				distanceMap[node.pathDist or 1000][nodeId] = node
-				if not (self.nodePowerMaxDepth and self.nodePowerMaxDepth < node.pathDist) then
+				local dist = node.pathDist or 1000
+				for _, leap in ipairs(node.intuitiveLeapLikesAffecting or {}) do
+					if leap.alloc then
+						dist = math.max(math.min(leap.pathDist or 1000, dist), 1)
+					end
+				end
+				distanceMap[dist] = distanceMap[dist] or {}
+				distanceMap[dist][nodeId] = node
+				node.power.distance = dist
+				if (not self.nodePowerMaxDepth) or dist <= self.nodePowerMaxDepth then
 					total = total + 1
 				end
 			end
@@ -597,7 +604,7 @@ function CalcsTabClass:PowerBuilder()
 						for _, node in pairs(node.path) do
 							pathNodes[node] = true
 						end
-						if node.pathDist > 1 then
+						if distance > 1 then
 							node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc({ addNodes = pathNodes }, useFullDPS), calcBase)
 						end
 					end
@@ -607,8 +614,8 @@ function CalcsTabClass:PowerBuilder()
 					if node.path and not node.ascendancyName then
 						newPowerMax.offence = m_max(newPowerMax.offence, node.power.offence)
 						newPowerMax.defence = m_max(newPowerMax.defence, node.power.defence)
-						newPowerMax.offencePerPoint = m_max(newPowerMax.offencePerPoint, node.power.offence / node.pathDist)
-						newPowerMax.defencePerPoint = m_max(newPowerMax.defencePerPoint, node.power.defence / node.pathDist)
+						newPowerMax.offencePerPoint = m_max(newPowerMax.offencePerPoint, node.power.offence / distance)
+						newPowerMax.defencePerPoint = m_max(newPowerMax.defencePerPoint, node.power.defence / distance)
 					end
 				end
 			elseif node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
@@ -672,16 +679,8 @@ function CalcsTabClass:PowerBuilder()
 end
 
 function CalcsTabClass:CalculatePowerStat(selection, original, modified)
-	if modified.Minion and not selection.stat == "FullDPS" then
-		original = original.Minion
-		modified = modified.Minion
-	end
-	local originalValue = original[selection.stat] or 0
-	local modifiedValue = modified[selection.stat] or 0
-	if selection.transform then
-		originalValue = selection.transform(originalValue)
-		modifiedValue = selection.transform(modifiedValue)
-	end
+	local originalValue = data.powerStatList.GetFromOutput(original, selection)
+	local modifiedValue = data.powerStatList.GetFromOutput(modified, selection)
 	return originalValue - modifiedValue
 end
 
@@ -692,10 +691,9 @@ function CalcsTabClass:CalculateCombinedOffDefStat(original, modified)
 					(original.Evasion - modified.Evasion) / m_max(10000, modified.Evasion) +
 					(original.LifeRegenRecovery - modified.LifeRegenRecovery) / 500 +
 					(original.EnergyShieldRegenRecovery - modified.EnergyShieldRegenRecovery) / 1000
-	if modified.Minion then
-		return (original.Minion.CombinedDPS - modified.Minion.CombinedDPS) / modified.Minion.CombinedDPS, defence
-	end
-	return (original.CombinedDPS - modified.CombinedDPS) / modified.CombinedDPS, defence
+	local modifiedDps = modified.CombinedDPS + (modified.Minion and modified.Minion.CombinedDPS or 0)
+	local dpsIncr = original.CombinedDPS + (original.Minion and original.Minion.CombinedDPS or 0) - modifiedDps
+	return dpsIncr / modifiedDps, defence
 end
 
 function CalcsTabClass:GetNodeCalculator()

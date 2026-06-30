@@ -481,6 +481,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 					else
 						desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(SkillTypeName[tag.skillType])
 					end
+				elseif tag.type == "GemTag" then
+					desc = "Gem tag: "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.gemTag, tag.gemTagList)
 				elseif tag.type == "BaseFlag" then
 					desc = "Base flag: "..(tag.neg and "Not " or "")..self:FormatModName(tostring(tag.baseFlag))
 				elseif tag.type == "SlotNumber" then
@@ -488,7 +490,11 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				elseif tag.type == "GlobalEffect" then
 					desc = self:FormatModName(tag.effectType)
 				elseif tag.type == "Limit" then
-					desc = "Limited to "..(tag.limitVar and self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, tag.limit))
+					if tag.neg then
+						desc = "Limited to "..(tag.limitVar and "-"..self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, -tag.limit))
+					else
+						desc = "Limited to "..(tag.limitVar and self:FormatModName(tag.limitVar) or self:FormatModBase(row.mod, tag.limit))
+					end
 				elseif tag.type == "MonsterTag" then
 					desc = "Monster Tag: "..(tag.monsterTagList and table.concat(tag.monsterTagList, "/") or tag.monsterTag)
 				else
@@ -698,10 +704,11 @@ function CalcBreakdownClass:Draw(viewPort)
 	else
 		SetDrawColor(0.33, 0.66, 0.33)
 	end
-	DrawImage(nil, x, y, width, 2)
-	DrawImage(nil, x, y + height - 2, width, 2)
-	DrawImage(nil, x, y, 2, height)
-	DrawImage(nil, x + width - 2, y, 2, height)
+	local borderThickness = 2
+	DrawImage(nil, x, y, width, borderThickness)
+	DrawImage(nil, x, y + height - borderThickness, width, borderThickness)
+	DrawImage(nil, x, y, borderThickness, height)
+	DrawImage(nil, x + width - borderThickness, y, borderThickness, height)
 	SetDrawLayer(nil, 10)
 	self:DrawControls(viewPort)
 	-- Draw the sections

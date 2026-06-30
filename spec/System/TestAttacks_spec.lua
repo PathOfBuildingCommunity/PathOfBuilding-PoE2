@@ -30,6 +30,35 @@ describe("TestAttacks", function()
 		assert.are.equals(2 + 0.25, build.calcsTab.mainOutput.CritMultiplier)
 	end)
 
+	it("local Critical Damage Bonus on a weapon does not apply to spells (issue #2199)", function()
+		-- baseline: a spell's crit multi with a plain quarterstaff (no local crit damage)
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.mainSocketGroup = 1
+		runCallback("OnFrame")
+		local baseSpellCritMulti = build.calcsTab.mainOutput.CritMultiplier
+
+		newBuild()
+
+		-- same spell + quarterstaff, now with a local "+X% to Critical Damage Bonus" affix
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			+50% to Critical Damage Bonus
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.mainSocketGroup = 1
+		runCallback("OnFrame")
+
+		-- the weapon-local crit damage must NOT reach the spell (it isn't using the weapon)
+		assert.are.equals(baseSpellCritMulti, build.calcsTab.mainOutput.CritMultiplier)
+	end)
+
 	it("correctly converts spell damage per stat to attack damage", function()
 		assert.are.equals(0, build.calcsTab.mainEnv.player.modDB:Sum("INC", { flags = ModFlag.Attack }, "Damage"))
 		build.itemsTab:CreateDisplayItemFromRaw([[
@@ -389,4 +418,166 @@ describe("TestAttacks", function()
 		assert.is_true(math.abs(bifurcateChance - build.calcsTab.mainOutput.MainHand.CritBifurcates) < 0.000001)
 		assert.are.equals(1 + critBonusMultiplier, build.calcsTab.mainOutput.MainHand.AverageHit)
 	end)
+
+	-- Dual Wield tests
+	local setupDualWieldTestConditions = function()
+		local slowHighDmgMace = [[  
+			Slow High Crit High Damage Mace
+			Marauding Mace
+			Quality: 0
+			200% increased physical damage
+			100% increased critical hit chance
+			-25% increased attack speed
+		]]
+
+		local fastLowDmgMace = [[  
+			Fast Low Crit Low Damage Mace
+			Marauding Mace
+			Quality: 0
+			-50% increased physical damage
+			-100% increased critical hit chance
+			50% increased attack speed
+		]]
+		
+		build.itemsTab:CreateDisplayItemFromRaw(slowHighDmgMace)
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(build.itemsTab.items[1].id)
+
+		build.itemsTab:CreateDisplayItemFromRaw(fastLowDmgMace)
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.itemsTab.slots["Weapon 2"]:SetSelItemId(build.itemsTab.items[2].id)
+
+		build.configTab.input.customMods = [[
+			nearby enemies have 100% less armour
+			your hits can't be evaded
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+	end
+
+	local function harmonicMean(a, b)
+		return 2 / (1/a + 1/b)
+	end
+	
+	it("correctly calculates dual wield DPS for double hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("skillId:MeleeMaceMacePlayer Mace Strike 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Attack Speed
+		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
+		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
+		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
+
+		-- Average Hit
+		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
+		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
+		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg) / 2, 4), round(combinedAvgDmg, 4))
+
+		-- DPS (hits twice per attack)
+		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed * 2,4), round(combinedDPS,4))
+	end)
+
+	it("correctly calculates dual wield crit chance for double hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("skillId:MeleeMaceMacePlayer Mace Strike 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Double hits roll crit individually per weapon, so should be average
+		local mainHandCritChance = build.calcsTab.mainOutput.MainHand.CritChance
+		local offHandCritChance = build.calcsTab.mainOutput.OffHand.CritChance
+		local combinedCritChance = (mainHandCritChance + offHandCritChance) / 2
+		assert.are.equals(combinedCritChance, build.calcsTab.mainOutput.CritChance)
+	end)
+
+	it("correctly calculates dual wield DPS for alternating hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("Armour Breaker 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Attack Speed
+		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
+		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
+		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
+
+		-- Average Hit
+		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
+		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
+		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg) / 2, 4), round(combinedAvgDmg, 4))
+
+		-- DPS (hits once per attack)
+		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed, 4), round(combinedDPS, 4))
+	end)
+
+	it("correctly calculates dual wield crit chance for alternating hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("Armour Breaker 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Alternating hits roll crit individually per weapon, so should be average
+		local mainHandCritChance = build.calcsTab.mainOutput.MainHand.CritChance
+		local offHandCritChance = build.calcsTab.mainOutput.OffHand.CritChance
+		local combinedCritChance = (mainHandCritChance + offHandCritChance) / 2
+		assert.are.equals(combinedCritChance, build.calcsTab.mainOutput.CritChance)
+	end)
+
+	--[[
+		NOTE: the following section contains tests for "combined hits", which PoE2 doesn't have as of 2026-06-02,
+		which means the tests were written for a temporary test skill that will not be committed.
+		The test can be updated by simply replacing `"skillId:MeleeMaceMacePlayerCombinedTEST Mace Strike TEST 20/0  1"`
+		with actual skill data once available
+	]]
+	--[[ it("correctly calculates dual wield DPS for combined hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("skillId:MeleeMaceMacePlayerCombinedTEST Mace Strike TEST 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Attack Speed
+		local mainHandSpeed = build.calcsTab.mainOutput.MainHand.Speed
+		local offHandSpeed = build.calcsTab.mainOutput.OffHand.Speed
+		local combinedSpeed = harmonicMean(mainHandSpeed, offHandSpeed)
+		assert.are.equals(round(combinedSpeed, 4), round(build.calcsTab.mainOutput.Speed, 4))
+
+		-- Average Hit
+		local mainHandAvgDmg = build.calcsTab.mainOutput.MainHand.AverageDamage
+		local offHandAvgDmg = build.calcsTab.mainOutput.OffHand.AverageDamage
+		local combinedAvgDmg = build.calcsTab.mainOutput.AverageDamage
+		assert.are.equals(round((mainHandAvgDmg + offHandAvgDmg), 4), round(combinedAvgDmg, 4))
+
+		-- DPS (hits twice per attack)
+		local combinedDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.are.equals(round(combinedAvgDmg * combinedSpeed, 4), round(combinedDPS,4))
+	end)
+
+	it("correctly calculates dual wield crit chance for combined hits", function()
+		setupDualWieldTestConditions()
+		build.skillsTab:PasteSocketGroup("skillId:MeleeMaceMacePlayerCombinedTEST Mace Strike TEST 20/0  1")
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- combined hits count whole attack as crit, as long as one hand rolls crit)
+		local mainHandCritChance = build.calcsTab.mainOutput.MainHand.CritChance
+		local offHandCritChance = build.calcsTab.mainOutput.OffHand.CritChance
+		local combinedCritChance = mainHandCritChance + offHandCritChance - (mainHandCritChance * offHandCritChance / 100)
+		assert.are.equals(combinedCritChance, build.calcsTab.mainOutput.CritChance)
+	end) ]]
 end)

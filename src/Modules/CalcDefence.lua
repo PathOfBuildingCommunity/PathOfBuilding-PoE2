@@ -86,14 +86,15 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 	for _, res in ipairs({ "Life", "Mana", "Spirit" }) do
 		local base = modDB:Sum("BASE", nil, res)
 		local extra = modDB:Sum("BASE", nil, "Extra" .. res)
+		local total = modDB:Sum("BASE", nil, res .. "Total")
 		local inc = modDB:Sum("INC", nil, res)
 		local more = modDB:More(nil, res)
 		local conv = m_min(modDB:Sum("BASE", nil, res .. "ConvertToEnergyShield", res .. "ConvertToArmour", res .. "ConvertToEvasion"), 100)
 		local override = modDB:Override(nil, res)
 		output[res.."HasOverride"] = override ~= nil
-		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more), 1)
+		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more + total), 1)
 		if breakdown then
-			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 then
+			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 or total ~= 0 then
 				breakdown[res][1] = s_format("%g ^8(base)", base)
 				if conv ~= 0 then
 					t_insert(breakdown[res], s_format("x %.2f ^8(converted from)", 1 - conv/100))
@@ -110,7 +111,10 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 				if more ~= 1 then
 					t_insert(breakdown[res], s_format("x %.2f ^8(more/less)", more))
 				end
-				if inc ~= 0 or more ~= 1 then
+				if total ~= 0 then
+					t_insert(breakdown[res], s_format("+ %g ^8(total)", total))
+				end
+				if inc ~= 0 or more ~= 1 or total ~= 0 then
 					t_insert(breakdown[res], s_format("= %g", output[res]))
 				end
 			end
@@ -221,6 +225,16 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
 			end
 			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
+			if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				-- Sadly no better way to get key/val table element count in lua.
+				local instances = 0
+				for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
+					instances = instances + 1
+				end
+				for name, values in pairs(pool) do
+					values.baseFlat = values.baseFlat + (activeSkill.skillData["blasphemyReservationFlat" .. name] or 0) * instances
+				end
+			end
 			if skillModList:Flag(skillCfg, "BloodMagicReserved") then
 				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
 				pool.Mana.baseFlat = 0
@@ -230,6 +244,13 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Mana.basePercent = 0
 				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
 				activeSkill.skillData["ManaReservationPercentForced"] = nil
+			end
+			local spiritToLifeReservation = skillModList:Sum("BASE", skillCfg, "LifeReservePercentPerSpirit")
+			if spiritToLifeReservation > 0 then
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.baseFlat * spiritToLifeReservation
+				pool.Spirit.baseFlat = 0
+				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.basePercent * spiritToLifeReservation
+				pool.Spirit.basePercent = 0
 			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
@@ -265,18 +286,6 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
 					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
-				end
-				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting and activeSkill.skillData["blasphemyReservationFlat" .. name] then
-					-- Sadly no better way to get key/val table element count in lua.
-					local instances = 0
-					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
-						instances = instances + 1
-					end
-
-					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
-					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
-					local blasphemyEffectiveFlat = m_max(round(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100) / values.efficiencyMore, 0), 0)
-					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
@@ -1330,6 +1339,7 @@ function calcs.defence(env, actor)
 				local item = actor.itemList[slot]
 				source.basePerSlot[slot] = item and item.armourData and item:GetArmourDataValue(source.name, actor.level) or 0
 			end
+			source.totalBase = modDB:Sum("BASE", nil, unpack(source.modsTotal))
 		end
 		for _, source in ipairs(resourceList) do
 			local globalBase = modDB:Sum("BASE", nil, unpack(source.mods)) + source.globalBase
@@ -1337,6 +1347,7 @@ function calcs.defence(env, actor)
 			if globalOverride then
 				globalBase = globalOverride
 			end
+			local totalBase = source.totalBase
 			for _, target in ipairs(resourceList) do
 				if source.name ~= target.name then
 					if source.defence then
@@ -1357,18 +1368,22 @@ function calcs.defence(env, actor)
 									source.basePerSlot[slot] = source.basePerSlot[slot] * (100 - source.totalConversion) / 100
 								end
 							end
-							target.globalBase = target.globalBase + globalBase * rate / 100
+							local targetBase = globalBase * rate / 100
+							local targetTotalBase = totalBase * rate / 100
+							target.globalBase = target.globalBase + targetBase
+							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
-								breakdown.slot("Global", source.name .. " to " .. target.name .. " conversion", nil, globalBase, nil, unpack(target.mods))
+								breakdown.slot("Global", source.name .. " to " .. target.name .. " conversion", nil, targetBase, nil, unpack(target.mods))
 							end
 						end
-						source.globalBase = globalBase * (100 - source.totalConversion) / 100
 					else
 						local gainRate = modDB:Sum("BASE", nil, source.name .. "GainAs" .. target.name)
 						local rate = source.conversionRate[target.name] + gainRate
 						if rate > 0 then
 							local targetBase = math.ceil(globalBase * rate / 100)
+							local targetTotalBase = math.ceil(totalBase * rate / 100)
 							target.globalBase = target.globalBase + targetBase
+							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
 								breakdown.slot("Conversion", source.name .. " to " .. target.name, nil, targetBase, nil, unpack(target.mods))
 							end
@@ -1376,15 +1391,20 @@ function calcs.defence(env, actor)
 					end
 				end
 			end
+			if source.defence then
+				source.globalBase = globalBase * (100 - source.totalConversion) / 100
+				source.totalBase = totalBase * (100 - source.totalConversion) / 100
+			end
 		end
 		for _, res in ipairs(resourceList) do
 			if res.defence then
 				for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
 					output[res.name] = output[res.name] + res.basePerSlot[slot] * calcLib.mod(modDB, { slotName = slot }, unpack(res.mods))
 				end
-				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + modDB:Sum("BASE", nil, unpack(res.modsTotal))
+				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + res.totalBase
 			else
 				modDB:NewMod("Extra"..res.name, "BASE", res.globalBase, "Conversion")
+				modDB:NewMod(res.name.."Total", "BASE", res.totalBase, "Conversion")
 			end
 		end
 

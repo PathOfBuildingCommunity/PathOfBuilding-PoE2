@@ -14897,7 +14897,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="You Recoup {0}% of Damage taken by Supported Minions this way as Life"
+				text="You Recoup {0}% of Damage taken from Supported Minion's Life this way as Life"
 			}
 		},
 		stats={
@@ -19475,10 +19475,6 @@ return {
 	[830]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]=1,
@@ -21054,7 +21050,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Supported Attacks deal {0}% more non-Chaos Damage"
+				text="Supported Skills deal {0}% more non-Chaos Damage"
 			},
 			[2]={
 				[1]={
@@ -21067,7 +21063,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Supported Attacks deal {0}% less non-Chaos Damage"
+				text="Supported Skills deal {0}% less non-Chaos Damage"
 			}
 		},
 		stats={

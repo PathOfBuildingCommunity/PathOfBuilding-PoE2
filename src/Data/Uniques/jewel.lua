@@ -58,6 +58,24 @@ Limited to: 3
 {variant:1}+4% to all Elemental Resistances per socketed Grand Spectrum
 {variant:2}+6% to all Elemental Resistances per socketed Grand Spectrum
 ]],[[
+Split Personality
+Ruby
+Variant: Mercenary
+Variant: Ranger
+Variant: Shadow
+Variant: Sorceress
+Variant: Templar
+Variant: Warrior
+League: Runes of Aldur
+Limited to: 1
+{variant:2}Can Allocate Passive Skills from the Ranger's starting point
+{variant:3}Can Allocate Passive Skills from the Shadow's starting point
+{variant:4}Can Allocate Passive Skills from the Sorceress's starting point
+{variant:6}Can Allocate Passive Skills from the Warrior's starting point
+{variant:1}Can Allocate Passive Skills from the Mercenary's starting point
+{variant:5}Can Allocate Passive Skills from the Templar's starting point
+Corrupted
+]],[[
 Voices
 Sapphire
 Variant: 2 Sinister Sockets

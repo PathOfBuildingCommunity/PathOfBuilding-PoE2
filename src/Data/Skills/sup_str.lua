@@ -728,8 +728,8 @@ skills["SupportBattershoutPlayer"] = {
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
+	addSkillTypes = { SkillType.ConsumesFullyBrokenArmour, SkillType.SupportedByBattershout, },
+	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, SkillType.SupportedByBattershout, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "Battershout",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -988,6 +988,7 @@ skills["SupportBloodlustPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Bloodlust",
@@ -1740,7 +1741,7 @@ skills["TriggeredCorruptingCryPlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in Corrupted Blood which damages them.",
-	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1899,7 +1900,7 @@ skills["TriggeredCorruptingCryTwoPlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in Corrupted Blood which damages them.",
-	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2083,10 +2084,8 @@ skills["TriggeredCraterPlayer"] = {
 			},
 			stats = {
 				"is_area_damage",
-				"shapeshift_ignore_form_check",
-				"ignore_talisman_inherent_form_restriction",
-				"usable_with_talisman",
-				"usable_while_shapeshifted",
+				"triggerable_in_any_set",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2206,7 +2205,7 @@ skills["TriggeredDeadlyResolvePlayer"] = {
 	hidden = true,
 	icon = "Art/2DItems/Gems/New/NewSupport/DangerousResolveSupportGem.dds",
 	description = "Creates a deadly slash towards the target, dealing Attack damage which is not based on your Weapon",
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.UseGlobalStats] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.NonWeaponAttack] = true, },
+	skillTypes = { [SkillType.Triggered] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.UseGlobalStats] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3238,8 +3237,8 @@ skills["SupportExploitWeaknessPlayer"] = {
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
+	addSkillTypes = { SkillType.ConsumesFullyBrokenArmour, SkillType.SupportedByExploitWeakness, },
+	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, SkillType.SupportedByExploitWeakness, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "ExploitWeakness",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 30, },
@@ -4725,12 +4724,12 @@ skills["SupportInfernalLegionPlayerThree"] = {
 }
 skills["SupportJaggedGroundPlayer"] = {
 	name = "Jagged Ground I",
-	description = "Supports Slam skills. Supported Skills will consume Endurance Charges on use to create Jagged Ground.",
+	description = "Supports Slam skills. Supported Skills will consume Endurance Charges on use to create Jagged Ground. Cannot Support Skills which consume Endurance Charges.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
-	addSkillTypes = { SkillType.Duration, SkillType.Area, SkillType.CreatesGroundEffect, },
-	excludeSkillTypes = { SkillType.CannotCreateJaggedGround, },
+	addSkillTypes = { SkillType.Duration, SkillType.Area, SkillType.CreatesGroundEffect, SkillType.ConsumesCharges, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByJaggedGround, },
+	excludeSkillTypes = { SkillType.CannotCreateJaggedGround, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByJaggedGround, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "JaggedGround",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
@@ -4884,6 +4883,7 @@ skills["SupportLastingGroundPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -5239,7 +5239,7 @@ skills["SupportMinionMeleeSplashPlayer"] = {
 	description = "Supports Skills which create Minions which Strike, causing those Minions' Strikes to have Melee Splash.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Minion, SkillType.MeleeSingleTarget, SkillType.AND, },
+	requireSkillTypes = { SkillType.CreatesMinion, SkillType.MeleeSingleTarget, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "MinionMeleeSplash",},
@@ -5267,7 +5267,7 @@ skills["SupportMinionMeleeSplashPlayerTwo"] = {
 	description = "Supports Skills which create Minions which Strike, increasing their Area of Effect and causing those Minions' Strikes to have Melee Splash.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Minion, SkillType.MeleeSingleTarget, SkillType.AND, },
+	requireSkillTypes = { SkillType.CreatesMinion, SkillType.MeleeSingleTarget, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "MinionMeleeSplash",},
@@ -5365,7 +5365,7 @@ skills["TriggeredCorruptingCryThreePlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in large quantities of Corrupted Blood which severly damages them.",
-	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7626,6 +7626,7 @@ skills["SupportUnderminePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Undermine",

@@ -306,15 +306,6 @@
 #mods
 #skillEnd
 
-#skill UniqueHeraldOfAshPlayer
-#set UniqueHeraldOfAshPlayer
-#flags
-#mods
-#set UniqueHeraldOfAshOnKillPlayer
-#flags
-#mods
-#skillEnd
-
 #skill HeraldOfBloodPlayer
 #set HeraldOfBloodPlayer
 #flags
@@ -2323,15 +2314,6 @@
 #mods
 #skillEnd
 
-#skill UniqueHeraldOfThunderPlayer
-#set UniqueHeraldOfThunderPlayer
-#flags
-#mods
-#set UniqueHeraldOfThunderOnKillPlayer
-#flags
-#mods
-#skillEnd
-
 #skill IceShotPlayer
 #set IceShotPlayer
 #flags
@@ -4089,15 +4071,6 @@
 #flags
 #mods
 #set HeraldOfIceOnKillPlayer
-#flags
-#mods
-#skillEnd
-
-#skill UniqueHeraldOfIcePlayer
-#set UniqueHeraldOfIcePlayer
-#flags
-#mods
-#set UniqueHeraldOfIceOnKillPlayer
 #flags
 #mods
 #skillEnd
@@ -6362,6 +6335,33 @@
 #mods
 #skillEnd
 
+#skill UniqueHeraldOfAshPlayer
+#set UniqueHeraldOfAshPlayer
+#flags
+#mods
+#set UniqueHeraldOfAshOnKillPlayer
+#flags
+#mods
+#skillEnd
+
+#skill UniqueHeraldOfIcePlayer
+#set UniqueHeraldOfIcePlayer
+#flags
+#mods
+#set UniqueHeraldOfIceOnKillPlayer
+#flags
+#mods
+#skillEnd
+
+#skill UniqueHeraldOfThunderPlayer
+#set UniqueHeraldOfThunderPlayer
+#flags
+#mods
+#set UniqueHeraldOfThunderOnKillPlayer
+#flags
+#mods
+#skillEnd
+
 #skill HollowFocusPlayer
 #set HollowFocusPlayer
 #flags
@@ -6487,6 +6487,23 @@
 #mods
 #skillEnd
 
+#skill MetaMirageDeadeyePlayer
+#set MetaMirageDeadeyePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMirageDeadeyePlayer
+#set SupportMirageDeadeyePlayer
+#mods
+#skillEnd
+
+#skill MirageDeadeyeSpawnPlayer
+#set MirageDeadeyeSpawnPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SummonMistRavenPlayer
 #set SummonMistRavenPlayer
 #flags
@@ -6573,6 +6590,12 @@
 
 #skill MeleeQuarterstaffPlayer
 #set MeleeQuarterstaffPlayer
+#flags
+#mods
+#skillEnd
+
+#skill QueensProcessionReservationPlayer
+#set QueensProcessionReservationPlayer
 #flags
 #mods
 #skillEnd
@@ -7233,23 +7256,6 @@
 
 #skill HazardousHoldoutPlayer
 #set HazardousHoldoutPlayer
-#flags
-#mods
-#skillEnd
-
-#skill MetaMirageDeadeyePlayer
-#set MetaMirageDeadeyePlayer
-#flags
-#mods
-#skillEnd
-
-#skill SupportMirageDeadeyePlayer
-#set SupportMirageDeadeyePlayer
-#mods
-#skillEnd
-
-#skill MirageDeadeyeSpawnPlayer
-#set MirageDeadeyeSpawnPlayer
 #flags
 #mods
 #skillEnd

@@ -1,5 +1,51 @@
 # Changelog
 
+## [v0.21.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.1) (2026/06/20)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.21.0...v0.21.1)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix crash when trying to use PoB trader after 0.5.3 [\#2238](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2238) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix more Maximum Rage mod not working [\#2228](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2228) ([Blitz54](https://github.com/Blitz54))
+- Fix general Grenade mods not working [\#2196](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2196) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Blazing Critical not applying as a global buff [\#2221](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2221) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Sine Aequo Immobilisation buildup calculation [\#2222](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2222) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Daze not applying 50% more Stun Buildup [\#2223](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2223) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Overwhelming Presence quality mod multiplying Aura magnitude [\#2224](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2224) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix "+% to Critical Damage Bonus"  mods on weapons applying to Spells [\#2247](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2247) ([luther-rotmg](https://github.com/luther-rotmg))
+### Fixed Behaviours
+- Fix Ice Bite and Innervate only supporting Attacks [\#2207](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2207) ([vaisest](https://github.com/vaisest))
+- Fix power report and trade search not working with Minions [\#2219](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2219) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Bloodhounds Mark not counting the enemy as Marked [\#2220](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2220) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+## [v0.21.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.21.0) (2026/06/13)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.20.0...v0.21.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add 0.5.2 Passive tree changes [\#2162](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2162) ([trompetin17](https://github.com/justjuangui))
+- Add support for very large time-lost jewel mod [\#2182](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2182) ([vaisest](https://github.com/vaisest))
+### User Interface
+- Fix window title changing in compare tab [\#2179](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2179) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix many supports not adding cooldown [\#2185](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2185) ([Peechey](https://github.com/Peechey))
+- Fix calculation of inverted Resistances when having a source of Penetration [\#2177](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2177) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Discipline not being converted by Eldritch Battery [\#2172](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2172) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Fix Split Personality not working with Monk and Druid starting points [\#2171](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2171) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix mods duplicating when crafting some Crossbows [\#2173](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2173) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Full DPS breakdown and gem dropdowns showing the wrong name for Companion / Spectre skills [\#2160](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2160) ([ltogniolli](https://github.com/ltogniolli))
+- Fix PoB Trader search not working correctly after comparing a build [\#2180](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2180) ([vaisest](https://github.com/vaisest))
+- Fix Mageblood mods merging in item crafter [\#2186](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2186) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
 ## [v0.20.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.20.0) (2026/06/11)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.19.0...v0.20.0)

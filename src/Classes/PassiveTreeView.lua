@@ -1826,6 +1826,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		-- add child tooltip for skills
 		self.skillTooltip:Clear()
+		self.skillTooltip.maxWidth = 600
 		for _, mod in ipairs(mNode.finalModList or mNode.modList or {}) do
 			if mod.name == "ExtraSkill" then
 				for grantedEffect, gemId in pairs(data.gemForSkill) do
