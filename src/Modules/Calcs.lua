@@ -331,8 +331,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local uuid = cacheStore and cacheSkillUUID(activeSkill, fullEnv)
+			local canCacheSkill = not (activeSkill.triggeredBy or activeSkill.skillData.triggered)
 			local cachedPasses
-			if surfaceSame and activeSkill.baseSkillModList then
+			if canCacheSkill and surfaceSame and activeSkill.baseSkillModList then
 				local ref = cacheStore.refs[uuid]
 				if ref and cacheStore.snapshots[uuid] and modListsEqual(ref, activeSkill.baseSkillModList) then
 					cachedPasses = cacheStore.snapshots[uuid]
@@ -350,7 +351,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				end
 			elseif enabled then
 				local ownRef
-				if cacheStore and fullDPSCache.capture and activeSkill.baseSkillModList then
+				if canCacheSkill and cacheStore and fullDPSCache.capture and activeSkill.baseSkillModList then
 					-- Reference the skill's pre-perform mod list for later input diffing
 					ownRef = { }
 					for i, mod in ipairs(activeSkill.baseSkillModList) do
