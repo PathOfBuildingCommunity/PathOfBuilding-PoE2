@@ -12342,7 +12342,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1400313697",
-				["text"] = "Increases and Reductions to Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+				["text"] = "Increases and Reductions to  Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -12732,7 +12732,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1509533589",
-				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type amongyour Ailments on them",
+				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type among your Ailments on them",
 				["type"] = "explicit",
 			},
 		},
@@ -13220,7 +13220,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1617268696",
-				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing atenth of their maximum Life as Fire Damage",
+				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing a tenth of their maximum Life as Fire Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -19818,7 +19818,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3368921525",
-				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["text"] = "Increases and Reductions to  Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -22060,7 +22060,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_3927679277",
-				["text"] = "#% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type",
+				["text"] = "#% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type",
 				["type"] = "explicit",
 			},
 		},
@@ -25401,7 +25401,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_895564377",
-				["text"] = "Increases and Reductions to Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
+				["text"] = "Increases and Reductions to  Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
 				["type"] = "explicit",
 			},
 		},
@@ -25645,7 +25645,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "explicit.stat_971590056",
-				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "explicit",
 			},
 			["usePositiveSign"] = true,
@@ -27721,8 +27721,16 @@ return {
 				["max"] = 300,
 				["min"] = 100,
 			},
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Amulet"] = {
 				["max"] = 40,
+				["min"] = 30,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
 				["min"] = 30,
 			},
 			["Wand"] = {
@@ -28251,17 +28259,9 @@ return {
 			},
 		},
 		["774059442"] = {
-			["2HWeapon"] = {
-				["max"] = 50,
-				["min"] = 30,
-			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
-			},
-			["Quarterstaff"] = {
-				["max"] = 50,
-				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28665,6 +28665,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1092987622",
 				["text"] = "#% of Melee Physical Damage taken reflected to Attacker",
+				["type"] = "augment",
+			},
+		},
+		["11014011"] = {
+			["Helmet"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_11014011",
+				["text"] = "Warcries Explode Corpses dealing #% of their Life as Physical Damage",
 				["type"] = "augment",
 			},
 		},
@@ -30888,7 +30901,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_2444976134",
-				["text"] = "Gain Maximum Energy Shield equal to #% of totalStrength Requirements of Equipped Armour Items",
+				["text"] = "Gain Maximum Energy Shield equal to #% of total Strength Requirements of Equipped Armour Items",
 				["type"] = "augment",
 			},
 		},
@@ -31053,14 +31066,15 @@ return {
 		},
 		["258955603"] = {
 			["Helmet"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = -20,
+				["min"] = -20,
 			},
+			["invertOnNegative"] = true,
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_258955603",
-				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
+				["text"] = "Alternating every 5 seconds: Take #% more Damage from Hits Take #% more Damage over time",
 				["type"] = "augment",
 			},
 		},
@@ -31357,7 +31371,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_2703838669",
-				["text"] = "#% increased Movement Speed per 15 Spirit, up to a maximum of 40%Other Modifiers to Movement Speed except for Sprinting do not apply",
+				["text"] = "#% increased Movement Speed per 15 Spirit, up to a maximum of 40% Other Modifiers to Movement Speed except for Sprinting do not apply",
 				["type"] = "augment",
 			},
 		},
@@ -31420,6 +31434,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2748665614",
 				["text"] = "#% increased maximum Mana",
+				["type"] = "augment",
+			},
+		},
+		["275498888"] = {
+			["1HMace"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["1HWeapon"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_275498888",
+				["text"] = "Maximum Quality is #%",
 				["type"] = "augment",
 			},
 		},
@@ -33134,7 +33165,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_3538915253",
-				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal tothe enemy's Power for 20 seconds, up to a total of #",
+				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "augment",
 			},
 		},
@@ -33214,6 +33245,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3666934677",
 				["text"] = "#% increased Experience gain",
+				["type"] = "augment",
+			},
+		},
+		["3675300253"] = {
+			["1HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Spear"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3675300253",
+				["text"] = "Strikes deal Splash Damage",
 				["type"] = "augment",
 			},
 		},
@@ -34266,7 +34314,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_4282982513",
-				["text"] = "Increases and Reductions to Movement Speed also apply to Energy Shield Recharge Rate",
+				["text"] = "Increases and Reductions to Movement Speed also  apply to Energy Shield Recharge Rate",
 				["type"] = "augment",
 			},
 		},
@@ -35645,7 +35693,7 @@ return {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_967155385",
-				["text"] = "Prevent #% of Damage from Deflected Hits if you'veDeflected no Hits Recently",
+				["text"] = "Prevent #% of Damage from Deflected Hits if you've Deflected no Hits Recently",
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,

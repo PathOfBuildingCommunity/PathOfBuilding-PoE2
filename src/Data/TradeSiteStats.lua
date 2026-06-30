@@ -16744,6 +16744,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_350598685",
+				["text"] = "# to Weapon Range",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_1379411836",
 				["text"] = "# to all Attributes",
 				["type"] = "fractured",
@@ -18439,6 +18444,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|9535",
+				["text"] = "Allocates Brinerot Ferocity",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|48565",
 				["text"] = "Allocates Bringer of Order",
 				["type"] = "fractured",
@@ -19019,6 +19029,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|43633",
+				["text"] = "Allocates Energising Archon",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|2814",
 				["text"] = "Allocates Engineered Blaze",
 				["type"] = "fractured",
@@ -19081,6 +19096,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|52191",
 				["text"] = "Allocates Event Horizon",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|24087",
+				["text"] = "Allocates Everlasting Infusions",
 				["type"] = "fractured",
 			},
 			{
@@ -19671,6 +19691,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|50023",
 				["text"] = "Allocates Invigorating Grandeur",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|24491",
+				["text"] = "Allocates Invocated Echoes",
 				["type"] = "fractured",
 			},
 			{
@@ -20269,6 +20294,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|21251",
+				["text"] = "Allocates Replenishing Horde",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|20414",
 				["text"] = "Allocates Reprisal",
 				["type"] = "fractured",
@@ -20621,6 +20651,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|2486",
 				["text"] = "Allocates Stars Aligned",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|26479",
+				["text"] = "Allocates Steadfast Resolve",
 				["type"] = "fractured",
 			},
 			{
@@ -34907,6 +34942,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1512261731",
+				["text"] = "Bonded: Knocks Enemies Back on Hit",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1584590139",
 				["text"] = "Bonded: Leeches #% of maximum Life when you Cast a Spell",
 				["type"] = "augment",
@@ -35029,6 +35069,11 @@ return {
 			{
 				["id"] = "rune.stat_1651083789",
 				["text"] = "Bonded: Triggered Spells deal #% increased Spell Damage",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3969727699",
+				["text"] = "Bonded: Warcry Skills have #% increased Area of Effect",
 				["type"] = "augment",
 			},
 			{
@@ -35637,6 +35682,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3675300253",
+				["text"] = "Strikes deal Splash Damage",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1755296234",
 				["text"] = "Targets can be affected by # of your Poisons at the same time",
 				["type"] = "augment",
@@ -35669,6 +35719,11 @@ return {
 			{
 				["id"] = "rune.stat_1683578560",
 				["text"] = "Unwavering Stance",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_11014011",
+				["text"] = "Warcries Explode Corpses dealing #% of their Life as Physical Damage",
 				["type"] = "augment",
 			},
 			{
