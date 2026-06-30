@@ -6972,7 +6972,7 @@ c["You can only Socket Sapphire Jewels in this item"]={{[1]={flags=0,keywordFlag
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Recover Energy Shield from Regeneration"]={nil,"You cannot Recover Energy Shield from Regeneration "}
 c["You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour "}
-c["You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield to above Armour "}
+c["You cannot Recover Energy Shield to above Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourESRecoveryCap",type="FLAG",value=true}},nil}
 c["You cannot Sprint"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotSprint",type="FLAG",value=true}},nil}
 c["You cannot be Chilled for 6 seconds after being Chilled"]={nil,"You cannot be Chilled for 6 seconds after being Chilled "}
 c["You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen"]={nil,"You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen "}

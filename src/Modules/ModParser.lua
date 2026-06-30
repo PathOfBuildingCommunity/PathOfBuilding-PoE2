@@ -5588,7 +5588,7 @@ local specialModList = {
 	["(%d+)%% increased accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["(%d+)%% more accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["%+(%d+) to accuracy against bleeding enemies"] = function(num) return { mod("AccuracyVsEnemy", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Bleeding" } ) } end,
-	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
+	["y?o?u? ?cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
 	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
 	["warcries empower (%d+) additional attacks?"] = function(num) return { mod("ExtraEmpoweredAttacks", "BASE", num) } end,
 	["warcries empower an additional attack"] = function(num) return { mod("ExtraEmpoweredAttacks", "BASE", 1) } end,
