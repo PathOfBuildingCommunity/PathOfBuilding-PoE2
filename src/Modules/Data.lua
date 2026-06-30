@@ -1015,12 +1015,20 @@ local function setupGem(gem, gemId)
 	end
 	if gem.grantedEffectDisplayOrder then
 		local tempTable = {}
-		local moved = false
-		for i, temp in ipairs(gem.grantedEffectList) do
-			if gem.grantedEffectDisplayOrder[i] then
-				tempTable[i] = gem.grantedEffectList[gem.grantedEffectDisplayOrder[i] + 1]
+		local used = {}
+		for i, order in ipairs(gem.grantedEffectDisplayOrder) do
+			local index = order + 1
+			if gem.grantedEffectList[index] and not used[index] then
+				tempTable[i] = gem.grantedEffectList[index]
+				used[index] = true
 			else
-				tempTable[i] = temp
+				tempTable[i] = gem.grantedEffectList[i]
+				used[i] = true
+			end
+		end
+		for i, effect in ipairs(gem.grantedEffectList) do
+			if not used[i] then
+				table.insert(tempTable, effect)
 			end
 		end
 		gem.grantedEffectList = tempTable
