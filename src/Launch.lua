@@ -8,6 +8,46 @@
 local startTime = GetTime()
 APP_NAME = "Path of Building (PoE2)"
 
+local pathSeparator = package.config:sub(1,1)
+local isWindows = pathSeparator == "\\"
+local updateProcessCandidates = {
+	"Path{space}of{space}Building-PoE2.exe",
+	"PathOfBuilding-PoE2.exe",
+	"Path of Building (PoE2).exe",
+}
+
+-- Returns the total number of running processes that match any known PoB executable names.
+local function getMatchingProcessCount()
+	if not isWindows then
+		return nil, "Process detection only supported on Windows"
+	end
+
+	if not GetProcessCount then
+		return nil, "GetProcessCount helper unavailable"
+	end
+
+	local names = { }
+	local seen = { }
+	for _, name in ipairs(updateProcessCandidates) do
+		local actual = name:gsub("{space}", " ")
+		local key = actual:lower()
+		if not seen[key] then
+			seen[key] = true
+			table.insert(names, actual)
+		end
+	end
+
+	local ok, count = pcall(GetProcessCount, names)
+	if not ok then
+		return nil, tostring(count)
+	end
+	if type(count) ~= "number" or count < 0 then
+		return nil, "GetProcessCount returned invalid value"
+	end
+
+	return count
+end
+
 SetWindowTitle(APP_NAME)
 ConExecute("set vid_mode 8")
 ConExecute("set vid_resizable 3")
@@ -320,6 +360,9 @@ end
 
 function launch:ApplyUpdate(mode)
 	if mode == "basic" then
+		if not self:EnsureUpdateExclusiveAccess() then
+			return
+		end
 		-- Need to revert to the basic environment to fully apply the update
 		LoadModule("UpdateApply", "Update/opFile.txt")
 		SpawnProcess(GetRuntimePath()..'/Update', 'UpdateApply.lua Update/opFileRuntime.txt')
@@ -330,6 +373,36 @@ function launch:ApplyUpdate(mode)
 		Restart()
 		self.doRestart = "Updating..."
 	end
+end
+
+function launch:GetAdditionalInstanceCount()
+	-- Subtract one for the current process; returns 0 if no other instance matches.
+	local count, err = getMatchingProcessCount()
+	if not count then
+		return nil, err
+	end
+	if count <= 1 then
+		return 0
+	end
+	return count - 1
+end
+
+function launch:EnsureUpdateExclusiveAccess()
+	-- Block runtime updates until all other PoB processes exit to avoid DLL write failures.
+	local otherCount, err = self:GetAdditionalInstanceCount()
+	if otherCount == nil then
+		ConPrintf("Warning: Update could not verify other running instances: %s", err)
+		return true
+	end
+	if otherCount > 0 then
+		local plural = otherCount > 1
+		local instanceLabel = plural and "instances" or "instance"
+		local verb = plural and "are" or "is"
+		local prompt = string.format("^1Update paused:\n\n^0%d other Path of Building %s %s still running.\nClose every other copy before applying this update, then press Update again.\n\nPress Enter or Escape to dismiss this message.", otherCount, instanceLabel, verb)
+		self:ShowPrompt(1, 0.5, 0, prompt)
+		return false
+	end
+	return true
 end
 
 function launch:CheckForUpdate(inBackground)
