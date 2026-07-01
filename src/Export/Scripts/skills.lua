@@ -226,6 +226,11 @@ directiveTable.skill = function(state, args, out)
 	local nextGemLevelReqValue = 0
 	local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
 	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffect", granted)
+	-- Use primary stat set rows if both stat sets contain the same number of levels
+	local primaryStatsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", dat("GrantedEffectStatSets"):GetRow("Id", granted.Id))
+	if primaryStatsPerLevel and #primaryStatsPerLevel >= gemLevels then
+		statsPerLevel = primaryStatsPerLevel
+	end
 	local gemLevelProgression = nil
 	if skillGem and not state.noGem then
 		gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
