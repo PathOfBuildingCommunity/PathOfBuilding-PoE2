@@ -333,6 +333,7 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	-- Helper to fetch and populate leagues for a given realm API id
 	local function fetchLeaguesForRealm(realmApiId)
+		local lastIdx = M.lastLeagueIdx
 		controls.leagueDrop:SetList({"Loading..."})
 		controls.leagueDrop.selIndex = 1
 		tradeQueryRequests:FetchLeagues(realmApiId, function(leagues, errMsg)
@@ -362,38 +363,50 @@ function M.openPopup(item, slotName, primaryBuild)
 					break
 				end
 			end
+			if lastIdx then
+				controls.leagueDrop:SetSel(lastIdx)
+			end
 		end)
 	end
 
+	local function rebuildUrl()
+		local result = buildURL(item, slotName, controls, modEntries, defenceEntries, isUnique)
+		uri = result
+	end
 	-- Realm dropdown
 	controls.realmLabel = new("LabelControl", {"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Realm:")
 	controls.realmDrop = new("DropDownControl", {"LEFT", controls.realmLabel, "RIGHT"}, {4, 0, 80, 20}, {"PoE2"}, function(index, value)
 		local realmApiId = REALM_API_IDS[value] or "poe2"
 		fetchLeaguesForRealm(realmApiId)
+			rebuildUrl()
+			M.lastLeagueIdx = index
 	end)
+	if M.lastRealmIdx then
+		controls.realmDrop:SetSel(M.lastRealmIdx, true)
+	end
 	controls.realmDrop.disabled = true
 
 	-- League dropdown
 	controls.leagueLabel = new("LabelControl", {"LEFT", controls.realmDrop, "RIGHT"}, {12, 0, 0, 16}, "^7League:")
 	controls.leagueDrop = new("DropDownControl", {"LEFT", controls.leagueLabel, "RIGHT"}, {4, 0, 160, 20}, {"Loading..."}, function(index, value)
 		-- League selection stored in the dropdown itself
+		M.lastLeagueIdx = index
 	end)
 	controls.leagueDrop.enabled = function() return #controls.leagueDrop.list > 0 and controls.leagueDrop.list[1] ~= "Loading..." end
 
 	-- Listed status dropdown
 	controls.listedDrop = new("DropDownControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-leftMargin, ctrlY, 242, 20}, LISTED_STATUS_LABELS, function(index, value)
 		-- Listed status selection stored in the dropdown itself
+		M.lastListedIndex = index
 	end)
+	if M.lastListedIndex then
+		controls.listedDrop:SetSel(M.lastListedIndex, true)
+	end
 	controls.listedLabel = new("LabelControl", {"RIGHT", controls.listedDrop, "LEFT"}, {-4, 0, 0, 16}, "^7Listed:")
 
 	-- Fetch initial leagues for default realm
 	fetchLeaguesForRealm("poe2")
 	ctrlY = ctrlY + rowHeight + 4
-
-	local function rebuildUrl()
-		local result = buildURL(item, slotName, controls, modEntries, defenceEntries, isUnique)
-		uri = result
-	end
 
 
 	if isUnique then
