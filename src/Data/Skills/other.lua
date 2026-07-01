@@ -3826,7 +3826,7 @@ skills["ConductiveRunesPlayer"] = {
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "conductive_runes_statset_1",
 			baseFlags = {
-				attack = true,
+				nonWeaponAttack = true,
 			},
 			constantStats = {
 				{ "rune_hazard_cone_angle", 80 },
