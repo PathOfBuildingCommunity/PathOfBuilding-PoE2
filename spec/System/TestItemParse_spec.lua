@@ -761,6 +761,29 @@ describe("TestItemParse", function()
 		
 	end)
 
+	it("loads Darkness Enthroned with two augment sockets", function()
+		local item = new("Item", data.uniques.belt[6])
+
+		assert.are.equals("Darkness Enthroned, Fine Belt", item.name)
+		assert.are.equals(2, item.itemSocketCount)
+		assert.are.equals(2, #item.sockets)
+
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+		local baseType, specificType = item:GetSocketedAugmentTypes()
+		assert.are.equals("armour", baseType)
+		assert.are.equals("helmet", specificType)
+	end)
+
+	it("parses Atziri's Splendour soul core socket types", function()
+		local item = new("Item", data.uniques.body[1])
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+
+		assert.is_true(item.socketedSoulCoreTypes["helmet"])
+		assert.is_nil(item.socketedSoulCoreTypes["gloves"])
+	end)
+
 	it("jewel sockets", function()
 		local item = new("Item", [[
 			Six Socket Body

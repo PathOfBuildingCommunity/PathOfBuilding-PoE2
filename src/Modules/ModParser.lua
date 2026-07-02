@@ -3445,6 +3445,8 @@ local specialModList = {
 	} end,
 	["only soul cores can be socketed in this item"] = { flag("SocketedSoulCoresOnly") },
 	["only runes can be socketed in this item"] = { flag("SocketedRunesOnly") },
+	["this item gains bonuses from socketed items as though it was a? ?(.+)"] = { }, -- Handled in Item.lua
+	["this item gains bonuses from socketed soul cores as though it was also a? ?(.+)"] = { }, -- Handled in Item.lua
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
 	["cannot load or fire ammunition"] = { mod("WeaponData", "LIST", { key = "cannotUseGemTag", value = "ammunition" }) },

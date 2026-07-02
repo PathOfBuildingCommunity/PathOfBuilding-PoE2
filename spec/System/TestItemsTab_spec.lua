@@ -607,6 +607,67 @@ describe("TestItemsTab", function()
 				assert.is_true(build.itemsTab:IsSocketBoundRune(item, item.runes[1], validRunes))
 				assert.is_false(build.itemsTab:IsSocketBoundRune(item, item.runes[2], validRunes))
 			end)
+
+			it("uses variant socket types for valid augments", function ()
+				for _, itemRaw in ipairs({ data.uniques.belt[6], data.uniques.body[1] }) do
+					local item = new("Item", itemRaw)
+					item.variant = 1 -- Helmet
+					item:BuildModList()
+
+					local foundHelmetSoulCore = false
+					for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+						if rune.name == "Quipolatl's Soul Core of Flow" then
+							foundHelmetSoulCore = true
+							break
+						end
+					end
+					assert.is_true(foundHelmetSoulCore)
+
+					item.runes[1] = "Quipolatl's Soul Core of Flow"
+					item:UpdateRunes()
+
+					assert.are.equals(2, #item.runeModLines)
+					assert.are.equals("8% increased Skill Effect Duration", item.runeModLines[1].line)
+					assert.are.equals("8% increased Cooldown Recovery Rate", item.runeModLines[2].line)
+				end
+			end)
+
+			it("refreshes valid augments when the item variant changes", function ()
+				local item = new("Item", data.uniques.body[1])
+				item.variant = 3 -- Boots
+				item:BuildModList()
+				build.itemsTab:SetDisplayItem(item)
+
+				build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+
+				local foundMaximumRage = false
+				for _, rune in ipairs(build.itemsTab.controls.displayItemRune1.list) do
+					if rune.name == "Tzamoto's Soul Core of Ferocity" then
+						foundMaximumRage = true
+						break
+					end
+				end
+				assert.is_true(foundMaximumRage)
+			end)
+
+			it("deduplicates valid augments by socketed item name", function ()
+				local item = new("Item", data.uniques.body[1])
+				item.variant = 4 -- Shield
+				item:BuildModList()
+
+				local ticabaCount = 0
+				local ticabaRune
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					if rune.name == "Soul Core of Ticaba" then
+						ticabaCount = ticabaCount + 1
+						ticabaRune = rune
+					end
+				end
+				assert.are.equals(1, ticabaCount)
+				assert.are.equals(2, #ticabaRune.lines)
+				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[1])
+				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[2])
+			end)
 		end)
 
 		it("does nothing when no matching item is equipped", function ()

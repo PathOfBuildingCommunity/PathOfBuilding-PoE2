@@ -376,6 +376,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.buffModLines = { }
 	self.enchantModLines = { }
 	self.runeModLines = { }
+	self.socketedAugmentTypeOverride = nil
+	self.socketedSoulCoreTypes = { }
 	self.implicitModLines = { }
 	self.explicitModLines = { }
 	local implicitLines = 0
@@ -965,6 +967,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.canHaveThreeEnchants = true
 					self.canHaveFourEnchants = true
 				end
+				modLine.socketedAugmentTypeOverride = lineLower:match("^this item gains bonuses from socketed items as though it was a? ?(.+)$")
+				modLine.socketedSoulCoreType = lineLower:match("^this item gains bonuses from socketed soul cores as though it was also a? ?(.+)$")
 
 				local modLines
 				if modLine.rune then
@@ -979,6 +983,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLines = self.explicitModLines
 				end
 				modLine.line = line
+				if self:CheckModLineVariant(modLine) then
+					if modLine.socketedAugmentTypeOverride then
+						self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
+					elseif modLine.socketedSoulCoreType then
+						self.socketedSoulCoreTypes[modLine.socketedSoulCoreType] = true
+					end
+				end
 				if modList then
 					modLine.modList = modList
 					modLine.extra = extra
@@ -1020,7 +1031,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
-		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
+		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre or self.itemSocketCount > 0 then
 			local shouldFixRunesOnItem = #self.runes == 0
 			if not shouldFixRunesOnItem and #self.runeModLines > 0 then
 				local canRebuildRunes = true
@@ -1546,7 +1557,7 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType)
+	local getModRunesForTypes = function(runeName, baseType, specificType, soulCoreTypes)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1560,22 +1571,23 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[specificType])
 				-- end
 			end
+			for soulCoreType in pairs(soulCoreTypes) do
+				local soulCoreMod = rune[soulCoreType]
+				if soulCoreMod and soulCoreMod.type == "SoulCore" then
+					t_insert(gatheredRuneMods, soulCoreMod)
+				end
+			end
 		end
 		return gatheredRuneMods
 	end
 
 	local statOrder = {}
+	local baseType, specificType = self:GetSocketedAugmentTypes()
+	local soulCoreTypes = self.socketedSoulCoreTypes
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local subType = self.base.subType and self.base.subType:lower()
-			local itemType = self.base.type:lower()
-			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
-			local specificType =
-				(subType == "warstaff" and "quarterstaff") or
-				(itemType == "shield" and subType == "evasion" and "buckler") or
-				itemType
-			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
+			local gatheredMods = getModRunesForTypes(name, baseType, specificType, soulCoreTypes)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
@@ -1714,6 +1726,22 @@ function ItemClass:GetModLineVariantCount(modLine)
 		end
 	end
 	return count
+end
+
+function ItemClass:GetSocketedAugmentTypes()
+	local subType = self.base.subType and self.base.subType:lower()
+	local itemType = self.base.type:lower()
+	local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
+	local specificType =
+		(subType == "warstaff" and "quarterstaff") or
+		(itemType == "shield" and subType == "evasion" and "buckler") or
+		itemType
+
+	if self.socketedAugmentTypeOverride then
+		return "armour", self.socketedAugmentTypeOverride
+	end
+
+	return baseType, specificType
 end
 
 -- Return the name of the slot this item is equipped in
@@ -2066,6 +2094,11 @@ function ItemClass:BuildModList()
 			if modLine.line:find("Requires Class") then
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
 			end
+			if modLine.socketedAugmentTypeOverride then
+				self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
+			elseif modLine.socketedSoulCoreType then
+				self.socketedSoulCoreTypes[modLine.socketedSoulCoreType] = true
+			end
 			-- handle understood modifier variable properties
 			if not modLine.extra then
 				if modLine.range then
@@ -2098,6 +2131,8 @@ function ItemClass:BuildModList()
 			end
 		end
 	end
+	self.socketedAugmentTypeOverride = nil
+	self.socketedSoulCoreTypes = { }
 	for _, modLine in ipairs(self.enchantModLines) do
 		processModLine(modLine)
 	end

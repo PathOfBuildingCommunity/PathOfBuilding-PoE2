@@ -6788,24 +6788,15 @@ c["There is no Limit on the number of Banners you can place"]={nil,"There is no 
 c["This Flask cannot be Used but applies its Effect constantly"]={nil,"This Flask cannot be Used but applies its Effect constantly "}
 c["This Flask cannot be Used but applies its Effect constantly 80% reduced Amount Recovered"]={nil,"This Flask cannot be Used but applies its Effect constantly 80% reduced Amount Recovered "}
 c["This Weapon's Critical Hit Chance is 100%"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="CritChance",value=100}}},nil}
-c["This item gains bonuses from Socketed Items as though it was Boots"]={nil,"This item gains bonuses from Socketed Items as though it was Boots "}
-c["This item gains bonuses from Socketed Items as though it was Boots This item gains bonuses from Socketed Items as though it was Gloves"]={nil,"This item gains bonuses from Socketed Items as though it was Boots This item gains bonuses from Socketed Items as though it was Gloves "}
-c["This item gains bonuses from Socketed Items as though it was Gloves"]={nil,"This item gains bonuses from Socketed Items as though it was Gloves "}
-c["This item gains bonuses from Socketed Items as though it was Gloves This item gains bonuses from Socketed Items as though it was a Helmet"]={nil,"This item gains bonuses from Socketed Items as though it was Gloves This item gains bonuses from Socketed Items as though it was a Helmet "}
-c["This item gains bonuses from Socketed Items as though it was a Body Armour"]={nil,"This item gains bonuses from Socketed Items as though it was a Body Armour "}
-c["This item gains bonuses from Socketed Items as though it was a Body Armour Has 4 Augment Sockets"]={nil,"This item gains bonuses from Socketed Items as though it was a Body Armour Has 4 Augment Sockets "}
-c["This item gains bonuses from Socketed Items as though it was a Body Armour This item gains bonuses from Socketed Items as though it was Boots"]={nil,"This item gains bonuses from Socketed Items as though it was a Body Armour This item gains bonuses from Socketed Items as though it was Boots "}
-c["This item gains bonuses from Socketed Items as though it was a Helmet"]={nil,"This item gains bonuses from Socketed Items as though it was a Helmet "}
-c["This item gains bonuses from Socketed Items as though it was a Helmet This item gains bonuses from Socketed Items as though it was a Shield"]={nil,"This item gains bonuses from Socketed Items as though it was a Helmet This item gains bonuses from Socketed Items as though it was a Shield "}
-c["This item gains bonuses from Socketed Items as though it was a Shield"]={nil,"This item gains bonuses from Socketed Items as though it was a Shield "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also Boots"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also Boots "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also Boots This item gains bonuses from Socketed Soul Cores as though it was also Gloves"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also Boots This item gains bonuses from Socketed Soul Cores as though it was also Gloves "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also Gloves"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also Gloves "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also Gloves This item gains bonuses from Socketed Soul Cores as though it was also a Helmet"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also Gloves This item gains bonuses from Socketed Soul Cores as though it was also a Helmet "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also a Helmet"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also a Helmet "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also a Helmet This item gains bonuses from Socketed Soul Cores as though it was also a Shield"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also a Helmet This item gains bonuses from Socketed Soul Cores as though it was also a Shield "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also a Shield"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also a Shield "}
-c["This item gains bonuses from Socketed Soul Cores as though it was also a Shield Has no Attribute Requirements"]={nil,"This item gains bonuses from Socketed Soul Cores as though it was also a Shield Has no Attribute Requirements "}
+c["This item gains bonuses from Socketed Items as though it was Boots"]={{},nil}
+c["This item gains bonuses from Socketed Items as though it was Gloves"]={{},nil}
+c["This item gains bonuses from Socketed Items as though it was a Body Armour"]={{},nil}
+c["This item gains bonuses from Socketed Items as though it was a Helmet"]={{},nil}
+c["This item gains bonuses from Socketed Items as though it was a Shield"]={{},nil}
+c["This item gains bonuses from Socketed Soul Cores as though it was also Boots"]={{},nil}
+c["This item gains bonuses from Socketed Soul Cores as though it was also Gloves"]={{},nil}
+c["This item gains bonuses from Socketed Soul Cores as though it was also a Helmet"]={{},nil}
+c["This item gains bonuses from Socketed Soul Cores as though it was also a Shield"]={{},nil}
 c["Thorns Damage has 25% chance to ignore Enemy Armour"]={{[1]={flags=32,keywordFlags=0,name="ChanceToIgnoreEnemyArmour",type="BASE",value=25}},nil}
 c["Thorns Damage has 50% chance to ignore Enemy Armour"]={{[1]={flags=32,keywordFlags=0,name="ChanceToIgnoreEnemyArmour",type="BASE",value=50}},nil}
 c["Thorns can Retaliate against all Hits"]={nil,"Thorns can Retaliate against all Hits "}
