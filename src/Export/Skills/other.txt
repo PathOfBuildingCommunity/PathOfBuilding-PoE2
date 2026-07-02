@@ -256,7 +256,7 @@ statMap = {
 #flags attack duration
 #mods
 #set ConductiveRunesExplosionPlayer
-#flags attack
+#flags nonWeaponAttack
 #mods
 #skillEnd
 
