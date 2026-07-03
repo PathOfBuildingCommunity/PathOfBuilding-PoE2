@@ -1,8 +1,8 @@
 -- Item data (c) Grinding Gear Games
 
 return {
--- Jewel: Drop
-[[
+	-- Jewel: Drop
+	[[
 The Adorned
 Diamond
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
@@ -11,10 +11,16 @@ Variant: Current
 Limited to: 1
 {variant:1}CorruptedMagicJewelModEffectUnique__1[0,100]
 {variant:2}CorruptedMagicJewelModEffectUnique__1
-]],[[
+]],
+	[[
 Controlled Metamorphosis
 Diamond
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Has Alt Variant: true
+Selected Variant: 2
+Selected Alt Variant: 6
+Variant: Pre 0.4.0
+Variant: Current
 Variant: Very Small Ring
 Variant: Small Ring
 Variant: Medium-Small Ring
@@ -25,29 +31,31 @@ Variant: Very Large Ring
 Variant: Massive Ring
 Limited to: 1
 Radius: Variable
-{variant:1}Only affects Passives in Very Small Ring
-{variant:2}Only affects Passives in Small Ring
-{variant:3}Only affects Passives in Medium-Small Ring
-{variant:4}Only affects Passives in Medium Ring
-{variant:5}Only affects Passives in Medium-Large Ring
-{variant:6}Only affects Passives in Large Ring
-{variant:7}Only affects Passives in Very Large Ring
-{variant:8}Only affects Passives in Massive Ring
+{variant:3}Only affects Passives in Very Small Ring
+{variant:4}Only affects Passives in Small Ring
+{variant:5}Only affects Passives in Medium-Small Ring
+{variant:6}Only affects Passives in Medium Ring
+{variant:7}Only affects Passives in Medium-Large Ring
+{variant:8}Only affects Passives in Large Ring
+{variant:9}Only affects Passives in Very Large Ring
+{variant:10}Only affects Passives in Massive Ring
 JewelUniqueAllocateDisconnectedPassives
 UniqueAllResistances12
-UniqueChaosResist18
-]],[[
+{variant:1}UniqueChaosResist18
+]],
+	[[
 Grand Spectrum
 Ruby
 Limited to: 3
 UniqueMaximumLifePerStackableJewel1
 ]],
-[[
+	[[
 Grand Spectrum
 Emerald
 Limited to: 3
 UniqueMaximumSpiritPerStackableJewel1
-]],[[
+]],
+	[[
 Grand Spectrum
 Sapphire
 Variant: Pre 0.4.0
@@ -55,7 +63,8 @@ Variant: Current
 Limited to: 3
 {variant:1}UniqueAllResistancePerStackableJewel1[4,4]
 {variant:2}UniqueAllResistancePerStackableJewel1
-]],[[
+]],
+	[[
 Split Personality
 Ruby
 Variant: Mercenary
@@ -73,7 +82,8 @@ Limited to: 1
 {variant:5}UniqueJewelSplitPersonalityClassStart5
 {variant:6}UniqueJewelSplitPersonalityClassStart1
 Corrupted
-]],[[
+]],
+	[[
 Voices
 Sapphire
 Variant: 2 Sinister Sockets
@@ -86,8 +96,8 @@ Limited to: 1
 {variant:3}UniqueJewelGrantsVoicesJewelSockets3
 Corrupted
 ]],
--- Jewel: Timeless
-[[
+	-- Jewel: Timeless
+	[[
 Heroic Tragedy
 Timeless Jewel
 Source: Drops from unique{Olroth, Origin of the Fall}
@@ -102,7 +112,7 @@ Radius: Very Large
 Passives in radius are Conquered by the Kalguur
 Historic
 ]],
-[[
+	[[
 Undying Hate
 Timeless Jewel
 Source: Drops from unique{Vessel of Kulemak}

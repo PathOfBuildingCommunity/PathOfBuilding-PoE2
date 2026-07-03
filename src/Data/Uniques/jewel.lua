@@ -1,8 +1,8 @@
 -- Item data (c) Grinding Gear Games
 
 return {
--- Jewel: Drop
-[[
+	-- Jewel: Drop
+	[[
 The Adorned
 Diamond
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
@@ -13,10 +13,16 @@ Limited to: 1
 {variant:1}containing Corrupted Magic Jewels
 {variant:2}(0-150)% increased Effect of Jewel Socket Passive Skills
 {variant:2}containing Corrupted Magic Jewels
-]],[[
+]],
+	[[
 Controlled Metamorphosis
 Diamond
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Has Alt Variant: true
+Selected Variant: 2
+Selected Alt Variant: 6
+Variant: Pre 0.4.0
+Variant: Current
 Variant: Very Small Ring
 Variant: Small Ring
 Variant: Medium-Small Ring
@@ -27,29 +33,31 @@ Variant: Very Large Ring
 Variant: Massive Ring
 Limited to: 1
 Radius: Variable
-{variant:1}Only affects Passives in Very Small Ring
-{variant:2}Only affects Passives in Small Ring
-{variant:3}Only affects Passives in Medium-Small Ring
-{variant:4}Only affects Passives in Medium Ring
-{variant:5}Only affects Passives in Medium-Large Ring
-{variant:6}Only affects Passives in Large Ring
-{variant:7}Only affects Passives in Very Large Ring
-{variant:8}Only affects Passives in Massive Ring
+{variant:3}Only affects Passives in Very Small Ring
+{variant:4}Only affects Passives in Small Ring
+{variant:5}Only affects Passives in Medium-Small Ring
+{variant:6}Only affects Passives in Medium Ring
+{variant:7}Only affects Passives in Medium-Large Ring
+{variant:8}Only affects Passives in Large Ring
+{variant:9}Only affects Passives in Very Large Ring
+{variant:10}Only affects Passives in Massive Ring
 Passives in Radius can be Allocated without being connected to your tree
 -(20-5)% to all Elemental Resistances
--(23-3)% to Chaos Resistance
-]],[[
+{variant:1}-(23-3)% to Chaos Resistance
+]],
+	[[
 Grand Spectrum
 Ruby
 Limited to: 3
 2% increased Maximum Life per socketed Grand Spectrum
 ]],
-[[
+	[[
 Grand Spectrum
 Emerald
 Limited to: 3
 2% increased Spirit per socketed Grand Spectrum
-]],[[
+]],
+	[[
 Grand Spectrum
 Sapphire
 Variant: Pre 0.4.0
@@ -57,7 +65,8 @@ Variant: Current
 Limited to: 3
 {variant:1}+4% to all Elemental Resistances per socketed Grand Spectrum
 {variant:2}+6% to all Elemental Resistances per socketed Grand Spectrum
-]],[[
+]],
+	[[
 Split Personality
 Ruby
 Variant: Mercenary
@@ -75,7 +84,8 @@ Limited to: 1
 {variant:1}Can Allocate Passive Skills from the Mercenary's starting point
 {variant:5}Can Allocate Passive Skills from the Templar's starting point
 Corrupted
-]],[[
+]],
+	[[
 Voices
 Sapphire
 Variant: 2 Sinister Sockets
@@ -88,8 +98,8 @@ Limited to: 1
 {variant:3}Allocates 4 Sinister Jewel sockets
 Corrupted
 ]],
--- Jewel: Timeless
-[[
+	-- Jewel: Timeless
+	[[
 Heroic Tragedy
 Timeless Jewel
 Source: Drops from unique{Olroth, Origin of the Fall}
@@ -104,7 +114,7 @@ Radius: Very Large
 Passives in radius are Conquered by the Kalguur
 Historic
 ]],
-[[
+	[[
 Undying Hate
 Timeless Jewel
 Source: Drops from unique{Vessel of Kulemak}
