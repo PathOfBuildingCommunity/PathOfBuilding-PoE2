@@ -9,11 +9,17 @@ local skills, mod, flag, skill = ...
 #set ArcPlayer
 #flags spell chaining projectile
 statMap = {
-	["arc_damage_+%_final_for_each_remaining_chain"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+	["active_skill_projectile_damage_+%_final_for_each_remaining_chain"] = {
+		mod("Damage", "MORE", nil, bit.bor(ModFlag.Projectile, ModFlag.Hit), 0, { type = "PerStat", stat = "ChainRemaining" }),
 	},
 	["quality_display_arc_is_gem"] = {
 		-- Display only
+	},
+	["arc_damage_+%_final_from_infusion_consumption"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "ArcLightningInfused" }),
+	},
+	["arc_chains_gained_from_infusion_consumption"] = {
+		mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Condition", var = "ArcLightningInfused" }),
 	},
 },
 #mods
@@ -159,6 +165,11 @@ statMap = {
 #skill MetaCastOnCritPlayer
 #set MetaCastOnCritPlayer
 #flags
+statMap = {
+	["cast_on_crit_global_critical_hit_chance_granted_+%"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -226,6 +237,9 @@ statMap = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 		mod("Evasion", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 		mod("EnergyShield", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+	},
+	["charge_regulation_damage_per_charge_granted_+%"] = {
+		mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "TotalCharges" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 	},
 },
 #flags
@@ -614,6 +628,9 @@ statMap = {
 	["flameblast_maximum_stages"] = {
 		mod("Multiplier:FlameblastMaxStages", "BASE", nil),
 	},
+	["gem_quality_flameblast_damaging_ailment_effect_per_stage_+%_final"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, bit.bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite), { type = "Multiplier", var = "FlameblastStage" }),
+	},
 },
 #mods
 #skillEnd
@@ -821,6 +838,9 @@ statMap = {
 statMap = {
 	["display_herald_of_ice_behaviour"] = {
 		flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+	},
+	["herald_of_ice_cold_damage_+%"] = {
+		mod("ColdDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
 	},
 },
 #mods
@@ -1037,6 +1057,11 @@ statMap = {
 #skill ManaRemnantsPlayer
 #set ManaRemnantsPlayer
 #flags
+statMap = {
+	["mana_remnants_global_mana_regeneration_rate_granted_+%"] = {
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1179,6 +1204,9 @@ statMap = {
 	["harvester_minion_resummon_speed_+%_final"] = {
 		mod("MinionRevivalSpeed", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 	},
+	["sacrifice_minion_life_granted_+%"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "INC", nil) }, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	},
 },
 #mods
 #skillEnd
@@ -1191,7 +1219,7 @@ statMap = {
 
 #skill ShatteringPalmExplosionPlayer
 #set ShatteringPalmExplosionPlayer
-#flags area nonWeaponAttack hit unarmed
+#flags attack area
 #mods
 #skillEnd
 
@@ -1459,6 +1487,9 @@ statMap = {
 	["trinity_loss_per_hit"] = {
 		-- Display only
 	},
+	["trinity_%_physical_damage_to_convert_to_random_element_granted"] = {
+		mod("PhysicalDamageConvertToRandom", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" } )
+	},
 },
 #mods
 #skillEnd
@@ -1514,6 +1545,11 @@ statMap = {
 #skill WaveOfFrostPlayer
 #set WaveOfFrostPlayer
 #flags attack area melee
+statMap = {
+	["frozen_monsters_take_increased_damage"] = {
+		mod("DamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "Frozen" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1531,6 +1567,11 @@ statMap = {
 #skill GaleStrikePlayer
 #set GaleStrikePlayer
 #flags attack area melee
+statMap = {
+	["wind_blast_damage_+%_final_from_distance"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{15,1},{40,0}} }),
+	},
+},
 #mods
 #skillEnd
 

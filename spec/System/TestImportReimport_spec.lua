@@ -187,6 +187,39 @@ Fireball 20/0  1
 		assert.is_false(groupsByGem.Fireball.enabled)
 	end)
 
+	it("imports item socketed jewels using jewel socket order instead of raw socket index", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local gloves = makeImportItem("Linen Wraps", "Gloves", "test-import-gloves")
+		gloves.sockets = {
+			{ type = "rune" },
+			{ type = "jewel" },
+		}
+		gloves.socketedItems = {
+			{ baseType = "Greater Rune of Nobility" },
+			{
+				id = "test-import-jewel",
+				frameType = 2,
+				name = "Vivid Ornament",
+				typeLine = "Sapphire",
+				baseType = "Sapphire",
+				inventoryId = "PassiveJewels",
+				ilvl = DEFAULT_ITEM_LEVEL,
+				properties = {},
+				socket = 1,
+			},
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ gloves }, {}))
+		runCallback("OnFrame")
+
+		local socketedJewel = build.itemsTab.items[build.itemsTab.slots["Gloves Jewel Socket 1"].selItemId]
+		assert.is_not_nil(socketedJewel)
+		assert.are.equal("test-import-jewel", socketedJewel.uniqueID)
+		assert.are.equal(0, build.itemsTab.slots["Gloves Jewel Socket 2"].selItemId)
+	end)
+
 	it("preserves skill part selection when reimporting items and skills", function()
 		assertReimportPreservesSkillSubstate("Twig Focus", "Offhand", "Dark Effigy", "skillPart", 2)
 	end)

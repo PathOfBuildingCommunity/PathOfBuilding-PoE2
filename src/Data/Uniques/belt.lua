@@ -267,7 +267,7 @@ Your Life Flask also applies to your Minions
 Minions cannot Die while affected by a Life Flask
 (20-30)% increased Flask Charges gained
 ]],[[
-Waistgate Heavy Belt
+Waistgate
 Heavy Belt
 League: Dawn of the Hunt
 Implicits: 2

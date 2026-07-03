@@ -10,10 +10,10 @@ classMap = {
 	["Armour"] = { "armour" },
 	["Wand or Staff"] = { "wand", "staff" },
 	["Maces or Talisman"] = { "one hand mace", "two hand mace", "talisman" },
-	["One Hand Mace or Quarterstaff"] = { "one hand mace", "warstaff" },
+	["One Hand Mace or Quarterstaff"] = { "one hand mace", "quarterstaff" },
 	["Shield or Buckler"] = { "shield", "buckler" },
 	["All"] = { "weapon", "armour", "caster" },
-	["Quarterstaff or Spear"] = { "warstaff", "spear" },
+	["Quarterstaff or Spear"] = { "quarterstaff", "spear" },
 	["Crossbow Bow or Spear"] = { "crossbow", "bow", "spear" },
 }
 
@@ -67,6 +67,7 @@ directiveTable.base = function(state, args, out)
 				end
 				out:write(' },\n')
 			end
+				out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
 		end
@@ -141,7 +142,8 @@ directiveTable.base = function(state, args, out)
 						label = descStats,
 						statOrder = orders,
 						rank = rank,
-						tradeHashes = tradeHashes
+						tradeHashes = tradeHashes,
+						isSocketBound = soulCores.IsSocketBound
 					}
 					table.insert(modLines, out)
 				end

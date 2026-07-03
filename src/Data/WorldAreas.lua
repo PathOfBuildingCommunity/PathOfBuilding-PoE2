@@ -1806,6 +1806,7 @@ worldAreas["G2_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Goliath",
 		"Sandflesh Mage",
 		"Sandflesh Skeleton",
@@ -2009,6 +2010,7 @@ worldAreas["Sanctum_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Brimstone Crab",
 		"Quake Golem",
 		"Rasp Scavenger",
@@ -2984,6 +2986,7 @@ worldAreas["G4_8b"] = {
 		"Faithful Archer",
 		"Faithful Warrior",
 		"Gargantuan Wasp",
+		"Nymph Wasp",
 		"Righteous Axewielder",
 		"Swarming Wasp",
 		"Twilight Order Oathsworn",
@@ -3005,10 +3008,13 @@ worldAreas["G4_9_"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Armoured Parasite",
 		"Infested Anglerfish",
 		"Infested Manta",
 		"Infested Octopus",
 		"Infested Turtle",
+		"Kreth Parasite",
+		"Moray Clan",
 	},
 }
 
@@ -3504,6 +3510,7 @@ worldAreas["P3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Bramble Burrower",
 		"Bramble Rhoa",
 		"Fungal Artillery",
@@ -3512,6 +3519,7 @@ worldAreas["P3_1"] = {
 		"Fungal Wolf",
 		"Fungal Zombie",
 		"Gargantuan Wasp",
+		"Nymph Wasp",
 		"Sabre Spider",
 		"Swarming Wasp",
 		"Vault Lurker",
@@ -4257,6 +4265,7 @@ worldAreas["MapSpiderWoods"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Vault Lurker",
 	},
 	bossVarieties = {
@@ -6485,6 +6494,7 @@ worldAreas["ExpeditionSubArea_VoranaBoss"] = {
 		"Black Scythe Arbalist",
 		"Black Scythe Mercenary",
 		"Gargantuan Wasp",
+		"Nymph Wasp",
 		"Swarming Wasp",
 		"Unearthed Runecaster",
 		"Unearthed Soldier",
@@ -7164,6 +7174,7 @@ worldAreas["MapMothersoul_Male"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Precursor Driller",
 		"Precursor Fabricator",
 		"Precursor Refractor",
@@ -7185,6 +7196,7 @@ worldAreas["MapMothersoul_Female"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Precursor Driller",
 		"Precursor Fabricator",
 		"Precursor Refractor",
@@ -7238,6 +7250,7 @@ worldAreas["MapUniqueReactor_01"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Precursor Driller",
 		"Precursor Fabricator",
 		"Precursor Refractor",
@@ -7259,6 +7272,7 @@ worldAreas["MapUniqueReactor_02"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Precursor Driller",
 		"Precursor Fabricator",
 		"Precursor Refractor",
@@ -7277,6 +7291,7 @@ worldAreas["MapUniqueReactor_03"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Black Strider",
 		"Precursor Driller",
 		"Precursor Fabricator",
 		"Precursor Refractor",

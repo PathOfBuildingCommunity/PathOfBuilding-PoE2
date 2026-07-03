@@ -1695,6 +1695,17 @@ itemBases["Runemastered Verisium Cuffs"] = {
 	armour = { Armour = 73, EnergyShield = 21, Ward = 12, },
 	req = { level = 55, str = 38, int = 38, },
 }
+itemBases["Tethering Bands"] = {
+	type = "Gloves",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	hidden = true,
+	socketLimit = 3,
+	tags = { armour = true, default = true, gloves = true, karui_basetype = true, str_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Armour = 98, EnergyShield = 27, },
+	req = { level = 65, str = 55, int = 55, },
+}
 
 itemBases["Gauze Wraps"] = {
 	type = "Gloves",

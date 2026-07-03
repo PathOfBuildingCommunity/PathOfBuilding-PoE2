@@ -14,6 +14,7 @@ local catalystTags = {
 	["lightning"] = true,
 	["chaos"] = true,
 	["defences"] = true,
+	["minion"] = true,
 }
 local itemTypes = {
 	"axe",

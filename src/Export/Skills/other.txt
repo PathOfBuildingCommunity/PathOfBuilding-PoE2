@@ -256,7 +256,7 @@ statMap = {
 #flags attack duration
 #mods
 #set ConductiveRunesExplosionPlayer
-#flags attack
+#flags nonWeaponAttack
 #mods
 #skillEnd
 
@@ -1250,7 +1250,7 @@ statMap = {
 #from tree
 #skill TemperWeaponCombustionPlayer
 #set TemperWeaponCombustionPlayer
-#flags attack area
+#flags attack area melee
 #mods
 #skillEnd
 

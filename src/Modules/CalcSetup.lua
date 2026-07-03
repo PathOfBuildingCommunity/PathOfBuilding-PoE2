@@ -15,6 +15,12 @@ local band = AND64
 
 local tempTable1 = { }
 
+local function addGrantedPassiveNode(env, node)
+	env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
+	env.grantedPassives[node.id] = true
+	env.extraRadiusNodeList[node.id] = nil
+end
+
 -- Initialise modifier database with stats and conditions common to all actors
 function calcs.initModDB(env, modDB)
 	modDB:NewMod("FireResistMax", "BASE", data.characterConstants["base_maximum_all_resistances_%"], "Base")
@@ -105,6 +111,53 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
+local function getCorruptedJewelEffect(env, item, node)
+	if not item or item.type ~= "Jewel" or not item.corrupted or not node or node.containJewelSocket or node.sinister or item.base.subType == "Charm" then
+		return 0
+	end
+	local rarity = item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end)
+	return env.modDB.multipliers["Corrupted" .. rarity .. "JewelEffect"] or 0
+end
+
+local function runRadiusJewelFunc(rad, node, out, data)
+	local scale = rad.effectScale
+	if not scale or scale == 1 then
+		rad.func(node, out, data)
+		return
+	end
+
+	local start = #out
+	rad.func(node, out, data)
+	if #out == start then
+		return
+	end
+
+	local scaledList = new("ModList")
+	for i = start + 1, #out do
+		scaledList:AddMod(out[i])
+	end
+	for i = #out, start + 1, -1 do
+		t_remove(out, i)
+	end
+	out:ScaleAddList(scaledList, scale)
+
+	for i = start + 1, #out do
+		local mod = out[i]
+		if mod.parsedLine then
+			local value = mod.value
+			while type(value) == "table" and value.mod do
+				value = value.mod.value
+			end
+			if type(value) == "table" then
+				value = value.value
+			end
+			if type(value) == "number" then
+				mod.parsedLine = mod.parsedLine:gsub("%d*%.?%d+", math.abs(value), 1)
+			end
+		end
+	end
+end
+
 local function refreshJewelStatCache(env)
 	local normalNode = { type = "Normal" }
 	local attributeNode = { type = "Normal", isAttribute = true }
@@ -119,9 +172,9 @@ local function refreshJewelStatCache(env)
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList = new("ModList")
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList = new("ModList")
 		end
-		rad.func(normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
-		rad.func(attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
-		rad.func(notableNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList, rad.data)
+		runRadiusJewelFunc(rad, normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
+		runRadiusJewelFunc(rad, attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
+		runRadiusJewelFunc(rad, notableNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList, rad.data)
 	end
 end
 
@@ -147,18 +200,18 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil and rad.item.baseName:find("Timeless Jewel") == nil then
-				rad.func(node, modList, rad.data)
+				runRadiusJewelFunc(rad, node, modList, rad.data)
 			elseif node.type == "Normal" or node.type == "Notable" then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				if not cache or (cache.hash ~= rad.jewelHash) then
 					refreshJewelStatCache(env)
 				end
 				if node.type == "Normal" and node.isAttribute and cache and #cache.attributeModList > 0 then
-					modList:AddList(cache.attributeModList)
+					modList:CopyList(cache.attributeModList)
 				elseif node.type == "Normal" and not node.isAttribute and cache and #cache.smallModList > 0 then
-					modList:AddList(cache.smallModList)
+					modList:CopyList(cache.smallModList)
 				elseif node.type == "Notable" and cache and #cache.notableModList > 0 then
-					modList:AddList(cache.notableModList)
+					modList:CopyList(cache.notableModList)
 				end
 				break
 			end
@@ -180,7 +233,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
-			rad.func(node, modList, rad.data)
+			runRadiusJewelFunc(rad, node, modList, rad.data)
 		end
 	end
 
@@ -313,7 +366,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 
 		-- Finalise radius jewels
 		for _, rad in pairs(env.radiusJewelList) do
-			rad.func(nil, modList, rad.data)
+			runRadiusJewelFunc(rad, nil, modList, rad.data)
 			if env.mode == "MAIN" then
 				if not rad.item.jewelRadiusData then
 					rad.item.jewelRadiusData = { }
@@ -395,6 +448,7 @@ function wipeEnv(env, accelerate)
 	if not accelerate.skills then
 		-- Player Active Skills generation
 		wipeTable(env.player.activeSkillList)
+		env.sourceGemPropertyInfo = { }
 
 		-- Enhances Active Skills with skill ModFlags, KeywordFlags
 		-- and modifiers that affect skill scaling (e.g., global buffs/effects)
@@ -770,9 +824,15 @@ function calcs.initEnv(build, mode, override, specEnv)
 			nodes = copyTable(env.spec.allocNodes, true)
 		end
 		env.allocNodes = nodes
+		for nodeId, node in pairs(env.allocNodes) do
+			if node.isGrantedPassive and node.isFreeAllocate then
+				env.allocNodes[nodeId] = nil
+			end
+		end
 	end
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
+	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -812,6 +872,16 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
+		local grantedNodes = env.spec:CollectGrantedPassiveNodesFromItems(build.itemsTab, env.allocNodes, env.configInput.ignoreJewelLimits, override, nodesModsList)
+		if mode == "MAIN" then
+			if build.spec:SetGrantedPassiveNodes(grantedNodes) then
+				build.itemsTab:UpdateSockets()
+			end
+		end
+		for _, node in pairs(grantedNodes) do
+			addGrantedPassiveNode(env, node)
+		end
+
 		local items = {}
 		local jewelLimits = {}
 		local giantsBlood = weaponFlagState.giantsBlood
@@ -860,9 +930,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if slot.weaponSet == 2 and build.itemsTab.activeItemSet.useSecondWeaponSet then
 				slotName = slotName:gsub(" Swap","")
 			end
+			local node = slot.nodeId and env.spec.nodes[slot.nodeId]
 			if slot.nodeId then
 				-- Slot is a jewel socket, check if socket is allocated
 				if not env.allocNodes[slot.nodeId] then
+					goto continue
+				elseif item and not build.itemsTab:IsItemValidForSlot(item, slot.slotName) then
 					goto continue
 				elseif item then
 					if item.jewelData then
@@ -889,7 +962,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							jewelLimits[limitKey] = (jewelLimits[limitKey] or 0) + 1
 						end
 					end
-					if item and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
+					if item and not (node and node.sinister) and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
 						-- Jewel has a radius, add it to the list
 						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
 							-- Default function just tallies all stats in radius
@@ -900,7 +973,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							end
 						end } }
 						for _, func in ipairs(funcList) do
-							local node = env.spec.nodes[slot.nodeId]
 							t_insert(env.radiusJewelList, {
 								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
 								func = func.func,
@@ -922,7 +994,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							end
 						end
 						for _, funcData in ipairs(override and override.extraJewelFuncs and override.extraJewelFuncs:List({item = item}, "ExtraJewelFunc") or {}) do
-							local node = env.spec.nodes[slot.nodeId]
 							local radius
 							for index, data in pairs(data.jewelRadius) do
 								if funcData.radius == data.label then
@@ -953,6 +1024,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			items[slotName] = item
 			::continue::
+		end
+
+		for _, rad in ipairs(env.radiusJewelList) do
+			local effect = getCorruptedJewelEffect(env, rad.item, env.spec.nodes[rad.nodeId])
+			if effect ~= 0 then
+				rad.effectScale = 1 + effect
+				rad.jewelHash = tostring(rad.jewelHash or getHashFromString(rad.item.modSource..rad.item.raw)) .. ":" .. rad.effectScale
+			end
 		end
 
 		if not env.configInput.ignoreItemDisablers then
@@ -1012,6 +1091,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
+			local node = slot.nodeId and env.spec.nodes[slot.nodeId]
 			if item and item.type == "Flask" then
 				if slot.active then
 					env.flasks[item] = true
@@ -1042,8 +1122,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					scale = parentItem.socketedJewelEffectModifier
 				end
 			end
-			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
-				local node = env.spec.nodes[slot.nodeId]
+			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart and not (node and node.sinister) then
 				if node and node.distanceToClassStart then
 					scale = scale + node.distanceToClassStart * (item.jewelData.jewelIncEffectFromClassStart / 100)
 				end
@@ -1051,7 +1130,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 			local addSourceSlotNum = false
 			if slot.nodeId and item and item.type == "Jewel" then
-				local node = env.spec.nodes[slot.nodeId]
 				if node and node.containJewelSocket then
 					addSourceSlotNum = true
 					local inc = node.modList:Sum("INC", nil, "SocketedJewelEffect")
@@ -1063,6 +1141,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+				local corruptedJewelEffect = slot.nodeId and getCorruptedJewelEffect(env, item, node) or 0
 
 				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
 				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
@@ -1260,8 +1339,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"] and item.type == "Jewel" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and not env.spec.nodes[slot.nodeId].containJewelSocket then
-					scale = scale + env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"]
+				elseif corruptedJewelEffect ~= 0 then
+					scale = scale + corruptedJewelEffect
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
@@ -1326,11 +1405,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Add granted passives (e.g., amulet anoints)
 	if not accelerate.nodeAlloc then
 		for _, passive in pairs(env.modDB:List(nil, "GrantedPassive")) do
-			local node = env.spec.tree.notableMap[passive]
-			if node and (not override.removeNodes or not override.removeNodes[node.id]) then
-				env.allocNodes[node.id] = env.spec.nodes[node.id] or node -- use the conquered node data, if available
-				env.grantedPassives[node.id] = true
-				env.extraRadiusNodeList[node.id] = nil
+			for _, node in ipairs(env.spec:ResolveGrantedPassiveNodes(passive)) do
+				if node and (not override.removeNodes or not override.removeNodes[node.id]) then
+					addGrantedPassiveNode(env, node)
+				end
 			end
 		end
 	end
@@ -1373,8 +1451,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local modList = env.player.itemList["Weapon 2"].modList
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
-			modCopy.source = "Many Sources:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
+			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
 			modDB:ScaleAddMod(modCopy, quiverEffectMod)
+		end
+	end
+	
+	if env.player.itemList["Amulet"] and env.player.itemList["Amulet"].type == "Amulet" then
+		local amuletEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromAmulet") / 100
+		local modList = env.player.itemList["Amulet"].modList
+		for _, mod in ipairs(modList) do
+			local modCopy = copyTable(mod)
+			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletEffectMod * 100) .. "% Amulet Bonus Effect"
+			modDB:ScaleAddMod(modCopy, amuletEffectMod)
 		end
 	end
 
@@ -1678,6 +1766,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									level = value.level,
 									quality = 0,
 									enabled = true,
+									isSupporting = { },
 								})
 							end
 						end

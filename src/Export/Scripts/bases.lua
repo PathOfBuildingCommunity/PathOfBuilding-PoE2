@@ -124,6 +124,13 @@ directiveTable.base = function(state, args, out)
 	for _, tag in ipairs(baseItemType.Tags) do
 		combinedTags[tag.Id] = true
 	end
+	-- Genesis Tree tags are granted at runtime and omitted from BaseItemTypes,
+	-- so the genesis_tree_* mods (belt/ring caster and minion affixes) match nothing.
+	-- Re-add them; each mod's own belt/ring exclusion routes it to the correct slot.
+	if combinedTags.belt or combinedTags.ring then
+		combinedTags.genesis_tree_minion = true
+		combinedTags.genesis_tree_caster = true
+	end
 	local combinedTagList = { }
 	for tag in pairsSortByKey(combinedTags) do
 		table.insert(combinedTagList, tag)

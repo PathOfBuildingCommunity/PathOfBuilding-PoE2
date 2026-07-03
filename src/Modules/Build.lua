@@ -1651,6 +1651,10 @@ function buildMode:OpenSpectreLibrary(library)
 			end
 		end
 		local movementSpeed = minion.baseMovementSpeed / 10 .. " m/s"
+		local fireResist = library == "beast" and minion.companionFireResist or minion.fireResist
+		local coldResist = library == "beast" and minion.companionColdResist or minion.coldResist
+		local lightningResist = library == "beast" and minion.companionLightningResist or minion.lightningResist
+		local chaosResist = library == "beast" and minion.companionChaosResist or minion.chaosResist
 		controls.minionNameLabel.labelText = "^7" .. minion.name
 		controls.lifeLabel.lifeValue = round(totalLife)
 		controls.energyshieldLabel.energyShieldValue = round(totalES)
@@ -1659,19 +1663,19 @@ function buildMode:OpenSpectreLibrary(library)
 		controls.evasionLabel.evasionValue = round(totalEvasion)
 		controls.spawnLocations.list = spawnLocationList
 		controls.resistsLabel.resistsValue = (
-			colorCodes.FIRE..minion.fireResist.."^7 / "..
-			colorCodes.COLD..minion.coldResist.."^7 / "..
-			colorCodes.LIGHTNING..minion.lightningResist.."^7 / "..
-			colorCodes.CHAOS..minion.chaosResist)
+			colorCodes.FIRE..fireResist.."^7 / "..
+			colorCodes.COLD..coldResist.."^7 / "..
+			colorCodes.LIGHTNING..lightningResist.."^7 / "..
+			colorCodes.CHAOS..chaosResist)
 		controls.movementSpeedLabel.movementSpeedValue = movementSpeed
 	end
 
 	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:")
+	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:", library == "beast")
 	controls.list.OnSelect = function()
 			UpdateMinionDisplay(controls.list.selValue)
 	end
-	controls.source = new("MinionSearchListControl", nil, {0, 80, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
+	controls.source = new("MinionSearchListControl", nil, {0, 80, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":", library == "beast")
 	controls.source.OnSelect = function()
 			UpdateMinionDisplay(controls.source.selValue)
 	end
@@ -2041,20 +2045,22 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 					controls.mainSkillMinion.shown = true
 					wipeTable(controls.mainSkillMinionSkill.list)
 					if activeSkill.minion then
-						for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
-							t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+						if activeSkill.minion.activeSkillList and activeSkill.minion.activeSkillList[1] then
+							for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
+								t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
+							end
+							controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill"..suffix] or 1
+							controls.mainSkillMinionSkill.shown = true
+							controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
+							wipeTable(controls.mainSkillMinionSkillStatSet.list)
+							for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
+								t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, grantedEffectId = activeEffect.grantedEffect.id})
+							end
+							local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
+							controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[activeEffect.grantedEffect.id] and minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
+							controls.mainSkillMinionSkillStatSet.shown = true
+							controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 						end
-						controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill"..suffix] or 1
-						controls.mainSkillMinionSkill.shown = true
-						controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
-						wipeTable(controls.mainSkillMinionSkillStatSet.list)
-						for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
-							t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, grantedEffectId = activeEffect.grantedEffect.id})
-						end
-						local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
-						controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[activeEffect.grantedEffect.id] and minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
-						controls.mainSkillMinionSkillStatSet.shown = true
-						controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 					else
 						t_insert(controls.mainSkillMinion.list, "<No spectres in build>")
 					end

@@ -8,8 +8,8 @@ local t_insert = table.insert
 local t_remove = table.remove
 local s_format = string.format
 
-local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest, label)
-	self.MinionListControl(anchor, rect, data, list, dest, label)
+local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest, label, showCompanionStats)
+	self.MinionListControl(anchor, rect, data, list, dest, label, showCompanionStats)
 	self:sortSourceList()
 	self.unfilteredList = copyTable(list)
 	self.isMutable = false
@@ -97,10 +97,10 @@ function MinionSearchListClass:sortSourceList()
 		[6] = { field = "damage", asc = false },
 		[7] = { field = "companionReservation", asc = true },
 		[8] = { field = "spectreReservation", asc = true },
-		[9] = { field = "fireResist", asc = false },
-		[10] = { field = "coldResist", asc = false },
-		[11] = { field = "lightningResist", asc = false },
-		[12] = { field = "chaosResist", asc = false },
+		[9] = { field = self.showCompanionStats and "companionFireResist" or "fireResist", asc = false },
+		[10] = { field = self.showCompanionStats and "companionColdResist" or "coldResist", asc = false },
+		[11] = { field = self.showCompanionStats and "companionLightningResist" or "lightningResist", asc = false },
+		[12] = { field = self.showCompanionStats and "companionChaosResist" or "chaosResist", asc = false },
 		[13] = { field = "totalResist", asc = false },
 		[14] = { field = "baseMovementSpeed", asc = false },
 	}
@@ -122,8 +122,13 @@ function MinionSearchListClass:sortSourceList()
 				valueA = (minionA.energyShield or 0) * minionA.life
 				valueB = (minionB.energyShield or 0) * minionB.life
 			elseif sortOption.field == "totalResist" then
-				valueA = (minionA.fireResist or 0) + (minionA.coldResist or 0) + (minionA.lightningResist or 0) + (minionA.chaosResist or 0)
-				valueB = (minionB.fireResist or 0) + (minionB.coldResist or 0) + (minionB.lightningResist or 0) + (minionB.chaosResist or 0)
+				if self.showCompanionStats then
+					valueA = (minionA.companionFireResist or 0) + (minionA.companionColdResist or 0) + (minionA.companionLightningResist or 0) + (minionA.companionChaosResist or 0)
+					valueB = (minionB.companionFireResist or 0) + (minionB.companionColdResist or 0) + (minionB.companionLightningResist or 0) + (minionB.companionChaosResist or 0)
+				else
+					valueA = (minionA.fireResist or 0) + (minionA.coldResist or 0) + (minionA.lightningResist or 0) + (minionA.chaosResist or 0)
+					valueB = (minionB.fireResist or 0) + (minionB.coldResist or 0) + (minionB.lightningResist or 0) + (minionB.chaosResist or 0)
+				end
 			end
 			if valueA == valueB then
 				return minionA.name < minionB.name

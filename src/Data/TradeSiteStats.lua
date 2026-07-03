@@ -908,7 +908,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3451259830",
-				["text"] = "#% chance to gain Onslaught for 3 seconds when you kill an enemy affected by Abyssal Wasting",
+				["text"] = "#% chance to gain Onslaught for 3 seconds when you kill an  enemy affected by Abyssal Wasting",
 				["type"] = "explicit",
 			},
 			{
@@ -968,7 +968,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_19819865",
-				["text"] = "#% chance to revive one of your Persistent Minions when you kill an enemy affected by Abyssal Wasting",
+				["text"] = "#% chance to revive one of your Persistent Minions when you kill an  enemy affected by Abyssal Wasting",
 				["type"] = "explicit",
 			},
 			{
@@ -978,7 +978,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3927679277",
-				["text"] = "#% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type",
+				["text"] = "#% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type",
 				["type"] = "explicit",
 			},
 			{
@@ -1648,12 +1648,12 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_461663422",
-				["text"] = "#% increased Effect of Jewel Socket Passive Skillscontaining Corrupted Magic Jewels",
+				["text"] = "#% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3128077011",
-				["text"] = "#% increased Effect of Jewel Socket Passive Skillscontaining Corrupted Rare Jewels",
+				["text"] = "#% increased Effect of Jewel Socket Passive Skills containing Corrupted Rare Jewels",
 				["type"] = "explicit",
 			},
 			{
@@ -2498,12 +2498,12 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1602191394",
-				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
+				["text"] = "#% increased Rarity of Items found Your other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2261942307",
-				["text"] = "#% increased Rarity of Items foundYour other Modifiers to Rarity of Items found do not apply",
+				["text"] = "#% increased Rarity of Items found Your other Modifiers to Rarity of Items found do not apply",
 				["type"] = "explicit",
 			},
 			{
@@ -3349,6 +3349,11 @@ return {
 			{
 				["id"] = "explicit.stat_3190121041",
 				["text"] = "#% of Volatility Physical Damage Taken as Cold Damage",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2285766967",
+				["text"] = "#% of damage taken from enemies with an Open Weakness Recouped as Life",
 				["type"] = "explicit",
 			},
 			{
@@ -5393,11 +5398,6 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2954116742|12245",
-				["text"] = "Allocates Arsonist",
-				["type"] = "explicit",
-			},
-			{
-				["id"] = "explicit.stat_2954116742|14265",
 				["text"] = "Allocates Arsonist",
 				["type"] = "explicit",
 			},
@@ -8212,6 +8212,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2954116742|33542",
 				["text"] = "Allocates Quick Fingers",
 				["type"] = "explicit",
@@ -9578,7 +9583,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_258955603",
-				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
+				["text"] = "Alternating every 5 seconds: Take #% more Damage from Hits Take #% more Damage over time",
 				["type"] = "explicit",
 			},
 			{
@@ -10018,7 +10023,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_842299438",
-				["text"] = "Bolts fired by Crossbow Attacks have #% chance to notexpend Ammunition if you've Reloaded Recently",
+				["text"] = "Bolts fired by Crossbow Attacks have #% chance to not expend Ammunition if you've Reloaded Recently",
 				["type"] = "explicit",
 			},
 			{
@@ -10038,7 +10043,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1217651243",
-				["text"] = "Breaches expand to at least # metre in radiusBreaches remain open while there are alive Breach Monsters",
+				["text"] = "Breaches expand to at least # metre in radius Breaches remain open while there are alive Breach Monsters",
 				["type"] = "explicit",
 			},
 			{
@@ -10118,7 +10123,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1617268696",
-				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing atenth of their maximum Life as Fire Damage",
+				["text"] = "Burning Enemies you kill have a #% chance to Explode, dealing a tenth of their maximum Life as Fire Damage",
 				["type"] = "explicit",
 			},
 			{
@@ -10153,7 +10158,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_627896047",
-				["text"] = "Can Attack as though using a One Handed Mace while both of your hand slots are emptyUnarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage",
+				["text"] = "Can Attack as though using a One Handed Mace while both of your hand slots are empty Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage",
 				["type"] = "explicit",
 			},
 			{
@@ -10173,7 +10178,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3418590244",
-				["text"] = "Can only be applied to Precursor Tower MapsCompleting the Tower makes all nearby Maps accessible",
+				["text"] = "Can only be applied to Precursor Tower Maps Completing the Tower makes all nearby Maps accessible",
 				["type"] = "explicit",
 			},
 			{
@@ -10258,7 +10263,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1580426064",
-				["text"] = "Cannot use Life FlasksNon-Unique Life Flasks apply their Effects constantlyRecovery from Life Flasks cannot be InstantRecovery from your Life Flasks cannot be applied to anything other than you",
+				["text"] = "Cannot use Life Flasks Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant Recovery from your Life Flasks cannot be applied to anything other than you",
 				["type"] = "explicit",
 			},
 			{
@@ -10493,7 +10498,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_885925163",
-				["text"] = "Copy a random Modifier from each enemy in your Presence whenyou Shapeshift to an Animal formModifiers gained this way are lost after # seconds or when you next Shapeshift",
+				["text"] = "Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form Modifiers gained this way are lost after # seconds or when you next Shapeshift",
 				["type"] = "explicit",
 			},
 			{
@@ -10628,7 +10633,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2894895028",
-				["text"] = "Damage over Time bypasses your Energy ShieldWhile not on Full Life, Sacrifice #% of maximum Mana per Second to Recover that much Life",
+				["text"] = "Damage over Time bypasses your Energy Shield While not on Full Life, Sacrifice #% of maximum Mana per Second to Recover that much Life",
 				["type"] = "explicit",
 			},
 			{
@@ -10872,6 +10877,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_1393838912",
+				["text"] = "Eat a Soul on Hitting an enemy with an Open Weakness",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2103621252",
 				["text"] = "Eat a Soul when you Hit a Unique Enemy, no more than once every second",
 				["type"] = "explicit",
@@ -11053,7 +11063,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1509533589",
-				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type amongyour Ailments on them",
+				["text"] = "Enemies take #% increased Damage for each Elemental Ailment type among your Ailments on them",
 				["type"] = "explicit",
 			},
 			{
@@ -11073,7 +11083,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2051332707",
-				["text"] = "Enemies you kill while they are affected by Abyssal Wasting grant #% increased Flask Charges",
+				["text"] = "Enemies you kill while they are affected by Abyssal Wasting  grant #% increased Flask Charges",
 				["type"] = "explicit",
 			},
 			{
@@ -11173,7 +11183,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2224139044",
-				["text"] = "Every second Slam Skill you use while Shapeshifted is Ancestrally BoostedEvery second Strike Skill you use while Shapeshifted is Ancestrally Boosted",
+				["text"] = "Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted Every second Strike Skill you use while Shapeshifted is Ancestrally Boosted",
 				["type"] = "explicit",
 			},
 			{
@@ -11392,6 +11402,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_457920946",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage while you are missing Runic Ward",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_323800555",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
 				["type"] = "explicit",
@@ -11463,7 +11478,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_4128965096",
-				["text"] = "Gain 1 Explosive Rhythm every # time you use a Grenade SkillRemove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds",
+				["text"] = "Gain 1 Explosive Rhythm every # time you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds",
 				["type"] = "explicit",
 			},
 			{
@@ -11478,7 +11493,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3492740640",
-				["text"] = "Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 secondsLose all Runic Bindings when you Shapeshift to gain that much Unbound Potential",
+				["text"] = "Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential",
 				["type"] = "explicit",
 			},
 			{
@@ -11603,27 +11618,27 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3418580811|24",
-				["text"] = "Glorifying the defilement of # souls in tribute to AmanamuPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
+				["text"] = "Glorifying the defilement of # souls in tribute to Amanamu Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|25",
-				["text"] = "Glorifying the defilement of # souls in tribute to KulemakPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
+				["text"] = "Glorifying the defilement of # souls in tribute to Kulemak Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|26",
-				["text"] = "Glorifying the defilement of # souls in tribute to KurgalPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
+				["text"] = "Glorifying the defilement of # souls in tribute to Kurgal Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|27",
-				["text"] = "Glorifying the defilement of # souls in tribute to TecrodPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
+				["text"] = "Glorifying the defilement of # souls in tribute to Tecrod Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|28",
-				["text"] = "Glorifying the defilement of # souls in tribute to UlamanPassives in radius are Conquered by the AbyssalsDesecration makes this item unstable",
+				["text"] = "Glorifying the defilement of # souls in tribute to Ulaman Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
 				["type"] = "explicit",
 			},
 			{
@@ -11813,22 +11828,22 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3881997959",
-				["text"] = "Increases Movement Speed by 25%, plus 1% per # Evasion Rating, up to a maximum of 75%Other Modifiers to Movement Speed except for Sprinting do not apply",
+				["text"] = "Increases Movement Speed by 25%, plus 1% per # Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_895564377",
-				["text"] = "Increases and Reductions to Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
+				["text"] = "Increases and Reductions to  Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_1400313697",
-				["text"] = "Increases and Reductions to Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+				["text"] = "Increases and Reductions to  Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3368921525",
-				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["text"] = "Increases and Reductions to  Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
 				["type"] = "explicit",
 			},
 			{
@@ -11838,7 +11853,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3407300125",
-				["text"] = "Increases and Reductions to Mana Regeneration Rate alsoapply to Energy Shield Recharge Rate",
+				["text"] = "Increases and Reductions to Mana Regeneration Rate also apply to Energy Shield Recharge Rate",
 				["type"] = "explicit",
 			},
 			{
@@ -11873,7 +11888,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_971590056",
-				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "explicit",
 			},
 			{
@@ -11888,7 +11903,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1695767482",
-				["text"] = "Inflict Corrupted Blood for # second on Block, dealing #% ofyour maximum Life as Physical damage per second",
+				["text"] = "Inflict Corrupted Blood for # second on Block, dealing #% of your maximum Life as Physical damage per second",
 				["type"] = "explicit",
 			},
 			{
@@ -11903,7 +11918,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_223138829",
-				["text"] = "Inflict Elemental Exposure to Enemies 3 metres in front of youfor 4 seconds, every 0.25 seconds while raised",
+				["text"] = "Inflict Elemental Exposure to Enemies 3 metres in front of you for 4 seconds, every 0.25 seconds while raised",
 				["type"] = "explicit",
 			},
 			{
@@ -12183,7 +12198,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1777740627",
-				["text"] = "Life that would be lost by taking Damage is instead Reserveduntil you take no Damage to Life for # second",
+				["text"] = "Life that would be lost by taking Damage is instead Reserved until you take no Damage to Life for # second",
 				["type"] = "explicit",
 			},
 			{
@@ -12538,7 +12553,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2889807051",
-				["text"] = "Melee Hits count as Rampage KillsRampage",
+				["text"] = "Melee Hits count as Rampage Kills Rampage",
 				["type"] = "explicit",
 			},
 			{
@@ -13503,7 +13518,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3538915253",
-				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal tothe enemy's Power for 20 seconds, up to a total of #",
+				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "explicit",
 			},
 			{
@@ -13593,167 +13608,167 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2422708892|45202",
-				["text"] = "Passives in Radius of Ancestral Bond can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Ancestral Bond can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|18684",
-				["text"] = "Passives in Radius of Avatar of Fire can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Avatar of Fire can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|42680",
-				["text"] = "Passives in Radius of Blackflame Covenant can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Blackflame Covenant can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|51749",
-				["text"] = "Passives in Radius of Blood Magic can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Blood Magic can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|56605",
-				["text"] = "Passives in Radius of Bulwark can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Bulwark can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|56349",
-				["text"] = "Passives in Radius of Chaos Inoculation can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Chaos Inoculation can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|33979",
-				["text"] = "Passives in Radius of Conduit can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Conduit can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|9085",
-				["text"] = "Passives in Radius of Crimson Assault can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Crimson Assault can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|14226",
-				["text"] = "Passives in Radius of Dance with Death can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Dance with Death can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|57513",
-				["text"] = "Passives in Radius of Eldritch Battery can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Eldritch Battery can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|46742",
-				["text"] = "Passives in Radius of Elemental Equilibrium can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Elemental Equilibrium can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|33404",
-				["text"] = "Passives in Radius of Eternal Youth can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Eternal Youth can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|32349",
-				["text"] = "Passives in Radius of Giant's Blood can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Giant's Blood can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|19288",
-				["text"] = "Passives in Radius of Glancing Blows can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Glancing Blows can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|34497",
-				["text"] = "Passives in Radius of Heartstopper can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Heartstopper can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|64601",
-				["text"] = "Passives in Radius of Hollow Palm Technique can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Hollow Palm Technique can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|28492",
-				["text"] = "Passives in Radius of Iron Reflexes can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Iron Reflexes can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|61942",
-				["text"] = "Passives in Radius of Lord of the Wilds can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Lord of the Wilds can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|45918",
-				["text"] = "Passives in Radius of Mind Over Matter can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Mind Over Matter can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|39935",
-				["text"] = "Passives in Radius of Necromantic Talisman can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Necromantic Talisman can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|25100",
-				["text"] = "Passives in Radius of Oasis can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Oasis can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|55048",
-				["text"] = "Passives in Radius of Pain Attunement can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Pain Attunement can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|37484",
-				["text"] = "Passives in Radius of Primal Hunger can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Primal Hunger can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|44017",
-				["text"] = "Passives in Radius of Resolute Technique can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Resolute Technique can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|25520",
-				["text"] = "Passives in Radius of Resonance can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Resonance can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|11230",
-				["text"] = "Passives in Radius of Ritual Cadence can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Ritual Cadence can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|49547",
-				["text"] = "Passives in Radius of Scarred Faith can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Scarred Faith can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|41861",
-				["text"] = "Passives in Radius of Trusted Kinship can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Trusted Kinship can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|14540",
-				["text"] = "Passives in Radius of Unwavering Stance can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Unwavering Stance can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|33369",
-				["text"] = "Passives in Radius of Vaal Pact can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Vaal Pact can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|47759",
-				["text"] = "Passives in Radius of Whispers of Doom can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Whispers of Doom can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|49363",
-				["text"] = "Passives in Radius of Wildsurge Incantation can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Wildsurge Incantation can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_2422708892|52",
-				["text"] = "Passives in Radius of Zealot's Oath can be Allocatedwithout being connected to your tree",
+				["text"] = "Passives in Radius of Zealot's Oath can be Allocated without being connected to your tree",
 				["type"] = "explicit",
 			},
 			{
@@ -13803,7 +13818,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_436406826",
-				["text"] = "Players are Marked for Death for # secondsafter killing a Rare or Unique monster",
+				["text"] = "Players are Marked for Death for # seconds after killing a Rare or Unique monster",
 				["type"] = "explicit",
 			},
 			{
@@ -14183,17 +14198,17 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_3418580811|22",
-				["text"] = "Remembrancing # songworthy deeds by the line of MedvedPassives in radius are Conquered by the Kalguur",
+				["text"] = "Remembrancing # songworthy deeds by the line of Medved Passives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|23",
-				["text"] = "Remembrancing # songworthy deeds by the line of OlrothPassives in radius are Conquered by the Kalguur",
+				["text"] = "Remembrancing # songworthy deeds by the line of Olroth Passives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
 			{
 				["id"] = "explicit.stat_3418580811|21",
-				["text"] = "Remembrancing # songworthy deeds by the line of VoranaPassives in radius are Conquered by the Kalguur",
+				["text"] = "Remembrancing # songworthy deeds by the line of Vorana Passives in radius are Conquered by the Kalguur",
 				["type"] = "explicit",
 			},
 			{
@@ -14257,6 +14272,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_110659965",
+				["text"] = "Reveal Weaknesses against Rare and Unique enemies",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_1031644647",
 				["text"] = "Revived Monsters from Ritual Altars in Area have #% increased chance to be Magic",
 				["type"] = "explicit",
@@ -14314,6 +14334,11 @@ return {
 			{
 				["id"] = "explicit.stat_3108672983",
 				["text"] = "Rolls only the minimum or maximum Damage value for each Damage Type",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2816104578",
+				["text"] = "Runic Monsters are Duplicated",
 				["type"] = "explicit",
 			},
 			{
@@ -15053,7 +15078,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_1013492127",
-				["text"] = "Spells fire # additional ProjectilesSpells fire Projectiles in a circle",
+				["text"] = "Spells fire # additional Projectiles Spells fire Projectiles in a circle",
 				["type"] = "explicit",
 			},
 			{
@@ -15099,6 +15124,11 @@ return {
 			{
 				["id"] = "explicit.stat_4294267596",
 				["text"] = "Take no Extra Damage from Critical Hits",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_1153919467",
+				["text"] = "Targets affected by Abyssal Wasting in your Presence have double Power",
 				["type"] = "explicit",
 			},
 			{
@@ -15333,7 +15363,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_603021645",
-				["text"] = "When a Party Member in your Presence Casts a Spell, youSacrifice #% of Mana and they Leech that Mana",
+				["text"] = "When a Party Member in your Presence Casts a Spell, you Sacrifice #% of Mana and they Leech that Mana",
 				["type"] = "explicit",
 			},
 			{
@@ -15348,7 +15378,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_331648983",
-				["text"] = "When you reload, triggers Gemini Surge to alternatelygain # Cold Surge or # Fire Surge",
+				["text"] = "When you reload, triggers Gemini Surge to alternately gain # Cold Surge or # Fire Surge",
 				["type"] = "explicit",
 			},
 			{
@@ -15368,7 +15398,7 @@ return {
 			},
 			{
 				["id"] = "explicit.stat_2626360934",
-				["text"] = "Wind Skills which can be boosted by Elemental Ground Surfaces countas being boosted by Chilled Ground",
+				["text"] = "Wind Skills which can be boosted by Elemental Ground Surfaces count as being boosted by Chilled Ground",
 				["type"] = "explicit",
 			},
 			{
@@ -16194,37 +16224,37 @@ return {
 			},
 			{
 				["id"] = "implicit.stat_2369421690",
-				["text"] = "Adds Abysses to a Map # use remaining",
+				["text"] = "Adds Abysses to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_4041853756",
-				["text"] = "Adds Irradiated to a Map # use remaining",
+				["text"] = "Adds Irradiated to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_3166002380",
-				["text"] = "Adds Ritual Altars to a Map # use remaining",
+				["text"] = "Adds Ritual Altars to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_3035440454",
-				["text"] = "Adds Vaal Beacons to a Map # use remaining",
+				["text"] = "Adds Vaal Beacons to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_1714888636",
-				["text"] = "Adds a Kalguuran Expedition to a Map # use remaining",
+				["text"] = "Adds a Kalguuran Expedition to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_3879011313",
-				["text"] = "Adds a Mirror of Delirium to a Map # use remaining",
+				["text"] = "Adds a Mirror of Delirium to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
 				["id"] = "implicit.stat_2219129443",
-				["text"] = "Adds an Otherworldy Breach to a Map # use remaining",
+				["text"] = "Adds an Otherworldy Breach to a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
@@ -16329,7 +16359,7 @@ return {
 			},
 			{
 				["id"] = "implicit.stat_3376302538",
-				["text"] = "Empowers the Map Boss of a Map # use remaining",
+				["text"] = "Empowers the Map Boss of a Map  # use remaining",
 				["type"] = "implicit",
 			},
 			{
@@ -16711,6 +16741,11 @@ return {
 			{
 				["id"] = "fractured.stat_915769802",
 				["text"] = "# to Stun Threshold",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_350598685",
+				["text"] = "# to Weapon Range",
 				["type"] = "fractured",
 			},
 			{
@@ -18209,6 +18244,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|17696",
+				["text"] = "Allocates Augmented Flesh",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|20397",
 				["text"] = "Allocates Authority",
 				["type"] = "fractured",
@@ -18329,6 +18369,16 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|1448",
+				["text"] = "Allocates Bond of the Cat",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|52568",
+				["text"] = "Allocates Bond of the Owl",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|5191",
 				["text"] = "Allocates Bond of the Wolf",
 				["type"] = "fractured",
@@ -18391,6 +18441,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|61338",
 				["text"] = "Allocates Breath of Lightning",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|9535",
+				["text"] = "Allocates Brinerot Ferocity",
 				["type"] = "fractured",
 			},
 			{
@@ -18929,6 +18984,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|9928",
+				["text"] = "Allocates Embracing Frost",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|8397",
 				["text"] = "Allocates Empowering Remains",
 				["type"] = "fractured",
@@ -18966,6 +19026,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|40399",
 				["text"] = "Allocates Energise",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|43633",
+				["text"] = "Allocates Energising Archon",
 				["type"] = "fractured",
 			},
 			{
@@ -19031,6 +19096,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|52191",
 				["text"] = "Allocates Event Horizon",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|24087",
+				["text"] = "Allocates Everlasting Infusions",
 				["type"] = "fractured",
 			},
 			{
@@ -19479,6 +19549,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|50912",
+				["text"] = "Allocates Imbibed Power",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|19156",
 				["text"] = "Allocates Immaterial",
 				["type"] = "fractured",
@@ -19616,6 +19691,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|50023",
 				["text"] = "Allocates Invigorating Grandeur",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|24491",
+				["text"] = "Allocates Invocated Echoes",
 				["type"] = "fractured",
 			},
 			{
@@ -20214,6 +20294,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|21251",
+				["text"] = "Allocates Replenishing Horde",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|20414",
 				["text"] = "Allocates Reprisal",
 				["type"] = "fractured",
@@ -20569,6 +20654,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|26479",
+				["text"] = "Allocates Steadfast Resolve",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|47782",
 				["text"] = "Allocates Steady Footing",
 				["type"] = "fractured",
@@ -20621,6 +20711,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|38342",
 				["text"] = "Allocates Stupefy",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|8791",
+				["text"] = "Allocates Sturdy Ally",
 				["type"] = "fractured",
 			},
 			{
@@ -21305,12 +21400,12 @@ return {
 			},
 			{
 				["id"] = "fractured.stat_3368921525",
-				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["text"] = "Increases and Reductions to  Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
 				["type"] = "fractured",
 			},
 			{
 				["id"] = "fractured.stat_971590056",
-				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "fractured",
 			},
 			{
@@ -21474,6 +21569,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3877264671",
+				["text"] = "Monster have #% increased Elemental Ailment Application",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_1879340377",
 				["text"] = "Monsters Break Armour equal to #% of Physical Damage dealt",
 				["type"] = "fractured",
@@ -21541,6 +21641,11 @@ return {
 			{
 				["id"] = "fractured.stat_1994551050",
 				["text"] = "Monsters have #% increased Ailment Threshold",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3909654181",
+				["text"] = "Monsters have #% increased Attack, Cast and Movement Speed",
 				["type"] = "fractured",
 			},
 			{
@@ -21906,6 +22011,11 @@ return {
 			{
 				["id"] = "fractured.stat_3386297724",
 				["text"] = "Notable Passive Skills in Radius also grant #% of Skill Mana Costs Converted to Life Costs",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_248192092",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Chaos Resistance",
 				["type"] = "fractured",
 			},
 			{
@@ -23355,11 +23465,6 @@ return {
 				["type"] = "crafted",
 			},
 			{
-				["id"] = "crafted.stat_2954116742|14265",
-				["text"] = "Allocates Arsonist",
-				["type"] = "crafted",
-			},
-			{
 				["id"] = "crafted.stat_2954116742|58817",
 				["text"] = "Allocates Artillery Strike",
 				["type"] = "crafted",
@@ -23487,6 +23592,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|25753",
 				["text"] = "Allocates Blazing Arms",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|18308",
+				["text"] = "Allocates Bleeding Out",
 				["type"] = "crafted",
 			},
 			{
@@ -24185,6 +24295,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|44765",
+				["text"] = "Allocates Distracting Presence",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|47514",
 				["text"] = "Allocates Dizzying Hits",
 				["type"] = "crafted",
@@ -24570,6 +24685,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|55835",
+				["text"] = "Allocates Exposed to the Cosmos",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|10423",
 				["text"] = "Allocates Exposed to the Inferno",
 				["type"] = "crafted",
@@ -24597,6 +24717,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|60464",
 				["text"] = "Allocates Fan the Flames",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|35477",
+				["text"] = "Allocates Far Sighted",
 				["type"] = "crafted",
 			},
 			{
@@ -26090,6 +26215,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_2954116742|19236",
+				["text"] = "Allocates Projectile Bulwark",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_2954116742|45874",
 				["text"] = "Allocates Proliferating Weeds",
 				["type"] = "crafted",
@@ -26142,6 +26272,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|6229",
 				["text"] = "Allocates Push the Advantage",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
 				["type"] = "crafted",
 			},
 			{
@@ -26587,6 +26722,11 @@ return {
 			{
 				["id"] = "crafted.stat_2954116742|12906",
 				["text"] = "Allocates Sitting Duck",
+				["type"] = "crafted",
+			},
+			{
+				["id"] = "crafted.stat_2954116742|2645",
+				["text"] = "Allocates Skullcrusher",
 				["type"] = "crafted",
 			},
 			{
@@ -27580,6 +27720,11 @@ return {
 				["type"] = "crafted",
 			},
 			{
+				["id"] = "crafted.stat_457920946",
+				["text"] = "Gain #% of Damage as Extra Lightning Damage while you are missing Runic Ward",
+				["type"] = "crafted",
+			},
+			{
 				["id"] = "crafted.stat_323800555",
 				["text"] = "Gain #% of Damage as Extra Lightning Damage with Spells",
 				["type"] = "crafted",
@@ -27606,22 +27751,22 @@ return {
 			},
 			{
 				["id"] = "crafted.stat_895564377",
-				["text"] = "Increases and Reductions to Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
+				["text"] = "Increases and Reductions to  Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
 				["type"] = "crafted",
 			},
 			{
 				["id"] = "crafted.stat_1400313697",
-				["text"] = "Increases and Reductions to Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+				["text"] = "Increases and Reductions to  Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
 				["type"] = "crafted",
 			},
 			{
 				["id"] = "crafted.stat_3368921525",
-				["text"] = "Increases and Reductions to Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+				["text"] = "Increases and Reductions to  Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
 				["type"] = "crafted",
 			},
 			{
 				["id"] = "crafted.stat_971590056",
-				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "crafted",
 			},
 			{
@@ -28572,11 +28717,6 @@ return {
 			},
 			{
 				["id"] = "enchant.stat_2954116742|12245",
-				["text"] = "Allocates Arsonist",
-				["type"] = "enchant",
-			},
-			{
-				["id"] = "enchant.stat_2954116742|14265",
 				["text"] = "Allocates Arsonist",
 				["type"] = "enchant",
 			},
@@ -31391,6 +31531,11 @@ return {
 				["type"] = "enchant",
 			},
 			{
+				["id"] = "enchant.stat_2954116742|14265",
+				["text"] = "Allocates Pyromancer",
+				["type"] = "enchant",
+			},
+			{
 				["id"] = "enchant.stat_2954116742|33542",
 				["text"] = "Allocates Quick Fingers",
 				["type"] = "enchant",
@@ -33122,6 +33267,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2174054121",
+				["text"] = "#% chance to inflict Bleeding on Hit",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1555237944",
 				["text"] = "#% chance when you gain a Charge to gain an additional Charge",
 				["type"] = "augment",
@@ -33378,7 +33528,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_2703838669",
-				["text"] = "#% increased Movement Speed per 15 Spirit, up to a maximum of 40%Other Modifiers to Movement Speed except for Sprinting do not apply",
+				["text"] = "#% increased Movement Speed per 15 Spirit, up to a maximum of 40% Other Modifiers to Movement Speed except for Sprinting do not apply",
 				["type"] = "augment",
 			},
 			{
@@ -33863,7 +34013,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_258955603",
-				["text"] = "Alternating every 5 seconds:Take #% more Damage from HitsTake #% more Damage over time",
+				["text"] = "Alternating every 5 seconds: Take #% more Damage from Hits Take #% more Damage over time",
 				["type"] = "augment",
 			},
 			{
@@ -33927,6 +34077,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1261474324",
+				["text"] = "Bonded: # to Dexterity",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3533065815",
 				["text"] = "Bonded: # to Evasion Rating",
 				["type"] = "augment",
@@ -33959,6 +34114,11 @@ return {
 			{
 				["id"] = "rune.stat_921688168",
 				["text"] = "Bonded: # to Maximum Power Charges",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_10502714",
+				["text"] = "Bonded: # to Maximum Rage",
 				["type"] = "augment",
 			},
 			{
@@ -34018,7 +34178,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_3909696841",
-				["text"] = "Bonded: #% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type",
+				["text"] = "Bonded: #% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type",
 				["type"] = "augment",
 			},
 			{
@@ -34094,6 +34254,11 @@ return {
 			{
 				["id"] = "rune.stat_1777925108",
 				["text"] = "Bonded: #% increased Attack Speed while your Companion is in your Presence",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_96906928",
+				["text"] = "Bonded: #% increased Bleeding Duration",
 				["type"] = "augment",
 			},
 			{
@@ -34369,6 +34534,11 @@ return {
 			{
 				["id"] = "rune.stat_3126632036",
 				["text"] = "Bonded: #% increased Parry Range",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2894111835",
+				["text"] = "Bonded: #% increased Presence Area of Effect",
 				["type"] = "augment",
 			},
 			{
@@ -34687,13 +34857,18 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_589270455",
+				["text"] = "Bonded: Curse zones erupt after #% increased delay",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_4019240232",
 				["text"] = "Bonded: Damage Penetrates #% Lightning Resistance",
 				["type"] = "augment",
 			},
 			{
 				["id"] = "rune.stat_2691854696",
-				["text"] = "Bonded: Damage of Enemies Hitting you is Unlucky ifyour Runic Ward has been damaged Recently",
+				["text"] = "Bonded: Damage of Enemies Hitting you is Unlucky if your Runic Ward has been damaged Recently",
 				["type"] = "augment",
 			},
 			{
@@ -34764,6 +34939,11 @@ return {
 			{
 				["id"] = "rune.stat_1773391344",
 				["text"] = "Bonded: Invocated skills have #% increased Maximum Energy",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1512261731",
+				["text"] = "Bonded: Knocks Enemies Back on Hit",
 				["type"] = "augment",
 			},
 			{
@@ -34872,6 +35052,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2721126863",
+				["text"] = "Bonded: Skills which Empower an Attack have #% chance to not count that Attack",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3286003349",
 				["text"] = "Bonded: Storm Skills have +# to Limit",
 				["type"] = "augment",
@@ -34884,6 +35069,11 @@ return {
 			{
 				["id"] = "rune.stat_1651083789",
 				["text"] = "Bonded: Triggered Spells deal #% increased Spell Damage",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3969727699",
+				["text"] = "Bonded: Warcry Skills have #% increased Area of Effect",
 				["type"] = "augment",
 			},
 			{
@@ -35017,6 +35207,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_4258409981",
+				["text"] = "Deal #% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2301852600",
 				["text"] = "Deal #% of Overkill damage to enemies within 2 metres of the enemy killed",
 				["type"] = "augment",
@@ -35063,7 +35258,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_2241849004",
-				["text"] = "Energy Shield Recharge starts after spending a total of 2000 Mana, no more than once every 2 seconds",
+				["text"] = "Energy Shield Recharge starts after spending a total of  2000 Mana, no more than once every 2 seconds",
 				["type"] = "augment",
 			},
 			{
@@ -35074,6 +35269,11 @@ return {
 			{
 				["id"] = "rune.stat_1895552497",
 				["text"] = "Every 5 Rage also grants #% of Damage taken Recouped as Life",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2995914769",
+				["text"] = "Every Rage also grants #% increased Armour",
 				["type"] = "augment",
 			},
 			{
@@ -35143,7 +35343,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_3557924960",
-				["text"] = "Gain #% of Damage as Extra Damage of a random Element perRune Socketed in Equipped Items",
+				["text"] = "Gain #% of Damage as Extra Damage of a random Element per Rune Socketed in Equipped Items",
 				["type"] = "augment",
 			},
 			{
@@ -35203,7 +35403,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_2444976134",
-				["text"] = "Gain Maximum Energy Shield equal to #% of totalStrength Requirements of Equipped Armour Items",
+				["text"] = "Gain Maximum Energy Shield equal to #% of total Strength Requirements of Equipped Armour Items",
 				["type"] = "augment",
 			},
 			{
@@ -35252,6 +35452,21 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2211478554",
+				["text"] = "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_4226127445",
+				["text"] = "If you would gain a Power Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1881314095",
+				["text"] = "If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3570773271",
 				["text"] = "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				["type"] = "augment",
@@ -35263,7 +35478,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_4282982513",
-				["text"] = "Increases and Reductions to Movement Speed also apply to Energy Shield Recharge Rate",
+				["text"] = "Increases and Reductions to Movement Speed also  apply to Energy Shield Recharge Rate",
 				["type"] = "augment",
 			},
 			{
@@ -35289,6 +35504,11 @@ return {
 			{
 				["id"] = "rune.stat_3145796865",
 				["text"] = "Mana Recovery from Regeneration is also applied to Runic Ward",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_275498888",
+				["text"] = "Maximum Quality is #%",
 				["type"] = "augment",
 			},
 			{
@@ -35343,7 +35563,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_3538915253",
-				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal tothe enemy's Power for 20 seconds, up to a total of #",
+				["text"] = "On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of #",
 				["type"] = "augment",
 			},
 			{
@@ -35354,6 +35574,11 @@ return {
 			{
 				["id"] = "rune.stat_98977150",
 				["text"] = "Pain Attunement",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2041668411",
+				["text"] = "Physical Damage is Pinning",
 				["type"] = "augment",
 			},
 			{
@@ -35368,7 +35593,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_967155385",
-				["text"] = "Prevent #% of Damage from Deflected Hits if you'veDeflected no Hits Recently",
+				["text"] = "Prevent #% of Damage from Deflected Hits if you've Deflected no Hits Recently",
 				["type"] = "augment",
 			},
 			{
@@ -35457,6 +35682,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3675300253",
+				["text"] = "Strikes deal Splash Damage",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1755296234",
 				["text"] = "Targets can be affected by # of your Poisons at the same time",
 				["type"] = "augment",
@@ -35489,6 +35719,11 @@ return {
 			{
 				["id"] = "rune.stat_1683578560",
 				["text"] = "Unwavering Stance",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_11014011",
+				["text"] = "Warcries Explode Corpses dealing #% of their Life as Physical Damage",
 				["type"] = "augment",
 			},
 			{
@@ -35854,7 +36089,7 @@ return {
 			},
 			{
 				["id"] = "desecrated.stat_3927679277",
-				["text"] = "#% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type",
+				["text"] = "#% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type",
 				["type"] = "desecrated",
 			},
 			{
@@ -37894,7 +38129,7 @@ return {
 			},
 			{
 				["id"] = "desecrated.stat_971590056",
-				["text"] = "Inflict Anaemia on HitAnaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
 				["type"] = "desecrated",
 			},
 			{
@@ -38699,7 +38934,7 @@ return {
 			},
 			{
 				["id"] = "desecrated.stat_436406826",
-				["text"] = "Players are Marked for Death for # secondsafter killing a Rare or Unique monster",
+				["text"] = "Players are Marked for Death for # seconds after killing a Rare or Unique monster",
 				["type"] = "desecrated",
 			},
 			{
@@ -40772,6 +41007,11 @@ return {
 			{
 				["id"] = "skill.unleash",
 				["text"] = "Grants Skill: Level # Unleash",
+				["type"] = "skill",
+			},
+			{
+				["id"] = "skill.abyssal_living_bomb",
+				["text"] = "Grants Skill: Level # Untether",
 				["type"] = "skill",
 			},
 			{
