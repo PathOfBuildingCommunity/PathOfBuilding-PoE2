@@ -433,7 +433,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 				SetDrawStyle('list_entry_background_hover')
 				DrawImage(nil, 0, y, width - 4, height - 4)
 			end
-			SetDrawColor(1, 1, 1)
+			SetDrawStyle('text_gemlist')
 			local gemId = self.list[index]
 			local gemData = self.gems[gemId]
 			if gemData then
@@ -500,7 +500,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local hoverGem = self.skillsTab.displayGroup.gemList[hoverControl.index]
 			if thisGem and hoverGem and thisGem.enabled and hoverGem.enabled and thisGem.gemData and hoverGem.gemData and
 			  (self:CheckSupporting(thisGem, hoverGem) or self:CheckSupporting(hoverGem, thisGem)) then
-			   SetDrawColor(0.33, 1, 0.33, 0.25)
+			   SetDrawStyle('gemselect_supporting_overlay')
 			   DrawImage(nil, x, y, width, height)
 			end
 		end

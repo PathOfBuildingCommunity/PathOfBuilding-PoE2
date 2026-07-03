@@ -10,6 +10,7 @@
 ---| "'text_positive'"
 ---| "'text_negative'"
 ---| "'text_protected'"
+---| "'text_dragged'"
 ---| "'text_label'"
 ---| "'text_label_disabled'"
 ---| "'text_heading'"
@@ -84,6 +85,7 @@
 ---| "'itembox_background_hover'"
 ---| "'itembox_border'"
 ---| "'itembox_border_hover'"
+---| "'gemselect_supporting_overlay'"
 ---| "'dropdown_background'"
 ---| "'dropdown_background_disabled'"
 ---| "'dropdown_background_toggled'"
@@ -207,6 +209,7 @@
 ---| "'rectangle_outline_border'"
 ---| "'popup_background'"
 ---| "'popup_background_title'"
+---| "'popup_background_overlay'"
 ---| "'popup_border'"
 ---| "'popup_border_title'"
 ---| "'section_background'"
@@ -215,6 +218,7 @@
 ---| "'section_border_title'"
 ---| "'tooltip_border'"
 ---| "'tooltip_background'"
+---| "'dragtext_background'"
 ---| "'toast_border'"
 ---| "'toast_background'"
 ---| "'main_control_border'"
@@ -262,10 +266,12 @@ local colors = {
 	lighter_grey = "#D9D9D9",		-- ~85% brightness
 	light = "#E2E2E2",         	-- ~90% brightness
 	white = "#FFFFFF",				-- 100% brightness
+	darkest_grey_75 = "#262626BF",  	-- 15% brightness, 75% opacity
 	black_50 = "#00000080",		 	 -- 0% brightness, 50% opacity
 	black_85 = "#000000D9",			 -- 0% brightness, 85% opacity
 	white_50 = "#FFFFFF80",			 -- 100% brightness, 50% opacity
 	yellow_overlay = "#FFFF0033",
+	green_overlay = "#54FF5440",
 	blue_highlight = "#7393B3",
 	green_highlight = "#264026",
 	red_highlight = "#C08080",
@@ -304,6 +310,7 @@ local themes = {
 		text_positive = {color = colorCodes.POSITIVE, font = fonts.VAR},
 		text_negative = {color = colorCodes.NEGATIVE, font = fonts.VAR},
 		text_protected = {color = colors.white, font = fonts.FIXED},
+		text_dragged = {color = colors.white, font = fonts.VAR},
 		text_label = {color = colors.white, font = fonts.VAR},
 		text_label_disabled = {color = colors.dark_grey, font = fonts.VAR},
 		text_heading = {color = colors.white, font = fonts.VAR},
@@ -392,6 +399,8 @@ local themes = {
 		-- itembox border
 		itembox_border = colors.dark_grey,
 		itembox_border_hover = colors.grey,
+		-- gemselect 
+		gemselect_supporting_overlay = colors.green_overlay,
 		-- dropdown background
 		dropdown_background = colors.black,
 		dropdown_background_disabled = colors.black,
@@ -550,6 +559,7 @@ local themes = {
 		-- popup background
 		popup_background = colors.dark,
 		popup_background_title = colors.black,
+		popup_background_overlay = colors.black_50,
 		-- popup border
 		popup_border = colors.light_grey,
 		popup_border_title = colors.white,
@@ -562,6 +572,8 @@ local themes = {
 		-- tooltip
 		tooltip_background = colors.black_85,
 		tooltip_border = colors.brownish,
+		-- dragtext
+		dragtext_background = colors.darkest_grey_75,
 		-- toast (popups in the bottom left corner)
 		toast_background = colors.dark,
 		toast_border = colors.lighter_grey,
@@ -592,6 +604,7 @@ local themes = {
 		text_positive = {color = colorCodes.POSITIVE, font = fonts.FONTIN_SC},
 		text_negative = {color = colorCodes.NEGATIVE, font = fonts.FONTIN_SC},
 		text_protected = {color = colors.light, font = fonts.FIXED},
+		text_dragged = {color = colors.white, font = fonts.FONTIN_SC},
 		text_label = {color = poe2trade_colors.white_warm, font = fonts.FONTIN_SC},
 		text_label_disabled = {color = colors.grey, font = fonts.FONTIN_SC},
 		text_heading = {color = poe2trade_colors.button_raised_hover, font = fonts.FONTIN_SC},
@@ -680,6 +693,8 @@ local themes = {
 		-- itembox border
 		itembox_border = poe2trade_colors.clickable_background_hover,
 		itembox_border_hover = poe2trade_colors.clickable_background_hover,
+		-- gemselect 
+		gemselect_supporting_overlay = colors.green_overlay,
 		-- dropdown background
 		dropdown_background = poe2trade_colors.clickable_enabled,
 		dropdown_background_disabled = poe2trade_colors.clickable_background_disabled,
@@ -838,6 +853,7 @@ local themes = {
 		-- popup background
 		popup_background = poe2trade_colors.row_background,
 		popup_background_title = colors.black,
+		popup_background_overlay = colors.black_50,
 		-- popup border
 		popup_border = poe2trade_colors.brown,
 		popup_border_title = poe2trade_colors.brown,
@@ -851,6 +867,8 @@ local themes = {
 		-- tooltip
 		tooltip_background = colors.black_85,
 		tooltip_border = poe2trade_colors.tooltip_border,
+		-- dragtext
+		dragtext_background = poe2trade_colors.row_background_transparency,
 		-- toast (popups in the bottom left corner)
 		toast_background = colors.dark,
 		toast_border = poe2trade_colors.brown,

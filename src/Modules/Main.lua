@@ -435,21 +435,20 @@ function main:OnFrame()
 
 	if self.popups[1] then
 		SetDrawLayer(10)
-		SetDrawColor(0, 0, 0, 0.5)
+		SetDrawStyle('popup_background_overlay')
 		DrawImage(nil, 0, 0, self.screenW, self.screenH)
 		self.popups[1]:Draw(self.viewPort)
 		SetDrawLayer(0)
 	end
 
 	if self.showDragText then
-		-- TODO: what is drawn here?
 		local cursorX, cursorY = GetCursorPos()
 		local strWidth = DrawStringWidth(16, "VAR", self.showDragText)
 		SetDrawLayer(20, 0)
-		SetDrawColor(0.15, 0.15, 0.15, 0.75)
+		SetDrawStyle('dragtext_background')
 		DrawImage(nil, cursorX, cursorY - 8, strWidth + 2, 18)
-		SetDrawColor(1, 1, 1)
-		DrawString(cursorX + 1, cursorY - 7, "LEFT", 16, "VAR", self.showDragText)
+		SetDrawStyle('text_dragged')
+		StyledDrawString(cursorX + 1, cursorY - 7, "LEFT", 16, 'text_dragged', self.showDragText)
 		self.showDragText = nil
 	end
 
@@ -1468,11 +1467,11 @@ function main:OpenAboutPopup(helpSectionIndex)
 	controls.github = new("ButtonControl", nil, {0, 62, 480, 18}, "^7GitHub page: ^x4040FFhttps://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2", function(control)
 		OpenURL("https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2")
 	end)
-	controls.verLabel = new("ButtonControl", {"TOPLEFT", nil, "TOPLEFT"}, {10, 85, 100, 18}, "^7Version history:", function()
+	controls.verLabel = new("ButtonControl", {"TOPLEFT", nil, "TOPLEFT"}, {10, 85, 100, 18}, "Version history:", function()
 		controls.changelog.list = changeList
 		controls.changelog.sectionHeights = changeVersionHeights
 	end)
-	controls.helpLabel = new("ButtonControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-10, 85, 40, 18}, "^7Help:", function()
+	controls.helpLabel = new("ButtonControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-10, 85, 40, 18}, "Help:", function()
 		controls.changelog.list = helpList
 		controls.changelog.sectionHeights = helpSectionHeights
 	end)
