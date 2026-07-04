@@ -2,8 +2,20 @@ local t_insert = table.insert
 
 local M = {}
 
+local indentCache = {}
+local function indentFor(k)
+	if k < 1 then
+		return ""
+	end
+	if not indentCache[k] then
+		indentCache[k] = string.rep("\t", k)
+	end
+	return indentCache[k]
+end
+local function strSort(a, b)
+	return tostring(a) < tostring(b)
+end
 ---@alias StringifyTypes string | number | boolean | nil | table<StringifyTypes, StringifyTypes>
-
 local function writeStringify(buf, value, allowNewlines, tabs)
 	local valType = type(value)
 	if not tabs then
@@ -22,7 +34,7 @@ local function writeStringify(buf, value, allowNewlines, tabs)
 		buf[#buf + 1] = "{\n"
 		-- ipairs compatible keys are done first so we can use the array syntax for them
 		local arrayKeys = {}
-		local indent = string.rep("\t", tabs)
+		local indent = indentFor(tabs)
 		for k, v in ipairs(value) do
 			arrayKeys[k] = true
 			buf[#buf + 1] = indent
@@ -30,31 +42,32 @@ local function writeStringify(buf, value, allowNewlines, tabs)
 			buf[#buf + 1] = ",\n"
 		end
 
-		local mapKeys = { }
-		for key in pairs(value) do t_insert(mapKeys, key) end
-		table.sort(mapKeys, function (a, b)
-			return tostring(a) < tostring(b)
-		end)
-
-		for _, k in ipairs(mapKeys) do
-			if not arrayKeys[k] then
-				if type(k) == "string" and k:find("\n") and allowNewlines then
-					-- multiline strings as keys need the space around the key value to parse correctly
-					buf[#buf + 1] = indent .. "[ "
-					writeStringify(buf, k, allowNewlines, nil)
-					buf[#buf + 1] = " ] = "
-				else
-					buf[#buf + 1] = indent .. "["
-					writeStringify(buf, k, allowNewlines, nil)
-					buf[#buf + 1] = "] = "
-				end
-				writeStringify(buf, value[k], allowNewlines, tabs + 1)
-				buf[#buf + 1] = ",\n"
+		local mapKeys = {}
+		for key in pairs(value) do
+			-- avoid printing array-style items twice
+			if not arrayKeys[key] then
+				t_insert(mapKeys, key)
 			end
 		end
-		buf[#buf + 1] = string.rep("\t", tabs - 1) .. "}"
+		table.sort(mapKeys, strSort)
+
+		for _, k in ipairs(mapKeys) do
+			if type(k) == "string" and allowNewlines and k:find("\n") then
+				-- multiline strings as keys need the space around the key value to parse correctly
+				buf[#buf + 1] = indent .. "[ "
+				writeStringify(buf, k, allowNewlines, nil)
+				buf[#buf + 1] = " ] = "
+			else
+				buf[#buf + 1] = indent .. "["
+				writeStringify(buf, k, allowNewlines, nil)
+				buf[#buf + 1] = "] = "
+			end
+			writeStringify(buf, value[k], allowNewlines, tabs + 1)
+			buf[#buf + 1] = ",\n"
+		end
+		buf[#buf + 1] = indentFor(tabs - 1) .. "}"
 	else
-		error("Disallowed stringify type "..valType)
+		error("Disallowed stringify type " .. valType)
 	end
 end
 -- Converts a table to a string which will be valid Lua. The result will ipairs to utilise the array
