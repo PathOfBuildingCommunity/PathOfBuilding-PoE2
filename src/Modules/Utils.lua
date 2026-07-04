@@ -4,33 +4,30 @@ local M = {}
 
 ---@alias StringifyTypes string | number | boolean | nil | table<StringifyTypes, StringifyTypes>
 
--- Converts a table to a string which will be valid Lua. The result will ipairs to utilise the array
--- syntax when applicable, and will sort other keys.
---- @param value StringifyTypes
---- @param allowNewlines boolean? Determines if multi-line strings should be allowed. By default newlines are converted to spaces.
---- @return string
-function M.stringify(value, allowNewlines, tabs)
+local function writeStringify(buf, value, allowNewlines, tabs)
 	local valType = type(value)
 	if not tabs then
 		tabs = 0
 	end
 	if valType == "string" then
 		if allowNewlines and value:find("\n") then
-			return '[['..value..']]'
+			buf[#buf + 1] = '[[' .. value .. ']]'
 		else
 			local s = value:gsub("\n", " ")
-			return '"'..s..'"'
+			buf[#buf + 1] = '"' .. s .. '"'
 		end
 	elseif valType == "boolean" or valType == "nil" or valType == "number" then
-		return tostring(value)
+		buf[#buf + 1] = tostring(value)
 	elseif valType == "table" then
-		local s = "{\n";
+		buf[#buf + 1] = "{\n"
 		-- ipairs compatible keys are done first so we can use the array syntax for them
 		local arrayKeys = {}
 		local indent = string.rep("\t", tabs)
 		for k, v in ipairs(value) do
 			arrayKeys[k] = true
-			s = s..indent..M.stringify(v, allowNewlines, tabs + 1) ..",\n"
+			buf[#buf + 1] = indent
+			writeStringify(buf, v, allowNewlines, tabs + 1)
+			buf[#buf + 1] = ",\n"
 		end
 
 		local mapKeys = { }
@@ -41,20 +38,34 @@ function M.stringify(value, allowNewlines, tabs)
 
 		for _, k in ipairs(mapKeys) do
 			if not arrayKeys[k] then
-				local keyStr = M.stringify(k, allowNewlines)
-				if keyStr:find("^%[") then
+				if type(k) == "string" and k:find("\n") and allowNewlines then
 					-- multiline strings as keys need the space around the key value to parse correctly
-					s = s..indent.."[ "..keyStr.." ] = "
+					buf[#buf + 1] = indent .. "[ "
+					writeStringify(buf, k, allowNewlines, nil)
+					buf[#buf + 1] = " ] = "
 				else
-					s = s..indent.."["..keyStr.."] = "
+					buf[#buf + 1] = indent .. "["
+					writeStringify(buf, k, allowNewlines, nil)
+					buf[#buf + 1] = "] = "
 				end
-				s = s..M.stringify(value[k], allowNewlines, tabs + 1)..",\n"
+				writeStringify(buf, value[k], allowNewlines, tabs + 1)
+				buf[#buf + 1] = ",\n"
 			end
 		end
-		return s..string.rep("\t", tabs-1).."}"
+		buf[#buf + 1] = string.rep("\t", tabs - 1) .. "}"
 	else
 		error("Disallowed stringify type "..valType)
 	end
+end
+-- Converts a table to a string which will be valid Lua. The result will ipairs to utilise the array
+-- syntax when applicable, and will sort other keys.
+--- @param value StringifyTypes
+--- @param allowNewlines boolean? Determines if multi-line strings should be allowed. By default newlines are converted to spaces.
+--- @return string
+function M.stringify(value, allowNewlines, tabs)
+	local buf = {}
+	writeStringify(buf, value, allowNewlines, tabs)
+	return table.concat(buf)
 end
 
 ---@param fileName
