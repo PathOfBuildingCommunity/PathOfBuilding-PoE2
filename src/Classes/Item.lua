@@ -58,6 +58,80 @@ local function getCatalystScalar(catalystId, mod, quality)
 	return 1
 end
 
+local function stonefistAverageRanges(text)
+	return (text:gsub("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", function(a, b)
+		return tostring(m_floor((tonumber(a) + tonumber(b)) / 2 + 0.5))
+	end))
+end
+
+local function stonefistComputePerLevel(text, displayLevel)
+	if displayLevel then
+		local value, label = text:match("^Has ([%+%-]?%d+) (.+) per player level$")
+		if value then
+			local total = tonumber(value) * displayLevel
+			return (total >= 0 and "+" or "") .. total .. " " .. label
+		end
+	end
+	return text
+end
+
+local function stonefistSlotify(s)
+	local slots = { }
+	local out = { }
+	local pos, len = 1, #s
+	while pos <= len do
+		local rs, re, a, b = s:find("^%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", pos)
+		if rs then
+			t_insert(slots, { tonumber(a), tonumber(b) })
+			t_insert(out, "#")
+			pos = re + 1
+		else
+			local ns, ne, n = s:find("^(%-?%d+%.?%d*)", pos)
+			if ns then
+				t_insert(slots, { tonumber(n), tonumber(n) })
+				t_insert(out, "#")
+				pos = ne + 1
+			else
+				t_insert(out, s:sub(pos, pos))
+				pos = pos + 1
+			end
+		end
+	end
+	return table.concat(out), slots
+end
+
+local stonefistBaseName = "Fists of Stone"
+
+local stonefistSourceIndexCache = setmetatable({ }, { __mode = "k" })
+local function getStonefistSourceIndex(map, affixes)
+	local index = stonefistSourceIndexCache[affixes]
+	if index then
+		return index
+	end
+	index = { }
+	for modId in pairs(map) do
+		local modData = affixes[modId]
+		if modData then
+			for i = 1, #modData do
+				if type(modData[i]) == "string" then
+					local tmpl, slots = stonefistSlotify(modData[i])
+					local bucket = index[tmpl]
+					if not bucket then
+						bucket = { }
+						index[tmpl] = bucket
+					end
+					bucket[#bucket + 1] = { id = modId, slots = slots }
+				end
+			end
+		end
+	end
+	for _, bucket in pairs(index) do
+		table.sort(bucket, function(a, b) return a.id < b.id end)
+	end
+	stonefistSourceIndexCache[affixes] = index
+	return index
+end
+
 local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 	if raw then
 		self:ParseRaw(sanitiseText(raw), rarity, highQuality)
@@ -303,6 +377,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.spiritValue = nil
 	self.runicItem = nil
 	self.quality = nil
+	self.stonefistVariantCache = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
 	for line in raw:gmatch("%s*([^\n]*%S)") do
@@ -727,6 +802,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						modLine.range = tonumber(val)
 					elseif k == "corruptedRange" then
 						modLine.corruptedRange = tonumber(val)
+					elseif k == "modId" then
+						modLine.modId = val
 					elseif lineFlags[k] then
 						modLine[k] = true
 					end
@@ -1402,6 +1479,9 @@ function ItemClass:BuildRaw()
 		if modLine.corruptedRange then
 			line = "{corruptedRange:" .. round(modLine.corruptedRange, 2) .. "}" .. line
 		end
+		if modLine.modId then
+			line = "{modId:" .. modLine.modId .. "}" .. line
+		end
 		if modLine.rune then
 			line = "{rune}" .. line
 		end
@@ -1543,6 +1623,120 @@ function ItemClass:BuildAndParseRaw()
 	self:ParseRaw(raw)
 end
 
+function ItemClass:ResolveStonefistModId(modLine)
+	local map = data.stonefistMap
+	local affixes = self.affixes
+	if not map or not affixes then
+		return nil
+	end
+	local index = getStonefistSourceIndex(map, affixes)
+	for part in (modLine.line .. "\n"):gmatch("(.-)\n") do
+		local stat = part:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
+		if stat ~= "" then
+			local lineTmpl, lineSlots = stonefistSlotify(stat)
+			local bucket = index[lineTmpl]
+			if bucket then
+				for _, cand in ipairs(bucket) do
+					local statSlots = cand.slots
+					local ok = true
+					for j = 1, #statSlots do
+						local v = lineSlots[j][1]
+						if v < m_min(statSlots[j][1], statSlots[j][2]) or v > m_max(statSlots[j][1], statSlots[j][2]) then
+							ok = false
+							break
+						end
+					end
+					if ok then
+						return cand.id
+					end
+				end
+			end
+		end
+	end
+	return nil
+end
+
+function ItemClass:CreateStonefistVariant(displayLevel)
+	local map = data.stonefistMap
+	if not map then
+		return nil
+	end
+	local cacheKey = displayLevel or 0
+	local cache = self.stonefistVariantCache
+	if cache then
+		local cached = cache[cacheKey]
+		if cached ~= nil then
+			return cached or nil
+		end
+	else
+		cache = { }
+		self.stonefistVariantCache = cache
+	end
+	local clone = new("Item", self:BuildRaw())
+	local newExplicit = { }
+	local emitted = { }
+	local changed = false
+	for _, modLine in ipairs(clone.explicitModLines) do
+		local modId = modLine.modId
+		if not (modId and map[modId]) then
+			modId = clone:ResolveStonefistModId(modLine)
+		end
+		if modId and map[modId] then
+			changed = true
+			if not emitted[modId] then
+				emitted[modId] = true
+				local entry = data.itemMods.FistsOfStone[map[modId]]
+				if entry then
+					for i = 1, #entry do
+						if type(entry[i]) == "string" then
+							local text = stonefistAverageRanges(entry[i])
+							local list, extra = modLib.parseMod(text)
+							t_insert(newExplicit, { line = stonefistComputePerLevel(text, displayLevel), modList = list or { }, extra = extra })
+						end
+					end
+				end
+			end
+		else
+			t_insert(newExplicit, modLine)
+		end
+	end
+	if clone.base and clone.base.armour then
+		-- Runeforged/runemastered (Runic Ward) bases use the Runeforged Fists of Stone implicit.
+		local hasWard = clone.runicItem or (clone.base.armour.Ward or 0) > 0
+		local armourCopy = { }
+		for k, v in pairs(clone.base.armour) do
+			armourCopy[k] = v
+		end
+		armourCopy.Armour, armourCopy.Evasion, armourCopy.EnergyShield, armourCopy.Ward = nil, nil, nil, nil
+		clone.base = setmetatable({ armour = armourCopy }, { __index = clone.base })
+		-- The transformed base has no flat defences; its per-level defence is the base implicit
+		-- of the Fists of Stone base (read from the base data so it stays in sync).
+		local fistsBase = data.itemBases[hasWard and "Runeforged Fists of Stone" or "Fists of Stone"]
+		if fistsBase and fistsBase.implicit then
+			local lines = { }
+			for implicitLine in (fistsBase.implicit .. "\n"):gmatch("(.-)\n") do
+				if implicitLine ~= "" then
+					t_insert(lines, implicitLine)
+				end
+			end
+			for i = #lines, 1, -1 do
+				local list, extra = modLib.parseMod(lines[i])
+				t_insert(clone.implicitModLines, 1, { line = stonefistComputePerLevel(lines[i], displayLevel), modList = list or { }, extra = extra })
+			end
+		end
+		changed = true
+	end
+	if not changed then
+		cache[cacheKey] = false
+		return nil
+	end
+	clone.explicitModLines = newExplicit
+	clone:BuildModList()
+	clone.baseName = stonefistBaseName
+	cache[cacheKey] = clone
+	return clone
+end
+
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
@@ -1666,7 +1860,7 @@ function ItemClass:Craft()
 							return tonumber(num) + tonumber(other)
 						end)
 					else
-						local modLine = { line = line, order = order }
+						local modLine = { line = line, order = order, modId = affix.modId }
 						for l = 1, #self.explicitModLines + 1 do
 							if not self.explicitModLines[l] or self.explicitModLines[l].order > order then
 								t_insert(self.explicitModLines, l, modLine)

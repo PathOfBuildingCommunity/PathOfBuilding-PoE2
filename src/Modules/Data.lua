@@ -687,8 +687,11 @@ data.itemMods = {
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),
 	Exclusive = LoadModule("Data/ModItemExclusive"),
-	Desecrated = LoadModule("Data/ModVeiled")
+	Desecrated = LoadModule("Data/ModVeiled"),
+	FistsOfStone = LoadModule("Data/ModFistsOfStone")
 }
+
+data.stonefistMap = LoadModule("Data/DataStonefistMap")
 
 -- update JewelRadius affixes for Time-Lost jewels
 do

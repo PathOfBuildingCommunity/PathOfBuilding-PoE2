@@ -2328,7 +2328,7 @@ end
 -- Add requirements to tooltip
 do
 	local req = { }
-	function buildMode:AddRequirementsToTooltip(tooltip, level, str, dex, int, strBase, dexBase, intBase)
+	function buildMode:AddRequirementsToTooltip(tooltip, level, str, dex, int, strBase, dexBase, intBase, hideAttributes)
 		if level and level > 0 then
 			if tooltip.tooltipHeader ~= "GEM" then
 				t_insert(req, s_format("^x7F7F7FLevel %s%d", main:StatColor(level, nil, self.characterLevel), level))
@@ -2337,7 +2337,9 @@ do
 			end
 		end
 		-- Convert normal attributes to Omni attributes
-		if self.calcsTab.mainEnv.modDB:Flag(nil, "OmniscienceRequirements") then
+		if hideAttributes then
+			-- attributes are not required (e.g. the Fists of Stone transform), so omit them entirely
+		elseif self.calcsTab.mainEnv.modDB:Flag(nil, "OmniscienceRequirements") then
 			local omniSatisfy = self.calcsTab.mainEnv.modDB:Sum("INC", nil, "OmniAttributeRequirements")
 			local highestAttribute = 0
 			for i, stat in ipairs({str, dex, int}) do
@@ -2351,14 +2353,17 @@ do
 			end
 		else
 			local attrTextColor = (tooltip.tooltipHeader == "GEM") and "^7" or "^x7F7F7F"
+			local strLimit = self.calcsTab.mainOutput.Str
+			local dexLimit = self.calcsTab.mainOutput.Dex
+			local intLimit = self.calcsTab.mainOutput.Int
 			if str and (str > 7 or str > self.calcsTab.mainOutput.Str) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str, attrTextColor, level and "Str" or "Strength"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(str, strBase, strLimit), str, attrTextColor, level and "Str" or "Strength"))
 			end
 			if dex and (dex > 7 or dex > self.calcsTab.mainOutput.Dex) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex, attrTextColor, level and "Dex" or "Dexterity"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(dex, dexBase, dexLimit), dex, attrTextColor, level and "Dex" or "Dexterity"))
 			end
 			if int and (int > 7 or int > self.calcsTab.mainOutput.Int) then
-				t_insert(req, s_format("%s%d %s%s", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int, attrTextColor, level and "Int" or "Intelligence"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(int, intBase, intLimit), int, attrTextColor, level and "Int" or "Intelligence"))
 			end
 		end
 		if req[1] then
