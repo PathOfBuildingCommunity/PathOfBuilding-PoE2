@@ -533,6 +533,7 @@ return {
 	},
 	["AbyssModAllMacesKurgalPrefixIncreasedPhysicalDamageReducedAttackSpeed"] = {
 		"(110-154)% increased Physical Damage",
+		"15% reduced Attack Speed",
 		["affix"] = "Kurgal's",
 		["group"] = "LocalIncreasedPhysicalDamageAttackSpeedHybrid",
 		["level"] = 65,
@@ -2371,6 +2372,7 @@ return {
 	},
 	["AbyssModBowSpearAmanamuPrefixCompanionDamageAndDamageWithCompanion"] = {
 		"Companions deal (40-59)% increased Damage",
+		"(40-59)% increased Damage while your Companion is in your Presence",
 		["affix"] = "Amanamu's",
 		["group"] = "CompanionDamageAndDamageWithCompanion",
 		["level"] = 65,
@@ -2439,6 +2441,7 @@ return {
 	},
 	["AbyssModBowSpearAmanamuSuffixCompanionAndLocalAttackSpeed"] = {
 		"(12-18)% increased Attack Speed",
+		"Companions have (12-18)% increased Attack Speed",
 		["affix"] = "of Amanamu",
 		["group"] = "CompanionAndLocalAttackSpeed",
 		["level"] = 65,
@@ -2600,6 +2603,7 @@ return {
 	},
 	["AbyssModBowSpearUlamanSuffixAttackSpeedLocalAndWithCompanion"] = {
 		"(8-13)% increased Attack Speed",
+		"(8-13)% increased Attack Speed while your Companion is in your Presence",
 		["affix"] = "of Ulaman",
 		["group"] = "LocalAttackSpeedAndAttackSpeedWithCompanion",
 		["level"] = 65,
@@ -2695,6 +2699,7 @@ return {
 	},
 	["AbyssModCrossbowAmanamuPrefixGrenadeDamageAndDuration"] = {
 		"(101-121)% increased Grenade Damage",
+		"(20-30)% increased Grenade Duration",
 		["affix"] = "Amanamu's",
 		["group"] = "GrenadeDamageLongFuse",
 		["level"] = 65,
@@ -3117,6 +3122,7 @@ return {
 	},
 	["AbyssModFocusKurgalSuffixChanceForAdditionalInfusion"] = {
 		"(15-25)% chance when collecting an Elemental Infusion to gain an",
+		"additional Elemental Infusion of the same type",
 		["affix"] = "of Kurgal",
 		["group"] = "ChanceToGainAdditionalInfusion",
 		["level"] = 65,
@@ -4137,6 +4143,7 @@ return {
 	},
 	["AbyssModJewelPrefixAttackDamageArmour"] = {
 		"(5-10)% increased Armour",
+		"(4-8)% increased Attack Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelAttackDamageArmour",
 		["level"] = 1,
@@ -4175,6 +4182,7 @@ return {
 	},
 	["AbyssModJewelPrefixAttackDamageEnergyShield"] = {
 		"(5-10)% increased maximum Energy Shield",
+		"(4-8)% increased Attack Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelAttackDamageEnergyShield",
 		["level"] = 1,
@@ -4213,6 +4221,7 @@ return {
 	},
 	["AbyssModJewelPrefixAttackDamageEvasion"] = {
 		"(5-10)% increased Evasion Rating",
+		"(4-8)% increased Attack Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelAttackDamageEvasion",
 		["level"] = 1,
@@ -4251,6 +4260,7 @@ return {
 	},
 	["AbyssModJewelPrefixAuraSkillEffectPresenceAreaOfEffect"] = {
 		"(8-15)% increased Presence Area of Effect",
+		"Aura Skills have (2-4)% increased Magnitudes",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelAuraSkillEffectPresenceAreaOfEffect",
 		["level"] = 1,
@@ -4286,6 +4296,7 @@ return {
 	},
 	["AbyssModJewelPrefixBleedChanceAndMagnitude"] = {
 		"15% increased chance to inflict Bleeding",
+		"(5-10)% increased Magnitude of Bleeding you inflict",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelBleedChanceAndMagnitude",
 		["level"] = 1,
@@ -4325,6 +4336,7 @@ return {
 	},
 	["AbyssModJewelPrefixChaosDamageWitherEffect"] = {
 		"(4-8)% increased Chaos Damage",
+		"(3-6)% increased Withered Magnitude",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelChaosDamageWitherEffect",
 		["level"] = 1,
@@ -4362,6 +4374,7 @@ return {
 	},
 	["AbyssModJewelPrefixColdDamageAndPen"] = {
 		"(4-8)% increased Cold Damage",
+		"Damage Penetrates (4-7)% Cold Resistance",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelColdDamageAndPen",
 		["level"] = 1,
@@ -4400,6 +4413,7 @@ return {
 	},
 	["AbyssModJewelPrefixCompanionLifeAndDamage"] = {
 		"Companions deal (5-10)% increased Damage",
+		"Companions have (5-10)% increased maximum Life",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelCompanionLifeAndDamage",
 		["level"] = 1,
@@ -4439,6 +4453,7 @@ return {
 	},
 	["AbyssModJewelPrefixElementalDamageAilmentMagnitude"] = {
 		"(4-8)% increased Elemental Damage",
+		"(4-8)% increased Magnitude of Ailments you inflict",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelElementalDamageAilmentMagnitude",
 		["level"] = 1,
@@ -4514,6 +4529,7 @@ return {
 	},
 	["AbyssModJewelPrefixFireDamageAndPen"] = {
 		"(4-8)% increased Fire Damage",
+		"Damage Penetrates (4-7)% Fire Resistance",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelFireDamageAndPen",
 		["level"] = 1,
@@ -4552,6 +4568,7 @@ return {
 	},
 	["AbyssModJewelPrefixGlobalPhysicalDamageArmourBreak"] = {
 		"(4-8)% increased Global Physical Damage",
+		"Break (4-8)% increased Armour",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelGlobalPhysicalDamageArmourBreak",
 		["level"] = 1,
@@ -4591,6 +4608,7 @@ return {
 	},
 	["AbyssModJewelPrefixLightningDamageAndPen"] = {
 		"(4-8)% increased Lightning Damage",
+		"Damage Penetrates (4-7)% Lightning Resistance",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelLightningDamageAndPen",
 		["level"] = 1,
@@ -4662,6 +4680,7 @@ return {
 	},
 	["AbyssModJewelPrefixMinionDamageArmour"] = {
 		"(5-10)% increased Armour",
+		"Minions deal (4-8)% increased Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelMinionDamageArmour",
 		["level"] = 1,
@@ -4701,6 +4720,7 @@ return {
 	},
 	["AbyssModJewelPrefixMinionDamageEnergyShield"] = {
 		"(5-10)% increased maximum Energy Shield",
+		"Minions deal (4-8)% increased Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelMinionDamageEnergyShield",
 		["level"] = 1,
@@ -4740,6 +4760,7 @@ return {
 	},
 	["AbyssModJewelPrefixMinionDamageEvasion"] = {
 		"(5-10)% increased Evasion Rating",
+		"Minions deal (4-8)% increased Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelMinionDamageEvasion",
 		["level"] = 1,
@@ -4779,6 +4800,7 @@ return {
 	},
 	["AbyssModJewelPrefixPoisonChanceAndMagnitude"] = {
 		"15% increased chance to Poison",
+		"(5-10)% increased Magnitude of Poison you inflict",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelPoisonChanceAndMagnitude",
 		["level"] = 1,
@@ -4816,6 +4838,7 @@ return {
 	},
 	["AbyssModJewelPrefixSpellDamageArmour"] = {
 		"(4-8)% increased Spell Damage",
+		"(5-10)% increased Armour",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelSpellDamageArmour",
 		["level"] = 1,
@@ -4855,6 +4878,7 @@ return {
 	},
 	["AbyssModJewelPrefixSpellDamageEnergyShield"] = {
 		"(4-8)% increased Spell Damage",
+		"(5-10)% increased maximum Energy Shield",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelSpellDamageEnergyShield",
 		["level"] = 1,
@@ -4894,6 +4918,7 @@ return {
 	},
 	["AbyssModJewelPrefixSpellDamageEvasion"] = {
 		"(4-8)% increased Spell Damage",
+		"(5-10)% increased Evasion Rating",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelSpellDamageEvasion",
 		["level"] = 1,
@@ -4933,6 +4958,7 @@ return {
 	},
 	["AbyssModJewelPrefixThornsDamageArmour"] = {
 		"(5-10)% increased Armour",
+		"(4-8)% increased Thorns damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelThornsDamageArmour",
 		["level"] = 1,
@@ -4970,6 +4996,7 @@ return {
 	},
 	["AbyssModJewelPrefixThornsDamageEnergyShield"] = {
 		"(5-10)% increased maximum Energy Shield",
+		"(4-8)% increased Thorns damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelThornsDamageEnergyShield",
 		["level"] = 1,
@@ -5007,6 +5034,7 @@ return {
 	},
 	["AbyssModJewelPrefixThornsDamageEvasion"] = {
 		"(5-10)% increased Evasion Rating",
+		"(4-8)% increased Thorns damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelThornsDamageEvasion",
 		["level"] = 1,
@@ -5044,6 +5072,7 @@ return {
 	},
 	["AbyssModJewelPrefixTotemDamageArmour"] = {
 		"(5-10)% increased Armour",
+		"(4-8)% increased Totem Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelTotemDamageArmour",
 		["level"] = 1,
@@ -5081,6 +5110,7 @@ return {
 	},
 	["AbyssModJewelPrefixTotemDamageEnergyShield"] = {
 		"(5-10)% increased maximum Energy Shield",
+		"(4-8)% increased Totem Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelTotemDamageEnergyShield",
 		["level"] = 1,
@@ -5118,6 +5148,7 @@ return {
 	},
 	["AbyssModJewelPrefixTotemDamageEvasion"] = {
 		"(5-10)% increased Evasion Rating",
+		"(4-8)% increased Totem Damage",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelTotemDamageEvasion",
 		["level"] = 1,
@@ -5155,6 +5186,7 @@ return {
 	},
 	["AbyssModJewelPrefixWarcryBuffEffectAndDamage"] = {
 		"(4-8)% increased Warcry Buff Effect",
+		"(5-10)% increased Damage with Warcries",
 		["affix"] = "Lightless",
 		["group"] = "HybridAbyssModJewelWarcryBuffEffectAndDamage",
 		["level"] = 1,
@@ -5283,6 +5315,7 @@ return {
 	},
 	["AbyssModQuarterstaffAmanamuPrefixFireDamageIgniteMagnitude"] = {
 		"(86-99)% increased Fire Damage",
+		"(14-23)% increased Ignite Magnitude",
 		["affix"] = "Amanamu's",
 		["group"] = "FireDamageIgniteMagnitudeHybrid",
 		["level"] = 65,
@@ -5348,6 +5381,7 @@ return {
 	},
 	["AbyssModQuarterstaffKurgalPrefixColdDamageFreezeBuildup"] = {
 		"(86-99)% increased Cold Damage",
+		"(14-23)% increased Freeze Buildup",
 		["affix"] = "Kurgal's",
 		["group"] = "ColdDamageFreezeBuildupHybrid",
 		["level"] = 65,
@@ -5415,6 +5449,7 @@ return {
 	},
 	["AbyssModQuarterstaffUlamanPrefixLightningDamageShockMagnitude"] = {
 		"(86-99)% increased Lightning Damage",
+		"(14-23)% increased Magnitude of Shock you inflict",
 		["affix"] = "Ulaman's",
 		["group"] = "LightningDamageShockMagnitudeHybrid",
 		["level"] = 65,
@@ -6760,6 +6795,7 @@ return {
 	},
 	["AbyssModShieldUlamanSuffixLightningTakenAsPhysAndGlancingWhileActiveBlocking"] = {
 		"(30-40)% of Physical Damage taken as Lightning while your Shield is raised",
+		"You take (8-15)% of damage from Blocked Hits with a raised Shield",
 		["affix"] = "of Ulaman",
 		["group"] = "PhysicalTakenAsLightningAndGlancingWhilActiveBlocking",
 		["level"] = 65,
@@ -7512,6 +7548,7 @@ return {
 	},
 	["AbyssModWandAmanamuPrefixHybridSpellAndMinionDamage"] = {
 		"(55-64)% increased Spell Damage",
+		"Minions deal (55-64)% increased Damage",
 		["affix"] = "Amanamu's",
 		["group"] = "MinionAndSpellDamageHybrid",
 		["level"] = 65,
@@ -7670,6 +7707,7 @@ return {
 	},
 	["AbyssModWandAmanamuSuffixSpellManaCostConvertedToLifeSkillEfficiency"] = {
 		"(5-10)% increased Cost Efficiency",
+		"(15-25)% of Spell Mana Cost Converted to Life Cost",
 		["affix"] = "of Amanamu",
 		["group"] = "SpellLifeCostPercentAndSkillCostEfficiency",
 		["level"] = 65,
@@ -7951,6 +7989,7 @@ return {
 	},
 	["ConvertedAbyssModQuarterstaffChaosAndAilment1"] = {
 		"(86-99)% increased Chaos Damage",
+		"(14-23)% increased Magnitude of Ailments you inflict",
 		["affix"] = "Lich's",
 		["group"] = "ChaosDamageAndAilmentMagnitude",
 		["level"] = 65,
@@ -7985,7 +8024,6 @@ return {
 		["group"] = "AdditionalMaximumSeals",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4727,
@@ -8011,6 +8049,7 @@ return {
 	},
 	["GenesisTreeAmuletAnaemiaOnHit"] = {
 		"Inflict Anaemia on Hit",
+		"Anaemia allows +(2-3) Corrupted Blood debuffs to be inflicted on enemies",
 		["affix"] = "Uul-Netol's",
 		["group"] = "AnaemiaOnHit",
 		["level"] = 1,
@@ -8082,7 +8121,6 @@ return {
 		["group"] = "ArchonDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4344,
@@ -8112,7 +8150,6 @@ return {
 		["group"] = "ArchonEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4345,
@@ -8420,7 +8457,6 @@ return {
 		["group"] = "MinionMeleeSplash",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9067,
@@ -8450,7 +8486,6 @@ return {
 		["group"] = "MinionReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9767,
@@ -8510,7 +8545,6 @@ return {
 		["group"] = "SealGainFrequency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9800,
@@ -8735,7 +8769,6 @@ return {
 		["group"] = "InvocationMaximumEnergy",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7385,
@@ -8886,7 +8919,6 @@ return {
 		["group"] = "OfferingEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3719,
@@ -11662,6 +11694,7 @@ return {
 	},
 	["UniqueKulemakChaosDamageAndExplosion_1"] = {
 		"(100-160)% increased Chaos Damage",
+		"Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage",
 		["affix"] = "",
 		["group"] = "UniqueChaosDamageAndExplosion",
 		["level"] = 1,
@@ -11696,6 +11729,7 @@ return {
 	},
 	["UniqueKulemakChaosDamageCurseLowersChaosRes_1"] = {
 		"(100-160)% increased Chaos Damage",
+		"Enemies you Curse have -(8-5)% to Chaos Resistance",
 		["affix"] = "",
 		["group"] = "UniqueChaosDamageAndCurseLowersChaosRes",
 		["level"] = 1,
@@ -11730,6 +11764,7 @@ return {
 	},
 	["UniqueKulemakElementalDamageEleAilmentDuration_1"] = {
 		"(10-20)% increased Duration of Elemental Ailments on Enemies",
+		"(100-160)% increased Elemental Damage",
 		["affix"] = "",
 		["group"] = "UniqueElementalDamageAndDurationOfEleAilments",
 		["level"] = 1,
@@ -11764,6 +11799,7 @@ return {
 	},
 	["UniqueKulemakSpellPhysicalDamageBleedChance_1"] = {
 		"(100-160)% increased Spell Physical Damage",
+		"(20-30)% chance to inflict Bleeding on Hit",
 		["affix"] = "",
 		["group"] = "UniqueSpellPhysicalAndBleedChance",
 		["level"] = 1,
@@ -11798,6 +11834,7 @@ return {
 	},
 	["UniqueKulemakSpiritAndSpiritReservationEfficiency_1"] = {
 		"+(40-60) to Spirit",
+		"(6-10)% increased Spirit Reservation Efficiency",
 		["affix"] = "",
 		["group"] = "UniqueSpiritAndSpiritReservationEfficiency",
 		["level"] = 1,
@@ -11829,6 +11866,7 @@ return {
 	},
 	["UniqueKulemakUnholyMightAndMagnitude_1"] = {
 		"(28-56)% increased Magnitude of Unholy Might buffs you grant",
+		"You have Unholy Might",
 		["affix"] = "",
 		["group"] = "UniqueUnholyMightAndMagnitude",
 		["level"] = 1,

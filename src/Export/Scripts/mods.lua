@@ -162,10 +162,12 @@ local function writeMods(outName, condFunc)
 				-- modTags are represented by a string so split it
 				for tag in (stats.modTags .. ", "):gmatch("(.-), ") do
 					tag = tag:gsub('"', "")
-					table.insert(modTags, tag)
+					if #tag > 0 then
+						table.insert(modTags, tag)
+					end
 				end
+
 				local entry = {
-					unpack(stats),
 					affix = mod.Name,
 					statOrder = orders,
 					level = mod.Level,
@@ -179,6 +181,9 @@ local function writeMods(outName, condFunc)
 					nodeType = mod.NodeType ~= 3 and mod.NodeType or nil,
 					tradeHashes = tradeHashes
 				}
+				for i, v in ipairs(stats) do
+					entry[i] = v
+				end
 				if mod.GenerationType == GenTypes.Prefix then
 					entry.type = "Prefix"
 				elseif mod.GenerationType == GenTypes.Suffix then

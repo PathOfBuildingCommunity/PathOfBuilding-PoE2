@@ -261,7 +261,6 @@ return {
 		["group"] = "ArmourBreak",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4407,
@@ -287,7 +286,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -313,7 +311,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -1011,7 +1008,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -1353,7 +1349,6 @@ return {
 		["group"] = "SlowEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4691,
@@ -1377,7 +1372,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -1403,7 +1397,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -1487,7 +1480,6 @@ return {
 		["group"] = "ImmunityToBlind",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2719,
@@ -1719,7 +1711,6 @@ return {
 		["group"] = "ImmuneToMaim",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7302,
@@ -1767,7 +1758,6 @@ return {
 		["group"] = "LifeFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6892,
@@ -2283,7 +2273,6 @@ return {
 		["group"] = "BlindingHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2013,
@@ -2623,7 +2612,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -2649,7 +2637,6 @@ return {
 		["group"] = "LocalRageOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7705,
@@ -2687,7 +2674,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -2763,7 +2749,6 @@ return {
 		["group"] = "ManaFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6893,
@@ -3134,7 +3119,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -3203,7 +3187,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -3468,7 +3451,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1630,
@@ -3490,7 +3472,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -3559,7 +3540,6 @@ return {
 		["group"] = "EnergyGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6410,
@@ -3603,7 +3583,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,

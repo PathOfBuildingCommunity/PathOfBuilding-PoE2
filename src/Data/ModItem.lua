@@ -2362,11 +2362,11 @@ return {
 	},
 	["AlloyAccuracyAttackSpeedHybrid1"] = {
 		"+(327-427) to Accuracy Rating",
+		"(5-8)% increased Attack Speed",
 		["affix"] = "Verisium",
 		["group"] = "AccuracyAttackSpeedHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			880,
@@ -2419,7 +2419,6 @@ return {
 		["group"] = "ArchonDuration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4344,
@@ -2467,7 +2466,6 @@ return {
 		["group"] = "AttackSpeedWhileMissingRunicWard",
 		["level"] = 25,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4558,
@@ -2512,11 +2510,11 @@ return {
 	},
 	["AlloyAttributeIncreasedLocalPhysicalDamageHybrid1"] = {
 		"(15-20)% increased Physical Damage",
+		"+(7-10) to all Attributes",
 		["affix"] = "of the Stars",
 		["group"] = "AttributeIncreasedLocalPhysicalDamageHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			830,
@@ -2544,7 +2542,6 @@ return {
 		["group"] = "AdditionalBallistaTotem",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4175,
@@ -2588,11 +2585,11 @@ return {
 	},
 	["AlloyCastSpeedDamageAsExtraColdHybrid1"] = {
 		"(39-47)% increased Cast Speed",
+		"Gain (11-16)% of Elemental Damage as Extra Cold Damage",
 		["affix"] = "of the Stars",
 		["group"] = "CastSpeedDamageAsExtraColdHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			987,
@@ -2616,11 +2613,11 @@ return {
 	},
 	["AlloyCastSpeedDamageAsExtraColdHybridOneHand1"] = {
 		"(26-31)% increased Cast Speed",
+		"Gain (7-11)% of Elemental Damage as Extra Cold Damage",
 		["affix"] = "of the Stars",
 		["group"] = "CastSpeedDamageAsExtraColdHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			987,
@@ -2674,7 +2671,6 @@ return {
 		["group"] = "LocalAdditionalChainChance",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7603,
@@ -2776,7 +2772,6 @@ return {
 		["group"] = "ArmourEnchantmentHeistResistanceModifierEffect",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			45,
@@ -2800,7 +2795,6 @@ return {
 		["group"] = "LocalSocketItemsEffect",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			178,
@@ -2901,7 +2895,6 @@ return {
 		["group"] = "AllFlaskChargeGeneration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6888,
@@ -2951,7 +2944,6 @@ return {
 		["group"] = "LocalRunicWardIncreasePercent",
 		["level"] = 25,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			855,
@@ -2975,7 +2967,6 @@ return {
 		["group"] = "LocalRunicWardIncreasePercent",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			855,
@@ -3020,11 +3011,11 @@ return {
 	},
 	["AlloyManaNearbyAllyAttackSpeedHybrid1"] = {
 		"+(110-114) to maximum Mana",
+		"Allies in your Presence have (4-8)% increased Attack Speed",
 		["affix"] = "Verisium",
 		["group"] = "ManaNearbyAllyAttackSpeedHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			892,
@@ -3052,7 +3043,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2378,
@@ -3220,7 +3210,6 @@ return {
 		["group"] = "ChanceToGainNaturesArchon",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5399,
@@ -3292,7 +3281,6 @@ return {
 		["group"] = "RecoverRunicWardOnCharmUse",
 		["level"] = 25,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9683,
@@ -3316,7 +3304,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -3340,7 +3327,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 25,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -3364,7 +3350,6 @@ return {
 		["group"] = "ChanceToRefund40PercentGlory",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5570,
@@ -3388,7 +3373,6 @@ return {
 		["group"] = "WardOnBlock",
 		["level"] = 13,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9682,
@@ -3436,7 +3420,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -3480,6 +3463,7 @@ return {
 	},
 	["AlloySpellLevelManaHybrid1"] = {
 		"+(142-188) to maximum Mana",
+		"+1 to Level of all Spell Skills",
 		["affix"] = "Verisium",
 		["group"] = "ManaSpellLevelHybrid",
 		["level"] = 65,
@@ -3513,7 +3497,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -3533,11 +3516,11 @@ return {
 	},
 	["AlloySpiritPresenceAreaOfEffectHybrid1"] = {
 		"(8-12)% increased Spirit",
+		"(50-60)% increased Presence Area of Effect",
 		["affix"] = "of the Stars",
 		["group"] = "SpiritPresenceAreaOfEffectHybrid",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -3733,7 +3716,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1630,
@@ -3967,7 +3949,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 11,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -3993,7 +3974,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 26,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -4019,7 +3999,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -4045,7 +4024,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 61,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -4071,7 +4049,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 77,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -6313,7 +6290,6 @@ return {
 		["group"] = "ChanceToGenerateAdditionalCombo",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4185,
@@ -6339,7 +6315,6 @@ return {
 		["group"] = "ChanceToGenerateAdditionalCombo",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4185,
@@ -6365,7 +6340,6 @@ return {
 		["group"] = "ArmourBreakDuration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4409,
@@ -6391,7 +6365,6 @@ return {
 		["group"] = "ArmourBreakDuration",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4409,
@@ -6573,7 +6546,6 @@ return {
 		["group"] = "GloryGeneration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6914,
@@ -6599,7 +6571,6 @@ return {
 		["group"] = "GloryGeneration",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6914,
@@ -6625,7 +6596,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -6651,7 +6621,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -6677,7 +6646,6 @@ return {
 		["group"] = "WarcryPower",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10512,
@@ -6703,7 +6671,6 @@ return {
 		["group"] = "WarcryPower",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10512,
@@ -6729,7 +6696,6 @@ return {
 		["group"] = "RageCostEfficiency",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4740,
@@ -6755,7 +6721,6 @@ return {
 		["group"] = "RageCostEfficiency",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4740,
@@ -6781,7 +6746,6 @@ return {
 		["group"] = "RageLossDelay",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9622,
@@ -6807,7 +6771,6 @@ return {
 		["group"] = "RageLossDelay",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9622,
@@ -6833,7 +6796,6 @@ return {
 		["group"] = "GainRageWhenHit",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6875,
@@ -6859,7 +6821,6 @@ return {
 		["group"] = "GainRageWhenHit",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6875,
@@ -6885,7 +6846,6 @@ return {
 		["group"] = "WarcryAreaOfEffect",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10514,
@@ -6911,7 +6871,6 @@ return {
 		["group"] = "WarcryAreaOfEffect",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10514,
@@ -6937,7 +6896,6 @@ return {
 		["group"] = "WarcryCooldownSpeed",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3035,
@@ -6963,7 +6921,6 @@ return {
 		["group"] = "WarcryCooldownSpeed",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3035,
@@ -6989,7 +6946,6 @@ return {
 		["group"] = "RecoverLifeOnWarcry",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2919,
@@ -7015,7 +6971,6 @@ return {
 		["group"] = "RecoverLifeOnWarcry",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2919,
@@ -13546,7 +13501,6 @@ return {
 		["group"] = "FasterAilmentDamage",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6068,
@@ -13572,7 +13526,6 @@ return {
 		["group"] = "FasterAilmentDamage",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6068,
@@ -13594,6 +13547,7 @@ return {
 	},
 	["DecayInfluenceFasterLeech1"] = {
 		"Leech (8-12)% of Physical Attack Damage as Life",
+		"Leech Life (15-25)% faster",
 		["affix"] = "of Decay",
 		["group"] = "LeechAndLeechSpeed",
 		["level"] = 45,
@@ -13793,6 +13747,7 @@ return {
 	},
 	["DecayInfluenceSlowerLeech1"] = {
 		"Leech (8-12)% of Physical Attack Damage as Life",
+		"Leech Life (15-25)% slower",
 		["affix"] = "of Decay",
 		["group"] = "LeechAndLeechSpeed",
 		["level"] = 45,
@@ -14917,7 +14872,6 @@ return {
 		["group"] = "AbyssTargetMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6473,
@@ -14941,7 +14895,6 @@ return {
 		["group"] = "AbyssTargetMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6473,
@@ -15013,7 +14966,6 @@ return {
 		["group"] = "EssenceAuraEffect",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2574,
@@ -15037,7 +14989,6 @@ return {
 		["group"] = "LocalMaximumQuality",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			615,
@@ -15088,7 +15039,6 @@ return {
 		["group"] = "CorruptForTwoEnchantments",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7703,
@@ -15377,7 +15327,6 @@ return {
 		["group"] = "EssenceGoldDropped",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6917,
@@ -15478,7 +15427,6 @@ return {
 		["group"] = "LocalSocketItemsEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			178,
@@ -15673,7 +15621,6 @@ return {
 		["group"] = "EssenceReducedCriticalDamageAgainstYou",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1005,
@@ -17723,7 +17670,6 @@ return {
 		["group"] = "FishingCastDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2604,
@@ -17749,7 +17695,6 @@ return {
 		["group"] = "FishingHookType",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2603,
@@ -17775,7 +17720,6 @@ return {
 		["group"] = "FishingLineStrength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2600,
@@ -17801,7 +17745,6 @@ return {
 		["group"] = "FishingLureType",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2602,
@@ -17827,7 +17770,6 @@ return {
 		["group"] = "FishingPoolConsumption",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2601,
@@ -17853,7 +17795,6 @@ return {
 		["group"] = "FishingQuantity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2605,
@@ -17879,7 +17820,6 @@ return {
 		["group"] = "FishingRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2606,
@@ -17905,7 +17845,6 @@ return {
 		["group"] = "FortifyEffect",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8835,
@@ -18384,7 +18323,6 @@ return {
 		["group"] = "AdditionalMaximumSeals",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4727,
@@ -18406,6 +18344,7 @@ return {
 	},
 	["GenesisTreeAmuletAnaemiaOnHitCrafted"] = {
 		"Inflict Anaemia on Hit",
+		"Anaemia allows +(2-3) Corrupted Blood debuffs to be inflicted on enemies",
 		["affix"] = "Uul-Netol's",
 		["group"] = "AnaemiaOnHit",
 		["level"] = 1,
@@ -18469,7 +18408,6 @@ return {
 		["group"] = "ArchonDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4344,
@@ -18495,7 +18433,6 @@ return {
 		["group"] = "ArchonEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4345,
@@ -18763,7 +18700,6 @@ return {
 		["group"] = "MinionMeleeSplash",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9067,
@@ -18789,7 +18725,6 @@ return {
 		["group"] = "MinionReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9767,
@@ -18841,7 +18776,6 @@ return {
 		["group"] = "SealGainFrequency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9800,
@@ -19038,7 +18972,6 @@ return {
 		["group"] = "InvocationMaximumEnergy",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7385,
@@ -19143,7 +19076,6 @@ return {
 		["group"] = "OfferingEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3719,
@@ -22276,7 +22208,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevel",
 		["level"] = 5,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22304,7 +22235,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevel",
 		["level"] = 41,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22332,7 +22262,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevel",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22358,7 +22287,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 2,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22384,7 +22312,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 18,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22410,7 +22337,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 36,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22436,7 +22362,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 55,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22462,7 +22387,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22488,7 +22412,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 2,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22516,7 +22439,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 18,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22544,7 +22466,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 36,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22572,7 +22493,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 55,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22600,7 +22520,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -22929,7 +22848,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevel",
 		["level"] = 5,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -22957,7 +22875,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevel",
 		["level"] = 41,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -22985,7 +22902,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevel",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23011,7 +22927,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevelWeapon",
 		["level"] = 2,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23037,7 +22952,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevelWeapon",
 		["level"] = 18,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23063,7 +22977,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevelWeapon",
 		["level"] = 36,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23089,7 +23002,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevelWeapon",
 		["level"] = 55,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23115,7 +23027,6 @@ return {
 		["group"] = "GlobalIncreaseTrapSkillGemLevelWeapon",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			974,
@@ -23238,7 +23149,6 @@ return {
 		["group"] = "GrenadeCooldownUse",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6941,
@@ -23264,7 +23174,6 @@ return {
 		["group"] = "GrenadeCooldownUse",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6941,
@@ -23290,7 +23199,6 @@ return {
 		["group"] = "GrenadeProjectiles",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6945,
@@ -23316,7 +23224,6 @@ return {
 		["group"] = "GrenadeProjectiles",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6945,
@@ -23342,7 +23249,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 4,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23368,7 +23274,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 16,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23394,7 +23299,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 33,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23420,7 +23324,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 46,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23446,7 +23349,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23472,7 +23374,6 @@ return {
 		["group"] = "GrenadeSkillCooldownSpeed",
 		["level"] = 81,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6942,
@@ -23494,6 +23395,7 @@ return {
 	},
 	["HandWrapsAbyssModArmourJewelleryAmanamuSuffixFireChaosResistance"] = {
 		"+(2-3)% to Maximum Fire Resistance",
+		"+(13-17)% to Chaos Resistance",
 		["affix"] = "of Amanamu",
 		["group"] = "ChaosAndMaxFireResistance",
 		["level"] = 1,
@@ -23554,6 +23456,7 @@ return {
 	},
 	["HandWrapsAbyssModArmourJewelleryKurgalSuffixColdChaosResistance"] = {
 		"+(2-3)% to Maximum Cold Resistance",
+		"+(13-17)% to Chaos Resistance",
 		["affix"] = "of Kurgal",
 		["group"] = "ChaosAndMaxColdResistance",
 		["level"] = 1,
@@ -23614,6 +23517,7 @@ return {
 	},
 	["HandWrapsAbyssModArmourJewelleryUlamanSuffixLightningChaosResistance"] = {
 		"+(2-3)% to Maximum Lightning Resistance",
+		"+(13-17)% to Chaos Resistance",
 		["affix"] = "of Ulaman",
 		["group"] = "ChaosAndMaxLightningResistance",
 		["level"] = 1,
@@ -23678,7 +23582,6 @@ return {
 		["group"] = "ReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1955,
@@ -23751,7 +23654,6 @@ return {
 		["group"] = "ImmobiliseIncreasedDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5959,
@@ -23775,7 +23677,6 @@ return {
 		["group"] = "LifeLeechOvercapLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7454,
@@ -25018,7 +24919,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -25198,6 +25098,7 @@ return {
 	},
 	["HandWrapsChaosResist1"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(6-9)% to Chaos Resistance",
 		["affix"] = "of the Lost",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25228,6 +25129,7 @@ return {
 	},
 	["HandWrapsChaosResist2"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(10-13)% to Chaos Resistance",
 		["affix"] = "of Banishment",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25258,6 +25160,7 @@ return {
 	},
 	["HandWrapsChaosResist3"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(14-17)% to Chaos Resistance",
 		["affix"] = "of Eviction",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25288,6 +25191,7 @@ return {
 	},
 	["HandWrapsChaosResist4"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(18-21)% to Chaos Resistance",
 		["affix"] = "of Expulsion",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25318,6 +25222,7 @@ return {
 	},
 	["HandWrapsChaosResist5"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(22-25)% to Chaos Resistance",
 		["affix"] = "of Exile",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25348,6 +25253,7 @@ return {
 	},
 	["HandWrapsChaosResist6"] = {
 		"+2% to Maximum Chaos Resistance",
+		"+(22-25)% to Chaos Resistance",
 		["affix"] = "of Bameth",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -25378,6 +25284,7 @@ return {
 	},
 	["HandWrapsColdResist1"] = {
 		"+1% to Maximum Cold Resistance",
+		"+(11-15)% to Cold Resistance",
 		["affix"] = "of the Seal",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25410,6 +25317,7 @@ return {
 	},
 	["HandWrapsColdResist2"] = {
 		"+1% to Maximum Cold Resistance",
+		"+(16-20)% to Cold Resistance",
 		["affix"] = "of the Penguin",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25442,6 +25350,7 @@ return {
 	},
 	["HandWrapsColdResist3"] = {
 		"+1% to Maximum Cold Resistance",
+		"+(21-25)% to Cold Resistance",
 		["affix"] = "of the Narwhal",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25474,6 +25383,7 @@ return {
 	},
 	["HandWrapsColdResist4"] = {
 		"+2% to Maximum Cold Resistance",
+		"+(21-25)% to Cold Resistance",
 		["affix"] = "of the Yeti",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25506,6 +25416,7 @@ return {
 	},
 	["HandWrapsColdResist5"] = {
 		"+2% to Maximum Cold Resistance",
+		"+(26-30)% to Cold Resistance",
 		["affix"] = "of the Walrus",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25538,6 +25449,7 @@ return {
 	},
 	["HandWrapsColdResist6"] = {
 		"+2% to Maximum Cold Resistance",
+		"+(31-35)% to Cold Resistance",
 		["affix"] = "of the Polar Bear",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25570,6 +25482,7 @@ return {
 	},
 	["HandWrapsColdResist7"] = {
 		"+2% to Maximum Cold Resistance",
+		"+(36-40)% to Cold Resistance",
 		["affix"] = "of the Ice",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25602,6 +25515,7 @@ return {
 	},
 	["HandWrapsColdResist8"] = {
 		"+3% to Maximum Cold Resistance",
+		"+(36-40)% to Cold Resistance",
 		["affix"] = "of Haast",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -25802,6 +25716,7 @@ return {
 	},
 	["HandWrapsDecayInfluenceAilmentMagnitude1"] = {
 		"+(10-25) to Ailment Threshold",
+		"(10-20)% increased Elemental Ailment Threshold",
 		["affix"] = "Katla's",
 		["group"] = "AilmentThresholdAndIncreasedAilmentThreshold",
 		["level"] = 1,
@@ -25830,6 +25745,7 @@ return {
 	},
 	["HandWrapsDecayInfluenceAilmentMagnitude2"] = {
 		"+(26-40) to Ailment Threshold",
+		"(21-35)% increased Elemental Ailment Threshold",
 		["affix"] = "Katla's",
 		["group"] = "AilmentThresholdAndIncreasedAilmentThreshold",
 		["level"] = 1,
@@ -25935,6 +25851,7 @@ return {
 	},
 	["HandWrapsDecayInfluenceCurseMagnitude2"] = {
 		"You can apply an additional Curse",
+		"(5-15)% increased Curse Magnitudes",
 		["affix"] = "of Decay",
 		["group"] = "AdditionalCurseOnEnemiesAndCurseMagnitude",
 		["level"] = 1,
@@ -26041,6 +25958,7 @@ return {
 	},
 	["HandWrapsDecayInfluenceFasterDamagingAilments1"] = {
 		"Enemies take (5-10)% increased Damage for each Elemental Ailment type among",
+		"your Ailments on them",
 		["affix"] = "Katla's",
 		["group"] = "EnemiesTakeIncreasedDamagePerAilmentType",
 		["level"] = 1,
@@ -26067,6 +25985,7 @@ return {
 	},
 	["HandWrapsDecayInfluenceFasterDamagingAilments2"] = {
 		"Enemies take (11-15)% increased Damage for each Elemental Ailment type among",
+		"your Ailments on them",
 		["affix"] = "Katla's",
 		["group"] = "EnemiesTakeIncreasedDamagePerAilmentType",
 		["level"] = 1,
@@ -26117,6 +26036,8 @@ return {
 	},
 	["HandWrapsDecayInfluenceIgniteMagnitude1"] = {
 		"Enemies killed by your Hits are destroyed",
+		"Burning Enemies you kill have a (10-30)% chance to Explode, dealing a",
+		"tenth of their maximum Life as Fire Damage",
 		["affix"] = "Katla's",
 		["group"] = "EnemiesDestroyedOnKillAndBurningEnemiesExplodeOnKillChance",
 		["level"] = 1,
@@ -26148,6 +26069,8 @@ return {
 	},
 	["HandWrapsDecayInfluenceIgniteMagnitude2"] = {
 		"Enemies killed by your Hits are destroyed",
+		"Burning Enemies you kill have a (31-50)% chance to Explode, dealing a",
+		"tenth of their maximum Life as Fire Damage",
 		["affix"] = "Katla's",
 		["group"] = "EnemiesDestroyedOnKillAndBurningEnemiesExplodeOnKillChance",
 		["level"] = 1,
@@ -26363,7 +26286,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26387,7 +26309,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26411,7 +26332,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26435,7 +26355,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26459,7 +26378,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26483,7 +26401,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26507,7 +26424,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26531,7 +26447,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26555,7 +26470,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -26753,7 +26667,6 @@ return {
 		["group"] = "DeflectDamageTakenRecoupedAsLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6116,
@@ -26773,6 +26686,7 @@ return {
 	},
 	["HandWrapsEssenceLocalRuneAndSoulCoreEffect1"] = {
 		"Life Flasks gain (0.13-0.27) charges per Second",
+		"Mana Flasks gain (0.13-0.27) charges per Second",
 		["affix"] = "of the Essence",
 		["group"] = "GenerateLifeAndManaFlasksChargesPerMinute",
 		["level"] = 1,
@@ -26808,7 +26722,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -26832,7 +26745,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -26856,7 +26768,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -26880,7 +26791,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -26904,7 +26814,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -26924,6 +26833,7 @@ return {
 	},
 	["HandWrapsFireResist1"] = {
 		"+1% to Maximum Fire Resistance",
+		"+(11-15)% to Fire Resistance",
 		["affix"] = "of the Whelpling",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -26956,6 +26866,7 @@ return {
 	},
 	["HandWrapsFireResist2"] = {
 		"+1% to Maximum Fire Resistance",
+		"+(16-20)% to Fire Resistance",
 		["affix"] = "of the Salamander",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -26988,6 +26899,7 @@ return {
 	},
 	["HandWrapsFireResist3"] = {
 		"+1% to Maximum Fire Resistance",
+		"+(21-25)% to Fire Resistance",
 		["affix"] = "of the Drake",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27020,6 +26932,7 @@ return {
 	},
 	["HandWrapsFireResist4"] = {
 		"+2% to Maximum Fire Resistance",
+		"+(21-25)% to Fire Resistance",
 		["affix"] = "of the Kiln",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27052,6 +26965,7 @@ return {
 	},
 	["HandWrapsFireResist5"] = {
 		"+2% to Maximum Fire Resistance",
+		"+(26-30)% to Fire Resistance",
 		["affix"] = "of the Furnace",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27084,6 +26998,7 @@ return {
 	},
 	["HandWrapsFireResist6"] = {
 		"+2% to Maximum Fire Resistance",
+		"+(31-35)% to Fire Resistance",
 		["affix"] = "of the Volcano",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27116,6 +27031,7 @@ return {
 	},
 	["HandWrapsFireResist7"] = {
 		"+2% to Maximum Fire Resistance",
+		"+(36-40)% to Fire Resistance",
 		["affix"] = "of Magma",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27148,6 +27064,7 @@ return {
 	},
 	["HandWrapsFireResist8"] = {
 		"+3% to Maximum Fire Resistance",
+		"+(36-40)% to Fire Resistance",
 		["affix"] = "of Tzteosh",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -27204,6 +27121,7 @@ return {
 	},
 	["HandWrapsGlobalMeleeSkillGemLevel2"] = {
 		"+1 to Level of all Melee Skills",
+		"+(10-12)% to Quality of all Skills",
 		["affix"] = "of Dueling",
 		["group"] = "GlobalSkillGemQualityMeleeLevel",
 		["level"] = 1,
@@ -27453,7 +27371,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -27477,7 +27394,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -27501,7 +27417,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -27525,7 +27440,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -27549,7 +27463,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27573,7 +27486,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27597,7 +27509,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27621,7 +27532,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27645,7 +27555,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27669,7 +27578,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27693,7 +27601,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27717,7 +27624,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27741,7 +27647,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27765,7 +27670,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27789,7 +27693,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27813,7 +27716,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27837,7 +27739,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -27861,7 +27762,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -27885,7 +27785,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -27909,7 +27808,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -27933,7 +27831,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -27957,7 +27854,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -27981,7 +27877,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -28005,7 +27900,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -28029,7 +27923,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -28053,7 +27946,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -28077,7 +27969,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28101,7 +27992,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28125,7 +28015,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28149,7 +28038,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28173,7 +28061,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28197,7 +28084,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28221,7 +28107,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28245,7 +28130,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -28637,6 +28521,7 @@ return {
 	},
 	["HandWrapsLifeLeech1"] = {
 		"Leech (8-8.9)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "of the Parasite",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -28666,6 +28551,7 @@ return {
 	},
 	["HandWrapsLifeLeech2"] = {
 		"Leech (9-10.9)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "of the Locust",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -28695,6 +28581,7 @@ return {
 	},
 	["HandWrapsLifeLeech3"] = {
 		"Leech (11-11.9)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "of the Remora",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -28724,6 +28611,7 @@ return {
 	},
 	["HandWrapsLifeLeech4"] = {
 		"Leech (12-13.9)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "of the Lamprey",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -28753,6 +28641,7 @@ return {
 	},
 	["HandWrapsLifeLeech5"] = {
 		"Leech (14-15)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "of the Vampire",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -28782,6 +28671,7 @@ return {
 	},
 	["HandWrapsLightningResist1"] = {
 		"+1% to Maximum Lightning Resistance",
+		"+(11-15)% to Lightning Resistance",
 		["affix"] = "of the Cloud",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28814,6 +28704,7 @@ return {
 	},
 	["HandWrapsLightningResist2"] = {
 		"+1% to Maximum Lightning Resistance",
+		"+(16-20)% to Lightning Resistance",
 		["affix"] = "of the Squall",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28846,6 +28737,7 @@ return {
 	},
 	["HandWrapsLightningResist3"] = {
 		"+1% to Maximum Lightning Resistance",
+		"+(21-25)% to Lightning Resistance",
 		["affix"] = "of the Storm",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28878,6 +28770,7 @@ return {
 	},
 	["HandWrapsLightningResist4"] = {
 		"+2% to Maximum Lightning Resistance",
+		"+(21-25)% to Lightning Resistance",
 		["affix"] = "of the Thunderhead",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28910,6 +28803,7 @@ return {
 	},
 	["HandWrapsLightningResist5"] = {
 		"+2% to Maximum Lightning Resistance",
+		"+(26-30)% to Lightning Resistance",
 		["affix"] = "of the Tempest",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28942,6 +28836,7 @@ return {
 	},
 	["HandWrapsLightningResist6"] = {
 		"+2% to Maximum Lightning Resistance",
+		"+(31-35)% to Lightning Resistance",
 		["affix"] = "of the Maelstrom",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -28974,6 +28869,7 @@ return {
 	},
 	["HandWrapsLightningResist7"] = {
 		"+2% to Maximum Lightning Resistance",
+		"+(36-40)% to Lightning Resistance",
 		["affix"] = "of the Lightning",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -29006,6 +28902,7 @@ return {
 	},
 	["HandWrapsLightningResist8"] = {
 		"+3% to Maximum Lightning Resistance",
+		"+(36-40)% to Lightning Resistance",
 		["affix"] = "of Ephij",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -29038,11 +28935,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEnergyShield1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Blessed",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29066,11 +28963,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEnergyShield2"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Anointed",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29094,11 +28991,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEnergyShield3"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Sanctified",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29122,11 +29019,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEnergyShield4"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Hallowed",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29150,11 +29047,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEvasionRating1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Supple",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29178,11 +29075,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEvasionRating2"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Pliant",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29206,11 +29103,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEvasionRating3"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Flexible",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29234,11 +29131,11 @@ return {
 	},
 	["HandWrapsLocalBaseArmourAndEvasionRating4"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Durable",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29262,11 +29159,11 @@ return {
 	},
 	["HandWrapsLocalBaseEvasionRatingAndEnergyShield1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Will-o-wisp's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29290,11 +29187,11 @@ return {
 	},
 	["HandWrapsLocalBaseEvasionRatingAndEnergyShield2"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Nymph's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29318,11 +29215,11 @@ return {
 	},
 	["HandWrapsLocalBaseEvasionRatingAndEnergyShield3"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Sylph's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29346,11 +29243,11 @@ return {
 	},
 	["HandWrapsLocalBaseEvasionRatingAndEnergyShield4"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Cherub's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -29560,7 +29457,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -29584,7 +29480,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -29608,7 +29503,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -29632,7 +29526,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -29656,7 +29549,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -29680,7 +29572,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30094,7 +29985,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30118,7 +30008,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30142,7 +30031,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30166,7 +30054,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30190,7 +30077,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30214,7 +30100,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30238,7 +30123,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30262,7 +30146,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30286,7 +30169,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30310,7 +30192,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30334,7 +30215,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30358,7 +30238,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30378,11 +30257,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Shining",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30406,11 +30285,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield2"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Glimmering",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30434,11 +30313,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield3"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Glittering",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30462,11 +30341,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield4"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Glowing",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30490,11 +30369,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield5"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Radiating",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30518,11 +30397,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield6"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Pulsing",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30546,11 +30425,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEnergyShield7"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Blazing",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -30578,7 +30457,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30602,7 +30480,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30626,7 +30503,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30650,7 +30526,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30674,7 +30549,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -30698,7 +30572,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31086,7 +30959,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31110,7 +30982,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31134,7 +31005,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31158,7 +31028,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31182,7 +31051,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31206,7 +31074,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31230,7 +31097,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31254,7 +31120,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31278,7 +31143,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31302,7 +31166,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31326,7 +31189,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31350,7 +31212,6 @@ return {
 		["group"] = "RecoupLifeAndEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6043,
@@ -31370,11 +31231,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Agile",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31398,11 +31259,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating2"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Dancer's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31426,11 +31287,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating3"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Acrobat's",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31454,11 +31315,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating4"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Fleet",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31482,11 +31343,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating5"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Blurred",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31510,11 +31371,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating6"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Phased",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31538,11 +31399,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedEvasionRating7"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Vaporous",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31748,11 +31609,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating1"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Lacquered",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31776,11 +31637,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating2"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Studded",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31804,11 +31665,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating3"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Ribbed",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31832,11 +31693,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating4"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Fortified",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31860,11 +31721,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating5"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Plated",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31888,11 +31749,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating6"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Carapaced",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31916,11 +31777,11 @@ return {
 	},
 	["HandWrapsLocalIncreasedPhysicalDamageReductionRating7"] = {
 		"Has +4 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "Encased",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -32326,6 +32187,7 @@ return {
 	},
 	["HandWrapsManaLeech1"] = {
 		"Leech (6-7.9)% of Physical Attack Damage as Mana",
+		"Leech Mana (20-25)% slower",
 		["affix"] = "of the Thirsty",
 		["group"] = "ManaLeechAndRate",
 		["level"] = 1,
@@ -32355,6 +32217,7 @@ return {
 	},
 	["HandWrapsManaLeech2"] = {
 		"Leech (8-8.9)% of Physical Attack Damage as Mana",
+		"Leech Mana (20-25)% slower",
 		["affix"] = "of the Parched",
 		["group"] = "ManaLeechAndRate",
 		["level"] = 1,
@@ -32384,6 +32247,7 @@ return {
 	},
 	["HandWrapsManaLeech3"] = {
 		"Leech (9-10.9)% of Physical Attack Damage as Mana",
+		"Leech Mana (20-25)% slower",
 		["affix"] = "of the Arid",
 		["group"] = "ManaLeechAndRate",
 		["level"] = 1,
@@ -32413,6 +32277,7 @@ return {
 	},
 	["HandWrapsManaLeech4"] = {
 		"Leech (11-11.9)% of Physical Attack Damage as Mana",
+		"Leech Mana (20-25)% slower",
 		["affix"] = "of the Drought",
 		["group"] = "ManaLeechAndRate",
 		["level"] = 1,
@@ -32442,6 +32307,7 @@ return {
 	},
 	["HandWrapsManaLeech5"] = {
 		"Leech (12-13)% of Physical Attack Damage as Mana",
+		"Leech Mana (20-25)% slower",
 		["affix"] = "of the Desperate",
 		["group"] = "ManaLeechAndRate",
 		["level"] = 1,
@@ -32475,7 +32341,6 @@ return {
 		["group"] = "AttacksChainAdditionalTimes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3783,
@@ -32499,7 +32364,6 @@ return {
 		["group"] = "AttacksChainAdditionalTimes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3783,
@@ -32523,7 +32387,6 @@ return {
 		["group"] = "ProjectileForkChanceIfMeleeRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9565,
@@ -32547,7 +32410,6 @@ return {
 		["group"] = "ProjectileForkChanceIfMeleeRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9565,
@@ -32571,7 +32433,6 @@ return {
 		["group"] = "AdditionalPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1549,
@@ -32595,7 +32456,6 @@ return {
 		["group"] = "AdditionalPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1549,
@@ -32694,7 +32554,6 @@ return {
 		["group"] = "SpreadMarkOnConsume",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10622,
@@ -32718,7 +32577,6 @@ return {
 		["group"] = "SpreadMarkOnConsume",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10622,
@@ -32790,7 +32648,6 @@ return {
 		["group"] = "MarkedEnemyTakesIncreasedDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8828,
@@ -32814,7 +32671,6 @@ return {
 		["group"] = "MarkedEnemyTakesIncreasedDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8828,
@@ -32961,7 +32817,6 @@ return {
 		["group"] = "ProjectileChanceToFork",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9544,
@@ -32985,7 +32840,6 @@ return {
 		["group"] = "ProjectileChanceToFork",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9544,
@@ -33674,7 +33528,6 @@ return {
 		["group"] = "DazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4669,
@@ -33826,7 +33679,6 @@ return {
 		["group"] = "ReducedAttackManaCost",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4538,
@@ -33850,7 +33702,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9688,
@@ -33903,7 +33754,6 @@ return {
 		["group"] = "AttackDamageOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4530,
@@ -33923,6 +33773,7 @@ return {
 	},
 	["HandWrapsUniqueMutatedVaalMaximumManaIncreasePercent"] = {
 		"+(36-42) to maximum Mana",
+		"(15-35)% increased Attack Damage",
 		["affix"] = "",
 		["group"] = "AttackDamageAndBaseMaximumMana",
 		["level"] = 1,
@@ -33978,6 +33829,7 @@ return {
 	},
 	["HandWrapsUniqueMutatedVaalPoisonDurationIfConsumedFrenzyChargeRecently"] = {
 		"(20-35)% increased Damage for each Poison on you up to a maximum of 75%",
+		"Poison you inflict is Reflected to you",
 		["affix"] = "",
 		["group"] = "DamageIncreasePerPoisonOnSelfAndReflectPoisonToSelf",
 		["level"] = 1,
@@ -34064,6 +33916,7 @@ return {
 	},
 	["HandWrapsUniqueMutatedVaalRecoverLifeOnKillingPoisonedEnemyPerPoison"] = {
 		"+(12-23)% to Chaos Resistance per Poison on you",
+		"Poison you inflict is Reflected to you",
 		["affix"] = "",
 		["group"] = "ChaosResistancePerPoisonOnSelfAndReflectPoisonToSelf",
 		["level"] = 1,
@@ -34096,6 +33949,7 @@ return {
 	},
 	["HandWrapsUniqueMutatedVaalReducedPoisonDuration"] = {
 		"(17-25)% increased Movement Speed for each Poison on you up to a maximum of 50%",
+		"Poison you inflict is Reflected to you",
 		["affix"] = "",
 		["group"] = "MovementSpeedPerPoisonOnSelfAndReflectPoisonToSelf",
 		["level"] = 1,
@@ -38076,7 +37930,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 16,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38104,7 +37957,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 25,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38132,7 +37984,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 33,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38160,7 +38011,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 46,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38188,7 +38038,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 54,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38216,7 +38065,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38242,7 +38090,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38268,7 +38115,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -38294,7 +38140,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -38318,7 +38163,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -38342,7 +38186,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -40545,6 +40388,7 @@ return {
 	},
 	["LightRadiusAndAccuracy1"] = {
 		"+(10-20) to Accuracy Rating",
+		"5% increased Light Radius",
 		["affix"] = "of Shining",
 		["group"] = "LightRadiusAndAccuracy",
 		["level"] = 8,
@@ -40575,6 +40419,7 @@ return {
 	},
 	["LightRadiusAndAccuracy2"] = {
 		"+(21-40) to Accuracy Rating",
+		"10% increased Light Radius",
 		["affix"] = "of Light",
 		["group"] = "LightRadiusAndAccuracy",
 		["level"] = 15,
@@ -40605,6 +40450,7 @@ return {
 	},
 	["LightRadiusAndAccuracy3"] = {
 		"+(41-60) to Accuracy Rating",
+		"15% increased Light Radius",
 		["affix"] = "of Radiance",
 		["group"] = "LightRadiusAndAccuracy",
 		["level"] = 30,
@@ -40635,6 +40481,7 @@ return {
 	},
 	["LightRadiusAndManaRegeneration1"] = {
 		"(8-12)% increased Mana Regeneration Rate",
+		"5% increased Light Radius",
 		["affix"] = "of Warmth",
 		["group"] = "LightRadiusAndManaRegeneration",
 		["level"] = 8,
@@ -40672,6 +40519,7 @@ return {
 	},
 	["LightRadiusAndManaRegeneration2"] = {
 		"(13-17)% increased Mana Regeneration Rate",
+		"10% increased Light Radius",
 		["affix"] = "of Kindling",
 		["group"] = "LightRadiusAndManaRegeneration",
 		["level"] = 15,
@@ -40709,6 +40557,7 @@ return {
 	},
 	["LightRadiusAndManaRegeneration3"] = {
 		"(18-22)% increased Mana Regeneration Rate",
+		"15% increased Light Radius",
 		["affix"] = "of the Hearth",
 		["group"] = "LightRadiusAndManaRegeneration",
 		["level"] = 30,
@@ -45485,11 +45334,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold1"] = {
 		"(6-13)% increased Armour and Energy Shield",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Defender's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45521,11 +45370,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold2"] = {
 		"(14-20)% increased Armour and Energy Shield",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Protector's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45557,11 +45406,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold3"] = {
 		"(21-26)% increased Armour and Energy Shield",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Keeper's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45593,11 +45442,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold4"] = {
 		"(27-32)% increased Armour and Energy Shield",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Guardian's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45629,11 +45478,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold5"] = {
 		"(33-38)% increased Armour and Energy Shield",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "Warden's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45665,11 +45514,11 @@ return {
 	},
 	["LocalArmourAndEnergyShieldAndStunThreshold6"] = {
 		"(39-42)% increased Armour and Energy Shield",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Sentinel's",
 		["group"] = "LocalArmourAndEnergyShieldAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			851,
@@ -45701,11 +45550,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold1"] = {
 		"(6-13)% increased Armour and Evasion",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Captain's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45737,11 +45586,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold2"] = {
 		"(14-20)% increased Armour and Evasion",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Commander's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45773,11 +45622,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold3"] = {
 		"(21-26)% increased Armour and Evasion",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Magnate's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45809,11 +45658,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold4"] = {
 		"(27-32)% increased Armour and Evasion",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Marshal's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45845,11 +45694,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold5"] = {
 		"(33-38)% increased Armour and Evasion",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "General's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45881,11 +45730,11 @@ return {
 	},
 	["LocalArmourAndEvasionAndStunThreshold6"] = {
 		"(39-42)% increased Armour and Evasion",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Warlord's",
 		["group"] = "LocalArmourAndEvasionAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			850,
@@ -45917,11 +45766,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold1"] = {
 		"(6-13)% increased Armour",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Beetle's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -45953,11 +45802,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold2"] = {
 		"(14-20)% increased Armour",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Crab's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -45989,11 +45838,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold3"] = {
 		"(21-26)% increased Armour",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Armadillo's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -46025,11 +45874,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold4"] = {
 		"(27-32)% increased Armour",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Rhino's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -46061,11 +45910,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold5"] = {
 		"(33-38)% increased Armour",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "Elephant's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -46097,11 +45946,11 @@ return {
 	},
 	["LocalArmourAndStunThreshold6"] = {
 		"(39-42)% increased Armour",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Mammoth's",
 		["group"] = "LocalArmourAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			846,
@@ -46133,6 +45982,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield1"] = {
 		"+(9-16) to Armour",
+		"+(5-8) to maximum Energy Shield",
 		["affix"] = "Blessed",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 1,
@@ -46167,6 +46017,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield2_"] = {
 		"+(17-46) to Armour",
+		"+(9-15) to maximum Energy Shield",
 		["affix"] = "Anointed",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 16,
@@ -46201,6 +46052,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield3"] = {
 		"+(47-71) to Armour",
+		"+(16-21) to maximum Energy Shield",
 		["affix"] = "Sanctified",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 33,
@@ -46235,6 +46087,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield4"] = {
 		"+(72-85) to Armour",
+		"+(22-25) to maximum Energy Shield",
 		["affix"] = "Hallowed",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 46,
@@ -46269,6 +46122,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield5"] = {
 		"+(86-102) to Armour",
+		"+(26-29) to maximum Energy Shield",
 		["affix"] = "Beatified",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 54,
@@ -46307,6 +46161,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield6"] = {
 		"+(103-127) to Armour",
+		"+(30-36) to maximum Energy Shield",
 		["affix"] = "Consecrated",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 60,
@@ -46347,6 +46202,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield7"] = {
 		"+(128-149) to Armour",
+		"+(37-42) to maximum Energy Shield",
 		["affix"] = "Saintly",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 65,
@@ -46387,6 +46243,7 @@ return {
 	},
 	["LocalBaseArmourAndEnergyShield8"] = {
 		"+(150-170) to Armour",
+		"+(43-48) to maximum Energy Shield",
 		["affix"] = "Godly",
 		["group"] = "LocalBaseArmourAndEnergyShield",
 		["level"] = 75,
@@ -46429,6 +46286,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating1"] = {
 		"+(9-16) to Armour",
+		"+(6-10) to Evasion Rating",
 		["affix"] = "Supple",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 1,
@@ -46463,6 +46321,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating2"] = {
 		"+(17-46) to Armour",
+		"+(11-41) to Evasion Rating",
 		["affix"] = "Pliant",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 16,
@@ -46497,6 +46356,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating3"] = {
 		"+(47-71) to Armour",
+		"+(42-64) to Evasion Rating",
 		["affix"] = "Flexible",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 33,
@@ -46531,6 +46391,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating4"] = {
 		"+(72-85) to Armour",
+		"+(65-78) to Evasion Rating",
 		["affix"] = "Durable",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 46,
@@ -46565,6 +46426,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating5"] = {
 		"+(86-102) to Armour",
+		"+(79-94) to Evasion Rating",
 		["affix"] = "Sturdy",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 54,
@@ -46603,6 +46465,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating6_"] = {
 		"+(103-127) to Armour",
+		"+(95-119) to Evasion Rating",
 		["affix"] = "Resilient",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 60,
@@ -46643,6 +46506,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating7"] = {
 		"+(128-149) to Armour",
+		"+(120-141) to Evasion Rating",
 		["affix"] = "Adaptable",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 65,
@@ -46683,6 +46547,7 @@ return {
 	},
 	["LocalBaseArmourAndEvasionRating8"] = {
 		"+(150-170) to Armour",
+		"+(142-161) to Evasion Rating",
 		["affix"] = "Versatile",
 		["group"] = "LocalBaseArmourAndEvasionRating",
 		["level"] = 75,
@@ -46725,6 +46590,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield1"] = {
 		"+(6-10) to Evasion Rating",
+		"+(5-8) to maximum Energy Shield",
 		["affix"] = "Will-o-wisp's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 1,
@@ -46759,6 +46625,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield2"] = {
 		"+(11-41) to Evasion Rating",
+		"+(9-15) to maximum Energy Shield",
 		["affix"] = "Nymph's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 16,
@@ -46793,6 +46660,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield3"] = {
 		"+(42-64) to Evasion Rating",
+		"+(16-21) to maximum Energy Shield",
 		["affix"] = "Sylph's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 33,
@@ -46827,6 +46695,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield4"] = {
 		"+(65-78) to Evasion Rating",
+		"+(22-25) to maximum Energy Shield",
 		["affix"] = "Cherub's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 46,
@@ -46861,6 +46730,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield5_"] = {
 		"+(79-94) to Evasion Rating",
+		"+(26-29) to maximum Energy Shield",
 		["affix"] = "Spirit's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 54,
@@ -46899,6 +46769,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield6"] = {
 		"+(95-119) to Evasion Rating",
+		"+(30-36) to maximum Energy Shield",
 		["affix"] = "Eidolon's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 60,
@@ -46939,6 +46810,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield7___"] = {
 		"+(120-141) to Evasion Rating",
+		"+(37-42) to maximum Energy Shield",
 		["affix"] = "Apparition's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 65,
@@ -46979,6 +46851,7 @@ return {
 	},
 	["LocalBaseEvasionRatingAndEnergyShield8___"] = {
 		"+(142-161) to Evasion Rating",
+		"+(43-48) to maximum Energy Shield",
 		["affix"] = "Banshee's",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 75,
@@ -47533,11 +47406,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold1"] = {
 		"(6-13)% increased Energy Shield",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Pixie's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47571,11 +47444,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold2"] = {
 		"(14-20)% increased Energy Shield",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Gremlin's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47609,11 +47482,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold3"] = {
 		"(21-26)% increased Energy Shield",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Boggart's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47647,11 +47520,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold4"] = {
 		"(27-32)% increased Energy Shield",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Naga's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47685,11 +47558,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold5"] = {
 		"(33-38)% increased Energy Shield",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "Djinn's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47723,11 +47596,11 @@ return {
 	},
 	["LocalEnergyShieldAndStunThreshold6"] = {
 		"(39-42)% increased Energy Shield",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Seraphim's",
 		["group"] = "LocalEnergyShieldAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			849,
@@ -47761,11 +47634,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold1"] = {
 		"(6-13)% increased Evasion and Energy Shield",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Intuitive",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47797,11 +47670,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold2"] = {
 		"(14-20)% increased Evasion and Energy Shield",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Psychic",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47833,11 +47706,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold3"] = {
 		"(21-26)% increased Evasion and Energy Shield",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Telepath's",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47869,11 +47742,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold4"] = {
 		"(27-32)% increased Evasion and Energy Shield",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Illusionist's",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47905,11 +47778,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold5"] = {
 		"(33-38)% increased Evasion and Energy Shield",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "Mentalist's",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47941,11 +47814,11 @@ return {
 	},
 	["LocalEvasionAndEnergyShieldAndStunThreshold6"] = {
 		"(39-42)% increased Evasion and Energy Shield",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Trickster's",
 		["group"] = "LocalEvasionAndEnergyShieldAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			852,
@@ -47977,11 +47850,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold1"] = {
 		"(6-13)% increased Evasion Rating",
+		"+(8-13) to Stun Threshold",
 		["affix"] = "Mosquito's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48013,11 +47886,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold2"] = {
 		"(14-20)% increased Evasion Rating",
+		"+(14-24) to Stun Threshold",
 		["affix"] = "Moth's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 19,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48049,11 +47922,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold3"] = {
 		"(21-26)% increased Evasion Rating",
+		"+(25-40) to Stun Threshold",
 		["affix"] = "Butterfly's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48085,11 +47958,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold4"] = {
 		"(27-32)% increased Evasion Rating",
+		"+(41-63) to Stun Threshold",
 		["affix"] = "Wasp's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48121,11 +47994,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold5"] = {
 		"(33-38)% increased Evasion Rating",
+		"+(64-94) to Stun Threshold",
 		["affix"] = "Dragonfly's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48157,11 +48030,11 @@ return {
 	},
 	["LocalEvasionAndStunThreshold6"] = {
 		"(39-42)% increased Evasion Rating",
+		"+(95-136) to Stun Threshold",
 		["affix"] = "Hummingbird's",
 		["group"] = "LocalEvasionAndStunThreshold",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			848,
@@ -48453,6 +48326,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase1"] = {
 		"+(5-9) to Armour",
+		"(6-13)% increased Armour",
 		["affix"] = "Abalone's",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 8,
@@ -48492,6 +48366,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase2"] = {
 		"+(10-29) to Armour",
+		"(14-20)% increased Armour",
 		["affix"] = "Snail's",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 16,
@@ -48531,6 +48406,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase3"] = {
 		"+(30-41) to Armour",
+		"(21-26)% increased Armour",
 		["affix"] = "Tortoise's",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 33,
@@ -48570,6 +48446,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase4"] = {
 		"+(42-57) to Armour",
+		"(27-32)% increased Armour",
 		["affix"] = "Pangolin's",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 46,
@@ -48609,6 +48486,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase5"] = {
 		"+(58-75) to Armour",
+		"(33-38)% increased Armour",
 		["affix"] = "Shelled",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 60,
@@ -48648,6 +48526,7 @@ return {
 	},
 	["LocalIncreasedArmourAndBase6"] = {
 		"+(76-95) to Armour",
+		"(39-42)% increased Armour",
 		["affix"] = "Hardened",
 		["group"] = "LocalIncreasedArmourAndBase",
 		["level"] = 78,
@@ -48925,6 +48804,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase1"] = {
 		"+(3-5) to Armour",
+		"+(2-4) to maximum Energy Shield",
+		"(6-13)% increased Armour and Energy Shield",
 		["affix"] = "Faithful",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 8,
@@ -48969,6 +48850,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase2"] = {
 		"+(6-16) to Armour",
+		"+(5-6) to maximum Energy Shield",
+		"(14-20)% increased Armour and Energy Shield",
 		["affix"] = "Noble's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 16,
@@ -49013,6 +48896,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase3"] = {
 		"+(17-23) to Armour",
+		"+(7-8) to maximum Energy Shield",
+		"(21-26)% increased Armour and Energy Shield",
 		["affix"] = "Inquisitor's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 33,
@@ -49057,6 +48942,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase4"] = {
 		"+(24-32) to Armour",
+		"+(9-10) to maximum Energy Shield",
+		"(27-32)% increased Armour and Energy Shield",
 		["affix"] = "Crusader's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 46,
@@ -49101,6 +48988,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase5"] = {
 		"+(33-41) to Armour",
+		"+(11-12) to maximum Energy Shield",
+		"(33-38)% increased Armour and Energy Shield",
 		["affix"] = "Paladin's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 60,
@@ -49145,6 +49034,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndBase6"] = {
 		"+(42-52) to Armour",
+		"+(13-15) to maximum Energy Shield",
+		"(39-42)% increased Armour and Energy Shield",
 		["affix"] = "Grand",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndBase",
 		["level"] = 78,
@@ -49189,6 +49080,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife1"] = {
 		"(6-13)% increased Armour and Energy Shield",
+		"+(7-10) to maximum Life",
 		["affix"] = "Augur's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 8,
@@ -49227,6 +49119,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife2"] = {
 		"(14-20)% increased Armour and Energy Shield",
+		"+(11-19) to maximum Life",
 		["affix"] = "Auspex's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 16,
@@ -49265,6 +49158,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife3"] = {
 		"(21-26)% increased Armour and Energy Shield",
+		"+(20-25) to maximum Life",
 		["affix"] = "Druid's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 33,
@@ -49303,6 +49197,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife4"] = {
 		"(27-32)% increased Armour and Energy Shield",
+		"+(26-32) to maximum Life",
 		["affix"] = "Haruspex's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 46,
@@ -49341,6 +49236,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife5"] = {
 		"(33-38)% increased Armour and Energy Shield",
+		"+(33-41) to maximum Life",
 		["affix"] = "Visionary's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 60,
@@ -49379,6 +49275,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndLife6"] = {
 		"(39-42)% increased Armour and Energy Shield",
+		"+(42-49) to maximum Life",
 		["affix"] = "Prophet's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndLife",
 		["level"] = 78,
@@ -49417,6 +49314,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana1"] = {
 		"(6-13)% increased Armour and Energy Shield",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Coelacanth's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 8,
@@ -49459,6 +49357,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana2"] = {
 		"(14-20)% increased Armour and Energy Shield",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Swordfish's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 16,
@@ -49501,6 +49400,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana3"] = {
 		"(21-26)% increased Armour and Energy Shield",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Shark's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 33,
@@ -49543,6 +49443,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana4"] = {
 		"(27-32)% increased Armour and Energy Shield",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Dolphin's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 46,
@@ -49585,6 +49486,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana5"] = {
 		"(33-38)% increased Armour and Energy Shield",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Orca's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 60,
@@ -49627,6 +49529,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEnergyShieldAndMana6"] = {
 		"(39-42)% increased Armour and Energy Shield",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Whale's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndMana",
 		["level"] = 78,
@@ -49907,6 +49810,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase1"] = {
 		"+(3-5) to Armour",
+		"+(2-3) to Evasion Rating",
+		"(6-13)% increased Armour and Evasion",
 		["affix"] = "Swordsman's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 8,
@@ -49951,6 +49856,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase2"] = {
 		"+(6-16) to Armour",
+		"+(4-14) to Evasion Rating",
+		"(14-20)% increased Armour and Evasion",
 		["affix"] = "Fighter's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 16,
@@ -49995,6 +49902,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase3"] = {
 		"+(17-23) to Armour",
+		"+(15-21) to Evasion Rating",
+		"(21-26)% increased Armour and Evasion",
 		["affix"] = "Veteran's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 33,
@@ -50039,6 +49948,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase4"] = {
 		"+(24-32) to Armour",
+		"+(22-29) to Evasion Rating",
+		"(27-32)% increased Armour and Evasion",
 		["affix"] = "Warrior's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 46,
@@ -50083,6 +49994,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase5"] = {
 		"+(33-41) to Armour",
+		"+(30-39) to Evasion Rating",
+		"(33-38)% increased Armour and Evasion",
 		["affix"] = "Knight's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 60,
@@ -50127,6 +50040,8 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndBase6"] = {
 		"+(42-52) to Armour",
+		"+(40-50) to Evasion Rating",
+		"(39-42)% increased Armour and Evasion",
 		["affix"] = "Centurion's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndBase",
 		["level"] = 78,
@@ -50403,6 +50318,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife1"] = {
 		"(6-13)% increased Armour and Evasion",
+		"+(7-10) to maximum Life",
 		["affix"] = "Bully's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 8,
@@ -50441,6 +50357,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife2"] = {
 		"(14-20)% increased Armour and Evasion",
+		"+(11-19) to maximum Life",
 		["affix"] = "Thug's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 16,
@@ -50479,6 +50396,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife3"] = {
 		"(21-26)% increased Armour and Evasion",
+		"+(20-25) to maximum Life",
 		["affix"] = "Brute's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 33,
@@ -50517,6 +50435,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife4"] = {
 		"(27-32)% increased Armour and Evasion",
+		"+(26-32) to maximum Life",
 		["affix"] = "Assailant's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 46,
@@ -50555,6 +50474,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife5"] = {
 		"(33-38)% increased Armour and Evasion",
+		"+(33-41) to maximum Life",
 		["affix"] = "Aggressor's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 60,
@@ -50593,6 +50513,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndLife6"] = {
 		"(39-42)% increased Armour and Evasion",
+		"+(42-49) to maximum Life",
 		["affix"] = "Predator's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndLife",
 		["level"] = 78,
@@ -50631,6 +50552,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana1"] = {
 		"(6-13)% increased Armour and Evasion",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Rhoa's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 8,
@@ -50673,6 +50595,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana2"] = {
 		"(14-20)% increased Armour and Evasion",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Rhex's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 16,
@@ -50715,6 +50638,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana3"] = {
 		"(21-26)% increased Armour and Evasion",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Chimeral's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 33,
@@ -50757,6 +50681,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana4"] = {
 		"(27-32)% increased Armour and Evasion",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Bull's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 46,
@@ -50799,6 +50724,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana5"] = {
 		"(33-38)% increased Armour and Evasion",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Minotaur's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 60,
@@ -50841,6 +50767,7 @@ return {
 	},
 	["LocalIncreasedArmourAndEvasionAndMana6"] = {
 		"(39-42)% increased Armour and Evasion",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Cerberus'",
 		["group"] = "LocalIncreasedArmourAndEvasionAndMana",
 		["level"] = 78,
@@ -50883,6 +50810,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife1"] = {
 		"(6-13)% increased Armour",
+		"+(7-10) to maximum Life",
 		["affix"] = "Oyster's",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 8,
@@ -50920,6 +50848,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife2"] = {
 		"(14-20)% increased Armour",
+		"+(11-19) to maximum Life",
 		["affix"] = "Lobster's",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 16,
@@ -50957,6 +50886,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife3"] = {
 		"(21-26)% increased Armour",
+		"+(20-25) to maximum Life",
 		["affix"] = "Urchin's",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 33,
@@ -50994,6 +50924,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife4"] = {
 		"(27-32)% increased Armour",
+		"+(26-32) to maximum Life",
 		["affix"] = "Nautilus'",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 46,
@@ -51031,6 +50962,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife5"] = {
 		"(33-38)% increased Armour",
+		"+(33-41) to maximum Life",
 		["affix"] = "Octopus'",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 60,
@@ -51068,6 +51000,7 @@ return {
 	},
 	["LocalIncreasedArmourAndLife6"] = {
 		"(39-42)% increased Armour",
+		"+(42-49) to maximum Life",
 		["affix"] = "Crocodile's",
 		["group"] = "LocalIncreasedArmourAndLife",
 		["level"] = 78,
@@ -51105,6 +51038,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana1"] = {
 		"(6-13)% increased Armour",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Imposing",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 8,
@@ -51146,6 +51080,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana2"] = {
 		"(14-20)% increased Armour",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Venerable",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 16,
@@ -51187,6 +51122,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana3"] = {
 		"(21-26)% increased Armour",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Regal",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 33,
@@ -51228,6 +51164,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana4"] = {
 		"(27-32)% increased Armour",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Colossal",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 46,
@@ -51269,6 +51206,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana5"] = {
 		"(33-38)% increased Armour",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Chieftain's",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 60,
@@ -51310,6 +51248,7 @@ return {
 	},
 	["LocalIncreasedArmourAndMana6"] = {
 		"(39-42)% increased Armour",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Ancestral",
 		["group"] = "LocalIncreasedArmourAndMana",
 		["level"] = 78,
@@ -51922,6 +51861,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase1"] = {
 		"+(4-7) to maximum Energy Shield",
+		"(6-13)% increased Energy Shield",
 		["affix"] = "Deacon's",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 8,
@@ -51963,6 +51903,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase2"] = {
 		"+(8-13) to maximum Energy Shield",
+		"(14-20)% increased Energy Shield",
 		["affix"] = "Cardinal's",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 16,
@@ -52004,6 +51945,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase3"] = {
 		"+(14-16) to maximum Energy Shield",
+		"(21-26)% increased Energy Shield",
 		["affix"] = "Priest's",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 33,
@@ -52045,6 +51987,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase4"] = {
 		"+(17-20) to maximum Energy Shield",
+		"(27-32)% increased Energy Shield",
 		["affix"] = "High Priest's",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 46,
@@ -52086,6 +52029,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase5"] = {
 		"+(21-25) to maximum Energy Shield",
+		"(33-38)% increased Energy Shield",
 		["affix"] = "Archon's",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 60,
@@ -52127,6 +52071,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndBase6"] = {
 		"+(26-30) to maximum Energy Shield",
+		"(39-42)% increased Energy Shield",
 		["affix"] = "Divine",
 		["group"] = "LocalIncreasedEnergyShieldAndBase",
 		["level"] = 78,
@@ -52168,6 +52113,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife1"] = {
 		"(6-13)% increased Energy Shield",
+		"+(7-10) to maximum Life",
 		["affix"] = "Monk's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 8,
@@ -52207,6 +52153,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife2"] = {
 		"(14-20)% increased Energy Shield",
+		"+(11-19) to maximum Life",
 		["affix"] = "Prior's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 16,
@@ -52246,6 +52193,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife3"] = {
 		"(21-26)% increased Energy Shield",
+		"+(20-25) to maximum Life",
 		["affix"] = "Abbot's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 33,
@@ -52285,6 +52233,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife4"] = {
 		"(27-32)% increased Energy Shield",
+		"+(26-32) to maximum Life",
 		["affix"] = "Bishop's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 46,
@@ -52324,6 +52273,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife5"] = {
 		"(33-38)% increased Energy Shield",
+		"+(33-41) to maximum Life",
 		["affix"] = "Exarch's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 60,
@@ -52363,6 +52313,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndLife6"] = {
 		"(39-42)% increased Energy Shield",
+		"+(42-49) to maximum Life",
 		["affix"] = "Pope's",
 		["group"] = "LocalIncreasedEnergyShieldAndLife",
 		["level"] = 78,
@@ -52402,6 +52353,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana1"] = {
 		"(6-13)% increased Energy Shield",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Imbued",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 8,
@@ -52443,6 +52395,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana2"] = {
 		"(14-20)% increased Energy Shield",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Serene",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 16,
@@ -52484,6 +52437,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana3"] = {
 		"(21-26)% increased Energy Shield",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Sacred",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 33,
@@ -52525,6 +52479,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana4"] = {
 		"(27-32)% increased Energy Shield",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Celestial",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 46,
@@ -52566,6 +52521,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana5"] = {
 		"(33-38)% increased Energy Shield",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Heavenly",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 60,
@@ -52607,6 +52563,7 @@ return {
 	},
 	["LocalIncreasedEnergyShieldAndMana6"] = {
 		"(39-42)% increased Energy Shield",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Angel's",
 		["group"] = "LocalIncreasedEnergyShieldAndMana",
 		["level"] = 78,
@@ -52878,6 +52835,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase1"] = {
 		"+(4-6) to Evasion Rating",
+		"(6-13)% increased Evasion Rating",
 		["affix"] = "Impala's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 8,
@@ -52917,6 +52875,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase2"] = {
 		"+(7-26) to Evasion Rating",
+		"(14-20)% increased Evasion Rating",
 		["affix"] = "Buck's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 16,
@@ -52956,6 +52915,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase3"] = {
 		"+(27-38) to Evasion Rating",
+		"(21-26)% increased Evasion Rating",
 		["affix"] = "Moose's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 33,
@@ -52995,6 +52955,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase4"] = {
 		"+(39-53) to Evasion Rating",
+		"(27-32)% increased Evasion Rating",
 		["affix"] = "Deer's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 46,
@@ -53034,6 +52995,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase5"] = {
 		"+(54-70) to Evasion Rating",
+		"(33-38)% increased Evasion Rating",
 		["affix"] = "Caribou's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 60,
@@ -53073,6 +53035,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndBase6"] = {
 		"+(71-90) to Evasion Rating",
+		"(39-42)% increased Evasion Rating",
 		["affix"] = "Antelope's",
 		["group"] = "LocalIncreasedEvasionAndBase",
 		["level"] = 78,
@@ -53350,6 +53313,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase1"] = {
 		"+(2-3) to Evasion Rating",
+		"+(2-4) to maximum Energy Shield",
+		"(6-13)% increased Evasion and Energy Shield",
 		["affix"] = "Pursuer's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 8,
@@ -53394,6 +53359,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase2"] = {
 		"+(4-14) to Evasion Rating",
+		"+(5-6) to maximum Energy Shield",
+		"(14-20)% increased Evasion and Energy Shield",
 		["affix"] = "Tracker's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 16,
@@ -53438,6 +53405,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase3"] = {
 		"+(15-21) to Evasion Rating",
+		"+(7-8) to maximum Energy Shield",
+		"(21-26)% increased Evasion and Energy Shield",
 		["affix"] = "Chaser's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 33,
@@ -53482,6 +53451,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase4"] = {
 		"+(22-29) to Evasion Rating",
+		"+(9-10) to maximum Energy Shield",
+		"(27-32)% increased Evasion and Energy Shield",
 		["affix"] = "Phantom's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 46,
@@ -53526,6 +53497,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase5"] = {
 		"+(30-39) to Evasion Rating",
+		"+(11-12) to maximum Energy Shield",
+		"(33-38)% increased Evasion and Energy Shield",
 		["affix"] = "Rogue's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 60,
@@ -53570,6 +53543,8 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndBase6"] = {
 		"+(40-50) to Evasion Rating",
+		"+(13-15) to maximum Energy Shield",
+		"(39-42)% increased Evasion and Energy Shield",
 		["affix"] = "Stalker's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndBase",
 		["level"] = 78,
@@ -53614,6 +53589,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife1"] = {
 		"(6-13)% increased Evasion and Energy Shield",
+		"+(7-10) to maximum Life",
 		["affix"] = "Poet's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 8,
@@ -53652,6 +53628,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife2"] = {
 		"(14-20)% increased Evasion and Energy Shield",
+		"+(11-19) to maximum Life",
 		["affix"] = "Musician's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 16,
@@ -53690,6 +53667,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife3"] = {
 		"(21-26)% increased Evasion and Energy Shield",
+		"+(20-25) to maximum Life",
 		["affix"] = "Troubadour's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 33,
@@ -53728,6 +53706,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife4"] = {
 		"(27-32)% increased Evasion and Energy Shield",
+		"+(26-32) to maximum Life",
 		["affix"] = "Bard's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 46,
@@ -53766,6 +53745,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife5"] = {
 		"(33-38)% increased Evasion and Energy Shield",
+		"+(33-41) to maximum Life",
 		["affix"] = "Minstrel's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 60,
@@ -53804,6 +53784,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndLife6"] = {
 		"(39-42)% increased Evasion and Energy Shield",
+		"+(42-49) to maximum Life",
 		["affix"] = "Maestro's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndLife",
 		["level"] = 78,
@@ -53842,6 +53823,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana1"] = {
 		"(6-13)% increased Evasion and Energy Shield",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Vulture's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 8,
@@ -53884,6 +53866,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana2"] = {
 		"(14-20)% increased Evasion and Energy Shield",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Kingfisher's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 16,
@@ -53926,6 +53909,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana3"] = {
 		"(21-26)% increased Evasion and Energy Shield",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Owl's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 33,
@@ -53968,6 +53952,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana4"] = {
 		"(27-32)% increased Evasion and Energy Shield",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Hawk's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 46,
@@ -54010,6 +53995,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana5"] = {
 		"(33-38)% increased Evasion and Energy Shield",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Eagle's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 60,
@@ -54052,6 +54038,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndEnergyShieldAndMana6"] = {
 		"(39-42)% increased Evasion and Energy Shield",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Falcon's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndMana",
 		["level"] = 78,
@@ -54094,6 +54081,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife1"] = {
 		"(6-13)% increased Evasion Rating",
+		"+(7-10) to maximum Life",
 		["affix"] = "Flea's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 8,
@@ -54131,6 +54119,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife2"] = {
 		"(14-20)% increased Evasion Rating",
+		"+(11-19) to maximum Life",
 		["affix"] = "Fawn's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 16,
@@ -54168,6 +54157,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife3"] = {
 		"(21-26)% increased Evasion Rating",
+		"+(20-25) to maximum Life",
 		["affix"] = "Mouflon's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 33,
@@ -54205,6 +54195,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife4"] = {
 		"(27-32)% increased Evasion Rating",
+		"+(26-32) to maximum Life",
 		["affix"] = "Ram's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 46,
@@ -54242,6 +54233,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife5"] = {
 		"(33-38)% increased Evasion Rating",
+		"+(33-41) to maximum Life",
 		["affix"] = "Ibex's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 60,
@@ -54279,6 +54271,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndLife6"] = {
 		"(39-42)% increased Evasion Rating",
+		"+(42-49) to maximum Life",
 		["affix"] = "Stag's",
 		["group"] = "LocalIncreasedEvasionAndLife",
 		["level"] = 78,
@@ -54316,6 +54309,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana1"] = {
 		"(6-13)% increased Evasion Rating",
+		"+(6-8) to maximum Mana",
 		["affix"] = "Nomad's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 8,
@@ -54357,6 +54351,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana2"] = {
 		"(14-20)% increased Evasion Rating",
+		"+(9-16) to maximum Mana",
 		["affix"] = "Drifter's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 16,
@@ -54398,6 +54393,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana3"] = {
 		"(21-26)% increased Evasion Rating",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Traveller's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 33,
@@ -54439,6 +54435,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana4"] = {
 		"(27-32)% increased Evasion Rating",
+		"+(21-26) to maximum Mana",
 		["affix"] = "Explorer's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 46,
@@ -54480,6 +54477,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana5"] = {
 		"(33-38)% increased Evasion Rating",
+		"+(27-32) to maximum Mana",
 		["affix"] = "Wayfarer's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 60,
@@ -54521,6 +54519,7 @@ return {
 	},
 	["LocalIncreasedEvasionAndMana6"] = {
 		"(39-42)% increased Evasion Rating",
+		"+(33-39) to maximum Mana",
 		["affix"] = "Wanderer's",
 		["group"] = "LocalIncreasedEvasionAndMana",
 		["level"] = 78,
@@ -55439,6 +55438,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating1"] = {
 		"(15-19)% increased Physical Damage",
+		"+(16-20) to Accuracy Rating",
 		["affix"] = "Squire's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 8,
@@ -55472,6 +55472,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating2"] = {
 		"(20-24)% increased Physical Damage",
+		"+(21-46) to Accuracy Rating",
 		["affix"] = "Journeyman's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 14,
@@ -55505,6 +55506,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating3"] = {
 		"(25-34)% increased Physical Damage",
+		"+(47-72) to Accuracy Rating",
 		["affix"] = "Reaver's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 23,
@@ -55538,6 +55540,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating4"] = {
 		"(35-44)% increased Physical Damage",
+		"+(73-97) to Accuracy Rating",
 		["affix"] = "Mercenary's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 38,
@@ -55571,6 +55574,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating5"] = {
 		"(45-54)% increased Physical Damage",
+		"+(98-123) to Accuracy Rating",
 		["affix"] = "Champion's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 54,
@@ -55604,6 +55608,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating6"] = {
 		"(55-64)% increased Physical Damage",
+		"+(124-149) to Accuracy Rating",
 		["affix"] = "Conqueror's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 65,
@@ -55637,6 +55642,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating7"] = {
 		"(65-74)% increased Physical Damage",
+		"+(150-174) to Accuracy Rating",
 		["affix"] = "Emperor's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 70,
@@ -55670,6 +55676,7 @@ return {
 	},
 	["LocalIncreasedPhysicalDamagePercentAndAccuracyRating8"] = {
 		"(75-79)% increased Physical Damage",
+		"+(175-200) to Accuracy Rating",
 		["affix"] = "Dictator's",
 		["group"] = "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
 		["level"] = 81,
@@ -56276,11 +56283,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana1"] = {
 		"(10-14)% increased Spirit",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Advisor's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 2,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56306,11 +56313,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana2"] = {
 		"(15-18)% increased Spirit",
+		"+(21-24) to maximum Mana",
 		["affix"] = "Counselor's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 11,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56336,11 +56343,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana3"] = {
 		"(19-22)% increased Spirit",
+		"+(25-28) to maximum Mana",
 		["affix"] = "Emissary's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 26,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56366,11 +56373,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana4"] = {
 		"(23-26)% increased Spirit",
+		"+(29-33) to maximum Mana",
 		["affix"] = "Minister's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 36,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56396,11 +56403,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana5"] = {
 		"(27-30)% increased Spirit",
+		"+(34-37) to maximum Mana",
 		["affix"] = "Envoy's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56426,11 +56433,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana6"] = {
 		"(31-34)% increased Spirit",
+		"+(38-41) to maximum Mana",
 		["affix"] = "Diplomat's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56456,11 +56463,11 @@ return {
 	},
 	["LocalIncreasedSpiritAndMana7"] = {
 		"(35-38)% increased Spirit",
+		"+(42-45) to maximum Mana",
 		["affix"] = "Chancellor's",
 		["group"] = "LocalIncreasedSpiritAndMana",
 		["level"] = 70,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56490,7 +56497,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56516,7 +56522,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 8,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56542,7 +56547,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 16,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56568,7 +56572,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 33,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56594,7 +56597,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 46,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56620,7 +56622,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56646,7 +56647,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56672,7 +56672,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -56694,6 +56693,7 @@ return {
 	},
 	["LocalLightRadiusAndAccuracy1"] = {
 		"+(10-20) to Accuracy Rating",
+		"5% increased Light Radius",
 		["affix"] = "of Shining",
 		["group"] = "LocalLightRadiusAndAccuracy",
 		["level"] = 8,
@@ -56724,6 +56724,7 @@ return {
 	},
 	["LocalLightRadiusAndAccuracy2"] = {
 		"+(21-40) to Accuracy Rating",
+		"10% increased Light Radius",
 		["affix"] = "of Light",
 		["group"] = "LocalLightRadiusAndAccuracy",
 		["level"] = 15,
@@ -56754,6 +56755,7 @@ return {
 	},
 	["LocalLightRadiusAndAccuracy3"] = {
 		"+(41-60) to Accuracy Rating",
+		"15% increased Light Radius",
 		["affix"] = "of Radiance",
 		["group"] = "LocalLightRadiusAndAccuracy",
 		["level"] = 30,
@@ -57935,7 +57937,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2378,
@@ -57959,7 +57960,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -57985,7 +57985,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -58011,7 +58010,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5515,
@@ -58037,7 +58035,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5515,
@@ -58063,7 +58060,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -58089,7 +58085,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -58193,7 +58188,6 @@ return {
 		["group"] = "MarkDuration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8822,
@@ -58219,7 +58213,6 @@ return {
 		["group"] = "MarkDuration",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8822,
@@ -58245,7 +58238,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2378,
@@ -58271,7 +58263,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2378,
@@ -58297,7 +58288,6 @@ return {
 		["group"] = "MarkSkillGemLevels",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8823,
@@ -58323,7 +58313,6 @@ return {
 		["group"] = "MarkSkillGemLevels",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8823,
@@ -58349,7 +58338,6 @@ return {
 		["group"] = "MarkUseSpeed",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1946,
@@ -58375,7 +58363,6 @@ return {
 		["group"] = "MarkUseSpeed",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1946,
@@ -58479,7 +58466,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevel",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -58505,7 +58491,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevel",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -58609,7 +58594,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -58635,7 +58619,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -58661,7 +58644,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -64266,7 +64248,6 @@ return {
 		["group"] = "OnslaughtWhenHitChance",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6823,
@@ -64290,7 +64271,6 @@ return {
 		["group"] = "OnslaughtWhenHitForDuration",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2583,
@@ -65080,6 +65060,7 @@ return {
 	},
 	["PoisonDurationEnhancedMod"] = {
 		"(26-30)% increased Chaos Damage",
+		"(13-18)% increased Poison Duration",
 		["affix"] = "of Tacati",
 		["group"] = "PoisonDurationChaosDamage",
 		["level"] = 1,
@@ -66177,7 +66158,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 24,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -66221,7 +66201,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 32,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -66265,7 +66244,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 40,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -66309,7 +66287,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 52,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -66353,7 +66330,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -66777,7 +66753,6 @@ return {
 		["group"] = "ReflectDamageTaken",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9714,
@@ -66801,7 +66776,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 24,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -66829,7 +66803,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 37,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -66857,7 +66830,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 49,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -66885,7 +66857,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 61,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -66913,7 +66884,6 @@ return {
 		["group"] = "RemnantGrantEffectTwiceChance",
 		["level"] = 73,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5804,
@@ -66941,7 +66911,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 26,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -66969,7 +66938,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -66997,7 +66965,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 51,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -67025,7 +66992,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 64,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -67053,7 +67019,6 @@ return {
 		["group"] = "RemnantPickupRadiusIncrease",
 		["level"] = 76,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9738,
@@ -67576,6 +67541,7 @@ return {
 	},
 	["SoulInfluenceIncreasedLifeAndMana"] = {
 		"+(19-189) to maximum Life",
+		"+(19-189) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "BaseLifeAndMana",
 		["level"] = 65,
@@ -67666,7 +67632,6 @@ return {
 		["group"] = "MaximumSpiritPercentageAllowBaseSpirit",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1417,
@@ -67720,6 +67685,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridArmour"] = {
 		"(6-52)% increased Armour",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndManaNoLife",
 		["level"] = 65,
@@ -67763,6 +67729,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridArmourEnergyShield"] = {
 		"(6-52)% increased Armour and Energy Shield",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndManaNoLife",
 		["level"] = 65,
@@ -67807,6 +67774,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridArmourEvasion"] = {
 		"(6-52)% increased Armour and Evasion",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndManaNoLife",
 		["level"] = 65,
@@ -67851,6 +67819,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridEnergyShield"] = {
 		"(6-52)% increased Energy Shield",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEnergyShieldAndManaNoLife",
 		["level"] = 65,
@@ -67894,6 +67863,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridEvasion"] = {
 		"(6-52)% increased Evasion Rating",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEvasionAndManaNoLife",
 		["level"] = 65,
@@ -67937,6 +67907,7 @@ return {
 	},
 	["SoulInfluenceManaDefencesHybridEvasionEnergyShield"] = {
 		"(6-52)% increased Evasion and Energy Shield",
+		"+(7-57) to maximum Mana",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndManaNoLife",
 		["level"] = 65,
@@ -68042,6 +68013,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridArmour"] = {
 		"(6-52)% increased Armour",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndSpiritNoLife",
 		["level"] = 65,
@@ -68083,6 +68055,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridArmourEnergyShield"] = {
 		"(6-52)% increased Armour and Energy Shield",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndEnergyShieldAndSpiritNoLife",
 		["level"] = 65,
@@ -68125,6 +68098,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridArmourEvasion"] = {
 		"(6-52)% increased Armour and Evasion",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedArmourAndEvasionAndSpiritNoLife",
 		["level"] = 65,
@@ -68167,6 +68141,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridEnergyShield"] = {
 		"(6-52)% increased Energy Shield",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEnergyShieldAndSpiritNoLife",
 		["level"] = 65,
@@ -68208,6 +68183,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridEvasion"] = {
 		"(6-52)% increased Evasion Rating",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEvasionAndSpiritNoLife",
 		["level"] = 65,
@@ -68249,6 +68225,7 @@ return {
 	},
 	["SoulInfluenceSpiritDefencesHybridEvasionEnergyShield"] = {
 		"(6-52)% increased Evasion and Energy Shield",
+		"+(1-24) to Spirit",
 		["affix"] = "Medved's",
 		["group"] = "LocalIncreasedEvasionAndEnergyShieldAndSpiritNoLife",
 		["level"] = 65,
@@ -71655,6 +71632,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon1"] = {
 		"(30-38)% increased Spell Damage",
+		"+(34-40) to maximum Mana",
 		["affix"] = "Caster's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 2,
@@ -71689,6 +71667,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon2"] = {
 		"(39-48)% increased Spell Damage",
+		"+(41-48) to maximum Mana",
 		["affix"] = "Conjuror's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 11,
@@ -71723,6 +71702,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon3"] = {
 		"(49-58)% increased Spell Damage",
+		"+(49-56) to maximum Mana",
 		["affix"] = "Wizard's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 23,
@@ -71757,6 +71737,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon4"] = {
 		"(59-68)% increased Spell Damage",
+		"+(57-66) to maximum Mana",
 		["affix"] = "Warlock's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 38,
@@ -71791,6 +71772,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon5"] = {
 		"(69-78)% increased Spell Damage",
+		"+(67-74) to maximum Mana",
 		["affix"] = "Mage's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 48,
@@ -71825,6 +71807,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon6"] = {
 		"(79-88)% increased Spell Damage",
+		"+(75-82) to maximum Mana",
 		["affix"] = "Archmage's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 63,
@@ -71859,6 +71842,7 @@ return {
 	},
 	["SpellDamageAndManaOnTwoHandWeapon7"] = {
 		"(89-98)% increased Spell Damage",
+		"+(83-90) to maximum Mana",
 		["affix"] = "Lich's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 79,
@@ -71893,6 +71877,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon1"] = {
 		"(15-19)% increased Spell Damage",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Caster's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 2,
@@ -71927,6 +71912,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon2"] = {
 		"(20-24)% increased Spell Damage",
+		"+(21-24) to maximum Mana",
 		["affix"] = "Conjuror's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 11,
@@ -71961,6 +71947,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon3"] = {
 		"(25-29)% increased Spell Damage",
+		"+(25-28) to maximum Mana",
 		["affix"] = "Wizard's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 23,
@@ -71995,6 +71982,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon4"] = {
 		"(30-34)% increased Spell Damage",
+		"+(29-33) to maximum Mana",
 		["affix"] = "Warlock's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 38,
@@ -72029,6 +72017,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon5"] = {
 		"(35-39)% increased Spell Damage",
+		"+(34-37) to maximum Mana",
 		["affix"] = "Mage's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 46,
@@ -72063,6 +72052,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon6"] = {
 		"(40-44)% increased Spell Damage",
+		"+(38-41) to maximum Mana",
 		["affix"] = "Archmage's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 60,
@@ -72097,6 +72087,7 @@ return {
 	},
 	["SpellDamageAndManaOnWeapon7"] = {
 		"(45-49)% increased Spell Damage",
+		"+(42-45) to maximum Mana",
 		["affix"] = "Lich's",
 		["group"] = "WeaponSpellDamageAndMana",
 		["level"] = 80,
@@ -74055,6 +74046,7 @@ return {
 	},
 	["SpiritMinionEssence1"] = {
 		"Triggers Level 20 Spectral Spirits when Equipped",
+		"+3 to maximum number of Spectral Spirits",
 		["affix"] = "of the Essence",
 		["group"] = "GrantsEssenceMinion",
 		["level"] = 63,
@@ -74543,7 +74535,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74567,7 +74558,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74591,7 +74581,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74615,7 +74604,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74639,7 +74627,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74663,7 +74650,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74687,7 +74673,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -74711,7 +74696,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 5,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74739,7 +74723,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 20,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74767,7 +74750,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 30,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74795,7 +74777,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74823,7 +74804,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74851,7 +74831,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 74,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -74879,7 +74858,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 5,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -74907,7 +74885,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 18,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -74935,7 +74912,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 30,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -74963,7 +74939,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -74991,7 +74966,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -75019,7 +74993,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 71,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -75047,7 +75020,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75079,7 +75051,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 72,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75111,7 +75082,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 80,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75137,7 +75107,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 8,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75169,7 +75138,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 15,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75201,7 +75169,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 22,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75233,7 +75200,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 29,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75265,7 +75231,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 36,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75297,7 +75262,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75329,7 +75293,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 54,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75361,7 +75324,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -75515,7 +75477,6 @@ return {
 		["group"] = "ChargeChanceToNotConsume",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5603,
@@ -75541,7 +75502,6 @@ return {
 		["group"] = "ChargeChanceToNotConsume",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5603,
@@ -75567,7 +75527,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -75593,7 +75552,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 55,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -75619,7 +75577,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -75645,7 +75602,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -75671,7 +75627,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -75697,7 +75652,6 @@ return {
 		["group"] = "DodgeRollDistance",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6200,
@@ -75723,7 +75677,6 @@ return {
 		["group"] = "DodgeRollDistance",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6200,
@@ -75749,7 +75702,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -75775,7 +75727,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 55,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -75801,7 +75752,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -75823,6 +75773,7 @@ return {
 	},
 	["TimeInfluenceMovementSpeed1"] = {
 		"(24-26)% increased Movement Speed",
+		"(10-15)% reduced Slowing Potency of Debuffs on You",
 		["affix"] = "Uhtred's",
 		["group"] = "MovementVelocitySlowPotencyHybrid",
 		["level"] = 65,
@@ -75853,6 +75804,7 @@ return {
 	},
 	["TimeInfluenceMovementSpeed2"] = {
 		"(27-29)% increased Movement Speed",
+		"(16-20)% reduced Slowing Potency of Debuffs on You",
 		["affix"] = "Uhtred's",
 		["group"] = "MovementVelocitySlowPotencyHybrid",
 		["level"] = 70,
@@ -75883,6 +75835,7 @@ return {
 	},
 	["TimeInfluenceMovementSpeed3"] = {
 		"(30-32)% increased Movement Speed",
+		"(21-25)% reduced Slowing Potency of Debuffs on You",
 		["affix"] = "Uhtred's",
 		["group"] = "MovementVelocitySlowPotencyHybrid",
 		["level"] = 78,
@@ -75969,7 +75922,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 11,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -75995,7 +75947,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 21,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -76021,7 +75972,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 28,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -76047,7 +75997,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 41,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -76073,7 +76022,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 59,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -76099,7 +76047,6 @@ return {
 		["group"] = "TrapCriticalStrikeChance",
 		["level"] = 76,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			979,
@@ -76125,7 +76072,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 8,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76151,7 +76097,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 21,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76177,7 +76122,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 30,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76203,7 +76147,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76229,7 +76172,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 59,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76255,7 +76197,6 @@ return {
 		["group"] = "TrapCriticalStrikeMultiplier",
 		["level"] = 73,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			984,
@@ -76277,11 +76218,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon1"] = {
 		"(15-19)% increased Trap Damage",
+		"+(17-20) to maximum Mana",
 		["affix"] = "Sapper's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 2,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76307,11 +76248,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon2"] = {
 		"(20-24)% increased Trap Damage",
+		"+(21-24) to maximum Mana",
 		["affix"] = "Saboteur's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 11,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76337,11 +76278,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon3"] = {
 		"(25-29)% increased Trap Damage",
+		"+(25-28) to maximum Mana",
 		["affix"] = "Tinkerer's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 23,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76367,11 +76308,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon4"] = {
 		"(30-34)% increased Trap Damage",
+		"+(29-33) to maximum Mana",
 		["affix"] = "Mechanic's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 35,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76397,11 +76338,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon5"] = {
 		"(35-39)% increased Trap Damage",
+		"+(34-37) to maximum Mana",
 		["affix"] = "Engineer's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76427,11 +76368,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon6"] = {
 		"(40-44)% increased Trap Damage",
+		"+(38-41) to maximum Mana",
 		["affix"] = "Inventor's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,
@@ -76457,11 +76398,11 @@ return {
 	},
 	["TrapDamageAndManaOnWeapon7"] = {
 		"(45-49)% increased Trap Damage",
+		"+(42-45) to maximum Mana",
 		["affix"] = "Artificer's",
 		["group"] = "WeaponTrapDamageAndMana",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			872,

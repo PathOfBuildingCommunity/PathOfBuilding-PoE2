@@ -7,6 +7,7 @@
 return {
 	["FlaskBleedCorruptingBloodImmunity1"] = {
 		"Grants Immunity to Bleeding for (6-8) seconds if used while Bleeding",
+		"Grants Immunity to Corrupted Blood for (6-8) seconds if used while affected by Corrupted Blood",
 		["affix"] = "of Sealing",
 		["group"] = "FlaskBleedCorruptingBloodImmunity",
 		["level"] = 8,
@@ -33,6 +34,7 @@ return {
 	},
 	["FlaskBleedingAndCorruptedBloodImmunityDuringEffect_1"] = {
 		"(45-49)% less Duration",
+		"Immunity to Bleeding and Corrupted Blood during Effect",
 		["affix"] = "of the Lizard",
 		["group"] = "FlaskBleedingAndCorruptedBloodImmunityDuringEffect",
 		["level"] = 8,
@@ -421,6 +423,7 @@ return {
 	},
 	["FlaskChillFreezeImmunity1"] = {
 		"Grants Immunity to Chill for (6-8) seconds if used while Chilled",
+		"Grants Immunity to Freeze for (6-8) seconds if used while Frozen",
 		["affix"] = "of Convection",
 		["group"] = "FlaskChillFreezeImmunity",
 		["level"] = 4,
@@ -617,6 +620,7 @@ return {
 	},
 	["FlaskExtraLifeCostsMana1"] = {
 		"(61-68)% increased Life Recovered",
+		"Removes 15% of Life Recovered from Mana when used",
 		["affix"] = "Impairing",
 		["group"] = "FlaskExtraLifeCostsMana",
 		["level"] = 13,
@@ -650,6 +654,7 @@ return {
 	},
 	["FlaskExtraLifeCostsMana2"] = {
 		"(69-76)% increased Life Recovered",
+		"Removes 15% of Life Recovered from Mana when used",
 		["affix"] = "Dizzying",
 		["group"] = "FlaskExtraLifeCostsMana",
 		["level"] = 30,
@@ -683,6 +688,7 @@ return {
 	},
 	["FlaskExtraLifeCostsMana3"] = {
 		"(77-84)% increased Life Recovered",
+		"Removes 15% of Life Recovered from Mana when used",
 		["affix"] = "Depleting",
 		["group"] = "FlaskExtraLifeCostsMana",
 		["level"] = 47,
@@ -716,6 +722,7 @@ return {
 	},
 	["FlaskExtraLifeCostsMana4"] = {
 		"(85-92)% increased Life Recovered",
+		"Removes 15% of Life Recovered from Mana when used",
 		["affix"] = "Vitiating",
 		["group"] = "FlaskExtraLifeCostsMana",
 		["level"] = 64,
@@ -749,6 +756,7 @@ return {
 	},
 	["FlaskExtraLifeCostsMana5_"] = {
 		"(93-100)% increased Life Recovered",
+		"Removes 15% of Life Recovered from Mana when used",
 		["affix"] = "Sapping",
 		["group"] = "FlaskExtraLifeCostsMana",
 		["level"] = 81,
@@ -782,6 +790,7 @@ return {
 	},
 	["FlaskExtraManaCostsLife1"] = {
 		"(61-68)% increased Mana Recovered",
+		"Removes 15% of Mana Recovered from Life when used",
 		["affix"] = "Aged",
 		["group"] = "FlaskExtraManaCostsLife",
 		["level"] = 13,
@@ -815,6 +824,7 @@ return {
 	},
 	["FlaskExtraManaCostsLife2"] = {
 		"(69-76)% increased Mana Recovered",
+		"Removes 15% of Mana Recovered from Life when used",
 		["affix"] = "Fermented",
 		["group"] = "FlaskExtraManaCostsLife",
 		["level"] = 30,
@@ -848,6 +858,7 @@ return {
 	},
 	["FlaskExtraManaCostsLife3_"] = {
 		"(77-84)% increased Mana Recovered",
+		"Removes 15% of Mana Recovered from Life when used",
 		["affix"] = "Congealed",
 		["group"] = "FlaskExtraManaCostsLife",
 		["level"] = 47,
@@ -881,6 +892,7 @@ return {
 	},
 	["FlaskExtraManaCostsLife4"] = {
 		"(85-92)% increased Mana Recovered",
+		"Removes 15% of Mana Recovered from Life when used",
 		["affix"] = "Turbid",
 		["group"] = "FlaskExtraManaCostsLife",
 		["level"] = 64,
@@ -914,6 +926,7 @@ return {
 	},
 	["FlaskExtraManaCostsLife5_"] = {
 		"(93-100)% increased Mana Recovered",
+		"Removes 15% of Mana Recovered from Life when used",
 		["affix"] = "Caustic",
 		["group"] = "FlaskExtraManaCostsLife",
 		["level"] = 81,
@@ -951,7 +964,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 8,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -975,7 +987,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 26,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -999,7 +1010,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -1019,6 +1029,7 @@ return {
 	},
 	["FlaskFreezeAndChillImmunityDuringEffect"] = {
 		"(45-49)% less Duration",
+		"Immunity to Freeze and Chill during Effect",
 		["affix"] = "of the Deer",
 		["group"] = "FlaskFreezeAndChillImmunityDuringEffect",
 		["level"] = 4,
@@ -1047,6 +1058,7 @@ return {
 	},
 	["FlaskFullInstantRecovery1"] = {
 		"50% reduced Amount Recovered",
+		"Instant Recovery",
 		["affix"] = "Seething",
 		["group"] = "FlaskFullInstantRecovery",
 		["level"] = 42,
@@ -1224,6 +1236,7 @@ return {
 	},
 	["FlaskIgniteImmunity1"] = {
 		"Grants Immunity to Ignite for (6-8) seconds if used while Ignited",
+		"Removes all Burning when used",
 		["affix"] = "of Damping",
 		["group"] = "FlaskIgniteImmunity",
 		["level"] = 6,
@@ -1250,6 +1263,8 @@ return {
 	},
 	["FlaskIgniteImmunityDuringEffect_"] = {
 		"(45-49)% less Duration",
+		"Immunity to Ignite during Effect",
+		"Removes Burning on use",
 		["affix"] = "of the Urchin",
 		["group"] = "FlaskIgniteImmunityDuringEffect",
 		["level"] = 6,
@@ -2040,6 +2055,7 @@ return {
 	},
 	["FlaskPoisonImmunityDuringEffect"] = {
 		"(45-49)% less Duration",
+		"Immunity to Poison during Effect",
 		["affix"] = "of the Skunk",
 		["group"] = "FlaskPoisonImmunityDuringEffect",
 		["level"] = 16,
@@ -2092,6 +2108,7 @@ return {
 	},
 	["FlaskShockImmunityDuringEffect"] = {
 		"(45-49)% less Duration",
+		"Immunity to Shock during Effect",
 		["affix"] = "of the Conger",
 		["group"] = "FlaskShockImmunityDuringEffect",
 		["level"] = 6,

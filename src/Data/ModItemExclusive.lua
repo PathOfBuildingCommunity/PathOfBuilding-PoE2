@@ -11,7 +11,6 @@ return {
 		["group"] = "AbyssalWastingOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4127,
@@ -28,6 +27,7 @@ return {
 	},
 	["AccuracyAndCritsJewel"] = {
 		"(6-10)% increased Critical Hit Chance",
+		"(6-10)% increased Accuracy Rating",
 		["affix"] = "of Deadliness",
 		["group"] = "AccuracyAndCritsForJewel",
 		["level"] = 1,
@@ -104,7 +104,6 @@ return {
 		["group"] = "Acrobatics",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10676,
@@ -125,7 +124,6 @@ return {
 		["group"] = "ActorSize",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1792,
@@ -146,7 +144,6 @@ return {
 		["group"] = "ActorSize",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1792,
@@ -167,7 +164,6 @@ return {
 		["group"] = "ActorSize",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1792,
@@ -276,6 +272,7 @@ return {
 	},
 	["AddedChaosDamageVsEnemiesWith5PoisonsUnique__1"] = {
 		"Attacks with this Weapon deal 80 to 120 added Chaos Damage against",
+		"Enemies affected by at least 5 Poisons",
 		["affix"] = "",
 		["group"] = "AddedChaosDamageVsEnemiesWith5Poisons",
 		["level"] = 1,
@@ -484,7 +481,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -501,6 +497,7 @@ return {
 	},
 	["AddedLightningDamagePerDexInRadiusUniqueJewel53"] = {
 		"Adds 1 to 2 Lightning damage to Attacks",
+		"Adds 1 maximum Lightning Damage to Attacks per 1 Dexterity Allocated in Radius",
 		["affix"] = "",
 		["group"] = "AddedLightningDamagePerDexInRadius",
 		["level"] = 1,
@@ -1413,7 +1410,6 @@ return {
 		["group"] = "AdditionalChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1548,
@@ -1434,7 +1430,6 @@ return {
 		["group"] = "AdditionalChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1548,
@@ -1455,7 +1450,6 @@ return {
 		["group"] = "AdditionalChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1548,
@@ -1476,7 +1470,6 @@ return {
 		["group"] = "AdditionalChainWhileAtMaxFrenzyCharges",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1581,
@@ -1693,7 +1686,6 @@ return {
 		["group"] = "AdditionalPierceWhilePhasing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9573,
@@ -1710,6 +1702,7 @@ return {
 	},
 	["AdditionalProjectilesAfterAmmoConsumedUniqueBelt__1"] = {
 		"Skills Fire 3 additional Projectiles for 4 seconds after",
+		"you consume a total of 12 Steel Shards",
 		["affix"] = "",
 		["group"] = "AdditionalProjectilesAfterAmmoConsumed",
 		["level"] = 1,
@@ -1758,7 +1751,6 @@ return {
 		["group"] = "AdditionalTotemProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2811,
@@ -1779,7 +1771,6 @@ return {
 		["group"] = "AdditionalTotems",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1978,
@@ -2012,7 +2003,6 @@ return {
 		["group"] = "AllDamageCanChill",
 		["level"] = 21,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2614,
@@ -2057,7 +2047,6 @@ return {
 		["group"] = "AllDamageTakenCanChill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2617,
@@ -2078,7 +2067,6 @@ return {
 		["group"] = "AllDamageTakenCanChill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2617,
@@ -2099,7 +2087,6 @@ return {
 		["group"] = "AllDamageTakenCanIgnite",
 		["level"] = 20,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4275,
@@ -2477,7 +2464,6 @@ return {
 		["group"] = "AllocateDisconnectedPassivesDonut",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			814,
@@ -2592,7 +2578,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -2656,7 +2641,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfHelmet",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7743,
@@ -2782,11 +2766,11 @@ return {
 	},
 	["AmuletImplicitPrefixSuffixAllowed1"] = {
 		"+1 Prefix Modifier allowed",
+		"-1 Suffix Modifier allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2807,11 +2791,11 @@ return {
 	},
 	["AmuletImplicitPrefixSuffixAllowed2"] = {
 		"-1 Prefix Modifier allowed",
+		"+1 Suffix Modifier allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2832,11 +2816,11 @@ return {
 	},
 	["AmuletImplicitPrefixSuffixAllowed3"] = {
 		"+2 Prefix Modifiers allowed",
+		"-2 Suffix Modifiers allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2857,11 +2841,11 @@ return {
 	},
 	["AmuletImplicitPrefixSuffixAllowed4"] = {
 		"-2 Prefix Modifiers allowed",
+		"+2 Suffix Modifiers allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2886,7 +2870,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2909,7 +2892,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			19,
@@ -2932,7 +2914,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 53,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -2955,7 +2936,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 53,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			19,
@@ -2974,11 +2954,11 @@ return {
 	},
 	["AmuletImplicitPrefixSuffixAllowed9"] = {
 		"-1 Prefix Modifier allowed",
+		"-1 Suffix Modifier allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 62,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -3088,7 +3068,6 @@ return {
 		["group"] = "ArcaneVision",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2503,
@@ -3109,7 +3088,6 @@ return {
 		["group"] = "ArcticArmourBuffEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3679,
@@ -3130,7 +3108,6 @@ return {
 		["group"] = "ArcticArmourNoReservation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4355,
@@ -3300,7 +3277,6 @@ return {
 		["group"] = "AreaOfEffectPer25RampageStacks",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4036,
@@ -3321,7 +3297,6 @@ return {
 		["group"] = "AreaOfEffectPerEnduranceCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4369,
@@ -3361,6 +3336,7 @@ return {
 	},
 	["ArmourEnergyShieldJewel"] = {
 		"(6-12)% increased Armour",
+		"(2-4)% increased maximum Energy Shield",
 		["affix"] = "Paladin's",
 		["group"] = "ArmourEnergyShieldForJewel",
 		["level"] = 1,
@@ -3390,6 +3366,7 @@ return {
 	},
 	["ArmourEvasionJewel"] = {
 		"(6-12)% increased Armour",
+		"(6-12)% increased Evasion Rating",
 		["affix"] = "Fighter's",
 		["group"] = "ArmourEvasionForJewel",
 		["level"] = 1,
@@ -5056,7 +5033,6 @@ return {
 		["group"] = "AttacksChainInMainHand",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3847,
@@ -5124,7 +5100,6 @@ return {
 		["group"] = "AttacksExtraProjectileInOffHand",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3850,
@@ -5389,7 +5364,6 @@ return {
 		["group"] = "AvianAspectBuffEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4459,
@@ -5410,7 +5384,6 @@ return {
 		["group"] = "AviansFlightDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4598,
@@ -5499,7 +5472,6 @@ return {
 		["group"] = "AviansMightDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4599,
@@ -5734,7 +5706,6 @@ return {
 		["group"] = "CannotBeIgnited",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1595,
@@ -5755,7 +5726,6 @@ return {
 		["group"] = "CannotBeIgnited",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1595,
@@ -5776,7 +5746,6 @@ return {
 		["group"] = "CannotBeIgnited",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1595,
@@ -5822,7 +5791,6 @@ return {
 		["group"] = "AvoidStunForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -5845,7 +5813,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -5866,7 +5833,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -5947,7 +5913,6 @@ return {
 		["group"] = "LocalAccuracyUnaffectedDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7922,
@@ -5968,7 +5933,6 @@ return {
 		["group"] = "CannotBeThrown",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7637,
@@ -5989,7 +5953,6 @@ return {
 		["group"] = "LocalCullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7652,
@@ -6010,7 +5973,6 @@ return {
 		["group"] = "DamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1963,
@@ -6099,7 +6061,6 @@ return {
 		["group"] = "LocalRageOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7705,
@@ -6187,7 +6148,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -6365,7 +6325,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfBoots",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7741,
@@ -6518,7 +6477,6 @@ return {
 		["group"] = "AllFlaskChargeGeneration",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6888,
@@ -6602,7 +6560,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -6623,7 +6580,6 @@ return {
 		["group"] = "InstantFlaskRecoveryPercent",
 		["level"] = 69,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6646,
@@ -7006,7 +6962,6 @@ return {
 		["group"] = "BestiaryLeague",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8676,
@@ -7023,6 +6978,7 @@ return {
 	},
 	["BleedChanceAndDurationForJewel__"] = {
 		"Attacks have (3-5)% chance to cause Bleeding",
+		"(12-16)% increased Bleeding Duration",
 		["affix"] = "of Bleeding",
 		["group"] = "BleedChanceAndDurationForJewel",
 		["level"] = 1,
@@ -7104,6 +7060,7 @@ return {
 	},
 	["BleedingEnemiesExplodeUnique__1"] = {
 		"Bleeding Enemies you Kill Explode, dealing 5% of",
+		"their Maximum Life as Physical Damage",
 		["affix"] = "",
 		["group"] = "BleedingEnemiesExplode",
 		["level"] = 1,
@@ -7133,7 +7090,6 @@ return {
 		["group"] = "BleedingEnemiesFleeOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3471,
@@ -7244,7 +7200,6 @@ return {
 		["group"] = "ImmunityToBlind",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2719,
@@ -7265,7 +7220,6 @@ return {
 		["group"] = "ImmunityToBlind",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2719,
@@ -7307,7 +7261,6 @@ return {
 		["group"] = "BlindingHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2013,
@@ -7884,7 +7837,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -7905,7 +7857,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -8174,7 +8125,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -8355,7 +8305,6 @@ return {
 		["group"] = "LocalAdditionalChainChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7603,
@@ -8376,7 +8325,6 @@ return {
 		["group"] = "LocalIncreasedProjectileAttackRange",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9539,
@@ -8441,7 +8389,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -8669,7 +8616,6 @@ return {
 		["group"] = "CanOnlyKillFrozenEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2756,
@@ -8753,7 +8699,6 @@ return {
 		["group"] = "CannotBeChilled",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1592,
@@ -8774,7 +8719,6 @@ return {
 		["group"] = "CannotBeChilled",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1592,
@@ -8818,7 +8762,6 @@ return {
 		["group"] = "CannotBeChilledOrFrozen",
 		["level"] = 31,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1593,
@@ -8839,7 +8782,6 @@ return {
 		["group"] = "CannotBeChilledOrFrozen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1593,
@@ -8906,7 +8848,6 @@ return {
 		["group"] = "CannotBeKnockedBack",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1410,
@@ -8950,7 +8891,6 @@ return {
 		["group"] = "CannotBeShocked",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1597,
@@ -9061,7 +9001,6 @@ return {
 		["group"] = "CannotBeStunned",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1914,
@@ -9082,7 +9021,6 @@ return {
 		["group"] = "CannotBeStunnedByAttacksElderItem",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3997,
@@ -9103,7 +9041,6 @@ return {
 		["group"] = "CannotBeStunnedBySpellsShaperItem",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3996,
@@ -9124,7 +9061,6 @@ return {
 		["group"] = "CannotBeStunnedOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1915,
@@ -9145,7 +9081,6 @@ return {
 		["group"] = "CannotBeStunned",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1914,
@@ -9273,7 +9208,6 @@ return {
 		["group"] = "CannotDieToElementalReflect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2448,
@@ -9315,7 +9249,6 @@ return {
 		["group"] = "CannotKnockBack",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2746,
@@ -9384,7 +9317,6 @@ return {
 		["group"] = "CannotLeechMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2350,
@@ -9405,7 +9337,6 @@ return {
 		["group"] = "CannotLeechMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2350,
@@ -9426,7 +9357,6 @@ return {
 		["group"] = "CannotLeechOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2352,
@@ -9539,6 +9469,7 @@ return {
 	},
 	["CastSocketedMinionSpellsOnKillUniqueBow12"] = {
 		"Trigger Socketed Minion Spells on Kill with this Weapon",
+		"Minion Spells Triggered by this Item have a 0.25 second Cooldown with 5 Uses",
 		["affix"] = "",
 		["group"] = "CastSocketedMinionSpellsOnKill",
 		["level"] = 1,
@@ -9642,7 +9573,6 @@ return {
 		["group"] = "LocalDisplayNearbyEnemiesAreCoveredInAsh",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7674,
@@ -10026,7 +9956,6 @@ return {
 		["group"] = "CelestialFootprints",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10752,
@@ -10047,7 +9976,6 @@ return {
 		["group"] = "ChanceForDoubleStunDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3249,
@@ -10068,7 +9996,6 @@ return {
 		["group"] = "ChanceForDoubleStunDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3249,
@@ -10282,7 +10209,6 @@ return {
 		["group"] = "ChanceToAvoidProjectilesWhilePhasing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4615,
@@ -10303,7 +10229,6 @@ return {
 		["group"] = "ProjectilesAlwaysPierceYou",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9563,
@@ -10480,6 +10405,7 @@ return {
 	},
 	["ChanceToCastOnManaSpentUnique__1"] = {
 		"50% chance to Trigger Socketed Spells when you Spend at least 100 Mana on an",
+		"Upfront Cost to Use or Trigger a Skill, with a 0.1 second Cooldown",
 		["affix"] = "",
 		["group"] = "ChanceToCastOnManaSpent",
 		["level"] = 1,
@@ -10894,6 +10820,7 @@ return {
 	},
 	["ChanceToGainMaximumPowerChargesUnique__1_"] = {
 		"25% chance that if you would gain Power Charges, you instead gain up to",
+		"your maximum number of Power Charges",
 		["affix"] = "",
 		["group"] = "ChanceToGainMaximumPowerCharges",
 		["level"] = 1,
@@ -11635,7 +11562,6 @@ return {
 		["group"] = "ChaosDamageDoesNotBypassEnergyShieldPercent",
 		["level"] = 99,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1457,
@@ -12382,7 +12308,6 @@ return {
 		["group"] = "CannotBeStunnedMaximumEnduranceCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3708,
@@ -12441,6 +12366,7 @@ return {
 	},
 	["ChargeBonusChanceToGainMaximumPowerCharges"] = {
 		"15% chance that if you would gain Power Charges, you instead gain up to",
+		"your maximum number of Power Charges",
 		["affix"] = "",
 		["group"] = "ChanceToGainMaximumPowerCharges",
 		["level"] = 1,
@@ -12861,7 +12787,6 @@ return {
 		["group"] = "IntimidateOnHitMaximumEnduranceCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7381,
@@ -13146,7 +13071,6 @@ return {
 		["group"] = "OnslaughtOnHitMaximumFrenzyCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6828,
@@ -13296,7 +13220,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByBleed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			687,
@@ -13317,7 +13240,6 @@ return {
 		["group"] = "FlaskUseOnTakingChaosDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			694,
@@ -13338,7 +13260,6 @@ return {
 		["group"] = "FlaskUseOnTakingColdDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			695,
@@ -13359,7 +13280,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByCurse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			685,
@@ -13380,7 +13300,6 @@ return {
 		["group"] = "FlaskUseOnTakingFireDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			697,
@@ -13401,7 +13320,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByFreeze",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			689,
@@ -13422,7 +13340,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByIgnite",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			690,
@@ -13443,7 +13360,6 @@ return {
 		["group"] = "FlaskUseOnTakingLightningDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			704,
@@ -13464,7 +13380,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByPoison",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			691,
@@ -13485,7 +13400,6 @@ return {
 		["group"] = "FlaskUseOnKillingRareUnique",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			703,
@@ -13506,7 +13420,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByShock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			692,
@@ -13527,7 +13440,6 @@ return {
 		["group"] = "FlaskUseOnAffectedBySlow",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			693,
@@ -13548,7 +13460,6 @@ return {
 		["group"] = "FlaskUseOnAffectedByStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			706,
@@ -13666,7 +13577,6 @@ return {
 		["group"] = "ChillHitsCauseShattering",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5657,
@@ -13864,7 +13774,6 @@ return {
 		["group"] = "BlindingHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2013,
@@ -13928,6 +13837,8 @@ return {
 	},
 	["ClawPhysDamageAndEvasionPerDexUniqueJewel47"] = {
 		"1% increased Evasion Rating per 3 Dexterity Allocated in Radius",
+		"1% increased Claw Physical Damage per 3 Dexterity Allocated in Radius",
+		"1% increased Melee Physical Damage with Unarmed Attacks per 3 Dexterity Allocated in Radius",
 		["affix"] = "",
 		["group"] = "ClawPhysDamageAndEvasionPerDex",
 		["level"] = 1,
@@ -13962,6 +13873,7 @@ return {
 	},
 	["ColdAndPhysicalNodesInRadiusSwapPropertiesUniqueJewel48_"] = {
 		"Increases and Reductions to Physical Damage in Radius are Transformed to apply to Cold Damage",
+		"Increases and Reductions to Cold Damage in Radius are Transformed to apply to Physical Damage",
 		["affix"] = "",
 		["group"] = "ColdAndPhysicalNodesInRadiusSwapProperties",
 		["level"] = 1,
@@ -14230,6 +14142,7 @@ return {
 	},
 	["ColdResistAlsoGrantsFrenzyChargeOnKillJewelUnique__1"] = {
 		"Passives granting Cold Resistance or all Elemental Resistances in Radius",
+		"also grant an equal chance to gain a Frenzy Charge on Kill",
 		["affix"] = "",
 		["group"] = "ColdResistAlsoGrantsFrenzyChargeOnKillJewel",
 		["level"] = 1,
@@ -15130,11 +15043,11 @@ return {
 	},
 	["CorruptedMagicJewelModEffectUnique__1"] = {
 		"(0-150)% increased Effect of Jewel Socket Passive Skills",
+		"containing Corrupted Magic Jewels",
 		["affix"] = "",
 		["group"] = "CorruptedMagicJewelModEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7905,
@@ -20253,7 +20166,6 @@ return {
 		["group"] = "CoverInAshWhenHit",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4327,
@@ -21240,7 +21152,6 @@ return {
 		["group"] = "AdditionalBallistaTotem",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4175,
@@ -21261,7 +21172,6 @@ return {
 		["group"] = "BoltSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1553,
@@ -21282,7 +21192,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -21303,7 +21212,6 @@ return {
 		["group"] = "GrenadeProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6945,
@@ -21324,7 +21232,6 @@ return {
 		["group"] = "CullingAgainstBurningEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2592,
@@ -21705,7 +21612,6 @@ return {
 		["group"] = "LocalBreakArmourOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7615,
@@ -21968,7 +21874,6 @@ return {
 		["group"] = "DamageTakenFromGhosts",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1973,
@@ -21989,7 +21894,6 @@ return {
 		["group"] = "DamageTakenFromSkeletons",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1972,
@@ -22010,7 +21914,6 @@ return {
 		["group"] = "DamageTakenOnFullES",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1969,
@@ -22031,7 +21934,6 @@ return {
 		["group"] = "DamageTakenOnFullES",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1969,
@@ -22052,7 +21954,6 @@ return {
 		["group"] = "IncreaseDamageTakenPerFrenzyCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2680,
@@ -22073,7 +21974,6 @@ return {
 		["group"] = "DamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1963,
@@ -22295,7 +22195,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -22316,7 +22215,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -22337,7 +22235,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -22375,6 +22272,7 @@ return {
 	},
 	["DegradingMovementSpeedDuringFlaskEffectUnique__1"] = {
 		"50% increased Attack, Cast and Movement Speed during Effect",
+		"Reduce Attack, Cast and Movement Speed 10% every second during Effect",
 		["affix"] = "",
 		["group"] = "DegradingMovementSpeedDuringFlaskEffect",
 		["level"] = 1,
@@ -22544,7 +22442,6 @@ return {
 		["group"] = "DemigodsVirtue",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10674,
@@ -22703,7 +22600,6 @@ return {
 		["group"] = "DexterityRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			818,
@@ -22766,7 +22662,6 @@ return {
 		["group"] = "DisableChestSlot",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2364,
@@ -22787,7 +22682,6 @@ return {
 		["group"] = "DisablesOtherRingSlot",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1473,
@@ -22830,7 +22724,6 @@ return {
 		["group"] = "DisplayBlindAura",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3094,
@@ -23002,6 +22895,8 @@ return {
 	},
 	["DisplayManifestWeaponUnique__1"] = {
 		"Triggers Level 15 Manifest Dancing Dervishes on Rampage",
+		"Cannot be used while Manifested",
+		"Manifested Dancing Dervishes die when Rampage ends",
 		["affix"] = "",
 		["group"] = "DisplayManifestWeapon",
 		["level"] = 1,
@@ -23031,6 +22926,8 @@ return {
 	},
 	["DisplayManifestWeaponUnique__2"] = {
 		"Triggers Level 15 Manifest Dancing Dervishes on Rampage",
+		"Cannot be used while Manifested",
+		"Manifested Dancing Dervishes die when Rampage ends",
 		["affix"] = "",
 		["group"] = "DisplayManifestWeapon",
 		["level"] = 1,
@@ -23086,7 +22983,6 @@ return {
 		["group"] = "DisplayGrantsCullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2313,
@@ -23107,7 +23003,6 @@ return {
 		["group"] = "DisplayGrantsFortify",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7672,
@@ -23128,7 +23023,6 @@ return {
 		["group"] = "DisplayIncreasedItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1465,
@@ -23806,11 +23700,11 @@ return {
 	},
 	["DivineChargeOnHitUnique__1_"] = {
 		"+10 to maximum Divine Charges",
+		"Gain a Divine Charge on Hit",
 		["affix"] = "",
 		["group"] = "DivineChargeOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4048,
@@ -24638,6 +24532,7 @@ return {
 	},
 	["ElementalHitDisableColdUniqueJewel_1"] = {
 		"With 40 total Strength and Intelligence in Radius, Prismatic Skills deal 50% less Cold Damage",
+		"With 40 total Strength and Intelligence in Radius, Prismatic Skills cannot choose Cold",
 		["affix"] = "",
 		["group"] = "ElementalHitDisableColdJewel",
 		["level"] = 1,
@@ -24667,6 +24562,7 @@ return {
 	},
 	["ElementalHitDisableFireUniqueJewel_1"] = {
 		"With 40 total Intelligence and Dexterity in Radius, Prismatic Skills deal 50% less Fire Damage",
+		"With 40 total Intelligence and Dexterity in Radius, Prismatic Skills cannot choose Fire",
 		["affix"] = "",
 		["group"] = "ElementalHitDisableFireJewel",
 		["level"] = 1,
@@ -24696,6 +24592,7 @@ return {
 	},
 	["ElementalHitDisableLightningUniqueJewel_1"] = {
 		"With 40 total Dexterity and Strength in Radius, Prismatic Skills deal 50% less Lightning Damage",
+		"With 40 total Dexterity and Strength in Radius, Prismatic Skills cannot choose Lightning",
 		["affix"] = "",
 		["group"] = "ElementalHitDisableLightningJewel",
 		["level"] = 1,
@@ -25095,7 +24992,6 @@ return {
 		["group"] = "EnemiesChilledIncreasedDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6338,
@@ -25116,7 +25012,6 @@ return {
 		["group"] = "EnemiesDestroyedOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6343,
@@ -25178,6 +25073,7 @@ return {
 	},
 	["EnemiesTakeIncreasedDamagePerAilmentTypeUnique__1"] = {
 		"Enemies take 5% increased Damage for each Elemental Ailment type among",
+		"your Ailments on them",
 		["affix"] = "",
 		["group"] = "EnemiesTakeIncreasedDamagePerAilmentType",
 		["level"] = 1,
@@ -25269,7 +25165,6 @@ return {
 		["group"] = "EnemyExtraDamageRollsOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2338,
@@ -25314,7 +25209,6 @@ return {
 		["group"] = "EnemyHitsRollLowDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2336,
@@ -25335,7 +25229,6 @@ return {
 		["group"] = "EnemyKnockbackDirectionReversed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2752,
@@ -25352,6 +25245,7 @@ return {
 	},
 	["EnergyShieldAndManaJewel"] = {
 		"(2-4)% increased maximum Energy Shield",
+		"(4-6)% increased maximum Mana",
 		["affix"] = "Wise",
 		["group"] = "EnergyShieldAndManaForJewel",
 		["level"] = 1,
@@ -25979,7 +25873,6 @@ return {
 		["group"] = "EssenceDisplayAttributes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6476,
@@ -26000,7 +25893,6 @@ return {
 		["group"] = "EssenceDisplayAttributes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6476,
@@ -26021,7 +25913,6 @@ return {
 		["group"] = "EssenceDisplayAttributes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6476,
@@ -26042,7 +25933,6 @@ return {
 		["group"] = "EssenceDisplayAttributes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6476,
@@ -26063,7 +25953,6 @@ return {
 		["group"] = "EssenceDisplayAttributesIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6477,
@@ -26084,7 +25973,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26105,7 +25993,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26126,7 +26013,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26147,7 +26033,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26168,7 +26053,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26189,7 +26073,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26210,7 +26093,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26231,7 +26113,6 @@ return {
 		["group"] = "EssenceDisplayDefences",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6478,
@@ -26248,6 +26129,7 @@ return {
 	},
 	["EvasionEnergyShieldJewel"] = {
 		"(6-12)% increased Evasion Rating",
+		"(2-4)% increased maximum Energy Shield",
 		["affix"] = "Rogue's",
 		["group"] = "EvasionEnergyShieldForJewel",
 		["level"] = 1,
@@ -26526,7 +26408,6 @@ return {
 		["group"] = "ExtraGore",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10755,
@@ -26547,7 +26428,6 @@ return {
 		["group"] = "FarShotWhileYouDoNotHaveIronReflexes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10750,
@@ -26875,7 +26755,6 @@ return {
 		["group"] = "FireDamagePercentPerArmourBreak",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6562,
@@ -26942,7 +26821,6 @@ return {
 		["group"] = "FireDamageToNearbyEnemiesOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			551,
@@ -27067,6 +26945,7 @@ return {
 	},
 	["FireResistAlsoGrantsEnduranceChargeOnKillJewelUnique__1"] = {
 		"Passives granting Fire Resistance or all Elemental Resistances in Radius",
+		"also grant an equal chance to gain an Endurance Charge on Kill",
 		["affix"] = "",
 		["group"] = "FireResistAlsoGrantsEnduranceChargeOnKillJewel",
 		["level"] = 1,
@@ -27090,6 +26969,7 @@ return {
 	},
 	["FireResistConvertedToBlockChanceScaledJewelUnique__1_"] = {
 		"Passives granting Fire Resistance or all Elemental Resistances in Radius",
+		"also grant Chance to Block Attack Damage at 50% of its value",
 		["affix"] = "",
 		["group"] = "FireResistConvertedToBlockChanceScaledJewel",
 		["level"] = 1,
@@ -27246,7 +27126,6 @@ return {
 		["group"] = "FishingDetection",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3782,
@@ -27267,7 +27146,6 @@ return {
 		["group"] = "FishingCastDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2604,
@@ -27288,7 +27166,6 @@ return {
 		["group"] = "FishingLineStrength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2600,
@@ -27309,7 +27186,6 @@ return {
 		["group"] = "FishingLureType",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2602,
@@ -27330,7 +27206,6 @@ return {
 		["group"] = "FishingLureType",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2602,
@@ -27351,7 +27226,6 @@ return {
 		["group"] = "FishingPoolConsumption",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2601,
@@ -27372,7 +27246,6 @@ return {
 		["group"] = "FishingQuantity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2605,
@@ -27393,7 +27266,6 @@ return {
 		["group"] = "FishingQuantity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2605,
@@ -27414,7 +27286,6 @@ return {
 		["group"] = "FishingQuantity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2605,
@@ -27435,7 +27306,6 @@ return {
 		["group"] = "FishingRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2606,
@@ -27456,7 +27326,6 @@ return {
 		["group"] = "FishingRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2606,
@@ -27477,7 +27346,6 @@ return {
 		["group"] = "FishingRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2606,
@@ -27498,7 +27366,6 @@ return {
 		["group"] = "LocalIgnoreBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7624,
@@ -28424,6 +28291,7 @@ return {
 	},
 	["FlaskZealotsOathUnique__1"] = {
 		"Life Recovery from Flasks also applies to Energy Shield during Effect",
+		"Zealot's Oath during Effect",
 		["affix"] = "",
 		["group"] = "FlaskZealotsOath",
 		["level"] = 1,
@@ -28543,7 +28411,6 @@ return {
 		["group"] = "FortifyOnMeleeStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5516,
@@ -28560,6 +28427,7 @@ return {
 	},
 	["FreezeChanceAndDurationJewel"] = {
 		"(3-5)% chance to Freeze",
+		"(12-16)% increased Freeze Duration on Enemies",
 		["affix"] = "of Freezing",
 		["group"] = "FreezeChanceAndDurationForJewel",
 		["level"] = 1,
@@ -28591,6 +28459,7 @@ return {
 	},
 	["FreezeChillDurationUnique__1"] = {
 		"10000% increased Chill Duration on Enemies",
+		"10000% increased Freeze Duration on Enemies",
 		["affix"] = "",
 		["group"] = "ChillAndFreezeDuration",
 		["level"] = 1,
@@ -29085,7 +28954,6 @@ return {
 		["group"] = "GainDebilitatingPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10637,
@@ -29102,11 +28970,11 @@ return {
 	},
 	["GainDivinityOnMaxDivineChargeUnique__1"] = {
 		"You gain Divinity for 10 seconds on reaching maximum Divine Charges",
+		"Lose all Divine Charges when you gain Divinity",
 		["affix"] = "",
 		["group"] = "GainDivinityOnMaxDivineCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4051,
@@ -29549,7 +29417,6 @@ return {
 		["group"] = "GainOnslaughtOnCull",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2763,
@@ -29570,7 +29437,6 @@ return {
 		["group"] = "GainPhasingIfKilledRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6837,
@@ -29633,7 +29499,6 @@ return {
 		["group"] = "GainSpiritChargeEverySecond",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4043,
@@ -29654,7 +29519,6 @@ return {
 		["group"] = "GainSpiritChargeOnKillChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4044,
@@ -29675,7 +29539,6 @@ return {
 		["group"] = "GainThaumaturgyBuffRotation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10248,
@@ -29717,7 +29580,6 @@ return {
 		["group"] = "GhostflameOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6894,
@@ -30231,7 +30093,6 @@ return {
 		["group"] = "GlobalChanceToBlindOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2703,
@@ -30252,7 +30113,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -30273,7 +30133,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -30337,7 +30196,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 20,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -30358,7 +30216,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -30379,7 +30236,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -30400,7 +30256,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -30442,7 +30297,6 @@ return {
 		["group"] = "GoatHoofFootprints",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10756,
@@ -30463,7 +30317,6 @@ return {
 		["group"] = "GoldenLightBeam",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2276,
@@ -30533,7 +30386,6 @@ return {
 		["group"] = "GolemBuffEffectUnique",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6920,
@@ -30642,7 +30494,6 @@ return {
 		["group"] = "GolemSkillsCooldownRecoveryUnique",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3036,
@@ -30726,7 +30577,6 @@ return {
 		["group"] = "GrantAviansAspectToAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4460,
@@ -30743,6 +30593,9 @@ return {
 	},
 	["GrantCursePillarSkillUnique"] = {
 		"Grants Level 20 Summon Doedre's Effigy Skill",
+		"Socketed Hex Curse Skills are Triggered by Doedre's Effigy when Summoned",
+		"Hexes from Socketed Skills can apply 5 additional Curses",
+		"20% less Effect of Curses from Socketed Hex Skills",
 		["affix"] = "",
 		["group"] = "GrantCursePillarSkillUnique",
 		["level"] = 1,
@@ -30770,6 +30623,8 @@ return {
 	},
 	["GrantCursePillarSkillUnique__"] = {
 		"Grants Level 20 Summon Doedre's Effigy Skill",
+		"Socketed Hex Curse Skills are Triggered by Doedre's Effigy when Summoned",
+		"Hexes from Socketed Skills can apply 5 additional Curses",
 		["affix"] = "",
 		["group"] = "GrantCursePillarSkillUnique__",
 		["level"] = 1,
@@ -30799,7 +30654,6 @@ return {
 		["group"] = "GrantEnemiesOnslaughtOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3083,
@@ -31368,6 +31222,7 @@ return {
 	},
 	["GroundSlamThresholdUnique__1"] = {
 		"With at least 40 Strength in Radius, Ground Slam",
+		"has a 50% increased angle",
 		["affix"] = "",
 		["group"] = "GroundSlamThreshold",
 		["level"] = 1,
@@ -31391,6 +31246,7 @@ return {
 	},
 	["GroundSlamThresholdUnique__2"] = {
 		"With at least 40 Strength in Radius, Ground Slam has a 35% chance",
+		"to grant an Endurance Charge when you Stun an Enemy",
 		["affix"] = "",
 		["group"] = "GroundSlamThreshold2",
 		["level"] = 1,
@@ -31418,7 +31274,6 @@ return {
 		["group"] = "GroundSmokeOnRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2712,
@@ -31545,11 +31400,11 @@ return {
 	},
 	["HandWrapsImplicitLocalBaseEvasionAndEnergyShieldPerLevel"] = {
 		"Has +3 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "",
 		["group"] = "HandWrapsImplicitLocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31570,11 +31425,12 @@ return {
 	},
 	["HandWrapsImplicitLocalBaseEvasionEnergyShieldAndWardPerLevel"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
+		"Has +1 to maximum Runic Ward per player level",
 		["affix"] = "",
 		["group"] = "HandWrapsImplicitLocalBaseEvasionEnergyShieldAndWardPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -31882,7 +31738,6 @@ return {
 		["group"] = "CannotStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1611,
@@ -31899,6 +31754,7 @@ return {
 	},
 	["HandWrapsUniqueChaosResist35"] = {
 		"+2% to Maximum Chaos Resistance",
+		"+(17-23)% to Chaos Resistance",
 		["affix"] = "",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -31926,6 +31782,7 @@ return {
 	},
 	["HandWrapsUniqueChaosResist6"] = {
 		"+1% to Maximum Chaos Resistance",
+		"+(7-17)% to Chaos Resistance",
 		["affix"] = "",
 		["group"] = "ChaosResistanceAndMax",
 		["level"] = 1,
@@ -31957,7 +31814,6 @@ return {
 		["group"] = "AllDamageCanChill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2614,
@@ -32041,6 +31897,7 @@ return {
 	},
 	["HandWrapsUniqueColdResist24"] = {
 		"+(2-3)% to Maximum Cold Resistance",
+		"+(15-25)% to Cold Resistance",
 		["affix"] = "",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -32074,7 +31931,6 @@ return {
 		["group"] = "VolatilityOnKillChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10484,
@@ -32091,6 +31947,7 @@ return {
 	},
 	["HandWrapsUniqueColdResist30"] = {
 		"+2% to Maximum Cold Resistance",
+		"+(20-30)% to Cold Resistance",
 		["affix"] = "",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -32298,7 +32155,6 @@ return {
 		["group"] = "CullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1775,
@@ -32340,7 +32196,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -32361,7 +32216,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -32382,7 +32236,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -32424,7 +32277,6 @@ return {
 		["group"] = "AdditionalProjectileChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5512,
@@ -32469,7 +32321,6 @@ return {
 		["group"] = "DoubleOnKillEffects",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9361,
@@ -32486,6 +32337,7 @@ return {
 	},
 	["HandWrapsUniqueElementalDamageConvertToFire1"] = {
 		"Physical damage from Hits Contributes to Flammability and",
+		"Ignite Magnitudes, Freeze Buildup, and Shock Chance",
 		["affix"] = "",
 		["group"] = "PhysicalDamageCanFreezeShockIgnite",
 		["level"] = 1,
@@ -32641,11 +32493,12 @@ return {
 	},
 	["HandWrapsUniqueEnemiesKilledCountAsYours1"] = {
 		"20% increased Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
+		"Enemies in your Presence killed by anyone count as being killed by you instead",
 		["affix"] = "",
 		["group"] = "EnemiesKilledCountAsYours",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			943,
@@ -32672,7 +32525,6 @@ return {
 		["group"] = "EnemyKnockbackDirectionReversed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2752,
@@ -32693,7 +32545,6 @@ return {
 		["group"] = "FireDamageConvertToLightning",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9277,
@@ -32714,7 +32565,6 @@ return {
 		["group"] = "LightningDamageConvertToCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1713,
@@ -32754,6 +32604,7 @@ return {
 	},
 	["HandWrapsUniqueFireResist2"] = {
 		"+(2-3)% to Maximum Fire Resistance",
+		"+(15-25)% to Fire Resistance",
 		["affix"] = "",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -32783,6 +32634,7 @@ return {
 	},
 	["HandWrapsUniqueFireResist7"] = {
 		"+1% to Maximum Fire Resistance",
+		"+(5-15)% to Fire Resistance",
 		["affix"] = "",
 		["group"] = "FireResistanceAndMax",
 		["level"] = 1,
@@ -32924,7 +32776,6 @@ return {
 		["group"] = "GainFearOverwhelming",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6933,
@@ -32987,11 +32838,12 @@ return {
 	},
 	["HandWrapsUniqueImmobiliseIncreasedDamageTaken1"] = {
 		"(25-35)% Surpassing chance per enemy Power to gain",
+		"Mountain's Teachings on Immobilising an enemy if",
+		"you have the Way of the Mountain Ascendancy Passive Skill",
 		["affix"] = "",
 		["group"] = "MartialArtistStoneSkinChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5402,
@@ -33016,7 +32868,6 @@ return {
 		["group"] = "ImmobiliseThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5906,
@@ -33037,7 +32888,6 @@ return {
 		["group"] = "ThornsOnMeleeCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6093,
@@ -33079,7 +32929,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33100,7 +32949,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33121,7 +32969,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33142,7 +32989,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33163,7 +33009,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33184,7 +33029,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33205,7 +33049,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33249,7 +33092,6 @@ return {
 		["group"] = "CullThresholdIfCulledRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5911,
@@ -33270,7 +33112,6 @@ return {
 		["group"] = "OnslaughtOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			986,
@@ -33291,7 +33132,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -33312,7 +33152,6 @@ return {
 		["group"] = "AreaOfEffectPer20Intelligence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2323,
@@ -33377,7 +33216,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -33420,7 +33258,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -33441,7 +33278,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -33462,7 +33298,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -33483,7 +33318,6 @@ return {
 		["group"] = "HandWrapsDamageTakenOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			888,
@@ -33504,7 +33338,6 @@ return {
 		["group"] = "HandWrapsAttackDamageOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			893,
@@ -33590,7 +33423,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33611,7 +33443,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33632,7 +33463,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33653,7 +33483,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33674,7 +33503,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33716,7 +33544,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -33906,6 +33733,7 @@ return {
 	},
 	["HandWrapsUniqueLifeLeech2"] = {
 		"Leech (13-17)% of Physical Attack Damage as Life",
+		"Leech Life (20-25)% slower",
 		["affix"] = "",
 		["group"] = "LifeLeechAndRate",
 		["level"] = 1,
@@ -34046,6 +33874,7 @@ return {
 	},
 	["HandWrapsUniqueLightningResist26"] = {
 		"+2% to Maximum Lightning Resistance",
+		"+(25-35)% to Lightning Resistance",
 		["affix"] = "",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -34075,6 +33904,7 @@ return {
 	},
 	["HandWrapsUniqueLightningResist28"] = {
 		"+(2-3)% to Maximum Lightning Resistance",
+		"+(15-25)% to Lightning Resistance",
 		["affix"] = "",
 		["group"] = "LightningResistanceAndMax",
 		["level"] = 1,
@@ -34104,6 +33934,7 @@ return {
 	},
 	["HandWrapsUniqueLightningResist29"] = {
 		"+(2-3)% to Maximum Cold Resistance",
+		"+(10-25)% to Cold Resistance",
 		["affix"] = "",
 		["group"] = "ColdResistanceAndMax",
 		["level"] = 1,
@@ -34363,11 +34194,11 @@ return {
 	},
 	["HandWrapsUniqueLocalIncreasedEnergyShield10"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -34388,11 +34219,11 @@ return {
 	},
 	["HandWrapsUniqueLocalIncreasedEnergyShield11"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -34616,11 +34447,11 @@ return {
 	},
 	["HandWrapsUniqueLocalIncreasedEvasionRating4"] = {
 		"Has +2 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -34756,11 +34587,11 @@ return {
 	},
 	["HandWrapsUniqueLocalIncreasedPhysicalDamageReductionRating3"] = {
 		"Has +1 to Evasion Rating per player level",
+		"Has +1 to maximum Energy Shield per player level",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionAndEnergyShieldPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			842,
@@ -34898,7 +34729,6 @@ return {
 		["group"] = "LoseRageOnMaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7933,
@@ -35008,7 +34838,6 @@ return {
 		["group"] = "CannotLeechMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2350,
@@ -35029,7 +34858,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -35050,7 +34878,6 @@ return {
 		["group"] = "NoManaRegeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2021,
@@ -35071,7 +34898,6 @@ return {
 		["group"] = "NoInherentRageLoss",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9212,
@@ -35136,7 +34962,6 @@ return {
 		["group"] = "RageOnAnyHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4699,
@@ -35157,7 +34982,6 @@ return {
 		["group"] = "RageRegenerationPerMinute",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4741,
@@ -35178,7 +35002,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -35199,7 +35022,6 @@ return {
 		["group"] = "ReflectCurseToSelf",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5942,
@@ -35238,6 +35060,8 @@ return {
 	},
 	["HandWrapsUniqueShareChargesWithAllies1"] = {
 		"(5-10)% chance to grant a Endurance Charge to Allies in your Presence on Hit",
+		"(5-10)% chance to grant a Frenzy Charge to Allies in your Presence on Hit",
+		"(5-10)% chance to grant a Power Charge to Allies in your Presence on Hit",
 		["affix"] = "",
 		["group"] = "GrantChargesToAlliesOnHitChance",
 		["level"] = 1,
@@ -35273,7 +35097,6 @@ return {
 		["group"] = "ImmobilisationBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7193,
@@ -35379,7 +35202,6 @@ return {
 		["group"] = "DexteritySatisfiesAllWeaponRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6140,
@@ -35400,7 +35222,6 @@ return {
 		["group"] = "ImmobilisationBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7193,
@@ -35716,6 +35537,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityAccuracyRatingIncrease_"] = {
 		"Quality does not increase Damage",
+		"Grants 1% increased Accuracy per 2% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityAccuracyRatingIncrease",
 		["level"] = 1,
@@ -35744,6 +35566,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityAreaOfEffect_"] = {
 		"Quality does not increase Damage",
+		"Grants 1% increased Area of Effect per 4% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityAreaOfEffect",
 		["level"] = 1,
@@ -35772,6 +35595,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityElementalDamagePercent"] = {
 		"Quality does not increase Damage",
+		"Grants 1% increased Elemental Damage per 2% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityElementalDamagePercent",
 		["level"] = 1,
@@ -35802,6 +35626,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityLocalCriticalStrikeChance__"] = {
 		"Quality does not increase Damage",
+		"1% increased Critical Hit Chance per 4% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityLocalCriticalStrikeChance",
 		["level"] = 1,
@@ -35831,6 +35656,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityLocalIncreasedAttackSpeed"] = {
 		"Quality does not increase Damage",
+		"1% increased Attack Speed per 8% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityLocalIncreasedAttackSpeed",
 		["level"] = 1,
@@ -35860,6 +35686,7 @@ return {
 	},
 	["HarvestAlternateWeaponQualityLocalMeleeWeaponRange_"] = {
 		"Quality does not increase Damage",
+		"+1 Weapon Range per 10% Quality",
 		["affix"] = "",
 		["group"] = "HarvestAlternateWeaponQualityLocalMeleeWeaponRange",
 		["level"] = 1,
@@ -35892,7 +35719,6 @@ return {
 		["group"] = "HasNoSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			55,
@@ -35931,11 +35757,11 @@ return {
 	},
 	["HeistContractAdditionalIntelligence"] = {
 		"Completing a Heist generates 3 additional Reveals",
+		"Heist Chests have 25% chance to contain nothing",
 		["affix"] = "",
 		["group"] = "HeistContractAdditionalIntelligence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8312,
@@ -35956,11 +35782,11 @@ return {
 	},
 	["HeistContractBetterTargetValue"] = {
 		"Rogue Equipment cannot be found",
+		"200% more Rogue's Marker value of primary Heist Target",
 		["affix"] = "",
 		["group"] = "HeistContractBetterTargetValue",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8314,
@@ -35981,11 +35807,11 @@ return {
 	},
 	["HeistContractChestRewardsDuplicated"] = {
 		"Heist Chests have a 100% chance to Duplicate their contents",
+		"Monsters have 100% more Life",
 		["affix"] = "",
 		["group"] = "HeistContractChestRewardsDuplicated",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5403,
@@ -36006,11 +35832,11 @@ return {
 	},
 	["HeistContractNPCPerksDoubled"] = {
 		"50% reduced time before Lockdown",
+		"Rogue Perks are doubled",
 		["affix"] = "",
 		["group"] = "HeistContractNPCPerksDoubled",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6165,
@@ -36081,7 +35907,6 @@ return {
 		["group"] = "HeraldBonusAgonyEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7145,
@@ -36169,7 +35994,6 @@ return {
 		["group"] = "HeraldBonusAshEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7149,
@@ -36308,7 +36132,6 @@ return {
 		["group"] = "HeraldBonusExtraMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10639,
@@ -36329,7 +36152,6 @@ return {
 		["group"] = "HeraldBonusExtraMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10639,
@@ -36350,7 +36172,6 @@ return {
 		["group"] = "HeraldBonusExtraMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10639,
@@ -36371,7 +36192,6 @@ return {
 		["group"] = "HeraldBonusExtraMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10639,
@@ -36392,7 +36212,6 @@ return {
 		["group"] = "HeraldBonusExtraMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10639,
@@ -36462,7 +36281,6 @@ return {
 		["group"] = "HeraldBonusIceEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7152,
@@ -36552,7 +36370,6 @@ return {
 		["group"] = "HeraldBonusPurityEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7156,
@@ -36684,7 +36501,6 @@ return {
 		["group"] = "HeraldBonusThunderEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7162,
@@ -36908,6 +36724,7 @@ return {
 	},
 	["HungryLoopSupportedByTrinity"] = {
 		"Has Consumed 1 Gem",
+		"Socketed Gems are Supported by Level 20 Trinity",
 		["affix"] = "",
 		["group"] = "HungryLoopSupportedByTrinity",
 		["level"] = 1,
@@ -37045,7 +36862,6 @@ return {
 		["group"] = "IIQFromMaimedEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3825,
@@ -37066,7 +36882,6 @@ return {
 		["group"] = "IIRFromMaimedEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3826,
@@ -37188,7 +37003,6 @@ return {
 		["group"] = "IgnitedEnemiesTurnToAsh",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2374,
@@ -37209,7 +37023,6 @@ return {
 		["group"] = "IgnoreHexproof",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2379,
@@ -37746,7 +37559,6 @@ return {
 		["group"] = "IncreasedAreaOfSkillsWithNoFrenzyCharges",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1791,
@@ -38139,7 +37951,6 @@ return {
 		["group"] = "IncreasedBuffEffectiveness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1883,
@@ -38160,7 +37971,6 @@ return {
 		["group"] = "IncreasedBuffEffectiveness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1883,
@@ -38300,7 +38110,6 @@ return {
 		["group"] = "IncreasedChanceForMonstersToDropWisdomScrolls",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2375,
@@ -39307,7 +39116,6 @@ return {
 		["group"] = "DamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1963,
@@ -39706,7 +39514,6 @@ return {
 		["group"] = "ExperienceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1471,
@@ -39727,7 +39534,6 @@ return {
 		["group"] = "ExperienceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1471,
@@ -39748,7 +39554,6 @@ return {
 		["group"] = "ExperienceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1471,
@@ -39769,7 +39574,6 @@ return {
 		["group"] = "ExperienceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1471,
@@ -40035,7 +39839,6 @@ return {
 		["group"] = "IncreasedIntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			821,
@@ -40056,7 +39859,6 @@ return {
 		["group"] = "IncreasedIntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			821,
@@ -40073,6 +39875,7 @@ return {
 	},
 	["IncreasedLifeAndManaJewel"] = {
 		"+(4-6) to maximum Life",
+		"+(4-6) to maximum Mana",
 		["affix"] = "Determined",
 		["group"] = "LifeAndManaForJewel",
 		["level"] = 1,
@@ -40311,7 +40114,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -40332,7 +40134,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -41087,7 +40888,6 @@ return {
 		["group"] = "IncreasedRarityPerRampageStacks",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7393,
@@ -41108,7 +40908,6 @@ return {
 		["group"] = "IncreasedRarityWhenSlayingFrozen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2470,
@@ -41269,7 +41068,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -41290,7 +41088,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -41311,7 +41108,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -41332,7 +41128,6 @@ return {
 		["group"] = "IncreasedStunDurationOnSelf",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3828,
@@ -41424,7 +41219,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -41445,7 +41239,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -41639,7 +41432,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsConcentratedAreaOfEffectLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			330,
@@ -41660,7 +41452,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsConcentratedAreaOfEffectLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			330,
@@ -41681,7 +41472,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsConcentratedAreaOfEffectLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			330,
@@ -41702,7 +41492,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsConcentratedAreaOfEffectLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			330,
@@ -41767,7 +41556,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsBlindLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			346,
@@ -41788,7 +41576,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsBlindLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			346,
@@ -41809,7 +41596,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsBlindLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			346,
@@ -41830,7 +41616,6 @@ return {
 		["group"] = "DisplaySocketedGemGetsBlindLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			346,
@@ -41914,7 +41699,6 @@ return {
 		["group"] = "ItemCanAlsoRollRingMods",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6166,
@@ -41940,7 +41724,6 @@ return {
 		["group"] = "ItemCanHaveBaseAndCatalystQuality",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7391,
@@ -41961,7 +41744,6 @@ return {
 		["group"] = "ItemDropsOnDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2340,
@@ -42024,7 +41806,6 @@ return {
 		["group"] = "SurvivalJewelDisplay",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10641,
@@ -42045,7 +41826,6 @@ return {
 		["group"] = "SurvivalJewelDisplay",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10641,
@@ -42066,7 +41846,6 @@ return {
 		["group"] = "SurvivalJewelDisplay",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10641,
@@ -42087,7 +41866,6 @@ return {
 		["group"] = "ItemQuantityOnLowLife",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1462,
@@ -42108,7 +41886,6 @@ return {
 		["group"] = "ItemQuantityPerChestOpenedRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7392,
@@ -42129,7 +41906,6 @@ return {
 		["group"] = "ItemQuantityWhenFrozen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2467,
@@ -42150,7 +41926,6 @@ return {
 		["group"] = "ItemQuantityWhileWearingAMagicItem",
 		["level"] = 10,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3863,
@@ -42171,7 +41946,6 @@ return {
 		["group"] = "ItemRarityForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			941,
@@ -42194,7 +41968,6 @@ return {
 		["group"] = "ItemRarityOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1467,
@@ -42215,7 +41988,6 @@ return {
 		["group"] = "ItemRarityWhenShocked",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2469,
@@ -42236,7 +42008,6 @@ return {
 		["group"] = "ItemRarityWhileWearingANormalItem",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3862,
@@ -42257,7 +42028,6 @@ return {
 		["group"] = "ItemSilverFootsteps",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10758,
@@ -42278,7 +42048,6 @@ return {
 		["group"] = "StatsDoubledInBreach",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7749,
@@ -42467,7 +42236,6 @@ return {
 		["group"] = "JewelRingRadiusValues",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			15,
@@ -42488,7 +42256,6 @@ return {
 		["group"] = "JewelRingRadiusValues",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			15,
@@ -42593,7 +42360,6 @@ return {
 		["group"] = "JewelUniqueAllocateDisconnectedPassives",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			814,
@@ -42614,7 +42380,6 @@ return {
 		["group"] = "HasXSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			57,
@@ -42635,7 +42400,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -42678,7 +42442,6 @@ return {
 		["group"] = "VerisiumChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6711,
@@ -42720,7 +42483,6 @@ return {
 		["group"] = "KillEnemyInstantlyExarchDominant",
 		["level"] = 77,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7790,
@@ -42762,7 +42524,6 @@ return {
 		["group"] = "KnockbackChanceForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1737,
@@ -42785,7 +42546,6 @@ return {
 		["group"] = "KnockbackChanceForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1737,
@@ -42806,7 +42566,6 @@ return {
 		["group"] = "ChinSolCloseRangeKnockBack",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2195,
@@ -42976,11 +42735,11 @@ return {
 	},
 	["LevelDesignTestingMissionRoomStoneCircle10"] = {
 		"Area contains a Summoning Circle",
+		"Area contains 10 Reactivation Runes",
 		["affix"] = "",
 		["group"] = "MapAdditionalStoneCircle",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8504,
@@ -43001,11 +42760,11 @@ return {
 	},
 	["LevelDesignTestingMissionRoomStoneCircle12"] = {
 		"Area contains a Summoning Circle",
+		"Area contains 12 Reactivation Runes",
 		["affix"] = "",
 		["group"] = "MapAdditionalStoneCircle",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8504,
@@ -43026,11 +42785,11 @@ return {
 	},
 	["LevelDesignTestingMissionRoomStoneCircle8"] = {
 		"Area contains a Summoning Circle",
+		"Area contains 8 Reactivation Runes",
 		["affix"] = "",
 		["group"] = "MapAdditionalStoneCircle",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8504,
@@ -43051,6 +42810,7 @@ return {
 	},
 	["LifeAndEnergyShieldJewel"] = {
 		"(2-4)% increased maximum Energy Shield",
+		"(2-4)% increased maximum Life",
 		["affix"] = "Faithful",
 		["group"] = "LifeAndEnergyShieldForJewel",
 		["level"] = 1,
@@ -43081,6 +42841,7 @@ return {
 	},
 	["LifeAndEnergyShieldRecoveryRateUnique_1"] = {
 		"(10-15)% increased Energy Shield Recovery rate",
+		"(10-15)% increased Life Recovery rate",
 		["affix"] = "",
 		["group"] = "LifeAndEnergyShieldRecoveryRate",
 		["level"] = 1,
@@ -43181,6 +42942,7 @@ return {
 	},
 	["LifeAndManaOnHitSeparatedImplicitMarakethClaw1"] = {
 		"Grants 15 Life per Enemy Hit",
+		"Grants 6 Mana per Enemy Hit",
 		["affix"] = "",
 		["group"] = "LifeAndManaOnHitSeparatedLocal",
 		["level"] = 1,
@@ -43209,6 +42971,7 @@ return {
 	},
 	["LifeAndManaOnHitSeparatedImplicitMarakethClaw2"] = {
 		"Grants 28 Life per Enemy Hit",
+		"Grants 10 Mana per Enemy Hit",
 		["affix"] = "",
 		["group"] = "LifeAndManaOnHitSeparatedLocal",
 		["level"] = 1,
@@ -43237,6 +43000,7 @@ return {
 	},
 	["LifeAndManaOnHitSeparatedImplicitMarakethClaw3"] = {
 		"Grants 38 Life per Enemy Hit",
+		"Grants 14 Mana per Enemy Hit",
 		["affix"] = "",
 		["group"] = "LifeAndManaOnHitSeparatedLocal",
 		["level"] = 1,
@@ -44402,7 +44166,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44423,7 +44186,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44444,7 +44206,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44465,7 +44226,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44486,7 +44246,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44507,7 +44266,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44528,7 +44286,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44549,7 +44306,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44570,7 +44326,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44591,7 +44346,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44612,7 +44366,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44633,7 +44386,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44654,7 +44406,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44675,7 +44426,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44696,7 +44446,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44717,7 +44466,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44738,7 +44486,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44759,7 +44506,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44780,7 +44526,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44801,7 +44546,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44822,7 +44566,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44843,7 +44586,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44864,7 +44606,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -44885,7 +44626,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -45181,6 +44921,7 @@ return {
 	},
 	["LightningResistAlsoGrantsPowerChargeOnKillJewelUnique__1"] = {
 		"Passives granting Lightning Resistance or all Elemental Resistances in Radius",
+		"also grant an equal chance to gain a Power Charge on Kill",
 		["affix"] = "",
 		["group"] = "LightningResistAlsoGrantsPowerChargeOnKillJewel",
 		["level"] = 1,
@@ -45565,7 +45306,6 @@ return {
 		["group"] = "LocalAlwaysHeavyStunOnFullLife",
 		["level"] = 76,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1136,
@@ -45632,7 +45372,6 @@ return {
 		["group"] = "LocalCanSocketIgnoringColour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			77,
@@ -45917,7 +45656,6 @@ return {
 		["group"] = "LocalDisableRareModOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7660,
@@ -45976,11 +45714,11 @@ return {
 	},
 	["LocalDisplayYouAndNearbyAlliesHaveIncreasedItemRarityUnique__1"] = {
 		"30% increased Rarity of Items found",
+		"You and Nearby Allies have 30% increased Item Rarity",
 		["affix"] = "",
 		["group"] = "LocalDisplayYouAndNearbyAlliesHaveIncreasedItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			941,
@@ -46027,7 +45765,6 @@ return {
 		["group"] = "LocalModifiesImplicitMods",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			52,
@@ -46703,7 +46440,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfBodyArmour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7740,
@@ -46724,7 +46460,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfBodyArmour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7740,
@@ -46745,7 +46480,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfBoots",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7741,
@@ -46766,7 +46500,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfGloves",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7742,
@@ -46787,7 +46520,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfHelmet",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7743,
@@ -46808,7 +46540,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7744,
@@ -46914,7 +46645,6 @@ return {
 		["group"] = "LocalNoAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			823,
@@ -46935,7 +46665,6 @@ return {
 		["group"] = "LocalNoAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			823,
@@ -47058,7 +46787,6 @@ return {
 		["group"] = "LocalSocketItemsEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			178,
@@ -47079,7 +46807,6 @@ return {
 		["group"] = "LocalModifiesImplicitMods",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			52,
@@ -47232,7 +46959,6 @@ return {
 		["group"] = "LoseSpiritChargesOnSavageHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4045,
@@ -47357,7 +47083,6 @@ return {
 		["group"] = "EnemiesExplodeOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7700,
@@ -47378,7 +47103,6 @@ return {
 		["group"] = "HasXSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			57,
@@ -47420,7 +47144,6 @@ return {
 		["group"] = "LocalDazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7924,
@@ -47462,7 +47185,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -47483,7 +47205,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -47546,7 +47267,6 @@ return {
 		["group"] = "MagicItemsDropIdentified",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3809,
@@ -47567,7 +47287,6 @@ return {
 		["group"] = "MagicMonsterItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7949,
@@ -47659,7 +47378,6 @@ return {
 		["group"] = "MalignantMadnessCritEaterDominant",
 		["level"] = 77,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7737,
@@ -49035,6 +48753,7 @@ return {
 	},
 	["MaximumMinionCountUniqueBootsInt4"] = {
 		"+1 to Level of all Raise Zombie Gems",
+		"+1 to Level of all Raise Spectre Gems",
 		["affix"] = "",
 		["group"] = "MinionGlobalSkillLevel",
 		["level"] = 1,
@@ -49110,6 +48829,8 @@ return {
 	},
 	["MaximumMinionCountUniqueJewel1"] = {
 		"(7-10)% increased Skeleton Attack Speed",
+		"(7-10)% increased Skeleton Cast Speed",
+		"(3-5)% increased Skeleton Movement Speed",
 		["affix"] = "",
 		["group"] = "SkeletonSpeedOld",
 		["level"] = 1,
@@ -49167,6 +48888,7 @@ return {
 	},
 	["MaximumMinionCountUniqueTwoHandSword4"] = {
 		"+1 to maximum number of Spectres",
+		"+1 to maximum number of Skeletons",
 		["affix"] = "",
 		["group"] = "MaximumMinionCountHalfSkeletons",
 		["level"] = 1,
@@ -49192,6 +48914,7 @@ return {
 	},
 	["MaximumMinionCountUniqueTwoHandSword4Updated"] = {
 		"+1 to maximum number of Spectres",
+		"+1 to maximum number of Skeletons",
 		["affix"] = "",
 		["group"] = "MaximumMinionCount",
 		["level"] = 1,
@@ -49220,6 +48943,7 @@ return {
 	},
 	["MaximumMinionCountUniqueWand2"] = {
 		"+1 to maximum number of Spectres",
+		"+1 to maximum number of Skeletons",
 		["affix"] = "",
 		["group"] = "MaximumMinionCountHalfSkeletons",
 		["level"] = 1,
@@ -49245,6 +48969,7 @@ return {
 	},
 	["MaximumMinionCountUniqueWand2Updated"] = {
 		"+1 to maximum number of Spectres",
+		"+1 to maximum number of Skeletons",
 		["affix"] = "",
 		["group"] = "MaximumMinionCount",
 		["level"] = 1,
@@ -49367,7 +49092,6 @@ return {
 		["group"] = "MaximumSpiritChargesPerAbyssJewelEquipped",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4041,
@@ -49388,7 +49112,6 @@ return {
 		["group"] = "MaximumSpiritChargesPerAbyssJewelEquipped",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4041,
@@ -49405,11 +49128,11 @@ return {
 	},
 	["MaximumVoidArrowsUnique__1"] = {
 		"5 Maximum Void Charges",
+		"Gain a Void Charge every 0.5 seconds",
 		["affix"] = "",
 		["group"] = "MaximumVoidArrows",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4016,
@@ -49936,7 +49659,6 @@ return {
 		["group"] = "MinesMultipleDetonation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2766,
@@ -50748,7 +50470,6 @@ return {
 		["group"] = "LightningChanceToChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7564,
@@ -50836,7 +50557,6 @@ return {
 		["group"] = "MoreDamagePerWarcryExerting",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10402,
@@ -51591,6 +51311,7 @@ return {
 	},
 	["NearbyAlliesCannotBeSlowedUnique__1"] = {
 		"Action Speed cannot be modified to below base value",
+		"Nearby Allies' Action Speed cannot be modified to below base value",
 		["affix"] = "",
 		["group"] = "NearbyAlliesCannotBeSlowed",
 		["level"] = 1,
@@ -51642,7 +51363,6 @@ return {
 		["group"] = "GrantsCullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1775,
@@ -51663,7 +51383,6 @@ return {
 		["group"] = "GrantsCullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1775,
@@ -51684,7 +51403,6 @@ return {
 		["group"] = "IncreasedItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			941,
@@ -51705,7 +51423,6 @@ return {
 		["group"] = "IncreasedItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			941,
@@ -51722,6 +51439,7 @@ return {
 	},
 	["NearbyEnemiesCannotCritUnique__1"] = {
 		"Never deal Critical Hits",
+		"Nearby Enemies cannot deal Critical Hits",
 		["affix"] = "",
 		["group"] = "NearbyEnemiesCannotCrit",
 		["level"] = 1,
@@ -51773,7 +51491,6 @@ return {
 		["group"] = "NoItemQuantity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2329,
@@ -51794,7 +51511,6 @@ return {
 		["group"] = "NoItemRarity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2328,
@@ -51815,7 +51531,6 @@ return {
 		["group"] = "DamageBypassEnergyShieldPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1456,
@@ -51901,7 +51616,6 @@ return {
 		["group"] = "NormalMonsterItemQuantity",
 		["level"] = 38,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9311,
@@ -52039,7 +51753,6 @@ return {
 		["group"] = "DamagePerWardSpentOnSkill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9255,
@@ -52106,7 +51819,6 @@ return {
 		["group"] = "OnHitBlindChilledEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4925,
@@ -52248,7 +51960,6 @@ return {
 		["group"] = "OneSocketEachColour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			63,
@@ -52290,7 +52001,6 @@ return {
 		["group"] = "OnslaughtBuffOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2417,
@@ -52311,7 +52021,6 @@ return {
 		["group"] = "OnslaughtBuffOnKill",
 		["level"] = 58,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2417,
@@ -52374,7 +52083,6 @@ return {
 		["group"] = "OnslaughtWhileFortified",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6835,
@@ -52395,7 +52103,6 @@ return {
 		["group"] = "OnslaughtWithMaxEnduranceCharges",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6831,
@@ -52416,7 +52123,6 @@ return {
 		["group"] = "OnslaugtOnKill10SecondsPercentChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5535,
@@ -52460,7 +52166,6 @@ return {
 		["group"] = "UniqueAbyssalWastingDoubledPower",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6368,
@@ -52481,7 +52186,6 @@ return {
 		["group"] = "UniqueAbyssalWastingHinders",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4117,
@@ -52502,7 +52206,6 @@ return {
 		["group"] = "AbyssalWastingIncreasedEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4121,
@@ -52523,7 +52226,6 @@ return {
 		["group"] = "AbyssalWastingInfiniteDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4123,
@@ -52540,6 +52242,7 @@ return {
 	},
 	["PassageUniqueAmanamuAbyssalWastingOnslaughtChance"] = {
 		"(10-20)% chance to gain Onslaught for 3 seconds when you kill an",
+		" enemy affected by Abyssal Wasting",
 		["affix"] = "",
 		["group"] = "UniqueAbyssalWastingOnslaughtChance",
 		["level"] = 1,
@@ -52567,7 +52270,6 @@ return {
 		["group"] = "UniqueAbyssalWastingPreventsCrits",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4119,
@@ -52609,7 +52311,6 @@ return {
 		["group"] = "AbyssalWastingReducesFireRes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4122,
@@ -52699,7 +52400,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Strength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10057,
@@ -52716,6 +52416,7 @@ return {
 	},
 	["PassageUniqueAmanamuHybridArmourAndArmourElemental"] = {
 		"(30-40)% increased Armour",
+		"+(20-30)% of Armour also applies to Elemental Damage",
 		["affix"] = "",
 		["group"] = "UniqueHybridArmourAndArmourElemental",
 		["level"] = 1,
@@ -52743,11 +52444,11 @@ return {
 	},
 	["PassageUniqueAmanamuHybridSlowAndSlowOnSelf"] = {
 		"Debuffs you inflict have (12-20)% increased Slow Magnitude",
+		"(10-20)% reduced Slowing Potency of Debuffs on You",
 		["affix"] = "",
 		["group"] = "UniqueHybridSlowAndSlowOnSelf",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4691,
@@ -52768,6 +52469,7 @@ return {
 	},
 	["PassageUniqueAmanamuHybridStrengthPercentGainAsFire"] = {
 		"Gain (8-12)% of Damage as Extra Fire Damage",
+		"(4-6)% increased Strength",
 		["affix"] = "",
 		["group"] = "UniqueHybridStrengthPercentGainAsFire",
 		["level"] = 1,
@@ -52870,7 +52572,6 @@ return {
 		["group"] = "SlowEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4691,
@@ -52891,7 +52592,6 @@ return {
 		["group"] = "MaximumSpiritPercentage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1417,
@@ -52976,7 +52676,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -53018,7 +52717,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -53039,7 +52737,6 @@ return {
 		["group"] = "SpiritReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4755,
@@ -53060,7 +52757,6 @@ return {
 		["group"] = "ThornsFromConsumingEndurance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10250,
@@ -53081,7 +52777,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceChaosResistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10574,
@@ -53102,7 +52797,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10575,
@@ -53123,7 +52817,6 @@ return {
 		["group"] = "AbyssalWastingAccuracyRatingPlusPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4132,
@@ -53144,7 +52837,6 @@ return {
 		["group"] = "UniqueAbyssalWastingDebilitates",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4116,
@@ -53165,7 +52857,6 @@ return {
 		["group"] = "AbyssalWastingInstantManaLeechPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4125,
@@ -53230,7 +52921,6 @@ return {
 		["group"] = "AbyssalWastingReducesColdRes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4120,
@@ -53247,6 +52937,7 @@ return {
 	},
 	["PassageUniqueKurgalAbyssalWastingReviveChance"] = {
 		"10% chance to revive one of your Persistent Minions when you kill an",
+		" enemy affected by Abyssal Wasting",
 		["affix"] = "",
 		["group"] = "UniqueAbyssalWastingReviveChance",
 		["level"] = 1,
@@ -53274,7 +52965,6 @@ return {
 		["group"] = "UniqueAbyssalWastingVolatility",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6373,
@@ -53295,7 +52985,6 @@ return {
 		["group"] = "UniqueAbyssalWastingWitherChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5557,
@@ -53407,7 +53096,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9688,
@@ -53450,7 +53138,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Intelligence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10056,
@@ -53471,7 +53158,6 @@ return {
 		["group"] = "GainArcaneSurgeOnMinionDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6745,
@@ -53488,6 +53174,7 @@ return {
 	},
 	["PassageUniqueKurgalHybridCastSpeedAndArcaneSurgeOnMinionDeath"] = {
 		"Gain Arcane Surge when a Minion Dies",
+		"You and Allies in your Presence have (11-16)% increased Cast Speed",
 		["affix"] = "",
 		["group"] = "UniqueHybridCastSpeedAndArcaneSurgeOnMinionDeath",
 		["level"] = 1,
@@ -53514,6 +53201,7 @@ return {
 	},
 	["PassageUniqueKurgalHybridEnergyShieldAndDelay"] = {
 		"(30-40)% increased maximum Energy Shield",
+		"(15-25)% faster start of Energy Shield Recharge",
 		["affix"] = "",
 		["group"] = "UniqueHybridEnergyShieldAndDelay",
 		["level"] = 1,
@@ -53539,6 +53227,7 @@ return {
 	},
 	["PassageUniqueKurgalHybridIntelligencePercentGainAsCold"] = {
 		"Gain (8-12)% of Damage as Extra Cold Damage",
+		"(4-6)% increased Intelligence",
 		["affix"] = "",
 		["group"] = "UniqueHybridIntelligencePercentGainAsCold",
 		["level"] = 1,
@@ -53568,6 +53257,7 @@ return {
 	},
 	["PassageUniqueKurgalHybridManaPercentTakenBeforeLife"] = {
 		"(5-10)% increased maximum Mana",
+		"(10-14)% of Damage is taken from Mana before Life",
 		["affix"] = "",
 		["group"] = "UniqueHybridManaPercentTakenBeforeLife",
 		["level"] = 1,
@@ -53662,7 +53352,6 @@ return {
 		["group"] = "ManaRegenWhileSurrounded",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8003,
@@ -53726,7 +53415,6 @@ return {
 		["group"] = "EnergyGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6410,
@@ -53747,7 +53435,6 @@ return {
 		["group"] = "PercentCastSpeedPerSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5333,
@@ -53768,7 +53455,6 @@ return {
 		["group"] = "SkillCostEfficiencyFromConsumingPower",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9897,
@@ -53812,7 +53498,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCastSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10573,
@@ -53833,7 +53518,6 @@ return {
 		["group"] = "AbyssalWastingAilmentChancePlusPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4252,
@@ -53854,7 +53538,6 @@ return {
 		["group"] = "UniqueAbyssalWastingBlinds",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4115,
@@ -53871,11 +53554,11 @@ return {
 	},
 	["PassageUniqueUlamanAbyssalWastingGrantsFlaskCharges"] = {
 		"Enemies you kill while they are affected by Abyssal Wasting",
+		" grant 100% increased Flask Charges",
 		["affix"] = "",
 		["group"] = "UniqueAbyssalWastingGrantsFlaskCharges",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6371,
@@ -53898,7 +53581,6 @@ return {
 		["group"] = "UniqueAbyssalWastingImmobilisationBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7276,
@@ -53919,7 +53601,6 @@ return {
 		["group"] = "AbyssalWastingInstantLifeLeechPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4124,
@@ -53940,7 +53621,6 @@ return {
 		["group"] = "AbyssalWastingReducesLightningRes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4126,
@@ -53961,7 +53641,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5515,
@@ -54028,7 +53707,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9686,
@@ -54071,7 +53749,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200PerDexterity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10055,
@@ -54092,7 +53769,6 @@ return {
 		["group"] = "GainOnslaughtSurgeOnMinionDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6824,
@@ -54109,6 +53785,7 @@ return {
 	},
 	["PassageUniqueUlamanHybridAttackSpeedAndOnslaughtOnMinionDeath"] = {
 		"Gain Onslaught for 4 seconds when a Minion Dies",
+		"You and Allies in your Presence have (7-12)% increased Attack Speed",
 		["affix"] = "",
 		["group"] = "UniqueHybridAttackSpeedAndOnslaughtOnMinionDeath",
 		["level"] = 1,
@@ -54137,6 +53814,7 @@ return {
 	},
 	["PassageUniqueUlamanHybridChainTerrainAndFork"] = {
 		"Projectiles have (40-50)% chance for an additional Projectile when Forking",
+		"Projectiles have (15-20)% chance to Chain an additional time from terrain",
 		["affix"] = "",
 		["group"] = "UniqueHybridChainTerrainAndFork",
 		["level"] = 1,
@@ -54162,6 +53840,7 @@ return {
 	},
 	["PassageUniqueUlamanHybridDexterityAndGainAsLightning"] = {
 		"Gain (8-12)% of Damage as Extra Lightning Damage",
+		"(4-6)% increased Dexterity",
 		["affix"] = "",
 		["group"] = "UniqueHybridDexterityAndGainAsLightning",
 		["level"] = 1,
@@ -54191,6 +53870,7 @@ return {
 	},
 	["PassageUniqueUlamanHybridEvasionAndDeflection"] = {
 		"(30-40)% increased Evasion Rating",
+		"Gain Deflection Rating equal to (10-20)% of Evasion Rating",
 		["affix"] = "",
 		["group"] = "UniqueHybridEvasionAndDeflection",
 		["level"] = 1,
@@ -54216,6 +53896,7 @@ return {
 	},
 	["PassageUniqueUlamanHybridLifeRecoverLifeOnDeath"] = {
 		"(5-10)% increased maximum Life",
+		"Recover (2-3)% of your maximum Life when an Enemy dies in your Presence",
 		["affix"] = "",
 		["group"] = "UniqueHybridLifeRecoverLifeOnDeath",
 		["level"] = 1,
@@ -54310,7 +53991,6 @@ return {
 		["group"] = "LifeLeechAmountFromConsumingFrenzy",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7452,
@@ -54331,7 +54011,6 @@ return {
 		["group"] = "LifeRegenWhileSurrounded",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7505,
@@ -54395,7 +54074,6 @@ return {
 		["group"] = "PercentAttackSpeedPerSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4553,
@@ -54416,7 +54094,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -54460,7 +54137,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAccuracyRating",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10570,
@@ -54481,7 +54157,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAttackSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10572,
@@ -54498,11 +54173,11 @@ return {
 	},
 	["PassiveEffectivenessJewelUnique__1_"] = {
 		"50% increased Effect of non-Keystone Passive Skills in Radius",
+		"Notable Passive Skills in Radius grant nothing",
 		["affix"] = "",
 		["group"] = "PassiveEffectivenessJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7902,
@@ -54727,6 +54402,7 @@ return {
 	},
 	["PercentIncreasedLifeAndManaJewel"] = {
 		"(2-4)% increased maximum Life",
+		"(4-6)% increased maximum Mana",
 		["affix"] = "Passionate",
 		["group"] = "PercentageLifeAndManaForJewel",
 		["level"] = 1,
@@ -54860,7 +54536,6 @@ return {
 		["group"] = "PercentOfPhysicalHitDamageAsAdditionalBloodLoss",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9423,
@@ -54902,7 +54577,6 @@ return {
 		["group"] = "GainPhasingFor4SecondsOnBeginESRecharge",
 		["level"] = 56,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2284,
@@ -54923,7 +54597,6 @@ return {
 		["group"] = "PhasingOnRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2713,
@@ -54944,7 +54617,6 @@ return {
 		["group"] = "PhasingOnTrapTriggered",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3891,
@@ -54965,7 +54637,6 @@ return {
 		["group"] = "Phasing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2576,
@@ -55575,7 +55246,6 @@ return {
 		["group"] = "PhysicalDamageImmunityOnRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2701,
@@ -55954,7 +55624,6 @@ return {
 		["group"] = "PlayerFarShot",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10729,
@@ -55975,7 +55644,6 @@ return {
 		["group"] = "PlayerLightAlternateColour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2337,
@@ -55992,6 +55660,7 @@ return {
 	},
 	["PoisonChanceAndDurationForJewel"] = {
 		"(6-8)% increased Poison Duration",
+		"(3-5)% chance to Poison on Hit",
 		["affix"] = "of Poisoning",
 		["group"] = "PoisonChanceAndDurationForJewel",
 		["level"] = 1,
@@ -56662,6 +56331,7 @@ return {
 	},
 	["ProjectileAttacksChanceToBleedBeastialMinionUnique__1_"] = {
 		"Projectiles from Attacks have 20% chance to inflict Bleeding on Hit while",
+		"you have a Bestial Minion",
 		["affix"] = "",
 		["group"] = "ProjectileAttacksChanceToBleedBeastialMinion",
 		["level"] = 1,
@@ -56688,6 +56358,7 @@ return {
 	},
 	["ProjectileAttacksChanceToMaimBeastialMinionUnique__1"] = {
 		"Projectiles from Attacks have 20% chance to Maim on Hit while",
+		"you have a Bestial Minion",
 		["affix"] = "",
 		["group"] = "ProjectileAttacksChanceToMaimBeastialMinion",
 		["level"] = 1,
@@ -56711,6 +56382,7 @@ return {
 	},
 	["ProjectileAttacksChanceToPoisonBeastialMinionUnique__1"] = {
 		"Projectiles from Attacks have 20% chance to Poison on Hit while",
+		"you have a Bestial Minion",
 		["affix"] = "",
 		["group"] = "ProjectileAttacksChanceToPoisonBeastialMinion",
 		["level"] = 1,
@@ -56921,7 +56593,6 @@ return {
 		["group"] = "PrrojectilesPierceWhilePhasing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9572,
@@ -57007,7 +56678,6 @@ return {
 		["group"] = "LocalDazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7924,
@@ -57070,7 +56740,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5515,
@@ -57091,7 +56760,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 69,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -57319,7 +56987,6 @@ return {
 		["group"] = "StunDamageIncrease",
 		["level"] = 40,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1051,
@@ -57811,7 +57478,6 @@ return {
 		["group"] = "ReducedDamageIfNotHitRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3839,
@@ -57832,7 +57498,6 @@ return {
 		["group"] = "ReducedDamageIfTakenASavageHitRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3827,
@@ -58221,7 +57886,6 @@ return {
 		["group"] = "ProjectileDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2511,
@@ -58331,7 +57995,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 63,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -58352,7 +58015,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -58373,7 +58035,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -58756,7 +58417,6 @@ return {
 		["group"] = "ReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1955,
@@ -58777,7 +58437,6 @@ return {
 		["group"] = "ReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1955,
@@ -58798,7 +58457,6 @@ return {
 		["group"] = "ReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1955,
@@ -58819,7 +58477,6 @@ return {
 		["group"] = "ReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1955,
@@ -58949,7 +58606,6 @@ return {
 		["group"] = "AdditionalSkillSlots",
 		["level"] = 56,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			58,
@@ -59176,7 +58832,6 @@ return {
 		["group"] = "LocalItemBenefitSocketableAsIfGloves",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7742,
@@ -59309,7 +58964,6 @@ return {
 		["group"] = "LocalMaximumQuality",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			615,
@@ -59330,7 +58984,6 @@ return {
 		["group"] = "LocalMaximumQuality",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			615,
@@ -59351,7 +59004,6 @@ return {
 		["group"] = "MaximumQualityOverride",
 		["level"] = 50,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			614,
@@ -59481,11 +59133,11 @@ return {
 	},
 	["RingImplicitPrefixSuffixAllowed1"] = {
 		"+1 Prefix Modifier allowed",
+		"-1 Suffix Modifier allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -59506,11 +59158,11 @@ return {
 	},
 	["RingImplicitPrefixSuffixAllowed2"] = {
 		"-1 Prefix Modifier allowed",
+		"+1 Suffix Modifier allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -59531,11 +59183,11 @@ return {
 	},
 	["RingImplicitPrefixSuffixAllowed3"] = {
 		"+2 Prefix Modifiers allowed",
+		"-2 Suffix Modifiers allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -59556,11 +59208,11 @@ return {
 	},
 	["RingImplicitPrefixSuffixAllowed4"] = {
 		"-2 Prefix Modifiers allowed",
+		"+2 Suffix Modifiers allowed",
 		["affix"] = "",
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -59944,6 +59596,7 @@ return {
 	},
 	["ShockChanceAndDurationJewel"] = {
 		"(3-5)% chance to Shock",
+		"(12-16)% increased Shock Duration",
 		["affix"] = "of Shocking",
 		["group"] = "ShockChanceAndDurationForJewel",
 		["level"] = 1,
@@ -60232,6 +59885,7 @@ return {
 	},
 	["ShockedEnemiesExplodeUnique__1_"] = {
 		"Shocked Enemies you Kill Explode, dealing 5% of",
+		"their Life as Lightning Damage which cannot Shock",
 		["affix"] = "",
 		["group"] = "ShockedEnemiesExplode",
 		["level"] = 1,
@@ -60262,7 +59916,6 @@ return {
 		["group"] = "ShockedEnemyCastSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3932,
@@ -60283,7 +59936,6 @@ return {
 		["group"] = "ShockedEnemyMovementSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3933,
@@ -60304,7 +59956,6 @@ return {
 		["group"] = "SimulatedRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10665,
@@ -60325,7 +59976,6 @@ return {
 		["group"] = "SimulatedRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10665,
@@ -60346,7 +59996,6 @@ return {
 		["group"] = "SimulatedRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10665,
@@ -60363,11 +60012,11 @@ return {
 	},
 	["SimulatedRampageUnique__1"] = {
 		"Melee Hits count as Rampage Kills",
+		"Rampage",
 		["affix"] = "",
 		["group"] = "SimulatedRampageMeleeHits",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10664,
@@ -60390,7 +60039,6 @@ return {
 		["group"] = "SimulatedRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10665,
@@ -60411,7 +60059,6 @@ return {
 		["group"] = "SimulatedRampage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10665,
@@ -60549,7 +60196,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60570,7 +60216,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60591,7 +60236,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60612,7 +60256,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60633,7 +60276,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60654,7 +60296,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -60675,7 +60316,6 @@ return {
 		["group"] = "SmokeCloudWhenHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2358,
@@ -60692,6 +60332,7 @@ return {
 	},
 	["SocketedAurasReserveNoManaUnique__1"] = {
 		"Socketed Gems have no Reservation",
+		"Your Blessing Skills are Disabled",
 		["affix"] = "",
 		["group"] = "SocketedAurasReserveNoMana",
 		["level"] = 48,
@@ -61469,7 +61110,6 @@ return {
 		["group"] = "SocketedWarcryCooldownCount",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			439,
@@ -61511,7 +61151,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -61579,7 +61218,6 @@ return {
 		["group"] = "LocalIncreasedProjectileSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7815,
@@ -62083,7 +61721,6 @@ return {
 		["group"] = "KeystoneBattlemage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10684,
@@ -62341,7 +61978,6 @@ return {
 		["group"] = "KeystoneBattlemage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10684,
@@ -62792,7 +62428,6 @@ return {
 		["group"] = "SpreadChilledGroundWhenHitByAttack",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5654,
@@ -62813,7 +62448,6 @@ return {
 		["group"] = "SpreadConsecratedGroundOnShatter",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3781,
@@ -63026,7 +62660,6 @@ return {
 		["group"] = "JewelStealRareMod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2790,
@@ -63139,7 +62772,6 @@ return {
 		["group"] = "StrengthIntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			826,
@@ -63227,7 +62859,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -63248,7 +62879,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -63269,7 +62899,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -63290,7 +62919,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -63353,7 +62981,6 @@ return {
 		["group"] = "StunAvoidancePerHerald",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4617,
@@ -63374,7 +63001,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -63395,7 +63021,6 @@ return {
 		["group"] = "AvoidStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1607,
@@ -63416,7 +63041,6 @@ return {
 		["group"] = "StunDurationBasedOnEnergyShield",
 		["level"] = 48,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3921,
@@ -63437,7 +63061,6 @@ return {
 		["group"] = "StunDurationForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1053,
@@ -63462,7 +63085,6 @@ return {
 		["group"] = "StunRecoveryForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1060,
@@ -63809,6 +63431,7 @@ return {
 	},
 	["SummonsWormsOnUse"] = {
 		"2 Enemy Writhing Worms escape the Flask when used",
+		"Writhing Worms are destroyed when Hit",
 		["affix"] = "",
 		["group"] = "SummonsWormsOnUse",
 		["level"] = 1,
@@ -64235,7 +63858,6 @@ return {
 		["group"] = "WardOnBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9682,
@@ -64474,11 +64096,11 @@ return {
 	},
 	["TakePhysicalDamagePerWarcryExertingUnique__1"] = {
 		"When you Attack, take (15-20)% of Life as Physical Damage for",
+		"each Warcry Empowering the Attack",
 		["affix"] = "",
 		["group"] = "TakePhysicalDamagePerWarcryExerting",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9812,
@@ -64611,7 +64233,6 @@ return {
 		["group"] = "WeaponImplicitMaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -64655,7 +64276,6 @@ return {
 		["group"] = "WeaponImplicitRageOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6873,
@@ -64764,7 +64384,6 @@ return {
 		["group"] = "TheFlawedEdict",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7696,
@@ -64830,7 +64449,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -65103,7 +64721,6 @@ return {
 		["group"] = "TotemsCannotBeStunned",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2794,
@@ -65147,7 +64764,6 @@ return {
 		["group"] = "TrapCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3150,
@@ -65324,7 +64940,6 @@ return {
 		["group"] = "TrapDuration",
 		["level"] = 47,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1662,
@@ -65345,7 +64960,6 @@ return {
 		["group"] = "TrapDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1662,
@@ -65366,7 +64980,6 @@ return {
 		["group"] = "TrapCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3150,
@@ -65477,7 +65090,6 @@ return {
 		["group"] = "TrapTriggerRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1665,
@@ -65498,7 +65110,6 @@ return {
 		["group"] = "TrapTriggerTwiceChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3468,
@@ -65515,6 +65126,7 @@ return {
 	},
 	["TravelSkillsReflectPoisonUnique__1"] = {
 		"Poison you inflict with Travel Skills is Reflected to you if you",
+		"have fewer than 5 Poisons on you",
 		["affix"] = "",
 		["group"] = "TravelSkillsReflectPoison",
 		["level"] = 57,
@@ -65563,6 +65175,7 @@ return {
 	},
 	["TriggerBowSkillsOnCastUnique__1"] = {
 		"Trigger a Socketed Bow Skill when you Cast a Spell while",
+		"wielding a Bow, with a 1 second Cooldown",
 		["affix"] = "",
 		["group"] = "TriggerBowSkillsOnCast",
 		["level"] = 1,
@@ -66063,7 +65676,6 @@ return {
 		["group"] = "UnarmedAreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2787,
@@ -66201,7 +65813,6 @@ return {
 		["group"] = "UndyingRageOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2450,
@@ -66218,11 +65829,11 @@ return {
 	},
 	["UniqueAccuracyOver100"] = {
 		"Chance to Hit with Attacks can exceed 100%",
+		"Gain additional Critical Hit Chance equal to (10-25)% of excess chance to Hit with Attacks",
 		["affix"] = "",
 		["group"] = "AccuracyOver100",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6735,
@@ -66245,7 +65856,6 @@ return {
 		["group"] = "AccuracyUnaffectedDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6079,
@@ -66486,7 +66096,6 @@ return {
 		["group"] = "AddedFireDamagePer25Strength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1821,
@@ -66822,7 +66431,6 @@ return {
 		["group"] = "UniqueAddedPhysicalDamagePerGlobalBlockChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2676,
@@ -66954,7 +66562,6 @@ return {
 		["group"] = "AttackAdditionalChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3783,
@@ -66996,7 +66603,6 @@ return {
 		["group"] = "AdditionalChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5518,
@@ -67098,6 +66704,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels1"] = {
 		"+1 to Level of all Fire Skills",
+		"+2 to Level of all Cold Skills",
+		"+3 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67130,6 +66738,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels2"] = {
 		"+1 to Level of all Fire Skills",
+		"+3 to Level of all Cold Skills",
+		"+2 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67162,6 +66772,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels3"] = {
 		"+2 to Level of all Fire Skills",
+		"+1 to Level of all Cold Skills",
+		"+3 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67194,6 +66806,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels4"] = {
 		"+2 to Level of all Fire Skills",
+		"+3 to Level of all Cold Skills",
+		"+1 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67226,6 +66840,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels5"] = {
 		"+3 to Level of all Fire Skills",
+		"+1 to Level of all Cold Skills",
+		"+2 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67258,6 +66874,8 @@ return {
 	},
 	["UniqueAdditionalElementalGemLevels6"] = {
 		"+3 to Level of all Fire Skills",
+		"+2 to Level of all Cold Skills",
+		"+1 to Level of all Lightning Skills",
 		["affix"] = "",
 		["group"] = "UniqueAdditionalElementalGemLevels",
 		["level"] = 1,
@@ -67357,7 +66975,6 @@ return {
 		["group"] = "AdditionalTotems",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1978,
@@ -67378,7 +66995,6 @@ return {
 		["group"] = "AftershockChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10626,
@@ -67399,7 +67015,6 @@ return {
 		["group"] = "AggravateBleedOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4239,
@@ -67420,7 +67035,6 @@ return {
 		["group"] = "AggravateBleedOnPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4242,
@@ -67462,7 +67076,6 @@ return {
 		["group"] = "AilmentChanceRecieved",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5487,
@@ -67483,7 +67096,6 @@ return {
 		["group"] = "AilmentThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4264,
@@ -67504,7 +67116,6 @@ return {
 		["group"] = "AilmentThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4264,
@@ -67525,7 +67136,6 @@ return {
 		["group"] = "AilmentThresholdUncappedChaosResistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4263,
@@ -67945,7 +67555,6 @@ return {
 		["group"] = "LocalAllAttributesPerLevel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7606,
@@ -67966,7 +67575,6 @@ return {
 		["group"] = "AllAttributesPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7605,
@@ -68029,7 +67637,6 @@ return {
 		["group"] = "AllDamageCanPoison",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4272,
@@ -68989,11 +68596,12 @@ return {
 	},
 	["UniqueAlternatingDamageTaken1"] = {
 		"Alternating every 5 seconds:",
+		"Take 40% less Damage from Hits",
+		"Take 40% less Damage over time",
 		["affix"] = "",
 		["group"] = "AlternatingDamageTaken",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6965,
@@ -69018,7 +68626,6 @@ return {
 		["group"] = "AlwaysCritHeavyStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7612,
@@ -69081,7 +68688,6 @@ return {
 		["group"] = "AlwaysPierceBurningEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4296,
@@ -69098,6 +68704,7 @@ return {
 	},
 	["UniqueAncestralBoostEveryXAttacksWhileShapeshifted1"] = {
 		"Every second Slam Skill you use while Shapeshifted is Ancestrally Boosted",
+		"Every second Strike Skill you use while Shapeshifted is Ancestrally Boosted",
 		["affix"] = "",
 		["group"] = "AncestralBoostEveryXAttacksWhileShapeshifted",
 		["level"] = 1,
@@ -69125,7 +68732,6 @@ return {
 		["group"] = "AncientsChallengeOnOffHandDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10566,
@@ -69142,6 +68748,7 @@ return {
 	},
 	["UniqueApplyCorruptedBloodOnBlock1"] = {
 		"Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of",
+		"your maximum Life as Physical damage per second",
 		["affix"] = "",
 		["group"] = "ApplyCorruptedBloodOnBlock",
 		["level"] = 1,
@@ -69170,7 +68777,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1630,
@@ -69191,7 +68797,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1630,
@@ -69212,7 +68817,6 @@ return {
 		["group"] = "ArmourPercentAppliesToChaosDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4645,
@@ -69324,7 +68928,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -69523,7 +69126,6 @@ return {
 		["group"] = "AttackDamageNotOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4534,
@@ -69544,7 +69146,6 @@ return {
 		["group"] = "AttackDamageOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4530,
@@ -70136,7 +69737,6 @@ return {
 		["group"] = "BaseBlockDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4663,
@@ -70157,7 +69757,6 @@ return {
 		["group"] = "BaseBlockDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4663,
@@ -70178,7 +69777,6 @@ return {
 		["group"] = "BaseBlockDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4663,
@@ -70307,7 +69905,6 @@ return {
 		["group"] = "BaseLifePerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7632,
@@ -70328,7 +69925,6 @@ return {
 		["group"] = "BaseLifeRegenToAllies",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			924,
@@ -70349,7 +69945,6 @@ return {
 		["group"] = "BaseLimit",
 		["level"] = 30,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4715,
@@ -70370,7 +69965,6 @@ return {
 		["group"] = "BaseManaPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7633,
@@ -70460,7 +70054,6 @@ return {
 		["group"] = "BlasphemyHasNoReservation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4802,
@@ -70507,7 +70100,6 @@ return {
 		["group"] = "BleedingInflictedOnShockedEnemiesIsAggravated",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4237,
@@ -70528,7 +70120,6 @@ return {
 		["group"] = "BleedsAlwaysAggravated",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4247,
@@ -70549,7 +70140,6 @@ return {
 		["group"] = "BlindEffectsReversed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10631,
@@ -70591,7 +70181,6 @@ return {
 		["group"] = "BlindOnPoison",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4932,
@@ -70612,7 +70201,6 @@ return {
 		["group"] = "Blinded",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10630,
@@ -70654,7 +70242,6 @@ return {
 		["group"] = "BlockChanceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1133,
@@ -70675,7 +70262,6 @@ return {
 		["group"] = "BlockChanceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1133,
@@ -70717,7 +70303,6 @@ return {
 		["group"] = "BlockChanceToAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9375,
@@ -70888,7 +70473,6 @@ return {
 		["group"] = "BuffSkillSpiritEfficiencyPerMaximumLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5239,
@@ -70909,7 +70493,6 @@ return {
 		["group"] = "BuildDamageAgainstRareAndUnique",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10396,
@@ -70954,7 +70537,6 @@ return {
 		["group"] = "CanActiveBlockAllDirections",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5248,
@@ -70975,7 +70557,6 @@ return {
 		["group"] = "CanBeInstilled",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10757,
@@ -70996,7 +70577,6 @@ return {
 		["group"] = "CanEvadeAllDamageNotHitRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6216,
@@ -71017,7 +70597,6 @@ return {
 		["group"] = "CannotBeChilledOrFrozen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1593,
@@ -71038,7 +70617,6 @@ return {
 		["group"] = "CannotBeIgnited",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1595,
@@ -71059,7 +70637,6 @@ return {
 		["group"] = "CannotBeLightStunned",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5273,
@@ -71080,7 +70657,6 @@ return {
 		["group"] = "CannotBeLightStunnedByDeflectedHits",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5274,
@@ -71124,7 +70700,6 @@ return {
 		["group"] = "CannotBeShocked",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1597,
@@ -71145,7 +70720,6 @@ return {
 		["group"] = "CannotBeThrown",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7637,
@@ -71275,7 +70849,6 @@ return {
 		["group"] = "CannotImmobilise",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5303,
@@ -71340,7 +70913,6 @@ return {
 		["group"] = "CannotRecoverManaExceptRegen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5313,
@@ -71361,7 +70933,6 @@ return {
 		["group"] = "CannotSprint",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5315,
@@ -71382,7 +70953,6 @@ return {
 		["group"] = "CannotUseWarcries",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5321,
@@ -71427,7 +70997,6 @@ return {
 		["group"] = "SkillsExertAttacksDoNotCountChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5404,
@@ -71444,11 +71013,11 @@ return {
 	},
 	["UniqueChanceForNoBoltReload1"] = {
 		"Bolts fired by Crossbow Attacks have 100% chance to not",
+		"expend Ammunition if you've Reloaded Recently",
 		["affix"] = "",
 		["group"] = "ChanceForNoBoltReload",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5904,
@@ -71494,7 +71063,6 @@ return {
 		["group"] = "ChanceToAvoidDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5485,
@@ -71515,7 +71083,6 @@ return {
 		["group"] = "ChanceToAvoidProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4654,
@@ -71559,7 +71126,6 @@ return {
 		["group"] = "ChanceToDealThornsDamageOnHit",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10265,
@@ -71580,7 +71146,6 @@ return {
 		["group"] = "ChanceToIntimidateOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5559,
@@ -71601,7 +71166,6 @@ return {
 		["group"] = "ChanceToNotConsumeCorpse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5562,
@@ -71785,7 +71349,6 @@ return {
 		["group"] = "ChaosInfusionFromCharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6719,
@@ -72657,7 +72220,6 @@ return {
 		["group"] = "ChaosResistancePerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7630,
@@ -72678,7 +72240,6 @@ return {
 		["group"] = "UniqueChaosShrine",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6967,
@@ -73350,7 +72911,6 @@ return {
 		["group"] = "ChillHitsCauseShattering",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5657,
@@ -73440,7 +73000,6 @@ return {
 		["group"] = "ColdAddedAsFireChilledEnemy",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9283,
@@ -73504,7 +73063,6 @@ return {
 		["group"] = "ColdDamageConvertToLightning",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1716,
@@ -73603,7 +73161,6 @@ return {
 		["group"] = "ColdExposureAdditionalResistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5696,
@@ -73624,7 +73181,6 @@ return {
 		["group"] = "ElementalExposureEffectOnHitWithMagnitude",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4282,
@@ -73645,7 +73201,6 @@ return {
 		["group"] = "ColdExposureOnIgnite",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7343,
@@ -73662,6 +73217,7 @@ return {
 	},
 	["UniqueColdFireSurgeOnReload"] = {
 		"When you reload, triggers Gemini Surge to alternately",
+		"gain (2-6) Cold Surges or (2-6) Fire Surges",
 		["affix"] = "",
 		["group"] = "ColdFireSurgeOnReload",
 		["level"] = 1,
@@ -74642,7 +74198,6 @@ return {
 		["group"] = "ColdResistanceNoPenalty",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5704,
@@ -74687,7 +74242,6 @@ return {
 		["group"] = "UniqueColdShrine",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6968,
@@ -74708,7 +74262,6 @@ return {
 		["group"] = "CompanionDamageAgainstMarkedEnemies",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1724,
@@ -74773,7 +74326,6 @@ return {
 		["group"] = "ConsecratedGroundStationaryRing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6895,
@@ -74794,7 +74346,6 @@ return {
 		["group"] = "ConsumeCorpseRecoverLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5764,
@@ -74836,7 +74387,6 @@ return {
 		["group"] = "ConsumeFrenzyChargeAdditionalProjectile",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9967,
@@ -74924,7 +74474,6 @@ return {
 		["group"] = "CorruptedSkillCostEfficiencyDuringFlaskEffect",
 		["level"] = 70,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3006,
@@ -75478,7 +75027,6 @@ return {
 		["group"] = "CriticalStrikesIgnoreResistances",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3144,
@@ -75586,7 +75134,6 @@ return {
 		["group"] = "IceCrystalMaximumLifePerColdResistance",
 		["level"] = 69,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7239,
@@ -75607,7 +75154,6 @@ return {
 		["group"] = "CullingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1775,
@@ -75628,7 +75174,6 @@ return {
 		["group"] = "CullingStrikeOnBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5910,
@@ -75649,7 +75194,6 @@ return {
 		["group"] = "CullingStrikeThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5914,
@@ -75738,7 +75282,6 @@ return {
 		["group"] = "CurseNoActivationDelay",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10420,
@@ -75891,7 +75434,6 @@ return {
 		["group"] = "DamageBlockedRecoupedAsMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5964,
@@ -75912,7 +75454,6 @@ return {
 		["group"] = "DamageBypassEnergyShieldPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1456,
@@ -75933,7 +75474,6 @@ return {
 		["group"] = "DamageCannotBypassEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1460,
@@ -75954,7 +75494,6 @@ return {
 		["group"] = "DeflectedDamageRemovedFromCompanion",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5732,
@@ -75998,7 +75537,6 @@ return {
 		["group"] = "DamageGainedAsChaosPerCost",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9233,
@@ -76139,7 +75677,6 @@ return {
 		["group"] = "DamageGainedAsFirePerBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9234,
@@ -76253,7 +75790,6 @@ return {
 		["group"] = "DamageRemovedFromCompanion",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5730,
@@ -76433,7 +75969,6 @@ return {
 		["group"] = "DecimatingStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6100,
@@ -76497,7 +76032,6 @@ return {
 		["group"] = "DeflectChanceLuckyOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1031,
@@ -76518,7 +76052,6 @@ return {
 		["group"] = "DeflectDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4679,
@@ -76561,7 +76094,6 @@ return {
 		["group"] = "UniqueDesecratedModEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			50,
@@ -77632,7 +77164,6 @@ return {
 		["group"] = "DexterityInherentBonusChange",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1759,
@@ -77653,7 +77184,6 @@ return {
 		["group"] = "DexterityRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			818,
@@ -77674,7 +77204,6 @@ return {
 		["group"] = "DisableChestSlot",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2364,
@@ -77695,7 +77224,6 @@ return {
 		["group"] = "DisableShieldSkills",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10625,
@@ -77716,7 +77244,6 @@ return {
 		["group"] = "DisablesOtherRingSlot",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1473,
@@ -77737,7 +77264,6 @@ return {
 		["group"] = "DivineFlight",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10754,
@@ -77758,7 +77284,6 @@ return {
 		["group"] = "DivineFragments",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8033,
@@ -77779,7 +77304,6 @@ return {
 		["group"] = "DodgeRollAvoidAllDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6201,
@@ -77800,7 +77324,6 @@ return {
 		["group"] = "DodgeRollDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6200,
@@ -77821,7 +77344,6 @@ return {
 		["group"] = "DodgeRollPhasing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6202,
@@ -77842,7 +77364,6 @@ return {
 		["group"] = "DodgeRollSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6203,
@@ -77905,7 +77426,6 @@ return {
 		["group"] = "DoubleEnergyGain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6415,
@@ -77926,7 +77446,6 @@ return {
 		["group"] = "DoubleIgniteChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5546,
@@ -77947,7 +77466,6 @@ return {
 		["group"] = "DoubleOnKillEffects",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9361,
@@ -77968,7 +77486,6 @@ return {
 		["group"] = "DoublePresenceRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10397,
@@ -77989,7 +77506,6 @@ return {
 		["group"] = "DoubleStunThresholdWhileActiveBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7828,
@@ -78006,11 +77522,11 @@ return {
 	},
 	["UniqueDrainManaHealLife1"] = {
 		"Damage over Time bypasses your Energy Shield",
+		"While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that much Life",
 		["affix"] = "",
 		["group"] = "DrainManaHealLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10668,
@@ -78033,7 +77549,6 @@ return {
 		["group"] = "DuplicatesRingStats",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2607,
@@ -78050,11 +77565,12 @@ return {
 	},
 	["UniqueDuringRageFlaskEffects__1"] = {
 		"(15-30)% of Damage taken during effect Recouped as Life",
+		"Gain (3-5) Rage when Hit by an Enemy during effect",
+		"No Inherent loss of Rage during effect",
 		["affix"] = "",
 		["group"] = "DoubleMaximumRageFlask",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			744,
@@ -78130,7 +77646,6 @@ return {
 		["group"] = "ElementalDamageConvertToChaos",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9272,
@@ -78151,7 +77666,6 @@ return {
 		["group"] = "ElementalDamageConvertToCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9273,
@@ -78172,7 +77686,6 @@ return {
 		["group"] = "ElementalDamageConvertToFire",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9274,
@@ -78193,7 +77706,6 @@ return {
 		["group"] = "ElementalDamageConvertToLightning",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9275,
@@ -78550,7 +78062,6 @@ return {
 		["group"] = "EnemiesChilledIncreasedDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6338,
@@ -78594,7 +78105,6 @@ return {
 		["group"] = "EnemiesInPresenceBlinded",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6354,
@@ -78615,7 +78125,6 @@ return {
 		["group"] = "EnemiesInPresenceElementalExposure",
 		["level"] = 66,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6363,
@@ -78636,7 +78145,6 @@ return {
 		["group"] = "EnemiesInPresenceGainCritWeakness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6361,
@@ -78657,7 +78165,6 @@ return {
 		["group"] = "EnemiesInPresenceGainGruelingMadnessEachSecond",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6360,
@@ -78678,7 +78185,6 @@ return {
 		["group"] = "UniqueEnemiesInPresenceGainPowerPerGruelingMadness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9132,
@@ -78854,7 +78360,6 @@ return {
 		["group"] = "EnemiesInPresenceReservesLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10391,
@@ -78871,11 +78376,12 @@ return {
 	},
 	["UniqueEnemiesKilledCountAsYours1"] = {
 		"20% increased Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
+		"Enemies in your Presence killed by anyone count as being killed by you instead",
 		["affix"] = "",
 		["group"] = "EnemiesKilledCountAsYours",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			943,
@@ -78898,6 +78404,7 @@ return {
 	},
 	["UniqueEnemiesTakeIncreasedDamagePerAilmentType1"] = {
 		"Enemies take (15-20)% increased Damage for each Elemental Ailment type among",
+		"your Ailments on them",
 		["affix"] = "",
 		["group"] = "EnemiesTakeIncreasedDamagePerAilmentType",
 		["level"] = 1,
@@ -78925,7 +78432,6 @@ return {
 		["group"] = "EnemyAccuracyDistanceFalloff",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6407,
@@ -78946,7 +78452,6 @@ return {
 		["group"] = "EnemyExtraDamageRollsOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2338,
@@ -79014,7 +78519,6 @@ return {
 		["group"] = "EnemyKnockbackDirectionReversed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2752,
@@ -79035,7 +78539,6 @@ return {
 		["group"] = "EnergyShieldAppliesElementalReduction",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5919,
@@ -79299,7 +78802,6 @@ return {
 		["group"] = "EnergyShieldRechargeOverride",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6437,
@@ -79496,7 +78998,6 @@ return {
 		["group"] = "EnergyShieldRegenerationFromLife",
 		["level"] = 44,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9727,
@@ -79692,7 +79193,6 @@ return {
 		["group"] = "EvasionRatingDodgeRoll",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6506,
@@ -79757,7 +79257,6 @@ return {
 		["group"] = "ExperienceIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1471,
@@ -79778,7 +79277,6 @@ return {
 		["group"] = "ExtraChaosDamagePerUndeadMinion",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9239,
@@ -79913,7 +79411,6 @@ return {
 		["group"] = "FireDamageConvertToCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9276,
@@ -79934,7 +79431,6 @@ return {
 		["group"] = "FireDamageConvertToLightning",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9277,
@@ -80033,7 +79529,6 @@ return {
 		["group"] = "FireHitAndDoTDamageTakenAsCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2224,
@@ -80077,7 +79572,6 @@ return {
 		["group"] = "FireExposureOnShock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7347,
@@ -81025,7 +80519,6 @@ return {
 		["group"] = "FireResistanceNoPenalty",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6587,
@@ -81070,7 +80563,6 @@ return {
 		["group"] = "UniqueFireShrine",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6969,
@@ -81344,6 +80836,7 @@ return {
 	},
 	["UniqueFlaskEffectNotRemovedOnFullMana1"] = {
 		"Effect is not removed when Unreserved Mana is Filled",
+		"(200-250)% increased Duration",
 		["affix"] = "",
 		["group"] = "FlaskEffectNotRemovedOnFullMana",
 		["level"] = 1,
@@ -81417,7 +80910,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -81524,7 +81016,6 @@ return {
 		["group"] = "FlaskLifeRecoveryEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7473,
@@ -81821,7 +81312,6 @@ return {
 		["group"] = "FlaskOverhealToGuard",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7840,
@@ -81966,11 +81456,11 @@ return {
 	},
 	["UniqueFlaskWardGainedAsGuard1"] = {
 		"Regenerate (2.5-5)% of maximum Runic Ward per second during Effect",
+		"Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends",
 		["affix"] = "",
 		["group"] = "FlaskWardGainedAsGuard",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7702,
@@ -81995,7 +81485,6 @@ return {
 		["group"] = "FlatCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10394,
@@ -82033,6 +81522,10 @@ return {
 	},
 	["UniqueFragileRegrowth1"] = {
 		"Maximum 10 Fragile Regrowth",
+		"0.5% of maximum Life Regenerated per second per Fragile Regrowth",
+		"10% increased Mana Regeneration Rate per Fragile Regrowth",
+		"Lose all Fragile Regrowth when Hit",
+		"Gain 1 Fragile Regrowth each second",
 		["affix"] = "",
 		["group"] = "FragileRegrowth",
 		["level"] = 1,
@@ -82210,7 +81703,6 @@ return {
 		["group"] = "FreezeDamageMaximumMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4169,
@@ -82275,7 +81767,6 @@ return {
 		["group"] = "FullManaThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6698,
@@ -82296,7 +81787,6 @@ return {
 		["group"] = "FullyArmourBrokenShatterOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9826,
@@ -82313,11 +81803,12 @@ return {
 	},
 	["UniqueGainAModifierFromEachEnemyInPresenceOnShapeshift1"] = {
 		"Copy a random Modifier from each enemy in your Presence when",
+		"you Shapeshift to an Animal form",
+		"Modifiers gained this way are lost after 30 seconds or when you next Shapeshift",
 		["affix"] = "",
 		["group"] = "ShapeshiftCopyModsInPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6729,
@@ -82363,7 +81854,6 @@ return {
 		["group"] = "GainChargesOnMaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6709,
@@ -82384,7 +81874,6 @@ return {
 		["group"] = "UniqueDarkWhispers",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6773,
@@ -82401,11 +81890,11 @@ return {
 	},
 	["UniqueGainDisorderlyConductEveryXGrenadeSkills"] = {
 		"Gain 1 Explosive Rhythm every (2-3) times you use a Grenade Skill",
+		" Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds",
 		["affix"] = "",
 		["group"] = "UniqueGainDisorderlyConductBuff",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6863,
@@ -82428,7 +81917,6 @@ return {
 		["group"] = "GainDruidicProwessOnSpendingXRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6774,
@@ -82449,7 +81937,6 @@ return {
 		["group"] = "GainFearIncarnate",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6932,
@@ -82470,7 +81957,6 @@ return {
 		["group"] = "GainFinalityForXSecondsPerComboLostBySkills",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6785,
@@ -82581,7 +82067,6 @@ return {
 		["group"] = "GainRageOnManaSpent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6874,
@@ -82602,7 +82087,6 @@ return {
 		["group"] = "GainRageWhenCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6876,
@@ -82623,7 +82107,6 @@ return {
 		["group"] = "GainRageWhenHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6875,
@@ -82644,7 +82127,6 @@ return {
 		["group"] = "GainRareMonsterModsOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2572,
@@ -82665,7 +82147,6 @@ return {
 		["group"] = "GainXGuardPerComboLostUsingSkills1",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10400,
@@ -82686,7 +82167,6 @@ return {
 		["group"] = "GiantsBlood",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10704,
@@ -82751,7 +82231,6 @@ return {
 		["group"] = "GlobalChanceToBleed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4671,
@@ -82772,7 +82251,6 @@ return {
 		["group"] = "GlobalChanceToBleed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4671,
@@ -82793,7 +82271,6 @@ return {
 		["group"] = "GlobalChanceToBleed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4671,
@@ -82865,7 +82342,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -82886,7 +82362,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -82949,7 +82424,6 @@ return {
 		["group"] = "GlobalDefencesPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7708,
@@ -82991,7 +82465,6 @@ return {
 		["group"] = "GlobalNoEquipmentAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2331,
@@ -83057,7 +82530,6 @@ return {
 		["group"] = "GlobalNoGemAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2332,
@@ -83099,7 +82571,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -83120,7 +82591,6 @@ return {
 		["group"] = "GlobalItemAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2335,
@@ -83274,7 +82744,6 @@ return {
 		["group"] = "GlobalIncreaseProjectileSkillGemLevelWeapon",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			968,
@@ -83381,7 +82850,6 @@ return {
 		["group"] = "GuardOnManaFlaskUse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10436,
@@ -83402,7 +82870,6 @@ return {
 		["group"] = "GuardOnDodgeFromMissingEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6805,
@@ -83423,7 +82890,6 @@ return {
 		["group"] = "HalvedSpiritReservation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10428,
@@ -83444,7 +82910,6 @@ return {
 		["group"] = "HasOnslaught",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3278,
@@ -83465,7 +82930,6 @@ return {
 		["group"] = "HasSoulEater",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10399,
@@ -83486,7 +82950,6 @@ return {
 		["group"] = "UniqueHauntedByTheWendigo",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10670,
@@ -83528,7 +82991,6 @@ return {
 		["group"] = "HinderEnemiesInPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4695,
@@ -83570,7 +83032,6 @@ return {
 		["group"] = "ESBypassWhileBelowHalfES",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1459,
@@ -83911,7 +83372,6 @@ return {
 		["group"] = "IgniteEnemiesInPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7259,
@@ -83955,7 +83415,6 @@ return {
 		["group"] = "IgnoreHexproof",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2379,
@@ -83976,7 +83435,6 @@ return {
 		["group"] = "IgnoreHexproof",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2379,
@@ -83997,7 +83455,6 @@ return {
 		["group"] = "IgnoreStrengthRequirementsWeapons",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7271,
@@ -84018,7 +83475,6 @@ return {
 		["group"] = "ImmobiliseDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10395,
@@ -84039,7 +83495,6 @@ return {
 		["group"] = "ImmobiliseIncreasedDamageTaken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5959,
@@ -84060,7 +83515,6 @@ return {
 		["group"] = "ImmobiliseThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5906,
@@ -84439,7 +83893,6 @@ return {
 		["group"] = "IncreasedArmourPerRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10644,
@@ -85730,7 +85183,6 @@ return {
 		["group"] = "IncreasedLeftRingBonuses",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6469,
@@ -87071,7 +86523,6 @@ return {
 		["group"] = "UniqueIncreasedMagesLegacyEffectPerDuplicateMagesLegacy",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7921,
@@ -88302,7 +87753,6 @@ return {
 		["group"] = "IncreasedMaximumDivinity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8856,
@@ -88323,7 +87773,6 @@ return {
 		["group"] = "MaximumSpiritPercentage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1417,
@@ -88499,7 +87948,6 @@ return {
 		["group"] = "IncreasedRightRingBonuses",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6470,
@@ -88520,7 +87968,6 @@ return {
 		["group"] = "IncreasedRingBonuses",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6471,
@@ -88646,7 +88093,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88667,7 +88113,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88688,7 +88133,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88709,7 +88153,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88730,7 +88173,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88751,7 +88193,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88772,7 +88213,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88793,7 +88233,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88814,7 +88253,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88835,7 +88273,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88856,7 +88293,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88877,7 +88313,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88898,7 +88333,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88919,7 +88353,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88940,7 +88373,6 @@ return {
 		["group"] = "BaseSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			896,
@@ -88961,7 +88393,6 @@ return {
 		["group"] = "IncreasedStrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			828,
@@ -88982,7 +88413,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -89003,7 +88433,6 @@ return {
 		["group"] = "IncreasedStunThresholdPerRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10656,
@@ -89069,7 +88498,6 @@ return {
 		["group"] = "InflictGruelingMadnessOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7738,
@@ -89090,7 +88518,6 @@ return {
 		["group"] = "InstantLifeFlaskOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7438,
@@ -89111,7 +88538,6 @@ return {
 		["group"] = "InstantLifeFlaskRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7437,
@@ -89132,7 +88558,6 @@ return {
 		["group"] = "InstantManaFlaskOnLowMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7980,
@@ -90224,7 +89649,6 @@ return {
 		["group"] = "IntelligenceInherentBonusChange",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1760,
@@ -90245,7 +89669,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -90266,7 +89689,6 @@ return {
 		["group"] = "IntelligenceRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			820,
@@ -90287,7 +89709,6 @@ return {
 		["group"] = "IntimidateOnCurse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6389,
@@ -90878,7 +90299,6 @@ return {
 		["group"] = "ItemRarityOnLowLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1467,
@@ -90899,7 +90319,6 @@ return {
 		["group"] = "ItemRarityPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7746,
@@ -90916,6 +90335,9 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusAbyssal"] = {
 		"Glorifying the defilement of (79-30977) souls in tribute to Amanamu",
+		"Passives in radius are Conquered by the Abyssals",
+		"Desecration makes this item unstable",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -90945,6 +90367,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusEternal"] = {
 		"Commissioned (2000-160000) coins to commemorate Cadiro",
+		"Passives in radius are Conquered by the Eternal Empire",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -90972,6 +90396,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusKalguur"] = {
 		"Remembrancing (100-8000) songworthy deeds by the line of Vorana",
+		"Passives in radius are Conquered by the Kalguur",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -90999,6 +90425,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusKarui"] = {
 		"Commanded leadership over (10000-18000) warriors under Kaom",
+		"Passives in radius are Conquered by the Karui",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -91026,6 +90454,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusMaraketh"] = {
 		"Denoted service of (500-8000) dekhara in the akhara of Balbala",
+		"Passives in radius are Conquered by the Maraketh",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -91053,6 +90483,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusTemplar"] = {
 		"Carved to glorify (2000-10000) new faithful converted by High Templar Maxarius",
+		"Passives in radius are Conquered by the Templars",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -91080,6 +90512,8 @@ return {
 	},
 	["UniqueJewelAlternateTreeInRadiusVaal"] = {
 		"Bathed in the blood of (100-8000) sacrificed in the name of Xibaqua",
+		"Passives in radius are Conquered by the Vaal",
+		"Historic",
 		["affix"] = "",
 		["group"] = "UniqueJewelAlternateTreeInRadius",
 		["level"] = 1,
@@ -91111,7 +90545,6 @@ return {
 		["group"] = "UniqueJewelGrantsVoicesJewelSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10410,
@@ -91132,7 +90565,6 @@ return {
 		["group"] = "UniqueJewelGrantsVoicesJewelSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10410,
@@ -91153,7 +90585,6 @@ return {
 		["group"] = "UniqueJewelGrantsVoicesJewelSockets",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10410,
@@ -91195,7 +90626,6 @@ return {
 		["group"] = "AllocatedNonNotablesGrantNothing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7750,
@@ -91415,7 +90845,6 @@ return {
 		["group"] = "GrantsStatsFromNonNotablesInRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7757,
@@ -91770,7 +91199,6 @@ return {
 		["group"] = "JewelSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -91792,7 +91220,6 @@ return {
 		["group"] = "UniqueJewelSpecificSkillLevelBonus",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10412,
@@ -91813,7 +91240,6 @@ return {
 		["group"] = "UniqueJewelSpecificSkillLevelBonus",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10412,
@@ -91834,7 +91260,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartStr",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7754,
@@ -91855,7 +91280,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartDex",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7751,
@@ -91876,7 +91300,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartInt",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7753,
@@ -91897,7 +91320,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartStrDex",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7755,
@@ -91918,7 +91340,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartStrInt",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7756,
@@ -91939,7 +91360,6 @@ return {
 		["group"] = "UniqueJewelGrantsAlternateClassStartDexInt",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7752,
@@ -92005,7 +91425,6 @@ return {
 		["group"] = "LeechLifeOnSpellCast",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7459,
@@ -92026,7 +91445,6 @@ return {
 		["group"] = "LeftRingSpellProjectilesCannotChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7792,
@@ -92047,7 +91465,6 @@ return {
 		["group"] = "LeftRingSpellProjectilesFork",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7793,
@@ -92068,7 +91485,6 @@ return {
 		["group"] = "LessEnemiesToBeSurrounded1",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9763,
@@ -92157,7 +91573,6 @@ return {
 		["group"] = "LifeCostAsManaCost",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4746,
@@ -92178,7 +91593,6 @@ return {
 		["group"] = "LifeCostAsManaCost",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4746,
@@ -92199,7 +91613,6 @@ return {
 		["group"] = "LifeDegenerationPercentGracePeriod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1690,
@@ -92220,7 +91633,6 @@ return {
 		["group"] = "LifeDegenerationPercentGracePeriod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1690,
@@ -92241,7 +91653,6 @@ return {
 		["group"] = "LifeDegenerationPercentGracePeriod",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1690,
@@ -92262,7 +91673,6 @@ return {
 		["group"] = "LifeFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6892,
@@ -92283,7 +91693,6 @@ return {
 		["group"] = "LifeFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6892,
@@ -92325,7 +91734,6 @@ return {
 		["group"] = "LifeFlaskNoRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4710,
@@ -92346,7 +91754,6 @@ return {
 		["group"] = "HuskOfDreamsLifeFlaskRecoveryAmount",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10392,
@@ -92388,7 +91795,6 @@ return {
 		["group"] = "LifeFlasksOvercapLife",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7436,
@@ -92697,7 +92103,6 @@ return {
 		["group"] = "LifeGainedOnEnduranceChargeConsumed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9666,
@@ -92832,7 +92237,6 @@ return {
 		["group"] = "LifeLeechExcessToEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7455,
@@ -92949,7 +92353,6 @@ return {
 		["group"] = "LifeLeechOvercapLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7454,
@@ -92970,7 +92373,6 @@ return {
 		["group"] = "LifeLeechToAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7462,
@@ -92987,11 +92389,11 @@ return {
 	},
 	["UniqueLifeLossReservesLife1"] = {
 		"Life that would be lost by taking Damage is instead Reserved",
+		"until you take no Damage to Life for 3 seconds",
 		["affix"] = "",
 		["group"] = "LifeLossReservesLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9772,
@@ -93035,7 +92437,6 @@ return {
 		["group"] = "LifeRecharge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4713,
@@ -93167,7 +92568,6 @@ return {
 		["group"] = "LifeRegenPerEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7491,
@@ -93736,6 +93136,9 @@ return {
 	},
 	["UniqueLifeRegenerationFromLifeFlaskRecovery1"] = {
 		"Cannot use Life Flasks",
+		"Non-Unique Life Flasks apply their Effects constantly",
+		"Recovery from Life Flasks cannot be Instant",
+		"Recovery from your Life Flasks cannot be applied to anything other than you",
 		["affix"] = "",
 		["group"] = "HuskOfDreamsLifeRegenFromFlaskRecovery",
 		["level"] = 1,
@@ -93767,7 +93170,6 @@ return {
 		["group"] = "LifeRegenerationNotApplied",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7478,
@@ -93810,7 +93212,6 @@ return {
 		["group"] = "LifeRegenerationPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7631,
@@ -93985,7 +93386,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94006,7 +93406,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94027,7 +93426,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94048,7 +93446,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94069,7 +93466,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94090,7 +93486,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94111,7 +93506,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94132,7 +93526,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94153,7 +93546,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94174,7 +93566,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94195,7 +93586,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94216,7 +93606,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94237,7 +93626,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94258,7 +93646,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 69,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94279,7 +93666,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94300,7 +93686,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94321,7 +93706,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94342,7 +93726,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94363,7 +93746,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94384,7 +93766,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94405,7 +93786,6 @@ return {
 		["group"] = "LightRadius",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1070,
@@ -94448,7 +93828,6 @@ return {
 		["group"] = "LightningDamageElectrocute",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4714,
@@ -94495,7 +93874,6 @@ return {
 		["group"] = "LightningDamageConvertToCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1713,
@@ -94546,7 +93924,6 @@ return {
 		["group"] = "LightningHitAndDoTDamageTakenAsCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2229,
@@ -94590,7 +93967,6 @@ return {
 		["group"] = "LightningDamageToBleedingEnemiesCanElectrocute",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4283,
@@ -94611,7 +93987,6 @@ return {
 		["group"] = "LightningExposureOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7349,
@@ -95406,7 +94781,6 @@ return {
 		["group"] = "LightningResistanceNoPenalty",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7562,
@@ -95427,7 +94801,6 @@ return {
 		["group"] = "UniqueLightningShrine",
 		["level"] = 82,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6970,
@@ -95466,11 +94839,11 @@ return {
 	},
 	["UniqueLioneyeDodgeRoll1"] = {
 		"+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently",
+		"-1 metre to Dodge Roll distance if you've Dodge Rolled Recently",
 		["affix"] = "",
 		["group"] = "DodgeRollEnhancedWithTradeOff",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4090,
@@ -95495,7 +94868,6 @@ return {
 		["group"] = "LoadCrossbowBoltOnKillPercent",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5561,
@@ -96914,7 +96286,6 @@ return {
 		["group"] = "LocalAllDamageCanChill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7608,
@@ -96935,7 +96306,6 @@ return {
 		["group"] = "LocalAllDamageCanElectrocute",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7609,
@@ -96956,7 +96326,6 @@ return {
 		["group"] = "LocalAllDamageCanFreeze",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7610,
@@ -96977,7 +96346,6 @@ return {
 		["group"] = "LocalAllDamageCanPin",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7611,
@@ -97136,7 +96504,6 @@ return {
 		["group"] = "WeaponAddedColdDamagePerMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7626,
@@ -97153,6 +96520,7 @@ return {
 	},
 	["UniqueLocalBaseEvasionRatingAndEnergyShield1"] = {
 		"+(60-100) to Evasion Rating",
+		"+(30-50) to maximum Energy Shield",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 70,
@@ -97180,6 +96548,7 @@ return {
 	},
 	["UniqueLocalBaseEvasionRatingAndEnergyShield2"] = {
 		"+(20-25) to Evasion Rating",
+		"+(10-15) to maximum Energy Shield",
 		["affix"] = "",
 		["group"] = "LocalBaseEvasionRatingAndEnergyShield",
 		["level"] = 1,
@@ -97526,7 +96895,6 @@ return {
 		["group"] = "LocalBreakArmourOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7616,
@@ -97691,7 +97059,6 @@ return {
 		["group"] = "LocalCritChanceOverride",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3466,
@@ -98045,7 +97412,6 @@ return {
 		["group"] = "LocalCullingStrikeFrozenEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7651,
@@ -98066,7 +97432,6 @@ return {
 		["group"] = "LocalDazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7924,
@@ -98087,7 +97452,6 @@ return {
 		["group"] = "LocalDoubleStunDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7695,
@@ -98108,7 +97472,6 @@ return {
 		["group"] = "LocalFireExposureOnArmourBreak",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7618,
@@ -98129,7 +97492,6 @@ return {
 		["group"] = "LocalFreezeOnFullLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7613,
@@ -104396,7 +103758,6 @@ return {
 		["group"] = "LocalIncreasedProjectileSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7815,
@@ -104417,7 +103778,6 @@ return {
 		["group"] = "LocalIncreasedRuneEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			176,
@@ -104438,7 +103798,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -104459,7 +103818,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -104480,7 +103838,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -104501,7 +103858,6 @@ return {
 		["group"] = "LocalIncreasedSpiritPercent",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			857,
@@ -104522,7 +103878,6 @@ return {
 		["group"] = "LocalInfinitePoisonStackCount",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7731,
@@ -104564,7 +103919,6 @@ return {
 		["group"] = "LocalMaimOnCrit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7614,
@@ -104585,7 +103939,6 @@ return {
 		["group"] = "LocalNoAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			823,
@@ -104606,7 +103959,6 @@ return {
 		["group"] = "LocalNoAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			823,
@@ -104884,7 +104236,6 @@ return {
 		["group"] = "LocalSoulCoreAlsoGainBenefitsFromBoots",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			78,
@@ -104905,7 +104256,6 @@ return {
 		["group"] = "LocalSoulCoreAlsoGainBenefitsFromGloves",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			79,
@@ -104926,7 +104276,6 @@ return {
 		["group"] = "LocalSoulCoreAlsoGainBenefitsFromHelmet",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			80,
@@ -104947,7 +104296,6 @@ return {
 		["group"] = "LocalSoulCoreAlsoGainBenefitsFromShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			81,
@@ -104968,7 +104316,6 @@ return {
 		["group"] = "LocalSoulCoreEffect",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			179,
@@ -104989,7 +104336,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -105010,7 +104356,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -105031,7 +104376,6 @@ return {
 		["group"] = "LocalStunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1052,
@@ -105069,6 +104413,7 @@ return {
 	},
 	["UniqueLoreweaveAndvarius1"] = {
 		"(50-70)% increased Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
 		["affix"] = "",
 		["group"] = "LoreweaveAndvariusRarityWithExclusion",
 		["level"] = 1,
@@ -105092,6 +104437,7 @@ return {
 	},
 	["UniqueLoreweaveAndvarius1BigRange"] = {
 		"(-100-100)% reduced Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
 		["affix"] = "",
 		["group"] = "LoreweaveAndvariusRarityWithExclusion",
 		["level"] = 1,
@@ -105115,6 +104461,7 @@ return {
 	},
 	["UniqueLoreweaveAndvarius1CombinedWithBaseGoldRing"] = {
 		"(56-85)% increased Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
 		["affix"] = "",
 		["group"] = "LoreweaveAndvariusRarityWithExclusion",
 		["level"] = 1,
@@ -105138,6 +104485,7 @@ return {
 	},
 	["UniqueLoreweaveAndvarius1CombinedWithBaseGoldRingBigRange"] = {
 		"(-100-100)% reduced Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
 		["affix"] = "",
 		["group"] = "LoreweaveAndvariusRarityWithExclusion",
 		["level"] = 1,
@@ -105161,6 +104509,7 @@ return {
 	},
 	["UniqueLoreweaveBereksGripShockedGroundBoost1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Shocked Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByShockedGround",
 		["level"] = 1,
@@ -105185,6 +104534,7 @@ return {
 	},
 	["UniqueLoreweaveBereksPassChilledGroundBoost1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Chilled Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByChilledGround",
 		["level"] = 1,
@@ -105209,6 +104559,7 @@ return {
 	},
 	["UniqueLoreweaveBereksRespiteIgnitedGroundBoost1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Ignited Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByIgnitedGround",
 		["level"] = 1,
@@ -105306,7 +104657,6 @@ return {
 		["group"] = "ChanceToIntimidateOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5559,
@@ -105327,7 +104677,6 @@ return {
 		["group"] = "ChanceToIntimidateOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5559,
@@ -105348,7 +104697,6 @@ return {
 		["group"] = "ArmourPercentAppliesToChaosDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4645,
@@ -105369,7 +104717,6 @@ return {
 		["group"] = "ArmourPercentAppliesToChaosDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4645,
@@ -105524,7 +104871,6 @@ return {
 		["group"] = "LightningDamageConvertToCold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1713,
@@ -105545,7 +104891,6 @@ return {
 		["group"] = "RingIgniteProliferation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1947,
@@ -105566,7 +104911,6 @@ return {
 		["group"] = "OnslaughtBuffOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2417,
@@ -105609,7 +104953,6 @@ return {
 		["group"] = "CannotBeChilledOrFrozen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1593,
@@ -105676,7 +105019,6 @@ return {
 		["group"] = "ConsecratedGroundStationaryRing",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6895,
@@ -105697,7 +105039,6 @@ return {
 		["group"] = "GuardOnManaFlaskUse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10436,
@@ -105718,7 +105059,6 @@ return {
 		["group"] = "GuardOnManaFlaskUse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10436,
@@ -105873,7 +105213,6 @@ return {
 		["group"] = "AbyssalWastingOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4127,
@@ -105894,7 +105233,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -105915,7 +105253,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -105936,7 +105273,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10575,
@@ -105957,7 +105293,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10575,
@@ -105978,7 +105313,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceChaosResistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10574,
@@ -105999,7 +105333,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceChaosResistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10574,
@@ -106020,7 +105353,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCastSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10573,
@@ -106041,7 +105373,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceCastSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10573,
@@ -106062,7 +105393,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAttackSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10572,
@@ -106083,7 +105413,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAttackSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10572,
@@ -106104,7 +105433,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAccuracyRating",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10570,
@@ -106125,7 +105453,6 @@ return {
 		["group"] = "YouAndAlliesInPresenceAccuracyRating",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10570,
@@ -106146,7 +105473,6 @@ return {
 		["group"] = "GainArcaneSurgeOnMinionDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6745,
@@ -106167,7 +105493,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9686,
@@ -106188,7 +105513,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9686,
@@ -106209,7 +105533,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9688,
@@ -106230,7 +105553,6 @@ return {
 		["group"] = "EnemiesDyingInPresenceRecoverMana",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9688,
@@ -106251,7 +105573,6 @@ return {
 		["group"] = "SpiritReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4755,
@@ -106272,7 +105593,6 @@ return {
 		["group"] = "SpiritReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4755,
@@ -106293,7 +105613,6 @@ return {
 		["group"] = "GainOnslaughtSurgeOnMinionDeath",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6824,
@@ -106314,7 +105633,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Strength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10057,
@@ -106335,7 +105653,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Strength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10057,
@@ -106356,7 +105673,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Intelligence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10056,
@@ -106377,7 +105693,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200Intelligence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10056,
@@ -106398,7 +105713,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200PerDexterity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10055,
@@ -106419,7 +105733,6 @@ return {
 		["group"] = "FlatSpiritIfAtLeast200PerDexterity",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10055,
@@ -106504,7 +105817,6 @@ return {
 		["group"] = "ElementalDamageConvertToChaos",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9272,
@@ -106567,7 +105879,6 @@ return {
 		["group"] = "ChillHitsCauseShattering",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5657,
@@ -106588,7 +105899,6 @@ return {
 		["group"] = "ChanceToDealThornsDamageOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10265,
@@ -106609,7 +105919,6 @@ return {
 		["group"] = "ChanceToDealThornsDamageOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10265,
@@ -106865,7 +106174,6 @@ return {
 		["group"] = "SpellProjectilesFork",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9567,
@@ -106886,7 +106194,6 @@ return {
 		["group"] = "SpellProjectilesChainXTimes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9321,
@@ -106907,7 +106214,6 @@ return {
 		["group"] = "SpellsCannotPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9566,
@@ -106924,6 +106230,8 @@ return {
 	},
 	["UniqueLoreweaveTheTamingElementalGroundBoost1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces can be boosted by multiple Elemental Ground Surfaces",
+		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Ignited, Shocked, and Chilled Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByElementalGrounds",
 		["level"] = 1,
@@ -107021,7 +106329,6 @@ return {
 		["group"] = "UniqueDarkWhispers",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6773,
@@ -107042,7 +106349,6 @@ return {
 		["group"] = "IgnoreHexproof",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2379,
@@ -107109,7 +106415,6 @@ return {
 		["group"] = "EnemyAccuracyDistanceFalloff",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6407,
@@ -107130,7 +106435,6 @@ return {
 		["group"] = "ColdDamageConvertToLightning",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1716,
@@ -107151,7 +106455,6 @@ return {
 		["group"] = "LoseEnergyShieldPerSecond",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6432,
@@ -107172,7 +106475,6 @@ return {
 		["group"] = "LoseLifeOnKillUse",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7940,
@@ -107237,7 +106539,6 @@ return {
 		["group"] = "LoseRageOnMaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7933,
@@ -107258,7 +106559,6 @@ return {
 		["group"] = "LoseTailwindOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7934,
@@ -107279,7 +106579,6 @@ return {
 		["group"] = "LowLifeOnManaThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10432,
@@ -107300,7 +106599,6 @@ return {
 		["group"] = "LowLifeThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7943,
@@ -107321,7 +106619,6 @@ return {
 		["group"] = "LowManaOnLifeThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10433,
@@ -107342,7 +106639,6 @@ return {
 		["group"] = "LuckyBlockChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4662,
@@ -107388,7 +106684,6 @@ return {
 		["group"] = "UniqueMagesLegacy01",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7917,
@@ -107409,7 +106704,6 @@ return {
 		["group"] = "UniqueMagesLegacy02",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7918,
@@ -107430,7 +106724,6 @@ return {
 		["group"] = "UniqueMagesLegacy03",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7919,
@@ -107451,7 +106744,6 @@ return {
 		["group"] = "UniqueMagesLegacy04",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7920,
@@ -107560,7 +106852,6 @@ return {
 		["group"] = "ManaFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6893,
@@ -107581,7 +106872,6 @@ return {
 		["group"] = "ManaFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6893,
@@ -107602,7 +106892,6 @@ return {
 		["group"] = "ManaFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6893,
@@ -107952,6 +107241,7 @@ return {
 	},
 	["UniqueManaRegenAppliesToRecharge1"] = {
 		"Increases and Reductions to Mana Regeneration Rate also",
+		"apply to Energy Shield Recharge Rate",
 		["affix"] = "",
 		["group"] = "ManaRegenAppliesToRecharge",
 		["level"] = 1,
@@ -108704,11 +107994,11 @@ return {
 	},
 	["UniqueManaScarificeToAllies1"] = {
 		"When a Party Member in your Presence Casts a Spell, you",
+		"Sacrifice 20% of Mana and they Leech that Mana",
 		["affix"] = "",
 		["group"] = "ManaScarificeToAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10389,
@@ -108816,7 +108106,6 @@ return {
 		["group"] = "MaximumBlockToMaximumResistances",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8845,
@@ -108935,6 +108224,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances1"] = {
 		"+1% to Maximum Fire Resistance",
+		"+2% to Maximum Cold Resistance",
+		"+3% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -108972,6 +108263,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances2"] = {
 		"+1% to Maximum Fire Resistance",
+		"+3% to Maximum Cold Resistance",
+		"+2% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -109009,6 +108302,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances3"] = {
 		"+2% to Maximum Fire Resistance",
+		"+1% to Maximum Cold Resistance",
+		"+3% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -109046,6 +108341,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances4"] = {
 		"+2% to Maximum Fire Resistance",
+		"+3% to Maximum Cold Resistance",
+		"+1% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -109083,6 +108380,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances5"] = {
 		"+3% to Maximum Fire Resistance",
+		"+1% to Maximum Cold Resistance",
+		"+2% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -109120,6 +108419,8 @@ return {
 	},
 	["UniqueMaximumElementalResistances6"] = {
 		"+3% to Maximum Fire Resistance",
+		"+2% to Maximum Cold Resistance",
+		"+1% to Maximum Lightning Resistance",
 		["affix"] = "",
 		["group"] = "UniqueMaximumElementalResistances",
 		["level"] = 1,
@@ -109204,7 +108505,6 @@ return {
 		["group"] = "MaximumEvadeChanceOverride",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8848,
@@ -109296,7 +108596,6 @@ return {
 		["group"] = "MaximumGuardInsteadBasedOnEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8874,
@@ -109559,7 +108858,6 @@ return {
 		["group"] = "MaximumLifePerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7804,
@@ -109598,11 +108896,11 @@ return {
 	},
 	["UniqueMaximumLightningDamagePerPower1"] = {
 		"On Hitting an enemy, gains maximum added Lightning damage equal to",
+		"the enemy's Power for 20 seconds, up to a total of 500",
 		["affix"] = "",
 		["group"] = "MaximumLightningDamagePerPower",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7800,
@@ -109785,7 +109083,6 @@ return {
 		["group"] = "MaximumManaPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7806,
@@ -109869,7 +109166,6 @@ return {
 		["group"] = "MaximumQualityOverride",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			614,
@@ -109890,7 +109186,6 @@ return {
 		["group"] = "MaximumQualityOverride",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			614,
@@ -109911,7 +109206,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 75,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -109982,7 +109276,6 @@ return {
 		["group"] = "MaximumSpiritPerStackableJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10063,
@@ -110003,7 +109296,6 @@ return {
 		["group"] = "MaximumValour",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4634,
@@ -110047,7 +109339,6 @@ return {
 		["group"] = "MeleeDamageAgainstStunnedEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8920,
@@ -110111,7 +109402,6 @@ return {
 		["group"] = "MinionAddedColdDamageMaximumLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9001,
@@ -110179,7 +109469,6 @@ return {
 		["group"] = "MinionChanceToApplyGruelingMadness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2901,
@@ -110294,7 +109583,6 @@ return {
 		["group"] = "MinionDamageAffectsYou",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3977,
@@ -110472,11 +109760,11 @@ return {
 	},
 	["UniqueMinionLifeTiedToOwner1"] = {
 		"Minions in Presence lose Life when you lose Life",
+		"Minions in Presence gain Life when you gain Life",
 		["affix"] = "",
 		["group"] = "MinionLifeTiedToOwner",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10417,
@@ -110581,6 +109869,7 @@ return {
 	},
 	["UniqueMinionsExplodeAsPercentPhysicalOnDeath1"] = {
 		"Minions explode on death, dealing (8-12)% of their maximum",
+		"life as Physical Damage to enemies within 2 metres",
 		["affix"] = "",
 		["group"] = "UniqueMinionsExplodeOnDeathDealingPercentOfLifeAsPhys",
 		["level"] = 1,
@@ -110633,7 +109922,6 @@ return {
 		["group"] = "ModifyableWhileCorruptedAndSpecialCorruption",
 		["level"] = 66,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			14,
@@ -111326,7 +110614,6 @@ return {
 		["group"] = "MovementVelocityWithAilment",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9148,
@@ -111347,7 +110634,6 @@ return {
 		["group"] = "MultipleEnchantmentsAllowed",
 		["level"] = 66,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			16,
@@ -111368,7 +110654,6 @@ return {
 		["group"] = "MultipleCompanions",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10666,
@@ -111785,6 +111070,7 @@ return {
 	},
 	["UniqueMutatedVaalBurningEnemiesExplodeChance"] = {
 		"Burning Enemies you kill have a (5-10)% chance to Explode, dealing a",
+		"tenth of their maximum Life as Fire Damage",
 		["affix"] = "",
 		["group"] = "BurningEnemiesExplodeChance",
 		["level"] = 1,
@@ -112129,6 +111415,7 @@ return {
 	},
 	["UniqueMutatedVaalCorruptedRareJewelModEffect"] = {
 		"(0-75)% increased Effect of Jewel Socket Passive Skills",
+		"containing Corrupted Rare Jewels",
 		["affix"] = "",
 		["group"] = "CorruptedRareJewelModEffect",
 		["level"] = 1,
@@ -116409,7 +115696,6 @@ return {
 		["group"] = "NoMovementPenaltyRaisedShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9214,
@@ -116430,7 +115716,6 @@ return {
 		["group"] = "NoSlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9937,
@@ -116635,7 +115920,6 @@ return {
 		["group"] = "NoInherentRageLoss",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9212,
@@ -116656,7 +115940,6 @@ return {
 		["group"] = "OnHitBlindChilledEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4925,
@@ -116673,11 +115956,11 @@ return {
 	},
 	["UniqueOneHandMaceSkillsUsableUnarmed1"] = {
 		"Can Attack as though using a One Handed Mace while both of your hand slots are empty",
+		"Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage",
 		["affix"] = "",
 		["group"] = "FacebreakerUseMaceSkillsUnarmed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10398,
@@ -116742,7 +116025,6 @@ return {
 		["group"] = "OnlySocketRunes",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			60,
@@ -116784,7 +116066,6 @@ return {
 		["group"] = "OnlySocketSoulCores",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			61,
@@ -116805,7 +116086,6 @@ return {
 		["group"] = "OnslaughtBuffOnKill",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2417,
@@ -116822,6 +116102,7 @@ return {
 	},
 	["UniqueOtherModifiersToRarityDoNotApply1"] = {
 		"(15-20)% increased Rarity of Items found",
+		"Your other Modifiers to Rarity of Items found do not apply",
 		["affix"] = "",
 		["group"] = "GraveBindRarityWithExclusion",
 		["level"] = 1,
@@ -116849,7 +116130,6 @@ return {
 		["group"] = "UniqueOvercumbranceOnDodge",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9373,
@@ -116870,7 +116150,6 @@ return {
 		["group"] = "OverkillDamagePhysical",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9374,
@@ -116891,7 +116170,6 @@ return {
 		["group"] = "OverrideWeaponBaseCritical",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9376,
@@ -117110,7 +116388,6 @@ return {
 		["group"] = "PercentAllAttributesPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7607,
@@ -117301,7 +116578,6 @@ return {
 		["group"] = "PerfectTimingWindow",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9424,
@@ -117563,7 +116839,6 @@ return {
 		["group"] = "PhysicalHitAndDoTDamageTakenAsFire",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2200,
@@ -117700,7 +116975,6 @@ return {
 		["group"] = "PinAlmostPinnedEnemies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9475,
@@ -117766,7 +117040,6 @@ return {
 		["group"] = "PoisonDamageBlock",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9489,
@@ -117812,7 +117085,6 @@ return {
 		["group"] = "PoisonStackCount",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9327,
@@ -118150,7 +117422,6 @@ return {
 		["group"] = "UniqueProjectilesReturnIfPiercedArmourBroken",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4437,
@@ -118171,7 +117442,6 @@ return {
 		["group"] = "ProjectilesSplitCount",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9560,
@@ -118192,7 +117462,6 @@ return {
 		["group"] = "QuiverModifierEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9605,
@@ -118213,7 +117482,6 @@ return {
 		["group"] = "RageGrantsSpellDamage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9621,
@@ -118234,7 +117502,6 @@ return {
 		["group"] = "RageOnAnyHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4699,
@@ -118276,7 +117543,6 @@ return {
 		["group"] = "RageRegeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4741,
@@ -118293,11 +117559,11 @@ return {
 	},
 	["UniqueRaiseShieldAncientsChallenge1"] = {
 		"Inflicts Runefather's Challenge on enemies 6 metres in front of you when raised, no more than once every 2 seconds",
+		"Gain 1 Runefather's Boast per Power of targets affected by Runefather's Challenge you kill",
 		["affix"] = "",
 		["group"] = "AncientsChallengeOnShieldRaise",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10567,
@@ -118318,6 +117584,7 @@ return {
 	},
 	["UniqueRaiseShieldApplyExposure1"] = {
 		"Inflict Elemental Exposure to Enemies 3 metres in front of you",
+		"for 4 seconds, every 0.25 seconds while raised",
 		["affix"] = "",
 		["group"] = "RaiseShieldApplyExposure",
 		["level"] = 1,
@@ -118345,7 +117612,6 @@ return {
 		["group"] = "UniqueVivisectionRandomKeystone",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10672,
@@ -118366,7 +117632,6 @@ return {
 		["group"] = "RandomMovementVelocityOnHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8907,
@@ -118455,7 +117720,6 @@ return {
 		["group"] = "RechargeNotInterruptedRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3422,
@@ -118476,7 +117740,6 @@ return {
 		["group"] = "RechargeOnManaFlask",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10081,
@@ -118497,7 +117760,6 @@ return {
 		["group"] = "UniqueRecoupLifeAgainstOpenWeakness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4105,
@@ -118518,7 +117780,6 @@ return {
 		["group"] = "RecoverLifeBasedOnRegen",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9678,
@@ -118831,7 +118092,6 @@ return {
 		["group"] = "ReducedDamageIfNotHitRecently",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3839,
@@ -118852,7 +118112,6 @@ return {
 		["group"] = "ReducedExtraDamageFromCritsPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7634,
@@ -118982,7 +118241,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119003,7 +118261,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119024,7 +118281,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119045,7 +118301,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119066,7 +118321,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119087,7 +118341,6 @@ return {
 		["group"] = "LocalAttributeRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			948,
@@ -119108,7 +118361,6 @@ return {
 		["group"] = "ReducedMaximumDivinityPerCorruptedItem",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8857,
@@ -119198,7 +118450,6 @@ return {
 		["group"] = "ReflectCurseToSelf",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5942,
@@ -119307,7 +118558,6 @@ return {
 		["group"] = "RemnantSkillSpiritReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9769,
@@ -119328,7 +118578,6 @@ return {
 		["group"] = "RemnantsAlsoAffectAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9741,
@@ -119349,7 +118598,6 @@ return {
 		["group"] = "RemoveSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10060,
@@ -119370,7 +118618,6 @@ return {
 		["group"] = "UniqueRepeatNoEnemyInPresence",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4092,
@@ -119391,7 +118638,6 @@ return {
 		["group"] = "UniqueRevealWeakness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4103,
@@ -119435,7 +118681,6 @@ return {
 		["group"] = "RightRingSpellProjectilesCannotFork",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7823,
@@ -119456,7 +118701,6 @@ return {
 		["group"] = "RightRingSpellProjectilesChain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7822,
@@ -119477,7 +118721,6 @@ return {
 		["group"] = "RingIgniteProliferation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1947,
@@ -119515,11 +118758,11 @@ return {
 	},
 	["UniqueRunicBindingOnSpellHit1"] = {
 		"Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds",
+		"Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential",
 		["affix"] = "",
 		["group"] = "GainRunicBindingOnSpellHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6854,
@@ -119542,7 +118785,6 @@ return {
 		["group"] = "SacrificeLifeInsteadOfBolts",
 		["level"] = 65,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5762,
@@ -119695,11 +118937,11 @@ return {
 	},
 	["UniqueSetMovementVelocityPerEvasion1"] = {
 		"Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%",
+		"Other Modifiers to Movement Speed except for Sprinting do not apply",
 		["affix"] = "",
 		["group"] = "SetMovementVelocityPerEvasion",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9152,
@@ -119722,7 +118964,6 @@ return {
 		["group"] = "ShareChargesWithAllies",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9823,
@@ -119947,7 +119188,6 @@ return {
 		["group"] = "ShrineBuffAlternating",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7707,
@@ -119991,7 +119231,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -120012,7 +119251,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -120033,7 +119271,6 @@ return {
 		["group"] = "UniqueSkillsGainXGloryEvery2Seconds",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4110,
@@ -120054,7 +119291,6 @@ return {
 		["group"] = "SlowEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4691,
@@ -120075,7 +119311,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -120096,7 +119331,6 @@ return {
 		["group"] = "SmokeCloudWhenStationary",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9945,
@@ -120117,7 +119351,6 @@ return {
 		["group"] = "UniqueSoulEaterAgainstOpenWeakness",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4104,
@@ -120176,6 +119409,7 @@ return {
 	},
 	["UniqueSpellAdditionalProjectilesInCircle1"] = {
 		"Spells fire 4 additional Projectiles",
+		"Spells fire Projectiles in a circle",
 		["affix"] = "",
 		["group"] = "SpellAdditionalProjectilesInCircle",
 		["level"] = 1,
@@ -120454,7 +119688,6 @@ return {
 		["group"] = "SpellDamageLifeLeech",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4711,
@@ -120796,7 +120029,6 @@ return {
 		["group"] = "SpellDamagePerSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10018,
@@ -120861,7 +120093,6 @@ return {
 		["group"] = "SpellsCannotPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9566,
@@ -120907,7 +120138,6 @@ return {
 		["group"] = "SpiritPerMaximumLife",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10421,
@@ -120928,7 +120158,6 @@ return {
 		["group"] = "SpiritPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7832,
@@ -120949,7 +120178,6 @@ return {
 		["group"] = "SpiritReservationEfficiency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4755,
@@ -120970,7 +120198,6 @@ return {
 		["group"] = "RingIgniteProliferation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1947,
@@ -122147,7 +121374,6 @@ return {
 		["group"] = "StrengthInherentBonusChange",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1758,
@@ -122168,7 +121394,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -122189,7 +121414,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -122210,7 +121434,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -122231,7 +121454,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -122252,7 +121474,6 @@ return {
 		["group"] = "StrengthRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			827,
@@ -122273,7 +121494,6 @@ return {
 		["group"] = "StrengthSatisfiesAllWeaponRequirements",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10117,
@@ -122294,7 +121514,6 @@ return {
 		["group"] = "StunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1051,
@@ -122315,7 +121534,6 @@ return {
 		["group"] = "StunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1051,
@@ -122336,7 +121554,6 @@ return {
 		["group"] = "LocalStunDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1054,
@@ -122357,7 +121574,6 @@ return {
 		["group"] = "StunRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1060,
@@ -122378,7 +121594,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122399,7 +121614,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122420,7 +121634,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122441,7 +121654,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122462,7 +121674,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122483,7 +121694,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122504,7 +121714,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122525,7 +121734,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122546,7 +121754,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122567,7 +121774,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122588,7 +121794,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122609,7 +121814,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122630,7 +121834,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122651,7 +121854,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122672,7 +121874,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122693,7 +121894,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122714,7 +121914,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122735,7 +121934,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122756,7 +121954,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122777,7 +121974,6 @@ return {
 		["group"] = "StunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1061,
@@ -122798,7 +121994,6 @@ return {
 		["group"] = "StunThresholdPerSocketable",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7834,
@@ -122840,7 +122035,6 @@ return {
 		["group"] = "SupportGemLimit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7580,
@@ -122861,7 +122055,6 @@ return {
 		["group"] = "TailwindOnCriticalStrike",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6865,
@@ -122991,7 +122184,6 @@ return {
 		["group"] = "ThornsDamageOnStun",
 		["level"] = 60,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6094,
@@ -123012,7 +122204,6 @@ return {
 		["group"] = "ThornsOnAnyHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10263,
@@ -123057,7 +122248,6 @@ return {
 		["group"] = "CorpsewadeGrantsTriggeredCorpseCloud",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7687,
@@ -123183,7 +122373,6 @@ return {
 		["group"] = "TriggersRefundEnergySpent",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10320,
@@ -123204,7 +122393,6 @@ return {
 		["group"] = "UniqueTwoHandedWeaponLightningStunMultiplier",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10430,
@@ -123247,7 +122435,6 @@ return {
 		["group"] = "UniqueAvoidSlowsWhileSprinting",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9939,
@@ -123292,7 +122479,6 @@ return {
 		["group"] = "UndeadMinionReservation",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10385,
@@ -123313,7 +122499,6 @@ return {
 		["group"] = "UnholyMightOnZeroEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2499,
@@ -123334,7 +122519,6 @@ return {
 		["group"] = "UnlimitedDifferentCompanions",
 		["level"] = 78,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10667,
@@ -123377,7 +122561,6 @@ return {
 		["group"] = "UseTwoHandedWeaponOneHand",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5253,
@@ -123420,7 +122603,6 @@ return {
 		["group"] = "ValourAlwaysMaximum",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4639,
@@ -123548,7 +122730,6 @@ return {
 		["group"] = "UniqueVivisectionPriceSpirit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10474,
@@ -123590,7 +122771,6 @@ return {
 		["group"] = "WarcryAreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10514,
@@ -123611,7 +122791,6 @@ return {
 		["group"] = "WarcryCorpseExplosion",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5780,
@@ -123674,7 +122853,6 @@ return {
 		["group"] = "WeaponDamagePerStrength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10534,
@@ -123717,6 +122895,8 @@ return {
 	},
 	["UniqueWindSkillsBoostedByAllElementalGrounds1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces can be boosted by multiple Elemental Ground Surfaces",
+		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Ignited, Shocked, and Chilled Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByElementalGrounds",
 		["level"] = 53,
@@ -123744,6 +122924,7 @@ return {
 	},
 	["UniqueWindSkillsBoostedByChilledGround1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Chilled Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByChilledGround",
 		["level"] = 53,
@@ -123768,6 +122949,7 @@ return {
 	},
 	["UniqueWindSkillsBoostedByIgnitedGround1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Ignited Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByIgnitedGround",
 		["level"] = 53,
@@ -123792,6 +122974,7 @@ return {
 	},
 	["UniqueWindSkillsBoostedByShockedGround1"] = {
 		"Wind Skills which can be boosted by Elemental Ground Surfaces count",
+		"as being boosted by Shocked Ground",
 		["affix"] = "",
 		["group"] = "WindSkillsBoostedByShockedGround",
 		["level"] = 53,
@@ -123820,7 +123003,6 @@ return {
 		["group"] = "CountsAsDualWielding",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2471,
@@ -123837,6 +123019,7 @@ return {
 	},
 	["UniqueWitherGrantsElementalDamageTaken1"] = {
 		"Enemies take 5% increased Elemental Damage from your Hits for",
+		"each Withered you have inflicted on them",
 		["affix"] = "",
 		["group"] = "WitherGrantsElementalDamageTaken",
 		["level"] = 1,
@@ -123889,7 +123072,6 @@ return {
 		["group"] = "WitherNeverExpires",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4093,
@@ -123933,7 +123115,6 @@ return {
 		["group"] = "WitherOnHitChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10558,
@@ -124373,7 +123554,6 @@ return {
 		["group"] = "AllFlaskChargeGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6888,
@@ -124394,7 +123574,6 @@ return {
 		["group"] = "LifeFlaskAppliesToRunicWard",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7474,
@@ -124415,7 +123594,6 @@ return {
 		["group"] = "RunicWardOverflow",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10519,
@@ -124525,7 +123703,6 @@ return {
 		["group"] = "WarcryKnockback",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10505,
@@ -124546,7 +123723,6 @@ return {
 		["group"] = "CountsAsAllOneHandMeleeWeapons",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3453,
@@ -124591,7 +123767,6 @@ return {
 		["group"] = "WeaponDamagePerStrength",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10534,

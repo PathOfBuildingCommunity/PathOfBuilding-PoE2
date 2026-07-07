@@ -1249,7 +1249,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 8,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -1273,7 +1272,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 26,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,
@@ -1297,7 +1295,6 @@ return {
 		["group"] = "FlaskGainChargePerMinute",
 		["level"] = 45,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			618,

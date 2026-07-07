@@ -11,7 +11,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			18,
@@ -37,7 +36,6 @@ return {
 		["group"] = "PrefixSuffixAllowed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			19,
@@ -63,7 +61,6 @@ return {
 		["group"] = "BlindOnHitWhileRubySapphireForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4325,
@@ -87,7 +84,6 @@ return {
 		["group"] = "DebilitateOnHitWhileEmeraldSapphireForJewel",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4328,
@@ -161,7 +157,6 @@ return {
 		["group"] = "LocalPrefixEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7809,
@@ -241,7 +236,6 @@ return {
 		["group"] = "JewelRadiusLargerRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7759,
@@ -323,7 +317,6 @@ return {
 		["group"] = "LocalSuffixEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7810,
@@ -482,7 +475,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1630,
@@ -537,7 +529,6 @@ return {
 		["group"] = "ArmourBreak",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4407,
@@ -563,7 +554,6 @@ return {
 		["group"] = "ArmourBreakDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4409,
@@ -780,7 +770,6 @@ return {
 		["group"] = "BannerArea",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4629,
@@ -806,7 +795,6 @@ return {
 		["group"] = "BannerDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4631,
@@ -832,7 +820,6 @@ return {
 		["group"] = "BannerValourGained",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6915,
@@ -946,7 +933,6 @@ return {
 		["group"] = "BlindEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4928,
@@ -1132,7 +1118,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9543,
@@ -1407,7 +1392,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4677,
@@ -1920,7 +1904,6 @@ return {
 		["group"] = "DazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4669,
@@ -1946,7 +1929,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6099,
@@ -2066,7 +2048,6 @@ return {
 		["group"] = "EnergyGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6410,
@@ -2420,7 +2401,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			5515,
@@ -2654,7 +2634,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1645,
@@ -2682,7 +2661,6 @@ return {
 		["group"] = "KnockbackDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1744,
@@ -3169,7 +3147,6 @@ return {
 		["group"] = "MarkDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			8822,
@@ -3195,7 +3172,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2378,
@@ -3311,7 +3287,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9609,
@@ -3867,7 +3842,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1068,
@@ -3893,7 +3867,6 @@ return {
 		["group"] = "PinBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7195,
@@ -4221,7 +4194,6 @@ return {
 		["group"] = "QuiverModifierEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			9605,
@@ -4387,7 +4359,6 @@ return {
 		["group"] = "AreaOfEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -4444,7 +4415,6 @@ return {
 		["group"] = "ArmourBreak",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -4471,7 +4441,6 @@ return {
 		["group"] = "ArmourBreakDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -4696,7 +4665,6 @@ return {
 		["group"] = "BannerArea",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -4723,7 +4691,6 @@ return {
 		["group"] = "BannerDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -4750,7 +4717,6 @@ return {
 		["group"] = "BannerValourGained",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -4868,7 +4834,6 @@ return {
 		["group"] = "BlindEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -5061,7 +5026,6 @@ return {
 		["group"] = "ChainFromTerrain",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -5346,7 +5310,6 @@ return {
 		["group"] = "GlobalCooldownRecovery",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -5850,7 +5813,6 @@ return {
 		["group"] = "DazeBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -5877,7 +5839,6 @@ return {
 		["group"] = "DebuffTimePassed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -6001,7 +5962,6 @@ return {
 		["group"] = "EnergyGeneration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -6368,7 +6328,6 @@ return {
 		["group"] = "ForkingProjectiles",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -6577,6 +6536,7 @@ return {
 	},
 	["JewelRadiusIncColdFreToLightning"] = {
 		"Increases and Reductions to",
+		" Cold and Fire Damage in Radius are transformed to apply to Lightning Damage",
 		["affix"] = "Wrath",
 		["group"] = "IncreasedColdFreToLightning",
 		["level"] = 1,
@@ -6606,6 +6566,7 @@ return {
 	},
 	["JewelRadiusIncLightningColdToFire"] = {
 		"Increases and Reductions to",
+		" Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
 		["affix"] = "Anger",
 		["group"] = "IncreasedLightningColdToFire",
 		["level"] = 1,
@@ -6635,6 +6596,7 @@ return {
 	},
 	["JewelRadiusIncLightningFireToCold"] = {
 		"Increases and Reductions to",
+		" Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
 		["affix"] = "Hatred",
 		["group"] = "IncreasedLightningFireToCold",
 		["level"] = 1,
@@ -6697,7 +6659,6 @@ return {
 		["group"] = "SkillEffectDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -6726,7 +6687,6 @@ return {
 		["group"] = "KnockbackDistance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -6753,7 +6713,6 @@ return {
 		["group"] = "JewelRadiusLargerRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7759,
@@ -7257,7 +7216,6 @@ return {
 		["group"] = "MarkDuration",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -7284,7 +7242,6 @@ return {
 		["group"] = "MarkEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -7311,7 +7268,6 @@ return {
 		["group"] = "MaximumRage",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -7338,7 +7294,6 @@ return {
 		["group"] = "JewelRadiusLargerRadius",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7759,
@@ -7773,7 +7728,6 @@ return {
 		["group"] = "JewelRadiusSmallNodeEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7783,
@@ -7799,7 +7753,6 @@ return {
 		["group"] = "JewelRadiusNotableEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7778,
@@ -7965,7 +7918,6 @@ return {
 		["group"] = "ChanceToPierce",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -7992,7 +7944,6 @@ return {
 		["group"] = "PinBuildup",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -8332,7 +8283,6 @@ return {
 		["group"] = "QuiverModifierEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -8386,7 +8336,6 @@ return {
 		["group"] = "GainRageWhenHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -8596,7 +8545,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -8623,7 +8571,6 @@ return {
 		["group"] = "JewelRadiusSmallNodeEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			7783,
@@ -8822,7 +8769,6 @@ return {
 		["group"] = "StunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -8849,7 +8795,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -8903,7 +8848,6 @@ return {
 		["group"] = "IncreasedStunThresholdIfNoRecentStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -8930,7 +8874,6 @@ return {
 		["group"] = "StunThresholdfromEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 1,
 		["statOrder"] = {
@@ -9261,7 +9204,6 @@ return {
 		["group"] = "VolatilityOnKillChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -9286,7 +9228,6 @@ return {
 		["group"] = "WarcryEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -9313,7 +9254,6 @@ return {
 		["group"] = "WarcryCooldownSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["nodeType"] = 2,
 		["statOrder"] = {
@@ -9473,7 +9413,6 @@ return {
 		["group"] = "GainRageWhenHit",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			6875,
@@ -9676,7 +9615,6 @@ return {
 		["group"] = "SlowPotency",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			4747,
@@ -9869,7 +9807,6 @@ return {
 		["group"] = "StunDamageIncrease",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			1051,
@@ -9895,7 +9832,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
@@ -9947,7 +9883,6 @@ return {
 		["group"] = "IncreasedStunThresholdIfNoRecentStun",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10140,
@@ -9973,7 +9908,6 @@ return {
 		["group"] = "StunThresholdfromEnergyShield",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10138,
@@ -10292,7 +10226,6 @@ return {
 		["group"] = "VolatilityOnKillChance",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10484,
@@ -10316,7 +10249,6 @@ return {
 		["group"] = "WarcryEffect",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			10506,
@@ -10342,7 +10274,6 @@ return {
 		["group"] = "WarcryCooldownSpeed",
 		["level"] = 1,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			3035,

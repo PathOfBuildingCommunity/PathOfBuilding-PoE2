@@ -185,7 +185,6 @@ return {
 		["group"] = "IncreasedStunThreshold",
 		["level"] = 0,
 		["modTags"] = {
-			"",
 		},
 		["statOrder"] = {
 			2983,
