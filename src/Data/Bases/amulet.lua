@@ -6,6 +6,7 @@ itemBases["Crimson Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(2-4) Life Regeneration per second",
+	implicitIds = { "AmuletImplicitLifeRegeneration1" },
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
 }
@@ -13,6 +14,7 @@ itemBases["Azure Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(20-30)% increased Mana Regeneration Rate",
+	implicitIds = { "AmuletImplicitManaRegeneration1" },
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
@@ -20,6 +22,7 @@ itemBases["Amber Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Strength",
+	implicitIds = { "AmuletImplicitStrength1" },
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
@@ -27,6 +30,7 @@ itemBases["Jade Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Dexterity",
+	implicitIds = { "AmuletImplicitDexterity1" },
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
@@ -34,6 +38,7 @@ itemBases["Lapis Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Intelligence",
+	implicitIds = { "AmuletImplicitIntelligence1" },
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
@@ -41,6 +46,7 @@ itemBases["Lunar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(20-30) to maximum Energy Shield",
+	implicitIds = { "AmuletImplicitEnergyShield1" },
 	implicitModTypes = { { "defences", "energy_shield" }, },
 	req = { level = 14, },
 }
@@ -48,6 +54,7 @@ itemBases["Bloodstone Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(30-40) to maximum Life",
+	implicitIds = { "AmuletImplicitIncreasedLife1" },
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 18, },
 }
@@ -55,6 +62,7 @@ itemBases["Stellar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(5-7) to all Attributes",
+	implicitIds = { "AmuletImplicitAllAttributes1" },
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 24, },
 }
@@ -62,6 +70,7 @@ itemBases["Solar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Spirit",
+	implicitIds = { "AmuletImplicitBaseSpirit1" },
 	implicitModTypes = { {  }, },
 	req = { level = 30, },
 }
@@ -69,6 +78,7 @@ itemBases["Gold Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(12-20)% increased Rarity of Items found",
+	implicitIds = { "AmuletImplicitItemFoundRarityIncrease1" },
 	implicitModTypes = { { "drop" }, },
 	req = { level = 35, },
 }
@@ -76,6 +86,7 @@ itemBases["Pearlescent Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
+	implicitIds = { "AmuletImplicitAllElementalResistances" },
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 30, },
 }
@@ -84,6 +95,7 @@ itemBases["Veridical Chain"] = {
 	hidden = true,
 	tags = { amulet = true, default = true, },
 	implicit = "+(30-40) to maximum Runic Ward",
+	implicitIds = { "AmuletImplicitRunicWard1" },
 	implicitModTypes = { { "runic_ward" }, },
 	req = { level = 18, },
 }
@@ -92,6 +104,7 @@ itemBases["Runemastered Veridical Chain"] = {
 	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "+(30-40) to maximum Runic Ward\n+(2-3)% to Maximum Cold Resistance",
+	implicitIds = { "AmuletImplicitRunicWard1, EventidePetalsVerisiumImplicitMaxColdRes1" },
 	implicitModTypes = { { "runic_ward" }, { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
 	req = { level = 18, },
 }
@@ -100,6 +113,7 @@ itemBases["Runemastered Veridical Chain"] = {
 	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "+(30-40) to maximum Runic Ward\n+(1-2) to Level of all Cold Skills",
+	implicitIds = { "AmuletImplicitRunicWard1, EventidePetalsVerisiumImplicitColdSkills1" },
 	implicitModTypes = { { "runic_ward" }, { "elemental", "cold", "gem" }, },
 	req = { level = 18, },
 }
@@ -108,6 +122,7 @@ itemBases["Runemastered Veridical Chain"] = {
 	hidden = true,
 	tags = { amulet = true, default = true, runeforged = true, },
 	implicit = "(15-20)% increased maximum Runic Ward",
+	implicitIds = { "EventidePetalsVerisiumImplicitRunicWardPercent1" },
 	implicitModTypes = { { "runic_ward" }, },
 	req = { },
 }
@@ -117,6 +132,7 @@ itemBases["Lament Amulet"] = {
 	grantedSkillsHaveNoReservation = true,
 	variantList = { "Arctic Armour", "Herald of Ash", "Herald of Ice", "Herald of Thunder", "Plague Bearer", "Barrier Invocation", "Lingering Illusion", "Ghost Dance", "Mana Remnants", "Magma Barrier", "Raging Spirits", "Wind Dancer", "Cast on Minion Death", "Scavenged Plating", "War Banner", "Defiance Banner", "Dread Banner", "Time of Need", "Attrition", "Charge Regulation", "Shard Scavenger", "Overwhelming Presence", "Alchemist's Boon", "Reaper's Invocation", "Berserk", "Herald of Plague", "Herald of Blood", "Withering Presence", "Ravenous Swarm", "Combat Frenzy", "Trail of Caltrops", "Convalescence", "Iron Ward", "Siphon Elements", "Briarpatch", "Savage Fury", "Barkskin", },
 	implicit = "-1 Prefix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Arctic Armour\n{variant:2}Grants Skill: Level (1-20) Herald of Ash\n{variant:3}Grants Skill: Level (1-20) Herald of Ice\n{variant:4}Grants Skill: Level (1-20) Herald of Thunder\n{variant:5}Grants Skill: Level (1-20) Plague Bearer\n{variant:6}Grants Skill: Level (1-20) Barrier Invocation\n{variant:7}Grants Skill: Level (1-20) Lingering Illusion\n{variant:8}Grants Skill: Level (1-20) Ghost Dance\n{variant:9}Grants Skill: Level (1-20) Mana Remnants\n{variant:10}Grants Skill: Level (1-20) Magma Barrier\n{variant:11}Grants Skill: Level (1-20) Raging Spirits\n{variant:12}Grants Skill: Level (1-20) Wind Dancer\n{variant:13}Grants Skill: Level (1-20) Cast on Minion Death\n{variant:14}Grants Skill: Level (1-20) Scavenged Plating\n{variant:15}Grants Skill: Level (1-20) War Banner\n{variant:16}Grants Skill: Level (1-20) Defiance Banner\n{variant:17}Grants Skill: Level (1-20) Dread Banner\n{variant:18}Grants Skill: Level (1-20) Time of Need\n{variant:19}Grants Skill: Level (1-20) Attrition\n{variant:20}Grants Skill: Level (1-20) Charge Regulation\n{variant:21}Grants Skill: Level (1-20) Shard Scavenger\n{variant:22}Grants Skill: Level (1-20) Overwhelming Presence\n{variant:23}Grants Skill: Level (1-20) Alchemist's Boon\n{variant:24}Grants Skill: Level (1-20) Reaper's Invocation\n{variant:25}Grants Skill: Level (1-20) Berserk\n{variant:26}Grants Skill: Level (1-20) Herald of Plague\n{variant:27}Grants Skill: Level (1-20) Herald of Blood\n{variant:28}Grants Skill: Level (1-20) Withering Presence\n{variant:29}Grants Skill: Level (1-20) Ravenous Swarm\n{variant:30}Grants Skill: Level (1-20) Combat Frenzy\n{variant:31}Grants Skill: Level (1-20) Trail of Caltrops\n{variant:32}Grants Skill: Level (1-20) Convalescence\n{variant:33}Grants Skill: Level (1-20) Iron Ward\n{variant:34}Grants Skill: Level (1-20) Siphon Elements\n{variant:35}Grants Skill: Level (1-20) Briarpatch\n{variant:36}Grants Skill: Level (1-20) Savage Fury\n{variant:37}Grants Skill: Level (1-20) Barkskin",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed7" },
 	implicitModTypes = { {  }, },
 	req = { level = 42, },
 }
@@ -126,6 +142,7 @@ itemBases["Portent Amulet"] = {
 	grantedSkillsHaveNoReservation = true,
 	variantList = { "Wolf Pack", "Blink", "Elemental Invocation", "Elemental Conflux", "Sacrifice", "Mirage Archer", "Feral Invocation", },
 	implicit = "-1 Suffix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Wolf Pack\n{variant:2}Grants Skill: Level (1-20) Blink\n{variant:3}Grants Skill: Level (1-20) Elemental Invocation\n{variant:4}Grants Skill: Level (1-20) Elemental Conflux\n{variant:5}Grants Skill: Level (1-20) Sacrifice\n{variant:6}Grants Skill: Level (1-20) Mirage Archer\n{variant:7}Grants Skill: Level (1-20) Feral Invocation",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed8" },
 	implicitModTypes = { {  }, },
 	req = { level = 42, },
 }
@@ -135,6 +152,7 @@ itemBases["Absent Amulet"] = {
 	grantedSkillsHaveNoReservation = true,
 	variantList = { "Cast on Elemental Ailment", "Cast on Critical", "Cast on Dodge", "Rhoa Mount", "Archmage", "Trinity", "Eternal Rage", },
 	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Cast on Elemental Ailment\n{variant:2}Grants Skill: Level (1-20) Cast on Critical\n{variant:3}Grants Skill: Level (1-20) Cast on Dodge\n{variant:4}Grants Skill: Level (1-20) Rhoa Mount\n{variant:5}Grants Skill: Level (1-20) Archmage\n{variant:6}Grants Skill: Level (1-20) Trinity\n{variant:7}Grants Skill: Level (1-20) Eternal Rage",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed9" },
 	implicitModTypes = { {  }, {  }, },
 	req = { level = 50, },
 }
@@ -142,6 +160,7 @@ itemBases["Corona Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "This item gains bonuses from Socketed Items as though it was a Helmet",
+	implicitIds = { "AmuletImplicitHelmetSocket1" },
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }
@@ -149,6 +168,7 @@ itemBases["Dusk Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed1" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -156,6 +176,7 @@ itemBases["Gloam Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed2" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -163,6 +184,7 @@ itemBases["Penumbra Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed3" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -170,6 +192,7 @@ itemBases["Tenebrous Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed4" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -177,6 +200,7 @@ itemBases["Twisted Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "-1 Prefix Modifier allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed5" },
 	implicitModTypes = { {  }, },
 	req = { },
 }
@@ -184,6 +208,7 @@ itemBases["Distorted Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "-1 Suffix Modifier allowed",
+	implicitIds = { "AmuletImplicitPrefixSuffixAllowed6" },
 	implicitModTypes = { {  }, },
 	req = { },
 }

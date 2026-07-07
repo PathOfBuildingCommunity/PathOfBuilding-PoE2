@@ -8,6 +8,7 @@ itemBases["Guarding Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(8-12)% increased Block chance",
+	implicitIds = { "IncursionLimb, IncursionArm1" },
 	implicitModTypes = { { "block" }, },
 	req = { },
 }
@@ -16,6 +17,7 @@ itemBases["Combat Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Attack Speed",
+	implicitIds = { "IncursionLimb, IncursionArm2" },
 	implicitModTypes = { { "attack", "speed" }, },
 	req = { },
 }
@@ -24,6 +26,7 @@ itemBases["Caster Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Cast Speed",
+	implicitIds = { "IncursionLimb, IncursionArm3" },
 	implicitModTypes = { { "caster_speed", "caster", "speed" }, },
 	req = { },
 }
@@ -32,6 +35,7 @@ itemBases["Decrepifying Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(12-16)% increased Curse Magnitudes",
+	implicitIds = { "IncursionLimb, IncursionArm4" },
 	implicitModTypes = { { "caster", "curse" }, },
 	req = { },
 }
@@ -40,6 +44,7 @@ itemBases["Deflective Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Deflection Rating",
+	implicitIds = { "IncursionLimb, IncursionArm5" },
 	implicitModTypes = { { "defences", "evasion" }, },
 	req = { },
 }
@@ -48,6 +53,7 @@ itemBases["Commanding Arm"] = {
 	subType = "Transcendent Arm",
 	tags = { default = true, },
 	implicit = "(15-25)% increased Presence Area of Effect",
+	implicitIds = { "IncursionLimb, IncursionArm6" },
 	implicitModTypes = { { "aura" }, },
 	req = { },
 }
@@ -56,6 +62,7 @@ itemBases["Evasive Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(20-30)% increased Evasion Rating",
+	implicitIds = { "IncursionLimb, IncursionLeg1" },
 	implicitModTypes = { { "defences", "evasion" }, },
 	req = { },
 }
@@ -64,6 +71,7 @@ itemBases["Sprinters Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(6-10)% increased Movement Speed while Sprinting",
+	implicitIds = { "IncursionLimb, IncursionLeg2" },
 	implicitModTypes = { { "speed" }, },
 	req = { },
 }
@@ -72,6 +80,7 @@ itemBases["Sturdy Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(15-25)% increased Stun Threshold",
+	implicitIds = { "IncursionLimb, IncursionLeg3" },
 	implicitModTypes = { {  }, },
 	req = { },
 }
@@ -80,6 +89,7 @@ itemBases["Surefooted Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(5-10)% reduced Movement Speed Penalty from using Skills while moving",
+	implicitIds = { "IncursionLimb, IncursionLeg4" },
 	implicitModTypes = { { "speed" }, },
 	req = { },
 }
@@ -88,6 +98,7 @@ itemBases["Calm Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(20-30)% increased Mana Regeneration Rate while moving",
+	implicitIds = { "IncursionLimb, IncursionLeg5" },
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
@@ -96,6 +107,7 @@ itemBases["Restorative Leg"] = {
 	subType = "Transcendent Leg",
 	tags = { default = true, },
 	implicit = "(6-10)% of Damage taken Recouped as Life",
+	implicitIds = { "IncursionLimb, IncursionLeg6" },
 	implicitModTypes = { { "resource", "life" }, },
 	req = { },
 }

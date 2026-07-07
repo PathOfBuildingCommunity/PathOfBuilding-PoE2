@@ -10,6 +10,7 @@ local s_format = string.format
 
 local scopes = { }
 
+local M = {}
 local function getScope(scopeName)
 	if not scopes[scopeName] then
 		local scope = nil
@@ -60,13 +61,18 @@ local function matchLimit(lang, val, quality)
 	end
 end
 
-local function applySpecial(val, spec)
-	if spec.k == "negate" then
+-- applies stat description special functions to stat values. for example percentage-based stats usually have divide_by_one_hundred which turns 200 into 2
+---@param val table[] Array of stat values
+---@param spec table The spec entry in the array part of the stat description
+---@param skipNegation boolean? Whether to skip the negation. Useful when transforming stats for the trade site
+function M.applySpecial(val, spec, skipNegation)
+	if spec.k == "negate" and not skipNegation then
 		val[spec.v].max, val[spec.v].min = -val[spec.v].min, -val[spec.v].max
 	elseif spec.k == "invert_chance" then
 		val[spec.v].max, val[spec.v].min = 100 - val[spec.v].min, 100 - val[spec.v].max
 	elseif spec.k == "negate_and_double" then
-		val[spec.v].max, val[spec.v].min = -2 * val[spec.v].min, -2 * val[spec.v].max
+		local mult = skipNegation and 2 or -2
+		val[spec.v].max, val[spec.v].min = mult * val[spec.v].min, mult * val[spec.v].max
 	elseif spec.k == "divide_by_two_0dp" then
 		val[spec.v].min = round(val[spec.v].min / 2)
 		val[spec.v].max = round(val[spec.v].max / 2)
@@ -208,8 +214,9 @@ local function applySpecial(val, spec)
 		val[spec.v].min = val[spec.v].min * 4
 		val[spec.v].max = val[spec.v].max * 4
 	elseif spec.k == "multiply_by_four_and_negate" then
-		val[spec.v].min = -val[spec.v].min * 4
-		val[spec.v].max = -val[spec.v].max * 4
+		local mult = skipNegation and 4 or -4
+		val[spec.v].min = val[spec.v].min * mult
+		val[spec.v].max = val[spec.v].max * mult
 	elseif spec.k == "multiply_by_ten" then
 		val[spec.v].min = val[spec.v].min * 10
 		val[spec.v].max = val[spec.v].max * 10
@@ -228,7 +235,7 @@ local function applySpecial(val, spec)
 	end
 end
 
-return function(stats, scopeName, quality)
+function M.describeStats(stats, scopeName, quality)
 	local rootScope = getScope(scopeName)
 
 	-- Figure out which descriptions we need, and identify them by the first stat that they describe
@@ -257,9 +264,11 @@ return function(stats, scopeName, quality)
 	-- Describe the stats
 	local out = { }
 	local lineMap = { }
+	local transformedStats = {}
 	for _, descriptor in ipairs(descOrdered) do
 		local val = { }
 		local stat
+		local statMap = {}
 		for i, s in ipairs(descriptor.description.stats) do
 			if stats[s] then
 				if type(stats[s]) == "number" then
@@ -268,6 +277,7 @@ return function(stats, scopeName, quality)
 					val[i] = stats[s]
 				end
 				stat = s
+				statMap[i] = s
 			else
 				val[i] = { min = 0, max = 0 }
 			end
@@ -276,7 +286,14 @@ return function(stats, scopeName, quality)
 		local desc = matchLimit(descriptor.description[1], val, quality)
 		if desc then
 			for _, spec in ipairs(desc) do
-				applySpecial(val, spec)
+				M.applySpecial(val, spec)
+			end
+			-- copy stats back so that we can return the transformed stats
+			for i, statVal in ipairs(val) do
+				local statName = statMap[i]
+				if statName then
+					transformedStats[statName] = statVal
+				end
 			end
 			local statDesc = desc.text:gsub("{(%d)}", function(n) 
 				local v = val[tonumber(n)+1]
@@ -319,5 +336,7 @@ return function(stats, scopeName, quality)
 			end
 		end
 	end
-	return out, lineMap
+	return out, lineMap, transformedStats
 end
+
+return M

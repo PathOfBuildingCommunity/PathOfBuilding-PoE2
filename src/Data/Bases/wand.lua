@@ -8,6 +8,7 @@ itemBases["Withered Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { },
 }
@@ -17,6 +18,7 @@ itemBases["Bone Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Bone Blast",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { },
 }
@@ -26,6 +28,7 @@ itemBases["Attuned Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Mana Drain",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { },
 }
@@ -35,6 +38,7 @@ itemBases["Siphoning Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Power Siphon",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 11, int = 23, },
 }
@@ -44,6 +48,7 @@ itemBases["Volatile Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Volatile Dead",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 16, int = 31, },
 }
@@ -53,6 +58,7 @@ itemBases["Galvanic Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Galvanic Field",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 25, int = 46, },
 }
@@ -62,6 +68,7 @@ itemBases["Acrid Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Decompose",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 33, int = 60, },
 }
@@ -71,6 +78,7 @@ itemBases["Offering Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Exsanguinate",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 38, int = 68, },
 }
@@ -80,6 +88,7 @@ itemBases["Frigid Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_chaos_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 45, int = 80, },
 }
@@ -89,6 +98,7 @@ itemBases["Torture Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 49, int = 87, },
 }
@@ -98,6 +108,7 @@ itemBases["Critical Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 52, int = 92, },
 }
@@ -107,6 +118,7 @@ itemBases["Primordial Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, no_cold_spell_mods = true, no_fire_spell_mods = true, no_lightning_spell_mods = true, no_physical_spell_mods = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Wither",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 56, int = 99, },
 }
@@ -116,6 +128,7 @@ itemBases["Dueling Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Spellslinger",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 65, int = 114, },
 }
@@ -126,6 +139,7 @@ itemBases["Twisted Wand"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicit = "Grants Skill: Level (1-20) Coiling Bolts",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 65, int = 114, },
 }
@@ -135,6 +149,7 @@ itemBases["Runic Fork"] = {
 	hidden = true,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 65, int = 114, },
 }
@@ -145,6 +160,7 @@ itemBases["Runemastered Runic Fork"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% chance for Spell Skills to fire 2 additional Projectiles",
+	implicitIds = { "RuneseekersCallVerisiumImplicitChanceForTwoProjectiles1" },
 	implicitModTypes = { { "caster" }, },
 	req = { level = 65, int = 114, },
 }
@@ -155,6 +171,7 @@ itemBases["Runemastered Runic Fork"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% increased Mana Regeneration Rate",
+	implicitIds = { "RuneseekersCallVerisiumImplicitManaRegen1" },
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { level = 65, int = 114, },
 }
@@ -165,6 +182,7 @@ itemBases["Runemastered Runic Fork"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "+300 to maximum Runic Ward",
+	implicitIds = { "RuneseekersCallVerisiumImplicitMaximumRunicWard" },
 	implicitModTypes = { { "runic_ward" }, },
 	req = { level = 65, int = 114, },
 }

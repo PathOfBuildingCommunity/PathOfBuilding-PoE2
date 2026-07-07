@@ -117,6 +117,11 @@ for k, v in pairs(nk) do
 	print("'"..k.."' = '"..v.."'")
 end
 
+-- matches the correct stat descriptor form based on the stat values, and returns information about
+-- the trade site formatting
+---@param lang table A stat descriptor
+---@param val table[] An array of {min = #, max = #} corresponding to each stat
+---@return table? desc A stat description matching the stat values
 local function matchLimit(lang, val)
 	for _, desc in ipairs(lang) do
 		local match = true

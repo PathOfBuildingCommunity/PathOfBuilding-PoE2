@@ -9,6 +9,7 @@ itemBases["Rattling Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { },
 }
@@ -19,6 +20,7 @@ itemBases["Stoic Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Discipline",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 6, int = 12, },
 }
@@ -29,6 +31,7 @@ itemBases["Lupine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 12, int = 24, },
 }
@@ -39,6 +42,7 @@ itemBases["Omen Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Malice",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 16, str = 12, int = 25, },
 }
@@ -49,6 +53,7 @@ itemBases["Ochre Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 21, int = 40, },
 }
@@ -59,6 +64,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -69,6 +75,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -79,6 +86,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -89,6 +97,7 @@ itemBases["Devouring Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 33, int = 60, },
 }
@@ -99,6 +108,7 @@ itemBases["Clasped Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Heart of Ice",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 36, int = 65, },
 }
@@ -109,6 +119,7 @@ itemBases["Devotional Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 45, str = 26, int = 63, },
 }
@@ -119,6 +130,7 @@ itemBases["Wrath Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Fulmination",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 49, int = 87, },
 }
@@ -129,6 +141,7 @@ itemBases["Aromatic Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 52, int = 92, },
 }
@@ -139,6 +152,7 @@ itemBases["Pious Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 58, int = 102, },
 }
@@ -149,6 +163,7 @@ itemBases["Hallowed Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 65, int = 114, },
 }
@@ -161,6 +176,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -172,6 +188,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -183,6 +200,7 @@ itemBases["Shrine Sceptre"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -194,6 +212,7 @@ itemBases["Shrine Sceptre (Purity of Fire)"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -204,6 +223,7 @@ itemBases["Shrine Sceptre (Purity of Cold)"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }
@@ -214,6 +234,7 @@ itemBases["Shrine Sceptre (Purity of Lighting)"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { level = 26, str = 17, int = 38, },
 }

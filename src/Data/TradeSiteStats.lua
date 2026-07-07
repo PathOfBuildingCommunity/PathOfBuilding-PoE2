@@ -17296,6 +17296,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3514984677",
+				["text"] = "#% increased Explicit Mana Modifier magnitudes",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_1335369947",
 				["text"] = "#% increased Explicit Physical Modifier magnitudes",
 				["type"] = "fractured",
@@ -19316,6 +19321,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|45751",
+				["text"] = "Allocates Frightening Shield",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|48699",
 				["text"] = "Allocates Frostwalker",
 				["type"] = "fractured",
@@ -19623,6 +19633,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|22817",
 				["text"] = "Allocates Inevitable Rupture",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|38965",
+				["text"] = "Allocates Infused Limits",
 				["type"] = "fractured",
 			},
 			{
@@ -20288,6 +20303,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|55180",
 				["text"] = "Allocates Relentless Fallen",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|1506",
+				["text"] = "Allocates Remnant Attraction",
 				["type"] = "fractured",
 			},
 			{
@@ -21136,6 +21156,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|58198",
+				["text"] = "Allocates Well of Power",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|2021",
 				["text"] = "Allocates Wellspring",
 				["type"] = "fractured",
@@ -21268,6 +21293,11 @@ return {
 			{
 				["id"] = "fractured.stat_3146310524",
 				["text"] = "Dazes on Hit",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_541021467",
+				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
 				["type"] = "fractured",
 			},
 			{
@@ -28303,6 +28333,11 @@ return {
 				["type"] = "enchant",
 			},
 			{
+				["id"] = "enchant.stat_2527686725",
+				["text"] = "#% increased Magnitude of Shock you inflict",
+				["type"] = "enchant",
+			},
+			{
 				["id"] = "enchant.stat_789117908",
 				["text"] = "#% increased Mana Regeneration Rate",
 				["type"] = "enchant",
@@ -33939,6 +33974,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1573130764",
+				["text"] = "Adds # to # Fire damage to Attacks",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3336890334",
 				["text"] = "Adds # to # Lightning Damage",
 				["type"] = "augment",
@@ -35526,6 +35566,11 @@ return {
 			{
 				["id"] = "rune.stat_4282982513",
 				["text"] = "Increases and Reductions to Movement Speed also  apply to Energy Shield Recharge Rate",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_326965591",
+				["text"] = "Iron Reflexes",
 				["type"] = "augment",
 			},
 			{

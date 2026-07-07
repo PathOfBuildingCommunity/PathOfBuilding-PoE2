@@ -6,6 +6,7 @@ itemBases["Golden Hoop"] = {
 	type = "Ring",
 	tags = { default = true, demigods = true, genesis_tree_caster = true, genesis_tree_minion = true, not_for_sale = true, ring = true, },
 	implicit = "+(8-12) to all Attributes",
+	implicitIds = { "AllAttributesImplicitDemigodRing1" },
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 12, },
 }
@@ -13,6 +14,7 @@ itemBases["Iron Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "Adds 1 to 4 Physical Damage to Attacks",
+	implicitIds = { "RingImplicitPhysicalDamage1" },
 	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
 	req = { },
 }
@@ -20,6 +22,7 @@ itemBases["Lazuli Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(20-30) to maximum Mana",
+	implicitIds = { "RingImplicitIncreasedMana1" },
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
@@ -27,6 +30,7 @@ itemBases["Ruby Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(20-30)% to Fire Resistance",
+	implicitIds = { "RingImplicitFireResistance1" },
 	implicitModTypes = { { "elemental_resistance", "fire_resistance", "elemental", "fire", "resistance" }, },
 	req = { level = 8, },
 }
@@ -34,6 +38,7 @@ itemBases["Sapphire Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(20-30)% to Cold Resistance",
+	implicitIds = { "RingImplicitColdResistance1" },
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "elemental", "cold", "resistance" }, },
 	req = { level = 12, },
 }
@@ -41,6 +46,7 @@ itemBases["Topaz Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(20-30)% to Lightning Resistance",
+	implicitIds = { "RingImplicitLightningResistance1" },
 	implicitModTypes = { { "elemental_resistance", "lightning_resistance", "elemental", "lightning", "resistance" }, },
 	req = { level = 16, },
 }
@@ -48,6 +54,7 @@ itemBases["Amethyst Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
+	implicitIds = { "RingImplicitChaosResistance1" },
 	implicitModTypes = { { "chaos_resistance", "chaos", "resistance" }, },
 	req = { level = 20, },
 }
@@ -55,6 +62,7 @@ itemBases["Emerald Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(120-160) to Accuracy Rating",
+	implicitIds = { "RingImplicitIncreasedAccuracy1" },
 	implicitModTypes = { { "attack" }, },
 	req = { level = 26, },
 }
@@ -62,6 +70,7 @@ itemBases["Pearl Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "(7-10)% increased Cast Speed",
+	implicitIds = { "RingImplicitIncreasedCastSpeed1" },
 	implicitModTypes = { { "caster_speed", "caster", "speed" }, },
 	req = { level = 32, },
 }
@@ -69,6 +78,7 @@ itemBases["Prismatic Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
+	implicitIds = { "RingImplicitAllResistances1" },
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 35, },
 }
@@ -76,6 +86,7 @@ itemBases["Gold Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "(6-15)% increased Rarity of Items found",
+	implicitIds = { "RingImplicitItemFoundRarityIncrease1" },
 	implicitModTypes = { { "drop" }, },
 	req = { level = 40, },
 }
@@ -83,6 +94,7 @@ itemBases["Unset Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "Grants 1 additional Skill Slot",
+	implicitIds = { "RingImplicitAdditionalSkillSlots1" },
 	implicitModTypes = { {  }, },
 	req = { level = 44, },
 }
@@ -90,6 +102,7 @@ itemBases["Abyssal Signet"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "Inflict Abyssal Wasting on Hit",
+	implicitIds = { "AbyssalWastingOnHit" },
 	implicitModTypes = { {  }, },
 	req = { },
 }
@@ -97,6 +110,7 @@ itemBases["Two-Stone Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(12-16)% to Fire and Cold Resistances",
+	implicitIds = { "RingImplicitFireColdResistance" },
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "fire_resistance", "elemental", "fire", "cold", "resistance" }, },
 	req = { },
 }
@@ -104,6 +118,7 @@ itemBases["Two-Stone Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(12-16)% to Fire and Lightning Resistances",
+	implicitIds = { "RingImplicitFireLightningResistance" },
 	implicitModTypes = { { "elemental_resistance", "fire_resistance", "lightning_resistance", "elemental", "fire", "lightning", "resistance" }, },
 	req = { },
 }
@@ -111,6 +126,7 @@ itemBases["Two-Stone Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+(12-16)% to Cold and Lightning Resistances",
+	implicitIds = { "RingImplicitColdLightningResistance" },
 	implicitModTypes = { { "cold_resistance", "elemental_resistance", "lightning_resistance", "elemental", "cold", "lightning", "resistance" }, },
 	req = { },
 }
@@ -118,6 +134,7 @@ itemBases["Biostatic Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+1% to all maximum Resistances",
+	implicitIds = { "RingImplicitMaximumResistance" },
 	implicitModTypes = { { "resistance" }, },
 	req = { level = 52, },
 }
@@ -125,6 +142,7 @@ itemBases["Vitalic Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "(4-6)% increased maximum Life",
+	implicitIds = { "RingImplicitPercentLife" },
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 40, },
 }
@@ -132,6 +150,7 @@ itemBases["Mnemonic Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "(4-6)% increased maximum Mana",
+	implicitIds = { "RingImplicitPercentMana" },
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { level = 40, },
 }
@@ -139,6 +158,7 @@ itemBases["Kinetic Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "Adds (6-9) to (11-15) Physical Damage to Attacks",
+	implicitIds = { "RingImplicitPhysicalDamage2" },
 	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
 	req = { level = 40, },
 }
@@ -146,6 +166,7 @@ itemBases["Oneiric Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "(11-23)% increased Chaos Damage",
+	implicitIds = { "RingImplicitChaosDamage" },
 	implicitModTypes = { { "chaos_damage", "damage", "chaos" }, },
 	req = { level = 47, },
 }
@@ -153,12 +174,14 @@ itemBases["Grasping Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "This item gains bonuses from Socketed Items as though it was Gloves",
+	implicitIds = { "RingImplicitGloveSocket" },
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }
 itemBases["Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
+	implicitIds = {},
 	implicitModTypes = { },
 	req = { },
 }
@@ -166,6 +189,7 @@ itemBases["Dusk Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+	implicitIds = { "RingImplicitPrefixSuffixAllowed1" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -173,6 +197,7 @@ itemBases["Gloam Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+	implicitIds = { "RingImplicitPrefixSuffixAllowed2" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -180,6 +205,7 @@ itemBases["Penumbra Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+	implicitIds = { "RingImplicitPrefixSuffixAllowed3" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -187,6 +213,7 @@ itemBases["Tenebrous Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+	implicitIds = { "RingImplicitPrefixSuffixAllowed4" },
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
@@ -194,6 +221,7 @@ itemBases["Breach Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+20% to Maximum Quality",
+	implicitIds = { "RingImplicitMaximumQualityAdditional1" },
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }
@@ -201,6 +229,7 @@ itemBases["Refined Breach Ring"] = {
 	type = "Ring",
 	tags = { default = true, genesis_tree_caster = true, genesis_tree_minion = true, ring = true, },
 	implicit = "+25% to Maximum Quality",
+	implicitIds = { "RingImplicitMaximumQualityAdditional2" },
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }
