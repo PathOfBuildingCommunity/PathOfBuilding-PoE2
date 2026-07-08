@@ -49,12 +49,11 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.changeFunc = changeFunc
 	self.lineHeight = lineHeight
 	self.defaultLineHeight = lineHeight
-	self.font = "VAR"
-	self.textCol = "^7"
-	self.inactiveCol = "^8"
-	self.disableCol = "^9"
-	self.selCol = "^0"
-	self.selBGCol = "^xBBBBBB"
+	self.font = GetStyleFont('text_textbox')
+	self.textCol = GetStyleColor('text_textbox')
+	self.selBGCol = 'selection_text_highlight_background'
+	self.selCol = GetStyleColor('text_textbox_selection') -- gets color code to prepend to strings (like ^xBBBBBB)
+
 	self.blinkStart = GetTime()
 	self.allowZoom = allowZoom
 	local function buttonSize()
@@ -114,7 +113,7 @@ function EditClass:SetProtected(bool)
 	self.protected = bool or true
 	-- set the font to be fixed to prevent strange
 	-- spacing
-	self.font = "FIXED"
+	self.font = GetStyleFont('text_protected')
 end
 
 function EditClass:IsMouseOver()
@@ -243,38 +242,48 @@ function EditClass:Draw(viewPort, noTooltip)
 	local width, height = self:GetSize()
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
+	-- Editbox-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
+		SetDrawStyle('textbox_border_disabled')
+	elseif self.hasFocus then
+		SetDrawStyle('textbox_border_selected')
 	elseif mOver then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('textbox_border_hover')
 	elseif self.borderFunc then
-		local r, g, b = self.borderFunc()
-		SetDrawColor(r, g, b)
+		SetDrawStyle('textbox'..self.borderFunc())
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('textbox_border')
 	end
 	DrawImage(nil, x, y, width, height)
+	-- Editbox-Fill
 	if not enabled then
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('textbox_background_disabled')
 	elseif self.hasFocus or mOver then
+		-- Why different Textbox-Fill color for multi-line vs single-line?
 		if self.lineHeight then
-			SetDrawColor(0.1, 0.1, 0.1)
+			-- multi-line Textboxes
+			-- SetDrawColor(0.1, 0.1, 0.1)
+			SetDrawStyle('textbox_background_selected')
 		else
-			SetDrawColor(0.15, 0.15, 0.15)
+			-- other Textboxes
+			-- SetDrawColor(0.15, 0.15, 0.15)
+			SetDrawStyle('textbox_background_selected')
 		end
 	else
-		SetDrawColor(0, 0, 0)
+		SetDrawStyle('textbox_background')
 	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 	local textX = x + 2
 	local textY = y + 2
 	local textHeight = self.lineHeight or (height - 4)
 	if self.prompt then
+		-- Textbox-Prompt
 		if not enabled then
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.disableCol..self.prompt)
+			SetDrawStyle('text_textbox_disabled')
 		else
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.textCol..self.prompt..":")
+			SetDrawStyle('text_textbox')
 		end
+		DrawString(textX, textY, "LEFT", textHeight, self.font, self.prompt..":")
 		textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
 	end
 	if not enabled then
@@ -292,12 +301,15 @@ function EditClass:Draw(viewPort, noTooltip)
 	SetViewport(textX, textY, width - 4 - marginL - marginR, height - 4 - marginB)
 	if not self.hasFocus then
 		if self.buf == '' and self.placeholder then
-			SetDrawColor(self.disableCol)
+			-- Editbox-Placeholder
+			SetDrawStyle('text_textbox_placeholder')
 			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
 		else
-			SetDrawColor(self.inactiveCol)
+			-- Editbox-Input-Text
+			SetDrawStyle('text_textbox')
 			if self.inactiveText then
-				local inactiveText = type(inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
+				-- VERIFY: is "type(inactiveText)" meant to be "type(self.inactiveText)" ?
+				local inactiveText = type(self.inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, inactiveText)
 			elseif self.protected then
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, string.rep(protected_replace, #self.buf))
@@ -324,7 +336,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		local left = m_min(self.caret, self.sel or self.caret)
 		local right = m_max(self.caret, self.sel or self.caret)
 		local caretX
-		SetDrawColor(self.textCol)
+		SetDrawStyle('text_textbox')
 		for s, line, e in (self.buf.."\n"):gmatch("()([^\n]*)\n()") do
 			textX = -self.controls.scrollBarH.offset
 			if left >= e or right <= s then
@@ -346,10 +358,10 @@ function EditClass:Draw(viewPort, noTooltip)
 					sel = sel .. "  "
 				end
 				local selWidth = DrawStringWidth(textHeight, self.font, sel)
-				SetDrawColor(self.selBGCol)
+				SetDrawStyle(self.selBGCol)
 				DrawImage(nil, textX, textY, selWidth, textHeight)
 				DrawString(textX, textY, "LEFT", textHeight, self.font, sel)
-				SetDrawColor(self.textCol)
+				SetDrawStyle('text_textbox')
 				textX = textX + selWidth
 			end
 			if right >= s and right < e and right == self.caret then
@@ -366,7 +378,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		if caretX then
 			if (GetTime() - self.blinkStart) % 1000 < 500 then
-				SetDrawColor(self.textCol)
+				SetDrawStyle('text_textbox')
 				DrawImage(nil, caretX, caretY, 1, textHeight)
 			end
 		end
@@ -383,7 +395,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		textX = textX + DrawStringWidth(textHeight, self.font, pre)
 		local selWidth = DrawStringWidth(textHeight, self.font, sel)
-		SetDrawColor(self.selBGCol)
+		SetDrawStyle(self.selBGCol)
 		DrawImage(nil, textX, textY, selWidth, textHeight)
 		if self.protected then
 			DrawString(textX, textY, "LEFT", textHeight, self.font, self.selCol .. string.rep(protected_replace, #sel-#self.selCol))
@@ -397,7 +409,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		if (GetTime() - self.blinkStart) % 1000 < 500 then
 			local caretX = (self.caret > self.sel) and textX + selWidth or textX
-			SetDrawColor(self.textCol)
+			SetDrawStyle('text_textbox')
 			DrawImage(nil, caretX, textY, 1, textHeight)
 		end
 	else
@@ -415,7 +427,7 @@ function EditClass:Draw(viewPort, noTooltip)
 			DrawString(textX, textY, "LEFT", textHeight, self.font, post)
 		end
 		if (GetTime() - self.blinkStart) % 1000 < 500 then
-			SetDrawColor(self.textCol)
+			SetDrawStyle('text_textbox')
 			DrawImage(nil, textX, textY, 1, textHeight)
 		end
 	end

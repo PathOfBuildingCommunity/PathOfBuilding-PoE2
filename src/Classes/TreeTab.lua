@@ -461,17 +461,17 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 
 	SetDrawLayer(1)
 
-	SetDrawColor(0.05, 0.05, 0.05)
+	SetDrawStyle('bottom_bar_background')
 	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (28 + bottomDrawerHeight + linesHeight), viewPort.width, 28 + bottomDrawerHeight + linesHeight)
 	if self.showConvert then
 		local height = viewPort.width < convertMaxWidth and (bottomDrawerHeight + linesHeight) or 0
-		SetDrawColor(0.05, 0.05, 0.05)
+		SetDrawStyle('bottom_bar_background')
 		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (60 + bottomDrawerHeight + linesHeight + convertTwoLineHeight), viewPort.width, 28 + height)
-		SetDrawColor(0.85, 0.85, 0.85)
+		SetDrawStyle('bottom_bar_border')
 		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (64 + bottomDrawerHeight + linesHeight + convertTwoLineHeight), viewPort.width, 4)
 	end
 	-- let white lines overwrite the black sections, regardless of showConvert
-	SetDrawColor(0.85, 0.85, 0.85)
+	SetDrawStyle('bottom_bar_border')
 	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (32 + bottomDrawerHeight + linesHeight), viewPort.width, 4)
 
 	self:DrawControls(viewPort)

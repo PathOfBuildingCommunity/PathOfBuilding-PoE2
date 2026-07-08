@@ -136,7 +136,8 @@ end
 function ItemSlotClass:Draw(viewPort)
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
-	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..self.label..":")
+	SetDrawStyle('text_label')
+	StyledDrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, 'text_label', self.label..":")
 	self.DropDownControl:Draw(viewPort)
 	self:DrawControls(viewPort)
 	if not main.popups[1] and self.nodeId and (self.dropped or (self:IsMouseOver() and (self.otherDragSource or not self.itemsTab.selControl))) then

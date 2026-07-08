@@ -39,7 +39,7 @@ function PathClass:SetSubPath(subPath, noUndo)
 		button.shown = true
 		button.x = x
 		button.label = folder.label
-		button.width = DrawStringWidth(self.height - 8, "VAR", folder.label) + 10
+		button.width = StyledDrawStringWidth(self.height - 8, 'text_button', folder.label) + 10
 		button.onClick = function()
 			self:SetSubPath(folder.path)
 		end
@@ -69,17 +69,18 @@ end
 function PathClass:Draw(viewPort)
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
-	SetDrawColor(0.5, 0.5, 0.5)
+	SetDrawStyle('path_border')
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0, 0, 0)
+	SetDrawStyle('path_background')
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 	self:DrawControls(viewPort)
 	for index, folder in ipairs(self.folderList) do
 		local buttonX, buttonY = folder.button:GetPos()
 		local buttonW, buttonH = folder.button:GetSize()
-		SetDrawColor(1, 1, 1)
+	SetDrawStyle('path_arrow')
 		main:DrawArrow(buttonX + buttonW + 6, y + height/2, 8, 8, "RIGHT")
 		if self.otherDragSource and index < #self.folderList then
+			-- TODO: ?
 			SetDrawColor(0, 1, 0, 0.25)
 			DrawImage(nil, buttonX, buttonY, buttonW, buttonH)
 		end

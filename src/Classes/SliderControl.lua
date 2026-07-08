@@ -84,27 +84,42 @@ function SliderClass:Draw(viewPort)
 		self:SetValFromKnobX((cursorX - self.dragCX) + self.dragKnobX)
 	end
 	local mOver, mOverComp = self:IsMouseOver()
+	-- Slider-Border
 	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif self.dragging or mOver then
-		SetDrawColor(1, 1, 1)
+		SetDrawStyle('slider_border_disabled')
+	elseif self.dragging then
+		SetDrawStyle('slider_border_selected')
+	elseif mOver then
+		SetDrawStyle('slider_border_hover')
 	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('slider_border')
 	end
 	DrawImage(nil, x, y, width, height)
-	SetDrawColor(0, 0, 0)
+	-- Slider-Background
+	if not enabled then
+		SetDrawStyle('slider_background_disabled')
+	elseif self.dragging then
+		SetDrawStyle('slider_background_selected')
+	elseif mOver then
+		SetDrawStyle('slider_background_hover')
+	else
+		SetDrawStyle('slider_background')
+	end
 	DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
 	if enabled then
 		if self.divCount then
-			SetDrawColor(0.33, 0.33, 0.33)
+			-- Slider-Section-Separator
+			SetDrawStyle('slider_section_separator')
 			for d = 0, knobTravel + 0.5, knobTravel / self.divCount do
 				DrawImage(nil, x + self.knobSize/2 + d, y + 1, 2, height - 2)
 			end
 		end
-		if self.dragging or mOverComp == "KNOB" then
-			SetDrawColor(1, 1, 1)
+		if self.dragging then
+			SetDrawStyle('slider_knob_selected')
+		elseif mOverComp == "KNOB" then
+			SetDrawStyle('slider_knob_hover')
 		else
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('slider_knob')
 		end
 		local knobX = self:GetKnobXForVal()
 		if self.divCount then

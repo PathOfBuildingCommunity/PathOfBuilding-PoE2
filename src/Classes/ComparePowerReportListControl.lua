@@ -61,8 +61,8 @@ function ComparePowerReportListClass:Draw(viewPort, noTooltip)
 		local width, height = self:GetSize()
 		-- Column headers are 18px tall, plus 2px border = start at y+20
 		SetViewport(x + 2, y + 20, width - 20, height - 22)
-		SetDrawColor(1, 1, 1)
-		DrawString(4, 4, "LEFT", 14, "VAR", self.statusText)
+		SetDrawStyle('text_list_placeholder')
+		StyledDrawString(4, 4, "LEFT", 14, 'text_list_placeholder', self.statusText)
 		SetViewport()
 	end
 end

@@ -422,12 +422,12 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 
 	-- Draw background
 	SetDrawLayer(nil, 10)
-	SetDrawColor(0, 0, 0, 0.9)
+	SetDrawStyle('tooltip_background')
 	DrawImage(nil, panelX + 2, panelY + 2, panelW - 4, panelH - 4)
 
 	-- Draw border
 	SetDrawLayer(nil, 11)
-	SetDrawColor(0.33, 0.66, 0.33)
+	SetDrawStyle('calc_breakdown_tooltip_border')
 	DrawImage(nil, panelX, panelY, panelW, 2)
 	DrawImage(nil, panelX, panelY + panelH - 2, panelW, 2)
 	DrawImage(nil, panelX, panelY, 2, panelH)
@@ -439,11 +439,11 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 	for i, col in ipairs(colDefs) do
 		col.x = colX
 		if i > 1 then
-			SetDrawColor(0.5, 0.5, 0.5)
+			SetDrawStyle('calc_breakdown_tooltip_table')
 			DrawImage(nil, colX - 2, panelY + 2, 1, panelH - 4)
 		end
-		SetDrawColor(1, 1, 1)
-		DrawString(colX, panelY + 2, "LEFT", 16, "VAR", col.label)
+		SetDrawStyle('text_calc_breakdown')
+		StyledDrawString(colX, panelY + 2, "LEFT", 16, 'text_calc_breakdown', col.label)
 		colX = colX + col.width
 	end
 
@@ -451,11 +451,12 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 	local rowY = panelY + headerRowH
 	for _, row in ipairs(rows) do
 		-- Row separator
-		SetDrawColor(0.5, 0.5, 0.5)
+		SetDrawStyle('calc_breakdown_tooltip_table')
 		DrawImage(nil, panelX + 2, rowY - 1, panelW - 4, 1)
 		for _, col in ipairs(colDefs) do
 			if row[col.key] and row[col.key] ~= "" then
-				DrawString(col.x, rowY + 1, "LEFT", 12, "VAR", "^7" .. row[col.key])
+				SetDrawStyle('text_calc_breakdown')
+				StyledDrawString(col.x, rowY + 1, "LEFT", 12, 'text_calc_breakdown', row[col.key])
 			end
 		end
 		rowY = rowY + dataRowH
