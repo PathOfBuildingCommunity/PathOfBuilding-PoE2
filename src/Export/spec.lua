@@ -40589,7 +40589,7 @@ return {
 		},
 		[2]={
 			list=false,
-			name="Skill Gem",
+			name="SkillGem",
 			refTo="SkillGems",
 			type="Key",
 			width=400

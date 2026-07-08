@@ -136,7 +136,25 @@ directiveTable.base = function(state, args, out)
 	local implicitLines = { }
 	local implicitModTypes = { }
 	local variantList = { }
+	local implicitMods = { }
+	local hasCharmSlots
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
+		table.insert(implicitMods, mod)
+		if mod.Type and mod.Type.Id == "CharmSlots" then
+			hasCharmSlots = true
+		end
+	end
+	if state.type == "Belt" then
+		if not hasCharmSlots then
+			table.insert(implicitMods, dat("Mods"):GetRow("Id", "BeltImplicitCharmSlots3"))
+		end
+	end
+	table.sort(implicitMods, function(a, b)
+		local _, aOrder = describeMod(a)
+		local _, bOrder = describeMod(b)
+		return (aOrder[1] or 0) < (bOrder[1] or 0)
+	end)
+	for _, mod in ipairs(implicitMods) do
 		local modDesc = describeMod(mod)
 		for _, line in ipairs(modDesc) do
 			table.insert(implicitLines, line)
@@ -146,23 +164,20 @@ directiveTable.base = function(state, args, out)
 			table.insert(implicitLines, "Grants Skill: Spear Throw")
 		end
 	end
-	if state.type == "Belt" then
-		table.insert(implicitLines, "Has (1-3) Charm Slots")
-	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		if #inherentSkillType.Skill > 1 then
-			for index, skill in ipairs(inherentSkillType.Skill) do
-				local skillGem = dat("SkillGems"):GetRow("BaseItemType", skill.BaseItemType)
-				local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
-				local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+		local hasVariants = #inherentSkillType.Skill > 1
+		for index, skill in ipairs(inherentSkillType.Skill) do
+			local skillGem = dat("SkillGems"):GetRow("BaseItemType", skill.BaseItemType)
+			local skillName = skillGem.GemEffects[1].GrantedEffect.ActiveSkill.DisplayName
+			local naturalMaxLevel = skillGem.IsSupport and 1 or #dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
+			naturalMaxLevel = naturalMaxLevel > 0 and naturalMaxLevel or 1
+			local implicitLine = "Grants Skill: " .. (naturalMaxLevel == 1 and "" or "Level (1-" .. naturalMaxLevel .. ") ") .. skillName
+			if hasVariants then
 				table.insert(variantList, skillName)
-				table.insert(implicitLines, "{variant:" .. index .. "}Grants Skill: Level (1-20) " .. skillName)
+				implicitLine = "{variant:" .. index .. "}" .. implicitLine
 			end
-		else
-			local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
-			local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
-			table.insert(implicitLines, "Grants Skill: Level (1-20) " .. gemEffect.GrantedEffect.ActiveSkill.DisplayName)
+			table.insert(implicitLines, implicitLine)
 		end
 	end
 	if #variantList > 0 then

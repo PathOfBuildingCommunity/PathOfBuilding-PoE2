@@ -28,8 +28,6 @@ local catalystTags = {
 	{ "attribute" },
 }
 
-local minimumReqLevel = { }
-
 local function getCatalystScalar(catalystId, mod, quality)
 	if mod.unscalable then
 		return 1
@@ -553,16 +551,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
-					local runeLevel = 0
-					local runeData = data.itemMods.Runes[specVal]
-					if runeData then
-						for _, slotData in pairs(runeData) do
-							runeLevel = math.max(runeLevel, slotData.rank[1])
-						end
-					end
-					if runeLevel > 0 and (not self.requirements.runeLevel or runeLevel > self.requirements.runeLevel) then
-						self.requirements.runeLevel = runeLevel
-					end
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
@@ -1202,6 +1190,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 
+	for _, runeName in ipairs(self.runes) do
+		local runeData = data.itemMods.Runes[runeName]
+		if runeData then
+			for _, slotData in pairs(runeData) do
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel or 0, slotData.rank[1])
+			end
+		end
+	end
 	if self.base and not self.requirements.level then
 		if importedLevelReq and #self.sockets == 0 then
 			-- Requirements on imported items can only be trusted for items with no sockets
@@ -1209,6 +1205,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		else
 			self.requirements.level = self.base.req.level
 		end
+	end
+	if self.base then
+		self.requirements.level = m_max(self.requirements.level or 0, self.requirements.runeLevel or 0)
 	end
 	self.affixLimit = 0
 	if self.crafted then

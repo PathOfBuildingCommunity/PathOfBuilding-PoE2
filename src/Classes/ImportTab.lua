@@ -1291,9 +1291,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.requirements and (not itemData.socketedItems or not itemData.socketedItems[1]) then
 		-- Requirements cannot be trusted if there are socketed gems, as they may override the item's natural requirements
-		-- This means some uniques will not import Level requirement properly for now. We probably need to compare the level to the equipped rune levels,
-		-- and only accept the imported level if it's higher than the runes. Problem with that, when we remove the runes, the required level will drop back
-		-- to the base item level. Which is sometimes incorrect for uniques (they can be higher than the base, like Sylvan's Effigy)
 		item.requirements = { }
 		for _, req in ipairs(itemData.requirements) do
 			if req.name == "Level" then

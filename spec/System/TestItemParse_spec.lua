@@ -355,13 +355,63 @@ describe("TestItemParse", function()
 		assert.are.equals("~price 1 chaos", item.note)
 	end)
 
-	it("Attribute Requirements", function()
-		local item = new("Item", raw("Dex: 100"))
-		assert.are.equals(100, item.requirements.dex)
-		item = new("Item", raw("Int: 101"))
-		assert.are.equals(101, item.requirements.int)
-		item = new("Item", raw("Str: 102"))
-		assert.are.equals(102, item.requirements.str)
+	it("Rune level requirements", function()
+		local item = new("Item", [[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Perfect Storm Rune
+			LevelReq: 1
+			Implicits: 1
+			{enchant}{rune}Gain 12% of Damage as Extra Lightning Damage
+		]])
+		assert.are.equals(50, item.requirements.level)
+	end)
+
+	it("Unique mod level requirements", function()
+		local foundAnvil
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("The Anvil") then
+				local item = new("Item", rawUnique)
+				assert.are.equals(18, item.requirements.level)
+				assert.is_nil(rawUnique:match("Requires Level 18"))
+				foundAnvil = true
+				break
+			end
+		end
+		assert(foundAnvil, "The Anvil not found")
+
+		local foundChoirOfTheStorm
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("Choir of the Storm") then
+				assert(rawUnique:find("Grants Skill: Level (1-20) Lightning Bolt", 1, true))
+				assert(rawUnique:find("Trigger Lightning Bolt Skill on Critical Hit", 1, true))
+				foundChoirOfTheStorm = true
+				break
+			end
+		end
+		assert(foundChoirOfTheStorm, "Choir of the Storm not found")
+
+		local foundSylvansEffigy
+		for _, rawUnique in ipairs(data.uniques.sceptre) do
+			if rawUnique:match("Sylvan's Effigy") then
+				local item = new("Item", rawUnique)
+				assert.are.equals(62, item.requirements.level)
+				foundSylvansEffigy = true
+				break
+			end
+		end
+		assert(foundSylvansEffigy, "Sylvan's Effigy not found")
+
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("Hinekora's Sight") then
+				local item = new("Item", rawUnique)
+				assert.are.equals(44, item.requirements.level)
+				assert(rawUnique:find("Grants Skill: Level (1-20) Future-Past", 1, true))
+				return
+			end
+		end
+		assert(false, "Hinekora's Sight not found")
 	end)
 
 	it("Requires Class", function()

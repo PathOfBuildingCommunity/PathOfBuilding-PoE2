@@ -335,7 +335,8 @@ The Covenant
 Altar Robe
 Variant: Pre 0.4.0
 Variant: Current
-{variant:2}Grants Skill: Level 14 Life Remnants
+Implicits: 1
+{variant:2}Grants Skill: Level (1-20) Life Remnants
 (100-150)% increased Energy Shield
 +(100-150) to maximum Life
 {variant:1}5% of Spell Damage Leeched as Life
@@ -402,6 +403,7 @@ Silk Robe
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
+Requires Level 64
 +(100-150) to maximum Energy Shield
 +(10-20)% to all Elemental Resistances
 (5-30)% of Damage taken Recouped as Life
@@ -544,6 +546,7 @@ Enemies in your Presence are Intimidated
 Pragmatism
 Explorer Armour
 Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
+Requires Level 52
 (200-300)% increased Armour and Evasion
 +(10-20)% to all Elemental Resistances
 -17% to Chaos Resistance
@@ -612,7 +615,7 @@ Implicits: 1
 (100-150)% increased Armour and Energy Shield
 -10% to Fire Resistance
 {variant:1}+(13-17)% to Chaos Resistance
-{variant:2,3}+(13-17)% to Chaos Resistance
+{variant:2,3}+(17-23)% to Chaos Resistance
 {variant:1}(25-50)% increased Flask Charges gained
 {variant:2}(20-30)% increased Flask Charges gained
 {variant:1,2}50% less Flask Charges used

@@ -7,8 +7,6 @@ Asphyxia's Wrath
 Broadhead Quiver
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-QuiverImplicitPhysicalDamage1
 {variant:2}UniqueAddedColdDamage2
 UniqueIncreasedAttackSpeed4
 UniqueColdResist4
@@ -18,8 +16,6 @@ UniqueDamageAddedAsColdAttacks1
 Beyond Reach
 Visceral Quiver
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
-Implicits: 1
-QuiverImplicitCriticalStrikeChance1
 UniqueIncreasedAttackSpeed6
 UniqueChaosDamageCanFreeze1
 UniqueChaosDamageCanElectrocute1
@@ -29,8 +25,6 @@ Blackgleam
 Fire Quiver
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-QuiverImplicitFireDamage1
 {variant:2}UniqueAddedFireDamage1
 UniqueIncreasedMana5
 UniqueIgniteChanceIncrease3
@@ -40,16 +34,12 @@ UniqueDamageAddedAsFireAttacks1
 Cadiro's Gambit
 Primed Quiver
 League: Dawn of the Hunt
-Implicits: 1
-QuiverImplicitIncreasedAttackSpeed1
 UniquePerandusArrows1
 ]],[[
 Drillneck
 Penetrating Quiver
 Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
 League: Fate of the Vaal
-Implicits: 1
-QuiverImplicitArrowAdditionalPierce1
 UniqueIncreasedLife56
 UniqueIncreasedAttackSpeed15
 UniqueEvasionAppliesToDeflection5
@@ -62,8 +52,6 @@ Sacral Quiver
 League: Dawn of the Hunt
 Variant: Pre 0.4.0
 Variant: Current
-Implicits: 1
-QuiverImplicitLifeGainPerTarget1
 UniqueIncreasedAttackSpeed5
 UniqueLifeGainPerTarget2
 UniqueArrowPierceChance1
@@ -73,9 +61,7 @@ UniqueArrowPierceChance1
 Murkshaft
 Toxic Quiver
 League: Dawn of the Hunt
-Implicits: 2
-Grants Skill: Level (1-20) Bursting Fen Toad
-QuiverImplicitChanceToPoison1
+UniqueTriggerPoisonToadOnKill
 UniqueAddedPhysicalDamage6
 UniqueManaGainedFromEnemyDeath11
 UniquePoisonDuration1

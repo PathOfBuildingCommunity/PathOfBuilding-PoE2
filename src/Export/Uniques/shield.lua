@@ -6,8 +6,6 @@ return {
 Chernobog's Pillar
 Blacksteel Tower Shield
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent28
 UniqueFireResist8
 UniqueChaosResist32
@@ -18,8 +16,6 @@ Dionadair
 Splintered Tower Shield
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent17
 UniqueStrength3
 {variant:2}UniqueLifeRegeneration15
@@ -32,8 +28,6 @@ Braced Tower Shield
 Variant: Pre 0.1.1
 Variant: Pre 0.3.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1,2}UniqueLocalBlockChance2[80,80]
 {variant:3}UniqueLocalBlockChance2
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
@@ -47,8 +41,6 @@ Rampart Tower Shield
 Variant: Pre 0.1.1
 Variant: Pre 0.3.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1,2}UniqueLocalBlockChance1[30,40]
 {variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
@@ -59,8 +51,6 @@ UniqueDoubleAccuracyRating1
 Nightfall
 Fortress Tower Shield
 League: Runes of Aldur
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueStrengthRequirements5
 UniqueLocalBlockChance15
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent31
@@ -73,8 +63,6 @@ Heraldric Tower Shield
 Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1}UniqueLocalBlockChance14[20,30]
 {variant:2}UniqueLocalBlockChance14
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent27
@@ -87,8 +75,6 @@ The Surrender
 {variant:2}Vaal Tower Shield
 Variant: Pre 0.4.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalBlockChance7
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent20
 UniqueStunThreshold12
@@ -101,9 +87,7 @@ Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
-Implicits: 2
-Grants Skill: Raise Shield
-Grants Skill: Cast on Block
+UniqueGrantsCastOnBlock1
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[150,200]
 {variant:3,4}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
@@ -116,8 +100,6 @@ UniqueLuckyBlockChance1
 The Wailing Wall
 Effigial Tower Shield
 Source: No longer obtainable
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueMovementVelocity6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueStunThreshold9
@@ -126,8 +108,6 @@ UniqueDisableShieldSkills1
 Window to Paradise
 Barricade Tower Shield
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent25
 UniqueIncreasedMana47
 UniqueAllResistances24
@@ -135,8 +115,6 @@ UniqueRaiseShieldApplyExposure1
 ]],[[
 Wulfsbane
 Painted Tower Shield
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueIncreasedLife3
 UniqueStrength3
 UniqueStunThreshold7
@@ -149,8 +127,6 @@ Iron Buckler
 Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 {variant:1}UniqueLocalBlockChance14[20,30]
 {variant:2}UniqueLocalBlockChance14
 UniqueChaosResist31
@@ -160,8 +136,6 @@ UniqueApplyCorruptedBloodOnBlock1
 Calgyra's Arc
 Ornate Buckler
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent28
 UniqueIncreasedMana12
 UniqueIntelligence6
@@ -173,8 +147,6 @@ Leather Buckler
 Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 {variant:1}UniqueLocalBlockChance10[30,50]
 {variant:2}UniqueLocalBlockChance10
 UniqueLocalIncreasedEvasionRating6
@@ -184,8 +156,6 @@ UniqueParriedDebuffMagnitude1
 Kaltenhalt
 Ridged Buckler
 League: Rise of the Abyssal
-Implicits: 1
-Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent15
 MaximumColdResistUniqueShieldDex1
 UniqueColdResist15
@@ -196,8 +166,6 @@ UniqueAttackerTakesColdDamage1
 Nocturne
 Wooden Buckler
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 UniqueIncreasedMana44
 UniqueAllResistances25
 UniqueIncreasedAccuracyPercent1
@@ -207,8 +175,6 @@ UniqueParriedDebuffDuration2
 Rondel de Ezo
 Plated Buckler
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent27
 UniqueDexterity2
 UniqueLifeRegeneration24
@@ -218,8 +184,6 @@ UniqueEnfeebleOnBlockChance1
 Silverthorne
 Spiked Buckler
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent29
 UniqueAllResistances19
 UniqueCriticalWeaknessOnParry1
@@ -243,8 +207,6 @@ Variant: Level: 1 Cold, 2 Fire, 3 Lightning
 Variant: Level: 3 Cold, 2 Fire, 1 Lightning
 Variant: Level: 1 Cold, 3 Fire, 2 Lightning
 Variant: Level: 2 Cold, 3 Fire, 1 Lightning
-Implicits: 1
-Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent25
 {variant:1}UniqueMaximumElementalResistances1
 {variant:2}UniqueMaximumElementalResistances2
@@ -267,8 +229,6 @@ Arvil's Wheel
 Hardwood Targe
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1}UniqueLocalBlockChance8
 UniqueLocalIncreasedArmourAndEvasion2
 {variant:2}UniqueIncreasedLife43
@@ -280,8 +240,6 @@ UniqueSkillEffectDuration1
 Eyes of the Runefather
 Venerable Defender
 League: Runes of Aldur
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEvasion32
 UniqueColdResist36
 UniqueAncientsChallengeOnOffHandDamage1
@@ -291,8 +249,6 @@ Feathered Fortress
 Crescent Targe
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1}UniqueStrength18[10,20]
 {variant:2}UniqueStrength18
 {variant:1}UniqueDexterity18[10,20]
@@ -307,8 +263,6 @@ Merit of Service
 Pelage Targe
 Variant: Pre 0.3.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1}UniqueLocalBlockChance4[30,50]
 {variant:2}UniqueLocalBlockChance4
 UniqueLocalIncreasedArmourAndEvasion11
@@ -322,8 +276,6 @@ Blazon Crest Shield
 Variant: Pre 0.1.1
 Variant: Pre 0.3.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1,2}UniqueLocalBlockChance1[30,40]
 {variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedArmourAndEnergyShield2
@@ -333,8 +285,6 @@ UniqueDamageBlockedRecoupedAsMana1
 ]],[[
 Crest of Ardura
 Jingling Crest Shield
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield14
 UniqueIntelligence6
 UniqueManaRegeneration3
@@ -346,8 +296,6 @@ Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
 {variant:1}UniqueLocalSoulCoreEffect1[333,666]
 {variant:2}UniqueLocalSoulCoreEffect1[100,100]
@@ -359,8 +307,6 @@ Variant: Pre 0.2.0
 Variant: Pre 0.3.0
 Variant: Current
 Sigil Crest Shield
-Implicits: 1
-Grants Skill: Raise Shield
 {variant:1,2}UniqueLocalBlockChance5[40,60]
 {variant:3}UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
@@ -370,25 +316,20 @@ UniqueChaosResist1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
-Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
 Variant: Pre 0.4.0
 Variant: Current
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield22
 {variant:3}UniqueIncreasedSpirit14
 UniqueDexterity37
-UniqueAllResistances26
+UniqueAllResistances23
 {variant:1}UniqueSpiritPerMaximumLife1[50,50]
 {variant:2}UniqueSpiritPerMaximumLife1[25,25]
 {variant:3}UniqueBuffSkillSpiritEfficiencyPerMaximumLife1
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueMaximumFireResist2
 UniqueFireResist16
 UniqueFireResistOnLowLife1
@@ -397,9 +338,6 @@ UniqueLifeRegenerationPercentOnLowLife1
 ]],[[
 Saffell's Frame
 Emblem Crest Shield
-Requires Level 16
-Implicits: 1
-Grants Skill: Raise Shield
 UniqueFireResist6
 UniqueColdResist5
 UniqueLightningResist2
