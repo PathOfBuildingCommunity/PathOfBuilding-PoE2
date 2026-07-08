@@ -475,7 +475,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			elseif fullModName:match("(.*)Enhancement.*") then
 				linePostfix = " (enchant)"
 			end
-			local possibleLineFlags = fullModName:match("(.*)Modifier.*")
+			local possibleLineFlags = fullModName:gsub("Vaal Unique", "Mutated"):match("(.*)Modifier.*")
 			if possibleLineFlags then
 				for flag in possibleLineFlags:gmatch("%a+") do
 					if lineFlags[flag:lower()] then
