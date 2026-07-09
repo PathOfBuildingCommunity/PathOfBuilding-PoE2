@@ -2272,7 +2272,7 @@ return {
 	div = 1000,
 },
 ["base_spell_cast_time_ms"] = {
-	mod("TotalCastTime", "BASE", nil),
+	mod("Speed", "BASE", nil, ModFlag.Cast),
 	div = 1000,
 },
 ["active_skill_cast_speed_+%_final"] = {

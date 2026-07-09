@@ -2743,7 +2743,7 @@ function calcs.offence(env, actor, activeSkill)
 					baseTime = 1 / ( source.AttackRate or 1 ) + skillModList:Sum("BASE", cfg, "Speed")
 				end
 			else
-				baseTime = skillData.castTimeOverride or activeSkill.activeEffect.grantedEffect.castTime or 1
+				baseTime = (skillData.castTimeOverride or activeSkill.activeEffect.grantedEffect.castTime or 1) + skillModList:Sum("BASE", cfg, "Speed")
 			end
 			local more = skillModList:More(cfg, "Speed")
 			output.Repeats = globalOutput.Repeats or 1
