@@ -259,7 +259,7 @@ Fireball 20/0  1
 		importedItem:BuildAndParseRaw()
 		assert.are.equal(0, importedItem.requirements.level)
 
-		local weapon = makeImportItem("Runemastered Ironhead Spear", "Weapon", "test-import-tyrannys-grip")
+		local weapon = makeImportItem("Runemastered Ironhead Spear", "Weapon", "test-import-tyranny's-grip")
 		weapon.frameType = 3
 		weapon.name = "Tyranny's Grip"
 		weapon.sockets = {
