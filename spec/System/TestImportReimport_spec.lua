@@ -266,7 +266,7 @@ Fireball 20/0  1
 			{ type = "rune" },
 		}
 		weapon.socketedItems = {
-			{ baseType = "Legacy of Blackbraid" },
+			{ baseType = "Legacy of Tyranny's Grip" },
 		}
 
 		build.importTab:ImportItemsAndSkills(buildImportPayload({ weapon }, {}))

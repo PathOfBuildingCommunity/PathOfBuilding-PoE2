@@ -456,7 +456,7 @@ describe("TestItemParse", function()
 		assert.are.equals(55, item.requirements.level)
 
 		item.itemSocketCount = 1
-		item.runes = { "Legacy of Blackbraid" }
+		item.runes = { "Legacy of Tyranny's Grip" }
 		item:UpdateRunes()
 		item:BuildAndParseRaw()
 		assert.are.equals(65, item.requirements.level)
