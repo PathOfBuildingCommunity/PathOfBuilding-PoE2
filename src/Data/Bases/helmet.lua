@@ -2197,8 +2197,8 @@ itemBases["Runemastered Spiritbone Crown"] = {
 	hidden = true,
 	socketLimit = 3,
 	tags = { armour = true, default = true, helmet = true, karui_basetype = true, runeforged = true, str_int_armour = true, },
-	implicit = "(25-50)% increased Runic Ward Regeneration Rate\n+250 Intelligence Requirement\n100% reduced Duration of Curses on you",
-	implicitModTypes = { { "runic_ward" }, {  }, { "caster", "curse" }, },
+	implicit = "+250 Intelligence Requirement\n100% reduced Duration of Curses on you\n(25-50)% increased Runic Ward Regeneration Rate",
+	implicitModTypes = { {  }, { "caster", "curse" }, { "runic_ward" }, },
 	armour = { Armour = 116, EnergyShield = 32, Ward = 113, },
 	req = { level = 65, str = 50, int = 50, },
 }

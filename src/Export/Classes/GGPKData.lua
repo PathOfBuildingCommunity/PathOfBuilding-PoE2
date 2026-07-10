@@ -262,7 +262,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/InfluenceTags.dat",
 		"Data/Balance/AttributeRequirements.dat",
 		"Data/Balance/GrantedEffectLabels.dat",
-		"Data/Balance/ItemInherentSkills.dat",
 		"Data/Balance/KeywordPopups.dat",
 		"Data/Balance/SoulCores.dat",
 		"Data/Balance/SoulCoreStats.dat",

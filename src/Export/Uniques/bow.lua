@@ -9,8 +9,6 @@ Variant: 0.2.0
 Variant: 0.3.0
 Variant: 0.5.0
 Variant: Current
-Implicits: 1
-BowImplicitAdditionalArrows1
 {variant:1}UniqueLocalCriticalMultiplier1[50,70]
 {variant:2}UniqueLocalCriticalMultiplier1[30,40]
 {variant:3,4}UniqueLocalCriticalMultiplier1
@@ -33,9 +31,7 @@ UniqueManaRegeneration3
 Fairgraves' Curse
 Artillery Bow
 League: Rise of the Abyssal
-Implicits: 2
-Grants Skill: Level (1-20) Phantasmal Arrow
-BowImplicitProjectileAttackRange1
+GhostfuseArrowUnique_1
 UniqueLocalAddedFireDamage5
 UniqueIgniteChanceIncrease4
 UniqueIgniteEffect3
@@ -46,8 +42,6 @@ GhostflameOnHitUnique__1
 Ironbound
 Warden Bow
 League: Runes of Aldur
-Implicits: 1
-BowImplicitLocalChanceToChain1
 UniqueLocalIncreasedPhysicalDamageReductionRating6
 UniqueLocalIncreasedAttackSpeed31
 UniqueBlockPercent3
@@ -58,8 +52,7 @@ UniqueProjectilesReturnIfPiercedArmourBroken1
 Periphery
 Heartwood Shortbow
 League: Runes of Aldur
-Implicits: 1
-Grants Skill: Level (1-20) Azmerian Swarms
+UniqueAzmerianSwarmSkill1
 UniqueLocalAddedFireDamage9
 UniqueLocalAddedColdDamage8
 UniqueLocalAddedLightningDamage12

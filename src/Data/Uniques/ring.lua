@@ -395,7 +395,6 @@ Implicits: 1
 Vigilant View
 Emerald Ring
 League: Dawn of the Hunt
-Requires Level 26
 Implicits: 1
 {tags:attack}+(120-160) to Accuracy Rating
 {tags:attack}+(100-150) to Accuracy Rating

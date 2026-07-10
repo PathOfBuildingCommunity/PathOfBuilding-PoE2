@@ -162,6 +162,7 @@ Variant: Current
 {variant:2}+(30-50) to maximum Energy Shield
 {variant:1}+(5-15) to Strength
 {variant:2}+(10-20) to Strength
+{variant:1}+(5-15) to Dexterity
 {variant:2}+(10-20) to Dexterity
 {variant:1}+(5-15) to Intelligence
 {variant:2}+(10-20) to Intelligence

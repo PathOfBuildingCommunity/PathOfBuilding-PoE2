@@ -27,8 +27,6 @@ UniqueBurningGroundWhileMovingMaximumLife1
 ]],[[
 Corpsewade
 Iron Greaves
-Implicits: 1
-Grants Skill: Level (1-20) Decompose
 UniqueMovementVelocity1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent9
 UniqueStrength11
@@ -162,7 +160,7 @@ Variant: Current
 {variant:2}UniqueLocalIncreasedEnergyShield13
 {variant:1}UniqueStrength9[5,15]
 {variant:2}UniqueStrength9
-{variant:1}UniqueDexterity9[5.15]
+{variant:1}UniqueDexterity9[5,15]
 {variant:2}UniqueDexterity9
 {variant:1}UniqueIntelligence8[5,15]
 {variant:2}UniqueIntelligence8
@@ -200,8 +198,7 @@ UniqueReducedShockDuration1
 Shankgonne
 Covered Sabatons
 League: Rise of the Abyssal
-Implicits: 1
-Grants Skill: Level (1-20) Black Powder Blitz
+BlackPowderBlitzUnique__1
 UniqueLocalIncreasedArmourAndEvasion31
 UniqueItemFoundRarityIncrease23
 UniqueFireResist35

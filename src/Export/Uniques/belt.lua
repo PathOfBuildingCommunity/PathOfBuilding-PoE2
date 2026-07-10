@@ -6,22 +6,18 @@ return {
 Bijouborne
 Double Belt
 League: Dawn of the Hunt
-Implicits: 2
-BeltImplicitCharmSlots3
+UniqueGrantsCastOnCharmUseSkill1
 UniqueIncreasedMana51
 UniqueGlobalCharmIncreasedDuration1
 UniqueAdditionalCharm3
 UniqueDexterity41
-UniqueIncreasedCharmChargesGained2
+BeltImplicitIncreasedCharmChargesGained1
 ]],[[
 Birthright Buckle
 Wide Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedFlaskChargesGained1
 UniqueIncreasedPhysicalDamageReductionRating1
 UniqueReducedFlaskChargesUsed3
-UniqueIncreasedFlaskChargesGained2
+UniqueIncreasedFlaskChargesGained3
 UniqueInstantLifeFlaskOnLowLife1
 UniqueInstantManaFlaskOnLowMana1
 ]],[[
@@ -29,9 +25,6 @@ Byrnabas
 Wide Belt
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedFlaskChargesGained1
 UniqueIncreasedMana7
 {variant:1}UniqueLightningResist7[20,30]
 {variant:2}UniqueLightningResist7
@@ -41,9 +34,6 @@ Cannot be Shocked
 Cat O' Nine Tails
 Utility Belt
 League: Runes of Aldur
-Implicits: 2
-BeltImplicitInstantFlaskRecoveryPercent1
-BeltImplicitCharmSlots3
 UniqueIncreasedLife51
 UniqueRegeneratePercentLifeIfHitRecently1
 UniqueLifeRecoveryRate1
@@ -52,9 +42,6 @@ UniqueGainPercentLifeAsThorns1
 ]],[[
 Coward's Legacy
 Mail Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitReducedFlaskChargesUsed1
 UniqueStrength4
 UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
@@ -68,9 +55,6 @@ Variant: Body Armour
 Variant: Gloves
 Variant: Boots
 Variant: Shield
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskPassiveChargeGain1
 {variant:1}LocalItemBenefitSocketableAsIfHelmetUnique__1
 {variant:2}LocalItemBenefitSocketableAsIfBodyArmourUnique__1
 {variant:3}LocalItemBenefitSocketableAsIfGlovesUnique__1
@@ -81,10 +65,6 @@ LocalSocketItemsEffectUnique__1
 The Gnashing Sash
 Wide Belt
 League: Dawn of the Hunt
-Requires Level 60
-Implicits: 2
-BeltImplicitCharmSlots3
-UniqueIncreasedFlaskChargesGained4
 UniqueFlaskLifeRecoveryRate7
 UniqueChaosResist14
 UniqueLifeDegenerationPercentGracePeriod2
@@ -95,20 +75,15 @@ Plate Belt
 League: Dawn of the Hunt
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
-BeltImplicitCharmSlots3
 {variant:2}BeltImplicitPhysicalDamageReductionRating1
 {variant:1}BeltImplicitPhysicalDamageReductionRating1[100,140]
-UniqueStrength10
+UniqueStrength33
 UniqueLifeRegeneration17
 UniqueDoubleArmourEffect1
 UniqueMaximumPhysicalReductionOverride1
 ]],[[
 Headhunter
 Heavy Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedStunThreshold1
 UniqueIncreasedLife3
 UniqueStrength7
 UniqueDexterity5
@@ -120,8 +95,6 @@ Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
-BeltImplicitCharmSlots3
 {variant:3}BeltImplicitPhysicalDamageReductionRating1
 {variant:1,2}BeltImplicitPhysicalDamageReductionRating1[100,140]
 UniqueIncreasedPhysicalDamageReductionRating1
@@ -136,9 +109,6 @@ Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Variant: Pre 0.2.0
 Variant: Pre 0.2.0F
 Variant: Current
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitInstantFlaskRecoveryPercent1
 {variant:2}UniqueAdditionalCharm2
 {variant:2,3}UniqueIncreasedCharmChargesGained1
 {variant:2,3}UniqueReducedCharmChargesUsed2
@@ -150,9 +120,6 @@ Keelhaul
 Linen Belt
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskManaRecovery1
 UniqueFlaskLifeRecoveryRate4
 UniqueFlaskManaRecoveryRate2
 {variant:1}UniqueLifeFlaskChargeGeneration1[0,15]
@@ -185,9 +152,6 @@ Variant: Legacy of Stibnite
 Variant: Legacy of Sulphur
 Variant: Legacy of Topaz
 League: Runes of Aldur
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitInstantFlaskRecoveryPercent1
 {variant:1}Legacy of Amethyst
 {variant:2}Legacy of Basalt
 {variant:3}Legacy of Bismuth
@@ -206,9 +170,6 @@ UniqueIncreasedMagesLegacyEffectPerDuplicateMagesLegacy
 ]],[[
 Meginord's Girdle
 Rawhide Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskLifeRecovery1
 UniqueStrength6
 UniqueColdResist12
 UniqueReducedFlaskChargesUsed2
@@ -216,18 +177,12 @@ UniqueIncreasedFlaskChargesGained1
 ]],[[
 Midnight Braid
 Rawhide Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskLifeRecovery1
 UniqueIncreasedMana5
 UniqueAllResistances8
 UniqueDamageTakenGoesToMana1
 ]],[[
 Ryslatha's Coil
 Ornate Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitReducedCharmChargesUsed1
 UniqueIncreasedLife7
 UniqueFlaskLifeRecoveryRate1
 UniquePhysicalMaximumDamageModifier1
@@ -235,19 +190,13 @@ UniquePhysicalMinimumDamageModifier1
 ]],[[
 Shavronne's Satchel
 Fine Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskPassiveChargeGain1
 UniqueFlaskLifeRecoveryRate3
 UniqueIntelligence9
-BeltImplicitIncreasedFlaskChargesGained1
+UniqueIncreasedFlaskChargesGained2
 UniqueFlaskLifeRecoveryEnergyShield1
 ]],[[
 Soul Tether
 Long Belt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedCharmDuration1
 UniqueIncreasedEnergyShield2
 UniqueIntelligence9
 UniqueLoseEnergyShieldPerSecond1
@@ -256,12 +205,8 @@ UniqueLifeLeechExcessToEnergyShield1
 Umbilicus Immortalis
 Linen Belt
 League: Rise of the Abyssal
-Requires Level 24
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitFlaskManaRecovery1
 UniqueBeltFlaskDuration1
-UniqueIntelligence42
+UniqueIntelligence36
 UniqueMinionLife6
 UniqueLifeFlasksApplyToMinions1
 MinionsCannotDieWhileAffectedByYourLifeFlasks1
@@ -270,9 +215,6 @@ UniqueIncreasedFlaskChargesGained4
 Waistgate
 Heavy Belt
 League: Dawn of the Hunt
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedStunThreshold1
 UniqueIncreasedLife45
 UniqueIncreasedMana50
 UniqueFlaskLifeRecoveryRate6
@@ -285,10 +227,6 @@ Variant: Pre 0.2.0f
 Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
-Requires Level 56
-Implicits: 2
-BeltImplicitCharmSlots3
-BeltImplicitIncreasedStunThreshold1
 {variant:1}UniqueAdditionalCharm1
 UniqueStrength28
 UniqueCorruptedBloodImmunity1

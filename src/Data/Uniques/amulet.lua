@@ -56,6 +56,7 @@ Jade Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Variant: Pre 0.4.0
 Variant: Current
+Requires Level 55
 Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
@@ -96,6 +97,7 @@ Implicits: 1
 Eventide Petals
 Veridical Chain
 League: Runes of Aldur
+Requires Level 55
 Implicits: 2
 Grants Skill: Level (1-20) Midnight Zenith
 +(30-40) to maximum Runic Ward
@@ -141,8 +143,8 @@ Allies in your Presence have (30-50)% increased Critical Damage Bonus
 ]],[[
 Hinekora's Sight
 Stellar Amulet
-Requires Level 44
 League: Rise of the Abyssal
+Requires Level 44
 Implicits: 2
 Grants Skill: Level (1-20) Future-Past
 {tags:attribute}+(5-7) to all Attributes
@@ -252,6 +254,7 @@ Strugglescream
 Stellar Amulet
 Variant: Pre 0.4.0
 Variant: Current
+Requires Level 52
 Implicits: 1
 {tags:attribute}+(5-7) to all Attributes
 {variant:1}Can have 2 additional Instilled Modifiers
@@ -277,6 +280,7 @@ Variant: Pre 0.3.0
 Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Requires Level 52
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-20)% increased maximum Life

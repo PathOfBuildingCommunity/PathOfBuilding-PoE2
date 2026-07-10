@@ -40,6 +40,7 @@ Projectiles Pierce all Ignited enemies
 Cadiro's Gambit
 Primed Quiver
 League: Dawn of the Hunt
+Requires Level 66
 Implicits: 1
 (7-10)% increased Attack Speed
 Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow
@@ -88,8 +89,8 @@ Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 2
-{variant:1}(20-30)% increased Stun Buildup
 {variant:2}(25-40)% increased Stun Buildup
+{variant:1}(20-30)% increased Stun Buildup
 Adds (7-11) to (14-20) Physical Damage to Attacks
 +(150-200) to Armour
 (20-30)% increased Projectile Speed

@@ -6,9 +6,7 @@ return {
 Double Vision
 Dyad Crossbow
 League: Rise of the Abyssal
-Implicits: 2
-Grants Skill: Level (1-20) Gemini Surge
-CrossbowImplicitAdditionalAmmo1
+UniqueTriggerInfusionOnReload
 UniqueLocalAddedPhysicalDamage24
 UniqueLocalCriticalStrikeChance7
 UniqueColdFireSurgeOnReload
@@ -17,8 +15,7 @@ UniqueReloadSpeed2
 The Last Lament
 Desolate Crossbow
 League: Dawn of the Hunt
-Implicits: 1
-Grants Skill: Level (1-20) Compose Requiem
+UniqueGrantsRequiemSkill
 UniqueLocalIncreasedPhysicalDamagePercent15
 UniqueIncreasedAttackSpeed12
 UniqueLifeLeechLocal4
@@ -40,8 +37,6 @@ UniqueFreezeDamageIncrease3
 ]],[[
 Rampart Raptor
 Tense Crossbow
-Implicits: 1
-CrossbowImplicitBoltSpeed1
 UniqueLocalIncreasedPhysicalDamagePercent7
 UniqueLocalIncreasedAttackSpeed8
 UniqueChanceForNoBoltReload1
@@ -50,8 +45,6 @@ UniqueLocalReloadSpeed1
 Redemption
 Trarthan Cannon
 League: Runes of Aldur
-Implicits: 1
-CannonBowImplicitCannotUseAmmoSkills1
 UniqueLocalIncreasedPhysicalDamagePercent24
 UniqueLocalNoCriticalStrikeMultiplier2
 UniqueGlobalCooldownRecovery2

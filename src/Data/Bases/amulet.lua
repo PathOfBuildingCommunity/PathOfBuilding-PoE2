@@ -133,7 +133,7 @@ itemBases["Absent Amulet"] = {
 	variantList = { "Cast on Elemental Ailment", "Cast on Critical", "Cast on Dodge", "Rhoa Mount", "Archmage", "Trinity", "Eternal Rage", },
 	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed\n{variant:1}Grants Skill: Level (1-20) Cast on Elemental Ailment\n{variant:2}Grants Skill: Level (1-20) Cast on Critical\n{variant:3}Grants Skill: Level (1-20) Cast on Dodge\n{variant:4}Grants Skill: Level (1-20) Rhoa Mount\n{variant:5}Grants Skill: Level (1-20) Archmage\n{variant:6}Grants Skill: Level (1-20) Trinity\n{variant:7}Grants Skill: Level (1-20) Eternal Rage",
 	implicitModTypes = { {  }, {  }, },
-	req = { level = 49, },
+	req = { level = 50, },
 }
 itemBases["Corona Amulet"] = {
 	type = "Amulet",
