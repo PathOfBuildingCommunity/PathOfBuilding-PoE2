@@ -1424,6 +1424,7 @@ c["12% chance for Spell Skills to fire 2 additional Projectiles"]={{[1]={flags=2
 c["12% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
 c["12% chance for Trigger skills to refund half of Energy Spent 8% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="BASE",value=12}}," for Trigger skills to refund half of Energy Spent 8% increased  "}
 c["12% chance to Blind Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=12}},nil}
+c["12% chance when collecting an Elemental Infusion to gain an"]={{}," when collecting an Elemental Infusion to gain an "}
 c["12% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=12}},nil}
 c["12% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=12}},nil}
 c["12% increased Accuracy Rating with One Handed Melee Weapons"]={{[1]={flags=21474836484,keywordFlags=0,name="Accuracy",type="INC",value=12}},nil}
@@ -3281,6 +3282,7 @@ c["50% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="Self
 c["50% reduced effect of Withered on you"]={{[1]={flags=0,keywordFlags=0,name="WitherEffectOnSelf",type="INC",value=-50}},nil}
 c["500% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=500}},nil}
 c["500% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=500}},nil}
+c["500% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=500}},nil}
 c["53% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=53}},nil}
 c["53% increased Life Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="LifeCost",type="INC",value=53}},nil}
 c["53% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=53}},nil}

@@ -650,6 +650,60 @@ describe("TestItemsTab", function()
 				assert.is_true(foundMaximumRage)
 			end)
 
+			it("keeps Darkness Enthroned's socket editor available at zero sockets", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Item Class: Belts
+					Rarity: Unique
+					Darkness Enthroned
+					Fine Belt
+					--------
+					Sockets: S S
+					--------
+					This item gains bonuses from Socketed Items as though it was a Helmet
+					81% increased effect of Socketed Augment Items
+				]], true)
+
+				assert.are.equals(2, build.itemsTab.displayItem.itemSocketCount)
+				build.itemsTab.controls.displayItemSocketRuneEdit:SetText(0, true)
+				assert.is_true(build.itemsTab.controls.displayItemSocketRune:IsShown())
+				build.itemsTab.controls.displayItemSocketRuneEdit:SetText(2, true)
+				assert.are.equals(2, build.itemsTab.displayItem.itemSocketCount)
+			end)
+
+			it("selects inferred augments from an advanced copy of Darkness Enthroned", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Item Class: Belts
+					Rarity: Unique
+					Darkness Enthroned
+					Fine Belt
+					--------
+					Requires: Level 62
+					--------
+					Sockets: S S
+					--------
+					Item Level: 86
+					--------
+					+83 to Spirit (rune)
+					Idols socketed in this item gain the benefits of their Bonded modifiers (rune)
+					-1 to Spirit per 2 Levels (rune)
+					Bonded: +8% to Quality of all Skills (rune)
+					--------
+					{ Implicit Modifier }
+					Flasks gain 0.17 charges per Second
+					{ Implicit Modifier — Charm }
+					Has 1(1-3) Charm Slot
+					--------
+					{ Unique Modifier }
+					This item gains bonuses from Socketed Items as though it was a Body Armour — Unscalable Value
+					{ Unique Modifier }
+					66(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+				]], true)
+
+				assert.are.same({ "Rune of the Blossom", "Fox Idol" }, build.itemsTab.displayItem.runes)
+				assert.are.equals("Rune of the Blossom", build.itemsTab.controls.displayItemRune1.list[build.itemsTab.controls.displayItemRune1.selIndex].name)
+				assert.are.equals("Fox Idol", build.itemsTab.controls.displayItemRune2.list[build.itemsTab.controls.displayItemRune2.selIndex].name)
+			end)
+
 			it("deduplicates valid augments by socketed item name", function ()
 				local item = new("Item", data.uniques.body[1])
 				item.variant = 4 -- Shield

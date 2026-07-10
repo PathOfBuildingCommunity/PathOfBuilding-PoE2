@@ -65,11 +65,11 @@ local function isAnointable(item)
 end
 
 local function hasAugmentSockets(item)
-	return item and item.itemSocketCount and item.itemSocketCount > 0
+	return item and item.itemSocketCount > 0
 end
 
 local function canHaveAugmentSockets(item)
-	return item and ((item.base.socketLimit and item.base.socketLimit > 0) or hasAugmentSockets(item))
+	return item and ((item.base.socketLimit and item.base.socketLimit > 0) or item.socketedAugmentTypeOverride ~= nil or hasAugmentSockets(item))
 end
 
 local function buildModSortList()
@@ -1975,40 +1975,19 @@ function ItemsTabClass:GetValidRunesForItem(item)
 	end
 	local baseType, specificType = item:GetSocketedAugmentTypes()
 	local soulCoreTypes = item.socketedSoulCoreTypes
-	for _, rune in pairs(runeModLines) do
-		local function isRuneValidForSlot(runeSlot)
-			if runeSlot == "None" then
-				return true
-			elseif rune.type == "SoulCore" and soulCoreTypes[runeSlot] then
-				return true
-			elseif runeSlot == "quarterstaff" then
-				return specificType == "quarterstaff"
-			elseif runeSlot == "buckler" then
-				return specificType == "buckler"
-			elseif runeSlot == "weapon" then
-				return baseType == "weapon"
-			elseif runeSlot == "armour" then
-				return baseType == "armour"
-			elseif runeSlot == "caster" then
-				return baseType == "caster"
-			else
-				return specificType == runeSlot
+	for _, rune in ipairs(runeModLines) do
+		if rune.slot == "None" then
+			t_insert(runes, rune)
+		elseif (rune.slot == baseType or rune.slot == specificType or (rune.type == "SoulCore" and soulCoreTypes[rune.slot])) and (not socketedItemType or rune.type == socketedItemType) then
+			local addedRune = addedRunes[rune.name]
+			if not addedRune then
+				addedRune = copyTable(rune, true)
+				addedRune.lines = { }
+				t_insert(runes, addedRune)
+				addedRunes[rune.name] = addedRune
 			end
-		end
-		if isRuneValidForSlot(rune.slot) then
-			if rune.slot == "None" then
-				table.insert(runes, rune)
-			elseif not socketedItemType or rune.type == socketedItemType then
-				local addedRune = addedRunes[rune.name]
-				if not addedRune then
-					addedRune = { name = rune.name, label = rune.label, lines = { }, req = rune.req, order = rune.order, slot = rune.slot, type = rune.type, group = 0, isSocketBound = rune.isSocketBound }
-					table.insert(runes, addedRune)
-					addedRunes[rune.name] = addedRune
-				end
-				for _, line in ipairs(rune.lines) do
-					table.insert(addedRune.lines, line)
-				end
-				addedRune.group = #addedRune.lines
+			for _, line in ipairs(rune.lines) do
+				t_insert(addedRune.lines, line)
 			end
 		end
 	end

@@ -281,6 +281,49 @@ Fireball 20/0  1
 		assert.are.equal(55, importedItem.requirements.level)
 	end)
 
+	it("imports scaled Darkness Enthroned augments from account data without rescaling them", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local belt = makeImportItem("Fine Belt", "Belt", "test-import-darkness-enthroned")
+		belt.frameType = 3
+		belt.name = "Darkness Enthroned"
+		belt.sockets = {
+			{ type = "rune" },
+			{ type = "rune" },
+		}
+		belt.socketedItems = {
+			{ baseType = "Rune of the Blossom" },
+			{ baseType = "Fox Idol" },
+		}
+		belt.runeMods = {
+			"+83 to Spirit",
+			"Idols socketed in this item gain the benefits of their Bonded modifiers",
+			"-1 to Spirit per 2 Levels",
+			"Bonded: +8% to Quality of all Skills",
+		}
+		belt.explicitMods = {
+			"This item gains bonuses from Socketed Items as though it was a Body Armour",
+			"66% increased effect of Socketed Augment Items",
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ belt }, {}))
+		runCallback("OnFrame")
+
+		local importedItem = build.itemsTab.items[build.itemsTab.slots.Belt.selItemId]
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, importedItem.runes)
+		local rawItem = importedItem:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+
+		importedItem:BuildAndParseRaw()
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, importedItem.runes)
+		rawItem = importedItem:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+	end)
+
 	it("preserves skill part selection when reimporting items and skills", function()
 		assertReimportPreservesSkillSubstate("Twig Focus", "Offhand", "Dark Effigy", "skillPart", 2)
 	end)
