@@ -57,8 +57,9 @@ Create a Fragment of Divinity in your Presence every 4 seconds
 Saitha's Spear
 Barbed Spear
 League: Dawn of the Hunt
-Implicits: 1
+Implicits: 2
 Grants Skill: Spear Throw
+Bleeding you inflict deals Damage (10-20)% faster
 Adds (14-26) to (27-32) Physical Damage
 Adds (33-41) to (47-53) Fire Damage
 (15-25)% chance to cause Bleeding on Hit

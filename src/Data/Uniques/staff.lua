@@ -18,6 +18,7 @@ Spells which cost Life Gain (80-120)% of Damage as Extra Physical Damage
 The Burden of Shadows
 Chiming Staff
 Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
+Requires Level 56
 Implicits: 1
 Grants Skill: Level (1-20) Sigil of Power
 (20-30)% increased Cast Speed
@@ -68,7 +69,7 @@ Pyrophyte Staff
 Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
-Grants Skill: Level (1-20) Living Bomb
+Grants Skill: Level (1-20) Solar Orb
 (80-120)% increased Fire Damage
 (10-20)% increased Cast Speed
 100% increased Flammability Magnitude
@@ -219,8 +220,14 @@ Variant: Chaos Damage and Curse
 Variant: Spell Physical Damage and Bleed Chance
 Variant: Chaos Damage and Explode
 Variant: Unholy Might
-Implicits: 1
+Implicits: 7
 Grants Skill: Level (1-20) Feast of Flesh
+{variant:1}Grants Skill: Level (1-20) His Dark Horizon
+{variant:2}Grants Skill: Level (1-20) His Foul Emergence
+{variant:3}Grants Skill: Level (1-20) His Grave Command
+{variant:4}Grants Skill: Level (1-20) His Scattering Calamity
+{variant:5}Grants Skill: Level (1-20) His Vile Intrusion
+{variant:6}Grants Skill: Level (1-20) His Winnowing Flame
 (60-80)% increased Desecrated Modifier magnitudes
 {variant:9}(100-160)% increased Chaos Damage
 {variant:11}(100-160)% increased Chaos Damage
@@ -234,11 +241,5 @@ Grants Skill: Level (1-20) Feast of Flesh
 {variant:8}(6-10)% increased Spirit Reservation Efficiency
 {variant:12}(28-56)% increased Magnitude of Unholy Might buffs you grant
 {variant:12}You have Unholy Might
-{variant:1}Grants Skill: Level (1-20) His Dark Horizon
-{variant:2}Grants Skill: Level (1-20) His Foul Emergence
-{variant:3}Grants Skill: Level (1-20) His Grave Command
-{variant:4}Grants Skill: Level (1-20) His Scattering Calamity
-{variant:5}Grants Skill: Level (1-20) His Vile Intrusion
-{variant:6}Grants Skill: Level (1-20) His Winnowing Flame
 ]],
 }

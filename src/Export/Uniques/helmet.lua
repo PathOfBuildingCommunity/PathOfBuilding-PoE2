@@ -25,9 +25,9 @@ Warrior Greathelm
 Variant: Pre 0.1.1
 Variant: Current
 UniqueIncreasedAccuracy5
-UniqueIncreasedLife14
+UniqueIncreasedLife27
 {variant:2}UniqueFireResist28
-UniqueLightRadius9
+UniqueLightRadius11
 UniqueLifeLeechToAllies1
 ]],[[
 Deidbell
