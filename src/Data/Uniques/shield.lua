@@ -87,6 +87,8 @@ The Surrender
 {variant:2}Vaal Tower Shield
 Variant: Pre 0.4.0
 Variant: Current
+Implicits: 1
+Grants Skill: Raise Shield
 (40-60)% increased Block chance
 (150-200)% increased Armour
 +(150-200) to Stun Threshold

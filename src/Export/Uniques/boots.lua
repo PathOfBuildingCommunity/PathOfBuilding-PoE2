@@ -160,7 +160,7 @@ Variant: Current
 {variant:2}UniqueLocalIncreasedEnergyShield13
 {variant:1}UniqueStrength9[5,15]
 {variant:2}UniqueStrength9
-{variant:1}UniqueDexterity9[5.15]
+{variant:1}UniqueDexterity9[5,15]
 {variant:2}UniqueDexterity9
 {variant:1}UniqueIntelligence8[5,15]
 {variant:2}UniqueIntelligence8

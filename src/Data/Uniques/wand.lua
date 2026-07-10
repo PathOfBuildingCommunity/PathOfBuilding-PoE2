@@ -70,7 +70,6 @@ Runeseeker's Call
 Runic Fork
 League: Runes of Aldur
 Sockets: S S S S S
-Requires Level 64
 Implicits: 1
 Grants Skill: Level (1-20) The Stars Answer
 Only Runes can be Socketed in this item

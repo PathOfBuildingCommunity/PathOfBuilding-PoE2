@@ -136,7 +136,7 @@ itemBases["Runic Fork"] = {
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
 	implicitModTypes = { },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
@@ -146,7 +146,7 @@ itemBases["Runemastered Runic Fork"] = {
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% chance for Spell Skills to fire 2 additional Projectiles",
 	implicitModTypes = { { "caster" }, },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
@@ -156,7 +156,7 @@ itemBases["Runemastered Runic Fork"] = {
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "(30-50)% increased Mana Regeneration Rate",
 	implicitModTypes = { { "resource", "mana" }, },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }
 itemBases["Runemastered Runic Fork"] = {
 	type = "Wand",
@@ -166,5 +166,5 @@ itemBases["Runemastered Runic Fork"] = {
 	tags = { default = true, onehand = true, runeforged = true, wand = true, },
 	implicit = "+300 to maximum Runic Ward",
 	implicitModTypes = { { "runic_ward" }, },
-	req = { int = 114, },
+	req = { level = 65, int = 114, },
 }

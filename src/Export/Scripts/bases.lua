@@ -144,10 +144,8 @@ directiveTable.base = function(state, args, out)
 			hasCharmSlots = true
 		end
 	end
-	if state.type == "Belt" then
-		if not hasCharmSlots then
-			table.insert(implicitMods, dat("Mods"):GetRow("Id", "BeltImplicitCharmSlots3"))
-		end
+	if state.type == "Belt" and not hasCharmSlots then
+		table.insert(implicitMods, dat("Mods"):GetRow("Id", "BeltImplicitCharmSlots3"))
 	end
 	table.sort(implicitMods, function(a, b)
 		local _, aOrder = describeMod(a)
@@ -348,10 +346,10 @@ directiveTable.base = function(state, args, out)
 			out:write('},\n')
 		end
 	end
-	local inherentSkillsType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	out:write('\treq = { ')
 	local reqLevel = 1
-	if weaponType or armourType or inherentSkillsType then
+	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType)
+	if weaponType or armourType or inherentSkillType or compAtt then
 		if baseItemType.DropLevel > 4 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -367,7 +365,6 @@ directiveTable.base = function(state, args, out)
 	if reqLevel > 1 then
 		out:write('level = ', reqLevel, ', ')
 	end
-	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType)
 	if compAtt then
 		if compAtt.ReqStr > 0 then
 			out:write('str = ', compAtt.ReqStr, ', ')

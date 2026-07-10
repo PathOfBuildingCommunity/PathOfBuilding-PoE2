@@ -15,6 +15,17 @@ local catalystTags = {
 	["chaos"] = true,
 	["defences"] = true,
 }
+
+local function getCatalystTagPrefix(modTags)
+	local tags = { }
+	for _, tag in ipairs(modTags) do
+		if catalystTags[tag] then
+			table.insert(tags, tag)
+		end
+	end
+	return tags[1] and "{tags:"..table.concat(tags, ",").."}" or ""
+end
+
 local itemTypes = {
 	"axe",
 	"bow",
@@ -52,7 +63,7 @@ local function appendMods(lines, statOrder)
 		table.insert(orders, order)
 	end
 	table.sort(orders)
-	for _, order in pairs(orders) do
+	for _, order in ipairs(orders) do
 		for _, line in ipairs(statOrder[order]) do
 			table.insert(lines, line)
 		end
@@ -60,7 +71,7 @@ local function appendMods(lines, statOrder)
 end
 
 local function stripLineTags(line)
-	return (line:gsub("^({[^}]+})+", ""))
+	return (line:gsub("{[^}]+}", ""))
 end
 
 local function isGrantedSkillLine(line)
@@ -97,36 +108,26 @@ for _, name in ipairs(itemTypes) do
 	local variantBaseImplicitLines = { }
 	local modLines = 0
 	local sourceImplicitLines
-	local headerLineCount = 0
-	local baseName
+	local headerLineCount
+	local base
+	local baseReqLevel = 0
 	local includeBaseImplicits = true
 	local uniqueReqLevel = 0
 	for line in io.lines("Uniques/"..name..".lua") do
 		local specName, specVal = line:match("^([%a ]+): (.+)$")
 		if line:match("]],") then -- start new unique
-			local base = baseName and itemBases[baseName]
-			local baseReqLevel = base and base.req.level or 0
+			assert(base, "Missing base type while exporting "..name..".lua")
 			if uniqueReqLevel > baseReqLevel then
 				table.insert(lines, "Requires Level "..uniqueReqLevel)
 			end
 			local baseImplicitLines = { }
 			local finalImplicitLines = { }
-			if includeBaseImplicits and base and base.implicit then
+			if includeBaseImplicits and base.implicit then
 				local implicitIndex = 0
 				for baseLine in base.implicit:gmatch("[^\n]+") do
 					implicitIndex = implicitIndex + 1
-					local prefix = ""
-					if useCatalystTags then
-						local tags = { }
-						for _, tag in ipairs(base.implicitModTypes and base.implicitModTypes[implicitIndex] or { }) do
-							if catalystTags[tag] then
-								table.insert(tags, tag)
-							end
-						end
-						if tags[1] then
-							prefix = "{tags:"..table.concat(tags, ",").."}"
-						end
-					end
+					local modTypes = base.implicitModTypes and base.implicitModTypes[implicitIndex] or { }
+					local prefix = useCatalystTags and getCatalystTagPrefix(modTypes) or ""
 					for _, implicitLine in ipairs(variantBaseImplicitLines[stripLineTags(baseLine)] or { prefix..baseLine }) do
 						if isGrantedSkillLine(implicitLine) then
 							table.insert(finalImplicitLines, implicitLine)
@@ -136,14 +137,10 @@ for _, name in ipairs(itemTypes) do
 					end
 				end
 			end
-			for _, implicitLine in ipairs(grantedSkillLines) do
-				table.insert(finalImplicitLines, implicitLine)
-			end
-			for _, implicitLine in ipairs(baseImplicitLines) do
-				table.insert(finalImplicitLines, implicitLine)
-			end
-			for _, implicitLine in ipairs(implicitLines) do
-				table.insert(finalImplicitLines, implicitLine)
+			for _, implicitList in ipairs({ grantedSkillLines, baseImplicitLines, implicitLines }) do
+				for _, implicitLine in ipairs(implicitList) do
+					table.insert(finalImplicitLines, implicitLine)
+				end
 			end
 			if finalImplicitLines[1] then
 				table.insert(lines, "Implicits: "..#finalImplicitLines)
@@ -166,16 +163,21 @@ for _, name in ipairs(itemTypes) do
 			modLines = 0
 			sourceImplicitLines = nil
 			headerLineCount = 0
-			baseName = nil
+			base = nil
+			baseReqLevel = 0
 			includeBaseImplicits = true
 			uniqueReqLevel = 0
 		elseif not specName or (sourceImplicitLines and sourceImplicitLines > 0) then
 			local prefix = ""
 			local variantString = line:match("({variant:[%d,]+})")
 			local fractured = line:match("({fractured})") or ""
-			local modName, legacy = line:gsub("{.+}", ""):match("^([%a%d_]+)([%[%]-,%d]*)")
-			local mod = uniqueMods[modName] or modVeiled[modName]
-			local rawMod = modName and dat("Mods"):GetRow("Id", modName)
+			local modName, legacy = stripLineTags(line):match("^([%a%d_]+)([%[%]-,%d]*)$")
+			local mod = base and (uniqueMods[modName] or modVeiled[modName])
+			local rawMod = base and modName and dat("Mods"):GetRow("Id", modName)
+			local modLevel = rawMod and rawMod.Level or mod and mod.level
+			if modLevel then
+				uniqueReqLevel = math.max(uniqueReqLevel, math.floor(modLevel * 0.8))
+			end
 			local grantedSkill = rawMod and dat("ModGrantedSkills"):GetRow("Mod", rawMod)
 			local grantedSkillLine
 			if grantedSkill then
@@ -190,17 +192,8 @@ for _, name in ipairs(itemTypes) do
 			end
 			if mod then
 				modLines = modLines + 1
-				uniqueReqLevel = math.max(uniqueReqLevel, math.floor((mod.level or 0) * 0.8))
-				local tags = {}
 				if useCatalystTags then
-					for _, tag in ipairs(mod.modTags) do
-						if catalystTags[tag] then
-							table.insert(tags, tag)
-						end
-					end
-				end
-				if tags[1] then
-					prefix = prefix.."{tags:"..table.concat(tags, ",").."}"
+					prefix = prefix..getCatalystTagPrefix(mod.modTags)
 				end
 				prefix = prefix..fractured
 				local legacyMod
@@ -224,21 +217,20 @@ for _, name in ipairs(itemTypes) do
 				end 
 				for i, line in ipairs(legacyMod or mod) do
 					local order = math.floor(mod.statOrder[i])
-					local baseImplicitLine
-					if variantString then
-						local base = baseName and itemBases[baseName]
-						if base and base.implicit then
-							for baseLine in base.implicit:gmatch("[^\n]+") do
-								if stripLineTags(baseLine) == stripLineTags(line) then
-									baseImplicitLine = stripLineTags(baseLine)
-									variantBaseImplicitLines[baseImplicitLine] = variantBaseImplicitLines[baseImplicitLine] or { }
-									table.insert(variantBaseImplicitLines[baseImplicitLine], prefix..line)
-									break
-								end
+					local variantImplicitLines = variantString and variantBaseImplicitLines[modName]
+					if variantString and not variantImplicitLines and base.implicit then
+						for baseLine in base.implicit:gmatch("[^\n]+") do
+							if stripLineTags(baseLine) == stripLineTags(line) then
+								variantImplicitLines = { }
+								variantBaseImplicitLines[modName] = variantImplicitLines
+								variantBaseImplicitLines[stripLineTags(baseLine)] = variantImplicitLines
+								break
 							end
 						end
 					end
-					if not baseImplicitLine then
+					if variantImplicitLines then
+						table.insert(variantImplicitLines, prefix..line)
+					else
 						if isSourceImplicit then
 							if isGrantedSkillLine(line) then
 								table.insert(grantedSkillLines, prefix..line)
@@ -253,12 +245,10 @@ for _, name in ipairs(itemTypes) do
 					end
 				end
 				if grantedSkillLine then
-					uniqueReqLevel = math.max(uniqueReqLevel, math.floor((rawMod.Level or 0) * 0.8))
 					table.insert(grantedSkillLines, prefix..grantedSkillLine)
 				end
 			elseif grantedSkillLine then
 				modLines = modLines + 1
-				uniqueReqLevel = math.max(uniqueReqLevel, math.floor((rawMod.Level or 0) * 0.8))
 				table.insert(grantedSkillLines, prefix..grantedSkillLine)
 			else
 				if modLines > 0 then -- treat as post line e.g. mirrored
@@ -273,11 +263,16 @@ for _, name in ipairs(itemTypes) do
 					table.insert(lines, line)
 					if line:match("%[%[") then
 						headerLineCount = 0
-						baseName = nil
-					else
+						base = nil
+					elseif headerLineCount then
 						headerLineCount = headerLineCount + 1
-						if headerLineCount == 2 then
-							baseName = line
+						local parsedBaseName = headerLineCount > 1 and stripLineTags(line)
+						local parsedBase = parsedBaseName and itemBases[parsedBaseName]
+						if parsedBase then
+							base = base or parsedBase
+							if parsedBase.req.level then
+								baseReqLevel = math.max(baseReqLevel, parsedBase.req.level)
+							end
 						end
 					end
 				end

@@ -1302,6 +1302,11 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
+	local dbItem = item:GetUniqueDBItem()
+	if dbItem then
+		item.requirements = item.requirements or { }
+		item.requirements.level = dbItem.requirements.naturalLevel or dbItem.requirements.level
+	end
 	item.enchantModLines = { }
 	item.runeModLines = { }
 	item.classRequirementModLines = { }

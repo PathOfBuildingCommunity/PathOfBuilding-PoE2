@@ -414,6 +414,51 @@ describe("TestItemParse", function()
 		assert(false, "Hinekora's Sight not found")
 	end)
 
+	it("keeps legacy base implicit variants as implicits", function()
+		for _, rawUnique in ipairs(data.uniques.belt) do
+			if rawUnique:match("Goregirdle") then
+				assert(rawUnique:find("Implicits: 3\n{variant:2}+(140-180) to Armour\n{variant:1}+(100-140) to Armour\nHas (1-3) Charm Slot", 1, true))
+				return
+			end
+		end
+		assert(false, "Goregirdle not found")
+	end)
+
+	it("uses upgraded base requirements for uniques", function()
+		local item = new("Item", [[
+			Item Class: Spears
+			Rarity: Unique
+			Tyranny's Grip
+			Runemastered Ironhead Spear
+			Requires: Level 55, 31 Str, 76 Dex
+			Item Level: 30
+		]])
+		assert.are.equals(55, item.requirements.level)
+
+		item.itemSocketCount = 1
+		item.runes = { "Legacy of Blackbraid" }
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(65, item.requirements.level)
+
+		item.runes[1] = "None"
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(55, item.requirements.level)
+	end)
+
+	it("inherits implicits from variant base types", function()
+		for _, rawUnique in ipairs(data.uniques.shield) do
+			if rawUnique:match("The Surrender") then
+				assert(rawUnique:find("Implicits: 1\nGrants Skill: Raise Shield", 1, true))
+				local item = new("Item", rawUnique)
+				assert.are.equals(75, item.requirements.level)
+				return
+			end
+		end
+		assert(false, "The Surrender not found")
+	end)
+
 	it("Requires Class", function()
 		local item = new("Item", raw("Requires Class Witch"))
 		assert.are.equals("Witch", item.classRestriction)
@@ -741,6 +786,7 @@ describe("TestItemParse", function()
 			--------
 			Corrupted
 		]])
+		assert.are.equals(90, item.requirements.level)
 
 		local damageGainAsLightning = 0
 		for _, mod in ipairs(item.slotModList[1]) do
@@ -751,6 +797,7 @@ describe("TestItemParse", function()
 		assert.are.equals(120, damageGainAsLightning)
 
 		item:BuildAndParseRaw()
+		assert.are.equals(90, item.requirements.level)
 
 		assert.are.equals(5, item.itemSocketCount)
 		assert.are.equals(5, #item.runes)
@@ -769,6 +816,13 @@ describe("TestItemParse", function()
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Gain 120%% of Damage as Extra Lightning Damage"))
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants you create have 75%% reduced effect"))
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants can be collected from 150%% further away"))
+
+		for i = 1, item.itemSocketCount do
+			item.runes[i] = "None"
+		end
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(65, item.requirements.level)
 	end)
 
 	it("multi-line rune mod", function()

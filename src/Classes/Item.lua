@@ -288,6 +288,17 @@ local function specToNumber(s)
 	return n and tonumber(n)
 end
 
+function ItemClass:GetUniqueDBItem()
+	if (self.rarity == "UNIQUE" or self.rarity == "RELIC") and main.uniqueDB then
+		local dbItem = main.uniqueDB.list[self.name]
+		if not dbItem and self.title and self.baseName then
+			local originalBaseName = self.baseName:match("^Runeforged (.+)") or self.baseName:match("^Runemastered (.+)")
+			dbItem = originalBaseName and main.uniqueDB.list[self.title .. ", " .. originalBaseName]
+		end
+		return dbItem
+	end
+end
+
 -- Parse raw item data and extract item name, base type, quality, and modifiers
 function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.raw = raw
@@ -1194,20 +1205,30 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		local runeData = data.itemMods.Runes[runeName]
 		if runeData then
 			for _, slotData in pairs(runeData) do
-				self.requirements.runeLevel = m_max(self.requirements.runeLevel or 0, slotData.rank[1])
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank[1])
 			end
 		end
 	end
-	if self.base and not self.requirements.level then
-		if importedLevelReq and #self.sockets == 0 then
-			-- Requirements on imported items can only be trusted for items with no sockets
-			self.requirements.level = importedLevelReq
-		else
-			self.requirements.level = self.base.req.level
-		end
-	end
 	if self.base then
-		self.requirements.level = m_max(self.requirements.level or 0, self.requirements.runeLevel or 0)
+		local dbItem = self:GetUniqueDBItem()
+		if dbItem then
+			self.requirements.naturalLevel = m_max(dbItem.requirements.naturalLevel or dbItem.requirements.level, self.base.req.level or 0)
+		else
+			if not self.requirements.level then
+				if importedLevelReq and #self.sockets == 0 then
+					-- Requirements on imported items can only be trusted for items with no sockets
+					self.requirements.level = importedLevelReq
+				else
+					self.requirements.level = self.base.req.level
+				end
+			end
+			self.requirements.naturalLevel = self.requirements.level
+		end
+		if not self.requirements.naturalLevel then
+			self.requirements.naturalLevel = 0
+		end
+		self.requirements.level = self.requirements.level or self.requirements.naturalLevel
+		self.requirements.level = m_max(self.requirements.level, self.requirements.naturalLevel, self.requirements.runeLevel)
 	end
 	self.affixLimit = 0
 	if self.crafted then
@@ -1530,6 +1551,9 @@ end
 
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
+	if self.requirements and self.requirements.naturalLevel then
+		self.requirements.level = self.requirements.naturalLevel
+	end
 	wipeTable(self.runeModLines)
 	local getModRunesForTypes = function(runeName, baseType, specificType)
 		local rune = data.itemMods.Runes[runeName]
@@ -1622,7 +1646,7 @@ function ItemClass:Craft()
 	wipeTable(self.explicitModLines)
 	self.namePrefix = ""
 	self.nameSuffix = ""
-	self.requirements.level = self.base.req.level
+	self.requirements.level = m_max(self.base.req.level or 0, self.requirements.runeLevel)
 	local statOrder = { }
 	for _, list in ipairs({self.prefixes,self.suffixes}) do
 		for i = 1, (list.limit or (self.affixLimit / 2)) do
@@ -1637,7 +1661,7 @@ function ItemClass:Craft()
 				elseif mod.type == "Suffix" then
 					self.nameSuffix = self.nameSuffix .. " " .. mod.affix
 				end
-				self.requirements.level = m_max(self.requirements.level or 0, m_floor(mod.level * 0.8), self.requirements.runeLevel or 0)
+				self.requirements.level = m_max(self.requirements.level, m_floor(mod.level * 0.8))
 				local rangeScalar = getCatalystScalar(self.catalyst, mod, self.catalystQuality)
 				for i, line in ipairs(mod) do
 					line = itemLib.applyRange(line, affix.range or 0.5, rangeScalar)

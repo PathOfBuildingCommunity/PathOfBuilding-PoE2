@@ -97,10 +97,10 @@ Plate Belt
 League: Dawn of the Hunt
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
+Implicits: 3
 {variant:2}+(140-180) to Armour
-Has (1-3) Charm Slot
 {variant:1}+(100-140) to Armour
+Has (1-3) Charm Slot
 +(20-30) to Strength
 (10-20) Life Regeneration per second
 Defend with 200% of Armour
@@ -122,10 +122,10 @@ Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
+Implicits: 3
 {variant:3}+(140-180) to Armour
-Has (1-3) Charm Slot
 {variant:1,2}+(100-140) to Armour
+Has (1-3) Charm Slot
 +(100-150) to Armour
 +(10-20) to Strength
 +(3-5)% to Maximum Fire Resistance
