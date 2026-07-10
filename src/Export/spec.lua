@@ -31728,10 +31728,10 @@ return {
 		},
 		[3]={
 			list=false,
-			name="Mainhand",
+			name="NoReservation",
 			refTo="",
 			type="Bool",
-			width=50
+			width=80
 		}
 	},
 	itemisedcorpse={
@@ -40589,7 +40589,7 @@ return {
 		},
 		[2]={
 			list=false,
-			name="Skill Gem",
+			name="SkillGem",
 			refTo="SkillGems",
 			type="Key",
 			width=400

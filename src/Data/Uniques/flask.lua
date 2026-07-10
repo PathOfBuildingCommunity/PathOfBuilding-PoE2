@@ -38,8 +38,8 @@ Skills have (80-120)% longer Perfect Timing window during effect
 [[
 Lavianga's Spirits
 Gargantuan Mana Flask
-Requires Level 49
 League: Fate of the Vaal
+Requires Level 49
 This Flask cannot be Used but applies its Effect constantly
 (70-80)% reduced Amount Recovered
 ]],[[
@@ -149,7 +149,6 @@ Variant: Wolf
 Variant: Stag
 Variant: Cat
 Implicits: 1
-15% increased Rarity of Items found
 Used when you kill a Rare or Unique enemy
 {variant:4}Possessed by Spirit Of The Bear for (10-20) seconds on use
 {variant:5}Possessed by Spirit Of The Boar for (10-20) seconds on use

@@ -8,8 +8,7 @@ Moulded Mitts
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 1
-{variant:3}Grants Skill: Level (1-20) Herald of the Royal Queen
+{variant:3}UniqueAtziriHeraldSkill1
 {variant:1,2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11[80,100]
 {variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
 {variant:3}UniqueIncreasedLife58
@@ -98,8 +97,7 @@ UniqueChillEffect1
 Horror's Flight
 Engraved Bracers
 League: Runes of Aldur
-Implicits: 1
-Grants Skill: Level (1-20) Crushing Fear
+UniqueCrushingFearSkill1
 UniqueLocalIncreasedEvasionRatingPercent36
 UniqueIncreasedAttackSpeed16
 UniqueDexterity45
@@ -178,7 +176,7 @@ Variant: Current
 {variant:2}UniqueLocalIncreasedEnergyShield12
 UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
-AmuletImplicitIntelligence1
+UniqueIntelligence18
 ]],[[
 Essentia Sanguis
 Furtive Wraps
@@ -374,8 +372,7 @@ UniqueAllDamageCanPoison1
 Thunderfist
 Utility Wraps
 League: Rise of the Abyssal
-Implicits: 1
-Grants Skill: Level (1-20) Crackling Palm
+ThunderfistUnique__1
 UniqueLocalIncreasedEvasionAndEnergyShield19
 UniqueIncreasedAttackSpeed13
 UniqueLightningResist29

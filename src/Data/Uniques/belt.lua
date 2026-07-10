@@ -6,9 +6,11 @@ return {
 Bijouborne
 Double Belt
 League: Dawn of the Hunt
-Implicits: 2
-+(50-100) to maximum Mana
+Implicits: 3
+Grants Skill: Level (1-20) Cast on Charm Use
 Has (1-3) Charm Slot
+(20-30)% increased Charm Charges gained
++(50-100) to maximum Mana
 (10-50)% reduced Charm Effect Duration
 +2 Charm Slots
 +(15-25) to Dexterity
@@ -96,10 +98,10 @@ Plate Belt
 League: Dawn of the Hunt
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
+Implicits: 3
 {variant:2}+(140-180) to Armour
-Has (1-3) Charm Slot
 {variant:1}+(100-140) to Armour
+Has (1-3) Charm Slot
 +(20-30) to Strength
 (10-20) Life Regeneration per second
 Defend with 200% of Armour
@@ -121,10 +123,10 @@ Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-Implicits: 2
+Implicits: 3
 {variant:3}+(140-180) to Armour
-Has (1-3) Charm Slot
 {variant:1,2}+(100-140) to Armour
+Has (1-3) Charm Slot
 +(100-150) to Armour
 +(10-20) to Strength
 +(3-5)% to Maximum Fire Resistance
@@ -186,9 +188,6 @@ Variant: Legacy of Stibnite
 Variant: Legacy of Sulphur
 Variant: Legacy of Topaz
 League: Runes of Aldur
-Implicits: 2
-Has (1-3) Charm Slot
-20% of Flask Recovery applied Instantly
 {variant:1}Legacy of Amethyst
 {variant:2}Legacy of Basalt
 {variant:3}Legacy of Bismuth
@@ -203,6 +202,9 @@ Has (1-3) Charm Slot
 {variant:12}Legacy of Stibnite
 {variant:13}Legacy of Sulphur
 {variant:14}Legacy of Topaz
+Implicits: 2
+Has (1-3) Charm Slot
+20% of Flask Recovery applied Instantly
 All Mage's Legacies have (25-50)% increased effect per duplicate Mage's Legacy you have
 ]],[[
 Meginord's Girdle
