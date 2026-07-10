@@ -55,6 +55,7 @@ Variant: Body Armour
 Variant: Gloves
 Variant: Boots
 Variant: Shield
+Sockets: S S
 {variant:1}LocalItemBenefitSocketableAsIfHelmetUnique__1
 {variant:2}LocalItemBenefitSocketableAsIfBodyArmourUnique__1
 {variant:3}LocalItemBenefitSocketableAsIfGlovesUnique__1

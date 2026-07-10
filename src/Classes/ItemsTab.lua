@@ -64,6 +64,14 @@ local function isAnointable(item)
 		-- and not item.sanctified and not item.corrupted and not item.mirrored
 end
 
+local function hasAugmentSockets(item)
+	return item and item.itemSocketCount > 0
+end
+
+local function canHaveAugmentSockets(item)
+	return item and ((item.base.socketLimit and item.base.socketLimit > 0) or item.socketedAugmentTypeOverride ~= nil or hasAugmentSockets(item))
+end
+
 local function buildModSortList()
 	local sortList = { { label = "Default", stat = nil } }
 	local sortTransforms = { }
@@ -437,6 +445,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemVariant = new("DropDownControl", {"TOPLEFT", self.controls.displayItemSectionVariant,"TOPLEFT"}, {0, 0, 300, 20}, nil, function(index, value)
 		self.displayItem.variant = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -447,6 +456,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant = new("DropDownControl", {"TOPLEFT",self.controls.displayItemVariant,"BOTTOMLEFT"}, {0, 4, 300, 20}, nil, function(index, value)
 		self.displayItem.variantAlt = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -457,6 +467,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant2 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant,"BOTTOMLEFT"}, {0, 4, 300, 20}, nil, function(index, value)
 		self.displayItem.variantAlt2 = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -467,6 +478,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant3 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant2,"BOTTOMLEFT"}, {0, 4, 300, 20}, nil, function(index, value)
 		self.displayItem.variantAlt3 = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -477,6 +489,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant4 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant3,"BOTTOMLEFT"}, {0, 4, 300, 20}, nil, function(index, value)
 		self.displayItem.variantAlt4 = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -487,6 +500,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant5 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant4,"BOTTOMLEFT"}, {0, 4, 300, 20}, nil, function(index, value)
 		self.displayItem.variantAlt5 = index
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
@@ -497,11 +511,11 @@ holding Shift will put it in the second.]])
 
 	-- Section: Sockets and Links
 	self.controls.displayItemSectionSockets = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return self.displayItem and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre) and 28 or 0
+		return canHaveAugmentSockets(self.displayItem) and 28 or 0
 	end})
 	self.controls.displayItemSocketRune = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionSockets,"TOPLEFT"}, {0, 0, 36, 20}, "^x7F7F7FS")
 	self.controls.displayItemSocketRune.shown = function()
-		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre
+		return canHaveAugmentSockets(self.displayItem)
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
 		local count = tonumber(buf) or 0
@@ -668,7 +682,7 @@ holding Shift will put it in the second.]])
 
 	-- Section: Rune Selection
 	self.controls.displayItemSectionRune = new("Control", {"TOPLEFT",self.controls.displayItemSectionClusterJewel,"BOTTOMLEFT"}, {0, 0, 0, function()
-		if not self.displayItem or self.displayItem.itemSocketCount == 0 or not (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre) then
+		if not hasAugmentSockets(self.displayItem) then
 			return 0
 		end
 		local h = 6
@@ -707,7 +721,7 @@ holding Shift will put it in the second.]])
 			end
 		end
 		drop.shown = function()
-			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre)
+			return hasAugmentSockets(self.displayItem) and i <= self.displayItem.itemSocketCount
 		end
 
 		self.controls["displayItemRune"..i] = drop
@@ -1950,6 +1964,7 @@ end)
 
 function ItemsTabClass:GetValidRunesForItem(item)
 	local runes = { }
+	local addedRunes = { }
 	local socketedItemType
 	if item.baseModList then
 		if item.baseModList:Flag(nil, "SocketedSoulCoresOnly") then
@@ -1958,29 +1973,21 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			socketedItemType = "Rune"
 		end
 	end
-	for _, rune in pairs(runeModLines) do
-		local subType = item.base.subType and item.base.subType:lower()
-		local itemType = item.base.type:lower()
-		local function isRuneValidForSlot(runeSlot)
-			if runeSlot == "None" then
-				return true
-			elseif runeSlot == "quarterstaff" then
-				return subType == "warstaff"
-			elseif runeSlot == "buckler" then
-				return itemType == "shield" and subType == "evasion"
-			elseif runeSlot == "weapon" then
-				return item.base.weapon
-			elseif runeSlot == "armour" then
-				return item.base.armour
-			elseif runeSlot == "caster" then
-				return item.base.tags.wand or item.base.tags.staff or item.base.tags.sceptre
-			else
-				return itemType == runeSlot and not (subType == "warstaff")
+	local baseType, specificType = item:GetSocketedAugmentTypes()
+	local soulCoreTypes = item.socketedSoulCoreTypes
+	for _, rune in ipairs(runeModLines) do
+		if rune.slot == "None" then
+			t_insert(runes, rune)
+		elseif (rune.slot == baseType or rune.slot == specificType or (rune.type == "SoulCore" and soulCoreTypes[rune.slot])) and (not socketedItemType or rune.type == socketedItemType) then
+			local addedRune = addedRunes[rune.name]
+			if not addedRune then
+				addedRune = copyTable(rune, true)
+				addedRune.lines = { }
+				t_insert(runes, addedRune)
+				addedRunes[rune.name] = addedRune
 			end
-		end
-		if isRuneValidForSlot(rune.slot) then
-			if rune.slot == "None" or not socketedItemType or rune.type == socketedItemType then
-				table.insert(runes, rune)
+			for _, line in ipairs(rune.lines) do
+				t_insert(addedRune.lines, line)
 			end
 		end
 	end

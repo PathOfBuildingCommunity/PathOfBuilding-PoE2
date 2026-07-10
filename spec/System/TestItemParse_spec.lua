@@ -865,6 +865,197 @@ describe("TestItemParse", function()
 		
 	end)
 
+	it("loads Darkness Enthroned with two augment sockets", function()
+		local item = new("Item", data.uniques.belt[6])
+
+		assert.are.equals("Darkness Enthroned, Fine Belt", item.name)
+		assert.are.equals(2, item.itemSocketCount)
+		assert.are.equals(2, #item.sockets)
+
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+		local baseType, specificType = item:GetSocketedAugmentTypes()
+		assert.are.equals("armour", baseType)
+		assert.are.equals("helmet", specificType)
+	end)
+
+	it("infers helmet augments from an advanced copy of Darkness Enthroned", function()
+		local item = new("Item", [[
+			Item Class: Belts
+			Rarity: Unique
+			Darkness Enthroned
+			Fine Belt
+			--------
+			Requires: Level 62
+			--------
+			Sockets: S S
+			--------
+			Item Level: 83
+			--------
+			28% increased Armour, Evasion and Energy Shield (rune)
+			12% increased Skill Effect Duration (rune)
+			12% increased Cooldown Recovery Rate (rune)
+			--------
+			{ Implicit Modifier }
+			Flasks gain 0.17 charges per Second
+			{ Implicit Modifier — Charm }
+			Has 1(1-3) Charm Slot
+			--------
+			{ Unique Modifier }
+			This item gains bonuses from Socketed Items as though it was a Helmet — Unscalable Value
+			{ Unique Modifier }
+			61(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+			--------
+			Kulemak sat triumphant, raising the crown.
+			Darkness coiled the world in eternal night.
+			Victory, a mere moment, came crashing down.
+			No conqueror, no conquered, only searing Light.
+			--------
+			Corrupted
+			--------
+			Note: ~b/o 40 exalted
+		]])
+
+		assert.are.same({ "Greater Iron Rune", "Quipolatl's Soul Core of Flow" }, item.runes)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("28%% increased Armour, Evasion and Energy Shield"))
+		assert.is_not_nil(rawItem:match("12%% increased Skill Effect Duration"))
+		assert.is_not_nil(rawItem:match("12%% increased Cooldown Recovery Rate"))
+
+		item:BuildAndParseRaw()
+		assert.are.same({ "Greater Iron Rune", "Quipolatl's Soul Core of Flow" }, item.runes)
+		rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("28%% increased Armour, Evasion and Energy Shield"))
+		assert.is_not_nil(rawItem:match("12%% increased Skill Effect Duration"))
+		assert.is_not_nil(rawItem:match("12%% increased Cooldown Recovery Rate"))
+	end)
+
+	it("infers body armour augments from an advanced copy of Darkness Enthroned", function()
+		local item = new("Item", [[
+			Item Class: Belts
+			Rarity: Unique
+			Darkness Enthroned
+			Fine Belt
+			--------
+			Requires: Level 62
+			--------
+			Sockets: S S
+			--------
+			Item Level: 86
+			--------
+			+83 to Spirit (rune)
+			Idols socketed in this item gain the benefits of their Bonded modifiers (rune)
+			-1 to Spirit per 2 Levels (rune)
+			Bonded: +8% to Quality of all Skills (rune)
+			--------
+			{ Implicit Modifier }
+			Flasks gain 0.17 charges per Second
+			{ Implicit Modifier — Charm }
+			Has 1(1-3) Charm Slot
+			--------
+			{ Unique Modifier }
+			This item gains bonuses from Socketed Items as though it was a Body Armour — Unscalable Value
+			{ Unique Modifier }
+			66(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+			--------
+			Kulemak sat triumphant, raising the crown.
+			Darkness coiled the world in eternal night.
+			Victory, a mere moment, came crashing down.
+			No conqueror, no conquered, only searing Light.
+			--------
+			Corrupted
+			--------
+			Note: ~b/o 1 divine
+		]])
+
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, item.runes)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+
+		item:BuildAndParseRaw()
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, item.runes)
+		rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+	end)
+
+	it("parses Atziri's Splendour soul core socket types", function()
+		local item = new("Item", data.uniques.body[1])
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+
+		assert.is_true(item.socketedSoulCoreTypes["helmet"])
+		assert.is_nil(item.socketedSoulCoreTypes["gloves"])
+	end)
+
+	it("infers Soul Cores using Atziri's Splendour's variant type", function()
+		local item = new("Item", [[
+			Item Class: Body Armours
+			Rarity: Unique
+			Atziri's Splendour
+			Sacrificial Regalia
+			--------
+			Sockets: S S S S S S
+			--------
+			Item Level: 86
+			--------
+			8% increased Skill Effect Duration (rune)
+			8% increased Cooldown Recovery Rate (rune)
+			--------
+			Only Soul Cores can be Socketed in this item
+			This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
+		]])
+
+		assert.are.same({ "Quipolatl's Soul Core of Flow" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Quipolatl's Soul Core of Flow", "None", "None", "None", "None", "None" }, item.runes)
+		assert.are.equals(2, #item.runeModLines)
+
+		item = new("Item", [[
+			Item Class: Body Armours
+			Rarity: Unique
+			Atziri's Splendour
+			Sacrificial Regalia
+			--------
+			Sockets: S S S S S S
+			--------
+			Item Level: 86
+			--------
+			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			--------
+			Only Soul Cores can be Socketed in this item
+			This item gains bonuses from Socketed Soul Cores as though it was also a Shield
+		]])
+
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Soul Core of Ticaba", "None", "None", "None", "None", "None" }, item.runes)
+		assert.are.equals("Hits against you have 40% reduced Critical Damage Bonus", item.runeModLines[1].line)
+	end)
+
+	it("infers pasted Soul Core lines with socketed Soul Core effect", function()
+		local item = new("Item", [[
+			Item Class: Shields
+			Rarity: Unique
+			Mahuxotl's Machination
+			Omen Crest Shield
+			--------
+			Sockets: S
+			--------
+			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			--------
+			100% increased effect of Socketed Soul Cores
+		]])
+
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
+	end)
+
 	it("jewel sockets", function()
 		local item = new("Item", [[
 			Six Socket Body
