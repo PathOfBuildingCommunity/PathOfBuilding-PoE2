@@ -5690,7 +5690,7 @@ c["Glorifying the defilement of 8000 souls in tribute to Tecrod"]={{[1]={flags=0
 c["Glorifying the defilement of 8000 souls in tribute to Ulaman"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=5,type="abyss"},id=8000}}}},nil}
 c["Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and"]={nil,"Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and "}
 c["Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and their Explicit Modifiers are transformed into more powerful related Modifiers "}
-c["Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
+c["Gloves you equip have their Base Type transformed to Fists of Stone while equipped, and their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={{[1]={flags=0,keywordFlags=0,name="WayOfTheStonefist",type="FLAG",value=true}},nil}
 c["Grant Elemental Archon to your Minions for 5 seconds when they Revive"]={nil,"Grant Elemental Archon to your Minions for 5 seconds when they Revive "}
 c["Grants 1 Passive Skill Point"]={{[1]={flags=0,keywordFlags=0,name="ExtraPoints",type="BASE",value=1}},nil}
 c["Grants 1 additional Skill Slot"]={{[1]={flags=0,keywordFlags=0,name="SkillSlots",type="BASE",value=1}},nil}
@@ -5958,7 +5958,6 @@ c["Ignites you inflict deal Damage 4% faster"]={{[1]={flags=0,keywordFlags=0,nam
 c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second"]={nil,"Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second "}
 c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second You gain Onslaught for 4 seconds on Kill"]={nil,"Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second You gain Onslaught for 4 seconds on Kill "}
 c["Ignore Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="IgnoreAttributeRequirements",type="FLAG",value=true}},nil}
-c["Ignore Attribute Requirements to equip Gloves"]={nil,"Ignore Attribute Requirements to equip Gloves "}
 c["Ignore Warcry Cooldowns"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="OVERRIDE",value=0}},nil}
 c["Ignore all Movement Penalties from Armour"]={{[1]={flags=0,keywordFlags=0,name="Condition:IgnoreMovementPenalties",type="FLAG",value=true}},nil}
 c["Immobilise enemies at 50% buildup instead of 100%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoiseThreshold",type="MORE",value=-50}}}},nil}
@@ -7055,8 +7054,6 @@ c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at l
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
-c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
-c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}

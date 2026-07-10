@@ -395,6 +395,7 @@ holding Shift will put it in the second.]])
 	-- Display item
 	self.displayItemTooltip = new("Tooltip")
 	self.displayItemTooltip.maxWidth = 458
+	self.displayItemTooltipRevision = nil
 	self.anchorDisplayItem = new("Control", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, {20, main.portraitMode and 0 or -20, 0, 0})
 	self.anchorDisplayItem.shown = function()
 		return self.displayItem ~= nil
@@ -1283,6 +1284,10 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 		local maxY = select(2, self.lastSlot:GetPos()) + 24
 		local maxX = self.anchorDisplayItem:GetPos() + 462
 		if self.displayItem then
+			if self.displayItemTooltipRevision ~= self.build.outputRevision then
+				self.displayItemTooltipRevision = self.build.outputRevision
+				self:UpdateDisplayItemTooltip()
+			end
 			local x, y = self.controls.displayItemTooltipAnchor:GetPos()
 			local ttW, ttH = self.displayItemTooltip:GetDynamicSize(viewPort)
 			maxY = m_max(maxY, y + ttH + 4)
@@ -3325,12 +3330,18 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		tooltip:AddLine(fontSizeTitle, colorCodes.NEGATIVE.."Item base is not supported by the current version.", "FONTIN SC")
 		return
 	end
+	local stonefistVariant
+	if not dbMode and item.base and item.base.type == "Gloves"
+		and self.build.calcsTab.mainEnv.modDB:Flag(nil, "WayOfTheStonefist") then
+		stonefistVariant = item:CreateStonefistVariant(self.build.characterLevel)
+	end
+	local displayVariant = stonefistVariant or item
 	-- Item name
-	if item.title then
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.title, "FONTIN SC")
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.baseName:gsub(" %(.+%)",""), "FONTIN SC")
+	if displayVariant.title then
+		tooltip:AddLine(fontSizeTitle, rarityCode..displayVariant.title, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, rarityCode..displayVariant.baseName:gsub(" %(.+%)",""), "FONTIN SC")
 	else
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, rarityCode..displayVariant.namePrefix..displayVariant.baseName:gsub(" %(.+%)","")..displayVariant.nameSuffix, "FONTIN SC")
 	end
 	tooltip.runicItem = item.runicItem
 	tooltip:AddSeparator(10)
@@ -3467,13 +3478,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FWeapon Range: %s%.1f ^x7F7F7Fmetres", main:StatColor(weaponData.range, base.weapon.Range), weaponData.range / 10), "FONTIN SC")
 		end
 	elseif base.armour then
-		-- Armour-specific info
-		local armourData = item.armourData
+		-- Armour-specific info (sourced from the Stonefist variant when active)
+		local armourData = displayVariant.armourData
 		local level = self.build.characterLevel
-		local armour = item:GetArmourDataValue("Armour", level)
-		local evasion = item:GetArmourDataValue("Evasion", level)
-		local energyShield = item:GetArmourDataValue("EnergyShield", level)
-		local ward = item:GetArmourDataValue("Ward", level)
+		local armour = displayVariant:GetArmourDataValue("Armour", level)
+		local evasion = displayVariant:GetArmourDataValue("Evasion", level)
+		local energyShield = displayVariant:GetArmourDataValue("EnergyShield", level)
+		local ward = displayVariant:GetArmourDataValue("Ward", level)
 		if base.armour.BlockChance and armourData.BlockChance > 0 then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
@@ -3602,7 +3613,8 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	-- Requirements
 	self.build:AddRequirementsToTooltip(tooltip, item.requirements.level,
 		item.requirements.strMod, item.requirements.dexMod, item.requirements.intMod,
-		item.requirements.str or 0, item.requirements.dex or 0, item.requirements.int or 0)
+		item.requirements.str or 0, item.requirements.dex or 0, item.requirements.int or 0,
+		stonefistVariant ~= nil)
 
 	-- Modifiers
 	-- Support for Lich Socket Jewel only for tooltip display
@@ -3625,7 +3637,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		end
 	end
 
-	for _, modList in ipairs{item.enchantModLines, item.runeModLines, item.implicitModLines, item.explicitModLines} do
+	for _, origList in ipairs{item.enchantModLines, item.runeModLines, item.implicitModLines, item.explicitModLines} do
+		local modList = origList
+		if stonefistVariant and origList == item.explicitModLines then
+			modList = stonefistVariant.explicitModLines
+		elseif stonefistVariant and origList == item.implicitModLines then
+			modList = { }
+		end
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
 				local variantCount = item:GetModLineVariantCount(modLine)
