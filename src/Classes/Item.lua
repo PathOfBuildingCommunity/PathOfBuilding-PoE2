@@ -2149,6 +2149,7 @@ function ItemClass:BuildModList()
 				skillId = skill.skillId,
 				level = skill.level,
 				noSupports = skill.noSupports,
+				noReservation = self.base and self.base.grantedSkillsHaveNoReservation or nil,
 				source = self.modSource,
 				triggered = skill.triggered,
 				triggerChance = skill.triggerChance,

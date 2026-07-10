@@ -171,6 +171,9 @@ directiveTable.base = function(state, args, out)
 	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
+		if inherentSkillType.NoReservation then
+			out:write('\tgrantedSkillsHaveNoReservation = true,\n')
+		end
 		local hasVariants = #inherentSkillType.Skill > 1
 		for index, skill in ipairs(inherentSkillType.Skill) do
 			local skillGem = dat("SkillGems"):GetRow("BaseItemType", skill.BaseItemType)

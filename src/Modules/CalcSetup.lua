@@ -1534,6 +1534,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				activeGemInstance.enableGlobal1 = true
 				activeGemInstance.noSupports = grantedSkill.noSupports
 				group.noSupports = grantedSkill.noSupports
+				activeGemInstance.noReservation = grantedSkill.noReservation
 				activeGemInstance.triggered = grantedSkill.triggered
 				activeGemInstance.triggerChance = grantedSkill.triggerChance
 				wipeTable(group.gemList)
