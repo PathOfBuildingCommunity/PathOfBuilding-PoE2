@@ -140,8 +140,9 @@ directiveTable.base = function(state, args, out)
 		out:write(tag, ' = true, ')
 	end
 	out:write('},\n')
-	if baseTypeId == "Metadata/Items/Amulets/FourAmuletB1c" then
-		out:write('\tgrantedSkillsReserveNoSpirit = true,\n')
+	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
+	if inherentSkillType and inherentSkillType.NoReservation then
+		out:write('\tgrantedSkillsHaveNoReservation = true,\n')
 	end
 	local implicitLines = { }
 	local implicitModTypes = { }
@@ -159,7 +160,6 @@ directiveTable.base = function(state, args, out)
 	if state.type == "Belt" then
 		table.insert(implicitLines, "Has (1-3) Charm Slots")
 	end
-	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
 		if #inherentSkillType.Skill > 1 then
 			for index, skill in ipairs(inherentSkillType.Skill) do

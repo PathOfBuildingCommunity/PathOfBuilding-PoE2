@@ -252,10 +252,6 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				pool.Life.basePercent = pool.Life.basePercent + pool.Spirit.basePercent * spiritToLifeReservation
 				pool.Spirit.basePercent = 0
 			end
-			if activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.noReservation then
-				for _, values in pairs(pool) do values.baseFlat, values.basePercent = 0, 0 end
-				pool.Spirit.baseFlat = skillModList:Sum("BASE", skillCfg, "ExtraSpirit")
-			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
 				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")

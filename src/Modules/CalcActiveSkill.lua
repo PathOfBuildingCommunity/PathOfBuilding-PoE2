@@ -795,6 +795,12 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			grantedEffectLevel[k] = v
 		end
 	end
+	if activeEffect.srcInstance and activeEffect.srcInstance.noReservation then
+		for _, resource in ipairs({ "mana", "life", "spirit" }) do
+			grantedEffectLevel[resource.."ReservationFlat"] = 0
+			grantedEffectLevel[resource.."ReservationPercent"] = 0
+		end
+	end
 	activeEffect.grantedEffectLevel = grantedEffectLevel
 
 	-- Add extra modifiers from granted effect level
