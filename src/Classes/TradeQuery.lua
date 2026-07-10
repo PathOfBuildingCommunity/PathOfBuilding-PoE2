@@ -6,6 +6,7 @@
 
 
 local dkjson = require "dkjson"
+local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
 
 local get_time = os.time
 local t_insert = table.insert
@@ -851,6 +852,14 @@ function TradeQueryClass:UpdateDropdownList(row_idx)
 	self.controls["resultDropdown".. row_idx].selIndex = 1
 	self.controls["resultDropdown".. row_idx]:SetList(dropdownLabels)
 end
+function TradeQueryClass:ResetResultRow(rowIdx)
+	self.itemIndexTbl[rowIdx] = nil
+	self.sortedResultTbl[rowIdx] = nil
+	self.resultTbl[rowIdx] = nil
+	self.totalPrice[rowIdx] = nil
+	self:UpdateDropdownList(rowIdx)
+	self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+end
 function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	local sortedItems, errMsg = self:SortFetchResults(row_idx, sortMode)
@@ -867,10 +876,7 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 
 	self.sortedResultTbl[row_idx] = sortedItems
 	if not sortedItems[1] then
-		self.itemIndexTbl[row_idx] = nil
-		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
-		self:UpdateDropdownList(row_idx)
+		self:ResetResultRow(row_idx)
 		self:SetNotice(self.controls.pbNotice, "^4No compatible items found for this slot.")
 		return
 	end
@@ -1044,8 +1050,11 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 						for item_idx, _ in ipairs(itemsSafe) do
 							local item = new("Item", itemsSafe[item_idx].item_string)
 							-- sockets are kept as-is so the user can see e.g. exceptional or corrupted sockets
+							local validRunes = self.itemsTab:GetValidRunesForItem(item)
 							for rune_idx, _ in ipairs(item.runes or {}) do
-								item.runes[rune_idx] = "None"
+								if not self.itemsTab:IsSocketBoundRune(item, item.runes[rune_idx], validRunes) then
+									item.runes[rune_idx] = "None"
+								end
 							end
 							item:UpdateRunes()
 							itemsSafe[item_idx].item_string = item:BuildRaw()
@@ -1077,6 +1086,22 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 Note that even if you are authenticated, you can click this button again to show the search link.
 If you have additional requirements that the trade tool doesn't cover (e.g. Adorned Magic jewels),
 you can add them, copy the link here, and press "Price Item" to evaluate the items.]]
+	controls["bestButton" .. row_idx].onHover = function()
+		local button = controls["bestButton" .. row_idx]
+
+		local x, y = button:GetPos()
+		local buttonWidth, _ = button:GetSize()
+
+		local nodeId = slotTbl.nodeId
+
+		if not nodeId then return end
+
+		local boxSize = 250
+		-- anchor bottom to top of button
+		local viewerY = y - boxSize - 4
+		local viewerX = x - boxSize / 2 + buttonWidth / 2
+		itemSlotHelper.DrawViewer(self.itemsTab, nodeId, viewerX, viewerY, boxSize, boxSize)
+	end
 	local pbURL
 	controls["uri"..row_idx] = new("EditControl", { "TOPLEFT", controls["bestButton"..row_idx], "TOPRIGHT"}, {8, 0, 514, row_height}, nil, nil, "^%C\t\n", nil, function(buf)
 		local subpath = buf:match(self.hostName .. "trade2/search/(.+)$") or ""
@@ -1144,11 +1169,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		return m_min(m_max(index or 1, 1), self.sortedResultTbl[row_idx] and #self.sortedResultTbl[row_idx] or 1)
 	end
 	controls["changeButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {135 + 8, 0, 80, row_height}, "<< Search", function()
-		self.itemIndexTbl[row_idx] = nil
-		self.sortedResultTbl[row_idx] = nil
-		self.resultTbl[row_idx] = nil
-		self.totalPrice[row_idx] = nil
-		self.controls.fullPrice.label = "^7Total Price: " .. self:GetTotalPriceString()
+		self:ResetResultRow(row_idx)
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
 	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 351, row_height}, {}, function(index)

@@ -28,12 +28,12 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 	self.configSetOrderList = { 1 }
 	self:CreateConfigSet(1)
 	self:SetActiveConfigSet(1, true)
-	
+
 	self.enemyLevel = 1
 
 	self.sectionList = { }
 	self.varControls = { }
-	
+
 	self.toggleConfigs = false
 
 	self.controls.sectionAnchor = new("LabelControl", { "TOPLEFT", self, "TOPLEFT" }, { 0, 20, 0, 0 }, "")
@@ -65,7 +65,8 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 	local function searchMatch(varData)
 		local searchStr = self.controls.search.buf:lower():gsub("[%-%.%+%[%]%$%^%%%?%*]", "%%%0")
 		if searchStr and searchStr:match("%S") then
-			local err, match = PCall(string.matchOrPattern, (varData.label or ""):lower(), searchStr)
+			local label = StripEscapes(varData.label or ""):lower()
+			local err, match = PCall(string.matchOrPattern, label, searchStr)
 			if not err and match then
 				return true
 			end
@@ -784,7 +785,7 @@ function ConfigTabClass:Draw(viewPort, inputEvents)
 	self.height = viewPort.height
 
 	for _, event in ipairs(inputEvents) do
-		if event.type == "KeyDown" then	
+		if event.type == "KeyDown" then
 			if event.key == "z" and IsKeyDown("CTRL") then
 				self:Undo()
 				self.build.buildFlag = true
@@ -846,7 +847,7 @@ function ConfigTabClass:Draw(viewPort, inputEvents)
 			maxColY = m_max(maxColY, colY[col])
 		end
 	end
-	
+
 	local newSetList = { }
 	for index, configSetId in ipairs(self.configSetOrderList) do
 		local configSet = self.configSets[configSetId]
@@ -1010,7 +1011,7 @@ end
 
 function ConfigTabClass:RenameConfigSet(configSetId, newTitle)
 	local configSet = self.configSets[configSetId]
-	
+
 	if not configSet then
 		return
 	end

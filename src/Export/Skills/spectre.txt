@@ -1254,3 +1254,387 @@ statMap = {
 #flags attack melee area
 #mods
 #skillEnd
+
+
+#skill MeleeMudBurrowerLeftCleave Left Cleave
+#set MeleeMudBurrowerLeftCleave
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeMudBurrowerRightCleave Right Cleave
+#set MeleeMudBurrowerRightCleave
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeMudBurrowerBite Bite
+#set MeleeMudBurrowerBite
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MPAMudBurrowerBloodProj Blood Spit
+#set MPAMudBurrowerBloodProj
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill GAMudBurrowerBloodProj Blood Spit Impact
+#set GAMudBurrowerBloodProj
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill MPAMudBurrowerSprayProj Blood Spray
+#set MPAMudBurrowerSprayProj
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill GAMudBurrowerSpraySmallImpact Blood Spray Impact
+#set GAMudBurrowerSpraySmallImpact
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill MPAMudBurrowerGoopSmallBall Goop Ball
+#set MPAMudBurrowerGoopSmallBall
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill GAMudBurrowerGoopSmallImpact Goop Ball Impact
+#set GAMudBurrowerGoopSmallImpact
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill MPAMudBurrowerGoopBigBall Large Goop Ball
+#set MPAMudBurrowerGoopBigBall
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MudBurrowerGoopExplode Goop Explosion
+#set MudBurrowerGoopExplode
+#flags spell area triggerable
+#mods
+#skillEnd
+
+#skill GAMudBurrowerHeadSlam Head Slam
+#set GAMudBurrowerHeadSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAMudBurrowerDivePush Dive
+#set GAMudBurrowerDivePush
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill CGEMudBurrowerVomit Vomit Ground
+#set CGEMudBurrowerVomit
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+#skill MPAMudBurrowerVomitProj Vomit
+#set MPAMudBurrowerVomitProj
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MudBurrowerMaggotSummon Summon Maggots
+#set MudBurrowerMaggotSummon
+#flags spell
+#mods
+#skillEnd
+
+
+#skill GPAPorcupineAntSpikeNova Spike Nova
+#set GPAPorcupineAntSpikeNova
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MMAPorcupineAntSpikeball Spike Mortar
+#set MMAPorcupineAntSpikeball
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill GPAPorcupineAntSpikeNovaSanctum Spike Nova
+#set GPAPorcupineAntSpikeNovaSanctum
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MMAPorcupineAntSpikeballSanctum Spike Mortar
+#set MMAPorcupineAntSpikeballSanctum
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+
+#skill MPWBlackStriderWebProjectile Web Projectile
+#set MPWBlackStriderWebProjectile
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill GABlackStriderWebMortarImpact Web Impact
+#set GABlackStriderWebMortarImpact
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill BlackStriderMassMortar Mass Mortar
+#set BlackStriderMassMortar
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MPWBlackStriderWebProjectileSanctum Web Projectile
+#set MPWBlackStriderWebProjectileSanctum
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill CGESanctumBlackStriderWeb Web Ground
+#set CGESanctumBlackStriderWeb
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+
+#skill QuillCrabSpikeShrapnel Spike Shrapnel
+#set QuillCrabSpikeShrapnel
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeShrapnelPoison Spike Shrapnel
+#set QuillCrabSpikeShrapnelPoison
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill CGEQuillCrabFireGround Burning Ground
+#set CGEQuillCrabFireGround
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+#skill CGEQuillCrabCausticGround Caustic Ground
+#set CGEQuillCrabCausticGround
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+
+#skill GSBeetleLightningNova Lightning Nova
+#set GSBeetleLightningNova
+#flags spell area triggerable
+#mods
+#skillEnd
+
+
+#skill GSCaveDwellerSonicPulse Sonic Pulse
+#set GSCaveDwellerSonicPulse
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill GSCaveDwellerSuperProjectile Sonic Projectile
+#set GSCaveDwellerSuperProjectile
+#flags spell projectile triggerable
+#mods
+#skillEnd
+
+#skill GPSCaveDwellerSuperProjectileSanctum Sonic Projectile
+#set GPSCaveDwellerSuperProjectileSanctum
+#flags spell projectile triggerable
+#mods
+#skillEnd
+
+
+#skill GSPlagueNymphLaser Laser
+#set GSPlagueNymphLaser
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill MPSPlagueNymphRailGun Rail Gun
+#set MPSPlagueNymphRailGun
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill GSTwilightOrderPlagueNymphLaser Laser
+#set GSTwilightOrderPlagueNymphLaser
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill MPSTwilightOrderPlagueNymphRailGun Rail Gun
+#set MPSTwilightOrderPlagueNymphRailGun
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+
+#skill GSSerpentClanAcidSpit Acid Spit
+#set GSSerpentClanAcidSpit
+#flags spell triggerable
+#mods
+#skillEnd
+
+
+#skill HyenaCentaurSpearThrowCliff Spear Throw
+#set HyenaCentaurSpearThrowCliff
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+
+#skill MeleeAtAnimationSpeed2
+#set MeleeAtAnimationSpeed
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MAASBaronEndgameBasic
+#set MAASBaronEndgameBasic
+#flags attack melee
+#mods
+#skillEnd
+
+
+#skill GAArenaBeastSlam Slam
+#set GAArenaBeastSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAArenaBeastSlamEmpowered Empowered Slam
+#set GAArenaBeastSlamEmpowered
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAGoblinArenaBeastHeadbutt Headbutt
+#set GAGoblinArenaBeastHeadbutt
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAGoblinArenaBeastHeadbuttEmpowered Empowered Headbutt
+#set GAGoblinArenaBeastHeadbuttEmpowered
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAGoblinArenaBeastGroundSlash Ground Slash
+#set GAGoblinArenaBeastGroundSlash
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAGoblinArenaBeastGroundSlashLightning Lightning Ground Slash
+#set GAGoblinArenaBeastGroundSlashLightning
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossBigSlam Big Slam
+#set GAArenaBeastBossBigSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossShockwave Shockwave
+#set GAArenaBeastBossShockwave
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossPunchLeft Punch
+#set GAArenaBeastBossPunchLeft
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossPunchLeftEmpowered Empowered Punch
+#set GAArenaBeastBossPunchLeftEmpowered
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossPunchRight Punch
+#set GAArenaBeastBossPunchRight
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossPunchRightEmpowered Empowered Punch
+#set GAArenaBeastBossPunchRightEmpowered
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossFissureDamage Fissure
+#set GAArenaBeastBossFissureDamage
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill GAArenaBeastBossFissureExplosion Fissure Explosion
+#set GAArenaBeastBossFissureExplosion
+#flags attack area triggerable
+#mods
+#skillEnd
+
+#skill CGEArenaBeastBossSulpurGas Sulphur Gas
+#set CGEArenaBeastBossSulpurGas
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+#skill GAArenaBeastLeapSlam Leap Slam
+#set GAArenaBeastLeapSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAArenaBeastLeapSlamEnraged Enraged Leap Slam
+#set GAArenaBeastLeapSlamEnraged
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GAArenaBeastLeapSlamEnragedKick Enraged Kick
+#set GAArenaBeastLeapSlamEnragedKick
+#flags attack melee area
+#mods
+#skillEnd
+
+
+#skill DTTParasiteSwarmLeap Leap
+#set DTTParasiteSwarmLeap
+#flags attack
+#mods
+#skillEnd
+
+#skill DTTParasiteSwarmLeapAttach Leap Attach
+#set DTTParasiteSwarmLeapAttach
+#flags attack
+#mods
+#skillEnd
+
+#skill BlackStriderWebProjectile Web Projectile
+#set BlackStriderWebProjectile
+#flags attack projectile triggerable
+#mods
+#skillEnd

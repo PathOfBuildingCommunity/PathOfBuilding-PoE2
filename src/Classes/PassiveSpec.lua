@@ -226,8 +226,10 @@ end
 function PassiveSpecClass:Save(xml)
 	local allocNodeIdList = { }
 	local weaponSets = {}
-	for nodeId in pairs(self.allocNodes) do
-		t_insert(allocNodeIdList, nodeId)
+	for nodeId, node in pairs(self.allocNodes) do
+		if not (node.isGrantedPassive and node.isFreeAllocate) then
+			t_insert(allocNodeIdList, nodeId)
+		end
 		if self.nodes[nodeId].allocMode and self.nodes[nodeId].allocMode ~= 0 then
 			local weaponSet = self.nodes[nodeId].allocMode
 			if not weaponSets[weaponSet] then
@@ -1058,6 +1060,178 @@ function PassiveSpecClass:GetJewel(itemId)
 	return item
 end
 
+local function normalisePassiveName(name)
+	return type(name) == "string" and name:lower():gsub("^%s+", ""):gsub("%s+$", "") or nil
+end
+
+local voicesSinisterSocketAliases = {
+	"voices_jewel_slot1",
+	"voices_jewel_slot2",
+	"voices_jewel_slot3__",
+	"voices_jewel_slot4",
+	"voices_jewel_slot5",
+}
+
+function PassiveSpecClass:ResolveGrantedPassiveNodes(passive)
+	local out = { }
+	if type(passive) == "table" then
+		if passive.type == "SinisterJewelSockets" then
+			local byAlias = { }
+			for _, node in pairs(self.tree.sockets) do
+				if node.sinister and node.aliasPassiveSocket then
+					byAlias[node.aliasPassiveSocket] = node
+				end
+			end
+			for i = 1, m_min(passive.count or 0, #voicesSinisterSocketAliases) do
+				local node = byAlias[voicesSinisterSocketAliases[i]]
+				if node then
+					t_insert(out, self.nodes[node.id] or node)
+				end
+			end
+		end
+		return out
+	end
+
+	local passiveName = normalisePassiveName(passive)
+	if not passiveName then
+		return out
+	end
+
+	local notable = self.tree.notableMap[passiveName]
+	if notable then
+		t_insert(out, self.nodes[notable.id] or notable)
+		return out
+	end
+
+	local node = self.tree.keystoneMap[passiveName]
+	if not node then
+		for _, socket in pairs(self.tree.sockets) do
+			if normalisePassiveName(socket.dn) == passiveName then
+				node = socket
+				break
+			end
+		end
+	end
+	if node then
+		t_insert(out, self.nodes[node.id] or node)
+	end
+	return out
+end
+
+local function getItemForGrantedPassiveSlot(spec, itemsTab, slot, allocNodes, override, activeWeaponSet, nodesModsList)
+	local slotName = slot.slotName
+	if slot.nodeId then
+		if not allocNodes[slot.nodeId] then
+			return
+		end
+		if slotName == override.repSlotName then
+			return override.repItem
+		end
+		local itemId = spec.jewels[slot.nodeId]
+		if (not itemId or itemId == 0) and itemsTab.sockets[slot.nodeId] then
+			itemId = itemsTab.sockets[slot.nodeId].selItemId
+		end
+		return itemsTab.items[itemId]
+	end
+
+	if slot.weaponSet and slot.weaponSet ~= activeWeaponSet then
+		return
+	end
+	if slotName == "Ring 3" and not nodesModsList:Flag(nil, "AdditionalRingSlot") then
+		return
+	end
+	if slotName == override.repSlotName then
+		return override.repItem
+	end
+	return itemsTab.items[slot.selItemId]
+end
+
+function PassiveSpecClass:SetGrantedPassiveNodes(grantedNodeMap)
+	local changed = false
+	grantedNodeMap = grantedNodeMap or { }
+
+	for nodeId, node in pairs(self.allocNodes) do
+		if node.isGrantedPassive and node.isFreeAllocate and not grantedNodeMap[nodeId] then
+			node.alloc = false
+			node.isGrantedPassive = nil
+			node.isFreeAllocate = nil
+			self.allocNodes[nodeId] = nil
+			changed = true
+		end
+	end
+
+	for nodeId, node in pairs(grantedNodeMap) do
+		local specNode = self.nodes[nodeId] or node
+		if not self.allocNodes[nodeId] then
+			specNode.alloc = true
+			specNode.allocMode = 0
+			specNode.isGrantedPassive = true
+			specNode.isFreeAllocate = true
+			self.allocNodes[nodeId] = specNode
+			changed = true
+		end
+	end
+
+	if changed then
+		self:BuildAllDependsAndPaths()
+	end
+	return changed
+end
+
+function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllocNodes, ignoreJewelLimits, override, nodesModsList)
+	override = override or { }
+	local granted = { }
+	local allocNodes = { }
+	for nodeId, node in pairs(baseAllocNodes or self.allocNodes) do
+		if not (node.isGrantedPassive and node.isFreeAllocate) then
+			allocNodes[nodeId] = node
+		end
+	end
+	local activeWeaponSet = itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	local jewelLimits = { }
+	local changed = true
+	local safety = 0
+
+	while changed and safety < 8 do
+		changed = false
+		safety = safety + 1
+
+		for _, slot in pairs(itemsTab.orderedSlots) do
+			local item = getItemForGrantedPassiveSlot(self, itemsTab, slot, allocNodes, override, activeWeaponSet, nodesModsList)
+
+			if not item or not item.modList then
+				goto continue
+			end
+			if slot.nodeId and not itemsTab:IsItemValidForSlot(item, slot.slotName) then
+				goto continue
+			end
+			if slot.nodeId and item.limit and not ignoreJewelLimits then
+				local limitKey = item.base.subType == "Timeless" and "Historic" or item.title
+				if jewelLimits[limitKey] and jewelLimits[limitKey] >= item.limit then
+					goto continue
+				end
+				jewelLimits[limitKey] = (jewelLimits[limitKey] or 0) + 1
+			end
+			for _, mod in ipairs(item.modList) do
+				if mod.name == "GrantedPassive" then
+					local passive = mod.value
+					for _, node in ipairs(self:ResolveGrantedPassiveNodes(passive)) do
+						if node.type == "Socket" and not granted[node.id] then
+							local specNode = self.nodes[node.id] or node
+							granted[node.id] = specNode
+							allocNodes[node.id] = specNode
+							changed = true
+						end
+					end
+				end
+			end
+			::continue::
+		end
+	end
+
+	return granted
+end
+
 -- Perform a breadth-first search of the tree, starting from this node, and determine if it is the closest node to any other nodes
 function PassiveSpecClass:BuildPathFromNode(root)
 	root.pathDist = 0
@@ -1588,7 +1762,10 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	for id, node in pairs(self.allocNodes) do
 		node.visited = true
 		node.connectedToStart = false
-		local anyStartFound = (node.type == "ClassStart" or node.type == "AscendClassStart")
+		local anyStartFound = (node.type == "ClassStart" or node.type == "AscendClassStart" or node.isFreeAllocate)
+		if node.isFreeAllocate then
+			node.connectedToStart = true
+		end
 		for _, other in ipairs(node.linked) do
 			local otherAlloc = other.alloc or alternateClassStartNodes[other.id]
 			if otherAlloc and self:CanPathThroughAllocMode(node.allocMode or 0, other) and not isValueInArray(node.depends, other) then

@@ -88,7 +88,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	local grantedEffect = skillEffect.grantedEffect
 	local selectedGlobalStats = { }
 	local function mergeStatSet(set, onlyGlobals)
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
@@ -554,7 +554,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Apply stat-map flagged skill flags.
-	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet)) do
+	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet, env.useAltGemQualityStats)) do
 		local map = activeGrantedEffect.statMap[stat]
 		if statValue ~= 0 and map and map.skillFlag then
 			skillFlags[map.skillFlag] = true
@@ -668,7 +668,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Calculate distance from enemy
-	effectiveRange = env.configInput.enemyDistance
+	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
 	activeSkill.skillCfg = {
@@ -769,6 +769,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	skillModList:NewMod("GemLevel", "BASE", activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.level or activeSkill.activeEffect.level, "Max Level")
 	if activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.corrupted and not (activeSkill.activeEffect.srcInstance.fromItem or activeSkill.activeEffect.srcInstance.fromTree or activeSkill.activeEffect.grantedEffect.fromItem or activeSkill.activeEffect.grantedEffect.fromTree) then
 		skillModList:NewMod("GemCorruptionLevel", "BASE", activeSkill.activeEffect.srcInstance.corruptLevel, "Corruption")
+		activeSkill.skillCfg.skillCond["GemCorrupted"] = true
 	end
 	for _, supportProperty in ipairs(getSourceGemPropertyInfo(env, activeSkill)) do
 		local value = supportProperty.value
@@ -1027,6 +1028,15 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if tag.type == "GlobalEffect" then
 				effectType = tag.effectType
 				effectName = tag.effectName or activeGrantedEffect.name
+				if activeSkill.minion and activeSkill.minion.minionData then
+					if effectName:find("{0}", 1, true) then
+						effectName = effectName:gsub("{0}", activeSkill.minion.minionData.name)
+					elseif activeGrantedEffect.minionList and effectName:match("^Companion") then
+						effectName = "Companion: "..activeSkill.minion.minionData.name
+					elseif activeGrantedEffect.minionList and effectName:match("^Spectre") then
+						effectName = "Spectre: "..activeSkill.minion.minionData.name
+					end
+				end
 				effectTag = tag
 				break
 			end

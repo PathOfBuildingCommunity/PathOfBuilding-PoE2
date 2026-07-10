@@ -73,6 +73,26 @@ describe("TestItemParse", function()
 		assert.are.equals(12, item.quality)
 	end)
 
+	it("parses '<element> spell' as a composable Spell + element tag (issue #2226)", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Xoph's Test Band
+			Amethyst Ring
+			Implicits: 0
+			+5% to Fire Spell Critical Hit Chance
+			+30% to Fire Spell Critical Damage Bonus
+			+7% to Cold Spell Critical Hit Chance
+		]])
+		-- the "fire spell" tag composes with any crit stat (chance and damage bonus)
+		assert.are.equals(5, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		assert.are.equals(30, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Fire }, "CritMultiplier"))
+		-- ...and works per element
+		assert.are.equals(7, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold }, "CritChance"))
+		-- still correctly scoped: not attacks, and not the wrong element
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Fire }, "CritChance"))
+		assert.are.equals(0, item.baseModList:Sum("BASE", { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Cold }, "CritMultiplier"))
+	end)
+
 	--TODO: impl sockets for POB2
 	--it("Sockets", function()
 	--end)

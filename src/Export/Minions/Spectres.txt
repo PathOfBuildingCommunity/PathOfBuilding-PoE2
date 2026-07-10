@@ -718,6 +718,12 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
+#spectre Metadata/Monsters/PorcupineAnt/PorcupineAntMedium
+#emit
+
+#spectre Metadata/Monsters/PorcupineAnt/PorcupineAntLarge
+#emit
+
 #spectre Metadata/Monsters/CaveDweller/CaveDweller
 #emit
 
@@ -1879,4 +1885,75 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariDuoMinion
 #flags recommendedBeast
+#emit
+#spectre Metadata/Monsters/Monkeys/MonkeyJungleTamed
+#emit
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigElite
+#emit
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigPoisonElite
+#emit
+
+#spectre Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeRanged1Spectre
+#emit
+
+#spectre Metadata/Monsters/DemonSpiders/BlackStrider
+#emit
+
+#spectre Metadata/Monsters/DemonSpiders/BlackStriderSanctumTrial
+#emit
+
+#spectre Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDullSanctumScorpionBoss
+#emit
+
+#spectre Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWideSanctumTrial
+#emit
+
+#spectre Metadata/Monsters/EtchedBeetles/LargeEtchedBeetleBossMinion
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/HyenaMonsterHighAggro
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/HyenaCentaurSpearBossMinion_
+#emit
+
+#spectre Metadata/Monsters/PorcupineAnt/PorcupineAntMediumSanctumTrial
+#emit
+
+#spectre Metadata/Monsters/PorcupineAnt/PorcupineAntLargeSanctumTrial
+#emit
+
+#spectre Metadata/Monsters/CaveDweller/CaveDwellerSanctumTrial__
+#emit
+
+#spectre Metadata/Monsters/PlagueNymph/PlagueNymphFoundry
+#emit
+
+#spectre Metadata/Monsters/ChawMongrel/ChawMongrelLeashBoss
+#emit
+
+#spectre Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/ParasiteMonster01
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/ParasiteMonster02
+#emit
+
+#spectre Metadata/Monsters/MorayClanMonster/MorayClan
+#emit
+
+#spectre Metadata/Monsters/Baron/BaronWerewolfProwlerSummon
+#emit
+
+#spectre Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName
+#emit
+
+#spectre Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph
+#emit
+
+#spectre Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion
 #emit

@@ -16,19 +16,19 @@ local H_PAD	= 12
 local V_PAD = 10
 -- spell-checker: disable
 local headerConfigs = {
-	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=4, allowInfluenceIcon=true},
+	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6, allowInfluenceIcon=true},
+	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6, allowInfluenceIcon=true},
+	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
+	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
+	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
+	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
 }
 -- spell-checker: enable
 

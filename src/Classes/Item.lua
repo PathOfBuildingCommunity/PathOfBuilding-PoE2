@@ -11,8 +11,8 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
-local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive", "Necrotic"}
+local catalystDescriptorList = {"Life", "Mana", "Defence", "Physical", "Fire", "Cold", "Lightning", "Chaos", "Attack", "Caster", "Speed", "Attribute", "Minion"}
 local catalystTags = {
 	{ "life" },
 	{ "mana" },
@@ -26,6 +26,7 @@ local catalystTags = {
 	{ "caster" },
 	{ "speed" },
 	{ "attribute" },
+	{ "minion" },
 }
 
 local function getCatalystScalar(catalystId, mod, quality)
@@ -483,7 +484,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			elseif fullModName:match("(.*)Enhancement.*") then
 				linePostfix = " (enchant)"
 			end
-			local possibleLineFlags = fullModName:match("(.*)Modifier.*")
+			local possibleLineFlags = fullModName:gsub("Vaal Unique", "Mutated"):match("(.*)Modifier.*")
 			if possibleLineFlags then
 				for flag in possibleLineFlags:gmatch("%a+") do
 					if lineFlags[flag:lower()] then
