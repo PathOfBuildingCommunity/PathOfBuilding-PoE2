@@ -1,8 +1,8 @@
 -- Item data (c) Grinding Gear Games
 
 return {
-	-- Jewel: Drop
-	[[
+-- Jewel: Drop
+[[
 The Adorned
 Diamond
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
@@ -13,8 +13,7 @@ Limited to: 1
 {variant:1}containing Corrupted Magic Jewels
 {variant:2}(0-150)% increased Effect of Jewel Socket Passive Skills
 {variant:2}containing Corrupted Magic Jewels
-]],
-	[[
+]],[[
 Controlled Metamorphosis
 Diamond
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
@@ -44,20 +43,18 @@ Radius: Variable
 Passives in Radius can be Allocated without being connected to your tree
 -(20-5)% to all Elemental Resistances
 {variant:1}-(23-3)% to Chaos Resistance
-]],
-	[[
+]], [[
 Grand Spectrum
 Ruby
 Limited to: 3
 2% increased Maximum Life per socketed Grand Spectrum
 ]],
-	[[
+[[
 Grand Spectrum
 Emerald
 Limited to: 3
 2% increased Spirit per socketed Grand Spectrum
-]],
-	[[
+]],[[
 Grand Spectrum
 Sapphire
 Variant: Pre 0.4.0
@@ -65,8 +62,7 @@ Variant: Current
 Limited to: 3
 {variant:1}+4% to all Elemental Resistances per socketed Grand Spectrum
 {variant:2}+6% to all Elemental Resistances per socketed Grand Spectrum
-]],
-	[[
+]],[[
 Split Personality
 Ruby
 Variant: Mercenary
@@ -84,8 +80,7 @@ Limited to: 1
 {variant:1}Can Allocate Passive Skills from the Mercenary's starting point
 {variant:5}Can Allocate Passive Skills from the Templar's starting point
 Corrupted
-]],
-	[[
+]],[[
 Voices
 Sapphire
 Variant: 2 Sinister Sockets
@@ -98,8 +93,8 @@ Limited to: 1
 {variant:3}Allocates 4 Sinister Jewel sockets
 Corrupted
 ]],
-	-- Jewel: Timeless
-	[[
+-- Jewel: Timeless
+[[
 Heroic Tragedy
 Timeless Jewel
 Source: Drops from unique{Olroth, Origin of the Fall}
@@ -114,7 +109,7 @@ Radius: Very Large
 Passives in radius are Conquered by the Kalguur
 Historic
 ]],
-	[[
+[[
 Undying Hate
 Timeless Jewel
 Source: Drops from unique{Vessel of Kulemak}
