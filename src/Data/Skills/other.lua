@@ -4458,6 +4458,9 @@ skills["DemonFormPlayer"] = {
 			},
 			baseFlags = {
 			},
+			baseMods = {
+				flag("Condition:Shapeshifted", { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "DemonForm" }),
+			},
 			constantStats = {
 				{ "demon_form_spell_damage_+%_final_per_stack", 3 },
 			},

@@ -304,6 +304,7 @@ statMap = {
 		mod("LifeDegen", "BASE", nil, 0, 0, { type = "Condition", var = "DemonForm" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "Multiplier", var = "DemonFlameStacks", limitVar = "DemonFlameMaximum" } ),
 		div = 60,
 	},
+#baseMod flag("Condition:Shapeshifted", { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "DemonForm" })
 },
 #mods
 #skillEnd
