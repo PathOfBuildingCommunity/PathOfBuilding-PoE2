@@ -342,12 +342,8 @@ local configSettings = {
 	end },
 	{ label = "Demon Form:", ifSkill = "Demon Form" },
 	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, tooltip = "Players need a minimum of 2 ^xE05030Life ^7to enter Demon Form, so you cannot use it with Chaos Inoculation", apply = function(val, modList, enemyModList)
-		-- Gate on HaveDemonForm (set in CalcPerform when the Demon Form skill is present). ifSkill only
-		-- hides the UI control, not this apply(), and defaultState is true, so without a gate these would
-		-- grant Condition:Shapeshifted (an untagged global flag) on every build, making all
-		-- "while Shapeshifted" modifiers apply.
-		modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config", { type = "Condition", var = "HaveDemonForm" }, { type = "StatThreshold", stat = "Life", threshold = 2 })
-		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "Condition", var = "HaveDemonForm" }, { type = "StatThreshold", stat = "Life", threshold = 2 })
+		modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
+		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "StatThreshold", stat = "Life", threshold = 2 })
 	end },
 	{ var = "demonFormStacks", type = "count", label = "Demonflame Stacks", ifSkill = "Demon Form", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", val, "Config", { type = "Condition", var = "DemonForm" } )

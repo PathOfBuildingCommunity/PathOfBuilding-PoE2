@@ -365,20 +365,6 @@ local function doActorAttribsConditions(env, actor)
 			modDB:NewMod("StunThreshold", "INC", 50, "Wyvern Form")
 			modDB:NewMod("AilmentThreshold", "INC", 50, "Wyvern Form")
 		end
-		-- Demon Form is a toggled shapeshift buff applied via the inDemonForm config option; flag its
-		-- presence so those config-applied Shapeshifted/DemonForm conditions only take effect on builds
-		-- that actually have the Demon Form skill.
-		for _, activeSkill in ipairs(actor.activeSkillList or { }) do
-			local activeEffect = activeSkill.activeEffect
-			local grantedEffect = activeEffect and activeEffect.grantedEffect
-			if grantedEffect and grantedEffect.name == "Demon Form" then
-				local statSet = env.mode == "CALCS" and activeEffect.statSetCalcs or activeEffect.statSet
-				if not (statSet and statSet.skillFlags.disable) then
-					condList["HaveDemonForm"] = true
-					break
-				end
-			end
-		end
 		if skillFlags.hit and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			condList["HitRecently"] = true
 			if skillFlags.spell then
