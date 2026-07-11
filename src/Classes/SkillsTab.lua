@@ -1571,14 +1571,15 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	wipeTable(GlobalGemAssignments)
 	local countSocketGroups = 0
 	for _, socketGroup in ipairs(self.socketGroupList) do
-		local countGroup = true
+		local countGroup = false
 		if socketGroup.enabled then
-			local activeGem = socketGroup.gemList[1]
-			local activeGrantedEffect = activeGem and (activeGem.grantedEffect or activeGem.gemData and activeGem.gemData.grantedEffect)
-			if activeGem and (activeGem.fromItem or activeGem.fromTree or activeGrantedEffect and (activeGrantedEffect.fromItem or activeGrantedEffect.fromTree)) then
-				countGroup = false
-			end
 			for _, gemInstance in ipairs(socketGroup.gemList) do
+				if gemInstance.enabled and not countGroup then
+					local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData and gemInstance.gemData.grantedEffect
+					local provided = gemInstance.fromItem or gemInstance.fromTree or
+						grantedEffect and (grantedEffect.fromItem or grantedEffect.fromTree)
+					countGroup = not provided
+				end
 				if gemInstance.gemData and gemInstance.enabled then
 					if GlobalGemAssignments[gemInstance.gemData.name] then
 						GlobalGemAssignments[gemInstance.gemData.name].count = GlobalGemAssignments[gemInstance.gemData.name].count + 1
