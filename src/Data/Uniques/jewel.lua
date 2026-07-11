@@ -43,7 +43,7 @@ Radius: Variable
 Passives in Radius can be Allocated without being connected to your tree
 -(20-5)% to all Elemental Resistances
 {variant:1}-(23-3)% to Chaos Resistance
-]], [[
+]],[[
 Grand Spectrum
 Ruby
 Limited to: 3

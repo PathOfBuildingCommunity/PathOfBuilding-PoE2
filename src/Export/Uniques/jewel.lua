@@ -41,7 +41,7 @@ Radius: Variable
 JewelUniqueAllocateDisconnectedPassives
 UniqueAllResistances12
 {variant:1}UniqueChaosResist18
-]], [[
+]],[[
 Grand Spectrum
 Ruby
 Limited to: 3
