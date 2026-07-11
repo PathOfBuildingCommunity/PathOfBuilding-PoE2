@@ -539,6 +539,8 @@ describe("TestSkills", function()
 
 		local skillsTab = {
 			socketGroupList = {
+				{ enabled = false, gemList = { fakeGem("Disabled Skill") } },
+				{ enabled = true, gemList = { fakeGem("Disabled Gem", nil, { enabled = false }) } },
 				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
 				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
 				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
