@@ -2854,7 +2854,9 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 					selectedVariant = true
 				end
 			end
-			if #variantIds > 0 and selectedVariant or #variantIds == 0 then
+			-- test if a mod is scalable at all. this will let through mods that scale, but don't actually change within the corrupt range
+			local testScaledLine = itemLib.applyRange(mod.line, mod.range or main.defaultItemAffixQuality, mod.valueScalar or 1, 2)
+			if not (testScaledLine == mod.line) and (#variantIds > 0 and selectedVariant or #variantIds == 0) then
 				local label = ""
 				controls["rollRangeValue"..i] = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, {10, 10 + offset, 200, 16}, "^71.00")
 				controls["rollRangeSlider"..i] = new("SliderControl", { "LEFT", controls["rollRangeValue"..i], "RIGHT" }, {5, 0, 80, 18}, function(val)
@@ -2993,7 +2995,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	end)
 	controls.save.tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		self:AddItemTooltip(tooltip, corruptItem(controls.enchant1.shown), nil, true)
+		self:AddItemTooltip(tooltip, corruptItem(controls.enchant1.shown))
 	end
 	controls.close = new("ButtonControl", nil, {45, 69 + enchantNum * 20, 80, 20}, "Cancel", function()
 		main:ClosePopup()
