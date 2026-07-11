@@ -18,12 +18,29 @@ describe("Utils.stringify", function()
 			assert.equal('"a b"', utils.stringify("a\nb"))
 		end)
 
-		it("preserves newlines as long strings when allowed", function()
-			assert.equal("[[a\nb]]", utils.stringify("a\nb", true))
+		it("preserves newlines when allowed", function()
+			local out = serializeAndLoad("a\nb", true)
+			assert.equal("a\nb", out)
 		end)
 
 		it("does not use long string form for newline-free strings", function()
 			assert.equal('"ab"', utils.stringify("ab", true))
+		end)
+
+		it("escapes quotes and backslashes", function()
+			local input = 'a"b\\c'
+			local out = serializeAndLoad(input, true)
+			assert.equal(input, out)
+		end)
+
+		it("preserves carriage returns and long-string delimiters when allowed", function()
+			local input = "a\r\n]]b"
+			local out = serializeAndLoad(input, true)
+			assert.equal(input, out)
+		end)
+
+		it("normalizes all newline forms when newlines are disabled", function()
+			assert.equal('"a b c"', utils.stringify("a\r\nb\rc"))
 		end)
 
 		it("stringifies numbers", function()
@@ -89,6 +106,12 @@ describe("Utils.stringify", function()
 
 		it("serializes and loads multiline string values when allowed", function()
 			local input = { text = "line1\nline2" }
+			local out = serializeAndLoad(input, true)
+			assert.same(input, out)
+		end)
+
+		it("serializes and loads escaped multiline string keys", function()
+			local input = { ['a"\\b\n]]c'] = true }
 			local out = serializeAndLoad(input, true)
 			assert.same(input, out)
 		end)

@@ -17,8 +17,6 @@ local function cleanAndSplit(str)
 	for line in str:gmatch("[^\n]+") do
 		line = line:match("^%s*(.-)%s*$") -- trim each line
 		if line ~= "" then
-			-- Escape quotes
-			line = line:gsub('"', '\\"')
 			table.insert(lines, line)
 		end
 	end

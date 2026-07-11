@@ -22,12 +22,8 @@ local function writeStringify(buf, value, allowNewlines, tabs)
 		tabs = 0
 	end
 	if valType == "string" then
-		if allowNewlines and value:find("\n") then
-			buf[#buf + 1] = '[[' .. value .. ']]'
-		else
-			local s = value:gsub("\n", " ")
-			buf[#buf + 1] = '"' .. s .. '"'
-		end
+		local str = allowNewlines and value or value:gsub("\r\n", " "):gsub("[\r\n]", " ")
+		buf[#buf + 1] = string.format("%q", str)
 	elseif valType == "boolean" or valType == "nil" or valType == "number" then
 		buf[#buf + 1] = tostring(value)
 	elseif valType == "table" then
@@ -52,16 +48,9 @@ local function writeStringify(buf, value, allowNewlines, tabs)
 		table.sort(mapKeys, strSort)
 
 		for _, k in ipairs(mapKeys) do
-			if type(k) == "string" and allowNewlines and k:find("\n") then
-				-- multiline strings as keys need the space around the key value to parse correctly
-				buf[#buf + 1] = indent .. "[ "
-				writeStringify(buf, k, allowNewlines, nil)
-				buf[#buf + 1] = " ] = "
-			else
-				buf[#buf + 1] = indent .. "["
-				writeStringify(buf, k, allowNewlines, nil)
-				buf[#buf + 1] = "] = "
-			end
+			buf[#buf + 1] = indent .. "["
+			writeStringify(buf, k, allowNewlines, nil)
+			buf[#buf + 1] = "] = "
 			writeStringify(buf, value[k], allowNewlines, tabs + 1)
 			buf[#buf + 1] = ",\n"
 		end
