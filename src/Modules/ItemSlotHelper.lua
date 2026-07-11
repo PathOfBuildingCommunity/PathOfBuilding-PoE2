@@ -8,6 +8,8 @@ local M = {}
 ---@param w integer
 ---@param h integer
 function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
+	local node = itemsTab.build.spec.nodes[nodeId]
+	if not node then return end
 	SetDrawLayer(nil, 15)
 	SetDrawColor(1, 1, 1)
 
@@ -15,8 +17,6 @@ function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
 	DrawImage(nil, x, y, w + 2 * borderWidth, h + 2 * borderWidth)
 
 	local viewer = itemsTab.socketViewer
-	local node = itemsTab.build.spec.nodes[nodeId]
-
 	viewer.zoom = 17
 
 	local viewPortSize = math.min(w, h)
