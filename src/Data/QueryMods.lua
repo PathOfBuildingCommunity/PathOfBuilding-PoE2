@@ -28068,6 +28068,14 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["implicit.stat_129891052"] = {
+			["canonicalStat"] = "display_item_can_also_roll_ring_mods",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_129891052",
+				["text"] = "Can roll Ring Modifiers",
+				["type"] = "implicit",
+			},
+		},
 		["implicit.stat_1379411836"] = {
 			["Amulet"] = {
 				["additional_all_attributes"] = {
@@ -28113,6 +28121,20 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1412682799",
 				["text"] = "Used when you become Poisoned",
+				["type"] = "implicit",
+			},
+		},
+		["implicit.stat_1416292992"] = {
+			["Belt"] = {
+				["local_charm_slots"] = {
+					["max"] = 3,
+					["min"] = 1,
+				},
+			},
+			["canonicalStat"] = "local_charm_slots",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1416292992",
+				["text"] = "Has # Charm Slot",
 				["type"] = "implicit",
 			},
 		},
@@ -28171,10 +28193,36 @@ return {
 			},
 		},
 		["implicit.stat_1458343515"] = {
+			["Amulet"] = {
+				["local_item_benefit_socketable_as_if_helmet"] = {
+					["max"] = 1,
+					["min"] = 1,
+				},
+			},
 			["canonicalStat"] = "local_item_benefit_socketable_as_if_helmet",
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1458343515",
 				["text"] = "This item gains bonuses from Socketed Items as though it was a Helmet",
+				["type"] = "implicit",
+			},
+		},
+		["implicit.stat_1459321413"] = {
+			["2HMace"] = {
+				["base_bleed_duration_+%"] = {
+					["max"] = 30,
+					["min"] = 20,
+				},
+			},
+			["2HWeapon"] = {
+				["base_bleed_duration_+%"] = {
+					["max"] = 30,
+					["min"] = 20,
+				},
+			},
+			["canonicalStat"] = "base_bleed_duration_+%",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1459321413",
+				["text"] = "#% increased Bleeding Duration",
 				["type"] = "implicit",
 			},
 		},
@@ -28338,6 +28386,24 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["implicit.stat_1754445556"] = {
+			["Belt"] = {
+				["attack_maximum_added_lightning_damage"] = {
+					["max"] = 30,
+					["min"] = 20,
+				},
+				["attack_minimum_added_lightning_damage"] = {
+					["max"] = 1,
+					["min"] = 1,
+				},
+			},
+			["canonicalStat"] = "attack_minimum_added_lightning_damage",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1754445556",
+				["text"] = "Adds # to # Lightning damage to Attacks",
+				["type"] = "implicit",
+			},
+		},
 		["implicit.stat_1803308202"] = {
 			["2HWeapon"] = {
 				["projectile_speed_+%_with_crossbow_skills"] = {
@@ -28401,6 +28467,12 @@ return {
 			},
 		},
 		["implicit.stat_1856590738"] = {
+			["Ring"] = {
+				["local_item_benefit_socketable_as_if_gloves"] = {
+					["max"] = 1,
+					["min"] = 1,
+				},
+			},
 			["canonicalStat"] = "local_item_benefit_socketable_as_if_gloves",
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1856590738",
@@ -28676,6 +28748,14 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["implicit.stat_254952842"] = {
+			["canonicalStat"] = "item_can_have_catalyst_quality_in_addition_to_base_quality",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_254952842",
+				["text"] = "Catalysts can be applied to this item",
+				["type"] = "implicit",
+			},
+		},
 		["implicit.stat_2646093132"] = {
 			["canonicalStat"] = "abyssal_wasting_on_hit",
 			["tradeMod"] = {
@@ -28701,6 +28781,20 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_2694482655",
 				["text"] = "#% to Critical Damage Bonus",
+				["type"] = "implicit",
+			},
+		},
+		["implicit.stat_2733960806"] = {
+			["Belt"] = {
+				["local_item_benefit_socketable_as_if_boots"] = {
+					["max"] = 1,
+					["min"] = 1,
+				},
+			},
+			["canonicalStat"] = "local_item_benefit_socketable_as_if_boots",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2733960806",
+				["text"] = "This item gains bonuses from Socketed Items as though it was Boots",
 				["type"] = "implicit",
 			},
 		},
@@ -28749,6 +28843,12 @@ return {
 			},
 		},
 		["implicit.stat_2891184298"] = {
+			["Belt"] = {
+				["base_cast_speed_+%"] = {
+					["max"] = 12,
+					["min"] = 8,
+				},
+			},
 			["Ring"] = {
 				["base_cast_speed_+%"] = {
 					["max"] = 10,
@@ -29286,6 +29386,20 @@ return {
 				["type"] = "implicit",
 			},
 		},
+		["implicit.stat_4004011170"] = {
+			["Chest"] = {
+				["chaos_damage_+%_per_equipped_corrupted_item"] = {
+					["max"] = 4,
+					["min"] = 2,
+				},
+			},
+			["canonicalStat"] = "chaos_damage_+%_per_equipped_corrupted_item",
+			["tradeMod"] = {
+				["id"] = "implicit.stat_4004011170",
+				["text"] = "#% increased Chaos Damage for each Corrupted Item Equipped",
+				["type"] = "implicit",
+			},
+		},
 		["implicit.stat_4010341289"] = {
 			["canonicalStat"] = "local_flask_use_on_killing_rare_or_unique_enemy",
 			["tradeMod"] = {
@@ -29319,6 +29433,12 @@ return {
 				["additional_strength"] = {
 					["max"] = 15,
 					["min"] = 10,
+				},
+			},
+			["Belt"] = {
+				["additional_strength"] = {
+					["max"] = 20,
+					["min"] = 15,
 				},
 			},
 			["canonicalStat"] = "additional_strength",
@@ -29577,7 +29697,7 @@ return {
 		["implicit.stat_731781020"] = {
 			["Belt"] = {
 				["generate_x_charges_for_any_flask_per_minute"] = {
-					["max"] = 10,
+					["max"] = 60,
 					["min"] = 10,
 				},
 			},
@@ -30521,6 +30641,14 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1444556985",
 				["text"] = "#% of Damage taken Recouped as Life",
+				["type"] = "augment",
+			},
+		},
+		["rune.stat_1466716929"] = {
+			["canonicalStat"] = "gain_x_rage_when_taken_crit",
+			["tradeMod"] = {
+				["id"] = "rune.stat_1466716929",
+				["text"] = "Gain # Rage when Critically Hit by an Enemy",
 				["type"] = "augment",
 			},
 		},
@@ -33809,6 +33937,20 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_328541901",
 				["text"] = "# to Intelligence",
+				["type"] = "augment",
+			},
+		},
+		["rune.stat_3292710273"] = {
+			["Chest"] = {
+				["gain_x_rage_when_hit"] = {
+					["max"] = 5,
+					["min"] = 5,
+				},
+			},
+			["canonicalStat"] = "gain_x_rage_when_hit",
+			["tradeMod"] = {
+				["id"] = "rune.stat_3292710273",
+				["text"] = "Gain # Rage when Hit by an Enemy",
 				["type"] = "augment",
 			},
 		},
@@ -37467,6 +37609,14 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
+				["type"] = "augment",
+			},
+		},
+		["rune.stat_939832726"] = {
+			["canonicalStat"] = "recover_%_life_per_endurance_charge_consumed",
+			["tradeMod"] = {
+				["id"] = "rune.stat_939832726",
+				["text"] = "Recover #% of maximum Life for each Endurance Charge consumed",
 				["type"] = "augment",
 			},
 		},

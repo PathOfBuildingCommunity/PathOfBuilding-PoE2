@@ -7,7 +7,7 @@ itemBases["Golden Obi"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, demigods = true, genesis_tree_caster = true, genesis_tree_minion = true, not_for_sale = true, },
 	implicit = "(20-30)% increased Rarity of Items found\nHas (1-3) Charm Slot",
-	implicitIds = { "ItemFoundRarityIncreaseImplicitDemigodsBelt1, BeltImplicitCharmSlots3" },
+	implicitIds = { "ItemFoundRarityIncreaseImplicitDemigodsBelt1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "drop" }, { "charm" }, },
 	req = { },
 }
@@ -16,7 +16,7 @@ itemBases["Rawhide Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(20-30)% increased Life Recovery from Flasks\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitFlaskLifeRecovery1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitFlaskLifeRecovery1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "flask", "resource", "life" }, { "charm" }, },
 	req = { },
 }
@@ -25,7 +25,7 @@ itemBases["Linen Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(20-30)% increased Mana Recovery from Flasks\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitFlaskManaRecovery1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitFlaskManaRecovery1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "flask", "resource", "mana" }, { "charm" }, },
 	req = { },
 }
@@ -34,7 +34,7 @@ itemBases["Wide Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has (1-3) Charm Slot\n(20-30)% increased Flask Charges gained",
-	implicitIds = { "BeltImplicitCharmSlots3, BeltImplicitIncreasedFlaskChargesGained1" },
+	implicitIds = { "BeltImplicitCharmSlots3", "BeltImplicitIncreasedFlaskChargesGained1", },
 	implicitModTypes = { { "charm" }, { "flask" }, },
 	req = { level = 14, },
 }
@@ -43,7 +43,7 @@ itemBases["Long Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(15-20)% increased Charm Effect Duration\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitIncreasedCharmDuration1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitIncreasedCharmDuration1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "charm" }, { "charm" }, },
 	req = { level = 20, },
 }
@@ -52,7 +52,7 @@ itemBases["Plate Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "+(140-180) to Armour\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitPhysicalDamageReductionRating1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitPhysicalDamageReductionRating1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "defences", "armour" }, { "charm" }, },
 	req = { level = 24, },
 }
@@ -61,7 +61,7 @@ itemBases["Ornate Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has (1-3) Charm Slot\n(10-15)% reduced Charm Charges used",
-	implicitIds = { "BeltImplicitCharmSlots3, BeltImplicitReducedCharmChargesUsed1" },
+	implicitIds = { "BeltImplicitCharmSlots3", "BeltImplicitReducedCharmChargesUsed1", },
 	implicitModTypes = { { "charm" }, { "charm" }, },
 	req = { level = 31, },
 }
@@ -70,7 +70,7 @@ itemBases["Mail Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(10-15)% reduced Flask Charges used\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitReducedFlaskChargesUsed1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitReducedFlaskChargesUsed1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { { "flask" }, { "charm" }, },
 	req = { level = 40, },
 }
@@ -79,7 +79,7 @@ itemBases["Double Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has (1-3) Charm Slot\n(20-30)% increased Charm Charges gained",
-	implicitIds = { "BeltImplicitCharmSlots3, BeltImplicitIncreasedCharmChargesGained1" },
+	implicitIds = { "BeltImplicitCharmSlots3", "BeltImplicitIncreasedCharmChargesGained1", },
 	implicitModTypes = { { "charm" }, { "charm" }, },
 	req = { level = 44, },
 }
@@ -88,7 +88,7 @@ itemBases["Heavy Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot",
-	implicitIds = { "BeltImplicitIncreasedStunThreshold1, BeltImplicitCharmSlots3" },
+	implicitIds = { "BeltImplicitIncreasedStunThreshold1", "BeltImplicitCharmSlots3", },
 	implicitModTypes = { {  }, { "charm" }, },
 	req = { level = 50, },
 }
@@ -98,7 +98,7 @@ itemBases["Runemastered Heavy Belt"] = {
 	hidden = true,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\n(15-25)% Life Recovery from Flasks also applies to Runic Ward",
-	implicitIds = { "BeltImplicitIncreasedStunThreshold1, BeltImplicitCharmSlots3, WaistgateVerisiumImplicitLifeFlaskToRunicWard1" },
+	implicitIds = { "BeltImplicitIncreasedStunThreshold1", "BeltImplicitCharmSlots3", "WaistgateVerisiumImplicitLifeFlaskToRunicWard1", },
 	implicitModTypes = { {  }, { "charm" }, {  }, },
 	req = { level = 50, },
 }
@@ -108,7 +108,7 @@ itemBases["Runemastered Heavy Belt"] = {
 	hidden = true,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\n(20-40)% increased Runic Ward Regeneration Rate",
-	implicitIds = { "BeltImplicitIncreasedStunThreshold1, BeltImplicitCharmSlots3, WaistgateVerisiumImplicitRunicWardRegeneration1" },
+	implicitIds = { "BeltImplicitIncreasedStunThreshold1", "BeltImplicitCharmSlots3", "WaistgateVerisiumImplicitRunicWardRegeneration1", },
 	implicitModTypes = { {  }, { "charm" }, { "runic_ward" }, },
 	req = { level = 50, },
 }
@@ -118,7 +118,7 @@ itemBases["Runemastered Heavy Belt"] = {
 	hidden = true,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\nRunic Ward recovery can can Overflow maximum Runic Ward",
-	implicitIds = { "BeltImplicitIncreasedStunThreshold1, BeltImplicitCharmSlots3, WaistgateVerisiumImplicitRunicWardCanOverflow1" },
+	implicitIds = { "BeltImplicitIncreasedStunThreshold1", "BeltImplicitCharmSlots3", "WaistgateVerisiumImplicitRunicWardCanOverflow1", },
 	implicitModTypes = { {  }, { "charm" }, {  }, },
 	req = { level = 50, },
 }
@@ -128,7 +128,7 @@ itemBases["Runemastered Heavy Belt"] = {
 	hidden = true,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, runeforged = true, },
 	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\nFlasks gain (0.5-1) charges per Second",
-	implicitIds = { "BeltImplicitIncreasedStunThreshold1, BeltImplicitCharmSlots3, WaistgateVerisiumImplicitFlaskChargeGeneration1" },
+	implicitIds = { "BeltImplicitIncreasedStunThreshold1", "BeltImplicitCharmSlots3", "WaistgateVerisiumImplicitFlaskChargeGeneration1", },
 	implicitModTypes = { {  }, { "charm" }, {  }, },
 	req = { level = 50, },
 }
@@ -137,7 +137,7 @@ itemBases["Utility Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has (1-3) Charm Slot\n20% of Flask Recovery applied Instantly",
-	implicitIds = { "BeltImplicitCharmSlots3, BeltImplicitInstantFlaskRecoveryPercent1" },
+	implicitIds = { "BeltImplicitCharmSlots3", "BeltImplicitInstantFlaskRecoveryPercent1", },
 	implicitModTypes = { { "charm" }, {  }, },
 	req = { level = 55, },
 }
@@ -146,7 +146,7 @@ itemBases["Fine Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has (1-3) Charm Slot\nFlasks gain 0.17 charges per Second",
-	implicitIds = { "BeltImplicitCharmSlots3, BeltImplicitFlaskPassiveChargeGain1" },
+	implicitIds = { "BeltImplicitCharmSlots3", "BeltImplicitFlaskPassiveChargeGain1", },
 	implicitModTypes = { { "charm" }, {  }, },
 	req = { level = 62, },
 }
@@ -155,7 +155,7 @@ itemBases["Stalking Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Has 1 Charm Slot\nThis item gains bonuses from Socketed Items as though it was Boots",
-	implicitIds = { "BeltImplicitCharmSlots1, BeltImplicitBootsSocket1" },
+	implicitIds = { "BeltImplicitCharmSlots1", "BeltImplicitBootsSocket1", },
 	implicitModTypes = { { "charm" }, {  }, },
 	req = { level = 40, },
 }
@@ -164,7 +164,7 @@ itemBases["Invoking Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "(8-12)% increased Cast Speed\nHas 1 Charm Slot",
-	implicitIds = { "BeltImplicitCastSpeed1, BeltImplicitCharmSlots1" },
+	implicitIds = { "BeltImplicitCastSpeed1", "BeltImplicitCharmSlots1", },
 	implicitModTypes = { { "caster_speed", "caster", "speed" }, { "charm" }, },
 	req = { level = 32, },
 }
@@ -173,7 +173,7 @@ itemBases["Sinew Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "+(15-20) to Strength\nHas 1 Charm Slot",
-	implicitIds = { "BeltImplicitStrength1, BeltImplicitCharmSlots1" },
+	implicitIds = { "BeltImplicitStrength1", "BeltImplicitCharmSlots1", },
 	implicitModTypes = { { "attribute" }, { "charm" }, },
 	req = { level = 32, },
 }
@@ -182,7 +182,7 @@ itemBases["Forking Belt"] = {
 	charmLimit = 0,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, },
 	implicit = "Adds 1 to (20-30) Lightning damage to Attacks\nHas 1 Charm Slot",
-	implicitIds = { "BeltImplicitLightningDamage1, BeltImplicitCharmSlots1" },
+	implicitIds = { "BeltImplicitLightningDamage1", "BeltImplicitCharmSlots1", },
 	implicitModTypes = { { "elemental_damage", "damage", "elemental", "lightning", "attack" }, { "charm" }, },
 	req = { level = 32, },
 }

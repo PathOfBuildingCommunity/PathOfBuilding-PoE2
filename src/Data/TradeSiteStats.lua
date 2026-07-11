@@ -19886,6 +19886,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|39568",
+				["text"] = "Allocates Magnum Opus",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|41580",
 				["text"] = "Allocates Maiming Strike",
 				["type"] = "fractured",
@@ -35409,6 +35414,16 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1466716929",
+				["text"] = "Gain # Rage when Critically Hit by an Enemy",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3292710273",
+				["text"] = "Gain # Rage when Hit by an Enemy",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3398787959",
 				["text"] = "Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "augment",
@@ -35701,6 +35716,11 @@ return {
 			{
 				["id"] = "rune.stat_1678831767",
 				["text"] = "Recover # Life when you Block",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_939832726",
+				["text"] = "Recover #% of maximum Life for each Endurance Charge consumed",
 				["type"] = "augment",
 			},
 			{

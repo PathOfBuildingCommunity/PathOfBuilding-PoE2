@@ -7,7 +7,7 @@ itemBases["Clay Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -15,7 +15,7 @@ itemBases["Clamping Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -23,7 +23,7 @@ itemBases["Shrapnel Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -31,7 +31,7 @@ itemBases["Urn Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -40,7 +40,7 @@ itemBases["Incense Trap"] = {
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
 	implicit = "(20-30)% increased Cooldown Recovery Rate for throwing Traps",
-	implicitIds = { "TrapImplicitCooldownRecovery1" },
+	implicitIds = { "TrapImplicitCooldownRecovery1", },
 	implicitModTypes = { {  }, },
 	req = { },
 }
@@ -48,7 +48,7 @@ itemBases["Bladed Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -56,7 +56,7 @@ itemBases["Dart Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -64,7 +64,7 @@ itemBases["Spike Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -72,7 +72,7 @@ itemBases["Coiled Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -80,7 +80,7 @@ itemBases["Lead Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -88,7 +88,7 @@ itemBases["Medallion Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -96,7 +96,7 @@ itemBases["Intricate Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -104,7 +104,7 @@ itemBases["Refined Trap"] = {
 	type = "TrapTool",
 	quality = 20,
 	tags = { default = true, trap = true, twohand = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }

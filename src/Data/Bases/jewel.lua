@@ -5,28 +5,28 @@ local itemBases = ...
 itemBases["Ruby"] = {
 	type = "Jewel",
 	tags = { default = true, jewel = true, strjewel = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Emerald"] = {
 	type = "Jewel",
 	tags = { default = true, dexjewel = true, jewel = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Sapphire"] = {
 	type = "Jewel",
 	tags = { default = true, intjewel = true, jewel = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Diamond"] = {
 	type = "Jewel",
 	tags = { default = true, dexjewel = true, intjewel = true, jewel = true, not_for_sale = true, strjewel = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }
@@ -35,7 +35,7 @@ itemBases["Time-Lost Ruby"] = {
 	type = "Jewel",
 	subType = "Radius",
 	tags = { default = true, jewel = true, not_for_sale = true, radius_jewel = true, str_radius_jewel = true, },
-	implicitIds = { "JewelRadiusImplicit" },
+	implicitIds = { "JewelRadiusImplicit", },
 	implicitModTypes = { },
 	req = { },
 }
@@ -43,7 +43,7 @@ itemBases["Time-Lost Emerald"] = {
 	type = "Jewel",
 	subType = "Radius",
 	tags = { default = true, dex_radius_jewel = true, jewel = true, not_for_sale = true, radius_jewel = true, },
-	implicitIds = { "JewelRadiusImplicit" },
+	implicitIds = { "JewelRadiusImplicit", },
 	implicitModTypes = { },
 	req = { },
 }
@@ -51,7 +51,7 @@ itemBases["Time-Lost Sapphire"] = {
 	type = "Jewel",
 	subType = "Radius",
 	tags = { default = true, int_radius_jewel = true, jewel = true, not_for_sale = true, radius_jewel = true, },
-	implicitIds = { "JewelRadiusImplicit" },
+	implicitIds = { "JewelRadiusImplicit", },
 	implicitModTypes = { },
 	req = { },
 }
@@ -59,7 +59,7 @@ itemBases["Time-Lost Diamond"] = {
 	type = "Jewel",
 	subType = "Radius",
 	tags = { default = true, dex_radius_jewel = true, int_radius_jewel = true, jewel = true, not_for_sale = true, radius_jewel = true, str_radius_jewel = true, },
-	implicitIds = { "JewelRadiusImplicit" },
+	implicitIds = { "JewelRadiusImplicit", },
 	implicitModTypes = { },
 	req = { },
 }
@@ -69,7 +69,7 @@ itemBases["Timeless Jewel"] = {
 	subType = "Timeless",
 	hidden = true,
 	tags = { default = true, dexjewel = true, intjewel = true, jewel = true, not_for_sale = true, strjewel = true, },
-	implicitIds = {},
+	implicitIds = { },
 	implicitModTypes = { },
 	req = { },
 }

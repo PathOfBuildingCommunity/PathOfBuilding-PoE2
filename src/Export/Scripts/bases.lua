@@ -2,6 +2,7 @@ if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("stat_descriptions.csd")
+local utils = LoadModule("../Modules/Utils")
 
 local s_format = string.format
 
@@ -201,8 +202,7 @@ directiveTable.base = function(state, args, out)
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
-	local modIdArrayText = #implicitModIds > 0 and ' "' .. table.concat(implicitModIds, ", ") .. '" ' or ""
-	local modIdLine = string.format('\timplicitIds = {%s},\n', modIdArrayText)
+	local modIdLine = string.format('\timplicitIds = %s,\n', utils.stringifyInline(implicitModIds))
 	out:write(modIdLine)
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do

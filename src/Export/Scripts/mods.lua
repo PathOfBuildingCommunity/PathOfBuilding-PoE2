@@ -3,6 +3,7 @@ if not loadStatFile then
 end
 local statDescriptions = getStatDescriptors("stat_descriptions.csd")
 loadStatFile("stat_descriptions.csd")
+local utils = LoadModule("../Modules/Utils")
 
 -- not comprehensive. see mod domains table in export tool and enums.lua
 local Domains = {
@@ -180,12 +181,7 @@ local function writeMods(outName, condFunc)
 					tradeHashes[tradeHash] = { statValues = currentStats, canonicalStat = canonicalStat, }
 					::innerContinue::
 				end
-				out:write("tradeHashes = { ")
-				for hash, desc in pairs(tradeHashes) do
-					local descriptionLines = '"' .. table.concat(desc, '", "') .. '"'
-					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
-				end
-				out:write('} ')
+				out:write(string.format("tradeHashes = %s,", utils.stringifyInline(tradeHashes)))
 				out:write('},\n')
 			else
 				print("Mod '" .. mod.Id .. "' has no stats")
