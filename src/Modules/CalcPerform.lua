@@ -3241,6 +3241,9 @@ function calcs.perform(env, skipEHP)
 		},
 	}
 
+	-- precalculate life for rathpith Spells have 3% increased Magnitude of Ailments per 100 maximum
+	-- Life cultivated mod
+	calcs.doActorLifeManaSpirit(env.player, true)
 	local hitFlag
 	if env.mode == "CALCS" then
 		hitFlag = env.player.mainSkill.activeEffect.statSetCalcs.skillFlags.hit
@@ -3265,9 +3268,9 @@ function calcs.perform(env, skipEHP)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefore will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and hitFlag and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "Enemy" .. ailment .. "Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Magnitude", "AilmentMagnitude")
 					else
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "Enemy" .. ailment .. "Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Magnitude", "AilmentMagnitude")
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					if mod.name == ailment.."Minimum" then
