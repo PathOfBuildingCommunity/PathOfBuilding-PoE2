@@ -3089,7 +3089,13 @@ function calcs.perform(env, skipEHP)
 	for _, modList in pairs(debuffs) do
 		enemyDB:AddList(modList)
 	end
-	modDB.multipliers["CurseOnEnemy"] = #curseSlots
+	local cursesInCurseSlots = {}
+	for _, slot in ipairs(curseSlots) do
+		if not slot.isMark then
+			table.insert(cursesInCurseSlots, slot)
+		end
+	end
+	modDB.multipliers["CurseOnEnemy"] = #cursesInCurseSlots
 	for _, slot in ipairs(curseSlots) do
 		enemyDB.conditions["Cursed"] = true
 		if slot.isMark then
