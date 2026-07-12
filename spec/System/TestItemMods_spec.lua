@@ -618,6 +618,12 @@ describe("TetsItemMods", function()
 		-- more curse more dmg
 		assert.are_not.equals(afterEleWeaknessPhys, afterEnfeeblePhys)
 		assert.are_not.equals(afterEleWeaknessChaos, afterEnfeebleChaos)
+
+		build.skillsTab:PasteSocketGroup("Freezing Mark 20/0  1")
+		runCallback("OnFrame")
+		-- marks are not curses and should not grant more damage
+		assert.are.equals(afterEnfeeblePhys, round(build.calcsTab.mainOutput.PhysicalStoredCombinedAvg))
+		assert.are.equals(afterEnfeebleChaos, round(build.calcsTab.mainOutput.ChaosStoredCombinedAvg))
 	end)
 
 	it("twisted empyrean", function()
