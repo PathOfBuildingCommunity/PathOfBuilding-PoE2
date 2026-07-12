@@ -833,6 +833,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
 	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
+	local canUseBonded = nodesModsList:Flag(nil, "CanUseBonded")
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -1043,7 +1044,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			for _, slot in pairs(build.itemsTab.orderedSlots) do
 				local slotName = slot.slotName
 				if items[slotName] then
-					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum] or {}
+					local srcList = items[slotName]:GetActiveModListForSlotNum(slot.slotNum, canUseBonded)
 					for _, mod in ipairs(srcList) do
 						-- checks if it disables another slot
 						for _, tag in ipairs(mod) do
@@ -1140,7 +1141,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if item then
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
-				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+				local srcList = item:GetActiveModListForSlotNum(slot.slotNum, canUseBonded)
 				local corruptedJewelEffect = slot.nodeId and getCorruptedJewelEffect(env, item, node) or 0
 
 				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
@@ -1448,7 +1449,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
 		local quiverEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
-		local modList = env.player.itemList["Weapon 2"].modList
+		local modList = env.player.itemList["Weapon 2"]:GetActiveModListForSlotNum(2, canUseBonded)
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
 			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
@@ -1458,7 +1459,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	
 	if env.player.itemList["Amulet"] and env.player.itemList["Amulet"].type == "Amulet" then
 		local amuletEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromAmulet") / 100
-		local modList = env.player.itemList["Amulet"].modList
+		local modList = env.player.itemList["Amulet"]:GetActiveModListForSlotNum(nil, canUseBonded)
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
 			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletEffectMod * 100) .. "% Amulet Bonus Effect"

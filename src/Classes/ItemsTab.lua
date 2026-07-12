@@ -1949,7 +1949,17 @@ local runeModLines = { { name = "None", label = "None", lines = { "None" }, orde
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod, isSocketBound = runeMod.isSocketBound })
+		-- Bonded stats are stored separately for calculation, but remain part of the
+		-- visible rune description and are prefixed only at this presentation boundary.
+		local lines = { }
+		for _, line in ipairs(runeMod) do
+			t_insert(lines, line)
+		end
+		for _, line in ipairs(runeMod.bonded or { }) do
+			t_insert(lines, "Bonded: " .. line)
+		end
+		local order = (runeMod.statOrder and runeMod.statOrder[1]) or (runeMod.bonded and runeMod.bonded.statOrder and runeMod.bonded.statOrder[1]) or 0
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, req = runeMod.rank[1], order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -1986,10 +1996,16 @@ function ItemsTabClass:GetValidRunesForItem(item)
 				t_insert(runes, addedRune)
 				addedRunes[rune.name] = addedRune
 			end
+			if rune.label then
+				addedRune.label = rune.label
+			end
 			for _, line in ipairs(rune.lines) do
 				t_insert(addedRune.lines, line)
 			end
 		end
+	end
+	for _, rune in ipairs(runes) do
+		rune.label = rune.label or rune.lines[1]
 	end
 	return runes
 end

@@ -659,10 +659,15 @@ describe("TestItemParse", function()
 
 		assert.are.equals(3, item.itemSocketCount)
 		assert.are.same({ "Greater Glacial Rune", "Lesser Body Rune" }, item.runes)
-		assert.are.equals(1, item.runeModLines[1].runeCount)
-		assert.are.equals(1, item.runeModLines[2].runeCount)
-		assert.is_nil(item.runeModLines[3].runeCount)
-		assert.is_nil(item.runeModLines[4].runeCount)
+		local runeLines = { }
+		for _, modLine in ipairs(item.runeModLines) do
+			runeLines[modLine.line] = true
+		end
+		assert.are.equals(4, #item.runeModLines)
+		assert.is_true(runeLines["Adds 9 to 15 Cold Damage"])
+		assert.is_true(runeLines["Leeches 3% of Physical Damage as Life"])
+		assert.is_true(runeLines["Bonded: 5% increased maximum Life"])
+		assert.is_true(runeLines["Bonded: 30% increased Freeze Buildup"])
 		for _, rune in ipairs(item.runes) do
 			assert.are_not.equals("Lesser Glacial Rune", rune)
 		end
@@ -682,6 +687,8 @@ describe("TestItemParse", function()
 		assert.are.equals("+30 to maximum Life", item.runeModLines[1].line)
 		assert.are.equals("Bonded: +20 to maximum Life", item.runeModLines[2].line)
 		assert.are.equals("Bonded: +20 to maximum Mana", item.runeModLines[3].line)
+		assert.are.equals(0, #item.runeModLines[2].modList)
+		assert.are.equals(0, #item.runeModLines[3].modList)
 	end)
 
 	it("applies increased effect of socketed runes", function()

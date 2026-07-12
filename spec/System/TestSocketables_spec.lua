@@ -6,13 +6,19 @@ describe("TestSocketables", function()
     -- Item Tab display Tests
     -- Also checks slot type runes
 
-    local extractNamesFromModRunes = function(slotType) 
+    local extractNamesFromModRunes = function(item)
         local modRunes = LoadModule("../src/Data/ModRunes")
         local names = { }
+        local baseType, specificType = item:GetSocketedAugmentTypes()
         for name, rune in pairs(modRunes) do
-            for runeSlotType, mods in pairs(rune) do
-                if runeSlotType == slotType then
-                    table.insert(names, name)
+            if rune[baseType] or rune[specificType] then
+                names[name] = true
+            else
+                for soulCoreType in pairs(item.socketedSoulCoreTypes) do
+                    if rune[soulCoreType] and rune[soulCoreType].type == "SoulCore" then
+                        names[name] = true
+                        break
+                    end
                 end
             end
         end
@@ -23,36 +29,23 @@ describe("TestSocketables", function()
         -- ConPrintf("Testing: %s", slotType)
         local itemRaw = "Test\n" .. itemBase .. "\nSockets: S"
 
-        local modRunes = extractNamesFromModRunes(slotType)
-
         -- Create an ItemTab and add a socketable item to it
         local item = new("Item", itemRaw)
+        local modRunes = extractNamesFromModRunes(item)
 
         build.itemsTab:AddItem(item)
         build.itemsTab:SetDisplayItem(item)
         runCallback("OnFrame")
 
-        -- Extract the proper slot type runes from the list
+        -- The dropdown combines broad and specific slot types, then deduplicates by name.
+        -- Compare that exact union so both missing and incorrectly included runes fail.
         local itemTabRunes = { }
         for _, rune in ipairs(build.itemsTab.controls["displayItemRune1"].list) do
-            if rune.slot == slotType then
-                table.insert(itemTabRunes, rune.name)
+            if rune.name ~= "None" then
+                itemTabRunes[rune.name] = true
             end
         end
-        -- To keep the test fast, only check that the lengths match
-        -- This should also catch issues with multi-mod line runes since the rune name will appear
-        -- for the number of mod lines that the rune has.
-        if #itemTabRunes ~= #modRunes then
-            ConPrintf("Item Tab Runes for slot type '%s':", slotType)
-            for _, name in ipairs(itemTabRunes) do
-                ConPrintf("  %s", name)
-            end
-            ConPrintf("Mod Runes for slot type '%s':", slotType)
-            for _, name in ipairs(modRunes) do
-                ConPrintf("  %s", name)
-            end
-        end
-        assert.are.equals(#itemTabRunes, #modRunes, "Mismatch in number of runes for slot type: " .. slotType)
+        assert.are.same(modRunes, itemTabRunes, "Rune list mismatch for slot type: " .. slotType)
     end
 
     -- Note: Except for weapon/armour/caster,

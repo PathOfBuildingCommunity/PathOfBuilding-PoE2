@@ -1438,8 +1438,6 @@ local preFlagList = {
 	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^enemies in your presence [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
-	-- Bonded
-	["^bonded: "] = { tag = { type = "Condition", var = "CanUseBondedModifiers" } },
 }
 
 -- List of modifier tags
@@ -3421,7 +3419,10 @@ local specialModList = {
 	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
 	["walk the paths not taken"] = { },
 	["gain the benefits of bonded modifiers on runes and idols"] = {
-		flag("Condition:CanUseBondedModifiers"),
+		flag("CanUseBonded"),
+	},
+	["idols socketed in this item gain the benefits of their bonded modifiers"] = {
+		flag("SocketedIdolsUseBondedModifiers"),
 	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
