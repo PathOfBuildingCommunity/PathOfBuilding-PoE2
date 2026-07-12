@@ -650,6 +650,29 @@ describe("TestItemsTab", function()
 				assert.is_true(foundMaximumRage)
 			end)
 
+			it("refreshes affix controls when an augment changes affix limits", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Rarity: RARE
+					New
+					Stocky Mitts
+					Sockets: S
+				]], true)
+
+				local runeControl = build.itemsTab.controls.displayItemRune1
+				for index, rune in ipairs(runeControl.list) do
+					if rune.name == "Serle's Triumph" then
+						runeControl:SetSel(index)
+						break
+					end
+				end
+
+				local affixControl = build.itemsTab.controls.displayItemAffix7
+				assert.are.equals(7, build.itemsTab.displayItem.affixLimit)
+				assert.are.equals("suffixes", affixControl.outputTable)
+				assert.are.equals("None", affixControl.list[1])
+				affixControl.tooltipFunc({ Clear = function() end }, "BODY", affixControl.selIndex, nil)
+			end)
+
 			it("keeps Darkness Enthroned's socket editor available at zero sockets", function ()
 				build.itemsTab:CreateDisplayItemFromRaw([[
 					Item Class: Belts
