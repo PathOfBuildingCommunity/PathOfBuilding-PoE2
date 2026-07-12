@@ -894,6 +894,19 @@ describe("TestSkills", function()
 		assert.True(avgDPS < lightningDPS)
 	end)
 
+	it("scales spell bleed magnitude from maximum Life", function()
+		build.configTab.input.customMods = [[
+			+5000 to maximum Life
+			100% chance to inflict Bleeding on Hit
+			Non-Channelling Spells have 3% increased Magnitude of Ailments per 100 maximum Life
+		]]
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Unearth 20/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals(1 + math.floor(build.calcsTab.mainOutput.Life / 100) * 0.03, build.calcsTab.mainOutput.BleedMagnitudeEffect)
+	end)
+
 	it("Test flicker strike scales with power charges", function()
 		build.skillsTab:PasteSocketGroup("Flicker Strike 20/0  1")
 		build.itemsTab:CreateDisplayItemFromRaw([[

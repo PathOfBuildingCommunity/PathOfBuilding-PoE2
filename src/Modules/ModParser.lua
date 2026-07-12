@@ -3821,6 +3821,8 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
 	} end,
+	["non%-channelling spells have (%d+)%% increased magnitude of ailments per (%d+) maximum life"] = function(num, _, div) return { mod("AilmentMagnitude", "INC", num, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "PerStat", stat = "Life", div = tonumber(div) }) } end,
+	["non%-channelling spells have (%d+)%% reduced magnitude of ailments per (%d+) maximum life"] = function(num, _, div) return { mod("AilmentMagnitude", "INC", -num, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "PerStat", stat = "Life", div = tonumber(div) }) } end,
 	-- Elemental Ailments
 	["enemies take (%d+)%% increased damage for each elemental ailment type among your ailments on them"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
