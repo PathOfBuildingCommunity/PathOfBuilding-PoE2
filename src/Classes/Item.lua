@@ -565,18 +565,28 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				elseif specName == "Quality" then
 					self.quality = specToNumber(specVal)
 				elseif specName == "Sockets" then
+					local itemSockets = { }
+					local jewelSocketCount = 0
 					local group = 0
 					for c in specVal:gmatch(".") do
 						if c:match("[S]") then
-							t_insert(self.sockets, { group = group })
+							t_insert(itemSockets, { group = group })
 							group = group + 1
 						elseif c:match("[J]") then -- e.g. specVal = "Sockets: J J J J J J"
-							self.jewelSocketCount = self.jewelSocketCount + 1
+							jewelSocketCount = jewelSocketCount + 1
 						end
 					end
-					self.itemSocketCount = #self.sockets
+					if #itemSockets > 0 and #self.sockets == 0 then
+						self.sockets = itemSockets
+						self.itemSocketCount = #self.sockets
+					end
+					if jewelSocketCount > 0 and self.jewelSocketCount == 0 then
+						self.jewelSocketCount = jewelSocketCount
+					end
+					goto continue
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
+					goto continue
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
