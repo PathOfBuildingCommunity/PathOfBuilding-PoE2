@@ -4836,6 +4836,12 @@ function calcs.offence(env, actor, activeSkill)
 			if not canDeal[damageType] then
 				return false
 			end
+			-- A pseudo-hit (e.g. Infernal Legion "ignites as though dealing X") is not a
+			-- real hit, so it only inflicts the one ailment it represents -- on-hit ailment
+			-- sources (a Poison support, etc.) can't ride along on its notional damage.
+			if skillData.pseudoHitAilment and ailmentType ~= skillData.pseudoHitAilment then
+				return false
+			end
 			-- check against input valid types
 			if ((defaultDamageTypes and defaultDamageTypes[damageType])
 				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)) then
@@ -5488,8 +5494,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		-- Calculate damaging ailment values
-		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
+		-- Calculate damaging ailment values. A pseudo-hit only seeds the ailment it
+		-- represents; that restriction lives in canDoAilment, so the loop stays general.
+		for _, damagingAilment in ipairs({ "Bleed", "Poison", "Ignite" }) do
 			local damageType = data.defaultAilmentDamageTypes[damagingAilment]["DamageType"]
 			if not canDeal[damageType] then
 				for _, type in ipairs(dmgTypeList) do
@@ -6131,6 +6138,16 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown and breakdown.SelfHitDamage then
 			breakdown.SelfHitDamage[#breakdown.SelfHitDamage] = nil -- Remove new line at the end
 		end
+	end
+
+	-- pseudoHitAilment: the hit deals no damage of its own (e.g. Infernal Legion
+	-- "ignites as though dealing X"), it only seeds its ailment, which was already
+	-- derived from the stored hit damage above. Zero the hit outputs so only the
+	-- ailment/DoT counts toward DPS.
+	if skillData.pseudoHitAilment then
+		output.AverageDamage = 0
+		output.AverageHit = 0
+		output.TotalDPS = 0
 	end
 
 	-- Calculate combined DPS estimate, including DoTs
