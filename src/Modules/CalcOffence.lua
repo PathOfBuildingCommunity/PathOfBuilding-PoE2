@@ -4093,6 +4093,7 @@ function calcs.offence(env, actor, activeSkill)
 					if (damageTypeHitMin ~= 0 or damageTypeHitMax ~= 0) and env.mode_effective then
 						-- Apply enemy resistances and damage taken modifiers
 						local resist = 0
+						local resistBeforeIgnoreNonNegative = 0
 						local pen = 0
 						local minPen = 0
 						local sourceRes = damageType
@@ -4165,6 +4166,7 @@ function calcs.offence(env, actor, activeSkill)
 								end
 								sourceRes = elementUsed
 							elseif isElemental[damageType] then
+								resistBeforeIgnoreNonNegative = resist
 								if resist > 0 and modDB:Flag(cfg, "IgnoreNonNegativeEleRes") then
 									resist = 0
 								end
@@ -4194,11 +4196,11 @@ function calcs.offence(env, actor, activeSkill)
 							return resist > minPen and m_max(resist - pen, minPen) or resist
 						end
 						if skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
-							effectiveResist = (isElemental[damageType] and invertChance > 0) and (resist - 2 * invertChance * resist) or resist
+							effectiveResist = (isElemental[damageType] and invertChance > 0) and (resistBeforeIgnoreNonNegative - 2 * invertChance * resistBeforeIgnoreNonNegative) or resist
 							effMult = effMult * (1 - effectiveResist / 100)
 						elseif useRes then
 							if isElemental[damageType] and invertChance > 0 then
-								effectiveResist = calcPenResist(resist) * (1 - invertChance) + calcPenResist(-resist) * invertChance
+								effectiveResist = calcPenResist(resist) * (1 - invertChance) + calcPenResist(-resistBeforeIgnoreNonNegative) * invertChance
 							else
 								effectiveResist = calcPenResist(resist)
 							end
