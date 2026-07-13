@@ -6229,7 +6229,10 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
-	["can be modified while corrupted"] = {}
+	["can be modified while corrupted"]  = {},
+	-- handled in item parsing
+	["%d+%% [id][ne]creased ?[%a%s]* modifier magnitudes"] = {},
+	["%d+%% [id][ne]creased effect of [sp][ur][fe]fixes"] = {},
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

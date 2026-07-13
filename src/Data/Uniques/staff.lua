@@ -229,17 +229,17 @@ Grants Skill: Level (1-20) Feast of Flesh
 {variant:5}Grants Skill: Level (1-20) His Vile Intrusion
 {variant:6}Grants Skill: Level (1-20) His Winnowing Flame
 (60-80)% increased Desecrated Modifier magnitudes
-{variant:9}(100-160)% increased Chaos Damage
-{variant:11}(100-160)% increased Chaos Damage
-{variant:10}(100-160)% increased Spell Physical Damage
-{variant:8}+(40-60) to Spirit
-{variant:7}(10-20)% increased Duration of Elemental Ailments on Enemies
-{variant:7}(100-160)% increased Elemental Damage
-{variant:11}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
-{variant:9}Enemies you Curse have -(8-5)% to Chaos Resistance
-{variant:10}(20-30)% chance to inflict Bleeding on Hit
-{variant:8}(6-10)% increased Spirit Reservation Efficiency
-{variant:12}(28-56)% increased Magnitude of Unholy Might buffs you grant
-{variant:12}You have Unholy Might
+{variant:9}{desecrated}(100-160)% increased Chaos Damage
+{variant:11}{desecrated}(100-160)% increased Chaos Damage
+{variant:10}{desecrated}(100-160)% increased Spell Physical Damage
+{variant:8}{desecrated}+(40-60) to Spirit
+{variant:7}{desecrated}(10-20)% increased Duration of Elemental Ailments on Enemies
+{variant:7}{desecrated}(100-160)% increased Elemental Damage
+{variant:11{desecrated}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
+{variant:9}{desecrated}Enemies you Curse have -(8-5)% to Chaos Resistance
+{variant:10}{desecrated}(20-30)% chance to inflict Bleeding on Hit
+{variant:8}{desecrated}(6-10)% increased Spirit Reservation Efficiency
+{variant:12}{desecrated}(28-56)% increased Magnitude of Unholy Might buffs you grant
+{variant:12}{desecrated}You have Unholy Might
 ]],
 }
