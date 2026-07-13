@@ -3556,6 +3556,15 @@ skills["SupportCathasBrilliance"] = {
 			label = "Catha's Brilliance",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				-- Catha's Brilliance ignites enemies for a % of the minion's max life, the
+				-- same mechanic as Infernal Legion: wire the stat to the IL base-damage
+				-- multiplier and grant the companion the IL skill so the ignite is modelled.
+				["support_minions_ignite_for_%_max_life"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil) }),
+					mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
