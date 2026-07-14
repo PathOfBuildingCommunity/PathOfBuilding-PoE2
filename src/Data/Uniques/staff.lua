@@ -235,7 +235,7 @@ Grants Skill: Level (1-20) Feast of Flesh
 {variant:8}{desecrated}+(40-60) to Spirit
 {variant:7}{desecrated}(10-20)% increased Duration of Elemental Ailments on Enemies
 {variant:7}{desecrated}(100-160)% increased Elemental Damage
-{variant:11{desecrated}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
+{variant:11}{desecrated}Enemies you kill have a (5-10)% chance to explode, dealing a quarter of their maximum Life as Chaos damage
 {variant:9}{desecrated}Enemies you Curse have -(8-5)% to Chaos Resistance
 {variant:10}{desecrated}(20-30)% chance to inflict Bleeding on Hit
 {variant:8}{desecrated}(6-10)% increased Spirit Reservation Efficiency

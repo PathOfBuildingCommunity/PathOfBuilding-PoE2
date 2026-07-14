@@ -998,7 +998,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					if rangedLine:lower():find(pattern) then
 						local rangedLine = itemLib.applyRange(line, modLine.range or main.defaultItemAffixQuality or 1, catalystScalar, modLine.corruptedRange)
 						local amount, increaseOrDecrease, modTagsString = rangedLine:lower():match(pattern)
-						if amount and modTagsString and increaseOrDecrease == "increased" or increaseOrDecrease == "decreased" then
+						if amount and modTagsString and (increaseOrDecrease == "increased" or increaseOrDecrease == "decreased") then
 							local modTags = {}
 							local modType
 							-- explicit elemental damage -> tags = {elemental, damage}, modType = explicit
@@ -1364,7 +1364,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							mod.modList = modList
 							mod.extra = extra
 						end
-						::magnitudeContinue::
 					end
 				end
 			end
