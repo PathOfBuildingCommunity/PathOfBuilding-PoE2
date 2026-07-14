@@ -98,17 +98,13 @@ function newClass(className, ...)
 		class._superParents = { }
 		addSuperParents(class, class)
 		-- Set up inheritance
-		setmetatable(class, {
-			__index = function(self, key)
-				for _, parent in ipairs(class._parents) do
-					local val = parent[key]
-					if val ~= nil then
-						self[key] = val
-						return val
-					end
+		for _, parent in ipairs(class._parents) do
+			for k, v in pairs(parent) do
+				if class[k] == nil then
+					class[k] = v
 				end
 			end
-		})
+		end
 	end
 	return class
 end
