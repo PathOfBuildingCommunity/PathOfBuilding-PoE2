@@ -386,8 +386,11 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					end
 					-- Infernal Legion is an always-active burning aura the minion emits.
 					-- When the minion is in Full DPS, evaluate its IL extra-skill ignite
-					-- (even when a different skill is selected) and feed it into the best
-					-- ignite, since only the strongest ignite can be on a target at once.
+					-- (even when a different skill is selected) and add it to the pass as
+					-- its own actor: mergeStats feeds it into the best ignite (only the
+					-- strongest ignite can be on a target at once), and being part of the
+					-- pass snapshot it survives cached replays. Its hit DPS is zero
+					-- (pseudo-hit), so it contributes nothing else to the totals.
 					local ilSkill
 					for _, s in ipairs(usedEnv.minion.activeSkillList or {}) do
 						local ge = s.activeEffect and s.activeEffect.grantedEffect
@@ -396,10 +399,12 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					if ilSkill then
 						usedEnv.minion.mainSkill = ilSkill
 						calcs.offence(usedEnv, usedEnv.minion, ilSkill)
-						if usedEnv.minion.output.IgniteDPS and usedEnv.minion.output.IgniteDPS > fullDPS.igniteDPS then
-							fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
-							igniteSource = skillName .. " (Infernal Legion)"
-						end
+						t_insert(pass.actors, {
+							out = captureFields(usedEnv.minion.output),
+							name = skillName .. " (Infernal Legion)",
+							count = 1,
+							sourceName = skillName .. " (Infernal Legion)",
+						})
 					end
 				end
 

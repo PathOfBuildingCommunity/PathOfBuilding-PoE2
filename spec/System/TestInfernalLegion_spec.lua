@@ -77,6 +77,38 @@ describe("TestInfernalLegion", function()
 			string.format("ignite changed under Full DPS: %.6f vs %.6f", env.minion.output.IgniteDPS, base))
 	end)
 
+	-- The IL extra-skill result must live in the pass snapshot: a cached Full DPS
+	-- replay (item/tree comparison) has to keep the IL ignite, not silently drop it.
+	it("IL ignite survives a cached Full DPS replay", function()
+		local env = setupIL()
+		-- select a non-IL skill as the minion's main skill; IL stays granted as the
+		-- extra skill, so its ignite only enters Full DPS via the extra-skill pass
+		local otherIndex
+		for i, s in ipairs(env.minion.activeSkillList) do
+			local ge = s.activeEffect and s.activeEffect.grantedEffect
+			if not (ge and ge.id == "InfernalLegion") then otherIndex = i break end
+		end
+		assert.is_not_nil(otherIndex, "no non-IL minion skill found")
+		for _, gem in ipairs(build.skillsTab.socketGroupList[1].gemList) do
+			gem.skillMinionSkill = otherIndex
+			gem.skillMinionSkillCalcs = otherIndex
+		end
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		recalc()
+		local calcsModule = LoadModule("Modules/Calcs")
+		local store = { }
+		local fresh = calcsModule.calcFullDPS(build, "CALCULATOR", {}, { fullDPSCache = { store = store, capture = true } })
+		local performs = 0
+		local realPerform = calcsModule.perform
+		calcsModule.perform = function(...) performs = performs + 1 return realPerform(...) end
+		local cached = calcsModule.calcFullDPS(build, "CALCULATOR", {}, { fullDPSCache = { store = store } })
+		calcsModule.perform = realPerform
+		assert.are.equals(0, performs, "second call should replay from the cache")
+		assert.True(fresh.igniteDPS and fresh.igniteDPS > 0, "fresh pass should have the IL ignite")
+		assert.are.equals(fresh.igniteDPS, cached.igniteDPS)
+		assert.are.equals(fresh.TotalDotDPS, cached.TotalDotDPS)
+	end)
+
 	-- IL's hit is a pseudo-hit (no real damage), so a poison source must not seed a
 	-- poison off its big notional damage -- that was inflating Poison's evaluated value.
 	it("IL pseudo-hit does not seed poison from a poison source", function()
