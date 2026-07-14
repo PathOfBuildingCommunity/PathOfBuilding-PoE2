@@ -60,7 +60,7 @@ local function getRangedModList(item, modLine)
 	if not modLine.range or not modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
 		return
 	end
-	local line = itemLib.applyRange(modLine.line:gsub("\n", " "), modLine.range, getCatalystScalar(item.catalyst, modLine, item.catalystQuality), modLine.corruptedRange)
+	local line = itemLib.applyRange(modLine.line:gsub("\n", " "), modLine.range, modLine.valueScalar, modLine.corruptedRange)
 	local list, extra = modLib.parseMod(line)
 	if itemLib.isZeroValueLine(line) then
 		return { }

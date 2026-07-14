@@ -1,4 +1,4 @@
-describe("TetsItemMods", function()
+describe("TestItemMods", function()
 	before_each(function()
 		newBuild()
 	end)
