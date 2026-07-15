@@ -26,16 +26,6 @@ local function combineToUpper(str, sepPattern)
 	return outStr
 end
 
--- Convert condition verb forms to their proper condition variable names
-local function getConditionVar(verb)
-	local conditionMap = {
-		["curse"] = "Cursed",
-		["mark"] = "Marked",
-		["electrocute"] = "Electrocuted",
-	}
-	return conditionMap[verb] or firstToUpper(verb)
-end
-
 -- Radius jewels that modify other nodes
 local function getSimpleConv(srcList, dst, type, remove, factor)
 	return function(node, out, data)
@@ -6407,6 +6397,18 @@ local flagTypes = {
 	["unnerved"] = "Condition:Unnerved",
 	["malediction"] = "HasMalediction",
 }
+
+
+-- Convert condition verb forms to their proper condition variable names
+-- TODO better name? somehow combine with the function below?
+local function getConditionVar(verb)
+	local conditionMap = {
+		["curse"] = "Cursed",
+		["mark"] = "Marked",
+		["electrocute"] = "Electrocuted",
+	}
+	return conditionMap[verb] or firstToUpper(verb)
+end
 
 -- Table to map "status" like "Bleeding" to correct effect like "BleedImmune"
 local statusToEffectMap = {
