@@ -27,7 +27,7 @@ local function combineToUpper(str, sepPattern)
 end
 
 -- Convert condition verb forms to their proper condition variable names
--- TODO better name? somehow combine with the function below?
+-- TODO better name? somehow combine with statusToEffectMap
 local function getConditionVar(verb)
 	local conditionMap = {
 		["curse"] = "Cursed",
