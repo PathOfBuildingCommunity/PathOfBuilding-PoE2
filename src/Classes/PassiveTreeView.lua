@@ -1098,8 +1098,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							end
 						else
 							-- Jewel in socket is not Thread of Hope or similar
+							-- Use the increased radii instead of the base ones if the socketed jewel benefits from them
+							local isIncreased = jewel and build.spec:GetJewelRadiusIndex(jewel) ~= jewel.jewelRadiusIndex
 							for index, data in ipairs(build.data.jewelRadius) do
-								if hoverNode.nodesInRadius[index][node.id] then
+								if (not data.increased) == (not isIncreased) and hoverNode.nodesInRadius[index][node.id] then
 									-- Draw normal jewel radii
 									if data.inner == 0 then
 										SetDrawColor(data.col)
@@ -1221,8 +1223,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Draw ring overlays for jewel sockets
-	local function drawJewelRadius(jewel, scrX, scrY, tint)
-		local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
+	local function drawJewelRadius(jewel, scrX, scrY, tint, jewelSpec)
+		local radData = build.data.jewelRadius[jewelSpec:GetJewelRadiusIndex(jewel)]
 		local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 		local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
 		SetDrawColor(tint[1], tint[2], tint[3], tint[4])
@@ -1270,6 +1272,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node == hoverNode then
 				local effectiveJewel = jewel or cJewel
 				local isThreadOfHope = effectiveJewel and effectiveJewel.jewelRadiusLabel == "Variable"
+				-- Preview the increased radii instead of the base ones if the socketed jewel benefits from them
+				local jewelSpec = jewel and spec or self.compareSpec
+				local isIncreased = effectiveJewel and jewelSpec and jewelSpec:GetJewelRadiusIndex(effectiveJewel) ~= effectiveJewel.jewelRadiusIndex
 				for _, radData in ipairs(build.data.jewelRadius) do
 					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
@@ -1282,7 +1287,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						end
 					else
 						-- Standard jewel: draw the full-disc radii (inner == 0)
-						if innerSize == 0 then
+						if innerSize == 0 and (not radData.increased) == (not isIncreased) then
 							SetDrawColor(radData.col)
 							DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						end
@@ -1295,10 +1300,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local sameJewel = compareJewelsEqual(jewel, cJewel)
 				if pHasRadius then
 					local tint = (not self.compareSpec or sameJewel) and JEWEL_RADIUS_TINT_NEUTRAL or JEWEL_RADIUS_TINT_PRIMARY_ONLY
-					drawJewelRadius(jewel, scrX, scrY, tint)
+					drawJewelRadius(jewel, scrX, scrY, tint, spec)
 				end
 				if cHasRadius and not sameJewel then
-					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY)
+					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY, self.compareSpec)
 				end
 			end
 		end
@@ -1800,7 +1805,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local isInRadius = false
 		for id, socket in pairs(build.itemsTab.sockets) do
 			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
-				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[4][node.id] ~= nil)
+				-- index 4 is Very Large; its increased version covers the largest possible Time-Lost radius
+				local maxRadiusIndex = build.spec.hasTimeLostJewelRadiusIncrease and data.timeLostJewelIncreasedRadiusIndex[4] or 4
+				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[maxRadiusIndex][node.id] ~= nil)
 				if isInRadius then break end
 			end
 		end

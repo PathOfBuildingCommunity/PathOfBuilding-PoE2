@@ -669,8 +669,19 @@ data.jewelRadii = {
 		{ inner = 1400, outer = 1700, col = "^xFFCC00", label = "Variable" },
 		{ inner = 1650, outer = 1950, col = "^xFF6600", label = "Variable" },
 		{ inner = 1800, outer = 2100, col = "^x0099FF", label = "Variable" },
+
+		-- 40% increased versions of the four base radii, used for non-Unique Time-Lost
+		-- jewels when "Non-Unique Time-Lost Jewels have 40% increased radius" is allocated
+		-- (Baryanic Leylines). `increased` keeps them out of the generic radius previews.
+		{ inner = 0, outer = 1400, col = "^xBB6600", label = "Increased Small", increased = true },
+		{ inner = 0, outer = 1610, col = "^x66FFCC", label = "Increased Medium", increased = true },
+		{ inner = 0, outer = 1820, col = "^x2222CC", label = "Increased Large", increased = true },
+		{ inner = 0, outer = 2100, col = "^xC100FF", label = "Increased Very Large", increased = true },
 	}
 }
+
+-- Maps a Time-Lost jewel's base radius index to its 40% increased counterpart above
+data.timeLostJewelIncreasedRadiusIndex = { [1] = 13, [2] = 14, [3] = 15, [4] = 16 }
 
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
