@@ -154,6 +154,18 @@ describe("TestFullDPSCache", function()
 		end
 	end)
 
+	it("the uncached Full DPS-only path matches a full passive-node calculation", function()
+		buildTwoGroups()
+		local calcFunc, calcBase = build.calcsTab:GetMiscCalculator()
+		local node = assert(build.spec.nodes[1755], "Spell Damage passive not found")
+		local override = { addNodes = { [node] = true } }
+		local slow = calcFunc(override, true)
+		local fast = calcFunc(override, true, { fullDPSOnly = true, noFullDPSCache = true })
+		assertClose(slow.FullDPS, fast.FullDPS, "passive override FullDPS")
+		assertClose(slow.FullDotDPS, fast.FullDotDPS, "passive override FullDotDPS")
+		assert.is_true(math.abs((calcBase.FullDPS or 0) - (fast.FullDPS or 0)) > 1e-6, "passive should affect FullDPS")
+	end)
+
 	it("a stale cache is not reused after the build changes when recaptured", function()
 		local sparkGroup, fireballGroup = buildTwoGroups()
 		local gemData = findGem("Controlled Destruction")

@@ -140,8 +140,9 @@ function calcs.getMiscCalculator(build)
 			if fastCalcOptions.fullDPSOnly and usedFullDPS and useFullDPS then
 				-- The caller only reads the FullDPS roll-up (e.g. sorting gems by Full DPS), and
 				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely.
-				-- The base-pass cache store lets skills with unchanged inputs reuse their captured results
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = { store = fullDPSStore } })
+				-- Reuse captured skill results only when the caller's override is represented by the cache inputs
+				local fullDPSCache = not fastCalcOptions.noFullDPSCache and { store = fullDPSStore } or nil
+				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = fullDPSCache })
 				return { SkillDPS = fullDPS.skills, FullDPS = fullDPS.combinedDPS, FullDotDPS = fullDPS.TotalDotDPS }
 			end
 			-- Accelerated pass for hot loops (e.g. gem dropdown DPS sorting): reuse the cached
