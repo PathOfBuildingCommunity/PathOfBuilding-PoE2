@@ -831,7 +831,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 	end
 
-	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
+	local reuseNodeMods = accelerate.nodeAlloc and accelerate.requirementsItems
+	local nodesModsList = reuseNodeMods and env.cachedNodeModsWithKeystones or calcs.buildModListForNodeList(env, env.allocNodes, true, true)
+	env.cachedNodeModsWithKeystones = nodesModsList
 	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
@@ -1432,7 +1434,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	-- Merge modifiers for allocated passives
-	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
+	local treeModList = reuseNodeMods and env.cachedNodeMods or calcs.buildModListForNodeList(env, env.allocNodes, true)
+	env.cachedNodeMods = treeModList
+	env.modDB:AddList(treeModList)
 
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}

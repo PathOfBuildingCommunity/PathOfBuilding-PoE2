@@ -24,6 +24,18 @@ describe("TestFullDPSCache", function()
 		return sparkGroup, fireballGroup
 	end
 
+	local function buildMinionGroup()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		runCallback("OnFrame")
+		local group = build.skillsTab.socketGroupList[1]
+		group.mainActiveSkill = 1
+		build.mainSocketGroup = 1
+		build.viewMode = "SKILLS"
+		build.buildFlag = true
+		runCallback("OnFrame")
+		return group
+	end
+
 	local function findGem(name)
 		for _, gemData in pairs(build.data.gems) do
 			if gemData.name == name then
@@ -152,6 +164,62 @@ describe("TestFullDPSCache", function()
 			assertClose(slowFullDPS, fast.FullDPS, gemName .. " FullDPS")
 			assertClose(slowDot, fast.FullDotDPS, gemName .. " FullDotDPS")
 		end
+	end)
+
+	it("ordinary DPS fast calculations match fresh minion calculations", function()
+		local group = buildMinionGroup()
+		local calcFunc = build.calcsTab:GetMiscCalculator()
+		local fastOpts = { nodeAlloc = true, requirementsItems = true, requirementsGems = true, skipEHP = true }
+		for _, gemName in ipairs({ "Heft", "Meat Shield I" }) do
+			local slotIndex = #group.gemList + 1
+			local gemData = assert(findGem(gemName), "gem not found: " .. gemName)
+			group.gemList[slotIndex] = makeGemInstance(gemData, build.skillsTab:ProcessGemLevel(gemData))
+			local slow = calcFunc(nil, false)
+			local slowTotalDPS = assert(slow.Minion and slow.Minion.TotalDPS)
+			local slowAverageDamage = assert(slow.Minion.AverageDamage)
+			local fast = calcFunc(nil, false, fastOpts)
+			group.gemList[slotIndex] = nil
+			assertClose(slowTotalDPS, fast.Minion.TotalDPS, gemName .. " minion TotalDPS")
+			assertClose(slowAverageDamage, fast.Minion.AverageDamage, gemName .. " minion AverageDamage")
+		end
+	end)
+
+	it("gem sorting reads the selected minion damage field", function()
+		local group = buildMinionGroup()
+		build.skillsTab:SetDisplayGroup(group)
+		local control = assert(build.skillsTab.gemSlots[#group.gemList + 1].nameSpec)
+		control.sortGemsBy = "support"
+		local candidateOutput = { FullDPS = 444, Minion = { CombinedDPS = 333, TotalDPS = 222, AverageDamage = 111 } }
+		local baseOutput = { FullDPS = 4, Minion = { CombinedDPS = 3, TotalDPS = 2, AverageDamage = 1 } }
+		build.calcsTab.GetMiscCalculator = function()
+			return function()
+				return candidateOutput
+			end, baseOutput
+		end
+		local gemId = "Default:" .. assert(findGem("Heft")).id
+		for field, expected in pairs({ FullDPS = 444, TotalDPS = 222, AverageDamage = 111 }) do
+			build.skillsTab.sortGemsByDPSField = field
+			control:UpdateSortCache()
+			assert.is_true(control.sortCache.canSupport[gemId])
+			assert.are.equals(expected, control.sortCache.dps[gemId])
+		end
+	end)
+
+	it("skipEHP omits companion life work without changing damage", function()
+		build.skillsTab:PasteSocketGroup("Companion: Lightless Abomination 20/0  1\nLoyalty 1/0  1")
+		runCallback("OnFrame")
+		build.viewMode = "SKILLS"
+		local calcFunc = build.calcsTab:GetMiscCalculator()
+		local fastOpts = { nodeAlloc = true, requirementsItems = true, requirementsGems = true }
+		fastOpts.skipEHP = false
+		local withEHP = calcFunc(nil, false, fastOpts)
+		local companionLife = withEHP.TotalCompanionLife
+		local totalDPS = withEHP.Minion.TotalDPS
+		fastOpts.skipEHP = true
+		local withoutEHP = calcFunc(nil, false, fastOpts)
+		assert.is_true(companionLife > 0)
+		assert.are.equals(0, withoutEHP.TotalCompanionLife or 0)
+		assertClose(totalDPS, withoutEHP.Minion.TotalDPS, "minion TotalDPS")
 	end)
 
 	it("the uncached Full DPS-only path matches a full passive-node calculation", function()

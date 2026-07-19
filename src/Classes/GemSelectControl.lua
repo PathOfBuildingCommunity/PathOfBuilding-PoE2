@@ -15,6 +15,17 @@ local gemTooltip = LoadModule("Classes/GemTooltip")
 
 local toolTipText = "Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area"
 
+local function getOutputStatValue(output, stat)
+	if stat == "FullDPS" and output.FullDPS ~= nil then
+		return output.FullDPS
+	end
+	local minionStat = stat == "FullDPS" and "CombinedDPS" or stat
+	if output.Minion and output.Minion[minionStat] ~= nil then
+		return output.Minion[minionStat]
+	end
+	return output[stat] or 0
+end
+
 local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self, anchor, rect, skillsTab, index, changeFunc, forceTooltip)
 	self.EditControl(anchor, rect, nil, nil, "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl", { "TOPRIGHT", self, "TOPRIGHT" }, {-1, 0, 18, 0}, (self.height - 4) * 4)
@@ -314,16 +325,14 @@ function GemSelectClass:UpdateSortCache()
 	-- estimation is only needed when sorting by it
 	local fastCalcOptions = { nodeAlloc = true, requirementsItems = true, requirementsGems = true, skipEHP = dpsField ~= "TotalEHP", fullDPSOnly = useFullDPS }
 	local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
-	-- Check for nil because some fields may not be populated, default to 0
-	local baseDPS = (dpsField == "FullDPS" and calcBase[dpsField] ~= nil and calcBase[dpsField]) or (calcBase.Minion and calcBase.Minion.CombinedDPS) or (calcBase[dpsField] ~= nil and calcBase[dpsField]) or 0
+	local baseDPS = getOutputStatValue(calcBase, dpsField)
 
 	for gemId, gemData in pairs(self.gems) do
 		sortCache.dps[gemId] = baseDPS
 		-- Ignore gems that don't support the active skill
 		if sortCache.canSupport[gemId] or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support) then
 			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions)
-			-- Check for nil because some fields may not be populated, default to 0
-			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
+			sortCache.dps[gemId] = getOutputStatValue(output, dpsField)
 		end
 		-- Color based on the DPS
 		if sortCache.dps[gemId] > baseDPS then

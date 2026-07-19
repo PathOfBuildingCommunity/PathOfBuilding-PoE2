@@ -134,7 +134,7 @@ function calcs.getMiscCalculator(build)
 		env.player.output.FullDPS = fullDPS.combinedDPS
 		env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 	end
-	local fastEnv
+	local fastEnv, gemFullDPSEnv
 	return function(override, useFullDPS, fastCalcOptions)
 		if fastCalcOptions then
 			if fastCalcOptions.fullDPSOnly and usedFullDPS and useFullDPS then
@@ -142,7 +142,21 @@ function calcs.getMiscCalculator(build)
 				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely.
 				-- Reuse captured skill results only when the caller's override is represented by the cache inputs
 				local fullDPSCache = not fastCalcOptions.noFullDPSCache and { store = fullDPSStore } or nil
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = fullDPSCache })
+				local reuseGemEnv = not override and fastCalcOptions.nodeAlloc and fastCalcOptions.requirementsItems and fastCalcOptions.requirementsGems
+				local fullDPSSpec = {
+					cachedPlayerDB = cachedPlayerDB,
+					cachedEnemyDB = cachedEnemyDB,
+					cachedMinionDB = cachedMinionDB,
+					fullDPSCache = fullDPSCache,
+				}
+				if reuseGemEnv then
+					fullDPSSpec.env = gemFullDPSEnv
+					fullDPSSpec.accelerate = gemFullDPSEnv and fastCalcOptions or nil
+				end
+				local fullDPS, nextEnv = calcs.calcFullDPS(build, "CALCULATOR", override, fullDPSSpec)
+				if reuseGemEnv then
+					gemFullDPSEnv = nextEnv
+				end
 				return { SkillDPS = fullDPS.skills, FullDPS = fullDPS.combinedDPS, FullDotDPS = fullDPS.TotalDotDPS }
 			end
 			-- Accelerated pass for hot loops (e.g. gem dropdown DPS sorting): reuse the cached
@@ -329,6 +343,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		end
 	end
 
+	local resetEnv
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local uuid = cacheStore and cacheSkillUUID(activeSkill, fullEnv)
@@ -342,6 +357,17 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 			end
 			local activeSkillCount, enabled
 			if not cachedPasses then
+				if resetEnv then
+					local accelerationTbl = {
+						nodeAlloc = true,
+						requirementsItems = true,
+						requirementsGems = true,
+						skills = true,
+						everything = true,
+					}
+					fullEnv = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+					resetEnv = false
+				end
 				activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
 			end
 			if cachedPasses then
@@ -416,16 +442,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					cacheStore.snapshots[uuid] = { pass }
 					cacheStore.refs[uuid] = ownRef
 				end
-
-				-- Re-Build env calculator for new run
-				local accelerationTbl = {
-					nodeAlloc = true,
-					requirementsItems = true,
-					requirementsGems = true,
-					skills = true,
-					everything = true,
-				}
-				fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+				resetEnv = true
 			end
 		end
 	end
@@ -476,7 +493,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.cullingDPS
 	end
 
-	return fullDPS
+	return fullDPS, fullEnv
 end
 
 -- Process active skill

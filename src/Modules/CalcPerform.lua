@@ -3352,7 +3352,7 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- Total life of spectres, for "% of Damage from Hits is taken from your Spectres' Life before you"
-	if modDB:HasMod("BASE", nil, "TakenFromSpectresBeforeYou") and not modDB:Override(nil, "TotalSpectreLife") then
+	if not skipEHP and modDB:HasMod("BASE", nil, "TakenFromSpectresBeforeYou") and not modDB:Override(nil, "TotalSpectreLife") then
 		local totalSpectreLife, spectreLifeList = calcMinionLifePool(env, buffs, function(activeSkill, skillFlags)
 			return skillFlags.spectre and not activeSkill.skillTypes[SkillType.MinionsAreUndamagable]
 		end)
@@ -3361,7 +3361,7 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- Total life of damageable companions, for "% of Damage from Hits is taken from your Companion's Life before you"
-	if modDB:HasMod("BASE", nil, "TakenFromCompanionBeforeYou", "TakenFromCompanionBeforeYouFromDeflected") and not modDB:Override(nil, "TotalCompanionLife") then
+	if not skipEHP and modDB:HasMod("BASE", nil, "TakenFromCompanionBeforeYou", "TakenFromCompanionBeforeYouFromDeflected") and not modDB:Override(nil, "TotalCompanionLife") then
 		local totalCompanionLife, companionLifeList = calcMinionLifePool(env, buffs, function(activeSkill)
 			return activeSkill.skillTypes[SkillType.Companion] and not activeSkill.skillTypes[SkillType.MinionsAreUndamagable]
 		end)
