@@ -163,23 +163,27 @@ function calcs.getMiscCalculator(build)
 			-- DBs and environment so unchanged state (tree, items, requirements - per the
 			-- accelerate flags) is carried over instead of being rebuilt for every call.
 			-- The first call builds the reusable environment from scratch, like calcFullDPS does.
-			local accelerate = fastEnv and fastCalcOptions or nil
-			fastEnv = calcs.initEnv(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fastEnv, accelerate = accelerate })
-			fastEnv.override = override
-			calcs.perform(fastEnv, fastCalcOptions.skipEHP)
-			if (useFullDPS ~= false or build.viewMode == "TREE") and usedFullDPS then
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
-				fastEnv.player.output.SkillDPS = fullDPS.skills
-				fastEnv.player.output.FullDPS = fullDPS.combinedDPS
-				fastEnv.player.output.FullDotDPS = fullDPS.TotalDotDPS
+			local reusableEnv = not fastCalcOptions.noEnvReuse and fastEnv
+			local accelerate = reusableEnv and fastCalcOptions or nil
+			local nextEnv = calcs.initEnv(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = reusableEnv, accelerate = accelerate })
+			if not fastCalcOptions.noEnvReuse then
+				fastEnv = nextEnv
 			end
-			return fastEnv.player.output
+			nextEnv.override = override
+			calcs.perform(nextEnv, fastCalcOptions.skipEHP)
+			if useFullDPS ~= false and usedFullDPS then
+				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
+				nextEnv.player.output.SkillDPS = fullDPS.skills
+				nextEnv.player.output.FullDPS = fullDPS.combinedDPS
+				nextEnv.player.output.FullDotDPS = fullDPS.TotalDotDPS
+			end
+			return nextEnv.player.output
 		end
 		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR", override)
 		-- we need to preserve the override somewhere for use by possible trigger-based build-outs with overrides
 		env.override = override
 		calcs.perform(env)
-		if (useFullDPS ~= false or build.viewMode == "TREE") and usedFullDPS then
+		if useFullDPS ~= false and usedFullDPS then
 			-- prevent upcoming calculation from using Cached Data and thus forcing it to re-calculate new FullDPS roll-up 
 			-- without this, FullDPS increase/decrease when for node/item/gem comparison would be all 0 as it would be comparing
 			-- A with A (due to cache reuse) instead of A with B
@@ -328,18 +332,28 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		end
 	end
 
+	local function mergeActor(out, name, count, trigger, skillPart, sourceName, dotScale)
+		if out.TotalDPS and out.TotalDPS > 0 then
+			t_insert(fullDPS.skills, { name = name, dps = out.TotalDPS, count = count, trigger = trigger, skillPart = skillPart })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * count
+		end
+		mergeStats(out, count, sourceName)
+		if out.TotalDot and out.TotalDot > 0 and dotScale then
+			fullDPS.dotDPS = fullDPS.dotDPS + out.TotalDot * dotScale
+		end
+	end
+
 	-- Merge one captured calc pass into the Full DPS totals
 	local function mergePass(pass)
 		for _, actor in ipairs(pass.actors) do
-			local out = actor.out
-			if out.TotalDPS and out.TotalDPS > 0 then
-				t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart })
-				fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * actor.count
-			end
-			mergeStats(out, actor.count, actor.sourceName)
-			if out.TotalDot and out.TotalDot > 0 and actor.dotScale then
-				fullDPS.dotDPS = fullDPS.dotDPS + out.TotalDot * actor.dotScale
-			end
+			mergeActor(actor.out, actor.name, actor.count, actor.trigger, actor.skillPart, actor.sourceName, actor.dotScale)
+		end
+	end
+	local function addActor(pass, out, name, count, trigger, skillPart, sourceName, dotScale)
+		if pass then
+			t_insert(pass.actors, { out = captureFields(out), name = name, count = count, trigger = trigger, skillPart = skillPart, sourceName = sourceName, dotScale = dotScale })
+		else
+			mergeActor(out, name, count, trigger, skillPart, sourceName, dotScale)
 		end
 	end
 
@@ -386,26 +400,16 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					end
 				end
 				fullEnv.player.mainSkill = activeSkill
-				calcs.perform(fullEnv, true)
+				calcs.perform(fullEnv, true, true)
 				usedEnv = fullEnv
-				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
-				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
 				local skillName = calcs.getActiveSkillDisplayName(activeSkill)
 				local dotCanStack = activeSkill.activeEffect.statSet.skillFlags.DotCanStack
-				local pass = { actors = { } }
+				local pass = cacheStore and fullDPSCache.capture and { actors = { } }
 				local minionOut
 				if activeSkill.minion or usedEnv.minion then
-					minionOut = captureFields(usedEnv.minion.output)
+					minionOut = usedEnv.minion.output
 					local minionNamePrefix = (activeSkill.minion and activeSkill.minion.minionData.name..": ") or (usedEnv.minion and usedEnv.minion.minionData.name..": ") or ""
-					t_insert(pass.actors, {
-						out = minionOut,
-						name = skillName,
-						count = activeSkillCount,
-						trigger = activeSkill.infoTrigger,
-						skillPart = minionNamePrefix .. activeSkill.skillPartName,
-						sourceName = skillName,
-						dotScale = 1,
-					})
+					addActor(pass, minionOut, skillName, activeSkillCount, activeSkill.infoTrigger, minionNamePrefix .. activeSkill.skillPartName, skillName, 1)
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
 					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
 						activeSkillCount = 1
@@ -413,32 +417,19 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					end
 				end
 
-				local playerOut = captureFields(usedEnv.player.output)
+				local playerOut = usedEnv.player.output
 				if activeSkill.mirage then
 					local mirageCount = (activeSkill.mirage.count or 1) * activeSkillCount
-					t_insert(pass.actors, {
-						out = captureFields(activeSkill.mirage.output),
-						name = activeSkill.mirage.name .. " (Mirage)",
-						count = mirageCount,
-						trigger = activeSkill.mirage.infoTrigger,
-						skillPart = activeSkill.mirage.skillPartName,
-						sourceName = skillName .. " (Mirage)",
-						dotScale = (dotCanStack or (playerOut.TotalDot and playerOut.TotalDot == 0)) and (dotCanStack and mirageCount or 1) or nil,
-					})
+					local dotScale = (dotCanStack or (playerOut.TotalDot and playerOut.TotalDot == 0)) and (dotCanStack and mirageCount or 1) or nil
+					addActor(pass, activeSkill.mirage.output, activeSkill.mirage.name .. " (Mirage)", mirageCount, activeSkill.mirage.infoTrigger, activeSkill.mirage.skillPartName, skillName .. " (Mirage)", dotScale)
 				end
 
 				local minionContributed = minionOut and minionOut.TotalDPS and minionOut.TotalDPS > 0
-				t_insert(pass.actors, {
-					out = playerOut,
-					name = skillName,
-					count = activeSkillCount,
-					trigger = activeSkill.infoTrigger,
-					skillPart = minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName,
-					sourceName = skillName,
-					dotScale = dotCanStack and activeSkillCount or 1,
-				})
-				mergePass(pass)
-				if cacheStore and fullDPSCache.capture and ownRef then
+				addActor(pass, playerOut, skillName, activeSkillCount, activeSkill.infoTrigger, minionContributed and activeSkill.infoMessage2 or activeSkill.skillPartName, skillName, dotCanStack and activeSkillCount or 1)
+				if pass then
+					mergePass(pass)
+				end
+				if pass and fullDPSCache.capture and ownRef then
 					cacheStore.snapshots[uuid] = { pass }
 					cacheStore.refs[uuid] = ownRef
 				end

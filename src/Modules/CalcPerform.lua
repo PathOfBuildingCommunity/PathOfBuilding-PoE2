@@ -1149,6 +1149,22 @@ local function addMinionModifiers(modList, skillCfg, minion)
 	end
 end
 
+local function makeRequirementItemTooltip(build, item, slotName)
+	return function(tooltip)
+		build.itemsTab:AddItemTooltip(tooltip, item, slotName)
+	end
+end
+
+local function setSpectreSource(modList, sourceSkill, castingMinion, isSpectre)
+	if not isSpectre then
+		return
+	end
+	local source = "Spectre:" .. (sourceSkill and sourceSkill .. " - " or "") .. castingMinion.minionData.name
+	for i = 1, #modList do
+		modList[i].source = source
+	end
+end
+
 -- Finalises the environment and performs the stat calculations:
 -- 1. Merges keystone modifiers
 -- 2. Initialises minion skills
@@ -1158,7 +1174,7 @@ end
 -- 6. Processes buffs and debuffs
 -- 7. Processes charges and misc buffs (doActorCharges, doActorMisc)
 -- 8. Calculates defence and offence stats (calcs.defence, calcs.offence)
-function calcs.perform(env, skipEHP)
+function calcs.perform(env, skipEHP, skipUnusedPlayerOffence)
 	local modDB = env.modDB
 	local enemyDB = env.enemyDB
 
@@ -1880,9 +1896,7 @@ function calcs.perform(env, skipEHP)
 						if reqSource.source == "Item" then
 							local item = reqSource.sourceItem
 							row.sourceName = colorCodes[item.rarity]..item.name
-							row.sourceNameTooltip = function(tooltip)
-								env.build.itemsTab:AddItemTooltip(tooltip, item, reqSource.sourceSlot)
-							end
+							row.sourceNameTooltip = makeRequirementItemTooltip(env.build, item, reqSource.sourceSlot)
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
 						elseif reqSource.source == "Support Gems" then
@@ -2530,19 +2544,6 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.minion and activeSkill.minion.activeSkillList then
 			local castingMinion = activeSkill.minion
 			for _, activeMinionSkill in ipairs(activeSkill.minion.activeSkillList) do
-			local function setSpectreSource(modList, sourceSkill)
-				if activeSkill.skillFlags.spectre then
-					local source = "Spectre:"
-					if sourceSkill then
-						source = source..sourceSkill.." - "..castingMinion.minionData.name
-					else
-						source = source..castingMinion.minionData.name
-					end
-					for i = 1, #modList do
-						modList[i].source = source
-					end
-				end
-			end
 				local skillModList = activeMinionSkill.skillModList
 				local skillCfg = activeMinionSkill.skillCfg
 				for _, buff in ipairs(activeMinionSkill.buffList) do
@@ -2620,7 +2621,7 @@ function calcs.perform(env, skipEHP)
 										local srcList = new("ModList")
 										srcList:ScaleAddList(buff.modList, mult)
 										srcList:ScaleAddList(extraAuraModList, mult)
-										setSpectreSource(srcList, buff.name)
+										setSpectreSource(srcList, buff.name, castingMinion, activeSkill.skillFlags.spectre)
 										mergeBuff(srcList, buffs, buff.name)
 									end
 								end
@@ -2635,7 +2636,7 @@ function calcs.perform(env, skipEHP)
 										local srcList = new("ModList")
 										srcList:ScaleAddList(buff.modList, mult)
 										srcList:ScaleAddList(extraAuraModList, mult)
-										setSpectreSource(srcList, buff.name)
+										setSpectreSource(srcList, buff.name, castingMinion, activeSkill.skillFlags.spectre)
 										mergeBuff(srcList, minionBuffs, buff.name)
 									end
 								end
@@ -2645,7 +2646,7 @@ function calcs.perform(env, skipEHP)
 								local newModList = new("ModList")
 								newModList:AddList(buff.modList)
 								newModList:AddList(extraAuraModList)
-								setSpectreSource(newModList, buff.name)
+								setSpectreSource(newModList, buff.name, castingMinion, activeSkill.skillFlags.spectre)
 								if buffExports["Aura"][buff.name] then
 									buffExports["Aura"][buff.name.."_Debuff"] = buffExports["Aura"][buff.name]
 								end
@@ -2684,7 +2685,7 @@ function calcs.perform(env, skipEHP)
 											end
 										end
 									end
-									setSpectreSource(srcList)
+									setSpectreSource(srcList, nil, castingMinion, activeSkill.skillFlags.spectre)
 									mergeBuff(srcList, buffs, "Totem "..buff.name)
 								end
 							end
@@ -3430,10 +3431,22 @@ function calcs.perform(env, skipEHP)
 		calcs.buildDefenceEstimations(env, env.player)
 	end
 
+	-- Pure summons have no player damage, but culling and some crit links still require player offence.
+	local mainSkill = env.player.mainSkill
+	local skipPlayerOffence = skipUnusedPlayerOffence
+		and env.minion
+		and not mainSkill.skillTypes[SkillType.Damage]
+		and not mainSkill.mirage
+		and not mainSkill.skillModList:Flag(nil, "ClawCritChanceAppliesToMinions", "ClawCritMultiplierAppliesToMinions")
+		and not mainSkill.skillModList:Flag(mainSkill.skillCfg, "CanCull", "CritCanCull")
+		and not mainSkill.skillModList:Override(mainSkill.skillCfg, "CullPercent", "CriticalCullPercent")
+		and not env.minion.mainSkill.skillModList:Flag(env.minion.mainSkill.skillCfg, "MainHandCritIsEqualToParent")
 	-- TURNING OFF CALC TRIGGERS AND MIRAGES FOR TIME BEING
 	--calcs.triggers(env, env.player)
 	--if not calcs.mirages(env) then
+	if not skipPlayerOffence then
 		calcs.offence(env, env.player, env.player.mainSkill)
+	end
 	--end
 
 	if env.minion then

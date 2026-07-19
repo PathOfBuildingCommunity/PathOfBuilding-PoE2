@@ -77,6 +77,41 @@ local function isGlobalEffect(modOrGroup)
 	return false
 end
 
+local function mergeStatSet(env, modList, skillEffect, grantedEffect, set, extraStats, selectedGlobalStats, onlyGlobals)
+	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
+	if extraStats and extraStats[1] then
+		for _, stat in pairs(extraStats) do
+			stats[stat.key] = (stats[stat.key] or 0) + stat.value
+		end
+	end
+	for stat, statValue in pairs(stats) do
+		local map = set.statMap[stat]
+		if map then
+			-- Some mods need different scalars for different stats, but the same value. Putting them in a group allows this
+			for _, modOrGroup in ipairs(map) do
+				local isGlobal = isGlobalEffect(modOrGroup)
+				if selectedGlobalStats and isGlobal and not onlyGlobals then
+					selectedGlobalStats[stat] = true
+				end
+				if (not onlyGlobals or isGlobal) and not (onlyGlobals and selectedGlobalStats[stat]) then
+					local scalar = checkForScalarMultiplier(modOrGroup, modList)
+					-- Found a mod, since all mods have names
+					if modOrGroup.name then
+						modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
+						mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) * scalar / (map.div or 1) + (map.base or 0))
+					else
+						for _, mod in ipairs(modOrGroup) do
+							local scalar = checkForScalarMultiplier(mod, modList)
+							mod.source = string.format("Skill:%s", grantedEffect.id)
+							mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) * scalar / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
 -- Merge skill effect modifiers with given mod list
 -- If a stat set is provided, merge it and global effects from the other stat sets
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
@@ -86,49 +121,15 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 		return
 	end
 	local grantedEffect = skillEffect.grantedEffect
-	local selectedGlobalStats = { }
-	local function mergeStatSet(set, onlyGlobals)
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
-		if extraStats and extraStats[1] then
-			for _, stat in pairs(extraStats) do
-				stats[stat.key] = (stats[stat.key] or 0) + stat.value
-			end
-		end
-		for stat, statValue in pairs(stats) do
-			local map = set.statMap[stat]
-			if map then
-				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
-				for _, modOrGroup in ipairs(map) do
-					local isGlobal = isGlobalEffect(modOrGroup)
-					if isGlobal and not onlyGlobals then
-						selectedGlobalStats[stat] = true
-					end
-					if (not onlyGlobals or isGlobal) and not (onlyGlobals and selectedGlobalStats[stat]) then
-						local scalar = checkForScalarMultiplier(modOrGroup, modList)
-						-- Found a mod, since all mods have names
-						if modOrGroup.name then
-							modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
-							mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) * scalar / (map.div or 1) + (map.base or 0))
-						else
-							for _, mod in ipairs(modOrGroup) do
-								local scalar = checkForScalarMultiplier(mod, modList)
-								mod.source = string.format("Skill:%s", grantedEffect.id)
-								mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) * scalar / (modOrGroup.div or 1) + (modOrGroup.base or 0))
-							end
-						end
-					end
-				end
-			end
-		end
-	end
+	local selectedGlobalStats = statSet and { } or false
 	for _, set in ipairs(statSet and {statSet} or grantedEffect.statSets) do
-		mergeStatSet(set)
+		mergeStatSet(env, modList, skillEffect, grantedEffect, set, extraStats, selectedGlobalStats)
 		modList:AddList(set.baseMods)
 	end
 	if statSet then
 		for _, set in ipairs(grantedEffect.statSets) do
 			if set ~= statSet then
-				mergeStatSet(set, true)
+				mergeStatSet(env, modList, skillEffect, grantedEffect, set, extraStats, selectedGlobalStats, true)
 				for _, baseMod in ipairs(set.baseMods or { }) do
 					if isGlobalEffect(baseMod) then
 						modList:AddMod(baseMod)

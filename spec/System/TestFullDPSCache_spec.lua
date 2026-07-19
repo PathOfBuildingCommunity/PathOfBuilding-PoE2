@@ -24,8 +24,8 @@ describe("TestFullDPSCache", function()
 		return sparkGroup, fireballGroup
 	end
 
-	local function buildMinionGroup()
-		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+	local function buildMinionGroup(gemName)
+		build.skillsTab:PasteSocketGroup((gemName or "Skeletal Sniper") .. " 20/0  1")
 		runCallback("OnFrame")
 		local group = build.skillsTab.socketGroupList[1]
 		group.mainActiveSkill = 1
@@ -70,6 +70,27 @@ describe("TestFullDPSCache", function()
 		return result
 	end
 
+	local function runFullDPSWithPlayerOffenceCount(override, forcePlayerOffence)
+		local realOffence = calcsModule.offence
+		local realPerform = calcsModule.perform
+		local playerOffenceCount = 0
+		calcsModule.offence = function(env, actor, ...)
+			if actor == env.player then
+				playerOffenceCount = playerOffenceCount + 1
+			end
+			return realOffence(env, actor, ...)
+		end
+		if forcePlayerOffence then
+			calcsModule.perform = function(env, skipEHP)
+				return realPerform(env, skipEHP)
+			end
+		end
+		local result = calcsModule.calcFullDPS(build, "CALCULATOR", override or {}, {})
+		calcsModule.offence = realOffence
+		calcsModule.perform = realPerform
+		return result, playerOffenceCount
+	end
+
 	-- Capture a base cache, then evaluate one candidate gem socketed into the group,
 	-- returning the cached-path result, per-skill perform counts, and a fresh result
 	local function evaluateGem(group, gemData, level)
@@ -98,6 +119,7 @@ describe("TestFullDPSCache", function()
 			local cachedResult, _, freshResult = evaluateGem(sparkGroup, gemData)
 			assertClose(freshResult.combinedDPS, cachedResult.combinedDPS, gemName .. " combinedDPS")
 			assertClose(freshResult.TotalDotDPS, cachedResult.TotalDotDPS, gemName .. " TotalDotDPS")
+			assert.are.same(freshResult.skills, cachedResult.skills)
 		end
 	end)
 
@@ -182,6 +204,58 @@ describe("TestFullDPSCache", function()
 			assertClose(slowTotalDPS, fast.Minion.TotalDPS, gemName .. " minion TotalDPS")
 			assertClose(slowAverageDamage, fast.Minion.AverageDamage, gemName .. " minion AverageDamage")
 		end
+	end)
+
+	it("does not calculate Full DPS for ordinary damage in tree view", function()
+		buildMinionGroup()
+		build.viewMode = "TREE"
+		local calcFunc = build.calcsTab:GetMiscCalculator()
+		local realCalcFullDPS = calcsModule.calcFullDPS
+		local fullDPSCalls = 0
+		calcsModule.calcFullDPS = function(...)
+			fullDPSCalls = fullDPSCalls + 1
+			return realCalcFullDPS(...)
+		end
+		calcFunc(nil, false, { skipEHP = true, noEnvReuse = true })
+		calcFunc(nil, false)
+		calcsModule.calcFullDPS = realCalcFullDPS
+		assert.are.equals(0, fullDPSCalls)
+	end)
+
+	it("skips unused player offence for pure minions", function()
+		local group = buildMinionGroup()
+		group.includeInFullDPS = true
+		local optimized, optimizedPlayerCalls = runFullDPSWithPlayerOffenceCount()
+		local complete, completePlayerCalls = runFullDPSWithPlayerOffenceCount(nil, true)
+		assert.are.equals(0, optimizedPlayerCalls)
+		assert.is_true(completePlayerCalls > 0)
+		assertClose(complete.combinedDPS, optimized.combinedDPS, "pure minion combinedDPS")
+		assert.are.same(complete.skills, optimized.skills)
+	end)
+
+	it("retains player offence for hybrid minion skills", function()
+		local group = buildMinionGroup("Unearth")
+		group.includeInFullDPS = true
+		local optimized, optimizedPlayerCalls = runFullDPSWithPlayerOffenceCount()
+		local complete = runFullDPSWithPlayerOffenceCount(nil, true)
+		assert.is_true(optimizedPlayerCalls > 0)
+		assert.is_true(#optimized.skills >= 2)
+		assertClose(complete.combinedDPS, optimized.combinedDPS, "hybrid minion combinedDPS")
+		assert.are.same(complete.skills, optimized.skills)
+	end)
+
+	it("retains player offence when it supplies Full DPS culling", function()
+		local group = buildMinionGroup()
+		group.includeInFullDPS = true
+		build.skillsTab:PasteSocketGroup("Sniper's Mark 20/0  1")
+		runCallback("OnFrame")
+		local node = assert(build.spec.nodes[36976], "Marked for Death passive not found")
+		local override = { addNodes = { [node] = true } }
+		local optimized, optimizedPlayerCalls = runFullDPSWithPlayerOffenceCount(override)
+		local complete = runFullDPSWithPlayerOffenceCount(override, true)
+		assert.is_true(optimizedPlayerCalls > 0)
+		assertClose(complete.combinedDPS, optimized.combinedDPS, "culling combinedDPS")
+		assert.are.same(complete.skills, optimized.skills)
 	end)
 
 	it("gem sorting reads the selected minion damage field", function()

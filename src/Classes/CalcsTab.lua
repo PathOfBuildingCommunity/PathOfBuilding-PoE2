@@ -522,9 +522,29 @@ function CalcsTabClass:PowerBuilder()
 	-- local timer_start = GetTime()
 	local useFullDPS = self.powerStat and self.powerStat.stat == "FullDPS"
 	-- Passive overrides are not represented by the per-skill Full DPS cache inputs
-	local fastCalcOptions = useFullDPS and { fullDPSOnly = true, noFullDPSCache = true } or nil
+	local fastCalcOptions = useFullDPS and { fullDPSOnly = true, noFullDPSCache = true }
+		or self.powerStat and self.powerStat.stat == "TotalDPS" and { skipEHP = true, noEnvReuse = true }
 	local calcFunc, calcBase = self:GetMiscCalculator()
 	local cache = { }
+	local singleStat = self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes
+	local combinedStat = not self.powerStat or not self.powerStat.ignoreForNodes
+	local function calculatePower(override)
+		local output = calcFunc(override, useFullDPS, fastCalcOptions)
+		if singleStat then
+			return self:CalculatePowerStat(self.powerStat, output, calcBase)
+		elseif combinedStat then
+			local offence, defence = self:CalculateCombinedOffDefStat(output, calcBase)
+			return { offence = offence, defence = defence }
+		end
+	end
+	local function getCachedPower(key, node, action)
+		local power = cache[key]
+		if power == nil then
+			power = calculatePower({ [action] = { [node] = true } })
+			cache[key] = power
+		end
+		return power
+	end
 	local distanceMap = { }
 	local distanceList = { }
 	local newPowerMax = {
@@ -593,12 +613,9 @@ function CalcsTabClass:PowerBuilder()
 		end
 		for nodeId, node in pairs(nodes) do
 			if not node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
-				if not cache[node.modKey] then
-					cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
-				end
-				local output = cache[node.modKey]
-				if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
-					node.power.singleStat = self:CalculatePowerStat(self.powerStat, output, calcBase)
+				local power = getCachedPower(node.modKey, node, "addNodes")
+				if singleStat then
+					node.power.singleStat = power
 					if node.path and not node.ascendancyName then
 						newPowerMax.singleStat = m_max(newPowerMax.singleStat, node.power.singleStat)
 						node.power.pathPower = node.power.singleStat
@@ -607,11 +624,11 @@ function CalcsTabClass:PowerBuilder()
 							pathNodes[node] = true
 						end
 						if distance > 1 then
-							node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc({ addNodes = pathNodes }, useFullDPS, fastCalcOptions), calcBase)
+							node.power.pathPower = calculatePower({ addNodes = pathNodes })
 						end
 					end
-				elseif not self.powerStat or not self.powerStat.ignoreForNodes then
-					node.power.offence, node.power.defence = self:CalculateCombinedOffDefStat(output, calcBase)
+				elseif combinedStat then
+					node.power.offence, node.power.defence = power.offence, power.defence
 					node.power.singleStat = node.power.offence
 					if node.path and not node.ascendancyName then
 						newPowerMax.offence = m_max(newPowerMax.offence, node.power.offence)
@@ -621,12 +638,9 @@ function CalcsTabClass:PowerBuilder()
 					end
 				end
 			elseif node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
-				if not cache[node.modKey.."_remove"] then
-					cache[node.modKey.."_remove"] = calcFunc({ removeNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
-				end
-				local output = cache[node.modKey.."_remove"]
-				if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
-					node.power.singleStat = self:CalculatePowerStat(self.powerStat, output, calcBase)
+				local power = getCachedPower(node.modKey.."_remove", node, "removeNodes")
+				if singleStat then
+					node.power.singleStat = power
 					if node.depends and not node.ascendancyName then
 						node.power.pathPower = node.power.singleStat
 						local pathNodes = { }
@@ -634,7 +648,7 @@ function CalcsTabClass:PowerBuilder()
 							pathNodes[node] = true
 						end
 						if #node.depends > 1 then
-							node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc({ removeNodes = pathNodes }, useFullDPS, fastCalcOptions), calcBase)
+							node.power.pathPower = calculatePower({ removeNodes = pathNodes })
 						end
 					end
 				end
@@ -658,12 +672,9 @@ function CalcsTabClass:PowerBuilder()
 		end
 		wipeTable(node.power)
 		if not node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
-			if not cache[node.modKey] then
-				cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
-			end
-			local output = cache[node.modKey]
-			if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
-				node.power.singleStat = self:CalculatePowerStat(self.powerStat, output, calcBase)
+			local power = getCachedPower(node.modKey, node, "addNodes")
+			if singleStat then
+				node.power.singleStat = power
 			end
 			nodeIndex = nodeIndex + 1
 			if coroutine.running() and GetTime() - start > 100 then
