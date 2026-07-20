@@ -18,6 +18,15 @@ function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
 
 	local viewer = itemsTab.socketViewer
 	viewer.zoom = 17
+	-- Zoom out if needed so the socketed jewel's radius ring (including the Time-Lost
+	-- radius increase from Baryanic Leylines) fits inside the preview: the ring's
+	-- diameter must fit min(w,h), with ~5% margin so the ring stroke isn't clipped
+	local _, jewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
+	if jewel and jewel.jewelRadiusIndex then
+		local radData = data.jewelRadius[itemsTab.build.spec:GetJewelRadiusIndex(jewel)]
+		local ringSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
+		viewer.zoom = math.min(viewer.zoom, itemsTab.build.spec.tree.size / (2 * ringSize) / 1.05)
+	end
 
 	local viewPortSize = math.min(w, h)
 	local scale = itemsTab.build.spec.tree.size / (viewPortSize * viewer.zoom)
