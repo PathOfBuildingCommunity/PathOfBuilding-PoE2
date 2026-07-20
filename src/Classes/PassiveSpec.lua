@@ -1394,13 +1394,7 @@ end
 -- Returns the radius index a jewel actually uses in this spec, accounting for
 -- "Non-Unique Time-Lost Jewels have 40% increased radius" (Baryanic Leylines)
 function PassiveSpecClass:GetJewelRadiusIndex(item)
-	local radiusIndex = item.jewelRadiusIndex
-	if radiusIndex and self.hasTimeLostJewelRadiusIncrease
-		and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
-		and item.baseName and item.baseName:find("Time%-Lost") then
-		return data.timeLostJewelIncreasedRadiusIndex[radiusIndex] or radiusIndex
-	end
-	return radiusIndex
+	return data.getTimeLostJewelRadiusIndex(item, self.hasTimeLostJewelRadiusIncrease)
 end
 
 -- Rebuilds dependencies and paths for all nodes

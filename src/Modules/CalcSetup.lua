@@ -833,6 +833,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
 	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
+	-- Check the environment's own node list rather than the spec's allocation, so that
+	-- simulated allocations (e.g. node hover tooltips) see the radius change too
+	local timeLostJewelRadiusIncrease = nodesModsList:Sum("INC", nil, "NonUniqueTimeLostJewelRadius") > 0
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -964,7 +967,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					if item and not (node and node.sinister) and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
 						-- Jewel has a radius, add it to the list
-						local radiusIndex = env.spec:GetJewelRadiusIndex(item)
+						local radiusIndex = data.getTimeLostJewelRadiusIndex(item, timeLostJewelRadiusIncrease)
 						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
 							-- Default function just tallies all stats in radius
 							if node then

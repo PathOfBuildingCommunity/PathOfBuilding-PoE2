@@ -683,6 +683,18 @@ data.jewelRadii = {
 -- Maps a Time-Lost jewel's base radius index to its 40% increased counterpart above
 data.timeLostJewelIncreasedRadiusIndex = { [1] = 13, [2] = 14, [3] = 15, [4] = 16 }
 
+-- Returns the radius index a jewel uses given whether the Time-Lost radius increase
+-- (Baryanic Leylines) applies; only non-unique Time-Lost jewels are remapped
+data.getTimeLostJewelRadiusIndex = function(item, timeLostJewelRadiusIncrease)
+	local radiusIndex = item.jewelRadiusIndex
+	if radiusIndex and timeLostJewelRadiusIncrease
+		and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
+		and item.baseName and item.baseName:find("Time%-Lost") then
+		return data.timeLostJewelIncreasedRadiusIndex[radiusIndex] or radiusIndex
+	end
+	return radiusIndex
+end
+
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
 -- Stat descriptions
