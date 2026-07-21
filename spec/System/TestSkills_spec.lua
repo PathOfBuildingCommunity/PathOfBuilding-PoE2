@@ -85,6 +85,23 @@ describe("TestSkills", function()
 		assert.are.equals(20, stats["alchemists_boon_cast_speed_granted_+%_during_mana_flask"])
 	end)
 
+	it("applies Advanced Thaumaturgy quality to Frost Wall Ice Crystal life", function()
+		build.skillsTab:PasteSocketGroup("Frost Wall 20/20  1")
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		selectActiveSkillById(socketGroup, "FrostWallPlayer")
+		local baseLife = build.calcsTab.mainOutput.IceCrystalLife
+
+		local advancedThaumaturgy = build.spec.nodes[14429]
+		advancedThaumaturgy.alloc = true
+		build.spec.allocNodes[advancedThaumaturgy.id] = advancedThaumaturgy
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		assert.are.equals(baseLife * 5, build.calcsTab.mainOutput.IceCrystalLife)
+	end)
+
 	it("describes quality stats from secondary skill stat sets", function()
 		local grantedEffect = data.skills["ExplosiveSpearPlayer"]
 		local qualityStat = grantedEffect.qualityStats[1]
