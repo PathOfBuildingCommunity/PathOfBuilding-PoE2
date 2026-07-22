@@ -610,9 +610,9 @@ describe("TestSkills", function()
 		assert.are.near(automaticFullDPS, build.calcsTab.mainOutput.FullDPS, automaticFullDPS * 0.001)
 
 		local calcFunc, baseOutput = LoadModule("Modules/Calcs").getMiscCalculator(build)
-		local advancedThaumaturgy = build.spec.nodes[14429]
-		local qualityOutput = calcFunc({ addNodes = { [advancedThaumaturgy] = true } }, true, { fullDPSOnly = true })
-		assert.True(qualityOutput.FullDPS > baseOutput.FullDPS)
+		build.skillsTab:PasteSocketGroup("Frost Wall 20/20  1\nGlacier 1/0  1")
+		local glacierOutput = calcFunc(nil, true, { fullDPSOnly = true })
+		assert.True(glacierOutput.FullDPS > baseOutput.FullDPS)
 
 		build.configTab.input.conditionDestroyedIceCrystalPast6Seconds = false
 		build.configTab:BuildModList()
