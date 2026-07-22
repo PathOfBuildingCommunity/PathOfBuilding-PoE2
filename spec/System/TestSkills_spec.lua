@@ -536,6 +536,7 @@ describe("TestSkills", function()
 		build.itemsTab:AddDisplayItem()
 		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nVerglas 1/0  1")
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		build.skillsTab:PasteSocketGroup("Frost Wall 20/20  1")
 		build.skillsTab.socketGroupList[1].includeInFullDPS = true
 		runCallback("OnFrame")
 
@@ -544,7 +545,6 @@ describe("TestSkills", function()
 		assert.True(baseFullDPS > 0)
 
 		build.configTab.input.conditionDestroyedIceCrystalPast6Seconds = true
-		build.configTab.input.multiplierDestroyedIceCrystalLife = 2000
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
@@ -557,10 +557,25 @@ describe("TestSkills", function()
 		end
 		local linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
 		local unlinkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[2])
+		local frostWallSkill = findSkillForGroup(build.skillsTab.socketGroupList[3])
 		assert.is_not_nil(linkedSkill)
 		assert.is_not_nil(unlinkedSkill)
-		assert.are.equals(1, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		assert.is_not_nil(frostWallSkill)
+		local frostWallLife = frostWallSkill.skillModList:Sum("BASE", frostWallSkill.skillCfg, "IceCrystalLifeBase") * calcLib.mod(frostWallSkill.skillModList, frostWallSkill.skillCfg, "IceCrystalLife")
+		assert.are.equals(frostWallLife, build.calcsTab.mainEnv.player.automaticDestroyedIceCrystalLife)
+		assert.are.equals(frostWallLife, build.calcsTab.mainEnv.player.destroyedIceCrystalLife)
+		assert.are.equals(tostring(math.floor(frostWallLife + 0.5)), build.configTab.varControls.multiplierDestroyedIceCrystalLife.placeholder)
+		assert.are.equals(math.floor(frostWallLife / 2000), linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
 		assert.are.equals(0, unlinkedSkill.skillModList:Sum("BASE", unlinkedSkill.skillCfg, "DamageGainAsCold"))
+		local automaticFullDPS = build.calcsTab.mainOutput.FullDPS
+		assert.True(automaticFullDPS > baseFullDPS)
+
+		build.configTab.input.multiplierDestroyedIceCrystalLife = 2000
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(1, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
 
 		build.configTab.input.multiplierDestroyedIceCrystalLife = 3999
 		build.configTab:BuildModList()
@@ -585,6 +600,19 @@ describe("TestSkills", function()
 
 		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
 		assert.are.equals(135, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+
+		build.configTab.input.multiplierDestroyedIceCrystalLife = nil
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(math.floor(frostWallLife / 2000), linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		assert.are.near(automaticFullDPS, build.calcsTab.mainOutput.FullDPS, automaticFullDPS * 0.001)
+
+		local calcFunc, baseOutput = LoadModule("Modules/Calcs").getMiscCalculator(build)
+		local advancedThaumaturgy = build.spec.nodes[14429]
+		local qualityOutput = calcFunc({ addNodes = { [advancedThaumaturgy] = true } }, true, { fullDPSOnly = true })
+		assert.True(qualityOutput.FullDPS > baseOutput.FullDPS)
 
 		build.configTab.input.conditionDestroyedIceCrystalPast6Seconds = false
 		build.configTab:BuildModList()
