@@ -1172,7 +1172,7 @@ Huge sets the radius to 11.
 	{ var = "conditionKilledLast3Seconds", type = "check", label = "Have you Killed in the last 3 Seconds?", ifCond = "KilledLast3Seconds", implyCond = "KilledRecently", tooltip = "This also implies that you have Killed Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:KilledLast3Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionDestroyedIceCrystalPast6Seconds", type = "check", label = "Destroyed an Ice Crystal in past 6s?", ifCond = "DestroyedIceCrystalPast6Seconds", apply = function(val, modList, enemyModList)
+	{ var = "conditionDestroyedIceCrystalPast6Seconds", type = "check", label = "Ice Crystal destroyed (past 6s)?", ifCond = "DestroyedIceCrystalPast6Seconds", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:DestroyedIceCrystalPast6Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "multiplierDestroyedIceCrystalLife", type = "count", label = "Ice Crystal Life override:", ifOption = "conditionDestroyedIceCrystalPast6Seconds", ifMult = "DestroyedIceCrystalLife", tooltip = "Automatically uses the highest maximum Life from enabled Ice Crystal skills.\nEnter a value to override it for another Ice Crystal source.", apply = function(val, modList, enemyModList)
