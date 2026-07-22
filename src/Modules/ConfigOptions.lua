@@ -1172,6 +1172,12 @@ Huge sets the radius to 11.
 	{ var = "conditionKilledLast3Seconds", type = "check", label = "Have you Killed in the last 3 Seconds?", ifCond = "KilledLast3Seconds", implyCond = "KilledRecently", tooltip = "This also implies that you have Killed Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:KilledLast3Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionDestroyedIceCrystalPast6Seconds", type = "check", label = "Have you Destroyed an Ice Crystal in the past 6 Seconds?", ifCond = "DestroyedIceCrystalPast6Seconds", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:DestroyedIceCrystalPast6Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "multiplierDestroyedIceCrystalLife", type = "count", label = "Maximum Life of the Destroyed Ice Crystal:", ifOption = "conditionDestroyedIceCrystalPast6Seconds", ifMult = "DestroyedIceCrystalLife", tooltip = "Enter the maximum Life of the Ice Crystal that granted the current Verglas buff.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DestroyedIceCrystalLife", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionKilledPoisonedLast2Seconds", type = "check", label = "Killed a poisoned enemy in the last 2 Seconds?", ifCond = "KilledPoisonedLast2Seconds", implyCond = "KilledRecently", tooltip = "This also implies that you have Killed Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:KilledPoisonedLast2Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

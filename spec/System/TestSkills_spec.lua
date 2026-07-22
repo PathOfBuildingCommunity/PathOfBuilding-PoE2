@@ -531,6 +531,70 @@ describe("TestSkills", function()
 		assert.True(math.abs(build.calcsTab.mainOutput.FullDPS - fullDPS * 0.5) < fullDPS * 0.001)
 	end)
 
+	it("applies Verglas from destroyed Ice Crystal Life only to supported skills", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nRazor Quarterstaff\nQuality: 0")
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nVerglas 1/0  1")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local baseFullDPS = build.calcsTab.mainOutput.FullDPS
+		assert.truthy(baseFullDPS)
+		assert.True(baseFullDPS > 0)
+
+		build.configTab.input.conditionDestroyedIceCrystalPast6Seconds = true
+		build.configTab.input.multiplierDestroyedIceCrystalLife = 2000
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local function findSkillForGroup(socketGroup)
+			for _, activeSkill in ipairs(build.calcsTab.mainEnv.player.activeSkillList) do
+				if activeSkill.socketGroup == socketGroup then
+					return activeSkill
+				end
+			end
+		end
+		local linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		local unlinkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[2])
+		assert.is_not_nil(linkedSkill)
+		assert.is_not_nil(unlinkedSkill)
+		assert.are.equals(1, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		assert.are.equals(0, unlinkedSkill.skillModList:Sum("BASE", unlinkedSkill.skillCfg, "DamageGainAsCold"))
+
+		build.configTab.input.multiplierDestroyedIceCrystalLife = 3999
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(1, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		local fullDPSAt3999Life = build.calcsTab.mainOutput.FullDPS
+		assert.True(fullDPSAt3999Life > baseFullDPS)
+
+		build.configTab.input.multiplierDestroyedIceCrystalLife = 4000
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(2, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		assert.True(build.calcsTab.mainOutput.FullDPS > fullDPSAt3999Life)
+
+		build.configTab.input.multiplierDestroyedIceCrystalLife = 271990
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(135, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+
+		build.configTab.input.conditionDestroyedIceCrystalPast6Seconds = false
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		linkedSkill = findSkillForGroup(build.skillsTab.socketGroupList[1])
+		assert.are.equals(0, linkedSkill.skillModList:Sum("BASE", linkedSkill.skillCfg, "DamageGainAsCold"))
+		assert.are.near(baseFullDPS, build.calcsTab.mainOutput.FullDPS, baseFullDPS * 0.001)
+	end)
+
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
