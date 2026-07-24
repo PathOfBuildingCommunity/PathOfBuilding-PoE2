@@ -21,7 +21,7 @@ VERSION[0.23.0][2026/07/24]
 --- Fixed Behaviours ---
 * Fix level requirements on staves, wands, and jewellery and unique items (Blitz54)
 * Fix Heavy Stunned enemies not counting as Stunned (moxaj)
-* Fix Amuelt Aura's having a Spirit cost (jokker23)
+* Fix amulet auras having a Spirit cost (jokker23)
 * Fix "Shapeshifted" condition being toggled on every build. (briansonnenberg)
 * Fix gem group counting logic (moxaj)
 * Fix Rathpith magnitude of Ailments per 100 Life not scaling Ailments properly (vaisest)

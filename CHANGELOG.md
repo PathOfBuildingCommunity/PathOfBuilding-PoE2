@@ -23,7 +23,7 @@
 ### Fixed Behaviours
 - Fix level requirements on staves, wands, and jewellery and unique items [\#2323](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2323) ([Blitz54](https://github.com/Blitz54))
 - Fix Heavy Stunned enemies not counting as Stunned [\#2359](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2359) ([moxaj](https://github.com/moxaj))
-- Fix Amuelt Aura's having a Spirit cost [\#2353](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2353) ([jokker23](https://github.com/jokker23))
+- Fix amulet auras having a Spirit cost [\#2353](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2353) ([jokker23](https://github.com/jokker23))
 - Fix "Shapeshifted" condition being toggled on every build. [\#2346](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2346) ([briansonnenberg](https://github.com/briansonnenberg))
 - Fix gem group counting logic [\#2292](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2292) ([moxaj](https://github.com/moxaj))
 - Fix Rathpith magnitude of Ailments per 100 Life not scaling Ailments properly [\#2364](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2364) ([vaisest](https://github.com/vaisest))
