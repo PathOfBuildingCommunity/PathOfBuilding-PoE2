@@ -1,3 +1,37 @@
+VERSION[0.23.0][2026/07/24]
+
+--- New to Path of Building ---
+* Add support for Darkness Enthroned and Atziri's Splendour augment mods (LocalIdentity)
+
+--- Fixed Crashes ---
+* Fix crash on Lich Jewel breakdown hover (Blitz54)
+* Fix buy similar popup not updating url and persist selections (vaisest)
+
+--- User Interface ---
+* Only show scalable mods in Corruption roll range UI (vaisest)
+
+--- Fixed Calculations ---
+* Fix Conductive Runes scaling with weapon damage (moxaj)
+* Fix Crit Chance and base damage for some skills (LocalIdentity)
+* Fix Infused Spark Cast time (LocalIdentity)
+* Fix Life Conversion with CI (Blitz54)
+* Fix Mirage Archer having no Spirit cost (okazakikun)
+* Fix Liminal Coil counting Marks as Curses (vaisest)
+
+--- Fixed Behaviours ---
+* Fix level requirements on staves, wands, and jewellery and unique items (Blitz54)
+* Fix Heavy Stunned enemies not counting as Stunned (moxaj)
+* Fix amulet auras having a Spirit cost (jokker23)
+* Fix "Shapeshifted" condition being toggled on every build. (briansonnenberg)
+* Fix gem group counting logic (moxaj)
+* Fix Rathpith magnitude of Ailments per 100 Life not scaling Ailments properly (vaisest)
+* Fix Normal and Magic Ward bases not importing (LocalIdentity)
+
+--- Accuracy Improvements ---
+* Fix parsing Vaal Unique modifiers on items (vaisest)
+* Remove `Are you fortified?` config option (moxaj)
+* Add new variant for Controlled Metamorphosis (moxaj)
+
 VERSION[0.22.0][2026/07/01]
 
 --- 0.5 Return of the Ancients ---
