@@ -1,5 +1,39 @@
 # Changelog
 
+## [v0.23.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.23.0) (2026/07/24)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.22.0...v0.23.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add support for Darkness Enthroned and Atziri's Splendour augment mods [\#2343](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2343) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Crashes
+- Fix crash on Lich Jewel breakdown hover [\#2358](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2358) ([Blitz54](https://github.com/Blitz54))
+- Fix buy similar popup not updating url and persist selections [\#2339](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2339) ([vaisest](https://github.com/vaisest))
+### User Interface
+- Only show scalable mods in Corruption roll range UI [\#2363](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2363) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix Conductive Runes scaling with weapon damage [\#2341](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2341) ([moxaj](https://github.com/moxaj))
+- Fix Crit Chance and base damage for some skills [\#2340](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2340) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Infused Spark Cast time [\#2361](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2361) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Life Conversion with CI [\#2354](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2354) ([Blitz54](https://github.com/Blitz54))
+- Fix Mirage Archer having no Spirit cost [\#2234](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2234) ([okazakikun](https://github.com/okazakikun))
+- Fix Liminal Coil counting Marks as Curses [\#2365](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2365) ([vaisest](https://github.com/vaisest))
+### Fixed Behaviours
+- Fix level requirements on staves, wands, and jewellery and unique items [\#2323](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2323) ([Blitz54](https://github.com/Blitz54))
+- Fix Heavy Stunned enemies not counting as Stunned [\#2359](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2359) ([moxaj](https://github.com/moxaj))
+- Fix Amuelt Aura's having a Spirit cost [\#2353](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2353) ([jokker23](https://github.com/jokker23))
+- Fix "Shapeshifted" condition being toggled on every build. [\#2346](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2346) ([briansonnenberg](https://github.com/briansonnenberg))
+- Fix gem group counting logic [\#2292](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2292) ([moxaj](https://github.com/moxaj))
+- Fix Rathpith magnitude of Ailments per 100 Life not scaling Ailments properly [\#2364](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2364) ([vaisest](https://github.com/vaisest))
+- Fix Normal and Magic Ward bases not importing [\#2383](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2383) ([LocalIdentity](https://github.com/LocalIdentity))
+### Accuracy Improvements
+- Fix parsing Vaal Unique modifiers on items [\#2357](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2357) ([vaisest](https://github.com/vaisest))
+- Remove `Are you fortified?` config option [\#2307](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2307) ([moxaj](https://github.com/moxaj))
+- Add new variant for Controlled Metamorphosis [\#2345](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2345) ([moxaj](https://github.com/moxaj))
+
+
 ## [v0.22.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.22.0) (2026/07/01)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.21.1...v0.22.0)
