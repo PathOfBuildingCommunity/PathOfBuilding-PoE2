@@ -397,24 +397,27 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				item.implicitMods = item.implicitMods or { }
 				item.explicitMods = item.explicitMods or { }
 
-				t_insert(rawLines, "Implicits: " .. (#item.enchantMods + #item.runeMods + #item.implicitMods))
-				for _, modLine in ipairs(item.enchantMods) do
-					t_insert(rawLines, "{enchant}" .. escapeGGGString(modLine))
-				end
-				for _, modLine in ipairs(item.runeMods) do
-					t_insert(rawLines, "{enchant}{rune}" .. escapeGGGString(modLine))
-				end
-				for _, modLine in ipairs(item.implicitMods) do
-					t_insert(rawLines, escapeGGGString(modLine))
-				end
-				for _, modLine in ipairs(item.explicitMods) do
+				local function processLine(modLine)
 					local s = ""
 					for flagName, flag in pairs(modLine.flags or {}) do
 						if flag then
 							s = s .. string.format("{%s}", flagName)
 						end
 					end
-					t_insert(rawLines, s .. escapeGGGString(modLine.description))
+					return escapeGGGString(modLine.description)
+				end
+				t_insert(rawLines, "Implicits: " .. (#item.enchantMods + #item.runeMods + #item.implicitMods))
+				for _, modLine in ipairs(item.enchantMods or {}) do
+					t_insert(rawLines, "{enchant}" .. processLine(modLine))
+				end
+				for _, modLine in ipairs(item.runeMods or {}) do
+					t_insert(rawLines, "{enchant}{rune}" .. processLine(modLine))
+				end
+				for _, modLine in ipairs(item.implicitMods or {}) do
+					t_insert(rawLines, processLine(modLine))
+				end
+				for _, modLine in ipairs(item.explicitMods or {}) do
+					t_insert(rawLines, processLine(modLine))
 				end
 				if item.mirrored then
 					t_insert(rawLines, "Mirrored")
@@ -428,6 +431,8 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 					t_insert(rawLines, "Sanctified")
 				end
 
+				local pseudoMod = trade_entry.item.pseudoMods and trade_entry.item.pseudoMods[1]
+				local pseudoModLine = pseudoMod and (pseudoMod.description or pseudoMod)
 				table.insert(items, {
 					amount = trade_entry.listing.price.amount,
 					currency = trade_entry.listing.price.currency,
@@ -435,7 +440,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 					item_string = table.concat(rawLines, "\n"),
 					whisper = trade_entry.listing.whisper,
 					trader = trade_entry.listing.account.name,
-					weight = trade_entry.item.pseudoMods and trade_entry.item.pseudoMods[1]:match("Sum: (.+)") or "0",
+					weight = trade_entry.item.pseudoMods and pseudoModLine:match("Sum: (.+)") or "0",
 					id = trade_entry.id
 				})
 			end

@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.23.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.23.1) (2026/07/28)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.23.0...v0.23.1)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix trader crash [\#2398](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2398) ([vaisest](https://github.com/vaisest))
+### Fixed Calculations
+- Fix Gemling Frost Wall Ice Crystal life [\#2386](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2386) ([xiaoyaoyang](https://github.com/xiaoyaoyang))
+### Accuracy Improvements
+- Add legacy flag to Commandment support [\#2387](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2387) ([moxaj](https://github.com/moxaj))
+
+
 ## [v0.23.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.23.0) (2026/07/24)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.22.0...v0.23.0)
