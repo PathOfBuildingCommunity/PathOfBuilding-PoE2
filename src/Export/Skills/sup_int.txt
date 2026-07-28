@@ -351,6 +351,7 @@ statMap = {
 #skillEnd
 
 #skill SupportCommandment
+legacy = true
 #set SupportCommandment
 statMap = {
 	["support_minion_damage_with_non_command_skills_+%_final"] = {
