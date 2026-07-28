@@ -1,3 +1,14 @@
+VERSION[0.23.1][2026/07/28]
+
+--- Fixed Crashes ---
+* Fix trader crash (vaisest)
+
+--- Fixed Calculations ---
+* Fix Gemling Frost Wall Ice Crystal life (xiaoyaoyang)
+
+--- Accuracy Improvements ---
+* Add legacy flag to Commandment support (moxaj)
+
 VERSION[0.23.0][2026/07/24]
 
 --- New to Path of Building ---
