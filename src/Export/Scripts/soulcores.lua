@@ -2,6 +2,7 @@ if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("stat_descriptions.csd")
+local utils = LoadModule("../Modules/Utils")
 
 classMap = {
 	["Martial Weapon"] = { "weapon" },
@@ -60,12 +61,9 @@ directiveTable.base = function(state, args, out)
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
 				local statOrder = modLine.statOrder or {}
 				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
-				out:write('\t\t\t\ttradeHashes = { ')
-				for hash, desc in pairs(modLine.tradeHashes) do
-					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
-					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
-				end
-				out:write(' },\n')
+				out:write('\t\t\t\ttradeHashes = ')
+				out:write(utils.stringify(modLine.tradeHashes, nil, 5))
+				out:write(',\n')
 			end
 				out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
@@ -132,8 +130,10 @@ directiveTable.base = function(state, args, out)
 								}
 							end
 						end
-						local description, _, _ = describeStats(currentStats)
-						tradeHashes[murmurHash2(bytes, 0x02312233)] = description
+						tradeHashes[murmurHash2(bytes, 0x02312233)] = {
+							statValues = currentStats,
+							canonicalStat = stat.Id
+						}
 						modIdx = modIdx + 1
 					end
 					local out = {

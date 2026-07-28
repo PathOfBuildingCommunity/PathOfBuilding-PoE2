@@ -30131,7 +30131,7 @@ return {
 			name="Mods",
 			refTo="Mods",
 			type="Key",
-			width=300
+			width=3000
 		}
 	},
 	incursion2roomperlevel={

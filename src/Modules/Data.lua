@@ -675,7 +675,9 @@ data.jewelRadii = {
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
 -- Stat descriptions
-data.describeStats = LoadModule("Modules/StatDescriber")
+local statDescribeModule = LoadModule("Modules/StatDescriber")
+data.describeStats = statDescribeModule.describeStats
+data.applyStatSpecial = statDescribeModule.applySpecial
 
 -- Load item modifiers
 data.itemMods = {

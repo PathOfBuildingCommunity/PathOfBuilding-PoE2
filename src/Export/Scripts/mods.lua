@@ -3,6 +3,7 @@ if not loadStatFile then
 end
 local statDescriptions = getStatDescriptors("stat_descriptions.csd")
 loadStatFile("stat_descriptions.csd")
+local utils = LoadModule("../Modules/Utils")
 
 -- not comprehensive. see mod domains table in export tool and enums.lua
 local Domains = {
@@ -132,23 +133,25 @@ local function writeMods(outName, condFunc)
 					end
 
 					-- tincture stat descriptions are in a separate file
-					local statEntry
+					local statDescriptor
 					if isTinctureMod then
-						statEntry = tinctureStatDescriptions[stat.Id] and tinctureStatDescriptions[stat.Id]
+						statDescriptor = tinctureStatDescriptions[stat.Id]
 					else
-						statEntry = statDescriptions[stat.Id] and statDescriptions[stat.Id]
+						statDescriptor = statDescriptions[stat.Id]
 					end
 
 					-- skip stats that are missing fields. these are most likely
 					-- hidden stats or e.g. map stats
-					if not statEntry or not statEntry.stats or not statEntry[1] then
+					if not statDescriptor or not statDescriptor.stats or not statDescriptor[1] then
 						goto innerContinue
 					end
 
 					-- match stats to the stat values on the mod and save them
 					-- as they're used to describe the stat
 					local currentStats = {}
-					for _, statId in ipairs(statEntry.stats) do
+					local canonicalStat = statDescriptor.stats[1]
+					for _, statId in ipairs(statDescriptor.stats) do
+						statsHashed[statId] = true
 						for statIdx = 1, 6 do
 							if mod["Stat" .. statIdx] and mod["Stat" .. statIdx].Id == statId then
 								currentStats[statId] = {
@@ -162,40 +165,23 @@ local function writeMods(outName, condFunc)
 					-- radius jewel stats are slightly unique in that they use
 					-- the same stat as regular jewel mods. this means the
 					-- description will not include the also grant: prefix
-					local stats = copyTable(statEntry.stats)
+					local stats = copyTable(statDescriptor.stats)
 					-- radius jewels lack a proper stat descriptor and so we add it manually
-					local prefix
 					local extraStat
 					-- radius jewel mods:
 					-- notable
 					if mod.NodeType == 2 then
 						extraStat = "local_jewel_mod_stats_added_to_notable_passives"
-						prefix = "Notable Passive Skills in Radius also grant "
-					-- small
-					elseif mod.NodeType and mod.NodeType == 1 then
+						-- small
+					elseif mod.NodeType == 1 then
 						extraStat = "local_jewel_mod_stats_added_to_small_passives"
-						prefix = "Small Passive Skills in Radius also grant "
-					end
-
-
-					local description, _, _ = describeStats(currentStats)
-
-					if prefix then
-						for i, v in ipairs(description or {}) do
-							description[i] = prefix..v
-						end
 					end
 
 					local tradeHash = HashStats(stats, extraStat)
-					tradeHashes[tradeHash] = description
+					tradeHashes[tradeHash] = { statValues = currentStats, canonicalStat = canonicalStat, }
 					::innerContinue::
 				end
-				out:write("tradeHashes = { ")
-				for hash, desc in pairs(tradeHashes) do
-					local descriptionLines = '"' .. table.concat(desc, '", "') .. '"'
-					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
-				end
-				out:write('} ')
+				out:write(string.format("tradeHashes = %s,", utils.stringifyInline(tradeHashes)))
 				out:write('},\n')
 			else
 				print("Mod '" .. mod.Id .. "' has no stats")

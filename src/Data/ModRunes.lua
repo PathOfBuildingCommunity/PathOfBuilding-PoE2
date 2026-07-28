@@ -7,7 +7,17 @@ return {
 				type = "SoulCore",
 				"+40% of Armour also applies to Cold Damage",
 				statOrder = { 4646 },
-				tradeHashes = { [1947060170] = { "+40% of Armour also applies to Cold Damage" },  },
+				tradeHashes = {
+					[1947060170] = {
+						["canonicalStat"] = "base_armour_%_applies_to_cold_damage",
+						["statValues"] = {
+							["base_armour_%_applies_to_cold_damage"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -17,7 +27,17 @@ return {
 				type = "SoulCore",
 				"+40% of Armour also applies to Lightning Damage",
 				statOrder = { 4648 },
-				tradeHashes = { [2200571612] = { "+40% of Armour also applies to Lightning Damage" },  },
+				tradeHashes = {
+					[2200571612] = {
+						["canonicalStat"] = "base_armour_%_applies_to_lightning_damage",
+						["statValues"] = {
+							["base_armour_%_applies_to_lightning_damage"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -27,7 +47,17 @@ return {
 				type = "SoulCore",
 				"+40% of Armour also applies to Fire Damage",
 				statOrder = { 4647 },
-				tradeHashes = { [3897831687] = { "+40% of Armour also applies to Fire Damage" },  },
+				tradeHashes = {
+					[3897831687] = {
+						["canonicalStat"] = "base_armour_%_applies_to_fire_damage",
+						["statValues"] = {
+							["base_armour_%_applies_to_fire_damage"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -38,7 +68,26 @@ return {
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
 				statOrder = { 4265, 10138 },
-				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[3398301358] = {
+						["canonicalStat"] = "ailment_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["ailment_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -47,7 +96,26 @@ return {
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
 				statOrder = { 4265, 10138 },
-				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[3398301358] = {
+						["canonicalStat"] = "ailment_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["ailment_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -58,7 +126,26 @@ return {
 				"8% increased Skill Effect Duration",
 				"8% increased Cooldown Recovery Rate",
 				statOrder = { 1645, 4677 },
-				tradeHashes = { [1004011302] = { "8% increased Cooldown Recovery Rate" }, [3377888098] = { "8% increased Skill Effect Duration" },  },
+				tradeHashes = {
+					[1004011302] = {
+						["canonicalStat"] = "base_cooldown_speed_+%",
+						["statValues"] = {
+							["base_cooldown_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+					[3377888098] = {
+						["canonicalStat"] = "skill_effect_duration_+%",
+						["statValues"] = {
+							["skill_effect_duration_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -68,7 +155,17 @@ return {
 				type = "SoulCore",
 				"+4 to Maximum Rage",
 				statOrder = { 9609 },
-				tradeHashes = { [1181501418] = { "+4 to Maximum Rage" },  },
+				tradeHashes = {
+					[1181501418] = {
+						["canonicalStat"] = "maximum_rage",
+						["statValues"] = {
+							["maximum_rage"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -79,7 +176,26 @@ return {
 				"15% increased Curse Duration",
 				"15% increased Poison Duration",
 				statOrder = { 1540, 2896 },
-				tradeHashes = { [2011656677] = { "15% increased Poison Duration" }, [3824372849] = { "15% increased Curse Duration" },  },
+				tradeHashes = {
+					[2011656677] = {
+						["canonicalStat"] = "base_poison_duration_+%",
+						["statValues"] = {
+							["base_poison_duration_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[3824372849] = {
+						["canonicalStat"] = "base_curse_duration_+%",
+						["statValues"] = {
+							["base_curse_duration_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -89,7 +205,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
-				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+				tradeHashes = {
+					[2916861134] = {
+						["canonicalStat"] = "chance_to_gain_1_more_frenzy_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_frenzy_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -97,7 +223,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
-				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+				tradeHashes = {
+					[2916861134] = {
+						["canonicalStat"] = "chance_to_gain_1_more_frenzy_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_frenzy_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -105,7 +241,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
-				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+				tradeHashes = {
+					[2916861134] = {
+						["canonicalStat"] = "chance_to_gain_1_more_frenzy_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_frenzy_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -115,7 +261,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
-				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+				tradeHashes = {
+					[1228682002] = {
+						["canonicalStat"] = "chance_to_gain_1_more_endurance_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_endurance_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -123,7 +279,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
-				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+				tradeHashes = {
+					[1228682002] = {
+						["canonicalStat"] = "chance_to_gain_1_more_endurance_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_endurance_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -131,7 +297,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
-				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+				tradeHashes = {
+					[1228682002] = {
+						["canonicalStat"] = "chance_to_gain_1_more_endurance_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_endurance_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -141,7 +317,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
-				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+				tradeHashes = {
+					[3537994888] = {
+						["canonicalStat"] = "chance_to_gain_1_more_power_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_power_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -149,7 +335,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
-				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+				tradeHashes = {
+					[3537994888] = {
+						["canonicalStat"] = "chance_to_gain_1_more_power_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_power_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -157,7 +353,17 @@ return {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
-				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+				tradeHashes = {
+					[3537994888] = {
+						["canonicalStat"] = "chance_to_gain_1_more_power_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_power_charge_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -167,7 +373,17 @@ return {
 				type = "SoulCore",
 				"12% increased speed of Recoup Effects",
 				statOrder = { 9663 },
-				tradeHashes = { [2363593824] = { "12% increased speed of Recoup Effects" },  },
+				tradeHashes = {
+					[2363593824] = {
+						["canonicalStat"] = "recoup_speed_+%",
+						["statValues"] = {
+							["recoup_speed_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -175,7 +391,17 @@ return {
 				type = "SoulCore",
 				"8% of Damage taken Recouped as Life",
 				statOrder = { 1037 },
-				tradeHashes = { [1444556985] = { "8% of Damage taken Recouped as Life" },  },
+				tradeHashes = {
+					[1444556985] = {
+						["canonicalStat"] = "damage_taken_goes_to_life_over_4_seconds_%",
+						["statValues"] = {
+							["damage_taken_goes_to_life_over_4_seconds_%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -185,7 +411,17 @@ return {
 				type = "SoulCore",
 				"Enemies you Curse have -5% to Chaos Resistance",
 				statOrder = { 3716 },
-				tradeHashes = { [1772929282] = { "Enemies you Curse have -5% to Chaos Resistance" },  },
+				tradeHashes = {
+					[1772929282] = {
+						["canonicalStat"] = "enemies_chaos_resistance_%_while_cursed",
+						["statValues"] = {
+							["enemies_chaos_resistance_%_while_cursed"] = {
+								["max"] = -5,
+								["min"] = -5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -195,7 +431,17 @@ return {
 				type = "SoulCore",
 				"20% increased Projectile Speed",
 				statOrder = { 897 },
-				tradeHashes = { [3759663284] = { "20% increased Projectile Speed" },  },
+				tradeHashes = {
+					[3759663284] = {
+						["canonicalStat"] = "base_projectile_speed_+%",
+						["statValues"] = {
+							["base_projectile_speed_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -205,7 +451,21 @@ return {
 				type = "SoulCore",
 				"Adds 19 to 29 Chaos damage",
 				statOrder = { 1291 },
-				tradeHashes = { [2223678961] = { "Adds 19 to 29 Chaos damage" },  },
+				tradeHashes = {
+					[2223678961] = {
+						["canonicalStat"] = "local_minimum_added_chaos_damage",
+						["statValues"] = {
+							["local_maximum_added_chaos_damage"] = {
+								["max"] = 29,
+								["min"] = 29,
+							},
+							["local_minimum_added_chaos_damage"] = {
+								["max"] = 19,
+								["min"] = 19,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -215,7 +475,17 @@ return {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
-				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+				tradeHashes = {
+					[3742865955] = {
+						["canonicalStat"] = "minion_commanded_skill_damage_+%",
+						["statValues"] = {
+							["minion_commanded_skill_damage_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -223,7 +493,17 @@ return {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
-				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+				tradeHashes = {
+					[3742865955] = {
+						["canonicalStat"] = "minion_commanded_skill_damage_+%",
+						["statValues"] = {
+							["minion_commanded_skill_damage_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -231,7 +511,17 @@ return {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
-				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+				tradeHashes = {
+					[3742865955] = {
+						["canonicalStat"] = "minion_commanded_skill_damage_+%",
+						["statValues"] = {
+							["minion_commanded_skill_damage_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -241,7 +531,17 @@ return {
 				type = "SoulCore",
 				"15% chance to Poison on Hit with this weapon",
 				statOrder = { 7813 },
-				tradeHashes = { [3885634897] = { "15% chance to Poison on Hit with this weapon" },  },
+				tradeHashes = {
+					[3885634897] = {
+						["canonicalStat"] = "local_poison_on_hit_%",
+						["statValues"] = {
+							["local_poison_on_hit_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -249,7 +549,17 @@ return {
 				type = "SoulCore",
 				"+11% to Chaos Resistance",
 				statOrder = { 1024 },
-				tradeHashes = { [2923486259] = { "+11% to Chaos Resistance" },  },
+				tradeHashes = {
+					[2923486259] = {
+						["canonicalStat"] = "base_chaos_damage_resistance_%",
+						["statValues"] = {
+							["base_chaos_damage_resistance_%"] = {
+								["max"] = 11,
+								["min"] = 11,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -259,7 +569,17 @@ return {
 				type = "SoulCore",
 				"15% chance to cause Bleeding on Hit",
 				statOrder = { 2264 },
-				tradeHashes = { [1519615863] = { "15% chance to cause Bleeding on Hit" },  },
+				tradeHashes = {
+					[1519615863] = {
+						["canonicalStat"] = "local_chance_to_bleed_on_hit_%",
+						["statValues"] = {
+							["local_chance_to_bleed_on_hit_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -267,7 +587,17 @@ return {
 				type = "SoulCore",
 				"20% increased Charm Charges gained",
 				statOrder = { 5605 },
-				tradeHashes = { [3585532255] = { "20% increased Charm Charges gained" },  },
+				tradeHashes = {
+					[3585532255] = {
+						["canonicalStat"] = "charm_charges_gained_+%",
+						["statValues"] = {
+							["charm_charges_gained_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -277,7 +607,17 @@ return {
 				type = "SoulCore",
 				"Recover 2% of maximum Life on Kill",
 				statOrder = { 1511 },
-				tradeHashes = { [2023107756] = { "Recover 2% of maximum Life on Kill" },  },
+				tradeHashes = {
+					[2023107756] = {
+						["canonicalStat"] = "recover_%_maximum_life_on_kill",
+						["statValues"] = {
+							["recover_%_maximum_life_on_kill"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -285,7 +625,17 @@ return {
 				type = "SoulCore",
 				"3% increased maximum Life",
 				statOrder = { 889 },
-				tradeHashes = { [983749596] = { "3% increased maximum Life" },  },
+				tradeHashes = {
+					[983749596] = {
+						["canonicalStat"] = "maximum_life_+%",
+						["statValues"] = {
+							["maximum_life_+%"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -295,7 +645,17 @@ return {
 				type = "SoulCore",
 				"Recover 2% of maximum Mana on Kill",
 				statOrder = { 1513 },
-				tradeHashes = { [1030153674] = { "Recover 2% of maximum Mana on Kill" },  },
+				tradeHashes = {
+					[1030153674] = {
+						["canonicalStat"] = "recover_%_maximum_mana_on_kill",
+						["statValues"] = {
+							["recover_%_maximum_mana_on_kill"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -303,7 +663,17 @@ return {
 				type = "SoulCore",
 				"3% increased maximum Mana",
 				statOrder = { 894 },
-				tradeHashes = { [2748665614] = { "3% increased maximum Mana" },  },
+				tradeHashes = {
+					[2748665614] = {
+						["canonicalStat"] = "maximum_mana_+%",
+						["statValues"] = {
+							["maximum_mana_+%"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -313,7 +683,17 @@ return {
 				type = "SoulCore",
 				"30% increased Elemental Damage with Attacks",
 				statOrder = { 877 },
-				tradeHashes = { [387439868] = { "30% increased Elemental Damage with Attacks" },  },
+				tradeHashes = {
+					[387439868] = {
+						["canonicalStat"] = "elemental_damage_with_attack_skills_+%",
+						["statValues"] = {
+							["elemental_damage_with_attack_skills_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -321,7 +701,17 @@ return {
 				type = "SoulCore",
 				"+5% to all Elemental Resistances",
 				statOrder = { 1013 },
-				tradeHashes = { [2901986750] = { "+5% to all Elemental Resistances" },  },
+				tradeHashes = {
+					[2901986750] = {
+						["canonicalStat"] = "base_resist_all_elements_%",
+						["statValues"] = {
+							["base_resist_all_elements_%"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -331,7 +721,17 @@ return {
 				type = "SoulCore",
 				"30% increased Flammability Magnitude",
 				statOrder = { 1055 },
-				tradeHashes = { [2968503605] = { "30% increased Flammability Magnitude" },  },
+				tradeHashes = {
+					[2968503605] = {
+						["canonicalStat"] = "ignite_chance_+%",
+						["statValues"] = {
+							["ignite_chance_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -339,7 +739,17 @@ return {
 				type = "SoulCore",
 				"+1% to Maximum Fire Resistance",
 				statOrder = { 1009 },
-				tradeHashes = { [4095671657] = { "+1% to Maximum Fire Resistance" },  },
+				tradeHashes = {
+					[4095671657] = {
+						["canonicalStat"] = "base_maximum_fire_damage_resistance_%",
+						["statValues"] = {
+							["base_maximum_fire_damage_resistance_%"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -349,7 +759,17 @@ return {
 				type = "SoulCore",
 				"30% increased Freeze Buildup",
 				statOrder = { 1057 },
-				tradeHashes = { [473429811] = { "30% increased Freeze Buildup" },  },
+				tradeHashes = {
+					[473429811] = {
+						["canonicalStat"] = "hit_damage_freeze_multiplier_+%",
+						["statValues"] = {
+							["hit_damage_freeze_multiplier_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -357,7 +777,17 @@ return {
 				type = "SoulCore",
 				"+1% to Maximum Cold Resistance",
 				statOrder = { 1010 },
-				tradeHashes = { [3676141501] = { "+1% to Maximum Cold Resistance" },  },
+				tradeHashes = {
+					[3676141501] = {
+						["canonicalStat"] = "base_maximum_cold_damage_resistance_%",
+						["statValues"] = {
+							["base_maximum_cold_damage_resistance_%"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -367,7 +797,17 @@ return {
 				type = "SoulCore",
 				"30% increased chance to Shock",
 				statOrder = { 1059 },
-				tradeHashes = { [293638271] = { "30% increased chance to Shock" },  },
+				tradeHashes = {
+					[293638271] = {
+						["canonicalStat"] = "shock_chance_+%",
+						["statValues"] = {
+							["shock_chance_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -375,7 +815,17 @@ return {
 				type = "SoulCore",
 				"+1% to Maximum Lightning Resistance",
 				statOrder = { 1011 },
-				tradeHashes = { [1011760251] = { "+1% to Maximum Lightning Resistance" },  },
+				tradeHashes = {
+					[1011760251] = {
+						["canonicalStat"] = "base_maximum_lightning_damage_resistance_%",
+						["statValues"] = {
+							["base_maximum_lightning_damage_resistance_%"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -385,7 +835,17 @@ return {
 				type = "SoulCore",
 				"+15 to Spirit",
 				statOrder = { 896 },
-				tradeHashes = { [3981240776] = { "+15 to Spirit" },  },
+				tradeHashes = {
+					[3981240776] = {
+						["canonicalStat"] = "base_spirit_from_equipment",
+						["statValues"] = {
+							["base_spirit_from_equipment"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -393,7 +853,17 @@ return {
 				type = "SoulCore",
 				"10% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 6917 },
-				tradeHashes = { [3175163625] = { "10% increased Quantity of Gold Dropped by Slain Enemies" },  },
+				tradeHashes = {
+					[3175163625] = {
+						["canonicalStat"] = "gold_+%_from_enemies",
+						["statValues"] = {
+							["gold_+%_from_enemies"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -403,7 +873,17 @@ return {
 				type = "SoulCore",
 				"Attacks with this Weapon Penetrate 15% Elemental Resistances",
 				statOrder = { 3436 },
-				tradeHashes = { [4064396395] = { "Attacks with this Weapon Penetrate 15% Elemental Resistances" },  },
+				tradeHashes = {
+					[4064396395] = {
+						["canonicalStat"] = "local_elemental_penetration_%",
+						["statValues"] = {
+							["local_elemental_penetration_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -411,7 +891,17 @@ return {
 				type = "SoulCore",
 				"25% increased Elemental Ailment Threshold",
 				statOrder = { 4266 },
-				tradeHashes = { [3544800472] = { "25% increased Elemental Ailment Threshold" },  },
+				tradeHashes = {
+					[3544800472] = {
+						["canonicalStat"] = "ailment_threshold_+%",
+						["statValues"] = {
+							["ailment_threshold_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -421,7 +911,17 @@ return {
 				type = "SoulCore",
 				"5% increased Attack Speed",
 				statOrder = { 946 },
-				tradeHashes = { [210067635] = { "5% increased Attack Speed" },  },
+				tradeHashes = {
+					[210067635] = {
+						["canonicalStat"] = "local_attack_speed_+%",
+						["statValues"] = {
+							["local_attack_speed_+%"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -429,7 +929,17 @@ return {
 				type = "SoulCore",
 				"15% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 4747 },
-				tradeHashes = { [924253255] = { "15% reduced Slowing Potency of Debuffs on You" },  },
+				tradeHashes = {
+					[924253255] = {
+						["canonicalStat"] = "base_slow_potency_+%",
+						["statValues"] = {
+							["base_slow_potency_+%"] = {
+								["max"] = -15,
+								["min"] = -15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -439,7 +949,17 @@ return {
 				type = "SoulCore",
 				"+5% to Critical Damage Bonus",
 				statOrder = { 945 },
-				tradeHashes = { [2694482655] = { "+5% to Critical Damage Bonus" },  },
+				tradeHashes = {
+					[2694482655] = {
+						["canonicalStat"] = "local_critical_strike_multiplier_+",
+						["statValues"] = {
+							["local_critical_strike_multiplier_+"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -447,7 +967,17 @@ return {
 				type = "SoulCore",
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
-				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+				tradeHashes = {
+					[3855016469] = {
+						["canonicalStat"] = "base_self_critical_strike_multiplier_-%",
+						["statValues"] = {
+							["base_self_critical_strike_multiplier_-%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -455,7 +985,17 @@ return {
 				type = "SoulCore",
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
-				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+				tradeHashes = {
+					[3855016469] = {
+						["canonicalStat"] = "base_self_critical_strike_multiplier_-%",
+						["statValues"] = {
+							["base_self_critical_strike_multiplier_-%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -463,7 +1003,17 @@ return {
 				type = "SoulCore",
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
-				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+				tradeHashes = {
+					[3855016469] = {
+						["canonicalStat"] = "base_self_critical_strike_multiplier_-%",
+						["statValues"] = {
+							["base_self_critical_strike_multiplier_-%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -473,7 +1023,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7818 },
-				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
+				tradeHashes = {
+					[1556124492] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_strength",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_strength"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -481,7 +1041,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7818 },
-				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
+				tradeHashes = {
+					[1556124492] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_strength",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_strength"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -491,7 +1061,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7816 },
-				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
+				tradeHashes = {
+					[1496740334] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_dexterity",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_dexterity"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -499,7 +1079,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7816 },
-				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
+				tradeHashes = {
+					[1496740334] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_dexterity",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_dexterity"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -509,7 +1099,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7817 },
-				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
+				tradeHashes = {
+					[2913012734] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_intelligence",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_intelligence"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -517,7 +1117,17 @@ return {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7817 },
-				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
+				tradeHashes = {
+					[2913012734] = {
+						["canonicalStat"] = "local_requirements_%_to_convert_to_intelligence",
+						["statValues"] = {
+							["local_requirements_%_to_convert_to_intelligence"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -527,7 +1137,17 @@ return {
 				type = "SoulCore",
 				"Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds",
 				statOrder = { 6765 },
-				tradeHashes = { [3903510399] = { "Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds" },  },
+				tradeHashes = {
+					[3903510399] = {
+						["canonicalStat"] = "gain_armour_from_%_life_loss_from_hits_lasting_8_seconds",
+						["statValues"] = {
+							["gain_armour_from_%_life_loss_from_hits_lasting_8_seconds"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -535,7 +1155,17 @@ return {
 				type = "SoulCore",
 				"10% of Physical Damage prevented Recouped as Life",
 				statOrder = { 9451 },
-				tradeHashes = { [1374654984] = { "10% of Physical Damage prevented Recouped as Life" },  },
+				tradeHashes = {
+					[1374654984] = {
+						["canonicalStat"] = "physical_damage_prevented_recouped_as_life_%",
+						["statValues"] = {
+							["physical_damage_prevented_recouped_as_life_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -544,7 +1174,26 @@ return {
 				"Lose 5% of maximum Life per second while Sprinting",
 				"25% increased Movement Speed while Sprinting",
 				statOrder = { 7464, 10069 },
-				tradeHashes = { [3473409233] = { "Lose 5% of maximum Life per second while Sprinting" }, [3107707789] = { "25% increased Movement Speed while Sprinting" },  },
+				tradeHashes = {
+					[3107707789] = {
+						["canonicalStat"] = "sprint_movement_speed_+%",
+						["statValues"] = {
+							["sprint_movement_speed_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+					[3473409233] = {
+						["canonicalStat"] = "life_loss_%_per_minute_while_sprinting",
+						["statValues"] = {
+							["life_loss_%_per_minute_while_sprinting"] = {
+								["max"] = 300,
+								["min"] = 300,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -554,7 +1203,17 @@ return {
 				type = "SoulCore",
 				"You Recoup 50% of Damage taken by your Offerings as Life",
 				statOrder = { 9687 },
-				tradeHashes = { [1937310173] = { "You Recoup 50% of Damage taken by your Offerings as Life" },  },
+				tradeHashes = {
+					[1937310173] = {
+						["canonicalStat"] = "recoup_life_equal_to_%_of_hit_damage_dealt_to_your_offerings",
+						["statValues"] = {
+							["recoup_life_equal_to_%_of_hit_damage_dealt_to_your_offerings"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -562,7 +1221,17 @@ return {
 				type = "SoulCore",
 				"One of your Persistent Minions revives when an Offering expires",
 				statOrder = { 9781 },
-				tradeHashes = { [1480688478] = { "One of your Persistent Minions revives when an Offering expires" },  },
+				tradeHashes = {
+					[1480688478] = {
+						["canonicalStat"] = "revive_random_persistent_minion_on_offering_expiration",
+						["statValues"] = {
+							["revive_random_persistent_minion_on_offering_expiration"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -570,7 +1239,17 @@ return {
 				type = "SoulCore",
 				"Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll",
 				statOrder = { 9788 },
-				tradeHashes = { [1585886916] = { "Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll" },  },
+				tradeHashes = {
+					[1585886916] = {
+						["canonicalStat"] = "sacrifice_%_life_to_gain_as_guard_on_dodge_roll",
+						["statValues"] = {
+							["sacrifice_%_life_to_gain_as_guard_on_dodge_roll"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -580,7 +1259,17 @@ return {
 				type = "SoulCore",
 				"+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
 				statOrder = { 6723 },
-				tradeHashes = { [280497929] = { "+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet" },  },
+				tradeHashes = {
+					[280497929] = {
+						["canonicalStat"] = "gain_X_max_mana_per_2_es_on_equipped_helmet",
+						["statValues"] = {
+							["gain_X_max_mana_per_2_es_on_equipped_helmet"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -589,7 +1278,17 @@ return {
 				"Energy Shield Recharge starts after spending a total of",
 				" 2000 Mana, no more than once every 2 seconds",
 				statOrder = { 6448, 6448.1 },
-				tradeHashes = { [2241849004] = { "Energy Shield Recharge starts after spending a total of", " 2000 Mana, no more than once every 2 seconds" },  },
+				tradeHashes = {
+					[2241849004] = {
+						["canonicalStat"] = "energy_shield_recharge_starts_after_spending_2000_mana_every_2_seconds",
+						["statValues"] = {
+							["energy_shield_recharge_starts_after_spending_2000_mana_every_2_seconds"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -598,7 +1297,17 @@ return {
 				"Increases and Reductions to Movement Speed also",
 				" apply to Energy Shield Recharge Rate",
 				statOrder = { 7327, 7327.1 },
-				tradeHashes = { [4282982513] = { "Increases and Reductions to Movement Speed also", " apply to Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[4282982513] = {
+						["canonicalStat"] = "increases_and_reductions_to_move_speed_apply_to_es_recharge_rate",
+						["statValues"] = {
+							["increases_and_reductions_to_move_speed_apply_to_es_recharge_rate"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -608,7 +1317,17 @@ return {
 				type = "SoulCore",
 				"A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate",
 				statOrder = { 8821 },
-				tradeHashes = { [2231410646] = { "A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate" },  },
+				tradeHashes = {
+					[2231410646] = {
+						["canonicalStat"] = "mark_grants_%_max_glory_to_random_skill_on_activate",
+						["statValues"] = {
+							["mark_grants_%_max_glory_to_random_skill_on_activate"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -616,7 +1335,17 @@ return {
 				type = "SoulCore",
 				"Your Energy Shield Recharge starts when your Minions are Reformed",
 				statOrder = { 6446 },
-				tradeHashes = { [1919509054] = { "Your Energy Shield Recharge starts when your Minions are Reformed" },  },
+				tradeHashes = {
+					[1919509054] = {
+						["canonicalStat"] = "energy_shield_recharge_start_when_minions_reform",
+						["statValues"] = {
+							["energy_shield_recharge_start_when_minions_reform"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -624,7 +1353,17 @@ return {
 				type = "SoulCore",
 				"+75% of Armour also applies to Chaos Damage while on full Energy Shield",
 				statOrder = { 4384 },
-				tradeHashes = { [2191621386] = { "+75% of Armour also applies to Chaos Damage while on full Energy Shield" },  },
+				tradeHashes = {
+					[2191621386] = {
+						["canonicalStat"] = "armour_%_also_applies_to_chaos_damage_while_at_full_es",
+						["statValues"] = {
+							["armour_%_also_applies_to_chaos_damage_while_at_full_es"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -634,7 +1373,17 @@ return {
 				type = "AbyssalEye",
 				"Remove a Damaging Ailment when you use a Command Skill",
 				statOrder = { 9748 },
-				tradeHashes = { [594547430] = { "Remove a Damaging Ailment when you use a Command Skill" },  },
+				tradeHashes = {
+					[594547430] = {
+						["canonicalStat"] = "remove_damaging_ailment_on_using_command_skill",
+						["statValues"] = {
+							["remove_damaging_ailment_on_using_command_skill"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -642,7 +1391,17 @@ return {
 				type = "AbyssalEye",
 				"+2 to Armour per 1 Spirit",
 				statOrder = { 4398 },
-				tradeHashes = { [1197632982] = { "+2 to Armour per 1 Spirit" },  },
+				tradeHashes = {
+					[1197632982] = {
+						["canonicalStat"] = "armour_+_per_1_spirit",
+						["statValues"] = {
+							["armour_+_per_1_spirit"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -651,7 +1410,17 @@ return {
 				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
 				"Other Modifiers to Movement Speed except for Sprinting do not apply",
 				statOrder = { 9153, 9153.1 },
-				tradeHashes = { [2703838669] = { "1% increased Movement Speed per 15 Spirit, up to a maximum of 40%", "Other Modifiers to Movement Speed except for Sprinting do not apply" },  },
+				tradeHashes = {
+					[2703838669] = {
+						["canonicalStat"] = "abyss_socketable_movement_speed_is_only_base_+%_per_15_spirit_up_to_+40%",
+						["statValues"] = {
+							["abyss_socketable_movement_speed_is_only_base_+%_per_15_spirit_up_to_+40%"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -661,7 +1430,17 @@ return {
 				type = "AbyssalEye",
 				"Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				statOrder = { 4233 },
-				tradeHashes = { [3570773271] = { "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[3570773271] = {
+						["canonicalStat"] = "additive_modifiers_to_life_regeneration_also_apply_to_mana_regeneration_rate",
+						["statValues"] = {
+							["additive_modifiers_to_life_regeneration_also_apply_to_mana_regeneration_rate"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -669,7 +1448,17 @@ return {
 				type = "AbyssalEye",
 				"40% increased effect of Arcane Surge on you",
 				statOrder = { 2996 },
-				tradeHashes = { [2103650854] = { "40% increased effect of Arcane Surge on you" },  },
+				tradeHashes = {
+					[2103650854] = {
+						["canonicalStat"] = "arcane_surge_effect_on_self_+%",
+						["statValues"] = {
+							["arcane_surge_effect_on_self_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -677,7 +1466,17 @@ return {
 				type = "AbyssalEye",
 				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
 				statOrder = { 7970 },
-				tradeHashes = { [2876843277] = { "15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently" },  },
+				tradeHashes = {
+					[2876843277] = {
+						["canonicalStat"] = "mana_cost_efficiency_+%_if_not_dodge_rolled_recently",
+						["statValues"] = {
+							["mana_cost_efficiency_+%_if_not_dodge_rolled_recently"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -687,7 +1486,17 @@ return {
 				type = "AbyssalEye",
 				"Regenerate 1.5% of maximum Life per second",
 				statOrder = { 1691 },
-				tradeHashes = { [836936635] = { "Regenerate 1.5% of maximum Life per second" },  },
+				tradeHashes = {
+					[836936635] = {
+						["canonicalStat"] = "life_regeneration_rate_per_minute_%",
+						["statValues"] = {
+							["life_regeneration_rate_per_minute_%"] = {
+								["max"] = 90,
+								["min"] = 90,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -695,7 +1504,17 @@ return {
 				type = "AbyssalEye",
 				"25% increased Life Cost Efficiency",
 				statOrder = { 4708 },
-				tradeHashes = { [310945763] = { "25% increased Life Cost Efficiency" },  },
+				tradeHashes = {
+					[310945763] = {
+						["canonicalStat"] = "base_life_cost_efficiency_+%",
+						["statValues"] = {
+							["base_life_cost_efficiency_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -703,7 +1522,17 @@ return {
 				type = "AbyssalEye",
 				"10% increased Movement Speed when on Low Life",
 				statOrder = { 1554 },
-				tradeHashes = { [649025131] = { "10% increased Movement Speed when on Low Life" },  },
+				tradeHashes = {
+					[649025131] = {
+						["canonicalStat"] = "movement_velocity_+%_when_on_low_life",
+						["statValues"] = {
+							["movement_velocity_+%_when_on_low_life"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -713,7 +1542,17 @@ return {
 				type = "AbyssalEye",
 				"+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
 				statOrder = { 4139 },
-				tradeHashes = { [687156079] = { "+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet" },  },
+				tradeHashes = {
+					[687156079] = {
+						["canonicalStat"] = "accuracy_rating_+_per_evasion_rating_on_helmet",
+						["statValues"] = {
+							["accuracy_rating_+_per_evasion_rating_on_helmet"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -721,7 +1560,17 @@ return {
 				type = "AbyssalEye",
 				"Critical Hit chance is Lucky against Parried enemies",
 				statOrder = { 5809 },
-				tradeHashes = { [935518591] = { "Critical Hit chance is Lucky against Parried enemies" },  },
+				tradeHashes = {
+					[935518591] = {
+						["canonicalStat"] = "critical_chance_luck_against_parry_debuffed_enemies",
+						["statValues"] = {
+							["critical_chance_luck_against_parry_debuffed_enemies"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -729,7 +1578,17 @@ return {
 				type = "AbyssalEye",
 				"Prevent +3% of Damage from Deflected Hits",
 				statOrder = { 4679 },
-				tradeHashes = { [3552135623] = { "Prevent +3% of Damage from Deflected Hits" },  },
+				tradeHashes = {
+					[3552135623] = {
+						["canonicalStat"] = "base_damage_%_deflected",
+						["statValues"] = {
+							["base_damage_%_deflected"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -740,7 +1599,21 @@ return {
 				"Adds 7 to 11 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
-				tradeHashes = { [709508406] = { "Adds 7 to 11 Fire Damage" },  },
+				tradeHashes = {
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 11,
+								["min"] = 11,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 7,
+								["min"] = 7,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -749,7 +1622,17 @@ return {
 				"Gain 8% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 8% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -758,7 +1641,17 @@ return {
 				"Gain 8% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 8% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -768,7 +1661,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
-				tradeHashes = { [3372524247] = { "+14% to Fire Resistance" },  },
+				tradeHashes = {
+					[3372524247] = {
+						["canonicalStat"] = "base_fire_damage_resistance_%",
+						["statValues"] = {
+							["base_fire_damage_resistance_%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -779,7 +1682,21 @@ return {
 				"Adds 6 to 10 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
-				tradeHashes = { [1037193709] = { "Adds 6 to 10 Cold Damage" },  },
+				tradeHashes = {
+					[1037193709] = {
+						["canonicalStat"] = "local_minimum_added_cold_damage",
+						["statValues"] = {
+							["local_maximum_added_cold_damage"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+							["local_minimum_added_cold_damage"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -788,7 +1705,17 @@ return {
 				"Gain 8% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 8% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -797,7 +1724,17 @@ return {
 				"Gain 8% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 8% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -807,7 +1744,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
-				tradeHashes = { [4220027924] = { "+14% to Cold Resistance" },  },
+				tradeHashes = {
+					[4220027924] = {
+						["canonicalStat"] = "base_cold_damage_resistance_%",
+						["statValues"] = {
+							["base_cold_damage_resistance_%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -818,7 +1765,21 @@ return {
 				"Adds 1 to 20 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
-				tradeHashes = { [3336890334] = { "Adds 1 to 20 Lightning Damage" },  },
+				tradeHashes = {
+					[3336890334] = {
+						["canonicalStat"] = "local_minimum_added_lightning_damage",
+						["statValues"] = {
+							["local_maximum_added_lightning_damage"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+							["local_minimum_added_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -827,7 +1788,17 @@ return {
 				"Gain 8% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -836,7 +1807,17 @@ return {
 				"Gain 8% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -846,7 +1827,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
-				tradeHashes = { [1671376347] = { "+14% to Lightning Resistance" },  },
+				tradeHashes = {
+					[1671376347] = {
+						["canonicalStat"] = "base_lightning_damage_resistance_%",
+						["statValues"] = {
+							["base_lightning_damage_resistance_%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -857,7 +1848,17 @@ return {
 				"16% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
-				tradeHashes = { [1805374733] = { "16% increased Physical Damage" },  },
+				tradeHashes = {
+					[1805374733] = {
+						["canonicalStat"] = "local_physical_damage_+%",
+						["statValues"] = {
+							["local_physical_damage_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -866,7 +1867,17 @@ return {
 				"25% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "25% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -875,7 +1886,17 @@ return {
 				"25% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "25% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -885,7 +1906,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
-				tradeHashes = { [3523867985] = { "16% increased Armour, Evasion and Energy Shield" },  },
+				tradeHashes = {
+					[3523867985] = {
+						["canonicalStat"] = "local_armour_and_evasion_and_energy_shield_+%",
+						["statValues"] = {
+							["local_armour_and_evasion_and_energy_shield_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -896,7 +1927,17 @@ return {
 				"Leeches 4% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
-				tradeHashes = { [55876295] = { "Leeches 4% of Physical Damage as Life" },  },
+				tradeHashes = {
+					[55876295] = {
+						["canonicalStat"] = "local_life_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_life_leech_from_physical_damage_permyriad"] = {
+								["max"] = 400,
+								["min"] = 400,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -905,7 +1946,17 @@ return {
 				"+40 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+40 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -914,7 +1965,17 @@ return {
 				"+40 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+40 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -924,7 +1985,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
-				tradeHashes = { [3299347043] = { "+45 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 45,
+								["min"] = 45,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -935,7 +2006,17 @@ return {
 				"Leeches 3% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
-				tradeHashes = { [669069897] = { "Leeches 3% of Physical Damage as Mana" },  },
+				tradeHashes = {
+					[669069897] = {
+						["canonicalStat"] = "local_mana_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_mana_leech_from_physical_damage_permyriad"] = {
+								["max"] = 300,
+								["min"] = 300,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -944,7 +2025,17 @@ return {
 				"+60 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+60 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -953,7 +2044,17 @@ return {
 				"+60 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+60 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -963,7 +2064,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
-				tradeHashes = { [1050105434] = { "+30 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -974,7 +2085,17 @@ return {
 				"Gain 25 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
-				tradeHashes = { [3695891184] = { "Gain 25 Life per enemy killed" },  },
+				tradeHashes = {
+					[3695891184] = {
+						["canonicalStat"] = "base_life_gained_on_enemy_death",
+						["statValues"] = {
+							["base_life_gained_on_enemy_death"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -983,7 +2104,17 @@ return {
 				"8% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "8% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -992,7 +2123,17 @@ return {
 				"8% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "8% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1002,7 +2143,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
-				tradeHashes = { [836936635] = { "Regenerate 0.4% of maximum Life per second" },  },
+				tradeHashes = {
+					[836936635] = {
+						["canonicalStat"] = "life_regeneration_rate_per_minute_%",
+						["statValues"] = {
+							["life_regeneration_rate_per_minute_%"] = {
+								["max"] = 24,
+								["min"] = 24,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1013,7 +2164,17 @@ return {
 				"Gain 20 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
-				tradeHashes = { [1368271171] = { "Gain 20 Mana per enemy killed" },  },
+				tradeHashes = {
+					[1368271171] = {
+						["canonicalStat"] = "base_mana_gained_on_enemy_death",
+						["statValues"] = {
+							["base_mana_gained_on_enemy_death"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1022,7 +2183,17 @@ return {
 				"25% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1031,7 +2202,17 @@ return {
 				"25% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1041,7 +2222,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
-				tradeHashes = { [789117908] = { "15% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1052,7 +2243,17 @@ return {
 				"Causes 30% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
-				tradeHashes = { [791928121] = { "Causes 30% increased Stun Buildup" },  },
+				tradeHashes = {
+					[791928121] = {
+						["canonicalStat"] = "local_hit_damage_stun_multiplier_+%",
+						["statValues"] = {
+							["local_hit_damage_stun_multiplier_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1061,7 +2262,17 @@ return {
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1070,7 +2281,17 @@ return {
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1080,7 +2301,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
-				tradeHashes = { [915769802] = { "+75 to Stun Threshold" },  },
+				tradeHashes = {
+					[915769802] = {
+						["canonicalStat"] = "stun_threshold_+",
+						["statValues"] = {
+							["stun_threshold_+"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1091,7 +2322,17 @@ return {
 				"+90 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
-				tradeHashes = { [691932474] = { "+90 to Accuracy Rating" },  },
+				tradeHashes = {
+					[691932474] = {
+						["canonicalStat"] = "local_accuracy_rating",
+						["statValues"] = {
+							["local_accuracy_rating"] = {
+								["max"] = 90,
+								["min"] = 90,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1100,7 +2341,17 @@ return {
 				"20% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "20% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1109,7 +2360,17 @@ return {
 				"20% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "20% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1119,7 +2380,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
-				tradeHashes = { [2310741722] = { "12% increased Life and Mana Recovery from Flasks" },  },
+				tradeHashes = {
+					[2310741722] = {
+						["canonicalStat"] = "flask_life_and_mana_to_recover_+%",
+						["statValues"] = {
+							["flask_life_and_mana_to_recover_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -1130,7 +2401,21 @@ return {
 				"Adds 4 to 6 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
-				tradeHashes = { [709508406] = { "Adds 4 to 6 Fire Damage" },  },
+				tradeHashes = {
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1139,7 +2424,17 @@ return {
 				"Gain 6% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 6% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1148,7 +2443,17 @@ return {
 				"Gain 6% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 6% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1158,7 +2463,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
-				tradeHashes = { [3372524247] = { "+10% to Fire Resistance" },  },
+				tradeHashes = {
+					[3372524247] = {
+						["canonicalStat"] = "base_fire_damage_resistance_%",
+						["statValues"] = {
+							["base_fire_damage_resistance_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1169,7 +2484,21 @@ return {
 				"Adds 3 to 5 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
-				tradeHashes = { [1037193709] = { "Adds 3 to 5 Cold Damage" },  },
+				tradeHashes = {
+					[1037193709] = {
+						["canonicalStat"] = "local_minimum_added_cold_damage",
+						["statValues"] = {
+							["local_maximum_added_cold_damage"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+							["local_minimum_added_cold_damage"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1178,7 +2507,17 @@ return {
 				"Gain 6% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 6% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1187,7 +2526,17 @@ return {
 				"Gain 6% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 6% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1197,7 +2546,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
-				tradeHashes = { [4220027924] = { "+10% to Cold Resistance" },  },
+				tradeHashes = {
+					[4220027924] = {
+						["canonicalStat"] = "base_cold_damage_resistance_%",
+						["statValues"] = {
+							["base_cold_damage_resistance_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1208,7 +2567,21 @@ return {
 				"Adds 1 to 10 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
-				tradeHashes = { [3336890334] = { "Adds 1 to 10 Lightning Damage" },  },
+				tradeHashes = {
+					[3336890334] = {
+						["canonicalStat"] = "local_minimum_added_lightning_damage",
+						["statValues"] = {
+							["local_maximum_added_lightning_damage"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+							["local_minimum_added_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1217,7 +2590,17 @@ return {
 				"Gain 6% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1226,7 +2609,17 @@ return {
 				"Gain 6% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1236,7 +2629,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
-				tradeHashes = { [1671376347] = { "+10% to Lightning Resistance" },  },
+				tradeHashes = {
+					[1671376347] = {
+						["canonicalStat"] = "base_lightning_damage_resistance_%",
+						["statValues"] = {
+							["base_lightning_damage_resistance_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1247,7 +2650,17 @@ return {
 				"14% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
-				tradeHashes = { [1805374733] = { "14% increased Physical Damage" },  },
+				tradeHashes = {
+					[1805374733] = {
+						["canonicalStat"] = "local_physical_damage_+%",
+						["statValues"] = {
+							["local_physical_damage_+%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1256,7 +2669,17 @@ return {
 				"20% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "20% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1265,7 +2688,17 @@ return {
 				"20% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "20% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1275,7 +2708,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
-				tradeHashes = { [3523867985] = { "14% increased Armour, Evasion and Energy Shield" },  },
+				tradeHashes = {
+					[3523867985] = {
+						["canonicalStat"] = "local_armour_and_evasion_and_energy_shield_+%",
+						["statValues"] = {
+							["local_armour_and_evasion_and_energy_shield_+%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1286,7 +2729,17 @@ return {
 				"Leeches 3% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
-				tradeHashes = { [55876295] = { "Leeches 3% of Physical Damage as Life" },  },
+				tradeHashes = {
+					[55876295] = {
+						["canonicalStat"] = "local_life_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_life_leech_from_physical_damage_permyriad"] = {
+								["max"] = 300,
+								["min"] = 300,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1295,7 +2748,17 @@ return {
 				"+30 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+30 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1304,7 +2767,17 @@ return {
 				"+30 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+30 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1314,7 +2787,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
-				tradeHashes = { [3299347043] = { "+30 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1325,7 +2808,17 @@ return {
 				"Leeches 2% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
-				tradeHashes = { [669069897] = { "Leeches 2% of Physical Damage as Mana" },  },
+				tradeHashes = {
+					[669069897] = {
+						["canonicalStat"] = "local_mana_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_mana_leech_from_physical_damage_permyriad"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1334,7 +2827,17 @@ return {
 				"+45 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+45 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 45,
+								["min"] = 45,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1343,7 +2846,17 @@ return {
 				"+45 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+45 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 45,
+								["min"] = 45,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1353,7 +2866,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
-				tradeHashes = { [1050105434] = { "+20 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1364,7 +2887,17 @@ return {
 				"Gain 15 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
-				tradeHashes = { [3695891184] = { "Gain 15 Life per enemy killed" },  },
+				tradeHashes = {
+					[3695891184] = {
+						["canonicalStat"] = "base_life_gained_on_enemy_death",
+						["statValues"] = {
+							["base_life_gained_on_enemy_death"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1373,7 +2906,17 @@ return {
 				"6% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "6% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1382,7 +2925,17 @@ return {
 				"6% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "6% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1392,7 +2945,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
-				tradeHashes = { [836936635] = { "Regenerate 0.35% of maximum Life per second" },  },
+				tradeHashes = {
+					[836936635] = {
+						["canonicalStat"] = "life_regeneration_rate_per_minute_%",
+						["statValues"] = {
+							["life_regeneration_rate_per_minute_%"] = {
+								["max"] = 21,
+								["min"] = 21,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1403,7 +2966,17 @@ return {
 				"Gain 10 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
-				tradeHashes = { [1368271171] = { "Gain 10 Mana per enemy killed" },  },
+				tradeHashes = {
+					[1368271171] = {
+						["canonicalStat"] = "base_mana_gained_on_enemy_death",
+						["statValues"] = {
+							["base_mana_gained_on_enemy_death"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1412,7 +2985,17 @@ return {
 				"20% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1421,7 +3004,17 @@ return {
 				"20% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1431,7 +3024,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
-				tradeHashes = { [789117908] = { "12% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1442,7 +3045,17 @@ return {
 				"Causes 20% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
-				tradeHashes = { [791928121] = { "Causes 20% increased Stun Buildup" },  },
+				tradeHashes = {
+					[791928121] = {
+						["canonicalStat"] = "local_hit_damage_stun_multiplier_+%",
+						["statValues"] = {
+							["local_hit_damage_stun_multiplier_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1451,7 +3064,17 @@ return {
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1460,7 +3083,17 @@ return {
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1470,7 +3103,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
-				tradeHashes = { [915769802] = { "+50 to Stun Threshold" },  },
+				tradeHashes = {
+					[915769802] = {
+						["canonicalStat"] = "stun_threshold_+",
+						["statValues"] = {
+							["stun_threshold_+"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1481,7 +3124,17 @@ return {
 				"+60 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
-				tradeHashes = { [691932474] = { "+60 to Accuracy Rating" },  },
+				tradeHashes = {
+					[691932474] = {
+						["canonicalStat"] = "local_accuracy_rating",
+						["statValues"] = {
+							["local_accuracy_rating"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1490,7 +3143,17 @@ return {
 				"16% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "16% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1499,7 +3162,17 @@ return {
 				"16% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "16% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1509,7 +3182,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
-				tradeHashes = { [2310741722] = { "8% increased Life and Mana Recovery from Flasks" },  },
+				tradeHashes = {
+					[2310741722] = {
+						["canonicalStat"] = "flask_life_and_mana_to_recover_+%",
+						["statValues"] = {
+							["flask_life_and_mana_to_recover_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -1520,7 +3203,21 @@ return {
 				"Adds 13 to 16 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
-				tradeHashes = { [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+				tradeHashes = {
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1529,7 +3226,17 @@ return {
 				"Gain 10% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 10% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1538,7 +3245,17 @@ return {
 				"Gain 10% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 10% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1548,7 +3265,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
-				tradeHashes = { [3372524247] = { "+18% to Fire Resistance" },  },
+				tradeHashes = {
+					[3372524247] = {
+						["canonicalStat"] = "base_fire_damage_resistance_%",
+						["statValues"] = {
+							["base_fire_damage_resistance_%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1559,7 +3286,21 @@ return {
 				"Adds 9 to 15 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
-				tradeHashes = { [1037193709] = { "Adds 9 to 15 Cold Damage" },  },
+				tradeHashes = {
+					[1037193709] = {
+						["canonicalStat"] = "local_minimum_added_cold_damage",
+						["statValues"] = {
+							["local_maximum_added_cold_damage"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+							["local_minimum_added_cold_damage"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1568,7 +3309,17 @@ return {
 				"Gain 10% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 10% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1577,7 +3328,17 @@ return {
 				"Gain 10% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 10% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1587,7 +3348,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
-				tradeHashes = { [4220027924] = { "+18% to Cold Resistance" },  },
+				tradeHashes = {
+					[4220027924] = {
+						["canonicalStat"] = "base_cold_damage_resistance_%",
+						["statValues"] = {
+							["base_cold_damage_resistance_%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1598,7 +3369,21 @@ return {
 				"Adds 1 to 30 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
-				tradeHashes = { [3336890334] = { "Adds 1 to 30 Lightning Damage" },  },
+				tradeHashes = {
+					[3336890334] = {
+						["canonicalStat"] = "local_minimum_added_lightning_damage",
+						["statValues"] = {
+							["local_maximum_added_lightning_damage"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+							["local_minimum_added_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1607,7 +3392,17 @@ return {
 				"Gain 10% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1616,7 +3411,17 @@ return {
 				"Gain 10% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1626,7 +3431,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
-				tradeHashes = { [1671376347] = { "+18% to Lightning Resistance" },  },
+				tradeHashes = {
+					[1671376347] = {
+						["canonicalStat"] = "base_lightning_damage_resistance_%",
+						["statValues"] = {
+							["base_lightning_damage_resistance_%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1637,7 +3452,17 @@ return {
 				"18% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
-				tradeHashes = { [1805374733] = { "18% increased Physical Damage" },  },
+				tradeHashes = {
+					[1805374733] = {
+						["canonicalStat"] = "local_physical_damage_+%",
+						["statValues"] = {
+							["local_physical_damage_+%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1646,7 +3471,17 @@ return {
 				"30% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "30% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1655,7 +3490,17 @@ return {
 				"30% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "30% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1665,7 +3510,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
-				tradeHashes = { [3523867985] = { "18% increased Armour, Evasion and Energy Shield" },  },
+				tradeHashes = {
+					[3523867985] = {
+						["canonicalStat"] = "local_armour_and_evasion_and_energy_shield_+%",
+						["statValues"] = {
+							["local_armour_and_evasion_and_energy_shield_+%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1676,7 +3531,17 @@ return {
 				"Leeches 5% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
-				tradeHashes = { [55876295] = { "Leeches 5% of Physical Damage as Life" },  },
+				tradeHashes = {
+					[55876295] = {
+						["canonicalStat"] = "local_life_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_life_leech_from_physical_damage_permyriad"] = {
+								["max"] = 500,
+								["min"] = 500,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1685,7 +3550,17 @@ return {
 				"+50 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+50 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1694,7 +3569,17 @@ return {
 				"+50 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+50 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1704,7 +3589,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
-				tradeHashes = { [3299347043] = { "+60 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1715,7 +3610,17 @@ return {
 				"Leeches 4% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
-				tradeHashes = { [669069897] = { "Leeches 4% of Physical Damage as Mana" },  },
+				tradeHashes = {
+					[669069897] = {
+						["canonicalStat"] = "local_mana_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_mana_leech_from_physical_damage_permyriad"] = {
+								["max"] = 400,
+								["min"] = 400,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1724,7 +3629,17 @@ return {
 				"+75 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+75 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1733,7 +3648,17 @@ return {
 				"+75 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+75 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1743,7 +3668,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
-				tradeHashes = { [1050105434] = { "+40 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1754,7 +3689,17 @@ return {
 				"Gain 35 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
-				tradeHashes = { [3695891184] = { "Gain 35 Life per enemy killed" },  },
+				tradeHashes = {
+					[3695891184] = {
+						["canonicalStat"] = "base_life_gained_on_enemy_death",
+						["statValues"] = {
+							["base_life_gained_on_enemy_death"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1763,7 +3708,17 @@ return {
 				"10% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "10% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1772,7 +3727,17 @@ return {
 				"10% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "10% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1782,7 +3747,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
-				tradeHashes = { [836936635] = { "Regenerate 0.45% of maximum Life per second" },  },
+				tradeHashes = {
+					[836936635] = {
+						["canonicalStat"] = "life_regeneration_rate_per_minute_%",
+						["statValues"] = {
+							["life_regeneration_rate_per_minute_%"] = {
+								["max"] = 27,
+								["min"] = 27,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1793,7 +3768,17 @@ return {
 				"Gain 30 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
-				tradeHashes = { [1368271171] = { "Gain 30 Mana per enemy killed" },  },
+				tradeHashes = {
+					[1368271171] = {
+						["canonicalStat"] = "base_mana_gained_on_enemy_death",
+						["statValues"] = {
+							["base_mana_gained_on_enemy_death"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1802,7 +3787,17 @@ return {
 				"30% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1811,7 +3806,17 @@ return {
 				"30% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1821,7 +3826,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
-				tradeHashes = { [789117908] = { "18% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1832,7 +3847,17 @@ return {
 				"Causes 40% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
-				tradeHashes = { [791928121] = { "Causes 40% increased Stun Buildup" },  },
+				tradeHashes = {
+					[791928121] = {
+						["canonicalStat"] = "local_hit_damage_stun_multiplier_+%",
+						["statValues"] = {
+							["local_hit_damage_stun_multiplier_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1841,7 +3866,17 @@ return {
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1850,7 +3885,17 @@ return {
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1860,7 +3905,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
-				tradeHashes = { [915769802] = { "+100 to Stun Threshold" },  },
+				tradeHashes = {
+					[915769802] = {
+						["canonicalStat"] = "stun_threshold_+",
+						["statValues"] = {
+							["stun_threshold_+"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1871,7 +3926,17 @@ return {
 				"+120 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
-				tradeHashes = { [691932474] = { "+120 to Accuracy Rating" },  },
+				tradeHashes = {
+					[691932474] = {
+						["canonicalStat"] = "local_accuracy_rating",
+						["statValues"] = {
+							["local_accuracy_rating"] = {
+								["max"] = 120,
+								["min"] = 120,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1880,7 +3945,17 @@ return {
 				"24% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "24% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 24,
+								["min"] = 24,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1889,7 +3964,17 @@ return {
 				"24% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "24% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 24,
+								["min"] = 24,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1899,7 +3984,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
-				tradeHashes = { [2310741722] = { "16% increased Life and Mana Recovery from Flasks" },  },
+				tradeHashes = {
+					[2310741722] = {
+						["canonicalStat"] = "flask_life_and_mana_to_recover_+%",
+						["statValues"] = {
+							["flask_life_and_mana_to_recover_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -1910,7 +4005,21 @@ return {
 				"Adds 17 to 20 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
-				tradeHashes = { [709508406] = { "Adds 17 to 20 Fire Damage" },  },
+				tradeHashes = {
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 17,
+								["min"] = 17,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1919,7 +4028,17 @@ return {
 				"Gain 12% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 12% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1928,7 +4047,17 @@ return {
 				"Gain 12% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
-				tradeHashes = { [3015669065] = { "Gain 12% of Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[3015669065] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_fire"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1938,7 +4067,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
-				tradeHashes = { [3372524247] = { "+22% to Fire Resistance" },  },
+				tradeHashes = {
+					[3372524247] = {
+						["canonicalStat"] = "base_fire_damage_resistance_%",
+						["statValues"] = {
+							["base_fire_damage_resistance_%"] = {
+								["max"] = 22,
+								["min"] = 22,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1949,7 +4088,21 @@ return {
 				"Adds 16 to 20 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
-				tradeHashes = { [1037193709] = { "Adds 16 to 20 Cold Damage" },  },
+				tradeHashes = {
+					[1037193709] = {
+						["canonicalStat"] = "local_minimum_added_cold_damage",
+						["statValues"] = {
+							["local_maximum_added_cold_damage"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+							["local_minimum_added_cold_damage"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1958,7 +4111,17 @@ return {
 				"Gain 12% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 12% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1967,7 +4130,17 @@ return {
 				"Gain 12% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
-				tradeHashes = { [2505884597] = { "Gain 12% of Damage as Extra Cold Damage" },  },
+				tradeHashes = {
+					[2505884597] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1977,7 +4150,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
-				tradeHashes = { [4220027924] = { "+22% to Cold Resistance" },  },
+				tradeHashes = {
+					[4220027924] = {
+						["canonicalStat"] = "base_cold_damage_resistance_%",
+						["statValues"] = {
+							["base_cold_damage_resistance_%"] = {
+								["max"] = 22,
+								["min"] = 22,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1988,7 +4171,21 @@ return {
 				"Adds 1 to 40 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
-				tradeHashes = { [3336890334] = { "Adds 1 to 40 Lightning Damage" },  },
+				tradeHashes = {
+					[3336890334] = {
+						["canonicalStat"] = "local_minimum_added_lightning_damage",
+						["statValues"] = {
+							["local_maximum_added_lightning_damage"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+							["local_minimum_added_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -1997,7 +4194,17 @@ return {
 				"Gain 12% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2006,7 +4213,17 @@ return {
 				"Gain 12% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
-				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[3278136794] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_lightning"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2016,7 +4233,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
-				tradeHashes = { [1671376347] = { "+22% to Lightning Resistance" },  },
+				tradeHashes = {
+					[1671376347] = {
+						["canonicalStat"] = "base_lightning_damage_resistance_%",
+						["statValues"] = {
+							["base_lightning_damage_resistance_%"] = {
+								["max"] = 22,
+								["min"] = 22,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2027,7 +4254,17 @@ return {
 				"20% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
-				tradeHashes = { [1805374733] = { "20% increased Physical Damage" },  },
+				tradeHashes = {
+					[1805374733] = {
+						["canonicalStat"] = "local_physical_damage_+%",
+						["statValues"] = {
+							["local_physical_damage_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2036,7 +4273,17 @@ return {
 				"35% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "35% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2045,7 +4292,17 @@ return {
 				"35% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
-				tradeHashes = { [2974417149] = { "35% increased Spell Damage" },  },
+				tradeHashes = {
+					[2974417149] = {
+						["canonicalStat"] = "spell_damage_+%",
+						["statValues"] = {
+							["spell_damage_+%"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2055,7 +4312,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
-				tradeHashes = { [3523867985] = { "20% increased Armour, Evasion and Energy Shield" },  },
+				tradeHashes = {
+					[3523867985] = {
+						["canonicalStat"] = "local_armour_and_evasion_and_energy_shield_+%",
+						["statValues"] = {
+							["local_armour_and_evasion_and_energy_shield_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2066,7 +4333,17 @@ return {
 				"Leeches 6% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
-				tradeHashes = { [55876295] = { "Leeches 6% of Physical Damage as Life" },  },
+				tradeHashes = {
+					[55876295] = {
+						["canonicalStat"] = "local_life_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_life_leech_from_physical_damage_permyriad"] = {
+								["max"] = 600,
+								["min"] = 600,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2075,7 +4352,17 @@ return {
 				"+60 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+60 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2084,7 +4371,17 @@ return {
 				"+60 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
-				tradeHashes = { [3489782002] = { "+60 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3489782002] = {
+						["canonicalStat"] = "base_maximum_energy_shield",
+						["statValues"] = {
+							["base_maximum_energy_shield"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2094,7 +4391,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
-				tradeHashes = { [3299347043] = { "+75 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2105,7 +4412,17 @@ return {
 				"Leeches 5% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
-				tradeHashes = { [669069897] = { "Leeches 5% of Physical Damage as Mana" },  },
+				tradeHashes = {
+					[669069897] = {
+						["canonicalStat"] = "local_mana_leech_from_physical_damage_permyriad",
+						["statValues"] = {
+							["local_mana_leech_from_physical_damage_permyriad"] = {
+								["max"] = 500,
+								["min"] = 500,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2114,7 +4431,17 @@ return {
 				"+90 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+90 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 90,
+								["min"] = 90,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2123,7 +4450,17 @@ return {
 				"+90 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
-				tradeHashes = { [1050105434] = { "+90 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 90,
+								["min"] = 90,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2133,7 +4470,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
-				tradeHashes = { [1050105434] = { "+50 to maximum Mana" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2144,7 +4491,17 @@ return {
 				"Gain 45 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
-				tradeHashes = { [3695891184] = { "Gain 45 Life per enemy killed" },  },
+				tradeHashes = {
+					[3695891184] = {
+						["canonicalStat"] = "base_life_gained_on_enemy_death",
+						["statValues"] = {
+							["base_life_gained_on_enemy_death"] = {
+								["max"] = 45,
+								["min"] = 45,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2153,7 +4510,17 @@ return {
 				"12% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "12% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2162,7 +4529,17 @@ return {
 				"12% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
-				tradeHashes = { [2339757871] = { "12% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2172,7 +4549,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
-				tradeHashes = { [836936635] = { "Regenerate 0.5% of maximum Life per second" },  },
+				tradeHashes = {
+					[836936635] = {
+						["canonicalStat"] = "life_regeneration_rate_per_minute_%",
+						["statValues"] = {
+							["life_regeneration_rate_per_minute_%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2183,7 +4570,17 @@ return {
 				"Gain 40 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
-				tradeHashes = { [1368271171] = { "Gain 40 Mana per enemy killed" },  },
+				tradeHashes = {
+					[1368271171] = {
+						["canonicalStat"] = "base_mana_gained_on_enemy_death",
+						["statValues"] = {
+							["base_mana_gained_on_enemy_death"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2192,7 +4589,17 @@ return {
 				"35% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2201,7 +4608,17 @@ return {
 				"35% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
-				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 35,
+								["min"] = 35,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2211,7 +4628,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
-				tradeHashes = { [789117908] = { "21% increased Mana Regeneration Rate" },  },
+				tradeHashes = {
+					[789117908] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%",
+						["statValues"] = {
+							["mana_regeneration_rate_+%"] = {
+								["max"] = 21,
+								["min"] = 21,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2222,7 +4649,17 @@ return {
 				"Causes 50% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
-				tradeHashes = { [791928121] = { "Causes 50% increased Stun Buildup" },  },
+				tradeHashes = {
+					[791928121] = {
+						["canonicalStat"] = "local_hit_damage_stun_multiplier_+%",
+						["statValues"] = {
+							["local_hit_damage_stun_multiplier_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2231,7 +4668,17 @@ return {
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2240,7 +4687,17 @@ return {
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
+				tradeHashes = {
+					[416040624] = {
+						["canonicalStat"] = "stun_threshold_+_from_%_maximum_energy_shield",
+						["statValues"] = {
+							["stun_threshold_+_from_%_maximum_energy_shield"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2250,7 +4707,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
-				tradeHashes = { [915769802] = { "+125 to Stun Threshold" },  },
+				tradeHashes = {
+					[915769802] = {
+						["canonicalStat"] = "stun_threshold_+",
+						["statValues"] = {
+							["stun_threshold_+"] = {
+								["max"] = 125,
+								["min"] = 125,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2261,7 +4728,17 @@ return {
 				"+150 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
-				tradeHashes = { [691932474] = { "+150 to Accuracy Rating" },  },
+				tradeHashes = {
+					[691932474] = {
+						["canonicalStat"] = "local_accuracy_rating",
+						["statValues"] = {
+							["local_accuracy_rating"] = {
+								["max"] = 150,
+								["min"] = 150,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2270,7 +4747,17 @@ return {
 				"28% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "28% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 28,
+								["min"] = 28,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2279,7 +4766,17 @@ return {
 				"28% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
-				tradeHashes = { [737908626] = { "28% increased Critical Hit Chance for Spells" },  },
+				tradeHashes = {
+					[737908626] = {
+						["canonicalStat"] = "spell_critical_strike_chance_+%",
+						["statValues"] = {
+							["spell_critical_strike_chance_+%"] = {
+								["max"] = 28,
+								["min"] = 28,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2289,7 +4786,17 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
-				tradeHashes = { [2310741722] = { "20% increased Life and Mana Recovery from Flasks" },  },
+				tradeHashes = {
+					[2310741722] = {
+						["canonicalStat"] = "flask_life_and_mana_to_recover_+%",
+						["statValues"] = {
+							["flask_life_and_mana_to_recover_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2299,7 +4806,17 @@ return {
 				type = "Rune",
 				"+6 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2307,7 +4824,17 @@ return {
 				type = "Rune",
 				"+6 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2315,7 +4842,17 @@ return {
 				type = "Rune",
 				"+6 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2325,7 +4862,17 @@ return {
 				type = "Rune",
 				"+9 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2333,7 +4880,17 @@ return {
 				type = "Rune",
 				"+9 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2341,7 +4898,17 @@ return {
 				type = "Rune",
 				"+9 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2351,7 +4918,17 @@ return {
 				type = "Rune",
 				"+12 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2359,7 +4936,17 @@ return {
 				type = "Rune",
 				"+12 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2367,7 +4954,17 @@ return {
 				type = "Rune",
 				"+12 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2377,7 +4974,17 @@ return {
 				type = "Rune",
 				"+15 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2385,7 +4992,17 @@ return {
 				type = "Rune",
 				"+15 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2393,7 +5010,17 @@ return {
 				type = "Rune",
 				"+15 to Strength",
 				statOrder = { 992 },
-				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+				tradeHashes = {
+					[4080418644] = {
+						["canonicalStat"] = "additional_strength",
+						["statValues"] = {
+							["additional_strength"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2403,7 +5030,17 @@ return {
 				type = "Rune",
 				"+6 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2411,7 +5048,17 @@ return {
 				type = "Rune",
 				"+6 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2419,7 +5066,17 @@ return {
 				type = "Rune",
 				"+6 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2429,7 +5086,17 @@ return {
 				type = "Rune",
 				"+9 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2437,7 +5104,17 @@ return {
 				type = "Rune",
 				"+9 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2445,7 +5122,17 @@ return {
 				type = "Rune",
 				"+9 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2455,7 +5142,17 @@ return {
 				type = "Rune",
 				"+12 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2463,7 +5160,17 @@ return {
 				type = "Rune",
 				"+12 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2471,7 +5178,17 @@ return {
 				type = "Rune",
 				"+12 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2481,7 +5198,17 @@ return {
 				type = "Rune",
 				"+15 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2489,7 +5216,17 @@ return {
 				type = "Rune",
 				"+15 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2497,7 +5234,17 @@ return {
 				type = "Rune",
 				"+15 to Dexterity",
 				statOrder = { 993 },
-				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+				tradeHashes = {
+					[3261801346] = {
+						["canonicalStat"] = "additional_dexterity",
+						["statValues"] = {
+							["additional_dexterity"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2507,7 +5254,17 @@ return {
 				type = "Rune",
 				"+6 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2515,7 +5272,17 @@ return {
 				type = "Rune",
 				"+6 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2523,7 +5290,17 @@ return {
 				type = "Rune",
 				"+6 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2533,7 +5310,17 @@ return {
 				type = "Rune",
 				"+9 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2541,7 +5328,17 @@ return {
 				type = "Rune",
 				"+9 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2549,7 +5346,17 @@ return {
 				type = "Rune",
 				"+9 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2559,7 +5366,17 @@ return {
 				type = "Rune",
 				"+12 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2567,7 +5384,17 @@ return {
 				type = "Rune",
 				"+12 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2575,7 +5402,17 @@ return {
 				type = "Rune",
 				"+12 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2585,7 +5422,17 @@ return {
 				type = "Rune",
 				"+15 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2593,7 +5440,17 @@ return {
 				type = "Rune",
 				"+15 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2601,7 +5458,17 @@ return {
 				type = "Rune",
 				"+15 to Intelligence",
 				statOrder = { 994 },
-				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+				tradeHashes = {
+					[328541901] = {
+						["canonicalStat"] = "additional_intelligence",
+						["statValues"] = {
+							["additional_intelligence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2611,7 +5478,21 @@ return {
 				type = "Rune",
 				"Adds 3 to 4 Physical Damage",
 				statOrder = { 831 },
-				tradeHashes = { [1940865751] = { "Adds 3 to 4 Physical Damage" },  },
+				tradeHashes = {
+					[1940865751] = {
+						["canonicalStat"] = "local_minimum_added_physical_damage",
+						["statValues"] = {
+							["local_maximum_added_physical_damage"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+							["local_minimum_added_physical_damage"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2619,7 +5500,21 @@ return {
 				type = "Rune",
 				"6 to 9 Physical Thorns damage",
 				statOrder = { 10261 },
-				tradeHashes = { [2881298780] = { "6 to 9 Physical Thorns damage" },  },
+				tradeHashes = {
+					[2881298780] = {
+						["canonicalStat"] = "thorns_minimum_base_physical_damage",
+						["statValues"] = {
+							["thorns_maximum_base_physical_damage"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+							["thorns_minimum_base_physical_damage"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2629,7 +5524,21 @@ return {
 				type = "Rune",
 				"Adds 6 to 9 Physical Damage",
 				statOrder = { 831 },
-				tradeHashes = { [1940865751] = { "Adds 6 to 9 Physical Damage" },  },
+				tradeHashes = {
+					[1940865751] = {
+						["canonicalStat"] = "local_minimum_added_physical_damage",
+						["statValues"] = {
+							["local_maximum_added_physical_damage"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+							["local_minimum_added_physical_damage"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2637,7 +5546,21 @@ return {
 				type = "Rune",
 				"14 to 21 Physical Thorns damage",
 				statOrder = { 10261 },
-				tradeHashes = { [2881298780] = { "14 to 21 Physical Thorns damage" },  },
+				tradeHashes = {
+					[2881298780] = {
+						["canonicalStat"] = "thorns_minimum_base_physical_damage",
+						["statValues"] = {
+							["thorns_maximum_base_physical_damage"] = {
+								["max"] = 21,
+								["min"] = 21,
+							},
+							["thorns_minimum_base_physical_damage"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -2647,7 +5570,21 @@ return {
 				type = "Rune",
 				"Adds 9 to 12 Physical Damage",
 				statOrder = { 831 },
-				tradeHashes = { [1940865751] = { "Adds 9 to 12 Physical Damage" },  },
+				tradeHashes = {
+					[1940865751] = {
+						["canonicalStat"] = "local_minimum_added_physical_damage",
+						["statValues"] = {
+							["local_maximum_added_physical_damage"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+							["local_minimum_added_physical_damage"] = {
+								["max"] = 9,
+								["min"] = 9,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2655,7 +5592,21 @@ return {
 				type = "Rune",
 				"31 to 52 Physical Thorns damage",
 				statOrder = { 10261 },
-				tradeHashes = { [2881298780] = { "31 to 52 Physical Thorns damage" },  },
+				tradeHashes = {
+					[2881298780] = {
+						["canonicalStat"] = "thorns_minimum_base_physical_damage",
+						["statValues"] = {
+							["thorns_maximum_base_physical_damage"] = {
+								["max"] = 52,
+								["min"] = 52,
+							},
+							["thorns_minimum_base_physical_damage"] = {
+								["max"] = 31,
+								["min"] = 31,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -2666,7 +5617,17 @@ return {
 				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
 				"Bonded: Minions deal 20% increased Damage",
 				statOrder = { 9074, 1720 },
-				tradeHashes = { [1433756169] = { "Minions gain 10% of their Physical Damage as Extra Lightning Damage" },  },
+				tradeHashes = {
+					[1433756169] = {
+						["canonicalStat"] = "minion_physical_damage_%_to_gain_as_lightning",
+						["statValues"] = {
+							["minion_physical_damage_%_to_gain_as_lightning"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2675,7 +5636,17 @@ return {
 				"Minions take 10% of Physical Damage as Lightning Damage",
 				"Bonded: Minions have +10% to all Elemental Resistances",
 				statOrder = { 9075, 2667 },
-				tradeHashes = { [889552744] = { "Minions take 10% of Physical Damage as Lightning Damage" },  },
+				tradeHashes = {
+					[889552744] = {
+						["canonicalStat"] = "minion_physical_hit_and_dot_damage_%_taken_as_lightning",
+						["statValues"] = {
+							["minion_physical_hit_and_dot_damage_%_taken_as_lightning"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2686,7 +5657,17 @@ return {
 				"Meta Skills gain 10% increased Energy",
 				"Bonded: Invocated Spells have 25% chance to consume half as much Energy",
 				statOrder = { 6410, 7386 },
-				tradeHashes = { [4236566306] = { "Meta Skills gain 10% increased Energy" },  },
+				tradeHashes = {
+					[4236566306] = {
+						["canonicalStat"] = "energy_generated_+%",
+						["statValues"] = {
+							["energy_generated_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2695,7 +5676,21 @@ return {
 				"1 to 100 Lightning Thorns damage",
 				"Bonded: 15% increased Thorns damage",
 				statOrder = { 10260, 10254 },
-				tradeHashes = { [757050353] = { "1 to 100 Lightning Thorns damage" },  },
+				tradeHashes = {
+					[757050353] = {
+						["canonicalStat"] = "thorns_minimum_base_lightning_damage",
+						["statValues"] = {
+							["thorns_maximum_base_lightning_damage"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+							["thorns_minimum_base_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2706,7 +5701,17 @@ return {
 				"8% increased Skill Speed",
 				"Bonded: 15% increased Reservation Efficiency of Herald Skills",
 				statOrder = { 837, 9765 },
-				tradeHashes = { [970213192] = { "8% increased Skill Speed" },  },
+				tradeHashes = {
+					[970213192] = {
+						["canonicalStat"] = "skill_speed_+%",
+						["statValues"] = {
+							["skill_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2715,7 +5720,17 @@ return {
 				"Debuffs on you expire 8% faster",
 				"Bonded: 15% increased Elemental Ailment Threshold",
 				statOrder = { 6099, 4266 },
-				tradeHashes = { [1238227257] = { "Debuffs on you expire 8% faster" },  },
+				tradeHashes = {
+					[1238227257] = {
+						["canonicalStat"] = "debuff_time_passed_+%",
+						["statValues"] = {
+							["debuff_time_passed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2726,7 +5741,17 @@ return {
 				"Attacks with this Weapon have 10% chance to inflict Exposure",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 7736, 6533 },
-				tradeHashes = { [3678845069] = { "Attacks with this Weapon have 10% chance to inflict Exposure" },  },
+				tradeHashes = {
+					[3678845069] = {
+						["canonicalStat"] = "local_inflict_exposure_on_hit_%_chance",
+						["statValues"] = {
+							["local_inflict_exposure_on_hit_%_chance"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2735,7 +5760,17 @@ return {
 				"10% reduced effect of Shock on you",
 				"Bonded: 10% reduced Shock duration on you",
 				statOrder = { 9859, 1066 },
-				tradeHashes = { [3801067695] = { "10% reduced effect of Shock on you" },  },
+				tradeHashes = {
+					[3801067695] = {
+						["canonicalStat"] = "shocked_effect_on_self_+%",
+						["statValues"] = {
+							["shocked_effect_on_self_+%"] = {
+								["max"] = -10,
+								["min"] = -10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -2746,7 +5781,17 @@ return {
 				"+1 to Level of all Spell Skills",
 				"Bonded: Archon recovery period expires 30% faster",
 				statOrder = { 950, 4343 },
-				tradeHashes = { [124131830] = { "+1 to Level of all Spell Skills" },  },
+				tradeHashes = {
+					[124131830] = {
+						["canonicalStat"] = "spell_skill_gem_level_+",
+						["statValues"] = {
+							["spell_skill_gem_level_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2755,7 +5800,17 @@ return {
 				"+1 to Level of all Spell Skills",
 				"Bonded: Archon recovery period expires 30% faster",
 				statOrder = { 950, 4343 },
-				tradeHashes = { [124131830] = { "+1 to Level of all Spell Skills" },  },
+				tradeHashes = {
+					[124131830] = {
+						["canonicalStat"] = "spell_skill_gem_level_+",
+						["statValues"] = {
+							["spell_skill_gem_level_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2766,7 +5821,17 @@ return {
 				"Gain 5% of Damage as Extra Damage of all Elements",
 				"Bonded: 8% chance to gain an additional random Charge when you gain a Charge",
 				statOrder = { 9264, 5522 },
-				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+				tradeHashes = {
+					[731403740] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2776,7 +5841,17 @@ return {
 				"Bonded: 12% chance when collecting an Elemental Infusion to gain an",
 				"Bonded: additional Elemental Infusion of the same type",
 				statOrder = { 9264, 4193, 4193.1 },
-				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+				tradeHashes = {
+					[731403740] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2786,7 +5861,17 @@ return {
 				"Bonded: 12% chance when collecting an Elemental Infusion to gain an",
 				"Bonded: additional Elemental Infusion of the same type",
 				statOrder = { 9264, 4193, 4193.1 },
-				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+				tradeHashes = {
+					[731403740] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_cold_fire_lightning"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2797,7 +5882,17 @@ return {
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
-				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+				tradeHashes = {
+					[3398787959] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_chaos",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2806,7 +5901,17 @@ return {
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
-				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+				tradeHashes = {
+					[3398787959] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_chaos",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2815,7 +5920,17 @@ return {
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
-				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+				tradeHashes = {
+					[3398787959] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_chaos",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2826,7 +5941,17 @@ return {
 				"8% increased Deflection Rating while moving",
 				"Bonded: Prevent +3% of Damage from Deflected Hits",
 				statOrder = { 6120, 4679 },
-				tradeHashes = { [1382805233] = { "8% increased Deflection Rating while moving" },  },
+				tradeHashes = {
+					[1382805233] = {
+						["canonicalStat"] = "deflection_rating_+%_while_moving",
+						["statValues"] = {
+							["deflection_rating_+%_while_moving"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2837,7 +5962,17 @@ return {
 				"5% increased Movement Speed",
 				"Bonded: 10% increased Cooldown Recovery Rate",
 				statOrder = { 836, 4677 },
-				tradeHashes = { [2250533757] = { "5% increased Movement Speed" },  },
+				tradeHashes = {
+					[2250533757] = {
+						["canonicalStat"] = "base_movement_velocity_+%",
+						["statValues"] = {
+							["base_movement_velocity_+%"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2848,7 +5983,17 @@ return {
 				"50% reduced effect of Curses on you",
 				"Bonded: 8% increased Curse Magnitudes",
 				statOrder = { 1911, 2376 },
-				tradeHashes = { [3407849389] = { "50% reduced effect of Curses on you" },  },
+				tradeHashes = {
+					[3407849389] = {
+						["canonicalStat"] = "curse_effect_on_self_+%",
+						["statValues"] = {
+							["curse_effect_on_self_+%"] = {
+								["max"] = -50,
+								["min"] = -50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2859,7 +6004,17 @@ return {
 				"2% increased Experience gain",
 				"Bonded: +10% to all Elemental Resistances",
 				statOrder = { 1471, 1013 },
-				tradeHashes = { [3666934677] = { "2% increased Experience gain" },  },
+				tradeHashes = {
+					[3666934677] = {
+						["canonicalStat"] = "experience_gain_+%",
+						["statValues"] = {
+							["experience_gain_+%"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2870,7 +6025,17 @@ return {
 				"25% increased Exposure Effect",
 				"Bonded: 15% increased Magnitude of Non-Damaging Ailments you inflict",
 				statOrder = { 6533, 9224 },
-				tradeHashes = { [2074866941] = { "25% increased Exposure Effect" },  },
+				tradeHashes = {
+					[2074866941] = {
+						["canonicalStat"] = "exposure_effect_+%",
+						["statValues"] = {
+							["exposure_effect_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2881,7 +6046,17 @@ return {
 				"50% increased Attack Damage against Rare or Unique Enemies",
 				"Bonded: +1 to Level of all Attack Skills",
 				statOrder = { 4514, 967 },
-				tradeHashes = { [2077615515] = { "50% increased Attack Damage against Rare or Unique Enemies" },  },
+				tradeHashes = {
+					[2077615515] = {
+						["canonicalStat"] = "attack_damage_+%_vs_rare_or_unique_enemy",
+						["statValues"] = {
+							["attack_damage_+%_vs_rare_or_unique_enemy"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2893,7 +6068,17 @@ return {
 				"Bonded: Gain additional Ailment Threshold equal to 50% of maximum Energy Shield",
 				"Bonded: Gain additional Stun Threshold equal to 50% of maximum Energy Shield",
 				statOrder = { 1032, 4265, 10138 },
-				tradeHashes = { [2339757871] = { "30% increased Energy Shield Recharge Rate" },  },
+				tradeHashes = {
+					[2339757871] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2904,7 +6089,17 @@ return {
 				"20% increased Magnitude of Damaging Ailments you inflict",
 				"Bonded: 15% increased Duration of Damaging Ailments on Enemies",
 				statOrder = { 6067, 6065 },
-				tradeHashes = { [1381474422] = { "20% increased Magnitude of Damaging Ailments you inflict" },  },
+				tradeHashes = {
+					[1381474422] = {
+						["canonicalStat"] = "base_damaging_ailment_effect_+%",
+						["statValues"] = {
+							["base_damaging_ailment_effect_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2915,7 +6110,17 @@ return {
 				"30% increased Magnitude of Non-Damaging Ailments you inflict",
 				"Bonded: 15% increased Duration of Elemental Ailments on Enemies",
 				statOrder = { 9224, 1617 },
-				tradeHashes = { [782230869] = { "30% increased Magnitude of Non-Damaging Ailments you inflict" },  },
+				tradeHashes = {
+					[782230869] = {
+						["canonicalStat"] = "non_damaging_ailment_effect_+%",
+						["statValues"] = {
+							["non_damaging_ailment_effect_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2926,7 +6131,17 @@ return {
 				"8% increased Cast Speed",
 				"Bonded: 20% increased Mana Cost Efficiency while on Low Mana",
 				statOrder = { 987, 4723 },
-				tradeHashes = { [2891184298] = { "8% increased Cast Speed" },  },
+				tradeHashes = {
+					[2891184298] = {
+						["canonicalStat"] = "base_cast_speed_+%",
+						["statValues"] = {
+							["base_cast_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2937,7 +6152,17 @@ return {
 				"Bow Attacks fire an additional Arrow",
 				"Bonded: 20% increased Projectile Speed",
 				statOrder = { 990, 897 },
-				tradeHashes = { [3885405204] = { "Bow Attacks fire an additional Arrow" },  },
+				tradeHashes = {
+					[3885405204] = {
+						["canonicalStat"] = "number_of_additional_arrows",
+						["statValues"] = {
+							["number_of_additional_arrows"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2948,7 +6173,17 @@ return {
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
 				"Bonded: Every Rage also grants 1% increased Spell Damage",
 				statOrder = { 10034, 10008 },
-				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
+				tradeHashes = {
+					[2910761524] = {
+						["canonicalStat"] = "spell_skills_fire_2_additional_projectiles_final_chance_%",
+						["statValues"] = {
+							["spell_skills_fire_2_additional_projectiles_final_chance_%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2957,7 +6192,17 @@ return {
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
 				"Bonded: Every Rage also grants 1% increased Spell Damage",
 				statOrder = { 10034, 10008 },
-				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
+				tradeHashes = {
+					[2910761524] = {
+						["canonicalStat"] = "spell_skills_fire_2_additional_projectiles_final_chance_%",
+						["statValues"] = {
+							["spell_skills_fire_2_additional_projectiles_final_chance_%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2968,7 +6213,17 @@ return {
 				"20% increased Withered Magnitude",
 				"Bonded: +7% to Chaos Resistance",
 				statOrder = { 10556, 1024 },
-				tradeHashes = { [3973629633] = { "20% increased Withered Magnitude" },  },
+				tradeHashes = {
+					[3973629633] = {
+						["canonicalStat"] = "withered_magnitude_+%",
+						["statValues"] = {
+							["withered_magnitude_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2979,7 +6234,21 @@ return {
 				"Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies",
 				"Bonded: +2% to Maximum Fire Resistance",
 				statOrder = { 1212, 1009 },
-				tradeHashes = { [627339348] = { "Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies" },  },
+				tradeHashes = {
+					[627339348] = {
+						["canonicalStat"] = "minimum_added_fire_damage_vs_ignited_enemies",
+						["statValues"] = {
+							["maximum_added_fire_damage_vs_ignited_enemies"] = {
+								["max"] = 34,
+								["min"] = 34,
+							},
+							["minimum_added_fire_damage_vs_ignited_enemies"] = {
+								["max"] = 23,
+								["min"] = 23,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -2990,7 +6259,21 @@ return {
 				"Adds 19 to 28 Cold Damage against Chilled Enemies",
 				"Bonded: +2% to Maximum Cold Resistance",
 				statOrder = { 8962, 1010 },
-				tradeHashes = { [3734640451] = { "Adds 19 to 28 Cold Damage against Chilled Enemies" },  },
+				tradeHashes = {
+					[3734640451] = {
+						["canonicalStat"] = "minimum_added_cold_damage_vs_chilled_enemies",
+						["statValues"] = {
+							["maximum_added_cold_damage_vs_chilled_enemies"] = {
+								["max"] = 28,
+								["min"] = 28,
+							},
+							["minimum_added_cold_damage_vs_chilled_enemies"] = {
+								["max"] = 19,
+								["min"] = 19,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3001,7 +6284,21 @@ return {
 				"Adds 1 to 60 Lightning Damage against Shocked Enemies",
 				"Bonded: +2% to Maximum Lightning Resistance",
 				statOrder = { 6910, 1011 },
-				tradeHashes = { [90012347] = { "Adds 1 to 60 Lightning Damage against Shocked Enemies" },  },
+				tradeHashes = {
+					[90012347] = {
+						["canonicalStat"] = "global_minimum_added_lightning_damage_vs_shocked_enemies",
+						["statValues"] = {
+							["global_maximum_added_lightning_damage_vs_shocked_enemies"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+							["global_minimum_added_lightning_damage_vs_shocked_enemies"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3012,7 +6309,21 @@ return {
 				"Adds 5 to 12 Physical Damage to Attacks",
 				"Bonded: Fissure Skills have +2 to Limit",
 				statOrder = { 858, 6616 },
-				tradeHashes = { [3032590688] = { "Adds 5 to 12 Physical Damage to Attacks" },  },
+				tradeHashes = {
+					[3032590688] = {
+						["canonicalStat"] = "attack_minimum_added_physical_damage",
+						["statValues"] = {
+							["attack_maximum_added_physical_damage"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+							["attack_minimum_added_physical_damage"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3023,7 +6334,17 @@ return {
 				"15% of Damage is taken from Mana before Life",
 				"Bonded: 8% of Maximum Life Converted to Energy Shield",
 				statOrder = { 2472, 8884 },
-				tradeHashes = { [458438597] = { "15% of Damage is taken from Mana before Life" },  },
+				tradeHashes = {
+					[458438597] = {
+						["canonicalStat"] = "base_damage_removed_from_mana_before_life_%",
+						["statValues"] = {
+							["base_damage_removed_from_mana_before_life_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3033,7 +6354,17 @@ return {
 				type = "Rune",
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
-				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+				tradeHashes = {
+					[4044077288] = {
+						["canonicalStat"] = "dummy_display_stat_rune_upgrade",
+						["statValues"] = {
+							["dummy_display_stat_rune_upgrade"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3041,7 +6372,17 @@ return {
 				type = "Rune",
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
-				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+				tradeHashes = {
+					[4044077288] = {
+						["canonicalStat"] = "dummy_display_stat_rune_upgrade",
+						["statValues"] = {
+							["dummy_display_stat_rune_upgrade"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3049,7 +6390,17 @@ return {
 				type = "Rune",
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
-				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+				tradeHashes = {
+					[4044077288] = {
+						["canonicalStat"] = "dummy_display_stat_rune_upgrade",
+						["statValues"] = {
+							["dummy_display_stat_rune_upgrade"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3060,7 +6411,17 @@ return {
 				"+15 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
-				tradeHashes = { [774059442] = { "+15 to maximum Runic Ward" },  },
+				tradeHashes = {
+					[774059442] = {
+						["canonicalStat"] = "local_ward",
+						["statValues"] = {
+							["local_ward"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3071,7 +6432,17 @@ return {
 				"+20 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
-				tradeHashes = { [774059442] = { "+20 to maximum Runic Ward" },  },
+				tradeHashes = {
+					[774059442] = {
+						["canonicalStat"] = "local_ward",
+						["statValues"] = {
+							["local_ward"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3082,7 +6453,17 @@ return {
 				"+25 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
-				tradeHashes = { [774059442] = { "+25 to maximum Runic Ward" },  },
+				tradeHashes = {
+					[774059442] = {
+						["canonicalStat"] = "local_ward",
+						["statValues"] = {
+							["local_ward"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3093,7 +6474,17 @@ return {
 				"+30 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
-				tradeHashes = { [774059442] = { "+30 to maximum Runic Ward" },  },
+				tradeHashes = {
+					[774059442] = {
+						["canonicalStat"] = "local_ward",
+						["statValues"] = {
+							["local_ward"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3104,7 +6495,17 @@ return {
 				"8% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 10 Runic Ward per second",
 				statOrder = { 10520, 4764 },
-				tradeHashes = { [2392260628] = { "8% increased Runic Ward Regeneration Rate" },  },
+				tradeHashes = {
+					[2392260628] = {
+						["canonicalStat"] = "ward_regeneration_rate_+%",
+						["statValues"] = {
+							["ward_regeneration_rate_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3115,7 +6516,17 @@ return {
 				"12% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 15 Runic Ward per second",
 				statOrder = { 10520, 4764 },
-				tradeHashes = { [2392260628] = { "12% increased Runic Ward Regeneration Rate" },  },
+				tradeHashes = {
+					[2392260628] = {
+						["canonicalStat"] = "ward_regeneration_rate_+%",
+						["statValues"] = {
+							["ward_regeneration_rate_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3126,7 +6537,17 @@ return {
 				"16% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 20 Runic Ward per second",
 				statOrder = { 10520, 4764 },
-				tradeHashes = { [2392260628] = { "16% increased Runic Ward Regeneration Rate" },  },
+				tradeHashes = {
+					[2392260628] = {
+						["canonicalStat"] = "ward_regeneration_rate_+%",
+						["statValues"] = {
+							["ward_regeneration_rate_+%"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3137,7 +6558,17 @@ return {
 				"20% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 25 Runic Ward per second",
 				statOrder = { 10520, 4764 },
-				tradeHashes = { [2392260628] = { "20% increased Runic Ward Regeneration Rate" },  },
+				tradeHashes = {
+					[2392260628] = {
+						["canonicalStat"] = "ward_regeneration_rate_+%",
+						["statValues"] = {
+							["ward_regeneration_rate_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -3148,7 +6579,17 @@ return {
 				"20% increased Runic Ward",
 				"Bonded: Gain 2% of maximum Life as Extra maximum Runic Ward",
 				statOrder = { 855, 1430 },
-				tradeHashes = { [830161081] = { "20% increased Runic Ward" },  },
+				tradeHashes = {
+					[830161081] = {
+						["canonicalStat"] = "local_ward_+%",
+						["statValues"] = {
+							["local_ward_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3159,7 +6600,17 @@ return {
 				"Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds",
 				"Bonded: 8% increased Guard gained",
 				statOrder = { 6802, 6951 },
-				tradeHashes = { [1963589548] = { "Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds" },  },
+				tradeHashes = {
+					[1963589548] = {
+						["canonicalStat"] = "gain_guard_%_of_max_ward_for_2s_every_4s",
+						["statValues"] = {
+							["gain_guard_%_of_max_ward_for_2s_every_4s"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3170,7 +6621,17 @@ return {
 				"Attacks Break Armour equal to 15% of maximum Runic Ward",
 				"Bonded: Break 10% increased Armour",
 				statOrder = { 5015, 4407 },
-				tradeHashes = { [2608793552] = { "Attacks Break Armour equal to 15% of maximum Runic Ward" },  },
+				tradeHashes = {
+					[2608793552] = {
+						["canonicalStat"] = "break_armour_on_attack_hit_%_of_max_ward",
+						["statValues"] = {
+							["break_armour_on_attack_hit_%_of_max_ward"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3181,7 +6642,17 @@ return {
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
 				"Bonded: 12% increased Elemental Damage",
 				statOrder = { 10042, 1726 },
-				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
+				tradeHashes = {
+					[267552601] = {
+						["canonicalStat"] = "spells_penetrates_elemental_resist_%_while_on_low_ward",
+						["statValues"] = {
+							["spells_penetrates_elemental_resist_%_while_on_low_ward"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3190,7 +6661,17 @@ return {
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
 				"Bonded: 12% increased Elemental Damage",
 				statOrder = { 10042, 1726 },
-				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
+				tradeHashes = {
+					[267552601] = {
+						["canonicalStat"] = "spells_penetrates_elemental_resist_%_while_on_low_ward",
+						["statValues"] = {
+							["spells_penetrates_elemental_resist_%_while_on_low_ward"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3201,7 +6682,17 @@ return {
 				"1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward",
 				"Bonded: Regenerate 1% of maximum Energy Shield per second",
 				statOrder = { 6442, 2420 },
-				tradeHashes = { [162036024] = { "1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward" },  },
+				tradeHashes = {
+					[162036024] = {
+						["canonicalStat"] = "energy_shield_recharge_rate_+%_per_X_maximum_ward",
+						["statValues"] = {
+							["energy_shield_recharge_rate_+%_per_X_maximum_ward"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3212,7 +6703,17 @@ return {
 				"25% increased Armour and Evasion Rating while on Low Runic Ward",
 				"Bonded: 20% increased Armour and Evasion Rating when on Low Life",
 				statOrder = { 4402, 2930 },
-				tradeHashes = { [1392112423] = { "25% increased Armour and Evasion Rating while on Low Runic Ward" },  },
+				tradeHashes = {
+					[1392112423] = {
+						["canonicalStat"] = "armour_and_evasion_rating_+%_while_on_low_ward",
+						["statValues"] = {
+							["armour_and_evasion_rating_+%_while_on_low_ward"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3223,7 +6724,17 @@ return {
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
 				"Bonded: 15% increased Stun buildup while Shapeshifted",
 				statOrder = { 10134, 7205 },
-				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
+				tradeHashes = {
+					[2838678452] = {
+						["canonicalStat"] = "stun_threshold_+_per_10_maximum_ward",
+						["statValues"] = {
+							["stun_threshold_+_per_10_maximum_ward"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3232,7 +6743,17 @@ return {
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
 				"Bonded: 15% increased Stun buildup while Shapeshifted",
 				statOrder = { 10134, 7205 },
-				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
+				tradeHashes = {
+					[2838678452] = {
+						["canonicalStat"] = "stun_threshold_+_per_10_maximum_ward",
+						["statValues"] = {
+							["stun_threshold_+_per_10_maximum_ward"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3243,7 +6764,17 @@ return {
 				"+3 to Deflection Rating per 10 maximum Runic Ward",
 				"Bonded: Prevent +1% of Damage from Deflected Hits",
 				statOrder = { 9, 4679 },
-				tradeHashes = { [282990844] = { "+3 to Deflection Rating per 10 maximum Runic Ward" },  },
+				tradeHashes = {
+					[282990844] = {
+						["canonicalStat"] = "+_deflection_rating_per_10_maximum_ward",
+						["statValues"] = {
+							["+_deflection_rating_per_10_maximum_ward"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3254,7 +6785,17 @@ return {
 				"Gain 5% of maximum Life as Extra maximum Runic Ward",
 				"Bonded: 1% more Runic Ward Regeneration rate per 2% of maximum Runic Ward lost from Hits Recently, up to 100% more",
 				statOrder = { 1430, 10523 },
-				tradeHashes = { [386720106] = { "Gain 5% of maximum Life as Extra maximum Runic Ward" },  },
+				tradeHashes = {
+					[386720106] = {
+						["canonicalStat"] = "base_maximum_life_%_to_gain_as_maximum_ward",
+						["statValues"] = {
+							["base_maximum_life_%_to_gain_as_maximum_ward"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3265,7 +6806,17 @@ return {
 				"15% Life Recovery from Flasks also applies to Runic Ward",
 				"Bonded: 15% increased Life Recovery from Flasks",
 				statOrder = { 7474, 1794 },
-				tradeHashes = { [2650263616] = { "15% Life Recovery from Flasks also applies to Runic Ward" },  },
+				tradeHashes = {
+					[2650263616] = {
+						["canonicalStat"] = "life_recovery_from_flasks_also_recovers_ward_%",
+						["statValues"] = {
+							["life_recovery_from_flasks_also_recovers_ward_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3276,7 +6827,17 @@ return {
 				"Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage",
 				"Bonded: 10% reduced Runic Ward Cost Efficiency",
 				statOrder = { 4580, 4763 },
-				tradeHashes = { [3035971497] = { "Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage" },  },
+				tradeHashes = {
+					[3035971497] = {
+						["canonicalStat"] = "attack_spend_x%_maximum_ward_for_added_physical_damage",
+						["statValues"] = {
+							["attack_spend_x%_maximum_ward_for_added_physical_damage"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3287,7 +6848,17 @@ return {
 				"Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage",
 				"Bonded: 5% increased Attack Speed while missing Runic Ward",
 				statOrder = { 7829, 4558 },
-				tradeHashes = { [1995345015] = { "Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage" },  },
+				tradeHashes = {
+					[1995345015] = {
+						["canonicalStat"] = "local_socketable_%_maximum_weapon_damage_to_gain_as_maximum_ward",
+						["statValues"] = {
+							["local_socketable_%_maximum_weapon_damage_to_gain_as_maximum_ward"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 45 },
 		},
@@ -3299,7 +6870,26 @@ return {
 				"Runic Ward Regeneration Rate is doubled",
 				"Bonded: 12% increased maximum Runic Ward",
 				statOrder = { 5965, 10525, 891 },
-				tradeHashes = { [2579974553] = { "Runic Ward Regeneration Rate is doubled" }, [3814102597] = { "All damage taken bypasses Runic Ward" },  },
+				tradeHashes = {
+					[2579974553] = {
+						["canonicalStat"] = "ward_regeneration_rate_is_doubled",
+						["statValues"] = {
+							["ward_regeneration_rate_is_doubled"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[3814102597] = {
+						["canonicalStat"] = "damage_cannot_be_taken_from_ward",
+						["statValues"] = {
+							["damage_cannot_be_taken_from_ward"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 45 },
 		},
@@ -3311,7 +6901,26 @@ return {
 				"Mana Recovery from Regeneration is also applied to Runic Ward",
 				"Bonded: 20% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently",
 				statOrder = { 7999, 9705, 10521 },
-				tradeHashes = { [762761075] = { "40% less Mana Regeneration Rate" }, [3145796865] = { "Mana Recovery from Regeneration is also applied to Runic Ward" },  },
+				tradeHashes = {
+					[3145796865] = {
+						["canonicalStat"] = "recover_ward_as_well_as_mana_from_mana_regeneration",
+						["statValues"] = {
+							["recover_ward_as_well_as_mana_from_mana_regeneration"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[762761075] = {
+						["canonicalStat"] = "mana_regeneration_rate_+%_final_from_caster_weapon_runic_ward_socketable",
+						["statValues"] = {
+							["mana_regeneration_rate_+%_final_from_caster_weapon_runic_ward_socketable"] = {
+								["max"] = -40,
+								["min"] = -40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 45 },
 		},
@@ -3322,7 +6931,17 @@ return {
 				"Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed",
 				"Bonded: Recover 3% of maximum Life when one of your Minions is Revived",
 				statOrder = { 9707, 10596 },
-				tradeHashes = { [3515226849] = { "Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed" },  },
+				tradeHashes = {
+					[3515226849] = {
+						["canonicalStat"] = "recover_x%_of_maximum_ward_on_persistent_minion_death",
+						["statValues"] = {
+							["recover_x%_of_maximum_ward_on_persistent_minion_death"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3334,7 +6953,17 @@ return {
 				"Bonded: Damage of Enemies Hitting you is Unlucky if",
 				"Bonded: your Runic Ward has been damaged Recently",
 				statOrder = { 9109, 6042, 6042.1 },
-				tradeHashes = { [540694930] = { "Minions in your Presence have Onslaught while you are on Low Runic Ward" },  },
+				tradeHashes = {
+					[540694930] = {
+						["canonicalStat"] = "minions_in_presence_have_onslaught_while_you_are_on_low_ward",
+						["statValues"] = {
+							["minions_in_presence_have_onslaught_while_you_are_on_low_ward"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 45 },
 		},
@@ -3346,7 +6975,26 @@ return {
 				"15% less maximum Life",
 				"Bonded: +1% to all Maximum Elemental Resistances while on full Runic Ward",
 				statOrder = { 1430, 8878, 4200 },
-				tradeHashes = { [386720106] = { "Gain 15% of maximum Life as Extra maximum Runic Ward" }, [1020945697] = { "15% less maximum Life" },  },
+				tradeHashes = {
+					[1020945697] = {
+						["canonicalStat"] = "maximum_life_+%_final_from_caster_weapon_runic_ward_socketable",
+						["statValues"] = {
+							["maximum_life_+%_final_from_caster_weapon_runic_ward_socketable"] = {
+								["max"] = -15,
+								["min"] = -15,
+							},
+						},
+					},
+					[386720106] = {
+						["canonicalStat"] = "base_maximum_life_%_to_gain_as_maximum_ward",
+						["statValues"] = {
+							["base_maximum_life_%_to_gain_as_maximum_ward"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 45 },
 		},
@@ -3357,7 +7005,17 @@ return {
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
 				"Bonded: 25% increased Fire Damage",
 				statOrder = { 6242, 873 },
-				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
+				tradeHashes = {
+					[602344904] = {
+						["canonicalStat"] = "dummy_display_stat_rune_fire_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_fire_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3366,7 +7024,17 @@ return {
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
 				"Bonded: 25% increased Fire Damage",
 				statOrder = { 6242, 873 },
-				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
+				tradeHashes = {
+					[602344904] = {
+						["canonicalStat"] = "dummy_display_stat_rune_fire_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_fire_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3377,7 +7045,17 @@ return {
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				"Bonded: 25% increased Cold Damage",
 				statOrder = { 6239, 874 },
-				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
+				tradeHashes = {
+					[2390027291] = {
+						["canonicalStat"] = "dummy_display_stat_rune_cold_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_cold_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3386,7 +7064,17 @@ return {
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				"Bonded: 25% increased Cold Damage",
 				statOrder = { 6239, 874 },
-				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
+				tradeHashes = {
+					[2390027291] = {
+						["canonicalStat"] = "dummy_display_stat_rune_cold_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_cold_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3397,7 +7085,17 @@ return {
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
 				"Bonded: 25% increased Lightning Damage",
 				statOrder = { 6243, 875 },
-				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
+				tradeHashes = {
+					[1433896639] = {
+						["canonicalStat"] = "dummy_display_stat_rune_lightning_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_lightning_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3406,7 +7104,17 @@ return {
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
 				"Bonded: 25% increased Lightning Damage",
 				statOrder = { 6243, 875 },
-				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
+				tradeHashes = {
+					[1433896639] = {
+						["canonicalStat"] = "dummy_display_stat_rune_lightning_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_lightning_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3417,7 +7125,17 @@ return {
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
 				"Bonded: 25% increased Chaos Damage",
 				statOrder = { 6238, 876 },
-				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
+				tradeHashes = {
+					[1624833382] = {
+						["canonicalStat"] = "dummy_display_stat_rune_chaos_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_chaos_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3426,7 +7144,17 @@ return {
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
 				"Bonded: 25% increased Chaos Damage",
 				statOrder = { 6238, 876 },
-				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
+				tradeHashes = {
+					[1624833382] = {
+						["canonicalStat"] = "dummy_display_stat_rune_chaos_convert",
+						["statValues"] = {
+							["dummy_display_stat_rune_chaos_convert"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3437,7 +7165,17 @@ return {
 				"+50% Surpassing chance to fire an additional Arrow",
 				"Bonded: 30% increased Projectile Speed",
 				statOrder = { 5513, 897 },
-				tradeHashes = { [2463230181] = { "+50% Surpassing chance to fire an additional Arrow" },  },
+				tradeHashes = {
+					[2463230181] = {
+						["canonicalStat"] = "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+						["statValues"] = {
+							["chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3448,7 +7186,17 @@ return {
 				"30% increased Parried Debuff Magnitude",
 				"Bonded: 15% increased Block chance",
 				statOrder = { 9379, 1133 },
-				tradeHashes = { [818877178] = { "30% increased Parried Debuff Magnitude" },  },
+				tradeHashes = {
+					[818877178] = {
+						["canonicalStat"] = "parried_magnitude_+%",
+						["statValues"] = {
+							["parried_magnitude_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3459,7 +7207,17 @@ return {
 				"10% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				"Bonded: 15% increased Area of Effect for Attacks",
 				statOrder = { 10626, 4493 },
-				tradeHashes = { [2045949233] = { "10% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
+				tradeHashes = {
+					[2045949233] = {
+						["canonicalStat"] = "your_slam_aftershock_chance_%",
+						["statValues"] = {
+							["your_slam_aftershock_chance_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3470,7 +7228,17 @@ return {
 				"40% increased effect of Fully Broken Armour",
 				"Bonded: Break 50% increased Armour",
 				statOrder = { 5236, 4407 },
-				tradeHashes = { [1879206848] = { "40% increased effect of Fully Broken Armour" },  },
+				tradeHashes = {
+					[1879206848] = {
+						["canonicalStat"] = "broken_armour_and_sundered_armour_debuff_effect_+%",
+						["statValues"] = {
+							["broken_armour_and_sundered_armour_debuff_effect_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3481,7 +7249,17 @@ return {
 				"30% chance when you gain a Charge to gain an additional Charge",
 				"Bonded: 30% increased Endurance, Frenzy and Power Charge Duration",
 				statOrder = { 5518, 2761 },
-				tradeHashes = { [1555237944] = { "30% chance when you gain a Charge to gain an additional Charge" },  },
+				tradeHashes = {
+					[1555237944] = {
+						["canonicalStat"] = "chance_to_gain_1_more_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_charge_%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3492,7 +7270,17 @@ return {
 				"50% increased Immobilisation buildup",
 				"Bonded: 30% increased Damage against Immobilised Enemies",
 				statOrder = { 7193, 5959 },
-				tradeHashes = { [330530785] = { "50% increased Immobilisation buildup" },  },
+				tradeHashes = {
+					[330530785] = {
+						["canonicalStat"] = "hit_damage_immobilisation_multiplier_+%",
+						["statValues"] = {
+							["hit_damage_immobilisation_multiplier_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3503,7 +7291,17 @@ return {
 				"30% chance to create an additional Remnant",
 				"Bonded: +1 to maximum number of Elemental Infusions",
 				statOrder = { 5409, 8875 },
-				tradeHashes = { [2328443419] = { "30% chance to create an additional Remnant" },  },
+				tradeHashes = {
+					[2328443419] = {
+						["canonicalStat"] = "chance_%_to_create_additional_remnant",
+						["statValues"] = {
+							["chance_%_to_create_additional_remnant"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3514,7 +7312,17 @@ return {
 				"25% increased Withered Magnitude",
 				"Bonded: 15% chance that when Volatility on you explodes, you regain an equivalent amount of Volatility",
 				statOrder = { 10556, 10485 },
-				tradeHashes = { [3973629633] = { "25% increased Withered Magnitude" },  },
+				tradeHashes = {
+					[3973629633] = {
+						["canonicalStat"] = "withered_magnitude_+%",
+						["statValues"] = {
+							["withered_magnitude_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3525,7 +7333,17 @@ return {
 				"40% increased Area of Effect of Curses",
 				"Bonded: 15% faster Curse Activation",
 				statOrder = { 1950, 5924 },
-				tradeHashes = { [153777645] = { "40% increased Area of Effect of Curses" },  },
+				tradeHashes = {
+					[153777645] = {
+						["canonicalStat"] = "curse_area_of_effect_+%",
+						["statValues"] = {
+							["curse_area_of_effect_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3536,7 +7354,17 @@ return {
 				"Minions have 8% increased Attack and Cast Speed",
 				"Bonded: Minions have 10% increased Movement Speed",
 				statOrder = { 9003, 1528 },
-				tradeHashes = { [3091578504] = { "Minions have 8% increased Attack and Cast Speed" },  },
+				tradeHashes = {
+					[3091578504] = {
+						["canonicalStat"] = "minion_attack_and_cast_speed_+%",
+						["statValues"] = {
+							["minion_attack_and_cast_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3547,7 +7375,17 @@ return {
 				"Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy",
 				"Bonded: 40% increased Stun Buildup",
 				statOrder = { 6713, 1051 },
-				tradeHashes = { [3444646646] = { "Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy" },  },
+				tradeHashes = {
+					[3444646646] = {
+						["canonicalStat"] = "gain_X_druidic_prowess_on_heavy_stunning_rare_or_unique_enemy",
+						["statValues"] = {
+							["gain_X_druidic_prowess_on_heavy_stunning_rare_or_unique_enemy"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3558,7 +7396,17 @@ return {
 				"Grenades have 10% chance to activate a second time",
 				"Bonded: 40% increased Crossbow Reload Speed",
 				statOrder = { 6939, 9734 },
-				tradeHashes = { [538981065] = { "Grenades have 10% chance to activate a second time" },  },
+				tradeHashes = {
+					[538981065] = {
+						["canonicalStat"] = "grenade_skill_%_chance_to_explode_twice",
+						["statValues"] = {
+							["grenade_skill_%_chance_to_explode_twice"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3569,7 +7417,17 @@ return {
 				"8% increased Attack Speed if you have Blocked Recently",
 				"Bonded: +3% to maximum Block chance",
 				statOrder = { 4565, 1734 },
-				tradeHashes = { [3203854378] = { "8% increased Attack Speed if you have Blocked Recently" },  },
+				tradeHashes = {
+					[3203854378] = {
+						["canonicalStat"] = "attack_speed_+%_if_have_blocked_recently",
+						["statValues"] = {
+							["attack_speed_+%_if_have_blocked_recently"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 30 },
 		},
@@ -3580,7 +7438,17 @@ return {
 				"+80 to maximum Life",
 				"Bonded: 15% increased amount of Life Leeched",
 				statOrder = { 887, 1895 },
-				tradeHashes = { [3299347043] = { "+80 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 80,
+								["min"] = 80,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3589,7 +7457,17 @@ return {
 				"+80 to maximum Life",
 				"Bonded: 15% increased amount of Life Leeched",
 				statOrder = { 887, 1895 },
-				tradeHashes = { [3299347043] = { "+80 to maximum Life" },  },
+				tradeHashes = {
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 80,
+								["min"] = 80,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3598,7 +7476,17 @@ return {
 				"Recover 15 Life when you Block",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1522, 889 },
-				tradeHashes = { [1678831767] = { "Recover 15 Life when you Block" },  },
+				tradeHashes = {
+					[1678831767] = {
+						["canonicalStat"] = "recover_X_life_on_block",
+						["statValues"] = {
+							["recover_X_life_on_block"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3607,7 +7495,17 @@ return {
 				"Recover 15 Life when you Block",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1522, 889 },
-				tradeHashes = { [1678831767] = { "Recover 15 Life when you Block" },  },
+				tradeHashes = {
+					[1678831767] = {
+						["canonicalStat"] = "recover_X_life_on_block",
+						["statValues"] = {
+							["recover_X_life_on_block"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3618,7 +7516,17 @@ return {
 				"8% increased Movement Speed while Sprinting",
 				"Bonded: 50% increased Stun Recovery",
 				statOrder = { 10069, 1060 },
-				tradeHashes = { [3107707789] = { "8% increased Movement Speed while Sprinting" },  },
+				tradeHashes = {
+					[3107707789] = {
+						["canonicalStat"] = "sprint_movement_speed_+%",
+						["statValues"] = {
+							["sprint_movement_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3627,7 +7535,17 @@ return {
 				"Companions deal 30% increased Damage",
 				"Bonded: 8% increased Mana Recovery rate while your Companion is in your Presence",
 				statOrder = { 5722, 7996 },
-				tradeHashes = { [234296660] = { "Companions deal 30% increased Damage" },  },
+				tradeHashes = {
+					[234296660] = {
+						["canonicalStat"] = "companion_damage_+%",
+						["statValues"] = {
+							["companion_damage_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3638,7 +7556,17 @@ return {
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: Charms gain 0.25 charges per Second",
 				statOrder = { 6888, 6889 },
-				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+				tradeHashes = {
+					[731781020] = {
+						["canonicalStat"] = "generate_x_charges_for_any_flask_per_minute",
+						["statValues"] = {
+							["generate_x_charges_for_any_flask_per_minute"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3647,7 +7575,17 @@ return {
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: Charms gain 0.25 charges per Second",
 				statOrder = { 6888, 6889 },
-				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+				tradeHashes = {
+					[731781020] = {
+						["canonicalStat"] = "generate_x_charges_for_any_flask_per_minute",
+						["statValues"] = {
+							["generate_x_charges_for_any_flask_per_minute"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3656,7 +7594,17 @@ return {
 				"+0.3 metres to Dodge Roll distance",
 				"Bonded: 30% increased Armour if you haven't Dodge Rolled Recently",
 				statOrder = { 6200, 4390 },
-				tradeHashes = { [258119672] = { "+0.3 metres to Dodge Roll distance" },  },
+				tradeHashes = {
+					[258119672] = {
+						["canonicalStat"] = "dodge_roll_base_travel_distance",
+						["statValues"] = {
+							["dodge_roll_base_travel_distance"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3667,7 +7615,17 @@ return {
 				"50% chance to build an additional Combo on Hit",
 				"Bonded: 5% increased Attack Speed",
 				statOrder = { 4185, 985 },
-				tradeHashes = { [4258524206] = { "50% chance to build an additional Combo on Hit" },  },
+				tradeHashes = {
+					[4258524206] = {
+						["canonicalStat"] = "additional_combo_gain_chance_%",
+						["statValues"] = {
+							["additional_combo_gain_chance_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3676,7 +7634,17 @@ return {
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				"Bonded: 20% increased Bleeding Duration",
 				statOrder = { 7811, 4660 },
-				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
+				tradeHashes = {
+					[103706408] = {
+						["canonicalStat"] = "local_physical_damage_roll_always_min_or_max",
+						["statValues"] = {
+							["local_physical_damage_roll_always_min_or_max"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3685,7 +7653,17 @@ return {
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				"Bonded: 20% increased Bleeding Duration",
 				statOrder = { 7811, 4660 },
-				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
+				tradeHashes = {
+					[103706408] = {
+						["canonicalStat"] = "local_physical_damage_roll_always_min_or_max",
+						["statValues"] = {
+							["local_physical_damage_roll_always_min_or_max"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3696,7 +7674,17 @@ return {
 				"50% increased Glory generation",
 				"Bonded: Banner Skills have 20% increased Aura Magnitudes",
 				statOrder = { 6914, 3066 },
-				tradeHashes = { [3143918757] = { "50% increased Glory generation" },  },
+				tradeHashes = {
+					[3143918757] = {
+						["canonicalStat"] = "glory_generation_+%",
+						["statValues"] = {
+							["glory_generation_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3705,7 +7693,17 @@ return {
 				"Archon recovery period expires 30% faster",
 				"Bonded: 30% increased Archon Buff duration",
 				statOrder = { 4343, 4344 },
-				tradeHashes = { [2586152168] = { "Archon recovery period expires 30% faster" },  },
+				tradeHashes = {
+					[2586152168] = {
+						["canonicalStat"] = "archon_delay_expires_x%_faster",
+						["statValues"] = {
+							["archon_delay_expires_x%_faster"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3718,7 +7716,26 @@ return {
 				"Bonded: +30 to maximum Life",
 				"Bonded: +30 to maximum Mana",
 				statOrder = { 1040, 1507, 887, 892 },
-				tradeHashes = { [2797971005] = { "Gain 3 Life per Enemy Hit with Attacks" }, [820939409] = { "Gain 1 Mana per Enemy Hit with Attacks" },  },
+				tradeHashes = {
+					[2797971005] = {
+						["canonicalStat"] = "base_life_gain_per_target",
+						["statValues"] = {
+							["base_life_gain_per_target"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+					[820939409] = {
+						["canonicalStat"] = "mana_gain_per_target",
+						["statValues"] = {
+							["mana_gain_per_target"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3727,7 +7744,17 @@ return {
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
-				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+				tradeHashes = {
+					[2616640048] = {
+						["canonicalStat"] = "local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X",
+						["statValues"] = {
+							["local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X"] = {
+								["max"] = 32,
+								["min"] = 32,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3736,7 +7763,17 @@ return {
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
-				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+				tradeHashes = {
+					[2616640048] = {
+						["canonicalStat"] = "local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X",
+						["statValues"] = {
+							["local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X"] = {
+								["max"] = 32,
+								["min"] = 32,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3745,7 +7782,17 @@ return {
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
-				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+				tradeHashes = {
+					[2616640048] = {
+						["canonicalStat"] = "local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X",
+						["statValues"] = {
+							["local_maximum_added_cold_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X"] = {
+								["max"] = 32,
+								["min"] = 32,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3759,7 +7806,35 @@ return {
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 840, 841, 843, 887, 892 },
-				tradeHashes = { [3484657501] = { "+30 to Armour" }, [53045048] = { "+30 to Evasion Rating" }, [4052037485] = { "+10 to maximum Energy Shield" },  },
+				tradeHashes = {
+					[3484657501] = {
+						["canonicalStat"] = "local_base_physical_damage_reduction_rating",
+						["statValues"] = {
+							["local_base_physical_damage_reduction_rating"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+					[4052037485] = {
+						["canonicalStat"] = "local_energy_shield",
+						["statValues"] = {
+							["local_energy_shield"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[53045048] = {
+						["canonicalStat"] = "local_base_evasion_rating",
+						["statValues"] = {
+							["local_base_evasion_rating"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3771,7 +7846,26 @@ return {
 				"+20% to all Elemental Resistances",
 				"Bonded: 20% of Damage is taken from Mana before Life",
 				statOrder = { 1007, 1013, 2472 },
-				tradeHashes = { [2901986750] = { "+20% to all Elemental Resistances" }, [1978899297] = { "-10% to all Maximum Elemental Resistances" },  },
+				tradeHashes = {
+					[1978899297] = {
+						["canonicalStat"] = "additional_maximum_all_elemental_resistances_%",
+						["statValues"] = {
+							["additional_maximum_all_elemental_resistances_%"] = {
+								["max"] = -10,
+								["min"] = -10,
+							},
+						},
+					},
+					[2901986750] = {
+						["canonicalStat"] = "base_resist_all_elements_%",
+						["statValues"] = {
+							["base_resist_all_elements_%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3783,7 +7877,26 @@ return {
 				"-1 to Spirit per 2 Levels",
 				"Bonded: 5% increased Spirit Reservation Efficiency",
 				statOrder = { 895, 10058, 4755 },
-				tradeHashes = { [2704225257] = { "+50 to Spirit" }, [610569665] = { "-1 to Spirit per 2 Levels" },  },
+				tradeHashes = {
+					[2704225257] = {
+						["canonicalStat"] = "base_spirit",
+						["statValues"] = {
+							["base_spirit"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+					[610569665] = {
+						["canonicalStat"] = "spirit_+_per_2_levels",
+						["statValues"] = {
+							["spirit_+_per_2_levels"] = {
+								["max"] = -1,
+								["min"] = -1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3795,7 +7908,26 @@ return {
 				"You have no Critical Damage Bonus",
 				"Bonded: Hits against you have 25% reduced Critical Damage Bonus",
 				statOrder = { 976, 1405, 1005 },
-				tradeHashes = { [587431675] = { "200% increased Critical Hit Chance" }, [4058681894] = { "You have no Critical Damage Bonus" },  },
+				tradeHashes = {
+					[4058681894] = {
+						["canonicalStat"] = "no_critical_strike_multiplier",
+						["statValues"] = {
+							["no_critical_strike_multiplier"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[587431675] = {
+						["canonicalStat"] = "critical_strike_chance_+%",
+						["statValues"] = {
+							["critical_strike_chance_+%"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3804,7 +7936,17 @@ return {
 				"50% increased Spell Damage while your Companion is in your Presence",
 				"Bonded: 8% increased Mana Recovery rate while your Companion is in your Presence",
 				statOrder = { 10009, 7996 },
-				tradeHashes = { [4063732952] = { "50% increased Spell Damage while your Companion is in your Presence" },  },
+				tradeHashes = {
+					[4063732952] = {
+						["canonicalStat"] = "spell_damage_+%_while_companion_in_presence",
+						["statValues"] = {
+							["spell_damage_+%_while_companion_in_presence"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3815,7 +7957,17 @@ return {
 				"Remnants you create have 15% increased effect",
 				"Bonded: Recover 3% of Maximum Mana when you collect a Remnant",
 				statOrder = { 9736, 9740 },
-				tradeHashes = { [1999910726] = { "Remnants you create have 15% increased effect" },  },
+				tradeHashes = {
+					[1999910726] = {
+						["canonicalStat"] = "remnant_effect_+%",
+						["statValues"] = {
+							["remnant_effect_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3825,7 +7977,26 @@ return {
 				"Remnants can be collected from 50% further away",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 9736, 9738, 6533 },
-				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
+				tradeHashes = {
+					[1999910726] = {
+						["canonicalStat"] = "remnant_effect_+%",
+						["statValues"] = {
+							["remnant_effect_+%"] = {
+								["max"] = -25,
+								["min"] = -25,
+							},
+						},
+					},
+					[3482326075] = {
+						["canonicalStat"] = "remnant_pickup_range_+%",
+						["statValues"] = {
+							["remnant_pickup_range_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3835,7 +8006,26 @@ return {
 				"Remnants can be collected from 50% further away",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 9736, 9738, 6533 },
-				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
+				tradeHashes = {
+					[1999910726] = {
+						["canonicalStat"] = "remnant_effect_+%",
+						["statValues"] = {
+							["remnant_effect_+%"] = {
+								["max"] = -25,
+								["min"] = -25,
+							},
+						},
+					},
+					[3482326075] = {
+						["canonicalStat"] = "remnant_pickup_range_+%",
+						["statValues"] = {
+							["remnant_pickup_range_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3847,7 +8037,30 @@ return {
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
-				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+				tradeHashes = {
+					[2480498143] = {
+						["canonicalStat"] = "base_skill_cost_life_instead_of_mana_%",
+						["statValues"] = {
+							["base_skill_cost_life_instead_of_mana_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3857,7 +8070,30 @@ return {
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
-				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+				tradeHashes = {
+					[2480498143] = {
+						["canonicalStat"] = "base_skill_cost_life_instead_of_mana_%",
+						["statValues"] = {
+							["base_skill_cost_life_instead_of_mana_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3867,7 +8103,30 @@ return {
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
-				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+				tradeHashes = {
+					[2480498143] = {
+						["canonicalStat"] = "base_skill_cost_life_instead_of_mana_%",
+						["statValues"] = {
+							["base_skill_cost_life_instead_of_mana_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+					[709508406] = {
+						["canonicalStat"] = "local_minimum_added_fire_damage",
+						["statValues"] = {
+							["local_maximum_added_fire_damage"] = {
+								["max"] = 16,
+								["min"] = 16,
+							},
+							["local_minimum_added_fire_damage"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3878,7 +8137,26 @@ return {
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
 				statOrder = { 6873, 9609 },
-				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
+				tradeHashes = {
+					[1181501418] = {
+						["canonicalStat"] = "maximum_rage",
+						["statValues"] = {
+							["maximum_rage"] = {
+								["max"] = -10,
+								["min"] = -10,
+							},
+						},
+					},
+					[2709367754] = {
+						["canonicalStat"] = "gain_x_rage_on_melee_hit",
+						["statValues"] = {
+							["gain_x_rage_on_melee_hit"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3887,7 +8165,26 @@ return {
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
 				statOrder = { 6873, 9609 },
-				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
+				tradeHashes = {
+					[1181501418] = {
+						["canonicalStat"] = "maximum_rage",
+						["statValues"] = {
+							["maximum_rage"] = {
+								["max"] = -10,
+								["min"] = -10,
+							},
+						},
+					},
+					[2709367754] = {
+						["canonicalStat"] = "gain_x_rage_on_melee_hit",
+						["statValues"] = {
+							["gain_x_rage_on_melee_hit"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 15 },
 		},
@@ -3897,7 +8194,26 @@ return {
 				type = "Rune",
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
-				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+				tradeHashes = {
+					[1950607759] = {
+						["canonicalStat"] = "local_maximum_mods_allowed_+",
+						["statValues"] = {
+							["local_maximum_mods_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[718638445] = {
+						["canonicalStat"] = "local_maximum_suffixes_allowed_+",
+						["statValues"] = {
+							["local_maximum_suffixes_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3905,7 +8221,26 @@ return {
 				type = "Rune",
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
-				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+				tradeHashes = {
+					[1950607759] = {
+						["canonicalStat"] = "local_maximum_mods_allowed_+",
+						["statValues"] = {
+							["local_maximum_mods_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[718638445] = {
+						["canonicalStat"] = "local_maximum_suffixes_allowed_+",
+						["statValues"] = {
+							["local_maximum_suffixes_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3913,7 +8248,26 @@ return {
 				type = "Rune",
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
-				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+				tradeHashes = {
+					[1950607759] = {
+						["canonicalStat"] = "local_maximum_mods_allowed_+",
+						["statValues"] = {
+							["local_maximum_mods_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[718638445] = {
+						["canonicalStat"] = "local_maximum_suffixes_allowed_+",
+						["statValues"] = {
+							["local_maximum_suffixes_allowed_+"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3923,7 +8277,17 @@ return {
 				type = "Rune",
 				"Destroys all Augment Sockets on the item to create a Jewel Socket",
 				statOrder = { 6240 },
-				tradeHashes = { [1933674044] = { "Destroys all Augment Sockets on the item to create a Jewel Socket" },  },
+				tradeHashes = {
+					[1933674044] = {
+						["canonicalStat"] = "dummy_display_stat_rune_create_jewel_socket",
+						["statValues"] = {
+							["dummy_display_stat_rune_create_jewel_socket"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3933,7 +8297,17 @@ return {
 				type = "Rune",
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
-				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+				tradeHashes = {
+					[1963398329] = {
+						["canonicalStat"] = "local_can_have_additional_crafted_mods",
+						["statValues"] = {
+							["local_can_have_additional_crafted_mods"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3941,7 +8315,17 @@ return {
 				type = "Rune",
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
-				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+				tradeHashes = {
+					[1963398329] = {
+						["canonicalStat"] = "local_can_have_additional_crafted_mods",
+						["statValues"] = {
+							["local_can_have_additional_crafted_mods"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3949,7 +8333,17 @@ return {
 				type = "Rune",
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
-				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+				tradeHashes = {
+					[1963398329] = {
+						["canonicalStat"] = "local_can_have_additional_crafted_mods",
+						["statValues"] = {
+							["local_can_have_additional_crafted_mods"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -3960,7 +8354,17 @@ return {
 				"Can roll Chronomancy modifiers",
 				"Bonded: 10% increased Cooldown Recovery Rate",
 				statOrder = { 10526, 4677 },
-				tradeHashes = { [3132681620] = { "Can roll Chronomancy modifiers" },  },
+				tradeHashes = {
+					[3132681620] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_1",
+						["statValues"] = {
+							["warping_rune_add_item_tag_1"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3971,7 +8375,17 @@ return {
 				"Can roll Marksman modifiers",
 				"Bonded: 20% increased Projectile Damage",
 				statOrder = { 10529, 1738 },
-				tradeHashes = { [201332984] = { "Can roll Marksman modifiers" },  },
+				tradeHashes = {
+					[201332984] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_4",
+						["statValues"] = {
+							["warping_rune_add_item_tag_4"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3982,7 +8396,17 @@ return {
 				"Can roll Berserking modifiers",
 				"Bonded: Gain 2 Rage on Melee Hit",
 				statOrder = { 10528, 6873 },
-				tradeHashes = { [1770091046] = { "Can roll Berserking modifiers" },  },
+				tradeHashes = {
+					[1770091046] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_3",
+						["statValues"] = {
+							["warping_rune_add_item_tag_3"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -3993,7 +8417,17 @@ return {
 				"Can roll Destruction modifiers",
 				"Bonded: +5% to all Elemental Resistances",
 				statOrder = { 10531, 1013 },
-				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
+				tradeHashes = {
+					[1676950499] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_6",
+						["statValues"] = {
+							["warping_rune_add_item_tag_6"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -4002,7 +8436,17 @@ return {
 				"Can roll Destruction modifiers",
 				"Bonded: +5% to all Elemental Resistances",
 				statOrder = { 10531, 1013 },
-				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
+				tradeHashes = {
+					[1676950499] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_6",
+						["statValues"] = {
+							["warping_rune_add_item_tag_6"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -4014,7 +8458,17 @@ return {
 				"Bonded: 3% increased maximum Life",
 				"Bonded: 3% increased maximum Mana",
 				statOrder = { 10527, 889, 894 },
-				tradeHashes = { [1927467683] = { "Can roll Soul modifiers" },  },
+				tradeHashes = {
+					[1927467683] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_2",
+						["statValues"] = {
+							["warping_rune_add_item_tag_2"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -4025,7 +8479,17 @@ return {
 				"Can roll Decay modifiers",
 				"Bonded: 25% reduced Effect of Non-Damaging Ailments on you",
 				statOrder = { 10530, 9225 },
-				tradeHashes = { [2547063279] = { "Can roll Decay modifiers" },  },
+				tradeHashes = {
+					[2547063279] = {
+						["canonicalStat"] = "warping_rune_add_item_tag_5",
+						["statValues"] = {
+							["warping_rune_add_item_tag_5"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 0 },
 		},
@@ -4035,7 +8499,17 @@ return {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
-				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+				tradeHashes = {
+					[1797890657] = {
+						["canonicalStat"] = "dummy_display_stat_rune_olroths_legacy",
+						["statValues"] = {
+							["dummy_display_stat_rune_olroths_legacy"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -4043,7 +8517,17 @@ return {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
-				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+				tradeHashes = {
+					[1797890657] = {
+						["canonicalStat"] = "dummy_display_stat_rune_olroths_legacy",
+						["statValues"] = {
+							["dummy_display_stat_rune_olroths_legacy"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -4051,7 +8535,17 @@ return {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
-				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+				tradeHashes = {
+					[1797890657] = {
+						["canonicalStat"] = "dummy_display_stat_rune_olroths_legacy",
+						["statValues"] = {
+							["dummy_display_stat_rune_olroths_legacy"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -4062,7 +8556,17 @@ return {
 				"250% of Melee Physical Damage taken reflected to Attacker",
 				"Bonded: Regenerate 3% of maximum Life per second while Surrounded",
 				statOrder = { 2241, 7510 },
-				tradeHashes = { [1092987622] = { "250% of Melee Physical Damage taken reflected to Attacker" },  },
+				tradeHashes = {
+					[1092987622] = {
+						["canonicalStat"] = "melee_physical_damage_taken_%_to_deal_to_attacker",
+						["statValues"] = {
+							["melee_physical_damage_taken_%_to_deal_to_attacker"] = {
+								["max"] = 250,
+								["min"] = 250,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4073,7 +8577,17 @@ return {
 				"+50% of Armour also applies to Elemental Damage",
 				"Bonded: +15% to all Elemental Resistances",
 				statOrder = { 1027, 1013 },
-				tradeHashes = { [3362812763] = { "+50% of Armour also applies to Elemental Damage" },  },
+				tradeHashes = {
+					[3362812763] = {
+						["canonicalStat"] = "armour_%_applies_to_fire_cold_lightning_damage",
+						["statValues"] = {
+							["armour_%_applies_to_fire_cold_lightning_damage"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4085,7 +8599,26 @@ return {
 				"50% reduced Slowing Potency of Debuffs on You",
 				"Bonded: 35% increased Thorns damage",
 				statOrder = { 4671, 4747, 10254 },
-				tradeHashes = { [2174054121] = { "50% chance to inflict Bleeding on Hit" }, [924253255] = { "50% reduced Slowing Potency of Debuffs on You" },  },
+				tradeHashes = {
+					[2174054121] = {
+						["canonicalStat"] = "base_chance_to_inflict_bleeding_%",
+						["statValues"] = {
+							["base_chance_to_inflict_bleeding_%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+					[924253255] = {
+						["canonicalStat"] = "base_slow_potency_+%",
+						["statValues"] = {
+							["base_slow_potency_+%"] = {
+								["max"] = -50,
+								["min"] = -50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4096,7 +8629,17 @@ return {
 				"Recover 5% of maximum Life for each Endurance Charge consumed",
 				"Bonded: +30 to maximum Life",
 				statOrder = { 9666, 887 },
-				tradeHashes = { [939832726] = { "Recover 5% of maximum Life for each Endurance Charge consumed" },  },
+				tradeHashes = {
+					[939832726] = {
+						["canonicalStat"] = "recover_%_life_per_endurance_charge_consumed",
+						["statValues"] = {
+							["recover_%_life_per_endurance_charge_consumed"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4108,7 +8651,26 @@ return {
 				"Gain 10 Rage when Critically Hit by an Enemy",
 				"Bonded: +3 to Maximum Rage",
 				statOrder = { 6875, 6876, 9609 },
-				tradeHashes = { [3292710273] = { "Gain 5 Rage when Hit by an Enemy" }, [1466716929] = { "Gain 10 Rage when Critically Hit by an Enemy" },  },
+				tradeHashes = {
+					[1466716929] = {
+						["canonicalStat"] = "gain_x_rage_when_taken_crit",
+						["statValues"] = {
+							["gain_x_rage_when_taken_crit"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[3292710273] = {
+						["canonicalStat"] = "gain_x_rage_when_hit",
+						["statValues"] = {
+							["gain_x_rage_when_hit"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4120,7 +8682,26 @@ return {
 				"100% increased Evasion Rating when on Full Life",
 				"Bonded: 20% increased Evasion Rating",
 				statOrder = { 1555, 6509, 884 },
-				tradeHashes = { [88817332] = { "100% increased Evasion Rating when on Full Life" }, [3393547195] = { "10% increased Movement Speed when on Full Life" },  },
+				tradeHashes = {
+					[3393547195] = {
+						["canonicalStat"] = "movement_velocity_+%_when_on_full_life",
+						["statValues"] = {
+							["movement_velocity_+%_when_on_full_life"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[88817332] = {
+						["canonicalStat"] = "evasion_rating_+%_when_on_full_life",
+						["statValues"] = {
+							["evasion_rating_+%_when_on_full_life"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4132,7 +8713,26 @@ return {
 				"-10 Physical Damage taken from Attack Hits",
 				"Bonded: +35% to Fire Resistance",
 				statOrder = { 1595, 1959, 1014 },
-				tradeHashes = { [331731406] = { "Cannot be Ignited" }, [3441651621] = { "-10 Physical Damage taken from Attack Hits" },  },
+				tradeHashes = {
+					[331731406] = {
+						["canonicalStat"] = "base_cannot_be_ignited",
+						["statValues"] = {
+							["base_cannot_be_ignited"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[3441651621] = {
+						["canonicalStat"] = "physical_attack_damage_taken_+",
+						["statValues"] = {
+							["physical_attack_damage_taken_+"] = {
+								["max"] = -10,
+								["min"] = -10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4143,7 +8743,17 @@ return {
 				"Gain Deflection Rating equal to 30% of Evasion Rating",
 				"Bonded: 35% increased Flask Mana Recovery rate",
 				statOrder = { 1028, 899 },
-				tradeHashes = { [3033371881] = { "Gain Deflection Rating equal to 30% of Evasion Rating" },  },
+				tradeHashes = {
+					[3033371881] = {
+						["canonicalStat"] = "base_deflection_rating_%_of_evasion_rating",
+						["statValues"] = {
+							["base_deflection_rating_%_of_evasion_rating"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4154,7 +8764,17 @@ return {
 				"25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
 				"Bonded: 20% increased Armour while Shapeshifted",
 				statOrder = { 1459, 4393 },
-				tradeHashes = { [1311130924] = { "25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half" },  },
+				tradeHashes = {
+					[1311130924] = {
+						["canonicalStat"] = "hit_damage_bypass_energy_shield_%_when_below_half_energy_shield",
+						["statValues"] = {
+							["hit_damage_bypass_energy_shield_%_when_below_half_energy_shield"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4166,7 +8786,26 @@ return {
 				"Every Rage also grants 1% increased Armour",
 				"Bonded: +3 to Maximum Rage",
 				statOrder = { 6873, 10644, 9609 },
-				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [2995914769] = { "Every Rage also grants 1% increased Armour" },  },
+				tradeHashes = {
+					[2709367754] = {
+						["canonicalStat"] = "gain_x_rage_on_melee_hit",
+						["statValues"] = {
+							["gain_x_rage_on_melee_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[2995914769] = {
+						["canonicalStat"] = "armour_+%_per_rage",
+						["statValues"] = {
+							["armour_+%_per_rage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4178,7 +8817,26 @@ return {
 				"Every Rage also grants 1% increased Stun Threshold",
 				"Bonded: Every five Rage also grants you 1% increased Movement Speed",
 				statOrder = { 6873, 10656, 9146 },
-				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [352044736] = { "Every Rage also grants 1% increased Stun Threshold" },  },
+				tradeHashes = {
+					[2709367754] = {
+						["canonicalStat"] = "gain_x_rage_on_melee_hit",
+						["statValues"] = {
+							["gain_x_rage_on_melee_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[352044736] = {
+						["canonicalStat"] = "stun_threshold_+%_per_rage",
+						["statValues"] = {
+							["stun_threshold_+%_per_rage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4190,7 +8848,26 @@ return {
 				"Unwavering Stance",
 				"Bonded: 50% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 1630, 10724, 4747 },
-				tradeHashes = { [1683578560] = { "Unwavering Stance" }, [280731498] = { "15% increased Area of Effect" },  },
+				tradeHashes = {
+					[1683578560] = {
+						["canonicalStat"] = "keystone_unwavering_stance",
+						["statValues"] = {
+							["keystone_unwavering_stance"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[280731498] = {
+						["canonicalStat"] = "base_skill_area_of_effect_+%",
+						["statValues"] = {
+							["base_skill_area_of_effect_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4201,7 +8878,17 @@ return {
 				"Warcries Explode Corpses dealing 10% of their Life as Physical Damage",
 				"Bonded: Warcry Skills have 20% increased Area of Effect",
 				statOrder = { 5780, 10514 },
-				tradeHashes = { [11014011] = { "Warcries Explode Corpses dealing 10% of their Life as Physical Damage" },  },
+				tradeHashes = {
+					[11014011] = {
+						["canonicalStat"] = "corpses_in_your_area_of_effect_explode_dealing_%_maximum_life_physical_damage_on_warcry",
+						["statValues"] = {
+							["corpses_in_your_area_of_effect_explode_dealing_%_maximum_life_physical_damage_on_warcry"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4213,7 +8900,26 @@ return {
 				"+1 Charm Slot",
 				"Bonded: Charms gain 0.5 charges per Second",
 				statOrder = { 6889, 9316, 6889 },
-				tradeHashes = { [185580205] = { "Charms gain 1 charge per Second" }, [554899692] = { "+1 Charm Slot" },  },
+				tradeHashes = {
+					[185580205] = {
+						["canonicalStat"] = "generate_x_charges_for_charms_per_minute",
+						["statValues"] = {
+							["generate_x_charges_for_charms_per_minute"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+					[554899692] = {
+						["canonicalStat"] = "num_charm_slots",
+						["statValues"] = {
+							["num_charm_slots"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4225,7 +8931,26 @@ return {
 				"5% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				"Bonded: 5% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				statOrder = { 2315, 5730, 5730 },
-				tradeHashes = { [1150343007] = { "5% of Damage from Hits is taken from your Damageable Companion's Life before you" }, [2695354435] = { "100% increased Global Evasion Rating when on Low Life" },  },
+				tradeHashes = {
+					[1150343007] = {
+						["canonicalStat"] = "companion_takes_%_damage_before_you",
+						["statValues"] = {
+							["companion_takes_%_damage_before_you"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+					[2695354435] = {
+						["canonicalStat"] = "evasion_rating_+%_when_on_low_life",
+						["statValues"] = {
+							["evasion_rating_+%_when_on_low_life"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4236,7 +8961,17 @@ return {
 				"Pain Attunement",
 				"Bonded: 17 to 26 Physical Thorns damage",
 				statOrder = { 10717, 10261 },
-				tradeHashes = { [98977150] = { "Pain Attunement" },  },
+				tradeHashes = {
+					[98977150] = {
+						["canonicalStat"] = "keystone_pain_attunement",
+						["statValues"] = {
+							["keystone_pain_attunement"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4247,7 +8982,17 @@ return {
 				"+50 to all Attributes",
 				"Bonded: +1 Maximum Life per Level",
 				statOrder = { 1145, 7470 },
-				tradeHashes = { [2897413282] = { "+50 to all Attributes" },  },
+				tradeHashes = {
+					[2897413282] = {
+						["canonicalStat"] = "base_all_attributes",
+						["statValues"] = {
+							["base_all_attributes"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4267,7 +9012,80 @@ return {
 				"Bonded: +20 to Evasion Rating",
 				"Bonded: +20 to maximum Energy Shield",
 				statOrder = { 880, 887, 892, 941, 976, 991, 1013, 1034, 881, 883, 885 },
-				tradeHashes = { [3325883026] = { "3 Life Regeneration per second" }, [3299347043] = { "+10 to maximum Life" }, [1050105434] = { "+10 to maximum Mana" }, [2901986750] = { "+5% to all Elemental Resistances" }, [1379411836] = { "+5 to all Attributes" }, [587431675] = { "10% increased Critical Hit Chance" }, [3917489142] = { "10% increased Rarity of Items found" }, [803737631] = { "+30 to Accuracy Rating" },  },
+				tradeHashes = {
+					[1050105434] = {
+						["canonicalStat"] = "base_maximum_mana",
+						["statValues"] = {
+							["base_maximum_mana"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[1379411836] = {
+						["canonicalStat"] = "additional_all_attributes",
+						["statValues"] = {
+							["additional_all_attributes"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+					[2901986750] = {
+						["canonicalStat"] = "base_resist_all_elements_%",
+						["statValues"] = {
+							["base_resist_all_elements_%"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+					[3299347043] = {
+						["canonicalStat"] = "base_maximum_life",
+						["statValues"] = {
+							["base_maximum_life"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[3325883026] = {
+						["canonicalStat"] = "base_life_regeneration_rate_per_minute",
+						["statValues"] = {
+							["base_life_regeneration_rate_per_minute"] = {
+								["max"] = 180,
+								["min"] = 180,
+							},
+						},
+					},
+					[3917489142] = {
+						["canonicalStat"] = "base_item_found_rarity_+%",
+						["statValues"] = {
+							["base_item_found_rarity_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[587431675] = {
+						["canonicalStat"] = "critical_strike_chance_+%",
+						["statValues"] = {
+							["critical_strike_chance_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[803737631] = {
+						["canonicalStat"] = "accuracy_rating",
+						["statValues"] = {
+							["accuracy_rating"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4278,7 +9096,17 @@ return {
 				"Aggravate Bleeding on targets you Critically Hit with Attacks",
 				"Bonded: 20% increased Critical Hit Chance",
 				statOrder = { 4239, 976 },
-				tradeHashes = { [2438634449] = { "Aggravate Bleeding on targets you Critically Hit with Attacks" },  },
+				tradeHashes = {
+					[2438634449] = {
+						["canonicalStat"] = "aggravate_bleeding_on_attack_crit_chance_%",
+						["statValues"] = {
+							["aggravate_bleeding_on_attack_crit_chance_%"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4289,7 +9117,17 @@ return {
 				"Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
 				"Bonded: 20% increased Presence Area of Effect",
 				statOrder = { 10396, 1069 },
-				tradeHashes = { [4258409981] = { "Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%" },  },
+				tradeHashes = {
+					[4258409981] = {
+						["canonicalStat"] = "unique_damage_+%_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max",
+						["statValues"] = {
+							["unique_damage_+%_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4300,7 +9138,17 @@ return {
 				"Base Critical Hit Chance for Attacks with Weapons is 7%",
 				"Bonded: 15% increased Critical Damage Bonus",
 				statOrder = { 9376, 980 },
-				tradeHashes = { [2635559734] = { "Base Critical Hit Chance for Attacks with Weapons is 7%" },  },
+				tradeHashes = {
+					[2635559734] = {
+						["canonicalStat"] = "override_weapon_base_critical_strike_chance",
+						["statValues"] = {
+							["override_weapon_base_critical_strike_chance"] = {
+								["max"] = 700,
+								["min"] = 700,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4312,7 +9160,26 @@ return {
 				"Flammability Magnitude is doubled",
 				"Bonded: 20% increased Ignite Duration on Enemies",
 				statOrder = { 873, 5546, 1615 },
-				tradeHashes = { [1540254896] = { "Flammability Magnitude is doubled" }, [3962278098] = { "40% increased Fire Damage" },  },
+				tradeHashes = {
+					[1540254896] = {
+						["canonicalStat"] = "chance_to_ignite_is_doubled",
+						["statValues"] = {
+							["chance_to_ignite_is_doubled"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[3962278098] = {
+						["canonicalStat"] = "fire_damage_+%",
+						["statValues"] = {
+							["fire_damage_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4323,7 +9190,17 @@ return {
 				"Culling Strike",
 				"Bonded: Gain 30 Life per enemy killed",
 				statOrder = { 1775, 1042 },
-				tradeHashes = { [2524254339] = { "Culling Strike" },  },
+				tradeHashes = {
+					[2524254339] = {
+						["canonicalStat"] = "kill_enemy_on_hit_if_under_10%_life",
+						["statValues"] = {
+							["kill_enemy_on_hit_if_under_10%_life"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4334,7 +9211,17 @@ return {
 				"+10% to Block chance",
 				"Bonded: 10% reduced Damage taken from Projectile Hits",
 				statOrder = { 1123, 2511 },
-				tradeHashes = { [1702195217] = { "+10% to Block chance" },  },
+				tradeHashes = {
+					[1702195217] = {
+						["canonicalStat"] = "additional_block_%",
+						["statValues"] = {
+							["additional_block_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4345,7 +9232,17 @@ return {
 				"Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed",
 				"Bonded: 15% increased Global Physical Damage",
 				statOrder = { 9374, 1185 },
-				tradeHashes = { [2301852600] = { "Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed" },  },
+				tradeHashes = {
+					[2301852600] = {
+						["canonicalStat"] = "overkill_damage_%_as_physical_to_nearby_enemies",
+						["statValues"] = {
+							["overkill_damage_%_as_physical_to_nearby_enemies"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4356,7 +9253,17 @@ return {
 				"+15% to Thorns Critical Hit Chance",
 				"Bonded: 15% increased Thorns Critical Damage Bonus",
 				statOrder = { 4758, 4759 },
-				tradeHashes = { [2715190555] = { "+15% to Thorns Critical Hit Chance" },  },
+				tradeHashes = {
+					[2715190555] = {
+						["canonicalStat"] = "base_thorns_critical_strike_chance",
+						["statValues"] = {
+							["base_thorns_critical_strike_chance"] = {
+								["max"] = 1500,
+								["min"] = 1500,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4367,7 +9274,17 @@ return {
 				"Physical Damage is Pinning",
 				"Bonded: +20 to Dexterity",
 				statOrder = { 4735, 993 },
-				tradeHashes = { [2041668411] = { "Physical Damage is Pinning" },  },
+				tradeHashes = {
+					[2041668411] = {
+						["canonicalStat"] = "base_physical_damage_can_pin",
+						["statValues"] = {
+							["base_physical_damage_can_pin"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4378,7 +9295,17 @@ return {
 				"Your speed is unaffected by Slows",
 				"Bonded: 5% increased Movement Speed",
 				statOrder = { 9937, 836 },
-				tradeHashes = { [50721145] = { "Your speed is unaffected by Slows" },  },
+				tradeHashes = {
+					[50721145] = {
+						["canonicalStat"] = "slows_have_no_potency_on_you",
+						["statValues"] = {
+							["slows_have_no_potency_on_you"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4389,7 +9316,17 @@ return {
 				"Iron Reflexes",
 				"Bonded: 25% increased Elemental Ailment Threshold",
 				statOrder = { 10711, 4266 },
-				tradeHashes = { [326965591] = { "Iron Reflexes" },  },
+				tradeHashes = {
+					[326965591] = {
+						["canonicalStat"] = "keystone_iron_reflexes",
+						["statValues"] = {
+							["keystone_iron_reflexes"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4401,7 +9338,17 @@ return {
 				"Bonded: 40% reduced Chill Duration on you",
 				"Bonded: 40% reduced Freeze Duration on you",
 				statOrder = { 1060, 1064, 1065 },
-				tradeHashes = { [2511217560] = { "200% increased Stun Recovery" },  },
+				tradeHashes = {
+					[2511217560] = {
+						["canonicalStat"] = "base_stun_recovery_+%",
+						["statValues"] = {
+							["base_stun_recovery_+%"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4412,7 +9359,17 @@ return {
 				"Double Stun Threshold while Shield is Raised",
 				"Bonded: 15% increased Stun Threshold",
 				statOrder = { 7828, 2983 },
-				tradeHashes = { [3686997387] = { "Double Stun Threshold while Shield is Raised" },  },
+				tradeHashes = {
+					[3686997387] = {
+						["canonicalStat"] = "local_shield_double_stun_threshold_while_active_blocking",
+						["statValues"] = {
+							["local_shield_double_stun_threshold_while_active_blocking"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4423,7 +9380,17 @@ return {
 				"Intimidate Enemies on Block for 8 seconds",
 				"Bonded: +25 to Strength",
 				statOrder = { 7379, 992 },
-				tradeHashes = { [3703496511] = { "Intimidate Enemies on Block for 8 seconds" },  },
+				tradeHashes = {
+					[3703496511] = {
+						["canonicalStat"] = "intimidate_enemy_on_block_for_duration_ms",
+						["statValues"] = {
+							["intimidate_enemy_on_block_for_duration_ms"] = {
+								["max"] = 8000,
+								["min"] = 8000,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4434,7 +9401,17 @@ return {
 				"Gain 1% of damage as Fire damage per 2% Chance to Block",
 				"Bonded: +30% to Chaos Resistance",
 				statOrder = { 9234, 1024 },
-				tradeHashes = { [3170380905] = { "Gain 1% of damage as Fire damage per 2% Chance to Block" },  },
+				tradeHashes = {
+					[3170380905] = {
+						["canonicalStat"] = "non_skill_all_damage_1%_to_gain_as_fire_+_per_%_attack_block_chance",
+						["statValues"] = {
+							["non_skill_all_damage_1%_to_gain_as_fire_+_per_%_attack_block_chance"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4445,7 +9422,17 @@ return {
 				"30% of damage Blocked is Recouped as Mana",
 				"Bonded: 20% of damage Blocked is Recouped as Mana",
 				statOrder = { 5964, 5964 },
-				tradeHashes = { [2875218423] = { "30% of damage Blocked is Recouped as Mana" },  },
+				tradeHashes = {
+					[2875218423] = {
+						["canonicalStat"] = "damage_blocked_%_recouped_as_mana",
+						["statValues"] = {
+							["damage_blocked_%_recouped_as_mana"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4456,7 +9443,17 @@ return {
 				"50% increased Life Regeneration rate",
 				"Bonded: 50 Life Regeneration per second",
 				statOrder = { 1036, 1034 },
-				tradeHashes = { [44972811] = { "50% increased Life Regeneration rate" },  },
+				tradeHashes = {
+					[44972811] = {
+						["canonicalStat"] = "life_regeneration_rate_+%",
+						["statValues"] = {
+							["life_regeneration_rate_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4467,7 +9464,17 @@ return {
 				"50% increased Parried Debuff Magnitude",
 				"Bonded: 50% increased Parry Damage",
 				statOrder = { 9379, 9384 },
-				tradeHashes = { [818877178] = { "50% increased Parried Debuff Magnitude" },  },
+				tradeHashes = {
+					[818877178] = {
+						["canonicalStat"] = "parried_magnitude_+%",
+						["statValues"] = {
+							["parried_magnitude_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4478,7 +9485,17 @@ return {
 				"Curse Enemies with Enfeeble on Block",
 				"Bonded: 100% increased Block chance against Projectiles",
 				statOrder = { 5933, 4936 },
-				tradeHashes = { [3830953767] = { "Curse Enemies with Enfeeble on Block" },  },
+				tradeHashes = {
+					[3830953767] = {
+						["canonicalStat"] = "curse_on_block_enfeeble_chance_%",
+						["statValues"] = {
+							["curse_on_block_enfeeble_chance_%"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4489,7 +9506,17 @@ return {
 				"Causes Double Stun Buildup",
 				"Bonded: Adds 14 to 20 Physical Damage",
 				statOrder = { 7695, 1207 },
-				tradeHashes = { [769129523] = { "Causes Double Stun Buildup" },  },
+				tradeHashes = {
+					[769129523] = {
+						["canonicalStat"] = "local_double_hit_damage_stun_build_up",
+						["statValues"] = {
+							["local_double_hit_damage_stun_build_up"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4500,7 +9527,17 @@ return {
 				"Increases and Reductions to Minion Attack Speed also affect you",
 				"Bonded: +1 to Level of all Minion Skills",
 				statOrder = { 3428, 972 },
-				tradeHashes = { [2293111154] = { "Increases and Reductions to Minion Attack Speed also affect you" },  },
+				tradeHashes = {
+					[2293111154] = {
+						["canonicalStat"] = "additive_modifiers_to_minion_attack_speed_also_affect_you",
+						["statValues"] = {
+							["additive_modifiers_to_minion_attack_speed_also_affect_you"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4512,7 +9549,26 @@ return {
 				"+3 to Level of all Lightning Skills",
 				"Bonded: +1 to Level of all Lightning Skills",
 				statOrder = { 820, 962, 962 },
-				tradeHashes = { [2153364323] = { "+200 Intelligence Requirement" }, [1147690586] = { "+3 to Level of all Lightning Skills" },  },
+				tradeHashes = {
+					[1147690586] = {
+						["canonicalStat"] = "lightning_skill_gem_level_+",
+						["statValues"] = {
+							["lightning_skill_gem_level_+"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+					[2153364323] = {
+						["canonicalStat"] = "local_intelligence_requirement_+",
+						["statValues"] = {
+							["local_intelligence_requirement_+"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4523,7 +9579,26 @@ return {
 				"Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of maximum Mana",
 				"Bonded: 15% of Damage is taken from Mana before Life",
 				statOrder = { 7626, 2472 },
-				tradeHashes = { [1699409732] = { "Attacks with this Weapon have Added Cold Damage equal to 0% to 10% of maximum Mana" }, [3867147347] = { "Attacks with this Weapon have Added Cold Damage equal to 6% to 0% of maximum Mana" },  },
+				tradeHashes = {
+					[1699409732] = {
+						["canonicalStat"] = "local_attacks_have_added_max_cold_damage_equal_to_%_of_maximum_mana",
+						["statValues"] = {
+							["local_attacks_have_added_max_cold_damage_equal_to_%_of_maximum_mana"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+					[3867147347] = {
+						["canonicalStat"] = "local_attacks_have_added_min_cold_damage_equal_to_%_of_maximum_mana",
+						["statValues"] = {
+							["local_attacks_have_added_min_cold_damage_equal_to_%_of_maximum_mana"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4535,7 +9610,26 @@ return {
 				"Maim on Critical Hit",
 				"Bonded: 25% increased Attack Damage against Maimed Enemies",
 				statOrder = { 944, 7614, 4528 },
-				tradeHashes = { [518292764] = { "+5% to Critical Hit Chance" }, [2895144208] = { "Maim on Critical Hit" },  },
+				tradeHashes = {
+					[2895144208] = {
+						["canonicalStat"] = "local_always_maim_on_crit",
+						["statValues"] = {
+							["local_always_maim_on_crit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[518292764] = {
+						["canonicalStat"] = "local_critical_strike_chance",
+						["statValues"] = {
+							["local_critical_strike_chance"] = {
+								["max"] = 500,
+								["min"] = 500,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4546,7 +9640,17 @@ return {
 				"25% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				"Bonded: 15% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				statOrder = { 10626, 10626 },
-				tradeHashes = { [2045949233] = { "25% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
+				tradeHashes = {
+					[2045949233] = {
+						["canonicalStat"] = "your_slam_aftershock_chance_%",
+						["statValues"] = {
+							["your_slam_aftershock_chance_%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4557,7 +9661,17 @@ return {
 				"All damage with this Weapon causes Electrocution buildup",
 				"Bonded: Damage Penetrates 10% Lightning Resistance",
 				statOrder = { 7609, 2726 },
-				tradeHashes = { [1910743684] = { "All damage with this Weapon causes Electrocution buildup" },  },
+				tradeHashes = {
+					[1910743684] = {
+						["canonicalStat"] = "local_all_damage_can_electrocute",
+						["statValues"] = {
+							["local_all_damage_can_electrocute"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4568,7 +9682,17 @@ return {
 				"+2 to Level of all Spell Skills",
 				"Bonded: Leeches 1% of maximum Life when you Cast a Spell",
 				statOrder = { 950, 7459 },
-				tradeHashes = { [124131830] = { "+2 to Level of all Spell Skills" },  },
+				tradeHashes = {
+					[124131830] = {
+						["canonicalStat"] = "spell_skill_gem_level_+",
+						["statValues"] = {
+							["spell_skill_gem_level_+"] = {
+								["max"] = 2,
+								["min"] = 2,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4579,7 +9703,17 @@ return {
 				"Gain 250 Guard for 0.5 seconds per Combo expended when using Skills",
 				"Bonded: Gain Finality for 0.2 seconds per Combo expended when using Skills",
 				statOrder = { 10400, 6785 },
-				tradeHashes = { [2443032293] = { "Gain 250 Guard for 0.5 seconds per Combo expended when using Skills" },  },
+				tradeHashes = {
+					[2443032293] = {
+						["canonicalStat"] = "unique_gain_x_guard_for_500_ms_per_combo_lost_using_skills",
+						["statValues"] = {
+							["unique_gain_x_guard_for_500_ms_per_combo_lost_using_skills"] = {
+								["max"] = 250,
+								["min"] = 250,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4590,7 +9724,17 @@ return {
 				"Strikes deal Splash Damage",
 				"Bonded: Knocks Enemies Back on Hit",
 				statOrder = { 1137, 1409 },
-				tradeHashes = { [3675300253] = { "Strikes deal Splash Damage" },  },
+				tradeHashes = {
+					[3675300253] = {
+						["canonicalStat"] = "melee_splash",
+						["statValues"] = {
+							["melee_splash"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4602,7 +9746,30 @@ return {
 				"100% increased Flammability Magnitude",
 				"Bonded: +2% to Maximum Fire Resistance",
 				statOrder = { 859, 1055, 1009 },
-				tradeHashes = { [2968503605] = { "100% increased Flammability Magnitude" }, [1573130764] = { "Adds 23 to 34 Fire damage to Attacks" },  },
+				tradeHashes = {
+					[1573130764] = {
+						["canonicalStat"] = "attack_minimum_added_fire_damage",
+						["statValues"] = {
+							["attack_maximum_added_fire_damage"] = {
+								["max"] = 34,
+								["min"] = 34,
+							},
+							["attack_minimum_added_fire_damage"] = {
+								["max"] = 23,
+								["min"] = 23,
+							},
+						},
+					},
+					[2968503605] = {
+						["canonicalStat"] = "ignite_chance_+%",
+						["statValues"] = {
+							["ignite_chance_+%"] = {
+								["max"] = 100,
+								["min"] = 100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4613,7 +9780,17 @@ return {
 				"+1 to Maximum Power Charges",
 				"Bonded: +65 to maximum Mana",
 				statOrder = { 1569, 892 },
-				tradeHashes = { [227523295] = { "+1 to Maximum Power Charges" },  },
+				tradeHashes = {
+					[227523295] = {
+						["canonicalStat"] = "max_power_charges",
+						["statValues"] = {
+							["max_power_charges"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4624,7 +9801,17 @@ return {
 				"+3 to Level of all Curse Skills",
 				"Bonded: 35% increased Mana Regeneration Rate",
 				statOrder = { 971, 1043 },
-				tradeHashes = { [805298720] = { "+3 to Level of all Curse Skills" },  },
+				tradeHashes = {
+					[805298720] = {
+						["canonicalStat"] = "curse_skill_gem_level_+",
+						["statValues"] = {
+							["curse_skill_gem_level_+"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4635,7 +9822,17 @@ return {
 				"Gain 30% of Physical Damage as Extra Fire Damage",
 				"Bonded: Triggered Spells deal 20% increased Spell Damage",
 				statOrder = { 1674, 10323 },
-				tradeHashes = { [1936645603] = { "Gain 30% of Physical Damage as Extra Fire Damage" },  },
+				tradeHashes = {
+					[1936645603] = {
+						["canonicalStat"] = "non_skill_base_physical_damage_%_to_gain_as_fire",
+						["statValues"] = {
+							["non_skill_base_physical_damage_%_to_gain_as_fire"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4647,7 +9844,30 @@ return {
 				"Causes Bleeding on Hit",
 				"Bonded: 10% increased Magnitude of Bleeding you inflict",
 				statOrder = { 831, 2261, 4809 },
-				tradeHashes = { [2091621414] = { "Causes Bleeding on Hit" }, [1940865751] = { "Adds 4 to 8 Physical Damage" },  },
+				tradeHashes = {
+					[1940865751] = {
+						["canonicalStat"] = "local_minimum_added_physical_damage",
+						["statValues"] = {
+							["local_maximum_added_physical_damage"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+							["local_minimum_added_physical_damage"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+					[2091621414] = {
+						["canonicalStat"] = "local_bleed_on_hit",
+						["statValues"] = {
+							["local_bleed_on_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4659,7 +9879,26 @@ return {
 				"20% less Attack Damage",
 				"Bonded: 70% increased Arrow Speed",
 				statOrder = { 946, 2240, 1552 },
-				tradeHashes = { [210067635] = { "50% increased Attack Speed" }, [412462523] = { "20% less Attack Damage" },  },
+				tradeHashes = {
+					[210067635] = {
+						["canonicalStat"] = "local_attack_speed_+%",
+						["statValues"] = {
+							["local_attack_speed_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+					[412462523] = {
+						["canonicalStat"] = "unique_quill_rain_damage_+%_final",
+						["statValues"] = {
+							["unique_quill_rain_damage_+%_final"] = {
+								["max"] = -20,
+								["min"] = -20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4670,7 +9909,21 @@ return {
 				"Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance",
 				"Bonded: 3% increased Block chance per 100 total Item Armour on Equipped Armour Items",
 				statOrder = { 2676, 1134 },
-				tradeHashes = { [2036307261] = { "Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance" },  },
+				tradeHashes = {
+					[2036307261] = {
+						["canonicalStat"] = "main_hand_attacks_with_this_weapon_minimum_added_physical_damage_per_1%_block_chance",
+						["statValues"] = {
+							["main_hand_attacks_with_this_weapon_maximum_added_physical_damage_per_1%_block_chance"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+							["main_hand_attacks_with_this_weapon_minimum_added_physical_damage_per_1%_block_chance"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4681,7 +9934,17 @@ return {
 				"Gain 1 Druidic Prowess for every 20 total Rage spent",
 				"Bonded: Enemies in your Presence are Hindered",
 				statOrder = { 6774, 4695 },
-				tradeHashes = { [1273508088] = { "Gain 1 Druidic Prowess for every 20 total Rage spent" },  },
+				tradeHashes = {
+					[1273508088] = {
+						["canonicalStat"] = "gain_druidic_prowess_per_X_rage_spent",
+						["statValues"] = {
+							["gain_druidic_prowess_per_X_rage_spent"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4692,7 +9955,17 @@ return {
 				"Every 5 Rage also grants 5% of Damage taken Recouped as Life",
 				"Bonded: Attacks have 20% chance to cause Bleeding",
 				statOrder = { 10562, 2270 },
-				tradeHashes = { [1895552497] = { "Every 5 Rage also grants 5% of Damage taken Recouped as Life" },  },
+				tradeHashes = {
+					[1895552497] = {
+						["canonicalStat"] = "x%_damage_taken_recouped_as_life_per_5_rage",
+						["statValues"] = {
+							["x%_damage_taken_recouped_as_life_per_5_rage"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4704,7 +9977,26 @@ return {
 				"You take 20% of damage from Blocked Hits",
 				"Bonded: +50 to maximum Runic Ward",
 				statOrder = { 4662, 4663, 890 },
-				tradeHashes = { [2905515354] = { "You take 20% of damage from Blocked Hits" }, [2957287092] = { "Chance to Block Damage is Lucky" },  },
+				tradeHashes = {
+					[2905515354] = {
+						["canonicalStat"] = "base_block_%_damage_taken",
+						["statValues"] = {
+							["base_block_%_damage_taken"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+					[2957287092] = {
+						["canonicalStat"] = "base_block_chance_luck",
+						["statValues"] = {
+							["base_block_chance_luck"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4717,7 +10009,17 @@ return {
 				"Take 20% less Damage over time",
 				"Bonded: 25% increased Mana Regeneration Rate",
 				statOrder = { 6965, 6965.1, 6965.2, 1043 },
-				tradeHashes = { [258955603] = { "Alternating every 5 seconds:", "Take 20% less Damage from Hits", "Take 20% less Damage over time" },  },
+				tradeHashes = {
+					[258955603] = {
+						["canonicalStat"] = "has_trickster_alternating_damage_taken_+%_final",
+						["statValues"] = {
+							["has_trickster_alternating_damage_taken_+%_final"] = {
+								["max"] = -20,
+								["min"] = -20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4729,7 +10031,17 @@ return {
 				"the enemy's Power for 20 seconds, up to a total of 120",
 				"Bonded: 15% increased Attack Speed",
 				statOrder = { 7800, 7800.1, 985 },
-				tradeHashes = { [3538915253] = { "On Hitting an enemy, gains maximum added Lightning damage equal to", "the enemy's Power for 20 seconds, up to a total of 120" },  },
+				tradeHashes = {
+					[3538915253] = {
+						["canonicalStat"] = "local_maximum_added_lightning_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X",
+						["statValues"] = {
+							["local_maximum_added_lightning_damage_equal_to_total_monster_power_of_enemies_hit_in_past_20_seconds_up_to_X"] = {
+								["max"] = 120,
+								["min"] = 120,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4740,7 +10052,17 @@ return {
 				"Off-hand Hits inflict Runefather's Challenge",
 				"Bonded: +45% to Cold Resistance",
 				statOrder = { 10566, 1020 },
-				tradeHashes = { [3430033313] = { "Off-hand Hits inflict Runefather's Challenge" },  },
+				tradeHashes = {
+					[3430033313] = {
+						["canonicalStat"] = "off_hand_apply_ancients_challenge_on_hit",
+						["statValues"] = {
+							["off_hand_apply_ancients_challenge_on_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4751,7 +10073,17 @@ return {
 				"Maximum Quality is 40%",
 				"Bonded: Skills which Empower an Attack have 20% chance to not count that Attack",
 				statOrder = { 614, 5404 },
-				tradeHashes = { [275498888] = { "Maximum Quality is 40%" },  },
+				tradeHashes = {
+					[275498888] = {
+						["canonicalStat"] = "local_maximum_quality_is_%",
+						["statValues"] = {
+							["local_maximum_quality_is_%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4762,7 +10094,17 @@ return {
 				"75% increased effect of Socketed Runes",
 				"Bonded: +100 to maximum Mana",
 				statOrder = { 176, 892 },
-				tradeHashes = { [704409219] = { "75% increased effect of Socketed Runes" },  },
+				tradeHashes = {
+					[704409219] = {
+						["canonicalStat"] = "local_rune_effect_+%",
+						["statValues"] = {
+							["local_rune_effect_+%"] = {
+								["max"] = 75,
+								["min"] = 75,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4773,7 +10115,17 @@ return {
 				"+1 to Armour per Strength",
 				"Bonded: 1% increased Damage per 15 Strength",
 				statOrder = { 6764, 6000 },
-				tradeHashes = { [1291132817] = { "+1 to Armour per Strength" },  },
+				tradeHashes = {
+					[1291132817] = {
+						["canonicalStat"] = "gain_armour_equal_to_strength",
+						["statValues"] = {
+							["gain_armour_equal_to_strength"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 65 },
 		},
@@ -4784,7 +10136,17 @@ return {
 				"+1 to maximum Life per 8 Armour on Equipped Helmet",
 				"Bonded: +20 to Spirit",
 				statOrder = { 6722, 895 },
-				tradeHashes = { [2785209416] = { "+1 to maximum Life per 8 Armour on Equipped Helmet" },  },
+				tradeHashes = {
+					[2785209416] = {
+						["canonicalStat"] = "gain_X_max_life_per_8_armour_on_equipped_helmet",
+						["statValues"] = {
+							["gain_X_max_life_per_8_armour_on_equipped_helmet"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4794,7 +10156,17 @@ return {
 				"Strength Requirements of Equipped Armour Items",
 				"Bonded: +20 to Strength",
 				statOrder = { 6812, 6812.1, 992 },
-				tradeHashes = { [2444976134] = { "Gain Maximum Energy Shield equal to 50% of total", "Strength Requirements of Equipped Armour Items" },  },
+				tradeHashes = {
+					[2444976134] = {
+						["canonicalStat"] = "gain_maximum_energy_shield_equal_to_%_total_strength_requirement_of_equipped_armour_items",
+						["statValues"] = {
+							["gain_maximum_energy_shield_equal_to_%_total_strength_requirement_of_equipped_armour_items"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4803,7 +10175,17 @@ return {
 				"Hits against you have no Critical Damage Bonus while on Consecrated Ground",
 				"Bonded: 20% increased Effect of Consecrated Ground you create",
 				statOrder = { 9818, 5748 },
-				tradeHashes = { [1800433827] = { "Hits against you have no Critical Damage Bonus while on Consecrated Ground" },  },
+				tradeHashes = {
+					[1800433827] = {
+						["canonicalStat"] = "self_take_no_extra_damage_from_critical_strikes_while_on_consecrated_ground",
+						["statValues"] = {
+							["self_take_no_extra_damage_from_critical_strikes_while_on_consecrated_ground"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4814,7 +10196,17 @@ return {
 				"15% of Chaos Damage from Hits taken as a Damage of a random Element",
 				"Bonded: +13% to Chaos Resistance",
 				statOrder = { 2236, 1024 },
-				tradeHashes = { [4217453078] = { "15% of Chaos Damage from Hits taken as a Damage of a random Element" },  },
+				tradeHashes = {
+					[4217453078] = {
+						["canonicalStat"] = "chaos_damage_from_hits_%_taken_as_random_element",
+						["statValues"] = {
+							["chaos_damage_from_hits_%_taken_as_random_element"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4824,7 +10216,17 @@ return {
 				"Rune Socketed in Equipped Items",
 				"Bonded: 20% increased Elemental Damage",
 				statOrder = { 9261, 9261.1, 1726 },
-				tradeHashes = { [3557924960] = { "Gain 1% of Damage as Extra Damage of a random Element per", "Rune Socketed in Equipped Items" },  },
+				tradeHashes = {
+					[3557924960] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_random_element_per_socketed_rune",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_random_element_per_socketed_rune"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4833,7 +10235,17 @@ return {
 				"50% increased Runic Ward Regeneration Rate while Sprinting",
 				"Bonded: 15% increased Runic Ward Cost Efficiency",
 				statOrder = { 10522, 4763 },
-				tradeHashes = { [2441825294] = { "50% increased Runic Ward Regeneration Rate while Sprinting" },  },
+				tradeHashes = {
+					[2441825294] = {
+						["canonicalStat"] = "ward_regeneration_rate_+%_while_sprinting",
+						["statValues"] = {
+							["ward_regeneration_rate_+%_while_sprinting"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4844,7 +10256,17 @@ return {
 				"Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
 				"Bonded: 40% increased Endurance Charge Duration",
 				statOrder = { 6779, 1864 },
-				tradeHashes = { [901336307] = { "Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds" },  },
+				tradeHashes = {
+					[901336307] = {
+						["canonicalStat"] = "gain_endurance_charge_on_reaching_low_life_once_per_2s",
+						["statValues"] = {
+							["gain_endurance_charge_on_reaching_low_life_once_per_2s"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4853,7 +10275,17 @@ return {
 				"Banners also grant 2% of Life Regenerated per second to affected targets",
 				"Bonded: Regenerate 0.5% of maximum Life per second",
 				statOrder = { 4657, 1691 },
-				tradeHashes = { [119336587] = { "Banners also grant 2% of Life Regenerated per second to affected targets" },  },
+				tradeHashes = {
+					[119336587] = {
+						["canonicalStat"] = "base_banner_life_regeneration_rate_per_minute_%_to_apply",
+						["statValues"] = {
+							["base_banner_life_regeneration_rate_per_minute_%_to_apply"] = {
+								["max"] = 120,
+								["min"] = 120,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4862,7 +10294,17 @@ return {
 				"When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds",
 				"Bonded: 20% increased Guard gained",
 				statOrder = { 6804, 6951 },
-				tradeHashes = { [293832783] = { "When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds" },  },
+				tradeHashes = {
+					[293832783] = {
+						["canonicalStat"] = "gain_guard_after_sprinting_equal_to_x%_of_maximum_life_per_second_sprinted_up_to_20%",
+						["statValues"] = {
+							["gain_guard_after_sprinting_equal_to_x%_of_maximum_life_per_second_sprinted_up_to_20%"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4873,7 +10315,17 @@ return {
 				"Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 7212, 7193 },
-				tradeHashes = { [2889034188] = { "Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits" },  },
+				tradeHashes = {
+					[2889034188] = {
+						["canonicalStat"] = "hits_cannot_be_evaded_vs_blinded_maimed_bleeding_enemies",
+						["statValues"] = {
+							["hits_cannot_be_evaded_vs_blinded_maimed_bleeding_enemies"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4882,7 +10334,17 @@ return {
 				"Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently",
 				"Bonded: 20% increased Life Regeneration rate",
 				statOrder = { 7487, 1036 },
-				tradeHashes = { [445996047] = { "Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently" },  },
+				tradeHashes = {
+					[445996047] = {
+						["canonicalStat"] = "life_regeneration_per_minute_%_if_used_a_command_skill_recently",
+						["statValues"] = {
+							["life_regeneration_per_minute_%_if_used_a_command_skill_recently"] = {
+								["max"] = 300,
+								["min"] = 300,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4891,7 +10353,17 @@ return {
 				"Thorns Damage is Lucky against targets with Fully Broken Armour",
 				"Bonded: 30% increased Thorns damage",
 				statOrder = { 10253, 10254 },
-				tradeHashes = { [1871622140] = { "Thorns Damage is Lucky against targets with Fully Broken Armour" },  },
+				tradeHashes = {
+					[1871622140] = {
+						["canonicalStat"] = "thorns_damage_is_lucky_against_enemies_with_fully_broken_armour",
+						["statValues"] = {
+							["thorns_damage_is_lucky_against_enemies_with_fully_broken_armour"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -4902,7 +10374,17 @@ return {
 				"8% increased Attack Speed",
 				"Bonded: 20% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 985, 4747 },
-				tradeHashes = { [681332047] = { "8% increased Attack Speed" },  },
+				tradeHashes = {
+					[681332047] = {
+						["canonicalStat"] = "attack_speed_+%",
+						["statValues"] = {
+							["attack_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4911,7 +10393,17 @@ return {
 				"Allies in your Presence have 8% increased Movement Speed",
 				"Bonded: 4% increased Movement Speed",
 				statOrder = { 4287, 836 },
-				tradeHashes = { [632743438] = { "Allies in your Presence have 8% increased Movement Speed" },  },
+				tradeHashes = {
+					[632743438] = {
+						["canonicalStat"] = "allies_in_presence_movement_speed_+%",
+						["statValues"] = {
+							["allies_in_presence_movement_speed_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4923,7 +10415,26 @@ return {
 				"Targets can be affected by +1 of your Poisons at the same time",
 				"Bonded: Gain 13% of Physical Damage as extra Chaos Damage",
 				statOrder = { 2896, 9327, 1677 },
-				tradeHashes = { [1755296234] = { "Targets can be affected by +1 of your Poisons at the same time" }, [2011656677] = { "25% reduced Poison Duration" },  },
+				tradeHashes = {
+					[1755296234] = {
+						["canonicalStat"] = "number_of_additional_poison_stacks",
+						["statValues"] = {
+							["number_of_additional_poison_stacks"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[2011656677] = {
+						["canonicalStat"] = "base_poison_duration_+%",
+						["statValues"] = {
+							["base_poison_duration_+%"] = {
+								["max"] = -25,
+								["min"] = -25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4932,7 +10443,21 @@ return {
 				"Allies in your Presence deal 13 to 27 added Attack Chaos Damage",
 				"Bonded: 15% increased Withered Magnitude",
 				statOrder = { 911, 10556 },
-				tradeHashes = { [262946222] = { "Allies in your Presence deal 13 to 27 added Attack Chaos Damage" },  },
+				tradeHashes = {
+					[262946222] = {
+						["canonicalStat"] = "allies_in_presence_attack_minimum_added_chaos_damage",
+						["statValues"] = {
+							["allies_in_presence_attack_maximum_added_chaos_damage"] = {
+								["max"] = 27,
+								["min"] = 27,
+							},
+							["allies_in_presence_attack_minimum_added_chaos_damage"] = {
+								["max"] = 13,
+								["min"] = 13,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4943,7 +10468,17 @@ return {
 				"50% increased total Power counted by Warcries",
 				"Bonded: 30% increased Glory generation",
 				statOrder = { 10512, 6914 },
-				tradeHashes = { [2663359259] = { "50% increased total Power counted by Warcries" },  },
+				tradeHashes = {
+					[2663359259] = {
+						["canonicalStat"] = "warcry_monster_power_+%",
+						["statValues"] = {
+							["warcry_monster_power_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4952,7 +10487,17 @@ return {
 				"15% increased Damage per each different Companion in your Presence",
 				"Bonded: 15% increased Reservation Efficiency of Companion Skills",
 				statOrder = { 5953, 9764 },
-				tradeHashes = { [3151560620] = { "15% increased Damage per each different Companion in your Presence" },  },
+				tradeHashes = {
+					[3151560620] = {
+						["canonicalStat"] = "damage_+%_per_different_companion_in_presence",
+						["statValues"] = {
+							["damage_+%_per_different_companion_in_presence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4963,7 +10508,17 @@ return {
 				"15% increased Cost Efficiency",
 				"Bonded: Meta Skills have 15% increased Reservation Efficiency",
 				statOrder = { 4743, 9766 },
-				tradeHashes = { [263495202] = { "15% increased Cost Efficiency" },  },
+				tradeHashes = {
+					[263495202] = {
+						["canonicalStat"] = "base_skill_cost_efficiency_+%",
+						["statValues"] = {
+							["base_skill_cost_efficiency_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4972,7 +10527,17 @@ return {
 				"15% increased Mana Recovery rate while your Companion is in your Presence",
 				"Bonded: 8% increased Life Recovery Rate while your Companion is in your Presence",
 				statOrder = { 7996, 7485 },
-				tradeHashes = { [1779262102] = { "15% increased Mana Recovery rate while your Companion is in your Presence" },  },
+				tradeHashes = {
+					[1779262102] = {
+						["canonicalStat"] = "mana_recovery_rate_+%_while_companion_in_presence",
+						["statValues"] = {
+							["mana_recovery_rate_+%_while_companion_in_presence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4983,7 +10548,17 @@ return {
 				"Enemies you Curse take 6% increased Damage",
 				"Bonded: 20% increased Area of Effect of Curses",
 				statOrder = { 3433, 1950 },
-				tradeHashes = { [1984310483] = { "Enemies you Curse take 6% increased Damage" },  },
+				tradeHashes = {
+					[1984310483] = {
+						["canonicalStat"] = "enemies_damage_taken_+%_while_cursed",
+						["statValues"] = {
+							["enemies_damage_taken_+%_while_cursed"] = {
+								["max"] = 6,
+								["min"] = 6,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -4992,7 +10567,17 @@ return {
 				"20% increased Curse Duration",
 				"Bonded: Curse zones erupt after 20% reduced delay",
 				statOrder = { 1540, 4678 },
-				tradeHashes = { [3824372849] = { "20% increased Curse Duration" },  },
+				tradeHashes = {
+					[3824372849] = {
+						["canonicalStat"] = "base_curse_duration_+%",
+						["statValues"] = {
+							["base_curse_duration_+%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5003,7 +10588,17 @@ return {
 				"+1 Charm Slot",
 				"Bonded: Storm Skills have +1 to Limit",
 				statOrder = { 9316, 10110 },
-				tradeHashes = { [554899692] = { "+1 Charm Slot" },  },
+				tradeHashes = {
+					[554899692] = {
+						["canonicalStat"] = "num_charm_slots",
+						["statValues"] = {
+							["num_charm_slots"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5012,7 +10607,17 @@ return {
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: 20% increased Life and Mana Recovery from Flasks",
 				statOrder = { 6888, 6644 },
-				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+				tradeHashes = {
+					[731781020] = {
+						["canonicalStat"] = "generate_x_charges_for_any_flask_per_minute",
+						["statValues"] = {
+							["generate_x_charges_for_any_flask_per_minute"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5023,7 +10628,17 @@ return {
 				"8% increased Reservation Efficiency of Minion Skills",
 				"Bonded: Minions Revive 8% faster",
 				statOrder = { 9767, 9085 },
-				tradeHashes = { [1805633363] = { "8% increased Reservation Efficiency of Minion Skills" },  },
+				tradeHashes = {
+					[1805633363] = {
+						["canonicalStat"] = "reservation_efficiency_+%_of_minion_skills",
+						["statValues"] = {
+							["reservation_efficiency_+%_of_minion_skills"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5032,7 +10647,17 @@ return {
 				"40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence",
 				"Bonded: Companions have 25% increased maximum Life",
 				statOrder = { 6904, 5726 },
-				tradeHashes = { [2829985691] = { "40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence" },  },
+				tradeHashes = {
+					[2829985691] = {
+						["canonicalStat"] = "global_armour_evasion_energy_shield_while_in_presence_of_companion_+%",
+						["statValues"] = {
+							["global_armour_evasion_energy_shield_while_in_presence_of_companion_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5043,7 +10668,17 @@ return {
 				"8% increased Curse Magnitudes",
 				"Bonded: Remnants you create have 15% increased effect",
 				statOrder = { 2376, 9736 },
-				tradeHashes = { [2353576063] = { "8% increased Curse Magnitudes" },  },
+				tradeHashes = {
+					[2353576063] = {
+						["canonicalStat"] = "curse_effect_+%",
+						["statValues"] = {
+							["curse_effect_+%"] = {
+								["max"] = 8,
+								["min"] = 8,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5052,7 +10687,17 @@ return {
 				"Allies in your Presence have 10% increased Attack Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 918, 9916 },
-				tradeHashes = { [1998951374] = { "Allies in your Presence have 10% increased Attack Speed" },  },
+				tradeHashes = {
+					[1998951374] = {
+						["canonicalStat"] = "allies_in_presence_attack_speed_+%",
+						["statValues"] = {
+							["allies_in_presence_attack_speed_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5063,7 +10708,17 @@ return {
 				"Minions have 15% increased maximum Life",
 				"Bonded: Remnants can be collected from 30% further away",
 				statOrder = { 1026, 9738 },
-				tradeHashes = { [770672621] = { "Minions have 15% increased maximum Life" },  },
+				tradeHashes = {
+					[770672621] = {
+						["canonicalStat"] = "minion_maximum_life_+%",
+						["statValues"] = {
+							["minion_maximum_life_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5072,7 +10727,17 @@ return {
 				"Allies in your Presence deal 40% increased Damage",
 				"Bonded: 40% increased Damage while Shapeshifted",
 				statOrder = { 906, 5962 },
-				tradeHashes = { [1798257884] = { "Allies in your Presence deal 40% increased Damage" },  },
+				tradeHashes = {
+					[1798257884] = {
+						["canonicalStat"] = "allies_in_presence_damage_+%",
+						["statValues"] = {
+							["allies_in_presence_damage_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5083,7 +10748,17 @@ return {
 				"12% increased Cooldown Recovery Rate",
 				"Bonded: 20% increased effect of Archon Buffs on you",
 				statOrder = { 4677, 4345 },
-				tradeHashes = { [1004011302] = { "12% increased Cooldown Recovery Rate" },  },
+				tradeHashes = {
+					[1004011302] = {
+						["canonicalStat"] = "base_cooldown_speed_+%",
+						["statValues"] = {
+							["base_cooldown_speed_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5092,7 +10767,17 @@ return {
 				"Allies in your Presence have 10% increased Cast Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 919, 9916 },
-				tradeHashes = { [289128254] = { "Allies in your Presence have 10% increased Cast Speed" },  },
+				tradeHashes = {
+					[289128254] = {
+						["canonicalStat"] = "allies_in_presence_cast_speed_+%",
+						["statValues"] = {
+							["allies_in_presence_cast_speed_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5103,7 +10788,17 @@ return {
 				"25% increased Accuracy Rating",
 				"Bonded: 30% increased Charm Charges gained",
 				statOrder = { 1332, 5605 },
-				tradeHashes = { [624954515] = { "25% increased Accuracy Rating" },  },
+				tradeHashes = {
+					[624954515] = {
+						["canonicalStat"] = "accuracy_rating_+%",
+						["statValues"] = {
+							["accuracy_rating_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5112,7 +10807,17 @@ return {
 				"Allies in your Presence have 14% increased Critical Hit Chance",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 916, 5835 },
-				tradeHashes = { [1250712710] = { "Allies in your Presence have 14% increased Critical Hit Chance" },  },
+				tradeHashes = {
+					[1250712710] = {
+						["canonicalStat"] = "allies_in_presence_critical_strike_chance_+%",
+						["statValues"] = {
+							["allies_in_presence_critical_strike_chance_+%"] = {
+								["max"] = 14,
+								["min"] = 14,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5123,7 +10828,17 @@ return {
 				"15% increased Magnitude of Bleeding you inflict",
 				"Bonded: 25% reduced Magnitude of Bleeding on You",
 				statOrder = { 4809, 4661 },
-				tradeHashes = { [3166958180] = { "15% increased Magnitude of Bleeding you inflict" },  },
+				tradeHashes = {
+					[3166958180] = {
+						["canonicalStat"] = "base_bleeding_effect_+%",
+						["statValues"] = {
+							["base_bleeding_effect_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5132,7 +10847,17 @@ return {
 				"Allies in your Presence have 20% increased Critical Damage Bonus",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 917, 5835 },
-				tradeHashes = { [3057012405] = { "Allies in your Presence have 20% increased Critical Damage Bonus" },  },
+				tradeHashes = {
+					[3057012405] = {
+						["canonicalStat"] = "allies_in_presence_critical_strike_multiplier_+",
+						["statValues"] = {
+							["allies_in_presence_critical_strike_multiplier_+"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5143,7 +10868,17 @@ return {
 				"Projectiles have 15% chance to Fork",
 				"Bonded: Projectiles have 25% chance for an additional Projectile when Forking",
 				statOrder = { 9544, 5515 },
-				tradeHashes = { [1549287843] = { "Projectiles have 15% chance to Fork" },  },
+				tradeHashes = {
+					[1549287843] = {
+						["canonicalStat"] = "projectile_chance_to_fork_%",
+						["statValues"] = {
+							["projectile_chance_to_fork_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5152,7 +10887,21 @@ return {
 				"Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 910, 4519 },
-				tradeHashes = { [2854751904] = { "Allies in your Presence deal 1 to 40 added Attack Lightning Damage" },  },
+				tradeHashes = {
+					[2854751904] = {
+						["canonicalStat"] = "allies_in_presence_attack_minimum_added_lightning_damage",
+						["statValues"] = {
+							["allies_in_presence_attack_maximum_added_lightning_damage"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+							["allies_in_presence_attack_minimum_added_lightning_damage"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5163,7 +10912,17 @@ return {
 				"Gain 1 Rage on Melee Hit",
 				"Bonded: 25% increased Warcry Cooldown Recovery Rate",
 				statOrder = { 6873, 3035 },
-				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" },  },
+				tradeHashes = {
+					[2709367754] = {
+						["canonicalStat"] = "gain_x_rage_on_melee_hit",
+						["statValues"] = {
+							["gain_x_rage_on_melee_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5172,7 +10931,17 @@ return {
 				"Allies in your Presence Regenerate 0.5% of your Maximum Life per second",
 				"Bonded: 25% increased Life Regeneration rate while Shapeshifted",
 				statOrder = { 923, 7504 },
-				tradeHashes = { [1911097163] = { "Allies in your Presence Regenerate 0.5% of your Maximum Life per second" },  },
+				tradeHashes = {
+					[1911097163] = {
+						["canonicalStat"] = "allies_in_presence_life_regeneration_rate_per_minute_equal_to_your_maximum_life_%",
+						["statValues"] = {
+							["allies_in_presence_life_regeneration_rate_per_minute_equal_to_your_maximum_life_%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5183,7 +10952,17 @@ return {
 				"10% increased Area of Effect",
 				"Bonded: 12% increased Reservation Efficiency of Companion Skills",
 				statOrder = { 1630, 9764 },
-				tradeHashes = { [280731498] = { "10% increased Area of Effect" },  },
+				tradeHashes = {
+					[280731498] = {
+						["canonicalStat"] = "base_skill_area_of_effect_+%",
+						["statValues"] = {
+							["base_skill_area_of_effect_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5192,7 +10971,21 @@ return {
 				"Allies in your Presence deal 12 to 18 added Attack Physical Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 907, 4519 },
-				tradeHashes = { [1574590649] = { "Allies in your Presence deal 12 to 18 added Attack Physical Damage" },  },
+				tradeHashes = {
+					[1574590649] = {
+						["canonicalStat"] = "allies_in_presence_attack_minimum_added_physical_damage",
+						["statValues"] = {
+							["allies_in_presence_attack_maximum_added_physical_damage"] = {
+								["max"] = 18,
+								["min"] = 18,
+							},
+							["allies_in_presence_attack_minimum_added_physical_damage"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5203,7 +10996,17 @@ return {
 				"15% increased Block chance",
 				"Bonded: 15% chance for Damage of Enemies Hitting you to be Unlucky",
 				statOrder = { 839, 6403 },
-				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
+				tradeHashes = {
+					[2481353198] = {
+						["canonicalStat"] = "local_block_chance_+%",
+						["statValues"] = {
+							["local_block_chance_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5212,7 +11015,17 @@ return {
 				"15% increased Block chance",
 				"Bonded: 15% chance for Damage of Enemies Hitting you to be Unlucky",
 				statOrder = { 839, 6403 },
-				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
+				tradeHashes = {
+					[2481353198] = {
+						["canonicalStat"] = "local_block_chance_+%",
+						["statValues"] = {
+							["local_block_chance_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5221,7 +11034,17 @@ return {
 				"Allies in your Presence have +12% to all Elemental Resistances",
 				"Bonded: +20% of Armour also applies to Elemental Damage while Shapeshifted",
 				statOrder = { 920, 10564 },
-				tradeHashes = { [3850614073] = { "Allies in your Presence have +12% to all Elemental Resistances" },  },
+				tradeHashes = {
+					[3850614073] = {
+						["canonicalStat"] = "allies_in_presence_resist_all_elements_%",
+						["statValues"] = {
+							["allies_in_presence_resist_all_elements_%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5232,7 +11055,17 @@ return {
 				"12% increased Rarity of Items found",
 				"Bonded: 10% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 941, 6917 },
-				tradeHashes = { [3917489142] = { "12% increased Rarity of Items found" },  },
+				tradeHashes = {
+					[3917489142] = {
+						["canonicalStat"] = "base_item_found_rarity_+%",
+						["statValues"] = {
+							["base_item_found_rarity_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5241,7 +11074,17 @@ return {
 				"15% increased Spirit",
 				"Bonded: Minions have 30% increased Cooldown Recovery Rate for Command Skills",
 				statOrder = { 857, 9024 },
-				tradeHashes = { [3984865854] = { "15% increased Spirit" },  },
+				tradeHashes = {
+					[3984865854] = {
+						["canonicalStat"] = "local_spirit_+%",
+						["statValues"] = {
+							["local_spirit_+%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5252,7 +11095,26 @@ return {
 				"Idols socketed in this item gain the benefits of their Bonded modifiers",
 				"Bonded: +5% to Quality of all Skills",
 				statOrder = { 7733, 975 },
-				tradeHashes = { [3843204282] = { "" }, [726496846] = { "Idols socketed in this item gain the benefits of their Bonded modifiers" },  },
+				tradeHashes = {
+					[3843204282] = {
+						["canonicalStat"] = "display_additional_socketable_mods_for_idols",
+						["statValues"] = {
+							["display_additional_socketable_mods_for_idols"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+					[726496846] = {
+						["canonicalStat"] = "local_idols_gain_additional_socketable_mods",
+						["statValues"] = {
+							["local_idols_gain_additional_socketable_mods"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5261,7 +11123,17 @@ return {
 				"50% increased Presence Area of Effect",
 				"Bonded: Minions have 30% increased Area of Effect",
 				statOrder = { 1069, 2759 },
-				tradeHashes = { [101878827] = { "50% increased Presence Area of Effect" },  },
+				tradeHashes = {
+					[101878827] = {
+						["canonicalStat"] = "presence_area_+%",
+						["statValues"] = {
+							["presence_area_+%"] = {
+								["max"] = 50,
+								["min"] = 50,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 0 },
 		},
@@ -5272,7 +11144,17 @@ return {
 				"+25% of Armour also applies to Elemental Damage",
 				"Bonded: 12% increased Damage for each type of Elemental Ailment on Enemy",
 				statOrder = { 1027, 5954 },
-				tradeHashes = { [3362812763] = { "+25% of Armour also applies to Elemental Damage" },  },
+				tradeHashes = {
+					[3362812763] = {
+						["canonicalStat"] = "armour_%_applies_to_fire_cold_lightning_damage",
+						["statValues"] = {
+							["armour_%_applies_to_fire_cold_lightning_damage"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5281,7 +11163,17 @@ return {
 				"Gain Deflection Rating equal to 20% of Evasion Rating",
 				"Bonded: 12% increased Damage for each type of Elemental Ailment on Enemy",
 				statOrder = { 1028, 5954 },
-				tradeHashes = { [3033371881] = { "Gain Deflection Rating equal to 20% of Evasion Rating" },  },
+				tradeHashes = {
+					[3033371881] = {
+						["canonicalStat"] = "base_deflection_rating_%_of_evasion_rating",
+						["statValues"] = {
+							["base_deflection_rating_%_of_evasion_rating"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5290,7 +11182,17 @@ return {
 				"Companions deal 10% more Damage for each different type of dead Companion you have",
 				"Bonded: Recover 3% of maximum Life when one of your Minions is Revived",
 				statOrder = { 5719, 10596 },
-				tradeHashes = { [2882351629] = { "Companions deal 10% more Damage for each different type of dead Companion you have" },  },
+				tradeHashes = {
+					[2882351629] = {
+						["canonicalStat"] = "companion_damage_+%_final_from_idol_per_different_dead_companion",
+						["statValues"] = {
+							["companion_damage_+%_final_from_idol_per_different_dead_companion"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5301,7 +11203,17 @@ return {
 				"30% increased Skill Effect Duration with Plant Skills",
 				"Bonded: Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
 				statOrder = { 9487, 5365 },
-				tradeHashes = { [4065951768] = { "30% increased Skill Effect Duration with Plant Skills" },  },
+				tradeHashes = {
+					[4065951768] = {
+						["canonicalStat"] = "plant_skill_effect_duration_+%",
+						["statValues"] = {
+							["plant_skill_effect_duration_+%"] = {
+								["max"] = 30,
+								["min"] = 30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5310,7 +11222,17 @@ return {
 				"Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
 				"Bonded: 30% increased Skill Effect Duration with Plant Skills",
 				statOrder = { 5365, 9487 },
-				tradeHashes = { [2681952497] = { "Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time" },  },
+				tradeHashes = {
+					[2681952497] = {
+						["canonicalStat"] = "chance_%_for_plants_to_overgrow_when_entering_your_presence",
+						["statValues"] = {
+							["chance_%_for_plants_to_overgrow_when_entering_your_presence"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5321,7 +11243,17 @@ return {
 				"Skills have 10% chance to not remove Charges but still count as consuming them",
 				"Bonded: 15% chance for Charms you use to not consume Charges",
 				statOrder = { 5603, 5634 },
-				tradeHashes = { [2942439603] = { "Skills have 10% chance to not remove Charges but still count as consuming them" },  },
+				tradeHashes = {
+					[2942439603] = {
+						["canonicalStat"] = "charge_skip_consume_chance_%",
+						["statValues"] = {
+							["charge_skip_consume_chance_%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5330,7 +11262,17 @@ return {
 				"Allies in your Presence share Charges with you",
 				"Bonded: 25% increased Endurance, Frenzy and Power Charge Duration",
 				statOrder = { 4290, 2761 },
-				tradeHashes = { [3329501096] = { "Allies in your Presence share Charges with you" },  },
+				tradeHashes = {
+					[3329501096] = {
+						["canonicalStat"] = "allies_in_your_presence_share_charges_with_you",
+						["statValues"] = {
+							["allies_in_your_presence_share_charges_with_you"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5341,7 +11283,17 @@ return {
 				"15% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				"Bonded: +1 to Maximum Endurance Charges",
 				statOrder = { 5519, 1559 },
-				tradeHashes = { [1228682002] = { "15% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+				tradeHashes = {
+					[1228682002] = {
+						["canonicalStat"] = "chance_to_gain_1_more_endurance_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_endurance_charge_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5350,7 +11302,17 @@ return {
 				"If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased Armour if you've consumed an Endurance Charge Recently",
 				statOrder = { 2010, 4387 },
-				tradeHashes = { [1881314095] = { "If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead" },  },
+				tradeHashes = {
+					[1881314095] = {
+						["canonicalStat"] = "endurance_only_conduit",
+						["statValues"] = {
+							["endurance_only_conduit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5361,7 +11323,17 @@ return {
 				"15% chance when you gain a Power Charge to gain an additional Power Charge",
 				"Bonded: +1 to Maximum Power Charges",
 				statOrder = { 5521, 1569 },
-				tradeHashes = { [3537994888] = { "15% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+				tradeHashes = {
+					[3537994888] = {
+						["canonicalStat"] = "chance_to_gain_1_more_power_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_power_charge_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5370,7 +11342,17 @@ return {
 				"If you would gain a Power Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased maximum Energy Shield if you've consumed a Power Charge Recently",
 				statOrder = { 2012, 6417 },
-				tradeHashes = { [4226127445] = { "If you would gain a Power Charge, Allies in your Presence gain that Charge instead" },  },
+				tradeHashes = {
+					[4226127445] = {
+						["canonicalStat"] = "power_only_conduit",
+						["statValues"] = {
+							["power_only_conduit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5381,7 +11363,17 @@ return {
 				"15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				"Bonded: +1 to Maximum Frenzy Charges",
 				statOrder = { 5520, 1564 },
-				tradeHashes = { [2916861134] = { "15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+				tradeHashes = {
+					[2916861134] = {
+						["canonicalStat"] = "chance_to_gain_1_more_frenzy_charge_%",
+						["statValues"] = {
+							["chance_to_gain_1_more_frenzy_charge_%"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5390,7 +11382,17 @@ return {
 				"If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased Evasion Rating if you've consumed a Frenzy Charge Recently",
 				statOrder = { 2011, 6488 },
-				tradeHashes = { [2211478554] = { "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead" },  },
+				tradeHashes = {
+					[2211478554] = {
+						["canonicalStat"] = "frenzy_only_conduit",
+						["statValues"] = {
+							["frenzy_only_conduit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5401,7 +11403,17 @@ return {
 				"15% increased Block chance while your Companion is in your Presence",
 				"Bonded: +3% to maximum Block chance",
 				statOrder = { 4939, 1734 },
-				tradeHashes = { [3087034595] = { "15% increased Block chance while your Companion is in your Presence" },  },
+				tradeHashes = {
+					[3087034595] = {
+						["canonicalStat"] = "block_chance_+%_while_companion_in_presence",
+						["statValues"] = {
+							["block_chance_+%_while_companion_in_presence"] = {
+								["max"] = 15,
+								["min"] = 15,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5409,7 +11421,17 @@ return {
 				type = "Idol",
 				"Bonded: 30% increased Parry Range",
 				statOrder = { 4152 },
-				tradeHashes = { [2057883179] = { "" },  },
+				tradeHashes = {
+					[2057883179] = {
+						["canonicalStat"] = "companions_gain_onslaught_when_you_parry",
+						["statValues"] = {
+							["companions_gain_onslaught_when_you_parry"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5418,7 +11440,17 @@ return {
 				"Companions in your Presence gain 1 Rage on hit",
 				"Bonded: Companions have 30% increased Area of Effect",
 				statOrder = { 5739, 5715 },
-				tradeHashes = { [2652394701] = { "Companions in your Presence gain 1 Rage on hit" },  },
+				tradeHashes = {
+					[2652394701] = {
+						["canonicalStat"] = "companions_in_presence_gain_x_rage_on_hit",
+						["statValues"] = {
+							["companions_in_presence_gain_x_rage_on_hit"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5431,7 +11463,26 @@ return {
 				"Bonded: -20% to Chaos Resistance",
 				"Bonded: Gain 20% of Damage as Extra Chaos Damage",
 				statOrder = { 1013, 9260, 1024, 1672 },
-				tradeHashes = { [3617669804] = { "Gain 20% of Damage as Extra Damage of a random Element" }, [2901986750] = { "-20% to all Elemental Resistances" },  },
+				tradeHashes = {
+					[2901986750] = {
+						["canonicalStat"] = "base_resist_all_elements_%",
+						["statValues"] = {
+							["base_resist_all_elements_%"] = {
+								["max"] = -20,
+								["min"] = -20,
+							},
+						},
+					},
+					[3617669804] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_random_element",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_random_element"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5442,7 +11493,26 @@ return {
 				"Bonded: Allies in your Presence Gain 20% of Damage as Extra Chaos Damage",
 				"Bonded: Companions in your Presence have -20% to Chaos Resistance",
 				statOrder = { 5737, 5742, 4288, 5736 },
-				tradeHashes = { [1539508682] = { "Companions in your Presence have -20% to all Elemental Resistances" }, [4200448078] = { "Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element" },  },
+				tradeHashes = {
+					[1539508682] = {
+						["canonicalStat"] = "companions_in_presence_base_resist_all_elements_%",
+						["statValues"] = {
+							["companions_in_presence_base_resist_all_elements_%"] = {
+								["max"] = -20,
+								["min"] = -20,
+							},
+						},
+					},
+					[4200448078] = {
+						["canonicalStat"] = "companions_in_presence_non_skill_base_all_damage_%_to_gain_as_random_element",
+						["statValues"] = {
+							["companions_in_presence_non_skill_base_all_damage_%_to_gain_as_random_element"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5455,7 +11525,26 @@ return {
 				"Bonded: Invocated skills have 25% increased Maximum Energy",
 				"Bonded: Meta Skills have 25% reduced Reservation Efficiency",
 				statOrder = { 1417, 6410, 7385, 9766 },
-				tradeHashes = { [4236566306] = { "Meta Skills gain 40% increased Energy" }, [1416406066] = { "25% reduced Spirit" },  },
+				tradeHashes = {
+					[1416406066] = {
+						["canonicalStat"] = "spirit_+%",
+						["statValues"] = {
+							["spirit_+%"] = {
+								["max"] = -25,
+								["min"] = -25,
+							},
+						},
+					},
+					[4236566306] = {
+						["canonicalStat"] = "energy_generated_+%",
+						["statValues"] = {
+							["energy_generated_+%"] = {
+								["max"] = 40,
+								["min"] = 40,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5466,7 +11555,26 @@ return {
 				"Bonded: Allies in your Presence Regenerate 3% of your Maximum Life per second",
 				"Bonded: 25% reduced Life Regeneration rate",
 				statOrder = { 1069, 2574, 923, 1036 },
-				tradeHashes = { [101878827] = { "40% reduced Presence Area of Effect" }, [315791320] = { "Aura Skills have 25% increased Magnitudes" },  },
+				tradeHashes = {
+					[101878827] = {
+						["canonicalStat"] = "presence_area_+%",
+						["statValues"] = {
+							["presence_area_+%"] = {
+								["max"] = -40,
+								["min"] = -40,
+							},
+						},
+					},
+					[315791320] = {
+						["canonicalStat"] = "aura_effect_+%",
+						["statValues"] = {
+							["aura_effect_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5479,7 +11587,26 @@ return {
 				"Bonded: 30% reduced Mana Cost Efficiency",
 				"Bonded: 12% increased Skill Speed while on Low Mana",
 				statOrder = { 894, 9259, 4718, 9915 },
-				tradeHashes = { [2748665614] = { "30% reduced maximum Mana" }, [1693515857] = { "Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana" },  },
+				tradeHashes = {
+					[1693515857] = {
+						["canonicalStat"] = "non_skill_base_all_damage_%_to_gain_as_physical_per_10%_missing_mana_permyriad",
+						["statValues"] = {
+							["non_skill_base_all_damage_%_to_gain_as_physical_per_10%_missing_mana_permyriad"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+					[2748665614] = {
+						["canonicalStat"] = "maximum_mana_+%",
+						["statValues"] = {
+							["maximum_mana_+%"] = {
+								["max"] = -30,
+								["min"] = -30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5490,7 +11617,26 @@ return {
 				"Bonded: 25% reduced Reservation Efficiency of Minion Skills",
 				"Bonded: Temporary Minion Skills have +2 to Limit of Minions summoned",
 				statOrder = { 4719, 9027, 9767, 10247 },
-				tradeHashes = { [3742865955] = { "Minions deal 60% increased Damage with Command Skills" }, [553018427] = { "30% reduced Mana Cost Efficiency of Command Skills" },  },
+				tradeHashes = {
+					[3742865955] = {
+						["canonicalStat"] = "minion_commanded_skill_damage_+%",
+						["statValues"] = {
+							["minion_commanded_skill_damage_+%"] = {
+								["max"] = 60,
+								["min"] = 60,
+							},
+						},
+					},
+					[553018427] = {
+						["canonicalStat"] = "base_mana_cost_efficiency_+%_of_command_skills",
+						["statValues"] = {
+							["base_mana_cost_efficiency_+%_of_command_skills"] = {
+								["max"] = -30,
+								["min"] = -30,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5501,7 +11647,17 @@ return {
 				"+10% of Armour also applies to Chaos Damage",
 				"Bonded: +8% to Chaos Resistance",
 				statOrder = { 4645, 1024 },
-				tradeHashes = { [3972229254] = { "+10% of Armour also applies to Chaos Damage" },  },
+				tradeHashes = {
+					[3972229254] = {
+						["canonicalStat"] = "base_armour_%_applies_to_chaos_damage",
+						["statValues"] = {
+							["base_armour_%_applies_to_chaos_damage"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5510,7 +11666,17 @@ return {
 				"Minions have +20% to Chaos Resistance",
 				"Bonded: Minions have 20% additional Physical Damage Reduction",
 				statOrder = { 2668, 2022 },
-				tradeHashes = { [3837707023] = { "Minions have +20% to Chaos Resistance" },  },
+				tradeHashes = {
+					[3837707023] = {
+						["canonicalStat"] = "minion_chaos_resistance_%",
+						["statValues"] = {
+							["minion_chaos_resistance_%"] = {
+								["max"] = 20,
+								["min"] = 20,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5521,7 +11687,17 @@ return {
 				"10% increased Deflection Rating",
 				"Bonded: +12% to Cold Resistance",
 				statOrder = { 6119, 1020 },
-				tradeHashes = { [3040571529] = { "10% increased Deflection Rating" },  },
+				tradeHashes = {
+					[3040571529] = {
+						["canonicalStat"] = "deflection_rating_+%",
+						["statValues"] = {
+							["deflection_rating_+%"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5530,7 +11706,17 @@ return {
 				"Companions have 12% increased Attack Speed",
 				"Bonded: 8% increased Attack Speed while your Companion is in your Presence",
 				statOrder = { 5716, 4556 },
-				tradeHashes = { [666077204] = { "Companions have 12% increased Attack Speed" },  },
+				tradeHashes = {
+					[666077204] = {
+						["canonicalStat"] = "companion_attack_speed_+%",
+						["statValues"] = {
+							["companion_attack_speed_+%"] = {
+								["max"] = 12,
+								["min"] = 12,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5541,7 +11727,17 @@ return {
 				"5% of Damage taken bypasses Energy Shield",
 				"Bonded: +12% to Lightning Resistance",
 				statOrder = { 1456, 1023 },
-				tradeHashes = { [2448633171] = { "5% of Damage taken bypasses Energy Shield" },  },
+				tradeHashes = {
+					[2448633171] = {
+						["canonicalStat"] = "base_all_damage_bypass_energy_shield_%",
+						["statValues"] = {
+							["base_all_damage_bypass_energy_shield_%"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5550,7 +11746,17 @@ return {
 				"Companions have 25% increased maximum Life",
 				"Bonded: 25% increased Damage while your Companion is in your Presence",
 				statOrder = { 5726, 5961 },
-				tradeHashes = { [1805182458] = { "Companions have 25% increased maximum Life" },  },
+				tradeHashes = {
+					[1805182458] = {
+						["canonicalStat"] = "companion_maximum_life_+%",
+						["statValues"] = {
+							["companion_maximum_life_+%"] = {
+								["max"] = 25,
+								["min"] = 25,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -5561,7 +11767,17 @@ return {
 				"Enemies which are on Full Life cannot Evade your Hits",
 				"Bonded: 30% increased Accuracy Rating",
 				statOrder = { 5305, 1332 },
-				tradeHashes = { [4111745607] = { "Enemies which are on Full Life cannot Evade your Hits" },  },
+				tradeHashes = {
+					[4111745607] = {
+						["canonicalStat"] = "cannot_miss_against_full_life_enemies",
+						["statValues"] = {
+							["cannot_miss_against_full_life_enemies"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5571,7 +11787,17 @@ return {
 				"Deflected no Hits Recently",
 				"Bonded: 8% increased Deflection Rating",
 				statOrder = { 4680, 4680.1, 6119 },
-				tradeHashes = { [967155385] = { "Prevent +5% of Damage from Deflected Hits if you've", "Deflected no Hits Recently" },  },
+				tradeHashes = {
+					[967155385] = {
+						["canonicalStat"] = "base_damage_%_deflected_if_you_have_not_deflected_recently",
+						["statValues"] = {
+							["base_damage_%_deflected_if_you_have_not_deflected_recently"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5580,7 +11806,17 @@ return {
 				"Gain Onslaught for 4 seconds when your Marks Activate",
 				"Bonded: Buffs on you expire 10% slower",
 				statOrder = { 6825, 5240 },
-				tradeHashes = { [1811977226] = { "Gain Onslaught for 4 seconds when your Marks Activate" },  },
+				tradeHashes = {
+					[1811977226] = {
+						["canonicalStat"] = "gain_onslaught_for_x_seconds_when_your_marks_activate",
+						["statValues"] = {
+							["gain_onslaught_for_x_seconds_when_your_marks_activate"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5591,7 +11827,17 @@ return {
 				"+3 to Spirit per Idol socketed in your Equipment",
 				"Bonded: 5% increased Spirit",
 				statOrder = { 4754, 1417 },
-				tradeHashes = { [1073847159] = { "+3 to Spirit per Idol socketed in your Equipment" },  },
+				tradeHashes = {
+					[1073847159] = {
+						["canonicalStat"] = "base_spirit_per_socketed_idol",
+						["statValues"] = {
+							["base_spirit_per_socketed_idol"] = {
+								["max"] = 3,
+								["min"] = 3,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5600,7 +11846,17 @@ return {
 				"Companions gain Onslaught for 4 seconds on Hitting your Marked targets",
 				"Bonded: Companions deal 30% increased Damage",
 				statOrder = { 5733, 5722 },
-				tradeHashes = { [226999623] = { "Companions gain Onslaught for 4 seconds on Hitting your Marked targets" },  },
+				tradeHashes = {
+					[226999623] = {
+						["canonicalStat"] = "companions_gain_onslaught_on_hitting_enemies_marked_by_you_ms",
+						["statValues"] = {
+							["companions_gain_onslaught_on_hitting_enemies_marked_by_you_ms"] = {
+								["max"] = 4000,
+								["min"] = 4000,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5609,7 +11865,17 @@ return {
 				"1% increased Movement Speed while Sprinting per Persistent Minion",
 				"Bonded: Minions have 12% increased maximum Life",
 				statOrder = { 10070, 1026 },
-				tradeHashes = { [3639405795] = { "1% increased Movement Speed while Sprinting per Persistent Minion" },  },
+				tradeHashes = {
+					[3639405795] = {
+						["canonicalStat"] = "sprint_movement_speed_+%_per_active_persistent_minion",
+						["statValues"] = {
+							["sprint_movement_speed_+%_per_active_persistent_minion"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5620,7 +11886,17 @@ return {
 				"Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit",
 				"Bonded: Buffs on you expire 10% slower",
 				statOrder = { 6803, 5240 },
-				tradeHashes = { [3863682550] = { "Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit" },  },
+				tradeHashes = {
+					[3863682550] = {
+						["canonicalStat"] = "gain_guard_%_of_maximum_life_for_4_seconds_on_taking_savage_hit",
+						["statValues"] = {
+							["gain_guard_%_of_maximum_life_for_4_seconds_on_taking_savage_hit"] = {
+								["max"] = 10,
+								["min"] = 10,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5629,7 +11905,17 @@ return {
 				"+5% to maximum Block chance if you've Blocked with a raised Shield Recently",
 				"Bonded: 20% increased Block chance",
 				statOrder = { 4207, 1133 },
-				tradeHashes = { [3617372509] = { "+5% to maximum Block chance if you've Blocked with a raised Shield Recently" },  },
+				tradeHashes = {
+					[3617372509] = {
+						["canonicalStat"] = "additional_maximum_block_%_if_blocked_with_active_block_recently",
+						["statValues"] = {
+							["additional_maximum_block_%_if_blocked_with_active_block_recently"] = {
+								["max"] = 5,
+								["min"] = 5,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5638,7 +11924,17 @@ return {
 				"200% increased Stun Threshold if you've been Stunned Recently",
 				"Bonded: 25% increased Stun Threshold",
 				statOrder = { 10132, 2983 },
-				tradeHashes = { [751944209] = { "200% increased Stun Threshold if you've been Stunned Recently" },  },
+				tradeHashes = {
+					[751944209] = {
+						["canonicalStat"] = "stun_threshold_+%_if_stunned_recently",
+						["statValues"] = {
+							["stun_threshold_+%_if_stunned_recently"] = {
+								["max"] = 200,
+								["min"] = 200,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5649,7 +11945,17 @@ return {
 				"Enemies have no Critical Damage Bonus for 4 seconds after you Blind them",
 				"Bonded: 20% increased Blind Effect",
 				statOrder = { 6388, 4928 },
-				tradeHashes = { [25786091] = { "Enemies have no Critical Damage Bonus for 4 seconds after you Blind them" },  },
+				tradeHashes = {
+					[25786091] = {
+						["canonicalStat"] = "enemies_you_blind_have_no_crit_bonus_for_x_seconds",
+						["statValues"] = {
+							["enemies_you_blind_have_no_crit_bonus_for_x_seconds"] = {
+								["max"] = 4,
+								["min"] = 4,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5658,7 +11964,17 @@ return {
 				"Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds",
 				"Bonded: 15% increased Critical Hit Chance",
 				statOrder = { 5822, 976 },
-				tradeHashes = { [3370077792] = { "Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds" },  },
+				tradeHashes = {
+					[3370077792] = {
+						["canonicalStat"] = "critical_hits_apply_life_regeneration_rate_+%_for_4_seconds",
+						["statValues"] = {
+							["critical_hits_apply_life_regeneration_rate_+%_for_4_seconds"] = {
+								["max"] = -100,
+								["min"] = -100,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5667,7 +11983,17 @@ return {
 				"Your speed is Unaffected by Slows while Sprinting",
 				"Bonded: 8% increased Movement Speed while Sprinting",
 				statOrder = { 9939, 10069 },
-				tradeHashes = { [3128773415] = { "Your speed is Unaffected by Slows while Sprinting" },  },
+				tradeHashes = {
+					[3128773415] = {
+						["canonicalStat"] = "slows_have_no_potency_on_you_while_sprinting",
+						["statValues"] = {
+							["slows_have_no_potency_on_you_while_sprinting"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = false,
 				rank = { 60 },
 		},
@@ -5677,7 +12003,17 @@ return {
 				type = "CongealedMist",
 				"Raven-Touched",
 				statOrder = { 10757 },
-				tradeHashes = { [3198163869] = { "Raven-Touched" },  },
+				tradeHashes = {
+					[3198163869] = {
+						["canonicalStat"] = "local_item_can_be_instilled",
+						["statValues"] = {
+							["local_item_can_be_instilled"] = {
+								["max"] = 1,
+								["min"] = 1,
+							},
+						},
+					},
+				},
 				isSocketBound = true,
 				rank = { 60 },
 		},

@@ -2,6 +2,7 @@ if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("stat_descriptions.csd")
+local utils = LoadModule("../Modules/Utils")
 
 local s_format = string.format
 
@@ -142,9 +143,10 @@ directiveTable.base = function(state, args, out)
 	out:write('},\n')
 	local implicitLines = { }
 	local implicitModTypes = { }
-	local variantList = { }
+	local variantList = {}
 	local implicitMods = { }
 	local hasCharmSlots
+	local implicitModIds = {}
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
 		table.insert(implicitMods, mod)
 		if mod.Type and mod.Type.Id == "CharmSlots" then
@@ -167,6 +169,8 @@ directiveTable.base = function(state, args, out)
 		end
 		if mod.Id == "SpearImplicitDisplaySpearThrow1" then
 			table.insert(implicitLines, "Grants Skill: Spear Throw")
+		else
+			table.insert(implicitModIds, mod.Id)
 		end
 	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
@@ -198,6 +202,8 @@ directiveTable.base = function(state, args, out)
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
+	local modIdLine = string.format('\timplicitIds = %s,\n', utils.stringifyInline(implicitModIds))
+	out:write(modIdLine)
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
 		out:write('{ ', implicitModTypes[i], ' }, ')

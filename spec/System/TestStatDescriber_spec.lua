@@ -22,7 +22,7 @@ describe("StatDescriber getScope scenarios", function()
 	for _, case in ipairs(cases) do
 		it(case.name, function()
 			ConPrintf("[StatDescriber getScope] %s", case.name)
-			local describe = require("Modules/StatDescriber")
+			local describe = require("Modules/StatDescriber").describeStats
 			
 			if case.shouldSucceed then
 				local out, lineMap = describe(case.stats, case.scope)
