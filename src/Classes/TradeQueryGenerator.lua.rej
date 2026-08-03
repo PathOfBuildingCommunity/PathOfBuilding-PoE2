@@ -1,0 +1,9 @@
+diff a/src/Classes/TradeQueryGenerator.lua b/src/Classes/TradeQueryGenerator.lua	(rejected hunks)
+@@ -120,6 +120,7 @@ local function getStatEntries(modType)
+ 		["Rune"] = "rune",
+ 		["HeartOfTheWell"] = "explicit",
+ 		["AgainstTheDarkness"] = "explicit",
++		["pseudo"] = "pseudo",
+ 	}
+ 	if tradeStatCategoryIndices[modType] then
+ 		for _, cat in ipairs(tradeStats) do

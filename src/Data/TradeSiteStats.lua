@@ -16125,6 +16125,11 @@ return {
 				["type"] = "implicit",
 			},
 			{
+				["id"] = "implicit.stat_76848920",
+				["text"] = "#% reduced Elemental Resistances",
+				["type"] = "implicit",
+			},
+			{
 				["id"] = "implicit.stat_1443060084",
 				["text"] = "#% reduced Enemy Stun Threshold",
 				["type"] = "implicit",
