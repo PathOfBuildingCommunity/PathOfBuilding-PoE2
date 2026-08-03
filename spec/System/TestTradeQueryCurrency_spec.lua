@@ -9,7 +9,8 @@ describe("TradeQuery Currency Conversion", function()
 		-- Pass: Calculates price in divs
 		-- Fail: Wrong value or nil, indicating broken rounding/baseline logic
 		it("handles chaos currency", function()
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1 } }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1 } } }
+			mock_tradeQuery.pbRealm = "realm"
 			mock_tradeQuery.pbLeague = "league"
 			local result = mock_tradeQuery:ConvertCurrencyToDivs("chaos", 5)
 			assert.are.equal(result, 0.5)
@@ -67,14 +68,14 @@ describe("TradeQuery Currency Conversion", function()
 			assert.are.equal(result, "1 exalted, 10 div, 5 chaos")
 
 			-- check if they're sorted according to currency value
+			mock_tradeQuery.pbRealm = "realm"
 			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, div = 1, mirror = 700} }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1, exalted = 0.05, div = 1, mirror = 700 } } }
 			local result = mock_tradeQuery:GetTotalPriceString()
 			assert.are.equal(result, "10 div, 5 chaos, 1 exalted")
 
 			-- check that missing currency values don't crash
-			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, mirror = 700 } }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1, exalted = 0.05, mirror = 700 } } }
 			local result = mock_tradeQuery:GetTotalPriceString()
 			assert.True(true)
 		end)

@@ -35,10 +35,9 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	-- default set of trade item sort selection
 	self.slotTables = { }
 	self.pbItemSortSelectionIndex = 1
-	-- for each league, a table of values of each currency in div
-	--- @type table<string, table<string, integer>>
-	self.pbCurrencyConversion = { }
-	self.lastCurrencyConversionRequest = 0
+	-- for each realm and league, a table of values of each currency in div
+	--- @type table<string, table<string, table<string, number>>>
+	self.pbCurrencyConversion = {}
 	self.lastCurrencyFileTime = { }
 	self.pbFileTimestampDiff = { }
 	self.pbRealm = ""
@@ -94,7 +93,6 @@ function TradeQueryClass:PullLeagueList()
 				self.controls.league:SetList(self.itemsTab.leagueDropList)
 				self.controls.league.selIndex = 1
 				self.pbLeague = self.itemsTab.leagueDropList[self.controls.league.selIndex]
-				self:SetCurrencyConversionButton()
 			end
 		end)
 end
@@ -382,14 +380,16 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "^7Realm:")
 	self.controls.realm = new("DropDownControl", {"LEFT", self.controls.realmLabel, "RIGHT"}, {6, 0, 150, row_height}, self.realmDropList, function(index, value)
 		self.pbRealmIndex = index
-		self.pbRealm = self.realmIds[value]
+		if self.pbRealm ~= self.realmIds[value] then
+			self.pbRealm = self.realmIds[value]
+			self:PullCXData()
+		end
 		local function setLeagueDropList()
 			self.itemsTab.leagueDropList = copyTable(self.allLeagues[self.pbRealm])
 			self.controls.league:SetList(self.itemsTab.leagueDropList)
 			-- invalidate selIndex to trigger select function call in the SetSel
 			self.controls.league.selIndex = nil
 			self.controls.league:SetSel(self.pbLeagueIndex)
-			self:SetCurrencyConversionButton()
 		end
 		if self.allLeagues[self.pbRealm] then
 			setLeagueDropList()
@@ -422,7 +422,6 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls.league = new("DropDownControl", {"LEFT", self.controls.leagueLabel, "RIGHT"}, {6, 0, 150, row_height}, self.itemsTab.leagueDropList, function(index, value)
 		self.pbLeagueIndex = index
 		self.pbLeague = value
-		self:SetCurrencyConversionButton()
 	end)
 	self.controls.league:SetSel(self.pbLeagueIndex)
 	self.controls.league.enabled = function()
@@ -577,11 +576,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		main:ClosePopup()
 	end)
 
-	self.controls.updateCurrencyConversion = new("ButtonControl", {"BOTTOMLEFT", nil, "BOTTOMLEFT"}, {pane_margins_horizontal, -pane_margins_vertical, 240, row_height}, "Get Currency Conversion Rates", function()
-		self:PullPoENinjaCurrencyConversion(self.pbLeague)
-	end)
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical, 300, row_height}, "")
-	self:SetCurrencyConversionButton()
 
 	-- used in PopupDialog:Draw()
 	local function scrollBarFunc()
@@ -615,6 +610,7 @@ Highest Weight - Displays the order retrieved from trade]]
 			end
 		end
 	end
+	self:PullCXData()
 	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil))
 end
 
