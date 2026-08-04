@@ -1,0 +1,10 @@
+diff a/.editorconfig b/.editorconfig	(rejected hunks)
+@@ -2,4 +2,5 @@
+ trim_trailing_whitespace = false
+ indent_style = tab
+ max_line_length = 360
+-align_array_table = false
+\ No newline at end of file
++align_array_table = false
++align_continuous_rect_table_field = false
+\ No newline at end of file
