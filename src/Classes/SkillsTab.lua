@@ -1576,9 +1576,16 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 			for _, gemInstance in ipairs(socketGroup.gemList) do
 				if gemInstance.enabled and not countGroup then
 					local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData and gemInstance.gemData.grantedEffect
-					local provided = gemInstance.fromItem or gemInstance.fromTree or
-						grantedEffect and (grantedEffect.fromItem or grantedEffect.fromTree)
-					countGroup = not provided
+					-- Support gems never occupy a skill slot by themselves, so they must not
+					-- decide whether this group is counted. Without this, adding any support
+					-- to a group whose active skill is provided by an item or the tree (the
+					-- default weapon attack, a skill granted by a unique) flips the group to
+					-- counted, because the loop re-evaluates on every gem.
+					if not (grantedEffect and grantedEffect.support) then
+						local provided = gemInstance.fromItem or gemInstance.fromTree or
+							grantedEffect and (grantedEffect.fromItem or grantedEffect.fromTree)
+						countGroup = not provided
+					end
 				end
 				if gemInstance.gemData and gemInstance.enabled then
 					if GlobalGemAssignments[gemInstance.gemData.name] then
