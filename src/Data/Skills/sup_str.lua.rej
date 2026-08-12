@@ -1,0 +1,19 @@
+diff a/src/Data/Skills/sup_str.lua b/src/Data/Skills/sup_str.lua	(rejected hunks)
+@@ -4,8 +4,7 @@
+ -- Strength support gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ skills["SupportAddedFireDamage"] = {
+ 	name = "Added Fire Damage",
+ 	description = "Supports any skill that hits enemies.",
+@@ -5545,4 +5544,5 @@ skills["SupportExpertRetaliation"] = {
+ 		[39] = { 107, 53, levelRequirement = 99, manaMultiplier = 30, statInterpolation = { 1, 1, }, },
+ 		[40] = { 108, 54, levelRequirement = 100, manaMultiplier = 30, statInterpolation = { 1, 1, }, },
+ 	},
+-}
+\ No newline at end of file
++}
++end

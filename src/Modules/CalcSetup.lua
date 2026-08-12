@@ -3,7 +3,8 @@
 -- Module: Calc Setup
 -- Initialises the environment for calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -225,7 +226,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	-- Apply effect scaling
 	local scale = calcLib.mod(modList, nil, "PassiveSkillEffect")
 	if scale ~= 1 then
-		local scaledList = new("ModList")
+		local scaledList = new("ModList"):ModList()
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
@@ -1227,7 +1228,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					local info = env.data.weaponTypeInfo[type]
 					if info and type ~= "Bow" then
 						local name = info.oneHand and "Energy Blade One Handed" or "Energy Blade Two Handed"
-						local item = new("Item")
+						local item = new("Item"):Item()
 						item.name = name
 						item.base = data.itemBases[name]
 						item.baseName = name
@@ -1256,7 +1257,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif slotName == "Weapon 1" and item.name == "The Iron Mass, Gladius" then
 					-- Special handling for The Iron Mass
-					env.theIronMass = new("ModList")
+					env.theIronMass = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						-- Filter out mods that apply to socketed gems, or which add supports
 						local add = true
@@ -1274,7 +1275,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif slotName == "Weapon 1" and item.grantedSkills[1] and item.grantedSkills[1].skillId == "UniqueAnimateWeapon" then
 					-- Special handling for The Dancing Dervish
-					env.weaponModList1 = new("ModList")
+					env.weaponModList1 = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						-- Filter out mods that apply to socketed gems, or which add supports
 						local add = true

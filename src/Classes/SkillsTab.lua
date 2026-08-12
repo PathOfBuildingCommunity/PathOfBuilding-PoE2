@@ -77,10 +77,14 @@ local sortGemTypeList = {
 	{ label = "Effective Hit Pool", type = "TotalEHP" },
 }
 
-local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
-	self.UndoHandler()
-	self.ControlHost()
-	self.Control()
+---@class SkillsTab: UndoHandler, ControlHost, Control
+local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Control")
+
+---@param build Build
+function SkillsTabClass:SkillsTab(build)
+	self:UndoHandler()
+	self:ControlHost()
+	self:Control()
 
 	self.build = build
 
@@ -264,7 +268,7 @@ will automatically apply to the skill.]]
 	end
 
 	-- Scroll bar
-	self.controls.scrollBarH = new("ScrollBarControl", nil, {0, 0, 0, 18}, 100, "HORIZONTAL", true)
+	self.controls.scrollBarH = new("ScrollBarControl"):ScrollBarControl(nil, {0, 0, 0, 18}, 100, "HORIZONTAL", true)
 
 	-- Initialise skill sets
 	self.skillSets = { }
@@ -752,7 +756,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		self.build.buildFlag = true
 	end
 	-- Delete gem
-	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+	slot.delete = new("ButtonControl"):ButtonControl(nil, {0, 0, 20, 20}, "x", function()
 		return deleteGem()
 	end)
 	if index == 1 then
@@ -773,7 +777,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."Delete"] = slot.delete
 
 	-- Gem name specification
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
+	slot.nameSpec = new("GemSelectControl"):GemSelectControl({ "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
 		if not self.displayGroup then
 			return
 		end
@@ -1124,7 +1128,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."EnableGlobal1"] = slot.enableGlobal1
 
 	-- Enable global-effect skill 2
-	slot.enableGlobal2 = new("CheckBoxControl", {"LEFT",slot.enableGlobal1,"RIGHT",true}, {0, 0, 20}, "", function(state)
+	slot.enableGlobal2 = new("CheckBoxControl"):CheckBoxControl({"LEFT",slot.enableGlobal1,"RIGHT",true}, {0, 0, 20}, "", function(state)
 		local gemInstance = self.displayGroup.gemList[index]
 		gemInstance.enableGlobal2 = state
 		self:AddUndoState()
@@ -1475,8 +1479,8 @@ end
 -- Opens the skill set manager
 function SkillsTabClass:OpenSkillSetManagePopup()
 	main:OpenPopup(370, 290, "Manage Skill Sets", {
-		new("SkillSetListControl", nil, {0, 50, 350, 200}, self),
-		new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
+		new("SkillSetListControl"):SkillSetListControl(nil, {0, 50, 350, 200}, self),
+		new("ButtonControl"):ButtonControl(nil, {0, 260, 90, 20}, "Done", function()
 			main:ClosePopup()
 		end),
 	})

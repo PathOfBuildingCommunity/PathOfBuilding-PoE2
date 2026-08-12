@@ -1,0 +1,24 @@
+diff a/src/Classes/PassiveTreeView.lua b/src/Classes/PassiveTreeView.lua	(rejected hunks)
+@@ -25,7 +25,10 @@ local function isAbyssConquered(node)
+ 	return conqueror and conqueror.type and conqueror.type:match("^abyss_")
+ end
+ 
+-local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
++---@class PassiveTreeView
++local PassiveTreeViewClass = newClass("PassiveTreeView")
++
++function PassiveTreeViewClass:PassiveTreeView()
+ 	self.ring = NewImageHandle()
+ 	self.ring:Load("Assets/ring.png", "CLAMP")
+ 	self.highlightRing = NewImageHandle()
+@@ -64,8 +67,8 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
+ 	self.kalguur2 = NewImageHandle()
+ 	self.kalguur2:Load("TreeData/PassiveSkillScreenKalguuranJewelCircle2.png", "CLAMP")
+ 
+-	self.tooltip = new("Tooltip")
+-	self.skillTooltip = new("Tooltip")
++	self.tooltip = new("Tooltip"):Tooltip()
++	self.skillTooltip = new("Tooltip"):Tooltip()
+ 
+ 	self.zoomLevel = 3
+ 	self.zoom = 1.2 ^ self.zoomLevel

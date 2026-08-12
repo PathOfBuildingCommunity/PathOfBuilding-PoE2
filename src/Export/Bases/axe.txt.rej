@@ -1,0 +1,14 @@
+diff a/src/Export/Bases/axe.txt b/src/Export/Bases/axe.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type One Handed Axe
+ #influenceBaseTag axe
+ #socketLimit 3
+@@ -10,3 +9,4 @@ local itemBases = ...
+ #influenceBaseTag 2h_axe
+ #socketLimit 6
+ #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandAxes/AbstractTwoHandAxe
++end

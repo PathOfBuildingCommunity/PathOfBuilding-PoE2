@@ -159,7 +159,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Prefix/Suffix", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Prefix: {range:0.1}IncreasedLife1
 			Suffix: {range:0.2}ColdResist1
 			]]))
@@ -170,7 +170,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Implicits", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Implicits: 2
 			+8 to Strength
 			+10 to Intelligence
@@ -1106,7 +1106,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("resets linePrefix", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Prefix Modifier "Warlock's" (Tier: 4) — Mana, Damage, Caster }
 			32(30-37)% increased Spell Damage
 			+46(42-47) to maximum Mana
@@ -1117,7 +1117,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("resets linePostfix", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corruption Enhancement — Mana }
 			24(20-30)% increased Mana Regeneration Rate
 			--------
@@ -1127,7 +1127,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses vaaled catalyst", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Attribute Modifiers): +19% (augmented)
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+120(80-100) to all Attributes
@@ -1140,7 +1140,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses vaaled catalyst within range", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Attribute Modifiers): +19% (augmented)
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+95(80-100) to all Attributes
@@ -1153,7 +1153,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("doesn't scale unscalable", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Life and Mana Modifiers): +20% (augmented)
 			{ Unique Modifier — Life, Defences, Energy Shield, Minion, Gem }
 			Socketed Golem Skills gain 20% of Maximum Life as Extra Maximum Energy Shield — Unscalable Value
@@ -1162,7 +1162,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("correctly matches conqueror mod", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Suffix Modifier "of the Conquest" (Tier: 1) — Elemental, Cold }
 			10(8-10)% chance to Avoid Cold Damage from Hits
 			(No chance to avoid damage can be higher than 75%)
@@ -1173,7 +1173,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses enchant correctly #enchant", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corrupted Enhancement }
 			+8(6-10)% to Fire Resistance
 		]]))
@@ -1181,7 +1181,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses enchant with tags correctly #enchant", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corrupted Enhancement - Energy Shield }
 			+8(6-10)% to Fire Resistance
 		]]))
@@ -1190,7 +1190,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses junk", function()
-		local godTestItem = new("Item", [[
+		local godTestItem = new("Item"):Item([[
 			Item Class: Sceptres
 			Rarity: Unique
 			Nebulis
@@ -1208,7 +1208,7 @@ describe("TestAdvancedItemParse #item", function()
 			Str: 104
 			Int: 122
 			--------
-			Sockets: B R 
+			Sockets: B R
 			--------
 			Item Level: 87
 			--------

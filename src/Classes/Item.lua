@@ -2117,7 +2117,7 @@ function ItemClass:BuildModList()
 	if not self.base then
 		return
 	end
-	local baseList = new("ModList")
+	local baseList = new("ModList"):ModList()
 	if self.base.weapon then
 		self.weaponData = { }
 	elseif self.base.armour then

@@ -587,7 +587,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.spec:SetWindowTitleWithBuildClass()
 
 	--[[
-	local testTooltip = new("Tooltip")
+	local testTooltip = new("Tooltip"):Tooltip()
 	for _, item in pairs(main.uniqueDB.list) do
 		ConPrintf("%s", item.name)
 		self.itemsTab:AddItemTooltip(testTooltip, item)
@@ -1419,24 +1419,24 @@ end
 function buildMode:OpenConversionPopup()
 	local controls = { }
 	local currentVersion = treeVersions[latestTreeVersion].display
-	controls.note = new("LabelControl", nil, {0, 20, 0, 16}, colorCodes.TIP..[[
+	controls.note = new("LabelControl"):LabelControl(nil, {0, 20, 0, 16}, colorCodes.TIP..[[
 Info:^7 You are trying to load a build created for a version of Path of Exile that is
 not supported by us. You will have to convert it to the current game version to load it.
 To use a build newer than the current supported game version, you may have to update.
 To use a build older than the current supported game version, we recommend loading it
 in an older version of Path of Building Community instead.
 ]])
-	controls.label = new("LabelControl", nil, {0, 110, 0, 16}, colorCodes.WARNING..[[
+	controls.label = new("LabelControl"):LabelControl(nil, {0, 110, 0, 16}, colorCodes.WARNING..[[
 Warning:^7 Converting a build to a different game version may have side effects.
 For example, if the passive tree has changed, then some passives may be deallocated.
 You should create a backup copy of the build before proceeding.
 ]])
-	controls.convert = new("ButtonControl", nil, {-40, 170, 120, 20}, "Convert to ".. currentVersion, function()
+	controls.convert = new("ButtonControl"):ButtonControl(nil, {-40, 170, 120, 20}, "Convert to ".. currentVersion, function()
 		main:ClosePopup()
 		self:Shutdown()
 		self:Init(self.dbFileName, self.buildName, nil, true)
 	end)
-	controls.cancel = new("ButtonControl", nil, {60, 170, 70, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, {60, 170, 70, 20}, "Cancel", function()
 		main:ClosePopup()
 		self:CloseBuild()
 	end)
@@ -1450,13 +1450,13 @@ function buildMode:OpenSavePopup(mode)
 		["UPDATE"] = "before updating?",
 	}
 	local controls = { }
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7This build has unsaved changes.\nDo you want to save them "..modeDesc[mode])
-	controls.save = new("ButtonControl", nil, {-90, 70, 80, 20}, "Save", function()
+	controls.label = new("LabelControl"):LabelControl(nil, {0, 20, 0, 16}, "^7This build has unsaved changes.\nDo you want to save them "..modeDesc[mode])
+	controls.save = new("ButtonControl"):ButtonControl(nil, {-90, 70, 80, 20}, "Save", function()
 		main:ClosePopup()
 		self.actionOnSave = mode
 		self:SaveDBFile()
 	end)
-	controls.noSave = new("ButtonControl", nil, {0, 70, 80, 20}, "Don't Save", function()
+	controls.noSave = new("ButtonControl"):ButtonControl(nil, {0, 70, 80, 20}, "Don't Save", function()
 		main:ClosePopup()
 		if mode == "LIST" then
 			self:CloseBuild()
@@ -1466,7 +1466,7 @@ function buildMode:OpenSavePopup(mode)
 			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-	controls.close = new("ButtonControl", nil, {90, 70, 80, 20}, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, {90, 70, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
 	main:OpenPopup(300, 100, "Save Changes", controls)
@@ -1896,7 +1896,7 @@ function buildMode:OpenSimilarPopup()
 	local buildProviders = {
 		{
 			name = "PoB Archives",
-			impl = new("PoBArchivesProvider", "similar")
+			impl = new("PoBArchivesProvider"):PoBArchivesProvider("similar")
 		}
 	}
 	local width = 600
@@ -1904,7 +1904,7 @@ function buildMode:OpenSimilarPopup()
 		return main.screenH * 0.8
 	end
 	local padding = 50
-	controls.similarBuildList = new("ExtBuildListControl", nil, {0, padding, width, height() - 2 * padding}, buildProviders)
+	controls.similarBuildList = new("ExtBuildListControl"):ExtBuildListControl(nil, {0, padding, width, height() - 2 * padding}, buildProviders)
 	controls.similarBuildList.shown = true
 	controls.similarBuildList.height = function()
 		return height() - 2 * padding
@@ -1917,7 +1917,7 @@ function buildMode:OpenSimilarPopup()
 
 	-- controls.similarBuildList.shown = not controls.similarBuildList:IsShown()
 
-	controls.close = new("ButtonControl", nil, {0, height() - (padding + 20) / 2, 80, 20}, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, {0, height() - (padding + 20) / 2, 80, 20}, "Close", function()
 		main:ClosePopup()
 	end)
 	-- used in PopupDialog to dynamically size the popup

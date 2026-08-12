@@ -50,7 +50,8 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
-end)
+	return self
+end
 
 function PassiveTreeViewClass:Load(xml, fileName)
 	if xml.attrib.zoomLevel then
@@ -156,6 +157,7 @@ function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build
 	return nodeDefaultColor
 end
 
+---@param build Build
 function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local spec = build.spec
 	local tree = spec.tree

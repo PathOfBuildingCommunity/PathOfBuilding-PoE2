@@ -1,0 +1,20 @@
+diff a/src/Export/Skills/sup_dex.txt b/src/Export/Skills/sup_dex.txt	(rejected hunks)
+@@ -3,8 +3,7 @@
+ -- Dexterity support gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ #skill SupportAddedColdDamage
+ #mods
+ 
+@@ -689,4 +688,6 @@ local skills, mod, flag, skill = ...
+ #mods
+ 
+ #skill SupportWitheringTouch
+-#mods
+\ No newline at end of file
++#mods
++
++end

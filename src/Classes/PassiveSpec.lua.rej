@@ -1,0 +1,34 @@
+diff a/src/Classes/PassiveSpec.lua b/src/Classes/PassiveSpec.lua	(rejected hunks)
+@@ -16,8 +16,11 @@ local b_rshift = bit.rshift
+ local band = bit.band
+ local bor = bit.bor
+ 
+-local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion, convert)
+-	self.UndoHandler()
++---@class PassiveSpec: UndoHandler
++local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler")
++
++function PassiveSpecClass:PassiveSpec(build, treeVersion, convert)
++	self:UndoHandler()
+ 
+ 	self.build = build
+ 
+@@ -25,7 +28,8 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
+ 	self:Init(treeVersion, convert)
+ 
+ 	self:SelectClass(0)
+-end)
++	return self
++end
+ 
+ function PassiveSpecClass:Init(treeVersion, convert)
+ 	self.treeVersion = treeVersion
+@@ -1621,7 +1625,7 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
+ 	old.name = newNode.name
+ 	old.mods = newNode.mods
+ 	old.modKey = newNode.modKey
+-	old.modList = new("ModList")
++	old.modList = new("ModList"):ModList()
+ 	old.modList:AddList(newNode.modList)
+ 	old.sprites = newNode.sprites
+ 	old.effectSprites = newNode.effectSprites

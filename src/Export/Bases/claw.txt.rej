@@ -1,0 +1,13 @@
+diff a/src/Export/Bases/claw.txt b/src/Export/Bases/claw.txt	(rejected hunks)
+@@ -1,7 +1,7 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Claw
+ #influenceBaseTag claw
+ #socketLimit 3
+-#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Claws/AbstractClaw
+\ No newline at end of file
++#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Claws/AbstractClaw
++end

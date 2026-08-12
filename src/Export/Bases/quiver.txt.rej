@@ -1,0 +1,14 @@
+diff a/src/Export/Bases/quiver.txt b/src/Export/Bases/quiver.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Quiver
+ #influenceBaseTag quiver
+ #forceHide true
+@@ -12,3 +11,4 @@ local itemBases = ...
+ #baseMatch Metadata/Items/Quivers/Descent
+ #forceShow false
+ #baseMatch Metadata/Items/Quivers/QuiverAtlas%d+
++end

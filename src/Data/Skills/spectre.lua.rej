@@ -1,0 +1,19 @@
+diff a/src/Data/Skills/spectre.lua b/src/Data/Skills/spectre.lua	(rejected hunks)
+@@ -4,8 +4,7 @@
+ -- Spectre active skills
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ skills["AxisCasterGlacialCascade"] = {
+ 	name = "Glacial Cascade",
+ 	hidden = true,
+@@ -11884,4 +11883,5 @@ skills["VaalOverseerHeavyStrike"] = {
+ 		[1] = { baseMultiplier = 1.26, cooldown = 2, levelRequirement = 1, storedUses = 1, },
+ 		[2] = { baseMultiplier = 1.26, cooldown = 2, levelRequirement = 68, storedUses = 1, },
+ 	},
+-}
+\ No newline at end of file
++}
++end

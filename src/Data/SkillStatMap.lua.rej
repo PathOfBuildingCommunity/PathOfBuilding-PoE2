@@ -1,0 +1,6 @@
+diff a/src/Data/SkillStatMap.lua b/src/Data/SkillStatMap.lua	(rejected hunks)
+@@ -2372,3 +2371,4 @@ return {
+ 	-- Display only
+ },
+ }
++end

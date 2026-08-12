@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/dagger.txt b/src/Export/Bases/dagger.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Dagger
+ #influenceBaseTag dagger
+ #socketLimit 3
+@@ -10,4 +9,5 @@ local itemBases = ...
+ #subType Rune Dagger
+ #influenceBaseTag rune_dagger
+ #socketLimit 3
+-#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractRuneDagger
+\ No newline at end of file
++#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractRuneDagger
++end

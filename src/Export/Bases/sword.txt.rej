@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/sword.txt b/src/Export/Bases/sword.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type One Handed Sword
+ #socketLimit 3
+ #influenceBaseTag sword
+@@ -26,4 +25,5 @@ local itemBases = ...
+ 
+ #forceHide true
+ #base Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormBladeTwoHand
+-#forceHide false
+\ No newline at end of file
++#forceHide false
++end

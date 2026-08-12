@@ -10,8 +10,11 @@ local m_max = math.max
 local m_floor = math.floor
 
 
-local ItemDBClass = newClass("ItemDBControl", "ListControl", function(self, anchor, rect, itemsTab, db, dbType)
-	self.ListControl(anchor, rect, 16, "VERTICAL", false)
+---@class ItemDBControl: ListControl
+local ItemDBClass = newClass("ItemDBControl", "ListControl")
+
+function ItemDBClass:ItemDBControl(anchor, rect, itemsTab, db, dbType)
+	self:ListControl(anchor, rect, 16, "VERTICAL", false)
 	self.itemsTab = itemsTab
 	self.db = db
 	self.dbType = dbType
@@ -333,7 +336,7 @@ end
 function ItemDBClass:OnSelClick(index, item, doubleClick)
 	if IsKeyDown("CTRL") then
 		-- Add item
-		local newItem = new("Item", item.raw)
+		local newItem = new("Item"):Item(item.raw)
 		newItem:NormaliseQuality()
 		self.itemsTab:AddItem(newItem, true)
 

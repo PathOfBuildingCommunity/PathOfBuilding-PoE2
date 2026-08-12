@@ -863,8 +863,9 @@ do
 		UberEvasionMean = 100 + uberEvasionTotal / uberCount
 	}
 
-	data.bossSkills, data.bossSkillsList = LoadModule("Data/BossSkills")
-
+	local bossSkillData     = LoadModule("Data/BossSkills")
+	data.bossSkills         = bossSkillData.bossSkills
+	data.bossSkillsList     = bossSkillData.bossSkillsList
 	data.enemyIsBossTooltip = [[Bosses' damage is monster damage scaled to an average damage of their attacks
 This is divided by 4.40 to represent 4 damage types + some (40% as much) ^xD02090chaos
 ^7Fill in the exact damage numbers if more precision is needed
@@ -896,7 +897,7 @@ end
 
 -- Load skills
 data.skills = { }
-data.skillStatMap = LoadModule("Data/SkillStatMap", makeSkillMod, makeFlagMod, makeSkillDataMod)
+data.skillStatMap = LoadModule("Data/SkillStatMap")(makeSkillMod, makeFlagMod, makeSkillDataMod)
 data.skillStatMapMeta = {
 	__index = function(t, key)
 		local map = data.skillStatMap[key]
@@ -911,7 +912,7 @@ data.skillStatMapMeta = {
 	end
 }
 for _, type in pairs(skillTypes) do
-	LoadModule("Data/Skills/"..type, data.skills, makeSkillMod, makeFlagMod, makeSkillDataMod)
+	LoadModule("Data/Skills/" .. type)(data.skills, makeSkillMod, makeFlagMod, makeSkillDataMod)
 end
 for skillId, grantedEffect in pairs(data.skills) do
 	grantedEffect.name = sanitiseText(grantedEffect.name)
@@ -1056,10 +1057,8 @@ for id, gem in pairs(toAddGems) do
 end
 
 -- Load minions
-data.minions = { }
-LoadModule("Data/Minions", data.minions, makeSkillMod, makeFlagMod)
-data.spectres = { }
-LoadModule("Data/Spectres", data.spectres, makeSkillMod, makeFlagMod)
+data.minions = LoadModule("Data/Minions")(makeSkillMod, makeFlagMod)
+data.spectres = LoadModule("Data/Spectres")(makeSkillMod, makeFlagMod)
 for name, spectre in pairs(data.spectres) do
 	spectre.limit = "ActiveSpectreLimit"
 	data.minions[name] = spectre

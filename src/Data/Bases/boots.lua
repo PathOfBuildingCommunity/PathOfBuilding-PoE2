@@ -1960,3 +1960,4 @@ itemBases["Golden Caligae"] = {
 	armour = { },
 	req = { level = 12, },
 }
+end

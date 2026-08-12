@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/body.txt b/src/Export/Bases/body.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Body Armour
+ #influenceBaseTag body_armour
+ #socketLimit 6
+@@ -26,4 +25,5 @@ local itemBases = ...
+ #subType Armour/Evasion/Energy Shield
+ #baseMatch Metadata/Items/Armours/BodyArmours/BodyStrDexInt%d+
+ #forceHide true
+-#base Metadata/Items/Armours/BodyArmours/BodyDemigods1
+\ No newline at end of file
++#base Metadata/Items/Armours/BodyArmours/BodyDemigods1
++end

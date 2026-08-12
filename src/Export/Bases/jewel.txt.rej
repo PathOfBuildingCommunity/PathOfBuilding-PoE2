@@ -1,0 +1,9 @@
+diff a/src/Export/Bases/jewel.txt b/src/Export/Bases/jewel.txt	(rejected hunks)
+@@ -25,4 +24,5 @@ local itemBases = ...
+ #subType Charm
+ #base Metadata/Items/AnimalCharms/StrAnimalCharm
+ #base Metadata/Items/AnimalCharms/DexAnimalCharm
+-#base Metadata/Items/AnimalCharms/IntAnimalCharm
+\ No newline at end of file
++#base Metadata/Items/AnimalCharms/IntAnimalCharm
++end

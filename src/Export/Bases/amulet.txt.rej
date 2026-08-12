@@ -1,0 +1,18 @@
+diff a/src/Export/Bases/amulet.txt b/src/Export/Bases/amulet.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Amulet
+ #influenceBaseTag amulet
+ 
+@@ -20,4 +19,5 @@ local itemBases = ...
+ #base Metadata/Items/Amulets/Talismans/Talisman2_6_4 Avian Twins Talisman (Cold-To-Fire)
+ #base Metadata/Items/Amulets/Talismans/Talisman2_6_5 Avian Twins Talisman (Lightning-To-Cold)
+ #base Metadata/Items/Amulets/Talismans/Talisman3_6_1 Monkey Paw Talisman (Power)
+-#base Metadata/Items/Amulets/Talismans/Talisman3_6_2 Monkey Paw Talisman (Frenzy)
+\ No newline at end of file
++#base Metadata/Items/Amulets/Talismans/Talisman3_6_2 Monkey Paw Talisman (Frenzy)
++end
+\ No newline at end of file

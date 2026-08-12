@@ -1,0 +1,22 @@
+diff a/src/Export/Minions/Spectres.txt b/src/Export/Minions/Spectres.txt	(rejected hunks)
+@@ -3,8 +3,10 @@
+ -- Spectre Data
+ -- Monster data (c) Grinding Gear Games
+ --
+-local minions, mod, flag = ...
+ 
++return function(mod, flag)
++	---@class SpectreData
++	local minions = {}
+ -- Blackguard
+ #spectre Metadata/Monsters/Axis/AxisCaster
+ #spectre Metadata/Monsters/Axis/AxisCasterArc
+@@ -446,4 +448,6 @@ local minions, mod, flag = ...
+ #spectre Metadata/Monsters/FaridunLeague/FaridunWarlock/FaridunWarlockMid_
+ #spectre Metadata/Monsters/FaridunLeague/FaridunWarlock/FaridunWarlockHigh
+ -- Undead Vaal Commander
+-#spectre Metadata/Monsters/VaalMonsters/VaalOverseer
+\ No newline at end of file
++#spectre Metadata/Monsters/VaalMonsters/VaalOverseer
++	return minions
++end

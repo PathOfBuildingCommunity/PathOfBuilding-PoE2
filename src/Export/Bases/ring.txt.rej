@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/ring.txt b/src/Export/Bases/ring.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Ring
+ #influenceBaseTag ring
+ 
+@@ -19,4 +18,5 @@ local itemBases = ...
+ 
+ #base Metadata/Items/Rings/BreachRing
+ #base Metadata/Items/Rings/RingDemigods1
+-#base Metadata/Items/Rings/RingVictor1
+\ No newline at end of file
++#base Metadata/Items/Rings/RingVictor1
++end

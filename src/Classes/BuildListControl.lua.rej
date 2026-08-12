@@ -1,0 +1,39 @@
+diff a/src/Classes/BuildListControl.lua b/src/Classes/BuildListControl.lua	(rejected hunks)
+@@ -7,15 +7,18 @@ local ipairs = ipairs
+ local s_format = string.format
+ local buildListHelpers = LoadModule("Modules/BuildListHelpers")
+ 
+-local BuildListClass = newClass("BuildListControl", "ListControl", function(self, anchor, rect, listMode)
+-	self.ListControl(anchor, rect, 20, "VERTICAL", false, listMode.list)
++---@class BuildListControl: ListControl
++local BuildListClass = newClass("BuildListControl", "ListControl")
++
++function BuildListClass:BuildListControl(anchor, rect, listMode)
++	self:ListControl(anchor, rect, 20, "VERTICAL", false, listMode.list)
+ 	self.listMode = listMode
+-	self.colList = { 
+-		{ width = function() return self:GetProperty("width") - 172 end }, 
++	self.colList = {
++		{ width = function() return self:GetProperty("width") - 172 end },
+ 		{ },
+ 	}
+ 	self.showRowSeparators = true
+-	self.controls.path = new("PathControl", {"BOTTOM",self,"TOP"}, {0, -2, self.width, 24}, main.buildPath, listMode.subPath, function(subPath)
++	self.controls.path = new("PathControl"):PathControl({"BOTTOM",self,"TOP"}, {0, -2, self.width, 24}, main.buildPath, listMode.subPath, function(subPath)
+ 		listMode.subPath = subPath
+ 		listMode:BuildList()
+ 		self.selIndex = nil
+@@ -50,10 +53,11 @@ local BuildListClass = newClass("BuildListControl", "ListControl", function(self
+ 		end
+ 	end
+ 	self.dragTargetList = { self.controls.path, self }
+-	self.controls.path.width = function ()
++	self.controls.path.width = function()
+ 		return self.width()
+ 	end
+-end)
++	return self
++end
+ 
+ function BuildListClass:SelByFullFileName(fullFileName)
+ 	if fullFileName then

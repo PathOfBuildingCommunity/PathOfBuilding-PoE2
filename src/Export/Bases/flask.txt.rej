@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/flask.txt b/src/Export/Bases/flask.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Flask
+ #subType Life
+ #baseMatch Metadata/Items/Flasks/FlaskLife
+@@ -12,4 +11,5 @@ local itemBases = ...
+ #baseMatch Metadata/Items/Flasks/FlaskHybrid
+ 
+ #subType Utility
+-#baseMatch Metadata/Items/Flasks/FlaskUtility
+\ No newline at end of file
++#baseMatch Metadata/Items/Flasks/FlaskUtility
++end

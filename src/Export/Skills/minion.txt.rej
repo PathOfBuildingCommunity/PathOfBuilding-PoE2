@@ -1,0 +1,20 @@
+diff a/src/Export/Skills/minion.txt b/src/Export/Skills/minion.txt	(rejected hunks)
+@@ -3,8 +3,7 @@
+ -- Minion active skills
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ #skill ChaosElementalCascadeSummoned Cascade
+ #flags spell area
+ #mods
+@@ -486,4 +485,6 @@ skills["GuardianSentinelFireAura"] = {
+ 
+ #skill MeleePartialChaos
+ #flags attack melee
+-#mods
+\ No newline at end of file
++#mods
++
++end

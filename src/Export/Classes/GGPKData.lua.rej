@@ -1,0 +1,11 @@
+diff a/src/Export/Classes/GGPKData.lua b/src/Export/Classes/GGPKData.lua	(rejected hunks)
+@@ -46,7 +49,8 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
+ 	self.ot = { }
+ 	
+ 	self:AddDat64Files()
+-end)
++	return self
++end
+ 
+ function GGPKClass:CleanDir(reExport)
+ 	if reExport then

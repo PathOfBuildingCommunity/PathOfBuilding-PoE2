@@ -1,0 +1,9 @@
+diff a/src/Modules/Main.lua b/src/Modules/Main.lua	(rejected hunks)
+@@ -1067,7 +1067,6 @@ function main:OpenOptionsPopup(savedState)
+ 	end)
+ 	controls.showThousandsSeparators.state = self.showThousandsSeparators
+ 
+-	nextRow()
+ 	nextRow()
+ 	controls.useCompactValues = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Compact large numbers (e.g. 12.3K):", function(state)
+ 		self.useCompactValues = state

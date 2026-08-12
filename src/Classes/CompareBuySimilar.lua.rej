@@ -1,0 +1,49 @@
+diff a/src/Classes/CompareBuySimilar.lua b/src/Classes/CompareBuySimilar.lua	(rejected hunks)
+@@ -335,7 +334,7 @@ function M.openPopup(item, slotName, primaryBuild)
+ 	local tradeQuery = primaryBuild.itemsTab and primaryBuild.itemsTab.tradeQuery
+ 	local tradeQueryRequests = tradeQuery and tradeQuery.tradeQueryRequests
+ 	if not tradeQueryRequests then
+-		tradeQueryRequests = new("TradeQueryRequests")
++		tradeQueryRequests = new("TradeQueryRequests"):TradeQueryRequests()
+ 	end
+ 
+ 	local function rebuildUrl()
+@@ -374,8 +373,8 @@ function M.openPopup(item, slotName, primaryBuild)
+ 	end
+ 
+ 	-- Realm dropdown
+-	controls.realmLabel = new("LabelControl", {"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Realm:")
+-	controls.realmDrop = new("DropDownControl", {"LEFT", controls.realmLabel, "RIGHT"}, {4, 0, 80, 20}, {"PC", "PS4", "Xbox"}, function(index, value)
++	controls.realmLabel = new("LabelControl"):LabelControl({"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Realm:")
++	controls.realmDrop = new("DropDownControl"):DropDownControl({"LEFT", controls.realmLabel, "RIGHT"}, {4, 0, 80, 20}, {"PC", "PS4", "Xbox"}, function(index, value)
+ 		local realmApiId = REALM_API_IDS[value] or "pc"
+ 		fetchLeaguesForRealm(realmApiId)
+ 		rebuildUrl()
+@@ -386,8 +385,8 @@ function M.openPopup(item, slotName, primaryBuild)
+ 	end
+ 
+ 	-- League dropdown
+-	controls.leagueLabel = new("LabelControl", {"LEFT", controls.realmDrop, "RIGHT"}, {12, 0, 0, 16}, "^7League:")
+-	controls.leagueDrop = new("DropDownControl", { "LEFT", controls.leagueLabel, "RIGHT" }, { 4, 0, 160, 20 },
++	controls.leagueLabel = new("LabelControl"):LabelControl({"LEFT", controls.realmDrop, "RIGHT"}, {12, 0, 0, 16}, "^7League:")
++	controls.leagueDrop = new("DropDownControl"):DropDownControl({"LEFT", controls.leagueLabel, "RIGHT" }, { 4, 0, 160, 20 },
+ 		{ "Loading..." }, function(index, value)
+ 			local realmApiId = REALM_API_IDS[controls.realmDrop:GetSelValue()] or "pc"
+ 			M.lastLeagueByRealm = M.lastLeagueByRealm or {}
+@@ -397,14 +396,14 @@ function M.openPopup(item, slotName, primaryBuild)
+ 	controls.leagueDrop.enabled = function() return #controls.leagueDrop.list > 0 and controls.leagueDrop.list[1] ~= "Loading..." end
+ 
+ 	-- Listed status dropdown
+-	controls.listedDrop = new("DropDownControl", { "TOPRIGHT", nil, "TOPRIGHT" }, { -leftMargin, ctrlY, 242, 20 }, LISTED_STATUS_LABELS, function(index, value)
++	controls.listedDrop = new("DropDownControl"):DropDownControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -leftMargin, ctrlY, 242, 20 }, LISTED_STATUS_LABELS, function(index, value)
+ 		M.lastListedIndex = index
+ 		rebuildUrl()
+ 	end)
+ 	if M.lastListedIndex then
+ 		controls.listedDrop:SetSel(M.lastListedIndex, true)
+ 	end
+-	controls.listedLabel = new("LabelControl", {"RIGHT", controls.listedDrop, "LEFT"}, {-4, 0, 0, 16}, "^7Listed:")
++	controls.listedLabel = new("LabelControl"):LabelControl({"RIGHT", controls.listedDrop, "LEFT"}, {-4, 0, 0, 16}, "^7Listed:")
+ 
+ 	-- Fetch initial leagues for the selected realm
+ 	fetchLeaguesForRealm(REALM_API_IDS[controls.realmDrop:GetSelValue()] or "pc")

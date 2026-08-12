@@ -1,0 +1,19 @@
+diff a/src/Data/Skills/act_dex.lua b/src/Data/Skills/act_dex.lua	(rejected hunks)
+@@ -4,8 +4,7 @@
+ -- Active Dexterity skill gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ skills["AlchemistsMark"] = {
+ 	name = "Alchemist's Mark",
+ 	baseTypeName = "Alchemist's Mark",
+@@ -18480,4 +18479,5 @@ skills["QuickstepHardMode"] = {
+ 		[9] = { cooldown = 10, levelRequirement = 1, storedUses = 1, },
+ 		[10] = { cooldown = 10, levelRequirement = 1, storedUses = 1, },
+ 	},
+-}
+\ No newline at end of file
++}
++end

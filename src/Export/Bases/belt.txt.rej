@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/belt.txt b/src/Export/Bases/belt.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Belt
+ #influenceBaseTag belt
+ #baseMatch Metadata/Items/Belts/Belt%d+
+@@ -11,4 +10,5 @@ local itemBases = ...
+ #base Metadata/Items/Belts/BeltAbyss
+ #base Metadata/Items/Belts/BeltFaridun
+ 
+-#base Metadata/Items/Belts/BeltDemigods1
+\ No newline at end of file
++#base Metadata/Items/Belts/BeltDemigods1
++end

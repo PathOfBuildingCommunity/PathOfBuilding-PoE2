@@ -64,3 +64,4 @@ itemBases["Timeless Jewel"] = {
 	implicitModTypes = { },
 	req = { },
 }
+end

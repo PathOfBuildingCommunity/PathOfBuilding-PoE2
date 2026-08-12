@@ -1,0 +1,20 @@
+diff a/src/Export/Skills/sup_str.txt b/src/Export/Skills/sup_str.txt	(rejected hunks)
+@@ -3,8 +3,7 @@
+ -- Strength support gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ #skill SupportAddedFireDamage
+ #mods
+ 
+@@ -826,4 +825,6 @@ local skills, mod, flag, skill = ...
+ 			mod("CooldownRecovery", "MORE", nil),
+ 		},
+ 	},
+-#mods
+\ No newline at end of file
++#mods
++
++end

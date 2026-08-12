@@ -111,7 +111,10 @@ local function logToFile(...)
 	ConPrintf(...)
 end
 
-local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, queryTab)
+---@class TradeQueryGenerator
+local TradeQueryGeneratorClass = newClass("TradeQueryGenerator")
+
+function TradeQueryGeneratorClass:TradeQueryGenerator(queryTab)
 	self:InitMods()
 	self.queryTab = queryTab
 	self.itemsTab = queryTab.itemsTab
@@ -868,7 +871,7 @@ Implicits: 0]]
 
 	-- Open progress tracking blocker popup
 	local controls = { }
-	controls.progressText = new("LabelControl", {"TOP",nil,"TOP"}, {0, 30, 0, 16}, string.format("Calculating Mod Weights..."))
+	controls.progressText = new("LabelControl"):LabelControl({"TOP",nil,"TOP"}, {0, 30, 0, 16}, string.format("Calculating Mod Weights..."))
 	self.calcContext.popup = main:OpenPopup(280, 65, "Please Wait", controls)
 end
 
@@ -1332,7 +1335,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 
 	local _, lastItemY = lastItemAnchor:GetPos()
 	local _, lastItemH = lastItemAnchor:GetSize()
-	controls.modSelectorHeaderAnchor = new("Control", { "TOPLEFT", nil, "TOPLEFT" },
+	controls.modSelectorHeaderAnchor = new("Control"):Control({ "TOPLEFT", nil, "TOPLEFT" },
 		-- position right below last item, centered horizontally
 		{ (popupWidth - totalWidth) / 2, lastItemH + lastItemY, 0, 0 },
 		"")
@@ -1390,7 +1393,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	-- mod filter dropdown and aux controls
 	for i = 1, maxSelectors do
 		-- dropdown which lists all mods that fit
-		local dropdown = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
+		local dropdown = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
 			{ 0, 4, totalWidth, 20 }, nil,
 			function(idx, val)
 				if idx == 1 then
@@ -1418,7 +1421,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 		controls["modSelectorMin" .. i] = minimumBox
 
 		-- button which removes the mod row
-		local clearButton = new("ButtonControl", { "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
+		local clearButton = new("ButtonControl"):ButtonControl({ "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
 			"x", function()
 				table.remove(selectedMods, i)
 				setModSelectors(controls)

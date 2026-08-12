@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/wand.txt b/src/Export/Bases/wand.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Wand
+ #influenceBaseTag wand
+ #socketLimit 3
+@@ -19,4 +18,5 @@ local itemBases = ...
+ #type Wand
+ #influenceBaseTag wand
+ #socketLimit 3
+-#base Metadata/Items/Weapons/OneHandWeapons/Wands/WandMinion2
+\ No newline at end of file
++#base Metadata/Items/Weapons/OneHandWeapons/Wands/WandMinion2
++end

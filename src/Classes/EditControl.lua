@@ -36,11 +36,15 @@ local function newlineCount(str)
 	end
 end
 
-local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler", "TooltipHost", function(self, anchor, rect, init, prompt, filter, limit, changeFunc, lineHeight, allowZoom, clearable)
-	self.ControlHost()
-	self.Control(anchor, rect)
-	self.UndoHandler()
-	self.TooltipHost()
+---@class EditControl: ControlHost, Control, UndoHandler, TooltipHost
+---@field inactiveText (fun(buf: string?): string)|string
+local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler", "TooltipHost")
+
+function EditClass:EditControl(anchor, rect, init, prompt, filter, limit, changeFunc, lineHeight, allowZoom, clearable)
+	self:ControlHost()
+	self:Control(anchor, rect)
+	self:UndoHandler()
+	self:TooltipHost()
 	self:SetText(init or "")
 	self.prompt = prompt
 	self.filter = filter or (main.unicode and "%c" or "^%w%p ")
@@ -91,7 +95,8 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 		self.controls.scrollBarV.shown = false
 	end
 	self.protected = false
-end)
+	return self
+end
 
 function EditClass:SetText(text, notify)
 	self.buf = tostring(text)
@@ -297,7 +302,8 @@ function EditClass:Draw(viewPort, noTooltip)
 		else
 			SetDrawColor(self.inactiveCol)
 			if self.inactiveText then
-				local inactiveText = type(inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
+				local inactiveText = type(self.inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
+				---@cast inactiveText string
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, inactiveText)
 			elseif self.protected then
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, string.rep(protected_replace, #self.buf))

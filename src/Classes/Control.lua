@@ -6,6 +6,8 @@
 local t_insert = table.insert
 local m_floor = math.floor
 
+
+---@enum (key) AnchorPoint
 local anchorPos = {
 	    ["TOPLEFT"] = { 0  , 0   },
 	        ["TOP"] = { 0.5, 0   },
@@ -41,8 +43,14 @@ local ControlClass = newClass("Control", function(self, anchor, rect)
 	if anchor then
 		self:SetAnchor(anchor[1], anchor[2], anchor[3], nil, nil, anchor[4])
 	end
-end)
+	return self
+end
 
+---@generic T
+---@alias Prop<T> (fun(self: self): T) | T
+
+---@param name string
+---@return any value
 function ControlClass:GetProperty(name)
 	if type(self[name]) == "function" then
 		return self[name](self)

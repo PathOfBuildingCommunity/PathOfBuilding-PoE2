@@ -49,11 +49,11 @@ local SkillListClass = newClass("SkillListControl", "ListControl", function(self
 	self.controls.deleteAll.enabled = function()
 		return #self.list > 0 
 	end
-	self.controls.new = new("ButtonControl", {"RIGHT",self.controls.deleteAll,"LEFT"}, {-4, 0, 60, 18}, "New", function()
-		local newGroup = { 
-			label = "", 
-			enabled = true, 
-			gemList = { } 
+	self.controls.new = new("ButtonControl"):ButtonControl({"RIGHT",self.controls.deleteAll,"LEFT"}, {-4, 0, 60, 18}, "New", function()
+		local newGroup = {
+			label = "",
+			enabled = true,
+			gemList = { }
 		}
 		t_insert(self.list, newGroup)
 		self.selIndex = #self.list
@@ -66,7 +66,8 @@ local SkillListClass = newClass("SkillListControl", "ListControl", function(self
 	for k, x in pairs(slot_map) do
 		x.icon:Load(x.path)
 	end
-end)
+	return self
+end
 
 function SkillListClass:GetRowValue(column, index, socketGroup)
 	if column == 1 then

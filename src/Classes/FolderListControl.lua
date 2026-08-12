@@ -21,7 +21,8 @@ local FolderListClass = newClass("FolderListControl", "ListControl", function(se
 		end
 	end)
 	self:BuildList()
-end)
+	return self
+end
 
 function FolderListClass:SortList()
 	if not self.list then return end

@@ -198,7 +198,7 @@ end
 
 -- Opens the item pricing popup
 function TradeQueryClass:PriceItem()
-	self.tradeQueryGenerator = new("TradeQueryGenerator", self)
+	self.tradeQueryGenerator = new("TradeQueryGenerator"):TradeQueryGenerator(self)
 	main.onFrameFuncs["TradeQueryGenerator"] = function()
 		self.tradeQueryGenerator:OnFrame()
 	end
@@ -215,7 +215,7 @@ function TradeQueryClass:PriceItem()
 		local itemSet = self.itemsTab.itemSets[itemSetId]
 		t_insert(newItemList, itemSet.title or "Default")
 	end
-	self.controls.setSelect = new("DropDownControl", {"TOPLEFT", nil, "TOPLEFT"}, {pane_margins_horizontal, pane_margins_vertical, 188, row_height}, newItemList, function(index, value)
+	self.controls.setSelect = new("DropDownControl"):DropDownControl({"TOPLEFT", nil, "TOPLEFT"}, {pane_margins_horizontal, pane_margins_vertical, 188, row_height}, newItemList, function(index, value)
 		self.itemsTab:SetActiveItemSet(self.itemsTab.itemSetOrderList[index])
 		self.itemsTab:AddUndoState()
 	end)
@@ -312,7 +312,7 @@ on trade site to work on other leagues and realms)]]
 
 	-- Fetches Box
 	self.maxFetchPerSearchDefault = 2
-	self.controls.fetchCountEdit = new("EditControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-12, 19, 150, row_height}, "", "Fetch Pages", "%D", 3, function(buf)
+	self.controls.fetchCountEdit = new("EditControl"):EditControl({"TOPRIGHT", nil, "TOPRIGHT"}, {-12, 19, 150, row_height}, "", "Fetch Pages", "%D", 3, function(buf)
 		self.maxFetchPages = m_min(m_max(tonumber(buf) or self.maxFetchPerSearchDefault, 1), 10)
 		self.tradeQueryRequests.maxFetchPerSearch = 10 * self.maxFetchPages
 		self.controls.fetchCountEdit.focusValue = self.maxFetchPages
@@ -336,7 +336,7 @@ on trade site to work on other leagues and realms)]]
 		self.statSortSelectionList = { }
 		initStatSortSelectionList(self.statSortSelectionList)
 	end
-	self.controls.StatWeightMultipliersButton = new("ButtonControl", {"TOPRIGHT", self.controls.fetchCountEdit, "BOTTOMRIGHT"}, {0, row_vertical_padding, 150, row_height}, "^7Adjust search weights", function()
+	self.controls.StatWeightMultipliersButton = new("ButtonControl"):ButtonControl({"TOPRIGHT", self.controls.fetchCountEdit, "BOTTOMRIGHT"}, {0, row_vertical_padding, 150, row_height}, "^7Adjust search weights", function()
 		self.itemsTab.modFlag = true
 		self:SetStatWeights()
 	end)
@@ -361,7 +361,7 @@ on trade site to work on other leagues and realms)]]
 		self.sortModes.Price,
 		self.sortModes.Weight,
 	}
-	self.controls.itemSortSelection = new("DropDownControl", {"TOPRIGHT", self.controls.StatWeightMultipliersButton, "TOPLEFT"}, {-8, 0, 170, row_height}, self.itemSortSelectionList, function(index, value)
+	self.controls.itemSortSelection = new("DropDownControl"):DropDownControl({"TOPRIGHT", self.controls.StatWeightMultipliersButton, "TOPLEFT"}, {-8, 0, 170, row_height}, self.itemSortSelectionList, function(index, value)
 		self.pbItemSortSelectionIndex = index
 		for row_idx, _ in pairs(self.resultTbl) do
 			self:UpdateControlsWithItems(row_idx)
@@ -525,7 +525,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		end
 	end
 
-	self.controls.otherTradesLabel = new("LabelControl", top_pane_alignment_ref, {0, (#slotTables+1)*(row_height + row_vertical_padding), 100, 16}, "^8Other trades:")
+	self.controls.otherTradesLabel = new("LabelControl"):LabelControl(top_pane_alignment_ref, {0, (#slotTables+1)*(row_height + row_vertical_padding), 100, 16}, "^8Other trades:")
 	self.controls.otherTradesLabel.shown = function()
 		return hideRowFunc(self, #slotTables+1)
 	end
@@ -630,7 +630,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 	-- account for top gap, bottom button size and gap, and a gap before buttons
 	local listHeight = popupHeight - 45 - 30 - 10
 
-	controls.ListControl = new("TradeStatWeightMultiplierListControl", { "TOPLEFT", nil, "TOPRIGHT" },
+	controls.ListControl = new("TradeStatWeightMultiplierListControl"):TradeStatWeightMultiplierListControl({ "TOPLEFT", nil, "TOPRIGHT" },
 		{ -410, 45, 400, listHeight }, statList, sliderController)
 
 	for _, stat in ipairs(data.powerStatList) do
@@ -647,8 +647,8 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 		end
 	end
 
-	controls.SliderLabel = new("LabelControl", { "TOPLEFT", nil, "TOPRIGHT" }, {-410, 20, 0, 16}, "^7"..statList[1].stat.label..":")
-	controls.Slider = new("SliderControl", { "TOPLEFT", controls.SliderLabel, "TOPRIGHT" }, {20, 0, 150, 16}, function(value)
+	controls.SliderLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPRIGHT" }, {-410, 20, 0, 16}, "^7"..statList[1].stat.label..":")
+	controls.Slider = new("SliderControl"):SliderControl({ "TOPLEFT", controls.SliderLabel, "TOPRIGHT" }, {20, 0, 150, 16}, function(value)
 		if value == 0 then
 			controls.SliderValue.label = "^7Disabled"
 			statList[sliderController.index].stat.weightMult = 0
@@ -659,7 +659,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 			statList[sliderController.index].label = s_format("%.2f :  ", 0.01 + value * 0.99)..statList[sliderController.index].stat.label
 		end
 	end)
-	controls.SliderValue = new("LabelControl", { "TOPLEFT", controls.Slider, "TOPRIGHT" }, {20, 0, 0, 16}, "^7Disabled")
+	controls.SliderValue = new("LabelControl"):LabelControl({ "TOPLEFT", controls.Slider, "TOPRIGHT" }, {20, 0, 0, 16}, "^7Disabled")
 	controls.Slider.tooltip.realDraw = controls.Slider.tooltip.Draw
 	controls.Slider.tooltip.Draw = function(self, x, y, width, height, viewPort)
 		local sliderOffsetX = round(184 * (1 - controls.Slider.val))
@@ -685,7 +685,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 		end
 	end
 
-	controls.finalise = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-90, -10, 80, 20}, "Save", function()
+	controls.finalise = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, {-90, -10, 80, 20}, "Save", function()
 		main:ClosePopup()
 
 		-- used in ItemsTab to save to xml under TradeSearchWeights node
@@ -703,13 +703,13 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 			self:UpdateControlsWithItems(row_idx)
 		end
     end)
-	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, { 0, -10, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 0, -10, 80, 20 }, "Cancel", function()
 		if previousSelectionList and #previousSelectionList > 0 then
 			self.statSortSelectionList = copyTable(previousSelectionList, true)
 		end
 		main:ClosePopup()
 	end)
-	controls.reset = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, { 90, -10, 80, 20 }, "Reset", function()
+	controls.reset = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 90, -10, 80, 20 }, "Reset", function()
 		local previousSelection = { }
 		if isSameAsDefaultList(self.statSortSelectionList) then
 			previousSelection = copyTable(previousSelectionList, true)
@@ -846,7 +846,7 @@ function TradeQueryClass:UpdateDropdownList(row_idx)
 		local pb_index = self.sortedResultTbl[row_idx][result_index].index
 		local result = self.resultTbl[row_idx][pb_index]
 		local price = string.format(" %s(%d %s)", colorCodes["CURRENCY"], result.amount, result.currency)
-		local item = new("Item", result.item_string)
+		local item = new("Item"):Item(result.item_string)
 		table.insert(dropdownLabels, colorCodes[item.rarity] .. item.name .. price)
 	end
 	self.controls["resultDropdown".. row_idx].selIndex = 1
@@ -985,7 +985,7 @@ end
 function TradeQueryClass:FilterToSafeItems(itemEntries, slotName)
 	local itemsSafe = {}
 	for _, entry in ipairs(itemEntries) do
-		local item = new("Item", entry.item_string)
+		local item = new("Item"):Item(entry.item_string)
 		if item.base and ((not slotName) or self.itemsTab:IsItemValidForSlot(item, slotName)) then
 			t_insert(itemsSafe, entry)
 		end
@@ -1187,14 +1187,14 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		if not result then
 			return
 		end
-		local item = new("Item", result.item_string)
+		local item = new("Item"):Item(result.item_string)
 		tooltip:Clear()
 		local tooltipSlot = slotTbl.selectedJewelNodeId and self.itemsTab.sockets[slotTbl.selectedJewelNodeId] or activeSlot
 		self.itemsTab:AddItemTooltip(tooltip, item, tooltipSlot)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
 	end
-	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
+	controls["importButton"..row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
 		self.itemsTab:CreateDisplayItemFromRaw(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string)
 		local item = self.itemsTab.displayItem
 		-- pass "true" to not auto equip it as we will have our own logic
@@ -1226,8 +1226,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string ~= nil
 	end
 	-- Whisper so we can copy to clipboard
-	controls["whisperButton" .. row_idx] = new("ButtonControl",
-		{ "TOPLEFT", controls["importButton" .. row_idx], "TOPRIGHT" }, { 8, 0, 155, row_height }, function()
+	controls["whisperButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls["importButton" .. row_idx], "TOPRIGHT" }, { 8, 0, 155, row_height }, function()
 			local itemResult = self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
 
 			if not itemResult then return "" end

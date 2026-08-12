@@ -1,0 +1,19 @@
+diff a/src/Data/Skills/sup_dex.lua b/src/Data/Skills/sup_dex.lua	(rejected hunks)
+@@ -4,8 +4,7 @@
+ -- Dexterity support gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ skills["SupportAddedColdDamage"] = {
+ 	name = "Added Cold Damage",
+ 	description = "Supports any skill that hits enemies.",
+@@ -5050,4 +5049,5 @@ skills["SupportWitheringTouch"] = {
+ 		[39] = { 44, levelRequirement = 99, manaMultiplier = 30, statInterpolation = { 1, }, },
+ 		[40] = { 44, levelRequirement = 100, manaMultiplier = 30, statInterpolation = { 1, }, },
+ 	},
+-}
+\ No newline at end of file
++}
++end

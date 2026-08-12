@@ -1,0 +1,137 @@
+diff a/src/Classes/CompareTab.lua b/src/Classes/CompareTab.lua	(rejected hunks)
+@@ -344,12 +349,12 @@ function CompareTabClass:InitControls()
+ 	-- ============================================================
+ 	-- Comparison build main skill selector (row between sets and sub-tabs)
+ 	-- ============================================================
+-	self.controls.cmpSkillLabel = new("LabelControl", {"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -32, 0, 16}, "^7Skill:")
++	self.controls.cmpSkillLabel = new("LabelControl"):LabelControl({"TOPLEFT", self.controls.subTabAnchor, "TOPLEFT"}, {0, -32, 0, 16}, "^7Skill:")
+ 	self.controls.cmpSkillLabel.shown = setsEnabled
+ 	self.controls.cmpSkillLabel.anchor.collapse = true
+ 
+ 	-- Socket group dropdown
+-	self.controls.cmpSocketGroup = new("DropDownControl", {"LEFT", self.controls.cmpSkillLabel, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
++	self.controls.cmpSocketGroup = new("DropDownControl"):DropDownControl({"LEFT", self.controls.cmpSkillLabel, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			entry:SetMainSocketGroup(index)
+@@ -361,7 +366,7 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpSocketGroup.anchor.collapse = true
+ 
+ 	-- Active skill within group
+-	self.controls.cmpMainSkill = new("DropDownControl", {"LEFT", self.controls.cmpSocketGroup, "RIGHT"}, {4, 0, 225, 20}, {}, function(index, value)
++	self.controls.cmpMainSkill = new("DropDownControl"):DropDownControl({"LEFT", self.controls.cmpSocketGroup, "RIGHT"}, {4, 0, 225, 20}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -375,7 +380,7 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpMainSkill.anchor.collapse = true
+ 
+ 	-- Skill part (multi-part skills)
+-	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpMainSkill, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
++	self.controls.cmpSkillPart = new("DropDownControl"):DropDownControl({"LEFT", self.controls.cmpMainSkill, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -393,10 +398,10 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpSkillPart.anchor.collapse = true
+ 
+ 	-- Stage count
+-	self.controls.cmpStageCountLabel = new("LabelControl", {"LEFT", self.controls.cmpSkillPart, "RIGHT"}, {6, 0, 0, 16}, "^7Stages:")
++	self.controls.cmpStageCountLabel = new("LabelControl"):LabelControl({"LEFT", self.controls.cmpSkillPart, "RIGHT"}, {6, 0, 0, 16}, "^7Stages:")
+ 	self.controls.cmpStageCountLabel.shown = function() return self.controls.cmpStageCount.shown end
+ 	self.controls.cmpStageCountLabel.anchor.collapse = true
+-	self.controls.cmpStageCount = new("EditControl", {"LEFT", self.controls.cmpStageCountLabel, "RIGHT"}, {4, 0, 52, 20}, "", nil, "%D", 5, function(buf)
++	self.controls.cmpStageCount = new("EditControl"):EditControl({ "LEFT", self.controls.cmpStageCountLabel, "RIGHT" }, { 4, 0, 52, 20 }, "", nil, "%D", 5, function(buf)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -414,10 +419,10 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpStageCount.anchor.collapse = true
+ 
+ 	-- Mine count
+-	self.controls.cmpMineCountLabel = new("LabelControl", {"LEFT", self.controls.cmpStageCount, "RIGHT"}, {6, 0, 0, 16}, "^7Mines:")
++	self.controls.cmpMineCountLabel = new("LabelControl"):LabelControl({"LEFT", self.controls.cmpStageCount, "RIGHT"}, {6, 0, 0, 16}, "^7Mines:")
+ 	self.controls.cmpMineCountLabel.shown = function() return self.controls.cmpMineCount.shown end
+ 	self.controls.cmpMineCountLabel.anchor.collapse = true
+-	self.controls.cmpMineCount = new("EditControl", {"LEFT", self.controls.cmpMineCountLabel, "RIGHT"}, {4, 0, 52, 20}, "", nil, "%D", 5, function(buf)
++	self.controls.cmpMineCount = new("EditControl"):EditControl({ "LEFT", self.controls.cmpMineCountLabel, "RIGHT" }, { 4, 0, 52, 20 }, "", nil, "%D", 5, function(buf)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -435,7 +440,7 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpMineCount.anchor.collapse = true
+ 
+ 	-- Minion selector
+-	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpMineCount, "RIGHT"}, {6, 0, 140, 20}, {}, function(index, value)
++	self.controls.cmpMinion = new("DropDownControl"):DropDownControl({"LEFT", self.controls.cmpMineCount, "RIGHT"}, {6, 0, 140, 20}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -460,7 +465,7 @@ function CompareTabClass:InitControls()
+ 	self.controls.cmpMinion.anchor.collapse = true
+ 
+ 	-- Minion skill selector
+-	self.controls.cmpMinionSkill = new("DropDownControl", {"LEFT", self.controls.cmpMinion, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
++	self.controls.cmpMinionSkill = new("DropDownControl"):DropDownControl({"LEFT", self.controls.cmpMinion, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+@@ -582,14 +587,14 @@ function CompareTabClass:InitControls()
+ 	end)
+ 	self.controls.primCalcsMinionSkill.shown = false
+ 
+-	self.controls.primCalcsMode = new("DropDownControl", nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
++	self.controls.primCalcsMode = new("DropDownControl"):DropDownControl(nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
+ 		self.primaryBuild.calcsTab.input.misc_buffMode = value.buffMode
+ 		self.primaryBuild.buildFlag = true
+ 	end)
+ 	self.controls.primCalcsMode.shown = false
+ 
+ 	-- Compare build calcs skill controls
+-	self.controls.cmpCalcsSocketGroup = new("DropDownControl", nil, {0, 0, 200, 18}, {}, function(index, value)
++	self.controls.cmpCalcsSocketGroup = new("DropDownControl"):DropDownControl(nil, {0, 0, 200, 18}, {}, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			entry.calcsTab.input.skill_number = index
+@@ -708,7 +713,7 @@ function CompareTabClass:InitControls()
+ 	end)
+ 	self.controls.cmpCalcsMinionSkill.shown = false
+ 
+-	self.controls.cmpCalcsMode = new("DropDownControl", nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
++	self.controls.cmpCalcsMode = new("DropDownControl"):DropDownControl(nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
+ 		local entry = self:GetActiveCompare()
+ 		if entry then
+ 			entry.calcsTab.input.misc_buffMode = value.buffMode
+@@ -1580,12 +1585,12 @@ function CompareTabClass:OpenImportFolderPopup()
+ 	end
+ 
+ 	-- Search box and sort dropdown sit above the build list.
+-	controls.searchText = new("EditControl", {"TOPLEFT", nil, "TOPLEFT"}, {15, 25, 450, 20}, "", "Search", "%c%(%)", 100, function(buf)
++	controls.searchText = new("EditControl"):EditControl({"TOPLEFT", nil, "TOPLEFT"}, {15, 25, 450, 20}, "", "Search", "%c%(%)", 100, function(buf)
+ 		searchText = buf
+ 		listHost:FilterBuildList()
+ 	end, nil, nil, true)
+ 	controls.searchText:SetPlaceholder("(e.g. class:assassin myfilename)")
+-	controls.sort = new("DropDownControl", {"TOPLEFT", nil, "TOPLEFT"}, {475, 25, 210, 20}, buildListHelpers.buildSortDropList, function(index, value)
++	controls.sort = new("DropDownControl"):DropDownControl({"TOPLEFT", nil, "TOPLEFT"}, {475, 25, 210, 20}, buildListHelpers.buildSortDropList, function(index, value)
+ 		sortMode = value.sortMode
+ 		main.buildSortMode = value.sortMode
+ 		listHost:SortList()
+@@ -2700,7 +2705,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
+ 			local pSlot = self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.slots[slotName]
+ 			local pItem = pSlot and self.primaryBuild.itemsTab.items[pSlot.selItemId]
+ 			if cItem and cItem.raw and not (pItem and pItem.name == cItem.name) then
+-				local newItem = new("Item", cItem.raw)
++				local newItem = new("Item"):Item(cItem.raw)
+ 				newItem:NormaliseQuality()
+ 				
+ 				-- if our comparison has abyssal jewels, but the primary build
+@@ -2723,7 +2728,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
+ 							-- might not exist
+ 							if cmpJewel then
+ 								-- copy item
+-								local itemCopy = new("Item", cmpJewel:BuildRaw())
++								local itemCopy = new("Item"):Item(cmpJewel:BuildRaw())
+ 								table.insert(cmpJewels, itemCopy)
+ 								self.primaryBuild.itemsTab:AddItem(itemCopy, false)
+ 

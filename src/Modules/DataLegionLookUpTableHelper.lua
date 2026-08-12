@@ -313,4 +313,4 @@ local function readLUT(seed, nodeID, jewelType)
 	return { }
 end
 
-return readLUT, repairLUTs
+return { readLUT = readLUT, repairLUTs = repairLUTs }

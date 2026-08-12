@@ -2677,3 +2677,4 @@ itemBases["Golden Visage"] = {
 	armour = { },
 	req = { level = 12, },
 }
+end

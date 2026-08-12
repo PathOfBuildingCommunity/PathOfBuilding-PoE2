@@ -6,7 +6,9 @@
 --
 
 ---@class TradeQueryRateLimiter
-local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(self)
+local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter")
+
+function TradeQueryRateLimiterClass:TradeQueryRateLimiter()
 	-- policies_sample = {
 	-- --	label: policy
 	-- 	["trade-search-request-limit"] = {

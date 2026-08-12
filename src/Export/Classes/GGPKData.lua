@@ -31,7 +31,10 @@ end
 
 -- Path can be in any format recognized by the extractor at oozPath, ie,
 -- a .ggpk file or a Steam Path of Exile directory
-local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
+---@class GGPKData
+local GGPKClass = newClass("GGPKData")
+
+function GGPKClass:GGPKData(path, datPath, reExport)
 	if datPath then
 		self.oozPath = datPath:match("\\$") and datPath or (datPath .. "\\")
 	else

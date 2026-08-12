@@ -146,7 +146,7 @@ end
 
 function ItemListClass:ReceiveDrag(type, value, source)
 	if type == "Item" then
-		local newItem = new("Item", value.raw)
+		local newItem = new("Item"):Item(value.raw)
 		newItem:NormaliseQuality()
 		self.itemsTab:AddItem(newItem, true, self.selDragIndex)
 		self.itemsTab:PopulateSlots()

@@ -3,8 +3,6 @@
 -- Module: Calc Breakdown
 -- Calculation breakdown generators
 --
-local modDB, output, actor = ...
-
 local unpack = unpack
 local ipairs = ipairs
 local t_insert = table.insert

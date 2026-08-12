@@ -2564,12 +2564,12 @@ end
 --- Adds a line to or replaces a node given a line to add/replace with
 --- @param node table The node to replace/add to
 --- @param sd string The line being parsed and added
---- @param replacement boolean true to replace the node with the new mod, false to simply add it
+--- @param replacement? boolean true to replace the node with the new mod, false to simply add it
 function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacement)
 	local addition = {}
 	addition.sd = {sd}
 	addition.mods = { }
-	addition.modList = new("ModList")
+	addition.modList = new("ModList"):ModList()
 	addition.modKey = ""
 	local i = 1
 	while addition.sd[i] do
@@ -2640,7 +2640,7 @@ function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacemen
 		node.mods = tableConcat(node.mods, addition.mods)
 		node.modKey = node.modKey .. addition.modKey
 	end
-	local modList = new("ModList")
+	local modList = new("ModList"):ModList()
 	modList:AddList(addition.modList)
 	if not replacement then
 		modList:AddList(node.modList)

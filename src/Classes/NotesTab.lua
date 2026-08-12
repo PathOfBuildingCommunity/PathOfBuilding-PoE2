@@ -5,9 +5,13 @@
 --
 local t_insert = table.insert
 
-local NotesTabClass = newClass("NotesTab", "ControlHost", "Control", function(self, build)
-	self.ControlHost()
-	self.Control()
+---@class NotesTab: ControlHost, Control
+local NotesTabClass = newClass("NotesTab", "ControlHost", "Control")
+
+---@param build Build
+function NotesTabClass:NotesTab(build)
+	self:ControlHost()
+	self:Control()
 
 	self.build = build
 

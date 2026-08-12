@@ -1,0 +1,23 @@
+diff a/src/Export/Minions/Minions.txt b/src/Export/Minions/Minions.txt	(rejected hunks)
+@@ -3,8 +3,10 @@
+ -- Minion Data
+ -- Monster data (c) Grinding Gear Games
+ --
+-local minions, mod = ...
+ 
++return function(mod, flag)
++	---@class MinionData
++	local minions = {}
+ #monster Metadata/Monsters/RaisedZombies/RaisedZombieStandard RaisedZombie
+ #limit ActiveZombieLimit
+ #emit
+@@ -265,4 +267,6 @@ minions["GuardianRelicAll"] = {
+ 
+ #monster Metadata/Monsters/RaisedZombies/RestlessDeadPlayerSummoned ShamblingUndead
+ #limit ShamblingUndeadLimit
+-#emit
+\ No newline at end of file
++#emit
++	return minions
++end
+\ No newline at end of file

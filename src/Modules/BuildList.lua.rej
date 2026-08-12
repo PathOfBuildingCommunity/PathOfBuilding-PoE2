@@ -1,0 +1,10 @@
+diff a/src/Modules/BuildList.lua b/src/Modules/BuildList.lua	(rejected hunks)
+@@ -93,7 +93,7 @@ function listMode:Init(selBuildName, subPath)
+ 		self.controls.ExtBuildList = self:getPublicBuilds()
+ 	end
+ 
+-	self.controls.searchText = new("EditControl", {"TOP",self.anchor,"TOP"}, {0, 25, 640, 20}, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
++	self.controls.searchText = new("EditControl"):EditControl({"TOP",self.anchor,"TOP"}, {0, 25, 640, 20}, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
+ 		main.filterBuildList = buf
+ 		self:FilterBuildList()
+ 	end, nil, nil, true)

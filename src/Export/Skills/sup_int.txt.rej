@@ -1,0 +1,20 @@
+diff a/src/Export/Skills/sup_int.txt b/src/Export/Skills/sup_int.txt	(rejected hunks)
+@@ -3,8 +3,7 @@
+ -- Intelligence support gems
+ -- Skill data (c) Grinding Gear Games
+ --
+-local skills, mod, flag, skill = ...
+-
++return function(skills, mod, flag, skill)
+ #skill SupportAddedChaosDamage
+ #mods
+ 
+@@ -1027,4 +1026,6 @@ local skills, mod, flag, skill = ...
+ 			mod("Speed", "MORE", nil, ModFlag.Cast),
+ 		},
+ 	},
+-#mods
+\ No newline at end of file
++#mods
++
++end

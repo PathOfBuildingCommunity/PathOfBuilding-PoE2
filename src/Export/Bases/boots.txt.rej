@@ -1,0 +1,17 @@
+diff a/src/Export/Bases/boots.txt b/src/Export/Bases/boots.txt	(rejected hunks)
+@@ -1,6 +1,5 @@
+ -- Item data (c) Grinding Gear Games
+-local itemBases = ...
+-
++return function(itemBases)
+ #type Boots
+ #influenceBaseTag boots
+ #socketLimit 4
+@@ -40,4 +39,5 @@ local itemBases = ...
+ #baseMatch Metadata/Items/Armours/Boots/BootsExpedition%d+
+ 
+ #subType
+-#base Metadata/Items/Armours/Boots/BootsDemigods1
+\ No newline at end of file
++#base Metadata/Items/Armours/Boots/BootsDemigods1
++end

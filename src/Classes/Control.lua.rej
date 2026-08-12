@@ -1,0 +1,11 @@
+diff a/src/Classes/Control.lua b/src/Classes/Control.lua	(rejected hunks)
+@@ -38,6 +38,9 @@ local rect = {
+ ---@field enabled        boolean | fun(...: any): boolean
+ ---@field onFocusGained? fun()
+ ---@field onFocusLost?   fun()
++---@field shown          Prop<boolean>
++---@field x              Prop<number>?
++---@field y              Prop<number>?
+ local ControlClass = newClass("Control")
+ 
+ ---@alias ControlAnchor [AnchorPoint, Control|ControlHost, AnchorPoint, boolean|nil]

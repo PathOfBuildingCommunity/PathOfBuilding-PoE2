@@ -34,6 +34,7 @@ function modLib.createMod(modName, modType, modVal, ...)
 		keywordFlags = select(3, ...)
 		tagStart = 4
 	end
+	---@class Mod
 	return {
 		name = modName,
 		type = modType,
@@ -44,8 +45,9 @@ function modLib.createMod(modName, modType, modVal, ...)
 		select(tagStart, ...)
 	}
 end
-
-modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser", launch)
+local modParserModule = LoadModule("Modules/ModParser")
+modLib.parseMod = modParserModule.parseMod
+modLib.parseModCache = modParserModule.parseModCache
 
 function modLib.parseTags(line)
 	if not line or line == "-" then
