@@ -126,8 +126,8 @@ describe("TestSkills", function()
 			AddSeparator = function()
 			end,
 		}
-		local spectreList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
-		local beastList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
+		local spectreList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
+		local beastList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
 
 		spectreList:AddValueTooltip(tooltip, 1, "A")
 		assert.matches("Resistances:.*75", table.concat(tooltip.lines, "\n"))
@@ -136,7 +136,7 @@ describe("TestSkills", function()
 		assert.matches("Resistances:.*50", table.concat(tooltip.lines, "\n"))
 
 		local sourceList = { "A", "B" }
-		local sourceControl = new("MinionSearchListControl", nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
+		local sourceControl = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
 		sourceControl.controls.sortModeDropDown.selIndex = 9
 		sourceControl:sortSourceList()
 		assert.are.equals("B", sourceControl.list[1])

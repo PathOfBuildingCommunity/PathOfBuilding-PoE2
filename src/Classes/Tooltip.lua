@@ -63,11 +63,15 @@ local function getSkillAssetByName(name)
 	return skillAssetMap[name]
 end
 
-local TooltipClass = newClass("Tooltip", function(self)
+---@class Tooltip
+local TooltipClass = newClass("Tooltip")
+
+function TooltipClass:Tooltip()
 	self.lines = { }
 	self.blocks = { }
 	self:Clear()
-end)
+	return self
+end
 
 function TooltipClass:Clear(clearUpdateParams)
 	wipeTable(self.lines)

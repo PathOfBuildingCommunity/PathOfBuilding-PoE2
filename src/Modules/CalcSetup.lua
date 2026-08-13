@@ -3,7 +3,8 @@
 -- Module: Calc Setup
 -- Initialises the environment for calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -132,7 +133,7 @@ local function runRadiusJewelFunc(rad, node, out, data)
 		return
 	end
 
-	local scaledList = new("ModList")
+	local scaledList = new("ModList"):ModList()
 	for i = start + 1, #out do
 		scaledList:AddMod(out[i])
 	end
@@ -168,9 +169,9 @@ local function refreshJewelStatCache(env)
 		if not GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId] then
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId] = { }
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].hash = rad.jewelHash
-			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList = new("ModList")
-			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList = new("ModList")
-			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList = new("ModList")
+			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList = new("ModList"):ModList()
+			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList = new("ModList"):ModList()
+			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList = new("ModList"):ModList()
 		end
 		runRadiusJewelFunc(rad, normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
 		runRadiusJewelFunc(rad, attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
@@ -181,7 +182,7 @@ end
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeystoneMods)
 	local localSmallIncEffect = 0
 	local localNotableIncEffect = 0
-	local modList = new("ModList")
+	local modList = new("ModList"):ModList()
 	if node.type == "Keystone" then
 		if includeKeystoneMods then
 			modList:AddList(node.modList)
@@ -225,7 +226,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	-- Apply effect scaling
 	local scale = calcLib.mod(modList, nil, "PassiveSkillEffect")
 	if scale ~= 1 then
-		local scaledList = new("ModList")
+		local scaledList = new("ModList"):ModList()
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
@@ -316,14 +317,14 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	-- Apply Inc Node scaling from Hulking Form
 	if (incSmallPassiveSkill + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + (incSmallPassiveSkill + localSmallIncEffect) / 100
-		local scaledList = new("ModList")
+		local scaledList = new("ModList"):ModList()
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
 
 	if localNotableIncEffect > 0 and node.type == "Notable" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + localNotableIncEffect / 100
-		local scaledList = new("ModList")
+		local scaledList = new("ModList"):ModList()
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
@@ -346,7 +347,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 	end
 
 	-- Add node modifiers
-	local modList = new("ModList")
+	local modList = new("ModList"):ModList()
 	for _, node in pairs(nodeList) do
 		local nodeModList = calcs.buildModListForNode(env, node, inc, includeKeystoneMods)
 		modList:AddList(nodeModList)
@@ -576,11 +577,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.spec = override.spec or build.spec
 		env.classId = env.spec.curClassId
 
-		modDB = new("ModDB")
+		modDB = new("ModDB"):ModDB()
 		env.modDB = modDB
-		enemyDB = new("ModDB")
+		enemyDB = new("ModDB"):ModDB()
 		env.enemyDB = enemyDB
-		env.itemModDB = new("ModDB")
+		env.itemModDB = new("ModDB"):ModDB()
 
 		env.enemyLevel = build.configTab.enemyLevel or m_min(data.misc.MaxEnemyLevel, build.characterLevel)
 
@@ -1216,7 +1217,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				if item.type == "Amulet" and env.allocNodes[39935] and env.allocNodes[39935].dn == "Necromantic Talisman" then
 					-- Special handling for Necromantic Talisman
-					env.talismanModList = new("ModList")
+					env.talismanModList = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						-- add all Amulet mods (no more need to exclude for 'gems socketed in' mods)
 						env.talismanModList:ScaleAddMod(mod, scale)
@@ -1227,7 +1228,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					local info = env.data.weaponTypeInfo[type]
 					if info and type ~= "Bow" then
 						local name = info.oneHand and "Energy Blade One Handed" or "Energy Blade Two Handed"
-						local item = new("Item")
+						local item = new("Item"):Item()
 						item.name = name
 						item.base = data.itemBases[name]
 						item.baseName = name
@@ -1256,7 +1257,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif slotName == "Weapon 1" and item.name == "The Iron Mass, Gladius" then
 					-- Special handling for The Iron Mass
-					env.theIronMass = new("ModList")
+					env.theIronMass = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						-- Filter out mods that apply to socketed gems, or which add supports
 						local add = true
@@ -1274,7 +1275,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif slotName == "Weapon 1" and item.grantedSkills[1] and item.grantedSkills[1].skillId == "UniqueAnimateWeapon" then
 					-- Special handling for The Dancing Dervish
-					env.weaponModList1 = new("ModList")
+					env.weaponModList1 = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						-- Filter out mods that apply to socketed gems, or which add supports
 						local add = true
@@ -1292,11 +1293,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif item.type == "Focus" and calcLib.mod(nodesModsList, nil, "EffectOfBonusesFromFocus") ~=1 then
 					scale = calcLib.mod(nodesModsList, nil, "EffectOfBonusesFromFocus") - 1
-					local combinedList = new("ModList")
+					local combinedList = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
 					end
-					local scaledList = new("ModList")
+					local scaledList = new("ModList"):ModList()
 					scaledList:ScaleAddList(combinedList, scale)
 					for _, mod in ipairs(scaledList) do
 						combinedList:MergeMod(mod, true)
@@ -1341,7 +1342,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif corruptedJewelEffect ~= 0 then
 					scale = scale + corruptedJewelEffect
-					local combinedList = new("ModList")
+					local combinedList = new("ModList"):ModList()
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
 					end
@@ -1436,7 +1437,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
-		override.extraJewelFuncs = new("ModList")
+		override.extraJewelFuncs = new("ModList"):ModList()
 		override.extraJewelFuncs.actor = env.player
 		for _, mod in ipairs(env.modDB:Tabulate("LIST", nil, "ExtraJewelFunc")) do
 			override.extraJewelFuncs:AddMod(mod.mod)

@@ -3,13 +3,17 @@
 -- Class: Label Control
 -- Simple text label.
 --
-local LabelClass = newClass("LabelControl", "Control", function(self, anchor, rect, label)
-	self.Control(anchor, rect)
+---@class LabelControl: Control
+local LabelClass = newClass("LabelControl", "Control")
+
+function LabelClass:LabelControl(anchor, rect, label)
+	self:Control(anchor, rect)
 	self.label = label
 	self.width = function()
 		return DrawStringWidth(self:GetProperty("height"), "VAR", self:GetProperty("label"))
 	end
-end)
+	return self
+end
 
 function LabelClass:Draw()
 	local x, y = self:GetPos()

@@ -15,7 +15,7 @@ describe("TetsItemMods", function()
 	end)
 
 	it("shows duplicate selected variants in item tooltips when enabled", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Mageblood
 			Utility Belt
@@ -27,7 +27,7 @@ describe("TetsItemMods", function()
 			Implicits: 0
 			{variant:1}Legacy of Amethyst
 		]])
-		local tooltip = new("Tooltip")
+		local tooltip = new("Tooltip"):Tooltip()
 
 		build.itemsTab:AddItemTooltip(tooltip, item)
 
@@ -41,12 +41,12 @@ describe("TetsItemMods", function()
 	end)
 
 	it("shows a fallback tooltip when an item's base is no longer supported", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Legacy Item
 			Removed Base
 		]])
-		local tooltip = new("Tooltip")
+		local tooltip = new("Tooltip"):Tooltip()
 
 		assert.has_no.errors(function()
 			build.itemsTab:AddItemTooltip(tooltip, item)
@@ -94,9 +94,9 @@ describe("TetsItemMods", function()
 
 		local itemDB = build.itemsTab.controls.uniqueDB
 		itemDB.db = { list = {
-			new("Item", "New Item\nRing"),
-			new("Item", "New Item\nRing\n+50% to Fire Resistance"),
-			new("Item", "New Item\nBroadhead Quiver"),
+				new("Item"):Item("New Item\nRing"),
+				new("Item"):Item("New Item\nRing\n+50% to Fire Resistance"),
+				new("Item"):Item("New Item\nBroadhead Quiver"),
 		} }
 		itemDB:SetSortMode("FireTakenHit")
 
@@ -321,8 +321,8 @@ describe("TetsItemMods", function()
 	end)
 
 	it("negative limit mods after scaling", function()
-		local baseModList = new("ModList")
-		local scaledModList = new("ModList")
+		local baseModList = new("ModList"):ModList()
+		local scaledModList = new("ModList"):ModList()
 		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
 
 		scaledModList:ScaleAddList(baseModList, 4)
@@ -676,13 +676,13 @@ describe("TetsItemMods", function()
 			type = "Normal",
 			isAttribute = true,
 			allocMode = 0,
-			modList = new("ModList"),
+			modList = new("ModList"):ModList()
 		}
 		local smallNode = {
 			id = 2,
 			type = "Normal",
 			allocMode = 0,
-			modList = new("ModList"),
+			modList = new("ModList"):ModList()
 		}
 		local envMode = "SPEC_TIMELESS_ATTRIBUTE"
 		GlobalCache.cachedData[envMode] = { }

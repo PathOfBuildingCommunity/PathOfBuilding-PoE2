@@ -9,15 +9,18 @@ local t_remove = table.remove
 local s_format = string.format
 local m_max = math.max
 
-local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest, label, showCompanionStats)
-	self.ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
+---@class MinionListControl: ListControl
+local MinionListClass = newClass("MinionListControl", "ListControl")
+
+function MinionListClass:MinionListControl(anchor, rect, data, list, dest, label, showCompanionStats)
+	self:ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
 	self.data = data
 	self.dest = dest
 	self.showCompanionStats = showCompanionStats
 	if dest then
 		self.dragTargetList = { dest }
 		self.label = label or "^7Available Spectres:"
-		self.controls.add = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Add", function()
+		self.controls.add = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Add", function()
 			self:AddSel()
 		end)
 		self.controls.add.enabled = function()
@@ -25,14 +28,15 @@ local MinionListClass = newClass("MinionListControl", "ListControl", function(se
 		end
 	else
 		self.label = label or "^7Spectres in Build:"
-		self.controls.delete = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Remove", function()
+		self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Remove", function()
 			self:OnSelDelete(self.selIndex, self.selValue)
 		end)
 		self.controls.delete.enabled = function()
 			return self.selValue ~= nil
 		end
 	end
-end)
+	return self
+end
 
 function MinionListClass:AddSel()
 	if self.dest and not isValueInArray(self.dest.list, self.selValue) then
@@ -133,11 +137,15 @@ function MinionListClass:OnSelDelete(index, minionId)
 	end
 end
 
-local SpawnListClass = newClass("SpawnListControl", "ListControl", function(self, anchor, rect, data, list, label)
-	self.ListControl(anchor, rect, 16, "VERTICAL", false)
+---@class SpawnListControl: ListControl
+local SpawnListClass = newClass("SpawnListControl", "ListControl")
+
+function SpawnListClass:SpawnListControl(anchor, rect, data, list, label)
+	self:ListControl(anchor, rect, 16, "VERTICAL", false)
 	self.data = data
 	self.label = label or "^7Available Items:"
-end)
+	return self
+end
 
 function SpawnListClass:GetRowValue(column, index, spawnLocation)
 		return spawnLocation
