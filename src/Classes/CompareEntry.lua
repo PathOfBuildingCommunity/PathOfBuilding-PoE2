@@ -107,9 +107,9 @@ function CompareEntryClass:LoadFromXML(xmlText)
 	-- Create tabs
 	-- PartyTab is replaced with a stub providing an empty enemyModList and actor
 	-- (CalcPerform.lua:1088 accesses build.partyTab.actor for party member buffs)
-	local partyActor = { Aura = {}, Curse = {}, Warcry = {}, Link = {}, modDB = new("ModDB"):ModDB() output = {} }
+	local partyActor = { Aura = {}, Curse = {}, Warcry = {}, Link = {}, modDB = new("ModDB"):ModDB(), output = {} }
 	partyActor.modDB.actor = partyActor
-	self.partyTab = { enemyModList = new("ModList"):ModList() actor = partyActor }
+	self.partyTab = { enemyModList = new("ModList"):ModList(), actor = partyActor }
 	self.configTab = new("ConfigTab"):ConfigTab(self)
 	self.itemsTab = new("ItemsTab"):ItemsTab(self)
 	self.treeTab = new("TreeTab"):TreeTab(self)

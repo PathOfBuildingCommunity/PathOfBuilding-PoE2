@@ -126,7 +126,9 @@ function main:Init()
 		self.saveNewModCache = true
 	else
 		-- Load mod cache
-		modLib.parseModCache = LoadModule("Data/ModCache")
+		for k, v in pairs(LoadModule("Data/ModCache")) do
+			modLib.parseModCache[k] = v
+		end
 	end
 
 	--[[ this does not work properly anymore see PR #7675
