@@ -985,6 +985,7 @@ function ConfigTabClass:CreateConfigSet(configSetId, title)
 		if varData.var then
 			configSet.input[varData.var] = varData.defaultState
 			configSet.placeholder[varData.var] = varData.defaultPlaceholderState
+			ConPrintTable(varData)
 			if varData.defaultIndex then
 				configSet.input[varData.var] = varData.list[varData.defaultIndex].val
 			end

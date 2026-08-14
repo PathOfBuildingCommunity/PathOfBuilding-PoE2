@@ -91,7 +91,7 @@ for _, name in ipairs(itemTypes) do
 	local baseFile = io.open(baseFileName, "r")
 	if baseFile then
 		baseFile:close()
-		LoadModule(baseFileName, itemBases)
+		LoadModule(baseFileName)(itemBases)
 	end
 end
 

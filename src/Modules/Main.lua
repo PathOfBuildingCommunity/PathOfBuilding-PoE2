@@ -126,7 +126,7 @@ function main:Init()
 		self.saveNewModCache = true
 	else
 		-- Load mod cache
-		LoadModule("Data/ModCache", modLib.parseModCache)
+		modLib.parseModCache = LoadModule("Data/ModCache")
 	end
 
 	--[[ this does not work properly anymore see PR #7675
@@ -294,7 +294,7 @@ end
 function main:SaveModCache()
 	-- Update mod cache
 	local out = io.open("Data/ModCache.lua", "w")
-	out:write('local c=...')
+	out:write('local c = {}\n')
 	for line, dat in pairsSortByKey(modLib.parseModCache) do
 		if not dat[1] or not dat[1][1] or (dat[1][1].name ~= "JewelFunc" and dat[1][1].name ~= "ExtraJewelFunc") then
 			out:write('c["', line:gsub("\n","\\n"), '"]={')
@@ -310,6 +310,7 @@ function main:SaveModCache()
 			end
 		end
 	end
+	out:write('return c\n')
 	out:close()
 end
 

@@ -4,8 +4,9 @@
 -- Spectre Data
 -- Monster data (c) Grinding Gear Games
 --
-local minions, mod, flag = ...
-
+			return function(mod, flag)
+				---@class SpectreData
+				local minions = {}
 -- Abyssal
 minions["Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"] = {
 	name = "Lightless Abomination",
@@ -22022,7 +22023,7 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion6_"] = {
 minions["Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear"] = {
 	name = "Manifested Demon",
 	monsterTags = { "affliction_daemon", "construct", "immobile", "Stab_onhit_audio", },
-	life = 1.5,
+	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
 	coldResist = 0,
@@ -22032,15 +22033,15 @@ minions["Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear"] = {
 	companionColdResist = 0,
 	companionLightningResist = 0,
 	companionChaosResist = 0,
-	damage = 1.5,
+	damage = 1,
 	damageSpread = 0.2,
 	attackTime = 1.005,
 	attackRange = 12,
 	accuracy = 1,
 	critChance = 5,
 	baseMovementSpeed = 0,
-	spectreReservation = 67,
-	companionReservation = 36.6,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Construct",
 	spawnLocation = {
 	},
@@ -23164,7 +23165,6 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion1"] = {
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 		-- set_suppress_phasing_visual [set_suppress_phasing_visual = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1200]
 	},
 }
 
@@ -23243,7 +23243,6 @@ minions["Metadata/Monsters/CrowBell/CrowBellBossMinion2"] = {
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 		-- set_suppress_phasing_visual [set_suppress_phasing_visual = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1200]
 	},
 }
 
@@ -23888,7 +23887,6 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 5500]
 	},
 }
 
@@ -23941,7 +23939,6 @@ minions["Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 5500]
 	},
 }
 
@@ -23990,7 +23987,6 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion1"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 2250]
 	},
 }
 
@@ -24039,7 +24035,6 @@ minions["Metadata/Monsters/Quadrilla/QuadrillaBossMinion2"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 2250]
 	},
 }
 
@@ -24095,7 +24090,6 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 2250]
 	},
 }
 
@@ -24151,7 +24145,6 @@ minions["Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2"] = {
 		-- set_corpse_cannot_be_destroyed [set_corpse_cannot_be_destroyed = 1]
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 2250]
 	},
 }
 
@@ -24380,7 +24373,6 @@ minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_"] = {
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1600]
 	},
 }
 
@@ -25628,7 +25620,6 @@ minions["Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2"] = {
 		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
-		-- set_monster_delay_item_drops_millis [set_monster_delay_item_drops_millis = 1600]
 	},
 }
 
@@ -25923,3 +25914,5 @@ minions["Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion"] =
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 	},
 }
+			    return minions
+			end

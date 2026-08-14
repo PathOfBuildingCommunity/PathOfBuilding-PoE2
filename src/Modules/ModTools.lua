@@ -45,7 +45,7 @@ function modLib.createMod(modName, modType, modVal, ...)
 	}
 end
 
-modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser", launch)
+modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser")
 
 function modLib.parseTags(line)
 	if not line or line == "-" then

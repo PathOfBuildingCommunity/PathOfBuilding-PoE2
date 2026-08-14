@@ -53,10 +53,10 @@ local ourClassList = {
 	"GGPKData",
 }
 for _, className in ipairs(classList) do
-	LoadModule("../Classes/"..className..".lua", launch, main)
+	LoadModule("../Classes/" .. className .. ".lua")
 end
 for _, className in ipairs(ourClassList) do
-	LoadModule("Classes/"..className, launch, main)
+	LoadModule("Classes/" .. className)
 end
 
 local tempTable1 = { }
@@ -519,7 +519,7 @@ function main:LoadDat64Files()
 			ConPrintf("DAT64 find: %d ms", GetTime() - now)
 			now = GetTime()
 		end
-		local datFile = new("Dat64File", record.name:gsub("%.datc64$",""), record.data)
+		local datFile = new("Dat64File"):Dat64File(record.name:gsub("%.datc64$", ""), record.data)
 		t_insert(self.datFileList, datFile)
 		self.datFileByName[datFile.name] = datFile
 	end

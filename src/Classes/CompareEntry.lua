@@ -49,7 +49,10 @@ function CompareEntryClass:CompareEntry(xmlText, label)
 	self.outputRevision = 1
 
 	-- Display stats (same as primary build uses)
-	self.displayStats, self.minionDisplayStats, self.extraSaveStats = LoadModule("Modules/BuildDisplayStats")
+	local displayStatsModule = LoadModule("Modules/BuildDisplayStats")
+	self.displayStats = displayStatsModule.displayStats
+	self.minionDisplayStats = displayStatsModule.minionDisplayStats
+	self.extraSaveStats = displayStatsModule.extraSaveStats
 
 	-- Load from XML
 	if xmlText then
