@@ -4866,6 +4866,10 @@ local specialModList = {
 	["always pierce with arrows"] = { flag("PierceAllTargets", nil, 0, KeywordFlag.Arrow) },
 	["arrows always pierce"] = { flag("PierceAllTargets", nil, 0, KeywordFlag.Arrow) },
 	["arrows pierce all targets"] = { flag("PierceAllTargets", nil, 0, KeywordFlag.Arrow) },
+	-- Cadiro's Gambit. Each Arrow is a random one of six Perandus Arrows, whose
+	-- behaviours differ too much to average; the "Perandus Arrow type" config
+	-- picks which one to calculate.
+	["each arrow fired is a crescendo, splinter, reversing, diamond, covetous, or blunt arrow"] = { flag("Condition:PerandusArrows") },
 	["arrows that pierce cause bleeding"] = { mod("BleedChance", "BASE", 100, nil, 0, KeywordFlag.Arrow, { type = "StatThreshold", stat = "PierceCount", threshold = 1 }) },
 	["arrows that pierce have (%d+)%% chance to cause bleeding"] = function(num) return { mod("BleedChance", "BASE", num, nil, 0, KeywordFlag.Arrow, { type = "StatThreshold", stat = "PierceCount", threshold = 1 }) } end,
 	["arrows that pierce deal (%d+)%% increased damage"] = function(num) return { mod("Damage", "INC", num, nil, 0, KeywordFlag.Arrow, { type = "StatThreshold", stat = "PierceCount", threshold = 1 }) } end,

@@ -170,6 +170,31 @@ local configSettings = {
 	{ var = "ailmentMode", type = "list", label = "Ailment calculation mode:", tooltip = "Controls how the base damage for applying Ailments is calculated:\n\tAverage: damage is based on the average application, including both crits and non-crits\n\tCrits Only: damage is based solely on Ailments inflicted with crits", list = {{val="AVERAGE",label="Average"},{val="CRIT",label="Crits Only"}} },
 	{ var = "cooldownMode", type = "list", label = "Cooldown calculation mode:", tooltip = "Controls how the cooldown for skills is calculated:\n\tBase: The cooldown is calculated with normal behavior.\n\tAverage: The cooldown is adjusted to reflect the average time between uses, factoring in effects such as a chance to not consume a cooldown.", list = {{val="BASE",label="Base"},{val="AVERAGE",label="Average"}} },
 	{ var = "physMode", type = "list", label = "Random element mode:", ifFlag = "randomPhys", tooltip = "Controls how modifiers which choose a random element will function.\n\tAverage: Modifiers will grant one third of their value to ^xB97123Fire^7, ^x3F6DB3Cold^7, and ^xADAA47Lightning ^7simultaneously\n\t^xB97123Fire ^7/ ^x3F6DB3Cold ^7/ ^xADAA47Lightning^7: Modifiers will grant their full value as the specified element\nIf a modifier chooses between just two elements, the full value can only be given as those two elements.", list = {{val="AVERAGE",label="Average"},{val="FIRE",label="^xB97123Fire"},{val="COLD",label="^x3F6DB3Cold"},{val="LIGHTNING",label="^xADAA47Lightning"}} },
+	{ var = "perandusArrow", type = "list", label = "Perandus Arrow type:", ifFlag = "Condition:PerandusArrows", tooltip = "Cadiro's Gambit turns every Arrow into a random one of six Perandus Arrows, so each type applies to a sixth of the Arrows you fire.\nTheir behaviours are too different to average into one number (Chaining against guaranteed Critical Hits), so this picks the Arrow to calculate.\nRandom: none of the six is applied.", list = {{val="NONE",label="Random (none applied)"},{val="CRESCENDO",label="Crescendo (Chain)"},{val="SPLINTER",label="Splinter (Split)"},{val="REVERSING",label="Reversing (Pierce)"},{val="DIAMOND",label="Diamond (Critical)"},{val="COVETOUS",label="Covetous (Rarity)"},{val="BLUNT",label="Blunt (Stun)"}}, apply = function(val, modList, enemyModList)
+		-- In-game Arrow descriptions, quoted so the values below can be checked:
+		-- Crescendo: "Crescendo Arrows Chain 6 additional times and deal 60% increased Damage for each time they have Chained."
+		-- Splinter: "Splintering Arrows Split towards 6 targets."
+		-- Reversing: "Reversing Arrows Pierce all targets and Return to you."
+		-- Diamond: "All Hits with Diamond Arrows are Critical Hits with 60% increased Critical Damage Bonus."
+		-- Covetous: "Enemies killed with Covetous Arrows drop items with 600% increased Rarity."
+		-- Blunt: "Blunt Arrows cause 600% increased Stun Buildup."
+		if val == "CRESCENDO" then
+			modList:NewMod("ChainCountMax", "BASE", 6, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+			modList:NewMod("Damage", "INC", 60, "Config", 0, KeywordFlag.Arrow, { type = "PerStat", stat = "Chain" }, { type = "Condition", var = "PerandusArrows" })
+		elseif val == "SPLINTER" then
+			modList:NewMod("SplitCount", "BASE", 6, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+		elseif val == "REVERSING" then
+			-- The Arrow also returns to you, which PoB does not model.
+			modList:NewMod("PierceAllTargets", "FLAG", true, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+		elseif val == "DIAMOND" then
+			modList:NewMod("CritChance", "OVERRIDE", 100, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+			modList:NewMod("CritMultiplier", "INC", 60, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+		elseif val == "COVETOUS" then
+			modList:NewMod("LootRarity", "INC", 600, "Config", { type = "Condition", var = "PerandusArrows" })
+		elseif val == "BLUNT" then
+			modList:NewMod("EnemyHeavyStunBuildup", "INC", 600, "Config", 0, KeywordFlag.Arrow, { type = "Condition", var = "PerandusArrows" })
+		end
+	end },
 	{ var = "lifeRegenMode", type = "list", label = "^xE05030Life ^7regen calculation mode:", ifCond = { "LifeRegenBurstAvg", "LifeRegenBurstFull" }, tooltip = "Controls how ^xE05030Life ^7regeneration is calculated:\n\tMinimum: does not include burst regen\n\tAverage: includes burst regen, averaged based on uptime\n\tBurst: includes full burst regen", list = {{val="MIN",label="Minimum"},{val="AVERAGE",label="Average"},{val="FULL",label="Burst"}}, apply = function(val, modList, enemyModList)
 		if val == "AVERAGE" then
 			modList:NewMod("Condition:LifeRegenBurstAvg", "FLAG", true, "Config")
