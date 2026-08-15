@@ -431,6 +431,12 @@ local function doActorAttribsConditions(env, actor)
 			if modDB:Sum("BASE", nil, modName) > 0 or modDB:HasMod("FLAG", nil, "InflictExposure") then
 				return true
 			end
+			-- Exposure granted straight to the enemy, as The Whispering Ice and
+			-- "Enemies in your Presence have Exposure" do, carries no chance mod
+			-- and no InflictExposure flag, so it has to be read off the enemy.
+			if env.enemy and env.enemy.modDB and env.enemy.modDB:Sum("BASE", nil, element .. "Exposure") > 0 then
+				return true
+			end
 			for _, activeSkill in ipairs(env.player.activeSkillList) do
 				if hasActiveSkillExposureSource(activeSkill, modName) then
 					return true
