@@ -23339,6 +23339,16 @@ return {
 		},
 		[1614]={
 			nodes={
+				[1]=38813
+			},
+			orbits={
+				[1]=0
+			},
+			x=9625.0212025516,
+			y=12036.589100546
+		},
+		[1615]={
+			nodes={
 				[1]=36365
 			},
 			orbits={
@@ -23347,7 +23357,7 @@ return {
 			x=9688.2912025516,
 			y=12636.769100546
 		},
-		[1615]={
+		[1616]={
 			nodes={
 				[1]=4891
 			},
@@ -23357,7 +23367,17 @@ return {
 			x=9850.4112025516,
 			y=12521.869100546
 		},
-		[1616]={
+		[1617]={
+			nodes={
+				[1]=30100
+			},
+			orbits={
+				[1]=0
+			},
+			x=9886.6612025516,
+			y=12162.199100546
+		},
+		[1618]={
 			nodes={
 				[1]=58149
 			},
@@ -23367,7 +23387,7 @@ return {
 			x=9893.7112025516,
 			y=12885.789100546
 		},
-		[1617]={
+		[1619]={
 			nodes={
 				[1]=37046
 			},
@@ -23377,7 +23397,7 @@ return {
 			x=9942.6712025516,
 			y=11772.789100546
 		},
-		[1618]={
+		[1620]={
 			nodes={
 				[1]=60859
 			},
@@ -23387,7 +23407,7 @@ return {
 			x=10074.361202552,
 			y=12761.739100546
 		},
-		[1619]={
+		[1621]={
 			nodes={
 				[1]=30233
 			},
@@ -23397,7 +23417,7 @@ return {
 			x=10115.831202552,
 			y=12357.719100546
 		},
-		[1620]={
+		[1622]={
 			nodes={
 				[1]=22661
 			},
@@ -23407,7 +23427,7 @@ return {
 			x=10251.191202552,
 			y=12701.699100546
 		},
-		[1621]={
+		[1623]={
 			nodes={
 				[1]=11776
 			},
@@ -32031,7 +32051,7 @@ return {
 			ascendancyName="Ritualist",
 			connections={
 			},
-			group=1615,
+			group=1616,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistPlusOneMaxCharm.dds",
 			isNotable=true,
 			name="Intricate Sigils",
@@ -43973,7 +43993,7 @@ return {
 					orbit=6
 				}
 			},
-			group=1621,
+			group=1623,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistNode.dds",
 			name="Physical Damage",
 			nodeOverlay={
@@ -58382,8 +58402,8 @@ return {
 			},
 			skill=20397,
 			stats={
-				[1]="15% increased Area of Effect for Attacks",
-				[2]="10% increased Cooldown Recovery Rate"
+				[1]="10% increased Cooldown Recovery Rate",
+				[2]="15% increased Area of Effect for Attacks"
 			},
 			stringId="area_attacks30"
 		},
@@ -61960,7 +61980,7 @@ return {
 					orbit=8
 				}
 			},
-			group=1620,
+			group=1622,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistNode.dds",
 			name="Movement Speed",
 			nodeOverlay={
@@ -74575,6 +74595,30 @@ return {
 			},
 			stringId="crossbow23"
 		},
+		[30100]={
+			ascendancyName="Ritualist",
+			connections={
+				[1]={
+					id=38813,
+					orbit=6
+				}
+			},
+			group=1617,
+			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistNode.dds",
+			name="Movement Speed",
+			nodeOverlay={
+				alloc="RitualistFrameSmallAllocated",
+				path="RitualistFrameSmallCanAllocate",
+				unalloc="RitualistFrameSmallNormal"
+			},
+			orbit=0,
+			orbitIndex=0,
+			skill=30100,
+			stats={
+				[1]="3% increased Movement Speed"
+			},
+			stringId="AscendancyHuntress3Small7"
+		},
 		[30102]={
 			connections={
 				[1]={
@@ -74859,8 +74903,12 @@ return {
 		[30233]={
 			ascendancyName="Ritualist",
 			connections={
+				[1]={
+					id=30100,
+					orbit=6
+				}
 			},
-			group=1619,
+			group=1621,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistStabCorpse.dds",
 			isNotable=true,
 			name="As the Whispers Demand",
@@ -83497,7 +83545,8 @@ return {
 				[1]="Gain Deflection Rating equal to 8% of Evasion Rating",
 				[2]="Deflected Hits cannot inflict Maim on you",
 				[3]="Deflected Hits cannot inflict Bleeding on you"
-			}
+			},
+			stringId="deflect53"
 		},
 		[34912]={
 			connections={
@@ -86194,7 +86243,7 @@ return {
 					orbit=8
 				}
 			},
-			group=1614,
+			group=1615,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
 			name="Ritualist",
@@ -87242,7 +87291,7 @@ return {
 			ascendancyName="Ritualist",
 			connections={
 			},
-			group=1617,
+			group=1619,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistBloodBoils.dds",
 			isNotable=true,
 			name="Corrupted Lifeforce",
@@ -90635,6 +90684,27 @@ return {
 				[1]="12% increased Armour and Evasion Rating"
 			},
 			stringId="armour_and_evasion27"
+		},
+		[38813]={
+			ascendancyName="Ritualist",
+			connections={
+			},
+			group=1614,
+			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistStabCorpseHand.dds",
+			isNotable=true,
+			name="Devotion to the King",
+			nodeOverlay={
+				alloc="RitualistFrameLargeAllocated",
+				path="RitualistFrameLargeCanAllocate",
+				unalloc="RitualistFrameLargeNormal"
+			},
+			orbit=0,
+			orbitIndex=0,
+			skill=38813,
+			stats={
+				[1]="Grants Skill: Queen's Procession"
+			},
+			stringId="AscendancyHuntress3Notable8"
 		},
 		[38814]={
 			connections={
@@ -124879,7 +124949,7 @@ return {
 					orbit=8
 				}
 			},
-			group=1616,
+			group=1618,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistNode.dds",
 			name="Life Recovery Rate",
 			nodeOverlay={
@@ -126036,8 +126106,8 @@ return {
 			stats={
 				[1]="+8% of Armour also applies to Elemental Damage",
 				[2]="10% faster start of Energy Shield Recharge",
-				[3]="Immune to Exposure",
-				[4]="Unaffected by Elemental Weakness"
+				[3]="30% reduced effect of Curses on you",
+				[4]="Immune to Exposure"
 			},
 			stringId="energy_shield_and_armour48"
 		},
@@ -129279,7 +129349,7 @@ return {
 					orbit=9
 				}
 			},
-			group=1618,
+			group=1620,
 			icon="Art/2DArt/SkillIcons/passives/Primalist/PrimalistNode.dds",
 			name="Charm Charges",
 			nodeOverlay={

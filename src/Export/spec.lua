@@ -10104,15 +10104,6 @@ return {
 			width=300
 		}
 	},
-	buildplannerinventories={
-		[1]={
-			list=false,
-			name="Inventory",
-			refTo="Inventories",
-			type="Key",
-			width=150
-		}
-	},
 	caravanstops={
 		[1]={
 			list=false,

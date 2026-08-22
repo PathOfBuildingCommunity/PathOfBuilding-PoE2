@@ -3524,6 +3524,12 @@
 
 
 						--------- Active Intelligence ---------
+#skill AbyssalPactPlayer
+#set AbyssalPactPlayer
+#flags
+#mods
+#skillEnd
+
 #skill ArcPlayer
 #set ArcPlayer
 #flags
@@ -4603,6 +4609,12 @@
 
 #skill UnleashPlayer
 #set UnleashPlayer
+#flags
+#mods
+#skillEnd
+
+#skill AbyssalLivingBomb
+#set AbyssalLivingBomb
 #flags
 #mods
 #skillEnd

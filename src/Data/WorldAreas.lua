@@ -1000,6 +1000,54 @@ worldAreas["HideoutVampireManor"] = {
 	},
 }
 
+worldAreas["HideoutRemidusMonastery_"] = {
+	name = "Saints End Monastery Hideout (Act 1)",
+	baseName = "Saints End Monastery Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankIce"] = {
+	name = "Frozen Lake Hideout (Act 1)",
+	baseName = "Frozen Lake Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankFire"] = {
+	name = "Wildfire Clearing Hideout (Act 1)",
+	baseName = "Wildfire Clearing Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutShip"] = {
+	name = "The Sovereign Hideout (Act 1)",
+	baseName = "The Sovereign Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
 worldAreas["MapHideoutFarmlands_Claimable"] = {
 	name = "Farmlands Hideout (Map)",
 	baseName = "Farmlands Hideout",

@@ -14915,7 +14915,7 @@ skills["RunicReprievePlayer"] = {
 		{ "active_skill_stun_threshold_+%_while_performing_action", 2, {  } },
 	},
 	altQualityStats = {
-		{ "rune_ward_block_%_damage_taken", 0.5, {  } },
+		{ "rune_ward_block_%_damage_taken", -0.1, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { WardPerMinute = 180, }, },

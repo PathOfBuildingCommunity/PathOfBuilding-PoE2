@@ -206,6 +206,16 @@ itemBases["Runeforged Shortbow"] = {
 	weapon = { PhysicalMin = 44, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.4, Range = 120, },
 	req = { level = 55, dex = 97, },
 }
+itemBases["Runeforged Warden Bow"] = {
+	type = "Bow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { bow = true, default = true, ezomyte_basetype = true, ranged = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	implicit = "(25-35)% chance to Chain an additional time",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 38, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
+	req = { level = 40, dex = 72, },
+}
 itemBases["Runeforged Recurve Bow"] = {
 	type = "Bow",
 	quality = 20,
