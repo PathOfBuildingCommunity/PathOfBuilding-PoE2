@@ -710,6 +710,7 @@ return {
 	{ label = "Repeat Count", haveOutput = "RepeatCount", { format = "{output:Repeats}", { modName = { "RepeatCount" }, cfg = "skill" }, }, },
 	{ label = "Projectile Count", flag = "projectile", { format = "{output:ProjectileCount}", { modName = { "NoAdditionalProjectiles" , "ProjectileCount", "SurpassingProjectileChance", "TwoAdditionalProjectilesChance" }, cfg = "skill" }, }, },
 	{ label = "2 Add. Proj. Chance", haveOutput = "TwoAdditionalProjectiles", { format = "{output:TwoAdditionalProjectiles}%", { modName = { "TwoAdditionalProjectilesChance", "NoAdditionalProjectiles" }, cfg = "skill" }, }, },
+	{ label = "Return Chance", haveOutput = "ProjectileReturnChance", { format = "{0:output:ProjectileReturnChance}%", { modName = "ProjectileReturnChance", modType = "BASE", cfg = "skill" }, }, },
 	{ label = "Pierce Count", haveOutput = "PierceCount", { format = "{output:PierceCountString}", { modName = { "CannotPierce", "PierceCount", "PierceChance", "PierceAllTargets" }, cfg = "skill" }, }, },
 	{ label = "Fork Count", haveOutput = "ForkCountMax", { format = "{output:ForkCountString}", { modName = { "CannotFork", "ForkCountMax" }, cfg = "skill" }, }, },
 	{ label = "Max Chain Count", haveOutput = "ChainMax", { format = "{output:ChainMaxString}", { modName = { "CannotChain", "ChainCountMax", "ChainChance", "NoAdditionalChains" }, cfg = "skill" }, }, },

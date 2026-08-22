@@ -4824,6 +4824,33 @@ local specialModList = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, nil, ModFlag.Attack, { type = "Multiplier", var = "RageEffect", actor = "player" }) }),
 	} end,
 	-- Projectiles
+	["each arrow fired is a crescendo, splinter, reversing, diamond, covetous, or blunt arrow"] = { flag("Condition:HaveCadirosGambit"),
+		-- Crescendo
+		mod("ChainCountMax", "BASE", 6, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowCrescendo" }),
+		mod("Damage", "INC", 60, nil, 0, KeywordFlag.Arrow,
+			{ type = "PerStat", stat = "Chain" },
+			{ type = "Condition", var = "PerandusArrowCrescendo" }),
+		-- Splinter
+		mod("SplitCount", "BASE", 6, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowSplinter" }),
+		-- Reversing
+		flag("PierceAllTargets", nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowReversing" }),
+		mod("ProjectileReturnChance", "BASE", 100, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowReversing" }),
+		-- Diamond
+		mod("CritChance", "OVERRIDE", 100, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowDiamond" }),
+		mod("CritMultiplier", "INC", 60, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowDiamond" }),
+		-- Covetous
+		mod("LootRarity", "INC", 600, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowCovetous" }),
+		-- Blunt
+		mod("EnemyHeavyStunBuildup", "INC", 600, nil, 0, KeywordFlag.Arrow,
+			{ type = "Condition", var = "PerandusArrowBlunt" }),
+	},
 	["skills chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num) } end,
 	["arrows chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, 0, KeywordFlag.Arrow) } end,
 	["skills chain an additional time while at maximum frenzy charges"] = { mod("ChainCountMax", "BASE", 1, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },

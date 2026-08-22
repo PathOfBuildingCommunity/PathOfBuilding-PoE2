@@ -1581,6 +1581,28 @@ Huge sets the radius to 11.
 			modList:NewMod("Keystone", "LIST", "Resolute Technique", "Config")
 		end
 	end },
+	{ var = "cadirosGambitArrow", type = "list", label = "Cadiro's Gambit Arrow:", ifFlag = "Condition:HaveCadirosGambit",
+		list = {
+			{ val = "NONE", label = "Not selected", tooltip = "No Cadiro's Gambit arrow effect." },
+			{ val = "PerandusArrowCrescendo", label = "Crescendo", tooltip = "Crescendo Arrows Chain 6 additional times and deal 60% increased Damage for each time they have Chained." },
+			{ val = "PerandusArrowSplinter", label = "Splinter", tooltip = "Splintering Arrows Split towards 6 targets." },
+			{ val = "PerandusArrowReversing", label = "Reversing", tooltip = "Reversing Arrows Pierce all targets and Return to you." },
+			{ val = "PerandusArrowDiamond", label = "Diamond", tooltip = "All Hits with Diamond Arrows are Critical Hits with 60% increased Critical Damage Bonus." },
+			{ val = "PerandusArrowCovetous", label = "Covetous", tooltip = "Enemies killed with Covetous Arrows drop items with 600% increased Rarity." },
+			{ val = "PerandusArrowBlunt", label = "Blunt", tooltip = "Blunt Arrows cause 600% increased Stun Buildup." },
+		},
+		defaultIndex = 1,
+		tooltipFunc = function(tooltip, mode, index, value)
+			tooltip:Clear()
+			if value and value.tooltip then
+				tooltip:AddLine(14, value.tooltip)
+			end
+		end,
+		apply = function(val, modList, enemyModList)
+			if val ~= "NONE" then
+				modList:NewMod("Condition:" .. val, "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+			end
+	end },
 	{ var = "conditionHaveVulconus", type = "check", label = "Do you have Avatar Of Fire?", ifFlag = "Condition:HaveVulconus", tooltip = "This option is specific to Vulconus.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveAvatarOfFire", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Keystone", "LIST", "Avatar of Fire", "Config")
