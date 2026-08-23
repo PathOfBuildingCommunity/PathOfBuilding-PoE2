@@ -1,0 +1,11 @@
+diff a/src/Classes/ModDB.lua b/src/Classes/ModDB.lua	(rejected hunks)
+@@ -143,6 +143,9 @@ function ModDBClass:SumInternal(context, modType, cfg, flags, keywordFlags, sour
+ 				local mod = modList[i]
+ 				if mod.type == modType and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or ( mod.source and mod.source:match("[^:]+") == source )) then
+ 					if mod[1] then
++						if not globalLimits then
++							globalLimits = {}
++						end
+ 						local value = context:EvalMod(mod, cfg, globalLimits) or 0
+ 						result = result + value
+ 					else
