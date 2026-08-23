@@ -62,6 +62,10 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 		self.toggleConfigs = not self.toggleConfigs
 	end)
 
+	local function isCollapsed(section)
+		return self:IsSectionCollapsed(section)
+	end
+
 	local function searchMatch(varData)
 		local searchStr = self.controls.search.buf:lower():gsub("[%-%.%+%[%]%$%^%%%?%*]", "%%%0")
 		if searchStr and searchStr:match("%S") then
@@ -633,6 +637,15 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 				end
 			end
 
+			local ownSection = lastSection
+			local eligibleShown = control.shown
+			control.shown = function()
+				if isCollapsed(ownSection) then
+					return false
+				end
+				return type(eligibleShown) == "boolean" and eligibleShown or eligibleShown()
+			end
+
 			t_insert(self.controls, control)
 			t_insert(lastSection.varControlList, control)
 		end
@@ -815,6 +828,10 @@ function ConfigTabClass:Draw(viewPort, inputEvents)
 	for _, section in ipairs(self.sectionList) do
 		local y = 14
 		section.shown = true
+		-- Probe with the section expanded, so a collapsed section that still has
+		-- eligible options keeps its (clickable) header on screen
+		local collapsed = section.collapsed
+		section.collapsed = false
 		local doShow = false
 		for _, varControl in pairs(section.varControlList) do
 			if varControl:IsShown() then
@@ -825,6 +842,7 @@ function ConfigTabClass:Draw(viewPort, inputEvents)
 				y = y + height + 4
 			end
 		end
+		section.collapsed = collapsed
 		section.shown = doShow
 		if doShow then
 			local width, height = section:GetSize()
