@@ -1,0 +1,53 @@
+diff a/src/Classes/CalcBreakdownControl.lua b/src/Classes/CalcBreakdownControl.lua	(rejected hunks)
+@@ -27,8 +27,14 @@ function CalcBreakdownClass:CalcBreakdownControl(calcsTab)
+ 	self.rangeGuide:Load("Assets/range_guide.png")
+ 	self.uiOverlay = NewImageHandle()
+ 	self.uiOverlay:Load("Assets/game_ui_small.png")
++	self.borderThickness = 2
+ 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "RIGHT", self, "RIGHT" }, { -2, 0, 18, 0 }, 80,
+ 	"VERTICAL", true)
++	self.controls.scrollBar.x = function()
++		return -self.borderThickness
++	end
++	self.pinnedColour = { 0.25, 1, 0.25 }
++	self.borderColour = { 0.33, 0.66, 0.33 }
+ 	return self
+ end
+ 
+@@ -39,21 +45,34 @@ function CalcBreakdownClass:IsMouseOver()
+ 	return self:IsMouseInBounds() or self:GetMouseOverControl() 
+ end
+ 
+-function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
++function CalcBreakdownClass:GetActor()
++	local env = self.calcsTab[self.envName or "calcsEnv"]
++	local actor = self.calcsTab.input.showMinion and env.minion or env.player
++	if self.forceActor then
++		actor = env[self.forceActor]
++	end
++	return actor, env
++end
++---@param displayData any
++---@param pinned any
++---@param forceActor "player"|"minion"|nil
++function CalcBreakdownClass:SetBreakdownData(displayData, pinned, forceActor)
+ 	self.pinned = pinned
+ 	if displayData == self.sourceData then
+ 		return
+ 	end
+ 	self.sourceData = displayData
++	self.forceActor = forceActor
+ 	self.shown = false
+ 	if not displayData then
+ 		return
+ 	end
+ 
+ 	-- Build list of sections
++	local actor, env = self:GetActor()
+ 	self.sectionList = wipeTable(self.sectionList)
+ 	for _, sectionData in ipairs(displayData) do
+-		if self.calcsTab:CheckFlag(sectionData) then
++		if self.calcsTab:CheckFlag(sectionData, actor, env.player) then
+ 			if sectionData.breakdown then
+ 				self:AddBreakdownSection(sectionData)
+ 			elseif sectionData.modName then

@@ -74,7 +74,7 @@ local displayStats = {
 	{ stat = "SealCooldown", label = "Seal Gain Frequency", fmt = ".2fs", lowerIsBetter = true },
 	{ stat = "SealMax", label = "Max Number of Seals", fmt = "d" },
 	{ stat = "TimeMaxSeals", label = "Time to Gain Max Seals", fmt = ".2fs", lowerIsBetter = true },
-	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm" },
+	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm", breakdown = "AreaOfEffectRadius", modNames = { "AreaOfEffect" } },
 	{ stat = "BrandAttachmentRangeMetre", label = "Attachment Range", fmt = ".1fm", flag = "brand" },
 	{ stat = "BrandTicks", label = "Activations per Brand", fmt = "d", flag = "brand" },
 	{ stat = "ManaCost", label = "Mana Cost", fmt = "d", color = colorCodes.MANA, pool = "ManaUnreserved", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaHasCost end },
@@ -249,6 +249,7 @@ local minionDisplayStats = {
 	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", fmt = ".1f", color = colorCodes.ES, compPercent = true },
 }
 -- Extra stats saved to the xml if not already saved there, mostly for 3rd party tools
+---@type string[]
 local extraSaveStats = {
 	"PowerCharges",
 	"PowerChargesMax",

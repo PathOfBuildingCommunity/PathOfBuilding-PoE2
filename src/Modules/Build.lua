@@ -2255,7 +2255,7 @@ function buildMode:RefreshStatList()
 				t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, "^8" .. self.calcsTab.mainEnv.minion.mainSkill.infoMessage2})
 			end
 		end
-		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion)
+		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion, "minion")
 		t_insert(statBoxList, { height = 10 })
 		t_insert(statBoxList, { height = 18, "^7Player:" })
 	end
@@ -2263,7 +2263,7 @@ function buildMode:RefreshStatList()
 		t_insert(statBoxList, { height = 16, "^7Skill disabled:" })
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
-	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player)
+	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player, "player")
 	self:InsertItemWarnings()
 	self:EstimatePlayerProgress()
 end

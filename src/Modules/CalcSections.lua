@@ -646,8 +646,8 @@ return {
 	{ label = "OH DMG Mod.", bgCol = colorCodes.OFFHANDBG, flag = "weapon2Attack", haveOutput = "OffHand.ImpaleModifier", { format = "{3:output:OffHand.ImpaleModifier}", modType = "MORE",
 		{ breakdown = "OffHand.ImpaleModifier" },
 	}, },
-	{ label = "Impale DPS", flag = "impale", flag = "notAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
-	{ label = "Impale Damage", flag = "impale", flag = "showAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
+	{ label = "Impale DPS", flag = "notAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
+	{ label = "Impale Damage", flag = "showAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
 } }
 } },
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Skill type-specific Stats", data = {
