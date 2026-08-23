@@ -64,7 +64,10 @@ end
 
 function ControlClass:GetPos()
 	if self.anchor.collapse and self.anchor.other and not self.anchor.other:GetProperty("shown") then
-		return self.anchor.other:GetPos()
+		local x, y = self.anchor.other:GetPos()
+		x = x + (self.collapseX or 0)
+		y = y + (self.collapseY or 0)
+		return x, y
 	end
 	local x = self:GetProperty("x")
 	local y = self:GetProperty("y")

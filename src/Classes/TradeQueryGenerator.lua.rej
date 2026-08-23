@@ -1,0 +1,11 @@
+diff a/src/Classes/TradeQueryGenerator.lua b/src/Classes/TradeQueryGenerator.lua	(rejected hunks)
+@@ -137,7 +137,8 @@ local eldritchModSlots = {
+ 	["Body Armour"] = true,
+ 	["Helmet"] = true,
+ 	["Gloves"] = true,
+-	["Boots"] = true
++	["Boots"] = true,
++	["Amulet"] = true
+ }
+ 
+ local function logToFile(...)

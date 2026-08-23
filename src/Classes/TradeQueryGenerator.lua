@@ -861,6 +861,7 @@ Implicits: 0]]
 		options = options,
 		slot = slot,
 		requiredMods = options.requiredMods,
+		blockedMods = options.blockedMods
 	}
 
 	-- OnFrame will pick this up and begin the work
@@ -960,8 +961,8 @@ function TradeQueryGeneratorClass:FinishQuery()
 	}
 	local selectedTradeType = self.tradeTypes[self.tradeTypeIndex]
 	-- Generate trade query str and open in browser
-	local filters = 0
 	local requiredMods = self.calcContext.requiredMods or {}
+	local blockedMods = self.calcContext.blockedMods or {}
 	local queryTable = {
 		query = {
 			filters = self.calcContext.special.queryFilters or {
@@ -1048,6 +1049,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	end
 
 	if options.maxPrice and options.maxPrice > 0 then
+		complexityBudget = complexityBudget - 3
 		queryTable.query.filters.trade_filters = {
 			filters = {
 				price = {
