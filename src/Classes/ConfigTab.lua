@@ -458,6 +458,12 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					end
 				end))
 			end
+			if varData.ifMinionFlag then
+				t_insert(shownFuncs, listOrSingleIfOption(varData.ifMinionFlag, function(ifOption)
+					local minion = self.build.calcsTab.mainEnv.minion
+					return minion and minion.modDB and minion.modDB:Flag(nil, ifOption)
+				end))
+			end
 			if varData.ifMod then
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifMod, function(ifOption)
 					if implyCond(varData) then
