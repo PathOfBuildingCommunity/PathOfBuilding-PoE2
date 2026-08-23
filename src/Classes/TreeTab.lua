@@ -623,10 +623,7 @@ end
 function TreeTabClass:OpenSpecManagePopup()
 	local controls = { }
 	controls.specList = new("PassiveSpecListControl", nil, {0, 50, 350, 200}, self)
-	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.specList[self.activeSpec])
-	controls.specList.levelRange = controls.levelRange
-
-	controls.importTree = new("ButtonControl", nil, {-99, 290, 90, 20}, "Import Tree", function()
+	controls.importTree = new("ButtonControl", nil, {-99, 260, 90, 20}, "Import Tree", function()
 		self:OpenImportPopup()
 	end)
 	controls.exportTree = new("ButtonControl", {"LEFT", controls.importTree, "RIGHT"}, {8, 0, 90, 20}, "Export Tree", function()
@@ -638,7 +635,7 @@ function TreeTabClass:OpenSpecManagePopup()
 		main:ClosePopup()
 	end)
 
-	main:OpenPopup(370, 320, "Manage Passive Trees", controls)
+	main:OpenPopup(370, 290, "Manage Passive Trees", controls)
 end
 
 function TreeTabClass:CopyTree(sourceSpecId, newSpecName)

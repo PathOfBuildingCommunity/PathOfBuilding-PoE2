@@ -440,8 +440,6 @@ function SkillsTabClass:Load(xml, fileName)
 		if node.elem == "SkillSet" then
 			local skillSet = self:CreateSkillSet(tonumber(node.attrib.id))
 			skillSet.title = node.attrib.title
-			skillSet.levelMin = tonumber(node.attrib.levelMin)
-			skillSet.levelMax = tonumber(node.attrib.levelMax)
 			t_insert(self.skillSetOrderList, skillSet.id)
 			for _, subNode in ipairs(node) do
 				self:LoadSkill(subNode, skillSet.id)
@@ -464,7 +462,7 @@ function SkillsTabClass:Save(xml)
 	}
 	for _, skillSetId in ipairs(self.skillSetOrderList) do
 		local skillSet = self.skillSets[skillSetId]
-		local child = { elem = "SkillSet", attrib = { id = tostring(skillSetId), title = skillSet.title, levelMin = skillSet.levelMin and tostring(skillSet.levelMin) or nil, levelMax = skillSet.levelMax and tostring(skillSet.levelMax) or nil } }
+		local child = { elem = "SkillSet", attrib = { id = tostring(skillSetId), title = skillSet.title } }
 		t_insert(xml, child)
 
 		for _, socketGroup in ipairs(skillSet.socketGroupList) do
@@ -1481,13 +1479,10 @@ end
 function SkillsTabClass:OpenSkillSetManagePopup()
 	local controls = { }
 	controls.setList = new("SkillSetListControl", nil, {0, 50, 350, 200}, self)
-	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.skillSets[self.activeSkillSetId])
-	controls.setList.levelRange = controls.levelRange
-
-	controls.close = new("ButtonControl", nil, {0, 290, 90, 20}, "Done", function()
+	controls.close = new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 320, "Manage Skill Sets", controls)
+	main:OpenPopup(370, 290, "Manage Skill Sets", controls)
 end
 
 -- Creates a new skill set without adding to order list

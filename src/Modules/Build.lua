@@ -296,45 +296,15 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			controls.edit = new("EditControl", nil, {0, 40, 350, 20}, "New Loadout", nil, nil, 100, function(buf)
 				controls.save.enabled = buf:match("%S")
 			end)
-			-- Fake set to apply to all of the real sets
-			local newSet = {}
-			controls.levelRange = new("LevelRangeControl", nil, {-155, 70, 0, 16}, newSet)
-			controls.save = new("ButtonControl", nil, {-45, 100, 80, 20}, "Save", function()
-				local loadout = controls.edit.buf
-				local levelMin = newSet.levelMin
-				local levelMax = newSet.levelMax
-
-				local newSpec = new("PassiveSpec", self, latestTreeVersion)
-				newSpec.title = loadout
-				newSpec.levelMin = levelMin
-				newSpec.levelMax = levelMax
-				t_insert(self.treeTab.specList, newSpec)
-
-				local itemSet = self.itemsTab:NewItemSet(#self.itemsTab.itemSets + 1)
-				t_insert(self.itemsTab.itemSetOrderList, itemSet.id)
-				itemSet.title = loadout
-				itemSet.levelMin = levelMin
-				itemSet.levelMax = levelMax
-
-				local skillSet = self.skillsTab:NewSkillSet(#self.skillsTab.skillSets + 1)
-				t_insert(self.skillsTab.skillSetOrderList, skillSet.id)
-				skillSet.title = loadout
-				skillSet.levelMin = levelMin
-				skillSet.levelMax = levelMax
-
-				local configSet = self.configTab:NewConfigSet(#self.configTab.configSets + 1)
-				t_insert(self.configTab.configSetOrderList, configSet.id)
-				configSet.title = loadout
-
-				self:SyncLoadouts()
-				self.modFlag = true
+			controls.save = new("ButtonControl", nil, { -45, 70, 80, 20 }, "Save", function()
+				self:NewLoadout(controls.edit.buf)
 				main:ClosePopup()
 			end)
 			controls.save.enabled = false
-			controls.cancel = new("ButtonControl", nil, {45, 100, 80, 20}, "Cancel", function()
+			controls.cancel = new("ButtonControl", nil, { 45, 70, 80, 20 }, "Cancel", function()
 				main:ClosePopup()
 			end)
-			main:OpenPopup(370, 130, "New Loadout", controls, "save", "edit", "cancel")
+			main:OpenPopup(370, 100, "New Loadout", controls, "save", "edit", "cancel")
 
 			self.controls.buildLoadouts:SetSel(1)
 			return
@@ -663,7 +633,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self:SyncLoadouts()
 end
 
-function buildMode:SyncLoadouts()
+function buildMode:SyncLoadouts(skipBuildPlannerSync)
 	self.controls.buildLoadouts.list = {"No Loadouts"}
 	self.loadoutsList = {}
 
@@ -758,6 +728,10 @@ function buildMode:SyncLoadouts()
 				t_insert(filteredList, tree.setName .. " {" .. treeLinkId .. "}")
 			end
 		end
+	end
+
+	if not skipBuildPlannerSync then
+		self.importTab:RefreshBuildPlannerSets()
 	end
 
 	-- giving the options unique formatting so it can not match with user-created sets
@@ -1375,6 +1349,7 @@ function buildMode:OnFrame(inputEvents)
 		self.buildFlag = false
 		self.calcsTab:BuildOutput()
 		self:RefreshStatList()
+		self.importTab:RefreshBuildPlannerSets()
 	end
 	if main.showThousandsSeparators ~= self.lastShowThousandsSeparators then
 		self:RefreshStatList()

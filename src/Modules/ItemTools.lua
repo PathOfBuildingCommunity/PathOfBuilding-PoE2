@@ -325,14 +325,14 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 	end
 end
 
-function itemLib.formatModLine(modLine, dbMode)
+function itemLib.formatModLine(modLine, dbMode, skipUnsupported)
 	local valueScalar = modLine.displayValueScalar and (modLine.valueScalar or 1) * modLine.displayValueScalar or modLine.valueScalar
 	local line = (not dbMode and (modLine.range or modLine.displayValueScalar) and itemLib.applyRange(modLine.line, modLine.range or main.defaultItemAffixQuality, valueScalar, modLine.corruptedRange)) or modLine.line
 	if itemLib.isZeroValueLine(line) then -- Hack to hide 0-value modifiers
 		return
 	end
 	local colorCode
-	if modLine.extra then
+	if modLine.extra and not skipUnsupported then
 		colorCode = colorCodes.UNSUPPORTED
 		line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
 		if launch.devModeAlt then

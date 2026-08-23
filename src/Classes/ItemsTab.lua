@@ -1151,8 +1151,6 @@ function ItemsTabClass:Load(xml, dbFileName)
 		elseif node.elem == "ItemSet" then
 			local itemSet = self:CreateItemSet(tonumber(node.attrib.id), node.attrib.title or "Default")
 			itemSet.useSecondWeaponSet = node.attrib.useSecondWeaponSet == "true"
-			itemSet.levelMin = tonumber(node.attrib.levelMin)
-			itemSet.levelMax = tonumber(node.attrib.levelMax)
 			for _, child in ipairs(node) do
 				if child.elem == "Slot" then
 					local slotName = child.attrib.name or ""
@@ -1250,7 +1248,7 @@ function ItemsTabClass:Save(xml)
 	end
 	for _, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
-		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet), levelMin = tostring(itemSet.levelMin), levelMax = tostring(itemSet.levelMax) } }
+		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
 		for slotName, slot in pairs(self.slots) do
 			if not slot.parentSlot or itemSet[slotName].selItemId ~= 0 then
 				if not slot.nodeId then
@@ -2392,13 +2390,10 @@ function ItemsTabClass:OpenItemSetManagePopup()
 	controls.sharedList = new("SharedItemSetListControl", nil, {155, 50, 300, 200}, self)
 	controls.setList.dragTargetList = { controls.sharedList }
 	controls.sharedList.dragTargetList = { controls.setList }
-	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.activeItemSet)
-	controls.setList.levelRange = controls.levelRange
-
-	controls.close = new("ButtonControl", nil, {0, 290, 90, 20}, "Done", function()
+	controls.close = new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(630, 320, "Manage Item Sets", controls)
+	main:OpenPopup(630, 290, "Manage Item Sets", controls)
 end
 
 -- Opens the item crafting popup

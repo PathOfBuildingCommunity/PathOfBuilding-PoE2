@@ -106,8 +106,6 @@ end
 
 function PassiveSpecClass:Load(xml, dbFileName)
 	self.title = xml.attrib.title
-	self.levelMin = tonumber(xml.attrib.levelMin)
-	self.levelMax = tonumber(xml.attrib.levelMax)
 	local weaponSets = {}
 	local url
 	for _, node in pairs(xml) do
@@ -280,8 +278,6 @@ function PassiveSpecClass:Save(xml)
 		secondaryAscendClassId = tostring(self.curSecondaryAscendClassId),
 		nodes = table.concat(allocNodeIdList, ","),
 		masteryEffects = table.concat(masterySelections, ","),
-		levelMin = self.levelMin and tostring(self.levelMin) or nil,
-		levelMax = self.levelMax and tostring(self.levelMax) or nil,
 	}
 	t_insert(xml, {
 		-- Legacy format

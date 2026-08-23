@@ -94,6 +94,7 @@ function updateColorCode(code, color)
 end
 
 function hexToRGB(hex)
+	hex = hex:gsub("%^", "")
 	hex = hex:gsub("0x", "") -- Remove "0x" prefix
 	hex = hex:gsub("#","") -- Remove '#' if present
 	if #hex ~= 6 then
@@ -105,6 +106,13 @@ function hexToRGB(hex)
 	return {r, g, b}
 end
 
+function colorCodeToMarkupColour(code)
+	code = code:gsub("%^x", "")
+	local r = tonumber(code:sub(1, 2), 16)
+	local g = tonumber(code:sub(3, 4), 16)
+	local b = tonumber(code:sub(5, 6), 16)
+	return string.format("<rgb(%d, %d, %d)>", r, g, b)
+end
 -- NOTE: the LuaJIT bitwise operations we have are not 64-bit
 -- so we need to implement them ourselves. Lua uses 53-bit doubles.
 local HIGH_MASK_53 = 0x1FFFFF

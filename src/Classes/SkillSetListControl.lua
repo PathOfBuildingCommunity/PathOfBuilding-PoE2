@@ -32,9 +32,10 @@ local SkillSetListClass = newClass("SkillSetListControl", "ListControl", functio
 	self.controls.rename.enabled = function()
 		return self.selValue ~= nil
 	end
-	self.controls.new = new("ButtonControl", {"RIGHT",self.controls.rename,"LEFT"}, {-4, 0, 60, 18}, "New", function()
-		self:RenameSet(skillsTab:NewSkillSet(), true)
-	end)
+	self.controls.new = new("ButtonControl", { "RIGHT", self.controls.rename, "LEFT" }, { -4, 0, 60, 18 }, "New",
+		function()
+			self:CreateSkillSet()
+		end)
 end)
 
 function SkillSetListClass:CreateSkillSet()
@@ -106,9 +107,6 @@ end
 function SkillSetListClass:OnSelClick(index, skillSetId, doubleClick)
 	if doubleClick and skillSetId ~= self.skillsTab.activeSkillSetId then
 		self.skillsTab:SetActiveSkillSet(skillSetId)
-		if self.levelRange then
-			self.levelRange:LoadSet(self.skillsTab.skillSets[skillSetId])
-		end
 		self.skillsTab:AddUndoState()
 	end
 end

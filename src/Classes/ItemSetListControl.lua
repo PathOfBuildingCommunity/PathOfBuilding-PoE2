@@ -28,8 +28,7 @@ local ItemSetListClass = newClass("ItemSetListControl", "ListControl", function(
 		return self.selValue ~= nil
 	end
 	self.controls.new = new("ButtonControl", {"RIGHT",self.controls.rename,"LEFT"}, {-4, 0, 60, 18}, "New", function()
-		local newSet = itemsTab:NewItemSet()
-		self:RenameSet(newSet, true)
+		self:CreateItemSet()
 	end)
 end)
 
@@ -130,9 +129,6 @@ end
 function ItemSetListClass:OnSelClick(index, itemSetId, doubleClick)
 	if doubleClick and itemSetId ~= self.itemsTab.activeItemSetId then
 		self.itemsTab:SetActiveItemSet(itemSetId)
-		if self.levelRange then
-			self.levelRange:LoadSet(self.itemsTab.activeItemSet)
-		end
 		self.itemsTab:AddUndoState()
 	end
 end

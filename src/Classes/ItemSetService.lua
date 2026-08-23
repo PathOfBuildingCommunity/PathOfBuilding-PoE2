@@ -14,9 +14,6 @@ function ItemSetServiceClass:NewItemSet(name)
 	local itemSet = self.itemsTab:NewItemSet(nil, name)
 	self.itemsTab:SetActiveItemSet(itemSet.id, true)
 	self.itemsTab:AddUndoState()
-	-- if self.levelRange then
-	-- 				self.levelRange:LoadSet(self.itemsTab.activeItemSet)
-	-- 			end
 	self.itemsTab.build:SyncLoadouts()
 	self.itemsTab.build.buildFlag = true
 end
@@ -41,9 +38,6 @@ function ItemSetServiceClass:DeleteItemSet(itemSetId, orderListIndex)
 		self.itemsTab:DeleteItemSet(itemSetId, orderListIndex)
 		if itemSetId == self.itemsTab.activeItemSetId then
 			self.itemsTab:SetActiveItemSet(self.itemsTab.itemSetOrderList[m_max(1, orderListIndex - 1)], true)
-			-- if self.levelRange then
-			-- 		self.levelRange:LoadSet(self.itemsTab.activeItemSet)
-			-- 	end
 		end
 		self.itemsTab:AddUndoState()
 		self.itemsTab.build:SyncLoadouts()
