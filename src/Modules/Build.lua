@@ -141,10 +141,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.controls.buildName.Draw = function(control)
 		local x, y = control:GetPos()
 		local width, height = control:GetSize()
-		SetDrawColor(0.5, 0.5, 0.5)
-		DrawImage(nil, x + 91, y, self.strWidth + 6, 20)
-		SetDrawColor(0, 0, 0)
-		DrawImage(nil, x + 92, y + 1, self.strWidth + 4, 18)
+		-- Read-only, so it is framed like a disabled button to match the rest of the top bar
+		ui.DrawBox(x + 91, y, self.strWidth + 6, 20, ui.radius, ui.colors.borderDisabled, ui.colors.surfaceDisabled)
 		SetDrawColor(1, 1, 1)
 		SetViewport(x, y + 2, self.strWidth + 94, 16)
 		DrawString(0, 0, "LEFT", 16, "VAR", "Current build:  "..self.buildName)
@@ -181,10 +179,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.controls.pointDisplay.Draw = function(control)
 		local x, y = control:GetPos()
 		local width, height = control:GetSize()
-		SetDrawColor(1, 1, 1)
-		DrawImage(nil, x, y, width, height)
-		SetDrawColor(0, 0, 0)
-		DrawImage(nil, x + 1, y + 1, width - 2, height - 2)
+		-- Read-only, so it is framed like a disabled button to match the rest of the top bar
+		ui.DrawBox(x, y, width + 2, height, ui.radius, ui.colors.borderDisabled, ui.colors.surfaceDisabled)
 		SetDrawColor(1, 1, 1)
 		DrawString(x + 4, y + 2, "LEFT", 16, "FIXED", control.str)
 		if control:IsMouseInBounds() then
@@ -475,7 +471,10 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.buildFlag = true
 	end)
 	self.controls.statBoxAnchor = new("Control", {"TOPLEFT",self.controls.mainSkillMinionSkillStatSet,"BOTTOMLEFT",true}, {0, 2, 0, 0})
-	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.controls.statBoxAnchor,"BOTTOMLEFT"}, {0, 2, 300, 0}, {{x=170,align="RIGHT_X"},{x=174,align="LEFT"}})
+	-- Label and value are pinned to opposite edges rather than meeting in the middle, so both read
+	-- as columns and long labels have the whole width to run into
+	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.controls.statBoxAnchor,"BOTTOMLEFT"}, {0, 2, 300, 0}, {{x=6,align="LEFT"},{x=268,align="RIGHT_X"}})
+	self.controls.statBox.grouped = true
 	self.controls.statBox.height = function(control)
 		local x, y = control:GetPos()
 		local warnHeight = main.showWarnings and #self.controls.warnings.lines > 0 and 18 or 0
@@ -1375,18 +1374,17 @@ function buildMode:OnFrame(inputEvents)
 
 	SetDrawLayer(5)
 
-	-- Draw top bar background
-	SetDrawColor(0.2, 0.2, 0.2)
-	DrawImage(nil, 0, 0, main.screenW, 28)
-	SetDrawColor(0.85, 0.85, 0.85)
-	DrawImage(nil, 0, 28, main.screenW, 4)
-	DrawImage(nil, main.screenW/2 - 2, 0, 4, 28)
+	-- Draw top bar background, closed off by a hairline rather than the old 4px rule
+	ui.SetColor(ui.colors.chrome)
+	DrawImage(nil, 0, 0, main.screenW, 31)
+	ui.SetColor(ui.colors.chromeBorder)
+	DrawImage(nil, 0, 31, main.screenW, 1)
 
 	-- Draw side bar background
-	SetDrawColor(0.1, 0.1, 0.1)
-	DrawImage(nil, 0, 32, sideBarWidth - 4, main.screenH - 32)
-	SetDrawColor(0.85, 0.85, 0.85)
-	DrawImage(nil, sideBarWidth - 4, 32, 4, main.screenH - 32)
+	ui.SetColor(ui.colors.chrome)
+	DrawImage(nil, 0, 32, sideBarWidth - 1, main.screenH - 32)
+	ui.SetColor(ui.colors.chromeBorder)
+	DrawImage(nil, sideBarWidth - 1, 32, 1, main.screenH - 32)
 
 
 	self:DrawControls(main.viewPort)
@@ -2241,7 +2239,7 @@ function buildMode:RefreshStatList()
 		end
 	end
 	if self.calcsTab.mainEnv.minion then
-		t_insert(statBoxList, { height = 18, "^7Minion:" })
+		t_insert(statBoxList, { height = 20, header = true, "^7Minion" })
 		if self.calcsTab.mainEnv.minion.mainSkill.infoMessage then
 			-- Split the line if too long
 			if #self.calcsTab.mainEnv.minion.mainSkill.infoMessage > 40 then
@@ -2257,7 +2255,7 @@ function buildMode:RefreshStatList()
 		end
 		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion)
 		t_insert(statBoxList, { height = 10 })
-		t_insert(statBoxList, { height = 18, "^7Player:" })
+		t_insert(statBoxList, { height = 20, header = true, "^7Player" })
 	end
 	if self.calcsTab.mainEnv.player.mainSkill.activeEffect.statSet.skillFlags.disable then
 		t_insert(statBoxList, { height = 16, "^7Skill disabled:" })

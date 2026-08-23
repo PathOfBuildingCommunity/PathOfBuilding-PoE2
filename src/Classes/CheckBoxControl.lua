@@ -36,59 +36,37 @@ function CheckBoxClass:Draw(viewPort, noTooltip)
 	local size = self.width
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
-	if not enabled then
-		SetDrawColor(0.33, 0.33, 0.33)
-	elseif mOver then
-		SetDrawColor(1, 1, 1)
-	elseif self.borderFunc then
+	local colors = ui.colors
+	local radius = ui.FitRadius(ui.radiusSmall, size, size)
+	local border, fill = ui.SurfaceColors(enabled, mOver, self.clicked and mOver)
+	if self.borderFunc and enabled and not mOver then
 		local r, g, b = self.borderFunc()
-		SetDrawColor(r, g, b)
-	elseif self.checkImage and self.state then
-		SetDrawColor(0.75, 0.75, 0.75)
-	else
-		SetDrawColor(0.5, 0.5, 0.5)
+		border = { r, g, b }
 	end
-	DrawImage(nil, x, y, size, size)
-	if not enabled then
-		SetDrawColor(0, 0, 0)
-	elseif self.clicked and mOver then
-		SetDrawColor(0.5, 0.5, 0.5)
-	elseif mOver then
-		SetDrawColor(0.33, 0.33, 0.33)
-	else
-		SetDrawColor(0, 0, 0)
+	-- A ticked box is filled with the emphasis colour and carries a dark check mark, like the
+	-- unticked box inverted. Boxes carrying their own image keep a dark body, since the image is
+	-- drawn light.
+	if self.state and enabled and not self.checkImage then
+		border = mOver and colors.primaryHover or colors.primary
+		fill = border
 	end
-	DrawImage(nil, x + 1, y + 1, size - 2, size - 2)
+	ui.DrawBox(x, y, size, size, radius, border, fill)
 	if self.checkImage then
-		if self.state then
-			if not enabled then
-				SetDrawColor(0.33, 0.33, 0.33)
-			elseif mOver then
-				SetDrawColor(2, 2, 2)
-			else
-				SetDrawColor(1, 1, 1)
-			end
+		if not enabled then
+			ui.SetColor(colors.textDisabled)
+		elseif not self.state then
+			ui.SetColor(colors.textMuted)
+		elseif mOver then
+			SetDrawColor(2, 2, 2)
 		else
-			SetDrawColor(0.5, 0.5, 0.5)
+			ui.SetColor(colors.text)
 		end
-		DrawImage(self.checkImage.handle, x + 1, y + 1, size - 2, size - 2, self.checkImage[1])
-	else
-		if self.state then
-			if not enabled then
-				SetDrawColor(0.33, 0.33, 0.33)
-			elseif mOver then
-				SetDrawColor(1, 1, 1)
-			else
-				SetDrawColor(0.75, 0.75, 0.75)
-			end
-			main:DrawCheckMark(x + size/2, y + size/2, size * 0.8)
-		end
+		DrawImage(self.checkImage.handle, x + 2, y + 2, size - 4, size - 4, self.checkImage[1])
+	elseif self.state then
+		ui.SetColor(enabled and colors.onPrimary or colors.textDisabled)
+		main:DrawCheckMark(x + size/2, y + size/2, size * 0.7)
 	end
-	if enabled then
-		SetDrawColor(1, 1, 1)
-	else
-		SetDrawColor(0.33, 0.33, 0.33)
-	end
+	ui.SetColor(enabled and colors.text or colors.textDisabled)
 	local label = self:GetProperty("label")
 	if label then
 		DrawString(x - 5, y + 2, "RIGHT_X", size - 4, "VAR", label)
