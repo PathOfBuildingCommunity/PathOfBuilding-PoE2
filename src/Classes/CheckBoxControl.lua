@@ -41,7 +41,7 @@ function CheckBoxClass:Draw(viewPort, noTooltip)
 	local border, fill = ui.SurfaceColors(enabled, mOver, self.clicked and mOver)
 	if self.borderFunc and enabled and not mOver then
 		local r, g, b = self.borderFunc()
-		border = { r, g, b }
+		border = ui.PackColor(r, g, b)
 	end
 	-- A ticked box is filled with the emphasis colour and carries a dark check mark, like the
 	-- unticked box inverted. Boxes carrying their own image keep a dark body, since the image is

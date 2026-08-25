@@ -258,7 +258,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		border, fill = colors.borderHover, colors.inputHover
 	elseif self.borderFunc then
 		local r, g, b = self.borderFunc()
-		border = { r, g, b }
+		border = ui.PackColor(r, g, b)
 	end
 	if self.hasFocus and enabled then
 		ui.DrawFocusRing(x, y, width, height, radius)
