@@ -64,12 +64,11 @@ local function buildPassives(spec)
 		-- vanilla PassiveSkills table the loader looks up.
 		if idStr and type(nodeId) == "number" and nodeId < 65536 then
 			local note = notes[nodeId]
+			local obj = { id = idStr, weapon_set = node.allocMode }
 			if note and note ~= "" then
-				t_insert(out, { id = idStr, additional_text = note })
-			else
-				-- Bare-string shorthand when there's nothing else to attach.
-				t_insert(out, idStr)
+				obj.additional_text = note
 			end
+			t_insert(out, obj)
 		end
 	end
 	return out
