@@ -289,10 +289,10 @@ function M.WriteFile(build, path, metadata, selection)
 	-- Best-effort: ensure the target directory exists.
 	local dir = path:match("^(.*[/\\])")
 	if dir then MakeDir(dir) end
-	local f, ferr = io.open(path, "w")
-	if not f then return nil, "Couldn't open '" .. path .. "': " .. tostring(ferr) end
-	f:write(json)
-	f:close()
+	local file, fileError = io.open(path, "w")
+	if not file then return nil, "Couldn't open '" .. path .. "': " .. tostring(fileError) end
+	file:write(json)
+	file:close()
 	return path
 end
 

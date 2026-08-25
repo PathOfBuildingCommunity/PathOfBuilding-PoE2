@@ -382,7 +382,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			if not ok then
 				main:OpenMessagePopup("Error", "Couldn't save the build file:\n"..err.."\nMake sure the save folder exists and is writable.")
 			else
-				main:OpenMessagePopup("Success", string.format("Build file exported succesfully to:\n%s", path))
+				main:OpenMessagePopup("Success", string.format("Build file exported successfully to:\n%s", path))
 			end
 		end
 		-- Confirm overwrite if the file already exists.
