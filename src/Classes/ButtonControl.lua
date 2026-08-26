@@ -84,6 +84,17 @@ function ButtonClass:Draw(viewPort, noTooltip)
 	elseif label == "x" then
 		DrawImageQuad(nil, x + width * 0.2, y + height * 0.3, x + width * 0.3, y + height * 0.2, x + width * 0.8, y + height * 0.7, x + width * 0.7, y + height * 0.8)
 		DrawImageQuad(nil, x + width * 0.7, y + height * 0.2, x + width * 0.8, y + height * 0.3, x + width * 0.3, y + height * 0.8, x + width * 0.2, y + height * 0.7)
+	elseif label == ":::" then
+		-- Vertical drag-handle grip: 2 columns x 3 rows of dots.
+		local dotW = width * 0.18
+		local dotH = height * 0.13
+		local colX = { x + width * 0.30, x + width * 0.52 }
+		local rowY = { y + height * 0.22, y + height * 0.43, y + height * 0.64 }
+		for _, cx in ipairs(colX) do
+			for _, cy in ipairs(rowY) do
+				DrawImage(nil, cx, cy, dotW, dotH)
+			end
+		end
 	else
 		local overSize = self.overSizeText or 0
 		DrawString(x + width / 2, y + 2 - overSize, "CENTER_X", height - 4 + overSize * 2, "VAR", label)
