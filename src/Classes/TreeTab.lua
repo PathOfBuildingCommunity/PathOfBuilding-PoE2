@@ -625,21 +625,25 @@ function TreeTabClass:ConvertAllToVersion(version)
 end
 
 function TreeTabClass:OpenSpecManagePopup()
-	local controls = { }
-	controls.specList = new("PassiveSpecListControl"):PassiveSpecListControl(nil, { 0, 50, 350, 200 }, self)
-	controls.importTree = new("ButtonControl"):ButtonControl(nil, { -99, 260, 90, 20 }, "Import Tree", function()
+	local importTree =
+		new("ButtonControl"):ButtonControl(nil, { -99, 259, 90, 20 }, "Import Tree", function()
 		self:OpenImportPopup()
 	end)
-	controls.exportTree = new("ButtonControl"):ButtonControl({ "LEFT", controls.importTree, "RIGHT" }, { 8, 0, 90, 20 }, "Export Tree", function()
+	local exportTree =
+		new("ButtonControl"):ButtonControl({ "LEFT", importTree, "RIGHT" }, { 8, 0, 90, 20 }, "Export Tree", function()
 		self:OpenExportPopup()
 	end)
-	controls.importTree.enabled = false
-	controls.exportTree.enabled = false
-	controls.done = new("ButtonControl"):ButtonControl({ "LEFT", controls.exportTree, "RIGHT" }, { 8, 0, 90, 20 }, "Done", function()
-		main:ClosePopup()
-	end)
+	importTree.enabled = false
+	exportTree.enabled = false
 
-	main:OpenPopup(370, 290, "Manage Passive Trees", controls)
+	main:OpenPopup(370, 290, "Manage Passive Trees", {
+		new("PassiveSpecListControl"):PassiveSpecListControl(nil, { 0, 50, 350, 200 }, self),
+		importTree,
+		exportTree,
+		new("ButtonControl"):ButtonControl({ "LEFT", exportTree, "RIGHT" }, { 8, 0, 90, 20 }, "Done", function()
+			main:ClosePopup()
+		end),
+	})
 end
 
 function TreeTabClass:CopyTree(sourceSpecId, newSpecName)

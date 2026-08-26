@@ -1481,12 +1481,12 @@ end
 
 -- Opens the skill set manager
 function SkillsTabClass:OpenSkillSetManagePopup()
-	local controls = { }
-	controls.setList = new("SkillSetListControl"):SkillSetListControl(nil, { 0, 50, 350, 200 }, self)
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, "Done", function()
-		main:ClosePopup()
-	end)
-	main:OpenPopup(370, 290, "Manage Skill Sets", controls)
+	main:OpenPopup(370, 290, "Manage Skill Sets", {
+		new("SkillSetListControl"):SkillSetListControl(nil, { 0, 50, 350, 200 }, self),
+		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, "Done", function()
+			main:ClosePopup()
+		end),
+	})
 end
 
 -- Creates a new skill set without adding to order list
