@@ -2,6 +2,8 @@ local m_ceil = math.ceil
 local m_min = math.min
 local m_max = math.max
 
+-- temporarily disabled due to issues with game files
+goto exit
 local rarityDamageMult = {
 	Unique = (1 + dat("Mods"):GetRow("Id", "MonsterUnique5").Stat1Value[1] / 100),
 	UniqueAttack = (1 + dat("Mods"):GetRow("Id", "MonsterUnique5").Stat1Value[1] / 100) * (1 - dat("Mods"):GetRow("Id", "MonsterUnique8").Stat1Value[1] / 100)
@@ -570,3 +572,4 @@ print("Boss skill data exported.")
 processTemplateFile("Bosses", "Enemies/", "../Data/", directiveTable.monsters)
 print("Boss data exported.")
 
+::exit::

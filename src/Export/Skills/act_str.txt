@@ -3,8 +3,7 @@
 -- Active Strength skill gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+return function(skills, mod, flag, skill)
 #skill AncestralCryPlayer
 #set AncestralCryPlayer
 #flags warcry area duration
@@ -1300,3 +1299,4 @@ statMap = {
 #flags minion
 #mods
 #skillEnd
+end

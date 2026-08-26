@@ -1,6 +1,7 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Flail
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Flail/AbstractFlail
+end

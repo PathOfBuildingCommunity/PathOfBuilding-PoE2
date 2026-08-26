@@ -4,8 +4,7 @@
 -- Intelligence support gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
 skills["SupportAbidingHexPlayer"] = {
 	name = "Abiding Hex",
 	description = "Supports Curse Skills you cast yourself. Supported Skills will consume Power Charges on use, gaining significant Curse duration if they do. Cannot Support Skills which consume Power Charges.",
@@ -8963,4 +8962,4 @@ skills["SupportZenithPlayerTwo"] = {
 			},
 		},
 	}
-}
+}			end

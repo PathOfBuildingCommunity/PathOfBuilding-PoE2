@@ -3,7 +3,8 @@
 -- Module: Calc Active Skill
 -- Active skill setup.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -239,7 +240,7 @@ local function getSourceGemPropertyInfo(env, activeSkill)
 
 	env.sourceGemPropertyInfo = env.sourceGemPropertyInfo or { }
 	if not env.sourceGemPropertyInfo[sourceGem] then
-		local modList = new("ModList", activeSkill.actor.modDB)
+		local modList = new("ModList"):ModList(activeSkill.actor.modDB)
 		local supportCount = 0
 		for _, supportEffect in ipairs(activeSkill.supportList) do
 			if supportEffect.isSupporting and supportEffect.isSupporting[sourceGem] then
@@ -284,9 +285,9 @@ function calcs.copyActiveSkill(env, mode, skill)
 	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, env.player, skill.socketGroup, skill.summonSkill)
 	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
-	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)
+	newSkill.skillModList = new("ModList"):ModList(newSkill.baseSkillModList)
 	if newSkill.minion then
-		newSkill.minion.modDB = new("ModDB")
+		newSkill.minion.modDB = new("ModDB"):ModDB()
 		newSkill.minion.modDB.actor = newSkill.minion
 		calcs.createMinionSkills(env, newSkill)
 		newSkill.skillPartName = newSkill.minion.mainSkill.activeEffect.grantedEffect.name
@@ -490,7 +491,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	activeSkill.weapon1Flags = 0
 	activeSkill.weapon2Flags = 0
 	-- Initialise skill modifier list
-	local skillModList = new("ModList", activeSkill.actor.modDB)
+	local skillModList = new("ModList"):ModList(activeSkill.actor.modDB)
 	activeSkill.skillModList = skillModList
 	activeSkill.baseSkillModList = skillModList
 

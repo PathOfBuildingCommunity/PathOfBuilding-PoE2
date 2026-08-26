@@ -47,7 +47,7 @@ describe("TestItemTools", function()
 	end
 
 	it("keeps range sliders for lines that resolve to zero", function()
-		local item = new("Item", "Rarity: Rare\nName\nArcane Raiment\n{range:0.5}+(-1-1) to Maximum Power Charges")
+		local item = new("Item"):Item("Rarity: Rare\nName\nArcane Raiment\n{range:0.5}+(-1-1) to Maximum Power Charges")
 
 		assert.are.equals(1, #item.rangeLineList)
 		assert.are.equals(0.5, item.rangeLineList[1].range)
@@ -60,7 +60,7 @@ describe("TestItemTools", function()
 		end
 
 		local function assertAnointUsesSlot(rawItem, expectedSlot)
-			local item = new("Item", rawItem)
+			local item = new("Item"):Item(rawItem)
 			local overrides = { }
 			local fakeItemsTab = setmetatable({
 				displayItem = item,

@@ -4,8 +4,9 @@
 -- Minion Data
 -- Monster data (c) Grinding Gear Games
 --
-local minions, mod = ...
-
+			return function(mod, flag)
+				---@class MinionData
+				local minions = {}
 minions["RaisedZombie"] = {
 	name = "Raised Zombie",
 	monsterTags = { "animal_claw_weapon", "flesh_armour", "is_unarmed", "medium_height", "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -1379,3 +1380,5 @@ minions["Wardbound"] = {
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 	},
 }
+				return minions
+			end
