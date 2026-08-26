@@ -8554,6 +8554,14 @@ skills["SupportVerglasPlayer"] = {
 			label = "Verglas",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_crystalshatter_buff_damage_%_gained_as_extra_cold_per_2000_crystal_life"] = {
+					mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "DestroyedIceCrystalPast6Seconds" }, { type = "Multiplier", var = "DestroyedIceCrystalLife", div = 2000 }),
+				},
+				["support_crystalshatter_buff_duration"] = {
+					-- Display only
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

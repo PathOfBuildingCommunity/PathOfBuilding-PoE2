@@ -11,6 +11,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
+local m_floor = math.floor
 local band = AND64
 
 local tempTable1 = { }
@@ -2090,6 +2091,35 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.totemLevel = skillData.totemLevel
 			activeSkill.skillData.damageEffectiveness = skillData.damageEffectiveness
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
+		end
+	end
+
+	-- Verglas uses the maximum Life of the Ice Crystal that granted its buff.
+	-- Prefer the highest value from enabled Ice Crystal skills in the build, while
+	-- retaining the Config value as an explicit override for other crystal sources.
+	local automaticDestroyedIceCrystalLife = 0
+	for _, activeSkill in pairs(env.player.activeSkillList) do
+		local socketGroup = activeSkill.socketGroup
+		if (not socketGroup or (socketGroup.enabled and socketGroup.slotEnabled)) and activeSkill.skillModList then
+			local baseLife = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "IceCrystalLifeBase")
+			if baseLife > 0 then
+				automaticDestroyedIceCrystalLife = m_max(automaticDestroyedIceCrystalLife, baseLife * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "IceCrystalLife"))
+			end
+		end
+	end
+	local configuredDestroyedIceCrystalLife = tonumber(env.configInput.multiplierDestroyedIceCrystalLife) or 0
+	local resolvedDestroyedIceCrystalLife = configuredDestroyedIceCrystalLife > 0 and configuredDestroyedIceCrystalLife or automaticDestroyedIceCrystalLife
+	env.player.automaticDestroyedIceCrystalLife = automaticDestroyedIceCrystalLife
+	env.player.destroyedIceCrystalLife = resolvedDestroyedIceCrystalLife
+	if configuredDestroyedIceCrystalLife <= 0 and automaticDestroyedIceCrystalLife > 0 then
+		env.modDB.multipliers.DestroyedIceCrystalLife = automaticDestroyedIceCrystalLife
+	else
+		env.modDB.multipliers.DestroyedIceCrystalLife = nil
+	end
+	if mode == "MAIN" then
+		local control = build.configTab.varControls.multiplierDestroyedIceCrystalLife
+		if control then
+			control:SetPlaceholder(automaticDestroyedIceCrystalLife > 0 and m_floor(automaticDestroyedIceCrystalLife + 0.5) or "", false)
 		end
 	end
 

@@ -225,6 +225,9 @@ end
 local exposureElements = { "Fire", "Cold", "Lightning", "Chaos" }
 local function captureCouplingSurface(env)
 	local surface = { mods = { }, meta = { } }
+	-- Automatic Verglas scaling is derived from another active skill (usually
+	-- Frost Wall), so it must participate in Full-DPS cache invalidation.
+	surface.meta[#surface.meta + 1] = "destroyedIceCrystalLife/" .. tostring(env.player.destroyedIceCrystalLife or 0)
 	for _, skill in ipairs(env.player.activeSkillList) do
 		for _, buff in ipairs(skill.buffList or { }) do
 			surface.meta[#surface.meta + 1] = tostring(buff.type) .. "/" .. tostring(buff.name)
