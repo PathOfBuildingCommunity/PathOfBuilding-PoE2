@@ -4518,6 +4518,9 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", num) }),
+		flag("Condition:CanApplyFireExposure"),
+		flag("Condition:CanApplyColdExposure"),
+		flag("Condition:CanApplyLightningExposure"),
 	} end,
 	["enemies near your linked targets have fire, cold and lightning exposure"] = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
