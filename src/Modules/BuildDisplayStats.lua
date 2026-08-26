@@ -6,7 +6,7 @@
 -- This defines the stats in the side bar, and also which stats show in node/item comparisons
 -- This may be user-customisable in the future
 
-
+local defenseIgnoredSections = { "Base from Gear", "Inc. from Tree" }
 ---@alias DisplayStatCondFunc fun(value: any, output: table):boolean? Show the row only when this returns truthy (usually receives the value and the actor output; the label-only variant receives output as its first arg)
 ---@alias DisplayStatWarnFunc fun(value: any, output: table):string|boolean|nil Returns a warning string to surface, or falsy for none
 
@@ -39,7 +39,7 @@
 ---@field labelStat? string              Output name rendered inline for a label-only row
 ---@field val? string                    Static parenthesised note for a label-only row
 
----@type DisplayStat[]if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
+---@type DisplayStat[]
 local displayStats = {
 	{ stat = "ActiveMinionLimit", label = "Active Minion Limit", fmt = "d" },
 	{ stat = "AverageHit", label = "Average Hit", fmt = ".1f", compPercent = true },
@@ -64,10 +64,10 @@ local displayStats = {
 	{ stat = "FiringRate", label = "Firing Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return o.FiringRate end },
 	{ stat = "ReloadTime", label = "Reload Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ReloadTime end },
 	{ stat = "PreEffectiveCritChance", label = "Crit Chance", fmt = ".2f%%", flag = "hit", breakdown = "PreEffectiveCritChance" },
-	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return v ~= o.PreEffectiveCritChance end },
+	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v, o) return v ~= o.PreEffectiveCritChance end, breakdown = "CritChance" },
 	{ stat = "CritBifurcates", label = "Crit Bifurcate Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return (o.CritForks or 0) > 0 end },
-	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
-	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack" },
+	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v, o) return (o.CritChance or 0) > 0 end, breakdown = "CritMultiplier" },
+	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack", breakdown = "HitChance" },
 	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", condFunc = function(v,o) return o.enemyHasSpellBlock end },
 	{ stat = "AccuracyHitChanceUncapped", label = "Uncap. Hit Chance", fmt = ".0f%%", flag = "attack", condFunc = function(v,o) if o.AccuracyHitChanceUncapped then return o.AccuracyHitChanceUncapped > 100 end end },
 	{ stat = "TotalDPS", label = "Hit DPS", fmt = ".1f", compPercent = true, flag = "notAverage" },
@@ -125,11 +125,11 @@ local displayStats = {
 	{ stat = "RagePerSecondCost", label = "Rage Cost per second", fmt = ".2f", color = colorCodes.RAGE, pool = "Rage", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RagePerSecondHasCost end },
 	{ stat = "SoulCost", label = "Soul Cost", fmt = "d", color = colorCodes.RAGE, pool = "Soul", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.SoulHasCost end },
 	{ },
-	{ stat = "Str", label = "Strength", color = colorCodes.STRENGTH, fmt = "d" },
+	{ stat = "Str", label = "Strength", color = colorCodes.STRENGTH, fmt = "d", breakdown = "Str" },
 	{ stat = "ReqStr", label = "Strength Required", color = colorCodes.STRENGTH, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Str end, warnFunc = function(v,o) return "You do not meet the Strength requirement of " .. (o.ReqStrItem.source == "Item" and o.ReqStrItem.sourceItem.name or o.ReqStrItem.source == "Gem" and o.ReqStrItem.sourceGem.nameSpec or o.ReqStrItem.source == "Support Gems" and "your total Strength support gems.") end },
-	{ stat = "Dex", label = "Dexterity", color = colorCodes.DEXTERITY, fmt = "d" },
+	{ stat = "Dex", label = "Dexterity", color = colorCodes.DEXTERITY, fmt = "d", breakdown = "Dex" },
 	{ stat = "ReqDex", label = "Dexterity Required", color = colorCodes.DEXTERITY, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Dex end, warnFunc = function(v,o) return "You do not meet the Dexterity requirement of " .. (o.ReqDexItem.source == "Item" and o.ReqDexItem.sourceItem.name or o.ReqDexItem.source == "Gem" and o.ReqDexItem.sourceGem.nameSpec or o.ReqDexItem.source == "Support Gems" and "your total Dexterity support gems.") end },
-	{ stat = "Int", label = "Intelligence", color = colorCodes.INTELLIGENCE, fmt = "d" },
+	{ stat = "Int", label = "Intelligence", color = colorCodes.INTELLIGENCE, fmt = "d", breakdown = "Int" },
 	{ stat = "ReqInt", label = "Intelligence Required", color = colorCodes.INTELLIGENCE, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Int end, warnFunc = function(v,o) return "You do not meet the Intelligence requirement of " .. (o.ReqIntItem.source == "Item" and o.ReqIntItem.sourceItem.name or o.ReqIntItem.source == "Gem" and o.ReqIntItem.sourceGem.nameSpec or o.ReqIntItem.source == "Support Gems" and "your total Intelligence support gems.") end },
 	{ },
 	{ stat = "Devotion", label = "Devotion", color = colorCodes.RARE, fmt = "d" },
@@ -155,8 +155,8 @@ local displayStats = {
 	{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v <= 0 and "Your unreserved Life is below 1" end },
 	{ stat = "LifeRecoverable", label = "Life Recoverable", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.LifeUnreserved end, },
 	{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end },
-	{ stat = "LifeRegenRecovery", label = "Life Regen", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v,o) return o.LifeRecovery <= 0 and o.LifeRegenRecovery ~= 0 end },
-	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v,o) return o.LifeRecovery > 0 and o.LifeRegenRecovery ~= 0 end },
+	{ stat = "LifeRegenRecovery", label = "Life Regen", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery <= 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
+	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery > 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
 	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true, breakdown = "LifeLeech" },
 	{ stat = "LifeLeechGainPerHit", label = "Life Leech/Gain per Hit", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
 	{ },
@@ -173,7 +173,7 @@ local displayStats = {
 	{ stat = "SpiritUnreserved", label = "Unreserved Spirit", fmt = "d", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < o.Spirit end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Spirit is negative" end },
 	{ stat = "SpiritUnreservedPercent", label = "Unreserved Spirit", fmt = "d%%", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < 100 end },
 	{ },
-	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, breakdown = "", modNames = { "EnergyShield", "Defences" } },
+	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, modNames = { "EnergyShield", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "EnergyShieldRecoveryCap", label = "Recoverable ES", color = colorCodes.ES, fmt = "d", condFunc = function(v,o) return o.CappingES end },
 	{ stat = "Spec:EnergyShieldInc", label = "%Inc ES from Tree", color = colorCodes.ES, fmt = "d%%" },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Regen", color = colorCodes.ES, fmt = ".1f", condFunc = function(v,o) return o.EnergyShieldRecovery <= 0 and o.EnergyShieldRegenRecovery ~= 0 end },
@@ -190,7 +190,7 @@ local displayStats = {
 	{ stat = "NetManaRegen", label = "Net Mana Recovery", fmt = "+.1f", color = colorCodes.MANA },
 	{ stat = "NetEnergyShieldRegen", label = "Net ES Recovery", fmt = "+.1f", color = colorCodes.ES },
 	{ },
-	{ stat = "Evasion", label = "Evasion rating", fmt = "d", color = colorCodes.EVASION, compPercent = true, breakdown = "", modNames = { "Evasion", "ArmourAndEvasion", "Defences" } },
+	{ stat = "Evasion", label = "Evasion rating", fmt = "d", color = colorCodes.EVASION, compPercent = true, modNames = { "Evasion", "ArmourAndEvasion", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "Spec:EvasionInc", label = "%Inc Evasion from Tree", color = colorCodes.EVASION, fmt = "d%%" },
 	{ stat = "EvadeChance", label = "Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.noSplitEvade end },
 	{ stat = "MeleeEvadeChance", label = "Melee Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.splitEvade end },
@@ -200,7 +200,7 @@ local displayStats = {
 	{ stat = "DeflectionRating", label = "Deflection Rating", fmt = "d", color = colorCodes.EVASION, compPercent = true },
 	{ stat = "DeflectChance", label = "Deflect Chance", fmt = "d%%", color = colorCodes.EVASION, compPercent = true },
 	{ },
-	{ stat = "Armour", label = "Armour", fmt = "d", compPercent = true, breakdown = "", modNames = { "Armour", "ArmourAndEvasion", "Defences" } },
+	{ stat = "Armour", label = "Armour", fmt = "d", compPercent = true, modNames = { "Armour", "ArmourAndEvasion", "Defences", "ArmourDefense" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "Spec:ArmourInc", label = "%Inc Armour from Tree", fmt = "d%%" },
 	{ stat = "PhysicalDamageReduction", label = "Phys. Damage Reduction", fmt = "d%%", condFunc = function() return true end },
 	{ },
@@ -278,7 +278,7 @@ local minionDisplayStats = {
 	{ stat = "Life", label = "Total Life", fmt = ".1f", color = colorCodes.LIFE, compPercent = true, modNames = { "Life" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE },
 	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
-	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true },
+	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, modNames = { "EnergyShield", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Recovery", fmt = ".1f", color = colorCodes.ES },
 	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", fmt = ".1f", color = colorCodes.ES, compPercent = true },
 }
