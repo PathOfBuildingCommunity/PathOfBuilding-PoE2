@@ -354,8 +354,10 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.poe2ExportDesc = new("LabelControl", {"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
 	self.controls.poe2ExportDesc2 = new("LabelControl", { "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, "^8Each file holds one passive tree, one skill set and one item set.")
 
-	self.controls.buildPlannerBuildName = new("EditControl", { "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, self.build.buildName or "New Build", "Build name", nil, nil)
-	self.controls.buildPlannerAuthorName = new("EditControl", {"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, "Author", "Author name", nil, nil)
+	self.controls.buildPlannerBuildName = new("EditControl", { "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, nil, "Build name", nil, nil)
+	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
+	self.controls.buildPlannerAuthorName = new("EditControl", {"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, "Author name", nil, nil)
+	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
 	self.controls.buildPlannerSetsLabel = new("LabelControl", { "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Sets to export:")
 	self.controls.buildPlannerSpec = new("DropDownControl", { "TOPLEFT", self.controls.buildPlannerSetsLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
 		self.exportSpecIndex = value.key
@@ -412,7 +414,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 		local existingFiles = {}
 		for _, loadout in ipairs(loadouts) do
-			local loadoutPath = BuildExportPoE2.LoadoutPath(path, loadout.name)
+			local loadoutPath = BuildExportPoE2.LoadoutPath(path, loadout.fileName or loadout.name)
 			local existing = io.open(loadoutPath, "r")
 			if existing then
 				existing:close()
@@ -439,8 +441,8 @@ end)
 -- Metadata shared by both export buttons.
 function ImportTabClass:GetBuildPlannerMetadata()
 	return {
-		name = self.controls.buildPlannerBuildName.buf,
-		author = self.controls.buildPlannerAuthorName.buf,
+		name = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder,
+		author = self.controls.buildPlannerAuthorName.buf ~= "" and self.controls.buildPlannerAuthorName.buf or self.controls.buildPlannerAuthorName.placeholder,
 		description = self.controls.buildPlannerDescription.buf,
 	}
 end

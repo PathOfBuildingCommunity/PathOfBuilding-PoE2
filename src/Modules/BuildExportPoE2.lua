@@ -110,7 +110,6 @@ local function activeSkillGems(group)
 				if not grantedEffect.support and not grantedEffect.hideFromSideBar
 					and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal" .. index]) then
 					t_insert(out, gemInstance)
-					break
 				end
 			end
 		end
@@ -262,6 +261,7 @@ function M.GetLoadouts(build)
 			local plainName = displayName:gsub(" {.-}$", "")
 			t_insert(out, {
 				name = plainName,
+				fileName = displayName,
 				specIndex = loadout?.specId,
 				skillSetId = loadout?.skillSetId,
 				itemSetId = loadout?.itemSetId,
@@ -324,8 +324,20 @@ function M.WriteAllLoadouts(build, basePath, metadata, loadouts)
 	if #loadouts == 0 then
 		return written, { "This build has no passive trees to export." }
 	end
+	local pending = {}
+	local pathNames = {}
 	for _, loadout in ipairs(loadouts) do
-		local path = M.LoadoutPath(basePath, loadout.name)
+		local path = M.LoadoutPath(basePath, loadout.fileName or loadout.name)
+		local pathKey = path:lower()
+		if pathNames[pathKey] then
+			return written, { s_format("Loadouts '%s' and '%s' export to the same file: %s", pathNames[pathKey], loadout.name, path) }
+		end
+		pathNames[pathKey] = loadout.name
+		t_insert(pending, { path = path, loadout = loadout })
+	end
+	for _, entry in ipairs(pending) do
+		local path = entry.path
+		local loadout = entry.loadout
 		local loadoutMeta = {
 			name = s_format("%s - %s", metadata and metadata.name or build.buildName, loadout.name),
 			author = metadata and metadata.author,
