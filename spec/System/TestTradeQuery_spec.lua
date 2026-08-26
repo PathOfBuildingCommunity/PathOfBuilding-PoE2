@@ -3,8 +3,8 @@ describe("TradeQuery", function ()
 	local mock_queryGen
 
 	before_each(function()
-		mock_tradeQuery = new("TradeQuery", { itemsTab = {} })
-		mock_queryGen = new("TradeQueryGenerator", { itemsTab = {} })
+		mock_tradeQuery = new("TradeQuery"):TradeQuery({ itemsTab = {} })
+		mock_queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = {} })
 	end)
 
 	describe("ReduceOutput", function()

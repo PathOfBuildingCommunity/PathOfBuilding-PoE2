@@ -3,7 +3,8 @@
 -- Module: Calc Offence
 -- Performs offence calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -2384,7 +2385,7 @@ function calcs.offence(env, actor, activeSkill)
 		local critOverride = skillModList:Override(skillCfg, "WeaponBaseCritChance")
 		if skillFlags.weapon1Attack then
 			if breakdown then
-				breakdown.MainHand = LoadModule(calcs.breakdownModule, skillModList, output.MainHand)
+				breakdown.MainHand = LoadModule(calcs.breakdownModule)(skillModList, output.MainHand)
 			end
 			activeSkill.weapon1Cfg.skillStats = output.MainHand
 			local source = copyTable(actor.weaponData1)
@@ -2414,7 +2415,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if skillFlags.weapon2Attack then
 			if breakdown then
-				breakdown.OffHand = LoadModule(calcs.breakdownModule, skillModList, output.OffHand)
+				breakdown.OffHand = LoadModule(calcs.breakdownModule)(skillModList, output.OffHand)
 			end
 			activeSkill.weapon2Cfg.skillStats = output.OffHand
 			local source = copyTable(actor.weaponData2)
@@ -3089,6 +3090,20 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 			output.ChannelSpeed = output.Speed or output.Time
+		end
+		if breakdown then
+			if skillFlags.bothWeaponAttack then
+				breakdown.HitChance = {
+					"Both weapons:",
+					s_format("%.2f%% ^8(main hand)", output.MainHand.HitChance),
+					s_format("%.2f%% ^8(off hand)", output.OffHand.HitChance),
+					s_format("= %.2f%% ^8(average)", output.HitChance),
+				}
+			else
+				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
+				breakdown.HitChance = handBreakdown.HitChance or handBreakdown.AccuracyHitChance
+				breakdown.Speed = breakdown.Speed or handBreakdown.Speed
+			end
 		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
@@ -3782,9 +3797,10 @@ function calcs.offence(env, actor, activeSkill)
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
+					breakdown.PreEffectiveCritChance = copyTable(breakdown.CritChance)
 					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "")
-						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, "Crit confirmation roll:")
 						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
 						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
@@ -4663,6 +4679,36 @@ function calcs.offence(env, actor, activeSkill)
 			skillData.showAverage = false
 			skillFlags.showAverage = false
 			skillFlags.notAverage = true
+		end
+		if breakdown then
+			if skillFlags.bothWeaponAttack then
+				for _, critStat in ipairs({ "PreEffectiveCritChance", "CritChance" }) do
+					local combinedBreakdown = { "Both weapons:" }
+					for _, pass in ipairs(passList) do
+						t_insert(combinedBreakdown, pass.label .. ":")
+						if pass.breakdown[critStat] then
+							for _, line in ipairs(pass.breakdown[critStat]) do
+								t_insert(combinedBreakdown, line)
+							end
+						else
+							t_insert(combinedBreakdown, s_format("%.2f%%", pass.output[critStat]))
+						end
+					end
+					t_insert(combinedBreakdown, s_format("= %.2f%% ^8(average)", output[critStat]))
+					breakdown[critStat] = combinedBreakdown
+				end
+			else
+				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
+				breakdown.PreEffectiveCritChance = handBreakdown.PreEffectiveCritChance
+				breakdown.CritChance = handBreakdown.CritChance
+			end
+			local breakdownSource = skillFlags.weapon1Attack and "MainHand.CritChance" or "OffHand.CritChance"
+			if breakdown.PreEffectiveCritChance then
+				breakdown.PreEffectiveCritChance.breakdownSource = breakdownSource
+			end
+			if breakdown.CritChance then
+				breakdown.CritChance.breakdownSource = breakdownSource
+			end
 		end
 		if skillFlags.bothWeaponAttack then
 			if breakdown then

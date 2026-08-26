@@ -32,7 +32,10 @@ local rect = {
 	for containers
 --]]
 
-local ControlClass = newClass("Control", function(self, anchor, rect)
+---@class Control
+local ControlClass = newClass("Control")
+
+function ControlClass:Control(anchor, rect)
 	self.rectStart = rect or {0, 0, 0, 0}
 	self.x, self.y, self.width, self.height = unpack(self.rectStart)
 	self.shown = true
@@ -41,7 +44,8 @@ local ControlClass = newClass("Control", function(self, anchor, rect)
 	if anchor then
 		self:SetAnchor(anchor[1], anchor[2], anchor[3], nil, nil, anchor[4])
 	end
-end)
+	return self
+end
 
 function ControlClass:GetProperty(name)
 	if type(self[name]) == "function" then

@@ -27,7 +27,7 @@ describe("PoEAPI auth", function()
 			callback(nil, "SSL connect error")
 		end
 
-		local api = new("PoEAPI")
+		local api = new("PoEAPI"):PoEAPI()
 		local callbackArgs
 		api:FetchAuthToken(function(response, errMsg, updateSettings)
 			callbackArgs = {
@@ -55,7 +55,7 @@ describe("PoEAPI auth", function()
 			error("token exchange should not run for mismatched OAuth state")
 		end
 
-		local api = new("PoEAPI")
+		local api = new("PoEAPI"):PoEAPI()
 		local callbackArgs
 		api:FetchAuthToken(function(response, errMsg, updateSettings)
 			callbackArgs = {

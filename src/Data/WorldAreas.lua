@@ -2,7 +2,7 @@
 -- Path of Building
 -- World Area Data (c) Grinding Gear Games
 
-local worldAreas, _ = ...
+return function(worldAreas)
 
 worldAreas["CharacterSelect"] = {
 	name = "Character Select (Act 1)",
@@ -7421,3 +7421,4 @@ worldAreas["MapUniqueInitialTower"] = {
 }
 
 return worldAreas
+end

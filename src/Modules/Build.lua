@@ -17,7 +17,7 @@ local function firstToUpper(str)
 	return (str:gsub("^%l", string.upper))
 end
 
-local buildMode = new("ControlHost")
+local buildMode = new("ControlHost"):ControlHost()
 
 local function InsertIfNew(t, val)
 	if (not t) then return end
@@ -99,24 +99,24 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 	wipeTable(self.controls)
 
-	local miscTooltip = new("Tooltip")
+	local miscTooltip = new("Tooltip"):Tooltip()
 
 	-- Controls: top bar, left side
-	self.anchorTopBarLeft = new("Control", nil, {4, 4, 0, 20})
-	self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}, {0, 0, 60, 20}, "<< Back", function()
+	self.anchorTopBarLeft = new("Control"):Control(nil, { 4, 4, 0, 20 })
+	self.controls.back = new("ButtonControl"):ButtonControl({ "LEFT", self.anchorTopBarLeft, "RIGHT" }, { 0, 0, 60, 20 }, "<< Back", function()
 		if self.unsaved then
 			self:OpenSavePopup("LIST")
 		else
 			self:CloseBuild()
 		end
 	end)
-	self.controls.save = new("ButtonControl", {"LEFT",self.controls.back,"RIGHT"}, {8, 0, 50, 20}, "Save", function()
+	self.controls.save = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.back, "RIGHT" }, { 8, 0, 50, 20 }, "Save", function()
 		self:SaveDBFile()
 	end)
 	self.controls.save.enabled = function()
 		return not self.dbFileName or self.unsaved
 	end
-	self.controls.saveAs = new("ButtonControl", {"LEFT",self.controls.save,"RIGHT"}, {8, 0, 70, 20}, "Save As", function()
+	self.controls.saveAs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.save, "RIGHT" }, { 8, 0, 70, 20 }, "Save As", function()
 		self:OpenSaveAsPopup()
 	end)
 	self.controls.saveAs.enabled = function()
@@ -127,7 +127,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	local function buildNameConditional()
 		return self.anchorTopBarRight:GetPos() < 900
 	end
-	self.controls.buildName = new("Control", {"LEFT",self.controls.saveAs,"RIGHT"}, {4, 36, 0, 20})
+	self.controls.buildName = new("Control"):Control({ "LEFT", self.controls.saveAs, "RIGHT" }, { 4, 36, 0, 20 })
 	self.controls.buildName.width = function(control)
 		local limit = buildNameConditional() and 203 or
 			(self.anchorTopBarRight:GetPos() - 98 - 58
@@ -169,12 +169,12 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 
 	-- Controls: top bar, right side
-	self.anchorTopBarRight = new("Control", nil, {function() return main.screenW / 2 + self.controls.characterLevel.width + 10 end, 4, 0, 20})
+	self.anchorTopBarRight = new("Control"):Control(nil, { function() return main.screenW / 2 + self.controls.characterLevel.width + 10 end, 4, 0, 20 })
 
 	local function getPointDisplayX() -- I had it hardcoded to -323 before switching to the control sizing
 		return - (23 + self.controls.pointDisplay:GetSize() + self.controls.levelScalingButton:GetSize() + self.controls.characterLevel:GetSize())
 	end
-	self.controls.pointDisplay = new("Control", {"LEFT",self.anchorTopBarRight,"RIGHT"}, {function() return getPointDisplayX() end, 0, 0, 20})
+	self.controls.pointDisplay = new("Control"):Control({ "LEFT", self.anchorTopBarRight, "RIGHT" }, { function() return getPointDisplayX() end, 0, 0, 20 })
 	self.controls.pointDisplay.width = function(control)
 		return DrawStringWidth(16, "FIXED", control.str) + 8
 	end
@@ -195,14 +195,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			SetDrawLayer(nil, 0)
 		end
 	end
-	self.controls.levelScalingButton = new("ButtonControl", {"LEFT",self.controls.pointDisplay,"RIGHT"}, {8, 0, 50, 20}, self.characterLevelAutoMode and "Auto" or "Manual", function()
+	self.controls.levelScalingButton = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.pointDisplay, "RIGHT" }, { 8, 0, 50, 20 }, self.characterLevelAutoMode and "Auto" or "Manual", function()
 		self.characterLevelAutoMode = not self.characterLevelAutoMode
 		self.controls.levelScalingButton.label = self.characterLevelAutoMode and "Auto" or "Manual"
 		self.configTab:BuildModList()
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.levelScalingButton,"RIGHT"}, {10, 0, 106, 20}, "", "Level", "%D", 3, function(buf)
+	self.controls.characterLevel = new("EditControl"):EditControl({ "LEFT", self.controls.levelScalingButton, "RIGHT" }, { 10, 0, 106, 20 }, "", "Level", "%D", 3, function(buf)
 		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
 		self.configTab:BuildModList()
 		self.modFlag = true
@@ -239,7 +239,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			end
 		end
 	end
-	self.controls.classDrop = new("DropDownControl", {"LEFT",self.controls.characterLevel,"RIGHT"}, {8, 0, 90, 20}, nil, function(index, value)
+	self.controls.classDrop = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.characterLevel, "RIGHT" }, { 8, 0, 90, 20 }, nil, function(index, value)
 		if value.classId ~= self.spec.curClassId then
 			if self.spec:CountAllocNodes() == 0 or self.spec:IsClassConnected(value.classId) then
 				self.spec:SelectClass(value.classId)
@@ -266,13 +266,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			end
 		end
 	end)
-	self.controls.ascendDrop = new("DropDownControl", {"LEFT",self.controls.classDrop,"RIGHT"}, {8, 0, 120, 20}, nil, function(index, value)
+	self.controls.ascendDrop = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.classDrop, "RIGHT" }, { 8, 0, 120, 20 }, nil, function(index, value)
 		self.spec:SelectAscendClass(value.ascendClassId)
 		self.spec:AddUndoState()
 		self.spec:SetWindowTitleWithBuildClass()
 		self.buildFlag = true
 	end)
-	self.controls.buildLoadouts = new("DropDownControl", {"LEFT",self.controls.ascendDrop,"RIGHT"}, {8, 0, 190, 20}, {}, function(index, value)
+	self.controls.buildLoadouts = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.ascendDrop, "RIGHT" }, { 8, 0, 190, 20 }, {}, function(index, value)
 		if value == "^7^7Loadouts:" or value == "^7^7-----" then
 			self.controls.buildLoadouts:SetSel(1)
 			return
@@ -307,54 +307,57 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 
 	-- List of display stats
-	self.displayStats, self.minionDisplayStats, self.extraSaveStats = LoadModule("Modules/BuildDisplayStats")
+	local displayStatsModule = LoadModule("Modules/BuildDisplayStats")
+	self.displayStats = displayStatsModule.displayStats
+	self.minionDisplayStats = displayStatsModule.minionDisplayStats
+	self.extraSaveStats = displayStatsModule.extraSaveStats
 
 	-- Controls: Side bar
-	self.anchorSideBar = new("Control", nil, {4, 60, 0, 0})
+	self.anchorSideBar = new("Control"):Control(nil, { 4, 60, 0, 0 })
 	self.anchorSideBar.y = function()
 		return buildNameConditional() and 60 or 36
 	end
 
-	self.controls.modeImport = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 0, 134, 20}, "Import/Export Build", function()
+	self.controls.modeImport = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 0, 134, 20 }, "Import/Export Build", function()
 		self.viewMode = "IMPORT"
 		self.importTab:RefreshAuthStatus()
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
-	self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, {4, 0, 58, 20}, "Notes", function()
+	self.controls.modeNotes = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeImport, "RIGHT" }, { 4, 0, 58, 20 }, "Notes", function()
 		self.viewMode = "NOTES"
 	end)
 	self.controls.modeNotes.locked = function() return self.viewMode == "NOTES" end
-	self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, {300, 0, 100, 20}, "Configuration", function()
+	self.controls.modeConfig = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self.anchorSideBar, "TOPLEFT" }, { 300, 0, 100, 20 }, "Configuration", function()
 		self.viewMode = "CONFIG"
 	end)
 	self.controls.modeConfig.locked = function() return self.viewMode == "CONFIG" end
-	self.controls.modeTree = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 26, 72, 20}, "Tree", function()
+	self.controls.modeTree = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 26, 72, 20 }, "Tree", function()
 		self.viewMode = "TREE"
 	end)
 	self.controls.modeTree.locked = function() return self.viewMode == "TREE" end
-	self.controls.modeSkills = new("ButtonControl", {"LEFT",self.controls.modeTree,"RIGHT"}, {4, 0, 72, 20}, "Skills", function()
+	self.controls.modeSkills = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeTree, "RIGHT" }, { 4, 0, 72, 20 }, "Skills", function()
 		self.viewMode = "SKILLS"
 	end)
 	self.controls.modeSkills.locked = function() return self.viewMode == "SKILLS" end
-	self.controls.modeItems = new("ButtonControl", {"LEFT",self.controls.modeSkills,"RIGHT"}, {4, 0, 72, 20}, "Items", function()
+	self.controls.modeItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeSkills, "RIGHT" }, { 4, 0, 72, 20 }, "Items", function()
 		self.viewMode = "ITEMS"
 	end)
 	self.controls.modeItems.locked = function() return self.viewMode == "ITEMS" end
-	self.controls.modeCalcs = new("ButtonControl", {"LEFT",self.controls.modeItems,"RIGHT"}, {4, 0, 72, 20}, "Calcs", function()
+	self.controls.modeCalcs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeItems, "RIGHT" }, { 4, 0, 72, 20 }, "Calcs", function()
 		self.viewMode = "CALCS"
 	end)
 	self.controls.modeCalcs.locked = function() return self.viewMode == "CALCS" end
-	self.controls.modeParty = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 52, 72, 20}, "Party", function()
+	self.controls.modeParty = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 52, 72, 20 }, "Party", function()
 		self.viewMode = "PARTY"
 	end)
 	self.controls.modeParty.locked = function() return self.viewMode == "PARTY" end
-	self.controls.modeCompare = new("ButtonControl", {"LEFT",self.controls.modeParty,"RIGHT"}, {4, 0, 72, 20}, "Compare", function()
+	self.controls.modeCompare = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.modeParty, "RIGHT" }, { 4, 0, 72, 20 }, "Compare", function()
 		self.viewMode = "COMPARE"
 	end)
 	self.controls.modeCompare.locked = function() return self.viewMode == "COMPARE" end
 	-- Skills
-	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 80, 300, 16}, "^7Main Skill:")
-	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
+	self.controls.mainSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.anchorSideBar, "TOPLEFT" }, { 0, 80, 300, 16 }, "^7Main Skill:")
+	self.controls.mainSocketGroup = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillLabel, "BOTTOMLEFT" }, { 0, 2, 300, 18 }, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true
 		self.buildFlag = true
@@ -366,13 +369,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			self.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
 		end
 	end
-	self.controls.mainSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSocketGroup,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
+	self.controls.mainSkill = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSocketGroup, "BOTTOMLEFT" }, { 0, 2, 300, 18 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		mainSocketGroup.mainActiveSkill = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.statSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkill,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
+	self.controls.statSet = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkill, "BOTTOMLEFT" }, { 0, 2, 300, 18 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.statSet = srcInstance.statSet or { }
@@ -380,38 +383,38 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillPart = new("DropDownControl", {"TOPLEFT",self.controls.statSet,"BOTTOMLEFT",true}, {0, 2, 300, 18}, nil, function(index, value)
+	self.controls.mainSkillPart = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.statSet, "BOTTOMLEFT", true }, { 0, 2, 300, 18 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillPart = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillStageCountLabel = new("LabelControl", {"TOPLEFT",self.controls.mainSkillPart,"BOTTOMLEFT",true}, {0, 3, 0, 16}, "^7Stages:") {
+	self.controls.mainSkillStageCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillPart, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, "^7Stages:") {
 		shown = function()
 			return self.controls.mainSkillStageCount:IsShown()
 		end,
 	}
-	self.controls.mainSkillStageCount = new("EditControl", {"LEFT",self.controls.mainSkillStageCountLabel,"RIGHT",true}, {2, 0, 60, 18}, nil, nil, "%D", nil, function(buf)
+	self.controls.mainSkillStageCount = new("EditControl"):EditControl({ "LEFT", self.controls.mainSkillStageCountLabel, "RIGHT", true }, { 2, 0, 60, 18 }, nil, nil, "%D", nil, function(buf)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillStageCount = tonumber(buf)
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillMineCountLabel = new("LabelControl", {"TOPLEFT",self.controls.mainSkillStageCountLabel,"BOTTOMLEFT",true}, {0, 3, 0, 16}, "^7Active Mines:") {
+	self.controls.mainSkillMineCountLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.mainSkillStageCountLabel, "BOTTOMLEFT", true }, { 0, 3, 0, 16 }, "^7Active Mines:") {
 		shown = function()
 			return self.controls.mainSkillMineCount:IsShown()
 		end,
 	}
-	self.controls.mainSkillMineCount = new("EditControl", {"LEFT",self.controls.mainSkillMineCountLabel,"RIGHT",true}, {2, 0, 60, 18}, nil, nil, "%D", nil, function(buf)
+	self.controls.mainSkillMineCount = new("EditControl"):EditControl({ "LEFT", self.controls.mainSkillMineCountLabel, "RIGHT", true }, { 2, 0, 60, 18 }, nil, nil, "%D", nil, function(buf)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillMineCount = tonumber(buf)
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillMinion = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMineCountLabel,"BOTTOMLEFT",true}, {0, 3, 178, 18}, nil, function(index, value)
+	self.controls.mainSkillMinion = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillMineCountLabel, "BOTTOMLEFT", true }, { 0, 3, 178, 18 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		if value.itemSetId then
@@ -452,20 +455,20 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			tooltip:AddLine(14, colorCodes.TIP.."Tip: You can drag items from the Items tab onto this dropdown to equip them onto the minion.")
 		end
 	end
-	self.controls.mainSkillMinionLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, {2, 0, 120, 18}, "Manage Spectres...", function()
+	self.controls.mainSkillMinionLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, "Manage Spectres...", function()
 		self:OpenSpectreLibrary("spectre")
 	end)
-	self.controls.mainSkillBeastLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, {2, 0, 120, 18}, "Manage Beasts...", function()
+	self.controls.mainSkillBeastLibrary = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.mainSkillMinion, "RIGHT" }, { 2, 0, 120, 18 }, "Manage Beasts...", function()
 		self:OpenSpectreLibrary("beast")
 	end)
-	self.controls.mainSkillMinionSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinion,"BOTTOMLEFT",true}, {0, 2, 200, 16}, nil, function(index, value)
+	self.controls.mainSkillMinionSkill = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillMinion, "BOTTOMLEFT", true }, { 0, 2, 200, 16 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillMinionSkill = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillMinionSkillStatSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinionSkill,"BOTTOMLEFT",true}, {0, 2, 200, 16}, nil, function(index, value)
+	self.controls.mainSkillMinionSkillStatSet = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.mainSkillMinionSkill, "BOTTOMLEFT", true }, { 0, 2, 200, 16 }, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
@@ -474,14 +477,17 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.statBoxAnchor = new("Control", {"TOPLEFT",self.controls.mainSkillMinionSkillStatSet,"BOTTOMLEFT",true}, {0, 2, 0, 0})
-	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.controls.statBoxAnchor,"BOTTOMLEFT"}, {0, 2, 300, 0}, {{x=170,align="RIGHT_X"},{x=174,align="LEFT"}})
+	self.controls.statBoxAnchor = new("Control"):Control({ "TOPLEFT", self.controls.mainSkillMinionSkillStatSet, "BOTTOMLEFT", true }, { 0, 2, 0, 0 })
+	self.controls.statBox = new("TextListControl"):TextListControl({ "TOPLEFT", self.controls.statBoxAnchor, "BOTTOMLEFT" }, { 0, 2, 300, 0 }, { { x = 170, align = "RIGHT_X" }, { x = 174, align = "LEFT" } })
 	self.controls.statBox.height = function(control)
 		local x, y = control:GetPos()
 		local warnHeight = main.showWarnings and #self.controls.warnings.lines > 0 and 18 or 0
 		return main.screenH - main.mainBarHeight - 4 - y - warnHeight
 	end
-	self.controls.warnings = new("Control",{"TOPLEFT",self.controls.statBox,"BOTTOMLEFT",true}, {0, 0, 0, 18})
+	function self.controls.statBox.onClick(hoveredLine)
+		self:SetDisplayStat(hoveredLine, true)
+	end
+	self.controls.warnings = new("Control"):Control({"TOPLEFT",self.controls.statBox,"BOTTOMLEFT",true}, {0, 0, 0, 18})
 	self.controls.warnings.lines = {}
 	self.controls.warnings.width = function(control)
 		return control.str and DrawStringWidth(16, "FIXED", control.str) + 8 or 0
@@ -510,15 +516,23 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.latestTree = main.tree[latestTreeVersion]
 	data.setJewelRadiiGlobally(latestTreeVersion)
 	self.data = data
-	self.importTab = new("ImportTab", self)
-	self.notesTab = new("NotesTab", self)
-	self.partyTab = new("PartyTab", self)
-	self.configTab = new("ConfigTab", self)
-	self.itemsTab = new("ItemsTab", self)
-	self.treeTab = new("TreeTab", self)
-	self.skillsTab = new("SkillsTab", self)
-	self.calcsTab = new("CalcsTab", self)
-	self.compareTab = new("CompareTab", self)
+	self.importTab = new("ImportTab"):ImportTab(self)
+	self.notesTab = new("NotesTab"):NotesTab(self)
+	self.partyTab = new("PartyTab"):PartyTab(self)
+	self.configTab = new("ConfigTab"):ConfigTab(self)
+	self.itemsTab = new("ItemsTab"):ItemsTab(self)
+	self.treeTab = new("TreeTab"):TreeTab(self)
+	self.skillsTab = new("SkillsTab"):SkillsTab(self)
+	self.calcsTab = new("CalcsTab"):CalcsTab(self)
+	self.controls.breakdown = new("CalcBreakdownControl"):CalcBreakdownControl(self.calcsTab)
+	self.controls.breakdown.pinnedColour = hexToRGB(colorCodes.CUSTOM) or error("failed to set breakdown pin colour")
+	self.controls.breakdown.envName = "mainEnv"
+	self.controls.breakdown.clearDisplayFunc = function()
+		self:ClearDisplayStat()
+	end
+	-- ensure that we don't refer to outdated calc tab sections
+	self.breakdownIndex = nil
+	self.compareTab = new("CompareTab"):CompareTab(self)
 
 	-- Load sections from the build file
 	self.savers = {
@@ -587,7 +601,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.spec:SetWindowTitleWithBuildClass()
 
 	--[[
-	local testTooltip = new("Tooltip")
+	local testTooltip = new("Tooltip"):Tooltip()
 	for _, item in pairs(main.uniqueDB.list) do
 		ConPrintf("%s", item.name)
 		self.itemsTab:AddItemTooltip(testTooltip, item)
@@ -757,7 +771,7 @@ function buildMode:SyncLoadouts(skipBuildPlannerSync)
 end
 
 function buildMode:NewLoadout(loadoutName)
-	local newSpec = new("PassiveSpec", self, latestTreeVersion)
+	local newSpec = new("PassiveSpec"):PassiveSpec(self, latestTreeVersion)
 	local newItemSet = self.itemsTab:NewItemSet(#self.itemsTab.itemSets + 1, loadoutName)
 	local newSkillSet = self.skillsTab:NewSkillSet(#self.skillsTab.skillSets + 1, loadoutName)
 	local newConfigSet = self.configTab:NewConfigSet(#self.configTab.configSets + 1, loadoutName)
@@ -789,7 +803,7 @@ end
 function buildMode:CustomLoadout(specId, itemSetId, skillSetId, configSetId, name)
 	local newSpec
 	if specId == -1 then
-		newSpec = new("PassiveSpec", self, latestTreeVersion)
+		newSpec = new("PassiveSpec"):PassiveSpec(self, latestTreeVersion)
 		newSpec.id = #self.treeTab.specList + 1
 		t_insert(self.treeTab.specList, newSpec)
 	else
@@ -1053,9 +1067,12 @@ function buildMode:EstimatePlayerProgress()
 		end
 
 		if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
+			-- The set with fewer allocated points is the one with points to
+			-- spare, since a node allocated in both sets is only paid for once.
 			InsertIfNew(self.controls.warnings.lines, string.format(
-				"You have %d Weapon set 2 passives available",
-				math.abs(weaponSet2Used - weaponSet1Used)
+				"You have %d Weapon set %d passives available",
+				math.abs(weaponSet2Used - weaponSet1Used),
+				weaponSet1Used < weaponSet2Used and 1 or 2
 			))
 		end
 
@@ -1329,6 +1346,10 @@ function buildMode:OnFrame(inputEvents)
 		self.outputRevision = self.outputRevision + 1
 		self.buildFlag = false
 		self.calcsTab:BuildOutput()
+		if self.controls.breakdown.pinned and self.breakdownInputs then
+			self.controls.breakdown:SetBreakdownData()
+			self.controls.breakdown:SetBreakdownData(unpack(self.breakdownInputs))
+		end
 		self:RefreshStatList()
 	end
 	if main.showThousandsSeparators ~= self.lastShowThousandsSeparators then
@@ -1393,7 +1414,52 @@ function buildMode:OnFrame(inputEvents)
 	DrawImage(nil, sideBarWidth - 4, 32, 4, main.screenH - 32)
 
 
+	local hovered = self.controls.statBox and self.controls.statBox.hoveredLine
+	self:SetDisplayStat(hovered, false)
 	self:DrawControls(main.viewPort)
+	if self.controls.breakdown.pinned and self.breakdownInputs and not self.selControl then
+		self:SelectControl(self.controls.breakdown)
+	end
+end
+
+function buildMode:SetDisplayStat(hovered, pin)
+	if not hovered or (not pin and self.controls.breakdown.pinned) then
+		-- if this is a hover popup, clear when the user moved mouse out of frame
+		if not self.controls.breakdown.pinned then
+			self:ClearDisplayStat()
+		end
+		return
+	end
+	local key = hovered.line.breakdown
+	-- user clicked a second time: clear
+	if pin and self.controls.breakdown.pinned then
+		self:ClearDisplayStat()
+		return
+		-- avoid being able to pin empty breakdowns
+	elseif pin and not self.controls.breakdown.pinned and not key then
+		return
+	end
+
+	self.sidebarBreakdownData = self:GetSidebarBreakdown(key, hovered.line.modNames, hovered.line.ignoredSections, hovered.line.actorName)
+	self.sidebarBreakdownData.x = hovered.x - 1
+	self.sidebarBreakdownData.y = hovered.y
+	self.sidebarBreakdownData.width = hovered.width
+	if hovered.line.breakdownColour then
+		self.controls.breakdown.borderColour = hovered.line.breakdownColour
+	end
+	local breakdownInputs = { self.sidebarBreakdownData, pin, hovered.line.actorName }
+	-- avoid rebuilding the sidebar every frame
+	if tableDeepEquals(breakdownInputs, self.breakdownInputs) then
+		return
+	end
+	self.breakdownInputs = breakdownInputs
+	self.controls.breakdown:SetBreakdownData(unpack(breakdownInputs))
+end
+
+function buildMode:ClearDisplayStat()
+	self.controls.breakdown:SetBreakdownData()
+	self.breakdownInputs = nil
+	self.sidebarBreakdownData = nil
 end
 
 function buildMode:UpdateClassDropdowns(treeVersion)
@@ -1423,24 +1489,24 @@ end
 function buildMode:OpenConversionPopup()
 	local controls = { }
 	local currentVersion = treeVersions[latestTreeVersion].display
-	controls.note = new("LabelControl", nil, {0, 20, 0, 16}, colorCodes.TIP..[[
+	controls.note = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, colorCodes.TIP .. [[
 Info:^7 You are trying to load a build created for a version of Path of Exile that is
 not supported by us. You will have to convert it to the current game version to load it.
 To use a build newer than the current supported game version, you may have to update.
 To use a build older than the current supported game version, we recommend loading it
 in an older version of Path of Building Community instead.
 ]])
-	controls.label = new("LabelControl", nil, {0, 110, 0, 16}, colorCodes.WARNING..[[
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 110, 0, 16 }, colorCodes.WARNING .. [[
 Warning:^7 Converting a build to a different game version may have side effects.
 For example, if the passive tree has changed, then some passives may be deallocated.
 You should create a backup copy of the build before proceeding.
 ]])
-	controls.convert = new("ButtonControl", nil, {-40, 170, 120, 20}, "Convert to ".. currentVersion, function()
+	controls.convert = new("ButtonControl"):ButtonControl(nil, { -40, 170, 120, 20 }, "Convert to " .. currentVersion, function()
 		main:ClosePopup()
 		self:Shutdown()
 		self:Init(self.dbFileName, self.buildName, nil, true)
 	end)
-	controls.cancel = new("ButtonControl", nil, {60, 170, 70, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 60, 170, 70, 20 }, "Cancel", function()
 		main:ClosePopup()
 		self:CloseBuild()
 	end)
@@ -1454,13 +1520,13 @@ function buildMode:OpenSavePopup(mode)
 		["UPDATE"] = "before updating?",
 	}
 	local controls = { }
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7This build has unsaved changes.\nDo you want to save them "..modeDesc[mode])
-	controls.save = new("ButtonControl", nil, {-90, 70, 80, 20}, "Save", function()
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7This build has unsaved changes.\nDo you want to save them " .. modeDesc[mode])
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -90, 70, 80, 20 }, "Save", function()
 		main:ClosePopup()
 		self.actionOnSave = mode
 		self:SaveDBFile()
 	end)
-	controls.noSave = new("ButtonControl", nil, {0, 70, 80, 20}, "Don't Save", function()
+	controls.noSave = new("ButtonControl"):ButtonControl(nil, { 0, 70, 80, 20 }, "Don't Save", function()
 		main:ClosePopup()
 		if mode == "LIST" then
 			self:CloseBuild()
@@ -1470,7 +1536,7 @@ function buildMode:OpenSavePopup(mode)
 			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-	controls.close = new("ButtonControl", nil, {90, 70, 80, 20}, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 90, 70, 80, 20 }, "Cancel", function()
 		main:ClosePopup()
 	end)
 	main:OpenPopup(300, 100, "Save Changes", controls)
@@ -1493,23 +1559,23 @@ function buildMode:OpenSaveAsPopup()
 			end
 		end
 	end
-	controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter new build name:")
-	controls.edit = new("EditControl", nil, {0, 40, 450, 20},
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter new build name:")
+	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 450, 20 },
 	(self.buildName or self.dbFileName):gsub("[\\/:%*%?\"<>|%c]", "-"), nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		updateBuildName()
 	end)
-	controls.folderLabel = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, {10, 70, 0, 16}, "^7Folder:")
-	controls.newFolder = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 67, 94, 20}, "New Folder...", function()
+	controls.folderLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 70, 0, 16 }, "^7Folder:")
+	controls.newFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 100, 67, 94, 20 }, "New Folder...", function()
 		main:OpenNewFolderPopup(main.buildPath..controls.folder.subPath, function(newFolderName)
 			if newFolderName then
 				controls.folder:OpenFolder(newFolderName)
 			end
 		end)
 	end)
-	controls.folder = new("FolderListControl", nil, {0, 115, 450, 100}, self.dbFileSubPath, function(subPath)
+	controls.folder = new("FolderListControl"):FolderListControl(nil, { 0, 115, 450, 100 }, self.dbFileSubPath, function(subPath)
 		updateBuildName()
 	end)
-	controls.save = new("ButtonControl", nil, {-45, 225, 80, 20}, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 225, 80, 20 }, "Save", function()
 		main:ClosePopup()
 		self.dbFileName = newFileName
 		self.buildName = newBuildName
@@ -1517,7 +1583,7 @@ function buildMode:OpenSaveAsPopup()
 		self:SaveDBFile()
 		self.spec:SetWindowTitleWithBuildClass()
 	end)
-	controls.close = new("ButtonControl", nil, {45, 225, 80, 20}, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 45, 225, 80, 20 }, "Cancel", function()
 		main:ClosePopup()
 		self.actionOnSave = nil
 	end)
@@ -1675,11 +1741,11 @@ function buildMode:OpenSpectreLibrary(library)
 	end
 
 	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:", library == "beast")
+	controls.list = new("MinionListControl"):MinionListControl(nil, { -230, 40, 210, 270 }, self.data, destList, nil, label .. " in Build:", library == "beast")
 	controls.list.OnSelect = function()
 			UpdateMinionDisplay(controls.list.selValue)
 	end
-	controls.source = new("MinionSearchListControl", nil, {0, 80, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":", library == "beast")
+	controls.source = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 80, 210, 230 }, self.data, sourceList, controls.list, "^7Available " .. label .. ":", library == "beast")
 	controls.source.OnSelect = function()
 			UpdateMinionDisplay(controls.source.selValue)
 	end
@@ -1724,14 +1790,14 @@ function buildMode:OpenSpectreLibrary(library)
 	}
 	for _, monsterType in ipairs(monsterTypeCheckbox) do
 		local controlName = "sortMonsterCheckbox" .. monsterType.name
-		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monsterType.x, 30, 26, 26}, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
+		local checkbox = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { monsterType.x, 30, 26, 26 }, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
 		checkbox:SetCheckImage(self.monsterImages[monsterType.name])
 		checkbox.shown = library ~= "beast"
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
-	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "^7Show All " .. firstToUpper(library) .. "s:")
-	controls.save = new("ButtonControl", nil, {-45, 420, 80, 20}, "Save", function()
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.source, "BOTTOMLEFT" }, { 153, 2, 26, 26 }, "", monsterTypeCheckboxChange("recommendedList"), "^7Show All " .. firstToUpper(library) .. "s", false)
+	controls.showAllLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sortMonsterCheckboxShowAll, "LEFT" }, { -5, 0, 0, 16 }, "^7Show All " .. firstToUpper(library) .. "s:")
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 420, 80, 20 }, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
 		else
@@ -1741,22 +1807,22 @@ function buildMode:OpenSpectreLibrary(library)
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl", nil, {45, 420, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 420, 80, 20 }, "Cancel", function()
 		main:ClosePopup()
 	end)
 	local spectrePopup
 	if library == "beast" then
 		spectrePopup = main:OpenPopup(720, 450, "Beast Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "^7Beasts in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Companion gem for their buffs and curses to activate")
+		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, "^7Beasts in your Library must be assigned to an active")
+		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, "Companion gem for their buffs and curses to activate")
 	else
 		spectrePopup = main:OpenPopup(720, 450, "Spectre Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "^7Spectres in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
+		controls.noteLine1 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -60, 0, 16 }, "^7Spectres in your Library must be assigned to an active")
+		controls.noteLine2 = new("LabelControl"):LabelControl({ "TOP", controls.save, "BOTTOM" }, { 45, -42, 0, 16 }, "Raise Spectre gem for their buffs and curses to activate")
 	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
 
-	controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {230, -50, 0, 18}, "Minion Stats")
+	controls.minionNameLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 230, -50, 0, 18 }, "Minion Stats")
 	controls.minionNameLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		SetDrawColor(colorCodes.RELIC)
@@ -1766,13 +1832,13 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.labelText or "Monster Stats")
 	end
-	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {24, 271, 0, 16}, "Gem Level:")
-	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, 20, nil, "%D", 3, function()
+	controls.minionGemLevelLabel = new("LabelControl"):LabelControl({ "BOTTOM", controls.minionNameLabel, "TOP" }, { 24, 271, 0, 16 }, "Gem Level:")
+	controls.minionGemLevel = new("EditControl"):EditControl({ "LEFT", controls.minionGemLevelLabel, "RIGHT" }, { 4, 0, 60, 20 }, 20, nil, "%D", 3, function()
 		if self.lastSelectedMinion then
 			UpdateMinionDisplay(self.lastSelectedMinion)
 		end
 	end)
-	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, -9, 0, 16}, colorCodes.LIFE.."LIFE")
+	controls.lifeLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 170, -9, 0, 16 }, colorCodes.LIFE .. "LIFE")
 	controls.lifeLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1789,7 +1855,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.lifeValue)
 		end
 	end
-	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {293, -9, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
+	controls.energyshieldLabel = new("LabelControl"):LabelControl({ "TOP", controls.source, "TOP" }, { 293, -9, 0, 16 }, colorCodes.ES .. "ENERGY SHIELD")
 	controls.energyshieldLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1806,7 +1872,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.energyShieldValue)
 		end
 	end
-	controls.armourLabel = new("LabelControl", {"TOP",controls.lifeLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.ARMOUR.."ARMOUR")
+	controls.armourLabel = new("LabelControl"):LabelControl({ "TOP", controls.lifeLabel, "TOP" }, { 0, 54, 0, 16 }, colorCodes.ARMOUR .. "ARMOUR")
 	controls.armourLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1823,7 +1889,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.armourValue)
 		end
 	end
-	controls.evasionLabel = new("LabelControl", {"TOP",controls.energyshieldLabel,"TOP"}, {1, 54, 0, 16}, colorCodes.EVASION.."EVASION")
+	controls.evasionLabel = new("LabelControl"):LabelControl({ "TOP", controls.energyshieldLabel, "TOP" }, { 1, 54, 0, 16 }, colorCodes.EVASION .. "EVASION")
 	controls.evasionLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1840,7 +1906,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.evasionValue)
 		end
 	end
-	controls.blockLabel = new("LabelControl", {"TOP",controls.armourLabel,"TOP"}, {1, 54, 0, 16}, colorCodes.NORMAL.."BLOCK")
+	controls.blockLabel = new("LabelControl"):LabelControl({ "TOP", controls.armourLabel, "TOP" }, { 1, 54, 0, 16 }, colorCodes.NORMAL .. "BLOCK")
 	controls.blockLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1857,7 +1923,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.blockValue)
 		end
 	end
-	controls.resistsLabel = new("LabelControl", {"TOP",controls.evasionLabel,"TOP"}, {1, 54, 0, 16}, "RESISTS")
+	controls.resistsLabel = new("LabelControl"):LabelControl({ "TOP", controls.evasionLabel, "TOP" }, { 1, 54, 0, 16 }, "RESISTS")
 	controls.resistsLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1874,7 +1940,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.resistsValue)
 		end
 	end
-	controls.movementSpeedLabel = new("LabelControl", {"TOP",controls.blockLabel,"TOP"}, {61, 54, 0, 16}, "MOVEMENT SPEED")
+	controls.movementSpeedLabel = new("LabelControl"):LabelControl({ "TOP", controls.blockLabel, "TOP" }, { 61, 54, 0, 16 }, "MOVEMENT SPEED")
 	controls.movementSpeedLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 244, 50
@@ -1891,7 +1957,7 @@ function buildMode:OpenSpectreLibrary(library)
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.movementSpeedValue)
 		end
 	end
-	controls.spawnLocations = new("SpawnListControl", {"TOP", controls.movementSpeedLabel, "TOP"}, {2, 73, 244, 68}, self.data, nil, "Spawns:")
+	controls.spawnLocations = new("SpawnListControl"):SpawnListControl({ "TOP", controls.movementSpeedLabel, "TOP" }, { 2, 73, 244, 68 }, self.data, nil, "Spawns:")
 end
 
 function buildMode:OpenSimilarPopup()
@@ -1900,7 +1966,7 @@ function buildMode:OpenSimilarPopup()
 	local buildProviders = {
 		{
 			name = "PoB Archives",
-			impl = new("PoBArchivesProvider", "similar")
+			impl = new("PoBArchivesProvider"):PoBArchivesProvider("similar")
 		}
 	}
 	local width = 600
@@ -1908,7 +1974,7 @@ function buildMode:OpenSimilarPopup()
 		return main.screenH * 0.8
 	end
 	local padding = 50
-	controls.similarBuildList = new("ExtBuildListControl", nil, {0, padding, width, height() - 2 * padding}, buildProviders)
+	controls.similarBuildList = new("ExtBuildListControl"):ExtBuildListControl(nil, { 0, padding, width, height() - 2 * padding }, buildProviders)
 	controls.similarBuildList.shown = true
 	controls.similarBuildList.height = function()
 		return height() - 2 * padding
@@ -1921,7 +1987,7 @@ function buildMode:OpenSimilarPopup()
 
 	-- controls.similarBuildList.shown = not controls.similarBuildList:IsShown()
 
-	controls.close = new("ButtonControl", nil, {0, height() - (padding + 20) / 2, 80, 20}, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, height() - (padding + 20) / 2, 80, 20 }, "Close", function()
 		main:ClosePopup()
 	end)
 	-- used in PopupDialog to dynamically size the popup
@@ -2096,8 +2162,163 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal, colorOverride)
 	return valStr
 end
 
+-- lazily index the calcs tab sections so that we can look up the matching
+-- sections by breakdown name. this function works by iterating through calc
+-- sections. it will link every breakdown key to the first found calc section
+-- column (basically, a box). the result will contain references to this column
+-- data and will also contain a set of mod names referred to by cells of said
+-- box. if a cell shouldn't be picked, the field `skipSideBarIndex` can be set
+-- on the cell.
+function buildMode:BuildBreakdownIndex()
+	if self.breakdownIndex then
+		return self.breakdownIndex
+	end
+	local index = {}
+	local sectionList = self.calcsTab.sectionList
+	for _, section in ipairs(sectionList) do
+		if section.subSection then
+			for _, subSection in ipairs(section.subSection) do
+				-- cells for each mod name
+				local modSectionsByName = {}
+				local breakdownCells = {}
+				---@type CalcSectionData
+				local subSectionData = subSection.data
+				for _, row in ipairs(subSectionData) do
+					for _, colData in ipairs(row) do
+						for _, cell in ipairs(colData) do
+							if not cell.skipSideBarIndex and cell.breakdown and not breakdownCells[cell.breakdown] then
+								breakdownCells[cell.breakdown] = colData
+							end
+							if cell.modName then
+								-- inherit flags from parent row
+								local copy = copyTable(row, true)
+								for k, v in pairs(cell) do
+									copy[k] = v
+								end
+								local names = type(cell.modName) == "table" and cell.modName or { cell.modName }
+								for _, name in ipairs(names) do
+									modSectionsByName[name] = modSectionsByName[name] or {}
+									t_insert(modSectionsByName[name], copy)
+								end
+							end
+						end
+					end
+				end
+				for key, colData in pairs(breakdownCells) do
+					-- ensure that we only set each breakdown once
+					if not index[key] then
+						index[key] = { colData = colData, modSectionsByName = modSectionsByName }
+					end
+				end
+			end
+		end
+	end
+	self.breakdownIndex = index
+	return index
+end
+
+---@param key string A breakdown key
+---@param modNames string[]? A modName key. Required if the mod name is different from the breakdown key. E.g. breakdown has Time while the mod has Speed
+---@param ignoredSections table<string, boolean>?
+---@param actorName string?
+function buildMode:GetSidebarBreakdown(key, modNames, ignoredSections, actorName)
+	local env = actorName and self.calcsTab.mainEnv[actorName]
+	local breakdownData = env and env.breakdown and env.breakdown[key]
+	local sourceKey = breakdownData and breakdownData.breakdownSource or key
+	local entry = self:BuildBreakdownIndex()[sourceKey]
+	if not entry then
+		local output = { { breakdown = key } }
+		-- it's possible for calc sections to not have a breakdown, while still
+		-- having a mod list. this handles e.g. spell suppression chance
+		if modNames then
+			table.insert(output, { modName = modNames })
+		end
+		return output
+	end
+	local displayData = {}
+	-- this will include all of the hover information for the selected breakdown
+	for _, cell in ipairs(entry.colData) do
+		local displayCell = copyTable(cell)
+		if displayCell.breakdown == sourceKey then
+			displayCell.breakdown = key
+		end
+		t_insert(displayData, displayCell)
+	end
+	-- sometimes the breakdown doesn't include the mod names. for
+	-- example life has its mod tables separated to the inc and more breakdowns.
+	if modNames then
+		for _, modKey in ipairs(modNames) do
+			if entry.modSectionsByName[modKey] then
+				for _, statDisplay in ipairs(entry.modSectionsByName[modKey]) do
+					t_insert(displayData, statDisplay)
+				end
+			end
+		end
+	end
+
+	local visitedSections = {}
+	-- remove sections that have been manually excluded, or ones that have
+	-- already been added. it's probably not guaranteed that the sections with
+	-- the same label always contain the exact same contents, but this gets rid
+	-- of pointless repeated sections
+	for i = #displayData, 1, -1 do
+		local label = displayData[i].label
+		if label then
+			if visitedSections[label] or (ignoredSections and ignoredSections[label]) then
+				table.remove(displayData, i)
+			end
+			visitedSections[label] = true
+		end
+	end
+	if #displayData == 0 then
+		return { { breakdown = key } }
+	end
+	return displayData
+end
+
+---@param actorName string
+function buildMode:GetStatBreakdownKey(statData, actorName)
+	local env = self.calcsTab.mainEnv[actorName]
+	local breakdown = env and env.breakdown
+	if not breakdown then
+		return nil
+	end
+	local key
+	if statData.breakdown ~= nil then
+		key = statData.breakdown
+	elseif statData.childStat then
+		local parent = breakdown[statData.stat]
+		if parent and parent[statData.childStat] then
+			key = statData.stat .. "." .. statData.childStat
+		end
+	elseif breakdown[statData.stat] then
+		key = statData.stat
+	end
+	if key == nil then
+		return nil
+	end
+	-- Modifier-only popups do not require a calculated breakdown.
+	if statData.modNames then
+		return key
+	end
+	local namespace, name = key:match("^(%a+)%.(%a+)$")
+	local breakdownData = namespace and breakdown[namespace] and breakdown[namespace][name] or breakdown[key]
+	if breakdownData and (#breakdownData > 0
+			or breakdownData.radius
+			or breakdownData.rowList and #breakdownData.rowList > 0
+			or breakdownData.reservations and #breakdownData.reservations > 0
+			or breakdownData.damageTypes and #breakdownData.damageTypes > 0
+			or breakdownData.slots and #breakdownData.slots > 0
+			or breakdownData.modList and #breakdownData.modList > 0) then
+		return key
+	end
+	return nil
+end
 -- Add stat list for given actor
-function buildMode:AddDisplayStatList(statList, actor)
+---@param statList DisplayStat[]
+---@param actor any
+---@param actorName string
+function buildMode:AddDisplayStatList(statList, actor, actorName)
 	local statBoxList = self.controls.statBox.list
 	for index, statData in ipairs(statList) do
 		if not statData.flag or actor.mainSkill.activeEffect.statSet.skillFlags[statData.flag] then
@@ -2152,10 +2373,40 @@ function buildMode:AddDisplayStatList(statList, actor)
 						if actor.output[statData.stat.."Warning"] or (statData.warnFunc and statData.warnFunc(statVal, actor.output) and statData.warnColor) then
 							colorOverride = colorCodes.NEGATIVE
 						end
+						local formattedStat = self:FormatStat(statData, statVal, overCapStatVal, colorOverride)
+						if statData.suffix and (not statData.suffixCondFunc or statData.suffixCondFunc(statVal, actor.output)) then
+							local suffix = statData.suffix
+							if type(suffix) == "function" then
+								suffix = suffix(statVal, actor.output)
+							end
+							if suffix then
+								formattedStat = formattedStat .. "^x808080 (" .. suffix .. ")"
+							end
+						end
+						local breakdown = self:GetStatBreakdownKey(statData, actorName)
+						local ignoredSections
+						if statData.ignoredSections then
+							ignoredSections = {}
+							for _, label in ipairs(statData.ignoredSections) do
+								ignoredSections[label] = true
+							end
+						end
+						-- SimpleGraphic also has these short codes which cannot be easily translated to hex
+						local colourCodeMap = {
+							["^1"] = { 0.917, 0, 0 },
+							["^7"] = { 1, 1, 1 },
+						}
+						local breakdownColour = labelColor ~= "^7" and hexToRGB(labelColor) or colourCodeMap[labelColor]
 						t_insert(statBoxList, {
 							height = 16,
 							labelColor..statData.label..":",
-							self:FormatStat(statData, statVal, overCapStatVal, colorOverride),
+							formattedStat,
+							breakdown = breakdown,
+							modNames = statData.modNames,
+							underline = { false, not not breakdown },
+							actorName = actorName,
+							ignoredSections = ignoredSections,
+							breakdownColour = breakdownColour,
 						})
 					end
 				end
@@ -2259,7 +2510,7 @@ function buildMode:RefreshStatList()
 				t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, "^8" .. self.calcsTab.mainEnv.minion.mainSkill.infoMessage2})
 			end
 		end
-		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion)
+		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion, "minion")
 		t_insert(statBoxList, { height = 10 })
 		t_insert(statBoxList, { height = 18, "^7Player:" })
 	end
@@ -2267,7 +2518,7 @@ function buildMode:RefreshStatList()
 		t_insert(statBoxList, { height = 16, "^7Skill disabled:" })
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
-	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player)
+	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player, "player")
 	self:InsertItemWarnings()
 	self:EstimatePlayerProgress()
 end
@@ -2494,8 +2745,8 @@ end
 -- Opens the build set manager
 function buildMode:OpenBuildSetManagePopup()
 	main:OpenPopup(400, 290, "Manage Loadouts", {
-		new("BuildSetListControl", nil, { 0, 50, 380, 200 }, self),
-		new("ButtonControl", nil, { 0, 260, 90, 20 }, "Done", function()
+		new("BuildSetListControl"):BuildSetListControl(nil, { 0, 50, 380, 200 }, self),
+		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, "Done", function()
 			main:ClosePopup()
 			if self.activeLoadout and self.activeLoadout > 0 then
 				self.controls.buildLoadouts:SetSel(self.activeLoadout + 1)

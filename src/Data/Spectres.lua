@@ -4,8 +4,9 @@
 -- Spectre Data
 -- Monster data (c) Grinding Gear Games
 --
-local minions, mod, flag = ...
-
+			return function(mod, flag)
+				---@class SpectreData
+				local minions = {}
 -- Abyssal
 minions["Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"] = {
 	name = "Lightless Abomination",
@@ -25913,3 +25914,5 @@ minions["Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion"] =
 		-- set_use_boss_incremental_stats [set_use_boss_incremental_stats = 1]
 	},
 }
+			    return minions
+			end

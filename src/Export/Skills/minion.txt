@@ -3,8 +3,7 @@
 -- Minion active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+return function(skills, mod, flag, skill)
 #skill MeleeAtAnimationSpeed
 #set MeleeAtAnimationSpeed
 #flags attack melee
@@ -408,3 +407,4 @@ statMap = {
 #flags spell area
 #mods
 #skillEnd
+end

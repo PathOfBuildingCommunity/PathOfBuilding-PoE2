@@ -3437,6 +3437,9 @@ local specialModList = {
 	["maximum quality is (%d+)%%"] = {
 		-- Display only. For Breach Rings and Serle's Grit.
 	},
+	["%+(%d+)%% to maximum quality"] = {
+		-- Display only. For Breach Rings and the Breachlord's prefix.
+	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
 		-- For Strugglescream. Handled in Item.lua
 	} end,
@@ -4518,6 +4521,9 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", num) }),
+		flag("Condition:CanApplyFireExposure"),
+		flag("Condition:CanApplyColdExposure"),
+		flag("Condition:CanApplyLightningExposure"),
 	} end,
 	["enemies near your linked targets have fire, cold and lightning exposure"] = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
@@ -7166,7 +7172,7 @@ local jewelSelfUnallocFuncs = {
 	["Grants all bonuses of Unallocated Small Passive Skills in Radius"] = function(node, out, data)
 		if node then
 			if node.type == "Normal" then
-				data.modList = data.modList or new("ModList")
+				data.modList = data.modList or new("ModList"):ModList()
 
 				-- Filter out "Condition:ConnectedTo" mods as these nodes are not technically allocated by this jewel func
 				for _, mod in ipairs(out) do

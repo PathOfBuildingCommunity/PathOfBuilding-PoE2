@@ -10,10 +10,12 @@ local m_max = math.max
 local m_min = math.min
 local dkjson = require "dkjson"
 
-local ExtBuildListControlClass = newClass("ExtBuildListControl", "ControlHost", "Control",
-	function(self, anchor, rect, providers)
-		self.Control(anchor, rect)
-		self.ControlHost()
+---@class ExtBuildListControl: ControlHost, Control
+local ExtBuildListControlClass = newClass("ExtBuildListControl", "ControlHost", "Control")
+
+function ExtBuildListControlClass:ExtBuildListControl(anchor, rect, providers)
+		self:Control(anchor, rect)
+		self:ControlHost()
 		self:SelectControl()
 
 		self.rowHeight = 200
@@ -33,13 +35,15 @@ local ExtBuildListControlClass = newClass("ExtBuildListControl", "ControlHost", 
 			self.providerMaxLength = m_max(self.providerMaxLength, DrawStringWidth(16, self.font, provider.name) + 30)
 			t_insert(self.buildProvidersList, provider.name)
 		end
-	end)
+
+	return self
+end
 
 function ExtBuildListControlClass:Init(providerName)
 	wipeTable(self.controls)
 	wipeTable(self.tabs)
 
-	self.controls.sort = new("DropDownControl", { "TOP", self, "TOP" }, { 0, -20, self.providerMaxLength, 20 },
+	self.controls.sort = new("DropDownControl"):DropDownControl({ "TOP", self, "TOP" }, { 0, -20, self.providerMaxLength, 20 },
 		self.buildProvidersList, function(index, value)
 			self:Init(value)
 		end)
@@ -72,7 +76,7 @@ function ExtBuildListControlClass:Init(providerName)
 		if lastControl then
 			anchor = { "LEFT", lastControl, "RIGHT" }
 		end
-		local button = new("ButtonControl", anchor, { 0, lastControl and 0 or -20, stringWidth + 10, 20 }, title, function()
+		local button = new("ButtonControl"):ButtonControl(anchor, { 0, lastControl and 0 or -20, stringWidth + 10, 20 }, title, function()
 			if self.activeListProvider:GetActiveList() == title then
 				return
 			end
@@ -105,7 +109,7 @@ function ExtBuildListControlClass:Init(providerName)
 		return (self.width() - self.controls.sort.width()) / 2
 	end
 
-	self.controls.scrollBarV = new("ScrollBarControl", { "RIGHT", self, "RIGHT" }, { -1, 0, self.scroll and 16 or 0, 0 },
+	self.controls.scrollBarV = new("ScrollBarControl"):ScrollBarControl({ "RIGHT", self, "RIGHT" }, { -1, 0, self.scroll and 16 or 0, 0 },
 		80, "VERTICAL") {
 		-- y = function()
 		-- 	return (self.scrollH and -8 or 0)
@@ -120,7 +124,7 @@ function ExtBuildListControlClass:Init(providerName)
 	end
 
 	if self.activeListProvider:GetPageUrl() then
-		self.controls.all = new("ButtonControl", { "BOTTOM", self, "BOTTOM" }, { 0, 1, self.width, 20 }, "See All",
+		self.controls.all = new("ButtonControl"):ButtonControl({ "BOTTOM", self, "BOTTOM" }, { 0, 1, self.width, 20 }, "See All",
 			function()
 				local url = self.activeListProvider:GetPageUrl()
 				if url then
@@ -407,14 +411,14 @@ function ExtBuildListControlClass:Draw(viewPort, noTooltip)
 			local relativeHeight = currentHeight + 10 - self.controls.scrollBarV.offset
 			if relativeHeight > y and relativeHeight < self.height() + y - 10 then
 				if build.buildLink then
-					local importButton = new("ButtonControl", nil, { x, currentHeight - self.controls.scrollBarV.offset, 45, 20 }, "Import", function()
+					local importButton = new("ButtonControl"):ButtonControl(nil, { x, currentHeight - self.controls.scrollBarV.offset, 45, 20 }, "Import", function()
 						self:importBuild(build)
 					end)
 					t_insert(self.controls, importButton)
 				end
 
 				if build.previewLink then
-					local previewButton = new("ButtonControl", nil, { x + 50, currentHeight - self.controls.scrollBarV.offset, 60, 20 }, "Preview", function()
+					local previewButton = new("ButtonControl"):ButtonControl(nil, { x + 50, currentHeight - self.controls.scrollBarV.offset, 60, 20 }, "Preview", function()
 							OpenURL(build.previewLink)
 					end)
 					t_insert(self.controls, previewButton)

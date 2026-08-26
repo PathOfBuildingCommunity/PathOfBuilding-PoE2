@@ -8,16 +8,20 @@ local dkjson = require "dkjson"
 local utils = LoadModule("Modules/Utils")
 
 ---@class TradeQueryRequests
-local TradeQueryRequestsClass = newClass("TradeQueryRequests", function(self, rateLimiter)
+---@class TradeQueryRequests
+local TradeQueryRequestsClass = newClass("TradeQueryRequests")
+
+function TradeQueryRequestsClass:TradeQueryRequests(rateLimiter)
 	self.maxFetchPerSearch = 10
 	self.tradeQuery = tradeQuery
-	self.rateLimiter = rateLimiter or new("TradeQueryRateLimiter")
+	self.rateLimiter = rateLimiter or new("TradeQueryRateLimiter"):TradeQueryRateLimiter()
 	self.requestQueue = {
 		["search"] = {},
 		["fetch"] = {},
 	}
 	self.hostName = "https://www.pathofexile.com/"
-end)
+	return self
+end
 
 ---Main routine for processing request queue
 --- @param onRateLimit fun(integer)?

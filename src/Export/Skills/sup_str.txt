@@ -3,7 +3,7 @@
 -- Strength support gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
+return function(skills, mod, flag, skill)
 #skill SupportAftershockChancePlayer
 #set SupportAftershockChancePlayer
 #mods
@@ -1843,3 +1843,4 @@ statMap = {
 },
 #mods
 #skillEnd
+end

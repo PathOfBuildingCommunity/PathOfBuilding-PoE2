@@ -4,8 +4,7 @@
 -- Spectre active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
 --ABTT = Add Buff to Target Triggered
 --CGE = Monster Cast Ground Effect
 --DTT = Detach Dash to Target
@@ -11076,4 +11075,4 @@ skills["BlackStriderWebProjectile"] = {
 			},
 		},
 	}
-}
+}			end

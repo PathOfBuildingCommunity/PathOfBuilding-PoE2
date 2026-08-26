@@ -4,7 +4,7 @@
 -- Boss Data
 -- Boss data (c) Grinding Gear Games
 --
-local bosses = ...
+local bosses = {}
 
 bosses["Venarius"] = {
 	armourMult = 50,
@@ -121,3 +121,5 @@ bosses["Drox"] = {
 	evasionMult = 0,
 	isUber = false,
 }
+
+return bosses

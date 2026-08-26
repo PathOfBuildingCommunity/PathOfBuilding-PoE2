@@ -3,7 +3,7 @@ describe("Buy similar mod stat matching", function()
 
 	describe("addModEntries mod matching", function()
 		it("matches from nothing mods as options", function()
-			local fromNothing = new("Item", [[
+			local fromNothing = new("Item"):Item([[
 From Nothing
 Diamond
 LevelReq: 0
@@ -32,7 +32,7 @@ Corrupted]])
 		end)
 
 		it("combines mods that are the same stat", function()
-			local lifeDiamond = new("Item", [[
+			local lifeDiamond = new("Item"):Item([[
 Test Subject
 Diamond
 Implicits: 0
@@ -47,7 +47,7 @@ Implicits: 0
 			assert.equal("+50 to Maximum Life", StripEscapes(entries[1].formattedLines[2]))
 			assert.equal(150, entries[1].value)
 
-			local lifelessDiamond = new("Item", [[
+			local lifelessDiamond = new("Item"):Item([[
 Test Subject
 Diamond
 Implicits: 0
@@ -62,7 +62,7 @@ Implicits: 0
 		end)
 
 		it("is not case-sensitive", function ()
-			local funnyItem = new("Item", [[
+			local funnyItem = new("Item"):Item([[
 Test Subject
 Diamond
 Implicits: 1
@@ -73,7 +73,7 @@ Implicits: 1
 		end)
 
 		it("does not combine implicit and explicit mods", function()
-			local lifelessDiamond = new("Item", [[
+			local lifelessDiamond = new("Item"):Item([[
 Test Subject
 Diamond
 Implicits: 1
@@ -114,7 +114,7 @@ Implicits: 1
 		end)
 
 		local function openPopup()
-			local item = new("Item", "Rarity: Rare\nTest Ring\nRuby Ring\nImplicits: 0\n+50 to maximum Life")
+			local item = new("Item"):Item("Rarity: Rare\nTest Ring\nRuby Ring\nImplicits: 0\n+50 to maximum Life")
 			bs.openPopup(item, "Ring", build)
 			local controls = main.popups[1].controls
 			searchEnv = getfenv(controls.search.onClick)

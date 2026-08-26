@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type One Hand Mace
 #socketLimit 3
@@ -8,3 +8,4 @@ local itemBases = ...
 #type Two Hand Mace
 #socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/AbstractTwoHandMace
+end

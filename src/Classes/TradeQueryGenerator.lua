@@ -111,7 +111,10 @@ local function logToFile(...)
 	ConPrintf(...)
 end
 
-local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, queryTab)
+---@class TradeQueryGenerator
+local TradeQueryGeneratorClass = newClass("TradeQueryGenerator")
+
+function TradeQueryGeneratorClass:TradeQueryGenerator(queryTab)
 	self:InitMods()
 	self.queryTab = queryTab
 	self.itemsTab = queryTab.itemsTab
@@ -119,7 +122,8 @@ local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, 
 	self.lastMaxPrice = nil
 	self.lastMaxPriceTypeIndex = nil
 	self.lastMaxLevel = nil
-end)
+	return self
+end
 
 local function canModSpawnForItemCategory(mod, names)
 	for _, name in pairs(tradeCategoryNames[names]) do
@@ -838,7 +842,7 @@ Time-Lost Sapphire
 Radius: Small
 Implicits: 0]]
 	end
-	local testItem = new("Item", itemRawStr)
+	local testItem = new("Item"):Item(itemRawStr)
 
 	-- Calculate base output with a blank item
 	local calcFunc, baseOutput = self.itemsTab.build.calcsTab:GetMiscCalculator()
@@ -868,7 +872,7 @@ Implicits: 0]]
 
 	-- Open progress tracking blocker popup
 	local controls = { }
-	controls.progressText = new("LabelControl", {"TOP",nil,"TOP"}, {0, 30, 0, 16}, string.format("Calculating Mod Weights..."))
+	controls.progressText = new("LabelControl"):LabelControl({ "TOP", nil, "TOP" }, { 0, 30, 0, 16 }, string.format("Calculating Mod Weights..."))
 	self.calcContext.popup = main:OpenPopup(280, 65, "Please Wait", controls)
 end
 
@@ -1110,7 +1114,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		popupHeight = popupHeight + (height or 23)
 	end
 
-	controls.includeCorrupted = new("CheckBoxControl", {"TOP",nil,"TOP"}, {-40, 30, 18}, "Corrupted Mods:", function(state) end, "Includes corruption implicit modifiers in the weighted sum.\nNote that there is a maximum search filter count which means this might cause other weights to not be included.")
+	controls.includeCorrupted = new("CheckBoxControl"):CheckBoxControl({ "TOP", nil, "TOP" }, { -40, 30, 18 }, "Corrupted Mods:", function(state) end, "Includes corruption implicit modifiers in the weighted sum.\nNote that there is a maximum search filter count which means this might cause other weights to not be included.")
 	controls.includeCorrupted.state = not context.slotTbl.alreadyCorrupted and (self.lastIncludeCorrupted == nil or self.lastIncludeCorrupted == true)
 	controls.includeCorrupted.enabled = not context.slotTbl.alreadyCorrupted
 	updateLastAnchor(controls.includeCorrupted)
@@ -1118,7 +1122,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 
 
 
-	controls.includeMirrored = new("CheckBoxControl", {"TOPRIGHT",lastItemAnchor,"BOTTOMRIGHT"}, {0, 5, 18}, "Mirrored Items:", function(state) end)
+	controls.includeMirrored = new("CheckBoxControl"):CheckBoxControl({ "TOPRIGHT", lastItemAnchor, "BOTTOMRIGHT" }, { 0, 5, 18 }, "Mirrored Items:", function(state) end)
 	controls.includeMirrored.state = (self.lastIncludeMirrored == nil or self.lastIncludeMirrored == true)
 	updateLastAnchor(controls.includeMirrored)
 
@@ -1134,9 +1138,9 @@ Keep: augments will be included in weights and will not be changed on items.
 Best used when you value an augment greatly, and cannot add it yourself.
 
 Remove: augments are completely ignored, and removed from items.]]
-		controls.augmentBehaviour = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 110, 18}, {"Copy Current", "Keep", "Remove"}, function(state) end, augmentTooltip)
+		controls.augmentBehaviour = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 110, 18 }, { "Copy Current", "Keep", "Remove" }, function(state) end, augmentTooltip)
 		controls.augmentBehaviour:SetSel(self.lastAugmentBehaviourIdx or 1)
-		controls.augmentBehaviourLabel = new("LabelControl", { "RIGHT", controls.augmentBehaviour, "LEFT" },
+		controls.augmentBehaviourLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.augmentBehaviour, "LEFT" },
 			{ -4, 0, 80, 16 }, "Rune Behaviour:")
 		updateLastAnchor(controls.augmentBehaviour)
 	end
@@ -1152,9 +1156,9 @@ Keep: anoints will not be changed on items.
 Best used when you cannot add one yourself. Note that weights cannot be generated for anoints.
 
 Remove: anoints are completely ignored, and removed from items.]]
-		controls.anointBehaviour = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 110, 18}, {"Copy Current", "Keep", "Remove"}, function(state) end, augmentTooltip)
+		controls.anointBehaviour = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 110, 18 }, { "Copy Current", "Keep", "Remove" }, function(state) end, augmentTooltip)
 		controls.anointBehaviour:SetSel(self.lastAnointBehaviourIdx or 1)
-		controls.anointBehaviourLabel = new("LabelControl", { "RIGHT", controls.anointBehaviour, "LEFT" },
+		controls.anointBehaviourLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.anointBehaviour, "LEFT" },
 			{ -4, 0, 80, 16 }, "Anoint Behaviour:")
 		updateLastAnchor(controls.anointBehaviour)
 	end
@@ -1173,8 +1177,8 @@ Remove: anoints are completely ignored, and removed from items.]]
 		table.sort(activeSocketList, function(a, b)
 			return a.label < b.label
 		end)
-		controls.jewelSlot = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 100, 18}, activeSocketList, function(idx, value) end)
-		controls.jewelSlotLabel = new("LabelControl", {"RIGHT",controls.jewelSlot,"LEFT"}, {-5, 0, 0, 16}, "Jewel Slot:")
+		controls.jewelSlot = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 100, 18 }, activeSocketList, function(idx, value) end)
+		controls.jewelSlotLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.jewelSlot, "LEFT" }, { -5, 0, 0, 16 }, "Jewel Slot:")
 		for index, jewelSlot in ipairs(activeSocketList) do
 			if jewelSlot.nodeId == context.slotTbl.selectedJewelNodeId then
 				controls.jewelSlot.selIndex = index
@@ -1190,13 +1194,13 @@ Remove: anoints are completely ignored, and removed from items.]]
 	local setModSelectors
 	-- jewel type selector
 	if isJewelSlot and not context.slotTbl.unique then
-		controls.jewelType = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 100, 18 }, { "Base", "Radius" }, function(index, value)
+		controls.jewelType = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 100, 18 }, { "Base", "Radius" }, function(index, value)
 			-- update mod list for selectors
 			local mods = getModList()
 			setModSelectors(controls, mods)
 		end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
-		controls.jewelTypeLabel = new("LabelControl", { "RIGHT", controls.jewelType, "LEFT" }, { -5, 0, 0, 16 }, "Jewel Type:")
+		controls.jewelTypeLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.jewelType, "LEFT" }, { -5, 0, 0, 16 }, "Jewel Type:")
 		updateLastAnchor(controls.jewelType)
 	end
 	-- Add max price limit selection dropbox
@@ -1204,32 +1208,32 @@ Remove: anoints are completely ignored, and removed from items.]]
 	for _, currency in ipairs(currencyTable) do
 		t_insert(currencyDropdownNames, currency.name)
 	end
-	controls.maxPrice = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+	controls.maxPrice = new("EditControl"):EditControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 70, 18 }, nil, nil, "%D")
 	controls.maxPrice.buf = self.lastMaxPrice and tostring(self.lastMaxPrice) or ""
-	controls.maxPriceType = new("DropDownControl", {"LEFT",controls.maxPrice,"RIGHT"}, {5, 0, 150, 18}, currencyDropdownNames, nil, "The trade site will filter out listings with other currencies,\nif anything other than \"Exalted Orb Equivalent\" is chosen and a maximum is specified.")
+	controls.maxPriceType = new("DropDownControl"):DropDownControl({ "LEFT", controls.maxPrice, "RIGHT" }, { 5, 0, 150, 18 }, currencyDropdownNames, nil, "The trade site will filter out listings with other currencies,\nif anything other than \"Exalted Orb Equivalent\" is chosen and a maximum is specified.")
 	controls.maxPriceType.selIndex = self.lastMaxPriceTypeIndex or 1
-	controls.maxPriceLabel = new("LabelControl", {"RIGHT",controls.maxPrice,"LEFT"}, {-5, 0, 0, 16}, "^7Max Price:")
+	controls.maxPriceLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.maxPrice, "LEFT" }, { -5, 0, 0, 16 }, "^7Max Price:")
 	updateLastAnchor(controls.maxPrice)
 
-	controls.maxLevel = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, nil, nil, "%D")
+	controls.maxLevel = new("EditControl"):EditControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 100, 18 }, nil, nil, "%D")
 	controls.maxLevel.buf = self.lastMaxLevel and tostring(self.lastMaxLevel) or ""
-	controls.maxLevelLabel = new("LabelControl", {"RIGHT",controls.maxLevel,"LEFT"}, {-5, 0, 0, 16}, "Max Level:")
+	controls.maxLevelLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.maxLevel, "LEFT" }, { -5, 0, 0, 16 }, "Max Level:")
 	updateLastAnchor(controls.maxLevel)
 
 	-- basic filtering by slot for sockets Megalomaniac does not have slot and Sockets use "Jewel nodeId"
 	if slot and not isJewelSlot and not slot.slotName:find("Flask") and not slot.slotName:find("Belt") and not slot.slotName:find("Ring") and not slot.slotName:find("Amulet") and not slot.slotName:find("Charm") then
-		controls.sockets = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+		controls.sockets = new("EditControl"):EditControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, 5, 70, 18 }, nil, nil, "%D")
 		controls.sockets.buf = self.lastSockets and tostring(self.lastSockets) or ""
-		controls.socketsLabel = new("LabelControl", {"RIGHT",controls.sockets,"LEFT"}, {-5, 0, 0, 16}, "^7# of Empty Sockets:")
+		controls.socketsLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.sockets, "LEFT" }, { -5, 0, 0, 16 }, "^7# of Empty Sockets:")
 		updateLastAnchor(controls.sockets)
 	end
 
 	for i, stat in ipairs(statWeights) do
-		controls["sortStatType"..tostring(i)] = new("LabelControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, i == 1 and 5 or 3, 70, 16}, i < (#statWeights < 6 and 10 or 5) and s_format("^7%.2f: %s", stat.weightMult, stat.label) or ("+ "..tostring(#statWeights - 4).." Additional Stats"))
+		controls["sortStatType" .. tostring(i)] = new("LabelControl"):LabelControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" }, { 0, i == 1 and 5 or 3, 70, 16 }, i < (#statWeights < 6 and 10 or 5) and s_format("^7%.2f: %s", stat.weightMult, stat.label) or ("+ " .. tostring(#statWeights - 4) .. " Additional Stats"))
 		lastItemAnchor = controls["sortStatType"..tostring(i)]
 		popupHeight = popupHeight + 19
 		if i == 1 then
-			controls.sortStatLabel = new("LabelControl", {"RIGHT",lastItemAnchor,"LEFT"}, {-5, 0, 0, 16}, "^7Stat to Sort By:")
+			controls.sortStatLabel = new("LabelControl"):LabelControl({ "RIGHT", lastItemAnchor, "LEFT" }, { -5, 0, 0, 16 }, "^7Stat to Sort By:")
 		elseif i == 5 then
 			-- tooltips do not actually work for labels
 			lastItemAnchor.tooltipFunc = function(tooltip)
@@ -1248,7 +1252,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	popupHeight = popupHeight + 4
 
 	local selectedMods = {}
-	controls.generateQuery = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-45, -10, 80, 20}, "Execute", function()
+	controls.generateQuery = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { -45, -10, 80, 20 }, "Execute", function()
 		local selectedJewelSlot = controls.jewelSlot and controls.jewelSlot:GetSelValue()
 		if controls.jewelSlot and not selectedJewelSlot then
 			return
@@ -1310,7 +1314,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 		return not controls.jewelSlot or controls.jewelSlot:GetSelValue() ~= nil
 	end
 	controls.generateQuery.tooltipText = controls.jewelSlot and "Requires an active Jewel Socket." or nil
-	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 45, -10, 80, 20 }, "Cancel", function()
 		main:ClosePopup()
 	end)
 
@@ -1332,7 +1336,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 
 	local _, lastItemY = lastItemAnchor:GetPos()
 	local _, lastItemH = lastItemAnchor:GetSize()
-	controls.modSelectorHeaderAnchor = new("Control", { "TOPLEFT", nil, "TOPLEFT" },
+	controls.modSelectorHeaderAnchor = new("Control"):Control({ "TOPLEFT", nil, "TOPLEFT" },
 		-- position right below last item, centered horizontally
 		{ (popupWidth - totalWidth) / 2, lastItemH + lastItemY, 0, 0 },
 		"")
@@ -1390,7 +1394,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 	-- mod filter dropdown and aux controls
 	for i = 1, maxSelectors do
 		-- dropdown which lists all mods that fit
-		local dropdown = new("DropDownControl", { "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
+		local dropdown = new("DropDownControl"):DropDownControl({ "TOPLEFT", lastItemAnchor, "BOTTOMLEFT" },
 			{ 0, 4, totalWidth, 20 }, nil,
 			function(idx, val)
 				if idx == 1 then
@@ -1418,7 +1422,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 		controls["modSelectorMin" .. i] = minimumBox
 
 		-- button which removes the mod row
-		local clearButton = new("ButtonControl", { "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
+		local clearButton = new("ButtonControl"):ButtonControl({ "LEFT", minimumBox, "RIGHT" }, { xSpacing, 0, buttonSize, buttonSize },
 			"x", function()
 				table.remove(selectedMods, i)
 				setModSelectors(controls)

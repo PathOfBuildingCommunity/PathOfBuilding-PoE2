@@ -35,7 +35,10 @@ local function getFile(URL)
 	return #page > 0 and page
 end
 
-local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
+---@class PassiveTree
+local PassiveTreeClass = newClass("PassiveTree")
+
+function PassiveTreeClass:PassiveTree(treeVersion)
 	self.treeVersion = treeVersion
 	self.scaleImage = 1 -- 0.3835
 	local versionNum = treeVersions[treeVersion].num
@@ -419,14 +422,15 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 		self:ProcessStats(node)
 	end
-end)
+	return self
+end
 
 function PassiveTreeClass:ProcessStats(node, startIndex)
 	startIndex = startIndex or 1
 	if startIndex == 1 then
 		node.modKey = ""
 		node.mods = { }
-		node.modList = new("ModList")
+		node.modList = new("ModList"):ModList()
 	end
 
 	if not node.sd then

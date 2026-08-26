@@ -4,8 +4,7 @@
 -- Other active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
 skills["TriggeredAbyssalApparitionPlayer"] = {
 	name = "Abyssal Apparition",
 	baseTypeName = "Abyssal Apparition",
@@ -21259,3 +21258,4 @@ skills["AncientGiftsPlayer"] = {
 					},
 				}
 			}
+			end
