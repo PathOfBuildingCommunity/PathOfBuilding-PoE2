@@ -3091,6 +3091,20 @@ function calcs.offence(env, actor, activeSkill)
 			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 			output.ChannelSpeed = output.Speed or output.Time
 		end
+		if breakdown then
+			if skillFlags.bothWeaponAttack then
+				breakdown.HitChance = {
+					"Both weapons:",
+					s_format("%.2f%% ^8(main hand)", output.MainHand.HitChance),
+					s_format("%.2f%% ^8(off hand)", output.OffHand.HitChance),
+					s_format("= %.2f%% ^8(average)", output.HitChance),
+				}
+			else
+				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
+				breakdown.HitChance = handBreakdown.HitChance or handBreakdown.AccuracyHitChance
+				breakdown.Speed = breakdown.Speed or handBreakdown.Speed
+			end
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
@@ -3783,6 +3797,7 @@ function calcs.offence(env, actor, activeSkill)
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
+					breakdown.PreEffectiveCritChance = copyTable(breakdown.CritChance)
 					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "")
 						t_insert(breakdown.CritChance, "Effective Crit Chance:")
@@ -3803,6 +3818,12 @@ function calcs.offence(env, actor, activeSkill)
 					if inevitableCrits then
 						t_insert(breakdown.CritChance, "Inevitable Critical Hits:")
 						t_insert(breakdown.CritChance, "= 100% ^8(override)")
+					end
+					if env.mode_effective and output.AccuracyHitChance < 100 then
+						t_insert(breakdown.CritChance, "Crit confirmation roll:")
+						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
+						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
 			end
