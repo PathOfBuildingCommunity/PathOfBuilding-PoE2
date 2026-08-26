@@ -3800,7 +3800,7 @@ function calcs.offence(env, actor, activeSkill)
 					breakdown.PreEffectiveCritChance = copyTable(breakdown.CritChance)
 					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "")
-						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, "Crit confirmation roll:")
 						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
 						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
@@ -3818,12 +3818,6 @@ function calcs.offence(env, actor, activeSkill)
 					if inevitableCrits then
 						t_insert(breakdown.CritChance, "Inevitable Critical Hits:")
 						t_insert(breakdown.CritChance, "= 100% ^8(override)")
-					end
-					if env.mode_effective and output.AccuracyHitChance < 100 then
-						t_insert(breakdown.CritChance, "Crit confirmation roll:")
-						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
-						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
 			end

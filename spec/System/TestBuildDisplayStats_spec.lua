@@ -47,6 +47,7 @@ describe("Build display stats", function()
 		assert.matches("Both weapons", table.concat(actor.breakdown.CritChance, "\n"), nil, true)
 		assert.not_matches("Crit confirmation roll", table.concat(actor.breakdown.PreEffectiveCritChance, "\n"), nil, true)
 		assert.matches("Crit confirmation roll", table.concat(actor.breakdown.CritChance, "\n"), nil, true)
+		assert.not_matches("Effective Crit Chance:", table.concat(actor.breakdown.CritChance, "\n"), nil, true)
 		assert.matches("Both weapons", table.concat(actor.breakdown.HitChance, "\n"), nil, true)
 
 		local critLine = getSidebarLine("Crit Chance")
