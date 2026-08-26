@@ -476,15 +476,13 @@ function ImportTabClass:RefreshBuildPlannerSets()
 	self.controls.buildPlannerSkillSet:SetList(skillList)
 	self.controls.buildPlannerItemSet:SetList(itemList)
 
-	if not self.exportSpecIndex then
-		self.exportSpecIndex = self.controls.buildPlannerSpec:GetSelValue().key
-	end
-	if not self.exportSkillSetId then
-		self.exportSkillSetId = self.controls.buildPlannerSkillSet:GetSelValue().key
-	end
-	if not self.exportItemSetId then
-		self.exportItemSetId = self.controls.buildPlannerItemSet:GetSelValue().key
-	end
+	-- ensure selected index is in bounds and that something is selected
+	self.controls.buildPlannerSpec.selIndex = nil
+	self.controls.buildPlannerSkillSet.selIndex = nil
+	self.controls.buildPlannerItemSet.selIndex = nil
+	self.controls.buildPlannerSpec:SetSel(1)
+	self.controls.buildPlannerSkillSet:SetSel(1)
+	self.controls.buildPlannerItemSet:SetSel(1)
 end
 function ImportTabClass:RefreshAuthStatus()
 	main.api:ValidateAuth(function(valid, updateSettings)

@@ -20,7 +20,7 @@ local M = {}
 
 local function safeFilename(name)
 	name = (name and name ~= "") and name or "Unnamed"
-	name = name:gsub("[\\/:%*%?\"<>|%c]", "?")
+	name = name:gsub("[\\/:%*%?\"<>|%c]", "-")
 	return name
 end
 
@@ -106,16 +106,18 @@ local function buildSkills(skillSet)
 	if not skillSet or not skillSet.socketGroupList then return out end
 	for _, group in ipairs(skillSet.socketGroupList) do
 		if group.enabled ~= false and group.gemList and #group.gemList > 0 then
-			local activeIdx = tonumber(group.mainActiveSkill) or 1
-			local activeGem = group.gemList[activeIdx] or group.gemList[1]
-			local activeId = activeGem.gemData?.gameId
+			local displayList = group.displaySkillList
+			local activeSkill = displayList and displayList[tonumber(group.mainActiveSkill) or 1]
+			if not activeSkill then continue end
+			local activeGem = activeSkill.activeEffect.srcInstance
+			local activeId = activeSkill.activeEffect.gemData?.gameId
 			if activeId then
 				local entry = { id = activeId }
 				local activeText = gemAdditionalText(activeGem, false)
 				if activeText then entry.additional_text = activeText end
 				local supports = {}
 				for _, gem in ipairs(group.gemList) do
-					if gem ~= activeGem and gem.enabled ~= false then
+					if gem ~= activeGem and gem.enabled ~= false and gem.gemData?.grantedEffect.support then
 						local supId = gem.gemData?.gameId
 						if supId then
 							local supText = gemAdditionalText(gem, true)
@@ -219,8 +221,6 @@ local function buildItems(itemsTab, itemSet)
 end
 
 --- Resolve a selection into the actual spec/skill set/item set to export.
---- Any field left unset falls back to whatever is currently active.
---- selection = { specIndex = n, skillSetId = id, itemSetId = id }
 function M.ResolveSelection(build, selection)
 	selection = selection or {}
 	local treeTab, skillsTab, itemsTab = build.treeTab, build.skillsTab, build.itemsTab
@@ -232,19 +232,17 @@ end
 
 function M.GetLoadouts(build)
 	local out = {}
-	ConPrintf("%s, %s, %s", build.treeTab, build.skillsTab, build.itemsTab)
 	if not (build.treeTab and build.skillsTab and build.itemsTab) then return out end
 	build:SyncLoadouts(true)
 	for _, displayName in ipairs(build.controls.buildLoadouts.list) do
-		ConPrintf("%s", displayName)
 		if not displayName:find("^%^7%^7") then
 			local loadout = build:GetLoadoutByName(displayName)
 			local plainName = displayName:gsub(" {.-}$", "")
 			t_insert(out, {
 				name = plainName,
-				specIndex = loadout.specId,
-				skillSetId = loadout.skillSetId,
-				itemSetId = loadout.itemSetId,
+				specIndex = loadout?.specId,
+				skillSetId = loadout?.skillSetId,
+				itemSetId = loadout?.itemSetId,
 			})
 		end
 	end

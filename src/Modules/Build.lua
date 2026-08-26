@@ -290,25 +290,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		if value == "^7^7Manage" then
 			self:OpenBuildSetManagePopup()
 		end
-		if value == "^7^7New Loadout" then
-			local controls = { }
-			controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter name for this loadout:")
-			controls.edit = new("EditControl", nil, {0, 40, 350, 20}, "New Loadout", nil, nil, 100, function(buf)
-				controls.save.enabled = buf:match("%S")
-			end)
-			controls.save = new("ButtonControl", nil, { -45, 70, 80, 20 }, "Save", function()
-				self:NewLoadout(controls.edit.buf)
-				main:ClosePopup()
-			end)
-			controls.save.enabled = false
-			controls.cancel = new("ButtonControl", nil, { 45, 70, 80, 20 }, "Cancel", function()
-				main:ClosePopup()
-			end)
-			main:OpenPopup(370, 100, "New Loadout", controls, "save", "edit", "cancel")
-
-			self.controls.buildLoadouts:SetSel(1)
-			return
-		end
 
 		local loadout = self:GetLoadoutByName(value)
 		self:SetActiveLoadout(loadout)
@@ -1349,7 +1330,6 @@ function buildMode:OnFrame(inputEvents)
 		self.buildFlag = false
 		self.calcsTab:BuildOutput()
 		self:RefreshStatList()
-		self.importTab:RefreshBuildPlannerSets()
 	end
 	if main.showThousandsSeparators ~= self.lastShowThousandsSeparators then
 		self:RefreshStatList()
