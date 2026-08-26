@@ -690,7 +690,7 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 				self.skillsTab.build.modFlag = true
 			end)
 		end
-		return self
+		return
 	elseif key == "RETURN" or key == "RIGHTBUTTON" then
 		self.dropped = true
 		self:UpdateSortCache()

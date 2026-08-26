@@ -101,16 +101,38 @@ local function gemAdditionalText(gem, isSupport)
 	return "Level " .. tostring(level)
 end
 
+local function activeSkillGems(group)
+	local out = {}
+	for _, gemInstance in ipairs(group.gemList) do
+		if gemInstance.enabled and (gemInstance.gemData or gemInstance.grantedEffect) then
+			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
+			for index, grantedEffect in ipairs(grantedEffectList) do
+				if not grantedEffect.support and not grantedEffect.hideFromSideBar
+					and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal" .. index]) then
+					t_insert(out, gemInstance)
+					break
+				end
+			end
+		end
+	end
+	return out
+end
 local function buildSkills(skillSet)
 	local out = {}
 	if not skillSet or not skillSet.socketGroupList then return out end
 	for _, group in ipairs(skillSet.socketGroupList) do
 		if group.enabled ~= false and group.gemList and #group.gemList > 0 then
-			local displayList = group.displaySkillList
-			local activeSkill = displayList and displayList[tonumber(group.mainActiveSkill) or 1]
-			if not activeSkill then continue end
-			local activeGem = activeSkill.activeEffect.srcInstance
-			local activeId = activeSkill.activeEffect.gemData?.gameId
+			local activeIdx = tonumber(group.mainActiveSkill) or 1
+			local activeGem
+			if group.displaySkillList then
+				local activeSkill = group.displaySkillList[activeIdx]
+				activeGem = activeSkill and activeSkill.activeEffect.srcInstance
+			else
+				-- inactive skill sets dont have a display skill list so we need to make one
+				activeGem = activeSkillGems(group)[activeIdx]
+			end
+			if not activeGem then continue end
+			local activeId = activeGem.gemData?.gameId
 			if activeId then
 				local entry = { id = activeId }
 				local activeText = gemAdditionalText(activeGem, false)
