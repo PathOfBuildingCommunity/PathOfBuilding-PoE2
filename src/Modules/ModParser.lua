@@ -3437,6 +3437,9 @@ local specialModList = {
 	["maximum quality is (%d+)%%"] = {
 		-- Display only. For Breach Rings and Serle's Grit.
 	},
+	["%+(%d+)%% to maximum quality"] = {
+		-- Display only. For Breach Rings and the Breachlord's prefix.
+	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
 		-- For Strugglescream. Handled in Item.lua
 	} end,

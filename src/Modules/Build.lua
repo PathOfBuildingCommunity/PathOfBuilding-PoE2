@@ -1052,9 +1052,12 @@ function buildMode:EstimatePlayerProgress()
 		end
 
 		if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
+			-- The set with fewer allocated points is the one with points to
+			-- spare, since a node allocated in both sets is only paid for once.
 			InsertIfNew(self.controls.warnings.lines, string.format(
-				"You have %d Weapon set 2 passives available",
-				math.abs(weaponSet2Used - weaponSet1Used)
+				"You have %d Weapon set %d passives available",
+				math.abs(weaponSet2Used - weaponSet1Used),
+				weaponSet1Used < weaponSet2Used and 1 or 2
 			))
 		end
 

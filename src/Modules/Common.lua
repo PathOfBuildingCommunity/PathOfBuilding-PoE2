@@ -102,19 +102,46 @@ function newClass(className, ...)
 		class._superParents = { }
 		addSuperParents(class, class)
 		-- Set up inheritance
-		setmetatable(class, {
-			__index = function(self, key)
-				for _, parent in ipairs(class._parents) do
-					local val = parent[key]
-					if val ~= nil then
-						self[key] = val
-						return val
-					end
+		for _, parent in ipairs(class._parents) do
+			for k, v in pairs(parent) do
+				if class[k] == nil and k ~= "_unconstructedMeta" and k ~= "_constructorInitialised" then
+					class[k] = v
 				end
 			end
-		})
+		end
 	end
 	return class
+end
+
+local function parentCall(proxy, self, ...)
+	local parent = proxy._parent
+	local object = proxy._object
+	local className = proxy._className
+
+	if not parent[parent._className] then
+		error("Parent class '" .. parent._className .. "' of class '" .. className .. "' has no constructor")
+	end
+	if object._parentInit[parent] then
+		error("Parent class '" .. parent._className .. "' of class '" .. className .. "' has already been initialised")
+	end
+	if self ~= object then
+		error(s_format(
+			"Parent class %s constructor of class %s was not provided self. Are you perhaps calling it with self.%s instead of self:%s?",
+			parent._className, className, parent._className, parent._className))
+	end
+
+	parent[parent._className](self, ...)
+	object._parentInit[parent] = true
+end
+
+local function parentIndex(proxy, key)
+	local object = proxy._object
+	local value = rawget(object, key)
+	if value ~= nil then
+		return value
+	else
+		return proxy._parent[key]
+	end
 end
 
 ---@generic T
@@ -155,28 +182,12 @@ function new(className, extraArg)
 		object._parentInit = { }
 		for parent in pairs(class._superParents) do
 			local proxyMeta = {
-				__index = function(self, key)
-					local v = rawget(object, key)
-					if v ~= nil then
-						return v
-					else
-						return parent[key]
-					end
-				end,
+				_parent = parent,
+				_object = object,
+				_className = className,
+				__index = parentIndex,
 				__newindex = object,
-				__call = function(_, self, ...)
-					if not parent[parent._className] then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has no constructor")
-					end
-					if object._parentInit[parent] then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has already been initialised")
-					end
-					if self ~= object then
-						error(string.format("Parent class %s constructor of class %s was not provided self. Are you perhaps calling it with self.%s instead of self:%s?", parent._className, className, parent._className, parent._className))
-					end
-					parent[parent._className](self, ...)
-					object._parentInit[parent] = true
-				end,
+				__call = parentCall,
 			}
 			object[parent._className] = setmetatable(proxyMeta, proxyMeta)
 		end
