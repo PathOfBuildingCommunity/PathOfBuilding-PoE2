@@ -54,6 +54,9 @@ build = __mainObject__.main.modes["BUILD"]
 
 -- Here's some helpful helper functions to help you get started
 function newBuild()
+	if GlobalCache and GlobalCache.cachedData then
+		wipeGlobalCache()
+	end
 	__mainObject__.main:SetMode("BUILD", false, "Help, I'm stuck in Path of Building!")
 	runCallback("OnFrame")
 end

@@ -28,8 +28,7 @@ function CalcBreakdownClass:CalcBreakdownControl(calcsTab)
 	self.uiOverlay = NewImageHandle()
 	self.uiOverlay:Load("Assets/game_ui_small.png")
 	self.borderThickness = 2
-	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "RIGHT", self, "RIGHT" }, { -2, 0, 18, 0 }, 80,
-		"VERTICAL", true)
+	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "RIGHT", self, "RIGHT" }, { -2, 0, 18, 0 }, 80, "VERTICAL", true)
 	self.controls.scrollBar.x = function()
 		return -self.borderThickness
 	end
