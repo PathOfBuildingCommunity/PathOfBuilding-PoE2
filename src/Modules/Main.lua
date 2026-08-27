@@ -1720,6 +1720,77 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 	end
 end
 
+-- https://www.pathofexile.com/developer/docs/game#markup-Font
+local noteFontTags = {
+	{ tag = "r", label = "Regular" },
+	{ tag = "b", label = "Bold" },
+	{ tag = "i", label = "Italic" },
+	{ tag = "u", label = "Underline" },
+	{ tag = "s", label = "Small" },
+	{ tag = "m", label = "Medium" },
+	{ tag = "l", label = "Large" },
+}
+
+-- A list of practical color code keys. These use the colorCodes table and rgb(r, g, b) tags
+local noteColorCodes = {
+	"NORMAL", "MAGIC", "RARE", "UNIQUE", "RELIC", "GEM",
+	"FIRE", "COLD", "LIGHTNING", "CHAOS", "STRENGTH", "DEXTERITY",
+	"INTELLIGENCE", "POSITIVE", "NEGATIVE", "WARNING", "TIP", "CURRENCY",
+}
+local markupButtonsPerRow = 6
+function main:OpenNoteEditPopup(title, initial, onSave)
+	local controls = { }
+	local function insertMarkup(openTag)
+		local edit = controls.edit
+		if edit.sel and edit.sel ~= edit.caret then
+			edit:ReplaceSel(openTag .. "{" .. edit:GetSelText() .. "}")
+		else
+			edit:Insert(openTag .. "{}")
+			edit.caret = edit.caret - 1
+			edit:ScrollCaretIntoView()
+		end
+		return edit
+	end
+
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Note shown on this entry in the exported .build (BuildPlanner) file.\nLeave blank to remove.\n^8Buttons below wrap the selected text in BuildPlanner markup.")
+
+	local hoverText = "Click to insert tag, then type inside the curly braces."
+
+	controls.fontLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 72, 0, 16 }, "^7Font")
+	for index, style in ipairs(noteFontTags) do
+		controls["font" .. style.label] = new("ButtonControl"):ButtonControl(nil, { -258 + (index - 1) * 86, 90, 82, 18 }, "^7" .. style.label, function()
+			return insertMarkup("<" .. style.tag .. ">")
+		end)
+		controls["font" .. style.label].tooltipText = hoverText
+		controls["font" .. style.label].forceTooltip = true
+	end
+
+	controls.colorLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 114, 0, 16 }, "^7Colour")
+	for index, code in ipairs(noteColorCodes) do
+		local col = (index - 1) % markupButtonsPerRow
+		local row = m_floor((index - 1) / markupButtonsPerRow)
+		controls["color" .. code] = new("ButtonControl"):ButtonControl(nil, { -250 + col * 100, 132 + row * 20, 96, 18 }, colorCodes[code] .. code, function()
+			return insertMarkup(colorCodeToMarkupColour(colorCodes[code]))
+		end)
+		controls["color" .. code].tooltipText = hoverText
+		controls["color" .. code].forceTooltip = true
+	end
+
+	controls.edit = new("EditControl"):EditControl(nil, { 0, 198, 598, 120 }, initial or "", nil, "^%C\t\n", 960, function(buf)
+		controls.save.enabled = true
+	end, 16)
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 328, 80, 20 }, "Save", function()
+		local buf = controls.edit.buf
+		if buf == "" then buf = nil end
+		onSave(buf)
+		main:ClosePopup()
+	end)
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 328, 80, 20 }, "Cancel", function()
+		main:ClosePopup()
+	end)
+	self:OpenPopup(624, 368, title or "Edit Note", controls, "save", "edit", "cancel")
+end
+
 function main:OpenNewFolderPopup(path, onClose)
 	local controls = { }
 	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter folder name:")

@@ -338,7 +338,7 @@ function ItemsTabClass:ItemsTab(build)
 	if main.portraitMode then
 		self.controls.itemList = new("ItemListControl"):ItemListControl({ "TOPRIGHT", self.lastSlot, "BOTTOMRIGHT" }, { 0, 0, 360, 308 }, self, true)
 	else
-		self.controls.itemList = new("ItemListControl"):ItemListControl({ "TOPLEFT", self.controls.setManage, "TOPRIGHT" }, { 20, 20, 360, 308 }, self, true)
+		self.controls.itemList = new("ItemListControl"):ItemListControl({ "TOPLEFT", self.controls.setManage, "TOPRIGHT" }, { 40, 20, 360, 308 }, self, true)
 	end
 
 	-- Database selector
@@ -1161,6 +1161,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 						itemSet[slotName].selItemId = tonumber(child.attrib.itemId)
 						itemSet[slotName].active = child.attrib.active == "true"
 						itemSet[slotName].pbURL = child.attrib.itemPbURL or ""
+						itemSet[slotName].note = child.attrib.note
 					end
 				elseif child.elem == "SocketIdURL" then
 					local id = tonumber(child.attrib.nodeId)
@@ -1254,7 +1255,7 @@ function ItemsTabClass:Save(xml)
 		for slotName, slot in pairs(self.slots) do
 			if not slot.parentSlot or itemSet[slotName].selItemId ~= 0 then
 				if not slot.nodeId then
-					t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true" }})
+					t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true", note = itemSet[slotName].note }})
 				else
 					if self.build.spec.allocNodes[slot.nodeId] then
 						t_insert(child, { elem = "SocketIdURL", attrib = { name = slotName, nodeId = tostring(slot.nodeId), itemPbURL = itemSet[slot.nodeId] and itemSet[slot.nodeId].pbURL or ""}})
@@ -1405,7 +1406,7 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	if main.portraitMode then
 		self.controls.itemList:SetAnchor("TOPRIGHT", self.lastSlot, "BOTTOMRIGHT", 0, 40)
 	else
-		self.controls.itemList:SetAnchor("TOPLEFT", self.controls.setManage, "TOPRIGHT", 20, 20)
+		self.controls.itemList:SetAnchor("TOPLEFT", self.controls.setManage, "TOPRIGHT", 40, 20)
 	end
 	self.controls.craftDisplayItem:SetAnchor("TOPLEFT", main.portraitMode and self.controls.setManage or self.controls.itemList, "TOPRIGHT", 20, main.portraitMode and 0 or -20)
 	self.anchorDisplayItem:SetAnchor("TOPLEFT", main.portraitMode and self.controls.setManage or self.controls.itemList, "TOPRIGHT", 20, main.portraitMode and 0)
@@ -1493,10 +1494,12 @@ function ItemsTabClass:SetActiveItemSet(itemSetId, deferSync)
 				-- Update the previous set
 				prevSet[slotName].selItemId = slot.selItemId
 				prevSet[slotName].active = slot.active
+				prevSet[slotName].note = slot.note
 			end
 			-- Equip the incoming set's item
 			slot.selItemId = curSet[slotName].selItemId
 			slot.active = curSet[slotName].active
+			slot.note = curSet[slotName].note
 			if slot.controls.activate then
 				slot.controls.activate.state = slot.active
 			end

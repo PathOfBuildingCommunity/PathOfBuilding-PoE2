@@ -628,7 +628,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self:SyncLoadouts()
 end
 
-function buildMode:SyncLoadouts()
+function buildMode:SyncLoadouts(skipBuildPlannerSync)
 	self.controls.buildLoadouts.list = {"No Loadouts"}
 	self.loadoutsList = {}
 
@@ -723,6 +723,10 @@ function buildMode:SyncLoadouts()
 				t_insert(filteredList, tree.setName .. " {" .. treeLinkId .. "}")
 			end
 		end
+	end
+
+	if not skipBuildPlannerSync then
+		self.importTab:RefreshBuildPlannerSets()
 	end
 
 	-- giving the options unique formatting so it can not match with user-created sets
