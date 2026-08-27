@@ -408,7 +408,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 							s = s .. string.format("{%s}", flagName)
 						end
 					end
-					return escapeGGGString(modLine.description)
+					return s .. escapeGGGString(modLine.description)
 				end
 				t_insert(rawLines, "Implicits: " .. (#item.enchantMods + #item.runeMods + #item.implicitMods))
 				for _, modLine in ipairs(item.enchantMods or {}) do
