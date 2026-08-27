@@ -2223,7 +2223,7 @@ local function extraSupport(name, level, slot)
 		if gemId then
 			local mods = {mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].grantedEffectId, level = level }, { type = "SocketedIn", slotName = slot })}
 			if data.gems[gemId].additionalGrantedEffects then
-				for i, additional in data.gems[gemId].additionalGrantedEffects do
+				for i, additional in ipairs(data.gems[gemId].additionalGrantedEffects) do
 					if additional.support then
 						t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }, { type = "SocketedIn", slotName = slot }))
 					else
