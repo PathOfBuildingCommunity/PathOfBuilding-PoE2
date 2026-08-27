@@ -127,7 +127,7 @@ local function buildSkills(skillSet)
 				local activeSkill = group.displaySkillList[activeIdx]
 				activeGem = activeSkill and activeSkill.activeEffect.srcInstance
 			else
-				-- inactive skill sets dont have a display skill list so we need to make one
+				-- inactive skill sets don't have a display skill list so we need to make one
 				activeGem = activeSkillGems(group)[activeIdx]
 			end
 			if not activeGem then continue end
