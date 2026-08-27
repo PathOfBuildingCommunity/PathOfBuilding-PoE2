@@ -2010,7 +2010,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, colorCodes.TIP.."Shift + Right-Click to add a build note (PoE2 .build export)")
 		if existing and existing ~= "" then
-			tooltip:AddLine(14, "^7Note: "..existing)
+			tooltip:AddBuildPlannerNote(14, existing, "^7Note: ")
 		end
 	end
 end

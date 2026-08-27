@@ -24,6 +24,10 @@ local function safeFilename(name)
 	return name
 end
 
+local function treeVersionSuffix(treeVersion)
+	return treeVersion and " [" .. tostring(treeVersion):gsub("_", ".") .. "]" or ""
+end
+
 function M.DefaultDir()
 	local home = os.getenv("USERPROFILE") or (GetScriptPath() .. "/../") or ""
 	local sep = home:find("\\") and "\\" or "/"
@@ -31,18 +35,28 @@ function M.DefaultDir()
 	     .. "Path of Exile 2" .. sep .. "BuildPlanner" .. sep
 end
 
-function M.DefaultPath(build)
-	return M.DefaultDir() .. safeFilename(build.buildName) .. ".build"
+function M.BuildPath(buildName, treeVersion, path)
+	local dir = path and (path:match("^(.*[/\\])") or "") or M.DefaultDir()
+	return dir .. safeFilename(buildName) .. treeVersionSuffix(treeVersion) .. ".build"
+end
+
+function M.DisplayPath(path)
+	local defaultDir = M.DefaultDir()
+	local sep = defaultDir:find("\\") and "\\" or "/"
+	if path:sub(1, #defaultDir):lower() == defaultDir:lower() then
+		local fileName = path:sub(#defaultDir + 1)
+		return "..." .. sep .. "Path of Exile 2" .. sep .. "BuildPlanner" .. (fileName ~= "" and sep .. fileName or "")
+	end
+	return "..." .. sep .. (path:gsub("[/\\]+$", ""):match("([^/\\]+)$") or "")
 end
 
 --- Insert a loadout name before the extension: "My Build.build" -> "My Build - Leveling.build"
-function M.LoadoutPath(basePath, loadoutName)
+function M.LoadoutPath(basePath, loadoutName, treeVersion)
 	local suffix = " - " .. safeFilename(loadoutName)
 	local stem, ext = basePath:match("^(.*)(%.[^%./\\]*)$")
-	if stem then
-		return stem .. suffix .. ext
-	end
-	return basePath .. suffix
+	stem, ext = stem or basePath, ext or ""
+	local versionSuffix = treeVersion and treeVersionSuffix(treeVersion) or stem:match("( %[%d+%.%d+%])$") or ""
+	return stem:gsub(" %[%d+%.%d+%]$", "") .. suffix .. versionSuffix .. ext
 end
 
 local function buildAscendancy(spec)
@@ -186,7 +200,7 @@ end
 
 -- Builds a styled hint for non-unique gear. Implicit/rune/enchant mods are
 -- italicised to set them apart from explicit mods, matching PoE convention.
-local function itemAdditionalText(item)
+function M.ItemAdditionalText(item)
 	local parts = { itemHeader(item) }
 	local function appendPlain(modLines)
 		if not modLines then return end
@@ -213,7 +227,7 @@ local function itemAdditionalText(item)
 	return text
 end
 
-local function buildItems(itemsTab, itemSet)
+local function buildItems(itemsTab, itemSet, useGeneratedItemText)
 	local out = {}
 	if not itemsTab or not itemSet then return out end
 	for pobSlotName, mapping in pairs(data.buildFileInventorySlotMap) do
@@ -221,7 +235,7 @@ local function buildItems(itemsTab, itemSet)
 		local item = slotEntry and slotEntry.selItemId and slotEntry.selItemId ~= 0
 			and itemsTab.items[slotEntry.selItemId]
 		local note = slotEntry and slotEntry.note ~= "" and slotEntry.note
-		if item or note then
+		if note or item and useGeneratedItemText then
 			local entry = {
 				inventory_id = mapping.id,
 				slot_x = mapping.slot_x,
@@ -229,14 +243,7 @@ local function buildItems(itemsTab, itemSet)
 			-- the unique_name field shows a larger header when you don't have the matching unique
 			-- equipped in the slot, but since we show the full item name in the additional
 			-- text, it doesn't really do anything useful here
-			if item then
-				entry.additional_text = itemAdditionalText(item)
-				if note then
-					entry.additional_text = entry.additional_text .. "\n\n" .. note
-				end
-			else
-				entry.additional_text = note
-			end
+			entry.additional_text = note or M.ItemAdditionalText(item)
 
 			t_insert(out, entry)
 		end
@@ -290,7 +297,7 @@ function M.BuildTable(build, metadata, selection)
 
 	root.passives = buildPassives(spec)
 	root.skills = buildSkills(skillSet)
-	root.inventory_slots = buildItems(build.itemsTab, itemSet)
+	root.inventory_slots = buildItems(build.itemsTab, itemSet, metadata.useGeneratedItemText ~= false)
 	return root
 end
 
@@ -312,8 +319,8 @@ function M.WriteFile(build, path, metadata, selection)
 	-- Best-effort: ensure the target directory exists.
 	local dir = path:match("^(.*[/\\])")
 	if dir then MakeDir(dir) end
-	local file, fileError = io.open(path, "w")
-	if not file then return nil, "Couldn't open '" .. path .. "': " .. tostring(fileError) end
+	local file = io.open(path, "w")
+	if not file then return nil, "Couldn't open the file for writing." end
 	file:write(json)
 	file:close()
 	return path
@@ -330,10 +337,11 @@ function M.WriteAllLoadouts(build, basePath, metadata, loadouts)
 	local pending = {}
 	local pathNames = {}
 	for _, loadout in ipairs(loadouts) do
-		local path = M.LoadoutPath(basePath, loadout.fileName or loadout.name)
+		local spec = M.ResolveSelection(build, loadout)
+		local path = M.LoadoutPath(basePath, loadout.fileName or loadout.name, spec and spec.treeVersion)
 		local pathKey = path:lower()
 		if pathNames[pathKey] then
-			return written, { s_format("Loadouts '%s' and '%s' export to the same file: %s", pathNames[pathKey], loadout.name, path) }
+			return written, { s_format("Loadouts '%s' and '%s' export to the same file: %s", pathNames[pathKey], loadout.name, path:match("([^/\\]+)$")) }
 		end
 		pathNames[pathKey] = loadout.name
 		t_insert(pending, { path = path, loadout = loadout })
@@ -345,12 +353,13 @@ function M.WriteAllLoadouts(build, basePath, metadata, loadouts)
 			name = s_format("%s - %s", metadata and metadata.name or build.buildName, loadout.name),
 			author = metadata and metadata.author,
 			description = metadata and metadata.description,
+			useGeneratedItemText = metadata and metadata.useGeneratedItemText,
 		}
 		local ok, err = M.WriteFile(build, path, loadoutMeta, loadout)
 		if ok then
 			t_insert(written, ok)
 		else
-			t_insert(errors, err)
+			t_insert(errors, path:match("([^/\\]+)$") .. ": " .. err)
 		end
 	end
 	return written, errors

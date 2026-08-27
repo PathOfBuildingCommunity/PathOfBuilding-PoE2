@@ -8,6 +8,7 @@ local t_insert = table.insert
 local m_min = math.min
 
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
+local BuildExportPoE2 = LoadModule("Modules/BuildExportPoE2")
 ---@class ItemSlotControl: DropDownControl
 local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
 
@@ -34,14 +35,18 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 	self.slotNum = tonumber(slotName:match("%d+$") or slotName:match("%d+"))
 	if data.buildFileInventorySlotMap[slotName] then
 		self.controls.noteButton = new("ButtonControl"):ButtonControl({"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
+			local item = itemsTab.items[self.selItemId]
 			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
 				self.note = note
 				itemsTab:PopulateSlots()
 				itemsTab:AddUndoState()
 				itemsTab.build.buildFlag = true
-			end)
+			end, item and BuildExportPoE2.ItemAdditionalText(item))
 		end)
-		self.controls.noteButton.tooltipText = function() return self.note or "Add a note for this item slot" end
+		self.controls.noteButton.tooltipFunc = function(tooltip)
+			tooltip:Clear()
+			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or "Add a note for this item slot")
+		end
 	end
 	if slotName:match("Flask") then
 		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)
