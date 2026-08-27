@@ -835,6 +835,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
 	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
+	-- Check the environment's own node list rather than the spec's allocation, so that
+	-- simulated allocations (e.g. node hover tooltips) see the radius change too
+	local timeLostJewelRadiusIncrease = nodesModsList:Sum("INC", nil, "NonUniqueTimeLostJewelRadius") > 0
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -966,6 +969,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					if item and not (node and node.sinister) and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
 						-- Jewel has a radius, add it to the list
+						local radiusIndex = data.getTimeLostJewelRadiusIndex(item, timeLostJewelRadiusIncrease)
 						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
 							-- Default function just tallies all stats in radius
 							if node then
@@ -976,19 +980,19 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end } }
 						for _, func in ipairs(funcList) do
 							t_insert(env.radiusJewelList, {
-								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
+								nodes = node.nodesInRadius and node.nodesInRadius[radiusIndex] or { },
 								func = func.func,
 								type = func.type,
 								item = item,
 								nodeId = slot.nodeId,
-								attributes = node.attributesInRadius and node.attributesInRadius[item.jewelRadiusIndex] or { },
+								attributes = node.attributesInRadius and node.attributesInRadius[radiusIndex] or { },
 								data = { },
 								-- store this to compare with cache later
 								jewelHash = getHashFromString(item.modSource..item.raw)
 							})
 							if func.type ~= "Self" and node.nodesInRadius then
 								-- Add nearby unallocated nodes to the extra node list
-								for nodeId, node in pairs(node.nodesInRadius[item.jewelRadiusIndex]) do
+								for nodeId, node in pairs(node.nodesInRadius[radiusIndex]) do
 									if not env.allocNodes[nodeId] then
 										env.extraRadiusNodeList[nodeId] = env.spec.nodes[nodeId]
 									end
