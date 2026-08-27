@@ -9,11 +9,11 @@ local dkjson = require "dkjson"
 local tradeHelpers = LoadModule("Classes/TradeHelpers")
 local tradeStats = tradeHelpers.getTradeStats()
 
--- used to check what stats actually exist on the trade site.
+-- Map available trade IDs to their canonical text.
 local existingStats = {}
 for _, cat in ipairs(tradeStats or {}) do
 	for _, entry in ipairs(cat.entries) do
-		existingStats[entry.id] = true
+		existingStats[entry.id] = entry.text:lower()
 	end
 end
 
@@ -252,10 +252,20 @@ function M.addModEntries(item, modTypeSources)
 							local resultHashes, value, invert = tradeHelpers.findTradeHash(resolvedLine)
 							-- convert hashes to string ids
 							local resultIds = {}
+							local exactMatch = false
+							local tradeLine = resolvedLine:gsub("\n", " "):lower()
 							if resultHashes then
 								for idx = 1, #resultHashes do
 									local id = string.format("%s.stat_%s", source.type, resultHashes[idx])
-									if existingStats[id] then
+									if existingStats[id] == tradeLine then
+										-- Prefer literal trade text over alternate numeric forms, e.g. Instant Recovery.
+										if not exactMatch then
+											resultIds = {}
+											value, invert = nil, false
+											exactMatch = true
+										end
+										t_insert(resultIds, id)
+									elseif existingStats[id] and not exactMatch then
 										t_insert(resultIds, id)
 									end
 								end
