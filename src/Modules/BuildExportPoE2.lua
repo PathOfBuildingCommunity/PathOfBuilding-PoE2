@@ -200,7 +200,7 @@ end
 
 -- Builds a styled hint for non-unique gear. Implicit/rune/enchant mods are
 -- italicised to set them apart from explicit mods, matching PoE convention.
-local function itemAdditionalText(item)
+function M.ItemAdditionalText(item)
 	local parts = { itemHeader(item) }
 	local function appendPlain(modLines)
 		if not modLines then return end
@@ -227,7 +227,7 @@ local function itemAdditionalText(item)
 	return text
 end
 
-local function buildItems(itemsTab, itemSet)
+local function buildItems(itemsTab, itemSet, useGeneratedItemText)
 	local out = {}
 	if not itemsTab or not itemSet then return out end
 	for pobSlotName, mapping in pairs(data.buildFileInventorySlotMap) do
@@ -235,7 +235,7 @@ local function buildItems(itemsTab, itemSet)
 		local item = slotEntry and slotEntry.selItemId and slotEntry.selItemId ~= 0
 			and itemsTab.items[slotEntry.selItemId]
 		local note = slotEntry and slotEntry.note ~= "" and slotEntry.note
-		if item or note then
+		if note or item and useGeneratedItemText then
 			local entry = {
 				inventory_id = mapping.id,
 				slot_x = mapping.slot_x,
@@ -243,14 +243,7 @@ local function buildItems(itemsTab, itemSet)
 			-- the unique_name field shows a larger header when you don't have the matching unique
 			-- equipped in the slot, but since we show the full item name in the additional
 			-- text, it doesn't really do anything useful here
-			if item then
-				entry.additional_text = itemAdditionalText(item)
-				if note then
-					entry.additional_text = entry.additional_text .. "\n\n" .. note
-				end
-			else
-				entry.additional_text = note
-			end
+			entry.additional_text = note or M.ItemAdditionalText(item)
 
 			t_insert(out, entry)
 		end
@@ -304,7 +297,7 @@ function M.BuildTable(build, metadata, selection)
 
 	root.passives = buildPassives(spec)
 	root.skills = buildSkills(skillSet)
-	root.inventory_slots = buildItems(build.itemsTab, itemSet)
+	root.inventory_slots = buildItems(build.itemsTab, itemSet, metadata.useGeneratedItemText ~= false)
 	return root
 end
 
@@ -360,6 +353,7 @@ function M.WriteAllLoadouts(build, basePath, metadata, loadouts)
 			name = s_format("%s - %s", metadata and metadata.name or build.buildName, loadout.name),
 			author = metadata and metadata.author,
 			description = metadata and metadata.description,
+			useGeneratedItemText = metadata and metadata.useGeneratedItemText,
 		}
 		local ok, err = M.WriteFile(build, path, loadoutMeta, loadout)
 		if ok then

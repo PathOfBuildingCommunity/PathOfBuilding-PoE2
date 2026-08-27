@@ -8,6 +8,7 @@ local t_insert = table.insert
 local m_min = math.min
 
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
+local BuildExportPoE2 = LoadModule("Modules/BuildExportPoE2")
 ---@class ItemSlotControl: DropDownControl
 local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
 
@@ -34,12 +35,13 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 	self.slotNum = tonumber(slotName:match("%d+$") or slotName:match("%d+"))
 	if data.buildFileInventorySlotMap[slotName] then
 		self.controls.noteButton = new("ButtonControl"):ButtonControl({"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
+			local item = itemsTab.items[self.selItemId]
 			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
 				self.note = note
 				itemsTab:PopulateSlots()
 				itemsTab:AddUndoState()
 				itemsTab.build.buildFlag = true
-			end)
+			end, item and BuildExportPoE2.ItemAdditionalText(item))
 		end)
 		self.controls.noteButton.tooltipFunc = function(tooltip)
 			tooltip:Clear()

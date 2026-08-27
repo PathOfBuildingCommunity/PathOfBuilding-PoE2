@@ -2,14 +2,39 @@ local BuildExportPoE2 = require("Modules.BuildExportPoE2")
 
 describe("PoE2 BuildPlanner export", function()
 	local originalWriteFile
+	local originalWriteAllLoadouts
+
+	local function addRing(note)
+		local item = new("Item"):Item([[Rarity: RARE
+Export Ring
+Gold Ring
+Implicits: 0
++10 to maximum Life]])
+		build.itemsTab:AddItem(item, true)
+		local slot = build.itemsTab.activeItemSet["Ring 1"]
+		slot.selItemId = item.id
+		slot.note = note
+		return item, slot
+	end
+
+	local function inventoryEntry(exported, slotName)
+		local slotId = data.buildFileInventorySlotMap[slotName].id
+		for _, entry in ipairs(exported.inventory_slots) do
+			if entry.inventory_id == slotId then
+				return entry
+			end
+		end
+	end
 
 	before_each(function()
 		newBuild()
 		originalWriteFile = BuildExportPoE2.WriteFile
+		originalWriteAllLoadouts = BuildExportPoE2.WriteAllLoadouts
 	end)
 
 	after_each(function()
 		BuildExportPoE2.WriteFile = originalWriteFile
+		BuildExportPoE2.WriteAllLoadouts = originalWriteAllLoadouts
 	end)
 
 	it("uses game ids for active and support gems", function()
@@ -69,13 +94,87 @@ describe("PoE2 BuildPlanner export", function()
 		assert.are.equal("", importTab.controls.buildPlannerAuthorName.buf)
 		assert.are.equal("Author name", importTab.controls.buildPlannerAuthorName.prompt)
 		assert.are.equal("Author", importTab.controls.buildPlannerAuthorName.placeholder)
-		assert.are.same({ name = "Unnamed Build", author = "Author", description = "" }, importTab:GetBuildPlannerMetadata())
+		assert.are.same({ name = "Unnamed Build", author = "Author", description = "", useGeneratedItemText = true }, importTab:GetBuildPlannerMetadata())
 
 		importTab.controls.buildPlannerBuildName:SetText("My Build", true)
 		importTab.controls.buildPlannerAuthorName:SetText("My Author")
-		assert.are.same({ name = "My Build", author = "My Author", description = "" }, importTab:GetBuildPlannerMetadata())
+		assert.are.same({ name = "My Build", author = "My Author", description = "", useGeneratedItemText = true }, importTab:GetBuildPlannerMetadata())
 		local treeVersion = build.treeTab.specList[importTab.exportSpecIndex].treeVersion:gsub("_", ".")
 		assert.are.equal(BuildExportPoE2.DefaultDir() .. "My Build [" .. treeVersion .. "].build", importTab.controls.poe2ExportPath.buf)
+	end)
+
+	it("passes export options through the selected export button without serialising them", function()
+		local importTab = build.importTab
+		local selectedMetadata
+		importTab.controls.poe2ExportPath:SetText("build-export-test.build")
+		importTab.controls.buildPlannerUseGeneratedItemText.state = false
+		BuildExportPoE2.WriteFile = function(_, path, metadata)
+			selectedMetadata = metadata
+			return path
+		end
+
+		importTab.controls.poe2ExportSave.onClick()
+
+		assert.is_false(importTab:GetBuildPlannerMetadata().useGeneratedItemText)
+		assert.is_false(selectedMetadata.useGeneratedItemText)
+		local json = BuildExportPoE2.Export(build, selectedMetadata, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+		assert.is_nil(json:find("useGeneratedItemText", 1, true))
+		while main.popups[1] do
+			main:ClosePopup()
+		end
+	end)
+
+	it("passes export options through the all-loadout export button", function()
+		local importTab = build.importTab
+		local allLoadoutsMetadata
+		importTab.controls.poe2ExportPath:SetText("build-export-test.build")
+		importTab.controls.buildPlannerUseGeneratedItemText.state = false
+		BuildExportPoE2.WriteAllLoadouts = function(_, _, metadata)
+			allLoadoutsMetadata = metadata
+			return { }, { }
+		end
+
+		importTab.controls.poe2ExportSaveAll.onClick()
+
+		assert.is_false(allLoadoutsMetadata.useGeneratedItemText)
+		while main.popups[1] do
+			main:ClosePopup()
+		end
+	end)
+
+	it("forwards the export option to every loadout", function()
+		local calls = { }
+		BuildExportPoE2.WriteFile = function(_, path, metadata, selection)
+			table.insert(calls, { metadata = metadata, selection = selection })
+			return path
+		end
+		local selection = {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		}
+		local written, errors = BuildExportPoE2.WriteAllLoadouts(build, "build-export-test.build", {
+			name = "Build",
+			author = "Author",
+			description = "",
+			useGeneratedItemText = false,
+		}, {
+			{ name = "First", fileName = "First", specIndex = selection.specIndex, skillSetId = selection.skillSetId, itemSetId = selection.itemSetId },
+			{ name = "Second", fileName = "Second", specIndex = selection.specIndex, skillSetId = selection.skillSetId, itemSetId = selection.itemSetId },
+		})
+
+		assert.are.equal(2, #written)
+		assert.are.equal(0, #errors)
+		assert.are.equal(2, #calls)
+		for _, call in ipairs(calls) do
+			assert.is_false(call.metadata.useGeneratedItemText)
+			local json = BuildExportPoE2.Export(build, call.metadata, call.selection)
+			assert.is_nil(json:find("useGeneratedItemText", 1, true))
+		end
 	end)
 
 	it("keeps the tree version at the end of loadout filenames", function()
@@ -163,6 +262,57 @@ Implicits: 0
 		local _, count = beltEntry.additional_text:gsub("Legacy of Amethyst", "")
 
 		assert.are.equal(2, count)
+	end)
+
+	it("exports generated item text for an equipped item with a nil note when enabled", function()
+		local item = addRing(nil)
+		local exported = BuildExportPoE2.BuildTable(build, { useGeneratedItemText = true }, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+
+		assert.are.equal(BuildExportPoE2.ItemAdditionalText(item), inventoryEntry(exported, "Ring 1").additional_text)
+	end)
+
+	it("does not export an empty item note when generated text is disabled", function()
+		addRing("")
+		local exported = BuildExportPoE2.BuildTable(build, { useGeneratedItemText = false }, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+
+		assert.is_nil(inventoryEntry(exported, "Ring 1"))
+	end)
+
+	it("uses a non-empty item note instead of generated text for either option", function()
+		local item, slot = addRing("Only this note")
+		for _, useGeneratedItemText in ipairs({ true, false }) do
+			local exported = BuildExportPoE2.BuildTable(build, { useGeneratedItemText = useGeneratedItemText }, {
+				specIndex = build.treeTab.activeSpec,
+				skillSetId = build.skillsTab.activeSkillSetId,
+				itemSetId = build.itemsTab.activeItemSetId,
+			})
+			local entry = inventoryEntry(exported, "Ring 1")
+
+			assert.are.equal(slot.note, entry.additional_text)
+			assert.is_nil(entry.additional_text:find(item.name, 1, true))
+			assert.is_nil(entry.additional_text:find("maximum Life", 1, true))
+		end
+	end)
+
+	it("exports a note even when its slot has no item", function()
+		local slot = build.itemsTab.activeItemSet["Ring 1"]
+		slot.selItemId = 0
+		slot.note = "Standalone note"
+		local exported = BuildExportPoE2.BuildTable(build, { useGeneratedItemText = false }, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+
+		assert.are.equal("Standalone note", inventoryEntry(exported, "Ring 1").additional_text)
 	end)
 
 	it("keeps linked loadout identifiers in filenames", function()

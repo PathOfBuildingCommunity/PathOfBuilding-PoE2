@@ -1,3 +1,5 @@
+local BuildExportPoE2 = require("Modules.BuildExportPoE2")
+
 describe("Tooltip", function()
 	local tooltip
 
@@ -103,5 +105,118 @@ describe("Tooltip", function()
 		end)
 		assertLines({ line(note) })
 		assert.are.equal("<rgb(255, 0, 0)>{unfinished", note)
+	end)
+end)
+
+describe("BuildPlanner note popup", function()
+	local function openNote(initial, generatedText)
+		main:OpenNoteEditPopup("Test note", initial, function() end, generatedText)
+		return main.popups[1], main.popups[1].controls
+	end
+
+	local function addRing()
+		local item = new("Item"):Item([[Rarity: RARE
+Export Ring
+Gold Ring
+Implicits: 0
++10 to maximum Life]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab:EquipItemInSet(item, build.itemsTab.activeItemSetId)
+		return item, build.itemsTab.slots["Ring 1"]
+	end
+
+	local function click(popup, button)
+		button.IsMouseOver = function() return true end
+		popup.GetMouseOverControl = function() end
+		popup:SelectControl(button)
+		popup:ProcessControlsInput({
+			{ type = "KeyDown", key = "LEFTBUTTON" },
+			{ type = "KeyUp", key = "LEFTBUTTON" },
+		}, { })
+	end
+
+	before_each(function()
+		newBuild()
+	end)
+
+	after_each(function()
+		while main.popups[1] do
+			main:ClosePopup()
+		end
+	end)
+
+	it("does not add an item-text control to ordinary note popups", function()
+		local _, controls = openNote("")
+
+		assert.is_nil(controls.addItemText)
+	end)
+
+	it("adds the item-text control only for a selected item", function()
+		local item, slot = addRing()
+		slot.controls.noteButton.onClick()
+
+		local controls = main.popups[1].controls
+		assert.is_not_nil(controls.addItemText)
+		assert.are.equal("TOPLEFT", controls.addItemText.anchor.point)
+		assert.is_true(controls.addItemText.forceTooltip)
+		assert.are.equal(240, controls.edit.height)
+	end)
+
+	it("inserts exact generated item text at the edit caret", function()
+		local item, slot = addRing()
+		slot.controls.noteButton.onClick()
+		local popup = main.popups[1]
+		local controls = popup.controls
+		local generatedText = BuildExportPoE2.ItemAdditionalText(item)
+		local prefix, suffix = "prefix\n", "\nsuffix"
+
+		controls.edit:SetText(prefix .. suffix)
+		controls.edit.caret = #prefix + 1
+		click(popup, controls.addItemText)
+
+		assert.are.equal(prefix .. generatedText .. suffix, controls.edit.buf)
+		assert.are.equal(controls.edit, popup.selControl)
+		assert.is_true(controls.edit.hasFocus)
+		assert.are.equal(#prefix + #generatedText + 1, controls.edit.caret)
+	end)
+
+	it("saves generated item text when the existing note is over 960 bytes", function()
+		local item, slot = addRing()
+		local prefix = string.rep("x", 961)
+		local generatedText = BuildExportPoE2.ItemAdditionalText(item)
+		slot.note = prefix
+		slot.controls.noteButton.onClick()
+		local popup = main.popups[1]
+		local controls = popup.controls
+
+		controls.edit.caret = #controls.edit.buf + 1
+		click(popup, controls.addItemText)
+
+		assert.are.equal(prefix .. generatedText, controls.edit.buf)
+		assert.are.equal(#controls.edit.buf + 1, controls.edit.caret)
+		controls.save.onClick()
+		assert.are.equal(prefix .. generatedText, slot.note)
+	end)
+
+	it("builds the save tooltip from the current formatted buffer", function()
+		local _, controls = openNote("")
+		local tooltip = new("Tooltip"):Tooltip()
+
+		assert.is_true(controls.save.forceTooltip)
+		controls.edit:SetText("<rgb(1, 2, 3)>{coloured}\n<b>{bold}")
+		controls.save.tooltipFunc(tooltip)
+		assert.are.equal(2, #tooltip.lines)
+		assert.are.equal("^x010203coloured^7", tooltip.lines[1].text)
+		assert.are.equal("bold", tooltip.lines[2].text)
+		assert.are.equal("VAR BOLD", tooltip.lines[2].font)
+
+		controls.edit:SetText("updated")
+		controls.save.tooltipFunc(tooltip)
+		assert.are.equal(1, #tooltip.lines)
+		assert.are.equal("updated", tooltip.lines[1].text)
+
+		controls.edit:SetText("")
+		controls.save.tooltipFunc(tooltip)
+		assert.are.equal("Save an empty note to remove it.", tooltip.lines[1].text)
 	end)
 end)

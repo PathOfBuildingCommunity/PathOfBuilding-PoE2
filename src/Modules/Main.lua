@@ -1738,7 +1738,7 @@ local noteColorCodes = {
 	"INTELLIGENCE", "POSITIVE", "NEGATIVE", "WARNING", "TIP", "CURRENCY",
 }
 local markupButtonsPerRow = 6
-function main:OpenNoteEditPopup(title, initial, onSave)
+function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 	local controls = { }
 	local function insertMarkup(openTag)
 		local edit = controls.edit
@@ -1776,19 +1776,38 @@ function main:OpenNoteEditPopup(title, initial, onSave)
 		controls["color" .. code].forceTooltip = true
 	end
 
-	controls.edit = new("EditControl"):EditControl(nil, { 0, 198, 598, 120 }, initial or "", nil, "^%C\t\n", 960, function(buf)
+	local editY = generatedText and 222 or 198
+	if generatedText then
+		controls.addItemText = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 198, 120, 18 }, "Add Item Text", function()
+			controls.edit:Insert(generatedText)
+			return controls.edit
+		end)
+		controls.addItemText.tooltipText = "Insert the generated item text at the caret"
+		controls.addItemText.forceTooltip = true
+	end
+	controls.edit = new("EditControl"):EditControl(nil, { 0, editY, 598, 240 }, initial or "", nil, "^%C\t\n", nil, function(buf)
 		controls.save.enabled = true
 	end, 16)
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 328, 80, 20 }, "Save", function()
+	local buttonY = editY + 250
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, buttonY, 80, 20 }, "Save", function()
 		local buf = controls.edit.buf
 		if buf == "" then buf = nil end
 		onSave(buf)
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 328, 80, 20 }, "Cancel", function()
+	controls.save.tooltipFunc = function(tooltip)
+		tooltip:Clear()
+		if controls.edit.buf ~= "" then
+			tooltip:AddBuildPlannerNote(14, controls.edit.buf)
+		else
+			tooltip:AddLine(14, "Save an empty note to remove it.")
+		end
+	end
+	controls.save.forceTooltip = true
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, buttonY, 80, 20 }, "Cancel", function()
 		main:ClosePopup()
 	end)
-	self:OpenPopup(624, 368, title or "Edit Note", controls, "save", "edit", "cancel")
+	self:OpenPopup(624, buttonY + 40, title or "Edit Note", controls, "save", "edit", "cancel")
 end
 
 function main:OpenNewFolderPopup(path, onClose)

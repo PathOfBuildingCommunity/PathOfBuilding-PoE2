@@ -359,7 +359,7 @@ function ImportTabClass:ImportTab(build)
 		local spec = self.build.treeTab and self.build.treeTab.specList[self.exportSpecIndex]
 		self.controls.poe2ExportPath:SetText(BuildExportPoE2.BuildPath(buildName, spec and spec.treeVersion, self.controls.poe2ExportPath.buf))
 	end
-	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 310 }, "Export to in-game build planner")
+	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 330 }, "Export to in-game build planner")
 	self.controls.poe2ExportDesc = new("LabelControl"):LabelControl({"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
 	self.controls.poe2ExportDesc2 = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, "^8Each file holds one passive tree, one skill set and one item set.")
 
@@ -369,8 +369,10 @@ function ImportTabClass:ImportTab(build)
 	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
 	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, "Author name", nil, nil)
 	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
-	self.controls.buildPlannerSetsLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Sets to export:")
-	self.controls.buildPlannerSpec = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.buildPlannerSetsLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
+	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Tree")
+	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, "^7Skill")
+	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, "^7Item")
+	self.controls.buildPlannerSpec = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.buildPlannerTreeLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
 		self.exportSpecIndex = value.key
 		updateBuildPlannerPath()
 	end, "^7Which passive tree to export")
@@ -380,9 +382,13 @@ function ImportTabClass:ImportTab(build)
 	self.controls.buildPlannerItemSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSkillSet, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
 		self.exportItemSetId = value.key
 	end, "^7Which item set to export")
+	self.controls.buildPlannerUseGeneratedItemText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 2, 18 }, "Generated text for empty item notes", function()
+		self.build.modFlag = true
+	end, "^7For items without a note, generate a note that contains the current mods, item name and item base", true)
+	self.controls.buildPlannerUseGeneratedItemText.labelRight = true
 	self:RefreshBuildPlannerSets()
 
-	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Description:")
+	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 28, 0, 16 }, "^7Description:")
 	self.controls.buildPlannerDescription = new("EditControl"):EditControl({"TOPLEFT",self.controls.buildPlannerDescLabel,"BOTTOMLEFT"}, {0, 8, 560, 64}, "", nil, "^%C\t\n", nil, nil, 16)
 	self.controls.poe2ExportPath = new("EditControl"):EditControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 8, 560, 20 }, BuildExportPoE2.BuildPath(self.controls.buildPlannerBuildName.placeholder), "Path", nil, 260)
 	updateBuildPlannerPath()
@@ -480,6 +486,7 @@ function ImportTabClass:GetBuildPlannerMetadata()
 		name = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder,
 		author = self.controls.buildPlannerAuthorName.buf ~= "" and self.controls.buildPlannerAuthorName.buf or self.controls.buildPlannerAuthorName.placeholder,
 		description = self.controls.buildPlannerDescription.buf,
+		useGeneratedItemText = self.controls.buildPlannerUseGeneratedItemText.state,
 	}
 end
 
@@ -555,6 +562,7 @@ function ImportTabClass:Load(xml, fileName)
 	self.importLink = xml.attrib.importLink
 	self.controls.enablePartyExportBuffs.state = xml.attrib.exportParty == "true"
 	self.build.partyTab.enableExportBuffs = self.controls.enablePartyExportBuffs.state
+	self.controls.buildPlannerUseGeneratedItemText.state = xml.attrib.useGeneratedItemText ~= "false"
 	if self.lastAccountHash then
 		for accountName in pairs(main.gameAccounts) do
 			if common.sha1(accountName) == self.lastAccountHash then
@@ -572,6 +580,7 @@ function ImportTabClass:Save(xml)
 		lastAccountHash = self.lastAccountHash,
 		lastCharacterHash = self.lastCharacterHash,
 		exportParty = tostring(self.controls.enablePartyExportBuffs.state),
+		useGeneratedItemText = tostring(self.controls.buildPlannerUseGeneratedItemText.state),
 		importLink = self.importLink
 	}
 
