@@ -25,6 +25,18 @@ local function combineToUpper(str, sepPattern)
 	end
 	return outStr
 end
+
+-- Convert condition verb forms to their proper condition variable names
+-- TODO better name? somehow combine with statusToEffectMap
+local function getConditionVar(verb)
+	local conditionMap = {
+		["curse"] = "Cursed",
+		["mark"] = "Marked",
+		["electrocute"] = "Electrocuted",
+	}
+	return conditionMap[verb] or firstToUpper(verb)
+end
+
 -- Radius jewels that modify other nodes
 local function getSimpleConv(srcList, dst, type, remove, factor)
 	return function(node, out, data)
@@ -1370,7 +1382,7 @@ local preFlagList = {
 		return { tag = { type = "Condition", var = cond:gsub("^%a", string.upper) }, applyToEnemy = true }
 	end,
 	["^enemies you (%a+) have "] = function(cond)
-		return { tag = { type = "Condition", var = cond:gsub("^%a", string.upper) }, applyToEnemy = true }
+		return { tag = { type = "Condition", var = getConditionVar(cond) }, applyToEnemy = true }
 	end,
 	["^while a pinnacle atlas boss is in your presence, enemies you've hit recently have "] = function(cond)
 		return { playerTagList = { { type = "Condition", var = "HitRecently" }, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } }, applyToEnemy = true }
@@ -1389,7 +1401,6 @@ local preFlagList = {
 	["^enemies you curse take "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true, modSuffix = "Taken" },
 	["^enemies you curse "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true },
 	["^targets cursed by you [hgd][ae][via][enl] "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true },
-	["^enemies you electrocute have "] = { tag = { type = "Condition", var = "Electrocuted" }, applyToEnemy = true },
 	["^nearby enemies take "] = { modSuffix = "Taken", applyToEnemy = true },
 	["^nearby enemies have "] = { applyToEnemy = true },
 	["^nearby enemies deal "] = { applyToEnemy = true },
@@ -4355,9 +4366,6 @@ local specialModList = {
 	["enemies you mark take (%d+)%% increased damage"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, {type = "ActorCondition", actor = "enemy", var = "Marked" }),
 	} end,
-	["enemies you mark have (%d+)%% reduced accuracy rating"] = function(num) return {
-		mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "INC", -num) }, {type = "ActorCondition", actor = "enemy", var = "Marked" }),
-	} end,
 	["you are cursed with level (%d+) (%D+)"] = function(num, _, name) return { mod("ExtraCurse", "LIST", { skillId = gemIdLookup[name], level = num, applyToPlayer = true }) } end,
 	["you are cursed with (%D+)"] = function(_, skill) return { mod("ExtraCurse", "LIST", { skillId = gemIdLookup[skill], level = 1, applyToPlayer = true }) } end,
 	["you are cursed with (%D+), with (%d+)%% increased effect"] = function(_, skill, num) return {
@@ -5079,7 +5087,7 @@ local specialModList = {
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
 	["cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge"), flag("NoEnergyShieldRegen") },
 	["enemies you (%a+) cannot recharge energy shield"] = function(_, cond) return {
-		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = cond:gsub("^%a", string.upper) })
+		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = getConditionVar(cond) })
 	} end,
 	["left ring slot: you cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge", { type = "SlotNumber", num = 1 }), flag("NoEnergyShieldRegen", { type = "SlotNumber", num = 1 }) },
 	["cannot gain energy shield"] = { flag("CannotGainEnergyShield") },
