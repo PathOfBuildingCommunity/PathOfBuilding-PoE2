@@ -363,6 +363,7 @@ function ItemDBClass:OnSelClick(index, item, doubleClick)
 		self.itemsTab.build.buildFlag = true
 	elseif doubleClick then
 		self.itemsTab:CreateDisplayItemFromRaw(item.raw, true)
+		return false
 	end
 end
 
