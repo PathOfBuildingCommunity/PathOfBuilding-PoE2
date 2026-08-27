@@ -41,8 +41,6 @@ function TradeQueryClass:TradeQuery(itemsTab)
 	-- for each realm and league, a table of values of each currency in div
 	--- @type table<string, table<string, table<string, number>>>
 	self.pbCurrencyConversion = {}
-	self.lastCurrencyFileTime = { }
-	self.pbFileTimestampDiff = { }
 	self.pbRealm = ""
 	self.pbRealmIndex = 1
 	self.pbLeagueIndex = 1

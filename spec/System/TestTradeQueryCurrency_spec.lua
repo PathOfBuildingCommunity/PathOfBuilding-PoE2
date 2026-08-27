@@ -66,7 +66,7 @@ describe("TradeQuery Currency Conversion", function()
 					{ id = "sep",          text = "" }, -- separator, must be ignored
 					{ id = "divine",       text = "Divine Orb" },
 					{ id = "chaos",        text = "Chaos Orb" },
-					{ id = "exalt",        text = "Exalted Orb" },
+					{ id = "exalted",      text = "Exalted Orb" },
 					{ id = "alch",   text = "Orb of Alchemy" },
 				}
 			} }
@@ -159,7 +159,7 @@ describe("TradeQuery Currency Conversion", function()
 			local rates = mock_tradeQuery.pbCurrencyConversion.poe2.Standard
 			assert.is_not_nil(rates)
 			assert.are.equal(1, rates.divine)
-			assert.are.equal(0.1, rates.exalt)
+			assert.are.equal(0.1, rates.exalted)
 			assert.are.equal(0.005, rates.chaos)
 			-- 0.2 exalt * 0.1 div/exalt = 0.02 div
 			assert.are.near(0.02, rates.alch, 0.0001)
@@ -183,7 +183,7 @@ describe("TradeQuery Currency Conversion", function()
 
 			mock_tradeQuery:PullCXData()
 
-			assert.are.equal(0.2, mock_tradeQuery.pbCurrencyConversion.poe2.Standard.exalt)
+			assert.are.equal(0.2, mock_tradeQuery.pbCurrencyConversion.poe2.Standard.exalted)
 		end)
 
 		it("skips listings with a zero ratio", function()
