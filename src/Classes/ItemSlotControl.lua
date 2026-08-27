@@ -41,7 +41,10 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 				itemsTab.build.buildFlag = true
 			end)
 		end)
-		self.controls.noteButton.tooltipText = function() return self.note or "Add a note for this item slot" end
+		self.controls.noteButton.tooltipFunc = function(tooltip)
+			tooltip:Clear()
+			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or "Add a note for this item slot")
+		end
 	end
 	if slotName:match("Flask") then
 		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)

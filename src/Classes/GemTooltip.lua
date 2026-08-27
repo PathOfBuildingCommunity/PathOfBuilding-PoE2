@@ -380,7 +380,7 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, colorCodes.TIP .. "Shift + Right-Click to add a build note (PoE2 .build export)")
 		if gemInstance.note and gemInstance.note ~= "" then
-			tooltip:AddLine(14, "^7Note: " .. gemInstance.note)
+			tooltip:AddBuildPlannerNote(14, gemInstance.note, "^7Note: ")
 		end
 	end
 end
