@@ -71,9 +71,37 @@ describe("PoE2 BuildPlanner export", function()
 		assert.are.equal("Author", importTab.controls.buildPlannerAuthorName.placeholder)
 		assert.are.same({ name = "Unnamed Build", author = "Author", description = "" }, importTab:GetBuildPlannerMetadata())
 
-		importTab.controls.buildPlannerBuildName:SetText("My Build")
+		importTab.controls.buildPlannerBuildName:SetText("My Build", true)
 		importTab.controls.buildPlannerAuthorName:SetText("My Author")
 		assert.are.same({ name = "My Build", author = "My Author", description = "" }, importTab:GetBuildPlannerMetadata())
+		local treeVersion = build.treeTab.specList[importTab.exportSpecIndex].treeVersion:gsub("_", ".")
+		assert.are.equal(BuildExportPoE2.DefaultDir() .. "My Build [" .. treeVersion .. "].build", importTab.controls.poe2ExportPath.buf)
+	end)
+
+	it("keeps the tree version at the end of loadout filenames", function()
+		assert.are.equal("Build [0.5].build", BuildExportPoE2.BuildPath("Build", "0_5", "Existing.build"))
+		assert.are.equal("Build - Leveling [0.5].build", BuildExportPoE2.LoadoutPath("Build [0.4].build", "Leveling", "0_5"))
+		assert.are.equal("Build [SSF] - Leveling [0.5].build", BuildExportPoE2.LoadoutPath("Build [SSF].build", "Leveling", "0_5"))
+	end)
+
+	it("hides the user profile from displayed paths", function()
+		local path = BuildExportPoE2.DefaultDir() .. "Test.build"
+		local sep = path:find("\\", 1, true) and "\\" or "/"
+		local displayedPath = BuildExportPoE2.DisplayPath(path)
+
+		assert.are.equal("..." .. sep .. "Path of Exile 2" .. sep .. "BuildPlanner" .. sep .. "Test.build", displayedPath)
+	end)
+
+	it("hides the full path by default", function()
+		local importTab = build.importTab
+
+		assert.is_false(importTab.controls.poe2ExportShowPath.state)
+		assert.is_false(importTab.controls.poe2ExportPath.shown())
+		assert.is_true(importTab.controls.poe2ExportPathDisplay.shown())
+		importTab.controls.poe2ExportShowPath.state = true
+
+		assert.is_true(importTab.controls.poe2ExportPath.shown())
+		assert.is_false(importTab.controls.poe2ExportPathDisplay.shown())
 	end)
 
 	it("exports only the selected item variant", function()
@@ -145,9 +173,9 @@ Implicits: 0
 		end
 		local exportBuild = {
 			buildName = "Build",
-			treeTab = {},
-			skillsTab = {},
-			itemsTab = {},
+			treeTab = { specList = {} },
+			skillsTab = { skillSets = {} },
+			itemsTab = { itemSets = {} },
 			controls = { buildLoadouts = { list = { "^7^7Loadouts:", "Leveling {a}", "Leveling {b}" } } },
 			SyncLoadouts = function() end,
 			GetLoadoutByName = function()
