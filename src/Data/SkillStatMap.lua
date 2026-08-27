@@ -2983,12 +2983,6 @@ return {
 ["skeletal_graft_buff_effect_magnitude"] = {
 	mod("UmbralWellBuffValue", "BASE", nil),
 },
-["attack_speed_+%_per_rage"] = {
-	mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Multiplier", var = "RageEffect" }) }),
-},
-["minion_rage_effect_+%"] = {
-	mod("MinionModifier", "LIST", { mod = mod("RageEffect", "INC", nil) }),
-},
 ["physical_damage_reduction_rating_+%"] = {
 	mod("Armour", "INC", nil),
 },

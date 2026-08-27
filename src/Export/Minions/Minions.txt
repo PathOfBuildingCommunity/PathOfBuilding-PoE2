@@ -39,6 +39,7 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/Skeletons/PlayerSummoned/SkeletonReaverPlayerSummoned RaisedSkeletonReaver
 #limit ActiveSkeletonLimit
+#mod mod("Condition:CanGainRage", "FLAG", true)
 #emit
 
 #monster Metadata/Monsters/Skeletons/PlayerSummoned/SkeletonWarriorPlayerSummoned RaisedSkeletonWarriors

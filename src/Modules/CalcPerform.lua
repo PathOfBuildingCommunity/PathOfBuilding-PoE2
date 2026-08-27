@@ -1073,10 +1073,6 @@ local function initMinionModDB(env, activeSkill)
 		minion.modDB:NewMod("LightningResist", "BASE", minion.minionData.lightningResist, "Base")
 		minion.modDB:NewMod("ChaosResist", "BASE", minion.minionData.chaosResist, "Base")
 	end
-	minion.modDB:NewMod("MaximumRage", "BASE", data.gameConstants["BaseMaximumRage"], "Base")
-	if activeSkill.activeEffect.grantedEffect.id == "SummonSkeletalReaversPlayer" then
-		minion.modDB:NewMod("Condition:CanGainRage", "FLAG", true, "Skeletal Reaver")
-	end
 	minion.modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 	minion.modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.monsterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
 	minion.modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.monsterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
