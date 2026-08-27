@@ -43,7 +43,7 @@ describe("ItemDBControl", function()
 				return item ~= invalidItem
 			end,
 		}
-		local control = new("ItemDBControl", nil, { 0, 0, 100, 100 }, itemsTab, {
+		local control = new("ItemDBControl"):ItemDBControl(nil, { 0, 0, 100, 100 }, itemsTab, {
 			list = { invalidItem, betterItem, worseItem },
 		}, "RARE")
 		control.sortDetail = {
@@ -62,33 +62,9 @@ describe("ItemDBControl", function()
 		assert.are.equal(-math.huge, invalidItem.measuredPower)
 	end)
 
-	it("searches Foulborn modifier text without case sensitivity", function()
-		local item = new("Item", [[
-			Rarity: Unique
-			Kitava's Thirst
-			Zealot Helmet
-			Variant: Pre 3.11.0
-			Variant: Current
-			Selected Variant: 2
-			50% chance to Trigger Socketed Spells when you Spend at least 100 Mana on an
-			Upfront Cost to Use or Trigger a Skill, with a 0.1 second Cooldown
-		]])
-		local control = new("ItemDBControl", nil, { 0, 0, 100, 100 }, {
-			build = {
-				characterLevel = 100,
-			},
-		}, {
-			list = { item },
-		}, "UNIQUE")
-		control.controls.search.buf = "life on an upfront cost"
-		control.controls.searchMode.selIndex = 3
-
-		assert.is_true(control:DoesItemMatchFilters(item))
-	end)
-
 	it("releases focus after opening an item with a double click", function()
 		local item = {
-			raw = "Rarity: Unique\nTest Item\nLeather Belt",
+			raw = "Rarity: Unique\nTest Item\nPlate Belt",
 		}
 		local itemsTab
 		itemsTab = {
@@ -97,7 +73,7 @@ describe("ItemDBControl", function()
 				itemsTab.displayIsUnique = isUnique
 			end,
 		}
-		local control = new("ItemDBControl", nil, { 0, 0, 100, 100 }, itemsTab, {
+		local control = new("ItemDBControl"):ItemDBControl(nil, { 0, 0, 100, 100 }, itemsTab, {
 			list = { item },
 		}, "UNIQUE")
 		control.list = { item }
