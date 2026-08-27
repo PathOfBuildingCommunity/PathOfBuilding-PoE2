@@ -145,12 +145,12 @@ describe("TradeQuery Currency Conversion", function()
 					lowest_ratio = { [CHAOS] = 200, [DIVINE] = 1 },
 					highest_stock = { [CHAOS] = 500, [DIVINE] = 500 },
 				},
-				-- alch -> exalt (1 alch = 0.2 exalt), needs a second hop to divine
+				-- alch -> chaos (1 alch = 0.2 chaos), needs a second hop to divine
 				{
 					league = "Standard",
-					market_pair = { ALCH, EXALT },
-					lowest_ratio = { [ALCH] = 5, [EXALT] = 1 },
-					highest_stock = { [ALCH] = 1000, [EXALT] = 1000 },
+					market_pair = { ALCH, CHAOS },
+					lowest_ratio = { [ALCH] = 5, [CHAOS] = 1 },
+					highest_stock = { [ALCH] = 1000, [CHAOS] = 1000 },
 				},
 			})
 
@@ -161,8 +161,8 @@ describe("TradeQuery Currency Conversion", function()
 			assert.are.equal(1, rates.divine)
 			assert.are.equal(0.1, rates.exalted)
 			assert.are.equal(0.005, rates.chaos)
-			-- 0.2 exalt * 0.1 div/exalt = 0.02 div
-			assert.are.near(0.02, rates.alch, 0.0001)
+			-- 0.2 chaos * 0.005 div/chaos = 0.001 div
+			assert.are.equal(0.001, rates.alch)
 		end)
 
 		it("keeps the highest-stock listing for a currency", function()

@@ -111,8 +111,7 @@ end
 
 local generalCurrencies = {
 	["Metadata/Items/Currency/CurrencyModValues"] = true,
-	["Metadata/Items/Currency/CurrencyRerollRare"] = true,
-	["Metadata/Items/Currency/CurrencyAddModToRare"] = true
+	["Metadata/Items/Currency/CurrencyRerollRare"] = true
 }
 
 -- Method to pull down and interpret the Currency Exchange JSON endpoint data
@@ -188,7 +187,7 @@ function TradeQueryClass:PullCXData()
 					local fromID = entry.market_pair[1]
 					local toID = entry.market_pair[2]
 
-					-- Normalize entries to price each currency in chaos, exalts or divines.
+					-- Normalize entries to price each currency in chaos or divines.
 					if generalCurrencies[fromID] and toID ~= "Metadata/Items/Currency/CurrencyModValues" then
 						fromID, toID = toID, fromID
 					end
