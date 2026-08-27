@@ -64,12 +64,14 @@ function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, bloc
 			if configTab.build.calcsTab then
 				local calcFunc, calcBase = configTab.build.calcsTab:GetMiscCalculator(configTab.build)
 				if calcFunc then
+					local buildFlag = configTab.build.buildFlag
 					local curState = blockData.enabled ~= false
 					blockData.enabled = not curState
 					configTab:BuildModList()
 					local output = calcFunc()
 					blockData.enabled = curState
 					configTab:BuildModList()
+					configTab.build.buildFlag = buildFlag
 					configTab.build:AddStatComparesToTooltip(tooltip, calcBase, output, curState and "^7Disabling this group will give you:" or "^7Enabling this group will give you:")
 				end
 			end
@@ -1373,8 +1375,8 @@ function ConfigTabClass:UpdateCustomModsControls()
 	end
 
 	if self.customModsBlockControls then
-		for _, ctrl in ipairs(self.customModsBlockControls) do
-			ctrl.shown = false
+		for index in ipairs(self.customModsBlockControls) do
+			self.controls["customModsBlock" .. index] = nil
 		end
 	end
 	self.customModsBlockControls = {}
@@ -1386,7 +1388,7 @@ function ConfigTabClass:UpdateCustomModsControls()
 			return not self:IsSectionCollapsed(self.customSection)
 		end
 		t_insert(self.customModsBlockControls, blockControl)
-		t_insert(self.controls, blockControl)
+		self.controls["customModsBlock" .. index] = blockControl
 		t_insert(self.customSection.varControlList, blockControl)
 	end
 end

@@ -206,4 +206,35 @@ describe("Custom modifier controls", function()
 		assert.are.equal("Custom", customRow.source)
 		assert.are.equal("Bossing", customRow.sourceName)
 	end)
+
+	it("does not flag the build for rebuilding when previewing a group toggle", function()
+		local configTab = build.configTab
+		local blockData = configTab.configSets[configTab.activeConfigSetId].customModsList[1]
+		blockData.text = "+100 to maximum Life"
+		configTab:BuildModList()
+		build.buildFlag = false
+
+		configTab.customModsBlockControls[1].controls.enableCheck.tooltipFunc(new("Tooltip"):Tooltip())
+
+		assert.is_false(build.buildFlag)
+		assert.is_true(blockData.enabled)
+	end)
+
+	it("removes replaced custom modifier controls from the control host", function()
+		local configTab = build.configTab
+		local oldControl = configTab.customModsBlockControls[1]
+		local controlCount = 0
+		for _ in pairs(configTab.controls) do
+			controlCount = controlCount + 1
+		end
+
+		configTab:UpdateCustomModsControls()
+
+		local updatedControlCount = 0
+		for _, control in pairs(configTab.controls) do
+			assert.are_not.equal(oldControl, control)
+			updatedControlCount = updatedControlCount + 1
+		end
+		assert.are.equal(controlCount, updatedControlCount)
+	end)
 end)
