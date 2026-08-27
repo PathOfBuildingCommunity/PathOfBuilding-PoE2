@@ -1351,6 +1351,7 @@ function buildMode:OnFrame(inputEvents)
 			self.controls.breakdown:SetBreakdownData(unpack(self.breakdownInputs))
 		end
 		self:RefreshStatList()
+		self.configTab.calcFunc, self.configTab.calcBase = self.calcsTab:GetMiscCalculator(self)
 	end
 	if main.showThousandsSeparators ~= self.lastShowThousandsSeparators then
 		self:RefreshStatList()
