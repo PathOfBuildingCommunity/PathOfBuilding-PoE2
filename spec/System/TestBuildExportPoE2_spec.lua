@@ -76,6 +76,67 @@ describe("PoE2 BuildPlanner export", function()
 		assert.are.same({ name = "My Build", author = "My Author", description = "" }, importTab:GetBuildPlannerMetadata())
 	end)
 
+	it("exports only the selected item variant", function()
+		local item = new("Item"):Item([[Rarity: UNIQUE
+Variant Test
+Plate Belt
+Variant: First
+Variant: Second
+Selected Variant: 2
+Implicits: 0
+{variant:1}+1 to Strength
+{variant:2}+2 to Strength]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab.activeItemSet.Belt.selItemId = item.id
+
+		local exported = BuildExportPoE2.BuildTable(build, {}, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+		local beltEntry
+		for _, entry in ipairs(exported.inventory_slots) do
+			if entry.inventory_id == data.buildFileInventorySlotMap.Belt.id then
+				beltEntry = entry
+				break
+			end
+		end
+
+		assert.is_not_nil(beltEntry)
+		assert.matches("+2 to Strength", beltEntry.additional_text, nil, true)
+		assert.is_nil(beltEntry.additional_text:find("+1 to Strength", 1, true))
+	end)
+
+	it("exports duplicate Mageblood variants", function()
+		local magebloodRaw
+		for _, raw in ipairs(data.uniques.belt) do
+			if raw:find("Mageblood", 1, true) then
+				magebloodRaw = raw
+				break
+			end
+		end
+		local item = new("Item"):Item("Rarity: UNIQUE\n" .. magebloodRaw)
+		item.variantAlt = item.variant
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab.activeItemSet.Belt.selItemId = item.id
+
+		local exported = BuildExportPoE2.BuildTable(build, {}, {
+			specIndex = build.treeTab.activeSpec,
+			skillSetId = build.skillsTab.activeSkillSetId,
+			itemSetId = build.itemsTab.activeItemSetId,
+		})
+		local beltEntry
+		for _, entry in ipairs(exported.inventory_slots) do
+			if entry.inventory_id == data.buildFileInventorySlotMap.Belt.id then
+				beltEntry = entry
+				break
+			end
+		end
+		local _, count = beltEntry.additional_text:gsub("Legacy of Amethyst", "")
+
+		assert.are.equal(2, count)
+	end)
+
 	it("keeps linked loadout identifiers in filenames", function()
 		local paths = {}
 		BuildExportPoE2.WriteFile = function(_, path)

@@ -525,7 +525,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			self.tooltip:Clear(true)
 			self.tooltip.maxWidth = 600
 			if gemInstance and gemInstance.gemData then
-				self:AddGemTooltip(gemInstance)
+				self:AddGemTooltip(gemInstance, true)
 			else
 				self.tooltip:AddLine(16, toolTipText)
 			end
@@ -572,8 +572,8 @@ function GemSelectClass:CheckSupporting(gemA, gemB)
 		(gemA.gemData.secondaryGrantedEffect and gemA.gemData.secondaryGrantedEffect.support and not gemB.gemData.grantedEffect.support and gemA.supportEffect and gemA.supportEffect.isSupporting and gemA.supportEffect.isSupporting[gemB])
 end
 
-function GemSelectClass:AddGemTooltip(gemInstance)
-	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance)
+function GemSelectClass:AddGemTooltip(gemInstance, includeBuildPlannerNote)
+	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance, { includeBuildPlannerNote = includeBuildPlannerNote })
 end
 function GemSelectClass:OnFocusGained()
 	self.EditControl:OnFocusGained()

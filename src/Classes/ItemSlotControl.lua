@@ -76,7 +76,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		local item = itemsTab.items[self.items[index]]
 		-- not selControl.ListControl allows hover when All Items or Unique/Rare DB Sections are in focus
 		if main.popups[1] or mode == "OUT" or not item
-			or self:GetMouseOverControl() == self.controls.noteButton -- Note button has its own tooltip
+			or self.controls.noteButton and self:GetMouseOverControl() == self.controls.noteButton -- Note button has its own tooltip
 			or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
 			tooltip:Clear(true)
 			elseif tooltip:CheckForUpdate(item, launch.devModeAlt, itemsTab.build.outputRevision, IsKeyDown("SHIFT")) then

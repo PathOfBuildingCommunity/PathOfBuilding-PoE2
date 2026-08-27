@@ -191,13 +191,16 @@ local function itemAdditionalText(item)
 	local function appendPlain(modLines)
 		if not modLines then return end
 		for _, modLine in ipairs(modLines) do
-			if modLine.line and modLine.line ~= "" then
+			local variantCount = modLine.line and modLine.line ~= "" and item:GetModLineVariantCount(modLine) or 0
+			if variantCount > 0 then
 				local formatted = itemLib.formatModLine(modLine, nil, true)
 				if formatted then
 					local colorCode = formatted:match("%^x%x%x%x%x%x%x")
 					formatted = formatted:gsub("%^x%x%x%x%x%x%x", "")
 					local line = string.format("%s{%s}", colorCodeToMarkupColour(colorCode), stripBraces(formatted))
-					t_insert(parts, line)
+					for _ = 1, variantCount do
+						t_insert(parts, line)
+					end
 				end
 			end
 		end

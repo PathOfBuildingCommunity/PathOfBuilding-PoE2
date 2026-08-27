@@ -16,6 +16,49 @@ describe("TestItemsTab", function()
 		runCallback("OnFrame")
 	end)
 
+	it("keeps item tooltips for socket slots without note buttons", function()
+		local item = new("Item"):Item([[Rarity: RARE
+Test Jewel
+Ruby]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab:PopulateSlots()
+
+		local socket, itemIndex
+		for _, candidate in pairs(build.itemsTab.sockets) do
+			for index, itemId in ipairs(candidate.items) do
+				if itemId == item.id then
+					socket, itemIndex = candidate, index
+					break
+				end
+			end
+			if socket then break end
+		end
+		assert.is_not_nil(socket)
+		assert.is_nil(socket.controls.noteButton)
+
+		local checkCalled = false
+		local clearCalled = false
+		local tooltip = {
+			Clear = function()
+				clearCalled = true
+			end,
+			CheckForUpdate = function()
+				checkCalled = true
+				return false
+			end,
+		}
+		local popup = main.popups[1]
+		local selControl = build.itemsTab.selControl
+		main.popups[1] = nil
+		build.itemsTab.selControl = nil
+		socket.tooltipFunc(tooltip, "IN", itemIndex, item.id)
+		main.popups[1] = popup
+		build.itemsTab.selControl = selControl
+
+		assert.is_true(checkCalled)
+		assert.is_false(clearCalled)
+	end)
+
 	describe("ItemsTab", function()
 		describe("NewItemSet", function()
 			it("Creates a new item set with specified ID", function()
@@ -55,6 +98,14 @@ describe("TestItemsTab", function()
 				build.itemsTab:NewItemSet(nil, newTitle)
 
 				assert.is_true(build.itemsTab.modFlag)
+			end)
+
+			it("does not copy equipment notes into a new item set", function()
+				build.itemsTab.slots.Belt.note = "Active set note"
+
+				local newItemSet = build.itemsTab:NewItemSet(nil, "New Item Set")
+
+				assert.is_nil(newItemSet.Belt.note)
 			end)
 		end)
 

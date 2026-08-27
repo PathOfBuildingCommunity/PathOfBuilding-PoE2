@@ -1433,7 +1433,7 @@ function ItemsTabClass:CreateItemSet(itemSetId, name)
 	end
 	for slotName, slot in pairs(self.slots) do
 		if not slot.nodeId then
-			itemSet[slotName] = { selItemId = 0, note = slot.note }
+			itemSet[slotName] = { selItemId = 0 }
 		end
 	end
 	self.itemSets[itemSet.id] = itemSet

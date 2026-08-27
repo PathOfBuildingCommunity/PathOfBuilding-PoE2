@@ -627,12 +627,12 @@ end
 function TreeTabClass:OpenSpecManagePopup()
 	local importTree =
 		new("ButtonControl"):ButtonControl(nil, { -99, 259, 90, 20 }, "Import Tree", function()
-		self:OpenImportPopup()
-	end)
+			self:OpenImportPopup()
+		end)
 	local exportTree =
 		new("ButtonControl"):ButtonControl({ "LEFT", importTree, "RIGHT" }, { 8, 0, 90, 20 }, "Export Tree", function()
-		self:OpenExportPopup()
-	end)
+			self:OpenExportPopup()
+		end)
 	importTree.enabled = false
 	exportTree.enabled = false
 
