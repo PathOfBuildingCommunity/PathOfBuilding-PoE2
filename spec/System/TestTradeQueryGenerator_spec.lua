@@ -133,7 +133,7 @@ describe("TradeQueryGenerator", function()
 			end
 			queryGen:FinishQuery()
 
-			assert.are.equal(31, #query.stats[1].filters)
+			assert.are.equal(32, #query.stats[1].filters)
 			assert.is_not_nil(query.filters.equipment_filters.filters.rune_sockets)
 		end)
 	end)
