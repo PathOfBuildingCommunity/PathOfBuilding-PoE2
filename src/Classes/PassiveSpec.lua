@@ -1449,7 +1449,7 @@ function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
 					path[i + 1] = nodePath[i]
 				end
 				other.path = path
-				other.pathRoot = node
+				other.pathRoot = node.pathRoot
 			end
 		end
 		::continueBuildPath::
