@@ -1016,23 +1016,62 @@ function TradeQueryGeneratorClass:FinishQuery()
 
 	local effective_max = MAX_FILTERS - num_extra
 
-	local prioritizedMods = {}
-	for _, entry in ipairs(self.modWeights) do
-		if #prioritizedMods < effective_max then
-			table.insert(prioritizedMods, entry)
-		else
-			break
+	local pseudoMap = {
+		-- pseudo stats are disabled for PoE2 due to the trade site counting augment mods in them,
+		-- which would skew results significantly. however, the feature is kept here for PoB1 parity reasons
+	}
+	local ignoredStats = {
+	}
+	-- block all hybrid resistance stats
+	local resElements = {}
+	for _, elem1 in ipairs(resElements) do
+		for _, elem2 in ipairs(resElements) do
+			local stats = { string.format("%s_and_%s_damage_resistance_%%", elem1, elem2) }
+			ignoredStats[tostring(HashStats(stats))] = true
 		end
 	end
+	-- block all hybrid attribute stats
+	local attributeElements = {}
+	for _, elem1 in ipairs(attributeElements) do
+		for _, elem2 in ipairs(attributeElements) do
+			local stats = { string.format("base_%s_and_%s", elem1, elem2) }
+			ignoredStats[tostring(HashStats(stats))] = true
+			stats = { string.format("additional_%s_and_%s", elem1, elem2) }
+			ignoredStats[tostring(HashStats(stats))] = true
+		end
+	end
+	local statFilters = {}
+	local pseudoMods = {}
+	for _, entry in ipairs(self.modWeights) do
+		local hash = entry.tradeModId:match("stat_(%d+)")
+		local filterEntry = { id = entry.tradeModId, value = { weight = (entry.invert == true and entry.weight * -1 or entry.weight) } }
+		-- avoid adding hybrid stats since we get the weight for them from
+		-- individual stats
+		if ignoredStats[hash] then
+			goto weightContinue
+		elseif pseudoMap[hash] then
+			local tradeId = pseudoMap[hash]
+			filterEntry.id = tradeId
+			-- avoid adding duplicate pseudo filters: update existing
+			if pseudoMods[tradeId] then
+				pseudoMods[tradeId].value.weight = math.max(filterEntry.value.weight, pseudoMods[tradeId].value.weight)
+			else
+				pseudoMods[tradeId] = filterEntry
+				table.insert(statFilters, filterEntry)
+			end
+		else
+			table.insert(statFilters, filterEntry)
+		end
 
-	self.modWeights = prioritizedMods
+		::weightContinue::
+	end
 
 	for k, v in pairs(self.calcContext.special.queryExtra or {}) do
 		queryTable.query[k] = v
 	end
 
-	for _, entry in ipairs(self.modWeights) do
-		t_insert(queryTable.query.stats[1].filters, { id = entry.tradeModId, value = { weight = (entry.invert == true and entry.weight * -1 or entry.weight) } })
+	for _, entry in ipairs(statFilters) do
+		t_insert(queryTable.query.stats[1].filters, entry)
 		filters = filters + 1
 		if filters == effective_max then
 			break
