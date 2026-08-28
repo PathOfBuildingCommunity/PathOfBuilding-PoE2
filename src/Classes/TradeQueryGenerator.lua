@@ -1017,23 +1017,13 @@ function TradeQueryGeneratorClass:FinishQuery()
 	local effective_max = MAX_FILTERS - num_extra
 
 	local pseudoMap = {
-		["3372524247"] = "pseudo.pseudo_total_fire_resistance",
-		["4220027924"] = "pseudo.pseudo_total_cold_resistance",
-		["1671376347"] = "pseudo.pseudo_total_lightning_resistance",
-		["2923486259"] = "pseudo.pseudo_total_chaos_resistance",
-		["4080418644"] = "pseudo.pseudo_total_strength",
-		["3261801346"] = "pseudo.pseudo_total_dexterity",
-		["328541901"] = "pseudo.pseudo_total_intelligence",
+		-- pseudo stats are disabled for PoE2 due to the trade site counting augment mods in them,
+		-- which would skew results significantly. however, the feature is kept here for PoB1 parity reasons
 	}
 	local ignoredStats = {
-		-- % all resistances
-		["2901986750"] = true,
-		-- all attributes
-		["1379411836"] = true,
-		["2897413282"] = true,
 	}
 	-- block all hybrid resistance stats
-	local resElements = { "fire", "cold", "lightning", "chaos" }
+	local resElements = {}
 	for _, elem1 in ipairs(resElements) do
 		for _, elem2 in ipairs(resElements) do
 			local stats = { string.format("%s_and_%s_damage_resistance_%%", elem1, elem2) }
@@ -1041,7 +1031,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 		end
 	end
 	-- block all hybrid attribute stats
-	local attributeElements = { "dexterity", "strength", "intelligence" }
+	local attributeElements = {}
 	for _, elem1 in ipairs(attributeElements) do
 		for _, elem2 in ipairs(attributeElements) do
 			local stats = { string.format("base_%s_and_%s", elem1, elem2) }
