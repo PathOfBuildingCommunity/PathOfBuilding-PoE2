@@ -995,6 +995,33 @@ Huge sets the radius to 11.
 	{ var = "conditionUsingCharm", type = "check", label = "Do you have a Charm active?", ifCond = "UsingCharm", tooltip = "This is automatically enabled if you have a charm active,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UsingCharm", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionPossessedBySpiritOfTheBear", type = "check", label = "Possessed by Spirit Of The Bear?", ifCond = "PossessedBySpiritOfTheBear", defaultState = true, tooltip = "20% increased maximum ^xE05030Life\n^760% increased Stun Threshold\n60% increased Stun Buildup\n20% reduced Damage taken", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheBear", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheBoar", type = "check", label = "Possessed by Spirit Of The Boar?", ifCond = "PossessedBySpiritOfTheBoar", defaultState = true, tooltip = "Gain 20% of Damage as Extra ^xB97123Fire^7 Damage\nAlways inflict ^xE05030Bleeding^7 on Hit\n20% reduced Damage taken", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheBoar", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheCat", type = "check", label = "Possessed by Spirit Of The Cat?", ifCond = "PossessedBySpiritOfTheCat", defaultState = true, tooltip = "60% increased ^x33FF77Evasion Rating\n^7100% increased Critical Hit Chance\n30% increased Skill Speed\n15% increased Movement Speed", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheCat", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheOwl", type = "check", label = "Possessed by Spirit Of The Owl?", ifCond = "PossessedBySpiritOfTheOwl", defaultState = true, tooltip = "60% increased ^x88FFFFEnergy Shield\n^780% increased Damage\nGain 20% of Damage as Extra ^x3F6DB3Cold^7 Damage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheOwl", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheOx", type = "check", label = "Possessed by Spirit Of The Ox?", ifCond = "PossessedBySpiritOfTheOx", defaultState = true, tooltip = "50% reduced Slowing Potency of Debuffs on you\n60% increased Elemental Ailment Threshold and Armour\n20% reduced Damage taken", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheOx", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfThePrimate", type = "check", label = "Possessed by Spirit Of The Primate?", ifCond = "PossessedBySpiritOfThePrimate", defaultState = true, tooltip = "All Damage from Hits contributes to ^x3F6DB3Chill^7 Magnitude\n60% increased ^x3F6DB3Freeze^7 Buildup\n80% increased Damage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfThePrimate", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheSerpent", type = "check", label = "Possessed by Spirit Of The Serpent?", ifCond = "PossessedBySpiritOfTheSerpent", defaultState = true, tooltip = "All Damage from Hits contributes to ^xD02090Poison^7 Magnitude\nAlways ^xD02090Poison^7 on Hit\n80% increased Damage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheSerpent", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheStag", type = "check", label = "Possessed by Spirit Of The Stag?", ifCond = "PossessedBySpiritOfTheStag", defaultState = true, tooltip = "+30% to all Elemental Resistances\n30% increased Skill Speed\n15% increased Movement Speed\nGain 20% of Damage as Extra ^xADAA47Lightning^7 Damage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheStag", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionPossessedBySpiritOfTheWolf", type = "check", label = "Possessed by Spirit Of The Wolf?", ifCond = "PossessedBySpiritOfTheWolf", defaultState = true, tooltip = "50% chance to Maim on Attack Hit\n30% increased Skill Speed\n15% increased Movement Speed\nBreak Armour equal to 10% of Hit Damage dealt", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:PossessedBySpiritOfTheWolf", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionHaveTotem", type = "check", label = "Do you have a Totem summoned?", ifCond = "HaveTotem", tooltip = "You will automatically be considered to have a Totem if your main skill is a Totem,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveTotem", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
