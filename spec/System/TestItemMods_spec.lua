@@ -728,8 +728,8 @@ describe("TetsItemMods", function()
 			end,
 		})
 
-		local attributeModList = calcs.buildModListForNode(env, attributeNode, 0, false)
-		local smallModList = calcs.buildModListForNode(env, smallNode, 0, false)
+		local attributeModList = calcs.buildModListForNode(env, attributeNode, nil, 0, false)
+		local smallModList = calcs.buildModListForNode(env, smallNode, nil, 0, false)
 		GlobalCache.cachedData[envMode] = nil
 
 		assert.are.equals(7, attributeModList:Sum("BASE", nil, "Str"))
