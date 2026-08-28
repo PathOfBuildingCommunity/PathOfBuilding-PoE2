@@ -104,23 +104,94 @@ describe("TradeQueryGenerator", function()
 	end)
 
 	describe("Filter prioritization", function()
-		-- Pass: Limits mods to MAX_FILTERS (2 in test), preserving top priorities
-		-- Fail: Exceeds limit, indicating over-generation of filters, risking API query size errors or rate limits
-		it("respects MAX_FILTERS", function()
-			local orig_max = _G.MAX_FILTERS
-			_G.MAX_FILTERS = 2
-			mock_queryGen.modWeights = { { weight = 10, tradeModId = "id1" }, { weight = 5, tradeModId = "id2" } }
-			table.sort(mock_queryGen.modWeights, function(a, b)
-				return math.abs(a.weight) > math.abs(b.weight)
-			end)
-			local prioritized = {}
-			for i, entry in ipairs(mock_queryGen.modWeights) do
-				if #prioritized < _G.MAX_FILTERS then
-					table.insert(prioritized, entry)
-				end
+		it("counts socket constraints against MAX_FILTERS", function()
+			local queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = { items = {} } })
+			queryGen.modWeights = {}
+			for index = 1, 40 do
+				table.insert(queryGen.modWeights, {
+					tradeModId = "explicit.stat_" .. index,
+					weight = 1,
+					meanStatDiff = 41 - index,
+				})
 			end
-			assert.are.equal(#prioritized, 2)
-			_G.MAX_FILTERS = orig_max
+			queryGen.calcContext = {
+				testItem = new("Item"):Item("Rarity: RARE\nNew Item\nGold Ring\nImplicits: 0"),
+				baseOutput = {},
+				baseStatValue = 0,
+				itemCategoryQueryStr = "accessory.ring",
+				special = {},
+				options = {
+					statWeights = {},
+					includeMirrored = false,
+					sockets = 3,
+				},
+			}
+			queryGen.tradeTypeIndex = 1
+			local query
+			queryGen.requesterCallback = function(_, queryJson)
+				query = require("dkjson").decode(queryJson).query
+			end
+			queryGen:FinishQuery()
+
+			assert.are.equal(31, #query.stats[1].filters)
+			assert.is_not_nil(query.filters.equipment_filters.filters.rune_sockets)
+		end)
+	end)
+
+	describe("Pseudo stat filters", function()
+		local function runQuery(modWeights)
+			local queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = { items = {} } })
+			queryGen.modWeights = modWeights
+			queryGen.calcContext = {
+				testItem = new("Item"):Item("Rarity: RARE\nNew Item\nGold Ring\nImplicits: 0"),
+				baseOutput = {},
+				baseStatValue = 0,
+				itemCategoryQueryStr = "accessory.ring",
+				special = {},
+				options = { statWeights = {}, includeMirrored = true },
+			}
+			queryGen.tradeTypeIndex = 1
+			local query
+			queryGen.requesterCallback = function(_, queryJson)
+				query = require("dkjson").decode(queryJson).query
+			end
+			queryGen:FinishQuery()
+			return query.stats[1].filters
+		end
+
+		it("maps single resistances and attributes to pseudo stats, keeping the highest weight", function()
+			local filters = runQuery({
+				-- +#% to Fire Resistance, as explicit and as rune
+				{ tradeModId = "explicit.stat_3372524247", weight = 5, meanStatDiff = 2 },
+				{ tradeModId = "rune.stat_3372524247", weight = 3, meanStatDiff = 1 },
+				-- +# to Strength
+				{ tradeModId = "explicit.stat_4080418644", weight = 7, meanStatDiff = 3 },
+			})
+
+			table.sort(filters, function(a, b) return a.id < b.id end)
+			assert.are.equal(2, #filters)
+			assert.are.equal("pseudo.pseudo_total_fire_resistance", filters[1].id)
+			assert.are.equal(5, filters[1].value.weight)
+			assert.are.equal("pseudo.pseudo_total_strength", filters[2].id)
+			assert.are.equal(7, filters[2].value.weight)
+		end)
+
+		it("drops hybrid resistance and attribute stats", function()
+			local filters = runQuery({
+				-- +#% to Fire and Cold Resistances
+				{ tradeModId = "explicit.stat_2915988346", weight = 9, meanStatDiff = 5 },
+				-- +#% to all Elemental Resistances
+				{ tradeModId = "explicit.stat_2901986750", weight = 9, meanStatDiff = 4 },
+				-- +# to Strength and Dexterity
+				{ tradeModId = "explicit.stat_538848803", weight = 9, meanStatDiff = 3 },
+				-- +# to all Attributes
+				{ tradeModId = "explicit.stat_1379411836", weight = 9, meanStatDiff = 2 },
+				-- +# to maximum Life, kept
+				{ tradeModId = "explicit.stat_3299347043", weight = 4, meanStatDiff = 1 },
+			})
+
+			assert.are.equal(1, #filters)
+			assert.are.equal("explicit.stat_3299347043", filters[1].id)
 		end)
 	end)
 end)
