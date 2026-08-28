@@ -11,7 +11,7 @@ local m_floor = math.floor
 ---@class DropDownControl: Control, ControlHost, TooltipHost, SearchHost
 local DropDownClass = newClass("DropDownControl", "Control", "ControlHost", "TooltipHost", "SearchHost")
 
-function DropDownClass:DropDownControl(anchor, rect, list, selFunc, tooltipText)
+function DropDownClass:DropDownControl(anchor, rect, list, selFunc, tooltipText, ignoreSearchOrder)
 	self:Control(anchor, rect)
 	self:ControlHost()
 	self:TooltipHost(tooltipText)
@@ -31,7 +31,8 @@ function DropDownClass:DropDownControl(anchor, rect, list, selFunc, tooltipText)
 					end
 				end
 				return StripEscapes(listVal)
-			end
+		end,
+		ignoreSearchOrder
 	)
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)
 	self.controls.scrollBar.height = function()
@@ -115,13 +116,14 @@ function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, heig
 		local endX = 0
 		local last = 0
 		SetDrawColor(1, 1, 0, 0.2)
+		local strippedLabel = StripEscapes(label)
 		for _, range in ipairs(searchInfo.ranges) do
 			if range.from - last - 1 > 0 then
-				startX = DrawStringWidth(height, "VAR", label:sub(last + 1, range.from - 1)) + x + endX
+				startX = DrawStringWidth(height, "VAR", strippedLabel:sub(last + 1, range.from - 1)) + x + endX
 			else
 				startX = endX
 			end
-			endX = DrawStringWidth(height, "VAR", label:sub(range.from, range.to)) + x + startX
+			endX = DrawStringWidth(height, "VAR", strippedLabel:sub(range.from, range.to)) + x + startX
 			last = range.to
 
 			DrawImage(nil, startX, y, endX - startX, height)
