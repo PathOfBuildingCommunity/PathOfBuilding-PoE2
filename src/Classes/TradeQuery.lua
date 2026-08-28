@@ -578,10 +578,12 @@ Highest Weight - Displays the order retrieved from trade]]
 	-- dynamically hide rows that are above or below the scrollBar
 	local hideRowFunc = function(self, index)
 		if scrollBarShown then
-			-- 22 items fit in the scrollBar "box" so as the offset moves, we need to dynamically show what is within the boundaries
-			if (index < 23 and (self.controls.scrollBar.offset < ((row_height + row_vertical_padding)*(index-1) + row_vertical_padding))) or
+			local rowWithPadding = row_height + row_vertical_padding
+			-- this many items fit in the scrollBar "box" so as the offset moves, we need to dynamically show what is within the boundaries
+			local maxItemsInView = math.floor(self.controls.scrollBar.height / rowWithPadding) - 2
+			if (index <= maxItemsInView and (self.controls.scrollBar.offset < (rowWithPadding * (index - 1) + row_vertical_padding))) or
 				-- the second and in this applies if we have more than 44 slots because we need to hide the next "page" of rows as they go above the line, e.g. #23 could be above or below the "box"
-				(index >= 23 and (self.controls.scrollBar.offset > (row_height + row_vertical_padding)*(index-22) and self.controls.scrollBar.offset < (row_height + row_vertical_padding)*(index-1))) then
+				(index >= maxItemsInView + 1 and (self.controls.scrollBar.offset > rowWithPadding * (index - maxItemsInView) and self.controls.scrollBar.offset < rowWithPadding * (index - 1))) then
 				return true
 			end
 		else
