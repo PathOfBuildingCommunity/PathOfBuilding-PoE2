@@ -547,6 +547,13 @@ Item Level: 80
 		return node
 	end
 
+	it("rebuilds an allocated jewel socket's distance from the class start", function()
+		local socket = build.spec.nodes[60735]
+		build.spec:AllocNode(socket)
+
+		assert.True(socket.distanceToClassStart > 0)
+	end)
+
 	it("normal passive allocation promotes the shortest path instead of using a longer detour", function()
 		local spec = build.spec
 		allocNode(spec, 56651, 0)
@@ -564,10 +571,27 @@ Item Level: 80
 		assert.are.equals(0, weaponSetNode.allocMode)
 	end)
 
-	it("normal passive allocation promotes the weapon-set chain behind the path root", function()
+	it("normal passive allocation preserves an unused weapon-set path", function()
 		local spec = build.spec
 		allocNode(spec, 56651, 0)
 		allocNode(spec, 35324, 0)
+		allocNode(spec, 35660, 1)
+		allocNode(spec, 18548, 1)
+
+		local promotedNode = spec.nodes[28992]
+		assert.are.equals("Honed Instincts", promotedNode.dn)
+
+		spec.allocMode = 0
+		spec:AllocNode(promotedNode)
+
+		assert.True(promotedNode.alloc)
+		assert.are.equals(0, promotedNode.allocMode)
+		assert.are.equals(1, spec.nodes[18548].allocMode)
+		assert.are.equals(1, spec.nodes[35660].allocMode)
+	end)
+
+	it("normal passive allocation promotes a required weapon-set path", function()
+		local spec = build.spec
 		allocNode(spec, 35660, 1)
 		allocNode(spec, 18548, 1)
 

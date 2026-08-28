@@ -422,14 +422,12 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 
 	-- Add node modifiers
 	local modList = new("ModList"):ModList()
-	local explodeSources = {}
 	-- Outside MAIN mode the per-node list is merged into modList and then
 	-- dropped, so a single list can be recycled for every node instead of
 	-- allocating one each time.
 	local scratch = env.mode ~= "MAIN" and new("ModList"):ModList() or nil
 	for _, node in pairs(nodeList) do
-		local nodeModList, explode = calcs.buildModListForNode(env, node, scratch, inc, includeKeystoneMods)
-		t_insert(explodeSources, explode)
+		local nodeModList = calcs.buildModListForNode(env, node, scratch, inc, includeKeystoneMods)
 		modList:AddList(nodeModList)
 		if env.mode == "MAIN" then
 			node.finalModList = nodeModList

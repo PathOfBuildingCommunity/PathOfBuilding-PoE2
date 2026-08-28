@@ -1360,31 +1360,6 @@ function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 	return result
 end
 
-local function traversable(curDist, node, other)
-	-- Paths must obey these rules:
-	-- 1. They must not pass through class or ascendancy class start nodes (but they can start from such nodes)
-	-- 2. They cannot pass between different ascendancy classes or between an ascendancy class and the main tree
-	--    The one exception to that rule is that a path may start from an ascendancy node and pass into the main tree
-	--    This permits pathing from the Ascendant 'Path of the X' nodes into the respective class start areas
-	-- 3. They must not pass away from mastery nodes
-	return node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (not other.alloc or self:CanPathThroughAllocMode(root.allocMode or 0, other)) and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath
-end
-
--- Cluster subgraph rebuilds can replace node objects while retaining IDs.
--- Normalize stale link references to the canonical node object.
-function PassiveSpecClass:NormalizeNodeLinks(node)
-	local linked = node.linked
-	for index = #linked, 1, -1 do
-		local other = linked[index]
-		local canonicalNode = other and other.id and self.nodes[other.id]
-		if not canonicalNode then
-			t_remove(linked, index)
-		elseif canonicalNode ~= other then
-			linked[index] = canonicalNode
-		end
-	end
-end
-
 -- Multi-source 0-1 BFS to find what other root (i.e., allocated) nodes each node is closest to
 ---@param roots Node[] A list of currently allocated, and other nodes which should be considered as the sources of distances.
 function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
@@ -1417,6 +1392,8 @@ function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
 			local other = linked[i]
 			local weight = other.alloc and 0 or 1
 			local distViaNode = nodeDist + weight
+			local otherDist = other.pathDist or math.huge
+			local preferNormalRoot = distViaNode == otherDist and (node.pathRoot.allocMode or 0) == 0 and other.pathRoot and (other.pathRoot.allocMode or 0) ~= 0
 
 			-- validate if the other node have unlockConstraints met
 			local canPath = true
@@ -1429,7 +1406,7 @@ function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
 				end
 			end
 
-			if (distViaNode < (other.pathDist or math.huge))
+			if (distViaNode < otherDist or preferNormalRoot)
 				and node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (not other.alloc or self:CanPathThroughAllocMode(node.allocMode or 0, other)) and (node.ascendancyName == other.ascendancyName or (nodeDist == 0 and not other.ascendancyName)) and canPath then
 				-- if this node is free, push it to the front so that it can shorten paths
 				if weight == 0 then
@@ -2049,6 +2026,11 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		end
 	end
 	self:BuildNodePathsToRootNodes(rootList)
+	for _, node in ipairs(rootList) do
+		if node.isJewelSocket or node.expansionJewel then
+			self:SetNodeDistanceToClassStart(node)
+		end
+	end
 	local alternateClassStartNodesArray = {}
 	for _, node in pairs(alternateClassStartNodes) do
 		alternateClassStartNodesArray[#alternateClassStartNodesArray + 1] = node
