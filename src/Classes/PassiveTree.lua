@@ -25,6 +25,10 @@ local nodeReminderText = {
 		"While affected by Unravelling, your ^xD02090Chaos ^xA0A080Damage randomly either also contributes to ^x3F6DB3Freeze ^xA0A080buildup,",
 		"^xB97123Flammability^xA0A080, or ^xADAA47Shock ^xA0A080chance - changing which it contributes to every two seconds."
 	},
+	["Forced Outcome"] = {
+		"Hits which could potentially be a Critical Hit but do not roll a Critical Hit will re-roll Critical Hit chance until they succeed.", '\t',
+		"Hits have 30% less Critical Damage Bonus for each time Critical Hit chance was re-rolled."
+	}
 }
 
 -- Retrieve the file at the given URL
