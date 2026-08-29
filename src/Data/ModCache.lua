@@ -6598,7 +6598,7 @@ c["Arrows Pierce all Targets after Chaining"]={nil,"Arrows Pierce all Targets af
 c["Arrows Pierce all targets after Forking"]={{[1]={[1]={stat="ForkedCount",threshold=1,type="StatThreshold"},flags=0,keywordFlags=2048,name="PierceAllTargets",type="FLAG",value=true}},nil}
 c["Arrows Pierce an additional Target"]={{[1]={flags=0,keywordFlags=2048,name="PierceCount",type="BASE",value=1}},nil}
 c["Arrows Return if they have Pierced a target which had Fully Broken Armour"]={nil,"Arrows Return if they have Pierced a target which had Fully Broken Armour "}
-c["Arrows deal 50% increased Damage with Hits to Targets they Pierce"]={{[1]={[1]={stat="PierceCount",threshold=1,type="StatThreshold"},flags=0,keywordFlags=264192,name="Damage",type="INC",value=50}},nil}
+c["Arrows deal 50% increased Damage with Hits to Targets they Pierce"]={{[1]={[1]={keywordFlags=2048,type="KeywordFlagAnd"},[2]={stat="PierceCount",threshold=1,type="StatThreshold"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=50}},nil}
 c["Arrows gain Critical Hit Chance as they travel farther, up to"]={nil,"Arrows gain Critical Hit Chance as they travel farther, up to "}
 c["Arrows gain Critical Hit Chance as they travel farther, up to 40% increased Critical Hit Chance after 7 metres"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=1}},type="DistanceRamp"},flags=0,keywordFlags=2048,name="CritChance",type="INC",value=40}},nil}
 c["Arrows that Pierce have 50% chance to inflict Bleeding"]={nil,"Arrows that Pierce have 50% chance to inflict Bleeding "}
