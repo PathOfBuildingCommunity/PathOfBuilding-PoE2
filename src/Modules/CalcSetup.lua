@@ -644,6 +644,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
 	local cachedMinionDB = specEnv and specEnv.cachedMinionDB or nil
+	---@type Env?
 	local env = specEnv and specEnv.env or nil
 	local accelerate = specEnv and specEnv.accelerate or { }
 
@@ -654,8 +655,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 	local classStats = nil
 
 	if not env then
-		---@class Env
-		---@field minion Actor?
 		env = { }
 		env.build = build
 		env.data = build.data

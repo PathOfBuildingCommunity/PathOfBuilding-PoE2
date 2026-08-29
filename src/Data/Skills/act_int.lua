@@ -5,6 +5,7 @@
 -- Skill data (c) Grinding Gear Games
 --
 			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["ArcPlayer"] = {
 	name = "Arc",
 	baseTypeName = "Arc",

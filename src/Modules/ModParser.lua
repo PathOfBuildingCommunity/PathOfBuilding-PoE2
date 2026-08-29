@@ -2162,6 +2162,7 @@ local modTagList = {
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
 }
 
+---@type CreateModFunction
 local mod = modLib.createMod
 --- Creates a mod with type "FLAG" and value true
 ---@overload fun(name: string, sourceOrModTag?: string|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag): Mod

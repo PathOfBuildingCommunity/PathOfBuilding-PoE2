@@ -5,6 +5,7 @@
 -- Skill data (c) Grinding Gear Games
 --
 			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["TriggeredAbyssalApparitionPlayer"] = {
 	name = "Abyssal Apparition",
 	baseTypeName = "Abyssal Apparition",

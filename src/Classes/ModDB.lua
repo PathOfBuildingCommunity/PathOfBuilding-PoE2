@@ -20,6 +20,8 @@ local mod_createMod = modLib.createMod
 ---@class ModDB: ModStore
 local ModDBClass = newClass("ModDB", "ModStore")
 
+---@param parent? ModStore
+---@return ModDB
 function ModDBClass:ModDB(parent)
 	self:ModStore(parent)
 	self.mods = { }
