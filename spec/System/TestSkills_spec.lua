@@ -63,6 +63,85 @@ describe("TestSkills", function()
 		assertGemSupportLevel("Apocalypse", 3, 4)
 	end)
 
+	it("applies Advanced Thaumaturgy quality stats only when enabled", function()
+		local advancedThaumaturgy = build.spec.nodes[14429]
+		assert.is_not_nil(advancedThaumaturgy)
+		assert.True(advancedThaumaturgy.modList:Flag(nil, "GemlingQuality"))
+
+		local grantedEffect = data.skills["AlchemistsBoonPlayer"]
+		local statSet = grantedEffect.statSets[1]
+		local skillInstance = {
+			level = 20,
+			quality = 20,
+		}
+
+		local stats = calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
+		assert.is_not_nil(stats["skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute"])
+		assert.is_nil(stats["alchemists_boon_attack_speed_granted_+%_during_life_flask"])
+		assert.is_nil(stats["alchemists_boon_cast_speed_granted_+%_during_mana_flask"])
+
+		stats = calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, true)
+		assert.are.equals(20, stats["alchemists_boon_attack_speed_granted_+%_during_life_flask"])
+		assert.are.equals(20, stats["alchemists_boon_cast_speed_granted_+%_during_mana_flask"])
+	end)
+
+	it("describes quality stats from secondary skill stat sets", function()
+		local grantedEffect = data.skills["ExplosiveSpearPlayer"]
+		local qualityStat = grantedEffect.qualityStats[1]
+		local stats = {
+			active_skill_base_area_of_effect_radius = 4,
+		}
+
+		assert.same({ 1, 2 }, qualityStat[3])
+		local firstDescriptions = build.data.describeStats(stats, grantedEffect.statSets[1].statDescriptionScope, true)
+		local qualityStatSet = grantedEffect.statSets[qualityStat[3][1] + 1]
+		local qualityDescriptions = build.data.describeStats(stats, qualityStatSet.statDescriptionScope, true)
+
+		assert.are.equals(0, #firstDescriptions)
+		assert.is_true(#qualityDescriptions > 0)
+		assert.matches("Explosion radius", qualityDescriptions[1])
+	end)
+
+	it("uses companion resistances in the beast library controls", function()
+		local minionId = "Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"
+		local testData = {
+			skills = build.data.skills,
+			minions = {
+				A = copyTable(build.data.minions[minionId]),
+				B = copyTable(build.data.minions[minionId]),
+			},
+		}
+		testData.minions.B.name = "B"
+		testData.minions.B.fireResist = 0
+		testData.minions.B.companionFireResist = 60
+
+		local tooltip = {
+			lines = { },
+			CheckForUpdate = function()
+				return true
+			end,
+			AddLine = function(self, _, text)
+				table.insert(self.lines, text)
+			end,
+			AddSeparator = function()
+			end,
+		}
+		local spectreList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
+		local beastList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
+
+		spectreList:AddValueTooltip(tooltip, 1, "A")
+		assert.matches("Resistances:.*75", table.concat(tooltip.lines, "\n"))
+		tooltip.lines = { }
+		beastList:AddValueTooltip(tooltip, 1, "A")
+		assert.matches("Resistances:.*50", table.concat(tooltip.lines, "\n"))
+
+		local sourceList = { "A", "B" }
+		local sourceControl = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
+		sourceControl.controls.sortModeDropDown.selIndex = 9
+		sourceControl:sortSourceList()
+		assert.are.equals("B", sourceControl.list[1])
+	end)
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -758,6 +837,8 @@ describe("TestSkills", function()
 
 		local skillsTab = {
 			socketGroupList = {
+				{ enabled = false, gemList = { fakeGem("Disabled Skill") } },
+				{ enabled = true, gemList = { fakeGem("Disabled Gem", nil, { enabled = false }) } },
 				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
 				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
 				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
@@ -811,6 +892,19 @@ describe("TestSkills", function()
 
 		assert.True(avgDPS > coldSelectedDPS)
 		assert.True(avgDPS < lightningDPS)
+	end)
+
+	it("scales spell bleed magnitude from maximum Life", function()
+		build.configTab.input.customMods = [[
+			+5000 to maximum Life
+			100% chance to inflict Bleeding on Hit
+			Non-Channelling Spells have 3% increased Magnitude of Ailments per 100 maximum Life
+		]]
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Unearth 20/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals(1 + math.floor(build.calcsTab.mainOutput.Life / 100) * 0.03, build.calcsTab.mainOutput.BleedMagnitudeEffect)
 	end)
 
 	it("Test flicker strike scales with power charges", function()

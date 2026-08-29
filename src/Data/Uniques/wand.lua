@@ -9,7 +9,7 @@ League: Dawn of the Hunt
 Requires Level 65
 Implicits: 2
 Grants Skill: Level (1-20) Power Siphon
-Grants Skill: Level 20 Pinnacle of Power
+Grants Skill: Pinnacle of Power
 +(100-150) to maximum Mana
 +3 to Level of all Spell Skills
 (15-30)% increased Cast Speed
@@ -18,7 +18,6 @@ Grants Skill: Level 20 Pinnacle of Power
 ]],[[
 Cursecarver
 Acrid Wand
-Requires Level 33
 League: Dawn of the Hunt
 Variant: Elemental Weakness
 Variant: Vulnerability

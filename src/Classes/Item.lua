@@ -29,8 +29,6 @@ local catalystTags = {
 	{ "minion" },
 }
 
-local minimumReqLevel = { }
-
 local function getCatalystScalar(catalystId, mod, quality)
 	if mod.unscalable then
 		return 1
@@ -58,11 +56,27 @@ local function getCatalystScalar(catalystId, mod, quality)
 	return 1
 end
 
-local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
+local function getRangedModList(item, modLine)
+	if not modLine.range or not modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
+		return
+	end
+	local line = itemLib.applyRange(modLine.line:gsub("\n", " "), modLine.range, getCatalystScalar(item.catalyst, modLine, item.catalystQuality), modLine.corruptedRange)
+	local list, extra = modLib.parseMod(line)
+	if itemLib.isZeroValueLine(line) then
+		return { }
+	end
+	return not extra and list
+end
+
+---@class Item
+local ItemClass = newClass("Item")
+
+function ItemClass:Item(raw, rarity, highQuality)
 	if raw then
 		self:ParseRaw(sanitiseText(raw), rarity, highQuality)
 	end
-end)
+	return self
+end
 
 local lineFlags = {
 	["custom"] = true, ["crafted"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true, ["unscalable"] = true
@@ -291,6 +305,17 @@ local function specToNumber(s)
 	return n and tonumber(n)
 end
 
+function ItemClass:GetUniqueDBItem()
+	if (self.rarity == "UNIQUE" or self.rarity == "RELIC") and main.uniqueDB then
+		local dbItem = main.uniqueDB.list[self.name]
+		if not dbItem and self.title and self.baseName then
+			local originalBaseName = self.baseName:match("^Runeforged (.+)") or self.baseName:match("^Runemastered (.+)")
+			dbItem = originalBaseName and main.uniqueDB.list[self.title .. ", " .. originalBaseName]
+		end
+		return dbItem
+	end
+end
+
 -- Parse raw item data and extract item name, base type, quality, and modifiers
 function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.raw = raw
@@ -376,6 +401,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.buffModLines = { }
 	self.enchantModLines = { }
 	self.runeModLines = { }
+	self.socketedAugmentTypeOverride = nil
+	self.socketedSoulCoreTypes = { }
 	self.implicitModLines = { }
 	self.explicitModLines = { }
 	local implicitLines = 0
@@ -475,7 +502,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			elseif fullModName:match("(.*)Enhancement.*") then
 				linePostfix = " (enchant)"
 			end
-			local possibleLineFlags = fullModName:match("(.*)Modifier.*")
+			local possibleLineFlags = fullModName:gsub("Vaal Unique", "Mutated"):match("(.*)Modifier.*")
 			if possibleLineFlags then
 				for flag in possibleLineFlags:gmatch("%a+") do
 					if lineFlags[flag:lower()] then
@@ -506,6 +533,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					foundExplicit = true
 				end
 				self.checkSection = false
+			end
+			local levelReq = line:match("^Requires:? Level (%d+)")
+			if levelReq then
+				self.requirements.level = tonumber(levelReq)
+				goto continue
 			end
 			local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
 			if specName then
@@ -549,16 +581,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
-					local runeLevel = 0
-					local runeData = data.itemMods.Runes[specVal]
-					if runeData then
-						for _, slotData in pairs(runeData) do
-							runeLevel = math.max(runeLevel, slotData.rank[1])
-						end
-					end
-					if runeLevel > 0 and (not self.requirements.runeLevel or runeLevel > self.requirements.runeLevel) then
-						self.requirements.runeLevel = runeLevel
-					end
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
@@ -607,13 +629,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
-				elseif specName == "Requires Level" then
-					self.requirements.level = specToNumber(specVal)
-					minimumReqLevel = minimumReqLevel or {}
-					table.insert(minimumReqLevel, { name = self.name, level = specVal })
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
+				elseif specName == "Requires Level" then
+					self.requirements.level = specToNumber(specVal)
 				elseif specName == "LevelReq" then
 					self.requirements.level = specToNumber(specVal)
 				elseif specName == "Has Alt Variant" then
@@ -693,9 +713,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.catalystQuality = specToNumber(specVal)
 				elseif specName == "Note" then
 					self.note = specVal
-				elseif specName == "Str" or specName == "Strength" or specName == "Dex" or specName == "Dexterity" or
-				       specName == "Int" or specName == "Intelligence" then
-					self.requirements[specName:sub(1,3):lower()] = specToNumber(specVal)
 				elseif specName == "Critical Hit Range" or specName == "Attacks per Second" or specName == "Weapon Range" or
 				       specName == "Critical Hit Chance" or specName == "Physical Damage" or specName == "Elemental Damage" or
 				       specName == "Chaos Damage" or specName == "Fire Damage" or specName == "Cold Damage" or specName == "Lightning Damage" or
@@ -967,6 +984,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.canHaveThreeEnchants = true
 					self.canHaveFourEnchants = true
 				end
+				modLine.socketedAugmentTypeOverride = lineLower:match("^this item gains bonuses from socketed items as though it was a? ?(.+)$")
+				modLine.socketedSoulCoreType = lineLower:match("^this item gains bonuses from socketed soul cores as though it was also a? ?(.+)$")
 
 				local modLines
 				if modLine.rune then
@@ -981,6 +1000,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLines = self.explicitModLines
 				end
 				modLine.line = line
+				if self:CheckModLineVariant(modLine) then
+					if modLine.socketedAugmentTypeOverride then
+						self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
+					elseif modLine.socketedSoulCoreType then
+						self.socketedSoulCoreTypes[modLine.socketedSoulCoreType] = true
+					end
+				end
 				if modList then
 					modLine.modList = modList
 					modLine.extra = extra
@@ -1022,7 +1048,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
-		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
+		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre or self.itemSocketCount > 0 then
 			local shouldFixRunesOnItem = #self.runes == 0
 			if not shouldFixRunesOnItem and #self.runeModLines > 0 then
 				local canRebuildRunes = true
@@ -1086,7 +1112,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				return false
 			end
 
-			local function findRuneCombination(groupedRunes, targetValues, maxRunes)
+			local function findRuneCombination(groupedRunes, targetValues, maxRunes, maxRuneCounts)
 				local best = { }
 				local counts = { }
 
@@ -1106,11 +1132,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 
 					for index = startIndex, #groupedRunes do
-						local nextSum = addRuneValueSets(sum, groupedRunes[index].values)
-						if not runeValueSetExceeds(nextSum, targetValues) then
-							counts[index] = (counts[index] or 0) + 1
-							search(index, count + 1, nextSum)
-							counts[index] = counts[index] - 1
+						if not maxRuneCounts or (counts[index] or 0) < (maxRuneCounts[groupedRunes[index].name] or 0) then
+							local nextSum = addRuneValueSets(sum, groupedRunes[index].values)
+							if not runeValueSetExceeds(nextSum, targetValues) then
+								counts[index] = (counts[index] or 0) + 1
+								search(index, count + 1, nextSum)
+								counts[index] = counts[index] - 1
+							end
 						end
 					end
 				end
@@ -1119,80 +1147,111 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				return best.counts, best.count
 			end
 
-			-- Form a key value table with the following format
-			-- { [strippedModLine] = { { name = runeName1, values = { low, high } }, etc, }, etc}
-			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
-			-- This could be refactored to only needs to be called once.
-			local statGroupedRunes = { }
-			local broadItemType = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff) and "caster" or "armour" -- minor optimisation
-			local specificItemType = self.base.type:lower()
-			for runeName, runeMods in pairs(data.itemMods.Runes) do
-				local addModToGroupedRunes = function (modLine, augmentType)
-					local runeStrippedModLine, runeValues = getRuneLineParts(modLine)
-					if statGroupedRunes[runeStrippedModLine] == nil then
-						statGroupedRunes[runeStrippedModLine] = { }
-					end
-					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, type = augmentType, values = runeValues })
-				end
-				for slotType, slotMod in pairs(runeMods) do
-					if slotType == broadItemType or slotType == specificItemType then
-						for _, mod in ipairs(slotMod) do
-							addModToGroupedRunes(mod, slotMod.type)
-						end
-					end
-				end
-			end
-
-			-- Sort table to ensure first entries are always largest.
-			for _, runes in pairs(statGroupedRunes) do
-				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
-			end
-
-			local gameSocketedAugmentEffectModifier = 0
+			local gameSocketedAugmentEffectModifiers = {
+				SocketedAugmentItemEffect = 0,
+				SocketedRuneEffect = 0,
+				SocketedSoulCoreEffect = 0,
+			}
 			if mode == "GAME" and shouldFixRunesOnItem then
 				for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
 					for _, effectModLine in ipairs(modLines) do
-						for _, mod in ipairs(effectModLine.modList or { }) do
-							if (mod.name == "SocketedRuneEffect" or mod.name == "SocketedAugmentItemEffect") and mod.type == "INC" then
-								gameSocketedAugmentEffectModifier = gameSocketedAugmentEffectModifier + mod.value / 100
+						local effectModList = effectModLine.modList or { }
+						for _, mod in ipairs(effectModList) do
+							if mod.type == "INC" and gameSocketedAugmentEffectModifiers[mod.name] then
+								effectModList = getRangedModList(self, effectModLine) or effectModList
+								break
+							end
+						end
+						for _, mod in ipairs(effectModList) do
+							if mod.type == "INC" and gameSocketedAugmentEffectModifiers[mod.name] then
+								gameSocketedAugmentEffectModifiers[mod.name] = gameSocketedAugmentEffectModifiers[mod.name] + mod.value / 100
 							end
 						end
 					end
 				end
 			end
 
+			local statGroupedRunes = { }
+			local broadItemType, specificItemType = self:GetSocketedAugmentTypes()
+			for runeName, runeMods in pairs(data.itemMods.Runes) do
+				for slotType, slotMod in pairs(runeMods) do
+					if slotType == broadItemType or slotType == specificItemType or (slotMod.type == "SoulCore" and self.socketedSoulCoreTypes[slotType]) then
+						local effectModifier = gameSocketedAugmentEffectModifiers.SocketedAugmentItemEffect + (gameSocketedAugmentEffectModifiers["Socketed" .. slotMod.type .. "Effect"] or 0)
+						local valueScalar = effectModifier ~= 0 and 1 + effectModifier
+						for _, modLine in ipairs(slotMod) do
+							local line = modLine
+							if valueScalar then
+								local bondedPrefix = line:match("^(Bonded: )") or ""
+								line = bondedPrefix .. itemLib.applyRange(line:gsub("^Bonded: ", ""), 1, valueScalar)
+							end
+							local strippedModLine, values = getRuneLineParts(line)
+							local groupedRunes = statGroupedRunes[strippedModLine]
+							if not groupedRunes then
+								groupedRunes = { }
+								statGroupedRunes[strippedModLine] = groupedRunes
+							end
+							local existingRune = groupedRunes[runeName]
+							if existingRune then
+								existingRune.values = addRuneValueSets(existingRune.values, values)
+							else
+								local rune = { name = runeName, type = slotMod.type, values = values, effectApplied = effectModifier ~= 0 }
+								groupedRunes[runeName] = rune
+								t_insert(groupedRunes, rune)
+							end
+						end
+					end
+				end
+			end
+			for _, runes in pairs(statGroupedRunes) do
+				table.sort(runes, function(a, b) return compareRuneValueSets(a.values, b.values) end)
+			end
+
 			local remainingRunes = self.itemSocketCount
-			for i, modLine in ipairs(self.runeModLines) do
+			local inferredRuneCounts = { }
+			for _, modLine in ipairs(self.runeModLines) do
 				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
-				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
-					local result, numRunes
-					local socketedRuneEffectAlreadyApplied
-					if gameSocketedAugmentEffectModifier ~= 0 then
-						local unscaledTargetValues = { }
-						for valueIndex, value in ipairs(targetValues) do
-							unscaledTargetValues[valueIndex] = value / (1 + gameSocketedAugmentEffectModifier)
-						end
-						result, numRunes = findRuneCombination(groupedRunes, unscaledTargetValues, remainingRunes)
-						socketedRuneEffectAlreadyApplied = result ~= nil
-					end
-					if not result then
-						result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
-					end
+				if groupedRunes and not modLine.bonded then
+					local result, numRunes = findRuneCombination(groupedRunes, targetValues, self.itemSocketCount)
 
 					if result then -- we have found a valid combo for that rune category
-						remainingRunes = remainingRunes - numRunes
-						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this
-						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.augmentType = groupedRunes[1].type
-						modLine.runeCount = numRunes
-						modLine.socketedRuneEffectAlreadyApplied = socketedRuneEffectAlreadyApplied
+						local addedRuneCount = 0
+						for index, rune in ipairs(groupedRunes) do
+							addedRuneCount = addedRuneCount + m_max((result[index] or 0) - (inferredRuneCounts[rune.name] or 0), 0)
+						end
+						if addedRuneCount <= remainingRunes then
+							remainingRunes = remainingRunes - addedRuneCount
+							modLine.runeCount = numRunes
 
-						if shouldFixRunesOnItem then
+							local effectApplied
 							for index, rune in ipairs(groupedRunes) do
-								for _ = 1, result[index] or 0 do
-									t_insert(self.runes, rune.name)
+								local runeCount = result[index] or 0
+								if runeCount > 0 then
+									modLine.augmentType = rune.type
+									effectApplied = effectApplied or rune.effectApplied
+									if shouldFixRunesOnItem then
+										for _ = (inferredRuneCounts[rune.name] or 0) + 1, runeCount do
+											t_insert(self.runes, rune.name)
+										end
+									end
+									inferredRuneCounts[rune.name] = m_max(inferredRuneCounts[rune.name] or 0, runeCount)
 								end
+							end
+							modLine.socketedRuneEffectAlreadyApplied = effectApplied
+						end
+					end
+				end
+			end
+			for _, modLine in ipairs(self.runeModLines) do
+				if modLine.bonded then
+					local strippedModLine, targetValues = getRuneLineParts(modLine.line)
+					local groupedRunes = statGroupedRunes[strippedModLine]
+					local result = groupedRunes and findRuneCombination(groupedRunes, targetValues, self.itemSocketCount, inferredRuneCounts)
+					if result then
+						for index, rune in ipairs(groupedRunes) do
+							if (result[index] or 0) > 0 then
+								modLine.augmentType = rune.type
+								modLine.socketedRuneEffectAlreadyApplied = rune.effectApplied or modLine.socketedRuneEffectAlreadyApplied
 							end
 						end
 					end
@@ -1205,26 +1264,34 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 
-	if self.base and not self.requirements.level then
-		if importedLevelReq and #self.sockets == 0 then
-			-- Requirements on imported items can only be trusted for items with no sockets
-			self.requirements.level = importedLevelReq
-		else
-			self.requirements.level = self.base.req.level
-		end
-	end
-	if self.base and not self.requirements.baseLevel then
-		-- Add only if not already present, to prevent overwriting original value.
-		local exists = false
-		for _, entry in ipairs(minimumReqLevel) do
-			if entry.name == self.title then
-				exists = true
-				break
+	for _, runeName in ipairs(self.runes) do
+		local runeData = data.itemMods.Runes[runeName]
+		if runeData then
+			for _, slotData in pairs(runeData) do
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank[1])
 			end
 		end
-		if not exists then
-			self.requirements.baseLevel = self.base.req.level
+	end
+	if self.base then
+		local dbItem = self:GetUniqueDBItem()
+		if dbItem then
+			self.requirements.naturalLevel = m_max(dbItem.requirements.naturalLevel or dbItem.requirements.level, self.base.req.level or 0)
+		else
+			if not self.requirements.level then
+				if importedLevelReq and #self.sockets == 0 then
+					-- Requirements on imported items can only be trusted for items with no sockets
+					self.requirements.level = importedLevelReq
+				else
+					self.requirements.level = self.base.req.level
+				end
+			end
+			self.requirements.naturalLevel = self.requirements.level
 		end
+		if not self.requirements.naturalLevel then
+			self.requirements.naturalLevel = 0
+		end
+		self.requirements.level = self.requirements.level or self.requirements.naturalLevel
+		self.requirements.level = m_max(self.requirements.level, self.requirements.naturalLevel, self.requirements.runeLevel)
 	end
 	self.affixLimit = 0
 	if self.crafted then
@@ -1547,8 +1614,11 @@ end
 
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
+	if self.requirements and self.requirements.naturalLevel then
+		self.requirements.level = self.requirements.naturalLevel
+	end
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType)
+	local getModRunesForTypes = function(runeName, baseType, specificType, soulCoreTypes)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1562,22 +1632,23 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[specificType])
 				-- end
 			end
+			for soulCoreType in pairs(soulCoreTypes) do
+				local soulCoreMod = rune[soulCoreType]
+				if soulCoreMod and soulCoreMod.type == "SoulCore" then
+					t_insert(gatheredRuneMods, soulCoreMod)
+				end
+			end
 		end
 		return gatheredRuneMods
 	end
 
 	local statOrder = {}
+	local baseType, specificType = self:GetSocketedAugmentTypes()
+	local soulCoreTypes = self.socketedSoulCoreTypes
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local subType = self.base.subType and self.base.subType:lower()
-			local itemType = self.base.type:lower()
-			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
-			local specificType =
-				(subType == "warstaff" and "quarterstaff") or
-				(itemType == "shield" and subType == "evasion" and "buckler") or
-				itemType
-			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
+			local gatheredMods = getModRunesForTypes(name, baseType, specificType, soulCoreTypes)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
@@ -1639,7 +1710,7 @@ function ItemClass:Craft()
 	wipeTable(self.explicitModLines)
 	self.namePrefix = ""
 	self.nameSuffix = ""
-	self.requirements.level = self.base.req.level
+	self.requirements.level = m_max(self.base.req.level or 0, self.requirements.runeLevel)
 	local statOrder = { }
 	for _, list in ipairs({self.prefixes,self.suffixes}) do
 		for i = 1, (list.limit or (self.affixLimit / 2)) do
@@ -1654,7 +1725,7 @@ function ItemClass:Craft()
 				elseif mod.type == "Suffix" then
 					self.nameSuffix = self.nameSuffix .. " " .. mod.affix
 				end
-				self.requirements.level = m_max(self.requirements.level or 0, m_floor(mod.level * 0.8))
+				self.requirements.level = m_max(self.requirements.level, m_floor(mod.level * 0.8))
 				local rangeScalar = getCatalystScalar(self.catalyst, mod, self.catalystQuality)
 				for i, line in ipairs(mod) do
 					line = itemLib.applyRange(line, affix.range or 0.5, rangeScalar)
@@ -1716,6 +1787,22 @@ function ItemClass:GetModLineVariantCount(modLine)
 		end
 	end
 	return count
+end
+
+function ItemClass:GetSocketedAugmentTypes()
+	local subType = self.base.subType and self.base.subType:lower()
+	local itemType = self.base.type:lower()
+	local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre) and "caster"
+	local specificType =
+		(subType == "warstaff" and "quarterstaff") or
+		(itemType == "shield" and subType == "evasion" and "buckler") or
+		itemType
+
+	if self.socketedAugmentTypeOverride then
+		return "armour", self.socketedAugmentTypeOverride
+	end
+
+	return baseType, specificType
 end
 
 -- Return the name of the slot this item is equipped in
@@ -1783,7 +1870,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	if slotNum == 2 then
 		slotName = slotName:gsub("1", "2")
 	end
-	local modList = new("ModList")
+	local modList = new("ModList"):ModList()
 	for _, baseMod in ipairs(baseList) do
 		local mod = copyTable(baseMod)
 		local add = true
@@ -2036,7 +2123,7 @@ function ItemClass:BuildModList()
 	if not self.base then
 		return
 	end
-	local baseList = new("ModList")
+	local baseList = new("ModList"):ModList()
 	if self.base.weapon then
 		self.weaponData = { }
 	elseif self.base.armour then
@@ -2068,26 +2155,17 @@ function ItemClass:BuildModList()
 			if modLine.line:find("Requires Class") then
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
 			end
+			if modLine.socketedAugmentTypeOverride then
+				self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
+			elseif modLine.socketedSoulCoreType then
+				self.socketedSoulCoreTypes[modLine.socketedSoulCoreType] = true
+			end
 			-- handle understood modifier variable properties
 			if not modLine.extra then
-				if modLine.range then
-					-- Check if line actually has a range
-					if modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
-						local strippedModeLine = modLine.line:gsub("\n"," ")
-						local catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
-						-- Put the modified value into the string
-						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar, modLine.corruptedRange)
-						-- Check if we can parse it before adding the mods
-						local list, extra = modLib.parseMod(line)
-						if itemLib.isZeroValueLine(line) then
-							list = { }
-							extra = nil
-						end
-						if list and not extra then
-							modLine.modList = list
-							t_insert(self.rangeLineList, modLine)
-						end
-					end
+				local rangedModList = getRangedModList(self, modLine)
+				if rangedModList then
+					modLine.modList = rangedModList
+					t_insert(self.rangeLineList, modLine)
 				end
 				for _, mod in ipairs(modLine.modList) do
 					for _ = 1, variantCount do
@@ -2100,6 +2178,8 @@ function ItemClass:BuildModList()
 			end
 		end
 	end
+	self.socketedAugmentTypeOverride = nil
+	self.socketedSoulCoreTypes = { }
 	for _, modLine in ipairs(self.enchantModLines) do
 		processModLine(modLine)
 	end
@@ -2141,6 +2221,7 @@ function ItemClass:BuildModList()
 				skillId = skill.skillId,
 				level = skill.level,
 				noSupports = skill.noSupports,
+				noReservation = self.base and self.base.grantedSkillsHaveNoReservation or nil,
 				source = self.modSource,
 				triggered = skill.triggered,
 				triggerChance = skill.triggerChance,
@@ -2155,44 +2236,6 @@ function ItemClass:BuildModList()
 		self.canSocketJewelBase["Emerald"] = calcLocal(baseList, "CanSocketJewelBaseEmerald", "FLAG", 0)
 		self.canSocketJewelBase["Ruby"] = calcLocal(baseList, "CanSocketJewelBaseRuby", "FLAG", 0)
 	end
-
-	local reqLevel = 0
-	local minReqLevel
-
-	for _, entry in ipairs(minimumReqLevel) do
-		if entry.name == self.title then
-			minReqLevel = tonumber(entry.level)
-			break
-		end
-	end
-
-	if #self.grantedSkills >= 1 then
-		local skillDef = data.skills[self.grantedSkills[1].skillId]
-		local gemId = data.gemForSkill[skillDef]
-		local gem = data.gems[gemId]
-
-		local skillLevel = self.grantedSkills[1].level or #skillDef.levels
-		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
-		local gemLevelReq = chosenLevel.levelRequirement
-
-		reqLevel = m_max(gemLevelReq, minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
-
-		-- Rune level and unique base level don't scale attribute requirements. Example, Cursecarver has 33 minimum required level
-		-- but the intelligence requirement will be 21 at level 4 skill.
-		local attrLevel = m_max(gemLevelReq, self.requirements.baseLevel or 0)
-
-		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
-			self.requirements.int = calcLib.getGemStatRequirement(attrLevel, gem.reqInt)
-			self.requirements.dex = calcLib.getGemStatRequirement(attrLevel, gem.reqDex)
-			self.requirements.str = calcLib.getGemStatRequirement(attrLevel, gem.reqStr)
-		end
-	else
-		-- If no granted skills, we want to use the "Requires Level" from the unique instead of the base armour type level requirement.
-		-- Currently there are no Uniques that use a lower level than the base, but maybe in the future.
-		reqLevel = m_max(minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
-	end
-
-	self.requirements.level = reqLevel
 
 	if self.name == "Tabula Rasa, Simple Robe" or self.name == "Skin of the Loyal, Simple Robe" or self.name == "Skin of the Lords, Simple Robe" or self.name == "The Apostate, Cabalist Regalia" then
 		-- Hack to remove the energy shield and base int requirement

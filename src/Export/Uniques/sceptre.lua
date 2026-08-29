@@ -7,8 +7,6 @@ The Dark Defiler
 Rattling Sceptre
 Variant: Pre 0.1.1
 Variant: Current
-Implicits: 1
-Grants Skill: Level (1-20) Skeletal Warrior Minion
 UniqueIncreasedMana2
 UniqueIntelligence3
 UniqueManaRegeneration1
@@ -17,8 +15,6 @@ UniqueManaRegeneration1
 ]],[[
 Font of Power
 Omen Sceptre
-Implicits: 1
-Grants Skill: Level (1-20) Malice
 UniqueLocalIncreasedSpiritPercent1
 UniqueIncreasedMana7
 UniqueManaRegeneration6
@@ -32,6 +28,7 @@ Variant: Lightning (Pre 0.2.1 )
 Variant: Fire
 Variant: Cold
 Variant: Lightning
+Base Implicits: false
 Implicits: 3
 {variant:1,4}Grants Skill: Level (1-20) Purity of Fire
 {variant:2,5}Grants Skill: Level (1-20) Purity of Ice
@@ -48,8 +45,8 @@ UniqueBaseLifeRegenToAllies1
 ]],[[
 Guiding Palm of the Eye
 Shrine Sceptre
-Requires Level 65
 League: Dawn of the Hunt
+Base Implicits: false
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Ice
 UniqueDamageGainedAsCold1
@@ -61,8 +58,8 @@ UniqueColdShrine1
 ]],[[
 Guiding Palm of the Heart
 Shrine Sceptre
-Requires Level 65
 League: Dawn of the Hunt
+Base Implicits: false
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
 UniqueDamageGainedAsFire2
@@ -74,8 +71,8 @@ UniqueFireShrine1
 ]],[[
 Guiding Palm of the Mind
 Shrine Sceptre
-Requires Level 65
 League: Dawn of the Hunt
+Base Implicits: false
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Lightning
 UniqueDamageGainedAsLightning1
@@ -87,8 +84,8 @@ UniqueLightningShrine1
 ]],[[
 Palm of the Dreamer
 Shrine Sceptre
-Requires Level 65
 League: Dawn of the Hunt
+Base Implicits: false
 Implicits: 1
 Grants Skill: Level (1-20) Impurity
 UniqueNearbyAlliesAddedChaosDamage1
@@ -101,6 +98,7 @@ UniqueChaosShrine1
 Sacred Flame
 Shrine Sceptre
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Base Implicits: false
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
 UniqueDamageGainedAsFire1
@@ -111,9 +109,7 @@ UniqueEnemiesInPresenceLowestResistance1
 Sylvan's Effigy
 Stoic Sceptre
 League: Runes of Aldur
-Implicits: 2
-Grants Skill: Level (1-20) Discipline
-Grants Skill: Level (1-20) Azmerian Wolf
+UniquePackleaderCompanion_1
 UniqueLocalIncreasedSpiritPercent4
 UniqueNearbyAlliesLifeRegeneration1
 UniqueAllAttributes19

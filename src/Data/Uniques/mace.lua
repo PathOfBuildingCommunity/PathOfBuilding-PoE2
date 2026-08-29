@@ -41,6 +41,7 @@ Culling Strike against Frozen Enemies
 Marohi Erqi
 Totemic Greatclub
 League: Rise of the Abyssal
+Requires Level 60
 Implicits: 1
 Crushes Enemies on Hit
 +150 Strength Requirement
@@ -103,8 +104,8 @@ Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
 Implicits: 2
-{variant:1}+(10-15)% to Critical Damage Bonus
 {variant:2}+(5-10)% to Critical Damage Bonus
+{variant:1}+(10-15)% to Critical Damage Bonus
 Adds (21-26) to (25-31) Physical Damage
 (10-15)% increased Attack Speed
 Breaks Armour equal to 40% of damage from Hits with this weapon
@@ -275,6 +276,8 @@ Trephina
 Forge Maul
 Variant: Pre 0.1.1
 Variant: Current
+Implicits: 1
+Crushes Enemies on Hit
 {variant:1}Adds (7-10) to (12-18) Physical Damage
 {variant:2}Adds (12-15) to (22-25) Physical Damage
 (10-15)% increased Attack Speed

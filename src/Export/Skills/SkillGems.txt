@@ -550,6 +550,7 @@ Window of Opportunity II      		----		SupportWindowOfOpportunityPlayerTwo
 Explosive Demise              		----		DestructiveLinkSkeletonBombadierMinion
 
 						--------- Active Intelligence ---------
+Abyssal Pact                  		----		AbyssalPactPlayer
 Arc                           		----		ArcPlayer
 Archmage                      		----		ArchmagePlayer
 Arctic Armour                 		----		ArcticArmourPlayer
@@ -681,6 +682,7 @@ Temporal Chains               		----		TemporalChainsPlayer
 Trinity                       		----		TrinityPlayer
 Unearth                       		----		UnearthPlayer
 Unleash                       		----		UnleashPlayer
+Untether                      		----		AbyssalLivingBomb
 Vaulting Impact               		----		VaultingImpactPlayer
 Volatile Dead                 		----		VolatileDeadPlayer
 Vulnerability                 		----		VulnerabilityPlayer

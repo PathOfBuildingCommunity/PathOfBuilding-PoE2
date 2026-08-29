@@ -3,7 +3,8 @@
 -- Module: Calc Defence
 -- Performs defence calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -1386,8 +1387,8 @@ function calcs.defence(env, actor)
 						local gainRate = modDB:Sum("BASE", nil, source.name .. "GainAs" .. target.name)
 						local rate = source.conversionRate[target.name] + gainRate
 						if rate > 0 then
-							local targetBase = math.ceil(globalBase * rate / 100)
-							local targetTotalBase = math.ceil(totalBase * rate / 100)
+							local targetBase = round(globalBase * rate / 100)
+							local targetTotalBase = round(totalBase * rate / 100)
 							target.globalBase = target.globalBase + targetBase
 							target.totalBase = target.totalBase + targetTotalBase
 							if breakdown then
@@ -4414,3 +4415,5 @@ function calcs.buildDefenceEstimations(env, actor)
 	end
 	--endregion
 end
+
+return calcs

@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Staff
 #socketLimit 4
@@ -10,3 +10,4 @@ local itemBases = ...
 #socketLimit 4
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaffUnique
+end

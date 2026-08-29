@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 -- Path of Building
 --
 -- Module: Common
@@ -68,13 +69,17 @@ end
 local function getClass(className)
 	local class = common.classes[className]
 	if not class then
-		LoadModule("Classes/"..className)
+		LoadModule("Classes/" .. className)
 		class = common.classes[className]
-		assert(class, "Class '"..className.."' not defined in class file")
+		assert(class, "Class '" .. className .. "' not defined in class file")
 	end
 	return class
 end
--- newClass("<className>"[, "<parentClassName>"[, "<parentClassName>" ...]], constructorFunc)
+
+---@generic T
+---@param className `T`
+---@param ... string parent class names
+---@return T
 function newClass(className, ...)
 	local class = { }
 	common.classes[className] = class
@@ -87,73 +92,126 @@ function newClass(className, ...)
 	end
 	class._className = className
 	local numVarArg = select("#", ...)
-	class._constructor = select(numVarArg, ...)
-	if numVarArg > 1 then
+	if numVarArg > 0 then
 		-- Build list of parent classes
 		class._parents = { }
-		for i = 1, numVarArg - 1 do
+		for i = 1, numVarArg do
 			class._parents[i] = getClass(select(i, ...))
 		end
 		-- Build list of all classes directly or indirectly inherited by this class
 		class._superParents = { }
 		addSuperParents(class, class)
 		-- Set up inheritance
-		setmetatable(class, {
-			__index = function(self, key)
-				for _, parent in ipairs(class._parents) do
-					local val = parent[key]
-					if val ~= nil then
-						self[key] = val
-						return val
-					end
+		for _, parent in ipairs(class._parents) do
+			for k, v in pairs(parent) do
+				if class[k] == nil and k ~= "_unconstructedMeta" and k ~= "_constructorInitialised" then
+					class[k] = v
 				end
 			end
-		})
+		end
 	end
 	return class
 end
-function new(className, ...)
+
+local function parentCall(proxy, self, ...)
+	local parent = proxy._parent
+	local object = proxy._object
+	local className = proxy._className
+
+	if not parent[parent._className] then
+		error("Parent class '" .. parent._className .. "' of class '" .. className .. "' has no constructor")
+	end
+	if object._parentInit[parent] then
+		error("Parent class '" .. parent._className .. "' of class '" .. className .. "' has already been initialised")
+	end
+	if self ~= object then
+		error(s_format(
+			"Parent class %s constructor of class %s was not provided self. Are you perhaps calling it with self.%s instead of self:%s?",
+			parent._className, className, parent._className, parent._className))
+	end
+
+	parent[parent._className](self, ...)
+	object._parentInit[parent] = true
+end
+
+local function parentIndex(proxy, key)
+	local object = proxy._object
+	local value = rawget(object, key)
+	if value ~= nil then
+		return value
+	else
+		return proxy._parent[key]
+	end
+end
+
+---@generic T
+---@param className `T`
+---@param extraArg nil Never pass extra parameters. Defined purely to guard against old syntax.
+---@return T
+function new(className, extraArg)
+	if extraArg then
+		local line = s_format(
+			"Extra argument passed to new() during creation of class %s. Extra arguments are not allowed.\nAre you perhaps trying to pass constructor arguments here?",
+			className)
+		error(line)
+	end
 	local class = getClass(className)
-	local object = setmetatable({ }, class)
+	-- protect against calling new("Foo"):Foo() without calling :Foo()
+	local object
+	if class[className] then
+		if not rawget(class, "_unconstructedMeta") then
+			class._unconstructedMeta = {
+				__index = function(obj, key)
+					if key == className then
+						setmetatable(obj, class)
+						return class[className]
+					end
+					error(s_format(
+						"Object of class '%s' was used before it was constructed (accessed '%s'). Did you forget to call new(\"%s\"):%s()?",
+						className, tostring(key), className, className))
+				end,
+			}
+		end
+		object = setmetatable({}, class._unconstructedMeta)
+	else
+		object = setmetatable({}, class)
+	end
 	object.Object = object
 	if class._parents then
 		-- Add parent and superparent class proxies
 		object._parentInit = { }
 		for parent in pairs(class._superParents) do
 			local proxyMeta = {
-				__index = function(self, key)
-					local v = rawget(object, key)
-					if v ~= nil then
-						return v
-					else
-						return parent[key]
-					end
-				end,
+				_parent = parent,
+				_object = object,
+				_className = className,
+				__index = parentIndex,
 				__newindex = object,
-				__call = function(...)
-					if not parent._constructor then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has no constructor")
-					end
-					if object._parentInit[parent] then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has already been initialised")
-					end
-					parent._constructor(...)
-					object._parentInit[parent] = true
-				end,
+				__call = parentCall,
 			}
 			object[parent._className] = setmetatable(proxyMeta, proxyMeta)
 		end
 	end
-	if class._constructor then
-		class._constructor(object, ...)
-	end
-	if class._parents then
-		-- Check that the constructors for all parent and superparent classes have been called
-		for parent in pairs(class._superParents) do
-			if parent._constructor and not object._parentInit[parent] then
-				error("Parent class '"..parent._className.."' of class '"..className.."' must be initialised")
+
+	if class[className] and not rawget(class, "_constructorInitialised") then
+		local originalFunc = class[className]
+		class[className] = function(self, ...)
+			local ret = originalFunc(self, ...)
+			if class._parents then
+				-- Check that the constructors for all parent and superparent classes have been called
+				for parent in pairs(class._superParents) do
+					if parent[parent._className] and not self._parentInit[parent] then
+						error("Parent class '" ..
+							parent._className .. "' of class '" .. className .. "' must be initialised")
+					end
+				end
 			end
+			if not ret then
+				error(string.format("Class %s constructor did not return a value", className))
+			end
+			return ret
 		end
+		class._constructorInitialised = true
 	end
 	return object
 end
@@ -418,6 +476,10 @@ function writeLuaTable(out, t, indent)
 end
 
 -- Make a copy of a table and all subtables
+---@generic T
+---@param tbl T
+---@param noRecurse boolean?
+---@return T copy Note that this type can be misleading if noRecurse is set to true. Type hint explicitly if necessary.
 function copyTable(tbl, noRecurse)
 	local out = {}
 	for k, v in pairs(tbl) do
@@ -466,11 +528,11 @@ function mergeDB(srcDB, modDB)
 end
 
 function specCopy(env)
-	local modDB = new("ModDB")
+	local modDB = new("ModDB"):ModDB()
 	modDB:AddDB(env.modDB)
 	modDB.conditions = copyTable(env.modDB.conditions)
 	modDB.multipliers = copyTable(env.modDB.multipliers)
-	local enemyDB = new("ModDB")
+	local enemyDB = new("ModDB"):ModDB()
 	if env.enemyDB then
 		enemyDB:AddDB(env.enemyDB)
 		enemyDB.conditions = copyTable(env.enemyDB.conditions)
@@ -478,7 +540,7 @@ function specCopy(env)
 	end
 	local minionDB = nil
 	if env.minion then
-		minionDB = new("ModDB")
+		minionDB = new("ModDB"):ModDB()
 		minionDB:AddDB(env.minion.modDB)
 		minionDB.conditions = copyTable(env.minion.modDB.conditions)
 		minionDB.multipliers = copyTable(env.minion.modDB.multipliers)
@@ -888,42 +950,6 @@ function supportEnabled(skillName, activeSkill)
 	return true
 end
 
--- will remove newlines from strings so that they are valid lua
----@param thing string | table | number
----@return string
-function stringify(thing)
-	if type(thing) == 'string' then
-		local s = thing:gsub("\n", " ")
-		return s
-	elseif type(thing) == 'number' then
-		return ""..thing;
-	elseif type(thing) == 'table' then
-		local s = "{";
-		local keys = { }
-		for key in pairs(thing) do t_insert(keys, key) end
-		table.sort(keys)
-		for _, k in ipairs(keys) do
-			local v = thing[k]
-			s = s.."\n\t"
-			if type(k) ~= 'number' then
-				s = s.."[\""..k.."\"] = "
-			end
-			if type(v) == 'string' then
-				s = s.."\""..stringify(v).."\","
-			else
-				if type(v) == "boolean" then
-					v = v and "true" or "false"
-				end
-				val = stringify(v)..","
-				if type(v) == "table" then
-					val = string.gsub(val, "\n", "\n\t")
-				end
-				s = s..val;
-			end
-		end
-		return s.."\n}"
-	end
-end
 
 -- Class function to split a string on a single character (??) separator.
   -- returns a list of fields, not including the separator.

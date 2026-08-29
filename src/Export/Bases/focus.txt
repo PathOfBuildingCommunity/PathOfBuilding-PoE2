@@ -1,7 +1,8 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Focus
 #socketLimit 3
 
 #baseMatch BaseType Metadata/Items/Armours/Focus/AbstractFocus
+end

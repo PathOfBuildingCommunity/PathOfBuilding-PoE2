@@ -184,7 +184,7 @@ describe("TestItemsTab", function()
 
 	describe("ItemSetListControl", function()
 		it("adds an imported shared item set to the build once", function()
-			local itemSetList = new("ItemSetListControl", nil, { 0, 0, 300, 200 }, build.itemsTab)
+			local itemSetList = new("ItemSetListControl"):ItemSetListControl(nil, { 0, 0, 300, 200 }, build.itemsTab)
 
 			itemSetList:ReceiveDrag("SharedItemList", { title = "Shared Set", slots = {} })
 
@@ -196,7 +196,7 @@ describe("TestItemsTab", function()
 	describe("ItemSetService", function()
 		local itemSetService
 		before_each(function()
-			itemSetService = new("ItemSetService", build.itemsTab)
+			itemSetService = new("ItemSetService"):ItemSetService(build.itemsTab)
 		end)
 
 		describe("NewItemSet", function()
@@ -338,7 +338,7 @@ describe("TestItemsTab", function()
 		local itemSetService
 
 		before_each(function()
-			itemSetService = new("ItemSetService", build.itemsTab)
+			itemSetService = new("ItemSetService"):ItemSetService(build.itemsTab)
 		end)
 
 		describe("Item set persistence across switches", function()
@@ -416,7 +416,7 @@ describe("TestItemsTab", function()
 
 		-- Equips an item into the active item set's appropriate slot
 		local function equip(raw)
-			local item = new("Item", raw)
+			local item = new("Item"):Item(raw)
 			build.itemsTab:AddItem(item)
 			build.itemsTab:EquipItemInSet(item, build.itemsTab.activeItemSetId)
 			return item
@@ -431,7 +431,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -449,7 +449,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -469,7 +469,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -490,7 +490,7 @@ describe("TestItemsTab", function()
 				]])
 
 				for _, status in ipairs({ "Corrupted", "Mirrored", "Sanctified" }) do
-					local newItem = new("Item", string.format([[
+					local newItem = new("Item"):Item(string.format([[
 						Rarity: RARE
 						New
 						Azure Amulet
@@ -523,7 +523,7 @@ describe("TestItemsTab", function()
 			it("copies runes from the equipped item when copyAugments is true", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Stocky Mitts
@@ -536,7 +536,7 @@ describe("TestItemsTab", function()
 			it("adds sockets to the new item to fit the copied runes", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", newItemText)
+				local newItem = new("Item"):Item(newItemText)
 				assert.are.equals(0, #newItem.sockets)
 
 				build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
@@ -547,7 +547,7 @@ describe("TestItemsTab", function()
 			it("does not copy runes when copyAugments is false", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", newItemText)
+				local newItem = new("Item"):Item(newItemText)
 				build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
 
 				assert.are.equals(0, #newItem.sockets)
@@ -556,7 +556,7 @@ describe("TestItemsTab", function()
 			it("does not replace socket bound runes", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -566,7 +566,7 @@ describe("TestItemsTab", function()
 				build.itemsTab:CopyAnointsAndAugments(newItem, true, true)
 				assert.are.equals(newItem.runes[1], "Kolr's Hunt")
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -581,7 +581,7 @@ describe("TestItemsTab", function()
 			it("replaces runes when overwrite is true", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -594,7 +594,7 @@ describe("TestItemsTab", function()
 			end)
 
 			it("identifies socket bound runes", function ()
-				local item = new("Item", [[
+				local item = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -607,10 +607,125 @@ describe("TestItemsTab", function()
 				assert.is_true(build.itemsTab:IsSocketBoundRune(item, item.runes[1], validRunes))
 				assert.is_false(build.itemsTab:IsSocketBoundRune(item, item.runes[2], validRunes))
 			end)
+
+			it("uses variant socket types for valid augments", function ()
+				for _, itemRaw in ipairs({ data.uniques.belt[6], data.uniques.body[1] }) do
+					local item = new("Item"):Item(itemRaw)
+					item.variant = 1 -- Helmet
+					item:BuildModList()
+
+					local foundHelmetSoulCore = false
+					for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+						if rune.name == "Quipolatl's Soul Core of Flow" then
+							foundHelmetSoulCore = true
+							break
+						end
+					end
+					assert.is_true(foundHelmetSoulCore)
+
+					item.runes[1] = "Quipolatl's Soul Core of Flow"
+					item:UpdateRunes()
+
+					assert.are.equals(2, #item.runeModLines)
+					assert.are.equals("8% increased Skill Effect Duration", item.runeModLines[1].line)
+					assert.are.equals("8% increased Cooldown Recovery Rate", item.runeModLines[2].line)
+				end
+			end)
+
+			it("refreshes valid augments when the item variant changes", function ()
+				local item = new("Item"):Item(data.uniques.body[1])
+				item.variant = 3 -- Boots
+				item:BuildModList()
+				build.itemsTab:SetDisplayItem(item)
+
+				build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+
+				local foundMaximumRage = false
+				for _, rune in ipairs(build.itemsTab.controls.displayItemRune1.list) do
+					if rune.name == "Tzamoto's Soul Core of Ferocity" then
+						foundMaximumRage = true
+						break
+					end
+				end
+				assert.is_true(foundMaximumRage)
+			end)
+
+			it("keeps Darkness Enthroned's socket editor available at zero sockets", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Item Class: Belts
+					Rarity: Unique
+					Darkness Enthroned
+					Fine Belt
+					--------
+					Sockets: S S
+					--------
+					This item gains bonuses from Socketed Items as though it was a Helmet
+					81% increased effect of Socketed Augment Items
+				]], true)
+
+				assert.are.equals(2, build.itemsTab.displayItem.itemSocketCount)
+				build.itemsTab.controls.displayItemSocketRuneEdit:SetText(0, true)
+				assert.is_true(build.itemsTab.controls.displayItemSocketRune:IsShown())
+				build.itemsTab.controls.displayItemSocketRuneEdit:SetText(2, true)
+				assert.are.equals(2, build.itemsTab.displayItem.itemSocketCount)
+			end)
+
+			it("selects inferred augments from an advanced copy of Darkness Enthroned", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Item Class: Belts
+					Rarity: Unique
+					Darkness Enthroned
+					Fine Belt
+					--------
+					Requires: Level 62
+					--------
+					Sockets: S S
+					--------
+					Item Level: 86
+					--------
+					+83 to Spirit (rune)
+					Idols socketed in this item gain the benefits of their Bonded modifiers (rune)
+					-1 to Spirit per 2 Levels (rune)
+					Bonded: +8% to Quality of all Skills (rune)
+					--------
+					{ Implicit Modifier }
+					Flasks gain 0.17 charges per Second
+					{ Implicit Modifier — Charm }
+					Has 1(1-3) Charm Slot
+					--------
+					{ Unique Modifier }
+					This item gains bonuses from Socketed Items as though it was a Body Armour — Unscalable Value
+					{ Unique Modifier }
+					66(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+				]], true)
+
+				assert.are.same({ "Rune of the Blossom", "Fox Idol" }, build.itemsTab.displayItem.runes)
+				assert.are.equals("Rune of the Blossom", build.itemsTab.controls.displayItemRune1.list[build.itemsTab.controls.displayItemRune1.selIndex].name)
+				assert.are.equals("Fox Idol", build.itemsTab.controls.displayItemRune2.list[build.itemsTab.controls.displayItemRune2.selIndex].name)
+			end)
+
+			it("deduplicates valid augments by socketed item name", function ()
+				local item = new("Item"):Item(data.uniques.body[1])
+				item.variant = 4 -- Shield
+				item:BuildModList()
+
+				local ticabaCount = 0
+				local ticabaRune
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					if rune.name == "Soul Core of Ticaba" then
+						ticabaCount = ticabaCount + 1
+						ticabaRune = rune
+					end
+				end
+				assert.are.equals(1, ticabaCount)
+				assert.are.equals(2, #ticabaRune.lines)
+				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[1])
+				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[2])
+			end)
 		end)
 
 		it("does nothing when no matching item is equipped", function ()
-			local newItem = new("Item", [[
+			local newItem = new("Item"):Item([[
 				Rarity: RARE
 				New
 				Azure Amulet

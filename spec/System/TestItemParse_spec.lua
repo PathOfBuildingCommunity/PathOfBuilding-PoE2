@@ -5,29 +5,29 @@ describe("TestItemParse", function()
 	end
 
 	it("Rarity", function()
-		local item = new("Item", "Rarity: Normal\nRing")
+		local item = new("Item"):Item("Rarity: Normal\nRing")
 		assert.are.equals("NORMAL", item.rarity)
-		item = new("Item", "Rarity: Magic\nRing")
+		item = new("Item"):Item("Rarity: Magic\nRing")
 		assert.are.equals("MAGIC", item.rarity)
-		item = new("Item", "Rarity: Rare\nName\nRing")
+		item = new("Item"):Item("Rarity: Rare\nName\nRing")
 		assert.are.equals("RARE", item.rarity)
-		item = new("Item", "Rarity: Unique\nName\nRing")
+		item = new("Item"):Item("Rarity: Unique\nName\nRing")
 		assert.are.equals("UNIQUE", item.rarity)
 	end)
 
 	--it("Defence", function()
-	--	local item = new("Item", raw("Armour: 25"))
+	--	local item = new("Item"):Item(raw("Armour: 25"))
 	--	assert.are.equals(25, item.armourData.Armour)
-	--	item = new("Item", raw("Evasion Rating: 35", "Shabby Jerkin"))
+	--	item = new("Item"):Item(raw("Evasion Rating: 35", "Shabby Jerkin"))
 	--	assert.are.equals(35, item.armourData.Evasion)
-	--	item = new("Item", raw("Energy Shield: 15", "Simple Robe"))
+	--	item = new("Item"):Item(raw("Energy Shield: 15", "Simple Robe"))
 	--	assert.are.equals(15, item.armourData.EnergyShield)
-	--	item = new("Item", raw("Ward: 180", "Runic Crown"))
+	--	item = new("Item"):Item(raw("Ward: 180", "Runic Crown"))
 	--	assert.are.equals(180, item.armourData.Ward)
 	--end)
 
 	it("Title", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			Phoenix Paw
 			Furtive Wraps
@@ -38,12 +38,12 @@ describe("TestItemParse", function()
 	end)
 
 	it("Unique ID", function()
-		local item = new("Item", raw("Unique ID: 40f9711d5bd7ad2bcbddaf71c705607aef0eecd3dcadaafec6c0192f79b82863"))
+		local item = new("Item"):Item(raw("Unique ID: 40f9711d5bd7ad2bcbddaf71c705607aef0eecd3dcadaafec6c0192f79b82863"))
 		assert.are.equals("40f9711d5bd7ad2bcbddaf71c705607aef0eecd3dcadaafec6c0192f79b82863", item.uniqueID)
 	end)
 
 	it("Unique ID line is not parsed as a modifier", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Evergrasping Ring
 			Pearl Ring
@@ -62,19 +62,19 @@ describe("TestItemParse", function()
 	end)
 
 	it("Item Level", function()
-		local item = new("Item", raw("Item Level: 10"))
+		local item = new("Item"):Item(raw("Item Level: 10"))
 		assert.are.equals(10, item.itemLevel)
 	end)
 
 	it("Quality", function()
-		local item = new("Item", raw("Quality: 10"))
+		local item = new("Item"):Item(raw("Quality: 10"))
 		assert.are.equals(10, item.quality)
-		item = new("Item", raw("Quality: +12% (augmented)"))
+		item = new("Item"):Item(raw("Quality: +12% (augmented)"))
 		assert.are.equals(12, item.quality)
 	end)
 
 	it("parses '<element> spell' as a composable Spell + element tag (issue #2226)", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			Xoph's Test Band
 			Amethyst Ring
@@ -106,7 +106,7 @@ describe("TestItemParse", function()
 	--end)
 
 	it("allows duplicate selected variants when enabled", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Mageblood
 			Utility Belt
@@ -130,7 +130,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("does not duplicate selected variants by default", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Mageblood
 			Utility Belt
@@ -150,16 +150,16 @@ describe("TestItemParse", function()
 	--end)
 
 	it("Requires Level", function()
-		local item = new("Item", raw("Requires Level 10"))
+		local item = new("Item"):Item(raw("Requires Level 10"))
 		assert.are.equals(10, item.requirements.level)
-		item = new("Item", raw("Level: 10"))
+		item = new("Item"):Item(raw("Level: 10"))
 		assert.are.equals(10, item.requirements.level)
-		item = new("Item", raw("LevelReq: 10"))
+		item = new("Item"):Item(raw("LevelReq: 10"))
 		assert.are.equals(10, item.requirements.level)
 	end)
 
 	it("Prefix/Suffix", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Prefix: {range:0.1}IncreasedLife1
 			Suffix: {range:0.2}ColdResist1
 			]]))
@@ -170,7 +170,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Implicits", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Implicits: 2
 			+8 to Strength
 			+10 to Intelligence
@@ -184,7 +184,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Pasted separated base granted skills stay implicit", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Item Class: Spears
 			Rarity: Rare
 			Brood Edge
@@ -219,7 +219,7 @@ describe("TestItemParse", function()
 
 		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)
 
-		item = new("Item", [[
+		item = new("Item"):Item([[
 			Item Class: Wands
 			Rarity: Rare
 			Temp Wand
@@ -247,7 +247,7 @@ describe("TestItemParse", function()
 
 	it("Crafted base granted skill ranges stay implicit", function()
 		local base = data.itemBases["Volatile Wand"]
-		local item = new("Item")
+		local item = new("Item"):Item()
 		item.name = "Volatile Wand"
 		item.base = base
 		item.baseName = "Volatile Wand"
@@ -277,7 +277,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Crafted affixes matching base implicit ranges stay explicit", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			New Item
 			Solar Amulet
@@ -306,7 +306,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Crafted affixes matching base implicits stay explicit", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			New Item
 			Gemini Crossbow
@@ -335,7 +335,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("Pasted affixes matching base implicits stay explicit", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Item Class: Crossbows
 			Rarity: Rare
 			New Item
@@ -366,28 +366,123 @@ describe("TestItemParse", function()
 	--end)
 
 	it("Source", function()
-		local item = new("Item", raw("Source: No longer obtainable"))
+		local item = new("Item"):Item(raw("Source: No longer obtainable"))
 		assert.are.equals("No longer obtainable", item.source)
 	end)
 
 	it("Note", function()
-		local item = new("Item", raw("Note: ~price 1 chaos"))
+		local item = new("Item"):Item(raw("Note: ~price 1 chaos"))
 		assert.are.equals("~price 1 chaos", item.note)
 	end)
 
-	it("Attribute Requirements", function()
-		local item = new("Item", raw("Dex: 100"))
-		assert.are.equals(100, item.requirements.dex)
-		item = new("Item", raw("Int: 101"))
-		assert.are.equals(101, item.requirements.int)
-		item = new("Item", raw("Str: 102"))
-		assert.are.equals(102, item.requirements.str)
+	it("Rune level requirements", function()
+		local item = new("Item"):Item([[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Perfect Storm Rune
+			LevelReq: 1
+			Implicits: 1
+			{enchant}{rune}Gain 12% of Damage as Extra Lightning Damage
+		]])
+		assert.are.equals(50, item.requirements.level)
+	end)
+
+	it("Unique mod level requirements", function()
+		local foundAnvil
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("The Anvil") then
+				local item = new("Item"):Item(rawUnique)
+				assert.are.equals(18, item.requirements.level)
+				assert.is_nil(rawUnique:match("Requires Level 18"))
+				foundAnvil = true
+				break
+			end
+		end
+		assert(foundAnvil, "The Anvil not found")
+
+		local foundChoirOfTheStorm
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("Choir of the Storm") then
+				assert(rawUnique:find("Grants Skill: Level (1-20) Lightning Bolt", 1, true))
+				assert(rawUnique:find("Trigger Lightning Bolt Skill on Critical Hit", 1, true))
+				foundChoirOfTheStorm = true
+				break
+			end
+		end
+		assert(foundChoirOfTheStorm, "Choir of the Storm not found")
+
+		local foundSylvansEffigy
+		for _, rawUnique in ipairs(data.uniques.sceptre) do
+			if rawUnique:match("Sylvan's Effigy") then
+				local item = new("Item"):Item(rawUnique)
+				assert.are.equals(62, item.requirements.level)
+				foundSylvansEffigy = true
+				break
+			end
+		end
+		assert(foundSylvansEffigy, "Sylvan's Effigy not found")
+
+		for _, rawUnique in ipairs(data.uniques.amulet) do
+			if rawUnique:match("Hinekora's Sight") then
+				local item = new("Item"):Item(rawUnique)
+				assert.are.equals(44, item.requirements.level)
+				assert(rawUnique:find("Grants Skill: Level (1-20) Future-Past", 1, true))
+				return
+			end
+		end
+		assert(false, "Hinekora's Sight not found")
+	end)
+
+	it("keeps legacy base implicit variants as implicits", function()
+		for _, rawUnique in ipairs(data.uniques.belt) do
+			if rawUnique:match("Goregirdle") then
+				assert(rawUnique:find("Implicits: 3\n{variant:2}+(140-180) to Armour\n{variant:1}+(100-140) to Armour\nHas (1-3) Charm Slot", 1, true))
+				return
+			end
+		end
+		assert(false, "Goregirdle not found")
+	end)
+
+	it("uses upgraded base requirements for uniques", function()
+		local item = new("Item"):Item([[
+			Item Class: Spears
+			Rarity: Unique
+			Tyranny's Grip
+			Runemastered Ironhead Spear
+			Requires: Level 55, 31 Str, 76 Dex
+			Item Level: 30
+		]])
+		assert.are.equals(55, item.requirements.level)
+
+		item.itemSocketCount = 1
+		item.runes = { "Legacy of Tyranny's Grip" }
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(65, item.requirements.level)
+
+		item.runes[1] = "None"
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(55, item.requirements.level)
+	end)
+
+	it("inherits implicits from variant base types", function()
+		for _, rawUnique in ipairs(data.uniques.shield) do
+			if rawUnique:match("The Surrender") then
+				assert(rawUnique:find("Implicits: 1\nGrants Skill: Raise Shield", 1, true))
+				local item = new("Item"):Item(rawUnique)
+				assert.are.equals(75, item.requirements.level)
+				return
+			end
+		end
+		assert(false, "The Surrender not found")
 	end)
 
 	it("Requires Class", function()
-		local item = new("Item", raw("Requires Class Witch"))
+		local item = new("Item"):Item(raw("Requires Class Witch"))
 		assert.are.equals("Witch", item.classRestriction)
-		item = new("Item", raw("Class:: Witch"))
+		item = new("Item"):Item(raw("Class:: Witch"))
 		assert.are.equals("Witch", item.classRestriction)
 	end)
 
@@ -396,66 +491,66 @@ describe("TestItemParse", function()
 	--end)
 
 	it("short flags", function()
-		item = new("Item", raw("Mirrored"))
+		item = new("Item"):Item(raw("Mirrored"))
 		assert.truthy(item.mirrored)
-		item = new("Item", raw("Corrupted"))
+		item = new("Item"):Item(raw("Corrupted"))
 		assert.truthy(item.corrupted)
-		item = new("Item", raw("Leech 6.61% of Physical Attack Damage as Mana (fractured)"))
+		item = new("Item"):Item(raw("Leech 6.61% of Physical Attack Damage as Mana (fractured)"))
 		assert.truthy(item.fractured)
-		item = new("Item", raw("Adds 36 to 48 Fire Damage (desecrated)"))
+		item = new("Item"):Item(raw("Adds 36 to 48 Fire Damage (desecrated)"))
 		assert.truthy(item.desecrated)
-		item = new("Item", raw("Crafted: true"))
+		item = new("Item"):Item(raw("Crafted: true"))
 		assert.truthy(item.crafted)
-		item = new("Item", raw("Unreleased: true"))
+		item = new("Item"):Item(raw("Unreleased: true"))
 		assert.truthy(item.unreleased)
 	end)
 
 	it("long flags", function()
-		local item = new("Item", raw("This item can be anointed by Cassia"))
+		local item = new("Item"):Item(raw("This item can be anointed by Cassia"))
 		assert.truthy(item.canBeAnointed)
-		item = new("Item", raw("Can have 1 additional Instilled Modifier"))
+		item = new("Item"):Item(raw("Can have 1 additional Instilled Modifier"))
 		assert.truthy(item.canHaveTwoEnchants)
-		item = new("Item", raw("Can have an additional Instilled Modifier"))
+		item = new("Item"):Item(raw("Can have an additional Instilled Modifier"))
 		assert.truthy(item.canHaveTwoEnchants)
-		item = new("Item", raw("Can have 2 additional Instilled Modifiers"))
+		item = new("Item"):Item(raw("Can have 2 additional Instilled Modifiers"))
 		assert.truthy(item.canHaveTwoEnchants)
 		assert.truthy(item.canHaveThreeEnchants)
-		item = new("Item", raw("Can have 3 additional Instilled Modifiers"))
+		item = new("Item"):Item(raw("Can have 3 additional Instilled Modifiers"))
 		assert.truthy(item.canHaveTwoEnchants)
 		assert.truthy(item.canHaveThreeEnchants)
 		assert.truthy(item.canHaveFourEnchants)
 	end)
 	
 	it("tags", function()
-		local item = new("Item", raw("{tags:life,physical_damage}+8 to Strength"))
+		local item = new("Item"):Item(raw("{tags:life,physical_damage}+8 to Strength"))
 		assert.are.same({ "life", "physical_damage" }, item.explicitModLines[1].modTags)
 	end)
 
 	it("range", function()
-		local item = new("Item", raw("{range:0.8}+(8-12) to Strength"))
+		local item = new("Item"):Item(raw("{range:0.8}+(8-12) to Strength"))
 		assert.are.equals(0.8, item.explicitModLines[1].range)
 		assert.are.equals(11, item.baseModList[1].value) -- range 0.8 of (8-12) = 11
 	end)
 
 	it("custom", function()
-		local item = new("Item", raw("{custom}+8 to Strength"))
+		local item = new("Item"):Item(raw("{custom}+8 to Strength"))
 		assert.truthy(item.explicitModLines[1].custom)
 	end)
 
 	it("crafted", function()
-		local item = new("Item", raw("{crafted}+8 to Strength"))
+		local item = new("Item"):Item(raw("{crafted}+8 to Strength"))
 		assert.truthy(item.explicitModLines[1].crafted)
 	end)
 
 	it("preserves crafted mod lines when rebuilding raw text", function()
-		local item = new("Item", raw("+8 to Strength"))
+		local item = new("Item"):Item(raw("+8 to Strength"))
 		item.explicitModLines[1].crafted = true
 		item:BuildAndParseRaw()
 		assert.truthy(item.explicitModLines[1].crafted)
 	end)
 
 	it("enchant", function()
-		local item = new("Item", raw("+8 to Strength (enchant)"))
+		local item = new("Item"):Item(raw("+8 to Strength (enchant)"))
 		assert.are.equals(1, #item.enchantModLines)
 		-- enchant also sets enchant and implicit
 		assert.truthy(item.enchantModLines[1].enchant)
@@ -463,14 +558,14 @@ describe("TestItemParse", function()
 	end)
 	
 	it("fractured", function()
-		local item = new("Item", raw("{fractured}+8 to Strength"))
+		local item = new("Item"):Item(raw("{fractured}+8 to Strength"))
 		assert.truthy(item.explicitModLines[1].fractured)
-		item = new("Item", raw("+8 to Strength (fractured)"))
+		item = new("Item"):Item(raw("+8 to Strength (fractured)"))
 		assert.truthy(item.explicitModLines[1].fractured)
 	end)
 
 	it("implicit", function()
-		local item = new("Item", raw("+8 to Strength (implicit)"))
+		local item = new("Item"):Item(raw("+8 to Strength (implicit)"))
 		assert.truthy(item.implicitModLines[1].implicit)
 	end)
 
@@ -479,7 +574,7 @@ describe("TestItemParse", function()
 	--end)
 
 	it("parses text without armour value then changes quality and has correct final armour", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 				Armour Gloves
 				Rope Cuffs
 				Quality: 0
@@ -492,7 +587,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("magic item", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 				Rarity: MAGIC
 				Name Prefix Rope Cuffs -> +50 ignite chance
 				+50% chance to Ignite
@@ -506,7 +601,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("attribute converted", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Item
 			Aegis Quarterstaff
 			Quality: 20
@@ -531,7 +626,7 @@ describe("TestItemParse", function()
 
 
 	it("infers pasted multi-value rune lines as whole runes", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			Onslaught Relic
 			Warmonger Bow
@@ -574,7 +669,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("keeps bonded rune stats separate from normal rune stats", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Rare
 			Test Body
 			Rusted Cuirass
@@ -590,7 +685,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("applies increased effect of socketed runes", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Wand
 			Runic Fork
 			Sockets: S
@@ -612,7 +707,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("applies increased effect of socketed augment items", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Wand
 			Runic Fork
 			Sockets: S
@@ -634,7 +729,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("does not double-scale imported socketed rune text", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Runeseeker's Call
 			Runic Fork
 			Unique ID: bbcd083b0a9da5650f3ac0a001364b1c99d6b866c1f52f0568fafab863b44ccb
@@ -679,7 +774,7 @@ describe("TestItemParse", function()
 	end)
 
 	it("infers pasted game rune lines with socketed rune effect", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Item Class: Wands
 			Rarity: Unique
 			Runeseeker's Call
@@ -711,6 +806,7 @@ describe("TestItemParse", function()
 			--------
 			Corrupted
 		]])
+		assert.are.equals(90, item.requirements.level)
 
 		local damageGainAsLightning = 0
 		for _, mod in ipairs(item.slotModList[1]) do
@@ -721,6 +817,7 @@ describe("TestItemParse", function()
 		assert.are.equals(120, damageGainAsLightning)
 
 		item:BuildAndParseRaw()
+		assert.are.equals(90, item.requirements.level)
 
 		assert.are.equals(5, item.itemSocketCount)
 		assert.are.equals(5, #item.runes)
@@ -739,11 +836,18 @@ describe("TestItemParse", function()
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Gain 120%% of Damage as Extra Lightning Damage"))
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants you create have 75%% reduced effect"))
 		assert.is_not_nil(rawItem:match("{enchant}{rune}Remnants can be collected from 150%% further away"))
+
+		for i = 1, item.itemSocketCount do
+			item.runes[i] = "None"
+		end
+		item:UpdateRunes()
+		item:BuildAndParseRaw()
+		assert.are.equals(65, item.requirements.level)
 	end)
 
 	it("multi-line rune mod", function()
 		-- Thruldana is Bow-only as well
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Item
 			Crude Bow
 			Quality: 20
@@ -761,8 +865,199 @@ describe("TestItemParse", function()
 		
 	end)
 
+	it("loads Darkness Enthroned with two augment sockets", function()
+		local item = new("Item"):Item(data.uniques.belt[6])
+
+		assert.are.equals("Darkness Enthroned, Fine Belt", item.name)
+		assert.are.equals(2, item.itemSocketCount)
+		assert.are.equals(2, #item.sockets)
+
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+		local baseType, specificType = item:GetSocketedAugmentTypes()
+		assert.are.equals("armour", baseType)
+		assert.are.equals("helmet", specificType)
+	end)
+
+	it("infers helmet augments from an advanced copy of Darkness Enthroned", function()
+		local item = new("Item"):Item([[
+			Item Class: Belts
+			Rarity: Unique
+			Darkness Enthroned
+			Fine Belt
+			--------
+			Requires: Level 62
+			--------
+			Sockets: S S
+			--------
+			Item Level: 83
+			--------
+			28% increased Armour, Evasion and Energy Shield (rune)
+			12% increased Skill Effect Duration (rune)
+			12% increased Cooldown Recovery Rate (rune)
+			--------
+			{ Implicit Modifier }
+			Flasks gain 0.17 charges per Second
+			{ Implicit Modifier — Charm }
+			Has 1(1-3) Charm Slot
+			--------
+			{ Unique Modifier }
+			This item gains bonuses from Socketed Items as though it was a Helmet — Unscalable Value
+			{ Unique Modifier }
+			61(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+			--------
+			Kulemak sat triumphant, raising the crown.
+			Darkness coiled the world in eternal night.
+			Victory, a mere moment, came crashing down.
+			No conqueror, no conquered, only searing Light.
+			--------
+			Corrupted
+			--------
+			Note: ~b/o 40 exalted
+		]])
+
+		assert.are.same({ "Greater Iron Rune", "Quipolatl's Soul Core of Flow" }, item.runes)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("28%% increased Armour, Evasion and Energy Shield"))
+		assert.is_not_nil(rawItem:match("12%% increased Skill Effect Duration"))
+		assert.is_not_nil(rawItem:match("12%% increased Cooldown Recovery Rate"))
+
+		item:BuildAndParseRaw()
+		assert.are.same({ "Greater Iron Rune", "Quipolatl's Soul Core of Flow" }, item.runes)
+		rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("28%% increased Armour, Evasion and Energy Shield"))
+		assert.is_not_nil(rawItem:match("12%% increased Skill Effect Duration"))
+		assert.is_not_nil(rawItem:match("12%% increased Cooldown Recovery Rate"))
+	end)
+
+	it("infers body armour augments from an advanced copy of Darkness Enthroned", function()
+		local item = new("Item"):Item([[
+			Item Class: Belts
+			Rarity: Unique
+			Darkness Enthroned
+			Fine Belt
+			--------
+			Requires: Level 62
+			--------
+			Sockets: S S
+			--------
+			Item Level: 86
+			--------
+			+83 to Spirit (rune)
+			Idols socketed in this item gain the benefits of their Bonded modifiers (rune)
+			-1 to Spirit per 2 Levels (rune)
+			Bonded: +8% to Quality of all Skills (rune)
+			--------
+			{ Implicit Modifier }
+			Flasks gain 0.17 charges per Second
+			{ Implicit Modifier — Charm }
+			Has 1(1-3) Charm Slot
+			--------
+			{ Unique Modifier }
+			This item gains bonuses from Socketed Items as though it was a Body Armour — Unscalable Value
+			{ Unique Modifier }
+			66(50-100)% increased effect of Socketed Augment Items — Unscalable Value
+			--------
+			Kulemak sat triumphant, raising the crown.
+			Darkness coiled the world in eternal night.
+			Victory, a mere moment, came crashing down.
+			No conqueror, no conquered, only searing Light.
+			--------
+			Corrupted
+			--------
+			Note: ~b/o 1 divine
+		]])
+
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, item.runes)
+		local rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+
+		item:BuildAndParseRaw()
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, item.runes)
+		rawItem = item:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+	end)
+
+	it("parses Atziri's Splendour soul core socket types", function()
+		local item = new("Item"):Item(data.uniques.body[1])
+		item.variant = 1 -- Helmet
+		item:BuildModList()
+
+		assert.is_true(item.socketedSoulCoreTypes["helmet"])
+		assert.is_nil(item.socketedSoulCoreTypes["gloves"])
+	end)
+
+	it("infers Soul Cores using Atziri's Splendour's variant type", function()
+		local item = new("Item"):Item([[
+			Item Class: Body Armours
+			Rarity: Unique
+			Atziri's Splendour
+			Sacrificial Regalia
+			--------
+			Sockets: S S S S S S
+			--------
+			Item Level: 86
+			--------
+			8% increased Skill Effect Duration (rune)
+			8% increased Cooldown Recovery Rate (rune)
+			--------
+			Only Soul Cores can be Socketed in this item
+			This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
+		]])
+
+		assert.are.same({ "Quipolatl's Soul Core of Flow" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Quipolatl's Soul Core of Flow", "None", "None", "None", "None", "None" }, item.runes)
+		assert.are.equals(2, #item.runeModLines)
+
+		item = new("Item"):Item([[
+			Item Class: Body Armours
+			Rarity: Unique
+			Atziri's Splendour
+			Sacrificial Regalia
+			--------
+			Sockets: S S S S S S
+			--------
+			Item Level: 86
+			--------
+			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			--------
+			Only Soul Cores can be Socketed in this item
+			This item gains bonuses from Socketed Soul Cores as though it was also a Shield
+		]])
+
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Soul Core of Ticaba", "None", "None", "None", "None", "None" }, item.runes)
+		assert.are.equals("Hits against you have 40% reduced Critical Damage Bonus", item.runeModLines[1].line)
+	end)
+
+	it("infers pasted Soul Core lines with socketed Soul Core effect", function()
+		local item = new("Item"):Item([[
+			Item Class: Shields
+			Rarity: Unique
+			Mahuxotl's Machination
+			Omen Crest Shield
+			--------
+			Sockets: S
+			--------
+			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			--------
+			100% increased effect of Socketed Soul Cores
+		]])
+
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		item:BuildAndParseRaw()
+		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
+	end)
+
 	it("jewel sockets", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Six Socket Body
 			Garment
 			Quality: 20
@@ -781,7 +1076,7 @@ describe("TestAdvancedItemParse #item", function()
 	end
 
 	it("parses to craft", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Prefix Modifier "Azure" (Tier: 7) - Mana }
 			+31(25-34) to maximum Mana
 		]], "Refined Bracers"))
@@ -791,7 +1086,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses correct range", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Desecrated Prefix Modifier "Frigid" (Tier: 6) - Damage, Elemental, Cold, Attack }
 			Adds 8(7-8) to 13(12-14) Cold damage to Attacks
 		]], "Refined Bracers"))
@@ -800,7 +1095,7 @@ describe("TestAdvancedItemParse #item", function()
 
 	-- GGG scales each mod line separately here, but PoB scales them both together, so this parsing is a bit wonky
 	it("parses multi-line mod", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Prefix Modifier "Bishop's" (Tier: 3) — Life, Defences }
 			27(27-32)% increased Energy Shield
 			+31(26-32) to maximum Life
@@ -811,7 +1106,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("resets linePrefix", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Prefix Modifier "Warlock's" (Tier: 4) — Mana, Damage, Caster }
 			32(30-37)% increased Spell Damage
 			+46(42-47) to maximum Mana
@@ -822,7 +1117,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("resets linePostfix", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corruption Enhancement — Mana }
 			24(20-30)% increased Mana Regeneration Rate
 			--------
@@ -832,7 +1127,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses vaaled catalyst", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Attribute Modifiers): +19% (augmented)
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+120(80-100) to all Attributes
@@ -845,7 +1140,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses vaaled catalyst within range", function() 
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Attribute Modifiers): +19% (augmented)
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+95(80-100) to all Attributes
@@ -858,7 +1153,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("doesn't scale unscalable", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			Quality (Life and Mana Modifiers): +20% (augmented)
 			{ Unique Modifier — Life, Defences, Energy Shield, Minion, Gem }
 			Socketed Golem Skills gain 20% of Maximum Life as Extra Maximum Energy Shield — Unscalable Value
@@ -867,7 +1162,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("correctly matches conqueror mod", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Suffix Modifier "of the Conquest" (Tier: 1) — Elemental, Cold }
 			10(8-10)% chance to Avoid Cold Damage from Hits
 			(No chance to avoid damage can be higher than 75%)
@@ -878,7 +1173,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses enchant correctly #enchant", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corrupted Enhancement }
 			+8(6-10)% to Fire Resistance
 		]]))
@@ -886,7 +1181,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses enchant with tags correctly #enchant", function()
-		local item = new("Item", raw([[
+		local item = new("Item"):Item(raw([[
 			{ Corrupted Enhancement - Energy Shield }
 			+8(6-10)% to Fire Resistance
 		]]))
@@ -895,7 +1190,7 @@ describe("TestAdvancedItemParse #item", function()
 	end)
 
 	it("parses junk", function()
-		local godTestItem = new("Item", [[
+		local godTestItem = new("Item"):Item([[
 			Item Class: Sceptres
 			Rarity: Unique
 			Nebulis
@@ -913,7 +1208,7 @@ describe("TestAdvancedItemParse #item", function()
 			Str: 104
 			Int: 122
 			--------
-			Sockets: B R 
+			Sockets: B R
 			--------
 			Item Level: 87
 			--------

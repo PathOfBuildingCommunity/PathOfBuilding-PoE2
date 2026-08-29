@@ -220,6 +220,110 @@ Fireball 20/0  1
 		assert.are.equal(0, build.itemsTab.slots["Gloves Jewel Socket 2"].selItemId)
 	end)
 
+	it("uses unique database and rune levels when importing unique items from account data", function()
+		while main.uniqueDB.loading do
+			runCallback("OnFrame")
+		end
+
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local body = makeImportItem("Rusted Cuirass", "BodyArmour", "test-import-bramblejack")
+		body.frameType = 3
+		body.name = "Bramblejack"
+		body.requirements = {
+			{ name = "Level", values = { { "22", 0 } } },
+		}
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ body }, {}))
+		runCallback("OnFrame")
+
+		local importedItem = build.itemsTab.items[build.itemsTab.slots["Body Armour"].selItemId]
+		assert.are.equal("Bramblejack, Rusted Cuirass", importedItem.name)
+		assert.are.equal(0, importedItem.requirements.level)
+
+		body.sockets = {
+			{ type = "rune" },
+		}
+		body.socketedItems = {
+			{ baseType = "Legacy of Blackbraid" },
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ body }, {}))
+		runCallback("OnFrame")
+
+		importedItem = build.itemsTab.items[build.itemsTab.slots["Body Armour"].selItemId]
+		assert.are.equal(65, importedItem.requirements.level)
+
+		importedItem.runes[1] = "None"
+		importedItem:UpdateRunes()
+		importedItem:BuildAndParseRaw()
+		assert.are.equal(0, importedItem.requirements.level)
+
+		local weapon = makeImportItem("Runemastered Ironhead Spear", "Weapon", "test-import-tyranny's-grip")
+		weapon.frameType = 3
+		weapon.name = "Tyranny's Grip"
+		weapon.sockets = {
+			{ type = "rune" },
+		}
+		weapon.socketedItems = {
+			{ baseType = "Legacy of Tyranny's Grip" },
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ weapon }, {}))
+		runCallback("OnFrame")
+
+		importedItem = build.itemsTab.items[build.itemsTab.slots["Weapon 1"].selItemId]
+		assert.are.equal(65, importedItem.requirements.level)
+
+		importedItem.runes[1] = "None"
+		importedItem:UpdateRunes()
+		importedItem:BuildAndParseRaw()
+		assert.are.equal(55, importedItem.requirements.level)
+	end)
+
+	it("imports scaled Darkness Enthroned augments from account data without rescaling them", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local belt = makeImportItem("Fine Belt", "Belt", "test-import-darkness-enthroned")
+		belt.frameType = 3
+		belt.name = "Darkness Enthroned"
+		belt.sockets = {
+			{ type = "rune" },
+			{ type = "rune" },
+		}
+		belt.socketedItems = {
+			{ baseType = "Rune of the Blossom" },
+			{ baseType = "Fox Idol" },
+		}
+		belt.runeMods = {
+			"+83 to Spirit",
+			"Idols socketed in this item gain the benefits of their Bonded modifiers",
+			"-1 to Spirit per 2 Levels",
+			"Bonded: +8% to Quality of all Skills",
+		}
+		belt.explicitMods = {
+			"This item gains bonuses from Socketed Items as though it was a Body Armour",
+			"66% increased effect of Socketed Augment Items",
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ belt }, {}))
+		runCallback("OnFrame")
+
+		local importedItem = build.itemsTab.items[build.itemsTab.slots.Belt.selItemId]
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, importedItem.runes)
+		local rawItem = importedItem:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("%-1 to Spirit per 2 Levels"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+
+		importedItem:BuildAndParseRaw()
+		assert.are.same({ "Rune of the Blossom", "Fox Idol" }, importedItem.runes)
+		rawItem = importedItem:BuildRaw()
+		assert.is_not_nil(rawItem:match("%+83 to Spirit"))
+		assert.is_not_nil(rawItem:match("Bonded: %+8%% to Quality of all Skills"))
+	end)
+
 	it("preserves skill part selection when reimporting items and skills", function()
 		assertReimportPreservesSkillSubstate("Twig Focus", "Offhand", "Dark Effigy", "skillPart", 2)
 	end)

@@ -24,9 +24,7 @@ UniqueGainAModifierFromEachEnemyInPresenceOnShapeshift1
 Fury of the King
 Ashbark Talisman
 League: Fate of the Vaal
-Implicits: 2
-Grants Skill: Level (1-20) Molten Crash
-TalismanImplicitFireDamageAndFlammability1
+UniqueVesselOfWrathSkill1
 UniqueLocalAddedFireDamage7
 UniqueLocalIncreasedAttackSpeed26
 UniqueStrength46
@@ -37,20 +35,17 @@ UniqueEnemiesInPresenceHaveFireExposure1
 Hysseg's Claw
 Familial Talisman
 League: Fate of the Vaal
-Implicits: 2
-Grants Skill: Level (1-20) Cackling Companions
-TalismanImplicitMinionDamage1
+UniqueCacklingCompanionSkill1
 UniqueLocalIncreasedPhysicalDamagePercent17
 UniqueMovementVelocity26
 UniqueStrength40
-UniqueIntelligence45
+UniqueIntelligence44
 UniqueDamagePerMinion1
 ]],[[
 Spiteful Floret
 Nettle Talisman
 League: Runes of Aldur
-Implicits: 1
-Grants Skill: Level (1-20) Sanguine Revelry
+UniqueSanguineRevelrySkill1
 UniqueLocalIncreasedPhysicalDamagePercent23
 UniqueLocalIncreasedAttackSpeed29
 UniqueStrength48

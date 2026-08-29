@@ -4,8 +4,7 @@
 -- Spectre active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
 --ABTT = Add Buff to Target Triggered
 --CGE = Monster Cast Ground Effect
 --DTT = Detach Dash to Target
@@ -37,6 +36,8 @@ skills["ABTTProcessionBannerDrain"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -80,6 +81,8 @@ skills["AzmeriFabricationDespair"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -121,6 +124,8 @@ skills["AzmeriFabricationEnfeeble"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Necrotic] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -168,6 +173,8 @@ skills["AzmeriFabricationTemporalChains"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -208,6 +215,8 @@ skills["AzmeriPictBowRainOfSpores"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.25, cooldown = 7.5, levelRequirement = 0, storedUses = 1, },
@@ -258,6 +267,8 @@ skills["BloodMageBloodTendrils"] = {
 	castTime = 1.67,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 0.5, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -306,6 +317,8 @@ skills["BoneCultistZealotFirestorm"] = {
 	castTime = 3,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 10, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
@@ -348,6 +361,8 @@ skills["BoneCultistZealotLightningstorm"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -386,6 +401,8 @@ skills["BurdenedWretchSlam"] = {
 	castTime = 4.8,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 3, levelRequirement = 0, },
 	},
@@ -421,6 +438,8 @@ skills["BurdenedWretchSlamUnique"] = {
 	castTime = 4.8,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 3, levelRequirement = 0, },
 	},
@@ -454,6 +473,8 @@ skills["CGEBloodPriestBoilingBlood"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -493,6 +514,8 @@ skills["CGESanctifiedMonstrosityPusGround"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -531,6 +554,8 @@ skills["CoffinWretchBabySoulrend1"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.3,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -577,6 +602,8 @@ skills["CultistBeastSunder"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.4, levelRequirement = 0, },
 	},
@@ -610,6 +637,8 @@ skills["DeathKnightSlamEAA"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2, cooldown = 8, levelRequirement = 0, storedUses = 1, },
@@ -646,6 +675,8 @@ skills["DTTKaruiBloodFeverButcherLeap"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 6.75, levelRequirement = 0, storedUses = 1, },
 	},
@@ -678,6 +709,8 @@ skills["DTTHellscapeStabbySkyStab"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, cooldown = 8, levelRequirement = 0, storedUses = 1, },
@@ -717,6 +750,8 @@ skills["DTTMantisRatLeap"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
 	},
@@ -750,6 +785,8 @@ skills["EDSAbyssMorayClanFlamethrower"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 3, critChance = 6, levelRequirement = 0, storedUses = 1, },
@@ -793,6 +830,8 @@ skills["EDSGolemancerReapLeft"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.6, levelRequirement = 0, },
 	},
@@ -827,6 +866,8 @@ skills["EDSPyramidHandLightningLance"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -872,6 +913,8 @@ skills["EDSShellMonsterFlamethrower"] = {
 	castTime = 3,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 4.75, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -916,6 +959,8 @@ skills["EDSShellMonsterPoisonSpray"] = {
 	castTime = 3,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 11, levelRequirement = 0, storedUses = 1, },
 	},
@@ -955,6 +1000,8 @@ skills["ExpeditionGroundLaser"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 2, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -1002,6 +1049,8 @@ skills["FarudinWarlockBugRend"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1043,6 +1092,8 @@ skills["FungalArtilleryMortar"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -1092,6 +1143,8 @@ skills["GADeathKnightOverheadslamforward"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.75, levelRequirement = 0, },
 	},
@@ -1126,6 +1179,8 @@ skills["GSArmourCasterVolatileExplode"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -1171,6 +1226,8 @@ skills["GSCenobiteBloaterOnDeath"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -1210,6 +1267,8 @@ skills["GSMercurialCasterBlast"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -1257,6 +1316,8 @@ skills["GACenobiteBloaterSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 2, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
@@ -1293,6 +1354,8 @@ skills["GADrownedCrawlerSwipe"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
 	},
@@ -1322,6 +1385,8 @@ skills["GAFigureheadSlamGhostFlame"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4.8,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2, levelRequirement = 0, },
@@ -1357,6 +1422,8 @@ skills["GAFirebreatherFireSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1402,6 +1469,8 @@ skills["GAGullGoliathSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.45, cooldown = 6.5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -1435,6 +1504,8 @@ skills["GAKaruiSpiritTurtleSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2, cooldown = 7, levelRequirement = 0, storedUses = 1, },
@@ -1471,6 +1542,8 @@ skills["GASaltGolemMelee"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1499,6 +1572,8 @@ skills["GATwilightSoldierStab"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
@@ -1531,6 +1606,8 @@ skills["GATwilightOfficerSmite"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.15, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
@@ -1567,6 +1644,8 @@ skills["GATwilightOrderSoldierChargeImpact"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
@@ -1611,6 +1690,8 @@ skills["TCTwilghtOrderSoldierCharge"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1662,6 +1743,8 @@ skills["TCExcavatorOrbCharge"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1700,6 +1783,8 @@ skills["GSExcavatorOrbExplosion"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -1744,6 +1829,8 @@ skills["GSExcavatorOrbDonutExplosion"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -1787,6 +1874,8 @@ skills["GAHellscapeFleshLeapImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.15, levelRequirement = 0, },
 	},
@@ -1822,6 +1911,8 @@ skills["GAHellscapePaleEliteSkyStab"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.25, levelRequirement = 0, },
 	},
@@ -1854,6 +1945,8 @@ skills["GAMantisRatDualStrike"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.05, levelRequirement = 0, },
 	},
@@ -1885,6 +1978,8 @@ skills["GAMediumBeetleChargedSunder"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
@@ -1922,6 +2017,8 @@ skills["GAMediumBeetleSunder"] = {
 	castTime = 2,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.35, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -1954,6 +2051,8 @@ skills["GAMutewindWomanSpearStab1"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, levelRequirement = 0, },
 	},
@@ -1982,6 +2081,8 @@ skills["GATwoHeadedTitanSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -2015,6 +2116,8 @@ skills["GATwoHeadedTitanStomp"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -2060,6 +2163,8 @@ skills["GoreChargerCharge"] = {
 	castTime = 0.8,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.43, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -2093,6 +2198,8 @@ skills["GraveyardGhostDashToTarget"] = {
 	castTime = 0.93,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 3, levelRequirement = 0, storedUses = 1, },
 	},
@@ -2120,6 +2227,8 @@ skills["GraveyardSpookyGhostExplode"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 5, critChance = 7, levelRequirement = 0, storedUses = 1, },
@@ -2161,6 +2270,8 @@ skills["GSAbyssPaleEliteBeam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, critChance = 7, levelRequirement = 0, storedUses = 1, },
@@ -2204,6 +2315,8 @@ skills["MPSAbyssPaleEliteSnowBall"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -2246,6 +2359,8 @@ skills["MPSCrawGullSpit"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.75,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -2296,6 +2411,8 @@ skills["MPSKaruiCasterProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2344,6 +2461,8 @@ skills["MPSGoblinMinerRockThrow"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2387,6 +2506,8 @@ skills["MPSSpearfisherSpearThrow"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, critChance = 7, levelRequirement = 0, storedUses = 1, },
@@ -2445,6 +2566,8 @@ skills["GPSPaleWalkerWave"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -2490,6 +2613,8 @@ skills["GSAbyssPaleEliteSnowBallImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
 	},
@@ -2529,6 +2654,8 @@ skills["GSAbyssPrimordialMonsterScreech"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
@@ -2571,6 +2698,8 @@ skills["GSDesertBatZap"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
@@ -2616,6 +2745,8 @@ skills["GSExpeditionBoneCultistEggExplosion"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
@@ -2664,6 +2795,8 @@ skills["GSHellscapeDemonEliteBeamNuke"] = {
 	castTime = 2,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 7, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -2704,6 +2837,8 @@ skills["GSHellscapePaleEliteBoltImpact"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -2747,6 +2882,8 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 	castTime = 2.333,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -2788,6 +2925,8 @@ skills["GSProwlingShadeIceBeam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3.2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 8, levelRequirement = 0, storedUses = 1, },
@@ -2831,6 +2970,8 @@ skills["GSRagingFireSpiritsVolatileSanctum"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -2873,6 +3014,8 @@ skills["GSRagingTimeSpiritsVolatileSanctum"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -2914,6 +3057,8 @@ skills["GSShrikeScreech"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -2958,6 +3103,8 @@ skills["GSVaalConstructSkitterbotGrenadeExplode"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -2998,6 +3145,8 @@ skills["GSWarlockRaiseBugs"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 18, levelRequirement = 0, storedUses = 1, },
 	},
@@ -3027,6 +3176,8 @@ skills["HuhuGrubLarvaeMortar"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.3,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 2.5, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -3070,6 +3221,8 @@ skills["HellscapeDemonFodderFaceLaser"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -3116,6 +3269,8 @@ skills["HyenaCentaurMeleeStab"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.25, levelRequirement = 0, },
 	},
@@ -3149,6 +3304,8 @@ skills["HyenaCentaurMeleeSwipe"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.75, levelRequirement = 0, },
 	},
@@ -3177,6 +3334,8 @@ skills["HyenaCentaurSpearThrow"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
@@ -3218,6 +3377,8 @@ skills["MASExtraAttackDistance6"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3254,6 +3415,8 @@ skills["MASExtraAttackDistance20"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3289,6 +3452,8 @@ skills["MASFireConvertAltArtFireArrow"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3329,6 +3494,8 @@ skills["MASStatueWretchPush"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.1, levelRequirement = 0, },
 	},
@@ -3361,6 +3528,8 @@ skills["MASKelpDregCrossbow"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3403,6 +3572,8 @@ skills["MeleeAtAnimationSpeedBow"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3439,6 +3610,8 @@ skills["MeleeAtAnimationSpeedUnique"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3477,6 +3650,8 @@ skills["MeleeAtAnimationSpeedComboTEMP"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3509,6 +3684,8 @@ skills["MeleeAtAnimationSpeedFire"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3546,6 +3723,8 @@ skills["MeleeAtAnimationSpeedCold"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3581,6 +3760,8 @@ skills["MeleeAtAnimationSpeedFireCombo35"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3618,6 +3799,8 @@ skills["MeleeAtAnimationSpeedLightning"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3653,6 +3836,8 @@ skills["MMSBaneSapling"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.77,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 2, levelRequirement = 0, storedUses = 1, },
@@ -3705,6 +3890,8 @@ skills["MMSBoneRabbleMortar"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -3755,6 +3942,8 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -3810,6 +3999,8 @@ skills["MMSVaalGuardGrenade"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 4.4, cooldown = 2, levelRequirement = 0, storedUses = 1, },
 	},
@@ -3857,6 +4048,8 @@ skills["MMSVaalGuardOilTrap"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 11, levelRequirement = 0, storedUses = 1, },
 	},
@@ -3902,6 +4095,8 @@ skills["MPSAbyssPaleEliteFireball"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
@@ -3951,6 +4146,8 @@ skills["MPSAbyssPitArtillery"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4003,6 +4200,8 @@ skills["GSAbyssPitArtilleryMortarImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -4044,6 +4243,8 @@ skills["MPSAbyssPaleWalker2Fireball"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4090,6 +4291,8 @@ skills["MPSAbyssCocoon3BallSpit"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -4145,6 +4348,8 @@ skills["GSAbyssCocoon3BallSpitImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -4192,6 +4397,8 @@ skills["CGEAbyssCocoon3FlameGeyser"] = {
 	castTime = 3.532,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -4233,6 +4440,8 @@ skills["MPSAbyssCocoon3BallSpitSmall"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -4281,6 +4490,8 @@ skills["GSAbyssCocoon3BallSpitSmallImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -4322,6 +4533,8 @@ skills["MPSArmourCasterBasic"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.17,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -4372,6 +4585,8 @@ skills["MPSAzmeriPictStaffProj"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -4419,6 +4634,8 @@ skills["MPSAzmeriPictStaffProj2"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 5, critChance = 6, levelRequirement = 0, storedUses = 1, },
@@ -4471,6 +4688,8 @@ skills["MPSBloodMageBloodProjectile"] = {
 	castTime = 2.57,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -4518,6 +4737,8 @@ skills["MPSBoneRabbleBurningArrow"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
@@ -4557,6 +4778,8 @@ skills["MPSBoneCultistNecromancerLightning"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -4606,6 +4829,8 @@ skills["MPSBoneCultistZealotFire"] = {
 	castTime = 1.333,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -4651,6 +4876,8 @@ skills["MPSBoneCultistZealotLightning"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
@@ -4698,6 +4925,8 @@ skills["MPSBreachEliteBoneProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 8, levelRequirement = 0, },
 	},
@@ -4744,6 +4973,8 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -4796,6 +5027,8 @@ skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -4847,6 +5080,8 @@ skills["MPSElectricStingRayProjectile"] = {
 	castTime = 1.47,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -4895,6 +5130,8 @@ skills["MPSExpeditionBoneCultistProjectiles"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
@@ -4945,6 +5182,8 @@ skills["MPSHellscapeDemonFodderProj"] = {
 	castTime = 1.25,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -4994,6 +5233,8 @@ skills["MPSHellscapeFleshEliteBasicProj"] = {
 	castTime = 1.166,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -5040,6 +5281,8 @@ skills["MPSHellscapePaleHammerhead"] = {
 	castTime = 1.166,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -5085,6 +5328,8 @@ skills["MPSMercurialCasterEnrage"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.33,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -5136,6 +5381,8 @@ skills["MPSRedSkeletonCaster"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
 	},
@@ -5180,6 +5427,8 @@ skills["MPSSkeletonMancerBasicProj"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -5230,6 +5479,8 @@ skills["MPSVaalBloodPriestProj"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -5276,6 +5527,8 @@ skills["MPSVaalConstructCannon"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -5326,6 +5579,8 @@ skills["MPAVaalHumanoidCannon"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5367,6 +5622,8 @@ skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -5414,6 +5671,8 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -5465,6 +5724,8 @@ skills["MPWAzmeriPitifulFabricationSkullThrow"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.15, levelRequirement = 0, },
 	},
@@ -5503,6 +5764,8 @@ skills["MPWCleansedMonstrosityRailgun"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2.15, cooldown = 15, levelRequirement = 0, storedUses = 1, },
@@ -5543,6 +5806,8 @@ skills["MPWDrudgeExplosiveGrenade"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -5588,6 +5853,8 @@ skills["MPWExpeditionArbalestProjectile"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5623,6 +5890,8 @@ skills["MPWExpeditionArbalestSnipe"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, storedUses = 1, },
@@ -5661,6 +5930,8 @@ skills["MPWFarudinSpearThrow"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, levelRequirement = 0, },
@@ -5704,6 +5975,8 @@ skills["MPWGoblinSpearThrow"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5744,6 +6017,8 @@ skills["MPWKelpDregPuncture"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
@@ -5781,6 +6056,8 @@ skills["MPWVaalSavageBlowDart"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.75, levelRequirement = 0, },
@@ -5823,6 +6100,8 @@ skills["MutewindBanditWomanLeap"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5854,6 +6133,8 @@ skills["QuillCrabSpikeBurst"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
@@ -5896,6 +6177,8 @@ skills["QuillCrabSpikeBurstPoison"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
 	},
@@ -5936,6 +6219,8 @@ skills["QuillCrabSpikeBurstTropical"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.6, levelRequirement = 0, },
@@ -5978,6 +6263,8 @@ skills["RisenArbalestBasicProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.25, levelRequirement = 0, },
 	},
@@ -6009,6 +6296,8 @@ skills["RisenArbalestSnipe"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, storedUses = 1, },
@@ -6051,6 +6340,8 @@ skills["RisenArbalestRainOfArrows"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
@@ -6082,6 +6373,8 @@ skills["SerpentClanCurse"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -6128,6 +6421,8 @@ skills["SerpentClanTailWhip"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.7, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 		[2] = { baseMultiplier = 1.7, cooldown = 8, levelRequirement = 0, storedUses = 1, },
@@ -6167,6 +6462,8 @@ skills["ShellMonsterDeathMortar"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6217,6 +6514,8 @@ skills["ShellMonsterDeathMortarPoison"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -6266,6 +6565,8 @@ skills["ShellMonsterFirehose"] = {
 	castTime = 3,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
@@ -6309,6 +6610,8 @@ skills["ShellMonsterSprayMortar"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6361,6 +6664,8 @@ skills["ShellMonsterSprayMortarPoison"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -6410,6 +6715,8 @@ skills["SkelemancerSkelenado"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6463,6 +6770,8 @@ skills["SpookyGhostLightningBounce"] = {
 	castTime = 1.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -6510,6 +6819,8 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
 	},
@@ -6550,6 +6861,8 @@ skills["TBAbyssCarrionWingBeam"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6593,6 +6906,8 @@ skills["GSAbyssCarrionWingBeamImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -6633,6 +6948,8 @@ skills["TBBreachElitePaleLightningBoltSpammableLeft"] = {
 	castTime = 1.333,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6664,6 +6981,8 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6707,6 +7026,8 @@ skills["TBVaalPyramidBeam"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6759,6 +7080,8 @@ skills["TCHellscapePaleElite2Charge"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.3, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
@@ -6788,6 +7111,8 @@ skills["UrchinSlingProjectile"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -24, levelRequirement = 0, },
@@ -6825,6 +7150,8 @@ skills["VaalBloodPriestDetonateDead"] = {
 	skillTypes = { [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6868,6 +7195,8 @@ skills["VaalBloodPriestExsanguinate"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 2.2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -6917,6 +7246,8 @@ skills["VaalBloodPriestSoulrend"] = {
 	castTime = 3.7,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6957,6 +7288,8 @@ skills["VaalHumanoidShockRifle"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 9, critChance = 6, levelRequirement = 0, storedUses = 1, },
@@ -7003,6 +7336,8 @@ skills["VaalZealotLightningSpark"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 0.2, critChance = 7, levelRequirement = 0, storedUses = 1, },
@@ -7054,6 +7389,8 @@ skills["VaalZealotLightningSparkNova"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
 	},
@@ -7103,6 +7440,8 @@ skills["GSVaalZealotLightningBlast"] = {
 	castTime = 1.2,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 7, levelRequirement = 0, },
 	},
@@ -7148,6 +7487,8 @@ skills["JellyfishNettlerArc"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 6, levelRequirement = 0, storedUses = 1, },
@@ -7195,6 +7536,8 @@ skills["SSMJellyfishNettlerMinions"] = {
 	castTime = 2,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
 	},
@@ -7231,6 +7574,8 @@ skills["MeleeGiantStarfishTentacle1"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
 	},
@@ -7263,6 +7608,8 @@ skills["MPSStarfishVomit"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7314,6 +7661,8 @@ skills["GSStarFishSpitImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -7351,6 +7700,8 @@ skills["CGEStarFishSpitCausticGround"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7390,6 +7741,8 @@ skills["MPSBrineMaidenIceProjectile"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -7440,6 +7793,8 @@ skills["GAKaruiTuataraTailSlam"] = {
 	castTime = 2.4,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, cooldown = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -7471,6 +7826,8 @@ skills["GSExcavatorRaptorTriangleSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5.5, levelRequirement = 0, },
@@ -7509,6 +7866,8 @@ skills["TBExcavatorSceptreErraticBeam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -7545,6 +7904,8 @@ skills["MASKelpDregCrossbow"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7589,6 +7950,8 @@ skills["MASKelpDregCrossbowPhys"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -7630,6 +7993,8 @@ skills["MASKelpDregCrossbowIce"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7673,6 +8038,8 @@ skills["MPWKelpDregPunctureIce"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
@@ -7712,6 +8079,8 @@ skills["MPWKelpDregPuncture"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
@@ -7750,6 +8119,8 @@ skills["MPSTwilightSorcerorFireball"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7798,6 +8169,8 @@ skills["MPSTwilightClericProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -7843,6 +8216,8 @@ skills["MPSRaptorDefenderExplosiveShot"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 5.5, levelRequirement = 0, storedUses = 1, },
@@ -7900,6 +8275,8 @@ skills["GSRaptorDefenderRailShot"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 5.5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -7942,6 +8319,8 @@ skills["MPSGoblinShamanBasicProj"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -7992,6 +8371,8 @@ skills["MAASExpedition2ShakariBasicMelee"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.85, levelRequirement = 0, },
 	},
@@ -8027,6 +8408,8 @@ skills["MAASExpedition2ShakariTailSwipe"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -5, baseMultiplier = 1.45, cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -8064,6 +8447,8 @@ skills["GAExpeditionShakariMonsterSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -15, baseMultiplier = 1.35, cooldown = 10, levelRequirement = 0, storedUses = 1, },
 	},
@@ -8098,6 +8483,8 @@ skills["GARathbreakerEnrageSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 2.5, cooldown = 5, levelRequirement = 0, storedUses = 1, },
@@ -8144,6 +8531,8 @@ skills["TCRathbreakerDrivebyCharge"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
@@ -8180,6 +8569,8 @@ skills["MeleeAtAnimationSpeedBoss"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8213,6 +8604,8 @@ skills["GAQuadrillaBossRectSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 3, levelRequirement = 0, },
@@ -8249,6 +8642,8 @@ skills["GAIcyQuadrillaBossRectSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 3, levelRequirement = 0, },
@@ -8288,6 +8683,8 @@ skills["MeleeMudBurrowerLeftCleave"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.4, levelRequirement = 0, },
 	},
@@ -8320,6 +8717,8 @@ skills["MeleeMudBurrowerRightCleave"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.4, levelRequirement = 0, },
@@ -8354,6 +8753,8 @@ skills["MeleeMudBurrowerBite"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.4, levelRequirement = 0, },
 	},
@@ -8386,6 +8787,8 @@ skills["MPAMudBurrowerBloodProj"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.25, levelRequirement = 0, },
@@ -8431,6 +8834,8 @@ skills["GAMudBurrowerBloodProj"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8465,6 +8870,8 @@ skills["MPAMudBurrowerSprayProj"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 16, levelRequirement = 0, storedUses = 1, },
@@ -8506,6 +8913,8 @@ skills["GAMudBurrowerSpraySmallImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8541,6 +8950,8 @@ skills["MPAMudBurrowerGoopSmallBall"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8583,6 +8994,8 @@ skills["GAMudBurrowerGoopSmallImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.35, levelRequirement = 0, },
 	},
@@ -8615,6 +9028,8 @@ skills["MPAMudBurrowerGoopBigBall"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8656,6 +9071,8 @@ skills["MudBurrowerGoopExplode"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.6, levelRequirement = 0, },
 	},
@@ -8689,6 +9106,8 @@ skills["GAMudBurrowerHeadSlam"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 4, cooldown = 12, levelRequirement = 0, storedUses = 1, },
@@ -8725,6 +9144,8 @@ skills["GAMudBurrowerDivePush"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8767,6 +9188,8 @@ skills["CGEMudBurrowerVomit"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8804,6 +9227,8 @@ skills["MPAMudBurrowerVomitProj"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.8, critChance = 5, levelRequirement = 0, },
@@ -8843,6 +9268,8 @@ skills["MudBurrowerMaggotSummon"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8877,6 +9304,8 @@ skills["GPAPorcupineAntSpikeNova"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8913,6 +9342,8 @@ skills["MMAPorcupineAntSpikeball"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -8951,6 +9382,8 @@ skills["GPAPorcupineAntSpikeNovaSanctum"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -8987,6 +9420,8 @@ skills["MMAPorcupineAntSpikeballSanctum"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9026,6 +9461,8 @@ skills["MPWBlackStriderWebProjectile"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9067,6 +9504,8 @@ skills["GABlackStriderWebMortarImpact"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.45, levelRequirement = 0, },
 	},
@@ -9103,6 +9542,8 @@ skills["BlackStriderMassMortar"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.92, levelRequirement = 0, },
@@ -9141,6 +9582,8 @@ skills["MPWBlackStriderWebProjectileSanctum"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 6.5, levelRequirement = 0, storedUses = 1, },
@@ -9184,6 +9627,8 @@ skills["CGESanctumBlackStriderWeb"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -9219,6 +9664,8 @@ skills["QuillCrabSpikeShrapnel"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.2, levelRequirement = 0, },
@@ -9262,6 +9709,8 @@ skills["QuillCrabSpikeShrapnelPoison"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.2, levelRequirement = 0, },
 	},
@@ -9304,6 +9753,8 @@ skills["CGEQuillCrabFireGround"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
 	},
@@ -9345,6 +9796,8 @@ skills["CGEQuillCrabCausticGround"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -9385,6 +9838,8 @@ skills["GSBeetleLightningNova"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 6, levelRequirement = 0, },
 	},
@@ -9423,6 +9878,8 @@ skills["GSCaveDwellerSonicPulse"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.266,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 12, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -9464,6 +9921,8 @@ skills["GSCaveDwellerSuperProjectile"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -9503,6 +9962,8 @@ skills["GPSCaveDwellerSuperProjectileSanctum"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9549,6 +10010,8 @@ skills["GSPlagueNymphLaser"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -9587,6 +10050,8 @@ skills["MPSPlagueNymphRailGun"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
@@ -9637,6 +10102,8 @@ skills["GSTwilightOrderPlagueNymphLaser"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { critChance = 5, levelRequirement = 0, },
 	},
@@ -9675,6 +10142,8 @@ skills["MPSTwilightOrderPlagueNymphRailGun"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { cooldown = 8, critChance = 5, levelRequirement = 0, storedUses = 1, },
@@ -9726,6 +10195,8 @@ skills["GSSerpentClanAcidSpit"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { cooldown = 1.5, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
@@ -9764,6 +10235,8 @@ skills["HyenaCentaurSpearThrowCliff"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
@@ -9806,6 +10279,8 @@ skills["MeleeAtAnimationSpeed2"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -9839,6 +10314,8 @@ skills["MAASBaronEndgameBasic"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -9879,6 +10356,8 @@ skills["GAArenaBeastSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.35, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
@@ -9914,6 +10393,8 @@ skills["GAArenaBeastSlamEmpowered"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -9942,6 +10423,8 @@ skills["GAGoblinArenaBeastHeadbutt"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
@@ -9975,6 +10458,8 @@ skills["GAGoblinArenaBeastHeadbuttEmpowered"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -10002,6 +10487,8 @@ skills["GAGoblinArenaBeastGroundSlash"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.6, levelRequirement = 0, },
@@ -10038,6 +10525,8 @@ skills["GAGoblinArenaBeastGroundSlashLightning"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
@@ -10073,6 +10562,8 @@ skills["GAArenaBeastBossBigSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.75, levelRequirement = 0, },
 	},
@@ -10107,6 +10598,8 @@ skills["GAArenaBeastBossShockwave"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -10136,6 +10629,8 @@ skills["GAArenaBeastBossPunchLeft"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
@@ -10172,6 +10667,8 @@ skills["GAArenaBeastBossPunchLeftEmpowered"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -10199,6 +10696,8 @@ skills["GAArenaBeastBossPunchRight"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
@@ -10235,6 +10734,8 @@ skills["GAArenaBeastBossPunchRightEmpowered"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -10262,6 +10763,8 @@ skills["GAArenaBeastBossFissureDamage"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.65, levelRequirement = 0, },
@@ -10296,6 +10799,8 @@ skills["GAArenaBeastBossFissureExplosion"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 0.65, levelRequirement = 0, },
 	},
@@ -10328,6 +10833,8 @@ skills["CGEArenaBeastBossSulpurGas"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -10368,6 +10875,8 @@ skills["GAArenaBeastLeapSlam"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
 	},
@@ -10398,6 +10907,8 @@ skills["GAArenaBeastLeapSlamEnraged"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
@@ -10432,6 +10943,8 @@ skills["GAArenaBeastLeapSlamEnragedKick"] = {
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.1, levelRequirement = 0, },
@@ -10468,6 +10981,8 @@ skills["DTTParasiteSwarmLeap"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -10499,6 +11014,8 @@ skills["DTTParasiteSwarmLeapAttach"] = {
 	castTime = 0.5,
 	qualityStats = {
 	},
+	altQualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -10526,6 +11043,8 @@ skills["BlackStriderWebProjectile"] = {
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+	},
+	altQualityStats = {
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -10556,4 +11075,4 @@ skills["BlackStriderWebProjectile"] = {
 			},
 		},
 	}
-}
+}			end

@@ -3,7 +3,8 @@
 -- Module: Calc Active Skill
 -- Active skill setup.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -88,7 +89,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	local grantedEffect = skillEffect.grantedEffect
 	local selectedGlobalStats = { }
 	local function mergeStatSet(set, onlyGlobals)
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
@@ -239,7 +240,7 @@ local function getSourceGemPropertyInfo(env, activeSkill)
 
 	env.sourceGemPropertyInfo = env.sourceGemPropertyInfo or { }
 	if not env.sourceGemPropertyInfo[sourceGem] then
-		local modList = new("ModList", activeSkill.actor.modDB)
+		local modList = new("ModList"):ModList(activeSkill.actor.modDB)
 		local supportCount = 0
 		for _, supportEffect in ipairs(activeSkill.supportList) do
 			if supportEffect.isSupporting and supportEffect.isSupporting[sourceGem] then
@@ -284,9 +285,9 @@ function calcs.copyActiveSkill(env, mode, skill)
 	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, env.player, skill.socketGroup, skill.summonSkill)
 	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
-	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)
+	newSkill.skillModList = new("ModList"):ModList(newSkill.baseSkillModList)
 	if newSkill.minion then
-		newSkill.minion.modDB = new("ModDB")
+		newSkill.minion.modDB = new("ModDB"):ModDB()
 		newSkill.minion.modDB.actor = newSkill.minion
 		calcs.createMinionSkills(env, newSkill)
 		newSkill.skillPartName = newSkill.minion.mainSkill.activeEffect.grantedEffect.name
@@ -490,7 +491,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	activeSkill.weapon1Flags = 0
 	activeSkill.weapon2Flags = 0
 	-- Initialise skill modifier list
-	local skillModList = new("ModList", activeSkill.actor.modDB)
+	local skillModList = new("ModList"):ModList(activeSkill.actor.modDB)
 	activeSkill.skillModList = skillModList
 	activeSkill.baseSkillModList = skillModList
 
@@ -554,7 +555,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Apply stat-map flagged skill flags.
-	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet)) do
+	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet, env.useAltGemQualityStats)) do
 		local map = activeGrantedEffect.statMap[stat]
 		if statValue ~= 0 and map and map.skillFlag then
 			skillFlags[map.skillFlag] = true
@@ -668,7 +669,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Calculate distance from enemy
-	effectiveRange = env.configInput.enemyDistance
+	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
 	activeSkill.skillCfg = {
@@ -793,6 +794,12 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	if activeStatSet and activeStatSet.levels then
 		for k, v in pairs(activeStatSet.levels[activeEffect.level] or { }) do
 			grantedEffectLevel[k] = v
+		end
+	end
+	if activeEffect.srcInstance and activeEffect.srcInstance.noReservation then
+		for _, resource in ipairs({ "mana", "life", "spirit" }) do
+			grantedEffectLevel[resource.."ReservationFlat"] = 0
+			grantedEffectLevel[resource.."ReservationPercent"] = 0
 		end
 	end
 	activeEffect.grantedEffectLevel = grantedEffectLevel

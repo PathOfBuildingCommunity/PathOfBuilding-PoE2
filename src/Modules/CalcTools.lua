@@ -135,12 +135,20 @@ function calcLib.getGemStatRequirement(level, multi, isSupport)
 end
 
 -- Build table of stats for the given skill instance statset
-function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
+function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, includeAltQualityStats)
 	local stats = { }
-	if skillInstance.quality > 0 and grantedEffect.qualityStats then
+	if skillInstance.quality > 0 then
 		local qualityStats = grantedEffect.qualityStats
-		for _, stat in ipairs(qualityStats) do
-			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
+		if qualityStats then
+			for _, stat in ipairs(qualityStats) do
+				stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
+			end
+		end
+		qualityStats = grantedEffect.altQualityStats
+		if includeAltQualityStats and qualityStats then
+			for _, stat in ipairs(qualityStats) do
+				stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
+			end
 		end
 	end
 	local grantedEffectLevel = grantedEffect.levels[skillInstance.level] or { }
@@ -200,7 +208,7 @@ end
 --- Correct the tags on conversion with multipliers so they carry over correctly
 --- @param mod table
 --- @param multiplier number
---- @param minionMods bool @convert ActorConditions pointing at parent to normal Conditions
+--- @param minionMods boolean @convert ActorConditions pointing at parent to normal Conditions
 --- @return table @converted multipliers
 function calcLib.getConvertedModTags(mod, multiplier, minionMods)
 	local modifiers = { }
@@ -240,7 +248,7 @@ end
 
 --- Use getGameIdFromGemName to get gameId from the gemName and passed in type. Return true if they're the same and not nil
 --- @param gemName string
---- @param type string
+--- @param typeName string
 --- @param dropVaal boolean 
 --- @return boolean
 function calcLib.isGemIdSame(gemName, typeName, dropVaal)

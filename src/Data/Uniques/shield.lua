@@ -101,9 +101,10 @@ Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
+Requires Level 60
 Implicits: 2
 Grants Skill: Raise Shield
-Grants Skill: Cast on Block
+Grants Skill: Level (1-20) Cast on Block
 {variant:4}+(50-100) to maximum Runic Ward
 {variant:1}(100-150)% increased Armour
 {variant:2}(150-200)% increased Armour
@@ -373,6 +374,7 @@ Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
+Requires Level 48
 Implicits: 1
 Grants Skill: Raise Shield
 {variant:1}(333-666)% increased effect of Socketed Soul Cores
@@ -397,7 +399,6 @@ Grants Skill: Raise Shield
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
-Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
 Variant: Pre 0.4.0
@@ -424,7 +425,6 @@ Regenerate 3% of maximum Life per second while on Low Life
 ]],[[
 Saffell's Frame
 Emblem Crest Shield
-Requires Level 16
 Implicits: 1
 Grants Skill: Raise Shield
 +(15-25)% to Fire Resistance
