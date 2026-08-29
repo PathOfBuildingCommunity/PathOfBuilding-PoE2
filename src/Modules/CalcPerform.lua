@@ -216,7 +216,9 @@ end
 ---@param actor table
 local function doActorAttribsConditions(env, actor)
 	local modDB = actor.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 	local condList = modDB.conditions
 
@@ -579,6 +581,7 @@ end
 local function doActorMisc(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
 	local condList = modDB.conditions
 
@@ -853,6 +856,7 @@ end
 -- Process charges
 local function doActorCharges(env, actor)
 	local modDB = actor.modDB
+	---@class Output
 	local output = actor.output
 
 	-- Calculate current and maximum charges
@@ -1179,7 +1183,8 @@ function calcs.perform(env, skipEHP)
 	end
 
 	env.player.output = { }
-	env.enemy.output = { }
+	env.enemy.output = {}
+	---@class Output
 	local output = env.player.output
 
 	env.partyMembers = env.build.partyTab.actor

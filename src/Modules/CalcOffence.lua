@@ -64,6 +64,7 @@ local damageStatsForTypes = setmetatable({ }, { __index = function(t, k)
 end })
 
 local globalOutput = nil
+---@type Breakdown?
 local globalBreakdown = nil
 
 local function calcConvertedDamage(activeSkill, output, cfg, damageType)
@@ -380,10 +381,15 @@ function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
 end
 
 -- Performs all offensive calculations
+---@param env Env
+---@param actor Actor
+---@param activeSkill ActiveSkill
 function calcs.offence(env, actor, activeSkill)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local skillModList = activeSkill.skillModList
@@ -2557,7 +2563,11 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate how often you hit (speed, accuracy, block, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		local breakdown = pass.breakdown
 
 		if skillData.averageBurstHits then
 			output.AverageBurstHits = skillData.averageBurstHits
@@ -3201,7 +3211,12 @@ function calcs.offence(env, actor, activeSkill)
 	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		---@class Breakdown
+		local breakdown = pass.breakdown
 
 		-- Exerted Attack members
 		local exertedDoubleDamage = env.modDB:Sum("BASE", cfg, "ExertDoubleDamageChance")
@@ -4860,7 +4875,12 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		---@class Breakdown
+		local breakdown = pass.breakdown
 
 		-- Legacy PoE1 ailments (to be removed later): Scorched, Brittle, Sapped, Impale
 		output.ImpaleChance = 0

@@ -143,6 +143,7 @@ end
 -- Create an active skill using the given active gem and list of support gems
 -- It will determine the base flag set, and check which of the support gems can support this skill
 function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGroup, summonSkill)
+	---@class ActiveSkill
 	local activeSkill = {
 		activeEffect = activeEffect,
 		supportList = supportList,
@@ -162,7 +163,9 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local statSet, skillFlags
+	---@class SkillFlags
+	local skillFlags
+	local statSet
 	if env.mode == "CALCS" then
 		statSet = activeEffect.grantedEffect.statSets[activeEffect.statSetCalcs.index]
 		skillFlags = statSet and copyTable(statSet.baseFlags) or { }
@@ -672,6 +675,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
+	---@class ModCfg
 	activeSkill.skillCfg = {
 		flags = bor(skillModFlags, activeSkill.weapon1Flags or activeSkill.weapon2Flags or 0),
 		keywordFlags = skillKeywordFlags,

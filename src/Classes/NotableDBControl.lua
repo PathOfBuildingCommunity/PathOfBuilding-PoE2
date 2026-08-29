@@ -24,6 +24,7 @@ end
 ---@class NotableDBControl: ListControl
 local NotableDBClass = newClass("NotableDBControl", "ListControl")
 
+---@param itemsTab ItemsTab
 function NotableDBClass:NotableDBControl(anchor, rect, itemsTab, db, dbType)
 	local headerHeight = 96
 	local innerRect = {rect[1], rect[2]+headerHeight, rect[3], rect[4]-headerHeight}

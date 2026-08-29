@@ -16,6 +16,7 @@ local band = AND64  -- bit.band
 ---@class CalcBreakdownControl: Control, ControlHost
 local CalcBreakdownClass = newClass("CalcBreakdownControl", "Control", "ControlHost")
 
+---@param calcsTab CalcsTab
 function CalcBreakdownClass:CalcBreakdownControl(calcsTab)
 	self:Control()
 	self:ControlHost()

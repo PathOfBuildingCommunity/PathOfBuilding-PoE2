@@ -35,7 +35,26 @@ local function getFile(URL)
 	return #page > 0 and page
 end
 
+---@class PassiveTreeGroup
+---@field x number
+---@field y number
+---@field orbits integer[]
+---@field nodes string[]
+---@field background any
+---@field isProxy boolean?
 ---@class PassiveTree
+---@field classes any[] A list of classes on the tree
+---@field alternate_ascendancies any[]?
+---@field tree "Default"|"DefaultAltAscendancies"
+---@field groups PassiveTreeGroup[]
+---@field nodes table<"root"|integer, Node>
+---@field jewelSlots integer[]
+---@field min_x integer
+---@field min_y integer
+---@field max_x integer
+---@field max_y integer
+---@field constants table<string, any>
+---@field points table<string, integer>
 local PassiveTreeClass = newClass("PassiveTree")
 
 function PassiveTreeClass:PassiveTree(treeVersion)
@@ -191,7 +210,9 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 	self.sockets = { }
 	self.masteryEffects = { }
 	local nodeMap = { }
-	for _, node in pairs(self.nodes) do
+	for _, n in pairs(self.nodes) do
+		---@class Node
+		local node = n
 		node.id = node.skill
 		node.iname = node.stringId
 		node.g = node.group
