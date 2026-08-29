@@ -3813,7 +3813,7 @@ c["30% of Damage taken during effect Recouped as Life Gain 5 Rage when Hit by an
 c["30% of Fire Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=30}},nil}
 c["30% of Leech is Instant"]={{[1]={flags=0,keywordFlags=0,name="InstantEnergyShieldLeech",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="InstantManaLeech",type="BASE",value=30},[3]={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=30}},nil}
 c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant "}
-c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies % to Lightning Resistance "}
+c["30% of Life Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies -10% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting also applies -10% to Lightning Resistance "}
 c["30% of Lightning Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenFromManaBeforeLife",type="BASE",value=30}},nil}
 c["30% of Mana Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant "}
 c["30% of Mana Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaAsPhysical",type="BASE",value=30}},"  Leeched from targets affected by Abyssal Wasting is Instant Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life  "}
@@ -5285,21 +5285,21 @@ c["96% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",va
 c["96% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=96}},"  if used  "}
 c["97% increased Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=97}},nil}
 c["97% increased Mana Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=97}},nil}
-c["Abyssal Wasting also applies % to Cold Resistance"]={nil,"Abyssal Wasting also applies % to Cold Resistance "}
-c["Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an"]={nil,"Abyssal Wasting also applies % to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an "}
-c["Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting also applies % to Fire Resistance "}
-c["Abyssal Wasting also applies % to Fire Resistance +30% of Armour also applies to Elemental Damage"]={nil,"Abyssal Wasting also applies % to Fire Resistance +30% of Armour also applies to Elemental Damage "}
-c["Abyssal Wasting also applies % to Lightning Resistance"]={nil,"Abyssal Wasting also applies % to Lightning Resistance "}
-c["Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking"]={nil,"Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking "}
-c["Abyssal Wasting also applies {0:-d}% to Cold Resistance"]={nil,"Abyssal Wasting also applies {0:-d}% to Cold Resistance "}
-c["Abyssal Wasting also applies {0:-d}% to Fire Resistance"]={nil,"Abyssal Wasting also applies {0:-d}% to Fire Resistance "}
-c["Abyssal Wasting also applies {0:-d}% to Lightning Resistance"]={nil,"Abyssal Wasting also applies {0:-d}% to Lightning Resistance "}
+c["Abyssal Wasting also applies -10% to Cold Resistance"]={nil,"Abyssal Wasting also applies -10% to Cold Resistance "}
+c["Abyssal Wasting also applies -10% to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an"]={nil,"Abyssal Wasting also applies -10% to Cold Resistance 10% chance to revive one of your Persistent Minions when you kill an "}
+c["Abyssal Wasting also applies -10% to Fire Resistance"]={nil,"Abyssal Wasting also applies -10% to Fire Resistance "}
+c["Abyssal Wasting also applies -10% to Fire Resistance +30% of Armour also applies to Elemental Damage"]={nil,"Abyssal Wasting also applies -10% to Fire Resistance +30% of Armour also applies to Elemental Damage "}
+c["Abyssal Wasting also applies -10% to Lightning Resistance"]={nil,"Abyssal Wasting also applies -10% to Lightning Resistance "}
+c["Abyssal Wasting also applies -10% to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking"]={nil,"Abyssal Wasting also applies -10% to Lightning Resistance Projectiles have 50% chance for an additional Projectile when Forking "}
+c["Abyssal Wasting also applies -13% to Cold Resistance"]={nil,"Abyssal Wasting also applies -13% to Cold Resistance "}
+c["Abyssal Wasting also applies -13% to Fire Resistance"]={nil,"Abyssal Wasting also applies -13% to Fire Resistance "}
+c["Abyssal Wasting also applies -13% to Lightning Resistance"]={nil,"Abyssal Wasting also applies -13% to Lightning Resistance "}
 c["Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage"]={nil,"Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage "}
 c["Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"]={nil,"Abyssal Wasting you inflict also gives targets 10% chance to explode on death, dealing a tenth of their life as Physical Damage Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments "}
 c["Abyssal Wasting you inflict also prevents targets from dealing Critical Hits"]={nil,"Abyssal Wasting you inflict also prevents targets from dealing Critical Hits "}
 c["Abyssal Wasting you inflict also prevents targets from dealing Critical Hits Gain 1 Rage when you kill an enemy affected by Abyssal Wasting"]={nil,"Abyssal Wasting you inflict also prevents targets from dealing Critical Hits Gain 1 Rage when you kill an enemy affected by Abyssal Wasting "}
 c["Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"]={nil,"Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments "}
-c["Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies % to Cold Resistance"]={nil,"Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies % to Cold Resistance "}
+c["Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies -10% to Cold Resistance"]={nil,"Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments Abyssal Wasting also applies -10% to Cold Resistance "}
 c["Abyssal Wasting you inflict has Infinite Duration"]={nil,"Abyssal Wasting you inflict has Infinite Duration "}
 c["Abyssal Wasting you inflict has Infinite Duration 20% chance to gain Onslaught for 3 seconds when you kill an"]={nil,"Abyssal Wasting you inflict has Infinite Duration 20% chance to gain Onslaught for 3 seconds when you kill an "}
 c["Accuracy Rating is Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AccuracyDoubledLimit",type="Multiplier",var="AccuracyDoubled"},flags=0,keywordFlags=0,name="Accuracy",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AccuracyDoubled",type="OVERRIDE",value=1}},nil}
@@ -7508,7 +7508,7 @@ c["Gain 1 Mana on Kill per Level"]={{[1]={[1]={type="Condition",var="KilledRecen
 c["Gain 1 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Rage when you kill an enemy affected by Abyssal Wasting"]={{}," Rage  affected by Abyssal Wasting "}
-c["Gain 1 Rage when you kill an enemy affected by Abyssal Wasting Abyssal Wasting also applies % to Fire Resistance"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}}," Rage  affected by Abyssal Wasting Abyssal Wasting also applies % to  "}
+c["Gain 1 Rage when you kill an enemy affected by Abyssal Wasting Abyssal Wasting also applies -10% to Fire Resistance"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}}," Rage  affected by Abyssal Wasting Abyssal Wasting also applies -10% to  "}
 c["Gain 1 Rage when your Hit Ignites a target"]={{}," Rage when your Hit Ignites a target "}
 c["Gain 1 Runefather's Boast per Power of targets affected by Runefather's Challenge you kill"]={{}," Runefather's Boast per Power of targets affected by Runefather's Challenge you kill "}
 c["Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds"]={{}," Runic Binding , no more than once every 0.5 seconds "}
