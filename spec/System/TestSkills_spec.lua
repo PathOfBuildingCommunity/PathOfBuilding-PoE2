@@ -487,7 +487,7 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
-		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+		assert.are.equals(9, finalCost) -- round(floor(9 * 1.5) / 1.5)
 	end)
 
 	it("Test socket group pasting with corruption levels and count", function()
