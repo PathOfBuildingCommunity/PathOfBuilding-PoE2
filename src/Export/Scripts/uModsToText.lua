@@ -170,7 +170,9 @@ for _, name in ipairs(itemTypes) do
 			uniqueReqLevel = 0
 		elseif not specName or (sourceImplicitLines and sourceImplicitLines > 0) then
 			local prefix = ""
+			local versionString = line:match("({version:[%d,]+})")
 			local variantString = line:match("({variant:[%d,]+})")
+			local groupString = line:match("({group:[%d,]+})")
 			local fractured = line:match("({fractured})") or ""
 			local modName, legacy = stripLineTags(line):match("^([%a%d_]+)([%[%]-,%d]*)$")
 			local mod = base and (uniqueMods[modName] or modVeiled[modName])
@@ -188,9 +190,7 @@ for _, name in ipairs(itemTypes) do
 				grantedSkillLine = "Grants Skill: "..(naturalMaxLevel == 1 and "" or "Level (1-"..naturalMaxLevel..") ")..skillName
 			end
 			local isSourceImplicit = sourceImplicitLines and sourceImplicitLines > 0
-			if variantString then
-				prefix = prefix ..variantString
-			end
+			prefix = prefix .. (versionString or "") .. (variantString or "") .. (groupString or "")
 			if mod then
 				modLines = modLines + 1
 				prefix = prefix..(mod.unscalable and "{unscalable}" or "")
@@ -226,8 +226,8 @@ for _, name in ipairs(itemTypes) do
 				end 
 				for i, line in ipairs(legacyMod or mod) do
 					local order = math.floor(mod.statOrder[i])
-					local variantImplicitLines = variantString and variantBaseImplicitLines[modName]
-					if variantString and not variantImplicitLines and base.implicit then
+					local variantImplicitLines = (versionString or variantString) and variantBaseImplicitLines[modName]
+					if (versionString or variantString) and not variantImplicitLines and base.implicit then
 						for baseLine in base.implicit:gmatch("[^\n]+") do
 							if stripLineTags(baseLine) == stripLineTags(line) then
 								variantImplicitLines = { }
