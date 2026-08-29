@@ -278,7 +278,7 @@ function ItemClass:FindModifierSubstring(substring, itemSlotName)
 		else
 			currentVariant = true
 		end
-		if currentVariant then
+		if not v.disabled and currentVariant then
 			if v.line:lower():find(substring) and not v.line:lower():find(substring .. " modifier") then
 				local excluded = false
 				if data.itemTagSpecialExclusionPattern[substring] and data.itemTagSpecialExclusionPattern[substring][itemSlotName] then

@@ -1,0 +1,13 @@
+diff a/spec/System/TestItemParse_spec.lua b/spec/System/TestItemParse_spec.lua	(rejected hunks)
+@@ -341,6 +341,11 @@ describe("TestItemParse", function()
+ 		assert.are.same({ "life", "physical_damage" }, item.explicitModLines[1].modTags)
+ 	end)
+ 
++	it("ignores disabled modifiers in item conditions", function()
++		local item = new("Item", raw("{disabled}+100 to maximum Life"))
++		assert.is_false(item:FindModifierSubstring("life", "body armour"))
++	end)
++
+ 	it("variant", function()
+ 		local item = new("Item", raw([[
+ 			Selected Variant: 2

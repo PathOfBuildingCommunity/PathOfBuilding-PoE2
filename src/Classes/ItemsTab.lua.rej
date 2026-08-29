@@ -1,0 +1,35 @@
+diff a/src/Classes/ItemsTab.lua b/src/Classes/ItemsTab.lua	(rejected hunks)
+@@ -1869,6 +1890,21 @@ function ItemsTabClass:UpdateDisplayItemTooltip()
+ 	self.displayItemTooltip.center = true
+ end
+ 
++function ItemsTabClass:ToggleDisplayItemModLine(modLine)
++	if not self.displayItem or not modLine then
++		return
++	end
++	modLine.disabled = not modLine.disabled
++	self.displayItem:BuildAndParseRaw()
++	self:UpdateDisplayItemTooltip()
++	self:UpdateDisplayItemRangeLines()
++	self:UpdateCustomControls()
++	if self.displayItem.crafted then
++		self:UpdateAffixControls()
++	end
++	self.build.buildFlag = true
++end
++
+ function ItemsTabClass:UpdateSocketControls()
+ 	local sockets = self.displayItem.sockets
+ 	for i = 1, #sockets - self.displayItem.abyssalSocketCount do
+@@ -4324,7 +4360,10 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
+ 		if modList[1] then
+ 			for _, modLine in ipairs(modList) do
+ 				if item:CheckModLineVariant(modLine) then
+-					tooltip:AddLine(fontSizeBig, itemLib.formatModLine(modLine, dbMode), "FONTIN SC")
++					local formatted = itemLib.formatModLine(modLine, dbMode)
++					if formatted then
++						tooltip:AddLine(fontSizeBig, formatted, "FONTIN SC", modLine)
++					end
+ 				end
+ 			end
+ 			tooltip:AddSeparator(10)
