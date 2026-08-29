@@ -62,8 +62,6 @@ local function getCatalystScalar(catalystId, mod, quality)
 	return 1
 end
 
-
-
 ---@class Item
 local ItemClass = newClass("Item")
 
@@ -1389,7 +1387,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						if modMagnitudeMod.anyTags and not (tagLookup[modMagnitudeMod.anyTags[1]] or tagLookup[modMagnitudeMod.anyTags[2]]) then
 							match = false
 						end
-						if match and not mod.unscalable and not grantsSkill then
+						if match and not grantsSkill then
 							if modMagnitudeMod.multiplier then
 								mod.valueScalar = (mod.valueScalar or 1) * modMagnitudeMod.multiplier
 							else
@@ -1884,9 +1882,8 @@ function ItemClass:Craft()
 					self.nameSuffix = self.nameSuffix .. " " .. mod.affix
 				end
 				self.requirements.level = m_max(self.requirements.level, m_floor(mod.level * 0.8))
-				local rangeScalar = getCatalystScalar(self.catalyst, mod, self.catalystQuality)
 				for i, line in ipairs(mod) do
-					line = itemLib.applyRange(line, affix.range or 0.5, rangeScalar)
+					line = itemLib.applyRange(line, affix.range or 0.5)
 					local order = mod.statOrder[i]
 					if statOrder[order] then
 						-- Combine stats
@@ -1897,7 +1894,7 @@ function ItemClass:Craft()
 							return tonumber(num) + tonumber(other)
 						end)
 					else
-						local modLine = { line = line, order = order, type = mod.type }
+						local modLine = { line = line, order = order, type = mod.type, modTags = mod.modTags or { }, unscalable = mod.unscalable }
 						modLine[mod.type:lower()] = true
 						for l = 1, #self.explicitModLines + 1 do
 							if not self.explicitModLines[l] or self.explicitModLines[l].order > order then

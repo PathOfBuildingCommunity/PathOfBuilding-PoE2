@@ -1053,8 +1053,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
-		local match = item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus")
-		assert.is_not_nil(match)
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
 	end)
 
 	it("jewel sockets", function()
@@ -1453,6 +1452,15 @@ describe("TestAdvancedItemParse #item", function()
 			assert.are.equals(130, chaosDamageInc())
 		end)
 
+		it("does not scale unscalable base implicits", function()
+			local base = data.itemBases["Fists of Stone"]
+			local item = new("Item"):Item("Rarity: Rare\nTest Subject\nFists of Stone\nCrafted: true\nImplicits: 2\n" .. base.implicit .. "\n100% increased Implicit Modifier magnitudes")
+			for _, modLine in ipairs(item.implicitModLines) do
+				assert.is_true(modLine.unscalable)
+				assert.are.equals(1, modLine.valueScalar)
+			end
+		end)
+
 		it("reduces the modifier magnitude correctly", function()
 			build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
@@ -1503,6 +1511,27 @@ describe("TestAdvancedItemParse #item", function()
 			item:Craft()
 			assert.is_true(item.explicitModLines[1].prefix)
 			assert.are.equals(15, item.baseModList:Sum("INC", nil, "ChaosDamage"))
+		end)
+
+		it("preserves affix tags when crafting items", function()
+			local item = new("Item"):Item([[
+			Rarity: Rare
+			Test Subject
+			Sapphire Ring
+			Quality (Chaos Modifiers): +20% (augmented)
+			Crafted: true
+			Prefix: ChaosDamagePercent6
+			Suffix: DestructionInfluenceChaosModifierEffect
+			Implicits: 0
+			{tags:chaos,damage}{prefix}{range:1}(27-30)% increased Chaos Damage
+			{tags:chaos}{suffix}{range:1}(15-20)% increased Explicit Chaos Modifier magnitudes
+		]])
+			item.prefixes[1].range = 1
+			item.suffixes[1].range = 1
+			item:Craft()
+			assert.are.equals(42, item.baseModList:Sum("INC", nil, "ChaosDamage"))
+			item:BuildAndParseRaw()
+			assert.are.equals(42, item.baseModList:Sum("INC", nil, "ChaosDamage"))
 		end)
 
 		-- actually a ring so we don't have to allocate a socket

@@ -176,7 +176,7 @@ Solar Amulet
 League: Runes of Aldur
 Implicits: 1
 +(10-15) to Spirit
-{tags:life,mana}100% of Damage is taken from Mana before Life
+{unscalable}{tags:life,mana}100% of Damage is taken from Mana before Life
 {tags:defences}Cannot have Energy Shield
 {tags:defences}Convert 100% of maximum Energy Shield to maximum Divinity
 (0-100)% increased maximum Divinity
