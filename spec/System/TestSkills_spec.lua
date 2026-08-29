@@ -465,8 +465,8 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local genericEfficiencyCost = build.calcsTab.mainOutput.ManaCost
-		-- Test actual behavior: 9/1.25 = 7.2 (not rounded)
-		assert.True(math.abs(genericEfficiencyCost - 7.2) < 0.001)
+		-- The game rounds 9 / 1.25 = 7.2 after applying efficiency.
+		assert.are.equals(7, genericEfficiencyCost)
 
 		-- Test multiple efficiency sources stacking additively
 		build.configTab.input.customMods = "25% increased Cost Efficiency\n25% increased Mana Cost Efficiency"
@@ -487,7 +487,7 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
-		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+		assert.are.equals(9, finalCost) -- round(floor(9 * 1.5) / 1.5)
 	end)
 
 	it("Test socket group pasting with corruption levels and count", function()
