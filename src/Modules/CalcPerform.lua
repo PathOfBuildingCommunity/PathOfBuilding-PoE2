@@ -3397,7 +3397,7 @@ function calcs.perform(env, skipEHP)
 		for _, v in ipairs(mods) do
 			local mod = copyTable(v.mod)
 			if not v.unscalable then
-				mod.value *= effect
+				mod.value = m_modf(round(mod.value * effect, 2))
 			end
 			if v.applyToEnemy then
 				enemyDB:AddMod(mod)
