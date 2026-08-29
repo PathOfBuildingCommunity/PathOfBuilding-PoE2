@@ -19,6 +19,8 @@ local mod_createMod = modLib.createMod
 ---@class ModList: ModStore
 local ModListClass = newClass("ModList", "ModStore")
 
+---@param parent? ModStore
+---@return ModList
 function ModListClass:ModList(parent)
 	self:ModStore(parent)
 	return self

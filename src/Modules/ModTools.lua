@@ -20,13 +20,39 @@ modLib = { }
 --- "Flag" is only used with CanNotUseItem
 ---@alias NumericModTypes "INC"|"MORE"|"BASE"|"OVERRIDE"|"MAX"|"CHANCE"|"DUMMY"|"Flag"|"MIN"
 
--- Massive discriminated union. Todo: probably has to be built with an LLM for a start
----@class ModTag
----@field type string
+---@alias OtherModTagType "ActorCondition"|"BaseFlag"|"DisablesItem"|"DistanceRamp"|"GemTag"|"Global"|"GlobalEffect"|"IgnoreCond"|"InSlot"|"ItemCondition"|"KeywordFlagAnd"|"Limit"|"ModFlagOr"|"MonsterTag"|"Multiplier"|"MultiplierThreshold"|"PercentStat"|"SkillId"|"SkillName"|"SkillPart"|"SkillType"|"SlotName"|"SlotNumber"|"SocketedIn"|"StatThreshold"
 
----@overload fun(modName: string, modType: NumericModTypes, modVal?: number, sourceOrTag: string|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
----@overload fun(modName: string, modType: "FLAG", modVal: boolean, sourceOrModTag: string|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
----@overload fun(modName: string, modType: "LIST", modVal: any[]|any, sourceOrModTag: string|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@class ConditionModTag
+---@field type "Condition"
+---@field var? string
+---@field varList? string[]
+---@field neg? boolean
+
+---@class PerStatModTag
+---@field type "PerStat"
+---@field stat? string
+---@field statList? string[]
+---@field actor? string
+---@field div? number
+---@field divVar? string
+---@field limit? number
+---@field limitVar? string
+---@field limitTotal? boolean
+---@field base? number
+---@field globalLimit? number
+---@field globalLimitKey? string
+
+---@class OtherModTag
+---@field type OtherModTagType
+---@field [string] any
+
+---@alias ModTag ConditionModTag|PerStatModTag|OtherModTag
+---@alias SkillModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, flags?: number, keywordFlags?: number, ...: ModTag): Mod
+---@alias CreateModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, sourceOrTag?: string|number|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag): Mod
+
+---@overload fun(modName: string, modType: NumericModTypes, modVal?: number, sourceOrTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@overload fun(modName: string, modType: "FLAG", modVal: boolean|number, sourceOrModTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@overload fun(modName: string, modType: "LIST", modVal: any[]|any, sourceOrModTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
 ---@return Mod
 function modLib.createMod(modName, modType, modVal, ...)
 	local flags = 0

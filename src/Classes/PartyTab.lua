@@ -10,6 +10,7 @@ local t_insert = table.insert
 local m_max = math.max
 
 ---@class PartyTab: ControlHost, Control
+---@field actor PartyActor
 local PartyTabClass = newClass("PartyTab", "ControlHost", "Control")
 
 function PartyTabClass:PartyTab(build)
