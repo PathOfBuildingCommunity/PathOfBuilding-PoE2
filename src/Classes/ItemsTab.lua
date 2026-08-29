@@ -74,32 +74,12 @@ end
 
 local function buildModSortList()
 	local sortList = { { label = "Default", stat = nil } }
-	local sortTransforms = { }
 	for _, entry in ipairs(data.powerStatList) do
-		if entry.stat and not entry.ignoreForNodes then
-			t_insert(sortList, { label = entry.label, stat = entry.stat })
-			sortTransforms[entry.stat] = entry.transform
+		if entry.stat and not entry.ignoreForItems then
+			t_insert(sortList, entry)
 		end
 	end
-	return sortList, sortTransforms
-end
-
-local function getOutputStatValue(output, stat)
-	if stat == "FullDPS" then
-		if output[stat] ~= nil then
-			return output[stat]
-		end
-		if output.Minion and output.Minion.CombinedDPS ~= nil then
-			return output.Minion.CombinedDPS
-		end
-	end
-	if output.Minion and output.Minion[stat] ~= nil then
-		return output.Minion[stat]
-	end
-	if output[stat] ~= nil then
-		return output[stat]
-	end
-	return 0
+	return sortList
 end
 
 local function setDefaultSortOrder(modList)
@@ -110,7 +90,8 @@ local function setDefaultSortOrder(modList)
 	end
 end
 
-local function getSortedModValue(item, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, addModToItem)
+local function getSortedModValue(item, listMod, sortOption, calcFunc, slotName, addModToItem)
+	local stat = sortOption.stat
 	listMod.sortValues = listMod.sortValues or { }
 	if listMod.sortValues[stat] ~= nil then
 		return listMod.sortValues[stat]
@@ -119,11 +100,8 @@ local function getSortedModValue(item, listMod, stat, sortTransforms, calcFunc, 
 	testItem.id = item.id
 	addModToItem(testItem, listMod)
 	testItem:BuildAndParseRaw()
-	local output = calcFunc({ repSlotName = slotName, repItem = testItem }, useFullDPS)
-	local value = getOutputStatValue(output, stat)
-	if sortTransforms[stat] then
-		value = sortTransforms[stat](value)
-	end
+	local output = calcFunc({ repSlotName = slotName, repItem = testItem }, stat == "FullDPS")
+	local value = data.powerStatList.GetFromOutput(output, sortOption)
 	listMod.sortValues[stat] = value
 	return value
 end
@@ -730,9 +708,24 @@ holding Shift will put it in the second.]])
 		self.controls["displayItemRuneLabel" .. i] = new("LabelControl"):LabelControl({ "RIGHT", drop, "LEFT" }, { -4, 0, 0, 14 }, "^7Rune #" .. i)
 	end
 
+	-- Section: Crafting modifier sorting
+	local sortList = buildModSortList()
+	local function craftingSortingShown()
+		return self.displayItem and self.displayItem.crafted and not self.displayItem.clusterJewel
+	end
+	self.controls.displayItemSectionCraftingSort = new("Control"):Control({ "TOPLEFT", self.controls.displayItemSectionRune, "BOTTOMLEFT" }, { 0, 0, 0, function()
+		return craftingSortingShown() and 28 or 0
+	end })
+	self.controls.craftingSortingLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.displayItemSectionCraftingSort, "TOPLEFT" }, { 0, 6, 0, 16 }, "^7Modifier sorting:")
+	self.controls.craftingSortingLabel.shown = craftingSortingShown
+	self.controls.craftingSorting = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.craftingSortingLabel, "RIGHT" }, { 4, 0, 200, 20 }, sortList, function()
+		self:UpdateAffixControls()
+	end)
+	self.controls.craftingSorting.shown = craftingSortingShown
+
 	-- Section: Affix Selection
 	local maxModCount = 9
-	self.controls.displayItemSectionAffix = new("Control"):Control({ "TOPLEFT", self.controls.displayItemSectionRune, "BOTTOMLEFT" }, { 0, 0, 0, function()
+	self.controls.displayItemSectionAffix = new("Control"):Control({ "TOPLEFT", self.controls.displayItemSectionCraftingSort, "BOTTOMLEFT" }, { 0, 0, 0, function()
 		if not self.displayItem or not self.displayItem.crafted then
 			return 0
 		end
@@ -747,6 +740,7 @@ holding Shift will put it in the second.]])
 		end
 		return h
 	end})
+
 	for i = 1, maxModCount do
 		local prev = self.controls["displayItemAffix"..(i-1)] or self.controls.displayItemSectionAffix
 		local drop, slider
@@ -1939,11 +1933,12 @@ end
 function ItemsTabClass:UpdateAffixControls()
 	local item = self.displayItem
 	local prefixLimit = item.prefixes.limit or (item.affixLimit / 2)
+	local powerCache = { }
 	for i = 1, item.affixLimit do
 		if i <= prefixLimit then
-			self:UpdateAffixControl(self.controls["displayItemAffix"..i], item, "Prefix", "prefixes", i)
+			self:UpdateAffixControl(self.controls["displayItemAffix"..i], item, "Prefix", "prefixes", i, powerCache)
 		else
-			self:UpdateAffixControl(self.controls["displayItemAffix"..i], item, "Suffix", "suffixes", i - prefixLimit)
+			self:UpdateAffixControl(self.controls["displayItemAffix"..i], item, "Suffix", "suffixes", i - prefixLimit, powerCache)
 		end
 	end
 	-- The custom affixes may have had their indexes changed, so the custom control UI is also rebuilt so that it will
@@ -2043,7 +2038,7 @@ function ItemsTabClass:UpdateRuneControls()
 	end
 end
 
-function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outputIndex)
+function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outputIndex, powerCache)
 	local extraTags = { }
 	local excludeGroups = { }
 	for _, table in ipairs({"prefixes","suffixes"}) do
@@ -2139,6 +2134,40 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 			if #lastSeries.modList == 2 then
 				lastSeries.label = lastSeries.label:gsub("%(%-?[%d%.]+%-%-?[%d%.]+%)","#"):gsub("%-?%d+%.?%d*","#")
 				lastSeries.haveRange = true
+			end
+		end
+	end
+	local sortOption = self.controls.craftingSorting:GetSelValue()
+	if sortOption.stat and self.controls.craftingSorting:IsShown() then
+		local modList = { }
+		for index = 2, #control.list do
+			t_insert(modList, control.list[index])
+		end
+		setDefaultSortOrder(modList)
+		local calcFunc = self.build.calcsTab:GetMiscCalculator()
+		local slotName = self:GetComparisonSlotNameForItem(item)
+		local controlPowerCache = selAffix ~= "None" and { } or powerCache or { }
+		sortModList(modList, sortOption.stat, function(listMod)
+			local modId = listMod.modList[1 + round((#listMod.modList - 1) * main.defaultItemAffixQuality)]
+			local cacheEntry = controlPowerCache[modId]
+			if not cacheEntry then
+				cacheEntry = { modId = modId }
+				controlPowerCache[modId] = cacheEntry
+			end
+			return getSortedModValue(item, cacheEntry, sortOption, calcFunc, slotName, function(testItem, sortedMod)
+				testItem[outputTable][outputIndex] = { modId = sortedMod.modId, range = main.defaultItemAffixQuality }
+				testItem:Craft()
+			end)
+		end)
+		wipeTable(control.list)
+		t_insert(control.list, "None")
+		for _, listMod in ipairs(modList) do
+			t_insert(control.list, listMod)
+		end
+		for index, listMod in ipairs(control.list) do
+			if listMod.modList and isValueInArray(listMod.modList, selAffix) then
+				control.selIndex = index
+				break
 			end
 		end
 	end
@@ -2706,7 +2735,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	local corruptedRanges = {}
 	local currentModType = "Corrupted"
 	local sourceList = { "Corrupted" }
-	local sortList, sortTransforms = buildModSortList()
+	local sortList = buildModSortList()
 
 	if self.displayItem.base.type == "Helmet" then
 		t_insert(sourceList, "Glimpse of Chaos")
@@ -2789,13 +2818,12 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			end
 		end
 	end
-	local function sortEnchantList(stat)
-		if stat then
+	local function sortEnchantList(sortOption)
+		if sortOption.stat then
 			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
-			local useFullDPS = stat == "FullDPS"
-			sortModList(enchantList[currentModType], stat, function(listMod)
-				return getSortedModValue(self.displayItem, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, function(item, sortedMod)
+			sortModList(enchantList[currentModType], sortOption.stat, function(listMod)
+				return getSortedModValue(self.displayItem, listMod, sortOption, calcFunc, slotName, function(item, sortedMod)
 					applyCorruptionMods(item, { sortedMod.mod })
 				end)
 			end)
@@ -2956,7 +2984,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			end
 		end
 		if controls.sort then
-			sortEnchantList(controls.sort.list[controls.sort.selIndex].stat)
+			sortEnchantList(controls.sort:GetSelValue())
 		end
 		rebuildEnchantControls(true)
 		main.popups[1].height = 103 + 20 * enchantNum
@@ -2966,7 +2994,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	controls.source:SelByValue(currentModType == "SpecialCorrupted" and "Glimpse of Chaos" or "Corrupted")
 	controls.sortLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", nil, "TOPLEFT" }, { 350, 30, 0, 16 }, "^7Sort by:")
 	controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", nil, "TOPLEFT" }, { 355, 30, 240, 18 }, sortList, function(index, value)
-		sortEnchantList(value.stat)
+		sortEnchantList(value)
 		rebuildEnchantControls()
 	end)
 	for i = 1, 8 do
@@ -3014,18 +3042,17 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	local controls = { }
 	local sourceList = { }
 	local modList = { }
-	local sortList, sortTransforms = buildModSortList()
-	local function applySort(stat, selectFirst)
+	local sortList = buildModSortList()
+	local function applySort(sortOption, selectFirst)
 		if not controls.modSelect or not controls.modSelect:IsShown() then
 			return
 		end
 		local selected = not selectFirst and modList[controls.modSelect.selIndex] or nil
-		if stat then
+		if sortOption.stat then
 			local slotName = self:GetComparisonSlotNameForItem(self.displayItem)
 			local calcFunc = self.build.calcsTab:GetMiscCalculator()
-			local useFullDPS = stat == "FullDPS"
-			sortModList(modList, stat, function(listMod)
-				return getSortedModValue(self.displayItem, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, function(item, sortedMod)
+			sortModList(modList, sortOption.stat, function(listMod)
+				return getSortedModValue(self.displayItem, listMod, sortOption, calcFunc, slotName, function(item, sortedMod)
 					for _, line in ipairs(sortedMod.mod) do
 						t_insert(item.explicitModLines, { line = checkLineForAllocates(line, self.build.spec.nodes), modTags = sortedMod.mod.modTags, [sortedMod.type] = true })
 					end
@@ -3233,7 +3260,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		buildMods(value.sourceId)
 		controls.modSelect:SetSel(1)
 		if controls.sort then
-			applySort(controls.sort.list[controls.sort.selIndex].stat, true)
+			applySort(controls.sort:GetSelValue(), true)
 		end
 	end)
 	controls.source.enabled = #sourceList > 1
@@ -3242,7 +3269,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
 	controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", nil, "TOPLEFT" }, { 355, 20, 240, 18 }, sortList, function(index, value)
-		applySort(value.stat, true)
+		applySort(value, true)
 	end)
 	controls.sort.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"

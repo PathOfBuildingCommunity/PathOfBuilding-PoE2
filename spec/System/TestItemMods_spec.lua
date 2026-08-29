@@ -106,6 +106,53 @@ describe("TetsItemMods", function()
 		assert.are.equals(-math.huge, itemDB.list[#itemDB.list].measuredPower)
 	end)
 
+	it("sorts crafted modifier replacements without retaining the selected modifier", function()
+		local item = new("Item"):Item([[
+			Rarity: RARE
+			Armour Chest
+			Champion Cuirass
+			Armour: 526
+			Crafted: true
+			Prefix: {range:1}IncreasedLife1
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Quality: 18
+			Item Level: 100
+			LevelReq: 65
+			Implicits: 0
+			+19 to maximum Life
+		]])
+		local calcCount = 0
+		local retainedCount = 0
+		assert.are.equals("+19 to maximum Life", item.explicitModLines[1].line)
+		build.itemsTab.displayItem = item
+		build.itemsTab.controls.craftingSorting:SelByValue("Life", "stat")
+		build.calcsTab.GetMiscCalculator = function()
+			return function(args)
+				calcCount += 1
+				local life = 0
+				for _, modLine in ipairs(args.repItem.explicitModLines) do
+					if modLine.line == "+19 to maximum Life" then
+						retainedCount += 1
+					end
+					life += tonumber(modLine.line:match("%+(%d+) to maximum Life")) or 0
+				end
+				return { Life = life }
+			end
+		end
+
+		local control = build.itemsTab.controls.displayItemAffix1
+		build.itemsTab:UpdateAffixControl(control, item, "Prefix", "prefixes", 1, { })
+
+		assert.is_true(calcCount > 1)
+		assert.are.equals(0, retainedCount)
+		assert.is_truthy(control.list[2].label:find("maximum Life", 1, true))
+		assert.is_truthy(isValueInArray(control.list[control.selIndex].modList, "IncreasedLife1"))
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
