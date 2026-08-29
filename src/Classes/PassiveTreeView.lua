@@ -139,6 +139,11 @@ end
 
 -- Returns the draw color for a node when compare overlay is active.
 -- Handles diff coloring for allocated/unallocated, mastery changes, and jewel socket differences.
+---@param node Node
+---@param compareNode Node?
+---@param spec PassiveSpec
+---@param build Build
+---@param nodeDefaultColor any
 function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build, nodeDefaultColor)
 	if not compareNode then
 		return nodeDefaultColor
@@ -1444,6 +1449,7 @@ function PassiveTreeViewClass:Zoom(level, viewPort)
 	self.zoomY = relY + (self.zoomY - relY) * factor
 end
 
+---@param build Build
 function PassiveTreeViewClass:Focus(x, y, viewPort, build)
 	self.zoomLevel = 20
 	self.zoom = 1.2 ^ self.zoomLevel
@@ -1547,6 +1553,9 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 	end
 end
 
+---@param tooltip Tooltip
+---@param node Node
+---@param build Build
 function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	tooltip:SetRecipe(node.infoRecipe)
@@ -1606,6 +1615,10 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	end
 end
 
+---@param tooltip Tooltip
+---@param node Node
+---@param build Build
+---@param incSmallPassiveSkillEffect number? Whether the function should stop after writing the mod info, before any allocation-specific info
 function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassiveSkillEffect)
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	tooltip.center = true

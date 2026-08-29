@@ -6,6 +6,7 @@
 local t_insert = table.insert
 local m_floor = math.floor
 
+---@enum (key) AnchorPoint
 local anchorPos = {
 	    ["TOPLEFT"] = { 0  , 0   },
 	        ["TOP"] = { 0.5, 0   },
@@ -39,10 +40,19 @@ local rect = {
 ---@field shown          Prop<boolean>
 ---@field x              Prop<number>?
 ---@field y              Prop<number>?
+---@field width          Prop<number>?
+---@field height         Prop<number>?
 ---@field collapseY      number? An additional offset which is applied when this control uses a collapsed anchor.
 ---@field collapseX      number? An additional offset which is applied when this control uses a collapsed anchor.
 local ControlClass = newClass("Control")
 
+---@generic T
+---@alias Prop<T> (fun(self: self): T) | T
+---@alias Anchor [AnchorPoint, Control|ControlHost|nil, AnchorPoint, boolean|nil]
+---@alias Rect [Prop<number>?,Prop<number>?, Prop<number>?, Prop<number>?]
+
+---@param anchor? Anchor
+---@param rect? Rect
 function ControlClass:Control(anchor, rect)
 	self.rectStart = rect or {0, 0, 0, 0}
 	self.x, self.y, self.width, self.height = unpack(self.rectStart)

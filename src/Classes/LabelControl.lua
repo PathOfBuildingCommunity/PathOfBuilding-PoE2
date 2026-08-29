@@ -6,6 +6,9 @@
 ---@class LabelControl: Control
 local LabelClass = newClass("LabelControl", "Control")
 
+---@param anchor? Anchor
+---@param rect? Rect
+---@param label? Prop<string>
 function LabelClass:LabelControl(anchor, rect, label)
 	self:Control(anchor, rect)
 	self.label = label

@@ -13,13 +13,13 @@ local s_upper = string.upper
 local varList = require("Modules.ConfigOptions")
 local configModBrowser = require("Modules.ConfigModBrowser")
 
----@class CustomModBlockControl : Control, ControlHost
-local CustomModBlockClass = newClass("CustomModBlockControl", "Control", "ControlHost")
+---@class CustomModBlockControl: ControlHost, Control
+local CustomModBlockClass = newClass("CustomModBlockControl", "ControlHost", "Control")
 
----@param anchor Anchor
----@param rect Rect
+---@param anchor Anchor?
+---@param rect Rect?
 ---@param configTab ConfigTab
----@param blockIndex any
+---@param blockIndex integer
 ---@param blockData any
 function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, blockIndex, blockData)
 	self:Control(anchor, rect)

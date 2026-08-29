@@ -430,6 +430,7 @@ end
 ---@param actor table actor (with output and modDB) for which to calculate the damage
 ---@return number, table sum of damages and a table of taken damage parts
 function calcs.takenHitFromDamage(rawDamage, damageType, actor)
+	---@class Output
 	local output = actor.output
 	local modDB = actor.modDB
 	local function damageMitigationMultiplierForType(damage, type)
@@ -469,6 +470,7 @@ end
 ---@param actor table actor (with output and modDB) for which to calculate the pools
 ---@return table pools reduced by damage
 function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
+	---@class Output
 	local output = actor.output
 	local modDB = actor.modDB
 	local poolTbl = poolTable or { }
@@ -766,7 +768,9 @@ end
 function calcs.defence(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local condList = modDB.conditions
@@ -829,6 +833,7 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	---@alias MinMaxTotalBreakdownResist [string, string, string]
 	-- Resistances
 	output["PhysicalResist"] = 0
 
@@ -2032,7 +2037,9 @@ end
 function calcs.buildDefenceEstimations(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local condList = modDB.conditions

@@ -18,6 +18,12 @@ local toolTipText = "Prefix tag searches with a colon and exclude tags with a da
 ---@class GemSelectControl: EditControl
 local GemSelectClass = newClass("GemSelectControl", "EditControl")
 
+---@param anchor Anchor?
+---@param rect Rect?
+---@param skillsTab SkillsTab
+---@param index integer
+---@param changeFunc fun(...)
+---@param forceTooltip boolean
 function GemSelectClass:GemSelectControl(anchor, rect, skillsTab, index, changeFunc, forceTooltip)
 	self:EditControl(anchor, rect, nil, nil, "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)

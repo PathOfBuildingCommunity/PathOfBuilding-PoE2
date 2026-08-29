@@ -14,7 +14,8 @@ local m_max = math.max
 local s_format = string.format
 
 return function(modDB, output, actor)
-	local breakdown = { }
+	---@class Breakdown
+	local breakdown = {}
 
 	function breakdown.multiChain(out, chain)
 		local base = (chain.base and chain.base[2]) or nil
