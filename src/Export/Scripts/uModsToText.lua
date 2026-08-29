@@ -193,10 +193,18 @@ for _, name in ipairs(itemTypes) do
 			end
 			if mod then
 				modLines = modLines + 1
+				prefix = prefix..(mod.unscalable and "{unscalable}" or "")
 				if useCatalystTags then
 					prefix = prefix..getCatalystTagPrefix(mod.modTags)
 				end
 				prefix = prefix..fractured
+				if mod.modTags then
+					for _, tag in ipairs(mod.modTags) do
+						if tag == "unveiled_mod" then
+							prefix ..= "{desecrated}"
+						end
+					end
+				end
 				local legacyMod
 				if legacy ~= "" then
 					local values = { }
