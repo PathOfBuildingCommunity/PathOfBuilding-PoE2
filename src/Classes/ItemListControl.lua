@@ -35,7 +35,7 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 					spec.jewels[nodeId] = 0
 				end
 			end
-			wipeTable(self.list)
+			wipeTable(itemsTab.itemOrderList)
 			wipeTable(self.itemsTab.items)
 			itemsTab:PopulateSlots()
 			itemsTab:AddUndoState()
@@ -159,6 +159,7 @@ function ItemListClass:ReceiveDrag(type, value, source)
 		self.itemsTab:AddItem(newItem, true, self.selDragIndex)
 		self.itemsTab:PopulateSlots()
 		self.itemsTab:AddUndoState()
+		self:UpdateList()
 	end
 end
 
@@ -222,6 +223,7 @@ function ItemListClass:OnSelDelete(index, itemId)
 				self.itemsTab:DeleteItem(item)
 				self.selIndex = nil
 				self.selValue = nil
+				self:UpdateList()
 			end)
 		else
 			local equipTree = self:FindSocketedJewel(itemId, true)
@@ -230,11 +232,13 @@ function ItemListClass:OnSelDelete(index, itemId)
 					self.itemsTab:DeleteItem(item)
 					self.selIndex = nil
 					self.selValue = nil
+					self:UpdateList()
 				end)
 			else
 				self.itemsTab:DeleteItem(item)
 				self.selIndex = nil
 				self.selValue = nil
+				self:UpdateList()
 			end
 		end
 	end
