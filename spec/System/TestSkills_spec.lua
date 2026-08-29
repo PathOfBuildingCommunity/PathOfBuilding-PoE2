@@ -465,7 +465,7 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local genericEfficiencyCost = build.calcsTab.mainOutput.ManaCost
-		The game rounds 9 / 1.25 = 7.2 after applying efficiency.
+		-- The game rounds 9 / 1.25 = 7.2 after applying efficiency.
 		assert.are.equals(7, genericEfficiencyCost)
 
 		-- Test multiple efficiency sources stacking additively
