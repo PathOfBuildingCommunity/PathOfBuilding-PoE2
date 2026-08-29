@@ -2153,9 +2153,13 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			qualityScalar = 0
 		end
 
+		armourData.ArmourBase = self.base.armour.Armour or 0
 		armourData.Armour = round((armourBase + armourEvasionBase + armourEnergyShieldBase) * (1 + (armourInc + armourEvasionInc + armourEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.EvasionBase = self.base.armour.Evasion or 0
 		armourData.Evasion = round((evasionBase + armourEvasionBase + evasionEnergyShieldBase) * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.EnergyShieldBase = self.base.armour.EnergyShield or 0
 		armourData.EnergyShield = round((energyShieldBase + evasionEnergyShieldBase + armourEnergyShieldBase) * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.WardBase = self.base.armour.Ward or 0
 		armourData.Ward = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 		armourData.EvasionPerLevel = evasionPerLevel * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
 		armourData.EnergyShieldPerLevel = energyShieldPerLevel * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))
