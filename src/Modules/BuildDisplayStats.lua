@@ -16,7 +16,7 @@ local defenseIgnoredSections = { "Base from Gear", "Inc. from Tree" }
 ---@field label? string                  Display label shown before the value
 ---@field fmt? string                    C-style format spec applied to the value, e.g. "d", ".1f", ".2f%%", "+d%%"
 ---@field breakdown? string              Override key for the sidebar breakdown. Should be set if the stat/childStat names don't match up with the breakdown names, or if the breakdown is conditional, but the cell isn't.
----@field modNames string[]?             Modifier names to show in the breakdown popup. This should only be used if the breakdown itself doesn't list the mods. E.g. Life doesn't. Additionally, you can set this to "" when breakdown is also set to always show the cell info, even if the breakdown itself is nil.
+---@field modNames string[]?             Modifier names to show in the breakdown popup. This should only be used if the breakdown itself doesn't list the mods. E.g. Life doesn't. Additionally, you can set this to { "" } when breakdown is also set to always show the cell info, even if the breakdown itself is nil.
 ---@field ignoredSections string[]?      A list of breakdown sections which shouldn't be shown. Useful to avoid duplicated info.
 ---@field color? string                  Colour escape code for the label (e.g. colorCodes.LIFE)
 ---@field flag? string                   Only show when the main skill has this skill flag
@@ -152,9 +152,9 @@ local displayStats = {
 	{ },
 	{ stat = "Life", label = "Total Life", fmt = "d", color = colorCodes.LIFE, compPercent = true, modNames = { "Life" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "Spec:LifeInc", label = "%Inc Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v > 0 and o.Life > 1 end },
-	{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v <= 0 and "Your unreserved Life is below 1" end },
+	{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v <= 0 and "Your unreserved Life is below 1" end, breakdown = "LifeReserved", modNames = { "" } },
 	{ stat = "LifeRecoverable", label = "Life Recoverable", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.LifeUnreserved end, },
-	{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end },
+	{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end, breakdown = "LifeReserved", modNames = { "" } },
 	{ stat = "LifeRegenRecovery", label = "Life Regen", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery <= 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
 	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery > 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
 	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true, breakdown = "LifeLeech" },
@@ -162,23 +162,23 @@ local displayStats = {
 	{ },
 	{ stat = "Mana", label = "Total Mana", fmt = "d", color = colorCodes.MANA, compPercent = true, modNames = { "Mana" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "Spec:ManaInc", label = "%Inc Mana from Tree", color = colorCodes.MANA, fmt = "d%%" },
-	{ stat = "ManaUnreserved", label = "Unreserved Mana", fmt = "d", color = colorCodes.MANA, condFunc = function(v,o) return v < o.Mana end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Mana is negative" end },
+	{ stat = "ManaUnreserved", label = "Unreserved Mana", fmt = "d", color = colorCodes.MANA, condFunc = function(v,o) return v < o.Mana end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Mana is negative" end, breakdown = "ManaReserved" },
 	{ stat = "ManaUnreservedPercent", label = "Unreserved Mana", fmt = "d%%", color = colorCodes.MANA, condFunc = function(v, o) return v < 100 end, breakdown = "ManaReserved" },
 	{ stat = "ManaRegenRecovery", label = "Mana Regen", fmt = ".1f", color = colorCodes.MANA, condFunc = function(v,o) return o.ManaRecovery <= 0 and o.ManaRegenRecovery ~= 0 end },
 	{ stat = "ManaRegenRecovery", label = "Mana Recovery", fmt = ".1f", color = colorCodes.MANA, condFunc = function(v,o) return o.ManaRecovery > 0 and o.ManaRegenRecovery ~= 0 end },
-	{ stat = "ManaLeechGainRate", label = "Mana Leech/On Hit Rate", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
+	{ stat = "ManaLeechGainRate", label = "Mana Leech/On Hit Rate", fmt = ".1f", color = colorCodes.MANA, compPercent = true, breakdown = "ManaLeech" },
 	{ stat = "ManaLeechGainPerHit", label = "Mana Leech/Gain per Hit", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
 	{ },
-	{ stat = "Spirit", label = "Total Spirit", fmt = "d", color = colorCodes.SPIRIT, compPercent = true, ignoredSections = { "Inc. from Tree", "Base from Gear" }, modNames = { "Spirit" } },
+	{ stat = "Spirit", label = "Total Spirit", fmt = "d", color = colorCodes.SPIRIT, compPercent = true, ignoredSections = defenseIgnoredSections, modNames = { "Spirit" } },
 	{ stat = "SpiritUnreserved", label = "Unreserved Spirit", fmt = "d", color = colorCodes.SPIRIT, condFunc = function(v, o) return v < o.Spirit end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Spirit is negative" end, breakdown = "SpiritReserved" },
-	{ stat = "SpiritUnreservedPercent", label = "Unreserved Spirit", fmt = "d%%", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < 100 end },
+	{ stat = "SpiritUnreservedPercent", label = "Unreserved Spirit", fmt = "d%%", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < 100 end, breakdown = "SpiritReserved" },
 	{ },
 	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, modNames = { "EnergyShield", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "EnergyShieldRecoveryCap", label = "Recoverable ES", color = colorCodes.ES, fmt = "d", condFunc = function(v,o) return o.CappingES end },
 	{ stat = "Spec:EnergyShieldInc", label = "%Inc ES from Tree", color = colorCodes.ES, fmt = "d%%" },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Regen", color = colorCodes.ES, fmt = ".1f", condFunc = function(v,o) return o.EnergyShieldRecovery <= 0 and o.EnergyShieldRegenRecovery ~= 0 end },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Recovery", color = colorCodes.ES, fmt = ".1f", condFunc = function(v,o) return o.EnergyShieldRecovery > 0 and o.EnergyShieldRegenRecovery ~= 0 end },
-	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", color = colorCodes.ES, fmt = ".1f", compPercent = true },
+	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", color = colorCodes.ES, fmt = ".1f", compPercent = true, breakdown = "EnergyShieldLeech" },
 	{ stat = "EnergyShieldLeechGainPerHit", label = "ES Leech/Gain per Hit", color = colorCodes.ES, fmt = ".1f", compPercent = true },
 	{ },
 	{ stat = "Rage", label = "Rage", fmt = "d", color = colorCodes.RAGE, compPercent = true },

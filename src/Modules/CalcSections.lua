@@ -1599,7 +1599,7 @@ return {
 	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Life", modType = "INC", }, }, },
 	{ label = "Total More", { format = "{0:mod:1}%", { modName = "Life", modType = "MORE", }, }, },
 	{ label = "Total", { format = "{0:output:Life}", { breakdown = "Life" }, }, },
-	{ label = "Reserved", { format = "{0:output:LifeReserved} ({0:output:LifeReservedPercent}%)", { breakdown = "LifeReserved" }, }, },
+	{ label = "Reserved", { format = "{0:output:LifeReserved} ({0:output:LifeReservedPercent}%)", { breakdown = "LifeReserved" }, { modName = "ExtraLifeReserved" }, }, },
 	{ label = "Unreserved", { format = "{0:output:LifeUnreserved} ({0:output:LifeUnreservedPercent}%)" }, },
 	{ label = "Total Recoverable", haveOutput = "CappingLife", { format = "{0:output:LifeRecoverable}", { breakdown = "LifeUnreserved" }, }, },
 	{ label = "Recharge Rate", haveOutput = "EnergyShieldRechargeAppliesToLife", { format = "{1:output:LifeRecharge}", 
@@ -1680,7 +1680,7 @@ return {
 { 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Spirit", data = {
 	extra = "{0:output:SpiritUnreserved}/{0:output:Spirit}",
 	notFlag = "minionSkill",
-	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item", skipSideBarIndex = true }, }, },
+	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item" }, }, },
 	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC", modSource = "Tree" }, }, },
 	{ label = "Total Base", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE" }, }, },
 	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC" }, }, },

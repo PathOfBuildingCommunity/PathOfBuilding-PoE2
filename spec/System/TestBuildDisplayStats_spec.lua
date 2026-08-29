@@ -32,6 +32,38 @@ describe("Build display stats", function()
 		end
 	end)
 
+	it("links resource sidebar stats to their breakdowns", function()
+		local expectedBreakdowns = {
+			LifeUnreserved = "LifeReserved",
+			LifeUnreservedPercent = "LifeReserved",
+			ManaUnreserved = "ManaReserved",
+			ManaUnreservedPercent = "ManaReserved",
+			SpiritUnreserved = "SpiritReserved",
+			SpiritUnreservedPercent = "SpiritReserved",
+			LifeLeechGainRate = "LifeLeech",
+			ManaLeechGainRate = "ManaLeech",
+			EnergyShieldLeechGainRate = "EnergyShieldLeech",
+		}
+		for _, statData in ipairs(build.displayStats) do
+			if expectedBreakdowns[statData.stat] then
+				assert.are.equal(expectedBreakdowns[statData.stat], statData.breakdown, statData.stat)
+				expectedBreakdowns[statData.stat] = nil
+			end
+		end
+		assert.is_nil(next(expectedBreakdowns))
+	end)
+
+	it("shows a breakdown for life reserved by a modifier", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nGold Ring\nReserves 25% of Life")
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local lifeLine = getSidebarLine("Unreserved Life")
+		assert.are.equal("LifeReserved", lifeLine.breakdown)
+		build:SetDisplayStat({ line = lifeLine, x = 0, y = 0, width = 300 }, false)
+		assert.is_true(build.controls.breakdown.shown)
+	end)
+
 	it("uses aggregate breakdowns for dual-wield attacks", function()
 		build.skillsTab:PasteSocketGroup("skillId:MeleeMaceMacePlayer Mace Strike 20/0  1")
 		build.itemsTab:CreateDisplayItemFromRaw("New Item\nMarauding Mace\nQuality: 0\n20% increased Attack Speed")
