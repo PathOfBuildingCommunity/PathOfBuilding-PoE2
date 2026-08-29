@@ -840,4 +840,90 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 		assert.are.equals(76, build.calcsTab.mainOutput.SpiritReserved)
 	end)
+	describe("TestAbyssalWasting", function()
+		local implicit = "Inflict Abyssal Wasting on Hit\n"
+		local explicits = [[
+		Abyssal Wasting also applies -15% to Fire Resistance
+		30% increased Accuracy Rating against Enemies affected by Abyssal Wasting
+		40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting
+		30% increased Immobilisation buildup against targets affected by Abyssal Wasting
+		20% of Mana Leeched from targets affected by Abyssal Wasting is Instant
+	]]
+
+		before_each(function()
+			newBuild()
+		end)
+
+		local function setMods(mods)
+			build.configTab.input.customMods = mods
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			return build.calcsTab.mainEnv
+		end
+
+		it("grants nothing unless the enemy is wasted", function()
+			local env = setMods(explicits)
+			assert.are.equals(50, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(0, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+		end)
+
+		it("grants its bonuses once the enemy is wasted", function()
+			local env = setMods(implicit .. explicits)
+			assert.are.equals(35, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(40, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(20, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+		end)
+
+		it("does not scale player mods", function()
+			local env = setMods(implicit .. explicits .. "\n60% increased Magnitude of Abyssal Wasting you inflict")
+			assert.are.equals(26, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(40, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(20, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+
+			-- magnitude stacks
+			local env = setMods(implicit .. explicits .. "\n60% increased Magnitude of Abyssal Wasting you inflict" .. "\n60% increased Magnitude of Abyssal Wasting you inflict")
+			assert.are.equals(17, env.enemyDB:Sum("BASE", nil, "FireResist"))
+		end)
+
+		it("applies conditions to the wasted enemy", function()
+			local env = setMods(implicit .. [[
+			Targets affected by Abyssal Wasting you inflict are Debilitated
+			Targets affected by Abyssal Wasting you inflict are Hindered
+			Targets affected by Abyssal Wasting you inflict are Blinded
+			Abyssal Wasting you inflict also prevents targets from dealing Critical Hits
+		]])
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Debilitated") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Hindered") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Blinded") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "NeverCrit") == true)
+		end)
+
+		it("enables wither config", function()
+			local wither = "99% chance to inflict Withered with Hits against targets affected by Abyssal Wasting"
+			build.configTab.input.multiplierWitheredStackCount = 10
+
+			local env = setMods(wither)
+			assert.are.equals(0, env.enemyDB:Sum("INC", nil, "ChaosDamageTaken"))
+
+			env = setMods(implicit .. wither)
+			assert.is_true(env.player.mainSkill.skillModList:Flag(nil, "Condition:CanWither") == true)
+			assert.are.equals(50, env.enemyDB:Sum("INC", nil, "ChaosDamageTaken"))
+		end)
+
+		it("prevents the wasted enemy from inflicting elemental ailments", function()
+			local prevent = "Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"
+			assert.are.equals(0, setMods(prevent).player.output.IgniteAvoidChance)
+
+			local env = setMods(implicit .. prevent)
+			assert.are.equals(100, env.player.output.IgniteAvoidChance)
+			assert.are.equals(100, env.player.output.ShockAvoidChance)
+		end)
+	end)
 end)

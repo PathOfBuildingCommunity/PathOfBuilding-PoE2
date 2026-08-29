@@ -201,7 +201,9 @@ do
 	table.insert(kulemak, "Implicits: 1")
 	table.insert(kulemak, "Inflict Abyssal Wasting on Hit")
 	for index, mod in ipairs(kulemakMods) do
-		table.insert(kulemak, "{variant:" .. index .. "}" .. mod.mod[1])
+		for _, line in ipairs(mod.mod) do
+			table.insert(kulemak, "{variant:" .. index .. "}" .. line)
+		end
 	end
 	table.insert(data.uniques.generated, table.concat(kulemak, "\n"))
 end
