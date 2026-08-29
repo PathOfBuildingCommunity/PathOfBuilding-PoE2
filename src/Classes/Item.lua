@@ -76,6 +76,7 @@ end
 local lineFlags = {
 	["crafted"] = true,
 	["custom"] = true,
+	["disabled"] = true,
 	["enchant"] = true,
 	["fractured"] = true,
 	["implicit"] = true,
@@ -994,7 +995,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 				end
 
-				local lineLower = line:lower()
+				local lineLower = modLine.disabled and "" or line:lower()
 				-- \d+% increased/reduced explicit/implicit/ *tags* modifier magnitudes
 				local modMagnitudePattern = { "(%d+)%% ([ir][ne][cd][ru][ec][ae][sd]e?d?) ?([%a%s]*) modifier magnitudes",
 					-- \d+% increased/reduced effect of suffixes/prefixes
@@ -1126,16 +1127,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base then
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre or self.itemSocketCount > 0 then
 			local shouldFixRunesOnItem = #self.runes == 0
+			local canRebuildRunes
 			if not shouldFixRunesOnItem and #self.runeModLines > 0 then
-				local canRebuildRunes = true
+				canRebuildRunes = true
 				for _, rune in ipairs(self.runes) do
 					if rune ~= "None" and not data.itemMods.Runes[rune] then
 						canRebuildRunes = false
 						break
 					end
-				end
-				if canRebuildRunes then
-					self:UpdateRunes()
 				end
 			end
 
@@ -1149,6 +1148,24 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					t_insert(values, 1)
 				end
 				return strippedModLine, values
+			end
+
+			if canRebuildRunes then
+				local disabledRuneLines = { }
+				for _, modLine in ipairs(self.runeModLines) do
+					if modLine.disabled then
+						local strippedModLine = getRuneLineParts(modLine.line)
+						disabledRuneLines[strippedModLine] = (disabledRuneLines[strippedModLine] or 0) + 1
+					end
+				end
+				self:UpdateRunes()
+				for _, modLine in ipairs(self.runeModLines) do
+					local strippedModLine = getRuneLineParts(modLine.line)
+					if (disabledRuneLines[strippedModLine] or 0) > 0 then
+						modLine.disabled = true
+						disabledRuneLines[strippedModLine] -= 1
+					end
+				end
 			end
 
 			local function compareRuneValueSets(a, b)
@@ -1638,6 +1655,9 @@ function ItemClass:BuildRaw()
 		end
 		if modLine.mutated then
 			line = "{mutated}" .. line
+		end
+		if modLine.disabled then
+			line = "{disabled}" .. line
 		end
 		if modLine.crafted then
 			line = "{crafted}" .. line
@@ -2316,6 +2336,9 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
+		if modLine.disabled then
+			return
+		end
 		local variantCount = self:GetModLineVariantCount(modLine)
 		if variantCount > 0 then
 			-- special section for variant over-ride of pre-modifier item parameters

@@ -335,6 +335,9 @@ function itemLib.formatModLine(modLine, dbMode, skipUnsupported)
 	if itemLib.isZeroValueLine(line) then -- Hack to hide 0-value modifiers
 		return
 	end
+	if modLine.disabled then
+		return colorCodes.DISABLED .. line
+	end
 	local colorCode
 	if modLine.extra and not skipUnsupported then
 		colorCode = colorCodes.UNSUPPORTED

@@ -1908,6 +1908,21 @@ function ItemsTabClass:UpdateDisplayItemTooltip()
 	self.displayItemTooltip.center = true
 end
 
+function ItemsTabClass:ToggleDisplayItemModLine(modLine)
+	if not self.displayItem or not modLine then
+		return
+	end
+	modLine.disabled = not modLine.disabled
+	self.displayItem:BuildAndParseRaw()
+	self:UpdateDisplayItemTooltip()
+	self:UpdateDisplayItemRangeLines()
+	self:UpdateCustomControls()
+	if self.displayItem.crafted then
+		self:UpdateAffixControls()
+	end
+	self.build.buildFlag = true
+end
+
 function ItemsTabClass:UpdateClusterJewelControls()
 	local item = self.displayItem
 
@@ -3693,7 +3708,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 						formattedModLine = itemLib.formatModLine(modLine, dbMode)
 					end
 					for _ = 1, variantCount do
-						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
+						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg, modLine)
 					end
 
 					-- Show mods from granted passives
