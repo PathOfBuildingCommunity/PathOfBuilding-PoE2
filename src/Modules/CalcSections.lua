@@ -1680,7 +1680,7 @@ return {
 { 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Spirit", data = {
 	extra = "{0:output:SpiritUnreserved}/{0:output:Spirit}",
 	notFlag = "minionSkill",
-	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item" }, }, },
+	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item", skipSideBarIndex = true }, }, },
 	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC", modSource = "Tree" }, }, },
 	{ label = "Total Base", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE" }, }, },
 	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC" }, }, },
