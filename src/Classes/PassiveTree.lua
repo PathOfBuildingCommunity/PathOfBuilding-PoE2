@@ -19,6 +19,14 @@ local m_sqrt = math.sqrt
 local m_rad = math.rad
 local m_atan2 = math.atan2
 
+-- Additional tooltip text for ascendancy nodes
+local nodeReminderText = {
+	["Unravelling"] = {
+		"While affected by Unravelling, your ^xD02090Chaos ^xA0A080Damage randomly either also contributes to ^x3F6DB3Freeze ^xA0A080buildup,",
+		"^xB97123Flammability^xA0A080, or ^xADAA47Shock ^xA0A080chance - changing which it contributes to every two seconds."
+	},
+}
+
 -- Retrieve the file at the given URL
 -- This is currently disabled as it does not work due to issues
 -- its possible to fix this but its never used due to us performing preprocessing on tree
@@ -219,6 +227,7 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 		node.oidx = node.orbitIndex
 		node.dn = node.name
 		node.sd = node.stats or {}
+		node.reminderText = nodeReminderText[node.dn]
 
 		node.__index = node
 		node.linkedId = { }
