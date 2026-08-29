@@ -1593,12 +1593,22 @@ function CompareTabClass:OpenImportFolderPopup()
 		controls = { },
 	}
 	function listHost:BuildList()
+		self.buildIndex = buildListHelpers.ScanFolder(self.subPath)
+		self:FilterBuildList()
+	end
+	function listHost:FilterBuildList()
 		wipeTable(self.list)
-		local scanned = buildListHelpers.ScanFolder(self.subPath, searchText)
-		for _, entry in ipairs(scanned) do
+		for _, entry in ipairs(buildListHelpers.FilterList(self.buildIndex, self.subPath, searchText)) do
 			t_insert(self.list, entry)
 		end
+		self:SortList()
+	end
+	function listHost:SortList()
+		local selectedFullFileName = controls.buildList and controls.buildList.selValue and controls.buildList.selValue.fullFileName
 		buildListHelpers.SortList(self.list, sortMode)
+		if controls.buildList then
+			controls.buildList:SelByFullFileName(selectedFullFileName)
+		end
 	end
 	function listHost:SelectControl(control)
 		-- Focus is managed by the popup's ControlHost; this is a no-op for the popup list.
@@ -1645,7 +1655,7 @@ function CompareTabClass:OpenImportFolderPopup()
 	-- navigate folders, import builds, and suppress rename/delete/drag behaviors.
 	function controls.buildList:LoadBuild(build)
 		if build.folderName then
-			self.controls.path:SetSubPath(self.listMode.subPath .. build.folderName .. "/")
+			self.controls.path:SetSubPath(build.subPath .. build.folderName .. "/")
 		else
 			importBuildEntry(build)
 		end

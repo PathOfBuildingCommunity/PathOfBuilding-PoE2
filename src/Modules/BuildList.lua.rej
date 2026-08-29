@@ -1,0 +1,18 @@
+diff a/src/Modules/BuildList.lua b/src/Modules/BuildList.lua	(rejected hunks)
+@@ -95,14 +95,14 @@ function listMode:Init(selBuildName, subPath)
+ 
+ 	self.controls.searchText = new("EditControl", {"TOP",self.anchor,"TOP"}, {0, 25, 640, 20}, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
+ 		main.filterBuildList = buf
+-		self:BuildList()
++		self:FilterBuildList()
+ 	end, nil, nil, true)
+ 	self.controls.searchText:SetPlaceholder("(e.g. class:assassin myfilename)")
+ 	self.controls.searchText.width = buildListWidth
+ 	self.controls.searchText.x = buildListOffset
+ 
+ 	self:BuildList()
+-	self.controls.buildList:SelByFileName(selBuildName and selBuildName..".xml")
++	self.controls.buildList:SelByFullFileName(selBuildName and main.buildPath..self.subPath..selBuildName..".xml")
+ 	self:SelectControl(self.controls.buildList)
+ 
+ 	self.initialised = true
