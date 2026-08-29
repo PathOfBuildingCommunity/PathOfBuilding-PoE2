@@ -140,7 +140,7 @@ end
 -- Returns the draw color for a node when compare overlay is active.
 -- Handles diff coloring for allocated/unallocated, mastery changes, and jewel socket differences.
 ---@param node Node
----@param compareNode Node
+---@param compareNode Node?
 ---@param spec PassiveSpec
 ---@param build Build
 ---@param nodeDefaultColor any

@@ -18,8 +18,7 @@ local bor = OR64 -- bit.bor
 modLib = { }
 
 --- "Flag" is only used with CanNotUseItem
----@alias Doubled ["MORE", "OVERRIDE"]
----@alias NumericModTypes "INC"|"MORE"|"BASE"|"OVERRIDE"|"MAX"|"CHANCE"|"DUMMY"|"Flag"|"MIN"|Doubled
+---@alias NumericModTypes "INC"|"MORE"|"BASE"|"OVERRIDE"|"MAX"|"CHANCE"|"DUMMY"|"Flag"|"MIN"
 
 -- Massive discriminated union. Todo: probably has to be built with an LLM for a start
 ---@class ModTag

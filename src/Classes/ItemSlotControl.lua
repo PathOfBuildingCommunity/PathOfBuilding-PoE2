@@ -17,7 +17,7 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
 ---@param y Prop<number>
 ---@param itemsTab ItemsTab
 ---@param slotName string
----@param slotLabel string
+---@param slotLabel? string
 ---@param nodeId integer?
 function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLabel, nodeId)
 	self:DropDownControl(anchor, {x, y, 310, 20}, { }, function(index, value)

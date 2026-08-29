@@ -148,7 +148,7 @@ function main:Init()
 	end
 
 	---@type ItemDBData
-	self.uniqueDB = { list = {}, byTitle = {}, loading = true }
+	self.uniqueDB = { list = {}, loading = true }
 	---@type ItemDBData
 	self.rareDB = { list = {}, loading = true }
 

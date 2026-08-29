@@ -29,7 +29,7 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler")
 
 ---@param build Build
 ---@param treeVersion any
----@param convert any
+---@param convert? any
 function PassiveSpecClass:PassiveSpec(build, treeVersion, convert)
 	self:UndoHandler()
 

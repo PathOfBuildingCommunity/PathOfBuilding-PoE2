@@ -622,7 +622,7 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 	end
 end
 
----@alias CalcEnvMode "MAIN"|"CALCS"|"EFFECTIVE"|"COMBAT"|"BUFFED"|"CALCULATOR"
+---@alias CalcEnvMode "MAIN"|"CALCS"|"CALCULATOR"
 -- Initialise environment:
 -- 1. Initialises the player and enemy modifier databases
 -- 2. Merges modifiers for all items

@@ -15,7 +15,6 @@ local ItemDBClass = newClass("ItemDBControl", "ListControl")
 
 ---@class ItemDBData
 ---@field list table<string, Item>
----@field byTitle? table<string, Item>
 ---@field loading boolean?
 
 ---@param anchor Anchor?

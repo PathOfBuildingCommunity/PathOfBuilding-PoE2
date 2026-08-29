@@ -40,7 +40,7 @@ local ListClass = newClass("ListControl", "Control", "ControlHost")
 ---@param scroll "HORIZONTAL"|"VERTICAL"|boolean|nil
 ---@param isMutable boolean?
 ---@param list any[]?
----@param forceTooltip any
+---@param forceTooltip? any
 function ListClass:ListControl(anchor, rect, rowHeight, scroll, isMutable, list, forceTooltip)
 	self:Control(anchor, rect)
 	self:ControlHost()

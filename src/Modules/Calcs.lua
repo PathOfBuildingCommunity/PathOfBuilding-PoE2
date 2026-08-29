@@ -78,13 +78,13 @@ end
 ---@field repSlotName string? The name of the replaced item slot
 ---@field repItem Item?
 ---@field toggleFlask Item? Item object used as a table key.
----@field toggleTincture Item? Item object used as a table key.
+---@field toggleCharm Item? Item object used as a table key.
 ---@field conditions string[]?
 ---@field extraJewelFuncs ModList?
 
 -- Get calculator for other changes (adding/removing nodes, items, gems, etc)
 ---@param build Build
----@return fun(override?: CalcOverride, useFullDPS?: boolean): Output calcFunc
+---@return fun(override?: CalcOverride, useFullDPS?: boolean, fastCalcOptions?: table): Output calcFunc
 ---@return Output output
 function calcs.getMiscCalculator(build)
 	-- Run base calculation pass

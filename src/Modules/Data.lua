@@ -117,7 +117,6 @@ for k, v in pairs(miscData) do
 	data[k] = v
 end
 
----@alias TransformFunc fun(in: number|string): (number|string)?
 ---@class PowerStat
 ---@field stat? string stat ID
 ---@field label string A short description of the stat

@@ -4,8 +4,8 @@ local calcs = {}
 return calcs
 
 ---@class Output
----@field MainHand Output
----@field OffHand Output
+---@field MainHand Output?
+---@field OffHand Output?
 ---@field Minion Output?
 ---@field ActivePhantasmLimit number?
 ---@field ActiveSpectreLimit number?

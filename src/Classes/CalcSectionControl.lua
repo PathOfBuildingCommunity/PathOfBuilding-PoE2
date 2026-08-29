@@ -16,7 +16,7 @@ local CalcSectionClass = newClass("CalcSectionControl", "Control", "ControlHost"
 ---@param subSection any
 ---@param updateFunc any
 function CalcSectionClass:CalcSectionControl(calcsTab, width, id, group, colour, subSection, updateFunc)
-	self:Control(calcsTab, {0, 0, width, 0})
+	self:Control(nil, {0, 0, width, 0})
 	self:ControlHost()
 	self.calcsTab = calcsTab
 	self.id = id

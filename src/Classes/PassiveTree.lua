@@ -39,8 +39,8 @@ end
 ---@field x number
 ---@field y number
 ---@field orbits integer[]
----@field nodes string[]
----@field background any
+---@field nodes integer[]
+---@field background any?
 ---@field isProxy boolean?
 ---@class PassiveTree
 ---@field classes any[] A list of classes on the tree
@@ -54,7 +54,6 @@ end
 ---@field max_x integer
 ---@field max_y integer
 ---@field constants table<string, any>
----@field points table<string, integer>
 local PassiveTreeClass = newClass("PassiveTree")
 
 function PassiveTreeClass:PassiveTree(treeVersion)
