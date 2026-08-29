@@ -1897,7 +1897,8 @@ function ItemClass:Craft()
 							return tonumber(num) + tonumber(other)
 						end)
 					else
-						local modLine = { line = line, order = order }
+						local modLine = { line = line, order = order, type = mod.type }
+						modLine[mod.type:lower()] = true
 						for l = 1, #self.explicitModLines + 1 do
 							if not self.explicitModLines[l] or self.explicitModLines[l].order > order then
 								t_insert(self.explicitModLines, l, modLine)

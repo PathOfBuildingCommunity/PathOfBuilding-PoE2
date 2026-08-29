@@ -1488,6 +1488,23 @@ describe("TestAdvancedItemParse #item", function()
 			assert.are.equals(195, chaosDamageInc())
 		end)
 
+		it("preserves affix types when crafting items", function()
+			local item = new("Item"):Item([[
+			Rarity: Rare
+			Test Subject
+			Sapphire
+			Crafted: true
+			Prefix: JewelChaosDamage
+			Suffix: CraftedJewelPrefixEffect
+			Implicits: 0
+			10% increased Chaos Damage
+			50% increased Effect of Prefixes
+		]])
+			item:Craft()
+			assert.is_true(item.explicitModLines[1].prefix)
+			assert.are.equals(15, item.baseModList:Sum("INC", nil, "ChaosDamage"))
+		end)
+
 		-- actually a ring so we don't have to allocate a socket
 		local realJewel = [[
 				Rarity: Rare
