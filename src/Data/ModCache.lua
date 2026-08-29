@@ -1221,6 +1221,7 @@ c["+80 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",v
 c["+83 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=83}},nil}
 c["+85 to Deflection Rating per 50 missing Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DeflectionRating",type="BASE",value=85}},"  per 50 missing Energy Shield "}
 c["+85 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=85}},nil}
+c["+85 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=85}},nil}
 c["+85 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=85}},nil}
 c["+85 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=85}},nil}
 c["+85 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=85}},nil}
@@ -2127,6 +2128,7 @@ c["13% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Dur
 c["13% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=13},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=13},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=13}},nil}
 c["13% increased Spell damage for each 200 total Mana you have Spent Recently"]={{[1]={[1]={div=200,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=13}},nil}
 c["13% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=13}},nil}
+c["13% increased Spirit Reservation Efficiency"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=13}},nil}
 c["13% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=13}},nil}
 c["13% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=13}},nil}
 c["13% more Global Evasion Rating and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="MORE",value=13},[2]={flags=0,keywordFlags=0,name="EnergyShield",type="MORE",value=13}},nil}
@@ -3114,6 +3116,9 @@ c["22% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0
 c["22% of Recovery applied Instantly"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",type="BASE",value=22}},nil}
 c["22% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-22}},nil}
 c["22.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=22.5}},nil}
+c["221% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=221}},nil}
+c["221% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=221}},nil}
+c["221% increased Spell Physical Damage"]={{[1]={flags=2,keywordFlags=0,name="PhysicalDamage",type="INC",value=221}},nil}
 c["225% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=225}},nil}
 c["225% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=225}},nil}
 c["225% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=225}},nil}
@@ -3293,6 +3298,7 @@ c["25% increased Damage with Swords"]={{[1]={flags=4194308,keywordFlags=0,name="
 c["25% increased Daze Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}}," Daze  "}
 c["25% increased Deflection Rating"]={{[1]={flags=0,keywordFlags=0,name="DeflectionRating",type="INC",value=25}},nil}
 c["25% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
+c["25% increased Duration of Elemental Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyElementalAilmentDuration",type="INC",value=25}},nil}
 c["25% increased Duration of each Puppet Master stack"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},"  of each Puppet Master stack "}
 c["25% increased Electrocute Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyElectrocuteBuildup",type="INC",value=25}},nil}
 c["25% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=25}},nil}
@@ -4265,6 +4271,7 @@ c["400% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlag
 c["400% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=400}},nil}
 c["41 Life gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=41}},nil}
 c["41% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=41}},nil}
+c["42% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=42}},nil}
 c["42% increased Magnitude of Unholy Might buffs you grant"]={{[1]={flags=0,keywordFlags=0,name="Condition:UnholyMight",type="INC",value=42}}," Magnitude of  buffs you grant "}
 c["42% increased Minion Duration"]={{[1]={[1]={skillType=77,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=42}},nil}
 c["43% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=43}},nil}
@@ -4994,6 +5001,7 @@ c["75% increased Melee Damage with Spears while Surrounded"]={{[1]={[1]={type="C
 c["75% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=75}},nil}
 c["75% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=75}},nil}
+end)();(function()
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=32,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
@@ -5001,7 +5009,6 @@ c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",va
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
-end)();(function()
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
 c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},nil}
@@ -7344,6 +7351,7 @@ c["Enemies you Attack have 20% chance to Reflect 35 to 50 Chaos Damage to you"]=
 c["Enemies you Curse are Hindered, with 15% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="Condition:Hindered",type="FLAG",value=true}}}},nil}
 c["Enemies you Curse are Intimidated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
 c["Enemies you Curse cannot Recharge Energy Shield"]={{[1]={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}}}},nil}
+c["Enemies you Curse have -11% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-11}}}},nil}
 c["Enemies you Curse have -3% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-3}}}},nil}
 c["Enemies you Curse have -5% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-5}}}},nil}
 c["Enemies you Curse have -7% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-7}}}},nil}
@@ -9995,6 +10003,7 @@ c["Your maximum Energy Shield is equal to 250% of your Strength"]={nil,"Your max
 c["Your maximum Energy Shield is equal to 300% of your Strength"]={nil,"Your maximum Energy Shield is equal to 300% of your Strength "}
 c["Your maximum Energy Shield is equal to 300% of your Strength Maximum Energy Shield cannot be Converted"]={nil,"Your maximum Energy Shield is equal to 300% of your Strength Maximum Energy Shield cannot be Converted "}
 c["Your other Modifiers to Rarity of Items found do not apply"]={nil,"Your other Modifiers to Rarity of Items found do not apply "}
+end)();(function()
 c["Your other Modifiers to Rarity of Items found do not apply +15% to Cold Resistance"]={nil,"Your other Modifiers to Rarity of Items found do not apply +15% to Cold Resistance "}
 c["Your speed is Unaffected by Slows while Sprinting"]={nil,"Your speed is Unaffected by Slows while Sprinting "}
 c["Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
@@ -10003,7 +10012,6 @@ c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spe
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"}},nil}
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
-end)();(function()
 c["additional Rune-only sockets:"]={nil,"additional Rune-only sockets: "}
 c["additional Rune-only sockets: 1 Helmet socket"]={nil,"additional Rune-only sockets: 1 Helmet socket "}
 c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
