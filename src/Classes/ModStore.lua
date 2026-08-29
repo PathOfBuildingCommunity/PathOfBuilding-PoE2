@@ -108,6 +108,11 @@ function ModStoreClass:ScaleAddList(modList, scale, roundToNearest)
 	end
 end
 
+--- Creates a new mod and adds it to this store.
+---@overload fun(self: ModStore, modName: string, modType: NumericModTypes, modVal?: number, sourceOrModTag?: string|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag)
+---@overload fun(self: ModStore, modName: string, modType: "FLAG", modVal: boolean, sourceOrModTag?: string|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag)
+---@overload fun(self: ModStore, modName: string, modType: "LIST", modVal: any, sourceOrModTag?: string|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag)
+---@param ... any @Parameters to be passed along to the modLib.createMod function
 function ModStoreClass:NewMod(...)
 	self:AddMod(mod_createMod(...))
 end
@@ -298,7 +303,7 @@ end
 ---  Useful for determining if the other aggregate functions will find
 ---  anything to aggregate.
 ---@param modType string @Mod type to match
----@param cfg table @Optional configuration to use - contains flags, keywordFlags, and source to match
+---@param cfg? ModCfg configuration to use - contains flags, keywordFlags, and source to match
 ---@param ... string @Mod name(s) to check for.
 ---@return boolean @true if the mod is found, false otherwise.
 function ModStoreClass:HasMod(modType, cfg, ...)

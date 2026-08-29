@@ -1164,7 +1164,9 @@ end
 -- 7. Processes charges and misc buffs (doActorCharges, doActorMisc)
 -- 8. Calculates defence and offence stats (calcs.defence, calcs.offence)
 function calcs.perform(env, skipEHP)
+	---@type ModDB
 	local modDB = env.modDB
+	---@type ModDB
 	local enemyDB = env.enemyDB
 
 	-- Merge keystone modifiers
@@ -1231,6 +1233,20 @@ function calcs.perform(env, skipEHP)
 		applyEnemyModifiers(env.minion, true)
 	end
 	applyEnemyModifiers(env.enemy, true)
+
+	if enemyDB:Flag(env.player.mainSkill.skillCfg, "AbyssalWasted") then
+		local conditions = modDB:List(nil, "AbyssalWastingImpliesCondition")
+		for _, v in ipairs(conditions) do
+			local conditionName = string.format("Condition:%s", v.condition)
+			if v.applyToEnemy then
+				enemyDB:NewMod(v.condition, "FLAG", true)
+				enemyDB:NewMod(conditionName, "FLAG", true)
+			else
+				modDB:NewMod(v.condition, "FLAG", true)
+				modDB:NewMod(conditionName, "FLAG", true)
+			end
+		end
+	end
 
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
@@ -3375,6 +3391,21 @@ function calcs.perform(env, skipEHP)
 		env.player.companionLifeList = companionLifeList
 	end
 
+	if enemyDB:Flag(env.player.mainSkill.skillCfg, "AbyssalWasted") then
+		local effect = 1 + modDB:Sum("INC", nil, "AbyssalWastingEffect") / 100
+		local mods = modDB:List(nil, "AbyssalWastingAlsoGrants")
+		for _, v in ipairs(mods) do
+			local mod = copyTable(v.mod)
+			if not v.unscalable then
+				mod.value *= effect
+			end
+			if v.applyToEnemy then
+				enemyDB:AddMod(mod)
+			else
+				modDB:AddMod(mod)
+			end
+		end
+	end
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
 	local function getSkillExposureEffect(source, element)
