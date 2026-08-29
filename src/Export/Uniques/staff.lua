@@ -178,6 +178,7 @@ League: Rise of the Abyssal
 Has Alt Variant: true
 Has Alt Variant Two: true
 Has Alt Variant Three: true
+Crafted: true
 Selected Variant: 7
 Selected Alt Variant: 8
 Selected Alt Variant Two: 9

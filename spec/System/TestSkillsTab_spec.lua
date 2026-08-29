@@ -1,3 +1,5 @@
+local gemTooltip = require("Classes.GemTooltip")
+
 describe("TestSkillsTab", function()
 	before_each(function()
 		newBuild()
@@ -5,6 +7,32 @@ describe("TestSkillsTab", function()
 	end)
 
 	describe("SkillsTab", function()
+		it("only shows the build-note shortcut when it is available", function()
+			local gemInstance = {
+				gemData = data.gems["Metadata/Items/Gems/SkillGemExplosiveGrenade"],
+				level = 20,
+				quality = 0,
+				note = "Test note",
+			}
+			local tooltip = new("Tooltip"):Tooltip()
+
+			gemTooltip.AddGemTooltip(tooltip, build, gemInstance)
+			for _, line in ipairs(tooltip.lines) do
+				assert.is_nil(line.text and line.text:find("Shift + Right-Click", 1, true))
+			end
+
+			tooltip:Clear()
+			gemTooltip.AddGemTooltip(tooltip, build, gemInstance, { includeBuildPlannerNote = true })
+			local noteHintFound
+			local noteFound
+			for _, line in ipairs(tooltip.lines) do
+				noteHintFound = noteHintFound or line.text and line.text:find("Shift + Right-Click", 1, true)
+				noteFound = noteFound or line.text and line.text:find("Test note", 1, true)
+			end
+			assert.is_truthy(noteHintFound)
+			assert.is_truthy(noteFound)
+		end)
+
 		describe("NewSkillSet", function()
 			it("Creates a new skill set with specified ID", function()
 				local skillSetName = "New Skill Set"

@@ -16,6 +16,7 @@ local band = AND64  -- bit.band
 ---@class CalcBreakdownControl: Control, ControlHost
 local CalcBreakdownClass = newClass("CalcBreakdownControl", "Control", "ControlHost")
 
+---@param calcsTab CalcsTab
 function CalcBreakdownClass:CalcBreakdownControl(calcsTab)
 	self:Control()
 	self:ControlHost()
@@ -455,6 +456,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.sourceName = row.mod.source:match("Spectre:(.+)")
 		elseif sourceType == "Quest" then
 			row.sourceName = row.mod.source:match("Quest:(.+)")
+		elseif sourceType == "Custom" then
+			row.sourceName = row.mod.source:match("Custom:(.+)")
 		end
 
 		if row.mod.flags ~= 0 or row.mod.keywordFlags ~= 0 then

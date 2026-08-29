@@ -117,16 +117,17 @@ for k, v in pairs(miscData) do
 	data[k] = v
 end
 
----@class StatTable
+---@class PowerStat
 ---@field stat? string stat ID
 ---@field label string A short description of the stat
----@field transform fun(in: number|string): number|string A function to e.g. invert the value, if the stat represents something where lower is better
+---@field transform? fun(in: number|string): number|string A function to e.g. invert the value, if the stat represents something where lower is better
 ---@field combinedOffDef? boolean
 ---@field ignoreForNodes? boolean
 ---@field ignoreForItems? boolean
 ---@field reverseSort? boolean
+---@field itemField string?
 
----@type StatTable[]
+---@type PowerStat[]
 data.powerStatList = {
 	{ stat=nil, label="Offence/Defence", combinedOffDef=true, ignoreForItems=true },
 	{ stat=nil, label="Name", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
@@ -182,7 +183,7 @@ data.powerStatList = {
 }
 
 ---@param output any Calc output
----@param statTable StatTable Table with stats as in data.powerStatList
+---@param statTable PowerStat Table with stats as in data.powerStatList
 ---@param skipTransform? boolean Whether the stat transform should be skipped. This is useful if you want to e.g. divide two less is better stats
 ---@return number
 function data.powerStatList.GetFromOutput(output, statTable, skipTransform)
@@ -716,6 +717,7 @@ end
 data.essences = LoadModule("Data/Essence")
 data.emotions = LoadModule("Data/LiquidEmotions")
 data.costs = LoadModule("Data/Costs")
+data.buildFileInventorySlotMap = LoadModule("Data/InventorySlots")
 do
 	local map = { }
 	for i, value in ipairs(data.costs) do

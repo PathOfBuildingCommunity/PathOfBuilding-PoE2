@@ -16,7 +16,7 @@
 -- :OnDragSend(index, value, target)  [Called after a drag event]
 -- :OnOrderChange()  [Called after list order is changed through dragging]
 -- :OnSelect(index, value)  [Called when a list value is selected]
--- :OnSelClick(index, value, doubleClick)  [Called when a list value is clicked]
+-- :OnSelClick(index, value, doubleClick)  [Called when a list value is clicked; return false to release focus]
 -- :OnSelCopy(index, value)  [Called when Ctrl+C is pressed while a list value is selected]
 -- :OnSelDelete(index, value)  [Called when backspace or delete is pressed while a list value is selected]
 -- :OnSelKeyDown(index, value)  [Called when any other key is pressed while a list value is selected]
@@ -30,9 +30,17 @@ local m_min = math.min
 local m_max = math.max
 local m_floor = math.floor
 
----@class ListControl: Control, ControlHost
+---@class ListControl<T>: Control, ControlHost
+---@field list T[]
 local ListClass = newClass("ListControl", "Control", "ControlHost")
 
+---@param anchor Anchor?
+---@param rect Rect?
+---@param rowHeight number
+---@param scroll "HORIZONTAL"|"VERTICAL"|boolean|nil
+---@param isMutable boolean?
+---@param list any[]?
+---@param forceTooltip? any
 function ListClass:ListControl(anchor, rect, rowHeight, scroll, isMutable, list, forceTooltip)
 	self:Control(anchor, rect)
 	self:ControlHost()
@@ -370,7 +378,9 @@ function ListClass:OnKeyDown(key, doubleClick)
 				self.selDragActive = false
 			end
 			if self.OnSelClick then
-				self:OnSelClick(self.selIndex, self.selValue, doubleClick)
+				if self:OnSelClick(self.selIndex, self.selValue, doubleClick) == false then
+					return
+				end
 			end
 		end
 	elseif #self.list > 0 and not self.selDragActive then

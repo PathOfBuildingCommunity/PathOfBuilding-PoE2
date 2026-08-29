@@ -23,8 +23,13 @@ local legacyClassIdMap = {
 }
 
 ---@class PassiveSpec: UndoHandler
+---@field nodes table<integer, Node>
+---@field allocNodes table<integer, Node>
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler")
 
+---@param build Build
+---@param treeVersion any
+---@param convert? any
 function PassiveSpecClass:PassiveSpec(build, treeVersion, convert)
 	self:UndoHandler()
 
@@ -56,6 +61,7 @@ function PassiveSpecClass:Init(treeVersion, convert)
 	for _, treeNode in pairs(self.tree.nodes) do
 		-- Exclude proxy or groupless nodes, as well as expansion sockets
 		if treeNode.group and not treeNode.isProxy and not treeNode.group.isProxy and (not treeNode.expansionJewel or not treeNode.expansionJewel.parent) then
+			---@class Node
 			self.nodes[treeNode.id] = setmetatable({
 				linked = { },
 				power = { }
@@ -101,6 +107,11 @@ function PassiveSpecClass:Init(treeVersion, convert)
 
 	-- Keys are node IDs, values are the replacement node
 	self.hashOverrides = { }
+
+	-- Author notes attached to allocated nodes (Shift+Right-Click on a node to
+	-- set one). Keyed by node id; emitted into the PoE2 .build export as the
+	-- node's additional_text.
+	self.nodeNotes = { }
 end
 
 function PassiveSpecClass:Load(xml, dbFileName)
@@ -146,6 +157,17 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				local weaponSet = tonumber(node.elem:match("^WeaponSet(%d)"))
 				for nodeId in node.attrib.nodes:gmatch("%d+") do
 					weaponSets[tonumber(nodeId)] = weaponSet
+				end
+			elseif node.elem == "Notes" then
+				for _, child in ipairs(node) do
+					if child.elem == "Note" and child.attrib.nodeId then
+						local nid = tonumber(child.attrib.nodeId)
+						-- Note text lives in the element body (preserves newlines, no XML attribute escaping headaches).
+						local text = type(child[1]) == "string" and child[1] or child.attrib.text
+						if nid and text and text ~= "" then
+							self.nodeNotes[nid] = text
+						end
+					end
 				end
 			end
 		end
@@ -265,7 +287,7 @@ function PassiveSpecClass:Save(xml)
 		ascendancyInternalId = tostring(ascendancyInternalId),
 		secondaryAscendClassId = tostring(self.curSecondaryAscendClassId),
 		nodes = table.concat(allocNodeIdList, ","),
-		masteryEffects = table.concat(masterySelections, ",")
+		masteryEffects = table.concat(masterySelections, ","),
 	}
 	t_insert(xml, {
 		-- Legacy format
@@ -315,6 +337,17 @@ function PassiveSpecClass:Save(xml)
 	end
 	t_insert(xml, overrides)
 
+	-- Per-node author notes (Shift+Right-Click on a node). Stored as element
+	-- body text so multi-line notes survive without XML attribute escaping.
+	local notesElem = { elem = "Notes" }
+	local hasNotes = false
+	for nodeId, note in pairs(self.nodeNotes) do
+		if note and note ~= "" then
+			hasNotes = true
+			t_insert(notesElem, { elem = "Note", attrib = { nodeId = tostring(nodeId) }, [1] = note })
+		end
+	end
+	if hasNotes then t_insert(xml, notesElem) end
 end
 
 function PassiveSpecClass:PostLoad()
@@ -1030,24 +1063,28 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend, allocMode, 
 	node.visited = true
 	t_insert(visited, node)
 	-- For each node which is connected to this one, check if...
+	local nodeAscendancy = node.ascendancyName
 	for _, other in ipairs(node.linked) do
 		-- Either:
 		--  - the other node is a start node, or
 		--  - there is a path to a start node through the other node which didn't pass through any nodes which have already been visited
-		local startIndex = #visited + 1
+		local startIndex = nodeAscendancy and #visited + 1
 		local otherAlloc = other.alloc or (alternateClassStartNodes and alternateClassStartNodes[other.id])
-		if otherAlloc and self:CanPathThroughAllocMode(allocMode, other) and
-		  (other.type == "ClassStart" or other.type == "AscendClassStart" or
-		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend, allocMode, alternateClassStartNodes))
-		  ) then
-			if node.ascendancyName and not other.ascendancyName then
-				-- Pathing out of Ascendant, un-visit the outside nodes
-				for i = startIndex, #visited do
-					visited[i].visited = false
-					visited[i] = nil
+		if otherAlloc and self:CanPathThroughAllocMode(allocMode, other) then
+			local otherType = other.type
+			if
+				(otherType == "ClassStart" or otherType == "AscendClassStart" or
+					(not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend, allocMode, alternateClassStartNodes))
+				) then
+				if nodeAscendancy and not other.ascendancyName then
+					-- Pathing out of Ascendant, un-visit the outside nodes
+					for i = startIndex, #visited do
+						visited[i].visited = false
+						visited[i] = nil
+					end
+				elseif not noAscend or otherType ~= "AscendClassStart" then
+					return true
 				end
-			elseif not noAscend or other.type ~= "AscendClassStart" then
-				return true
 			end
 		end
 	end
@@ -1236,72 +1273,6 @@ function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllo
 	return granted
 end
 
--- Perform a breadth-first search of the tree, starting from this node, and determine if it is the closest node to any other nodes
-function PassiveSpecClass:BuildPathFromNode(root)
-	root.pathDist = 0
-	root.path = { }
-	root.pathRoot = root
-	local queue = { root }
-	local o, i = 1, 2 -- Out, in
-	while o < i do
-		-- Nodes are processed in a queue, until there are no nodes left
-		-- All nodes that are 1 node away from the root will be processed first, then all nodes that are 2 nodes away, etc
-		local node = queue[o]
-		o = o + 1
-
-		if node.unlockConstraint then
-			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
-				if not self.nodes[nodeId].alloc then
-					goto continue
-				end
-			end
-		end
-		local curDist = node.pathDist
-		-- Iterate through all nodes that are connected to this one
-		for _, other in ipairs(node.linked) do
-			-- Paths must obey these rules:
-			-- 1. They must not pass through class or ascendancy class start nodes (but they can start from such nodes)
-			-- 2. They cannot pass between different ascendancy classes or between an ascendancy class and the main tree
-			--    The one exception to that rule is that a path may start from an ascendancy node and pass into the main tree
-			--    This permits pathing from the Ascendant 'Path of the X' nodes into the respective class start areas
-			-- 3. They must not pass away from mastery nodes
-			-- 4. Unlock constraints must be satisfied
-
-			-- validate if the other node have unlockConstraints met
-			local canPath = true
-			if other.unlockConstraint then
-				for _, nodeId in ipairs(other.unlockConstraint.nodes) do
-					if not self.nodes[nodeId].alloc then
-						canPath = false
-						break
-					end
-				end
-			end
-
-			if not other.pathDist then
-				ConPrintTable(other, true)
-			end
-			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (not other.alloc or self:CanPathThroughAllocMode(root.allocMode or 0, other)) and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath then
-				-- The shortest path to the other node is through the current node
-				other.pathDist = curDist
-				if not other.alloc then
-					other.pathDist = other.pathDist + 1
-				end
-				other.path = wipeTable(other.path)
-				other.pathRoot = root
-				other.path[1] = other
-				for i, n in ipairs(node.path) do
-					other.path[i+1] = n
-				end
-				-- Add the other node to the end of the queue
-				queue[i] = other
-				i = i + 1
-			end
-		end
-		::continue::
-	end
-end
-
 -- Determine this node's distance from the class' start
 -- Only allocated nodes can be traversed
 function PassiveSpecClass:SetNodeDistanceToClassStart(root)
@@ -1395,6 +1366,78 @@ function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 	return result
 end
 
+-- Multi-source 0-1 BFS to find what other root (i.e., allocated) nodes each node is closest to
+---@param roots Node[] A list of currently allocated, and other nodes which should be considered as the sources of distances.
+function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
+	-- A dequeue. We will keep a pointer to the start and end of this to keep
+	-- track of its length
+	local q = {}
+	for _, node in ipairs(roots) do
+		node.pathDist = 0
+		node.path = wipeTable(node.path)
+		node.pathRoot = node
+		t_insert(q, node)
+	end
+	local qStart = 1
+	local qLen = #q
+	while qStart <= qLen do
+		-- pop front
+		local node = q[qStart]
+		qStart = qStart + 1
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if not self.nodes[nodeId].alloc then
+					goto continueBuildPath
+				end
+			end
+		end
+		local linked = node.linked
+		local nodeDist = node.pathDist
+		local nodePath = node.path
+		for i = 1, #linked do
+			local other = linked[i]
+			local weight = other.alloc and 0 or 1
+			local distViaNode = nodeDist + weight
+			local otherDist = other.pathDist or math.huge
+			local preferNormalRoot = distViaNode == otherDist and (node.pathRoot.allocMode or 0) == 0 and other.pathRoot and (other.pathRoot.allocMode or 0) ~= 0
+
+			-- validate if the other node have unlockConstraints met
+			local canPath = true
+			if other.unlockConstraint then
+				for _, nodeId in ipairs(other.unlockConstraint.nodes) do
+					if not self.nodes[nodeId].alloc then
+						canPath = false
+						break
+					end
+				end
+			end
+
+			if (distViaNode < otherDist or preferNormalRoot)
+				and node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (not other.alloc or self:CanPathThroughAllocMode(node.allocMode or 0, other)) and (node.ascendancyName == other.ascendancyName or (nodeDist == 0 and not other.ascendancyName)) and canPath then
+				-- if this node is free, push it to the front so that it can shorten paths
+				if weight == 0 then
+					qStart = qStart - 1
+					q[qStart] = other
+					-- otherwise push to back
+				else
+					qLen = qLen + 1
+					q[qLen] = other
+				end
+
+				-- save path and distance for the node
+				other.pathDist = distViaNode
+				local path = wipeTable(other.path)
+				path[1] = other
+				for i = 1, #nodePath do
+					path[i + 1] = nodePath[i]
+				end
+				other.path = path
+				other.pathRoot = node.pathRoot
+			end
+		end
+		::continueBuildPath::
+	end
+end
 -- Rebuilds dependencies and paths for all nodes
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
@@ -1433,7 +1476,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	self.switchableNodes = { }
 	for id, node in pairs(self.nodes) do
 		node.depends = wipeTable(node.depends)
-		node.intuitiveLeapLikesAffecting = { }
+		node.intuitiveLeapLikesAffecting = wipeTable(node.intuitiveLeapLikesAffecting)
 		node.conqueredBy = nil
 
 		-- ignore cluster jewel nodes that don't have an id in the tree
@@ -1982,17 +2025,23 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			node.distanceToClassStart = 0
 		end
 	end
-	for id, node in pairs(self.allocNodes) do
+	local rootList = {}
+	for _, node in pairs(self.allocNodes) do
 		if #node.intuitiveLeapLikesAffecting == 0 or node.connectedToStart then
-			self:BuildPathFromNode(node)
-			if node.isJewelSocket or node.expansionJewel then
-				self:SetNodeDistanceToClassStart(node)
-			end
+			t_insert(rootList, node)
 		end
 	end
-	for _, node in pairs(alternateClassStartNodes) do
-		self:BuildPathFromNode(node)
+	self:BuildNodePathsToRootNodes(rootList)
+	for _, node in ipairs(rootList) do
+		if node.isJewelSocket or node.expansionJewel then
+			self:SetNodeDistanceToClassStart(node)
+		end
 	end
+	local alternateClassStartNodesArray = {}
+	for _, node in pairs(alternateClassStartNodes) do
+		alternateClassStartNodesArray[#alternateClassStartNodesArray + 1] = node
+	end
+	self:BuildNodePathsToRootNodes(alternateClassStartNodesArray)
 end
 
 function PassiveSpecClass:ReplaceNode(old, newNode)
@@ -2542,6 +2591,7 @@ function PassiveSpecClass:CreateUndoState()
 		weaponSets = weaponSets,
 		hashOverrides = copyTable(self.hashOverrides, true),
 		masteryEffects = selections,
+		nodeNotes = copyTable(self.nodeNotes),
 		treeVersion = self.treeVersion
 	}
 end
@@ -2558,6 +2608,7 @@ function PassiveSpecClass:RestoreUndoState(state, treeVersion)
 		end
 	end
 	self:ImportFromNodeList(nil, classId, ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	self.nodeNotes = copyTable(state.nodeNotes or {})
 	self:SetWindowTitleWithBuildClass()
 end
 

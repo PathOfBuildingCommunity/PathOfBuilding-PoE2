@@ -17,6 +17,10 @@ local function firstToUpper(str)
 	return (str:gsub("^%l", string.upper))
 end
 
+---@class Build: ControlHost
+---@field spec PassiveSpec added by TreeTab
+---@field powerBuilderProgressCallback fun(progress: number)?
+---@field powerBuilderCallback fun()?
 local buildMode = new("ControlHost"):ControlHost()
 
 local function InsertIfNew(t, val)
@@ -628,7 +632,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self:SyncLoadouts()
 end
 
-function buildMode:SyncLoadouts()
+function buildMode:SyncLoadouts(skipBuildPlannerSync)
 	self.controls.buildLoadouts.list = {"No Loadouts"}
 	self.loadoutsList = {}
 
@@ -723,6 +727,10 @@ function buildMode:SyncLoadouts()
 				t_insert(filteredList, tree.setName .. " {" .. treeLinkId .. "}")
 			end
 		end
+	end
+
+	if not skipBuildPlannerSync then
+		self.importTab:RefreshBuildPlannerSets()
 	end
 
 	-- giving the options unique formatting so it can not match with user-created sets
@@ -1347,6 +1355,7 @@ function buildMode:OnFrame(inputEvents)
 			self.controls.breakdown:SetBreakdownData(unpack(self.breakdownInputs))
 		end
 		self:RefreshStatList()
+		self.configTab.calcFunc, self.configTab.calcBase = self.calcsTab:GetMiscCalculator()
 	end
 	if main.showThousandsSeparators ~= self.lastShowThousandsSeparators then
 		self:RefreshStatList()

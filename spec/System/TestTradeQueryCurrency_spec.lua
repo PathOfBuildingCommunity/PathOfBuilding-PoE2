@@ -9,7 +9,8 @@ describe("TradeQuery Currency Conversion", function()
 		-- Pass: Calculates price in divs
 		-- Fail: Wrong value or nil, indicating broken rounding/baseline logic
 		it("handles chaos currency", function()
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1 } }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1 } } }
+			mock_tradeQuery.pbRealm = "realm"
 			mock_tradeQuery.pbLeague = "league"
 			local result = mock_tradeQuery:ConvertCurrencyToDivs("chaos", 5)
 			assert.are.equal(result, 0.5)
@@ -23,40 +24,202 @@ describe("TradeQuery Currency Conversion", function()
 		end)
 	end)
 
-	describe("PriceBuilderProcessPoENinjaResponse", function()
-		-- Pass: Processes without error, restoring map while adding a notice
-		-- Fail: Corrupts map or crashes, indicating fragile API response handling, breaking future conversions
-		it("handles empty response", function()
-			local orig_conv = mock_tradeQuery.currencyConversionTradeMap
-			mock_tradeQuery.currencyConversionTradeMap = { div = "id" }
-			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = {} }
-			mock_tradeQuery.controls.pbNotice = { label = "" }
-			local resp = { lines = {  }}
-			mock_tradeQuery:PriceBuilderProcessPoENinjaResponse(resp.lines)
-			-- No crash expected
-			assert.is_true(true)
-			assert.is_true(mock_tradeQuery.controls.pbNotice.label == "No currencies received from PoE Ninja")
-			mock_tradeQuery.currencyConversionTradeMap = orig_conv
-		end)
+	it("applies the Stat Value fallback when currency rates are missing", function()
+		mock_tradeQuery.sortModes = { Price = "price", StatValue = "stat" }
+		mock_tradeQuery.itemSortSelectionList = { "price" }
+		mock_tradeQuery.pbItemSortSelectionIndex = 1
+		mock_tradeQuery.resultTbl = { [1] = { { currency = "chaos", amount = 1 } } }
+		mock_tradeQuery.sortedResultTbl = {}
+		mock_tradeQuery.itemIndexTbl = {}
+		mock_tradeQuery.totalPrice = {}
+		mock_tradeQuery.controls.pbNotice = {}
+		mock_tradeQuery.controls.priceButton1 = {}
+		mock_tradeQuery.controls.fullPrice = {}
+		mock_tradeQuery.SortFetchResults = function(_, _, mode)
+			if mode == "price" then
+				return nil, "MissingConversionRates"
+			end
+			return { { index = 1 } }
+		end
+		mock_tradeQuery.UpdateDropdownList = function() end
 
-		-- Pass: Processes without error, restoring map while adding a notice
-		-- Fail: Corrupts map or crashes, indicating fragile API response handling, breaking future conversions
-		it("handles empty response", function()
-			local orig_conv = mock_tradeQuery.currencyConversionTradeMap
-			mock_tradeQuery.currencyConversionTradeMap = { div = "id" }
-			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = {} }
-			mock_tradeQuery.controls.pbNotice = { label = "" }
-			local resp = { lines = { { malformedLine = "lol"} }}
-			mock_tradeQuery:PriceBuilderProcessPoENinjaResponse(resp.lines)
-			-- No crash expected
-			assert.is_true(true)
-			assert.is_true(mock_tradeQuery.controls.pbNotice.label == "Currencies not updated: malformed PoE Ninja response")
-			mock_tradeQuery.currencyConversionTradeMap = orig_conv
-		end)
+		mock_tradeQuery:UpdateControlsWithItems(1)
+
+		assert.are.equals(1, mock_tradeQuery.sortedResultTbl[1][1].index)
+		assert.are.equals(1, mock_tradeQuery.itemIndexTbl[1])
 	end)
 
+
+	describe("PullCXData", function()
+		local dkjson       = require("dkjson")
+
+		-- base type ids the currency exchange uses
+		local DIVINE       = "Metadata/Items/Currency/CurrencyModValues"
+		local CHAOS        = "Metadata/Items/Currency/CurrencyRerollRare"
+		local EXALT        = "Metadata/Items/Currency/CurrencyAddModToRare"
+		local ALCH   = "Metadata/Items/Currency/CurrencyUpgradeToRare"
+
+		-- static trade data: maps display name -> short trade id
+		local static       = {
+			result = { {
+				entries = {
+					{ id = "sep",          text = "" }, -- separator, must be ignored
+					{ id = "divine",       text = "Divine Orb" },
+					{ id = "chaos",        text = "Chaos Orb" },
+					{ id = "exalted",      text = "Exalted Orb" },
+					{ id = "alch",   text = "Orb of Alchemy" },
+				}
+			} }
+		}
+
+		local origDownloadPage, cxResponse
+
+		before_each(function()
+			mock_tradeQuery.pbRealm = "poe2"
+			mock_tradeQuery.controls.pbNotice = {}
+			origDownloadPage = launch.DownloadPage
+			cxResponse = nil
+			launch.DownloadPage = function(_, url, callback)
+				if url == "https://www.pathofexile.com/api/trade2/data/static" then
+					callback({ body = dkjson.encode(static) })
+				elseif cxResponse then
+					callback({ body = dkjson.encode(cxResponse) })
+				end
+			end
+		end)
+
+		after_each(function()
+			launch.DownloadPage = origDownloadPage
+		end)
+
+		it("fetches currency exchange data without authentication", function()
+			local requestedUrl
+			local requestedParams
+			launch.DownloadPage = function(_, url, callback, params)
+				if url == "https://www.pathofexile.com/api/trade2/data/static" then
+					callback({ body = dkjson.encode(static) })
+				else
+					requestedUrl = url
+					requestedParams = params
+					callback({ body = dkjson.encode({ markets = {} }) })
+				end
+			end
+
+			mock_tradeQuery.pbRealm = "poe2"
+			mock_tradeQuery:PullCXData()
+
+			assert.is_truthy(requestedUrl:match("^https://web%.poecdn%.com/api/currency%-exchange/poe2/%d+$"))
+			assert.is_nil(requestedParams)
+		end)
+
+		it("waits until a realm is selected", function()
+			local fetched = false
+			mock_tradeQuery.pbRealm = ""
+			launch.DownloadPage = function()
+				fetched = true
+			end
+
+			mock_tradeQuery:PullCXData()
+
+			assert.is_false(fetched)
+		end)
+
+		-- Provide the currency exchange response returned by the download mock.
+		local function mockCX(markets)
+			cxResponse = { markets = markets }
+		end
+
+		it("converts a chained market to divine values", function()
+			mockCX({
+				-- exalt -> divine directly (1 exalt = 0.1 div)
+				{
+					league = "Standard",
+					market_pair = { EXALT, DIVINE },
+					lowest_ratio = { [EXALT] = 10, [DIVINE] = 1 },
+					highest_stock = { [EXALT] = 100, [DIVINE] = 100 },
+				},
+				-- chaos -> divine directly (1 chaos = 0.005 div)
+				{
+					league = "Standard",
+					market_pair = { CHAOS, DIVINE },
+					lowest_ratio = { [CHAOS] = 200, [DIVINE] = 1 },
+					highest_stock = { [CHAOS] = 500, [DIVINE] = 500 },
+				},
+				-- alch -> chaos (1 alch = 0.2 chaos), needs a second hop to divine
+				{
+					league = "Standard",
+					market_pair = { ALCH, CHAOS },
+					lowest_ratio = { [ALCH] = 5, [CHAOS] = 1 },
+					highest_stock = { [ALCH] = 1000, [CHAOS] = 1000 },
+				},
+			})
+
+			mock_tradeQuery:PullCXData()
+
+			local rates = mock_tradeQuery.pbCurrencyConversion.poe2.Standard
+			assert.is_not_nil(rates)
+			assert.are.equal(1, rates.divine)
+			assert.are.equal(0.1, rates.exalted)
+			assert.are.equal(0.005, rates.chaos)
+			-- 0.2 chaos * 0.005 div/chaos = 0.001 div
+			assert.are.equal(0.001, rates.alch)
+		end)
+
+		it("keeps the highest-stock listing for a currency", function()
+			mockCX({
+				{
+					league = "Standard",
+					market_pair = { EXALT, DIVINE },
+					lowest_ratio = { [EXALT] = 10, [DIVINE] = 1 }, -- 0.1 div
+					highest_stock = { [EXALT] = 50, [DIVINE] = 5 },
+				},
+				{
+					league = "Standard",
+					market_pair = { EXALT, DIVINE },
+					lowest_ratio = { [EXALT] = 5, [DIVINE] = 1 }, -- 0.2 div
+					highest_stock = { [EXALT] = 200, [DIVINE] = 40 }, -- more stock, wins
+				},
+			})
+
+			mock_tradeQuery:PullCXData()
+
+			assert.are.equal(0.2, mock_tradeQuery.pbCurrencyConversion.poe2.Standard.exalted)
+		end)
+
+		it("skips listings with a zero ratio", function()
+			mockCX({
+				{
+					league = "Standard",
+					market_pair = { EXALT, DIVINE },
+					lowest_ratio = { [EXALT] = 0, [DIVINE] = 1 },
+					highest_stock = { [EXALT] = 100, [DIVINE] = 100 },
+				},
+			})
+
+			mock_tradeQuery:PullCXData()
+
+			-- league had no usable listings, so it should not appear
+			assert.is_nil(mock_tradeQuery.pbCurrencyConversion.poe2.Standard)
+		end)
+		it("shows a notice on an API error response", function()
+			cxResponse = { error = { message = "kaput" } }
+
+			mock_tradeQuery:PullCXData()
+
+			assert.are.equal("CX error: kaput", mock_tradeQuery.controls.pbNotice.label)
+			assert.is_nil(mock_tradeQuery.pbCurrencyConversion.poe2)
+		end)
+
+		it("does not refetch within the rate-limit window", function()
+			mock_tradeQuery.pbCurrencyConversion.poe2 = { timestamp = os.time() }
+			local fetched = false
+			launch.DownloadPage = function() fetched = true end
+
+			mock_tradeQuery:PullCXData()
+
+			assert.is_false(fetched)
+		end)
+	end)
 	describe("GetTotalPriceString", function()
 		-- Pass: Sums and formats correctly (e.g., "5 chaos, 10 div", should be most valuable currency first)
 		-- Fail: Wrong string (e.g., unsorted/missing sums), indicating aggregation bug, misleading users on totals
@@ -67,14 +230,14 @@ describe("TradeQuery Currency Conversion", function()
 			assert.are.equal(result, "1 exalted, 10 div, 5 chaos")
 
 			-- check if they're sorted according to currency value
+			mock_tradeQuery.pbRealm = "realm"
 			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, div = 1, mirror = 700} }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1, exalted = 0.05, div = 1, mirror = 700 } } }
 			local result = mock_tradeQuery:GetTotalPriceString()
 			assert.are.equal(result, "10 div, 5 chaos, 1 exalted")
 
 			-- check that missing currency values don't crash
-			mock_tradeQuery.pbLeague = "league"
-			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, mirror = 700 } }
+			mock_tradeQuery.pbCurrencyConversion = { realm = { league = { chaos = 0.1, exalted = 0.05, mirror = 700 } } }
 			local result = mock_tradeQuery:GetTotalPriceString()
 			assert.True(true)
 		end)

@@ -21,10 +21,10 @@ local m_huge = math.huge
 --- getCachedOutputValue
 ---  retrieves a value specified by key from a cached version of skill
 ---  specified by @uuid or if not found in cache computes teh cache.
---- @param env table
---- @param activeSkill table active skill to be used as main when calculating output values
---- @param ... table keys to values to be returned (Note: EmmyLua does not natively support documenting variadic parameters)
---- @return table unpacked table containing the desired values
+---@param env Env
+---@param activeSkill ActiveSkill Active skill to use as main when calculating output values
+---@param ... string Keys of values to return
+---@return any ... Cached output values
 local function getCachedOutputValue(env, activeSkill, ...)
 	local uuid = cacheSkillUUID(activeSkill, env)
 	if not GlobalCache.cachedData[env.mode][uuid] or env.mode == "CALCULATOR" then
@@ -143,6 +143,7 @@ local legacies = {
 }
 
 -- Merge keystone modifiers
+---@param env Env
 local function mergeKeystones(env)
 	for _, modObj in ipairs(env.modDB:Tabulate("LIST", nil, "Keystone")) do
 		if not env.keystonesAdded[modObj.value] and env.spec.tree.keystoneMap[modObj.value] then
@@ -156,7 +157,7 @@ local function mergeKeystones(env)
 end
 -- Add certain weapon base stats to output for use as "Stat" in mods like Tactician's ""Watch How I Do It" Ascendancy notable" and Amazon's "Penetrate"
 -- Note: This might run into issues with Energy Blade, Shapeshifting or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
----@param actor table
+---@param actor Actor
 local function addWeaponBaseStats(actor)
 	local output = actor.output
 	local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"} -- Note: we're using local dmgTypeList vars a lot, might be better to eventually just use a global since it presumably won't change
@@ -179,7 +180,7 @@ local function addWeaponBaseStats(actor)
 end
 
 -- Generic radius/area calculator for a given key prefix (e.g. "Presence", "Surrounded")
----@param actor table
+---@param actor Actor
 ---@param key string  -- e.g. "Presence" or "Surrounded"
 local function calcBuffRadius(actor, key)
 	local radiusKey, areaKey , modKey = key .. "Radius", key .. "Area", key .. "Mod"
@@ -212,11 +213,13 @@ local function calcBuffRadius(actor, key)
 	end
 end
 -- Calculate attributes, and set conditions
----@param env table
----@param actor table
+---@param env Env
+---@param actor Actor
 local function doActorAttribsConditions(env, actor)
 	local modDB = actor.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 	local condList = modDB.conditions
 
@@ -456,7 +459,7 @@ local function doActorAttribsConditions(env, actor)
 	-- Calculate attributes
 	local calculateAttributes = function()
 		for pass = 1, 2 do -- Calculate twice because of circular dependency (X attribute higher than Y attribute)
-			for _, stat in pairs({"Str","Dex","Int"}) do
+			for _, stat in ipairs({ "Str", "Dex", "Int" }) do
 				output[stat] = m_max(round(calcLib.val(modDB, stat)), 0)
 				if breakdown then
 					breakdown[stat] = breakdown.simple(nil, nil, output[stat], stat)
@@ -559,6 +562,8 @@ local function determineCursePriority(curseName, activeSkill)
 	return basePriority + socketPriority + slotPriority + sourcePriority
 end
 
+---@param actor Actor
+---@param clearCache? boolean
 local function applyEnemyModifiers(actor, clearCache)
 	if clearCache or not actor.appliedEnemyModifiers then
 		actor.appliedEnemyModifiers = { }
@@ -576,9 +581,12 @@ local function applyEnemyModifiers(actor, clearCache)
 end
 
 -- Process enemy modifiers and other buffs
+---@param env Env
+---@param actor Actor
 local function doActorMisc(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
 	local condList = modDB.conditions
 
@@ -851,8 +859,11 @@ local function doActorMisc(env, actor)
 end
 
 -- Process charges
+---@param env Env
+---@param actor Actor
 local function doActorCharges(env, actor)
 	local modDB = actor.modDB
+	---@class Output
 	local output = actor.output
 
 	-- Calculate current and maximum charges
@@ -1007,6 +1018,8 @@ local function doActorCharges(env, actor)
 end
 
 
+---@param actor Actor
+---@return number
 function calcs.actionSpeedMod(actor)
 	local modDB = actor.modDB
 	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
@@ -1033,6 +1046,8 @@ end
 
 -- Initialises a minion's modifier database with its base stats (life, defences, resists),
 -- monster type mods, tamed beast mods and player-granted mods, for the given owning skill
+---@param env Env
+---@param activeSkill ActiveSkill
 local function initMinionModDB(env, activeSkill)
 	local skillFlags
 	if env.mode == "CALCS" then
@@ -1142,6 +1157,9 @@ local function initMinionModDB(env, activeSkill)
 	end
 end
 
+---@param modList ModList
+---@param skillCfg ModCfg
+---@param minion Actor
 local function addMinionModifiers(modList, skillCfg, minion)
 	for _, value in ipairs(modList:List(skillCfg, "MinionModifier")) do
 		if not value.type or minion.type == value.type then
@@ -1159,8 +1177,12 @@ end
 -- 6. Processes buffs and debuffs
 -- 7. Processes charges and misc buffs (doActorCharges, doActorMisc)
 -- 8. Calculates defence and offence stats (calcs.defence, calcs.offence)
+---@param env Env
+---@param skipEHP? boolean
 function calcs.perform(env, skipEHP)
+	---@type ModDB
 	local modDB = env.modDB
+	---@type ModDB
 	local enemyDB = env.enemyDB
 
 	-- Merge keystone modifiers
@@ -1179,7 +1201,8 @@ function calcs.perform(env, skipEHP)
 	end
 
 	env.player.output = { }
-	env.enemy.output = { }
+	env.enemy.output = {}
+	---@class Output
 	local output = env.player.output
 
 	env.partyMembers = env.build.partyTab.actor
@@ -1226,6 +1249,20 @@ function calcs.perform(env, skipEHP)
 		applyEnemyModifiers(env.minion, true)
 	end
 	applyEnemyModifiers(env.enemy, true)
+
+	if enemyDB:Flag(env.player.mainSkill.skillCfg, "AbyssalWasted") then
+		local conditions = modDB:List(nil, "AbyssalWastingImpliesCondition")
+		for _, v in ipairs(conditions) do
+			local conditionName = string.format("Condition:%s", v.condition)
+			if v.applyToEnemy then
+				enemyDB:NewMod(v.condition, "FLAG", true)
+				enemyDB:NewMod(conditionName, "FLAG", true)
+			else
+				modDB:NewMod(v.condition, "FLAG", true)
+				modDB:NewMod(conditionName, "FLAG", true)
+			end
+		end
+	end
 
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
@@ -3370,6 +3407,21 @@ function calcs.perform(env, skipEHP)
 		env.player.companionLifeList = companionLifeList
 	end
 
+	if enemyDB:Flag(env.player.mainSkill.skillCfg, "AbyssalWasted") then
+		local effect = 1 + modDB:Sum("INC", nil, "AbyssalWastingEffect") / 100
+		local mods = modDB:List(nil, "AbyssalWastingAlsoGrants")
+		for _, v in ipairs(mods) do
+			local mod = copyTable(v.mod)
+			if not v.unscalable then
+				mod.value = m_modf(round(mod.value * effect, 2))
+			end
+			if v.applyToEnemy then
+				enemyDB:AddMod(mod)
+			else
+				modDB:AddMod(mod)
+			end
+		end
+	end
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
 	local function getSkillExposureEffect(source, element)

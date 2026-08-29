@@ -4,6 +4,7 @@
 -- Skill data (c) Grinding Gear Games
 --
 return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 #skill MeleeAtAnimationSpeed
 #set MeleeAtAnimationSpeed
 #flags attack melee

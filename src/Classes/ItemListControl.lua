@@ -9,6 +9,10 @@ local t_insert = table.insert
 ---@class ItemListControl: ListControl
 local ItemListClass = newClass("ItemListControl", "ListControl")
 
+---@param anchor Anchor?
+---@param rect Rect?
+---@param itemsTab ItemsTab
+---@param forceTooltip boolean?
 function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, itemsTab.itemOrderList, forceTooltip)
 	self.itemsTab = itemsTab
@@ -191,6 +195,7 @@ function ItemListClass:OnSelClick(index, itemId, doubleClick)
 		local newItem = new("Item"):Item(item:BuildRaw())
 		newItem.id = item.id
 		self.itemsTab:SetDisplayItem(newItem)
+		return false
 	end
 end
 

@@ -109,6 +109,9 @@ local function writeMods(outName, condFunc)
 					out:write('}, ')
 				end
 				out:write('modTags = { ', stats.modTags, ' }, ')
+				if mod.IsUnscalable then
+					out:write('unscalable = true, ')
+				end
 				if mod.NodeType ~= 3 then
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end

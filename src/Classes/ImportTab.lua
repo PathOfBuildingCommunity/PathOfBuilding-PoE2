@@ -6,8 +6,8 @@
 local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
-local b_rshift = bit.rshift
-local band = bit.band
+local t_concat = table.concat
+local s_format = string.format
 local m_max = math.max
 local dkjson = require "dkjson"
 
@@ -351,11 +351,184 @@ function ImportTabClass:ImportTab(build)
 		end
 	end
 
+	-- Path of Exile 2 BuildPlanner export
+	local BuildExportPoE2 = require("Modules.BuildExportPoE2")
+	local function updateBuildPlannerPath()
+		if not self.controls.poe2ExportPath then return end
+		local buildName = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder
+		local spec = self.build.treeTab and self.build.treeTab.specList[self.exportSpecIndex]
+		self.controls.poe2ExportPath:SetText(BuildExportPoE2.BuildPath(buildName, spec and spec.treeVersion, self.controls.poe2ExportPath.buf))
+	end
+	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 330 }, "Export to in-game build planner")
+	self.controls.poe2ExportDesc = new("LabelControl"):LabelControl({"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
+	self.controls.poe2ExportDesc2 = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, "^8Each file holds one passive tree, one skill set and one item set.")
+
+	self.controls.buildPlannerBuildName = new("EditControl"):EditControl({ "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, nil, "Build name", nil, nil, function()
+		updateBuildPlannerPath()
+	end)
+	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
+	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, "Author name", nil, nil)
+	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
+	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Tree")
+	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, "^7Skill")
+	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, "^7Item")
+	self.controls.buildPlannerSpec = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.buildPlannerTreeLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
+		self.exportSpecIndex = value.key
+		updateBuildPlannerPath()
+	end, "^7Which passive tree to export")
+	self.controls.buildPlannerSkillSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSpec, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
+		self.exportSkillSetId = value.key
+	end, "^7Which skill set to export")
+	self.controls.buildPlannerItemSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSkillSet, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
+		self.exportItemSetId = value.key
+	end, "^7Which item set to export")
+	self.controls.buildPlannerUseGeneratedItemText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 2, 18 }, "Generated text for empty item notes", function()
+		self.build.modFlag = true
+	end, "^7For items without a note, generate a note that contains the current mods, item name and item base", true)
+	self.controls.buildPlannerUseGeneratedItemText.labelRight = true
+	self:RefreshBuildPlannerSets()
+
+	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 28, 0, 16 }, "^7Description:")
+	self.controls.buildPlannerDescription = new("EditControl"):EditControl({"TOPLEFT",self.controls.buildPlannerDescLabel,"BOTTOMLEFT"}, {0, 8, 560, 64}, "", nil, "^%C\t\n", nil, nil, 16)
+	self.controls.poe2ExportPath = new("EditControl"):EditControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 8, 560, 20 }, BuildExportPoE2.BuildPath(self.controls.buildPlannerBuildName.placeholder), "Path", nil, 260)
+	updateBuildPlannerPath()
+	self.controls.poe2ExportPath.shown = function() return self.controls.poe2ExportShowPath.state end
+	self.controls.poe2ExportPathDisplay = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 10, 0, 16 }, function()
+		return "^8Save location: " .. BuildExportPoE2.DisplayPath(self.controls.poe2ExportPath.buf)
+	end)
+	self.controls.poe2ExportPathDisplay.shown = function() return not self.controls.poe2ExportShowPath.state end
+	local function displayPath(path)
+		return self.controls.poe2ExportShowPath.state and path or BuildExportPoE2.DisplayPath(path)
+	end
+	self.controls.poe2ExportOpenFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 36, 110, 20 }, "Open Folder", function()
+		local path = self.controls.poe2ExportPath.buf
+		local directory = path:match("^(.*[/\\])") or "."
+		local err = OpenURL(directory)
+		if err then
+			main:OpenMessagePopup("Error", "Couldn't open the folder:\n" .. displayPath(directory) .. "\n\n" .. err)
+		end
+	end)
+	self.controls.poe2ExportOpenFolder.tooltipText = "^7Open the BuildPlanner export folder."
+	self.controls.poe2ExportShowPath = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.poe2ExportOpenFolder, "RIGHT" }, { 120, 1, 18 }, "Show full path", nil, "^7Reveal the editable absolute save path.", false)
+	self.controls.poe2ExportSave = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 64, 140, 20 }, "Export Selected Sets", function()
+		local path = self.controls.poe2ExportPath.buf
+		local function doWrite()
+			local ok, err = BuildExportPoE2.WriteFile(self.build, path, self:GetBuildPlannerMetadata(), {
+				specIndex = self.exportSpecIndex,
+				skillSetId = self.exportSkillSetId,
+				itemSetId = self.exportItemSetId,
+			})
+			if not ok then
+				main:OpenMessagePopup("Error", "Couldn't save the build file to:\n" .. displayPath(path) .. "\n\n" .. err .. "\nMake sure the save folder exists and is writable.")
+			else
+				main:OpenMessagePopup("Success", string.format("Build file exported successfully to:\n%s", displayPath(path)))
+			end
+		end
+		-- Confirm overwrite if the file already exists.
+		local existing = io.open(path, "r")
+		if existing then
+			existing:close()
+			main:OpenConfirmPopup("Overwrite?", "A file already exists at:\n" .. displayPath(path) .. "\n\nOverwrite it?", "Overwrite", doWrite)
+		else
+			doWrite()
+		end
+	end)
+	self.controls.poe2ExportSave.enabled = function()
+		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
+	end
+	self.controls.poe2ExportSave.tooltipText = "^7Writes a single file containing the three sets picked above."
+	self.controls.poe2ExportSaveAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.poe2ExportSave, "RIGHT" }, { 8, 0, 140, 20 }, "Export All Loadouts", function()
+		local path = self.controls.poe2ExportPath.buf
+		local loadouts = BuildExportPoE2.GetLoadouts(self.build)
+		local function doWrite()
+			local written, errors = BuildExportPoE2.WriteAllLoadouts(self.build, path, self:GetBuildPlannerMetadata(), loadouts)
+			local displayedPaths = {}
+			for _, writtenPath in ipairs(written) do
+				t_insert(displayedPaths, displayPath(writtenPath))
+			end
+			local msg = s_format("Wrote %d file(s):\n%s", #written, t_concat(displayedPaths, "\n"))
+			if #errors > 0 then
+				msg = msg .. s_format("\n\n%d failed:\n%s", #errors, t_concat(errors, "\n"))
+			end
+			main:OpenMessagePopup("Loadout export", msg)
+		end
+		local existingFiles = {}
+		for _, loadout in ipairs(loadouts) do
+			local spec = BuildExportPoE2.ResolveSelection(self.build, loadout)
+			local loadoutPath = BuildExportPoE2.LoadoutPath(path, loadout.fileName or loadout.name, spec and spec.treeVersion)
+			local existing = io.open(loadoutPath, "r")
+			if existing then
+				existing:close()
+				t_insert(existingFiles, loadoutPath:match("([^/\\]+)$"))
+			end
+		end
+		if #existingFiles > 0 then
+			main:OpenConfirmPopup("Overwrite?",
+				s_format("%d file(s) already exist:\n%s\n\nOverwrite them?", #existingFiles, t_concat(existingFiles, "\n")),
+				"Overwrite", doWrite)
+		else
+			doWrite()
+		end
+	end)
+	self.controls.poe2ExportSaveAll.enabled = function()
+		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
+	end
+	self.controls.poe2ExportSaveAll.tooltipText = "^7Exports one file per loadout. The loadout name is appended to each filename."
+
 	-- validate the status of the api the first time
 	self:RefreshAuthStatus()
 	return self
 end
 
+-- Metadata shared by both export buttons.
+function ImportTabClass:GetBuildPlannerMetadata()
+	return {
+		name = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder,
+		author = self.controls.buildPlannerAuthorName.buf ~= "" and self.controls.buildPlannerAuthorName.buf or self.controls.buildPlannerAuthorName.placeholder,
+		description = self.controls.buildPlannerDescription.buf,
+		useGeneratedItemText = self.controls.buildPlannerUseGeneratedItemText.state,
+	}
+end
+
+-- Rebuild the three set dropdowns
+function ImportTabClass:RefreshBuildPlannerSets()
+	local build = self.build
+	if not (build and build.treeTab and build.skillsTab and build.itemsTab) then return end
+
+	-- these shouldn't really ever be empty as even a fresh build will have default sets active
+	local treeList = {}
+	for index, spec in ipairs(build.treeTab.specList) do
+		t_insert(treeList, { label = spec.title or "Default", key = index })
+	end
+
+	local skillList = {}
+	for _, setId in ipairs(build.skillsTab.skillSetOrderList) do
+		local skillSet = build.skillsTab.skillSets[setId]
+		if skillSet then
+			t_insert(skillList, { label = skillSet.title or "Default", key = setId })
+		end
+	end
+
+	local itemList = {}
+	for _, setId in ipairs(build.itemsTab.itemSetOrderList) do
+		local itemSet = build.itemsTab.itemSets[setId]
+		if itemSet then
+			t_insert(itemList, { label = itemSet.title or "Default", key = setId })
+		end
+	end
+
+	self.controls.buildPlannerSpec:SetList(treeList)
+	self.controls.buildPlannerSkillSet:SetList(skillList)
+	self.controls.buildPlannerItemSet:SetList(itemList)
+
+	-- ensure selected index is in bounds and that something is selected
+	self.controls.buildPlannerSpec.selIndex = nil
+	self.controls.buildPlannerSkillSet.selIndex = nil
+	self.controls.buildPlannerItemSet.selIndex = nil
+	self.controls.buildPlannerSpec:SetSel(1)
+	self.controls.buildPlannerSkillSet:SetSel(1)
+	self.controls.buildPlannerItemSet:SetSel(1)
+end
 function ImportTabClass:RefreshAuthStatus()
 	main.api:ValidateAuth(function(valid, updateSettings)
 			if valid then
@@ -389,6 +562,7 @@ function ImportTabClass:Load(xml, fileName)
 	self.importLink = xml.attrib.importLink
 	self.controls.enablePartyExportBuffs.state = xml.attrib.exportParty == "true"
 	self.build.partyTab.enableExportBuffs = self.controls.enablePartyExportBuffs.state
+	self.controls.buildPlannerUseGeneratedItemText.state = xml.attrib.useGeneratedItemText ~= "false"
 	if self.lastAccountHash then
 		for accountName in pairs(main.gameAccounts) do
 			if common.sha1(accountName) == self.lastAccountHash then
@@ -406,6 +580,7 @@ function ImportTabClass:Save(xml)
 		lastAccountHash = self.lastAccountHash,
 		lastCharacterHash = self.lastCharacterHash,
 		exportParty = tostring(self.controls.enablePartyExportBuffs.state),
+		useGeneratedItemText = tostring(self.controls.buildPlannerUseGeneratedItemText.state),
 		importLink = self.importLink
 	}
 

@@ -18,6 +18,12 @@ local toolTipText = "Prefix tag searches with a colon and exclude tags with a da
 ---@class GemSelectControl: EditControl
 local GemSelectClass = newClass("GemSelectControl", "EditControl")
 
+---@param anchor Anchor?
+---@param rect Rect?
+---@param skillsTab SkillsTab
+---@param index integer
+---@param changeFunc fun(...)
+---@param forceTooltip boolean
 function GemSelectClass:GemSelectControl(anchor, rect, skillsTab, index, changeFunc, forceTooltip)
 	self:EditControl(anchor, rect, nil, nil, "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)
@@ -525,7 +531,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			self.tooltip:Clear(true)
 			self.tooltip.maxWidth = 600
 			if gemInstance and gemInstance.gemData then
-				self:AddGemTooltip(gemInstance)
+				self:AddGemTooltip(gemInstance, true)
 			else
 				self.tooltip:AddLine(16, toolTipText)
 			end
@@ -572,8 +578,8 @@ function GemSelectClass:CheckSupporting(gemA, gemB)
 		(gemA.gemData.secondaryGrantedEffect and gemA.gemData.secondaryGrantedEffect.support and not gemB.gemData.grantedEffect.support and gemA.supportEffect and gemA.supportEffect.isSupporting and gemA.supportEffect.isSupporting[gemB])
 end
 
-function GemSelectClass:AddGemTooltip(gemInstance)
-	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance)
+function GemSelectClass:AddGemTooltip(gemInstance, includeBuildPlannerNote)
+	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance, { includeBuildPlannerNote = includeBuildPlannerNote })
 end
 function GemSelectClass:OnFocusGained()
 	self.EditControl:OnFocusGained()
@@ -683,6 +689,18 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 				self:ScrollSelIntoView()
 			end
 		end
+	elseif key == "RIGHTBUTTON" and IsKeyDown("SHIFT") then
+		-- Shift+Right-Click: edit the per-gem author note for the PoE2 .build export.
+		local gemList = self.skillsTab.displayGroup and self.skillsTab.displayGroup.gemList
+		local gemInstance = gemList and gemList[self.index]
+		if gemInstance then
+			local title = "Note: " .. ((gemInstance.nameSpec and gemInstance.nameSpec ~= "") and gemInstance.nameSpec or "Gem")
+			main:OpenNoteEditPopup(title, gemInstance.note, function(text)
+				gemInstance.note = text
+				self.skillsTab.build.modFlag = true
+			end)
+		end
+		return
 	elseif key == "RETURN" or key == "RIGHTBUTTON" then
 		self.dropped = true
 		self:UpdateSortCache()

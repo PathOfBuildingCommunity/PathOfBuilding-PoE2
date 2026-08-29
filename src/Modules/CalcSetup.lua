@@ -179,10 +179,23 @@ local function refreshJewelStatCache(env)
 	end
 end
 
-function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeystoneMods)
+-- Recycle a modlist so that we do not allocate many tables for each node.
+local function resetModList(list)
+	for i = #list, 1, -1 do
+		list[i] = nil
+	end
+	list.multipliers = wipeTable(list.multipliers)
+	list.conditions = wipeTable(list.conditions)
+	list.actor = wipeTable(list.actor)
+	list.parent = false
+	return list
+end
+
+---@param reuse table|nil A ModList to recycle instead of allocating. Only safe when the caller discards the result.
+function calcs.buildModListForNode(env, node, reuse, incSmallPassiveSkill, includeKeystoneMods)
 	local localSmallIncEffect = 0
 	local localNotableIncEffect = 0
-	local modList = new("ModList"):ModList()
+	local modList = reuse and resetModList(reuse) or new("ModList"):ModList()
 	if node.type == "Keystone" then
 		if includeKeystoneMods then
 			modList:AddList(node.modList)
@@ -219,46 +232,107 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 		end
 	end
 
-	if modList:Flag(nil, "PassiveSkillHasNoEffect") or (env.allocNodes[node.id] and modList:Flag(nil, "AllocatedPassiveSkillHasNoEffect")) then
+	-- prefilter the modlist so that every :Flag() call does not have to go through the entire mod list
+	local hasNoEffect, hasAllocNoEffect, hasScale, hasOtherEffect, hasExtraSkill, hasExplode
+	for i = 1, #modList do
+		local name = modList[i].name
+		if name == "PassiveSkillHasNoEffect" then
+			hasNoEffect = true
+		elseif name == "AllocatedPassiveSkillHasNoEffect" then
+			hasAllocNoEffect = true
+		elseif name == "PassiveSkillEffect" then
+			hasScale = true
+		elseif name == "PassiveSkillHasOtherEffect" then
+			hasOtherEffect = true
+		elseif name == "ExtraSkill" then
+			hasExtraSkill = true
+		elseif name == "CanExplode" then
+			hasExplode = true
+		end
+	end
+
+	if (hasNoEffect and modList:Flag(nil, "PassiveSkillHasNoEffect")) or (env.allocNodes[node.id] and (hasAllocNoEffect and modList:Flag(nil, "AllocatedPassiveSkillHasNoEffect"))) then
 		wipeTable(modList)
+		hasScale = false
+		hasOtherEffect = nil
+		hasExtraSkill = nil
+		hasExplode = nil
 	end
 
 	-- Apply effect scaling
-	local scale = calcLib.mod(modList, nil, "PassiveSkillEffect")
-	if scale ~= 1 then
-		local scaledList = new("ModList"):ModList()
-		scaledList:ScaleAddList(modList, scale)
-		modList = scaledList
+	if hasScale then
+		local scale = calcLib.mod(modList, nil, "PassiveSkillEffect")
+		if scale ~= 1 then
+			local scaledList = new("ModList"):ModList()
+			scaledList:ScaleAddList(modList, scale)
+			modList = scaledList
+		end
 	end
 
 	-- Run second pass radius jewels
-	for _, rad in pairs(env.radiusJewelList) do
+	local rescan = false
+	for i = 1, #env.radiusJewelList do
+		local rad = env.radiusJewelList[i]
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
 			runRadiusJewelFunc(rad, node, modList, rad.data)
+			rescan = true
+			hasOtherEffect = nil
+			hasExtraSkill = nil
+			hasExplode = nil
 		end
 	end
 
-	if modList:Flag(nil, "PassiveSkillHasOtherEffect") then
-		for i, mod in ipairs(modList:List(skillCfg, "NodeModifier")) do
-			if i == 1 then wipeTable(modList) end
-			modList:AddMod(mod.mod)
+	if rescan then
+		for i = 1, #modList do
+			local name = modList[i].name
+			if name == "PassiveSkillHasOtherEffect" then
+				hasOtherEffect = true
+			elseif name == "ExtraSkill" then
+				hasExtraSkill = true
+			elseif name == "CanExplode" then
+				hasExplode = true
+			end
 		end
 	end
 
-	node.grantedSkills = { }
-	for _, skill in ipairs(modList:List(nil, "ExtraSkill")) do
-		if skill.name ~= "Unknown" then
-			t_insert(node.grantedSkills, {
-				skillId = skill.skillId,
-				level = skill.level,
-				noSupports = true,
-				source = "Tree:"..node.id
-			})
+	if hasOtherEffect and modList:Flag(nil, "PassiveSkillHasOtherEffect") then
+		local newMods = modList:List(nil, "NodeModifier")
+		for i = 1, #newMods do
+			local mod = newMods[i].mod
+			if i == 1 then
+				wipeTable(modList)
+				hasExtraSkill = nil
+				hasExplode = nil
+			end
+			if mod.name == "ExtraSkill" then
+				hasExtraSkill = true
+			elseif mod.name == "CanExplode" then
+				hasExplode = true
+			end
+			modList:AddMod(mod)
 		end
 	end
 
-	if modList:Flag(nil, "CanExplode") then
-		t_insert(env.explodeSources, node)
+	node.grantedSkills = wipeTable(node.grantedSkills)
+	if hasExtraSkill then
+		local list = modList:List(nil, "ExtraSkill")
+		for i = 1, #list do
+			local skill = list[i]
+			if skill.name ~= "Unknown" then
+				t_insert(node.grantedSkills, {
+					skillId = skill.skillId,
+					level = skill.level,
+					noSupports = true,
+					source = "Tree:" .. node.id
+				})
+			end
+		end
+	end
+
+	if hasExplode then
+		if modList:Flag(nil, "CanExplode") then
+			t_insert(env.explodeSources, node)
+		end
 	end
 
 	for i, mod in ipairs(modList) do
@@ -348,8 +422,12 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 
 	-- Add node modifiers
 	local modList = new("ModList"):ModList()
+	-- Outside MAIN mode the per-node list is merged into modList and then
+	-- dropped, so a single list can be recycled for every node instead of
+	-- allocating one each time.
+	local scratch = env.mode ~= "MAIN" and new("ModList"):ModList() or nil
 	for _, node in pairs(nodeList) do
-		local nodeModList = calcs.buildModListForNode(env, node, inc, includeKeystoneMods)
+		local nodeModList = calcs.buildModListForNode(env, node, scratch, inc, includeKeystoneMods)
 		modList:AddList(nodeModList)
 		if env.mode == "MAIN" then
 			node.finalModList = nodeModList
@@ -359,7 +437,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels, includeKeyst
 	if finishJewels then
 		-- Process extra radius nodes; these are unallocated nodes near conversion or threshold jewels that need to be processed
 		for _, node in pairs(env.extraRadiusNodeList) do
-			local nodeModList = calcs.buildModListForNode(env, node, inc)
+			local nodeModList = calcs.buildModListForNode(env, node, scratch, inc)
 			if env.mode == "MAIN" then
 				node.finalModList = nodeModList
 			end
@@ -544,6 +622,7 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 	end
 end
 
+---@alias CalcEnvMode "MAIN"|"CALCS"|"CALCULATOR"
 -- Initialise environment:
 -- 1. Initialises the player and enemy modifier databases
 -- 2. Merges modifiers for all items
@@ -551,12 +630,21 @@ end
 -- 4. Merges modifiers for all allocated passive nodes
 -- 5. Builds a list of active skills and their supports (calcs.createActiveSkill)
 -- 6. Builds modifier lists for all active skills (calcs.buildActiveSkillModList)
+---@param build Build
+---@param mode CalcEnvMode
+---@param override CalcOverride?
+---@param specEnv any?
+---@return Env
+---@return ModDB? cachedPlayerDB
+---@return ModDB? cachedEnemyDB
+---@return ModDB? cachedMinionDB
 function calcs.initEnv(build, mode, override, specEnv)
 	ClearMatchKeywordFlagsCache()
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
 	local cachedMinionDB = specEnv and specEnv.cachedMinionDB or nil
+	---@type Env?
 	local env = specEnv and specEnv.env or nil
 	local accelerate = specEnv and specEnv.accelerate or { }
 

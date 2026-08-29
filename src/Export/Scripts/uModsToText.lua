@@ -193,10 +193,18 @@ for _, name in ipairs(itemTypes) do
 			end
 			if mod then
 				modLines = modLines + 1
+				prefix = prefix..(mod.unscalable and "{unscalable}" or "")
 				if useCatalystTags then
 					prefix = prefix..getCatalystTagPrefix(mod.modTags)
 				end
 				prefix = prefix..fractured
+				if mod.modTags then
+					for _, tag in ipairs(mod.modTags) do
+						if tag == "unveiled_mod" then
+							prefix ..= "{desecrated}"
+						end
+					end
+				end
 				local legacyMod
 				if legacy ~= "" then
 					local values = { }
@@ -260,7 +268,13 @@ for _, name in ipairs(itemTypes) do
 					else
 						table.insert(implicitLines, line)
 					end
-				elseif not line:match("^Requires:? Level") then
+				elseif line:match("^Requires:? Level") then
+					-- Requirement levels are derived from the base type and unique mod levels.
+				elseif base and not itemBases[stripLineTags(line)] then
+					-- Order 0 keeps leading literal mods after implicits but before translated mods.
+					statOrder[0] = statOrder[0] or { }
+					table.insert(statOrder[0], line)
+				else
 					table.insert(lines, line)
 					if line:match("%[%[") then
 						headerLineCount = 0

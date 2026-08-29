@@ -147,8 +147,10 @@ function main:Init()
 		self:ChangeUserPath(self.userPath, ignoreBuild)
 	end
 
-	self.uniqueDB = { list = { }, loading = true }
-	self.rareDB = { list = { }, loading = true }
+	---@type ItemDBData
+	self.uniqueDB = { list = {}, loading = true }
+	---@type ItemDBData
+	self.rareDB = { list = {}, loading = true }
 
 	local function loadItemDBs()
 		for type, typeList in pairsYield(data.uniques) do
@@ -193,6 +195,20 @@ function main:Init()
 		local saved = self.defaultItemAffixQuality
 		self.defaultItemAffixQuality = 0.5
 		loadItemDBs()
+		local ignoredCats = { Item = true, Runes = true }
+		for modCategoryName, mods in pairs(data.itemMods) do
+			if not ignoredCats[modCategoryName] then
+				for _, mod in pairs(mods) do
+					-- the trade hash field is split by stat descriptor, which
+					-- means we shouldn't have problems with long stats being
+					-- split
+					for _, line in pairs(mod.tradeHashes) do
+						local rangedLine = itemLib.applyRange(table.concat(line, " "), 0.5)
+						modLib.parseMod(rangedLine)
+					end
+				end
+			end
+		end
 		self:SaveModCache()
 		self.defaultItemAffixQuality = saved
 	end
@@ -297,6 +313,12 @@ function main:SaveModCache()
 	-- Update mod cache
 	local out = io.open("Data/ModCache.lua", "w")
 	out:write('local c = {}\n')
+	-- luajit has problems with loading large tables due to require() and
+	-- LoadModule wrapping the loaded file in a function, which means the
+	-- program runs out of constants and crashes. this works around that by
+	-- splitting the mod cache into functions of 5k statements
+	local count = 0
+	out:write("(function()\n")
 	for line, dat in pairsSortByKey(modLib.parseModCache) do
 		if not dat[1] or not dat[1][1] or (dat[1][1].name ~= "JewelFunc" and dat[1][1].name ~= "ExtraJewelFunc") then
 			out:write('c["', line:gsub("\n","\\n"), '"]={')
@@ -310,9 +332,15 @@ function main:SaveModCache()
 			else
 				out:write(',nil}\n')
 			end
+			if count == 5000 then
+				out:write("end)();(function()\n")
+				count = 0
+			else
+				count += 1
+			end
 		end
 	end
-	out:write('return c\n')
+	out:write("end)();\nreturn c\n")
 	out:close()
 end
 
@@ -1718,6 +1746,96 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 		end))
 		return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "confirm")
 	end
+end
+
+-- https://www.pathofexile.com/developer/docs/game#markup-Font
+local noteFontTags = {
+	{ tag = "r", label = "Regular" },
+	{ tag = "b", label = "Bold" },
+	{ tag = "i", label = "Italic" },
+	{ tag = "u", label = "Underline" },
+	{ tag = "s", label = "Small" },
+	{ tag = "m", label = "Medium" },
+	{ tag = "l", label = "Large" },
+}
+
+-- A list of practical color code keys. These use the colorCodes table and rgb(r, g, b) tags
+local noteColorCodes = {
+	"NORMAL", "MAGIC", "RARE", "UNIQUE", "RELIC", "GEM",
+	"FIRE", "COLD", "LIGHTNING", "CHAOS", "STRENGTH", "DEXTERITY",
+	"INTELLIGENCE", "POSITIVE", "NEGATIVE", "WARNING", "TIP", "CURRENCY",
+}
+local markupButtonsPerRow = 6
+function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
+	local controls = { }
+	local function insertMarkup(openTag)
+		local edit = controls.edit
+		if edit.sel and edit.sel ~= edit.caret then
+			edit:ReplaceSel(openTag .. "{" .. edit:GetSelText() .. "}")
+		else
+			edit:Insert(openTag .. "{}")
+			edit.caret = edit.caret - 1
+			edit:ScrollCaretIntoView()
+		end
+		return edit
+	end
+
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Note shown on this entry in the exported .build (BuildPlanner) file.\nLeave blank to remove.\n^8Buttons below wrap the selected text in BuildPlanner markup.")
+
+	local hoverText = "Click to insert tag, then type inside the curly braces."
+
+	controls.fontLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 72, 0, 16 }, "^7Font")
+	for index, style in ipairs(noteFontTags) do
+		controls["font" .. style.label] = new("ButtonControl"):ButtonControl(nil, { -258 + (index - 1) * 86, 90, 82, 18 }, "^7" .. style.label, function()
+			return insertMarkup("<" .. style.tag .. ">")
+		end)
+		controls["font" .. style.label].tooltipText = hoverText
+		controls["font" .. style.label].forceTooltip = true
+	end
+
+	controls.colorLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 114, 0, 16 }, "^7Colour")
+	for index, code in ipairs(noteColorCodes) do
+		local col = (index - 1) % markupButtonsPerRow
+		local row = m_floor((index - 1) / markupButtonsPerRow)
+		controls["color" .. code] = new("ButtonControl"):ButtonControl(nil, { -250 + col * 100, 132 + row * 20, 96, 18 }, colorCodes[code] .. code, function()
+			return insertMarkup(colorCodeToMarkupColour(colorCodes[code]))
+		end)
+		controls["color" .. code].tooltipText = hoverText
+		controls["color" .. code].forceTooltip = true
+	end
+
+	local editY = generatedText and 222 or 198
+	if generatedText then
+		controls.addItemText = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 198, 120, 18 }, "Add Item Text", function()
+			controls.edit:Insert(generatedText)
+			return controls.edit
+		end)
+		controls.addItemText.tooltipText = "Insert the generated item text at the caret"
+		controls.addItemText.forceTooltip = true
+	end
+	controls.edit = new("EditControl"):EditControl(nil, { 0, editY, 598, 240 }, initial or "", nil, "^%C\t\n", nil, function(buf)
+		controls.save.enabled = true
+	end, 16)
+	local buttonY = editY + 250
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, buttonY, 80, 20 }, "Save", function()
+		local buf = controls.edit.buf
+		if buf == "" then buf = nil end
+		onSave(buf)
+		main:ClosePopup()
+	end)
+	controls.save.tooltipFunc = function(tooltip)
+		tooltip:Clear()
+		if controls.edit.buf ~= "" then
+			tooltip:AddBuildPlannerNote(14, controls.edit.buf)
+		else
+			tooltip:AddLine(14, "Save an empty note to remove it.")
+		end
+	end
+	controls.save.forceTooltip = true
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, buttonY, 80, 20 }, "Cancel", function()
+		main:ClosePopup()
+	end)
+	self:OpenPopup(624, buttonY + 40, title or "Edit Note", controls, "save", "edit", "cancel")
 end
 
 function main:OpenNewFolderPopup(path, onClose)

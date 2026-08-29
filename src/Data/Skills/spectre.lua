@@ -5,6 +5,7 @@
 -- Skill data (c) Grinding Gear Games
 --
 			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 --ABTT = Add Buff to Target Triggered
 --CGE = Monster Cast Ground Effect
 --DTT = Detach Dash to Target

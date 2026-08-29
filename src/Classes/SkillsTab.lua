@@ -351,6 +351,8 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		end
 		gemInstance.level = tonumber(child.attrib.level)
 		gemInstance.quality = tonumber(child.attrib.quality)
+		-- Optional author note for the PoE2 .build export (Shift+Right-Click on the gem to set).
+		gemInstance.note = child.attrib.note
 		gemInstance.enabled = not child.attrib.enabled and true or child.attrib.enabled == "true"
 		gemInstance.enableGlobal1 = not child.attrib.enableGlobal1 or child.attrib.enableGlobal1 == "true"
 		gemInstance.enableGlobal2 = child.attrib.enableGlobal2 == "true"
@@ -506,6 +508,7 @@ function SkillsTabClass:Save(xml)
 					skillMinionSkillCalcs = gemInstance.skillMinionSkillCalcs and tostring(gemInstance.skillMinionSkillCalcs),
 					corrupted = tostring(gemInstance.corrupted),
 					corruptLevel = tostring(gemInstance.corruptLevel),
+					note = (gemInstance.note and gemInstance.note ~= "") and gemInstance.note or nil,
 				} }
 				if gemInstance.statSet then
 					for grantedEffect, index in pairs(gemInstance.statSet) do

@@ -4,6 +4,7 @@
 -- Skill data (c) Grinding Gear Games
 --
 			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["SupportAdhesiveGrenadesPlayer"] = {
 	name = "Adhesive Grenades I",
 	description = "Supports Grenade Skills. Grenades from Supported Skills do not bounce, instead halting movement where they intially land, but doing lower damage when they detonate.",
