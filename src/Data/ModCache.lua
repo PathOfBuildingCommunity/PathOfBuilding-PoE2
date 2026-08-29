@@ -4535,8 +4535,8 @@ c["50% increased Duration of Ailments on Beasts 50% increased Critical Hit Chanc
 c["50% increased Duration of Ailments on Beasts 50% increased Critical Hit Chance against Humanoids 50% increased Immobilisation buildup against Constructs"]={{[1]={flags=0,keywordFlags=0,name="EnemyAilmentDuration",type="INC",value=50}},"  on Beasts 50% increased Critical Hit Chance against Humanoids 50% increased Immobilisation buildup against Constructs "}
 c["50% increased Duration of Elemental Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyElementalAilmentDuration",type="INC",value=50}},nil}
 c["50% increased Duration. -1% to this value when used"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," . -1% to this value when used "}
-c["50% increased Effect of Prefixes"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of Prefixes "}
-c["50% increased Effect of Suffixes"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of Suffixes "}
+c["50% increased Effect of Prefixes"]={{},nil}
+c["50% increased Effect of Suffixes"]={{},nil}
 c["50% increased Electrocute Buildup against Shocked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="EnemyElectrocuteBuildup",type="INC",value=50}},nil}
 c["50% increased Elemental Ailment Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfElementalAilmentDuration",type="INC",value=50}},nil}
 c["50% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=50}},nil}
@@ -4946,7 +4946,7 @@ c["70% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armour
 c["70% increased Attack Damage if your other Ring is a Shaper Item"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=70}},"  if your other Ring is a Shaper Item "}
 c["70% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=70}},nil}
 c["70% increased Damage while you have no Frenzy Charges"]={{[1]={[1]={stat="FrenzyCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
-c["70% increased Desecrated Modifier magnitudes"]={{[1]={flags=0,keywordFlags=0,name="Magnitude",type="INC",value=70}}," Desecrated Modifier  "}
+c["70% increased Desecrated Modifier magnitudes"]={{},nil}
 c["70% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=70}},nil}
 c["70% increased Energy Shield from Equipped Helmet"]={{[1]={[1]={slotName="Helmet",type="SlotName"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=70}},nil}
 c["70% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=70}},nil}
@@ -5169,8 +5169,7 @@ c["80% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritC
 c["80% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=80}},nil}
 c["80% increased Damage with Hits against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=80}},nil}
 c["80% increased Damage with Movement Skills"]={{[1]={flags=0,keywordFlags=8,name="Damage",type="INC",value=80}},nil}
-c["80% increased Desecrated Modifier magnitudes"]={{[1]={flags=0,keywordFlags=0,name="Magnitude",type="INC",value=80}}," Desecrated Modifier  "}
-c["80% increased Desecrated Modifier magnitudes 160% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="Magnitude",type="INC",value=80}}," Desecrated Modifier  160% increased Chaos Damage "}
+c["80% increased Desecrated Modifier magnitudes"]={{},nil}
 c["80% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=80}},nil}
 c["80% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=80}},nil}
 c["80% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=80}},nil}
@@ -8308,7 +8307,7 @@ c["Immunity to Freeze, Chill, Curses and Stuns during Effect"]={{[1]={[1]={type=
 c["Immunity to Ignite during Effect Removes Burning on use"]={{},"Ignite  Removes Burning on use "}
 c["Immunity to Poison during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immunity to Shock during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
-c["Implicit Modifier magnitudes are doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="MagnitudeDoubledLimit",type="Multiplier",var="MagnitudeDoubled"},flags=0,keywordFlags=0,name="Magnitude",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:MagnitudeDoubled",type="OVERRIDE",value=1}},"Implicit Modifier  are d "}
+c["Implicit Modifier magnitudes are doubled"]={{},nil}
 c["Implicit Modifier magnitudes are tripled"]={nil,"Implicit Modifier magnitudes are tripled "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75%"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% "}
 c["Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply"]={nil,"Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75% Other Modifiers to Movement Speed except for Sprinting do not apply "}
@@ -10003,8 +10002,8 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spells have 100% chance to Shock against Frozen Enemies "}
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"}},nil}
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
-end)();(function()
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
+end)();(function()
 c["additional Rune-only sockets:"]={nil,"additional Rune-only sockets: "}
 c["additional Rune-only sockets: 1 Helmet socket"]={nil,"additional Rune-only sockets: 1 Helmet socket "}
 c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
