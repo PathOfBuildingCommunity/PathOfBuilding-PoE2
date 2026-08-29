@@ -1637,12 +1637,13 @@ function CompareTabClass:OpenImportFolderPopup()
 	-- Search box and sort dropdown sit above the build list.
 	controls.searchText = new("EditControl"):EditControl({ "TOPLEFT", nil, "TOPLEFT" }, { 15, 25, 450, 20 }, "", "Search", "%c%(%)", 100, function(buf)
 		searchText = buf
-		listHost:BuildList()
+		listHost:FilterBuildList()
 	end, nil, nil, true)
+	controls.searchText:SetPlaceholder("(e.g. class:invoker myfilename)")
 	controls.sort = new("DropDownControl"):DropDownControl({ "TOPLEFT", nil, "TOPLEFT" }, { 475, 25, 210, 20 }, buildListHelpers.buildSortDropList, function(index, value)
 		sortMode = value.sortMode
 		main.buildSortMode = value.sortMode
-		buildListHelpers.SortList(listHost.list, sortMode)
+		listHost:SortList()
 	end)
 	controls.sort:SelByValue(sortMode, "sortMode")
 

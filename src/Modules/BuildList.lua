@@ -14,6 +14,8 @@ local listMode = new("ControlHost"):ControlHost()
 
 function listMode:Init(selBuildName, subPath)
 	if self.initialised then
+		local subPathChanged = subPath and subPath ~= self.subPath
+		local reuseBuildIndex = not subPathChanged and self.indexedBuildPath == main.buildPath
 		self.subPath = subPath or self.subPath
 		self.controls.buildList.controls.path:SetSubPath(self.subPath)
 		--if main.showPublicBuilds then
@@ -22,7 +24,14 @@ function listMode:Init(selBuildName, subPath)
 		else
 			self.controls.ExtBuildList = nil
 		end
-		self:BuildList()
+		if reuseBuildIndex then
+			if selBuildName then
+				buildListHelpers.RefreshBuild(self.buildIndex, self.subPath, selBuildName..".xml")
+			end
+			self:FilterBuildList()
+		elseif not subPathChanged then
+			self:BuildList()
+		end
 		self.controls.buildList:SelByFullFileName(selBuildName and main.buildPath..self.subPath..selBuildName..".xml")
 		self:SelectControl(self.controls.buildList)
 		return
@@ -95,13 +104,14 @@ function listMode:Init(selBuildName, subPath)
 
 	self.controls.searchText = new("EditControl"):EditControl({ "TOP", self.anchor, "TOP" }, { 0, 25, 640, 20 }, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
 		main.filterBuildList = buf
-		self:BuildList()
+		self:FilterBuildList()
 	end, nil, nil, true)
+	self.controls.searchText:SetPlaceholder("(e.g. class:invoker myfilename)")
 	self.controls.searchText.width = buildListWidth
 	self.controls.searchText.x = buildListOffset
 
 	self:BuildList()
-	self.controls.buildList:SelByFileName(selBuildName and selBuildName..".xml")
+	self.controls.buildList:SelByFullFileName(selBuildName and main.buildPath..self.subPath..selBuildName..".xml")
 	self:SelectControl(self.controls.buildList)
 
 	self.initialised = true
@@ -198,6 +208,7 @@ function listMode:GetDestName(subPath, fileName)
 end
 
 function listMode:BuildList()
+	self.indexedBuildPath = main.buildPath
 	self.buildIndex = buildListHelpers.ScanFolder(self.subPath)
 	self:FilterBuildList()
 end

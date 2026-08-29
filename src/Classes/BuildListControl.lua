@@ -5,6 +5,7 @@
 --
 local ipairs = ipairs
 local s_format = string.format
+local buildListHelpers = LoadModule("Modules/BuildListHelpers")
 
 ---@class BuildListControl: ListControl
 local BuildListClass = newClass("BuildListControl", "ListControl")
@@ -61,13 +62,17 @@ function BuildListClass:BuildListControl(anchor, rect, listMode)
 	return self
 end
 
-function BuildListClass:SelByFileName(selFileName)
-	for index, build in ipairs(self.list) do
-		if build.fileName == selFileName then
-			self:SelectIndex(index)
-			break
+function BuildListClass:SelByFullFileName(fullFileName)
+	if fullFileName then
+		for index, build in ipairs(self.list) do
+			if build.fullFileName == fullFileName then
+				self:SelectIndex(index)
+				return
+			end
 		end
 	end
+	self.selIndex = nil
+	self.selValue = nil
 end
 
 function BuildListClass:LoadBuild(build)
