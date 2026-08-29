@@ -116,7 +116,7 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
-function TooltipClass:AddLine(size, text, font, background)
+function TooltipClass:AddLine(size, text, font, background, modLine)
 	if text then
 		local fontToUse
 		if main.showFlavourText then
@@ -142,10 +142,10 @@ function TooltipClass:AddLine(size, text, font, background)
 						end
 					end
 					if activeColour then wrappedLine = wrappedLine .. "^7" end
-					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background })
+					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
 			end
 		end
 	end
@@ -426,7 +426,13 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local lineX = lineCentered and (x + ttW / 2) or (x + (H_PAD / 2))
 			local lineAlign = lineCentered and "CENTER_X" or "LEFT"
 
-			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text, background = data.background})
+			local stackEntry = {lineX, y, lineAlign, data.size, font, data.text, background = data.background}
+			if data.modLine then
+				stackEntry.tooltipLine = data
+				stackEntry.bounds = { x = x + (H_PAD / 2), y = y, width = ttW - H_PAD, height = data.size + 2 }
+				stackEntry.strikethrough = data.modLine.disabled
+			end
+			t_insert(drawStack, stackEntry)
 			y = y + data.size + 2
 
 			-- track max width for extra columns
@@ -475,6 +481,10 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				else
 					-- "LEFT" aligned text and images (NOTE: "RIGHT" aligned does not seem to exist)
 					line[xIdx] = origX - oldBaseX + newBaseX
+				end
+				if line.bounds then
+					line.bounds.x = line.bounds.x - oldBaseX + newBaseX
+					line.bounds.width = extraColumnWidth - H_PAD
 				end
 
 				-- Resize separators/dividers (technically unlikely to appear in extra columns, but just in case)
@@ -563,6 +573,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			else
 				-- Image, Separators, etc. have 5 entries and `x` at `[1]`
 				line[1] = line[1] + offsetX
+			end
+			if line.bounds then
+				line.bounds.x = line.bounds.x + offsetX
 			end
 		end
 	end
@@ -717,6 +730,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				end
 			end
 		else
+			if line.tooltipLine then
+				line.tooltipLine.bounds = line.bounds
+			end
 			-- Draw background if specified, used for gem mod lines and desecrated mods on items.
 			local bg = line.background
 			if bg then
@@ -748,6 +764,14 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 			-- Draw text line
 			DrawString(unpack(line))
+			if line.strikethrough then
+				local prevR, prevG, prevB, prevA = GetDrawColor()
+				local textW = DrawStringWidth(line[4], line[5], line[6])
+				local strikeX = line[3] == "CENTER_X" and line[1] - textW / 2 or line[1]
+				SetDrawColor(0.75, 0.75, 0.75, 0.35)
+				DrawImage(nil, strikeX, line[2] + line[4] / 2, textW, 1)
+				SetDrawColor(prevR, prevG, prevB, prevA)
+			end
 		end
 	end
 

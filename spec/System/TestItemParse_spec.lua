@@ -375,6 +375,11 @@ describe("TestItemParse", function()
 		assert.are.equals("~price 1 chaos", item.note)
 	end)
 
+	it("ignores disabled modifiers in item conditions", function()
+		local item = new("Item"):Item(raw("{disabled}+100 to maximum Life"))
+		assert.is_false(item:FindModifierSubstring("life", "body armour"))
+	end)
+
 	it("Rune level requirements", function()
 		local item = new("Item"):Item([[
 			Test Wand
@@ -1294,6 +1299,18 @@ describe("TestAdvancedItemParse #item", function()
 			build.itemsTab:AddDisplayItem()
 			runCallback("OnFrame")
 			assert.are.equals(221, chaosDamageInc())
+		end)
+
+		it("does not apply disabled modifier magnitude", function()
+			local item = new("Item"):Item([[
+			Rarity: UNIQUE
+			Magnitude Test
+			Arcane Raiment
+			Implicits: 1
+			{range:0.5}+(10-20) to maximum Life
+			{disabled}100% increased Implicit Modifier magnitudes
+		]])
+			assert.are.equals(1, item.implicitModLines[1].valueScalar)
 		end)
 
 		it("scales properly using old Eyes of the Greatwolf line", function()

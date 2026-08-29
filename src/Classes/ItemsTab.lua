@@ -1390,6 +1390,27 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	if self.displayItem then
 		local x, y = self.controls.displayItemTooltipAnchor:GetPos()
 		self.displayItemTooltip:Draw(x, y, nil, nil, viewPort)
+
+		-- Toggle mods
+		local cursorX, cursorY = GetCursorPos()
+		for _, line in ipairs(self.displayItemTooltip.lines) do
+			if line.modLine and line.bounds then
+				local b = line.bounds
+				if cursorX >= b.x and cursorX <= b.x + b.width and cursorY >= b.y and cursorY <= b.y + b.height then
+					SetDrawColor(1, 1, 1, 0.15)
+					DrawImage(nil, b.x, b.y, b.width, b.height)
+					SetDrawColor(1, 1, 1)
+
+					for id, event in ipairs(inputEvents) do
+						if event.type == "KeyDown" and event.key:match("BUTTON") then
+							inputEvents[id] = nil
+							self:ToggleDisplayItemModLine(line.modLine)
+							break
+						end
+					end
+				end
+			end
+		end
 	end
 
 	self:UpdateSockets()
@@ -1879,6 +1900,21 @@ function ItemsTabClass:UpdateDisplayItemTooltip()
 	self.displayItemTooltip:Clear()
 	self:AddItemTooltip(self.displayItemTooltip, self.displayItem)
 	self.displayItemTooltip.center = true
+end
+
+function ItemsTabClass:ToggleDisplayItemModLine(modLine)
+	if not self.displayItem or not modLine then
+		return
+	end
+	modLine.disabled = not modLine.disabled
+	self.displayItem:BuildAndParseRaw()
+	self:UpdateDisplayItemTooltip()
+	self:UpdateDisplayItemRangeLines()
+	self:UpdateCustomControls()
+	if self.displayItem.crafted then
+		self:UpdateAffixControls()
+	end
+	self.build.buildFlag = true
 end
 
 function ItemsTabClass:UpdateClusterJewelControls()
@@ -3699,7 +3735,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 						formattedModLine = itemLib.formatModLine(modLine, dbMode)
 					end
 					for _ = 1, variantCount do
-						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
+						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg, modLine)
 					end
 
 					-- Show mods from granted passives
