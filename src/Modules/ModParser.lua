@@ -1220,7 +1220,6 @@ local preFlagList = {
 	["^melee weapon damage"] = { flags = ModFlag.WeaponMelee },
 	["^deal "] = { },
 	["^causes "] = { },
-	["^arrows deal "] = { keywordFlags = KeywordFlag.Arrow },
 	["^critical hits deal "] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["^poisons you inflict with critical hits have "] = { keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.MatchAll), tag = { type = "Condition", var = "CriticalStrike" } },
 	-- Add to minion
@@ -1297,7 +1296,7 @@ local preFlagList = {
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
 	["^projectile attack skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
 	["^projectiles from attacks [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
-	["^arrows [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Arrow },
+	["^arrows [hd][ae][va][el] "] = { tag = { type = "KeywordFlagAnd", keywordFlags = KeywordFlag.Arrow } },
 	["^bow skills [hdf][aei][var][el] "] = { keywordFlags = KeywordFlag.Bow },
 	["^projectiles [hdf][aei][var][el] "] = { flags = ModFlag.Projectile },
 	["^grenade skills [hdf][aei][var][el] "] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
