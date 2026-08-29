@@ -17,7 +17,7 @@ do
 	local againstMods = { }
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^UniqueJewelRadius(.+)$")
-		if name then
+		if name and mod.nodeType then
 			table.insert(againstMods, { mod = mod, name = name:gsub("([a-z])([A-Z])", "%1 %2"):gsub("Strenth", "Strength") })
 		end
 	end

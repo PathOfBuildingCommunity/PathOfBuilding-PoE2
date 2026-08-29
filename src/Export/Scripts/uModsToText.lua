@@ -268,7 +268,13 @@ for _, name in ipairs(itemTypes) do
 					else
 						table.insert(implicitLines, line)
 					end
-				elseif not line:match("^Requires:? Level") then
+				elseif line:match("^Requires:? Level") then
+					-- Requirement levels are derived from the base type and unique mod levels.
+				elseif base and not itemBases[stripLineTags(line)] then
+					-- Order 0 keeps leading literal mods after implicits but before translated mods.
+					statOrder[0] = statOrder[0] or { }
+					table.insert(statOrder[0], line)
+				else
 					table.insert(lines, line)
 					if line:match("%[%[") then
 						headerLineCount = 0
