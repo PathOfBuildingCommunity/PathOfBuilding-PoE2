@@ -2332,7 +2332,10 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	if control.list[control.selIndex].haveRange then
 		control.slider.divCount = #control.list[control.selIndex].modList
 		local index = isValueInArray(control.list[control.selIndex].modList, selAffix)
-		local range = item[outputTable][outputIndex].range or 0.5
+		-- Imported legacy rolls can sit outside the current 0-1 affix range.
+		-- Keep that value on the affix, but show the nearest slider endpoint.
+		local affixRange = item[outputTable][outputIndex].range
+		local range = m_min(1, m_max(0, type(affixRange) == "table" and affixRange[1] or affixRange or 0.5))
 		-- Avoid exact integer boundary that slider:GetDivVal's ceil would assign to the previous segment
 		if range == 0 and index > 1 then
 			range = 1e-4
@@ -3801,6 +3804,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		tooltip:AddLine(fontSizeBig, "^x7F7F7FSockets: " .. socketString, "FONTIN SC")
 	end
 	tooltip:AddSeparator(10)
+
+	if item.memoryStrands then
+		tooltip:AddLine(fontSizeBig, colorCodes.CRAFTED.."Memory Strands: ^7"..item.memoryStrands, "FONTIN SC")
+		tooltip:AddSeparator(10)
+	end
 
 	if item.talismanTier then
 		tooltip:AddLine(fontSizeBig, "^x7F7F7FTalisman Tier ^xFFFFFF"..item.talismanTier, "FONTIN SC")

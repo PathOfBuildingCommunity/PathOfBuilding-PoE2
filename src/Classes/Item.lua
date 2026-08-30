@@ -718,6 +718,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 				end
 			end
+			if fullModName:match("^Allocated Crucible Passive Skill") then
+				linePrefix = linePrefix .. "{crucible}"
+			end
 			if modTags and modTags ~= "" then
 				linePrefix = linePrefix .. "{tags:" .. modTags:lower():gsub("%s+", "") .. "}"
 			end
@@ -859,18 +862,24 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				elseif specName == "Implicit" then
 					self.implicit = true
 				elseif specName == "Prefix" then
-					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
+					local fractured = specVal:match("^{fractured}") and true
+					specVal = specVal:gsub("^{fractured}", "")
+					local range, affix = specVal:match("{range:([^}]+)}(.+)")
 					range = range or ((affix or specVal) ~= "None" and main.defaultItemAffixQuality)
 					t_insert(self.prefixes, {
 						modId = affix or specVal,
 						range = tonumber(range),
+						fractured = fractured,
 					})
 				elseif specName == "Suffix" then
-					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
+					local fractured = specVal:match("^{fractured}") and true
+					specVal = specVal:gsub("^{fractured}", "")
+					local range, affix = specVal:match("{range:([^}]+)}(.+)")
 					range = range or ((affix or specVal) ~= "None" and main.defaultItemAffixQuality)
 					t_insert(self.suffixes, {
 						modId = affix or specVal,
 						range = tonumber(range),
+						fractured = fractured,
 					})
 				elseif specName == "Implicits" then
 					implicitLines = specToNumber(specVal) or 0
@@ -1105,9 +1114,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
 					local bestPrecisionDelta = -1
 					local bestPrecisionRange = -1
+					local affixMod = self.affixes[self.pendingAffixList[1].modId]
+					modLine.order = affixMod and affixMod.statOrder[1]
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						-- Find advanced copy paste format: 45(40-50)
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
+						if tonumber(min) > tonumber(max) then
+							min, max = max, min
+						end
 						local delta = tonumber(max) - min
 						line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
 						if delta > bestPrecisionDelta then
@@ -1117,7 +1131,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					t_insert(self.pendingAffixList[1].table, {
 						modId = self.pendingAffixList[1].modId,
-						range = bestPrecisionRange >= 0 and bestPrecisionRange <= 1 and bestPrecisionRange or 0.5,
+						-- Legacy modifiers can roll outside the current data range. Keep the
+						-- extrapolated range so crafting a different affix doesn't normalise it.
+						range = bestPrecisionDelta > 0 and bestPrecisionRange or 0.5,
+						fractured = modLine.fractured,
 					})
 					self.pendingAffixList = {}
 				else
@@ -1135,16 +1152,18 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
 						local delta = tonumber(max) - min
 						if delta > bestPrecisionDelta then
-							bestPrecisionRange = round((value - min) / delta, 3)
+							bestPrecisionRange = round((value - min) / delta, 6)
 							bestPrecisionDelta = delta
 						end
 						if bestPrecisionRange > 1 or bestPrecisionRange < 0 then
 							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
 						else
-							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", (tonumber(value) < 0 and "+" or "") .. "(" .. range .. ")")
+							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", (tonumber(value) < 0 and "+" or "") .. "(" .. min .. "-" .. max .. ")")
 						end
 					end
-					if bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
+					if hasIndependentRolls then
+						line = advancedCopyLine:gsub("(%-?%d+%.?%d*)%(%-?%d+%.?%d*%-%-?%d+%.?%d*%)", "%1")
+					elseif bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
 						modLine.range = bestPrecisionRange
 					end
 				end
@@ -1770,11 +1789,13 @@ function ItemClass:BuildRaw()
 	end
 	if self.crafted then
 		t_insert(rawLines, "Crafted: true")
-		for i, affix in ipairs(self.prefixes or { }) do
-			t_insert(rawLines, "Prefix: " .. (affix.range and ("{range:" .. round(affix.range,3) .. "}") or "") .. affix.modId)
+		for _, affix in ipairs(self.prefixes or { }) do
+			local range = affix.range and "{range:" .. (type(affix.range) == "table" and table.concat(affix.range, ",") or round(affix.range, 3)) .. "}" or ""
+			t_insert(rawLines, "Prefix: " .. (affix.fractured and "{fractured}" or "") .. range .. affix.modId)
 		end
-		for i, affix in ipairs(self.suffixes or { }) do
-			t_insert(rawLines, "Suffix: " .. (affix.range and ("{range:" .. round(affix.range,3) .. "}") or "") .. affix.modId)
+		for _, affix in ipairs(self.suffixes or { }) do
+			local range = affix.range and "{range:" .. (type(affix.range) == "table" and table.concat(affix.range, ",") or round(affix.range, 3)) .. "}" or ""
+			t_insert(rawLines, "Suffix: " .. (affix.fractured and "{fractured}" or "") .. range .. affix.modId)
 		end
 	end
 	if self.catalyst and self.catalyst > 0 then
@@ -2146,6 +2167,9 @@ function ItemClass:Craft()
 	-- Restore the custom mods
 	for _, mod in ipairs(savedMods) do
 		t_insert(self.explicitModLines, mod)
+	end
+	if #self.explicitModLines > 1 then
+		sortCraftedModLines(self.explicitModLines)
 	end
 
 	self:BuildAndParseRaw()

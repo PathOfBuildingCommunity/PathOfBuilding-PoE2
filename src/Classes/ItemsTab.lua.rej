@@ -1,0 +1,19 @@
+diff a/src/Classes/ItemsTab.lua b/src/Classes/ItemsTab.lua	(rejected hunks)
+@@ -1944,7 +1944,7 @@ function ItemsTabClass:UpdateAffixControls()
+ 	self:UpdateCustomControls()
+ end
+ 
+-function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outputIndex)
++function ItemsTabClass:UpdateAffixControl(control, item, affixType, outputTable, outputIndex)
+ 	local extraTags = { }
+ 	local excludeGroups = { }
+ 	for _, table in ipairs({"prefixes","suffixes"}) do
+@@ -1974,7 +1974,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
+ 	local affixList = { }
+ 	local retainedAffixes = { }
+ 	for modId, mod in pairs(item.affixes) do
+-		if mod.type == type and not excludeGroups[mod.group] and not item:CheckIfModIsDelve(mod) then
++		if mod.type == affixType and not excludeGroups[mod.group] and not item:CheckIfModIsDelve(mod) then
+ 			if item:GetModSpawnWeight(mod, extraTags) > 0 then
+ 				t_insert(affixList, modId)
+ 			elseif modId == selAffix then

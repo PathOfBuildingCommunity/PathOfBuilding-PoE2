@@ -1,0 +1,15 @@
+diff a/spec/System/TestItemParse_spec.lua b/spec/System/TestItemParse_spec.lua	(rejected hunks)
+@@ -506,6 +506,13 @@ describe("TestAdvancedItemParse #item", function()
+ 		base = base or "Plate Vest"
+ 		return "Rarity: Rare\nName\n"..base.."\n"..s
+ 	end
++	local function lines(modLines)
++		local out = { }
++		for index, modLine in ipairs(modLines) do
++			out[index] = modLine.line
++		end
++		return out
++	end
+ 
+ 	it("parses to craft", function()
+ 		local item = new("Item", raw([[
