@@ -4,7 +4,8 @@
 -- Strength support gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
+			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["SupportAftershockChancePlayer"] = {
 	name = "Aftershock I",
 	description = "Supports Slams you use yourself, giving them a chance to create an Aftershock.",
@@ -8239,4 +8240,4 @@ skills["SupportZerphisLegacyPlayer"] = {
 			},
 		},
 	}
-}
+}			end

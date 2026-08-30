@@ -18,7 +18,9 @@ describe("PoEAPI auth", function()
 
 	it("passes token exchange errors to the auth callback #auth", function()
 		local authState
-		_G.LaunchSubScript = function(_, _, _, authUrl)
+		local exportedFunctions
+		_G.LaunchSubScript = function(_, _, exports, authUrl)
+			exportedFunctions = exports
 			authState = authUrl:match("state=([^&]+)")
 			return 123
 		end
@@ -27,7 +29,7 @@ describe("PoEAPI auth", function()
 			callback(nil, "SSL connect error")
 		end
 
-		local api = new("PoEAPI")
+		local api = new("PoEAPI"):PoEAPI()
 		local callbackArgs
 		api:FetchAuthToken(function(response, errMsg, updateSettings)
 			callbackArgs = {
@@ -38,6 +40,7 @@ describe("PoEAPI auth", function()
 		end)
 
 		assert.is_not_nil(authState)
+		assert.are.equals("ConPrintf,OpenURL,Copy", exportedFunctions)
 		assert.is_not_nil(launch.subScripts[123])
 		launch.subScripts[123].callback("auth-code", nil, authState, 12345)
 
@@ -55,7 +58,7 @@ describe("PoEAPI auth", function()
 			error("token exchange should not run for mismatched OAuth state")
 		end
 
-		local api = new("PoEAPI")
+		local api = new("PoEAPI"):PoEAPI()
 		local callbackArgs
 		api:FetchAuthToken(function(response, errMsg, updateSettings)
 			callbackArgs = {
@@ -72,5 +75,15 @@ describe("PoEAPI auth", function()
 		assert.are.equals("OAuth state mismatch", callbackArgs.errMsg)
 		assert.True(callbackArgs.updateSettings)
 		assert.is_nil(api.authToken)
+	end)
+
+	it("configures the callback server clipboard fallback for 60 seconds", function()
+		local server = assert(io.open("LaunchServer.lua", "r"))
+		local source = server:read("*a")
+		server:close()
+
+		assert.is_function(assert(loadstring(source, "@LaunchServer.lua")))
+		assert.matches("Copy%(url%)", source)
+		assert.matches("local stopAt = os%.time%(%) %+ 60", source)
 	end)
 end)

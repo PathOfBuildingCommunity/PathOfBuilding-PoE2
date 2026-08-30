@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Helmet
 #socketLimit 3
@@ -42,3 +42,4 @@ local itemBases = ...
 #subType
 #baseMatch Metadata/Items/Armours/Helmets/HelmetWreath1
 #baseMatch Metadata/Items/Armours/Helmets/HelmetDemigods1
+end

@@ -4,8 +4,8 @@
 -- Other active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["TriggeredAbyssalApparitionPlayer"] = {
 	name = "Abyssal Apparition",
 	baseTypeName = "Abyssal Apparition",
@@ -14915,7 +14915,7 @@ skills["RunicReprievePlayer"] = {
 		{ "active_skill_stun_threshold_+%_while_performing_action", 2, {  } },
 	},
 	altQualityStats = {
-		{ "rune_ward_block_%_damage_taken", 0.5, {  } },
+		{ "rune_ward_block_%_damage_taken", -0.1, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { WardPerMinute = 180, }, },
@@ -21259,3 +21259,4 @@ skills["AncientGiftsPlayer"] = {
 					},
 				}
 			}
+			end

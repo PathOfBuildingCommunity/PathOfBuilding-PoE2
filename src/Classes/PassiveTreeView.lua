@@ -22,7 +22,10 @@ local JEWEL_RADIUS_TINT_NEUTRAL = { 1, 1, 1, 0.7 }
 local JEWEL_RADIUS_TINT_PRIMARY_ONLY = { 1, 0, 0, 0.7 }
 local JEWEL_RADIUS_TINT_COMPARE_ONLY = { 0, 1, 0, 0.7 }
 
-local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
+---@class PassiveTreeView
+local PassiveTreeViewClass = newClass("PassiveTreeView")
+
+function PassiveTreeViewClass:PassiveTreeView()
 	self.ring = NewImageHandle()
 	self.ring:Load("Assets/ring.png", "CLAMP")
 	self.highlightRing = NewImageHandle()
@@ -36,8 +39,8 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.jewelShadedInnerRingFlipped = NewImageHandle()
 	self.jewelShadedInnerRingFlipped:Load("Assets/ShadedInnerRingFlipped.png", "CLAMP")
 
-	self.tooltip = new("Tooltip")
-	self.skillTooltip = new("Tooltip")
+	self.tooltip = new("Tooltip"):Tooltip()
+	self.skillTooltip = new("Tooltip"):Tooltip()
 
 	self.zoomLevel = 3
 	self.zoom = 1.2 ^ self.zoomLevel
@@ -50,7 +53,8 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
-end)
+	return self
+end
 
 function PassiveTreeViewClass:Load(xml, fileName)
 	if xml.attrib.zoomLevel then
@@ -135,6 +139,11 @@ end
 
 -- Returns the draw color for a node when compare overlay is active.
 -- Handles diff coloring for allocated/unallocated, mastery changes, and jewel socket differences.
+---@param node Node
+---@param compareNode Node?
+---@param spec PassiveSpec
+---@param build Build
+---@param nodeDefaultColor any
 function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build, nodeDefaultColor)
 	if not compareNode then
 		return nodeDefaultColor
@@ -539,7 +548,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	elseif treeClick == "RIGHT" then
 		-- User right-clicked on a node
 		if hoverNode then
-			if hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
+			if IsKeyDown("SHIFT") then
+				-- Shift+Right-Click: open a popup to edit the per-node author note
+				-- (consumed by the PoE2 .build export as the node's additional_text).
+				local nodeId = hoverNode.id
+				local title = "Note: " .. (hoverNode.dn or hoverNode.name or "Passive")
+				main:OpenNoteEditPopup(title, spec.nodeNotes[nodeId], function(text)
+					spec.nodeNotes[nodeId] = text
+					build.modFlag = true
+				end)
+			elseif hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
 				local slot = build.itemsTab.sockets[hoverNode.id]
 				if slot:IsEnabled() then
 					-- User right-clicked a jewel socket, jump to the item page and focus the corresponding item slot control
@@ -1431,6 +1449,7 @@ function PassiveTreeViewClass:Zoom(level, viewPort)
 	self.zoomY = relY + (self.zoomY - relY) * factor
 end
 
+---@param build Build
 function PassiveTreeViewClass:Focus(x, y, viewPort, build)
 	self.zoomLevel = 20
 	self.zoom = 1.2 ^ self.zoomLevel
@@ -1534,6 +1553,9 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 	end
 end
 
+---@param tooltip Tooltip
+---@param node Node
+---@param build Build
 function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	tooltip:SetRecipe(node.infoRecipe)
@@ -1557,7 +1579,7 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 		nodeName = "^xF8E6CA" .. node.dn
 	end
 	tooltip.center = true
-	tooltip:AddLine(24, nodeName..(launch.devModeAlt and " ["..node.id.."]" or ""), "FONTIN")
+	tooltip:AddLine(24, launch.devModeAlt and (node.iname .. " ["..node.id.."]") or nodeName, "FONTIN")
 	tooltip.center = false
 	if launch.devModeAlt and node.id > 65535 then
 		-- Decompose cluster node Id
@@ -1593,6 +1615,10 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	end
 end
 
+---@param tooltip Tooltip
+---@param node Node
+---@param build Build
+---@param incSmallPassiveSkillEffect number? Whether the function should stop after writing the mod info, before any allocation-specific info
 function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassiveSkillEffect)
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	tooltip.center = true
@@ -1696,7 +1722,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				local scale = 1 + ((node.type == "Normal" and ((incSmallPassiveSkillEffect or 0) + base) or base) / 100)
 
 				local modsList = copyTable(node.mods[i].list)
-				local scaledList = new("ModList")
+				local scaledList = new("ModList"):ModList()
 				scaledList:ScaleAddList(modsList, scale)
 				for j, mod in ipairs(scaledList) do
 					local newValue
@@ -1990,6 +2016,15 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	else
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.")
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+C to copy this node's text.")
+	end
+	-- Per-node author note (Shift+Right-Click to set/edit) emitted into the PoE2 .build export.
+	if node.id and build.spec and build.spec.nodeNotes then
+		local existing = build.spec.nodeNotes[node.id]
+		tooltip:AddSeparator(10)
+		tooltip:AddLine(14, colorCodes.TIP.."Shift + Right-Click to add a build note (PoE2 .build export)")
+		if existing and existing ~= "" then
+			tooltip:AddBuildPlannerNote(14, existing, "^7Note: ")
+		end
 	end
 end
 

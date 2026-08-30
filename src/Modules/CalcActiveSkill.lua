@@ -3,7 +3,8 @@
 -- Module: Calc Active Skill
 -- Active skill setup.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -142,6 +143,7 @@ end
 -- Create an active skill using the given active gem and list of support gems
 -- It will determine the base flag set, and check which of the support gems can support this skill
 function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGroup, summonSkill)
+	---@type ActiveSkill
 	local activeSkill = {
 		activeEffect = activeEffect,
 		supportList = supportList,
@@ -161,7 +163,9 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local statSet, skillFlags
+	---@class SkillFlags
+	local skillFlags
+	local statSet
 	if env.mode == "CALCS" then
 		statSet = activeEffect.grantedEffect.statSets[activeEffect.statSetCalcs.index]
 		skillFlags = statSet and copyTable(statSet.baseFlags) or { }
@@ -239,7 +243,7 @@ local function getSourceGemPropertyInfo(env, activeSkill)
 
 	env.sourceGemPropertyInfo = env.sourceGemPropertyInfo or { }
 	if not env.sourceGemPropertyInfo[sourceGem] then
-		local modList = new("ModList", activeSkill.actor.modDB)
+		local modList = new("ModList"):ModList(activeSkill.actor.modDB)
 		local supportCount = 0
 		for _, supportEffect in ipairs(activeSkill.supportList) do
 			if supportEffect.isSupporting and supportEffect.isSupporting[sourceGem] then
@@ -284,9 +288,9 @@ function calcs.copyActiveSkill(env, mode, skill)
 	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, env.player, skill.socketGroup, skill.summonSkill)
 	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
-	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)
+	newSkill.skillModList = new("ModList"):ModList(newSkill.baseSkillModList)
 	if newSkill.minion then
-		newSkill.minion.modDB = new("ModDB")
+		newSkill.minion.modDB = new("ModDB"):ModDB()
 		newSkill.minion.modDB.actor = newSkill.minion
 		calcs.createMinionSkills(env, newSkill)
 		newSkill.skillPartName = newSkill.minion.mainSkill.activeEffect.grantedEffect.name
@@ -490,7 +494,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	activeSkill.weapon1Flags = 0
 	activeSkill.weapon2Flags = 0
 	-- Initialise skill modifier list
-	local skillModList = new("ModList", activeSkill.actor.modDB)
+	local skillModList = new("ModList"):ModList(activeSkill.actor.modDB)
 	activeSkill.skillModList = skillModList
 	activeSkill.baseSkillModList = skillModList
 
@@ -671,6 +675,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
+	---@class ModCfg
 	activeSkill.skillCfg = {
 		flags = bor(skillModFlags, activeSkill.weapon1Flags or activeSkill.weapon2Flags or 0),
 		keywordFlags = skillKeywordFlags,

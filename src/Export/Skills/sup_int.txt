@@ -3,8 +3,8 @@
 -- Intelligence support gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 #skill SupportAbidingHexPlayer
 #set SupportAbidingHexPlayer
 #mods
@@ -351,6 +351,7 @@ statMap = {
 #skillEnd
 
 #skill SupportCommandment
+legacy = true
 #set SupportCommandment
 statMap = {
 	["support_minion_damage_with_non_command_skills_+%_final"] = {
@@ -1590,3 +1591,4 @@ statMap = {
 #set SupportZenithPlayerTwo
 #mods
 #skillEnd
+end

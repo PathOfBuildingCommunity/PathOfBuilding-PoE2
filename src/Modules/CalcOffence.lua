@@ -3,7 +3,8 @@
 -- Module: Calc Offence
 -- Performs offence calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -63,6 +64,7 @@ local damageStatsForTypes = setmetatable({ }, { __index = function(t, k)
 end })
 
 local globalOutput = nil
+---@type Breakdown?
 local globalBreakdown = nil
 
 local function calcConvertedDamage(activeSkill, output, cfg, damageType)
@@ -79,11 +81,6 @@ local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 			convertedMax = convertedMax + (max or 0) * convMult
 		end
 	end
-	if convertedMin ~= 0 and convertedMax ~= 0 then
-		convertedMin = round(convertedMin)
-		convertedMax = round(convertedMax)
-	end
-
 	return convertedMin, convertedMax
 end
 
@@ -154,12 +151,28 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 			round(summedMax * inc * more * moreMaxDamage + addMax)
 end
 
+---Calculates the area percentage after the client integer rounding stages.
+---@param incArea number @Additive modifier
+---@param moreArea number @Multiplicative modifier
+---@return number
+local function calcAreaMod(incArea, moreArea)
+	local baseAreaPercent = roundSymmetric(incArea * 100)
+	local finalAreaPercent = roundSymmetric(m_max(0, moreArea) * 100)
+	local areaPercent = baseAreaPercent * finalAreaPercent / 100
+	areaPercent = areaPercent >= 0 and m_floor(areaPercent) or m_ceil(areaPercent)
+	return m_max(0, areaPercent) / 100
+end
+
 ---Calculates skill radius
 ---@param baseRadius number
 ---@param areaMod number
+---@param radiusMod number|nil
 ---@return number
-local function calcRadius(baseRadius, areaMod)
-	return m_floor(baseRadius * m_floor(100 * m_sqrt(areaMod)) / 100)
+local function calcRadius(baseRadius, areaMod, radiusMod)
+	local radiusPercent = m_floor(100 * m_sqrt(areaMod))
+	-- Final radius modifiers apply after Area of Effect has been converted to radius.
+	radiusPercent = m_floor(radiusPercent * (radiusMod or 1))
+	return m_floor(baseRadius * radiusPercent / 100)
 end
 
 ---Calculates the tertiary radius for Molten Strike, correctly handling the deadzone.
@@ -178,30 +191,31 @@ end
 ---@param baseRadius number
 ---@param incArea number @Additive modifier
 ---@param moreArea number @Multiplicative modifier
+---@param radiusMod number|nil @Final radius modifier
 ---@return number, number, number, number @Next breakpoint: increased, more; Previous breakpoint: reduced, less
-local function calcRadiusBreakpoints(baseRadius, incArea, moreArea)
-	local radius = calcRadius(baseRadius, round(round(incArea * moreArea, 10), 2))
+local function calcRadiusBreakpoints(baseRadius, incArea, moreArea, radiusMod)
+	local radius = calcRadius(baseRadius, calcAreaMod(incArea, moreArea), radiusMod)
 	local incAreaBreakpoint, redAreaBreakpoint, moreAreaBreakpoint, lessAreaBreakpoint
 	if radius > 0 then
 		incAreaBreakpoint = 0
 		repeat
 			incAreaBreakpoint = incAreaBreakpoint + 1
-			local newRadius = calcRadius(baseRadius, round(round((incArea + incAreaBreakpoint / 100) * moreArea, 10), 2))
+			local newRadius = calcRadius(baseRadius, calcAreaMod(incArea + incAreaBreakpoint / 100, moreArea), radiusMod)
 		until (newRadius > radius)
 		redAreaBreakpoint = 0
 		repeat
 			redAreaBreakpoint = redAreaBreakpoint + 1
-			local newRadius = calcRadius(baseRadius, round(round((incArea - redAreaBreakpoint / 100) * moreArea, 10), 2))
+			local newRadius = calcRadius(baseRadius, calcAreaMod(incArea - redAreaBreakpoint / 100, moreArea), radiusMod)
 		until (newRadius < radius)
 		moreAreaBreakpoint = 0
 		repeat
 			moreAreaBreakpoint = moreAreaBreakpoint + 1
-			local newRadius = calcRadius(baseRadius, round(round(incArea * moreArea * (1 + moreAreaBreakpoint / 100), 10), 2))
+			local newRadius = calcRadius(baseRadius, calcAreaMod(incArea, moreArea * (1 + moreAreaBreakpoint / 100)), radiusMod)
 		until (newRadius > radius)
 		lessAreaBreakpoint = 0
 		repeat
 			lessAreaBreakpoint = lessAreaBreakpoint + 1
-			local newRadius = calcRadius(baseRadius, round(round(incArea * moreArea * (1 - lessAreaBreakpoint / 100), 10), 2))
+			local newRadius = calcRadius(baseRadius, calcAreaMod(incArea, moreArea * (1 - lessAreaBreakpoint / 100)), radiusMod)
 		until (newRadius < radius)
 	end
 	return incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint
@@ -379,10 +393,15 @@ function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
 end
 
 -- Performs all offensive calculations
+---@param env Env
+---@param actor Actor
+---@param activeSkill ActiveSkill
 function calcs.offence(env, actor, activeSkill)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local skillModList = activeSkill.skillModList
@@ -418,7 +437,8 @@ function calcs.offence(env, actor, activeSkill)
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
-		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)
+		output.AreaOfEffectMod = calcAreaMod(incArea, moreArea)
+		local radiusMod = calcLib.mod(skillModList, skillCfg, "AreaOfEffectRadius")
 		if skillData.radiusIsWeaponRange then
 			local range = 0
 			if skillFlags.weapon1Attack then
@@ -432,29 +452,29 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.radius then
 			skillFlags.area = true
 			local baseRadius = skillData.radius + (skillData.radiusExtra or 0) + skillModList:Sum("BASE", skillCfg, "AreaOfEffect")
-			output.AreaOfEffectRadius = calcRadius(baseRadius, output.AreaOfEffectMod)
+			output.AreaOfEffectRadius = calcRadius(baseRadius, output.AreaOfEffectMod, radiusMod)
 			output.AreaOfEffectRadiusMetres = output.AreaOfEffectRadius / 10
 			if breakdown then
-				local incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint = calcRadiusBreakpoints(baseRadius, incArea, moreArea)
-				breakdown.AreaOfEffectRadius = breakdown.area(baseRadius, output.AreaOfEffectMod, output.AreaOfEffectRadius, incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint, skillData.radiusLabel)
+				local incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint = calcRadiusBreakpoints(baseRadius, incArea, moreArea, radiusMod)
+				breakdown.AreaOfEffectRadius = breakdown.area(baseRadius, output.AreaOfEffectMod, output.AreaOfEffectRadius, incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint, skillData.radiusLabel, radiusMod)
 			end
 			if skillData.radiusSecondary then
 				local incAreaSecondary, moreAreaSecondary = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectSecondary")
-				output.AreaOfEffectModSecondary = round(round(incAreaSecondary * moreAreaSecondary, 10), 2)
+				output.AreaOfEffectModSecondary = calcAreaMod(incAreaSecondary, moreAreaSecondary)
 				baseRadius = skillData.radiusSecondary + (skillData.radiusExtra or 0)
-				output.AreaOfEffectRadiusSecondary = calcRadius(baseRadius, output.AreaOfEffectModSecondary)
+				output.AreaOfEffectRadiusSecondary = calcRadius(baseRadius, output.AreaOfEffectModSecondary, radiusMod)
 				output.AreaOfEffectRadiusSecondaryMetres = output.AreaOfEffectRadiusSecondary / 10
 				if breakdown then
 					local incAreaBreakpointSecondary, moreAreaBreakpointSecondary, redAreaBreakpointSecondary, lessAreaBreakpointSecondary
 					if not skillData.projectileSpeedAppliesToMSAreaOfEffect then
-						incAreaBreakpointSecondary, moreAreaBreakpointSecondary, redAreaBreakpointSecondary, lessAreaBreakpointSecondary = calcRadiusBreakpoints(baseRadius, incAreaSecondary, moreAreaSecondary)
+						incAreaBreakpointSecondary, moreAreaBreakpointSecondary, redAreaBreakpointSecondary, lessAreaBreakpointSecondary = calcRadiusBreakpoints(baseRadius, incAreaSecondary, moreAreaSecondary, radiusMod)
 					end
-					breakdown.AreaOfEffectRadiusSecondary = breakdown.area(baseRadius, output.AreaOfEffectModSecondary, output.AreaOfEffectRadiusSecondary, incAreaBreakpointSecondary, moreAreaBreakpointSecondary, redAreaBreakpointSecondary, lessAreaBreakpointSecondary, skillData.radiusSecondaryLabel)
+					breakdown.AreaOfEffectRadiusSecondary = breakdown.area(baseRadius, output.AreaOfEffectModSecondary, output.AreaOfEffectRadiusSecondary, incAreaBreakpointSecondary, moreAreaBreakpointSecondary, redAreaBreakpointSecondary, lessAreaBreakpointSecondary, skillData.radiusSecondaryLabel, radiusMod)
 				end
 			end
 			if skillData.radiusTertiary then
 				local incAreaTertiary, moreAreaTertiary = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectTertiary")
-				output.AreaOfEffectModTertiary = round(round(incAreaTertiary * moreAreaTertiary, 10), 2)
+				output.AreaOfEffectModTertiary = calcAreaMod(incAreaTertiary, moreAreaTertiary)
 				baseRadius = skillData.radiusTertiary + (skillData.radiusExtra or 0)
 				if skillData.projectileSpeedAppliesToMSAreaOfEffect then
 					local incSpeedTertiary, moreSpeedTertiary = calcLib.mods(skillModList, skillCfg, "ProjectileSpeed")
@@ -480,7 +500,7 @@ function calcs.offence(env, actor, activeSkill)
 					local radiusForBaseRadius = {}
 					local radiiOccurrences = {}
 					for adjustedBaseRadius, occurrenceCount in pairs(baseRadiiOccurrences) do
-						local radiusForDeviation = calcRadius(adjustedBaseRadius, output.AreaOfEffectModTertiary)
+						local radiusForDeviation = calcRadius(adjustedBaseRadius, output.AreaOfEffectModTertiary, radiusMod)
 						radiusForBaseRadius[adjustedBaseRadius] = radiusForDeviation
 						sumOfRandomRadii = sumOfRandomRadii + radiusForDeviation * occurrenceCount
 						radiiOccurrences[radiusForDeviation] = (radiiOccurrences[radiusForDeviation] or 0) + occurrenceCount
@@ -492,6 +512,9 @@ function calcs.offence(env, actor, activeSkill)
 						local incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary = m_huge, m_huge, m_huge, m_huge
 						t_insert(out, skillData.radiusTertiaryLabel)
 						t_insert(out, s_format("R ^8(base radius)^7 x %.2f ^8(square root of area of effect modifier)", m_floor(100 * m_sqrt(output.AreaOfEffectModTertiary)) / 100))
+						if radiusMod ~= 1 then
+							t_insert(out, s_format("x %.2f ^8(final radius modifier)", radiusMod))
+						end
 						local baseRadii = {}
 						for adjustedBaseRadius in pairs(baseRadiiOccurrences) do
 							t_insert(baseRadii, adjustedBaseRadius)
@@ -499,7 +522,7 @@ function calcs.offence(env, actor, activeSkill)
 						table.sort(baseRadii, function(a,b) return a < b end)
 						for _, adjustedBaseRadius in ipairs(baseRadii) do
 							t_insert(out, s_format("%.1f%% ^8chance of^7 %.1fm ^8base radius resulting in^7 %.1fm ^8final radius", baseRadiiOccurrences[adjustedBaseRadius] / marginWidth * 100, adjustedBaseRadius / 10, radiusForBaseRadius[adjustedBaseRadius] / 10))
-							local incAreaBreakpointTertiaryIntermediate, moreAreaBreakpointTertiaryIntermediate, redAreaBreakpointTertiaryIntermediate, lessAreaBreakpointTertiaryIntermediate = calcRadiusBreakpoints(adjustedBaseRadius, incAreaTertiary, moreAreaTertiary)
+							local incAreaBreakpointTertiaryIntermediate, moreAreaBreakpointTertiaryIntermediate, redAreaBreakpointTertiaryIntermediate, lessAreaBreakpointTertiaryIntermediate = calcRadiusBreakpoints(adjustedBaseRadius, incAreaTertiary, moreAreaTertiary, radiusMod)
 							incAreaBreakpointTertiary = m_min(incAreaBreakpointTertiary, incAreaBreakpointTertiaryIntermediate)
 							moreAreaBreakpointTertiary = m_min(moreAreaBreakpointTertiary, moreAreaBreakpointTertiaryIntermediate)
 							redAreaBreakpointTertiary = m_min(redAreaBreakpointTertiary, redAreaBreakpointTertiaryIntermediate)
@@ -511,10 +534,10 @@ function calcs.offence(env, actor, activeSkill)
 						breakdown.AreaOfEffectRadiusTertiary = out
 					end
 				else
-					output.AreaOfEffectRadiusTertiary = calcRadius(baseRadius, output.AreaOfEffectModTertiary)
+					output.AreaOfEffectRadiusTertiary = calcRadius(baseRadius, output.AreaOfEffectModTertiary, radiusMod)
 					if breakdown then
-						local incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary = calcRadiusBreakpoints(baseRadius, incAreaTertiary, moreAreaTertiary)
-						breakdown.AreaOfEffectRadiusTertiary = breakdown.area(baseRadius, output.AreaOfEffectModTertiary, output.AreaOfEffectRadiusTertiary, incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary, skillData.radiusTertiaryLabel)
+						local incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary = calcRadiusBreakpoints(baseRadius, incAreaTertiary, moreAreaTertiary, radiusMod)
+						breakdown.AreaOfEffectRadiusTertiary = breakdown.area(baseRadius, output.AreaOfEffectModTertiary, output.AreaOfEffectRadiusTertiary, incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary, skillData.radiusTertiaryLabel, radiusMod)
 					end
 				end
 				output.AreaOfEffectRadiusTertiaryMetres = output.AreaOfEffectRadiusTertiary / 10
@@ -763,6 +786,7 @@ function calcs.offence(env, actor, activeSkill)
 				skillModList:NewMod("Damage", "INC", mod.value * multiplier, mod.source, bor(band(mod.flags, bnot(ModFlag.Spell)), ModFlag.Attack), mod.keywordFlags, unpack(modifiers))
 				if mod.source == "Strength" then -- Prevent double-dipping from converted strength's damage bonus
 					skillModList:ReplaceMod("PhysicalDamage", "INC", 0, "Strength", ModFlag.Melee)
+					skillModList:ReplaceMod("PhysicalDamage", "INC", 0, "Strength", bor(ModFlag.Attack, ModFlag.Projectile))
 				end
 			end
 		end
@@ -1645,7 +1669,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "TrapTriggerAreaOfEffect")
-		local areaMod = round(round(incArea * moreArea, 10), 2)
+		local areaMod = calcAreaMod(incArea, moreArea)
 		output.TrapTriggerRadius = calcRadius(data.misc.TrapTriggerRadiusBase, areaMod)
 		output.TrapTriggerRadiusMetre = output.TrapTriggerRadius / 10
 		if breakdown then
@@ -1746,7 +1770,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "MineDetonationAreaOfEffect")
-		local areaMod = round(round(incArea * moreArea, 10), 2)
+		local areaMod = calcAreaMod(incArea, moreArea)
 		output.MineDetonationRadius = calcRadius(data.misc.MineDetonationRadiusBase, areaMod)
 		output.MineDetonationRadiusMetre = output.MineDetonationRadius / 10
 		if breakdown then
@@ -2093,6 +2117,11 @@ function calcs.offence(env, actor, activeSkill)
 					val.baseCost = val.baseCost + costs[manaType].baseCost
 					val.baseCostNoMult = val.baseCostNoMult + costs[manaType].baseCostNoMult
 					val.finalBaseCost = val.finalBaseCost + costs[manaType].finalBaseCost
+					if val.upfront then
+						local manaTotalCost = skillModList:Sum("BASE", skillCfg, manaType.."Cost")
+						val.totalCost = val.totalCost + m_max(0, manaTotalCost)
+						costs[manaType].totalCost = costs[manaType].totalCost - manaTotalCost
+					end
 					costs[manaType].baseCost = 0
 					costs[manaType].baseCostRaw = 0
 					costs[manaType].finalBaseCost = 0
@@ -2100,6 +2129,10 @@ function calcs.offence(env, actor, activeSkill)
 				elseif additionalLifeCost > 0 or hybridLifeCost > 0 then
 					val.baseCost = costs[manaType].baseCost
 					val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * hybridLifeCost) + m_floor(val.baseCost * mult) * additionalLifeCost)
+					if val.upfront and hybridLifeCost > 0 then
+						-- Positive flat Mana cost is converted and rounded separately from the base cost.
+						val.totalCost = val.totalCost + round(m_max(0, skillModList:Sum("BASE", skillCfg, manaType.."Cost")) * hybridLifeCost)
+					end
 				end
 			elseif val.type == "ES" then
 				local manaType = resource:gsub("ES", "Mana")
@@ -2153,6 +2186,10 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				-- Apply cost efficiency (similar to reservation efficiency)
 				output[costName] = m_max(0, output[costName] / costEfficiency)
+				if val.upfront and not val.percent then
+					-- The game stores upfront resource costs as whole numbers after efficiency.
+					output[costName] = round(output[costName])
+				end
 				output[costName] = m_max(0, output[costName] + val.totalCost)
 				if val.type == "Mana" and hybridLifeCost > 0 then -- Life/Mana Mastery
 					output[costName] = m_max(0, m_floor((1 - hybridLifeCost) * output[costName]))
@@ -2166,6 +2203,10 @@ function calcs.offence(env, actor, activeSkill)
 				output[costName] = m_max(0, moreType * output[costName])
 				-- Apply cost efficiency for unaffected costs too
 				output[costName] = m_max(0, output[costName] / costEfficiency)
+				if val.upfront and not val.percent then
+					-- The game stores upfront resource costs as whole numbers after efficiency.
+					output[costName] = round(output[costName])
+				end
 				output[costName] = m_max(0, output[costName] + val.totalCost)
 				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * (val.baseCostRaw + val.baseCostNoMult) * moreType / costEfficiency) + val.totalCost)
 			end
@@ -2207,6 +2248,8 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	-- Eldritch Battery adds maximum Energy Shield to the Mana available for payable-cost damage.
+	output.ManaCostPayablePool = (output.ManaUnreserved or 0) + (modDB:Flag(nil, "EnergyShieldProtectsMana") and output.EnergyShield or 0)
 
 	-- account for Sacrificial Zeal
 	-- Note: Sacrificial Zeal grants Added Spell Physical Damage equal to 25% of the Skill's Mana Cost, and causes you to take Physical Damage over Time, for 4 seconds
@@ -2373,6 +2416,17 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
+		-- The game stores each final conversion destination as a whole percent.
+		local convertedTotal = 0
+		for toType, amount in pairs(activeSkill.conversionTable[damageType]) do
+			if toType ~= "mult" then
+				local conversion = round(amount * 100)
+				activeSkill.conversionTable[damageType][toType] = conversion / 100
+				convertedTotal = convertedTotal + conversion
+			end
+		end
+		activeSkill.conversionTable[damageType].mult = 1 - m_min(convertedTotal / 100, 1)
+
 	end
 
 	-- Configure damage passes
@@ -2384,7 +2438,7 @@ function calcs.offence(env, actor, activeSkill)
 		local critOverride = skillModList:Override(skillCfg, "WeaponBaseCritChance")
 		if skillFlags.weapon1Attack then
 			if breakdown then
-				breakdown.MainHand = LoadModule(calcs.breakdownModule, skillModList, output.MainHand)
+				breakdown.MainHand = LoadModule(calcs.breakdownModule)(skillModList, output.MainHand)
 			end
 			activeSkill.weapon1Cfg.skillStats = output.MainHand
 			local source = copyTable(actor.weaponData1)
@@ -2414,7 +2468,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if skillFlags.weapon2Attack then
 			if breakdown then
-				breakdown.OffHand = LoadModule(calcs.breakdownModule, skillModList, output.OffHand)
+				breakdown.OffHand = LoadModule(calcs.breakdownModule)(skillModList, output.OffHand)
 			end
 			activeSkill.weapon2Cfg.skillStats = output.OffHand
 			local source = copyTable(actor.weaponData2)
@@ -2556,7 +2610,11 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate how often you hit (speed, accuracy, block, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		local breakdown = pass.breakdown
 
 		if skillData.averageBurstHits then
 			output.AverageBurstHits = skillData.averageBurstHits
@@ -3090,6 +3148,20 @@ function calcs.offence(env, actor, activeSkill)
 			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 			output.ChannelSpeed = output.Speed or output.Time
 		end
+		if breakdown then
+			if skillFlags.bothWeaponAttack then
+				breakdown.HitChance = {
+					"Both weapons:",
+					s_format("%.2f%% ^8(main hand)", output.MainHand.HitChance),
+					s_format("%.2f%% ^8(off hand)", output.OffHand.HitChance),
+					s_format("= %.2f%% ^8(average)", output.HitChance),
+				}
+			else
+				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
+				breakdown.HitChance = handBreakdown.HitChance or handBreakdown.AccuracyHitChance
+				breakdown.Speed = breakdown.Speed or handBreakdown.Speed
+			end
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
@@ -3186,7 +3258,12 @@ function calcs.offence(env, actor, activeSkill)
 	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		---@class Breakdown
+		local breakdown = pass.breakdown
 
 		-- Exerted Attack members
 		local exertedDoubleDamage = env.modDB:Sum("BASE", cfg, "ExertDoubleDamageChance")
@@ -3714,7 +3791,8 @@ function calcs.offence(env, actor, activeSkill)
 					inc = skillModList:Sum("INC", cfg, "CritChance") + (env.mode_effective and enemyDB:Sum("INC", nil, "SelfCritChance") or 0)
 					more = skillModList:More(cfg, "CritChance")
 				end
-				output.CritChance = (baseCrit + base) * (1 + inc / 100) * more
+				-- The game uses an integer permyriad chance for each critical strike roll.
+				output.CritChance = round((baseCrit + base) * (1 + inc / 100) * more * 100) / 100
 				local preCapCritChance = output.CritChance
 				output.CritChance = m_min(output.CritChance, skillModList:Override(nil, "CritChanceCap") or skillModList:Sum("BASE", cfg, "CritChanceCap"))
 				if (baseCrit + base) > 0 then
@@ -3782,9 +3860,10 @@ function calcs.offence(env, actor, activeSkill)
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
+					breakdown.PreEffectiveCritChance = copyTable(breakdown.CritChance)
 					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "")
-						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, "Crit confirmation roll:")
 						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
 						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
@@ -3987,10 +4066,10 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[damageType], "Base damage:")
 				end
 				if convertedMin ~= 0 or convertedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", convertedMin, convertedMax))
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", round(convertedMin), round(convertedMax)))
 				end
 				if gainedMin ~= 0 or gainedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", gainedMin, gainedMax))
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", round(gainedMin), round(gainedMax)))
 				end
 				t_insert(breakdown[damageType], s_format("= %.1f to %.1f", summedMin, summedMax))
 			end
@@ -4664,6 +4743,36 @@ function calcs.offence(env, actor, activeSkill)
 			skillFlags.showAverage = false
 			skillFlags.notAverage = true
 		end
+		if breakdown then
+			if skillFlags.bothWeaponAttack then
+				for _, critStat in ipairs({ "PreEffectiveCritChance", "CritChance" }) do
+					local combinedBreakdown = { "Both weapons:" }
+					for _, pass in ipairs(passList) do
+						t_insert(combinedBreakdown, pass.label .. ":")
+						if pass.breakdown[critStat] then
+							for _, line in ipairs(pass.breakdown[critStat]) do
+								t_insert(combinedBreakdown, line)
+							end
+						else
+							t_insert(combinedBreakdown, s_format("%.2f%%", pass.output[critStat]))
+						end
+					end
+					t_insert(combinedBreakdown, s_format("= %.2f%% ^8(average)", output[critStat]))
+					breakdown[critStat] = combinedBreakdown
+				end
+			else
+				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
+				breakdown.PreEffectiveCritChance = handBreakdown.PreEffectiveCritChance
+				breakdown.CritChance = handBreakdown.CritChance
+			end
+			local breakdownSource = skillFlags.weapon1Attack and "MainHand.CritChance" or "OffHand.CritChance"
+			if breakdown.PreEffectiveCritChance then
+				breakdown.PreEffectiveCritChance.breakdownSource = breakdownSource
+			end
+			if breakdown.CritChance then
+				breakdown.CritChance.breakdownSource = breakdownSource
+			end
+		end
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
 				breakdown.AverageDamage = { }
@@ -4814,7 +4923,12 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
-		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+		local source = pass.source
+		---@class Output
+		local output = pass.output
+		local cfg = pass.cfg
+		---@class Breakdown
+		local breakdown = pass.breakdown
 
 		-- Legacy PoE1 ailments (to be removed later): Scorched, Brittle, Sapped, Impale
 		output.ImpaleChance = 0

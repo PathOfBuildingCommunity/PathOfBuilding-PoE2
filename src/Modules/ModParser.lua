@@ -425,6 +425,7 @@ local modNameList = {
 	["effect of curses on them"] = "CurseEffectOnSelf",
 	["effect of exposure on you"] = "ExposureEffectOnSelf",
 	["effect of withered on you"] = "WitherEffectOnSelf",
+	["magnitude of abyssal wasting you inflict"] = "AbyssalWastingEffect",
 	["life recovery rate"] = "LifeRecoveryRate",
 	["mana recovery rate"] = "ManaRecoveryRate",
 	["energy shield recovery rate"] = "EnergyShieldRecoveryRate",
@@ -1219,7 +1220,6 @@ local preFlagList = {
 	["^melee weapon damage"] = { flags = ModFlag.WeaponMelee },
 	["^deal "] = { },
 	["^causes "] = { },
-	["^arrows deal "] = { keywordFlags = KeywordFlag.Arrow },
 	["^critical hits deal "] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["^poisons you inflict with critical hits have "] = { keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.MatchAll), tag = { type = "Condition", var = "CriticalStrike" } },
 	-- Add to minion
@@ -1291,12 +1291,12 @@ local preFlagList = {
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hgdf][aei][ivar][nel] a? ?"] = { flags = ModFlag.Spell },
 	["^spells which cost life gain "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", statList = { "LifeCost", "LifePerSecondCost" }, threshold = 1 } },
-	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
+	["^spell skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Spell } },
 	["^spell hits [ghd][ae][iva][eln] "] = { flags = ModFlag.Hit, keywordFlags = KeywordFlag.Spell },
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
 	["^projectile attack skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
 	["^projectiles from attacks [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
-	["^arrows [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Arrow },
+	["^arrows [hd][ae][va][el] "] = { tag = { type = "KeywordFlagAnd", keywordFlags = KeywordFlag.Arrow } },
 	["^bow skills [hdf][aei][var][el] "] = { keywordFlags = KeywordFlag.Bow },
 	["^projectiles [hdf][aei][var][el] "] = { flags = ModFlag.Projectile },
 	["^grenade skills [hdf][aei][var][el] "] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
@@ -2161,7 +2161,11 @@ local modTagList = {
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
 }
 
+---@type CreateModFunction
 local mod = modLib.createMod
+--- Creates a mod with type "FLAG" and value true
+---@overload fun(name: string, sourceOrModTag?: string|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag): Mod
+---@return Mod
 local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
@@ -2223,7 +2227,7 @@ local function extraSupport(name, level, slot)
 		if gemId then
 			local mods = {mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].grantedEffectId, level = level }, { type = "SocketedIn", slotName = slot })}
 			if data.gems[gemId].additionalGrantedEffects then
-				for i, additional in data.gems[gemId].additionalGrantedEffects do
+				for i, additional in ipairs(data.gems[gemId].additionalGrantedEffects) do
 					if additional.support then
 						t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }, { type = "SocketedIn", slotName = slot }))
 					else
@@ -2253,7 +2257,10 @@ local explodeFunc = function(chance, amount, type, ...)
 	}
 end
 
+-- forward declarations
+local dmgTypes
 -- List of special modifiers
+---@type table<string, Mod[]>
 local specialModList = {
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
@@ -3344,8 +3351,8 @@ local specialModList = {
 	["(%d+)%% more elemental damage while unbound"] = function(num) return { mod("ElementalDamage", "MORE", num, { type = "Condition", var = "Unbound"})} end,
 	-- Warlock
 	["spells you cast yourself gain added physical damage equal to (%d+)%% of life cost, if life cost is not higher than the maximum you could spend"] = function(num) return {
-		mod("PhysicalMin", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost", thresholdPercent = num }),
-		mod("PhysicalMax", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost", thresholdPercent = num }),
+		mod("PhysicalMin", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num, floor = true }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost" }),
+		mod("PhysicalMax", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num, floor = true }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost" }),
 	} end,
 	["gain maximum life instead of maximum energy shield from equipped armour items"] = { flag("ConvertArmourESToLife") },
 	-- Mercenary - Gemling
@@ -3436,6 +3443,9 @@ local specialModList = {
 	},
 	["maximum quality is (%d+)%%"] = {
 		-- Display only. For Breach Rings and Serle's Grit.
+	},
+	["%+(%d+)%% to maximum quality"] = {
+		-- Display only. For Breach Rings and the Breachlord's prefix.
 	},
 	["can have (%d+) additional instilled modifiers?"] = function(num) return {
 		-- For Strugglescream. Handled in Item.lua
@@ -4469,6 +4479,52 @@ local specialModList = {
 	["cold skills have a (%d+)%% chance to apply cold exposure on hit"] = function(num) return { mod("ColdExposureChance", "BASE", num) } end,
 	["lightning skills have a (%d+)%% chance to apply lightning exposure on hit"] = function(num) return { mod("LightningExposureChance", "BASE", num) } end,
 	["(%d+)%% chance to inflict cold exposure on hit with cold damage"] = function(num) return { mod("ColdExposureChance", "BASE", num) } end,
+	["inflict abyssal wasting on hit"] = {
+		mod("EnemyModifier", "LIST", { mod = flag("AbyssalWasted", nil, ModFlag.Hit, { type = "Condition", var = "Effective" }) }),
+	},
+	["targets affected by abyssal wasting you inflict are (%a+)"] = function(_, cond)
+		local conditions = {
+			debilitated = "Debilitated",
+			hindered = "Hindered",
+			blinded = "Blinded",
+		}
+		local condType = conditions[cond]
+		if condType then
+			return { mod("AbyssalWastingImpliesCondition", "LIST", { condition = condType, applyToEnemy = true }) }
+		else
+			return nil
+		end
+	end,
+	["abyssal wasting also applies %-(%d+)%% to (%a+) resistance"] = function(n, _, res)
+		local resType = dmgTypes[res]
+		if resType then
+			local modName = string.format("%sResist", resType)
+			return { mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod(modName, "BASE", -n), applyToEnemy = true }) }
+		else
+			return nil
+		end
+	end,
+	["abyssal wasting you inflict also prevents targets from dealing critical hits"] = {
+		mod("AbyssalWastingImpliesCondition", "LIST", { condition = "Condition:NeverCrit", applyToEnemy = true, }),
+		mod("AbyssalWastingImpliesCondition", "LIST", { condition = "NeverCrit", applyToEnemy = true }),
+	},
+	["(%d+)%% chance to inflict withered with hits against targets affected by abyssal wasting"] = { mod("AbyssalWastingImpliesCondition", "LIST", { condition = "Condition:CanWither" }) },
+	["(%d+)%% of ([lm][ia][fn][ea]) leeched from targets affected by abyssal wasting is instant"] = function(n, _, resource)
+		local modName = string.format("Instant%sLeech", firstToUpper(resource))
+		return { mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod(modName, "BASE", n), unscalable = true, }) }
+	end,
+	["(%d+)%% increased accuracy rating against enemies affected by abyssal wasting"] = function(n)
+		return { mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod("Accuracy", "INC", n), unscalable = true }) }
+	end,
+	["(%d+)%% increased chance to inflict ailments against enemies affected by abyssal wasting"] = function(n)
+		return { mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod("AilmentChance", "INC", n), unscalable = true, }) }
+	end,
+	["(%d+)%% increased immobilisation buildup against targets affected by abyssal wasting"] = function(n)
+		return { mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod("EnemyImmobilisationBuildup", "INC", n), unscalable = true, }) }
+	end,
+	["abyssal wasting you inflict also prevents targets from inflicting elemental ailments"] = {
+		mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod("AvoidElementalAilments", "BASE", 100), unscalable = true, }),
+	},
 	["socketed skills apply fire, cold and lightning exposure on hit"] = {
 		mod("FireExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
 		mod("ColdExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
@@ -4518,6 +4574,9 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", num) }),
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", num) }),
+		flag("Condition:CanApplyFireExposure"),
+		flag("Condition:CanApplyColdExposure"),
+		flag("Condition:CanApplyLightningExposure"),
 	} end,
 	["enemies near your linked targets have fire, cold and lightning exposure"] = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
@@ -5982,12 +6041,16 @@ local specialModList = {
 		mod("LightningMax", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "Mana", percent = num }),
 	} end,
 	["arc and crackling lance gains added cold damage equal to (%d+)%% of mana cost, if mana cost is not higher than the maximum you could spend"] = function(num) return {
-		mod("ColdMin", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num }, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
-		mod("ColdMax", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num }, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
+		mod("ColdMin", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
+		mod("ColdMax", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
 	} end,
 	["forbidden rite and dark pact gains added chaos damage equal to (%d+)%% of mana cost, if mana cost is not higher than the maximum you could spend"] = function(num) return {
-		mod("ChaosMin", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num }, { type = "SkillName", skillNameList = { "Forbidden Rite", "Dark Pact" }, includeTransfigured = true }),
-		mod("ChaosMax", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num }, { type = "SkillName", skillNameList = { "Forbidden Rite", "Dark Pact" }, includeTransfigured = true }),
+		mod("ChaosMin", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }, { type = "SkillName", skillNameList = { "Forbidden Rite", "Dark Bargain" }, includeTransfigured = true }),
+		mod("ChaosMax", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }, { type = "SkillName", skillNameList = { "Forbidden Rite", "Dark Bargain" }, includeTransfigured = true }),
+	} end,
+	["skills gain added chaos damage equal to (%d+)%% of mana cost, if mana cost is not higher than the maximum you could spend"] = function(num) return {
+		mod("ChaosMin", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }),
+		mod("ChaosMax", "BASE", 1, { type = "PercentStat", stat = "ManaCost", percent = num, floor = true }, { type = "StatThreshold", stat = "ManaCostPayablePool", thresholdStat = "ManaCost" }),
 	} end,
 	["herald of thunder's storms hit enemies with (%d+)%% increased frequency"] = function(num) return { mod("HeraldStormFrequency", "INC", num), } end,
 	["storms hit enemies with (%d+)%% increased frequency"] = function(num) return { mod("HeraldStormFrequency", "INC", num), } end,
@@ -6229,10 +6292,14 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
+	-- handled in item parsing
+	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? ?[%a%s]* modifier magnitudes"] = {},
+	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? effect of [sp][ur][fe]fixes"] = {},
+	["[%a%s]* modifier magnitudes are doubled"] = {},
 	["can be modified while corrupted"] = {}
 }
 for _, name in pairs(data.keystones) do
-	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
+	specialModList[name:lower()] = { mod("Keystone", "LIST", name), flag("Condition:Have"..firstToUpper(name):gsub(" %l", string.upper):gsub(" ", "")) }
 end
 --[[ -- Conditional Immunities
 -- NOTE: conditional mods with "Immune to ..." cannot be handled for PoE2 as they no longer start with "You are..." or similar prefixes that trigger a "FLAG" mod
@@ -6312,7 +6379,7 @@ local suffixTypes = {
 	["leeched as energy shield"] = "EnergyShieldLeech",
 	["is leeched as energy shield"] = "EnergyShieldLeech",
 }
-local dmgTypes = {
+dmgTypes = {
 	["physical"] = "Physical",
 	["lightning"] = "Lightning",
 	["cold"] = "Cold",
@@ -7166,7 +7233,7 @@ local jewelSelfUnallocFuncs = {
 	["Grants all bonuses of Unallocated Small Passive Skills in Radius"] = function(node, out, data)
 		if node then
 			if node.type == "Normal" then
-				data.modList = data.modList or new("ModList")
+				data.modList = data.modList or new("ModList"):ModList()
 
 				-- Filter out "Condition:ConnectedTo" mods as these nodes are not technically allocated by this jewel func
 				for _, mod in ipairs(out) do

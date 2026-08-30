@@ -188,6 +188,9 @@ Variant: Legacy of Stibnite
 Variant: Legacy of Sulphur
 Variant: Legacy of Topaz
 League: Runes of Aldur
+Implicits: 2
+Has (1-3) Charm Slot
+20% of Flask Recovery applied Instantly
 {variant:1}Legacy of Amethyst
 {variant:2}Legacy of Basalt
 {variant:3}Legacy of Bismuth
@@ -202,9 +205,6 @@ League: Runes of Aldur
 {variant:12}Legacy of Stibnite
 {variant:13}Legacy of Sulphur
 {variant:14}Legacy of Topaz
-Implicits: 2
-Has (1-3) Charm Slot
-20% of Flask Recovery applied Instantly
 All Mage's Legacies have (25-50)% increased effect per duplicate Mage's Legacy you have
 ]],[[
 Meginord's Girdle

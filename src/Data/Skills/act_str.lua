@@ -4,8 +4,8 @@
 -- Active Strength skill gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["AncestralCryPlayer"] = {
 	name = "Ancestral Cry",
 	baseTypeName = "Ancestral Cry",
@@ -21436,4 +21436,4 @@ skills["WolfPackPlayer"] = {
 			},
 		},
 	}
-}
+}			end

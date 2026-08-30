@@ -96,6 +96,51 @@ describe("ImportTab", function()
 	end)
 end)
 
+describe("ImportTab BuildPlanner export option", function()
+	before_each(function()
+		newBuild()
+	end)
+
+	it("defaults to true and persists false and true XML values", function()
+		local importTab = build.importTab
+		local option = importTab.controls.buildPlannerUseGeneratedItemText
+
+		assert.are.equal("Tree", StripEscapes(importTab.controls.buildPlannerTreeLabel.label))
+		assert.are.equal("Skill", StripEscapes(importTab.controls.buildPlannerSkillLabel.label))
+		assert.are.equal("Item", StripEscapes(importTab.controls.buildPlannerItemLabel.label))
+		assert.are.equal("TOPLEFT", option.anchor.point)
+		assert.are.equal(importTab.controls.buildPlannerSpec, option.anchor.other)
+		assert.is_true(option.labelRight)
+		assert.is_true(option.state)
+		local xml = {}
+		importTab:Save(xml)
+		assert.are.equal("true", xml.attrib.useGeneratedItemText)
+
+		importTab:Load({ attrib = { useGeneratedItemText = "false" } })
+		assert.is_false(option.state)
+		importTab:Load({ attrib = { useGeneratedItemText = "true" } })
+		assert.is_true(option.state)
+		importTab:Load({ attrib = {} })
+		assert.is_true(option.state)
+
+		option.state = false
+		importTab:Save(xml)
+		assert.are.equal("false", xml.attrib.useGeneratedItemText)
+	end)
+
+	it("marks the build modified when toggled", function()
+		local option = build.importTab.controls.buildPlannerUseGeneratedItemText
+		build.modFlag = false
+		option.IsShown = function() return true end
+		option.IsMouseOver = function() return true end
+		option:OnKeyDown("LEFTBUTTON")
+		option:OnKeyUp("LEFTBUTTON")
+
+		assert.is_false(option.state)
+		assert.is_true(build.modFlag)
+	end)
+end)
+
 describe("ImportTab quest reward import", function()
 	before_each(function()
 		newBuild()

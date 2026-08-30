@@ -112,18 +112,22 @@ end
 data = { }
 
 -- Misc data tables
-LoadModule("Data/Misc", data)
+local miscData = LoadModule("Data/Misc")
+for k, v in pairs(miscData) do
+	data[k] = v
+end
 
----@class StatTable
+---@class PowerStat
 ---@field stat? string stat ID
 ---@field label string A short description of the stat
----@field transform fun(in: number|string): number|string A function to e.g. invert the value, if the stat represents something where lower is better
+---@field transform? fun(in: number|string): number|string A function to e.g. invert the value, if the stat represents something where lower is better
 ---@field combinedOffDef? boolean
 ---@field ignoreForNodes? boolean
 ---@field ignoreForItems? boolean
 ---@field reverseSort? boolean
+---@field itemField string?
 
----@type StatTable[]
+---@type PowerStat[]
 data.powerStatList = {
 	{ stat=nil, label="Offence/Defence", combinedOffDef=true, ignoreForItems=true },
 	{ stat=nil, label="Name", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
@@ -172,6 +176,7 @@ data.powerStatList = {
 	{ stat="IgniteChance", label="Ignite Chance" },
 	{ stat="ShockChance", label="Shock Chance" },
 	{ stat="EffectiveMovementSpeedMod", label="Move speed" },
+	{ stat="LightRadiusMod", label="Light Radius" },
 	{ stat="BlockChance", label="Block Chance" },
 	{ stat="SpellBlockChance", label="Spell Block Chance" },
 	{ stat="SpellSuppressionChance", label="Spell Suppression Chance" },
@@ -179,7 +184,7 @@ data.powerStatList = {
 }
 
 ---@param output any Calc output
----@param statTable StatTable Table with stats as in data.powerStatList
+---@param statTable PowerStat Table with stats as in data.powerStatList
 ---@param skipTransform? boolean Whether the stat transform should be skipped. This is useful if you want to e.g. divide two less is better stats
 ---@return number
 function data.powerStatList.GetFromOutput(output, statTable, skipTransform)
@@ -218,6 +223,7 @@ local minionNonApplicableStats = {
 	Int = true,
 	Spirit = true,
 	EffectiveLootRarityMod = true,
+	LightRadiusMod = true,
 }
 for i = 1, #data.powerStatList do
 	local statEntry = data.powerStatList[i]
@@ -708,6 +714,7 @@ end
 data.essences = LoadModule("Data/Essence")
 data.emotions = LoadModule("Data/LiquidEmotions")
 data.costs = LoadModule("Data/Costs")
+data.buildFileInventorySlotMap = LoadModule("Data/InventorySlots")
 do
 	local map = { }
 	for i, value in ipairs(data.costs) do
@@ -838,8 +845,8 @@ data.itemTagSpecialExclusionPattern = {
 
 -- Load bosses
 do 
-	data.bosses = { }
-	LoadModule("Data/Bosses", data.bosses)
+	---@class BossData
+	data.bosses = LoadModule("Data/Bosses")
 	
 	local count, uberCount = 0, 0
 	local armourTotal, evasionTotal = 0, 0
@@ -863,8 +870,9 @@ do
 		UberEvasionMean = 100 + uberEvasionTotal / uberCount
 	}
 
-	data.bossSkills, data.bossSkillsList = LoadModule("Data/BossSkills")
-
+	local bossSkillData     = LoadModule("Data/BossSkills")
+	data.bossSkills         = bossSkillData.bossSkills
+	data.bossSkillsList     = bossSkillData.bossSkillsList
 	data.enemyIsBossTooltip = [[Bosses' damage is monster damage scaled to an average damage of their attacks
 This is divided by 4.40 to represent 4 damage types + some (40% as much) ^xD02090chaos
 ^7Fill in the exact damage numbers if more precision is needed
@@ -896,7 +904,7 @@ end
 
 -- Load skills
 data.skills = { }
-data.skillStatMap = LoadModule("Data/SkillStatMap", makeSkillMod, makeFlagMod, makeSkillDataMod)
+data.skillStatMap = LoadModule("Data/SkillStatMap")(makeSkillMod, makeFlagMod, makeSkillDataMod)
 data.skillStatMapMeta = {
 	__index = function(t, key)
 		local map = data.skillStatMap[key]
@@ -911,7 +919,7 @@ data.skillStatMapMeta = {
 	end
 }
 for _, type in pairs(skillTypes) do
-	LoadModule("Data/Skills/"..type, data.skills, makeSkillMod, makeFlagMod, makeSkillDataMod)
+	LoadModule("Data/Skills/" .. type)(data.skills, makeSkillMod, makeFlagMod, makeSkillDataMod)
 end
 for skillId, grantedEffect in pairs(data.skills) do
 	grantedEffect.name = sanitiseText(grantedEffect.name)
@@ -1056,10 +1064,8 @@ for id, gem in pairs(toAddGems) do
 end
 
 -- Load minions
-data.minions = { }
-LoadModule("Data/Minions", data.minions, makeSkillMod, makeFlagMod)
-data.spectres = { }
-LoadModule("Data/Spectres", data.spectres, makeSkillMod, makeFlagMod)
+data.minions = LoadModule("Data/Minions")(makeSkillMod, makeFlagMod)
+data.spectres = LoadModule("Data/Spectres")(makeSkillMod, makeFlagMod)
 for name, spectre in pairs(data.spectres) do
 	spectre.limit = "ActiveSpectreLimit"
 	data.minions[name] = spectre
@@ -1084,7 +1090,7 @@ end
 -- Item bases
 data.itemBases = { }
 for _, type in pairs(itemTypes) do
-	LoadModule("Data/Bases/"..type, data.itemBases)
+	LoadModule("Data/Bases/" .. type)(data.itemBases)
 end
 
 -- Build lists of item bases, separated by type
@@ -1136,4 +1142,4 @@ data.questRewards = LoadModule("Data/QuestRewards")
 
 data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
-LoadModule("Data/WorldAreas", data.worldAreas)
+LoadModule("Data/WorldAreas")(data.worldAreas)

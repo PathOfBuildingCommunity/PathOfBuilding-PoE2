@@ -3,8 +3,70 @@ describe("TradeQuery", function ()
 	local mock_queryGen
 
 	before_each(function()
-		mock_tradeQuery = new("TradeQuery", { itemsTab = {} })
-		mock_queryGen = new("TradeQueryGenerator", { itemsTab = {} })
+		mock_tradeQuery = new("TradeQuery"):TradeQuery({ itemsTab = {} })
+		mock_queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = {} })
+	end)
+
+	describe("result dropdown tooltipFunc", function()
+		-- Builds a TradeQuery with the strict minimum needed for
+		-- PriceItemRowDisplay to construct row 1 without exploding. Only the
+		-- two itemsTab subtables read by the slot lookup at the top of
+		-- PriceItemRowDisplay need to be created here; everything else either
+		-- lives behind a callback we never trigger, or is already initialized
+		-- by the TradeQuery constructor.
+		local function newTradeQuery(state)
+			local tq                  = new("TradeQuery"):TradeQuery({ itemsTab = {} })
+			tq.itemsTab.activeItemSet = {}
+			tq.itemsTab.slots         = {}
+			tq.slotTables[1]          = { slotName = "Ring 1" }
+			if state.resultTbl then tq.resultTbl = state.resultTbl end
+			if state.sortedResultTbl then tq.sortedResultTbl = state.sortedResultTbl end
+			return tq
+		end
+		-- Builds row 1 of the trader UI and returns the dropdown that owns the
+		-- tooltipFunc we want to exercise.
+		local function buildRow1Dropdown(tq)
+			tq:PriceItemRowDisplay(1, nil, 0, 20)
+			return tq.controls.resultDropdown1
+		end
+
+		it("returns early when sortedResultTbl[row_idx] is missing", function()
+			-- No sorted results at all -> first guard must short-circuit.
+			local tq = newTradeQuery({})
+			local dropdown = buildRow1Dropdown(tq)
+			local tooltip = new("Tooltip"):Tooltip()
+
+			assert.has_no.errors(function()
+				dropdown.tooltipFunc(tooltip, "DROP", 1, nil)
+			end)
+			assert.are.equal(0, #tooltip.lines)
+		end)
+
+		it("returns early when the backing result entry has been cleared", function()
+			-- The dropdown must be built against a valid result so that
+			-- PriceItemRowDisplay's construction loop succeeds; we wipe
+			-- resultTbl[1] only afterwards, to simulate a stale tooltip
+			-- callback firing after the results were invalidated.
+			local tq = newTradeQuery({
+				resultTbl = { [1] = { [1] = { item_string = "Rarity: RARE\nBehemoth Hold\nGold Ring", amount = 1, currency = "chaos" } } },
+				sortedResultTbl = { [1] = { { index = 1 } } },
+			})
+			local dropdown = buildRow1Dropdown(tq)
+			tq.resultTbl[1] = {}
+			local tooltip = new("Tooltip"):Tooltip()
+
+			assert.has_no.errors(function()
+				dropdown.tooltipFunc(tooltip, "DROP", 1, nil)
+			end)
+			assert.are.equal(0, #tooltip.lines)
+		end)
+	end)
+
+	it("fits the OAuth clipboard status inside the login button", function()
+		local status = mock_tradeQuery:FormatOAuthLoginStatus(60)
+
+		assert.are.equals("URL copied - Login (60)", status)
+		assert.is_true(DrawStringWidth(16, "VAR", status) <= 188)
 	end)
 
 	describe("ReduceOutput", function()
@@ -113,6 +175,18 @@ describe("TradeQuery", function ()
 			})
 
 			assert.is_true(math.abs(result - (10 / 3)) < 0.0001)
+		end)
+	end)
+
+	describe("result dropdown sizing", function()
+		it("reserves space between labels and score details", function()
+			local entry = { label = "A result item label", detail = "+123.4%" }
+			local dropdown = new("DropDownControl"):DropDownControl(nil, { 0, 0, 100, 20 }, { entry })
+			dropdown.maxDroppedWidth = 1000
+			dropdown:CheckDroppedWidth(true)
+
+			local textWidth = DrawStringWidth(16, "VAR", entry.label) + DrawStringWidth(16, "VAR", entry.detail)
+			assert.is_true(dropdown.droppedWidth >= textWidth + 36)
 		end)
 	end)
 end)

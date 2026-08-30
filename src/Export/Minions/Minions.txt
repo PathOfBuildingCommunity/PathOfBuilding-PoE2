@@ -3,8 +3,9 @@
 -- Minion Data
 -- Monster data (c) Grinding Gear Games
 --
-local minions, mod = ...
-
+return function(mod, flag)
+	---@class MinionData
+	local minions = {}
 #monster Metadata/Monsters/Zombies/PlayerSummoned/PlayerSummonedZombie_ RaisedZombie
 #limit ActiveZombieLimit
 #emit
@@ -117,3 +118,5 @@ local minions, mod = ...
 #monster Metadata/Monsters/LeagueExpeditionNew/PlayerSummoned/WardboundMinionPlayerSummoned Wardbound
 #limit WardboundLimit
 #emit
+	return minions
+end

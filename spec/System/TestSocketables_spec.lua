@@ -1,116 +1,115 @@
 describe("TestSocketables", function()
-    before_each(function()
-        newBuild()
-    end)
+	before_each(function()
+		newBuild()
+	end)
 
-    -- Item Tab display Tests
-    -- Also checks slot type runes
+	-- Item Tab display Tests
+	-- Also checks slot type runes
 
-    local extractNamesFromModRunes = function(slotType) 
-        local modRunes = LoadModule("../src/Data/ModRunes")
-        local names = { }
-        for name, rune in pairs(modRunes) do
-            for runeSlotType, mods in pairs(rune) do
-                if runeSlotType == slotType then
-                    table.insert(names, name)
-                end
-            end
-        end
-        return names
-    end
+	local extractNamesFromModRunes = function(slotType)
+		local modRunes = LoadModule("../src/Data/ModRunes")
+		local names = {}
+		for name, rune in pairs(modRunes) do
+			for runeSlotType, mods in pairs(rune) do
+				if runeSlotType == slotType then
+					table.insert(names, name)
+				end
+			end
+		end
+		return names
+	end
 
-    local slotTypeTest = function(slotType, itemBase) 
-        -- ConPrintf("Testing: %s", slotType)
-        local itemRaw = "Test\n" .. itemBase .. "\nSockets: S"
+	local slotTypeTest = function(slotType, itemBase)
+		-- ConPrintf("Testing: %s", slotType)
+		local itemRaw = "Test\n" .. itemBase .. "\nSockets: S"
 
-        local modRunes = extractNamesFromModRunes(slotType)
+		local modRunes = extractNamesFromModRunes(slotType)
 
-        -- Create an ItemTab and add a socketable item to it
-        local item = new("Item", itemRaw)
+		-- Create an ItemTab and add a socketable item to it
+		local item = new("Item"):Item(itemRaw)
 
-        build.itemsTab:AddItem(item)
-        build.itemsTab:SetDisplayItem(item)
-        runCallback("OnFrame")
+		build.itemsTab:AddItem(item)
+		build.itemsTab:SetDisplayItem(item)
+		runCallback("OnFrame")
 
-        -- Extract the proper slot type runes from the list
-        local itemTabRunes = { }
-        for _, rune in ipairs(build.itemsTab.controls["displayItemRune1"].list) do
-            if rune.slot == slotType then
-                table.insert(itemTabRunes, rune.name)
-            end
-        end
-        -- To keep the test fast, only check that the lengths match
-        -- This should also catch issues with multi-mod line runes since the rune name will appear
-        -- for the number of mod lines that the rune has.
-        if #itemTabRunes ~= #modRunes then
-            ConPrintf("Item Tab Runes for slot type '%s':", slotType)
-            for _, name in ipairs(itemTabRunes) do
-                ConPrintf("  %s", name)
-            end
-            ConPrintf("Mod Runes for slot type '%s':", slotType)
-            for _, name in ipairs(modRunes) do
-                ConPrintf("  %s", name)
-            end
-        end
-        assert.are.equals(#itemTabRunes, #modRunes, "Mismatch in number of runes for slot type: " .. slotType)
-    end
+		-- Extract the proper slot type runes from the list
+		local itemTabRunes = {}
+		for _, rune in ipairs(build.itemsTab.controls["displayItemRune1"].list) do
+			if rune.slot == slotType then
+				table.insert(itemTabRunes, rune.name)
+			end
+		end
+		-- To keep the test fast, only check that the lengths match
+		-- This should also catch issues with multi-mod line runes since the rune name will appear
+		-- for the number of mod lines that the rune has.
+		if #itemTabRunes ~= #modRunes then
+			ConPrintf("Item Tab Runes for slot type '%s':", slotType)
+			for _, name in ipairs(itemTabRunes) do
+				ConPrintf("  %s", name)
+			end
+			ConPrintf("Mod Runes for slot type '%s':", slotType)
+			for _, name in ipairs(modRunes) do
+				ConPrintf("  %s", name)
+			end
+		end
+		assert.are.equals(#itemTabRunes, #modRunes, "Mismatch in number of runes for slot type: " .. slotType)
+	end
 
-    -- Note: Except for weapon/armour/caster,
-    --  "slotType" references the dat file ItemClasses.Id value as this is what dat file SoulCoresPerClass.ItemClass refs
-    -- Not all item classes have runes yet
-    it("'Weapon' runes appear in Items tab", slotTypeTest("weapon", "Massive Greathammer"))
+	-- Note: Except for weapon/armour/caster,
+	--  "slotType" references the dat file ItemClasses.Id value as this is what dat file SoulCoresPerClass.ItemClass refs
+	-- Not all item classes have runes yet
+	it("'Weapon' runes appear in Items tab", slotTypeTest("weapon", "Massive Greathammer"))
 
-    it("'Armour' runes appear in Items tab", slotTypeTest("armour", "Slayer Armour"))
+	it("'Armour' runes appear in Items tab", slotTypeTest("armour", "Slayer Armour"))
 
-    it("'Caster' runes appear in Items tab", slotTypeTest("caster", "Bone Wand"))
+	it("'Caster' runes appear in Items tab", slotTypeTest("caster", "Bone Wand"))
 
-    it("'Body Armour' runes appear in Items tab", slotTypeTest("body armour", "Slayer Armour"))
+	it("'Body Armour' runes appear in Items tab", slotTypeTest("body armour", "Slayer Armour"))
 
-    it("'Helmets' runes appear in Items tab", slotTypeTest("helmet", "Kamasan Tiara"))
+	it("'Helmets' runes appear in Items tab", slotTypeTest("helmet", "Kamasan Tiara"))
 
-    it("'Gloves' runes appear in Items tab", slotTypeTest("gloves", "Vaal Gloves"))
+	it("'Gloves' runes appear in Items tab", slotTypeTest("gloves", "Vaal Gloves"))
 
-    it("'Boots' runes appear in Items tab", slotTypeTest("boots", "Vaal Greaves"))
+	it("'Boots' runes appear in Items tab", slotTypeTest("boots", "Vaal Greaves"))
 
-    it("'Shield' runes appear in Items tab", slotTypeTest("shield", "Vaal Tower Shield"))
+	it("'Shield' runes appear in Items tab", slotTypeTest("shield", "Vaal Tower Shield"))
 
-    it("'Focus' runes appear in Items tab", slotTypeTest("focus", "Hallowed Focus"))
+	it("'Focus' runes appear in Items tab", slotTypeTest("focus", "Hallowed Focus"))
 
-    -- Weapons
-    it("'Bow' runes appear in Items tab", slotTypeTest("bow", "Gemini Bow"))
+	-- Weapons
+	it("'Bow' runes appear in Items tab", slotTypeTest("bow", "Gemini Bow"))
 
-    it("'Crossbow' runes appear in Items tab", slotTypeTest("crossbow", "Siege Crossbow"))
+	it("'Crossbow' runes appear in Items tab", slotTypeTest("crossbow", "Siege Crossbow"))
 
-    it("'Wand' runes appear in Items tab", slotTypeTest("wand", "Bone Wand"))
+	it("'Wand' runes appear in Items tab", slotTypeTest("wand", "Bone Wand"))
 
-    it("'Sceptre' runes appear in Items tab", slotTypeTest("sceptre", "Omen Sceptre"))
+	it("'Sceptre' runes appear in Items tab", slotTypeTest("sceptre", "Omen Sceptre"))
 
-    it("'(Caster) Staff' runes appear in Items tab", slotTypeTest("staff", "Voltaic Staff"))
+	it("'(Caster) Staff' runes appear in Items tab", slotTypeTest("staff", "Voltaic Staff"))
 
 	it("'Quarterstaff' runes appear in Items tab", slotTypeTest("quarterstaff", "Striking Quarterstaff"))
 
-    it("'Spear' runes appear in Items tab", slotTypeTest("spear", "Flying Spear"))
+	it("'Spear' runes appear in Items tab", slotTypeTest("spear", "Flying Spear"))
 
-    it("'One Hand Mace' runes appear in Items tab", slotTypeTest("one hand mace", "Marauding Mace"))
+	it("'One Hand Mace' runes appear in Items tab", slotTypeTest("one hand mace", "Marauding Mace"))
 
-    it("'Two Hand Mace' runes appear in Items tab", slotTypeTest("two hand mace", "Massive Greathammer"))
+	it("'Two Hand Mace' runes appear in Items tab", slotTypeTest("two hand mace", "Massive Greathammer"))
 
-    -- Not Yet Added
-    -- it("'One Hand Sword' runes appear in Items tab", slotTypeTest("one hand sword", ""))
+	-- Not Yet Added
+	-- it("'One Hand Sword' runes appear in Items tab", slotTypeTest("one hand sword", ""))
 
-    -- it("'Two Hand Sword' runes appear in Items tab", slotTypeTest("two hand sword", ""))
+	-- it("'Two Hand Sword' runes appear in Items tab", slotTypeTest("two hand sword", ""))
 
-    -- it("'One Hand Axe' runes appear in Items tab", slotTypeTest("one hand axe", ""))
+	-- it("'One Hand Axe' runes appear in Items tab", slotTypeTest("one hand axe", ""))
 
-    -- it("'Two Hand Axe' runes appear in Items tab", slotTypeTest("two hand axe", ""))
+	-- it("'Two Hand Axe' runes appear in Items tab", slotTypeTest("two hand axe", ""))
 
-    -- it("'Flail' runes appear in Items tab", slotTypeTest("flail", ""))
+	-- it("'Flail' runes appear in Items tab", slotTypeTest("flail", ""))
 
-    -- Future note: Once traps are added, verify that GGG stayed with "traptool"
-    -- it("'Trap' runes appear in Items tab", slotTypeTest("traptool", ""))
+	-- Future note: Once traps are added, verify that GGG stayed with "traptool"
+	-- it("'Trap' runes appear in Items tab", slotTypeTest("traptool", ""))
 
-    -- it("'Claw' runes appear in Items tab", slotTypeTest("claw", ""))
+	-- it("'Claw' runes appear in Items tab", slotTypeTest("claw", ""))
 
-    -- it("'Dagger' runes appear in Items tab", slotTypeTest("dagger", ""))
-
+	-- it("'Dagger' runes appear in Items tab", slotTypeTest("dagger", ""))
 end)

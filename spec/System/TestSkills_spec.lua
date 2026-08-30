@@ -126,8 +126,8 @@ describe("TestSkills", function()
 			AddSeparator = function()
 			end,
 		}
-		local spectreList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
-		local beastList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
+		local spectreList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
+		local beastList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
 
 		spectreList:AddValueTooltip(tooltip, 1, "A")
 		assert.matches("Resistances:.*75", table.concat(tooltip.lines, "\n"))
@@ -136,7 +136,7 @@ describe("TestSkills", function()
 		assert.matches("Resistances:.*50", table.concat(tooltip.lines, "\n"))
 
 		local sourceList = { "A", "B" }
-		local sourceControl = new("MinionSearchListControl", nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
+		local sourceControl = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
 		sourceControl.controls.sortModeDropDown.selIndex = 9
 		sourceControl:sortSourceList()
 		assert.are.equals("B", sourceControl.list[1])
@@ -465,8 +465,8 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local genericEfficiencyCost = build.calcsTab.mainOutput.ManaCost
-		-- Test actual behavior: 9/1.25 = 7.2 (not rounded)
-		assert.True(math.abs(genericEfficiencyCost - 7.2) < 0.001)
+		-- The game rounds 9 / 1.25 = 7.2 after applying efficiency.
+		assert.are.equals(7, genericEfficiencyCost)
 
 		-- Test multiple efficiency sources stacking additively
 		build.configTab.input.customMods = "25% increased Cost Efficiency\n25% increased Mana Cost Efficiency"
@@ -487,7 +487,65 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
-		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+		assert.are.equals(9, finalCost) -- round(floor(9 * 1.5) / 1.5)
+	end)
+
+	it("converts positive flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(11, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("converts positive flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(13, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(1, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(9, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("moves only positive flat Mana cost when skills cost Life instead", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		runCallback("OnFrame")
+		local baseManaCost = build.calcsTab.mainOutput.ManaCost
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost + 4, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
 	end)
 
 	it("Test socket group pasting with corruption levels and count", function()

@@ -26767,19 +26767,6 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
-		["1389754388"] = {
-			["Belt"] = {
-				["max"] = 20,
-				["min"] = 15,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1389754388",
-				["text"] = "#% increased Charm Effect Duration",
-				["type"] = "implicit",
-			},
-		},
 		["1412682799"] = {
 			["Charm"] = {
 				["max"] = 1,
@@ -26790,6 +26777,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1412682799",
 				["text"] = "Used when you become Poisoned",
+				["type"] = "implicit",
+			},
+		},
+		["1416292992"] = {
+			["Belt"] = {
+				["max"] = 3,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1416292992",
+				["text"] = "Has # Charm Slot",
 				["type"] = "implicit",
 			},
 		},
@@ -27013,19 +27013,6 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["1754445556"] = {
-			["Belt"] = {
-				["max"] = 15.5,
-				["min"] = 10.5,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_1754445556",
-				["text"] = "Adds # to # Lightning damage to Attacks",
-				["type"] = "implicit",
-			},
-		},
 		["1803308202"] = {
 			["2HWeapon"] = {
 				["max"] = 30,
@@ -27214,19 +27201,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_2194114101",
 				["text"] = "#% increased Critical Hit Chance for Attacks",
-				["type"] = "implicit",
-			},
-		},
-		["2222186378"] = {
-			["Belt"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_2222186378",
-				["text"] = "#% increased Mana Recovery from Flasks",
 				["type"] = "implicit",
 			},
 		},
@@ -27453,10 +27427,6 @@ return {
 			},
 		},
 		["2891184298"] = {
-			["Belt"] = {
-				["max"] = 12,
-				["min"] = 8,
-			},
 			["Ring"] = {
 				["max"] = 10,
 				["min"] = 7,
@@ -27722,16 +27692,8 @@ return {
 				["max"] = 300,
 				["min"] = 100,
 			},
-			["2HWeapon"] = {
-				["max"] = 50,
-				["min"] = 30,
-			},
 			["Amulet"] = {
 				["max"] = 40,
-				["min"] = 30,
-			},
-			["Quarterstaff"] = {
-				["max"] = 50,
 				["min"] = 30,
 			},
 			["Wand"] = {
@@ -27937,10 +27899,6 @@ return {
 				["max"] = 20,
 				["min"] = 12,
 			},
-			["Belt"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
 			["Ring"] = {
 				["max"] = 15,
 				["min"] = 6,
@@ -28031,10 +27989,6 @@ return {
 			["Amulet"] = {
 				["max"] = 15,
 				["min"] = 10,
-			},
-			["Belt"] = {
-				["max"] = 20,
-				["min"] = 15,
 			},
 			["specialCaseData"] = {
 			},
@@ -28186,24 +28140,7 @@ return {
 				["type"] = "implicit",
 			},
 		},
-		["644456512"] = {
-			["Belt"] = {
-				["max"] = 15,
-				["min"] = 10,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_644456512",
-				["text"] = "#% reduced Flask Charges used",
-				["type"] = "implicit",
-			},
-		},
 		["680068163"] = {
-			["Belt"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
 			["Chest"] = {
 				["max"] = 40,
 				["min"] = 30,
@@ -28274,9 +28211,17 @@ return {
 			},
 		},
 		["774059442"] = {
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
+				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28334,33 +28279,6 @@ return {
 				["type"] = "implicit",
 			},
 			["usePositiveSign"] = true,
-		},
-		["809229260"] = {
-			["Belt"] = {
-				["max"] = 180,
-				["min"] = 140,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_809229260",
-				["text"] = "# to Armour",
-				["type"] = "implicit",
-			},
-			["usePositiveSign"] = true,
-		},
-		["821241191"] = {
-			["Belt"] = {
-				["max"] = 30,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "implicit.stat_821241191",
-				["text"] = "#% increased Life Recovery from Flasks",
-				["type"] = "implicit",
-			},
 		},
 		["836936635"] = {
 			["Chest"] = {
@@ -29167,6 +29085,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["1466716929"] = {
+			["Chest"] = {
+				["max"] = 10,
+				["min"] = 10,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1466716929",
+				["text"] = "Gain # Rage when Critically Hit by an Enemy",
+				["type"] = "augment",
+			},
+		},
 		["1496740334"] = {
 			["1HMace"] = {
 				["max"] = 20,
@@ -29843,6 +29774,19 @@ return {
 				["type"] = "augment",
 			},
 		},
+		["185580205"] = {
+			["Helmet"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_185580205",
+				["text"] = "Charms gain # charge per Second",
+				["type"] = "augment",
+			},
+		},
 		["1871622140"] = {
 			["Chest"] = {
 				["max"] = 1,
@@ -29981,6 +29925,59 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_1937310173",
 				["text"] = "You Recoup #% of Damage taken by your Offerings as Life",
+				["type"] = "augment",
+			},
+		},
+		["1940865751"] = {
+			["1HMace"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["1HWeapon"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["2HMace"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["2HWeapon"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Bow"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Claw"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Crossbow"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Flail"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Quarterstaff"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Spear"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["Talisman"] = {
+				["max"] = 10.5,
+				["min"] = 3.5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_1940865751",
+				["text"] = "Adds # to # Physical Damage",
 				["type"] = "augment",
 			},
 		},
@@ -31055,6 +31052,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2505884597",
 				["text"] = "Gain #% of Damage as Extra Cold Damage",
+				["type"] = "augment",
+			},
+		},
+		["2511217560"] = {
+			["Boots"] = {
+				["max"] = 200,
+				["min"] = 200,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_2511217560",
+				["text"] = "#% increased Stun Recovery",
 				["type"] = "augment",
 			},
 		},
@@ -32509,6 +32519,19 @@ return {
 			},
 			["usePositiveSign"] = true,
 		},
+		["326965591"] = {
+			["Boots"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_326965591",
+				["text"] = "Iron Reflexes",
+				["type"] = "augment",
+			},
+		},
 		["3278136794"] = {
 			["1HWeapon"] = {
 				["max"] = 12,
@@ -32619,6 +32642,19 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
+		},
+		["3292710273"] = {
+			["Chest"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_3292710273",
+				["text"] = "Gain # Rage when Hit by an Enemy",
+				["type"] = "augment",
+			},
 		},
 		["3299347043"] = {
 			["1HMace"] = {
@@ -35762,6 +35798,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
+				["type"] = "augment",
+			},
+		},
+		["939832726"] = {
+			["Chest"] = {
+				["max"] = 5,
+				["min"] = 5,
+			},
+			["specialCaseData"] = {
+			},
+			["tradeMod"] = {
+				["id"] = "rune.stat_939832726",
+				["text"] = "Recover #% of maximum Life for each Endurance Charge consumed",
 				["type"] = "augment",
 			},
 		},

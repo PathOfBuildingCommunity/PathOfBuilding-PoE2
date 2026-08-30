@@ -3,7 +3,8 @@
 -- Module: Calc Defence
 -- Performs defence calculations.
 --
-local calcs = ...
+---@class Calcs
+local calcs = require("Modules.CalcBase")
 
 local pairs = pairs
 local ipairs = ipairs
@@ -429,6 +430,7 @@ end
 ---@param actor table actor (with output and modDB) for which to calculate the damage
 ---@return number, table sum of damages and a table of taken damage parts
 function calcs.takenHitFromDamage(rawDamage, damageType, actor)
+	---@class Output
 	local output = actor.output
 	local modDB = actor.modDB
 	local function damageMitigationMultiplierForType(damage, type)
@@ -468,6 +470,7 @@ end
 ---@param actor table actor (with output and modDB) for which to calculate the pools
 ---@return table pools reduced by damage
 function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
+	---@class Output
 	local output = actor.output
 	local modDB = actor.modDB
 	local poolTbl = poolTable or { }
@@ -765,7 +768,9 @@ end
 function calcs.defence(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local condList = modDB.conditions
@@ -828,6 +833,7 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	---@alias MinMaxTotalBreakdownResist [string, string, string]
 	-- Resistances
 	output["PhysicalResist"] = 0
 
@@ -968,7 +974,7 @@ function calcs.defence(env, actor)
 		breakdown.Spirit = { slots = { } }
 	end
 	if actor == env.minion or actor == env.player then
-		calcs.doActorLifeManaSpirit(actor)
+		calcs.doActorLifeManaSpirit(actor, true)
 		calcs.doActorLifeManaSpiritReservation(actor)
 	end
 
@@ -1001,7 +1007,9 @@ function calcs.defence(env, actor)
 	elseif modDB:Flag(nil, "MaxBlockIfNotBlockedRecently") then
 		output.BlockChance = output.BlockChanceMax
 	else
-		local totalBlockChance = (baseBlockChance + modDB:Sum("BASE", nil, "BlockChance")) * calcLib.mod(modDB, nil, "BlockChance")
+		local inc = modDB:Sum("INC", nil, "BlockChance")
+		local more = modDB:More(nil, "BlockChance")
+		local totalBlockChance = round((baseBlockChance + modDB:Sum("BASE", nil, "BlockChance")) * (1 + inc/100) * more)
 		output.BlockChance = m_min(totalBlockChance, output.BlockChanceMax)
 		output.BlockChanceOverCap = m_max(0, totalBlockChance - output.BlockChanceMax)
 	end
@@ -1019,7 +1027,9 @@ function calcs.defence(env, actor)
 		output.SpellProjectileBlockChance = output.ProjectileBlockChance
 		output.SpellBlockChanceOverCap = output.BlockChanceOverCap
 	else
-		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
+		local inc = modDB:Sum("INC", nil, "BlockChance")
+		local more = modDB:More(nil, "BlockChance")
+		local totalSpellBlockChance = round(modDB:Sum("BASE", nil, "SpellBlockChance") * (1 + inc/100) * more)
 		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
 		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
 		local spellProjectileBlockChance = m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax)
@@ -2031,7 +2041,9 @@ end
 function calcs.buildDefenceEstimations(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
+	---@class Output
 	local output = actor.output
+	---@class Breakdown
 	local breakdown = actor.breakdown
 
 	local condList = modDB.conditions
@@ -4356,3 +4368,5 @@ function calcs.buildDefenceEstimations(env, actor)
 	end
 	--endregion
 end
+
+return calcs
