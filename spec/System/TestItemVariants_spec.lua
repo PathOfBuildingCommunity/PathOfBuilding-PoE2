@@ -15,6 +15,20 @@ describe("Versioned item variants", function()
 		{variant:3}{group:1,2}{tags:mana}+30 to maximum Mana
 		{variant:4}{group:1,2}{tags:defences}+40 to Armour
 	]]
+	local ungroupedRaw = [[
+		Rarity: Unique
+		Ungrouped Variant Test Item
+		Gold Ring
+		Version: Legacy
+		Version: Current
+		Selected Variant: 2
+		Variant: Life
+		Variant: Mana
+		Variant: Unreferenced
+		Implicits: 0
+		{variant:1}{tags:life}+10 to maximum Life
+		{variant:2}{tags:mana}+20 to maximum Mana
+	]]
 
 	it("defaults to the current version with distinct options from a shared pool", function()
 		local item = new("Item"):Item(groupedRaw)
@@ -43,6 +57,51 @@ describe("Versioned item variants", function()
 		manaLine.disabled = true
 		assert.is_true(item:CheckModLineVariant(manaLine))
 		assert.is_false(item:FindModifierSubstring("mana", "Ring 1"))
+	end)
+
+	it("keeps an independent variant selection when versions and variants exist", function()
+		local item = new("Item"):Item(ungroupedRaw)
+		assert.is_true(item.usesVariantGroups)
+		assert.is_true(item.hasUngroupedVariants)
+		assert.equals(2, item.selectedVersion)
+		assert.equals(2, item.variant)
+		assert.same({ }, item.variantGroupSelections)
+		assert.same({ }, item.variantGroups)
+		assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+		assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+		item:BuildAndParseRaw()
+		assert.is_nil(item.raw:find("{group:", 1, true))
+		assert.matches("Selected Variant: 2", item.raw, 1, true)
+		assert.equals(2, item.variant)
+	end)
+
+	it("normalises an invalid independent variant selection", function()
+		local item = new("Item"):Item(ungroupedRaw:gsub("Selected Variant: 2", "Selected Variant: 99"))
+		assert.equals(3, item.variant)
+		assert.matches("Selected Variant: 3", item:BuildRaw(), 1, true)
+	end)
+
+	it("keeps ungrouped variants available independently of version", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Implicit Availability Test
+			Gold Ring
+			Version: Legacy
+			Version: Current
+			Variant: Life
+			Variant: Mana
+			Variant: Always Available
+			Implicits: 0
+			{version:1}{variant:1}+10 to maximum Life
+			{version:2}{variant:2}+20 to maximum Mana
+		]])
+		assert.equals(3, item.variant)
+		item.selectedVersion = 1
+		item:NormaliseVariantSelections()
+		assert.equals(3, item.variant)
+		item.variant = 1
+		item:BuildAndParseRaw()
+		assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
 	end)
 
 	it("preserves eligible selections and replaces unavailable selections when changing version", function()
@@ -186,6 +245,28 @@ describe("Versioned item variants", function()
 		assert.equals("Iron Ring", item.baseName)
 	end)
 
+	it("selects a base from independent version and variant dimensions", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Independent Base Test
+			Version: Legacy
+			Version: Current
+			Selected Version: 2
+			Variant: Gold
+			Variant: Iron
+			Selected Variant: 2
+			{version:1}{variant:1}Gold Ring
+			{version:2}{variant:2}Iron Ring
+			Implicits: 0
+			+10 to maximum Life
+		]])
+		assert.equals("Iron Ring", item.baseName)
+		item.selectedVersion = 1
+		item.variant = 1
+		item:BuildAndParseRaw()
+		assert.equals("Gold Ring", item.baseName)
+	end)
+
 	it("applies grouped rune socket overrides on the first parse", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique
@@ -212,12 +293,14 @@ describe("Versioned item variants", function()
 			end
 		end
 		assert.is_not_nil(raw)
+		assert.is_nil(raw:find("{group:", 1, true))
 		local item = new("Item"):Item(raw)
 		assert.equals(2, item.selectedVersion)
-		assert.same({ 4 }, item.variantGroupSelections)
+		assert.equals(4, item.variant)
+		assert.same({ }, item.variantGroupSelections)
 		assert.equals(0, item.baseModList:Sum("BASE", nil, "ChaosResist"))
 		for radius = 1, 8 do
-			item.variantGroupSelections[1] = radius
+			item.variant = radius
 			item.selectedVersion = 2
 			item:BuildAndParseRaw()
 			local radiusIndex = item.jewelData.radiusIndex
@@ -227,12 +310,37 @@ describe("Versioned item variants", function()
 			assert.equals(radiusIndex, item.jewelData.radiusIndex)
 			assert.equals(radiusIndex, item.jewelRadiusIndex)
 			assert.is_true(item.baseModList:Sum("BASE", nil, "ChaosResist") < 0)
-			assert.same({ radius }, new("Item"):Item(item.raw).variantGroupSelections)
+			assert.equals(radius, new("Item"):Item(item.raw).variant)
 		end
 	end)
 
 	describe("item editor", function()
 		before_each(newBuild)
+
+		it("shows independent version and variant dropdowns", function()
+			build.itemsTab:CreateDisplayItemFromRaw(ungroupedRaw)
+			local controls = build.itemsTab.controls
+			assert.is_true(controls.displayItemVersion:IsShown())
+			assert.is_true(controls.displayItemVariant:IsShown())
+			assert.is_nil(controls.displayItemVariant.variantGroupId)
+			assert.equals(3, #controls.displayItemVariant.list)
+			assert.equals("Mana", controls.displayItemVariant.list[2])
+			controls.displayItemVariant:SetSel(1)
+			assert.equals(1, build.itemsTab.displayItem.variant)
+			assert.equals(10, build.itemsTab.displayItem.baseModList:Sum("BASE", nil, "Life"))
+			controls.displayItemVersion:SetSel(1)
+			assert.equals(1, build.itemsTab.displayItem.variant)
+			assert.equals(10, build.itemsTab.displayItem.baseModList:Sum("BASE", nil, "Life"))
+			assert.is_nil(build.itemsTab.displayItem.raw:find("{group:", 1, true))
+			local tooltip = new("Tooltip"):Tooltip()
+			build.itemsTab:AddItemTooltip(tooltip, build.itemsTab.displayItem, nil, true)
+			local text = ""
+			for _, line in ipairs(tooltip.lines) do
+				text = text .. (line.text or "") .. "\n"
+			end
+			assert.matches("Version: Legacy", text, 1, true)
+			assert.matches("Variant: Life", text, 1, true)
+		end)
 
 		it("updates reusable pools when changing version or selection", function()
 			build.itemsTab:CreateDisplayItemFromRaw(groupedRaw)

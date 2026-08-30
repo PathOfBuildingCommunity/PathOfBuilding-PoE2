@@ -337,6 +337,9 @@ function ItemClass:NormaliseVariantSelections()
 	else
 		self.selectedVersion = nil
 	end
+	if self.hasUngroupedVariants then
+		self.variant = m_max(1, m_min(#self.variantList, self.variant or #self.variantList))
+	end
 	self.variantGroupSelections = self.variantGroupSelections or { }
 	for groupId in pairs(self.variantGroupSelections) do
 		if not self.variantGroups[groupId] then
@@ -500,6 +503,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 	self.variantGroups = { }
 	self.variantGroupSelections = self.variantGroupSelections or { }
 	self.usesVariantGroups = false
+	self.hasUngroupedVariants = false
 	self.prefixes = { }
 	self.suffixes = { }
 	self.requirements = { }
@@ -512,6 +516,20 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 	local flaskBuffLines
 	local charmBuffLines
 	local deferJewelRadiusIndexAssignment
+	-- Version headers use the new selection path, while variants without any
+	-- explicit group tags remain a separate, legacy-style selection.
+	local hasExplicitVariantGroups = false
+	for groupSpec in raw:gmatch("{group:([^}]+)}") do
+		for groupId in groupSpec:gmatch("%d+") do
+			if tonumber(groupId) > 0 then
+				hasExplicitVariantGroups = true
+				break
+			end
+		end
+		if hasExplicitVariantGroups then
+			break
+		end
+	end
 	local gameModeStage = "FINDIMPLICIT"
 	local foundExplicit, foundImplicit
 	local linePrefix = ""
@@ -696,6 +714,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 					end
 					t_insert(self.versionList, specVal)
 					self.usesVariantGroups = true
+					self.hasUngroupedVariants = self.variantList and not hasExplicitVariantGroups or false
 				elseif specName == "Variant" then
 					if not self.variantList then
 						self.variantList = { }
@@ -707,6 +726,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 					else
 						t_insert(self.variantList, specVal)
 					end
+					self.hasUngroupedVariants = self.versionList and not hasExplicitVariantGroups or false
 				elseif specName == "Talisman Tier" then
 					self.talismanTier = specToNumber(specVal)
 				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Ward" then
@@ -860,6 +880,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 							groupId = tonumber(groupId)
 							if groupId and groupId > 0 then
 								modLine.variantGroupList[groupId] = true
+								hasExplicitVariantGroups = true
 							end
 						end
 						self.usesVariantGroups = true
@@ -1253,6 +1274,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 		::continue::
 		l = l + 1
 	end
+	self.hasUngroupedVariants = self.versionList and self.variantList and not hasExplicitVariantGroups or false
 	if self.usesVariantGroups then
 		-- Resolve selections before inferring runes or applying modifier magnitudes.
 		self:NormaliseVariantSelections()
@@ -1874,7 +1896,9 @@ function ItemClass:BuildRaw()
 		for _, variantName in ipairs(self.variantList) do
 			t_insert(rawLines, "Variant: " .. variantName)
 		end
-		if self.usesVariantGroups then
+		if self.hasUngroupedVariants then
+			t_insert(rawLines, "Selected Variant: " .. self.variant)
+		elseif self.usesVariantGroups then
 			for groupId in pairsSortByKey(self.variantGroups) do
 				local variantId = self.variantGroupSelections[groupId]
 				if variantId then
@@ -2155,6 +2179,9 @@ function ItemClass:CheckModLineVariant(modLine)
 				end
 			end
 			return false
+		end
+		if self.hasUngroupedVariants and modLine.variantList then
+			return modLine.variantList[self.variant] or false
 		end
 		return not modLine.variantList
 	end

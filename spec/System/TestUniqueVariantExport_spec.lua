@@ -62,6 +62,33 @@ Selected Variant Group: 1=1
 		assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
 	end)
 
+	it("preserves independent versioned variants without adding group tags", function()
+		local result = export([=[return {
+[[
+Independent Variant Export Test
+Gold Ring
+Version: Legacy
+Version: Current
+Selected Variant: 2
+Variant: Life
+Variant: Mana
+{variant:1}TestMod
+{variant:2}+20 to maximum Mana
+]],
+}]=], { req = { level = 1 } }, {
+			TestMod = { "+10 to maximum Life", modTags = { "life" }, statOrder = { 1 } },
+		})
+		assert.matches("Version: Legacy\nVersion: Current", result, 1, true)
+		assert.matches("{variant:1}{tags:life}+10 to maximum Life", result, 1, true)
+		assert.matches("{variant:2}+20 to maximum Mana", result, 1, true)
+		assert.is_nil(result:find("{group:", 1, true))
+		local item = new("Item"):Item(assert(loadstring(result))()[1])
+		assert.equals(2, item.variant)
+		assert.is_true(item.hasUngroupedVariants)
+		assert.same({ }, item.variantGroups)
+		assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+	end)
+
 	it("replaces a base implicit with versioned implicit lines", function()
 		local result = export([=[return {
 [[

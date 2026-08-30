@@ -417,11 +417,15 @@ holding Shift will put it in the second.]])
 		end
 		if self.displayItem.usesVariantGroups then
 			local rows = self.displayItem.versionList and #self.displayItem.versionList > 1 and 1 or 0
-			local groups = 0
-			for groupId in pairsSortByKey(self.displayItem.variantGroups) do
-				if groups < 6 and #self.displayItem:GetVariantGroupOptions(groupId, false) > 0 then
-					rows = rows + 1
-					groups = groups + 1
+			if self.displayItem.hasUngroupedVariants then
+				rows = rows + (#self.displayItem.variantList > 1 and 1 or 0)
+			else
+				local groups = 0
+				for groupId in pairsSortByKey(self.displayItem.variantGroups) do
+					if groups < 6 and #self.displayItem:GetVariantGroupOptions(groupId, false) > 0 then
+						rows = rows + 1
+						groups = groups + 1
+					end
 				end
 			end
 			return rows > 0 and rows * 24 + 4 or 0
@@ -1862,7 +1866,7 @@ function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 end
 
 function ItemsTabClass:SelectDisplayItemVariant(index, value, legacyField, control)
-	if self.displayItem.usesVariantGroups then
+	if self.displayItem.usesVariantGroups and not self.displayItem.hasUngroupedVariants then
 		if not value or not value.variantId then
 			return
 		end
@@ -1898,6 +1902,16 @@ function ItemsTabClass:UpdateDisplayItemVariantControls()
 	self.controls.displayItemVersion.list = item.versionList or { }
 	self.controls.displayItemVersion.selIndex = item.selectedVersion or 1
 	self.controls.displayItemVersion:CheckDroppedWidth(true)
+	if item.hasUngroupedVariants then
+		local control = self.controls.displayItemVariant
+		control.list = item.variantList
+		control.selIndex = item.variant
+		control.variantGroupId = nil
+		control.newVariantVisible = #item.variantList > 1
+		control.newVariantEnabled = #item.variantList > 1
+		control:CheckDroppedWidth(true)
+		return
+	end
 	local controlIndex = 1
 	for groupId in pairsSortByKey(item.variantGroups) do
 		local eligibleOptions = item:GetVariantGroupOptions(groupId, false)
@@ -3511,15 +3525,19 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			if item.versionList and item.selectedVersion then
 				tooltip:AddLine(fontSizeBig, "^xFFFF30Version: " .. item.versionList[item.selectedVersion], "FONTIN SC")
 			end
-			local selectedVariants = { }
-			for groupId in pairsSortByKey(item.variantGroups) do
-				local variantId = item.variantGroupSelections[groupId]
-				if variantId and item:IsVariantGroupOptionEligible(groupId, variantId) then
-					t_insert(selectedVariants, item.variantList[variantId])
+			if item.hasUngroupedVariants then
+				tooltip:AddLine(fontSizeBig, "^xFFFF30Variant: " .. item.variantList[item.variant], "FONTIN SC")
+			else
+				local selectedVariants = { }
+				for groupId in pairsSortByKey(item.variantGroups) do
+					local variantId = item.variantGroupSelections[groupId]
+					if variantId and item:IsVariantGroupOptionEligible(groupId, variantId) then
+						t_insert(selectedVariants, item.variantList[variantId])
+					end
 				end
-			end
-			if #selectedVariants > 0 then
-				tooltip:AddLine(fontSizeBig, "^xFFFF30Variants: " .. table.concat(selectedVariants, ", "), "FONTIN SC")
+				if #selectedVariants > 0 then
+					tooltip:AddLine(fontSizeBig, "^xFFFF30Variants: " .. table.concat(selectedVariants, ", "), "FONTIN SC")
+				end
 			end
 		elseif item.variantList then
 			if #item.variantList == 1 then
