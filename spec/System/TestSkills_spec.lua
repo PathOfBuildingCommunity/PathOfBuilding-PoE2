@@ -1204,6 +1204,46 @@ describe("TestSkills", function()
 		assert.truthy(breakdownText:match("weighted average"))
 	end)
 
+	it("ignores non-negative elemental resistance after inversion", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = -50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("inverts the selected lowest elemental resistance", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.enemyColdResist = 20
+		build.configTab.input.enemyLightningResist = 30
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nElemental Damage you Deal with Hits is Resisted by Lowest Elemental Resistance instead"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.2, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("shows the resistance used for each inversion outcome", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("0%% ^8%(non%-inverted hit after penetration%)"))
+		assert.truthy(breakdownText:match("%-50%% ^8%(inverted hit after penetration%)"))
+	end)
+
 	it("Test granted skills with exposure stats make exposure configurable", function()
 		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
 		local spec = build.spec
