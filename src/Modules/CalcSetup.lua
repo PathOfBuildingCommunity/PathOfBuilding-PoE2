@@ -906,7 +906,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if overrideTwoHand and override.repSlotName and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") then
 				local allowLordOfTheWilds = lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type == "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
 				local allowInstrumentsOfPower = instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type == "Focus"
-				local allowGiantsBlood = giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace")
+				local allowGiantsBlood = giantsBlood and item and item.type ~= "Quiver" and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace")
 				local allowQuiver = (override.repItem.base.type == "Bow" and item and item.base.type == "Quiver")
 				local allowOffHand = allowLordOfTheWilds or allowInstrumentsOfPower or allowGiantsBlood or allowQuiver
 				if not allowOffHand then

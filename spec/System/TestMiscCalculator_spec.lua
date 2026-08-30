@@ -51,27 +51,27 @@ Crafted: true
 Implicits: 1
 +100 to maximum energy shield]]
 
-		local bow = new("Item", [[Rarity: Rare
+		local bow = new("Item"):Item([[Rarity: Rare
 Test Subject
 Gemini Bow]])
 
-		local talisman = new("Item", [[Rarity: Rare
+		local talisman = new("Item"):Item([[Rarity: Rare
 Test Subject
 Spiny Talisman]])
 
-		local staff = new("Item", [[Rarity: Rare
+		local staff = new("Item"):Item([[Rarity: Rare
 Test Subject
 Chiming Staff]])
 
-		local mace = new("Item", [[Rarity: Rare
+		local mace = new("Item"):Item([[Rarity: Rare
 Test Subject
 Ironwood Greathammer]])
 
-		local sceptre = new("Item", [[Rarity: Rare
+		local sceptre = new("Item"):Item([[Rarity: Rare
 Test Subject
 Rattling Sceptre
 +100 to maximum Energy Shield]])
-		local wand = new("Item", [[Rarity: Rare
+		local wand = new("Item"):Item([[Rarity: Rare
 Test Subject
 Dueling Wand]])
 		it("calculates off-hand without a weapon", function ()
@@ -99,6 +99,13 @@ Dueling Wand]])
 			local output = calcFunc({ repSlotName = "Weapon 1", repItem = mace })
 			assert.True(output.EnergyShield > 0)
 		end)
+		it("removes the off-hand quiver when using a two-handed weapon with Giant's Blood", function()
+			pasteAndEquipItem(bow:BuildRaw())
+			pasteAndEquipItem(quiver)
+			allocateKeystone("You can wield Two-Handed Axes, Maces and Swords in one hand")
+			local output = calcFunc({ repSlotName = "Weapon 1", repItem = mace })
+			assert.True(output.EnergyShield == 0)
+		end)
 		it("keeps the off-hand focus when using a staff with Instruments of Power", function()
 			pasteAndEquipItem(focus)
 			allocateKeystone("You can equip a Focus while wielding a Staff")
@@ -112,7 +119,7 @@ Dueling Wand]])
 			assert.True(output.EnergyShield > 0)
 		end)
 		it("unequips unique off-hand sceptre when using a talisman with Lord of the Wilds", function()
-			equipInSlot(new("Item", "Rarity: Unique\n" .. sceptre:BuildRaw()), "Weapon 2")
+			equipInSlot(new("Item"):Item("Rarity: Unique\n" .. sceptre:BuildRaw()), "Weapon 2")
 			allocateKeystone("You can equip a non-Unique Sceptre while wielding a Talisman")
 			local output = calcFunc({ repSlotName = "Weapon 1", repItem = talisman })
 			assert.True(output.EnergyShield == 0)
