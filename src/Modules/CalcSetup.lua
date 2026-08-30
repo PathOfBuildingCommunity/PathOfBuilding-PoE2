@@ -944,9 +944,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
 
 	local weaponFlagState = {
-		giantsBlood = nodesModsList:Flag(nil, "GiantsBlood") or false,
-		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or false,
-		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or false,
+		giantsBlood = nodesModsList:Flag(nil, "GiantsBlood") or modDB:Flag(nil, "GiantsBlood") or false,
+		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or modDB:Flag(nil, "InstrumentsOfPower") or false,
+		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or modDB:Flag(nil, "LordOfTheWilds") or false,
 	}
 	-- Only mutate equipped items in the real build pass; calculator overrides (e.g. node power) are transient.
 	if mode == "MAIN" then
@@ -986,18 +986,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
-			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
-			(
-				(not lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type ~= "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")
-				or (not instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type ~= "Focus")
-				or (not giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace"))
-				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
-			) then
-				goto continue
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
 			else
 				item = build.itemsTab.items[slot.selItemId]
+			end
+			-- if we are replacing the main hand weapon, we should unequip the off hand weapon if it's not allowed
+			local overrideTwoHand = override.repItem and override.repItem.base.type and not (env.data.weaponTypeInfo[override.repItem.base.type] or {}).oneHand
+			if overrideTwoHand and override.repSlotName and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") then
+				local allowLordOfTheWilds = lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type == "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
+				local allowInstrumentsOfPower = instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type == "Focus"
+				local allowGiantsBlood = giantsBlood and item and item.type ~= "Quiver" and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace")
+				local allowQuiver = (override.repItem.base.type == "Bow" and item and item.base.type == "Quiver")
+				local allowOffHand = allowLordOfTheWilds or allowInstrumentsOfPower or allowGiantsBlood or allowQuiver
+				if not allowOffHand then
+					goto continue
+				end
 			end
 			if item and item.grantedSkills then
 				-- Find skills granted by this item
