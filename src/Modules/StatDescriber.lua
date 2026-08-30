@@ -299,11 +299,11 @@ return function(stats, scopeName, quality)
 				else
 					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
 				end
-			end):gsub("{(%d):(%+?)d}", function(n, fmt)
+			end):gsub("{(%d):([%+%-]?)d}", function(n, fmt)
 				local v = val[tonumber(n)+1]
 				if v.min == v.max then
 					return s_format("%"..fmt..v.fmt, v.min)
-				elseif fmt == "+" then
+				elseif fmt == "+" or fmt == "-" then
 					if v.max < 0 then
 						return s_format("-(%d-%d)", -v.min, -v.max)
 					else

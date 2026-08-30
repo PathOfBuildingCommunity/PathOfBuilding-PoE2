@@ -90,6 +90,18 @@ describe("TreeTab", function()
 			assert.are.equals("Strength", newSpec.hashOverrides[100].dn)
 		end)
 
+		it("Copies node notes", function()
+			local sourceSpec = build.treeTab.specList[1]
+			local nodeId = sourceSpec.curClass.startNodeId
+			sourceSpec.nodeNotes[nodeId] = "Keep this note"
+
+			local newSpec = build.treeTab:CopyTree(1, "Copy Test")
+
+			assert.are.equals("Keep this note", newSpec.nodeNotes[nodeId])
+			sourceSpec.nodeNotes[nodeId] = "Changed"
+			assert.are.equals("Keep this note", newSpec.nodeNotes[nodeId])
+		end)
+
 		it("Handles copying when source has no jewels", function()
 			build.treeTab.specList[1].jewels = {}
 			local newSpec = build.treeTab:CopyTree(1, "Copy Test")

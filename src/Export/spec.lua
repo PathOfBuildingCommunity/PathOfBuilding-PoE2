@@ -41039,7 +41039,7 @@ return {
 		},
 		[64]={
 			list=false,
-			name="IsEssenceOnlyModifier",
+			name="IsUnscalable",
 			refTo="",
 			type="Bool",
 			width=140

@@ -5,8 +5,11 @@
 --
 local ipairs = ipairs
 local t_insert = table.insert
+local t_concat = table.concat
 local m_max = math.max
 local m_floor = math.floor
+local s_find = string.find
+local s_format = string.format
 local s_gmatch = string.gmatch
 
 -- Constants
@@ -30,7 +33,56 @@ local headerConfigs = {
 	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
 	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
 }
+local headerInfluence = {
+	Fractured = "Assets/fractureditemsymbol.png",
+	Desecrated = "Assets/veileditemsymbol.png",
+	Mutated = "Assets/vaalitemicon.png",
+}
+local separatorConfigs = {
+	RELIC = "Assets/itemsseparatorfoil.png",
+	UNIQUE = "Assets/itemsseparatorunique.png",
+	RARE = "Assets/itemsseparatorrare.png",
+	MAGIC = "Assets/itemsseparatormagic.png",
+	NORMAL = "Assets/itemsseparatorwhite.png",
+	GEM = "Assets/itemsseparatorgem.png",
+}
 -- spell-checker: enable
+
+-- Cache tooltip assets
+local tooltipAssetCache = {
+	header = {},
+	influence = {},
+	separator = {},
+}
+
+local function getCachedImage(cache, key, path)
+	local image = cache[key]
+
+	if image == nil then
+		image = NewImageHandle()
+		image:Load(path)
+		cache[key] = image
+	end
+
+	return image
+end
+
+local function getHeaderImage(rarity, location, isRunic)
+	local resolvedRarity = headerConfigs[rarity] and rarity or "NORMAL"
+	local runic = isRunic and "runic" or ""
+	local key = runic .. ":" .. resolvedRarity .. ":" .. location
+	local path = "Assets/" .. runic .. headerConfigs[resolvedRarity][location]
+	return getCachedImage(tooltipAssetCache.header, key, path)
+end
+
+local function getInfluenceIconImage(influence)
+	return getCachedImage(tooltipAssetCache.influence, influence, headerInfluence[influence])
+end
+
+local function getSeparatorImage(rarity)
+	local path = separatorConfigs[rarity] or separatorConfigs["NORMAL"]
+	return getCachedImage(tooltipAssetCache.separator, rarity, path)
+end
 
 local skillAssetMap
 local missingSkillAssets = { }
@@ -63,11 +115,15 @@ local function getSkillAssetByName(name)
 	return skillAssetMap[name]
 end
 
-local TooltipClass = newClass("Tooltip", function(self)
+---@class Tooltip
+local TooltipClass = newClass("Tooltip")
+
+function TooltipClass:Tooltip()
 	self.lines = { }
 	self.blocks = { }
 	self:Clear()
-end)
+	return self
+end
 
 function TooltipClass:Clear(clearUpdateParams)
 	wipeTable(self.lines)
@@ -109,7 +165,7 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
-function TooltipClass:AddLine(size, text, font, background)
+function TooltipClass:AddLine(size, text, font, background, modLine)
 	if text then
 		local fontToUse
 		if main.showFlavourText then
@@ -124,13 +180,104 @@ function TooltipClass:AddLine(size, text, font, background)
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
 			if self.maxWidth then
+				local activeColour
 				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
-					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background })
+					if activeColour then wrappedLine = activeColour .. wrappedLine end
+					for pos, code in s_gmatch(wrappedLine, "()%^(.)") do
+						if code == "x" and wrappedLine:sub(pos + 2, pos + 7):match("^%x%x%x%x%x%x$") then
+							activeColour = wrappedLine:sub(pos, pos + 7)
+						elseif code == "7" then
+							activeColour = nil
+						end
+					end
+					if activeColour then wrappedLine = wrappedLine .. "^7" end
+					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
 			end
 		end
+	end
+end
+
+function TooltipClass:AddBuildPlannerNote(size, text, prefix)
+	-- BuildPlanner colours can be nested, so restore the parent colour after each child.
+	local lineStyles = { }
+	local function parse(start, finish, colour, startsLine, endsLine)
+		local out, pos = { }, start
+		local function append(value)
+			t_insert(out, colour and value:gsub("\n", "^7\n" .. colour) or value)
+		end
+		while pos <= finish do
+			local tagStart = s_find(text, "<", pos, true)
+			if not tagStart or tagStart > finish then
+				append(text:sub(pos, finish))
+				break
+			end
+			append(text:sub(pos, tagStart - 1))
+			local tagEnd = s_find(text, ">", tagStart + 1, true)
+			local tag = tagEnd and tagEnd <= finish and text:sub(tagStart + 1, tagEnd - 1):lower()
+			local newColour
+			if tag == "red" then
+				newColour = "^xFF0000"
+			elseif tag then
+				local r, g, b = tag:match("^rgb%(%s*(%d+)%s*,%s*(%d+)%s*,%s*(%d+)%s*%)$")
+				if r and tonumber(r) <= 255 and tonumber(g) <= 255 and tonumber(b) <= 255 then
+					newColour = s_format("^x%02X%02X%02X", tonumber(r), tonumber(g), tonumber(b))
+				end
+			end
+			local isMarkup = newColour or tag == "r" or tag == "b" or tag == "i" or tag == "u" or tag == "s" or tag == "m" or tag == "l"
+			local openBrace = tagEnd and tagEnd + 1
+			local validMarkup = isMarkup and text:sub(openBrace, openBrace) == "{"
+			local closeBrace, depth = openBrace, 0
+			if validMarkup then
+				depth, closeBrace = 1, openBrace + 1
+				while closeBrace <= finish and depth > 0 do
+					local char = text:sub(closeBrace, closeBrace)
+					if char == "{" then depth += 1 elseif char == "}" then depth -= 1 end
+					closeBrace += 1
+				end
+			end
+			if validMarkup and depth == 0 then
+				local coversLineStart = tagStart == start and startsLine or text:sub(tagStart - 1, tagStart - 1) == "\n"
+				local coversLineEnd = closeBrace - 1 == finish and endsLine or text:sub(closeBrace, closeBrace) == "\n"
+				if not newColour and coversLineStart and coversLineEnd then
+					local font, lineSize
+					if tag == "b" then font = "VAR BOLD" elseif tag == "i" then font = "FONTIN SC ITALIC" elseif tag == "r" then font = false end
+					if tag == "s" then lineSize = m_floor(size * 0.75 + 0.5) elseif tag == "m" then lineSize = size elseif tag == "l" then lineSize = m_floor(size * 1.25 + 0.5) end
+					if font ~= nil or lineSize then
+						local line = 1
+						for _ in text:sub(1, tagStart - 1):gmatch("\n") do line += 1 end
+						local lastLine = line
+						for _ in text:sub(tagStart, closeBrace - 1):gmatch("\n") do lastLine += 1 end
+						for index = line, lastLine do
+							lineStyles[index] = lineStyles[index] or { }
+							if font ~= nil then lineStyles[index].font = font end
+							if lineSize then lineStyles[index].size = lineSize end
+						end
+					end
+				end
+				if newColour then t_insert(out, newColour) end
+				t_insert(out, parse(openBrace + 1, closeBrace - 2, newColour or colour, coversLineStart, coversLineEnd))
+				if newColour then t_insert(out, colour or "^7") end
+				pos = closeBrace
+			elseif tagEnd and tagEnd <= finish then
+				append(text:sub(tagStart, tagEnd))
+				pos = tagEnd + 1
+			else
+				append(text:sub(tagStart, finish))
+				break
+			end
+		end
+		return t_concat(out)
+	end
+
+	local renderedText = parse(1, #text, nil, true, true)
+	local line = 1
+	for renderedLine in (renderedText .. "\n"):gmatch("([^\n]*)\n") do
+		local style = lineStyles[line]
+		self:AddLine(style and style.size or size, (line == 1 and (prefix or "") or "") .. renderedLine, style and style.font)
+		line += 1
 	end
 end
 
@@ -151,25 +298,7 @@ function TooltipClass:AddSeparator(size)
 
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
-		-- spell-checker: disable
-		local separatorConfigs = {
-			RELIC = "Assets/itemsseparatorfoil.png",
-			UNIQUE = "Assets/itemsseparatorunique.png",
-			RARE = "Assets/itemsseparatorrare.png",
-			MAGIC = "Assets/itemsseparatormagic.png",
-			NORMAL = "Assets/itemsseparatorwhite.png",
-			GEM = "Assets/itemsseparatorgem.png",
-		}
-		-- spell-checker: enable
-		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
-
-		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
-			self.separatorImage = NewImageHandle()
-			self.separatorImage:Load(separatorPath)
-			self.separatorImagePath = separatorPath
-		end
-
-		separatorImage = self.separatorImage
+		separatorImage = getSeparatorImage(rarity)
 	end
 
 	local lastBlock = lastLine and lastLine.block or 1
@@ -328,7 +457,13 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local lineX = lineCentered and (x + ttW / 2) or (x + (H_PAD / 2))
 			local lineAlign = lineCentered and "CENTER_X" or "LEFT"
 
-			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text, background = data.background})
+			local stackEntry = {lineX, y, lineAlign, data.size, font, data.text, background = data.background}
+			if data.modLine then
+				stackEntry.tooltipLine = data
+				stackEntry.bounds = { x = x + (H_PAD / 2), y = y, width = ttW - H_PAD, height = data.size + 2 }
+				stackEntry.strikethrough = data.modLine.disabled
+			end
+			t_insert(drawStack, stackEntry)
 			y = y + data.size + 2
 
 			-- track max width for extra columns
@@ -378,6 +513,10 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 					-- "LEFT" aligned text and images (NOTE: "RIGHT" aligned does not seem to exist)
 					line[xIdx] = origX - oldBaseX + newBaseX
 				end
+				if line.bounds then
+					line.bounds.x = line.bounds.x - oldBaseX + newBaseX
+					line.bounds.width = extraColumnWidth - H_PAD
+				end
 
 				-- Resize separators/dividers (technically unlikely to appear in extra columns, but just in case)
 				if not isText then
@@ -414,13 +553,6 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			ttW = titleW + 50
 		end
 	end
-	-- spell-checker: disable
-	local headerInfluence = {
-		Fractured = "Assets/fractureditemsymbol.png",
-		Desecrated = "Assets/veileditemsymbol.png",
-		Mutated = "Assets/vaalitemicon.png",
-	}
-	-- spell-checker: enable
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
@@ -466,6 +598,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				-- Image, Separators, etc. have 5 entries and `x` at `[1]`
 				line[1] = line[1] + offsetX
 			end
+			if line.bounds then
+				line.bounds.x = line.bounds.x + offsetX
+			end
 		end
 	end
 
@@ -479,6 +614,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	-- Item header (drawn within borders)
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
+		local isRunic = self.runicItem ~= nil
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
 		-- Animate RELIC header color (light green → bright yellow → white)
 		if rarity == "RELIC" and main.showAnimations then
@@ -500,21 +636,6 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		self.titleYOffset = config.textYOffset or 0
 
-		local runic = self.runicItem and "runic" or ""
-		local leftPath = runic .. config.left
-
-		if not self.headerLeft or self.headerLeftPath ~= leftPath then
-			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load("Assets/" .. leftPath)
-			self.headerLeftPath = leftPath
-			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load("Assets/" .. runic .. config.middle)
-			self.headerMiddlePath = runic .. config.middle
-			self.headerRight = NewImageHandle()
-			self.headerRight:Load("Assets/" .. runic .. config.right)
-			self.headerRightPath = runic .. config.right
-		end
-
 		local headerHeight = config.height
 		local headerSideWidth = config.sideWidth
 		local headerMiddleWidth = config.middleWidth
@@ -523,18 +644,12 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local headerY = ttY + BORDER_WIDTH
 		local headerTotalWidth = ttW - 2 * BORDER_WIDTH
 		local headerMiddleAreaWidth = m_max(0, headerTotalWidth - 2 * headerSideWidth)
-		if self.influenceHeader1 then
-			self.influenceIcon1 = NewImageHandle()
-			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1])
-			self.influenceIcon2 = NewImageHandle()
-			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
-		end
 
 		if self.tooltipHeader ~= "GEM" then
 			-- Draw left cap first, then influence icon on top
-			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
+			DrawImage(getHeaderImage(rarity, "left", isRunic), headerX, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader1 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon1, headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
+				DrawImage(getInfluenceIconImage(self.influenceHeader1), headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 
 			-- Draw middle fill
@@ -542,19 +657,19 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local drawX = headerX + headerSideWidth
 				local endX = headerX + headerTotalWidth - headerSideWidth
 				while drawX + headerMiddleWidth <= endX do
-					DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
+					DrawImage(getHeaderImage(rarity, "middle", isRunic), drawX, headerY, headerMiddleWidth, headerHeight)
 					drawX = drawX + headerMiddleWidth
 				end
 				local remainingWidth = endX - drawX
 				if remainingWidth > 0 then
-					DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
+					DrawImage(getHeaderImage(rarity, "middle", isRunic), drawX, headerY, remainingWidth, headerHeight)
 				end
 			end
 
 			-- Draw right cap
-			DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
+			DrawImage(getHeaderImage(rarity, "right", isRunic), headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader2 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
+				DrawImage(getInfluenceIconImage(self.influenceHeader2), headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 		elseif self.tooltipHeader == "GEM" then
 			local gemIconImage = getSkillAssetByName(self.gemIcon)
@@ -619,6 +734,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				end
 			end
 		else
+			if line.tooltipLine then
+				line.tooltipLine.bounds = line.bounds
+			end
 			-- Draw background if specified, used for gem mod lines and desecrated mods on items.
 			local bg = line.background
 			if bg then
@@ -650,6 +768,14 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 			-- Draw text line
 			DrawString(unpack(line))
+			if line.strikethrough then
+				local prevR, prevG, prevB, prevA = GetDrawColor()
+				local textW = DrawStringWidth(line[4], line[5], line[6])
+				local strikeX = line[3] == "CENTER_X" and line[1] - textW / 2 or line[1]
+				SetDrawColor(0.75, 0.75, 0.75, 0.35)
+				DrawImage(nil, strikeX, line[2] + line[4] / 2, textW, 1)
+				SetDrawColor(prevR, prevG, prevB, prevA)
+			end
 		end
 	end
 

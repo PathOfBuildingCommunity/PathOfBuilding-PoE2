@@ -16721,6 +16721,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_1713927892",
+				["text"] = "# to Limit for Elemental Skills",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_1181501418",
 				["text"] = "# to Maximum Rage",
 				["type"] = "fractured",
@@ -16823,6 +16828,11 @@ return {
 			{
 				["id"] = "fractured.stat_318953428",
 				["text"] = "#% chance to Blind Enemies on Hit with Attacks",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_1028592286",
+				["text"] = "#% chance to Chain an additional time",
 				["type"] = "fractured",
 			},
 			{
@@ -17293,6 +17303,11 @@ return {
 			{
 				["id"] = "fractured.stat_3624940721",
 				["text"] = "#% increased Explicit Lightning Modifier magnitudes",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3514984677",
+				["text"] = "#% increased Explicit Mana Modifier magnitudes",
 				["type"] = "fractured",
 			},
 			{
@@ -17811,6 +17826,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3376488707",
+				["text"] = "#% maximum Player Resistances",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_95249895",
 				["text"] = "#% more Monster Life",
 				["type"] = "fractured",
@@ -18166,6 +18186,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|20558",
+				["text"] = "Allocates Among the Hordes",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|2575",
 				["text"] = "Allocates Ancestral Alacrity",
 				["type"] = "fractured",
@@ -18373,6 +18398,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|1448",
 				["text"] = "Allocates Bond of the Cat",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|47853",
+				["text"] = "Allocates Bond of the Mamba",
 				["type"] = "fractured",
 			},
 			{
@@ -18666,6 +18696,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|9323",
+				["text"] = "Allocates Craving Slaughter",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|19715",
 				["text"] = "Allocates Cremation",
 				["type"] = "fractured",
@@ -18793,6 +18828,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|32354",
 				["text"] = "Allocates Defiance",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|38570",
+				["text"] = "Allocates Demolitionist",
 				["type"] = "fractured",
 			},
 			{
@@ -19246,6 +19286,16 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|49356",
+				["text"] = "Allocates First Principle of the Hollow",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|62963",
+				["text"] = "Allocates Flamewalker",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|12337",
 				["text"] = "Allocates Flash Storm",
 				["type"] = "fractured",
@@ -19258,6 +19308,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|21164",
 				["text"] = "Allocates Fleshcrafting",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|33852",
+				["text"] = "Allocates Flurry",
 				["type"] = "fractured",
 			},
 			{
@@ -19313,6 +19368,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|40270",
 				["text"] = "Allocates Frenetic",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|45751",
+				["text"] = "Allocates Frightening Shield",
 				["type"] = "fractured",
 			},
 			{
@@ -19388,6 +19448,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|58714",
 				["text"] = "Allocates Grenadier",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|31175",
+				["text"] = "Allocates Grip of Evil",
 				["type"] = "fractured",
 			},
 			{
@@ -19626,6 +19691,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|38965",
+				["text"] = "Allocates Infused Limits",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|24764",
 				["text"] = "Allocates Infusing Power",
 				["type"] = "fractured",
@@ -19781,6 +19851,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|4091",
+				["text"] = "Allocates Left Ventricle",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|55131",
 				["text"] = "Allocates Light on your Feet",
 				["type"] = "fractured",
@@ -19868,6 +19943,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|23738",
 				["text"] = "Allocates Madness in the Bones",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|39568",
+				["text"] = "Allocates Magnum Opus",
 				["type"] = "fractured",
 			},
 			{
@@ -19976,8 +20056,18 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|52764",
+				["text"] = "Allocates Mystical Rage",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|934",
 				["text"] = "Allocates Natural Immunity",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|53265",
+				["text"] = "Allocates Nature's Bite",
 				["type"] = "fractured",
 			},
 			{
@@ -19993,6 +20083,16 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|11376",
 				["text"] = "Allocates Necrotic Touch",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|59541",
+				["text"] = "Allocates Necrotised Flesh",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|40292",
+				["text"] = "Allocates Nimble Strength",
 				["type"] = "fractured",
 			},
 			{
@@ -20053,6 +20153,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|20686",
 				["text"] = "Allocates Paragon",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|56016",
+				["text"] = "Allocates Passthrough Rounds",
 				["type"] = "fractured",
 			},
 			{
@@ -20288,6 +20393,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|55180",
 				["text"] = "Allocates Relentless Fallen",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|1506",
+				["text"] = "Allocates Remnant Attraction",
 				["type"] = "fractured",
 			},
 			{
@@ -20851,6 +20961,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|2745",
+				["text"] = "Allocates The Noble Wolf",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|27176",
 				["text"] = "Allocates The Power Within",
 				["type"] = "fractured",
@@ -20966,6 +21081,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|23221",
+				["text"] = "Allocates Trick Shot",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|61601",
 				["text"] = "Allocates True Strike",
 				["type"] = "fractured",
@@ -21008,6 +21128,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|51394",
 				["text"] = "Allocates Unimpeded",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|4547",
+				["text"] = "Allocates Unnatural Resilience",
 				["type"] = "fractured",
 			},
 			{
@@ -21131,8 +21256,18 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|61444",
+				["text"] = "Allocates Wasting Casts",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|51509",
 				["text"] = "Allocates Waters of Life",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|58198",
+				["text"] = "Allocates Well of Power",
 				["type"] = "fractured",
 			},
 			{
@@ -21216,6 +21351,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3587953142",
+				["text"] = "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_3885405204",
 				["text"] = "Bow Attacks fire # additional Arrows",
 				["type"] = "fractured",
@@ -21268,6 +21408,11 @@ return {
 			{
 				["id"] = "fractured.stat_3146310524",
 				["text"] = "Dazes on Hit",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_541021467",
+				["text"] = "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
 				["type"] = "fractured",
 			},
 			{
@@ -21408,6 +21553,11 @@ return {
 			{
 				["id"] = "fractured.stat_971590056",
 				["text"] = "Inflict Anaemia on Hit Anaemia allows # Corrupted Blood debuffs to be inflicted on enemies",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2951965588",
+				["text"] = "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
 				["type"] = "fractured",
 			},
 			{
@@ -22021,6 +22171,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_3946450303",
+				["text"] = "Notable Passive Skills in Radius also grant #% to Cold Resistance",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_3243034867",
 				["text"] = "Notable Passive Skills in Radius also grant Aura Skills have #% increased Magnitudes",
 				["type"] = "fractured",
@@ -22093,6 +22248,11 @@ return {
 			{
 				["id"] = "fractured.stat_525523040",
 				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Mana on Kill",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_3191479793",
+				["text"] = "Offering Skills have #% increased Buff effect",
 				["type"] = "fractured",
 			},
 			{
@@ -28298,8 +28458,18 @@ return {
 				["type"] = "enchant",
 			},
 			{
+				["id"] = "enchant.stat_3791899485",
+				["text"] = "#% increased Ignite Magnitude",
+				["type"] = "enchant",
+			},
+			{
 				["id"] = "enchant.stat_44972811",
 				["text"] = "#% increased Life Regeneration rate",
+				["type"] = "enchant",
+			},
+			{
+				["id"] = "enchant.stat_2527686725",
+				["text"] = "#% increased Magnitude of Shock you inflict",
 				["type"] = "enchant",
 			},
 			{
@@ -33659,6 +33829,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2511217560",
+				["text"] = "#% increased Stun Recovery",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_751944209",
 				["text"] = "#% increased Stun Threshold if you've been Stunned Recently",
 				["type"] = "augment",
@@ -33939,6 +34114,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1573130764",
+				["text"] = "Adds # to # Fire damage to Attacks",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3336890334",
 				["text"] = "Adds # to # Lightning Damage",
 				["type"] = "augment",
@@ -33946,6 +34126,11 @@ return {
 			{
 				["id"] = "rune.stat_90012347",
 				["text"] = "Adds # to # Lightning Damage against Shocked Enemies",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1940865751",
+				["text"] = "Adds # to # Physical Damage",
 				["type"] = "augment",
 			},
 			{
@@ -34514,6 +34699,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_841463428",
+				["text"] = "Bonded: #% increased Magnitude of Bleeding you inflict",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3891661462",
 				["text"] = "Bonded: #% increased Magnitude of Non-Damaging Ailments you inflict",
 				["type"] = "augment",
@@ -34734,8 +34924,18 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2174462855",
+				["text"] = "Bonded: #% reduced Chill Duration on you",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2849118560",
 				["text"] = "Bonded: #% reduced Damage taken from Projectile Hits",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2861770798",
+				["text"] = "Bonded: #% reduced Freeze Duration on you",
 				["type"] = "augment",
 			},
 			{
@@ -34831,6 +35031,11 @@ return {
 			{
 				["id"] = "rune.stat_975988108",
 				["text"] = "Bonded: Archon recovery period expires #% faster",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_368025119",
+				["text"] = "Bonded: Attacks have #% chance to cause Bleeding",
 				["type"] = "augment",
 			},
 			{
@@ -35169,6 +35374,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2091621414",
+				["text"] = "Causes Bleeding on Hit",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_769129523",
 				["text"] = "Causes Double Stun Buildup",
 				["type"] = "augment",
@@ -35176,6 +35386,11 @@ return {
 			{
 				["id"] = "rune.stat_2957287092",
 				["text"] = "Chance to Block Damage is Lucky",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_185580205",
+				["text"] = "Charms gain # charge per Second",
 				["type"] = "augment",
 			},
 			{
@@ -35369,6 +35584,16 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1466716929",
+				["text"] = "Gain # Rage when Critically Hit by an Enemy",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3292710273",
+				["text"] = "Gain # Rage when Hit by an Enemy",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3398787959",
 				["text"] = "Gain #% of Damage as Extra Chaos Damage",
 				["type"] = "augment",
@@ -35529,6 +35754,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_326965591",
+				["text"] = "Iron Reflexes",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_55876295",
 				["text"] = "Leeches #% of Physical Damage as Life",
 				["type"] = "augment",
@@ -35656,6 +35886,11 @@ return {
 			{
 				["id"] = "rune.stat_1678831767",
 				["text"] = "Recover # Life when you Block",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_939832726",
+				["text"] = "Recover #% of maximum Life for each Endurance Charge consumed",
 				["type"] = "augment",
 			},
 			{

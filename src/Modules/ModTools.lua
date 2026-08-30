@@ -17,6 +17,43 @@ local bor = OR64 -- bit.bor
 
 modLib = { }
 
+--- "Flag" is only used with CanNotUseItem
+---@alias NumericModTypes "INC"|"MORE"|"BASE"|"OVERRIDE"|"MAX"|"CHANCE"|"DUMMY"|"Flag"|"MIN"
+
+---@alias OtherModTagType "ActorCondition"|"BaseFlag"|"DisablesItem"|"DistanceRamp"|"GemTag"|"Global"|"GlobalEffect"|"IgnoreCond"|"InSlot"|"ItemCondition"|"KeywordFlagAnd"|"Limit"|"ModFlagOr"|"MonsterTag"|"Multiplier"|"MultiplierThreshold"|"PercentStat"|"SkillId"|"SkillName"|"SkillPart"|"SkillType"|"SlotName"|"SlotNumber"|"SocketedIn"|"StatThreshold"
+
+---@class ConditionModTag
+---@field type "Condition"
+---@field var? string
+---@field varList? string[]
+---@field neg? boolean
+
+---@class PerStatModTag
+---@field type "PerStat"
+---@field stat? string
+---@field statList? string[]
+---@field actor? string
+---@field div? number
+---@field divVar? string
+---@field limit? number
+---@field limitVar? string
+---@field limitTotal? boolean
+---@field base? number
+---@field globalLimit? number
+---@field globalLimitKey? string
+
+---@class OtherModTag
+---@field type OtherModTagType
+---@field [string] any
+
+---@alias ModTag ConditionModTag|PerStatModTag|OtherModTag
+---@alias SkillModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, flags?: number, keywordFlags?: number, ...: ModTag): Mod
+---@alias CreateModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, sourceOrTag?: string|number|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag): Mod
+
+---@overload fun(modName: string, modType: NumericModTypes, modVal?: number, sourceOrTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@overload fun(modName: string, modType: "FLAG", modVal: boolean|number, sourceOrModTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@overload fun(modName: string, modType: "LIST", modVal: any[]|any, sourceOrModTag: string|number|ModTag?, flagsOrModTag: number|ModTag?, keywordFlagsOrModTag: number|ModTag?, ...: ModTag)
+---@return Mod
 function modLib.createMod(modName, modType, modVal, ...)
 	local flags = 0
 	local keywordFlags = 0
@@ -34,6 +71,14 @@ function modLib.createMod(modName, modType, modVal, ...)
 		keywordFlags = select(3, ...)
 		tagStart = 4
 	end
+	---@class Mod
+	---@field name string
+	---@field type NumericModTypes|"FLAG"|"LIST"
+	---@field value number|boolean|any Number for numeric mod types, boolean for FLAG, any for LIST
+	---@field flags number
+	---@field keywordFlags number
+	---@field source? string
+	---@field [integer] ModTag
 	return {
 		name = modName,
 		type = modType,
@@ -45,7 +90,7 @@ function modLib.createMod(modName, modType, modVal, ...)
 	}
 end
 
-modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser", launch)
+modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser")
 
 function modLib.parseTags(line)
 	if not line or line == "-" then
