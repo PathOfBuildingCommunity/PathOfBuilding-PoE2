@@ -1401,6 +1401,13 @@ function buildMode:OnFrame(inputEvents)
 		self.compareTab:Draw(tabViewPort, inputEvents)
 	end
 
+	-- Draw overlay panes on top of all tab content (last = topmost)
+	for _, pane in ipairs(self.overlayPanes) do
+		if pane.isOverlay then
+			pane:DrawOverlay(main.viewPort, inputEvents)
+		end
+	end
+
 	self.unsaved = self.modFlag or self.notesTab.modFlag or self.partyTab.modFlag or self.configTab.modFlag or self.treeTab.modFlag or self.treeTab.searchFlag or self.spec.modFlag or self.skillsTab.modFlag or self.itemsTab.modFlag or self.calcsTab.modFlag
 
 	SetDrawLayer(5)
