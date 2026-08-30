@@ -680,14 +680,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
-		elseif line:match("^%(%a+") or line:match("^%(%d+%%? of ") then
+		elseif line:match("^%(%a+") then
 			-- Reminder text, nothing to parse
 			while self.rawLines[l] and not self.rawLines[l]:match("%)$") do
 				l = l + 1
 			end
 		elseif self.base and self.base.flask and (
-			line:match("^Lasts .+ Seconds$")
-			or line:match("^Consumes %d+ of %d+ Charges on use$")
+			line:match("^Recovers .+ over .+ Seconds?$")
+			or line:match("^Consumes %d+.- of %d+.- Charges on use$")
 			or line:match("^Currently has %d+ Charges$")
 		) then
 			-- In-game flask state and base properties aren't modifier lines.
@@ -1157,9 +1157,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLine.order = affixMod and affixMod.statOrder[1]
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
-						if tonumber(min) > tonumber(max) then
-							min, max = max, min
-						end
 						local delta = tonumber(max) - min
 						t_insert(rollRanges, delta > 0 and round((value - min) / delta, 6) or 0.5)
 						line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
@@ -1194,9 +1191,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
-						if tonumber(min) > tonumber(max) then
-							min, max = max, min
-						end
 						local delta = tonumber(max) - min
 						local rollRange = delta > 0 and round((value - min) / delta, 6) or 0.5
 						if firstRollRange and firstRollRange ~= rollRange then

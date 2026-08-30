@@ -1277,33 +1277,31 @@ describe("TestAdvancedItemParse #item", function()
 		assert.is_true(item.explicitModLines[1].fractured)
 	end)
 
-	it("parses fixed values, enum ranges, and descending ranges", function()
-		local item = new("Item"):Item(raw([[
+	it("parses fixed advanced-copy values from a legacy Prism Guardian", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Prism Guardian
+			Sectarian Crest Shield
 			{ Unique Modifier }
-			+40(10) to maximum Mana
-			{ Unique Modifier }
-			Maximum number of Companions (Minions-Totems) is Doubled
-			{ Unique Modifier }
-			8(10-5)% reduced Attribute Requirements
-		]]))
+			+1 to Maximum Spirit per 25(50) Maximum Life
+		]])
 
-		assert.are.equals("+40 to maximum Mana", item.explicitModLines[1].line)
-		assert.are.equals("Maximum number of Companions is Doubled", item.explicitModLines[2].line)
-		assert.are.equals("(5-10)% reduced Attribute Requirements", item.explicitModLines[3].line)
-		assert.are.equals("8% reduced Attribute Requirements",
-			itemLib.applyRange(item.explicitModLines[3].line, item.explicitModLines[3].range))
+		assert.are.equals("+1 to Maximum Spirit per 25 Maximum Life", item.explicitModLines[1].line)
 	end)
 
-	it("preserves precision for large advanced-copy ranges", function()
-		local item = new("Item"):Item(raw([[
+	it("preserves a Heroic Tragedy seed and selected commander", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Heroic Tragedy
+			Timeless Jewel
 			{ Unique Modifier }
-			Commissioned 150720(2000-160000) coins
-		]]))
+			Remembrancing 7321(100-8000) songworthy deeds by the line of Vorana(Vorana-Olroth)
+		]])
 
-		assert.are.equals("Commissioned 150720 coins",
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
 			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
 		item:BuildAndParseRaw()
-		assert.are.equals("Commissioned 150720 coins",
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
 			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
 	end)
 
@@ -1336,17 +1334,17 @@ describe("TestAdvancedItemParse #item", function()
 	it("filters flask state and base-property lines", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique
-			Blood of the Warrior
-			Gargantuan Life Flask
-			Lasts 7.20 (augmented) Seconds
-			Consumes 30 of 60 Charges on use
-			Currently has 59 Charges
+			Opportunity
+			Ultimate Life Flask
+			Recovers 2061 (augmented) Life over 4.20 Seconds
+			Consumes 4 (augmented) of 75 Charges on use
+			Currently has 0 Charges
 			{ Unique Modifier }
-			90% less Life Recovered
+			Cannot be Used manually
 		]])
 
 		assert.are.equals(1, #item.explicitModLines)
-		assert.are.equals("90% less Life Recovered", item.explicitModLines[1].line)
+		assert.are.equals("Cannot be Used manually", item.explicitModLines[1].line)
 	end)
 
 	describe("mod magnitude scaling", function()
