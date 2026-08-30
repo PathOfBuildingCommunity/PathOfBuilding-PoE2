@@ -1,0 +1,10 @@
+diff a/src/Classes/PowerReportListControl.lua b/src/Classes/PowerReportListControl.lua	(rejected hunks)
+@@ -112,6 +112,8 @@ function PowerReportListClass:ReList()
+ 		end
+ 		if self.allocated then
+ 			insert = item.allocated
++		elseif item.allocated then
++			insert = false
+ 		end
+ 		if not self.showMasteries and item.type == "Mastery" then
+ 			insert = false
