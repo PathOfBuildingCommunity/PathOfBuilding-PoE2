@@ -539,7 +539,9 @@ function DropDownClass:CheckDroppedWidth(enable)
 			local detailWidth = 0
 			if type(line) == "table" then
 				if line.detail then
-					detailWidth = DrawStringWidth(lineHeight, "VAR", line.detail) + 10
+					-- Reserve the same right padding used when drawing the detail,
+					-- plus spacing between it and the label.
+					detailWidth = DrawStringWidth(lineHeight, "VAR", line.detail) + 26
 				end
 				line = line.label or ""
 			end
