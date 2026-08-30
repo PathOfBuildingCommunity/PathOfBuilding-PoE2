@@ -932,6 +932,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Draw the nodes
+	local halfGray = "^x808080"
 	for nodeId, node in pairs(spec.nodes) do
 		-- Determine the base and overlay images for this node based on type and state
 		local compareNode = self.compareSpec and self.compareSpec.nodes[nodeId] or nil
@@ -1111,7 +1112,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			else
 
 				if not self.showHeatMap and not launch.devModeAlt and not node.alloc then
-					self:LessLuminance()
+					SetDrawColor(halfGray)
 				end
 
 				self:DrawAsset(base, scrX, scrY, scale)
@@ -1123,7 +1124,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		if overlay then
 			if allocModeColor then
-				SetDrawColor(unpack(hexToRGB(colorCodes[allocMode == 1 and "NEGATIVE" or "POSITIVE"]:sub(3))))
+				SetDrawColor(allocMode == 1 and alloc1Red or alloc2Green)
 			end
 			-- Draw overlay
 			if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
@@ -1174,7 +1175,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 
 			if not self.showHeatMap and not launch.devModeAlt and not node.alloc and (node.type == "AscendClassStart" or node.type == "ClassStart") then
-				self:LessLuminance()
+				SetDrawColor(halfGray)
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			if not self.showHeatMap and not launch.devModeAlt and not node.alloc and (node.type == "AscendClassStart" or node.type == "ClassStart") then
@@ -1392,7 +1393,11 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 		DrawImage(data.handle, x - width, y - height * 2, width * 2, height * 2)
 		DrawImage(data.handle, x - width, y, width * 2, height * 2, 0, 1, 1, 0)
 	else
-		DrawImage(data.handle, x - width, y - height, width * 2, height * 2, unpack(data))
+		if data[2] then
+			DrawImage(data.handle, x - width, y - height, width * 2, height * 2, data[1], data[2], data[3], data[4])
+		else
+			DrawImage(data.handle, x - width, y - height, width * 2, height * 2, data[1])
+		end
 	end
 end
 
@@ -2143,27 +2148,6 @@ function PassiveTreeViewClass:DrawAllocMode(allocMode, viewPort)
 	SetDrawColor(1, 1, 1, 1)
 
 	SetDrawLayer(nil, 10)
-end
-
-function PassiveTreeViewClass:LessLuminance()
-	local luminanceFactor = 0.5
-	local r,g,b,a = 1, 1, 1, 1
-	local desaturationFactor = 0.5;
-	local alphaFactor = 1;
-	local luminance = 0.2126 * r + 0.7152 * g  + 0.0722 * b;
-
-	-- Blend with original color
-	local newR = (1.0 - desaturationFactor) * r + desaturationFactor * luminance;
-	local newG = (1.0 - desaturationFactor) * g + desaturationFactor * luminance;
-	local newB = (1.0 - desaturationFactor) * b + desaturationFactor * luminance;
-
-	-- Apply luminance adjustment
-	newR = newR * luminanceFactor;
-	newG = newG * luminanceFactor;
-	newB = newB * luminanceFactor;
-
-	local newA = a * alphaFactor;
-	SetDrawColor(newR, newG, newB, newA)
 end
 
 -- Checks if a node has unlockConstraint and if that node is allocated
