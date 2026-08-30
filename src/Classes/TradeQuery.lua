@@ -22,6 +22,10 @@ local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "H
 ---@class TradeQuery
 local TradeQueryClass = newClass("TradeQuery")
 
+function TradeQueryClass:FormatOAuthLoginStatus(secondsLeft)
+	return "URL copied - Login (" .. secondsLeft .. ")"
+end
+
 ---@param itemsTab ItemsTab
 function TradeQueryClass:TradeQuery(itemsTab)
 	self.itemsTab = itemsTab
@@ -301,12 +305,12 @@ function TradeQueryClass:PriceItem()
 			self.clickTime = nil
 			return "Authenticated"
 		elseif self.clickTime then
-			local left = m_max(0,(self.clickTime + 30) - os.time())
+			local left = m_max(0,(self.clickTime + 60) - os.time())
 			if left == 0 then
 				self.clickTime = nil
 				return "Not authenticated"
 			else
-				return "Logging in... (" .. left .. ")"
+				return self:FormatOAuthLoginStatus(left)
 			end
 		else
 			return colorCodes.WARNING.."Not authenticated"

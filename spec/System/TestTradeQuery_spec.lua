@@ -61,6 +61,14 @@ describe("TradeQuery", function ()
 			assert.are.equal(0, #tooltip.lines)
 		end)
 	end)
+
+	it("fits the OAuth clipboard status inside the login button", function()
+		local status = mock_tradeQuery:FormatOAuthLoginStatus(60)
+
+		assert.are.equals("URL copied - Login (60)", status)
+		assert.is_true(DrawStringWidth(16, "VAR", status) <= 188)
+	end)
+
 	describe("ReduceOutput", function()
 		it("uses selected minion stats for weighted result comparison", function()
 			mock_tradeQuery.statSortSelectionList = { { stat = "AverageDamage" } }
