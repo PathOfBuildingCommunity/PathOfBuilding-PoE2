@@ -2940,6 +2940,7 @@ return function(mod, flag, skill)
 },
 ["gain_x_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+	mod("MinionModifier", "LIST", { mod = flag("Condition:CanGainRage") }),
 },
 ["gain_x%_of_maximum_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
