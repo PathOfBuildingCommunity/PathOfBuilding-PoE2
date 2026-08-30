@@ -111,7 +111,8 @@ local commonResponseEnd = [[
 </html>
 ]]
 
-ConPrintf("Opening URL: %s", url)
+ConPrintf("Authorization URL copied to clipboard: %s", url)
+Copy(url)
 OpenURL(url)
 
 --- Handle an incoming socket connection, to complete an OAuth redirect.
