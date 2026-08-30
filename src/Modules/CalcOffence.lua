@@ -81,11 +81,6 @@ local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 			convertedMax = convertedMax + (max or 0) * convMult
 		end
 	end
-	if convertedMin ~= 0 and convertedMax ~= 0 then
-		convertedMin = round(convertedMin)
-		convertedMax = round(convertedMax)
-	end
-
 	return convertedMin, convertedMax
 end
 
@@ -2390,6 +2385,17 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
+		-- The game stores each final conversion destination as a whole percent.
+		local convertedTotal = 0
+		for toType, amount in pairs(activeSkill.conversionTable[damageType]) do
+			if toType ~= "mult" then
+				local conversion = round(amount * 100)
+				activeSkill.conversionTable[damageType][toType] = conversion / 100
+				convertedTotal = convertedTotal + conversion
+			end
+		end
+		activeSkill.conversionTable[damageType].mult = 1 - m_min(convertedTotal / 100, 1)
+
 	end
 
 	-- Configure damage passes
@@ -4029,10 +4035,10 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[damageType], "Base damage:")
 				end
 				if convertedMin ~= 0 or convertedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", convertedMin, convertedMax))
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", round(convertedMin), round(convertedMax)))
 				end
 				if gainedMin ~= 0 or gainedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", gainedMin, gainedMax))
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", round(gainedMin), round(gainedMax)))
 				end
 				t_insert(breakdown[damageType], s_format("= %.1f to %.1f", summedMin, summedMax))
 			end
