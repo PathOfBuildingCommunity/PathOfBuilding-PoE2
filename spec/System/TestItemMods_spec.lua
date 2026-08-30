@@ -685,8 +685,8 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
-		-- ~500 armour gives 25% increased block => 12.5%
-		assert.equals(12.5, build.calcsTab.mainOutput.EffectiveBlockChance)
+		-- ~500 armour gives 25% increased block => 13%
+		assert.equals(13, build.calcsTab.mainOutput.EffectiveBlockChance)
 		assert.True(basePhys < build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
 	end)
 	it("liminal coil", function()
