@@ -53,6 +53,7 @@ function PassiveTreeViewClass:PassiveTreeView()
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
+	self.connectorQueue = {}
 	return self
 end
 
@@ -165,8 +166,12 @@ function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build
 	return nodeDefaultColor
 end
 
+---@param build Build
+---@param viewPort any
+---@param inputEvents any
 function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local spec = build.spec
+	---@type PassiveTree
 	local tree = spec.tree
 
 	local cursorX, cursorY = GetCursorPos()
@@ -174,7 +179,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	-- Process input events
 	local treeClick
-	for id, event in ipairs(inputEvents) do
+	for _, event in ipairs(inputEvents) do
 		if event.type == "KeyDown" then
 			if event.key == "LEFTBUTTON" then
 				if mOver then
@@ -711,9 +716,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 		return state
 	end
+	for _, connectorList in pairs(self.connectorQueue) do
+		connectorList.n = 0
+	end
+	-- 0.75 gray
+	local inactiveGray = "^xBFBFBF"
+	local brightRed = colorCodes.HIGHLIGHT
+	local brightGreen = "^x00FF00"
+	local alloc1Red = colorCodes.NEGATIVE
+	local alloc2Green = colorCodes.POSITIVE
+	local white = "^xFFFFFF"
 	local function renderConnector(connector)
 		local node1, node2 = spec.nodes[connector.nodeId1], spec.nodes[connector.nodeId2]
-		setConnectorColor(1, 1, 1)
+		connector.colour = white
 		local state = getState(node1, node2)
 		local baseState = state
 		if self.compareSpec then
@@ -722,29 +737,23 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				baseState = getState(cNode1,cNode2)
 			end
 		end
-
 		if baseState == "Active" and state ~= "Active" then
 			state = "Active"
-			setConnectorColor(0, 1, 0)
-		end
-		if baseState ~= "Active" and state == "Active" then
-			setConnectorColor(1, 0, 0)
-		end
-
-		if baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
+			connector.colour = brightGreen
+		elseif baseState ~= "Active" and state == "Active" then
+			connector.colour = brightRed
+		elseif baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
 			if spec.allocMode == 1 then
-				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+				connector.colour = alloc1Red
 			elseif spec.allocMode == 2 then
-				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
+				connector.colour = alloc2Green
 			end
-		end
-
-		if baseState == "Active" and state == "Active" and not connector.ascendancyName then
-			local allocMode =  (node1 and node1.allocMode and node1.allocMode ~= 0 and node1.allocMode) or (node2 and node2.allocMode and node2.allocMode ~= 0 and node2.allocMode) or 0
+		elseif baseState == "Active" and state == "Active" and not connector.ascendancyName then
+			local allocMode = (node1 and node1.allocMode and node1.allocMode ~= 0 and node1.allocMode) or (node2 and node2.allocMode and node2.allocMode ~= 0 and node2.allocMode) or 0
 			if allocMode == 1 then
-				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+				connector.colour = alloc1Red
 			elseif allocMode == 2 then
-				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
+				connector.colour = alloc2Green
 			end
 		end
 
@@ -754,41 +763,67 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		connector.c[3], connector.c[4] = treeToScreen(vert[3], vert[4])
 		connector.c[5], connector.c[6] = treeToScreen(vert[5], vert[6])
 		connector.c[7], connector.c[8] = treeToScreen(vert[7], vert[8])
-
 		if hoverNode and hoverNode.id == 5571 and hoverDep and (hoverDep[node1] or hoverDep[node2]) and not hoverNode.alloc and not connector.ascendancyName then
 			--Used to display Unseen Path nodes green when unallocated and hovered over
-			setConnectorColor(0, 1, 0)
+			connector.colour = brightGreen
 		elseif hoverDep and (hoverDep[node1] or hoverDep[node2]) and hoverNode.id == 5571 and not hoverNode.isAlloc and not connector.ascendancyName then
 			--Used to display Unseen Path nodes red when allocated and hovered over node
-			setConnectorColor(1, 0, 0)
+			connector.colour = brightRed
 		elseif hoverDep and hoverDep[node1] and hoverDep[node2] then
 			-- Both nodes depend on the node currently being hovered over, so color the line red
-			setConnectorColor(1, 0, 0)
+			connector.colour = brightRed
 		elseif connector.ascendancyName and connector.ascendancyName ~= spec.curAscendClassBaseName then
-			-- Fade out lines in ascendancy classes other than the current one
-			setConnectorColor(0.75, 0.75, 0.75)
+			-- Fade out lines in ascendancy classes other than the current one (0.75 gray)
+			connector.colour = inactiveGray
 		end
-		SetDrawColor(unpack(connectorColor))
-		handle = tree:GetAssetByName(connector.connectionArt .. connector.type..state).handle
-		DrawImageQuad(handle, unpack(connector.c))
+		local handleName = connector.assetNames[state]
+		connector.state = state
+		local connectorHandleQueue = self.connectorQueue[handleName]
+		if not connectorHandleQueue then
+			connectorHandleQueue = { n = 0 }
+			self.connectorQueue[handleName] = connectorHandleQueue
+		end
+		connectorHandleQueue.n += 1
+		connectorHandleQueue[connectorHandleQueue.n] = connector
 	end
 
 	-- Draw the connecting lines between nodes
 	SetDrawLayer(nil, 20)
 
-	for _, connector in pairs(tree.connectors) do
-		local node1 = spec.nodes[connector.nodeId1]
-		local node2 = spec.nodes[connector.nodeId2]
-		if not node1.unlockConstraint and not node2.unlockConstraint  then
-			renderConnector(connector)
-		elseif self:checkUnlockConstraints(build, node1) and self:checkUnlockConstraints(build, node2) then
-			renderConnector(connector)
+	local vpMaxX, vpMaxY = screenToTree(viewPort.x + viewPort.width, viewPort.y + viewPort.height)
+	local vpMinX, vpMinY = screenToTree(viewPort.x, viewPort.y)
+	for i = 1, #tree.connectors do
+		local connector = tree.connectors[i]
+		-- avoid rendering connectors that are out of view
+		if vpMinX <= connector.maxX and connector.minX <= vpMaxX
+			and vpMinY <= connector.maxY and connector.minY <= vpMaxY then
+			local node1 = spec.nodes[connector.nodeId1]
+			local node2 = spec.nodes[connector.nodeId2]
+			if not node1.unlockConstraint and not node2.unlockConstraint then
+				renderConnector(connector)
+			elseif self:checkUnlockConstraints(build, node1) and self:checkUnlockConstraints(build, node2) then
+				renderConnector(connector)
+			end
 		end
 	end
 
 	for _, subGraph in pairs(spec.subGraphs) do
 		for _, connector in pairs(subGraph.connectors) do
 			renderConnector(connector)
+		end
+	end
+	for assetName, connectors in pairs(self.connectorQueue) do
+		local handle = tree:GetAssetByName(assetName).handle
+		local currentColour
+		for i = 1, connectors.n do
+			local connector = connectors[i]
+			local c = connector.c
+			local colour = connector.colour or white
+			if currentColour ~= colour then
+				SetDrawColor(colour)
+				currentColour = colour
+			end
+			DrawImageQuad(handle, c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16])
 		end
 	end
 	-- Draw connectors for compare-only subgraphs (cluster jewels only in compare build)
