@@ -9513,13 +9513,13 @@ c["Spell Hits Gain 27% of Damage as Extra Physical Damage per Curse on target"]=
 c["Spell Hits Gain 31% of Damage as Extra Chaos Damage per Curse on target"]={{[1]={[1]={type="Multiplier",var="CurseOnEnemy"},flags=4,keywordFlags=131072,name="DamageGainAsChaos",type="BASE",value=31}},nil}
 c["Spell Hits Gain 31% of Damage as Extra Physical Damage per Curse on target"]={{[1]={[1]={type="Multiplier",var="CurseOnEnemy"},flags=4,keywordFlags=131072,name="DamageGainAsPhysical",type="BASE",value=31}},nil}
 c["Spell Skills deal no Damage"]={nil,"no Damage "}
-c["Spell Skills have +1 to maximum number of Summoned Totems"]={{[1]={flags=0,keywordFlags=131072,name="ActiveTotemLimit",type="BASE",value=1}},nil}
-c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}
-c["Spell Skills have 12% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=12}},nil}
-c["Spell Skills have 15% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=15}},nil}
-c["Spell Skills have 18% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=18}},nil}
-c["Spell Skills have 25% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=25}},nil}
-c["Spell Skills have 6% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=6}},nil}
+c["Spell Skills have +1 to maximum number of Summoned Totems"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="ActiveTotemLimit",type="BASE",value=1}},nil}
+c["Spell Skills have 10% reduced Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-10}},nil}
+c["Spell Skills have 12% increased Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
+c["Spell Skills have 15% increased Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}},nil}
+c["Spell Skills have 18% increased Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=18}},nil}
+c["Spell Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
+c["Spell Skills have 6% increased Area of Effect"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=6}},nil}
 c["Spells Cast by Totems have 2% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
 c["Spells Cast by Totems have 3% increased Cast Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=18,keywordFlags=16384,name="Speed",type="INC",value=3}},nil}
 c["Spells Cast by Totems have 4% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
