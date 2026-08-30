@@ -1,0 +1,12 @@
+diff a/src/Modules/CalcDefence.lua b/src/Modules/CalcDefence.lua	(rejected hunks)
+@@ -706,7 +708,9 @@ function calcs.defence(env, actor)
+ 		output.SpellProjectileBlockChance = output.ProjectileBlockChance
+ 		output.SpellBlockChanceOverCap = output.BlockChanceOverCap
+ 	else
+-		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
++		local inc = modDB:Sum("INC", nil, "BlockChance")
++		local more = modDB:More(nil, "BlockChance")
++		local totalSpellBlockChance = round(modDB:Sum("BASE", nil, "SpellBlockChance") * (1 + inc/100) * more)
+ 		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
+ 		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
+ 		output.SpellProjectileBlockChance = m_max(m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax), 0)
