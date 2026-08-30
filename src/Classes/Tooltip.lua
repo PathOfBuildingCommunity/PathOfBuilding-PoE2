@@ -33,7 +33,56 @@ local headerConfigs = {
 	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=6},
 	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=6},
 }
+local headerInfluence = {
+	Fractured = "Assets/fractureditemsymbol.png",
+	Desecrated = "Assets/veileditemsymbol.png",
+	Mutated = "Assets/vaalitemicon.png",
+}
+local separatorConfigs = {
+	RELIC = "Assets/itemsseparatorfoil.png",
+	UNIQUE = "Assets/itemsseparatorunique.png",
+	RARE = "Assets/itemsseparatorrare.png",
+	MAGIC = "Assets/itemsseparatormagic.png",
+	NORMAL = "Assets/itemsseparatorwhite.png",
+	GEM = "Assets/itemsseparatorgem.png",
+}
 -- spell-checker: enable
+
+-- Cache tooltip assets
+local tooltipAssetCache = {
+	header = {},
+	influence = {},
+	separator = {},
+}
+
+local function getCachedImage(cache, key, path)
+	local image = cache[key]
+
+	if image == nil then
+		image = NewImageHandle()
+		image:Load(path)
+		cache[key] = image
+	end
+
+	return image
+end
+
+local function getHeaderImage(rarity, location, isRunic)
+	local resolvedRarity = headerConfigs[rarity] and rarity or "NORMAL"
+	local runic = isRunic and "runic" or ""
+	local key = runic .. ":" .. resolvedRarity .. ":" .. location
+	local path = "Assets/" .. runic .. headerConfigs[resolvedRarity][location]
+	return getCachedImage(tooltipAssetCache.header, key, path)
+end
+
+local function getInfluenceIconImage(influence)
+	return getCachedImage(tooltipAssetCache.influence, influence, headerInfluence[influence])
+end
+
+local function getSeparatorImage(rarity)
+	local path = separatorConfigs[rarity] or separatorConfigs["NORMAL"]
+	return getCachedImage(tooltipAssetCache.separator, rarity, path)
+end
 
 local skillAssetMap
 local missingSkillAssets = { }
@@ -249,25 +298,7 @@ function TooltipClass:AddSeparator(size)
 
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
-		-- spell-checker: disable
-		local separatorConfigs = {
-			RELIC = "Assets/itemsseparatorfoil.png",
-			UNIQUE = "Assets/itemsseparatorunique.png",
-			RARE = "Assets/itemsseparatorrare.png",
-			MAGIC = "Assets/itemsseparatormagic.png",
-			NORMAL = "Assets/itemsseparatorwhite.png",
-			GEM = "Assets/itemsseparatorgem.png",
-		}
-		-- spell-checker: enable
-		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
-
-		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
-			self.separatorImage = NewImageHandle()
-			self.separatorImage:Load(separatorPath)
-			self.separatorImagePath = separatorPath
-		end
-
-		separatorImage = self.separatorImage
+		separatorImage = getSeparatorImage(rarity)
 	end
 
 	local lastBlock = lastLine and lastLine.block or 1
@@ -522,13 +553,6 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			ttW = titleW + 50
 		end
 	end
-	-- spell-checker: disable
-	local headerInfluence = {
-		Fractured = "Assets/fractureditemsymbol.png",
-		Desecrated = "Assets/veileditemsymbol.png",
-		Mutated = "Assets/vaalitemicon.png",
-	}
-	-- spell-checker: enable
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
@@ -590,6 +614,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	-- Item header (drawn within borders)
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
+		local isRunic = self.runicItem ~= nil
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
 		-- Animate RELIC header color (light green → bright yellow → white)
 		if rarity == "RELIC" and main.showAnimations then
@@ -611,21 +636,6 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		self.titleYOffset = config.textYOffset or 0
 
-		local runic = self.runicItem and "runic" or ""
-		local leftPath = runic .. config.left
-
-		if not self.headerLeft or self.headerLeftPath ~= leftPath then
-			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load("Assets/" .. leftPath)
-			self.headerLeftPath = leftPath
-			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load("Assets/" .. runic .. config.middle)
-			self.headerMiddlePath = runic .. config.middle
-			self.headerRight = NewImageHandle()
-			self.headerRight:Load("Assets/" .. runic .. config.right)
-			self.headerRightPath = runic .. config.right
-		end
-
 		local headerHeight = config.height
 		local headerSideWidth = config.sideWidth
 		local headerMiddleWidth = config.middleWidth
@@ -634,18 +644,12 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local headerY = ttY + BORDER_WIDTH
 		local headerTotalWidth = ttW - 2 * BORDER_WIDTH
 		local headerMiddleAreaWidth = m_max(0, headerTotalWidth - 2 * headerSideWidth)
-		if self.influenceHeader1 then
-			self.influenceIcon1 = NewImageHandle()
-			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1])
-			self.influenceIcon2 = NewImageHandle()
-			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
-		end
 
 		if self.tooltipHeader ~= "GEM" then
 			-- Draw left cap first, then influence icon on top
-			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
+			DrawImage(getHeaderImage(rarity, "left", isRunic), headerX, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader1 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon1, headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
+				DrawImage(getInfluenceIconImage(self.influenceHeader1), headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 
 			-- Draw middle fill
@@ -653,19 +657,19 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local drawX = headerX + headerSideWidth
 				local endX = headerX + headerTotalWidth - headerSideWidth
 				while drawX + headerMiddleWidth <= endX do
-					DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
+					DrawImage(getHeaderImage(rarity, "middle", isRunic), drawX, headerY, headerMiddleWidth, headerHeight)
 					drawX = drawX + headerMiddleWidth
 				end
 				local remainingWidth = endX - drawX
 				if remainingWidth > 0 then
-					DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
+					DrawImage(getHeaderImage(rarity, "middle", isRunic), drawX, headerY, remainingWidth, headerHeight)
 				end
 			end
 
 			-- Draw right cap
-			DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
+			DrawImage(getHeaderImage(rarity, "right", isRunic), headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader2 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
+				DrawImage(getInfluenceIconImage(self.influenceHeader2), headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 		elseif self.tooltipHeader == "GEM" then
 			local gemIconImage = getSkillAssetByName(self.gemIcon)
