@@ -74,7 +74,7 @@ function ImportTabClass:ImportTab(build)
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 60) - os.time()) .. ") - URL copied to clipboard" end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
