@@ -216,6 +216,19 @@ function modLib.formatTags(tagList)
 	return ret or "-"
 end
 
+local function paramNameSort(a, b)
+	if type(a) == "number" and type(b) == "number" then
+		return a < b
+	end
+	if type(a) == "number" then
+		return true
+	end
+	if type(b) == "number" then
+		return false
+	end
+	return a < b
+end
+
 function modLib.formatValue(value)
 	if type(value) ~= "table" then
 		return tostring(value)
@@ -230,18 +243,7 @@ function modLib.formatValue(value)
 		end
 	end
 
-	t_sort(paramNames, function (a, b)
-		if type(a) == "number" and type(b) == "number" then
-			return a < b
-		end
-		if type(a) == "number" then
-			return true
-		end
-		if type(b) == "number" then
-			return false
-		end
-		return a < b
-	end)
+	t_sort(paramNames, paramNameSort)
 
 	if haveType then
 		t_insert(paramNames, 1, "type")

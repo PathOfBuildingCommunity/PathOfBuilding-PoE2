@@ -33,9 +33,11 @@ end })
 ---@field keywordFlags number?
 ---@field skillName string?
 ---@field source string?
+
 ---@class TabulatedMod
 ---@field value any
 ---@field mod Mod
+
 ---@class ModStore
 ---@field ScaleAddMod fun(self: ModStore, mod: Mod, scale: number, roundToNearest?: boolean)
 ---@field CopyList fun(self: ModStore, modList: Mod[])
@@ -195,7 +197,7 @@ end
 
 ---@param modType NumericModTypes
 ---@param cfg? ModCfg
----@param ... string
+---@param ... string  Mod names to query. Maximum 8 names due to JIT performance concerns.
 ---@return number
 function ModStoreClass:Sum(modType, cfg, ...)
 	local flags, keywordFlags = 0, 0
@@ -205,7 +207,13 @@ function ModStoreClass:Sum(modType, cfg, ...)
 		keywordFlags = cfg.keywordFlags or 0
 		source = cfg.source
 	end
-	return self:SumInternal(self, modType, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		return self:SumInternal(self, modType, cfg, flags, keywordFlags, source, arg)
+	end
+	local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+	return self:SumInternalMulti(self, modType, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
 end
 
 
@@ -248,7 +256,7 @@ function ModStoreClass:SumNegativeValues(modType, cfg, modName, ...)
 end
 
 ---@param cfg? ModCfg
----@param ... string
+---@param ... string  Mod names to query. Maximum 8 names due to JIT performance concerns.
 ---@return number
 function ModStoreClass:More(cfg, ...)
 	local flags, keywordFlags = 0, 0
@@ -258,7 +266,13 @@ function ModStoreClass:More(cfg, ...)
 		keywordFlags = cfg.keywordFlags or 0
 		source = cfg.source
 	end
-	return self:MoreInternal(self, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		return self:MoreInternal(self, cfg, flags, keywordFlags, source, arg)
+	end
+	local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+	return self:MoreInternalMulti(self, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
 end
 
 ---@param cfg? ModCfg
@@ -272,7 +286,13 @@ function ModStoreClass:Flag(cfg, ...)
 		keywordFlags = cfg.keywordFlags or 0
 		source = cfg.source
 	end
-	return self:FlagInternal(self, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		return self:FlagInternal(self, cfg, flags, keywordFlags, source, arg)
+	end
+	local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+	return self:FlagInternalMulti(self, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
 end
 
 ---@param cfg? ModCfg
@@ -286,7 +306,13 @@ function ModStoreClass:Override(cfg, ...)
 		keywordFlags = cfg.keywordFlags or 0
 		source = cfg.source
 	end
-	return self:OverrideInternal(self, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		return self:OverrideInternal(self, cfg, flags, keywordFlags, source, arg)
+	end
+	local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+	return self:OverrideInternalMulti(self, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
 end
 
 ---@param cfg? ModCfg
@@ -301,13 +327,20 @@ function ModStoreClass:List(cfg, ...)
 		source = cfg.source
 	end
 	local result = { }
-	self:ListInternal(self, result, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		self:ListInternal(self, result, cfg, flags, keywordFlags, source, arg)
+	else
+		local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+		self:ListInternalMulti(self, result, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
+	end
 	return result
 end
 
 ---@param modType? NumericModTypes|"FLAG"|"LIST"
 ---@param cfg? ModCfg
----@param ... string
+---@param ... string  Mod names to query. Maximum 8 names due to JIT performance concerns.
 ---@return TabulatedMod[]
 function ModStoreClass:Tabulate(modType, cfg, ...)
 	local flags, keywordFlags = 0, 0
@@ -319,7 +352,14 @@ function ModStoreClass:Tabulate(modType, cfg, ...)
 	end
 	---@type TabulatedMod[]
 	local result = { }
-	self:TabulateInternal(self, result, modType, cfg, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		self:TabulateInternal(self, result, modType, cfg, flags, keywordFlags, source, arg)
+	else
+		local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+		self:TabulateInternalMulti(self, result, modType, cfg, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
+	end
 	return result
 end
 
@@ -341,10 +381,10 @@ end
 ---  Checks if a mod exists with the given properties.
 ---  Useful for determining if the other aggregate functions will find
 ---  anything to aggregate.
----@param modType NumericModTypes|"FLAG"|"LIST" @Mod type to match
----@param cfg? ModCfg configuration to use - contains flags, keywordFlags, and source to match
----@param ... string @Mod name(s) to check for.
----@return boolean @true if the mod is found, false otherwise.
+---@param modType NumericModTypes|"FLAG"|"LIST" Mod type to match
+---@param cfg? ModCfg Configuration to use - contains flags, keywordFlags, and source to match
+---@param ... string Mod names to query. Maximum 8 names due to JIT performance concerns.
+---@return boolean result True if the mod is found, false otherwise.
 function ModStoreClass:HasMod(modType, cfg, ...)
 	local flags, keywordFlags = 0, 0
 	local source
@@ -353,7 +393,13 @@ function ModStoreClass:HasMod(modType, cfg, ...)
 		keywordFlags = cfg.keywordFlags or 0
 		source = cfg.source
 	end
-	return self:HasModInternal(modType, flags, keywordFlags, source, ...)
+	local n = select('#', ...)
+	if n == 1 then
+		local arg = ...
+		return self:HasModInternal(modType, flags, keywordFlags, source, arg)
+	end
+	local n1, n2, n3, n4, n5, n6, n7, n8 = ...
+	return self:HasModInternalMulti(modType, flags, keywordFlags, source, n, n1, n2, n3, n4, n5, n6, n7, n8)
 end
 
 ---@param var string
@@ -422,6 +468,19 @@ function ModStoreClass:GetStat(stat, cfg)
 	else
 		return (self.actor.output and self.actor.output[stat]) or (cfg and cfg.skillStats and cfg.skillStats[stat]) or 0
 	end
+end
+
+local function upperFirst(a, b)
+	return string.upper(a) .. b
+end
+
+local function isValidSocket(sockets, targetSocket)
+	for _, val in ipairs(sockets) do
+		if val == targetSocket then
+			return true
+		end
+	end
+	return false
 end
 
 ---@param mod Mod
@@ -740,7 +799,7 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			end
 		elseif tag.type == "ItemCondition" then
 			local matches = {}
-			local itemSlot = tag.itemSlot:lower():gsub("(%l)(%w*)", function(a,b) return string.upper(a)..b end):gsub('^%s*(.-)%s*$', '%1')
+			local itemSlot = tag.itemSlot:lower():gsub("(%l)(%w*)", upperFirst):gsub('^%s*(.-)%s*$', '%1')
 			local items = {}
 			if tag.allSlots then
 				items = self.actor.itemList
@@ -799,15 +858,6 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			if not cfg or (not tag.slotName and not tag.keyword and not tag.socketColor and not tag.slotType) then
 				return
 			else
-				local function isValidSocket(sockets, targetSocket)
-					for _, val in ipairs(sockets) do
-						if val == targetSocket then
-							return true
-						end
-					end
-					return false
-				end
-				
 				local match = {}
 				if tag.slotType then
 					match["slotType"] = true  -- implemented in CalcSetup.lua
@@ -1019,7 +1069,8 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 	end
 
 	-- Apply global limits
-	for _, tag in ipairs(mod) do
+	for i = 1, #mod do
+		local tag = mod[i]
 		if globalLimits and tag.globalLimit and tag.globalLimitKey then
 			value = value or 0
 			globalLimits[tag.globalLimitKey] = globalLimits[tag.globalLimitKey] or 0

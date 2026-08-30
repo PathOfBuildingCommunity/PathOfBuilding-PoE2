@@ -112,11 +112,15 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
+local function capitaliseWord(a, b)
+	return a .. string.lower(b)
+end
+
 local function getCorruptedJewelEffect(env, item, node)
 	if not item or item.type ~= "Jewel" or not item.corrupted or not node or node.containJewelSocket or node.sinister or item.base.subType == "Charm" then
 		return 0
 	end
-	local rarity = item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end)
+	local rarity = item.rarity:gsub("(%a)(%u*)", capitaliseWord)
 	return env.modDB.multipliers["Corrupted" .. rarity .. "JewelEffect"] or 0
 end
 

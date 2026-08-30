@@ -144,6 +144,43 @@ local function parentIndex(proxy, key)
 	end
 end
 
+-- The functions are created here so that new() does not create closures, which aborts JIT traces
+local function makeUnconstructedMeta(class, className)
+	-- return {
+	-- __index = function(obj, key)
+	-- 	if key == className then
+	-- 		setmetatable(obj, class)
+	-- 		return class[className]
+	-- 	end
+	-- 	error(s_format(
+	-- 		"Object of class '%s' was used before it was constructed (accessed '%s'). Did you forget to call new(\"%s\"):%s()?",
+	-- 		className, tostring(key), className, className))
+	-- end,
+	-- }
+	--
+	return class
+end
+
+local function wrapConstructor(class, className)
+	local originalFunc = class[className]
+	class[className] = function(self, ...)
+		-- This will probably break JIT traces?
+		local ret = originalFunc(self, ...)
+		if class._parents then
+			-- Check that the constructors for all parent and superparent classes have been called
+			for parent in pairs(class._superParents) do
+				if parent[parent._className] and not self._parentInit[parent] then
+					error("Parent class '" ..
+						parent._className .. "' of class '" .. className .. "' must be initialised")
+				end
+			end
+		end
+		if not ret then
+			error(string.format("Class %s constructor did not return a value", className))
+		end
+		return ret
+	end
+end
 ---@generic T
 ---@param className `T`
 ---@param extraArg nil Never pass extra parameters. Defined purely to guard against old syntax.
@@ -160,17 +197,7 @@ function new(className, extraArg)
 	local object
 	if class[className] then
 		if not rawget(class, "_unconstructedMeta") then
-			class._unconstructedMeta = {
-				__index = function(obj, key)
-					if key == className then
-						setmetatable(obj, class)
-						return class[className]
-					end
-					error(s_format(
-						"Object of class '%s' was used before it was constructed (accessed '%s'). Did you forget to call new(\"%s\"):%s()?",
-						className, tostring(key), className, className))
-				end,
-			}
+			class._unconstructedMeta = makeUnconstructedMeta(class, className)
 		end
 		object = setmetatable({}, class._unconstructedMeta)
 	else
@@ -194,23 +221,7 @@ function new(className, extraArg)
 	end
 
 	if class[className] and not rawget(class, "_constructorInitialised") then
-		local originalFunc = class[className]
-		class[className] = function(self, ...)
-			local ret = originalFunc(self, ...)
-			if class._parents then
-				-- Check that the constructors for all parent and superparent classes have been called
-				for parent in pairs(class._superParents) do
-					if parent[parent._className] and not self._parentInit[parent] then
-						error("Parent class '" ..
-							parent._className .. "' of class '" .. className .. "' must be initialised")
-					end
-				end
-			end
-			if not ret then
-				error(string.format("Class %s constructor did not return a value", className))
-			end
-			return ret
-		end
+		wrapConstructor(class, className)
 		class._constructorInitialised = true
 	end
 	return object

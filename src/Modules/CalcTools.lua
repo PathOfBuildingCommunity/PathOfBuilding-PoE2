@@ -14,18 +14,36 @@ calcLib = { }
 
 -- Calculate and combine INC/MORE modifiers for the given modifier names
 function calcLib.mod(modStore, cfg, ...)
-	return (1 + (modStore:Sum("INC", cfg, ...)) / 100) * modStore:More(cfg, ...)
+	local inc, more = calcLib.mods(modStore, cfg, ...)
+	return inc * more
 end
 
 ---Calculates additive and multiplicative modifiers for specified modifier names
 ---@param modStore table
 ---@param cfg table
----@param ... string @Mod name(s)
----@return number, number @increased, more
+---@param ... string Mod names. Do not call this in a hot loop with more than 5 mod names, as this will break JIT traces.
+---@return number increased, number more
 function calcLib.mods(modStore, cfg, ...)
-	local inc = 1 + modStore:Sum("INC", cfg, ...) / 100
-	local more = modStore:More(cfg, ...)
-	return inc, more
+	-- Call separated by argument count so that we can avoid breaking LuaJIT traces. Both calling
+	-- `select(i, ...)` with a non-const integer and passing `f(...)` will abort a trace.
+	local n = select('#', ...)
+	if n == 1 then
+		local a = ...
+		return 1 + modStore:Sum("INC", cfg, a) / 100, modStore:More(cfg, a)
+	elseif n == 2 then
+		local a, b = ...
+		return 1 + modStore:Sum("INC", cfg, a, b) / 100, modStore:More(cfg, a, b)
+	elseif n == 3 then
+		local a, b, c = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c) / 100, modStore:More(cfg, a, b, c)
+	elseif n == 4 then
+		local a, b, c, d = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c, d) / 100, modStore:More(cfg, a, b, c, d)
+	elseif n == 5 then
+		local a, b, c, d, e = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c, d, e) / 100, modStore:More(cfg, a, b, c, d, e)
+	end
+	return 1 + modStore:Sum("INC", cfg, ...) / 100, modStore:More(cfg, ...)
 end
 
 -- Calculate value
