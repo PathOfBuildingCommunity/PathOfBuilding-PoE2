@@ -490,6 +490,64 @@ describe("TestSkills", function()
 		assert.are.equals(9, finalCost) -- round(floor(9 * 1.5) / 1.5)
 	end)
 
+	it("converts positive flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(11, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("converts positive flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(13, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(1, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(9, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("moves only positive flat Mana cost when skills cost Life instead", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		runCallback("OnFrame")
+		local baseManaCost = build.calcsTab.mainOutput.ManaCost
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost + 4, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
 	it("Test socket group pasting with corruption levels and count", function()
 		build.skillsTab:PasteSocketGroup("Wave of Frost 20/0  3 C+1\n Culmination I 1/0  1")
 		assert.are.equals(3, build.skillsTab.socketGroupList[1].gemList[1].count)

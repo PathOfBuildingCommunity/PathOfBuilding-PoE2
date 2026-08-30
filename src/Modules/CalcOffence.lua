@@ -2100,6 +2100,11 @@ function calcs.offence(env, actor, activeSkill)
 					val.baseCost = val.baseCost + costs[manaType].baseCost
 					val.baseCostNoMult = val.baseCostNoMult + costs[manaType].baseCostNoMult
 					val.finalBaseCost = val.finalBaseCost + costs[manaType].finalBaseCost
+					if val.upfront then
+						local manaTotalCost = skillModList:Sum("BASE", skillCfg, manaType.."Cost")
+						val.totalCost = val.totalCost + m_max(0, manaTotalCost)
+						costs[manaType].totalCost = costs[manaType].totalCost - manaTotalCost
+					end
 					costs[manaType].baseCost = 0
 					costs[manaType].baseCostRaw = 0
 					costs[manaType].finalBaseCost = 0
@@ -2107,6 +2112,10 @@ function calcs.offence(env, actor, activeSkill)
 				elseif additionalLifeCost > 0 or hybridLifeCost > 0 then
 					val.baseCost = costs[manaType].baseCost
 					val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * hybridLifeCost) + m_floor(val.baseCost * mult) * additionalLifeCost)
+					if val.upfront and hybridLifeCost > 0 then
+						-- Positive flat Mana cost is converted and rounded separately from the base cost.
+						val.totalCost = val.totalCost + round(m_max(0, skillModList:Sum("BASE", skillCfg, manaType.."Cost")) * hybridLifeCost)
+					end
 				end
 			elseif val.type == "ES" then
 				local manaType = resource:gsub("ES", "Mana")
