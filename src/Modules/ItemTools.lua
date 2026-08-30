@@ -75,14 +75,18 @@ end
 
 -- Apply range value (0 to 1) to a modifier that has a range: "(x-x)" or "(x-x) to (x-x)"
 ---@param line string
----@param range number
+---@param range number|number[]
 ---@param valueScalar number?
 ---@param baseValueScalar number?
 function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 	-- stripLines down to # in place of any number and store numbers inside values also remove all + signs are kept if value is positive
 	local values = { }
+	local rangeIndex = 0
+	local ranges = type(range) == "table" and range
 	local strippedLine = line:gsub("([%+-]?)%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", function(sign, min, max)
-		local value = min + range * (tonumber(max) - min)
+		rangeIndex = rangeIndex + 1
+		local valueRange = ranges and (ranges[rangeIndex] or 0.5) or range
+		local value = min + valueRange * (tonumber(max) - min)
 		if sign == "-" then value = value * -1 end
 		return (sign == "+" and value > 0 ) and sign..tostring(value) or tostring(value)
 	end)
