@@ -68,9 +68,10 @@ local function getCachedImage(cache, key, path)
 end
 
 local function getHeaderImage(rarity, location, isRunic)
+	local resolvedRarity = headerConfigs[rarity] and rarity or "NORMAL"
 	local runic = isRunic and "runic" or ""
-	local key = runic .. ":" .. rarity .. ":" .. location
-	local path = "Assets/" .. runic .. headerConfigs[rarity][location]
+	local key = runic .. ":" .. resolvedRarity .. ":" .. location
+	local path = "Assets/" .. runic .. headerConfigs[resolvedRarity][location]
 	return getCachedImage(tooltipAssetCache.header, key, path)
 end
 

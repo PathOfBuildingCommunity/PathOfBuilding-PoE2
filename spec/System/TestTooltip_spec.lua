@@ -106,6 +106,15 @@ describe("Tooltip", function()
 		assertLines({ line(note) })
 		assert.are.equal("<rgb(255, 0, 0)>{unfinished", note)
 	end)
+
+	it("draws unknown tooltip headers with the normal-header fallback", function()
+		tooltip.tooltipHeader = "UNKNOWN"
+		tooltip:AddLine(14, "Unknown node")
+
+		assert.has_no.errors(function()
+			tooltip:Draw(0, 0, nil, nil, { x = 0, y = 0, width = 1920, height = 1080 })
+		end)
+	end)
 end)
 
 describe("BuildPlanner note popup", function()
