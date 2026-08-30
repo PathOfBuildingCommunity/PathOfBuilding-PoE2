@@ -1291,7 +1291,7 @@ local preFlagList = {
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hgdf][aei][ivar][nel] a? ?"] = { flags = ModFlag.Spell },
 	["^spells which cost life gain "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", statList = { "LifeCost", "LifePerSecondCost" }, threshold = 1 } },
-	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
+	["^spell skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Spell } },
 	["^spell hits [ghd][ae][iva][eln] "] = { flags = ModFlag.Hit, keywordFlags = KeywordFlag.Spell },
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
 	["^projectile attack skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
