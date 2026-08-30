@@ -442,9 +442,13 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					return out
 				end))
 			end
-			if varData.ifFlag then
-				t_insert(shownFuncs, listOrSingleIfOption(varData.ifFlag, function(ifOption)
+			local ifFlag = varData.ifPlayerFlag or varData.ifFlag
+			if ifFlag then
+				t_insert(shownFuncs, listOrSingleIfOption(ifFlag, function(ifOption)
 					local mainEnv = self.build.calcsTab.mainEnv
+					if varData.ifPlayerFlag and mainEnv.minion then
+						return false
+					end
 					local skillModList = mainEnv.player.mainSkill.skillModList
 					local skillFlags = mainEnv.player.mainSkill.activeEffect.statSet.skillFlags
 					-- Check both the skill mods for flags and flags that are set via calcPerform

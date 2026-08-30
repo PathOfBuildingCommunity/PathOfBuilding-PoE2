@@ -961,7 +961,7 @@ Huge sets the radius to 11.
 	{ var = "multiplierDefiance", type = "count", label = "Defiance:", ifMult = "Defiance", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Defiance", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifPlayerFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" })
 	end },
 	{ var = "multiplierMinionRage", type = "count", label = "Minion ^xFF9922Rage:", ifMinionFlag = "Condition:CanGainRage", tooltip = "Sets the Minion's current Rage.\nRage is capped at Minion's Maximum Rage.", apply = function(val, modList, enemyModList) modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" }) }, "Config")

@@ -78,6 +78,17 @@ describe("Minion Rage", function()
 
 		local control = build.configTab.varControls.multiplierMinionRage
 		assert.is_true(control.shown())
+		assert.is_false(build.configTab.varControls.multiplierRage.shown())
+	end)
+
+	it("shows player Rage for a player skill supported by Rage III", function()
+		build.itemsTab:CreateDisplayItemFromRaw("New Item\nMarauding Mace\nQuality: 0")
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Earthquake 20/0  1\nRage III 1/0  1")
+		runCallback("OnFrame")
+
+		assert.is_true(build.configTab.varControls.multiplierRage.shown())
+		assert.is_false(build.configTab.varControls.multiplierMinionRage.shown())
 	end)
 
 	it("shows Minion Rage for Skeletal Reavers without Rage support", function()
