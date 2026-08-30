@@ -1107,7 +1107,7 @@ describe("TestAdvancedItemParse #item", function()
 		]], "Ancestral Tiara"))
 		assert.are.equals("LocalIncreasedEnergyShieldAndLife4", item.prefixes[1].modId)
 		assert.are.equals(0, item.prefixes[1].range)
-		assert.are.equals(0.833, item.explicitModLines[2].range)
+		assert.are.equals(0.833333, item.explicitModLines[2].range)
 	end)
 
 	it("resets linePrefix", function() 
@@ -1262,6 +1262,91 @@ describe("TestAdvancedItemParse #item", function()
 			Note: ~b/o 2 chaos
 		]])
 	end)
+
+	it("preserves independently rolled affix values when crafting", function()
+		local item = new("Item"):Item(raw([[
+			{ Fractured Prefix Modifier "Frigid" (Tier: 4) — Damage, Elemental, Cold, Attack }
+			Adds 7(7-8) to 14(12-14) Cold damage to Attacks
+		]], "Refined Bracers"))
+
+		assert.are.equals("AddedColdDamage4", item.prefixes[1].modId)
+		assert.are.same({ 0, 1 }, item.prefixes[1].range)
+		assert.is_true(item.prefixes[1].fractured)
+		item:Craft()
+		assert.are.equals("Adds 7 to 14 Cold damage to Attacks", item.explicitModLines[1].line)
+		assert.is_true(item.explicitModLines[1].fractured)
+	end)
+
+	it("parses fixed advanced-copy values from a legacy Prism Guardian", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Prism Guardian
+			Sectarian Crest Shield
+			{ Unique Modifier }
+			+1 to Maximum Spirit per 25(50) Maximum Life
+		]])
+
+		assert.are.equals("+1 to Maximum Spirit per 25 Maximum Life", item.explicitModLines[1].line)
+	end)
+
+	it("preserves a Heroic Tragedy seed and selected commander", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Heroic Tragedy
+			Timeless Jewel
+			{ Unique Modifier }
+			Remembrancing 7321(100-8000) songworthy deeds by the line of Vorana(Vorana-Olroth)
+		]])
+
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
+			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
+		item:BuildAndParseRaw()
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
+			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
+	end)
+
+	it("orders advanced-copy unique modifiers by database stat order", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Evergrasping Ring
+			Pearl Ring
+			{ Implicit Modifier — Caster, Speed }
+			8(7-10)% increased Cast Speed
+			{ Unique Modifier — Chaos }
+			Enemies in your Presence Gain 8(6-12)% of Damage as Extra Chaos Damage
+			{ Unique Modifier — Chaos }
+			Allies in your Presence Gain 22(15-25)% of Damage as Extra Chaos Damage
+			{ Unique Modifier — Mana }
+			+91(60-100) to maximum Mana
+		]])
+
+		assert.are.same({
+			"+(60-100) to maximum Mana",
+			"Allies in your Presence Gain (15-25)% of Damage as Extra Chaos Damage",
+			"Enemies in your Presence Gain (6-12)% of Damage as Extra Chaos Damage",
+		}, {
+			item.explicitModLines[1].line,
+			item.explicitModLines[2].line,
+			item.explicitModLines[3].line,
+		})
+	end)
+
+	it("filters flask state and base-property lines", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Opportunity
+			Ultimate Life Flask
+			Recovers 2061 (augmented) Life over 4.20 Seconds
+			Consumes 4 (augmented) of 75 Charges on use
+			Currently has 0 Charges
+			{ Unique Modifier }
+			Cannot be Used manually
+		]])
+
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Cannot be Used manually", item.explicitModLines[1].line)
+	end)
+
 	describe("mod magnitude scaling", function()
 		before_each(function()
 			newBuild()

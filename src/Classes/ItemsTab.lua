@@ -818,7 +818,7 @@ holding Shift will put it in the second.]])
 			return range
 		end
 		drop = new("DropDownControl"):DropDownControl({ "TOPLEFT", prev, "TOPLEFT" }, { i == 1 and 40 or 0, 0, 418, 20 }, nil, function(index, value)
-			local affix = { modId = "None" }
+			local affix = { modId = "None", fractured = self.displayItem[drop.outputTable][drop.outputIndex].fractured }
 			if value.modId then
 				affix.modId = value.modId
 				affix.range = slider.val
@@ -2001,7 +2001,7 @@ function ItemsTabClass:SetDisplayItem(item)
 		self.controls.displayItemSocketRuneEdit:SetText(item.itemSocketCount)
 		self.controls.displayItemSocketJewelEdit:SetText(item.jewelSocketCount)
 		self.controls.displayItemQualityEdit:SetText(item.quality)
-		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
+		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1, true)
 		if item.catalystQuality then
 			self.controls.displayItemCatalystQualityEdit:SetText(m_max(item.catalystQuality, 0))
 		else
@@ -2196,7 +2196,7 @@ function ItemsTabClass:UpdateRuneControls()
 	end
 end
 
-function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outputIndex, powerCache)
+function ItemsTabClass:UpdateAffixControl(control, item, affixType, outputTable, outputIndex, powerCache)
 	local extraTags = { }
 	local excludeGroups = { }
 	for _, table in ipairs({"prefixes","suffixes"}) do
@@ -2224,7 +2224,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	end
 	local affixList = { }
 	for modId, mod in pairs(item.affixes) do
-		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
+		if mod.type == affixType and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
 			t_insert(affixList, modId)
 		end
 	end
@@ -2332,7 +2332,10 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	if control.list[control.selIndex].haveRange then
 		control.slider.divCount = #control.list[control.selIndex].modList
 		local index = isValueInArray(control.list[control.selIndex].modList, selAffix)
-		local range = item[outputTable][outputIndex].range or 0.5
+		-- Imported legacy rolls can sit outside the current 0-1 affix range.
+		-- Keep that value on the affix, but show the nearest slider endpoint.
+		local affixRange = item[outputTable][outputIndex].range
+		local range = m_min(1, m_max(0, type(affixRange) == "table" and affixRange[1] or affixRange or 0.5))
 		-- Avoid exact integer boundary that slider:GetDivVal's ceil would assign to the previous segment
 		if range == 0 and index > 1 then
 			range = 1e-4

@@ -62,6 +62,31 @@ local function getCatalystScalar(catalystId, mod, quality)
 	return 1
 end
 
+local function normaliseModLine(line)
+	return line:gsub("%d+%.?%d*", "#")
+		:gsub("%(%-?#%-#%)", "#"):lower()
+		:gsub("\n", " ")
+end
+
+local uniqueModStatOrder
+
+local function sortCraftedModLines(modLines)
+	local sourceOrder = { }
+	for index, modLine in ipairs(modLines) do
+		sourceOrder[modLine] = index
+	end
+	table.sort(modLines, function(a, b)
+		local aGroup = (a.crafted or a.custom) and 3 or a.fractured and 1 or 2
+		local bGroup = (b.crafted or b.custom) and 3 or b.fractured and 1 or 2
+		if aGroup ~= bGroup then
+			return aGroup < bGroup
+		elseif aGroup < 3 and a.order ~= b.order then
+			return (a.order or math.huge) < (b.order or math.huge)
+		end
+		return sourceOrder[a] < sourceOrder[b]
+	end)
+end
+
 ---@class Item
 local ItemClass = newClass("Item")
 
@@ -660,6 +685,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			while self.rawLines[l] and not self.rawLines[l]:match("%)$") do
 				l = l + 1
 			end
+		elseif self.base and self.base.flask and (
+			line:match("^Recovers .+ over .+ Seconds?$")
+			or line:match("^Consumes %d+.- of %d+.- Charges on use$")
+			or line:match("^Currently has %d+ Charges$")
+		) then
+			-- In-game flask state and base properties aren't modifier lines.
 		elseif line:match("^{ ") then
 			-- We're parsing advanced copy/paste format
 			self.advancedCopy = true
@@ -858,19 +889,27 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.crafted = true
 				elseif specName == "Implicit" then
 					self.implicit = true
-				elseif specName == "Prefix" then
-					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
-					range = range or ((affix or specVal) ~= "None" and main.defaultItemAffixQuality)
-					t_insert(self.prefixes, {
+				elseif specName == "Prefix" or specName == "Suffix" then
+					local affixes = specName == "Prefix" and self.prefixes or self.suffixes
+					local fractured = specVal:match("^{fractured}") and true
+					specVal = specVal:gsub("^{fractured}", "")
+					local range, affix = specVal:match("{range:([^}]+)}(.+)")
+					if range and range:find(",", 1, true) then
+						local ranges = { }
+						for value in range:gmatch("[^,]+") do
+							t_insert(ranges, tonumber(value))
+						end
+						range = ranges
+					else
+						range = tonumber(range)
+					end
+					if not range and (affix or specVal) ~= "None" then
+						range = main.defaultItemAffixQuality
+					end
+					t_insert(affixes, {
 						modId = affix or specVal,
-						range = tonumber(range),
-					})
-				elseif specName == "Suffix" then
-					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
-					range = range or ((affix or specVal) ~= "None" and main.defaultItemAffixQuality)
-					t_insert(self.suffixes, {
-						modId = affix or specVal,
-						range = tonumber(range),
+						range = range,
+						fractured = fractured,
 					})
 				elseif specName == "Implicits" then
 					implicitLines = specToNumber(specVal) or 0
@@ -1082,33 +1121,44 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				else
 					catalystScalar = getCatalystScalar(self.catalyst, modLine, self.catalystQuality)
 				end
+				-- Advanced copy uses current(base) for fixed-value modifiers,
+				-- in addition to the current(min-max) form handled below.
+				line = line:gsub("(%-?%d+%.?%d*)%((%-?%d+%.?%d*)%)", "%1")
 				if self.pendingAffixList and #self.pendingAffixList > 0 then
 					if #self.pendingAffixList > 1 then
 						-- Probably a conqueror or Essence mod since the mod name is the same for all of them
 						-- Try to match the line against one of the mods there
-						local valueStrippedLine = line:gsub("%-?%d+%.?%d*%(", "("):gsub("%-?%d+%.?%d*", "#")
+						local rangeLine = line:gsub("%-?%d+%.?%d*%(", "(")
+						local valueStrippedLine = rangeLine:gsub("%-?%d+%.?%d*", "#")
+						local exactAffix
+						local fallbackAffix
 						for _, pendingAffix in ipairs(self.pendingAffixList) do
 							local modData = self.affixes[pendingAffix.modId]
 							for _, modDataLine in ipairs(modData) do
-								-- Prefer the exact match
-								if line == modDataLine then
-									self.pendingAffixList = { pendingAffix }
+								if line == modDataLine or rangeLine == modDataLine then
+									exactAffix = pendingAffix
 									break
 								end
-								if valueStrippedLine == modDataLine:gsub("%-?%d+%.?%d*", "#") then
-									self.pendingAffixList = { pendingAffix }
-									break
+								if not fallbackAffix and valueStrippedLine == modDataLine:gsub("%-?%d+%.?%d*", "#") then
+									fallbackAffix = pendingAffix
 								end
 							end
+							if exactAffix then
+								break
+							end
 						end
+						self.pendingAffixList = { exactAffix or fallbackAffix or self.pendingAffixList[1] }
 					end
 					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
 					local bestPrecisionDelta = -1
 					local bestPrecisionRange = -1
+					local rollRanges = { }
+					local affixMod = self.affixes[self.pendingAffixList[1].modId]
+					modLine.order = affixMod and affixMod.statOrder[1]
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
-						-- Find advanced copy paste format: 45(40-50)
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
 						local delta = tonumber(max) - min
+						t_insert(rollRanges, delta > 0 and round((value - min) / delta, 6) or 0.5)
 						line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
 						if delta > bestPrecisionDelta then
 							bestPrecisionRange = round((value - min) / delta, 3)
@@ -1117,34 +1167,49 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					t_insert(self.pendingAffixList[1].table, {
 						modId = self.pendingAffixList[1].modId,
-						range = bestPrecisionRange >= 0 and bestPrecisionRange <= 1 and bestPrecisionRange or 0.5,
+						-- Legacy modifiers can roll outside the current data range. Keep the
+						-- extrapolated range so crafting a different affix doesn't normalise it.
+						range = #rollRanges > 1 and rollRanges or bestPrecisionDelta > 0 and bestPrecisionRange or 0.5,
+						fractured = modLine.fractured,
 					})
 					self.pendingAffixList = {}
 				else
 					-- Use rolling Delta/Range in case one range is 1-3 and another is 1-100 so we get the finest precision possible
 					local bestPrecisionDelta = -1
 					local bestPrecisionRange = -1
+					local firstRollRange
+					local hasIndependentRolls
 
-					-- Replace non-number ranges as unsupported
-					line = line:gsub("(%a+)%([%a%s]+%-[%a%s]+%)", "%1")
-
-					-- Strip single values like 25(50) -> 25
-					line = line:gsub("(%d+)%((%d+)%)", "%1")
+					-- Advanced copy only provides the endpoints for enum ranges; keep the selected value.
+					line = line:gsub("(%s*)(%b())", function(space, range)
+						if range:find("-", 1, true) and not range:find("%d") then
+							return ""
+						end
+						return space .. range
+					end)
+					local advancedCopyLine = line
 
 					for value, range in line:gmatch("(%-?%d+%.?%d*)%((%-?%d+%.?%d*%-%-?%d+%.?%d*)%)") do
 						local min, max = range:match("(%-?%d+%.?%d*)%-(%-?%d+%.?%d*)")
 						local delta = tonumber(max) - min
+						local rollRange = delta > 0 and round((value - min) / delta, 6) or 0.5
+						if firstRollRange and firstRollRange ~= rollRange then
+							hasIndependentRolls = true
+						end
+						firstRollRange = firstRollRange or rollRange
 						if delta > bestPrecisionDelta then
-							bestPrecisionRange = round((value - min) / delta, 3)
+							bestPrecisionRange = rollRange
 							bestPrecisionDelta = delta
 						end
 						if bestPrecisionRange > 1 or bestPrecisionRange < 0 then
 							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", value)
 						else
-							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", (tonumber(value) < 0 and "+" or "") .. "(" .. range .. ")")
+							line = line:gsub(value .. "%(" .. range:gsub("%-", "%%-") .. "%)", (tonumber(value) < 0 and "+" or "") .. "(" .. min .. "-" .. max .. ")")
 						end
 					end
-					if bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
+					if hasIndependentRolls then
+						line = advancedCopyLine:gsub("(%-?%d+%.?%d*)%(%-?%d+%.?%d*%-%-?%d+%.?%d*%)", "%1")
+					elseif bestPrecisionRange <= 1 and bestPrecisionRange >= 0 then
 						modLine.range = bestPrecisionRange
 					end
 				end
@@ -1525,6 +1590,27 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.runes = { }
 		end
 	end
+	if self.advancedCopy and (self.rarity == "UNIQUE" or self.rarity == "RELIC") and not self:UsesVersionedOrGroupedVariants() then
+		if not uniqueModStatOrder then
+			uniqueModStatOrder = { exact = { }, normalised = { } }
+			for _, mod in pairs(data.itemMods.Exclusive) do
+				for index, line in ipairs(mod) do
+					local exactLine = line:lower():gsub("\n", " ")
+					local statLine = normaliseModLine(line)
+					uniqueModStatOrder.exact[exactLine] = m_min(uniqueModStatOrder.exact[exactLine] or math.huge, mod.statOrder[index])
+					uniqueModStatOrder.normalised[statLine] = m_min(uniqueModStatOrder.normalised[statLine] or math.huge, mod.statOrder[index])
+				end
+			end
+		end
+		for _, modLine in ipairs(self.explicitModLines) do
+			local exactLine = modLine.line:lower():gsub("\n", " ")
+			modLine.order = uniqueModStatOrder.exact[exactLine]
+				or uniqueModStatOrder.normalised[normaliseModLine(modLine.line)]
+		end
+	end
+	if self.advancedCopy and #self.explicitModLines > 1 then
+		sortCraftedModLines(self.explicitModLines)
+	end
 	if self.advancedCopy or self.crafted then
 		-- apply mod magnitude boost to matching mods
 		if #self.modMagnitudeMods > 0 then
@@ -1770,11 +1856,13 @@ function ItemClass:BuildRaw()
 	end
 	if self.crafted then
 		t_insert(rawLines, "Crafted: true")
-		for i, affix in ipairs(self.prefixes or { }) do
-			t_insert(rawLines, "Prefix: " .. (affix.range and ("{range:" .. round(affix.range,3) .. "}") or "") .. affix.modId)
+		for _, affix in ipairs(self.prefixes or { }) do
+			local range = affix.range and "{range:" .. (type(affix.range) == "table" and table.concat(affix.range, ",") or round(affix.range, 3)) .. "}" or ""
+			t_insert(rawLines, "Prefix: " .. (affix.fractured and "{fractured}" or "") .. range .. affix.modId)
 		end
-		for i, affix in ipairs(self.suffixes or { }) do
-			t_insert(rawLines, "Suffix: " .. (affix.range and ("{range:" .. round(affix.range,3) .. "}") or "") .. affix.modId)
+		for _, affix in ipairs(self.suffixes or { }) do
+			local range = affix.range and "{range:" .. (type(affix.range) == "table" and table.concat(affix.range, ",") or round(affix.range, 3)) .. "}" or ""
+			t_insert(rawLines, "Suffix: " .. (affix.fractured and "{fractured}" or "") .. range .. affix.modId)
 		end
 	end
 	if self.catalyst and self.catalyst > 0 then
@@ -1816,7 +1904,7 @@ function ItemClass:BuildRaw()
 			line = displayValueScalar and itemLib.applyRange(modLine.line, modLine.range or main.defaultItemAffixQuality, displayValueScalar, modLine.corruptedRange) or modLine.line
 		end
 		if modLine.range and line:match("%(%-?[%d%.]+%-%-?[%d%.]+%)") then
-			line = "{range:" .. round(modLine.range, 3) .. "}" .. line
+			line = "{range:" .. round(modLine.range, 6) .. "}" .. line
 		end
 		if modLine.corruptedRange then
 			line = "{corruptedRange:" .. round(modLine.corruptedRange, 2) .. "}" .. line
@@ -2128,7 +2216,7 @@ function ItemClass:Craft()
 							return tonumber(num) + tonumber(other)
 						end)
 					else
-						local modLine = { line = line, order = order, type = mod.type, modTags = mod.modTags or { }, unscalable = mod.unscalable }
+						local modLine = { line = line, order = order, type = mod.type, modTags = mod.modTags or { }, unscalable = mod.unscalable, fractured = affix.fractured }
 						modLine[mod.type:lower()] = true
 						for l = 1, #self.explicitModLines + 1 do
 							if not self.explicitModLines[l] or self.explicitModLines[l].order > order then
@@ -2146,6 +2234,9 @@ function ItemClass:Craft()
 	-- Restore the custom mods
 	for _, mod in ipairs(savedMods) do
 		t_insert(self.explicitModLines, mod)
+	end
+	if #self.explicitModLines > 1 then
+		sortCraftedModLines(self.explicitModLines)
 	end
 
 	self:BuildAndParseRaw()
