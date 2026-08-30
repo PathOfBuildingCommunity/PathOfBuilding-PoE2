@@ -4093,7 +4093,6 @@ function calcs.offence(env, actor, activeSkill)
 					if (damageTypeHitMin ~= 0 or damageTypeHitMax ~= 0) and env.mode_effective then
 						-- Apply enemy resistances and damage taken modifiers
 						local resist = 0
-						local resistBeforeIgnoreNonNegative = 0
 						local pen = 0
 						local minPen = 0
 						local sourceRes = damageType
@@ -4166,10 +4165,6 @@ function calcs.offence(env, actor, activeSkill)
 								end
 								sourceRes = elementUsed
 							elseif isElemental[damageType] then
-								resistBeforeIgnoreNonNegative = resist
-								if resist > 0 and modDB:Flag(cfg, "IgnoreNonNegativeEleRes") then
-									resist = 0
-								end
 								pen = skillModList:Sum("BASE", cfg, damageType.."Penetration", "ElementalPenetration")
 								minPen = skillModList:Sum("BASE", cfg, damageType.."PenetrationMinimum", "ElementalPenetrationMinimum")
 								takenInc = takenInc + enemyDB:Sum("INC", cfg, "ElementalDamageTaken")
@@ -4195,14 +4190,22 @@ function calcs.offence(env, actor, activeSkill)
 						local calcPenResist = function(resist)
 							return resist > minPen and m_max(resist - pen, minPen) or resist
 						end
-						if skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
-							effectiveResist = (isElemental[damageType] and invertChance > 0) and (resistBeforeIgnoreNonNegative - 2 * invertChance * resistBeforeIgnoreNonNegative) or resist
-							effMult = effMult * (1 - effectiveResist / 100)
-						elseif useRes then
+						local cannotElePenIgnore = isElemental[damageType] and skillModList:Flag(cfg, "CannotElePenIgnore")
+						local ignoreNonNegativeEleRes = isElemental[damageType] and modDB:Flag(cfg, "IgnoreNonNegativeEleRes")
+						local calcHitResist = function(hitResist)
+							if not cannotElePenIgnore and ignoreNonNegativeEleRes and hitResist >= 0 then
+								return 0
+							end
+							return cannotElePenIgnore and hitResist or calcPenResist(hitResist)
+						end
+						local normalHitResist = calcHitResist(resist)
+						local invertedHitResist = calcHitResist(-resist)
+						local usesResistance = cannotElePenIgnore or useRes
+						if usesResistance then
 							if isElemental[damageType] and invertChance > 0 then
-								effectiveResist = calcPenResist(resist) * (1 - invertChance) + calcPenResist(-resistBeforeIgnoreNonNegative) * invertChance
+								effectiveResist = normalHitResist * (1 - invertChance) + invertedHitResist * invertChance
 							else
-								effectiveResist = calcPenResist(resist)
+								effectiveResist = normalHitResist
 							end
 							effMult = effMult * (1 - effectiveResist / 100)
 						end
@@ -4212,12 +4215,13 @@ function calcs.offence(env, actor, activeSkill)
 						if env.mode == "CALCS" then
 							output[damageType.."EffMult"] = effMult
 						end
-						if pass == 2 and breakdown and (effMult ~= 1 or sourceRes ~= damageType or invertChance > 0) and skillModList:Flag(cfg, isElemental[damageType] and "CannotElePenIgnore" or nil) then
+						local breakdownResist = invertChance > 0 and resist or normalHitResist
+						if pass == 2 and breakdown and (effMult ~= 1 or sourceRes ~= damageType or invertChance > 0) and cannotElePenIgnore then
 							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
-							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, 0, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist)
+							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, breakdownResist, 0, takenInc, effMult, takenMore, sourceRes, usesResistance, invertChance, minPen, effectiveResist, normalHitResist, invertedHitResist)
 						elseif pass == 2 and breakdown and (effMult ~= 1 or (resist - pen) < minPen or sourceRes ~= damageType or invertChance > 0) then
 							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
-							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, resist, pen, takenInc, effMult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist)
+							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, breakdownResist, pen, takenInc, effMult, takenMore, sourceRes, usesResistance, invertChance, minPen, effectiveResist, normalHitResist, invertedHitResist)
 						end
 					end
 					if pass == 2 and breakdown then
