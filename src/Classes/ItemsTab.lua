@@ -713,6 +713,9 @@ holding Shift will put it in the second.]])
 			self.displayItem.runes[i] = value.name
 			self.displayItem:UpdateRunes()
 			self.displayItem:BuildAndParseRaw()
+			if self.displayItem.crafted then
+				self:UpdateAffixControls()
+			end
 			self:UpdateDisplayItemTooltip()
 		end)
 		drop.y = function()
@@ -837,7 +840,7 @@ holding Shift will put it in the second.]])
 			return i == 1 and 0 or 24 + (prev.slider:IsShown() and 18 or 0)
 		end
 		drop.tooltipFunc = function(tooltip, mode, index, value)
-			local modList = value.modList
+			local modList = value and value.modList
 			if not modList or main.popups[1] or mode == "OUT" or (self.selControl and self.selControl ~= drop) then
 				tooltip:Clear()
 			elseif tooltip:CheckForUpdate(modList) then
