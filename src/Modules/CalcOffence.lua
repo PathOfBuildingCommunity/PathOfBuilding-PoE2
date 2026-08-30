@@ -156,6 +156,18 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 			round(summedMax * inc * more * moreMaxDamage + addMax)
 end
 
+---Calculates the area percentage after the client integer rounding stages.
+---@param incArea number @Additive modifier
+---@param moreArea number @Multiplicative modifier
+---@return number
+local function calcAreaMod(incArea, moreArea)
+	local baseAreaPercent = roundSymmetric(incArea * 100)
+	local finalAreaPercent = roundSymmetric(m_max(0, moreArea) * 100)
+	local areaPercent = baseAreaPercent * finalAreaPercent / 100
+	areaPercent = areaPercent >= 0 and m_floor(areaPercent) or m_ceil(areaPercent)
+	return m_max(0, areaPercent) / 100
+end
+
 ---Calculates skill radius
 ---@param baseRadius number
 ---@param areaMod number
