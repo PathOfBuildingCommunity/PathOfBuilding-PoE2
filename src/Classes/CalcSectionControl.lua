@@ -4,6 +4,8 @@
 -- Section control used in the Calcs tab
 --
 local t_insert = table.insert
+local m_max = math.max
+local m_min = math.min
 
 ---@class CalcSectionControl: Control, ControlHost
 local CalcSectionClass = newClass("CalcSectionControl", "Control", "ControlHost")
@@ -61,8 +63,20 @@ function CalcSectionClass:CalcSectionControl(calcsTab, width, id, group, colour,
 			end
 		end
 	end
+	self.controls.popOut = new("ButtonControl"):ButtonControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -22, 3, 16, 16 }, "^", function()
+		self:ToggleOverlay()
+	end)
+	self.controls.popOut.shown = function()
+		return self.enabled and not self.isOverlay and not self.hasControls
+	end
+	self.isOverlay = false
+	self.overlayX = 320
+	self.overlayY = 50
+	self.dragging = false
+	self.dragOffX = 0
+	self.dragOffY = 0
 	self.shown = function()
-		return self.enabled
+		return self.enabled and not self.isOverlay
 	end
 	return self
 end
@@ -479,6 +493,11 @@ function CalcSectionClass:DrawOverlay(viewPort, inputEvents)
 	SetDrawLayer(0)
 end
 
+function CalcSectionClass:SetOverlayDisplayStat(colData)
+	self.calcsTab:SetDisplayStat(colData)
+	self.overlayBreakdownCell = self.calcsTab.displayData == colData
+end
+
 function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewPort, isOverlay, noTooltip)
 	local cursorX, cursorY = GetCursorPos()
 	local lineY = startLineY
@@ -531,86 +550,65 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 		else
 			lineY = lineY + 20
 			primary = false
-			local rows = 0;
+			local rows = 0
 			for _, rowData in ipairs(subSec.data) do
-				if rowData.enabled then
+				if (isOverlay and actor and self.calcsTab:CheckFlag(rowData)) or (not isOverlay and rowData.enabled) then
 					rows = rows + 1
-					local textColor = "^7"
-					if rowData.color then
-						textColor = rowData.color
-					end
-					if rowData.label then
-						SetDrawColor(rowData.bgCol or "^0")
-						DrawImage(nil, x + 2, lineY + 2, 130, 18)
-						if self.calcsTab:SearchMatch(rowData.label) then
-							textColor = colorCodes.HIGHLIGHT
+					if not isOverlay then
+						local textColor = rowData.color or "^7"
+						if rowData.label then
+							SetDrawColor(rowData.bgCol or "^0")
+							DrawImage(nil, drawX + 2, lineY + 2, 130, 18)
+							if self.calcsTab:SearchMatch(rowData.label) then
+								textColor = colorCodes.HIGHLIGHT
+							end
+							DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label.."^7:")
 						end
-						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label..":")
+					elseif rowData.label then
+						DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", "^7"..rowData.label.."^7:")
 					end
-					for colour, colData in ipairs(rowData) do
-						-- Draw column separator at the left end of the cell
+					for _, colData in ipairs(rowData) do
+						local cellX = isOverlay and (drawX + (colData.xOffset or 134)) or colData.x
+						local cellW = isOverlay and (colData.width or (drawWidth - 136)) or colData.width
+						local cellY = isOverlay and lineY + 2 or colData.y
+						local cellH = colData.height or 18
+
 						SetDrawColor(self.colour)
-						DrawImage(nil, colData.x, lineY + 2, 2, colData.height)
-						if colData.format and self.calcsTab:CheckFlag(colData) then
-							if cursorY >= viewPort.y and cursorY < viewPort.y + viewPort.height and cursorX >= colData.x and cursorY >= colData.y and cursorX < colData.x + colData.width and cursorY < colData.y + colData.height then
-								self.calcsTab:SetDisplayStat(colData)
+						DrawImage(nil, cellX, lineY + 2, 2, cellH)
+
+						if colData.format and (isOverlay or self.calcsTab:CheckFlag(colData)) then
+							if (isOverlay and actor and self.calcsTab:CheckFlag(colData)) or not isOverlay then
+								if isOverlay then
+									if cursorY >= lineY + 2 and cursorY < lineY + 20 and cursorX >= cellX and cursorX < cellX + cellW then
+										self:SetOverlayDisplayStat(colData)
+									end
+								elseif cursorY >= viewPort.y and cursorY < viewPort.y + viewPort.height and cursorX >= cellX and cursorY >= cellY and cursorX < cellX + cellW and cursorY < cellY + cellH then
+									self.calcsTab:SetDisplayStat(colData)
+								end
+
+								if not isOverlay and self.calcsTab.displayData == colData then
+									SetDrawColor(0.25, 1, 0.25)
+									DrawImage(nil, cellX + 2, cellY, cellW - 2, cellH)
+									SetDrawColor(rowData.bgCol or "^0")
+									DrawImage(nil, cellX + 3, cellY + 1, cellW - 4, cellH - 2)
+								else
+									SetDrawColor(rowData.bgCol or "^0")
+									DrawImage(nil, cellX + 2, lineY + 2, cellW - 2, 18)
+								end
+
+								local textSize = rowData.textSize or 14
+								SetViewport(cellX + 3, isOverlay and lineY + 2 or cellY, cellW - 4, 18)
+								DrawString(1, 9 - textSize / 2, "LEFT", textSize, "VAR", "^7"..formatCalcStr(colData.format, actor, colData))
+								SetViewport()
 							end
-							if self.calcsTab.displayData == colData then
-								-- This is the display stat, draw a green border around this cell
-								SetDrawColor(0.25, 1, 0.25)
-								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
-								SetDrawColor(rowData.bgCol or "^0")
-								DrawImage(nil, colData.x + 3, colData.y + 1, colData.width - 4, colData.height - 2)
-							else
-								SetDrawColor(rowData.bgCol or "^0")
-								DrawImage(nil, colData.x + 2, colData.y, colData.width - 2, colData.height)
-							end
-							local textSize = rowData.textSize or 14
-							SetViewport(colData.x + 3, colData.y, colData.width - 4, colData.height)
-							DrawString(1, 9 - textSize/2, "LEFT", textSize, "VAR", "^7"..formatCalcStr(colData.format, actor, colData))
-							SetViewport()
 						end
 					end
 					lineY = lineY + 18
 				end
 			end
-			-- If there's at least one enabled row in this subsection, offset by the border for the subsection label
 			if rows > 0 then
 				lineY = lineY + 2
 			end
 		end
 	end
-end
-
-function CalcSectionClass:OnKeyDown(key, doubleClick)
-	if not self:IsShown() or not self:IsEnabled() then
-		return
-	end
-	local mOverControl = self:GetMouseOverControl()
-	if mOverControl and mOverControl.OnKeyDown then
-		return mOverControl:OnKeyDown(key)
-	end
-	local mOver, mOverComp = self:IsMouseOver()
-	if key:match("BUTTON") then
-		if not mOver then
-			return
-		end
-		if mOverComp then
-			-- Pin the stat breakdown
-			self.calcsTab:SetDisplayStat(mOverComp, true)
-			return self.calcsTab.controls.breakdown
-		end
-	end
-	return
-end
-
-function CalcSectionClass:OnKeyUp(key)
-	if not self:IsShown() or not self:IsEnabled() then
-		return
-	end
-	local mOverControl = self:GetMouseOverControl()
-	if mOverControl and mOverControl.OnKeyUp then
-		return mOverControl:OnKeyUp(key)
-	end
-	return
 end
