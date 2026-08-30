@@ -1443,7 +1443,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	item.mirrored = itemData.mirrored
+	item.mirrored = itemData.duplicated or itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
