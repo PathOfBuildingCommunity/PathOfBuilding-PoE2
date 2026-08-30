@@ -412,6 +412,24 @@ holding Shift will put it in the second.]])
 	-- Section: Variant(s)
 
 	self.controls.displayItemSectionVariant = new("Control"):Control({ "TOPLEFT", self.controls.addDisplayItem, "BOTTOMLEFT" }, { 0, 8, 0, function()
+		if not self.displayItem then
+			return 0
+		end
+		if self.displayItem:UsesVersionedOrGroupedVariants() then
+			local rows = self.displayItem.versionList and #self.displayItem.versionList > 1 and 1 or 0
+			if self.displayItem:HasIndependentVariants() then
+				rows = rows + (#self.displayItem.variantList > 1 and 1 or 0)
+			else
+				local groups = 0
+				for groupId in pairsSortByKey(self.displayItem.variantGroups) do
+					if groups < 6 and #self.displayItem:GetVariantGroupOptions(groupId, false) > 0 then
+						rows = rows + 1
+						groups = groups + 1
+					end
+				end
+			end
+			return rows > 0 and rows * 24 + 4 or 0
+		end
 		if not self.controls.displayItemVariant:IsShown() then
 			return 0
 		end
@@ -422,71 +440,86 @@ holding Shift will put it in the second.]])
 		(self.displayItem.hasAltVariant4 and 24 or 0) +
 		(self.displayItem.hasAltVariant5 and 24 or 0))
 	end})
-	self.controls.displayItemVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
-		self.displayItem.variant = index
+	self.controls.displayItemVersion = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
+		self.displayItem.selectedVersion = index
+		self.displayItem:NormaliseVariantSelections()
 		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemVariantControls()
 		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
+	self.controls.displayItemVersion.maxDroppedWidth = 1000
+	self.controls.displayItemVersion.shown = function()
+		return self.displayItem and self.displayItem:UsesVersionedOrGroupedVariants()
+			and self.displayItem.versionList and #self.displayItem.versionList > 1
+	end
+	self.controls.displayItemVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
+		self:SelectDisplayItemVariant(index, value, "variant", self.controls.displayItemVariant)
+	end)
+	self.controls.displayItemVariant.y = function()
+		return self.controls.displayItemVersion:IsShown() and 24 or 0
+	end
 	self.controls.displayItemVariant.maxDroppedWidth = 1000
 	self.controls.displayItemVariant.shown = function()
 		return self.displayItem.variantList and #self.displayItem.variantList > 1
 	end
 	self.controls.displayItemAltVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemVariant, "BOTTOMLEFT" }, { 0, 4, 300, 20 }, nil, function(index, value)
-		self.displayItem.variantAlt = index
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateRuneControls()
-		self:UpdateDisplayItemTooltip()
-		self:UpdateDisplayItemRangeLines()
+		self:SelectDisplayItemVariant(index, value, "variantAlt", self.controls.displayItemAltVariant)
 	end)
 	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant.shown = function()
 		return self.displayItem.hasAltVariant
 	end
 	self.controls.displayItemAltVariant2 = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemAltVariant, "BOTTOMLEFT" }, { 0, 4, 300, 20 }, nil, function(index, value)
-		self.displayItem.variantAlt2 = index
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateRuneControls()
-		self:UpdateDisplayItemTooltip()
-		self:UpdateDisplayItemRangeLines()
+		self:SelectDisplayItemVariant(index, value, "variantAlt2", self.controls.displayItemAltVariant2)
 	end)
 	self.controls.displayItemAltVariant2.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant2.shown = function()
 		return self.displayItem.hasAltVariant2
 	end
 	self.controls.displayItemAltVariant3 = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemAltVariant2, "BOTTOMLEFT" }, { 0, 4, 300, 20 }, nil, function(index, value)
-		self.displayItem.variantAlt3 = index
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateRuneControls()
-		self:UpdateDisplayItemTooltip()
-		self:UpdateDisplayItemRangeLines()
+		self:SelectDisplayItemVariant(index, value, "variantAlt3", self.controls.displayItemAltVariant3)
 	end)
 	self.controls.displayItemAltVariant3.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant3.shown = function()
 		return self.displayItem.hasAltVariant3
 	end
 	self.controls.displayItemAltVariant4 = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemAltVariant3, "BOTTOMLEFT" }, { 0, 4, 300, 20 }, nil, function(index, value)
-		self.displayItem.variantAlt4 = index
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateRuneControls()
-		self:UpdateDisplayItemTooltip()
-		self:UpdateDisplayItemRangeLines()
+		self:SelectDisplayItemVariant(index, value, "variantAlt4", self.controls.displayItemAltVariant4)
 	end)
 	self.controls.displayItemAltVariant4.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant4.shown = function()
 		return self.displayItem.hasAltVariant4
 	end
 	self.controls.displayItemAltVariant5 = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemAltVariant4, "BOTTOMLEFT" }, { 0, 4, 300, 20 }, nil, function(index, value)
-		self.displayItem.variantAlt5 = index
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateRuneControls()
-		self:UpdateDisplayItemTooltip()
-		self:UpdateDisplayItemRangeLines()
+		self:SelectDisplayItemVariant(index, value, "variantAlt5", self.controls.displayItemAltVariant5)
 	end)
 	self.controls.displayItemAltVariant5.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant5.shown = function()
 		return self.displayItem.hasAltVariant5
+	end
+	for _, control in ipairs({
+		self.controls.displayItemVariant,
+		self.controls.displayItemAltVariant,
+		self.controls.displayItemAltVariant2,
+		self.controls.displayItemAltVariant3,
+		self.controls.displayItemAltVariant4,
+		self.controls.displayItemAltVariant5,
+	}) do
+		local legacyShown = control.shown
+		control.shown = function(c)
+			if not self.displayItem then
+				return false
+			end
+			if self.displayItem:UsesVersionedOrGroupedVariants() then
+				return c.newVariantVisible
+			end
+			return legacyShown()
+		end
+		control.enabled = function(c)
+			return not self.displayItem or not self.displayItem:UsesVersionedOrGroupedVariants() or c.newVariantEnabled
+		end
 	end
 
 	-- Section: Sockets and Links
@@ -680,6 +713,9 @@ holding Shift will put it in the second.]])
 			self.displayItem.runes[i] = value.name
 			self.displayItem:UpdateRunes()
 			self.displayItem:BuildAndParseRaw()
+			if self.displayItem.crafted then
+				self:UpdateAffixControls()
+			end
 			self:UpdateDisplayItemTooltip()
 		end)
 		drop.y = function()
@@ -785,7 +821,7 @@ holding Shift will put it in the second.]])
 			return range
 		end
 		drop = new("DropDownControl"):DropDownControl({ "TOPLEFT", prev, "TOPLEFT" }, { i == 1 and 40 or 0, 0, 418, 20 }, nil, function(index, value)
-			local affix = { modId = "None" }
+			local affix = { modId = "None", fractured = self.displayItem[drop.outputTable][drop.outputIndex].fractured }
 			if value.modId then
 				affix.modId = value.modId
 				affix.range = slider.val
@@ -804,7 +840,7 @@ holding Shift will put it in the second.]])
 			return i == 1 and 0 or 24 + (prev.slider:IsShown() and 18 or 0)
 		end
 		drop.tooltipFunc = function(tooltip, mode, index, value)
-			local modList = value.modList
+			local modList = value and value.modList
 			if not modList or main.popups[1] or mode == "OUT" or (self.selControl and self.selControl ~= drop) then
 				tooltip:Clear()
 			elseif tooltip:CheckForUpdate(modList) then
@@ -1390,6 +1426,27 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	if self.displayItem then
 		local x, y = self.controls.displayItemTooltipAnchor:GetPos()
 		self.displayItemTooltip:Draw(x, y, nil, nil, viewPort)
+
+		-- Toggle mods
+		local cursorX, cursorY = GetCursorPos()
+		for _, line in ipairs(self.displayItemTooltip.lines) do
+			if line.modLine and line.bounds then
+				local b = line.bounds
+				if cursorX >= b.x and cursorX <= b.x + b.width and cursorY >= b.y and cursorY <= b.y + b.height then
+					SetDrawColor(1, 1, 1, 0.15)
+					DrawImage(nil, b.x, b.y, b.width, b.height)
+					SetDrawColor(1, 1, 1)
+
+					for id, event in ipairs(inputEvents) do
+						if event.type == "KeyDown" and event.key:match("BUTTON") then
+							inputEvents[id] = nil
+							self:ToggleDisplayItemModLine(line.modLine)
+							break
+						end
+					end
+				end
+			end
+		end
 	end
 
 	self:UpdateSockets()
@@ -1816,6 +1873,90 @@ function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	end
 end
 
+function ItemsTabClass:SelectDisplayItemVariant(index, value, legacyField, control)
+	if self.displayItem:HasVariantGroups() then
+		if not value or not value.variantId then
+			return
+		end
+		self.displayItem.variantGroupSelections[control.variantGroupId] = value.variantId
+		self.displayItem:NormaliseVariantSelections()
+	else
+		self.displayItem[legacyField] = index
+	end
+	self.displayItem:BuildAndParseRaw()
+	self:UpdateDisplayItemVariantControls()
+	self:UpdateRuneControls()
+	self:UpdateDisplayItemTooltip()
+	self:UpdateDisplayItemRangeLines()
+end
+
+function ItemsTabClass:UpdateDisplayItemVariantControls()
+	local item = self.displayItem
+	local controls = {
+		self.controls.displayItemVariant,
+		self.controls.displayItemAltVariant,
+		self.controls.displayItemAltVariant2,
+		self.controls.displayItemAltVariant3,
+		self.controls.displayItemAltVariant4,
+		self.controls.displayItemAltVariant5,
+	}
+	for _, control in ipairs(controls) do
+		control.newVariantVisible = false
+	end
+	if not item or not item:UsesVersionedOrGroupedVariants() then
+		return
+	end
+
+	self.controls.displayItemVersion.list = item.versionList or { }
+	self.controls.displayItemVersion.selIndex = item.selectedVersion or 1
+	self.controls.displayItemVersion:CheckDroppedWidth(true)
+	if item:HasIndependentVariants() then
+		local control = self.controls.displayItemVariant
+		control.list = item.variantList
+		control.selIndex = item.variant
+		control.variantGroupId = nil
+		control.newVariantVisible = #item.variantList > 1
+		control.newVariantEnabled = #item.variantList > 1
+		control:CheckDroppedWidth(true)
+		return
+	end
+	local controlIndex = 1
+	for groupId in pairsSortByKey(item.variantGroups) do
+		local eligibleOptions = item:GetVariantGroupOptions(groupId, false)
+		if #eligibleOptions > 0 then
+			local control = controls[controlIndex]
+			if not control then
+				ConPrintf("Item '%s' has more than 6 variant groups", item.name)
+				break
+			end
+			local availableOptions = item:GetVariantGroupOptions(groupId, true)
+			local list = { }
+			local selectedIndex
+			for _, variantId in ipairs(availableOptions) do
+				t_insert(list, {
+					label = item.variantList[variantId],
+					variantId = variantId,
+				})
+				if item.variantGroupSelections[groupId] == variantId then
+					selectedIndex = #list
+				end
+			end
+			if #list == 0 then
+				t_insert(list, {
+					label = "No available variants",
+				})
+			end
+			control.list = list
+			control.selIndex = selectedIndex or 1
+			control.variantGroupId = groupId
+			control.newVariantVisible = true
+			control.newVariantEnabled = #availableOptions > 1
+			control:CheckDroppedWidth(true)
+			controlIndex = controlIndex + 1
+		end
+	end
+end
+
 -- Sets the display item to the given item
 function ItemsTabClass:SetDisplayItem(item)
 	self.displayItem = item
@@ -1823,31 +1964,36 @@ function ItemsTabClass:SetDisplayItem(item)
 		-- Update the display item controls
 		self:UpdateDisplayItemTooltip()
 		self.snapHScroll = "RIGHT"
+		local usesVersionedOrGroupedVariants = item:UsesVersionedOrGroupedVariants()
 
-		self.controls.displayItemVariant.list = item.variantList
-		self.controls.displayItemVariant.selIndex = item.variant
-		self.controls.displayItemVariant:CheckDroppedWidth(true)
-		if item.hasAltVariant then
+		if usesVersionedOrGroupedVariants then
+			self:UpdateDisplayItemVariantControls()
+		else
+			self.controls.displayItemVariant.list = item.variantList
+			self.controls.displayItemVariant.selIndex = item.variant
+			self.controls.displayItemVariant:CheckDroppedWidth(true)
+		end
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant then
 			self.controls.displayItemAltVariant.list = item.variantList
 			self.controls.displayItemAltVariant.selIndex = item.variantAlt
 			self.controls.displayItemAltVariant:CheckDroppedWidth(true)
 		end
-		if item.hasAltVariant2 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant2 then
 			self.controls.displayItemAltVariant2.list = item.variantList
 			self.controls.displayItemAltVariant2.selIndex = item.variantAlt2
 			self.controls.displayItemAltVariant2:CheckDroppedWidth(true)
 		end
-		if item.hasAltVariant3 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant3 then
 			self.controls.displayItemAltVariant3.list = item.variantList
 			self.controls.displayItemAltVariant3.selIndex = item.variantAlt3
 			self.controls.displayItemAltVariant3:CheckDroppedWidth(true)
 		end
-		if item.hasAltVariant4 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant4 then
 			self.controls.displayItemAltVariant4.list = item.variantList
 			self.controls.displayItemAltVariant4.selIndex = item.variantAlt4
 			self.controls.displayItemAltVariant4:CheckDroppedWidth(true)
 		end
-		if item.hasAltVariant5 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant5 then
 			self.controls.displayItemAltVariant5.list = item.variantList
 			self.controls.displayItemAltVariant5.selIndex = item.variantAlt5
 			self.controls.displayItemAltVariant5:CheckDroppedWidth(true)
@@ -1858,7 +2004,7 @@ function ItemsTabClass:SetDisplayItem(item)
 		self.controls.displayItemSocketRuneEdit:SetText(item.itemSocketCount)
 		self.controls.displayItemSocketJewelEdit:SetText(item.jewelSocketCount)
 		self.controls.displayItemQualityEdit:SetText(item.quality)
-		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
+		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1, true)
 		if item.catalystQuality then
 			self.controls.displayItemCatalystQualityEdit:SetText(m_max(item.catalystQuality, 0))
 		else
@@ -1879,6 +2025,21 @@ function ItemsTabClass:UpdateDisplayItemTooltip()
 	self.displayItemTooltip:Clear()
 	self:AddItemTooltip(self.displayItemTooltip, self.displayItem)
 	self.displayItemTooltip.center = true
+end
+
+function ItemsTabClass:ToggleDisplayItemModLine(modLine)
+	if not self.displayItem or not modLine then
+		return
+	end
+	modLine.disabled = not modLine.disabled
+	self.displayItem:BuildAndParseRaw()
+	self:UpdateDisplayItemTooltip()
+	self:UpdateDisplayItemRangeLines()
+	self:UpdateCustomControls()
+	if self.displayItem.crafted then
+		self:UpdateAffixControls()
+	end
+	self.build.buildFlag = true
 end
 
 function ItemsTabClass:UpdateClusterJewelControls()
@@ -2038,7 +2199,7 @@ function ItemsTabClass:UpdateRuneControls()
 	end
 end
 
-function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outputIndex, powerCache)
+function ItemsTabClass:UpdateAffixControl(control, item, affixType, outputTable, outputIndex, powerCache)
 	local extraTags = { }
 	local excludeGroups = { }
 	for _, table in ipairs({"prefixes","suffixes"}) do
@@ -2066,7 +2227,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	end
 	local affixList = { }
 	for modId, mod in pairs(item.affixes) do
-		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
+		if mod.type == affixType and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
 			t_insert(affixList, modId)
 		end
 	end
@@ -2174,7 +2335,10 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	if control.list[control.selIndex].haveRange then
 		control.slider.divCount = #control.list[control.selIndex].modList
 		local index = isValueInArray(control.list[control.selIndex].modList, selAffix)
-		local range = item[outputTable][outputIndex].range or 0.5
+		-- Imported legacy rolls can sit outside the current 0-1 affix range.
+		-- Keep that value on the affix, but show the nearest slider endpoint.
+		local affixRange = item[outputTable][outputIndex].range
+		local range = m_min(1, m_max(0, type(affixRange) == "table" and affixRange[1] or affixRange or 0.5))
 		-- Avoid exact integer boundary that slider:GetDivVal's ceil would assign to the previous segment
 		if range == 0 and index > 1 then
 			range = 1e-4
@@ -2878,19 +3042,9 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		local item = new("Item"):Item(self.displayItem:BuildRaw())
 		local offset = 20
 		for i, mod in ipairs(item.explicitModLines) do
-			local variantIds = {}
-			for id, _ in pairs(item.explicitModLines[i].variantList or {}) do
-				t_insert(variantIds, id)
-			end
-			local selectedVariant
-			for _, variantId in ipairs(variantIds) do
-				if item.variant == variantId or item.variantAlt == variantId or item.variantAlt2 == variantId or item.variantAlt3 == variantId or item.variantAlt4 == variantId or item.variantAlt5 == variantId then
-					selectedVariant = true
-				end
-			end
 			-- test if a mod is scalable at all. this will let through mods that scale, but don't actually change within the corrupt range
 			local testScaledLine = itemLib.applyRange(mod.line, mod.range or main.defaultItemAffixQuality, mod.valueScalar or 1, 2)
-			if not (testScaledLine == mod.line) and (#variantIds > 0 and selectedVariant or #variantIds == 0) then
+			if not (testScaledLine == mod.line) and item:CheckModLineVariant(mod) then
 				local label = ""
 				controls["rollRangeValue" .. i] = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 10 + offset, 200, 16 }, "^71.00")
 				controls["rollRangeSlider" .. i] = new("SliderControl"):SliderControl({ "LEFT", controls["rollRangeValue" .. i], "RIGHT" }, { 5, 0, 80, 18 }, function(val)
@@ -3379,7 +3533,25 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 
 	-- Special fields for database items
 	if dbMode then
-		if item.variantList then
+		if item:UsesVersionedOrGroupedVariants() then
+			if item.versionList and item.selectedVersion then
+				tooltip:AddLine(fontSizeBig, "^xFFFF30Version: " .. item.versionList[item.selectedVersion], "FONTIN SC")
+			end
+			if item:HasIndependentVariants() then
+				tooltip:AddLine(fontSizeBig, "^xFFFF30Variant: " .. item.variantList[item.variant], "FONTIN SC")
+			else
+				local selectedVariants = { }
+				for groupId in pairsSortByKey(item.variantGroups) do
+					local variantId = item.variantGroupSelections[groupId]
+					if variantId and item:IsVariantGroupOptionEligible(groupId, variantId) then
+						t_insert(selectedVariants, item.variantList[variantId])
+					end
+				end
+				if #selectedVariants > 0 then
+					tooltip:AddLine(fontSizeBig, "^xFFFF30Variants: " .. table.concat(selectedVariants, ", "), "FONTIN SC")
+				end
+			end
+		elseif item.variantList then
 			if #item.variantList == 1 then
 				tooltip:AddLine(fontSizeBig, "^xFFFF30Variant: "..item.variantList[1], "FONTIN SC")
 			else
@@ -3520,16 +3692,16 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FChance to Block: %s%d%%", main:StatColor(armourData.BlockChance, base.armour.BlockChance), armourData.BlockChance), "FONTIN SC")
 		end
 		if armour > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, base.armour.Armour), armour), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FArmour: %s%d", main:StatColor(armour, armourData.ArmourBase), armour), "FONTIN SC")
 		end
 		if evasion > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, base.armour.Evasion), evasion), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEvasion Rating: %s%d", main:StatColor(evasion, armourData.EvasionBase), evasion), "FONTIN SC")
 		end
 		if energyShield > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, base.armour.EnergyShield), energyShield), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FEnergy Shield: %s%d", main:StatColor(energyShield, armourData.EnergyShieldBase), energyShield), "FONTIN SC")
 		end
 		if ward > 0 then
-			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, base.armour.Ward), ward), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FRunic Ward: %s%d", main:StatColor(ward, armourData.WardBase), ward), "FONTIN SC")
 		end
 	elseif base.flask then
 		-- Flask-specific info
@@ -3699,7 +3871,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 						formattedModLine = itemLib.formatModLine(modLine, dbMode)
 					end
 					for _ = 1, variantCount do
-						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg)
+						tooltip:AddLine(fontSizeBig, formattedModLine, "FONTIN SC", bg, modLine)
 					end
 
 					-- Show mods from granted passives
@@ -3820,9 +3992,10 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		end
 	end
 	-- Stat differences
+	local itemTabHint = self.build.viewMode == "ITEMS" and "" or " in the Items tab"
 	if not self.showStatDifferences then
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to enable the display of stat differences.")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D"..itemTabHint.." to enable the display of stat differences.")
 		return
 	end
 	local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator()
@@ -4062,7 +4235,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			end
 		end
 
-		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D"..itemTabHint.." to disable the display of stat differences.")
 
 		local function getReplacedItemAndOutput(compareSlot)
 			local selItem = self.items[compareSlot.selItemId]

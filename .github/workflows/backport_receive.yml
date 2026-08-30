@@ -15,13 +15,41 @@ jobs:
               with:
                 ref: 'dev'
             - name: Apply patch
+              env:
+                PORT_SOURCE_TOKEN: ${{ secrets.WIRES77_PAT }}
+                PR_NUMBER: ${{ github.event.client_payload.id }}
               run: |
-                # Download patch first to avoid broken pipes if apply exits early
+                set -euo pipefail
+
+                if [ -z "$PORT_SOURCE_TOKEN" ]; then
+                  echo "::error::WIRES77_PAT is not configured"
+                  exit 1
+                fi
+
                 PATCH_FILE=$(mktemp)
-                curl -L ${{ github.event.client_payload.patch_url }} -o "$PATCH_FILE"
+                curl --fail-with-body --location \
+                  --retry 5 \
+                  --retry-all-errors \
+                  --retry-max-time 300 \
+                  --header "Accept: application/vnd.github.patch" \
+                  --header "Authorization: Bearer $PORT_SOURCE_TOKEN" \
+                  --header "X-GitHub-Api-Version: 2026-03-10" \
+                  "https://api.github.com/repos/PathOfBuildingCommunity/PathOfBuilding/pulls/$PR_NUMBER" \
+                  --output "$PATCH_FILE"
+
+                if ! grep -Eq '^(From [0-9a-f]{40} Mon Sep 17 00:00:00 2001|diff --git )' "$PATCH_FILE"; then
+                  echo "::error::GitHub returned something other than a patch"
+                  exit 1
+                fi
+
                 if ! git apply -v --3way --ignore-whitespace --index "$PATCH_FILE"; then
                   echo "3-way apply failed, retrying with --reject"
                   git apply -v --reject --ignore-whitespace --index "$PATCH_FILE" || true
+                fi
+
+                if [ -z "$(git status --porcelain)" ]; then
+                  echo "::error::Patch produced no changes or rejection files"
+                  exit 1
                 fi
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5

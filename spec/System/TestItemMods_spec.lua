@@ -40,6 +40,70 @@ describe("TetsItemMods", function()
 		assert.are.equals(2, legacyLines)
 	end)
 
+	it("toggles modifiers from the display item tooltip", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: Rare
+			Toggle Test
+			Ring
+			Implicits: 0
+			+100 to maximum Life
+		]])
+		local item = build.itemsTab.displayItem
+
+		assert.are.equals(100, item.baseModList:Sum("BASE", nil, "Life"))
+		build.itemsTab:ToggleDisplayItemModLine(item.explicitModLines[1])
+
+		item = build.itemsTab.displayItem
+		assert.is_true(item.explicitModLines[1].disabled)
+		assert.are.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+		assert.are.equals(colorCodes.DISABLED.."+100 to maximum Life", itemLib.formatModLine(item.explicitModLines[1]))
+		local tooltipModLine
+		for _, line in ipairs(build.itemsTab.displayItemTooltip.lines) do
+			if line.text and line.text:find("+100 to maximum Life", 1, true) then
+				tooltipModLine = line.modLine
+				break
+			end
+		end
+		assert.are.equals(item.explicitModLines[1], tooltipModLine)
+
+		build.itemsTab:ToggleDisplayItemModLine(item.explicitModLines[1])
+		assert.is_nil(build.itemsTab.displayItem.explicitModLines[1].disabled)
+		assert.are.equals(100, build.itemsTab.displayItem.baseModList:Sum("BASE", nil, "Life"))
+	end)
+
+	it("preserves disabled rune modifiers when rebuilding an item", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Perfect Storm Rune
+			LevelReq: 1
+			Implicits: 1
+			{enchant}{rune}Gain 12% of Damage as Extra Lightning Damage
+			200% increased effect of Socketed Runes
+		]])
+		local item = build.itemsTab.displayItem
+		local runeModLine
+		for _, modLine in ipairs(item.runeModLines) do
+			if modLine.line == "Gain 12% of Damage as Extra Lightning Damage" then
+				runeModLine = modLine
+				break
+			end
+		end
+		assert.is_not_nil(runeModLine)
+		assert.are.equals(3, runeModLine.displayValueScalar)
+
+		build.itemsTab:ToggleDisplayItemModLine(runeModLine)
+
+		for _, modLine in ipairs(build.itemsTab.displayItem.runeModLines) do
+			if modLine.line == runeModLine.line then
+				assert.is_true(modLine.disabled)
+				return
+			end
+		end
+		assert(false, "Disabled rune modifier not found after rebuilding item")
+	end)
+
 	it("shows a fallback tooltip when an item's base is no longer supported", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique
@@ -621,8 +685,8 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
-		-- ~500 armour gives 25% increased block => 12.5%
-		assert.equals(12.5, build.calcsTab.mainOutput.EffectiveBlockChance)
+		-- ~500 armour gives 25% increased block => 13%
+		assert.equals(13, build.calcsTab.mainOutput.EffectiveBlockChance)
 		assert.True(basePhys < build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
 	end)
 	it("liminal coil", function()

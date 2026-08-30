@@ -74,7 +74,7 @@ function ImportTabClass:ImportTab(build)
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 60) - os.time()) .. ") - URL copied to clipboard" end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
@@ -1123,6 +1123,9 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			t_insert(preservedSocketGroupStateByKey[key], snapshotSocketGroupReimportState(socketGroup, index == self.build.mainSocketGroup))
 		end
 		wipeTable(self.build.skillsTab.socketGroupList)
+		self.build.skillsTab.controls.groupList.selIndex = nil
+		self.build.skillsTab.controls.groupList.selValue = nil
+		self.build.skillsTab:SetDisplayGroup()
 	end
 	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
 	--ConPrintTable(charItemData)
@@ -1443,7 +1446,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	item.mirrored = itemData.mirrored
+	item.mirrored = itemData.duplicated or itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
@@ -1528,12 +1531,13 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	if itemData.explicitMods then
 		for _, itemMod in ipairs(itemData.explicitMods) do
 			local modLine = itemMod.description or itemMod
+			local flags = itemMod.flags or itemMod
 			for line in modLine:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { },
-					fractured = itemMod.fractured,
-					crafted = itemMod.crafted,
-					mutated = itemMod.mutated })
+					fractured = flags.fractured,
+					crafted = flags.crafted,
+					mutated = flags.mutated })
 			end
 		end
 	end

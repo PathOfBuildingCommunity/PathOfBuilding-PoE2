@@ -187,6 +187,24 @@ Fireball 20/0  1
 		assert.is_false(groupsByGem.Fireball.enabled)
 	end)
 
+	it("clears the stale socket group selection when reimporting skills", function()
+		build.skillsTab:PasteSocketGroup([[
+Fireball 20/0  1
+]])
+		runCallback("OnFrame")
+
+		local oldSocketGroup = build.skillsTab.socketGroupList[1]
+		assert.are.equal(oldSocketGroup, build.skillsTab.displayGroup)
+		assert.are.equal(oldSocketGroup, build.skillsTab.controls.groupList.selValue)
+
+		reimportSingleGem("Linen Wraps", "Gloves", "Dark Effigy")
+
+		assert.is_nil(build.skillsTab.displayGroup)
+		assert.is_nil(build.skillsTab.controls.groupList.selIndex)
+		assert.is_nil(build.skillsTab.controls.groupList.selValue)
+		assert.are_not.equal(oldSocketGroup, build.skillsTab.socketGroupList[1])
+	end)
+
 	it("imports item socketed jewels using jewel socket order instead of raw socket index", function()
 		build.importTab.controls.charImportItemsClearItems.state = true
 		build.importTab.controls.charImportItemsClearSkills.state = true

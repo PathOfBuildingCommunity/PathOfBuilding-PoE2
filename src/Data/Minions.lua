@@ -362,6 +362,7 @@ minions["RaisedSkeletonReaver"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- is_skeleton_minion [is_skeleton_minion = 1]
+		mod("Condition:CanGainRage", "FLAG", true),
 	},
 }
 

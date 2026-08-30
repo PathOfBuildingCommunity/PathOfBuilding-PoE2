@@ -968,8 +968,10 @@ Huge sets the radius to 11.
 	{ var = "multiplierDefiance", type = "count", label = "Defiance:", ifMult = "Defiance", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Defiance", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifPlayerFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" })
+	end },
+	{ var = "multiplierMinionRage", type = "count", label = "Minion ^xFF9922Rage:", ifMinionFlag = "Condition:CanGainRage", tooltip = "Sets the Minion's current Rage.\nRage is capped at Minion's Maximum Rage.", apply = function(val, modList, enemyModList) modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" }) }, "Config")
 	end },
 	{ var = "multiplierCombo", type = "count", label = "Combo:", ifMult = "ComboStacks", tooltip = "Some skills and effects require a certain Combo count to use.\nCombo is built by successfully Striking Enemies.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:ComboStacks", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })
@@ -2151,16 +2153,16 @@ Huge sets the radius to 11.
 	{ var = "enemyPhysicalReduction", type = "integer", label = "Enemy Phys. Damage Reduction:", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("PhysicalDamageReduction", "BASE", val, "EnemyConfig")
 	end },
-	{ var = "enemyLightningResist", type = "integer", label = "Enemy ^xADAA47Lightning Resistance:", apply = function(val, modList, enemyModList)
+	{ var = "enemyLightningResist", type = "countAllowZero", label = "Enemy ^xADAA47Lightning Resistance:", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("LightningResist", "BASE", val, "EnemyConfig")
 	end },
-	{ var = "enemyColdResist", type = "integer", label = "Enemy ^x3F6DB3Cold Resistance:", apply = function(val, modList, enemyModList)
+	{ var = "enemyColdResist", type = "countAllowZero", label = "Enemy ^x3F6DB3Cold Resistance:", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("ColdResist", "BASE", val, "EnemyConfig")
 	end },
-	{ var = "enemyFireResist", type = "integer", label = "Enemy ^xB97123Fire Resistance:", apply = function(val, modList, enemyModList)
+	{ var = "enemyFireResist", type = "countAllowZero", label = "Enemy ^xB97123Fire Resistance:", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("FireResist", "BASE", val, "EnemyConfig")
 	end },
-	{ var = "enemyChaosResist", type = "integer", label = "Enemy ^xD02090Chaos Resistance:", apply = function(val, modList, enemyModList)
+	{ var = "enemyChaosResist", type = "countAllowZero", label = "Enemy ^xD02090Chaos Resistance:", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("ChaosResist", "BASE", val, "EnemyConfig")
 	end },
 	{ var = "enemyMaxResist", type = "check", label = "Enemy Max Resistance is always 75%", tooltip = "Enemy Maximum resistance is increased by the resistance configurations \nThis locks it at the default value", apply = function(val, modList, enemyModList)

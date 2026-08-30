@@ -95,12 +95,15 @@ return function(modDB, output, actor)
 		})
 	end
 
-	function breakdown.area(base, areaMod, total, incBreakpoint, moreBreakpoint, redBreakpoint, lessBreakpoint, label)
+	function breakdown.area(base, areaMod, total, incBreakpoint, moreBreakpoint, redBreakpoint, lessBreakpoint, label, radiusMod)
 		local out = {}
 		t_insert(out, label)
 		if base ~= total then
 			t_insert(out, s_format("%.1fm ^8(base radius)", base / 10))
 			t_insert(out, s_format("x %.2f ^8(square root of area of effect modifier)", m_floor(100 * m_sqrt(areaMod)) / 100))
+			if radiusMod and radiusMod ~= 1 then
+				t_insert(out, s_format("x %.2f ^8(final radius modifier)", radiusMod))
+			end
 			t_insert(out, s_format("= %.1fm", total / 10))
 		end
 		if incBreakpoint and moreBreakpoint and redBreakpoint and lessBreakpoint then
@@ -111,7 +114,7 @@ return function(modDB, output, actor)
 		return out
 	end
 
-	function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist)
+	function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes, invertChance, minPen, effectiveResist, normalHitResist, invertedHitResist)
 		local out = { }
 		local resistForm = (damageType == "Physical") and "physical damage reduction" or "resistance"
 		local resistLabel = resistForm
@@ -127,11 +130,11 @@ return function(modDB, output, actor)
 			t_insert(out, s_format("Enemy %s: %d%%", resistLabel, resist))
 		end
 		if invertChance and invertChance ~= 0 and useRes then
-			local normalResist = calcPenResist(resist)
-			local invertedResist = calcPenResist(-resist)
+			normalHitResist = normalHitResist or calcPenResist(resist)
+			invertedHitResist = invertedHitResist or calcPenResist(-resist)
 			t_insert(out, "Effective resistance:")
-			t_insert(out, s_format("%g%% ^8(non-inverted hit after penetration)", normalResist))
-			t_insert(out, s_format("%g%% ^8(inverted hit after penetration)", invertedResist))
+			t_insert(out, s_format("%g%% ^8(non-inverted hit after penetration)", normalHitResist))
+			t_insert(out, s_format("%g%% ^8(inverted hit after penetration)", invertedHitResist))
 			t_insert(out, s_format("= %g%% ^8(weighted average from %.0f%% inversion chance)", effectiveResist, invertChance * 100))
 		elseif pen ~= 0 or not useRes then
 			t_insert(out, "Effective resistance:")

@@ -654,7 +654,7 @@ return function(mod, flag, skill)
 	mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt" }),
 },
 ["active_skill_area_of_effect_radius_+%_final"] = {
-	mod("AreaOfEffect", "MORE", nil),
+	mod("AreaOfEffectRadius", "MORE", nil),
 },
 ["active_skill_area_of_effect_+%_final"] = {
 	mod("AreaOfEffect", "MORE", nil),
@@ -2944,6 +2944,7 @@ return function(mod, flag, skill)
 },
 ["gain_x_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+	mod("MinionModifier", "LIST", { mod = flag("Condition:CanGainRage") }),
 },
 ["gain_x%_of_maximum_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),

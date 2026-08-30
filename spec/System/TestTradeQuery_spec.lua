@@ -61,6 +61,14 @@ describe("TradeQuery", function ()
 			assert.are.equal(0, #tooltip.lines)
 		end)
 	end)
+
+	it("fits the OAuth clipboard status inside the login button", function()
+		local status = mock_tradeQuery:FormatOAuthLoginStatus(60)
+
+		assert.are.equals("URL copied - Login (60)", status)
+		assert.is_true(DrawStringWidth(16, "VAR", status) <= 188)
+	end)
+
 	describe("ReduceOutput", function()
 		it("uses selected minion stats for weighted result comparison", function()
 			mock_tradeQuery.statSortSelectionList = { { stat = "AverageDamage" } }
@@ -95,6 +103,90 @@ describe("TradeQuery", function ()
 			local result = mock_queryGen.WeightedRatioOutputs(baseOutput, reducedOutput, mock_tradeQuery.statSortSelectionList)
 
 			assert.are.equals(1.2, result)
+		end)
+	end)
+
+	describe("ComputeStatDetails", function()
+		it("uses Trader's FullDPS fallback inputs", function()
+			mock_tradeQuery.statSortSelectionList = { { label = "Full DPS", stat = "FullDPS", weightMult = 1 } }
+
+			local result = mock_tradeQuery:ComputeStatDetails({
+				CombinedDPS = 100,
+				TotalDPS = 100,
+				TotalDotDPS = 0,
+			}, {
+				CombinedDPS = 100,
+				TotalDPS = 200,
+				TotalDotDPS = 0,
+			})
+
+			assert.are.equals(50, result[1].percentChange)
+		end)
+
+		it("reports lower-is-better stat improvements as positive", function()
+			mock_tradeQuery.statSortSelectionList = {
+				{
+					label = "Taken Phys dmg",
+					stat = "PhysicalTakenHit",
+					weightMult = 1,
+					transform = function(value) return -value end,
+				},
+			}
+
+			local result = mock_tradeQuery:ComputeStatDetails({ PhysicalTakenHit = 100 }, { PhysicalTakenHit = 80 })
+
+			assert.is_true(math.abs(result[1].percentChange - 20) < 0.0001)
+		end)
+
+		it("caps displayed increases to Trader's scoring maximum", function()
+			mock_tradeQuery.statSortSelectionList = { { label = "Life", stat = "Life", weightMult = 1 } }
+			local maxStatIncrease = data.misc.maxStatIncrease
+
+			local result = mock_tradeQuery:ComputeStatDetails({ Life = 1 }, { Life = maxStatIncrease + 1 })
+
+			assert.are.equals((maxStatIncrease - 1) * 100, result[1].percentChange)
+		end)
+
+		it("reports unchanged zero-value stats as unchanged", function()
+			mock_tradeQuery.statSortSelectionList = { { label = "Block Chance", stat = "BlockChance", weightMult = 1 } }
+
+			local result = mock_tradeQuery:ComputeStatDetails({ BlockChance = 0 }, { BlockChance = 0 })
+
+			assert.are.equals(0, result[1].percentChange)
+		end)
+
+		it("reports improvements from zero as positive", function()
+			mock_tradeQuery.statSortSelectionList = { { label = "Block Chance", stat = "BlockChance", weightMult = 1 } }
+			local maxStatIncrease = data.misc.maxStatIncrease
+
+			local result = mock_tradeQuery:ComputeStatDetails({ BlockChance = 0 }, { BlockChance = 0.5 })
+
+			assert.are.equals((maxStatIncrease - 1) * 100, result[1].percentChange)
+		end)
+	end)
+
+	describe("GetResultScorePercent", function()
+		it("returns the weighted average stat delta", function()
+			local result = mock_tradeQuery:GetResultScorePercent({
+				statDetails = {
+					{ percentChange = 10, weightMult = 1 },
+					{ percentChange = -10, weightMult = 0.5 },
+				},
+			})
+
+			assert.is_true(math.abs(result - (10 / 3)) < 0.0001)
+		end)
+	end)
+
+	describe("result dropdown sizing", function()
+		it("reserves space between labels and score details", function()
+			local entry = { label = "A result item label", detail = "+123.4%" }
+			local dropdown = new("DropDownControl"):DropDownControl(nil, { 0, 0, 100, 20 }, { entry })
+			dropdown.maxDroppedWidth = 1000
+			dropdown:CheckDroppedWidth(true)
+
+			local textWidth = DrawStringWidth(16, "VAR", entry.label) + DrawStringWidth(16, "VAR", entry.detail)
+			assert.is_true(dropdown.droppedWidth >= textWidth + 36)
 		end)
 	end)
 end)
