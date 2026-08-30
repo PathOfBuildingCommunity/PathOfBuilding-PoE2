@@ -61,8 +61,8 @@ describe("Versioned item variants", function()
 
 	it("keeps an independent variant selection when versions and variants exist", function()
 		local item = new("Item"):Item(ungroupedRaw)
-		assert.is_true(item.usesVariantGroups)
-		assert.is_true(item.hasUngroupedVariants)
+		assert.is_true(item:HasIndependentVariants())
+		assert.is_false(item:HasVariantGroups())
 		assert.equals(2, item.selectedVersion)
 		assert.equals(2, item.variant)
 		assert.same({ }, item.variantGroupSelections)
@@ -230,11 +230,11 @@ describe("Versioned item variants", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique
 			Base Test
+			{variant:1}{group:1}Gold Ring
+			{variant:2}{group:1}Iron Ring
 			Variant: Gold
 			Variant: Iron
 			Selected Variant Group: 1=99
-			{variant:1}{group:1}Gold Ring
-			{variant:2}{group:1}Iron Ring
 			Implicits: 0
 			+10 to maximum Life
 		]])
@@ -249,14 +249,14 @@ describe("Versioned item variants", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique
 			Independent Base Test
+			{version:1}{variant:1}Gold Ring
+			{version:2}{variant:2}Iron Ring
 			Version: Legacy
 			Version: Current
 			Selected Version: 2
 			Variant: Gold
 			Variant: Iron
 			Selected Variant: 2
-			{version:1}{variant:1}Gold Ring
-			{version:2}{variant:2}Iron Ring
 			Implicits: 0
 			+10 to maximum Life
 		]])

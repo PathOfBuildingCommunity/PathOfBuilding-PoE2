@@ -301,6 +301,47 @@ local function specToNumber(s)
 	return n and tonumber(n)
 end
 
+local function parseItemSpec(line)
+	local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
+	if specName == "Class:" then
+		specName = "Requires Class"
+	elseif not specName then
+		specName, specVal = line:match("^(Requires %a+) (.+)$")
+	end
+	return specName, specVal
+end
+
+local function parseIdSpec(spec, positiveOnly)
+	local ids = { }
+	for id in (spec or ""):gmatch("%d+") do
+		id = tonumber(id)
+		if not positiveOnly or id > 0 then
+			ids[id] = true
+		end
+	end
+	return ids
+end
+
+local variantSelectionSpecNames = {
+	["Version"] = true,
+	["Variant"] = true,
+	["Selected Version"] = true,
+	["Selected Variant Group"] = true,
+	["Selected Variant"] = true,
+}
+
+function ItemClass:HasVariantGroups()
+	return self.variantGroups and next(self.variantGroups) ~= nil or false
+end
+
+function ItemClass:HasIndependentVariants()
+	return self.versionList ~= nil and self.variantList ~= nil and not self:HasVariantGroups()
+end
+
+function ItemClass:UsesVersionedOrGroupedVariants()
+	return self.versionList ~= nil or self:HasVariantGroups()
+end
+
 function ItemClass:IsVariantGroupOptionEligible(groupId, variantId)
 	local group = self.variantGroups and self.variantGroups[groupId]
 	local versions = group and group[variantId]
@@ -337,7 +378,7 @@ function ItemClass:NormaliseVariantSelections()
 	else
 		self.selectedVersion = nil
 	end
-	if self.hasUngroupedVariants then
+	if self:HasIndependentVariants() then
 		self.variant = m_max(1, m_min(#self.variantList, self.variant or #self.variantList))
 	end
 	self.variantGroupSelections = self.variantGroupSelections or { }
@@ -399,7 +440,7 @@ end
 
 local getRangedModList
 -- Parse raw item data and extract item name, base type, quality, and modifiers
-function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
+function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.raw = raw
 	self.name = "?"
 	self.namePrefix = ""
@@ -500,10 +541,79 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 	local implicitLines = 0
 	self.variantList = nil
 	self.versionList = nil
+	-- group ID -> variant ID -> eligible version IDs; version 0 means every version.
+	---@type table<number, table<number, table<number, boolean>>>
 	self.variantGroups = { }
 	self.variantGroupSelections = self.variantGroupSelections or { }
-	self.usesVariantGroups = false
-	self.hasUngroupedVariants = false
+	-- Resolve selection metadata first because tagged base lines can precede it.
+	-- The main parser reuses these parsed tag tables when it builds each ModLine.
+	local selectionTagsByLine = { }
+	for lineIndex, rawLine in ipairs(self.rawLines) do
+		local specName, specVal = parseItemSpec(rawLine)
+		if variantSelectionSpecNames[specName] then
+			if specName == "Version" then
+				self.versionList = self.versionList or { }
+				t_insert(self.versionList, specVal)
+			elseif specName == "Variant" then
+				self.variantList = self.variantList or { }
+				-- This has to be kept for backwards compatibility
+				local _, name = specVal:match("{([%w_]+)}(.+)")
+				t_insert(self.variantList, name or specVal)
+			elseif specName == "Selected Version" then
+				self.selectedVersion = specToNumber(specVal)
+			elseif specName == "Selected Variant Group" then
+				local groupId, variantId = specVal:match("^(%d+)%s*=%s*(%d+)$")
+				if groupId and variantId then
+					self.variantGroupSelections[tonumber(groupId)] = tonumber(variantId)
+				end
+			elseif specName == "Selected Variant" then
+				self.variant = specToNumber(specVal)
+			end
+		end
+
+		local variantSpec = rawLine:match("{variant:([^}]*)}")
+		local versionSpec = rawLine:match("{version:([^}]*)}")
+		local groupSpec = rawLine:match("{group:([^}]*)}")
+		if variantSpec or versionSpec or groupSpec then
+			local selectionTags = {
+				line = rawLine,
+				variantList = variantSpec and parseIdSpec(variantSpec) or nil,
+				versionList = versionSpec and parseIdSpec(versionSpec) or nil,
+				variantGroupList = groupSpec and parseIdSpec(groupSpec, true) or nil,
+			}
+			selectionTagsByLine[lineIndex] = selectionTags
+		end
+	end
+	for _, selectionTags in pairsSortByKey(selectionTagsByLine) do
+		if selectionTags.variantGroupList and (not selectionTags.variantList or not next(selectionTags.variantList)) then
+			ConPrintf("Grouped item line has no variant: %s", selectionTags.line)
+		elseif selectionTags.variantGroupList then
+			for groupId in pairs(selectionTags.variantGroupList) do
+				local group = self.variantGroups[groupId] or { }
+				self.variantGroups[groupId] = group
+				for variantId in pairs(selectionTags.variantList) do
+					if self.variantList and self.variantList[variantId] then
+						local versions = group[variantId] or { }
+						group[variantId] = versions
+						if selectionTags.versionList then
+							for versionId in pairs(selectionTags.versionList) do
+								if self.versionList and self.versionList[versionId] then
+									versions[versionId] = true
+								end
+							end
+						else
+							versions[0] = true
+						end
+					else
+						ConPrintf("Grouped item line references unknown variant %d: %s", variantId, selectionTags.line)
+					end
+				end
+			end
+		end
+	end
+	if self:UsesVersionedOrGroupedVariants() then
+		self:NormaliseVariantSelections()
+	end
 	self.prefixes = { }
 	self.suffixes = { }
 	self.requirements = { }
@@ -516,20 +626,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 	local flaskBuffLines
 	local charmBuffLines
 	local deferJewelRadiusIndexAssignment
-	-- Version headers use the new selection path, while variants without any
-	-- explicit group tags remain a separate, legacy-style selection.
-	local hasExplicitVariantGroups = false
-	for groupSpec in raw:gmatch("{group:([^}]+)}") do
-		for groupId in groupSpec:gmatch("%d+") do
-			if tonumber(groupId) > 0 then
-				hasExplicitVariantGroups = true
-				break
-			end
-		end
-		if hasExplicitVariantGroups then
-			break
-		end
-	end
 	local gameModeStage = "FINDIMPLICIT"
 	local foundExplicit, foundImplicit
 	local linePrefix = ""
@@ -651,14 +747,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 				self.requirements.level = tonumber(levelReq)
 				goto continue
 			end
-			local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
-			if specName then
-				if specName == "Class:" then
-					specName = "Requires Class"
-				end
-			else
-				specName, specVal = line:match("^(Requires %a+) (.+)$")
-			end
+			local specName, specVal = parseItemSpec(line)
 			if specName then
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
@@ -708,25 +797,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 					end
 				elseif specName == "Limited to" and self.type == "Jewel" then
 					self.limit = specToNumber(specVal)
-				elseif specName == "Version" then
-					if not self.versionList then
-						self.versionList = { }
-					end
-					t_insert(self.versionList, specVal)
-					self.usesVariantGroups = true
-					self.hasUngroupedVariants = self.variantList and not hasExplicitVariantGroups or false
-				elseif specName == "Variant" then
-					if not self.variantList then
-						self.variantList = { }
-					end
-					-- This has to be kept for backwards compatibility
-					local ver, name = specVal:match("{([%w_]+)}(.+)")
-					if ver then
-						t_insert(self.variantList, name)
-					else
-						t_insert(self.variantList, specVal)
-					end
-					self.hasUngroupedVariants = self.versionList and not hasExplicitVariantGroups or false
+				elseif variantSelectionSpecNames[specName] then
+					-- Parsed before item lines so tagged bases and modifiers see the final selection.
 				elseif specName == "Talisman Tier" then
 					self.talismanTier = specToNumber(specVal)
 				elseif specName == "Armour" or specName == "Evasion Rating" or specName == "Evasion" or specName == "Energy Shield" or specName == "Ward" then
@@ -764,19 +836,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 					self.hasAltVariant4 = true
 				elseif specName == "Has Alt Variant Five" then
 					self.hasAltVariant5 = true
-				elseif specName == "Selected Version" then
-					if not normalisedSelections then
-						self.selectedVersion = specToNumber(specVal)
-					end
-					self.usesVariantGroups = true
-				elseif specName == "Selected Variant Group" then
-					local groupId, variantId = specVal:match("^(%d+)%s*=%s*(%d+)$")
-					if not normalisedSelections and groupId and variantId then
-						self.variantGroupSelections[tonumber(groupId)] = tonumber(variantId)
-						self.usesVariantGroups = true
-					end
-				elseif specName == "Selected Variant" then
-					self.variant = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant" then
 					self.variantAlt = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant Two" then
@@ -861,29 +920,15 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 			if not specName or foundExplicit or foundImplicit or lineIsBaseImplicit then
 				---@type ModLine
 				local modLine = { modTags = {} }
+				local selectionTags = selectionTagsByLine[l]
 
 				line = line:gsub("{(%a*):?([^}]*)}", function(k,val)
 					if k == "variant" then
-						modLine.variantList = { }
-						for varId in val:gmatch("%d+") do
-							modLine.variantList[tonumber(varId)] = true
-						end
+						modLine.variantList = selectionTags and selectionTags.variantList or parseIdSpec(val)
 					elseif k == "version" then
-						modLine.versionList = { }
-						for versionId in val:gmatch("%d+") do
-							modLine.versionList[tonumber(versionId)] = true
-						end
-						self.usesVariantGroups = true
+						modLine.versionList = selectionTags and selectionTags.versionList or parseIdSpec(val)
 					elseif k == "group" then
-						modLine.variantGroupList = { }
-						for groupId in val:gmatch("%d+") do
-							groupId = tonumber(groupId)
-							if groupId and groupId > 0 then
-								modLine.variantGroupList[groupId] = true
-								hasExplicitVariantGroups = true
-							end
-						end
-						self.usesVariantGroups = true
+						modLine.variantGroupList = selectionTags and selectionTags.variantGroupList or parseIdSpec(val, true)
 					elseif k == "tags" then
 						for tag in val:gmatch("[%a_]+") do
 							t_insert(modLine.modTags, tag)
@@ -899,34 +944,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 
 					return ""
 				end)
-				if modLine.variantGroupList then
-					if not modLine.variantList then
-						ConPrintf("Grouped item line has no variant: %s", line)
-					else
-						for groupId in pairs(modLine.variantGroupList) do
-							local group = self.variantGroups[groupId] or { }
-							self.variantGroups[groupId] = group
-							for variantId in pairs(modLine.variantList) do
-								if self.variantList and self.variantList[variantId] then
-									local versions = group[variantId] or { }
-									group[variantId] = versions
-									if modLine.versionList then
-										for versionId in pairs(modLine.versionList) do
-											if self.versionList and self.versionList[versionId] then
-												versions[versionId] = true
-											end
-										end
-									else
-										versions[0] = true
-									end
-								else
-									ConPrintf("Grouped item line references unknown variant %d: %s", variantId, line)
-								end
-							end
-						end
-					end
-				end
-
 				line = line:gsub(" %((%l+)%)", function(k)
 					if lineFlags[k] then
 						modLine[k] = true
@@ -1012,12 +1029,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 						versionList = modLine.versionList,
 						variantGroupList = modLine.variantGroupList,
 					}
-					if self.usesVariantGroups and self.versionList and not self.selectedVersion then
-						self.selectedVersion = #self.versionList
-					end
 					-- Set the actual base if variant matches or doesn't have variants
-					local baseMatches = self.usesVariantGroups and self:CheckModLineVariant(modLine)
-						or (not self.usesVariantGroups and (not self.variant or not modLine.variantList or modLine.variantList[self.variant]))
+					local usesVersionedOrGroupedVariants = self:UsesVersionedOrGroupedVariants()
+					local baseMatches = usesVersionedOrGroupedVariants and self:CheckModLineVariant(modLine)
+						or (not usesVersionedOrGroupedVariants and (not self.variant or not modLine.variantList or modLine.variantList[self.variant]))
 					if baseMatches then
 						self.baseName = baseName
 						if not (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
@@ -1274,34 +1289,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 		::continue::
 		l = l + 1
 	end
-	self.hasUngroupedVariants = self.versionList and self.variantList and not hasExplicitVariantGroups or false
-	if self.usesVariantGroups then
-		-- Resolve selections before inferring runes or applying modifier magnitudes.
-		self:NormaliseVariantSelections()
-		local baseLine = self.baseLines[self.baseName]
-		if not normalisedSelections and (not self.base or baseLine and not self:CheckModLineVariant(baseLine)) then
-			for _, baseLine in pairs(self.baseLines) do
-				if self:CheckModLineVariant(baseLine) then
-					-- A grouped base may precede the rest of its pool. Parse it again
-					-- with the complete, normalised selection to initialise its properties.
-					return self:ParseRaw(raw, rarity, highQuality, true)
-				end
-			end
-		end
-		self.socketedAugmentTypeOverride = nil
-		self.socketedSoulCoreTypes = { }
-		for _, modLines in ipairs({ self.enchantModLines, self.implicitModLines, self.explicitModLines }) do
-			for _, modLine in ipairs(modLines) do
-				if self:CheckModLineVariant(modLine) then
-					if modLine.socketedAugmentTypeOverride then
-						self.socketedAugmentTypeOverride = modLine.socketedAugmentTypeOverride
-					elseif modLine.socketedSoulCoreType then
-						self.socketedSoulCoreTypes[modLine.socketedSoulCoreType] = true
-					end
-				end
-			end
-		end
-	end
 	if self.baseName and self.title then
 		self.name = self.title .. ", " .. self.baseName:gsub(" %(.+%)","")
 	end
@@ -1542,7 +1529,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 		-- apply mod magnitude boost to matching mods
 		if #self.modMagnitudeMods > 0 then
 			for _, modMagnitudeMod in ipairs(self.modMagnitudeMods) do
-				if self.usesVariantGroups and not self:CheckModLineVariant(modMagnitudeMod.sourceLine) then
+				if self:UsesVersionedOrGroupedVariants() and not self:CheckModLineVariant(modMagnitudeMod.sourceLine) then
 					continue
 				end
 				local modLists
@@ -1682,7 +1669,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality, normalisedSelections)
 			end
 		end
 	end
-	if not self.usesVariantGroups and self.variantList then
+	if not self:UsesVersionedOrGroupedVariants() and self.variantList then
 		self.variant = m_min(#self.variantList, self.variant or #self.variantList)
 		if self.hasAltVariant then
 			self.variantAlt = m_min(#self.variantList, self.variantAlt or #self.variantList)
@@ -1748,6 +1735,7 @@ end
 
 function ItemClass:BuildRaw()
 	local rawLines = { }
+	local usesVersionedOrGroupedVariants = self:UsesVersionedOrGroupedVariants()
 	if self.runeModLines and self.runeModLines[1] then
 		self:ApplySocketedRuneDisplayScalars()
 	end
@@ -1896,9 +1884,9 @@ function ItemClass:BuildRaw()
 		for _, variantName in ipairs(self.variantList) do
 			t_insert(rawLines, "Variant: " .. variantName)
 		end
-		if self.hasUngroupedVariants then
+		if self:HasIndependentVariants() then
 			t_insert(rawLines, "Selected Variant: " .. self.variant)
-		elseif self.usesVariantGroups then
+		elseif usesVersionedOrGroupedVariants then
 			for groupId in pairsSortByKey(self.variantGroups) do
 				local variantId = self.variantGroupSelections[groupId]
 				if variantId then
@@ -1914,23 +1902,23 @@ function ItemClass:BuildRaw()
 				writeModLine(baseLine)
 			end
 		end
-		if not self.usesVariantGroups and self.hasAltVariant then
+		if not usesVersionedOrGroupedVariants and self.hasAltVariant then
 			t_insert(rawLines, "Has Alt Variant: true")
 			t_insert(rawLines, "Selected Alt Variant: " .. self.variantAlt)
 		end
-		if not self.usesVariantGroups and self.hasAltVariant2 then
+		if not usesVersionedOrGroupedVariants and self.hasAltVariant2 then
 			t_insert(rawLines, "Has Alt Variant Two: true")
 			t_insert(rawLines, "Selected Alt Variant Two: " .. self.variantAlt2)
 		end
-		if not self.usesVariantGroups and self.hasAltVariant3 then
+		if not usesVersionedOrGroupedVariants and self.hasAltVariant3 then
 			t_insert(rawLines, "Has Alt Variant Three: true")
 			t_insert(rawLines, "Selected Alt Variant Three: " .. self.variantAlt3)
 		end
-		if not self.usesVariantGroups and self.hasAltVariant4 then
+		if not usesVersionedOrGroupedVariants and self.hasAltVariant4 then
 			t_insert(rawLines, "Has Alt Variant Four: true")
 			t_insert(rawLines, "Selected Alt Variant Four: " .. self.variantAlt4)
 		end
-		if not self.usesVariantGroups and self.hasAltVariant5 then
+		if not usesVersionedOrGroupedVariants and self.hasAltVariant5 then
 			t_insert(rawLines, "Has Alt Variant Five: true")
 			t_insert(rawLines, "Selected Alt Variant Five: " .. self.variantAlt5)
 		end
@@ -2164,7 +2152,7 @@ function ItemClass:Craft()
 end
 
 function ItemClass:CheckModLineVariant(modLine)
-	if self.usesVariantGroups then
+	if self:UsesVersionedOrGroupedVariants() then
 		if modLine.versionList and (not self.selectedVersion or not modLine.versionList[self.selectedVersion]) then
 			return false
 		end
@@ -2180,7 +2168,7 @@ function ItemClass:CheckModLineVariant(modLine)
 			end
 			return false
 		end
-		if self.hasUngroupedVariants and modLine.variantList then
+		if self:HasIndependentVariants() and modLine.variantList then
 			return modLine.variantList[self.variant] or false
 		end
 		return not modLine.variantList
@@ -2195,7 +2183,7 @@ function ItemClass:CheckModLineVariant(modLine)
 end
 
 function ItemClass:GetModLineVariantCount(modLine)
-	if self.usesVariantGroups or not self.allowDuplicateVariants or not modLine.variantList then
+	if self:UsesVersionedOrGroupedVariants() or not self.allowDuplicateVariants or not modLine.variantList then
 		return self:CheckModLineVariant(modLine) and 1 or 0
 	end
 

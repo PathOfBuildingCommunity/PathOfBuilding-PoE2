@@ -84,7 +84,7 @@ Variant: Mana
 		assert.is_nil(result:find("{group:", 1, true))
 		local item = new("Item"):Item(assert(loadstring(result))()[1])
 		assert.equals(2, item.variant)
-		assert.is_true(item.hasUngroupedVariants)
+		assert.is_true(item:HasIndependentVariants())
 		assert.same({ }, item.variantGroups)
 		assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
 	end)

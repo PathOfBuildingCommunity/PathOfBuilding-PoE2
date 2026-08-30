@@ -415,9 +415,9 @@ holding Shift will put it in the second.]])
 		if not self.displayItem then
 			return 0
 		end
-		if self.displayItem.usesVariantGroups then
+		if self.displayItem:UsesVersionedOrGroupedVariants() then
 			local rows = self.displayItem.versionList and #self.displayItem.versionList > 1 and 1 or 0
-			if self.displayItem.hasUngroupedVariants then
+			if self.displayItem:HasIndependentVariants() then
 				rows = rows + (#self.displayItem.variantList > 1 and 1 or 0)
 			else
 				local groups = 0
@@ -451,7 +451,7 @@ holding Shift will put it in the second.]])
 	end)
 	self.controls.displayItemVersion.maxDroppedWidth = 1000
 	self.controls.displayItemVersion.shown = function()
-		return self.displayItem and self.displayItem.usesVariantGroups
+		return self.displayItem and self.displayItem:UsesVersionedOrGroupedVariants()
 			and self.displayItem.versionList and #self.displayItem.versionList > 1
 	end
 	self.controls.displayItemVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
@@ -509,11 +509,16 @@ holding Shift will put it in the second.]])
 	}) do
 		local legacyShown = control.shown
 		control.shown = function(c)
-			return self.displayItem and (self.displayItem.usesVariantGroups and c.newVariantVisible
-				or not self.displayItem.usesVariantGroups and legacyShown())
+			if not self.displayItem then
+				return false
+			end
+			if self.displayItem:UsesVersionedOrGroupedVariants() then
+				return c.newVariantVisible
+			end
+			return legacyShown()
 		end
 		control.enabled = function(c)
-			return not self.displayItem or not self.displayItem.usesVariantGroups or c.newVariantEnabled
+			return not self.displayItem or not self.displayItem:UsesVersionedOrGroupedVariants() or c.newVariantEnabled
 		end
 	end
 
@@ -1866,7 +1871,7 @@ function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 end
 
 function ItemsTabClass:SelectDisplayItemVariant(index, value, legacyField, control)
-	if self.displayItem.usesVariantGroups and not self.displayItem.hasUngroupedVariants then
+	if self.displayItem:HasVariantGroups() then
 		if not value or not value.variantId then
 			return
 		end
@@ -1895,14 +1900,14 @@ function ItemsTabClass:UpdateDisplayItemVariantControls()
 	for _, control in ipairs(controls) do
 		control.newVariantVisible = false
 	end
-	if not item or not item.usesVariantGroups then
+	if not item or not item:UsesVersionedOrGroupedVariants() then
 		return
 	end
 
 	self.controls.displayItemVersion.list = item.versionList or { }
 	self.controls.displayItemVersion.selIndex = item.selectedVersion or 1
 	self.controls.displayItemVersion:CheckDroppedWidth(true)
-	if item.hasUngroupedVariants then
+	if item:HasIndependentVariants() then
 		local control = self.controls.displayItemVariant
 		control.list = item.variantList
 		control.selIndex = item.variant
@@ -1956,35 +1961,36 @@ function ItemsTabClass:SetDisplayItem(item)
 		-- Update the display item controls
 		self:UpdateDisplayItemTooltip()
 		self.snapHScroll = "RIGHT"
+		local usesVersionedOrGroupedVariants = item:UsesVersionedOrGroupedVariants()
 
-		if item.usesVariantGroups then
+		if usesVersionedOrGroupedVariants then
 			self:UpdateDisplayItemVariantControls()
 		else
 			self.controls.displayItemVariant.list = item.variantList
 			self.controls.displayItemVariant.selIndex = item.variant
 			self.controls.displayItemVariant:CheckDroppedWidth(true)
 		end
-		if not item.usesVariantGroups and item.hasAltVariant then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant then
 			self.controls.displayItemAltVariant.list = item.variantList
 			self.controls.displayItemAltVariant.selIndex = item.variantAlt
 			self.controls.displayItemAltVariant:CheckDroppedWidth(true)
 		end
-		if not item.usesVariantGroups and item.hasAltVariant2 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant2 then
 			self.controls.displayItemAltVariant2.list = item.variantList
 			self.controls.displayItemAltVariant2.selIndex = item.variantAlt2
 			self.controls.displayItemAltVariant2:CheckDroppedWidth(true)
 		end
-		if not item.usesVariantGroups and item.hasAltVariant3 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant3 then
 			self.controls.displayItemAltVariant3.list = item.variantList
 			self.controls.displayItemAltVariant3.selIndex = item.variantAlt3
 			self.controls.displayItemAltVariant3:CheckDroppedWidth(true)
 		end
-		if not item.usesVariantGroups and item.hasAltVariant4 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant4 then
 			self.controls.displayItemAltVariant4.list = item.variantList
 			self.controls.displayItemAltVariant4.selIndex = item.variantAlt4
 			self.controls.displayItemAltVariant4:CheckDroppedWidth(true)
 		end
-		if not item.usesVariantGroups and item.hasAltVariant5 then
+		if not usesVersionedOrGroupedVariants and item.hasAltVariant5 then
 			self.controls.displayItemAltVariant5.list = item.variantList
 			self.controls.displayItemAltVariant5.selIndex = item.variantAlt5
 			self.controls.displayItemAltVariant5:CheckDroppedWidth(true)
@@ -3521,11 +3527,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 
 	-- Special fields for database items
 	if dbMode then
-		if item.usesVariantGroups then
+		if item:UsesVersionedOrGroupedVariants() then
 			if item.versionList and item.selectedVersion then
 				tooltip:AddLine(fontSizeBig, "^xFFFF30Version: " .. item.versionList[item.selectedVersion], "FONTIN SC")
 			end
-			if item.hasUngroupedVariants then
+			if item:HasIndependentVariants() then
 				tooltip:AddLine(fontSizeBig, "^xFFFF30Variant: " .. item.variantList[item.variant], "FONTIN SC")
 			else
 				local selectedVariants = { }
