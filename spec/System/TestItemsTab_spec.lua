@@ -655,22 +655,26 @@ describe("TestItemsTab", function()
 					Rarity: RARE
 					New
 					Stocky Mitts
+					Crafted: true
 					Sockets: S
 				]], true)
 
 				local runeControl = build.itemsTab.controls.displayItemRune1
+				local serlesIndex
 				for index, rune in ipairs(runeControl.list) do
 					if rune.name == "Serle's Triumph" then
-						runeControl:SetSel(index)
+						serlesIndex = index
 						break
 					end
 				end
+				assert.is_not_nil(serlesIndex)
+				runeControl:SetSel(serlesIndex)
 
 				local affixControl = build.itemsTab.controls.displayItemAffix7
 				assert.are.equals(7, build.itemsTab.displayItem.affixLimit)
 				assert.are.equals("suffixes", affixControl.outputTable)
 				assert.are.equals("None", affixControl.list[1])
-				affixControl.tooltipFunc({ Clear = function() end }, "BODY", affixControl.selIndex, nil)
+				affixControl.tooltipFunc({ Clear = function() end }, "BODY", affixControl.selIndex, affixControl.list[affixControl.selIndex])
 			end)
 
 			it("keeps Darkness Enthroned's socket editor available at zero sockets", function ()

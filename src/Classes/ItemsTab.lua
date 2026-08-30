@@ -700,7 +700,9 @@ holding Shift will put it in the second.]])
 			self.displayItem.runes[i] = value.name
 			self.displayItem:UpdateRunes()
 			self.displayItem:BuildAndParseRaw()
-			self:UpdateRuneControls()
+			if self.displayItem.crafted then
+				self:UpdateAffixControls()
+			end
 			self:UpdateDisplayItemTooltip()
 		end)
 		drop.y = function()
@@ -2035,10 +2037,6 @@ function ItemsTabClass:UpdateRuneControls()
 	end
 	if runesUpdated then
 		item:UpdateRunes()
-	end
-	-- Socketed augments can change the available prefix and suffix slots, e.g. Serle's Triumph.
-	if item.crafted then
-		self:UpdateAffixControls()
 	end
 end
 
