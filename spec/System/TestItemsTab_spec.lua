@@ -882,6 +882,33 @@ Ruby]])
 			assert.are.equals(baseFireRes + 14, build.calcsTab.mainOutput.FireResistTotal)
 		end)
 
+		it("shows character rune attributes in the sidebar breakdown", function()
+			selectRune("Boots Rune #1", "Lesser Resolve Rune")
+			local intelligenceLine
+			for _, line in ipairs(build.controls.statBox.list) do
+				if line.breakdown == "Int" then
+					intelligenceLine = line
+					break
+				end
+			end
+
+			assert.has_no.errors(function()
+				build:SetDisplayStat({ line = intelligenceLine, x = 0, y = 0, width = 300 }, false)
+			end)
+		end)
+
+		it("calculates a hovered character rune without treating it as an item", function()
+			enableSlots()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			slot:SelByValue("Aldur's Legacy", "name")
+			assert.are.equals("Aldur's Legacy", slot:GetSelValue().name)
+			local calcFunc = build.calcsTab:GetMiscCalculator()
+
+			assert.has_no.errors(function()
+				calcFunc({ repSlotName = "Helmet Rune #1", repRune = slot:GetSelValue() })
+			end)
+		end)
+
 		it("selecting None applies no rune mods", function()
 			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
 			selectRune("Helmet Rune #1", "Desert Rune")

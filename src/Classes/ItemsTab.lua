@@ -289,7 +289,7 @@ function ItemsTabClass:ItemsTab(build)
 				end
 				local calcFunc = self.build.calcsTab:GetMiscCalculator()
 				local outputBase = calcFunc()
-				local outputNew = calcFunc({ repSlotName = slotName, repItem = rune })
+				local outputNew = calcFunc({ repSlotName = slotName, repRune = rune })
 				self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\n^7Adding this mod will give: ")
 			end
 		end
@@ -2224,7 +2224,7 @@ for name, runeMods in pairs(data.itemMods.Runes) do
 		for _, line in ipairs(runeMod) do
 			local modList = modLib.parseMod(line)
 			for _, mod in ipairs(modList or { }) do
-				t_insert(mods, mod)
+				t_insert(mods, modLib.setSource(mod, "Rune:" .. name))
 			end
 		end
 		local order = (runeMod.statOrder and runeMod.statOrder[1]) or (runeMod.bonded and runeMod.bonded.statOrder and runeMod.bonded.statOrder[1]) or 0

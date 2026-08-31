@@ -980,7 +980,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			for runeSlotName, slot in pairs(build.itemsTab.runeSlots) do
 				local rune = slot:GetSelValue()
 				if runeSlotName == override.repSlotName then
-					rune = override.repItem
+					rune = override.repRune
 				end
 				if rune.name ~= "None" then
 					augmentCounts[rune.name] = (augmentCounts[rune.name] or 0) + 1
