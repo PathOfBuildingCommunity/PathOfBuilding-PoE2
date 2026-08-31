@@ -1102,6 +1102,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				self.build.itemsTab:DeleteItem(self.build.itemsTab.items[slot.selItemId])
 			end
 		end
+		for _, slotName in ipairs(self.build.itemsTab.runeSlotOrder) do
+			self.build.itemsTab.runeSlots[slotName]:SelByValue("None", "name")
+			self.build.itemsTab.activeItemSet[slotName].runeName = "None"
+		end
 	end
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
@@ -1333,29 +1337,19 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	return charData -- For the wrapper
 end
 
-function ImportTabClass:ImportChakra(slotName, runeName)
-	local slot = self.build.itemsTab.runeSlots[slotName]
-	-- note that if the rune is not in ModRunes.lua, this will not select it
-	if slot then
-		slot:SelByValue(runeName, "name", true)
-	end
-end
-
 local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC", [11] = "NORMAL", [12] = "MAGIC", [13] = "RARE", [14] = "UNIQUE" }
 local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt", ["IncursionArmLeft"] = "Arm 2", ["IncursionArmRight"] = "Arm 1", ["IncursionLegLeft"] = "Leg 2", ["IncursionLegRight"] = "Leg 1" }
 
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
-		-- monk martial artist rune tattoos
 		if itemData.inventoryId == "Chakra" then
-			-- TODO: should probably be exported from chakra slots table
-			-- API doesn't have slots directly, but has an x position similar to flasks
-			local chakras = { "Helmet Rune #1", "Body Armour Rune #1", "Body Armour Rune #2", "Gloves Rune #1",
-				"Boots Rune #1" }
-			if chakras[itemData.x + 1] and itemData.baseType then
-				slotName = chakras[itemData.x + 1]
-				-- runes are imported differently as they're not items located in your inventory
-				self:ImportChakra(slotName, itemData.baseType)
+			slotName = self.build.itemsTab.runeSlotOrder[itemData.x + 1]
+			local slot = slotName and self.build.itemsTab.runeSlots[slotName]
+			if slot and itemData.baseType then
+				slot:SelByValue(itemData.baseType, "name")
+				if slot:GetSelValue().name == itemData.baseType then
+					self.build.itemsTab.activeItemSet[slotName].runeName = itemData.baseType
+				end
 				return
 			end
 		elseif itemData.inventoryId == "PassiveJewels" then

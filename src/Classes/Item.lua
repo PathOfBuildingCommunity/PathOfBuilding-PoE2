@@ -813,16 +813,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
-					local runeLevel = 0
-					local runeData = data.itemMods.Runes[specVal]
-					if runeData then
-						for _, slotData in pairs(runeData) do
-							runeLevel = m_max(runeLevel, slotData.rank)
-						end
-					end
-					if runeLevel > 0 and (not self.requirements.runeLevel or runeLevel > self.requirements.runeLevel) then
-						self.requirements.runeLevel = runeLevel
-					end
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
@@ -1710,7 +1700,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		local runeData = data.itemMods.Runes[runeName]
 		if runeData then
 			for _, slotData in pairs(runeData) do
-				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank)
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank[1])
 			end
 		end
 	end

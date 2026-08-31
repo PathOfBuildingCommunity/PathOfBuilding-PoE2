@@ -86,6 +86,30 @@ describe("TestImportReimport", function()
 		assert.are.equal(fieldValue, srcInstance[fieldName.."Calcs"])
 	end
 
+	it("imports character runes into their Chakra slot", function()
+		build.importTab:ImportItem({
+			inventoryId = "Chakra",
+			x = 2,
+			baseType = "Desert Rune",
+		})
+
+		assert.are.equals("Desert Rune", build.itemsTab.runeSlots["Body Armour Rune #2"]:GetSelValue().name)
+		assert.are.equals("Desert Rune", build.itemsTab.activeItemSet["Body Armour Rune #2"].runeName)
+	end)
+
+	it("clears character runes when replacing imported equipment", function()
+		local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+		slot:SelByValue("Desert Rune", "name")
+		slot.selFunc(slot.selIndex, slot:GetSelValue())
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = false
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({}, {}))
+
+		assert.are.equals("None", slot:GetSelValue().name)
+		assert.are.equals("None", build.itemsTab.activeItemSet["Helmet Rune #1"].runeName)
+	end)
+
 	it("preserves full DPS state and manually disabled gems when reimporting items and skills", function()
 		build.skillsTab:PasteSocketGroup([[
 Slot: Gloves

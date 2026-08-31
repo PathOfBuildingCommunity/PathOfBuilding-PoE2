@@ -31,6 +31,16 @@ local socketDropList = {
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2", "Arm 1", "Arm 2", "Leg 1", "Leg 2" }
 
+local characterRuneSlotList = {
+	{ "Helmet Rune #1", "helmet", "Helmet Rune 1" },
+	{ "Body Armour Rune #1", "body armour", "Body Rune 1" },
+	{ "Body Armour Rune #2", "body armour", "Body Rune 2" },
+	{ "Gloves Rune #1", "gloves", "Gloves Rune 1" },
+	{ "Boots Rune #1", "boots", "Boots Rune 1" },
+}
+
+local runeModLines
+
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Mana Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -177,54 +187,15 @@ function ItemsTabClass:ItemsTab(build)
 		tooltip:AddLine(16, "^7similar or better items for this build")
 	end
 
-	-- list of runes that fit the martial artist slots, and which have global
-	-- effects
+	-- Runes that fit Martial Artist slots and have global effects.
 	local runeList = { helmet = {}, ["body armour"] = {}, gloves = {}, boots = {} }
-
-	for name, runeMods in pairs(data.itemMods.Runes) do
-		for slot, mod in pairs(runeMods) do
-			if mod.type == "Rune" and not mod.localMod and (runeList[slot] or (slot == "armour")) then
-				local rune = {mods = {}}
-
-				for _, line in ipairs(mod) do
-					local modList, extra = modLib.parseMod(line)
-					t_insert(rune, line)
-					for _, mod in ipairs(modList or {}) do
-						t_insert(rune.mods, mod)
-					end
-				end
-
-				rune.name = name
-				rune.label = mod[1]
-				rune.order = mod.statOrder[1]
-				rune.req = mod.rank
-				rune.group = #mod
-				rune.limit = mod.limit
-
-				if slot == "armour" then
-					for _, v in pairs(runeList) do
-						table.insert(v, rune)
-					end
-				else
-					table.insert(runeList[slot], rune)
-				end
+	for slotType, list in pairs(runeList) do
+		t_insert(list, runeModLines[1])
+		for _, rune in ipairs(runeModLines) do
+			if rune.type == "Rune" and not rune.localMod and (rune.slot == slotType or rune.slot == "armour") then
+				t_insert(list, rune)
 			end
 		end
-	end
-
-	for _, v in pairs(runeList) do
-		local sortKeys = {"req", "order", "group"}
-		table.sort(v, function(a, b)
-			for _, key in ipairs(sortKeys) do
-				if a[key] > b[key] then
-					return true
-				elseif a[key] < b[key] then
-					return false
-				end
-			end
-			return false
-		end)
-		table.insert(v, 1, { label = "None", name = "None", mods = {}, order = -1, group = -1, req = 1 })
 	end
 
 	-- Item slots
@@ -232,6 +203,7 @@ function ItemsTabClass:ItemsTab(build)
 	self.orderedSlots = { }
 	self.slotOrder = { }
 	self.runeSlots = { }
+	self.runeSlotOrder = { }
 	self.initSockets = true
 	self.slotAnchor = new("Control"):Control({ "TOPLEFT", self, "TOPLEFT" }, { selectorsXOffset, 76, 310, 0 })
 	local prevSlot = self.slotAnchor
@@ -252,65 +224,6 @@ function ItemsTabClass:ItemsTab(build)
 				return not jewel.inactive and shownFunc()
 			end
 			parentSlot.jewelSocketList[i] = jewel
-		end
-	end
-	local function addRuneSockets()
-		-- TODO: use game data for this from chakra slots table
-		local slots = { { type = "Helmet", n = 1 }, { type = "Body Armour", n = 2 }, { type = "Gloves", n = 1 }, { type = "Boots", n = 1 } }
-		for _, slot in ipairs(slots) do
-			for i = 1, slot.n do
-				local slotName = s_format("%s Rune #%d", slot.type, i)
-				local label = slotName:gsub(" Armour", ""):gsub("#", "")
-
-				local runeSlot = new("DropDownControl"):DropDownControl({ "TOPLEFT", prevSlot, "BOTTOMLEFT" }, {0, 2, 310, 20}, runeList[slot.type:lower()], function (_, value)
-					self.activeItemSet[slotName] = { runeName = value.name }
-					self.build.buildFlag = true
-				end)
-				runeSlot.anchor.collapse = true
-
-				runeSlot.tooltipFunc = function(tooltip, mode, index, rune)
-					tooltip:Clear()
-					if rune.label ~= "None" then
-						tooltip:AddLine(16, "^7" .. rune.name)
-
-						if rune.limit then
-							tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", rune.limit))
-						end
-
-						if rune.req > 1 then
-							tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", rune.req))
-						end
-						for _, line in ipairs(rune) do
-							-- skip bonded lines as monks cannot use these
-							if not line:match("^Bonded:") then
-								tooltip:AddLine(14, colorCodes.MAGIC .. line)
-							end
-						end
-						-- Adding Comparison
-						local compLines = { type = "Rune" }
-						for _, line in ipairs(rune) do
-							t_insert(compLines, line)
-						end
-						local calcFunc = self.build.calcsTab:GetMiscCalculator()
-						local outputBase = calcFunc()
-						local outputNew = calcFunc({ repSlotName = slotName, repItem = rune })
-						self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew,
-							"\n^7Adding this mod will give: ")
-					end
-				end
-
-				self.controls[slotName .. " Label"] = new("LabelControl"):LabelControl({ "RIGHT", runeSlot, "LEFT" },
-					{ -2, 0, 16, 16 },
-					s_format("^7%s:", label))
-
-				prevSlot = runeSlot
-				t_insert(self.controls, runeSlot)
-				self.runeSlots[slotName] = runeSlot
-				runeSlot.shown = function()
-					return self.build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter")
-				end
-			end
-
 		end
 	end
 	for index, slotName in ipairs(baseSlots) do
@@ -351,7 +264,44 @@ function ItemsTabClass:ItemsTab(build)
 		end
 	end
 
-	addRuneSockets()
+	for _, runeSlotData in ipairs(characterRuneSlotList) do
+		local slotName, slotType, label = unpack(runeSlotData)
+		local runeSlot = new("DropDownControl"):DropDownControl({ "TOPLEFT", prevSlot, "BOTTOMLEFT" }, { 0, 2, 310, 20 }, runeList[slotType], function(_, value)
+			self.activeItemSet[slotName].runeName = value.name
+			self:AddUndoState()
+			self.build.buildFlag = true
+		end)
+		runeSlot.anchor.collapse = true
+		runeSlot.tooltipFunc = function(tooltip, mode, index, rune)
+			tooltip:Clear()
+			if rune.name ~= "None" then
+				tooltip:AddLine(16, "^7" .. rune.name)
+				if rune.limit then
+					tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", rune.limit))
+				end
+				if rune.req > 1 then
+					tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", rune.req))
+				end
+				for _, line in ipairs(rune.lines) do
+					if not line:match("^Bonded:") then
+						tooltip:AddLine(14, colorCodes.MAGIC .. line)
+					end
+				end
+				local calcFunc = self.build.calcsTab:GetMiscCalculator()
+				local outputBase = calcFunc()
+				local outputNew = calcFunc({ repSlotName = slotName, repItem = rune })
+				self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\n^7Adding this mod will give: ")
+			end
+		end
+		self.controls[slotName .. " Label"] = new("LabelControl"):LabelControl({ "RIGHT", runeSlot, "LEFT" }, { -2, 0, 16, 16 }, s_format("^7%s:", label))
+		prevSlot = runeSlot
+		t_insert(self.controls, runeSlot)
+		self.runeSlots[slotName] = runeSlot
+		t_insert(self.runeSlotOrder, slotName)
+		runeSlot.shown = function()
+			return self.build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter")
+		end
+	end
 
 	-- Passive tree dropdown controls
 	self.controls.specSelect = new("DropDownControl"):DropDownControl({ "TOPLEFT", prevSlot, "BOTTOMLEFT" }, { 0, 8, 216, 20 }, nil, function(index, value)
@@ -844,8 +794,8 @@ holding Shift will put it in the second.]])
 			if value.lines and value.lines[1] ~= "None" then
 				tooltip:AddLine(16, "^7" .. value.name)
 
-				if value.lines and value.lines.limit then
-					tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", value.lines.limit))
+				if value.limit then
+					tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", value.limit))
 				end
 
 				if value.req > 1 then
@@ -1704,7 +1654,7 @@ function ItemsTabClass:SetActiveItemSet(itemSetId, deferSync)
 		end
 		-- Equip incoming set's rune
 		local currentRune = curSet[slotName] and curSet[slotName].runeName or "None"
-		slot:SelByValue(currentRune, "name", true)
+		slot:SelByValue(currentRune, "name")
 	end
 	self.build.buildFlag = true
 	self:PopulateSlots()
@@ -2257,7 +2207,7 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1, isSocketBound = false } }
+runeModLines = { { name = "None", label = "None", lines = { "None" }, mods = { }, req = 1, order = -1, slot = "None", group = -1, isSocketBound = false } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
@@ -2270,8 +2220,15 @@ for name, runeMods in pairs(data.itemMods.Runes) do
 		for _, line in ipairs(runeMod.bonded or { }) do
 			t_insert(lines, "Bonded: " .. line)
 		end
+		local mods = { }
+		for _, line in ipairs(runeMod) do
+			local modList = modLib.parseMod(line)
+			for _, mod in ipairs(modList or { }) do
+				t_insert(mods, mod)
+			end
+		end
 		local order = (runeMod.statOrder and runeMod.statOrder[1]) or (runeMod.bonded and runeMod.bonded.statOrder and runeMod.bonded.statOrder[1]) or 0
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, req = runeMod.rank, order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, mods = mods, req = runeMod.rank[1], order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound, localMod = runeMod.localMod, limit = runeMod.limit })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -4542,5 +4499,8 @@ function ItemsTabClass:RestoreUndoState(state)
 	end
 	self.activeItemSetId = state.activeItemSetId
 	self.activeItemSet = self.itemSets[self.activeItemSetId]
+	for slotName, slot in pairs(self.runeSlots) do
+		slot:SelByValue(self.activeItemSet[slotName].runeName, "name")
+	end
 	self:PopulateSlots()
 end

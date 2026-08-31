@@ -982,7 +982,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if runeSlotName == override.repSlotName then
 					rune = override.repItem
 				end
-				if rune.name then
+				if rune.name ~= "None" then
 					augmentCounts[rune.name] = (augmentCounts[rune.name] or 0) + 1
 				end
 				for _, mod in ipairs(rune.mods) do
@@ -1511,19 +1511,27 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 		end
 
+		local augmentLimits = { }
 		for augmentName, count in pairs(augmentCounts) do
 			local dbAugment = data.itemMods.Runes[augmentName] or {}
 			local _, dbMod = next(dbAugment)
-			if dbMod and dbMod.limit and count > dbMod.limit then
-				-- warn for going over augment limits
-				if env.build.calcsTab.mainEnv then
-					env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning or { }
-					t_insert(env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning, augmentName)
+			if dbMod and dbMod.limit then
+				local limit = augmentLimits[dbMod.limitId or augmentName]
+				if not limit then
+					limit = { count = 0, max = dbMod.limit, names = { } }
+					augmentLimits[dbMod.limitId or augmentName] = limit
 				end
+				limit.count += count
+				t_insert(limit.names, augmentName)
 			end
 		end
-
-		
+		for _, limit in pairs(augmentLimits) do
+			if limit.count > limit.max and env.build.calcsTab.mainEnv then
+				table.sort(limit.names)
+				env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning or { }
+				t_insert(env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning, table.concat(limit.names, ", "))
+			end
+		end
 	end
 
 	-- Merge env.itemModDB with env.ModDB
