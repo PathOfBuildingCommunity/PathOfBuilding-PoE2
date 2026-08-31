@@ -187,6 +187,24 @@ Fireball 20/0  1
 		assert.is_false(groupsByGem.Fireball.enabled)
 	end)
 
+	it("clears the stale socket group selection when reimporting skills", function()
+		build.skillsTab:PasteSocketGroup([[
+Fireball 20/0  1
+]])
+		runCallback("OnFrame")
+
+		local oldSocketGroup = build.skillsTab.socketGroupList[1]
+		assert.are.equal(oldSocketGroup, build.skillsTab.displayGroup)
+		assert.are.equal(oldSocketGroup, build.skillsTab.controls.groupList.selValue)
+
+		reimportSingleGem("Linen Wraps", "Gloves", "Dark Effigy")
+
+		assert.is_nil(build.skillsTab.displayGroup)
+		assert.is_nil(build.skillsTab.controls.groupList.selIndex)
+		assert.is_nil(build.skillsTab.controls.groupList.selValue)
+		assert.are_not.equal(oldSocketGroup, build.skillsTab.socketGroupList[1])
+	end)
+
 	it("imports item socketed jewels using jewel socket order instead of raw socket index", function()
 		build.importTab.controls.charImportItemsClearItems.state = true
 		build.importTab.controls.charImportItemsClearSkills.state = true
@@ -218,6 +236,30 @@ Fireball 20/0  1
 		assert.is_not_nil(socketedJewel)
 		assert.are.equal("test-import-jewel", socketedJewel.uniqueID)
 		assert.are.equal(0, build.itemsTab.slots["Gloves Jewel Socket 2"].selItemId)
+	end)
+
+	it("keeps an imported shield equipped with Bringer of Rain and a two-handed mace", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local shield = makeImportItem("Glacial Fortress", "Offhand2", "test-import-shield")
+		local weapon = makeImportItem("Ironwood Greathammer", "Weapon2", "test-import-two-handed-mace")
+		local helmet = makeImportItem("Decorated Helm", "Helm", "test-import-bringer-of-rain")
+		helmet.frameType = 3
+		helmet.name = "The Bringer of Rain"
+		helmet.explicitMods = {
+			"You can wield Two-Handed Axes, Maces and Swords in one hand",
+		}
+		local maceStrike = makeGemEntry(false, "Mace Strike", 20)
+		maceStrike.weaponRequirements = {
+			{ name = "", values = { { "[Mace|Two Hand Mace]", 0 } } },
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ shield, weapon, helmet }, { maceStrike }))
+
+		assert.are_not.equal(0, build.itemsTab.slots["Weapon 1 Swap"].selItemId)
+		assert.are_not.equal(0, build.itemsTab.slots["Weapon 2 Swap"].selItemId)
+		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemId)
 	end)
 
 	it("uses unique database and rune levels when importing unique items from account data", function()

@@ -4,8 +4,8 @@
 -- Other active skills
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["TriggeredAbyssalApparitionPlayer"] = {
 	name = "Abyssal Apparition",
 	baseTypeName = "Abyssal Apparition",
@@ -10119,6 +10119,15 @@ skills["LeylinesPlayer"] = {
 			baseEffectiveness = 106,
 			incrementalEffectiveness = 0.27000001072884,
 			statDescriptionScope = "leylines",
+			statMap = {
+				["skill_leylines_ward_degeneration_per_minute"] = {
+					mod("WardDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnLeyline" }),
+					div = 60,
+				},
+				["skill_leylines_spell_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnLeyline" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -12590,6 +12599,19 @@ skills["SupportOlrothsHubrisPlayer"] = {
 			label = "Olroth's Hubris",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["base_ward_cost_+_%_of_maximum_ward"] = {
+					mod("WardCostBase", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Ward", percent = 1 }),
+				},
+				["added_physical_damage_%_ward_cost"] = {
+					mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+					mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+				},
+				["added_cold_damage_%_ward_cost"] = {
+					mod("ColdMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+					mod("ColdMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -14889,6 +14911,15 @@ skills["SupportRunicInfusionPlayer"] = {
 			label = "Runic Infusion",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["base_ward_cost_+_%_of_maximum_ward"] = {
+					mod("WardCostBase", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Ward", percent = 1 }),
+				},
+				["added_physical_damage_%_ward_cost"] = {
+					mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+					mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "WardCost", percent = 1 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -14915,7 +14946,7 @@ skills["RunicReprievePlayer"] = {
 		{ "active_skill_stun_threshold_+%_while_performing_action", 2, {  } },
 	},
 	altQualityStats = {
-		{ "rune_ward_block_%_damage_taken", 0.5, {  } },
+		{ "rune_ward_block_%_damage_taken", -0.1, {  } },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { WardPerMinute = 180, }, },
@@ -15540,6 +15571,11 @@ skills["SupportScouringFlamePlayer"] = {
 			label = "Scouring Flame",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_scouring_flame_ignite_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -21259,3 +21295,4 @@ skills["AncientGiftsPlayer"] = {
 					},
 				}
 			}
+			end

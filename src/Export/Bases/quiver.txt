@@ -1,5 +1,6 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Quiver
 #baseMatch BaseType Metadata/Items/Quivers/AbstractQuiver
+end

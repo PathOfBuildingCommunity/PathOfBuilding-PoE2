@@ -3,8 +3,9 @@
 -- Spectre Data
 -- Monster data (c) Grinding Gear Games
 --
-local minions, mod, flag = ...
-
+return function(mod, flag)
+	---@class SpectreData
+	local minions = {}
 -- Abyssal
 #spectre Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre
 #emit
@@ -1957,3 +1958,5 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/MudBurrower/DevourerDuo/DevourerBossDuoHeadMinion
 #emit
+    return minions
+end

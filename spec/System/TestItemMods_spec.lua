@@ -14,8 +14,14 @@ describe("TetsItemMods", function()
 		assert.is_nil(mod.weightMultiplierKey)
 	end)
 
+	it("does not colour a stat as modified without a base value", function()
+		assert.are.equals("^7", main:StatColor(10, nil, 90))
+		assert.are.equals(colorCodes.MAGIC, main:StatColor(10, 5, 90))
+		assert.are.equals(colorCodes.NEGATIVE, main:StatColor(100, nil, 90))
+	end)
+
 	it("shows duplicate selected variants in item tooltips when enabled", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Mageblood
 			Utility Belt
@@ -27,7 +33,7 @@ describe("TetsItemMods", function()
 			Implicits: 0
 			{variant:1}Legacy of Amethyst
 		]])
-		local tooltip = new("Tooltip")
+		local tooltip = new("Tooltip"):Tooltip()
 
 		build.itemsTab:AddItemTooltip(tooltip, item)
 
@@ -40,13 +46,77 @@ describe("TetsItemMods", function()
 		assert.are.equals(2, legacyLines)
 	end)
 
+	it("toggles modifiers from the display item tooltip", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: Rare
+			Toggle Test
+			Ring
+			Implicits: 0
+			+100 to maximum Life
+		]])
+		local item = build.itemsTab.displayItem
+
+		assert.are.equals(100, item.baseModList:Sum("BASE", nil, "Life"))
+		build.itemsTab:ToggleDisplayItemModLine(item.explicitModLines[1])
+
+		item = build.itemsTab.displayItem
+		assert.is_true(item.explicitModLines[1].disabled)
+		assert.are.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+		assert.are.equals(colorCodes.DISABLED.."+100 to maximum Life", itemLib.formatModLine(item.explicitModLines[1]))
+		local tooltipModLine
+		for _, line in ipairs(build.itemsTab.displayItemTooltip.lines) do
+			if line.text and line.text:find("+100 to maximum Life", 1, true) then
+				tooltipModLine = line.modLine
+				break
+			end
+		end
+		assert.are.equals(item.explicitModLines[1], tooltipModLine)
+
+		build.itemsTab:ToggleDisplayItemModLine(item.explicitModLines[1])
+		assert.is_nil(build.itemsTab.displayItem.explicitModLines[1].disabled)
+		assert.are.equals(100, build.itemsTab.displayItem.baseModList:Sum("BASE", nil, "Life"))
+	end)
+
+	it("preserves disabled rune modifiers when rebuilding an item", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Perfect Storm Rune
+			LevelReq: 1
+			Implicits: 1
+			{enchant}{rune}Gain 12% of Damage as Extra Lightning Damage
+			200% increased effect of Socketed Runes
+		]])
+		local item = build.itemsTab.displayItem
+		local runeModLine
+		for _, modLine in ipairs(item.runeModLines) do
+			if modLine.line == "Gain 12% of Damage as Extra Lightning Damage" then
+				runeModLine = modLine
+				break
+			end
+		end
+		assert.is_not_nil(runeModLine)
+		assert.are.equals(3, runeModLine.displayValueScalar)
+
+		build.itemsTab:ToggleDisplayItemModLine(runeModLine)
+
+		for _, modLine in ipairs(build.itemsTab.displayItem.runeModLines) do
+			if modLine.line == runeModLine.line then
+				assert.is_true(modLine.disabled)
+				return
+			end
+		end
+		assert(false, "Disabled rune modifier not found after rebuilding item")
+	end)
+
 	it("shows a fallback tooltip when an item's base is no longer supported", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Rarity: Unique
 			Legacy Item
 			Removed Base
 		]])
-		local tooltip = new("Tooltip")
+		local tooltip = new("Tooltip"):Tooltip()
 
 		assert.has_no.errors(function()
 			build.itemsTab:AddItemTooltip(tooltip, item)
@@ -94,9 +164,9 @@ describe("TetsItemMods", function()
 
 		local itemDB = build.itemsTab.controls.uniqueDB
 		itemDB.db = { list = {
-			new("Item", "New Item\nRing"),
-			new("Item", "New Item\nRing\n+50% to Fire Resistance"),
-			new("Item", "New Item\nBroadhead Quiver"),
+				new("Item"):Item("New Item\nRing"),
+				new("Item"):Item("New Item\nRing\n+50% to Fire Resistance"),
+				new("Item"):Item("New Item\nBroadhead Quiver"),
 		} }
 		itemDB:SetSortMode("FireTakenHit")
 
@@ -104,6 +174,53 @@ describe("TetsItemMods", function()
 
 		assert.is_true(itemDB.list[1].measuredPower < 0)
 		assert.are.equals(-math.huge, itemDB.list[#itemDB.list].measuredPower)
+	end)
+
+	it("sorts crafted modifier replacements without retaining the selected modifier", function()
+		local item = new("Item"):Item([[
+			Rarity: RARE
+			Armour Chest
+			Champion Cuirass
+			Armour: 526
+			Crafted: true
+			Prefix: {range:1}IncreasedLife1
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Quality: 18
+			Item Level: 100
+			LevelReq: 65
+			Implicits: 0
+			+19 to maximum Life
+		]])
+		local calcCount = 0
+		local retainedCount = 0
+		assert.are.equals("+19 to maximum Life", item.explicitModLines[1].line)
+		build.itemsTab.displayItem = item
+		build.itemsTab.controls.craftingSorting:SelByValue("Life", "stat")
+		build.calcsTab.GetMiscCalculator = function()
+			return function(args)
+				calcCount += 1
+				local life = 0
+				for _, modLine in ipairs(args.repItem.explicitModLines) do
+					if modLine.line == "+19 to maximum Life" then
+						retainedCount += 1
+					end
+					life += tonumber(modLine.line:match("%+(%d+) to maximum Life")) or 0
+				end
+				return { Life = life }
+			end
+		end
+
+		local control = build.itemsTab.controls.displayItemAffix1
+		build.itemsTab:UpdateAffixControl(control, item, "Prefix", "prefixes", 1, { })
+
+		assert.is_true(calcCount > 1)
+		assert.are.equals(0, retainedCount)
+		assert.is_truthy(control.list[2].label:find("maximum Life", 1, true))
+		assert.is_truthy(isValueInArray(control.list[control.selIndex].modList, "IncreasedLife1"))
 	end)
 
 	it("Both slots mod (evasion and es mastery)", function()
@@ -321,8 +438,8 @@ describe("TetsItemMods", function()
 	end)
 
 	it("negative limit mods after scaling", function()
-		local baseModList = new("ModList")
-		local scaledModList = new("ModList")
+		local baseModList = new("ModList"):ModList()
+		local scaledModList = new("ModList"):ModList()
 		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
 
 		scaledModList:ScaleAddList(baseModList, 4)
@@ -574,8 +691,8 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
-		-- ~500 armour gives 25% increased block => 12.5%
-		assert.equals(12.5, build.calcsTab.mainOutput.EffectiveBlockChance)
+		-- ~500 armour gives 25% increased block => 13%
+		assert.equals(13, build.calcsTab.mainOutput.EffectiveBlockChance)
 		assert.True(basePhys < build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
 	end)
 	it("liminal coil", function()
@@ -676,13 +793,13 @@ describe("TetsItemMods", function()
 			type = "Normal",
 			isAttribute = true,
 			allocMode = 0,
-			modList = new("ModList"),
+			modList = new("ModList"):ModList()
 		}
 		local smallNode = {
 			id = 2,
 			type = "Normal",
 			allocMode = 0,
-			modList = new("ModList"),
+			modList = new("ModList"):ModList()
 		}
 		local envMode = "SPEC_TIMELESS_ATTRIBUTE"
 		GlobalCache.cachedData[envMode] = { }
@@ -728,8 +845,8 @@ describe("TetsItemMods", function()
 			end,
 		})
 
-		local attributeModList = calcs.buildModListForNode(env, attributeNode, 0, false)
-		local smallModList = calcs.buildModListForNode(env, smallNode, 0, false)
+		local attributeModList = calcs.buildModListForNode(env, attributeNode, nil, 0, false)
+		local smallModList = calcs.buildModListForNode(env, smallNode, nil, 0, false)
 		GlobalCache.cachedData[envMode] = nil
 
 		assert.are.equals(7, attributeModList:Sum("BASE", nil, "Str"))
@@ -839,5 +956,91 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 		assert.are.equals(76, build.calcsTab.mainOutput.SpiritReserved)
+	end)
+	describe("TestAbyssalWasting", function()
+		local implicit = "Inflict Abyssal Wasting on Hit\n"
+		local explicits = [[
+		Abyssal Wasting also applies -15% to Fire Resistance
+		30% increased Accuracy Rating against Enemies affected by Abyssal Wasting
+		40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting
+		30% increased Immobilisation buildup against targets affected by Abyssal Wasting
+		20% of Mana Leeched from targets affected by Abyssal Wasting is Instant
+	]]
+
+		before_each(function()
+			newBuild()
+		end)
+
+		local function setMods(mods)
+			build.configTab.input.customMods = mods
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			return build.calcsTab.mainEnv
+		end
+
+		it("grants nothing unless the enemy is wasted", function()
+			local env = setMods(explicits)
+			assert.are.equals(50, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(0, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(0, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+		end)
+
+		it("grants its bonuses once the enemy is wasted", function()
+			local env = setMods(implicit .. explicits)
+			assert.are.equals(35, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(40, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(20, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+		end)
+
+		it("does not scale player mods", function()
+			local env = setMods(implicit .. explicits .. "\n60% increased Magnitude of Abyssal Wasting you inflict")
+			assert.are.equals(26, env.enemyDB:Sum("BASE", nil, "FireResist"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "Accuracy"))
+			assert.are.equals(40, env.modDB:Sum("INC", nil, "AilmentChance"))
+			assert.are.equals(30, env.modDB:Sum("INC", nil, "EnemyImmobilisationBuildup"))
+			assert.are.equals(20, env.modDB:Sum("BASE", nil, "InstantManaLeech"))
+
+			-- magnitude stacks
+			local env = setMods(implicit .. explicits .. "\n60% increased Magnitude of Abyssal Wasting you inflict" .. "\n60% increased Magnitude of Abyssal Wasting you inflict")
+			assert.are.equals(17, env.enemyDB:Sum("BASE", nil, "FireResist"))
+		end)
+
+		it("applies conditions to the wasted enemy", function()
+			local env = setMods(implicit .. [[
+			Targets affected by Abyssal Wasting you inflict are Debilitated
+			Targets affected by Abyssal Wasting you inflict are Hindered
+			Targets affected by Abyssal Wasting you inflict are Blinded
+			Abyssal Wasting you inflict also prevents targets from dealing Critical Hits
+		]])
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Debilitated") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Hindered") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "Condition:Blinded") == true)
+			assert.is_true(env.enemyDB:Flag(nil, "NeverCrit") == true)
+		end)
+
+		it("enables wither config", function()
+			local wither = "99% chance to inflict Withered with Hits against targets affected by Abyssal Wasting"
+			build.configTab.input.multiplierWitheredStackCount = 10
+
+			local env = setMods(wither)
+			assert.are.equals(0, env.enemyDB:Sum("INC", nil, "ChaosDamageTaken"))
+
+			env = setMods(implicit .. wither)
+			assert.is_true(env.player.mainSkill.skillModList:Flag(nil, "Condition:CanWither") == true)
+			assert.are.equals(50, env.enemyDB:Sum("INC", nil, "ChaosDamageTaken"))
+		end)
+
+		it("prevents the wasted enemy from inflicting elemental ailments", function()
+			local prevent = "Abyssal Wasting you inflict also prevents targets from inflicting Elemental Ailments"
+			assert.are.equals(0, setMods(prevent).player.output.IgniteAvoidChance)
+
+			local env = setMods(implicit .. prevent)
+			assert.are.equals(100, env.player.output.IgniteAvoidChance)
+			assert.are.equals(100, env.player.output.ShockAvoidChance)
+		end)
 	end)
 end)

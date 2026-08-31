@@ -162,7 +162,7 @@ directiveTable.base = function(state, args, out)
 	for _, mod in ipairs(implicitMods) do
 		local modDesc = describeMod(mod)
 		for _, line in ipairs(modDesc) do
-			table.insert(implicitLines, line)
+			table.insert(implicitLines, (mod.IsUnscalable and "{unscalable}" or "")..line)
 			table.insert(implicitModTypes, modDesc.modTags)
 		end
 		if mod.Id == "SpearImplicitDisplaySpearThrow1" then

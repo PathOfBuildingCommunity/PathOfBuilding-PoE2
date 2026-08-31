@@ -113,7 +113,7 @@ describe("TestIdolatry", function()
 	end)
 
 	it("enables only Idol Bonded modifiers from Fox Idol locally", function()
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Body
 			Rusted Cuirass
 		]])
@@ -160,9 +160,23 @@ describe("TestIdolatry", function()
 	end)
 
 	it("enables and scales Bonded modifiers from the ascendancy flag", function()
-		build.spec.allocNodes[42253] = build.spec.nodes[42253] -- Wisdom of the Maji
+		build.spec:SelectClass(build.spec.tree.classNameMap.Druid)
+		for ascendClassId, ascendClass in pairs(build.spec.curClass.classes) do
+			if ascendClass.name == "Shaman" then
+				build.spec:SelectAscendClass(ascendClassId)
+				break
+			end
+		end
+		local wisdomOfTheMaji = build.spec.nodes[42253]
+		wisdomOfTheMaji.alloc = true
+		build.spec.allocNodes[wisdomOfTheMaji.id] = wisdomOfTheMaji
+		build.buildFlag = true
+		runCallback("OnFrame")
+		local baseModDB = build.calcsTab.mainEnv.modDB
+		local baseLife = baseModDB:Sum("BASE", nil, "Life")
+		local baseMana = baseModDB:Sum("BASE", nil, "Mana")
 
-		local item = new("Item", [[
+		local item = new("Item"):Item([[
 			Test Body
 			Rusted Cuirass
 			200% increased effect of Socketed Runes
@@ -172,11 +186,12 @@ describe("TestIdolatry", function()
 		item:UpdateRunes()
 		item:BuildAndParseRaw()
 		build.itemsTab:AddItem(item)
+		build.itemsTab:EquipItemInSet(item, build.itemsTab.activeItemSetId)
 		build.buildFlag = true
 		runCallback("OnFrame")
 
-		local modDB = build.calcsTab.mainEnv.itemModDB
-		assert.are.equals(150, modDB:Sum("BASE", nil, "Life"))
-		assert.are.equals(60, modDB:Sum("BASE", nil, "Mana"))
+		local modDB = build.calcsTab.mainEnv.modDB
+		assert.are.equals(150, modDB:Sum("BASE", nil, "Life") - baseLife)
+		assert.are.equals(60, modDB:Sum("BASE", nil, "Mana") - baseMana)
 	end)
 end)

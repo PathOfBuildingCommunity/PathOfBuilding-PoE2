@@ -16,6 +16,49 @@ describe("TestItemsTab", function()
 		runCallback("OnFrame")
 	end)
 
+	it("keeps item tooltips for socket slots without note buttons", function()
+		local item = new("Item"):Item([[Rarity: RARE
+Test Jewel
+Ruby]])
+		build.itemsTab:AddItem(item, true)
+		build.itemsTab:PopulateSlots()
+
+		local socket, itemIndex
+		for _, candidate in pairs(build.itemsTab.sockets) do
+			for index, itemId in ipairs(candidate.items) do
+				if itemId == item.id then
+					socket, itemIndex = candidate, index
+					break
+				end
+			end
+			if socket then break end
+		end
+		assert.is_not_nil(socket)
+		assert.is_nil(socket.controls.noteButton)
+
+		local checkCalled = false
+		local clearCalled = false
+		local tooltip = {
+			Clear = function()
+				clearCalled = true
+			end,
+			CheckForUpdate = function()
+				checkCalled = true
+				return false
+			end,
+		}
+		local popup = main.popups[1]
+		local selControl = build.itemsTab.selControl
+		main.popups[1] = nil
+		build.itemsTab.selControl = nil
+		socket.tooltipFunc(tooltip, "IN", itemIndex, item.id)
+		main.popups[1] = popup
+		build.itemsTab.selControl = selControl
+
+		assert.is_true(checkCalled)
+		assert.is_false(clearCalled)
+	end)
+
 	describe("ItemsTab", function()
 		describe("NewItemSet", function()
 			it("Creates a new item set with specified ID", function()
@@ -55,6 +98,14 @@ describe("TestItemsTab", function()
 				build.itemsTab:NewItemSet(nil, newTitle)
 
 				assert.is_true(build.itemsTab.modFlag)
+			end)
+
+			it("does not copy equipment notes into a new item set", function()
+				build.itemsTab.slots.Belt.note = "Active set note"
+
+				local newItemSet = build.itemsTab:NewItemSet(nil, "New Item Set")
+
+				assert.is_nil(newItemSet.Belt.note)
 			end)
 		end)
 
@@ -184,7 +235,7 @@ describe("TestItemsTab", function()
 
 	describe("ItemSetListControl", function()
 		it("adds an imported shared item set to the build once", function()
-			local itemSetList = new("ItemSetListControl", nil, { 0, 0, 300, 200 }, build.itemsTab)
+			local itemSetList = new("ItemSetListControl"):ItemSetListControl(nil, { 0, 0, 300, 200 }, build.itemsTab)
 
 			itemSetList:ReceiveDrag("SharedItemList", { title = "Shared Set", slots = {} })
 
@@ -196,7 +247,7 @@ describe("TestItemsTab", function()
 	describe("ItemSetService", function()
 		local itemSetService
 		before_each(function()
-			itemSetService = new("ItemSetService", build.itemsTab)
+			itemSetService = new("ItemSetService"):ItemSetService(build.itemsTab)
 		end)
 
 		describe("NewItemSet", function()
@@ -338,7 +389,7 @@ describe("TestItemsTab", function()
 		local itemSetService
 
 		before_each(function()
-			itemSetService = new("ItemSetService", build.itemsTab)
+			itemSetService = new("ItemSetService"):ItemSetService(build.itemsTab)
 		end)
 
 		describe("Item set persistence across switches", function()
@@ -416,7 +467,7 @@ describe("TestItemsTab", function()
 
 		-- Equips an item into the active item set's appropriate slot
 		local function equip(raw)
-			local item = new("Item", raw)
+			local item = new("Item"):Item(raw)
 			build.itemsTab:AddItem(item)
 			build.itemsTab:EquipItemInSet(item, build.itemsTab.activeItemSetId)
 			return item
@@ -431,7 +482,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -449,7 +500,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -469,7 +520,7 @@ describe("TestItemsTab", function()
 					Allocates Serrated Edges (enchant)
 				]])
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Azure Amulet
@@ -490,7 +541,7 @@ describe("TestItemsTab", function()
 				]])
 
 				for _, status in ipairs({ "Corrupted", "Mirrored", "Sanctified" }) do
-					local newItem = new("Item", string.format([[
+					local newItem = new("Item"):Item(string.format([[
 						Rarity: RARE
 						New
 						Azure Amulet
@@ -523,7 +574,7 @@ describe("TestItemsTab", function()
 			it("copies runes from the equipped item when copyAugments is true", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					New
 					Stocky Mitts
@@ -536,7 +587,7 @@ describe("TestItemsTab", function()
 			it("adds sockets to the new item to fit the copied runes", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", newItemText)
+				local newItem = new("Item"):Item(newItemText)
 				assert.are.equals(0, #newItem.sockets)
 
 				build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
@@ -547,7 +598,7 @@ describe("TestItemsTab", function()
 			it("does not copy runes when copyAugments is false", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", newItemText)
+				local newItem = new("Item"):Item(newItemText)
 				build.itemsTab:CopyAnointsAndAugments(newItem, false, false)
 
 				assert.are.equals(0, #newItem.sockets)
@@ -556,7 +607,7 @@ describe("TestItemsTab", function()
 			it("does not replace socket bound runes", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -566,7 +617,7 @@ describe("TestItemsTab", function()
 				build.itemsTab:CopyAnointsAndAugments(newItem, true, true)
 				assert.are.equals(newItem.runes[1], "Kolr's Hunt")
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -581,7 +632,7 @@ describe("TestItemsTab", function()
 			it("replaces runes when overwrite is true", function ()
 				equip(existingItemText)
 
-				local newItem = new("Item", [[
+				local newItem = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -594,7 +645,7 @@ describe("TestItemsTab", function()
 			end)
 
 			it("identifies socket bound runes", function ()
-				local item = new("Item", [[
+				local item = new("Item"):Item([[
 					Rarity: RARE
 					Equipped
 					Stocky Mitts
@@ -610,7 +661,7 @@ describe("TestItemsTab", function()
 
 			it("uses variant socket types for valid augments", function ()
 				for _, itemRaw in ipairs({ data.uniques.belt[6], data.uniques.body[1] }) do
-					local item = new("Item", itemRaw)
+					local item = new("Item"):Item(itemRaw)
 					item.variant = 1 -- Helmet
 					item:BuildModList()
 
@@ -633,7 +684,7 @@ describe("TestItemsTab", function()
 			end)
 
 			it("refreshes valid augments when the item variant changes", function ()
-				local item = new("Item", data.uniques.body[1])
+				local item = new("Item"):Item(data.uniques.body[1])
 				item.variant = 3 -- Boots
 				item:BuildModList()
 				build.itemsTab:SetDisplayItem(item)
@@ -648,6 +699,33 @@ describe("TestItemsTab", function()
 					end
 				end
 				assert.is_true(foundMaximumRage)
+			end)
+
+			it("refreshes affix controls when an augment changes affix limits", function ()
+				build.itemsTab:CreateDisplayItemFromRaw([[
+					Rarity: RARE
+					New
+					Stocky Mitts
+					Crafted: true
+					Sockets: S
+				]], true)
+
+				local runeControl = build.itemsTab.controls.displayItemRune1
+				local serlesIndex
+				for index, rune in ipairs(runeControl.list) do
+					if rune.name == "Serle's Triumph" then
+						serlesIndex = index
+						break
+					end
+				end
+				assert.is_not_nil(serlesIndex)
+				runeControl:SetSel(serlesIndex)
+
+				local affixControl = build.itemsTab.controls.displayItemAffix7
+				assert.are.equals(7, build.itemsTab.displayItem.affixLimit)
+				assert.are.equals("suffixes", affixControl.outputTable)
+				assert.are.equals("None", affixControl.list[1])
+				affixControl.tooltipFunc({ Clear = function() end }, "BODY", affixControl.selIndex, affixControl.list[affixControl.selIndex])
 			end)
 
 			it("keeps Darkness Enthroned's socket editor available at zero sockets", function ()
@@ -705,7 +783,7 @@ describe("TestItemsTab", function()
 			end)
 
 			it("deduplicates valid augments by socketed item name", function ()
-				local item = new("Item", data.uniques.body[1])
+				local item = new("Item"):Item(data.uniques.body[1])
 				item.variant = 4 -- Shield
 				item:BuildModList()
 
@@ -728,7 +806,7 @@ describe("TestItemsTab", function()
 				assert.are.equals("+15 to Strength", weaponMods[1])
 				assert.are.same({ "Adds 6 to 10 Physical Damage to Attacks", "Adds 6 to 10 Fire damage to Attacks" }, { unpack(weaponMods.bonded) })
 
-				local item = new("Item", [[
+				local item = new("Item"):Item([[
 					Test Wand
 					Runic Fork
 				]])
@@ -744,7 +822,7 @@ describe("TestItemsTab", function()
 		end)
 
 		it("does nothing when no matching item is equipped", function ()
-			local newItem = new("Item", [[
+			local newItem = new("Item"):Item([[
 				Rarity: RARE
 				New
 				Azure Amulet

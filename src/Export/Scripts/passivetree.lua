@@ -703,6 +703,9 @@ for i, group in ipairs(psg.groups) do
 			end
 			--printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
+			-- PassiveSkills.Id (e.g. "projectiles18", "AscendancyMercenary2Notable5"); needed to
+			-- to emit valid IDs in PoE2 .build (BuildPlanner) files.
+			node["stringId"] = passiveRow.Id
 			node["icon"] = passiveRow.Icon
 			if passiveRow.FlavourText ~= "" then
 				node["flavourText"] = passiveRow.FlavourText:gsub('\r',''):gsub('\n','\\n')

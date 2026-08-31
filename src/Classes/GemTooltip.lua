@@ -19,11 +19,10 @@ local function addDescriptionLine(tooltip, build, statSet, line, stat, index, co
 	if source then
 		if launch.devModeAlt then
 			local devText = stat
-			if source[1] then
-				if not source[1].value then
-					source[1].value = stat
-				end
-				devText = modLib.formatMod(source[1])
+			local sourceMod = source[1] and copyTable(source[1].name and source[1] or source[1][1])
+			if sourceMod then
+				sourceMod.value = sourceMod.value or stat
+				devText = modLib.formatMod(sourceMod)
 			end
 			line = line .. " ^2" .. devText
 		end
@@ -374,6 +373,13 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 		tooltip:AddSeparator(10)
 		for _, line in ipairs(grantedEffect.flavourText) do
 			tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
+		end
+	end
+	if options.includeBuildPlannerNote then
+		tooltip:AddSeparator(10)
+		tooltip:AddLine(14, colorCodes.TIP .. "Shift + Right-Click to add a build note (PoE2 .build export)")
+		if gemInstance.note and gemInstance.note ~= "" then
+			tooltip:AddBuildPlannerNote(14, gemInstance.note, "^7Note: ")
 		end
 	end
 end

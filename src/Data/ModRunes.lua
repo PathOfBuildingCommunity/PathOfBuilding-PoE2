@@ -37,8 +37,8 @@ return {
 				type = "SoulCore",
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
-				statOrder = { 4265, 10138 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" }, [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" },  },
+				statOrder = { 4265, 10131 },
+				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -46,8 +46,8 @@ return {
 				type = "SoulCore",
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
-				statOrder = { 4265, 10138 },
-				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" }, [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" },  },
+				statOrder = { 4265, 10131 },
+				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -57,8 +57,8 @@ return {
 				type = "SoulCore",
 				"8% increased Skill Effect Duration",
 				"8% increased Cooldown Recovery Rate",
-				statOrder = { 1645, 4677 },
-				tradeHashes = { [3377888098] = { "8% increased Skill Effect Duration" }, [1004011302] = { "8% increased Cooldown Recovery Rate" },  },
+				statOrder = { 1645, 4103 },
+				tradeHashes = { [1004011302] = { "8% increased Cooldown Recovery Rate" }, [3377888098] = { "8% increased Skill Effect Duration" },  },
 				isSocketBound = false,
 				rank = { 50 },
 		},
@@ -67,7 +67,7 @@ return {
 		["helmet"] = {
 				type = "SoulCore",
 				"+4 to Maximum Rage",
-				statOrder = { 9609 },
+				statOrder = { 9603 },
 				tradeHashes = { [1181501418] = { "+4 to Maximum Rage" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -88,7 +88,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
-				statOrder = { 5520 },
+				statOrder = { 5516 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -96,7 +96,7 @@ return {
 		["wand"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
-				statOrder = { 5520 },
+				statOrder = { 5516 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -104,7 +104,7 @@ return {
 		["staff"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
-				statOrder = { 5520 },
+				statOrder = { 5516 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -114,7 +114,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
-				statOrder = { 5519 },
+				statOrder = { 5515 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -122,7 +122,7 @@ return {
 		["wand"] = {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
-				statOrder = { 5519 },
+				statOrder = { 5515 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -130,7 +130,7 @@ return {
 		["staff"] = {
 				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
-				statOrder = { 5519 },
+				statOrder = { 5515 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -140,7 +140,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
-				statOrder = { 5521 },
+				statOrder = { 5517 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -148,7 +148,7 @@ return {
 		["wand"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
-				statOrder = { 5521 },
+				statOrder = { 5517 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -156,7 +156,7 @@ return {
 		["staff"] = {
 				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
-				statOrder = { 5521 },
+				statOrder = { 5517 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -166,7 +166,7 @@ return {
 		["boots"] = {
 				type = "SoulCore",
 				"12% increased speed of Recoup Effects",
-				statOrder = { 9663 },
+				statOrder = { 9657 },
 				tradeHashes = { [2363593824] = { "12% increased speed of Recoup Effects" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -214,7 +214,7 @@ return {
 		["wand"] = {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 9027 },
+				statOrder = { 9022 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -222,7 +222,7 @@ return {
 		["staff"] = {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 9027 },
+				statOrder = { 9022 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -230,7 +230,7 @@ return {
 		["sceptre"] = {
 				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 9027 },
+				statOrder = { 9022 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
 				isSocketBound = false,
 				rank = { 50 },
@@ -240,7 +240,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"15% chance to Poison on Hit with this weapon",
-				statOrder = { 7813 },
+				statOrder = { 7808 },
 				tradeHashes = { [3885634897] = { "15% chance to Poison on Hit with this weapon" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -266,7 +266,7 @@ return {
 		["helmet"] = {
 				type = "SoulCore",
 				"20% increased Charm Charges gained",
-				statOrder = { 5605 },
+				statOrder = { 5601 },
 				tradeHashes = { [3585532255] = { "20% increased Charm Charges gained" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -392,7 +392,7 @@ return {
 		["gloves"] = {
 				type = "SoulCore",
 				"10% increased Quantity of Gold Dropped by Slain Enemies",
-				statOrder = { 6917 },
+				statOrder = { 6912 },
 				tradeHashes = { [3175163625] = { "10% increased Quantity of Gold Dropped by Slain Enemies" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -428,7 +428,7 @@ return {
 		["boots"] = {
 				type = "SoulCore",
 				"15% reduced Slowing Potency of Debuffs on You",
-				statOrder = { 4747 },
+				statOrder = { 4745 },
 				tradeHashes = { [924253255] = { "15% reduced Slowing Potency of Debuffs on You" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -472,7 +472,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7818 },
+				statOrder = { 7813 },
 				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -480,7 +480,7 @@ return {
 		["armour"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7818 },
+				statOrder = { 7813 },
 				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -490,7 +490,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7816 },
+				statOrder = { 7811 },
 				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -498,7 +498,7 @@ return {
 		["armour"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7816 },
+				statOrder = { 7811 },
 				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -508,7 +508,7 @@ return {
 		["weapon"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7817 },
+				statOrder = { 7812 },
 				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -516,7 +516,7 @@ return {
 		["armour"] = {
 				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7817 },
+				statOrder = { 7812 },
 				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -526,7 +526,7 @@ return {
 		["helmet"] = {
 				type = "SoulCore",
 				"Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds",
-				statOrder = { 6765 },
+				statOrder = { 6760 },
 				tradeHashes = { [3903510399] = { "Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -534,7 +534,7 @@ return {
 		["body armour"] = {
 				type = "SoulCore",
 				"10% of Physical Damage prevented Recouped as Life",
-				statOrder = { 9451 },
+				statOrder = { 9445 },
 				tradeHashes = { [1374654984] = { "10% of Physical Damage prevented Recouped as Life" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -543,7 +543,7 @@ return {
 				type = "SoulCore",
 				"Lose 5% of maximum Life per second while Sprinting",
 				"25% increased Movement Speed while Sprinting",
-				statOrder = { 7464, 10069 },
+				statOrder = { 7459, 10062 },
 				tradeHashes = { [3473409233] = { "Lose 5% of maximum Life per second while Sprinting" }, [3107707789] = { "25% increased Movement Speed while Sprinting" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -553,7 +553,7 @@ return {
 		["body armour"] = {
 				type = "SoulCore",
 				"You Recoup 50% of Damage taken by your Offerings as Life",
-				statOrder = { 9687 },
+				statOrder = { 9681 },
 				tradeHashes = { [1937310173] = { "You Recoup 50% of Damage taken by your Offerings as Life" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -561,7 +561,7 @@ return {
 		["gloves"] = {
 				type = "SoulCore",
 				"One of your Persistent Minions revives when an Offering expires",
-				statOrder = { 9781 },
+				statOrder = { 9775 },
 				tradeHashes = { [1480688478] = { "One of your Persistent Minions revives when an Offering expires" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -569,7 +569,7 @@ return {
 		["boots"] = {
 				type = "SoulCore",
 				"Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll",
-				statOrder = { 9788 },
+				statOrder = { 9782 },
 				tradeHashes = { [1585886916] = { "Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -579,7 +579,7 @@ return {
 		["helmet"] = {
 				type = "SoulCore",
 				"+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
-				statOrder = { 6723 },
+				statOrder = { 6718 },
 				tradeHashes = { [280497929] = { "+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -588,7 +588,7 @@ return {
 				type = "SoulCore",
 				"Energy Shield Recharge starts after spending a total of",
 				" 2000 Mana, no more than once every 2 seconds",
-				statOrder = { 6448, 6448.1 },
+				statOrder = { 6443, 6443.1 },
 				tradeHashes = { [2241849004] = { "Energy Shield Recharge starts after spending a total of", " 2000 Mana, no more than once every 2 seconds" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -597,7 +597,7 @@ return {
 				type = "SoulCore",
 				"Increases and Reductions to Movement Speed also",
 				" apply to Energy Shield Recharge Rate",
-				statOrder = { 7327, 7327.1 },
+				statOrder = { 7322, 7322.1 },
 				tradeHashes = { [4282982513] = { "Increases and Reductions to Movement Speed also", " apply to Energy Shield Recharge Rate" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -607,7 +607,7 @@ return {
 		["helmet"] = {
 				type = "SoulCore",
 				"A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate",
-				statOrder = { 8821 },
+				statOrder = { 8816 },
 				tradeHashes = { [2231410646] = { "A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -615,7 +615,7 @@ return {
 		["gloves"] = {
 				type = "SoulCore",
 				"Your Energy Shield Recharge starts when your Minions are Reformed",
-				statOrder = { 6446 },
+				statOrder = { 6441 },
 				tradeHashes = { [1919509054] = { "Your Energy Shield Recharge starts when your Minions are Reformed" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -633,7 +633,7 @@ return {
 		["helmet"] = {
 				type = "AbyssalEye",
 				"Remove a Damaging Ailment when you use a Command Skill",
-				statOrder = { 9748 },
+				statOrder = { 9742 },
 				tradeHashes = { [594547430] = { "Remove a Damaging Ailment when you use a Command Skill" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -650,7 +650,7 @@ return {
 				type = "AbyssalEye",
 				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
 				"Other Modifiers to Movement Speed except for Sprinting do not apply",
-				statOrder = { 9153, 9153.1 },
+				statOrder = { 9147, 9147.1 },
 				tradeHashes = { [2703838669] = { "1% increased Movement Speed per 15 Spirit, up to a maximum of 40%", "Other Modifiers to Movement Speed except for Sprinting do not apply" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -676,7 +676,7 @@ return {
 		["boots"] = {
 				type = "AbyssalEye",
 				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
-				statOrder = { 7970 },
+				statOrder = { 7965 },
 				tradeHashes = { [2876843277] = { "15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -694,7 +694,7 @@ return {
 		["gloves"] = {
 				type = "AbyssalEye",
 				"25% increased Life Cost Efficiency",
-				statOrder = { 4708 },
+				statOrder = { 4706 },
 				tradeHashes = { [310945763] = { "25% increased Life Cost Efficiency" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -720,7 +720,7 @@ return {
 		["gloves"] = {
 				type = "AbyssalEye",
 				"Critical Hit chance is Lucky against Parried enemies",
-				statOrder = { 5809 },
+				statOrder = { 5805 },
 				tradeHashes = { [935518591] = { "Critical Hit chance is Lucky against Parried enemies" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -728,7 +728,7 @@ return {
 		["body armour"] = {
 				type = "AbyssalEye",
 				"Prevent +3% of Damage from Deflected Hits",
-				statOrder = { 4679 },
+				statOrder = { 4677 },
 				tradeHashes = { [3552135623] = { "Prevent +3% of Damage from Deflected Hits" },  },
 				isSocketBound = false,
 				rank = { 60 },
@@ -844,7 +844,7 @@ return {
 				tradeHashes = { [3336890334] = { "Adds 1 to 20 Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -856,7 +856,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -868,7 +868,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -895,7 +895,7 @@ return {
 				tradeHashes = { [1805374733] = { "16% increased Physical Damage" },  },
 				bonded = {
 					"20% increased effect of Fully Broken Armour",
-					statOrder = { 5236 },
+					statOrder = { 5232 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1099,7 +1099,7 @@ return {
 				tradeHashes = { [1368271171] = { "Gain 20 Mana per enemy killed" },  },
 				bonded = {
 					"12% of Skill Mana Costs Converted to Life Costs",
-					statOrder = { 4744 },
+					statOrder = { 4742 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1111,7 +1111,7 @@ return {
 				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1123,7 +1123,7 @@ return {
 				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1150,7 +1150,7 @@ return {
 				tradeHashes = { [791928121] = { "Causes 30% increased Stun Buildup" },  },
 				bonded = {
 					"40% increased Damage against Immobilised Enemies",
-					statOrder = { 5959 },
+					statOrder = { 5954 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1158,11 +1158,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1170,11 +1170,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -1233,7 +1233,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"12% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6644 },
+				statOrder = { 6639 },
 				tradeHashes = { [2310741722] = { "12% increased Life and Mana Recovery from Flasks" },  },
 				bonded = {
 					"+20 to maximum Life",
@@ -1354,7 +1354,7 @@ return {
 				tradeHashes = { [3336890334] = { "Adds 1 to 10 Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1366,7 +1366,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1378,7 +1378,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1405,7 +1405,7 @@ return {
 				tradeHashes = { [1805374733] = { "14% increased Physical Damage" },  },
 				bonded = {
 					"20% increased effect of Fully Broken Armour",
-					statOrder = { 5236 },
+					statOrder = { 5232 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1609,7 +1609,7 @@ return {
 				tradeHashes = { [1368271171] = { "Gain 10 Mana per enemy killed" },  },
 				bonded = {
 					"12% of Skill Mana Costs Converted to Life Costs",
-					statOrder = { 4744 },
+					statOrder = { 4742 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1621,7 +1621,7 @@ return {
 				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1633,7 +1633,7 @@ return {
 				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1660,7 +1660,7 @@ return {
 				tradeHashes = { [791928121] = { "Causes 20% increased Stun Buildup" },  },
 				bonded = {
 					"40% increased Damage against Immobilised Enemies",
-					statOrder = { 5959 },
+					statOrder = { 5954 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1668,11 +1668,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1680,11 +1680,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -1743,7 +1743,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"8% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6644 },
+				statOrder = { 6639 },
 				tradeHashes = { [2310741722] = { "8% increased Life and Mana Recovery from Flasks" },  },
 				bonded = {
 					"+20 to maximum Life",
@@ -1864,7 +1864,7 @@ return {
 				tradeHashes = { [3336890334] = { "Adds 1 to 30 Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -1876,7 +1876,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -1888,7 +1888,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -1915,7 +1915,7 @@ return {
 				tradeHashes = { [1805374733] = { "18% increased Physical Damage" },  },
 				bonded = {
 					"20% increased effect of Fully Broken Armour",
-					statOrder = { 5236 },
+					statOrder = { 5232 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2119,7 +2119,7 @@ return {
 				tradeHashes = { [1368271171] = { "Gain 30 Mana per enemy killed" },  },
 				bonded = {
 					"12% of Skill Mana Costs Converted to Life Costs",
-					statOrder = { 4744 },
+					statOrder = { 4742 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2131,7 +2131,7 @@ return {
 				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2143,7 +2143,7 @@ return {
 				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2170,7 +2170,7 @@ return {
 				tradeHashes = { [791928121] = { "Causes 40% increased Stun Buildup" },  },
 				bonded = {
 					"40% increased Damage against Immobilised Enemies",
-					statOrder = { 5959 },
+					statOrder = { 5954 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2178,11 +2178,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2190,11 +2190,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -2253,7 +2253,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"16% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6644 },
+				statOrder = { 6639 },
 				tradeHashes = { [2310741722] = { "16% increased Life and Mana Recovery from Flasks" },  },
 				bonded = {
 					"+20 to maximum Life",
@@ -2374,7 +2374,7 @@ return {
 				tradeHashes = { [3336890334] = { "Adds 1 to 40 Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2386,7 +2386,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2398,7 +2398,7 @@ return {
 				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"30% increased Magnitude of Shock you inflict",
-					statOrder = { 9845 },
+					statOrder = { 9839 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2425,7 +2425,7 @@ return {
 				tradeHashes = { [1805374733] = { "20% increased Physical Damage" },  },
 				bonded = {
 					"20% increased effect of Fully Broken Armour",
-					statOrder = { 5236 },
+					statOrder = { 5232 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2629,7 +2629,7 @@ return {
 				tradeHashes = { [1368271171] = { "Gain 40 Mana per enemy killed" },  },
 				bonded = {
 					"12% of Skill Mana Costs Converted to Life Costs",
-					statOrder = { 4744 },
+					statOrder = { 4742 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2641,7 +2641,7 @@ return {
 				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2653,7 +2653,7 @@ return {
 				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
 				bonded = {
 					"16% increased Mana Cost Efficiency",
-					statOrder = { 4718 },
+					statOrder = { 4716 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2680,7 +2680,7 @@ return {
 				tradeHashes = { [791928121] = { "Causes 50% increased Stun Buildup" },  },
 				bonded = {
 					"40% increased Damage against Immobilised Enemies",
-					statOrder = { 5959 },
+					statOrder = { 5954 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2688,11 +2688,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2700,11 +2700,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
-				statOrder = { 10138 },
+				statOrder = { 10131 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -2763,7 +2763,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"20% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6644 },
+				statOrder = { 6639 },
 				tradeHashes = { [2310741722] = { "20% increased Life and Mana Recovery from Flasks" },  },
 				bonded = {
 					"+20 to maximum Life",
@@ -3458,7 +3458,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"6 to 9 Physical Thorns damage",
-				statOrder = { 10261 },
+				statOrder = { 10254 },
 				tradeHashes = { [2881298780] = { "6 to 9 Physical Thorns damage" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -3476,7 +3476,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"14 to 21 Physical Thorns damage",
-				statOrder = { 10261 },
+				statOrder = { 10254 },
 				tradeHashes = { [2881298780] = { "14 to 21 Physical Thorns damage" },  },
 				isSocketBound = false,
 				rank = { 15 },
@@ -3494,7 +3494,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"31 to 52 Physical Thorns damage",
-				statOrder = { 10261 },
+				statOrder = { 10254 },
 				tradeHashes = { [2881298780] = { "31 to 52 Physical Thorns damage" },  },
 				isSocketBound = false,
 				rank = { 30 },
@@ -3504,7 +3504,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
-				statOrder = { 9074 },
+				statOrder = { 9069 },
 				tradeHashes = { [1433756169] = { "Minions gain 10% of their Physical Damage as Extra Lightning Damage" },  },
 				bonded = {
 					"Minions deal 20% increased Damage",
@@ -3516,7 +3516,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"Minions take 10% of Physical Damage as Lightning Damage",
-				statOrder = { 9075 },
+				statOrder = { 9070 },
 				tradeHashes = { [889552744] = { "Minions take 10% of Physical Damage as Lightning Damage" },  },
 				bonded = {
 					"Minions have +10% to all Elemental Resistances",
@@ -3530,11 +3530,11 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Meta Skills gain 10% increased Energy",
-				statOrder = { 6410 },
+				statOrder = { 6405 },
 				tradeHashes = { [4236566306] = { "Meta Skills gain 10% increased Energy" },  },
 				bonded = {
 					"Invocated Spells have 25% chance to consume half as much Energy",
-					statOrder = { 7386 },
+					statOrder = { 7381 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -3542,11 +3542,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"1 to 100 Lightning Thorns damage",
-				statOrder = { 10260 },
+				statOrder = { 10253 },
 				tradeHashes = { [757050353] = { "1 to 100 Lightning Thorns damage" },  },
 				bonded = {
 					"15% increased Thorns damage",
-					statOrder = { 10254 },
+					statOrder = { 10247 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -3560,7 +3560,7 @@ return {
 				tradeHashes = { [970213192] = { "8% increased Skill Speed" },  },
 				bonded = {
 					"15% increased Reservation Efficiency of Herald Skills",
-					statOrder = { 9765 },
+					statOrder = { 9759 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -3568,7 +3568,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"Debuffs on you expire 8% faster",
-				statOrder = { 6099 },
+				statOrder = { 6094 },
 				tradeHashes = { [1238227257] = { "Debuffs on you expire 8% faster" },  },
 				bonded = {
 					"15% increased Elemental Ailment Threshold",
@@ -3582,11 +3582,11 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Attacks with this Weapon have 10% chance to inflict Exposure",
-				statOrder = { 7736 },
+				statOrder = { 7731 },
 				tradeHashes = { [3678845069] = { "Attacks with this Weapon have 10% chance to inflict Exposure" },  },
 				bonded = {
 					"20% increased Exposure Effect",
-					statOrder = { 6533 },
+					statOrder = { 6528 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -3594,7 +3594,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"10% reduced effect of Shock on you",
-				statOrder = { 9859 },
+				statOrder = { 9853 },
 				tradeHashes = { [3801067695] = { "10% reduced effect of Shock on you" },  },
 				bonded = {
 					"10% reduced Shock duration on you",
@@ -3634,11 +3634,11 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 9264 },
+				statOrder = { 9258 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
 				bonded = {
 					"8% chance to gain an additional random Charge when you gain a Charge",
-					statOrder = { 5522 },
+					statOrder = { 5518 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3646,7 +3646,7 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 9264 },
+				statOrder = { 9258 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
 				bonded = {
 					"12% chance when collecting an Elemental Infusion to gain an",
@@ -3659,7 +3659,7 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 9264 },
+				statOrder = { 9258 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
 				bonded = {
 					"12% chance when collecting an Elemental Infusion to gain an",
@@ -3712,11 +3712,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"8% increased Deflection Rating while moving",
-				statOrder = { 6120 },
+				statOrder = { 6115 },
 				tradeHashes = { [1382805233] = { "8% increased Deflection Rating while moving" },  },
 				bonded = {
 					"Prevent +3% of Damage from Deflected Hits",
-					statOrder = { 4679 },
+					statOrder = { 4677 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3730,7 +3730,7 @@ return {
 				tradeHashes = { [2250533757] = { "5% increased Movement Speed" },  },
 				bonded = {
 					"10% increased Cooldown Recovery Rate",
-					statOrder = { 4677 },
+					statOrder = { 4103 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3768,11 +3768,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"25% increased Exposure Effect",
-				statOrder = { 6533 },
+				statOrder = { 6528 },
 				tradeHashes = { [2074866941] = { "25% increased Exposure Effect" },  },
 				bonded = {
 					"15% increased Magnitude of Non-Damaging Ailments you inflict",
-					statOrder = { 9224 },
+					statOrder = { 9218 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3801,7 +3801,7 @@ return {
 				bonded = {
 					"Gain additional Ailment Threshold equal to 50% of maximum Energy Shield",
 					"Gain additional Stun Threshold equal to 50% of maximum Energy Shield",
-					statOrder = { 4265, 10138 },
+					statOrder = { 4265, 10131 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3811,11 +3811,11 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Magnitude of Damaging Ailments you inflict",
-				statOrder = { 6067 },
+				statOrder = { 6062 },
 				tradeHashes = { [1381474422] = { "20% increased Magnitude of Damaging Ailments you inflict" },  },
 				bonded = {
 					"15% increased Duration of Damaging Ailments on Enemies",
-					statOrder = { 6065 },
+					statOrder = { 6060 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3825,7 +3825,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"30% increased Magnitude of Non-Damaging Ailments you inflict",
-				statOrder = { 9224 },
+				statOrder = { 9218 },
 				tradeHashes = { [782230869] = { "30% increased Magnitude of Non-Damaging Ailments you inflict" },  },
 				bonded = {
 					"15% increased Duration of Elemental Ailments on Enemies",
@@ -3843,7 +3843,7 @@ return {
 				tradeHashes = { [2891184298] = { "8% increased Cast Speed" },  },
 				bonded = {
 					"20% increased Mana Cost Efficiency while on Low Mana",
-					statOrder = { 4723 },
+					statOrder = { 4721 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3867,11 +3867,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
-				statOrder = { 10034 },
+				statOrder = { 10027 },
 				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
 				bonded = {
 					"Every Rage also grants 1% increased Spell Damage",
-					statOrder = { 10008 },
+					statOrder = { 10001 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3879,11 +3879,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
-				statOrder = { 10034 },
+				statOrder = { 10027 },
 				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
 				bonded = {
 					"Every Rage also grants 1% increased Spell Damage",
-					statOrder = { 10008 },
+					statOrder = { 10001 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3893,7 +3893,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Withered Magnitude",
-				statOrder = { 10556 },
+				statOrder = { 10549 },
 				tradeHashes = { [3973629633] = { "20% increased Withered Magnitude" },  },
 				bonded = {
 					"+7% to Chaos Resistance",
@@ -3921,7 +3921,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Adds 19 to 28 Cold Damage against Chilled Enemies",
-				statOrder = { 8962 },
+				statOrder = { 8957 },
 				tradeHashes = { [3734640451] = { "Adds 19 to 28 Cold Damage against Chilled Enemies" },  },
 				bonded = {
 					"+2% to Maximum Cold Resistance",
@@ -3935,7 +3935,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Adds 1 to 60 Lightning Damage against Shocked Enemies",
-				statOrder = { 6910 },
+				statOrder = { 6905 },
 				tradeHashes = { [90012347] = { "Adds 1 to 60 Lightning Damage against Shocked Enemies" },  },
 				bonded = {
 					"+2% to Maximum Lightning Resistance",
@@ -3953,7 +3953,7 @@ return {
 				tradeHashes = { [3032590688] = { "Adds 5 to 12 Physical Damage to Attacks" },  },
 				bonded = {
 					"Fissure Skills have +2 to Limit",
-					statOrder = { 6616 },
+					statOrder = { 6611 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3967,7 +3967,7 @@ return {
 				tradeHashes = { [458438597] = { "15% of Damage is taken from Mana before Life" },  },
 				bonded = {
 					"8% of Maximum Life Converted to Energy Shield",
-					statOrder = { 8884 },
+					statOrder = { 8879 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -3977,7 +3977,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Upgrades a socketed Rune",
-				statOrder = { 6246 },
+				statOrder = { 6241 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -3985,7 +3985,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"Upgrades a socketed Rune",
-				statOrder = { 6246 },
+				statOrder = { 6241 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -3993,7 +3993,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Upgrades a socketed Rune",
-				statOrder = { 6246 },
+				statOrder = { 6241 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -4059,11 +4059,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"8% increased Runic Ward Regeneration Rate",
-				statOrder = { 10520 },
+				statOrder = { 10513 },
 				tradeHashes = { [2392260628] = { "8% increased Runic Ward Regeneration Rate" },  },
 				bonded = {
 					"Regenerate 10 Runic Ward per second",
-					statOrder = { 4764 },
+					statOrder = { 4761 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -4073,11 +4073,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"12% increased Runic Ward Regeneration Rate",
-				statOrder = { 10520 },
+				statOrder = { 10513 },
 				tradeHashes = { [2392260628] = { "12% increased Runic Ward Regeneration Rate" },  },
 				bonded = {
 					"Regenerate 15 Runic Ward per second",
-					statOrder = { 4764 },
+					statOrder = { 4761 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4087,11 +4087,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"16% increased Runic Ward Regeneration Rate",
-				statOrder = { 10520 },
+				statOrder = { 10513 },
 				tradeHashes = { [2392260628] = { "16% increased Runic Ward Regeneration Rate" },  },
 				bonded = {
 					"Regenerate 20 Runic Ward per second",
-					statOrder = { 4764 },
+					statOrder = { 4761 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4101,11 +4101,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"20% increased Runic Ward Regeneration Rate",
-				statOrder = { 10520 },
+				statOrder = { 10513 },
 				tradeHashes = { [2392260628] = { "20% increased Runic Ward Regeneration Rate" },  },
 				bonded = {
 					"Regenerate 25 Runic Ward per second",
-					statOrder = { 4764 },
+					statOrder = { 4761 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -4129,11 +4129,11 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds",
-				statOrder = { 6802 },
+				statOrder = { 6797 },
 				tradeHashes = { [1963589548] = { "Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds" },  },
 				bonded = {
 					"8% increased Guard gained",
-					statOrder = { 6951 },
+					statOrder = { 6946 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4143,7 +4143,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Attacks Break Armour equal to 15% of maximum Runic Ward",
-				statOrder = { 5015 },
+				statOrder = { 5011 },
 				tradeHashes = { [2608793552] = { "Attacks Break Armour equal to 15% of maximum Runic Ward" },  },
 				bonded = {
 					"Break 10% increased Armour",
@@ -4157,7 +4157,7 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
-				statOrder = { 10042 },
+				statOrder = { 10035 },
 				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
 				bonded = {
 					"12% increased Elemental Damage",
@@ -4169,7 +4169,7 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
-				statOrder = { 10042 },
+				statOrder = { 10035 },
 				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
 				bonded = {
 					"12% increased Elemental Damage",
@@ -4183,7 +4183,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward",
-				statOrder = { 6442 },
+				statOrder = { 6437 },
 				tradeHashes = { [162036024] = { "1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward" },  },
 				bonded = {
 					"Regenerate 1% of maximum Energy Shield per second",
@@ -4211,11 +4211,11 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
-				statOrder = { 10134 },
+				statOrder = { 10127 },
 				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
 				bonded = {
 					"15% increased Stun buildup while Shapeshifted",
-					statOrder = { 7205 },
+					statOrder = { 7200 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4223,11 +4223,11 @@ return {
 		["buckler"] = {
 				type = "Rune",
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
-				statOrder = { 10134 },
+				statOrder = { 10127 },
 				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
 				bonded = {
 					"15% increased Stun buildup while Shapeshifted",
-					statOrder = { 7205 },
+					statOrder = { 7200 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4241,7 +4241,7 @@ return {
 				tradeHashes = { [282990844] = { "+3 to Deflection Rating per 10 maximum Runic Ward" },  },
 				bonded = {
 					"Prevent +1% of Damage from Deflected Hits",
-					statOrder = { 4679 },
+					statOrder = { 4677 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4255,7 +4255,7 @@ return {
 				tradeHashes = { [386720106] = { "Gain 5% of maximum Life as Extra maximum Runic Ward" },  },
 				bonded = {
 					"1% more Runic Ward Regeneration rate per 2% of maximum Runic Ward lost from Hits Recently, up to 100% more",
-					statOrder = { 10523 },
+					statOrder = { 10516 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4265,7 +4265,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"15% Life Recovery from Flasks also applies to Runic Ward",
-				statOrder = { 7474 },
+				statOrder = { 7469 },
 				tradeHashes = { [2650263616] = { "15% Life Recovery from Flasks also applies to Runic Ward" },  },
 				bonded = {
 					"15% increased Life Recovery from Flasks",
@@ -4283,7 +4283,7 @@ return {
 				tradeHashes = { [3035971497] = { "Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage" },  },
 				bonded = {
 					"10% reduced Runic Ward Cost Efficiency",
-					statOrder = { 4763 },
+					statOrder = { 4760 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4293,7 +4293,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage",
-				statOrder = { 7829 },
+				statOrder = { 7824 },
 				tradeHashes = { [1995345015] = { "Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage" },  },
 				bonded = {
 					"5% increased Attack Speed while missing Runic Ward",
@@ -4308,7 +4308,7 @@ return {
 				type = "Rune",
 				"All damage taken bypasses Runic Ward",
 				"Runic Ward Regeneration Rate is doubled",
-				statOrder = { 5965, 10525 },
+				statOrder = { 5960, 10518 },
 				tradeHashes = { [2579974553] = { "Runic Ward Regeneration Rate is doubled" }, [3814102597] = { "All damage taken bypasses Runic Ward" },  },
 				bonded = {
 					"12% increased maximum Runic Ward",
@@ -4323,11 +4323,11 @@ return {
 				type = "Rune",
 				"40% less Mana Regeneration Rate",
 				"Mana Recovery from Regeneration is also applied to Runic Ward",
-				statOrder = { 7999, 9705 },
-				tradeHashes = { [3145796865] = { "Mana Recovery from Regeneration is also applied to Runic Ward" }, [762761075] = { "40% less Mana Regeneration Rate" },  },
+				statOrder = { 7994, 9699 },
+				tradeHashes = { [762761075] = { "40% less Mana Regeneration Rate" }, [3145796865] = { "Mana Recovery from Regeneration is also applied to Runic Ward" },  },
 				bonded = {
 					"20% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently",
-					statOrder = { 10521 },
+					statOrder = { 10514 },
 				},
 				isSocketBound = false,
 				rank = { 45 },
@@ -4337,11 +4337,11 @@ return {
 		["sceptre"] = {
 				type = "Rune",
 				"Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed",
-				statOrder = { 9707 },
+				statOrder = { 9701 },
 				tradeHashes = { [3515226849] = { "Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed" },  },
 				bonded = {
 					"Recover 3% of maximum Life when one of your Minions is Revived",
-					statOrder = { 10596 },
+					statOrder = { 10589 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4351,12 +4351,12 @@ return {
 		["sceptre"] = {
 				type = "Rune",
 				"Minions in your Presence have Onslaught while you are on Low Runic Ward",
-				statOrder = { 9109 },
+				statOrder = { 9104 },
 				tradeHashes = { [540694930] = { "Minions in your Presence have Onslaught while you are on Low Runic Ward" },  },
 				bonded = {
 					"Damage of Enemies Hitting you is Unlucky if",
 					"your Runic Ward has been damaged Recently",
-					statOrder = { 6042, 6042.1 },
+					statOrder = { 6037, 6037.1 },
 				},
 				isSocketBound = false,
 				rank = { 45 },
@@ -4367,7 +4367,7 @@ return {
 				type = "Rune",
 				"Gain 15% of maximum Life as Extra maximum Runic Ward",
 				"15% less maximum Life",
-				statOrder = { 1430, 8878 },
+				statOrder = { 1430, 8873 },
 				tradeHashes = { [386720106] = { "Gain 15% of maximum Life as Extra maximum Runic Ward" }, [1020945697] = { "15% less maximum Life" },  },
 				bonded = {
 					"+1% to all Maximum Elemental Resistances while on full Runic Ward",
@@ -4381,7 +4381,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
-				statOrder = { 6242 },
+				statOrder = { 6237 },
 				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
 				bonded = {
 					"25% increased Fire Damage",
@@ -4393,7 +4393,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
-				statOrder = { 6242 },
+				statOrder = { 6237 },
 				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
 				bonded = {
 					"25% increased Fire Damage",
@@ -4407,7 +4407,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
-				statOrder = { 6239 },
+				statOrder = { 6234 },
 				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
 				bonded = {
 					"25% increased Cold Damage",
@@ -4419,7 +4419,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
-				statOrder = { 6239 },
+				statOrder = { 6234 },
 				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
 				bonded = {
 					"25% increased Cold Damage",
@@ -4433,7 +4433,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
-				statOrder = { 6243 },
+				statOrder = { 6238 },
 				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
 				bonded = {
 					"25% increased Lightning Damage",
@@ -4445,7 +4445,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
-				statOrder = { 6243 },
+				statOrder = { 6238 },
 				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
 				bonded = {
 					"25% increased Lightning Damage",
@@ -4459,7 +4459,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
-				statOrder = { 6238 },
+				statOrder = { 6233 },
 				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
 				bonded = {
 					"25% increased Chaos Damage",
@@ -4471,7 +4471,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
-				statOrder = { 6238 },
+				statOrder = { 6233 },
 				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
 				bonded = {
 					"25% increased Chaos Damage",
@@ -4485,7 +4485,7 @@ return {
 		["bow"] = {
 				type = "Rune",
 				"+50% Surpassing chance to fire an additional Arrow",
-				statOrder = { 5513 },
+				statOrder = { 5509 },
 				tradeHashes = { [2463230181] = { "+50% Surpassing chance to fire an additional Arrow" },  },
 				bonded = {
 					"30% increased Projectile Speed",
@@ -4499,7 +4499,7 @@ return {
 		["buckler"] = {
 				type = "Rune",
 				"30% increased Parried Debuff Magnitude",
-				statOrder = { 9379 },
+				statOrder = { 9373 },
 				tradeHashes = { [818877178] = { "30% increased Parried Debuff Magnitude" },  },
 				bonded = {
 					"15% increased Block chance",
@@ -4513,7 +4513,7 @@ return {
 		["two hand mace"] = {
 				type = "Rune",
 				"10% chance for Slam Skills you use yourself to cause an additional Aftershock",
-				statOrder = { 10626 },
+				statOrder = { 10619 },
 				tradeHashes = { [2045949233] = { "10% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
 				bonded = {
 					"15% increased Area of Effect for Attacks",
@@ -4527,7 +4527,7 @@ return {
 		["one hand mace"] = {
 				type = "Rune",
 				"40% increased effect of Fully Broken Armour",
-				statOrder = { 5236 },
+				statOrder = { 5232 },
 				tradeHashes = { [1879206848] = { "40% increased effect of Fully Broken Armour" },  },
 				bonded = {
 					"Break 50% increased Armour",
@@ -4541,7 +4541,7 @@ return {
 		["spear"] = {
 				type = "Rune",
 				"30% chance when you gain a Charge to gain an additional Charge",
-				statOrder = { 5518 },
+				statOrder = { 5514 },
 				tradeHashes = { [1555237944] = { "30% chance when you gain a Charge to gain an additional Charge" },  },
 				bonded = {
 					"30% increased Endurance, Frenzy and Power Charge Duration",
@@ -4555,11 +4555,11 @@ return {
 		["quarterstaff"] = {
 				type = "Rune",
 				"50% increased Immobilisation buildup",
-				statOrder = { 7193 },
+				statOrder = { 7188 },
 				tradeHashes = { [330530785] = { "50% increased Immobilisation buildup" },  },
 				bonded = {
 					"30% increased Damage against Immobilised Enemies",
-					statOrder = { 5959 },
+					statOrder = { 5954 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4569,11 +4569,11 @@ return {
 		["staff"] = {
 				type = "Rune",
 				"30% chance to create an additional Remnant",
-				statOrder = { 5409 },
+				statOrder = { 5405 },
 				tradeHashes = { [2328443419] = { "30% chance to create an additional Remnant" },  },
 				bonded = {
 					"+1 to maximum number of Elemental Infusions",
-					statOrder = { 8875 },
+					statOrder = { 8870 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4583,11 +4583,11 @@ return {
 		["wand"] = {
 				type = "Rune",
 				"25% increased Withered Magnitude",
-				statOrder = { 10556 },
+				statOrder = { 10549 },
 				tradeHashes = { [3973629633] = { "25% increased Withered Magnitude" },  },
 				bonded = {
 					"15% chance that when Volatility on you explodes, you regain an equivalent amount of Volatility",
-					statOrder = { 10485 },
+					statOrder = { 10478 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4601,7 +4601,7 @@ return {
 				tradeHashes = { [153777645] = { "40% increased Area of Effect of Curses" },  },
 				bonded = {
 					"15% faster Curse Activation",
-					statOrder = { 5924 },
+					statOrder = { 5920 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4611,7 +4611,7 @@ return {
 		["sceptre"] = {
 				type = "Rune",
 				"Minions have 8% increased Attack and Cast Speed",
-				statOrder = { 9003 },
+				statOrder = { 8998 },
 				tradeHashes = { [3091578504] = { "Minions have 8% increased Attack and Cast Speed" },  },
 				bonded = {
 					"Minions have 10% increased Movement Speed",
@@ -4625,7 +4625,7 @@ return {
 		["talisman"] = {
 				type = "Rune",
 				"Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy",
-				statOrder = { 6713 },
+				statOrder = { 6708 },
 				tradeHashes = { [3444646646] = { "Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy" },  },
 				bonded = {
 					"40% increased Stun Buildup",
@@ -4639,11 +4639,11 @@ return {
 		["crossbow"] = {
 				type = "Rune",
 				"Grenades have 10% chance to activate a second time",
-				statOrder = { 6939 },
+				statOrder = { 6934 },
 				tradeHashes = { [538981065] = { "Grenades have 10% chance to activate a second time" },  },
 				bonded = {
 					"40% increased Crossbow Reload Speed",
-					statOrder = { 9734 },
+					statOrder = { 9728 },
 				},
 				isSocketBound = false,
 				rank = { 30 },
@@ -4717,7 +4717,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"8% increased Movement Speed while Sprinting",
-				statOrder = { 10069 },
+				statOrder = { 10062 },
 				tradeHashes = { [3107707789] = { "8% increased Movement Speed while Sprinting" },  },
 				bonded = {
 					"50% increased Stun Recovery",
@@ -4729,11 +4729,11 @@ return {
 		["sceptre"] = {
 				type = "Rune",
 				"Companions deal 30% increased Damage",
-				statOrder = { 5722 },
+				statOrder = { 5718 },
 				tradeHashes = { [234296660] = { "Companions deal 30% increased Damage" },  },
 				bonded = {
 					"8% increased Mana Recovery rate while your Companion is in your Presence",
-					statOrder = { 7996 },
+					statOrder = { 7991 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4743,11 +4743,11 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Flasks gain 0.2 charges per Second",
-				statOrder = { 6888 },
+				statOrder = { 6883 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
 				bonded = {
 					"Charms gain 0.25 charges per Second",
-					statOrder = { 6889 },
+					statOrder = { 6884 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4755,11 +4755,11 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Flasks gain 0.2 charges per Second",
-				statOrder = { 6888 },
+				statOrder = { 6883 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
 				bonded = {
 					"Charms gain 0.25 charges per Second",
-					statOrder = { 6889 },
+					statOrder = { 6884 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4767,7 +4767,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"+0.3 metres to Dodge Roll distance",
-				statOrder = { 6200 },
+				statOrder = { 6195 },
 				tradeHashes = { [258119672] = { "+0.3 metres to Dodge Roll distance" },  },
 				bonded = {
 					"30% increased Armour if you haven't Dodge Rolled Recently",
@@ -4793,7 +4793,7 @@ return {
 		["one hand mace"] = {
 				type = "Rune",
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
-				statOrder = { 7811 },
+				statOrder = { 7806 },
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
 				bonded = {
 					"20% increased Bleeding Duration",
@@ -4805,7 +4805,7 @@ return {
 		["quarterstaff"] = {
 				type = "Rune",
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
-				statOrder = { 7811 },
+				statOrder = { 7806 },
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
 				bonded = {
 					"20% increased Bleeding Duration",
@@ -4819,7 +4819,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"50% increased Glory generation",
-				statOrder = { 6914 },
+				statOrder = { 6909 },
 				tradeHashes = { [3143918757] = { "50% increased Glory generation" },  },
 				bonded = {
 					"Banner Skills have 20% increased Aura Magnitudes",
@@ -4859,7 +4859,7 @@ return {
 		["crossbow"] = {
 				type = "Rune",
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
-				statOrder = { 7799 },
+				statOrder = { 7794 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
 				bonded = {
 					"30% increased Freeze Buildup",
@@ -4871,7 +4871,7 @@ return {
 		["bow"] = {
 				type = "Rune",
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
-				statOrder = { 7799 },
+				statOrder = { 7794 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
 				bonded = {
 					"30% increased Freeze Buildup",
@@ -4883,7 +4883,7 @@ return {
 		["spear"] = {
 				type = "Rune",
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
-				statOrder = { 7799 },
+				statOrder = { 7794 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
 				bonded = {
 					"30% increased Freeze Buildup",
@@ -4930,11 +4930,11 @@ return {
 				type = "Rune",
 				"+50 to Spirit",
 				"-1 to Spirit per 2 Levels",
-				statOrder = { 895, 10058 },
+				statOrder = { 895, 10051 },
 				tradeHashes = { [2704225257] = { "+50 to Spirit" }, [610569665] = { "-1 to Spirit per 2 Levels" },  },
 				bonded = {
 					"5% increased Spirit Reservation Efficiency",
-					statOrder = { 4755 },
+					statOrder = { 4752 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4957,11 +4957,11 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"50% increased Spell Damage while your Companion is in your Presence",
-				statOrder = { 10009 },
+				statOrder = { 10002 },
 				tradeHashes = { [4063732952] = { "50% increased Spell Damage while your Companion is in your Presence" },  },
 				bonded = {
 					"8% increased Mana Recovery rate while your Companion is in your Presence",
-					statOrder = { 7996 },
+					statOrder = { 7991 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4971,11 +4971,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Remnants you create have 15% increased effect",
-				statOrder = { 9736 },
+				statOrder = { 9730 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 15% increased effect" },  },
 				bonded = {
 					"Recover 3% of Maximum Mana when you collect a Remnant",
-					statOrder = { 9740 },
+					statOrder = { 9734 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4984,11 +4984,11 @@ return {
 				type = "Rune",
 				"Remnants you create have 25% reduced effect",
 				"Remnants can be collected from 50% further away",
-				statOrder = { 9736, 9738 },
+				statOrder = { 9730, 9732 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
 				bonded = {
 					"20% increased Exposure Effect",
-					statOrder = { 6533 },
+					statOrder = { 6528 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -4997,11 +4997,11 @@ return {
 				type = "Rune",
 				"Remnants you create have 25% reduced effect",
 				"Remnants can be collected from 50% further away",
-				statOrder = { 9736, 9738 },
+				statOrder = { 9730, 9732 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
 				bonded = {
 					"20% increased Exposure Effect",
-					statOrder = { 6533 },
+					statOrder = { 6528 },
 				},
 				isSocketBound = false,
 				rank = { 15 },
@@ -5012,8 +5012,8 @@ return {
 				type = "Rune",
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
-				statOrder = { 832, 4744 },
-				tradeHashes = { [709508406] = { "Adds 13 to 16 Fire Damage" }, [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" },  },
+				statOrder = { 832, 4742 },
+				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
 				bonded = {
 					"30% increased Ignite Magnitude",
 					statOrder = { 1077 },
@@ -5025,8 +5025,8 @@ return {
 				type = "Rune",
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
-				statOrder = { 832, 4744 },
-				tradeHashes = { [709508406] = { "Adds 13 to 16 Fire Damage" }, [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" },  },
+				statOrder = { 832, 4742 },
+				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
 				bonded = {
 					"30% increased Ignite Magnitude",
 					statOrder = { 1077 },
@@ -5038,8 +5038,8 @@ return {
 				type = "Rune",
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
-				statOrder = { 832, 4744 },
-				tradeHashes = { [709508406] = { "Adds 13 to 16 Fire Damage" }, [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" },  },
+				statOrder = { 832, 4742 },
+				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
 				bonded = {
 					"30% increased Ignite Magnitude",
 					statOrder = { 1077 },
@@ -5053,7 +5053,7 @@ return {
 				type = "Rune",
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
-				statOrder = { 6873, 9609 },
+				statOrder = { 6868, 9603 },
 				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
 				isSocketBound = false,
 				rank = { 15 },
@@ -5062,7 +5062,7 @@ return {
 				type = "Rune",
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
-				statOrder = { 6873, 9609 },
+				statOrder = { 6868, 9603 },
 				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
 				isSocketBound = false,
 				rank = { 15 },
@@ -5098,7 +5098,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Destroys all Augment Sockets on the item to create a Jewel Socket",
-				statOrder = { 6240 },
+				statOrder = { 6235 },
 				tradeHashes = { [1933674044] = { "Destroys all Augment Sockets on the item to create a Jewel Socket" },  },
 				isSocketBound = true,
 				rank = { 0 },
@@ -5134,11 +5134,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Can roll Chronomancy modifiers",
-				statOrder = { 10526 },
+				statOrder = { 10519 },
 				tradeHashes = { [3132681620] = { "Can roll Chronomancy modifiers" },  },
 				bonded = {
 					"10% increased Cooldown Recovery Rate",
-					statOrder = { 4677 },
+					statOrder = { 4103 },
 				},
 				isSocketBound = true,
 				rank = { 0 },
@@ -5148,7 +5148,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Can roll Marksman modifiers",
-				statOrder = { 10529 },
+				statOrder = { 10522 },
 				tradeHashes = { [201332984] = { "Can roll Marksman modifiers" },  },
 				bonded = {
 					"20% increased Projectile Damage",
@@ -5162,11 +5162,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Can roll Berserking modifiers",
-				statOrder = { 10528 },
+				statOrder = { 10521 },
 				tradeHashes = { [1770091046] = { "Can roll Berserking modifiers" },  },
 				bonded = {
 					"Gain 2 Rage on Melee Hit",
-					statOrder = { 6873 },
+					statOrder = { 6868 },
 				},
 				isSocketBound = true,
 				rank = { 0 },
@@ -5176,7 +5176,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Can roll Destruction modifiers",
-				statOrder = { 10531 },
+				statOrder = { 10524 },
 				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
 				bonded = {
 					"+5% to all Elemental Resistances",
@@ -5188,7 +5188,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Can roll Destruction modifiers",
-				statOrder = { 10531 },
+				statOrder = { 10524 },
 				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
 				bonded = {
 					"+5% to all Elemental Resistances",
@@ -5202,7 +5202,7 @@ return {
 		["body armour"] = {
 				type = "Rune",
 				"Can roll Soul modifiers",
-				statOrder = { 10527 },
+				statOrder = { 10520 },
 				tradeHashes = { [1927467683] = { "Can roll Soul modifiers" },  },
 				bonded = {
 					"3% increased maximum Life",
@@ -5217,11 +5217,11 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Can roll Decay modifiers",
-				statOrder = { 10530 },
+				statOrder = { 10523 },
 				tradeHashes = { [2547063279] = { "Can roll Decay modifiers" },  },
 				bonded = {
 					"25% reduced Effect of Non-Damaging Ailments on you",
-					statOrder = { 9225 },
+					statOrder = { 9219 },
 				},
 				isSocketBound = true,
 				rank = { 0 },
@@ -5231,7 +5231,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
-				statOrder = { 6244 },
+				statOrder = { 6239 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -5239,7 +5239,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
-				statOrder = { 6244 },
+				statOrder = { 6239 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -5247,7 +5247,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
-				statOrder = { 6244 },
+				statOrder = { 6239 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
 				isSocketBound = false,
 				rank = { 0 },
@@ -5261,7 +5261,7 @@ return {
 				tradeHashes = { [1092987622] = { "250% of Melee Physical Damage taken reflected to Attacker" },  },
 				bonded = {
 					"Regenerate 3% of maximum Life per second while Surrounded",
-					statOrder = { 7510 },
+					statOrder = { 7505 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5286,11 +5286,11 @@ return {
 				type = "Rune",
 				"50% chance to inflict Bleeding on Hit",
 				"50% reduced Slowing Potency of Debuffs on You",
-				statOrder = { 4671, 4747 },
+				statOrder = { 4671, 4745 },
 				tradeHashes = { [2174054121] = { "50% chance to inflict Bleeding on Hit" }, [924253255] = { "50% reduced Slowing Potency of Debuffs on You" },  },
 				bonded = {
 					"35% increased Thorns damage",
-					statOrder = { 10254 },
+					statOrder = { 10247 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5300,7 +5300,7 @@ return {
 		["body armour"] = {
 				type = "Rune",
 				"Recover 5% of maximum Life for each Endurance Charge consumed",
-				statOrder = { 9666 },
+				statOrder = { 9660 },
 				tradeHashes = { [939832726] = { "Recover 5% of maximum Life for each Endurance Charge consumed" },  },
 				bonded = {
 					"+30 to maximum Life",
@@ -5315,11 +5315,11 @@ return {
 				type = "Rune",
 				"Gain 5 Rage when Hit by an Enemy",
 				"Gain 10 Rage when Critically Hit by an Enemy",
-				statOrder = { 6875, 6876 },
+				statOrder = { 6870, 6871 },
 				tradeHashes = { [3292710273] = { "Gain 5 Rage when Hit by an Enemy" }, [1466716929] = { "Gain 10 Rage when Critically Hit by an Enemy" },  },
 				bonded = {
 					"+3 to Maximum Rage",
-					statOrder = { 9609 },
+					statOrder = { 9603 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5330,8 +5330,8 @@ return {
 				type = "Rune",
 				"10% increased Movement Speed when on Full Life",
 				"100% increased Evasion Rating when on Full Life",
-				statOrder = { 1555, 6509 },
-				tradeHashes = { [3393547195] = { "10% increased Movement Speed when on Full Life" }, [88817332] = { "100% increased Evasion Rating when on Full Life" },  },
+				statOrder = { 1555, 6504 },
+				tradeHashes = { [88817332] = { "100% increased Evasion Rating when on Full Life" }, [3393547195] = { "10% increased Movement Speed when on Full Life" },  },
 				bonded = {
 					"20% increased Evasion Rating",
 					statOrder = { 884 },
@@ -5388,11 +5388,11 @@ return {
 				type = "Rune",
 				"Gain 1 Rage on Melee Hit",
 				"Every Rage also grants 1% increased Armour",
-				statOrder = { 6873, 10644 },
-				tradeHashes = { [2995914769] = { "Every Rage also grants 1% increased Armour" }, [2709367754] = { "Gain 1 Rage on Melee Hit" },  },
+				statOrder = { 6868, 10637 },
+				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [2995914769] = { "Every Rage also grants 1% increased Armour" },  },
 				bonded = {
 					"+3 to Maximum Rage",
-					statOrder = { 9609 },
+					statOrder = { 9603 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5403,11 +5403,11 @@ return {
 				type = "Rune",
 				"Gain 1 Rage on Melee Hit",
 				"Every Rage also grants 1% increased Stun Threshold",
-				statOrder = { 6873, 10656 },
-				tradeHashes = { [352044736] = { "Every Rage also grants 1% increased Stun Threshold" }, [2709367754] = { "Gain 1 Rage on Melee Hit" },  },
+				statOrder = { 6868, 10649 },
+				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [352044736] = { "Every Rage also grants 1% increased Stun Threshold" },  },
 				bonded = {
 					"Every five Rage also grants you 1% increased Movement Speed",
-					statOrder = { 9146 },
+					statOrder = { 9140 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5418,11 +5418,11 @@ return {
 				type = "Rune",
 				"15% increased Area of Effect",
 				"Unwavering Stance",
-				statOrder = { 1630, 10724 },
-				tradeHashes = { [280731498] = { "15% increased Area of Effect" }, [1683578560] = { "Unwavering Stance" },  },
+				statOrder = { 1630, 10725 },
+				tradeHashes = { [1683578560] = { "Unwavering Stance" }, [280731498] = { "15% increased Area of Effect" },  },
 				bonded = {
 					"50% reduced Slowing Potency of Debuffs on You",
-					statOrder = { 4747 },
+					statOrder = { 4745 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5432,11 +5432,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Warcries Explode Corpses dealing 10% of their Life as Physical Damage",
-				statOrder = { 5780 },
+				statOrder = { 5776 },
 				tradeHashes = { [11014011] = { "Warcries Explode Corpses dealing 10% of their Life as Physical Damage" },  },
 				bonded = {
 					"Warcry Skills have 20% increased Area of Effect",
-					statOrder = { 10514 },
+					statOrder = { 10507 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5447,11 +5447,11 @@ return {
 				type = "Rune",
 				"Charms gain 1 charge per Second",
 				"+1 Charm Slot",
-				statOrder = { 6889, 9316 },
+				statOrder = { 6884, 9310 },
 				tradeHashes = { [185580205] = { "Charms gain 1 charge per Second" }, [554899692] = { "+1 Charm Slot" },  },
 				bonded = {
 					"Charms gain 0.5 charges per Second",
-					statOrder = { 6889 },
+					statOrder = { 6884 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5462,11 +5462,11 @@ return {
 				type = "Rune",
 				"100% increased Global Evasion Rating when on Low Life",
 				"5% of Damage from Hits is taken from your Damageable Companion's Life before you",
-				statOrder = { 2315, 5730 },
+				statOrder = { 2315, 5726 },
 				tradeHashes = { [1150343007] = { "5% of Damage from Hits is taken from your Damageable Companion's Life before you" }, [2695354435] = { "100% increased Global Evasion Rating when on Low Life" },  },
 				bonded = {
 					"5% of Damage from Hits is taken from your Damageable Companion's Life before you",
-					statOrder = { 5730 },
+					statOrder = { 5726 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5476,11 +5476,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Pain Attunement",
-				statOrder = { 10717 },
+				statOrder = { 10718 },
 				tradeHashes = { [98977150] = { "Pain Attunement" },  },
 				bonded = {
 					"17 to 26 Physical Thorns damage",
-					statOrder = { 10261 },
+					statOrder = { 10254 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5494,7 +5494,7 @@ return {
 				tradeHashes = { [2897413282] = { "+50 to all Attributes" },  },
 				bonded = {
 					"+1 Maximum Life per Level",
-					statOrder = { 7470 },
+					statOrder = { 7465 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5512,7 +5512,7 @@ return {
 				"+5% to all Elemental Resistances",
 				"3 Life Regeneration per second",
 				statOrder = { 880, 887, 892, 941, 976, 991, 1013, 1034 },
-				tradeHashes = { [803737631] = { "+30 to Accuracy Rating" }, [3299347043] = { "+10 to maximum Life" }, [1050105434] = { "+10 to maximum Mana" }, [1379411836] = { "+5 to all Attributes" }, [3325883026] = { "3 Life Regeneration per second" }, [587431675] = { "10% increased Critical Hit Chance" }, [3917489142] = { "10% increased Rarity of Items found" }, [2901986750] = { "+5% to all Elemental Resistances" },  },
+				tradeHashes = { [3325883026] = { "3 Life Regeneration per second" }, [3299347043] = { "+10 to maximum Life" }, [1050105434] = { "+10 to maximum Mana" }, [2901986750] = { "+5% to all Elemental Resistances" }, [1379411836] = { "+5 to all Attributes" }, [587431675] = { "10% increased Critical Hit Chance" }, [3917489142] = { "10% increased Rarity of Items found" }, [803737631] = { "+30 to Accuracy Rating" },  },
 				bonded = {
 					"+20 to Armour",
 					"+20 to Evasion Rating",
@@ -5541,7 +5541,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
-				statOrder = { 10396 },
+				statOrder = { 10389 },
 				tradeHashes = { [4258409981] = { "Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%" },  },
 				bonded = {
 					"20% increased Presence Area of Effect",
@@ -5555,7 +5555,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Base Critical Hit Chance for Attacks with Weapons is 7%",
-				statOrder = { 9376 },
+				statOrder = { 9370 },
 				tradeHashes = { [2635559734] = { "Base Critical Hit Chance for Attacks with Weapons is 7%" },  },
 				bonded = {
 					"15% increased Critical Damage Bonus",
@@ -5570,7 +5570,7 @@ return {
 				type = "Rune",
 				"40% increased Fire Damage",
 				"Flammability Magnitude is doubled",
-				statOrder = { 873, 5546 },
+				statOrder = { 873, 5542 },
 				tradeHashes = { [1540254896] = { "Flammability Magnitude is doubled" }, [3962278098] = { "40% increased Fire Damage" },  },
 				bonded = {
 					"20% increased Ignite Duration on Enemies",
@@ -5612,7 +5612,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed",
-				statOrder = { 9374 },
+				statOrder = { 9368 },
 				tradeHashes = { [2301852600] = { "Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed" },  },
 				bonded = {
 					"15% increased Global Physical Damage",
@@ -5626,11 +5626,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"+15% to Thorns Critical Hit Chance",
-				statOrder = { 4758 },
+				statOrder = { 4755 },
 				tradeHashes = { [2715190555] = { "+15% to Thorns Critical Hit Chance" },  },
 				bonded = {
 					"15% increased Thorns Critical Damage Bonus",
-					statOrder = { 4759 },
+					statOrder = { 4756 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5640,7 +5640,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Physical Damage is Pinning",
-				statOrder = { 4735 },
+				statOrder = { 4733 },
 				tradeHashes = { [2041668411] = { "Physical Damage is Pinning" },  },
 				bonded = {
 					"+20 to Dexterity",
@@ -5654,7 +5654,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Your speed is unaffected by Slows",
-				statOrder = { 9937 },
+				statOrder = { 9930 },
 				tradeHashes = { [50721145] = { "Your speed is unaffected by Slows" },  },
 				bonded = {
 					"5% increased Movement Speed",
@@ -5668,7 +5668,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Iron Reflexes",
-				statOrder = { 10711 },
+				statOrder = { 10712 },
 				tradeHashes = { [326965591] = { "Iron Reflexes" },  },
 				bonded = {
 					"25% increased Elemental Ailment Threshold",
@@ -5697,7 +5697,7 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"Double Stun Threshold while Shield is Raised",
-				statOrder = { 7828 },
+				statOrder = { 7823 },
 				tradeHashes = { [3686997387] = { "Double Stun Threshold while Shield is Raised" },  },
 				bonded = {
 					"15% increased Stun Threshold",
@@ -5711,7 +5711,7 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"Intimidate Enemies on Block for 8 seconds",
-				statOrder = { 7379 },
+				statOrder = { 7374 },
 				tradeHashes = { [3703496511] = { "Intimidate Enemies on Block for 8 seconds" },  },
 				bonded = {
 					"+25 to Strength",
@@ -5725,7 +5725,7 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"Gain 1% of damage as Fire damage per 2% Chance to Block",
-				statOrder = { 9234 },
+				statOrder = { 9228 },
 				tradeHashes = { [3170380905] = { "Gain 1% of damage as Fire damage per 2% Chance to Block" },  },
 				bonded = {
 					"+30% to Chaos Resistance",
@@ -5739,11 +5739,11 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"30% of damage Blocked is Recouped as Mana",
-				statOrder = { 5964 },
+				statOrder = { 5959 },
 				tradeHashes = { [2875218423] = { "30% of damage Blocked is Recouped as Mana" },  },
 				bonded = {
 					"20% of damage Blocked is Recouped as Mana",
-					statOrder = { 5964 },
+					statOrder = { 5959 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5767,11 +5767,11 @@ return {
 		["buckler"] = {
 				type = "Rune",
 				"50% increased Parried Debuff Magnitude",
-				statOrder = { 9379 },
+				statOrder = { 9373 },
 				tradeHashes = { [818877178] = { "50% increased Parried Debuff Magnitude" },  },
 				bonded = {
 					"50% increased Parry Damage",
-					statOrder = { 9384 },
+					statOrder = { 9378 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5781,11 +5781,11 @@ return {
 		["buckler"] = {
 				type = "Rune",
 				"Curse Enemies with Enfeeble on Block",
-				statOrder = { 5933 },
+				statOrder = { 5929 },
 				tradeHashes = { [3830953767] = { "Curse Enemies with Enfeeble on Block" },  },
 				bonded = {
 					"100% increased Block chance against Projectiles",
-					statOrder = { 4936 },
+					statOrder = { 4933 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5795,7 +5795,7 @@ return {
 		["one hand mace"] = {
 				type = "Rune",
 				"Causes Double Stun Buildup",
-				statOrder = { 7695 },
+				statOrder = { 7690 },
 				tradeHashes = { [769129523] = { "Causes Double Stun Buildup" },  },
 				bonded = {
 					"Adds 14 to 20 Physical Damage",
@@ -5838,8 +5838,8 @@ return {
 		["two hand mace"] = {
 				type = "Rune",
 				"Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of maximum Mana",
-				statOrder = { 7626 },
-				tradeHashes = { [3867147347] = { "Attacks with this Weapon have Added Cold Damage equal to 6% to 0% of maximum Mana" }, [1699409732] = { "Attacks with this Weapon have Added Cold Damage equal to 0% to 10% of maximum Mana" },  },
+				statOrder = { 7621 },
+				tradeHashes = { [1699409732] = { "Attacks with this Weapon have Added Cold Damage equal to 0% to 10% of maximum Mana" }, [3867147347] = { "Attacks with this Weapon have Added Cold Damage equal to 6% to 0% of maximum Mana" },  },
 				bonded = {
 					"15% of Damage is taken from Mana before Life",
 					statOrder = { 2472 },
@@ -5853,7 +5853,7 @@ return {
 				type = "Rune",
 				"+5% to Critical Hit Chance",
 				"Maim on Critical Hit",
-				statOrder = { 944, 7614 },
+				statOrder = { 944, 7609 },
 				tradeHashes = { [518292764] = { "+5% to Critical Hit Chance" }, [2895144208] = { "Maim on Critical Hit" },  },
 				bonded = {
 					"25% increased Attack Damage against Maimed Enemies",
@@ -5867,11 +5867,11 @@ return {
 		["two hand mace"] = {
 				type = "Rune",
 				"25% chance for Slam Skills you use yourself to cause an additional Aftershock",
-				statOrder = { 10626 },
+				statOrder = { 10619 },
 				tradeHashes = { [2045949233] = { "25% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
 				bonded = {
 					"15% chance for Slam Skills you use yourself to cause an additional Aftershock",
-					statOrder = { 10626 },
+					statOrder = { 10619 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5881,7 +5881,7 @@ return {
 		["two hand mace"] = {
 				type = "Rune",
 				"All damage with this Weapon causes Electrocution buildup",
-				statOrder = { 7609 },
+				statOrder = { 7604 },
 				tradeHashes = { [1910743684] = { "All damage with this Weapon causes Electrocution buildup" },  },
 				bonded = {
 					"Damage Penetrates 10% Lightning Resistance",
@@ -5899,7 +5899,7 @@ return {
 				tradeHashes = { [124131830] = { "+2 to Level of all Spell Skills" },  },
 				bonded = {
 					"Leeches 1% of maximum Life when you Cast a Spell",
-					statOrder = { 7459 },
+					statOrder = { 7454 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5909,11 +5909,11 @@ return {
 		["quarterstaff"] = {
 				type = "Rune",
 				"Gain 250 Guard for 0.5 seconds per Combo expended when using Skills",
-				statOrder = { 10400 },
+				statOrder = { 10393 },
 				tradeHashes = { [2443032293] = { "Gain 250 Guard for 0.5 seconds per Combo expended when using Skills" },  },
 				bonded = {
 					"Gain Finality for 0.2 seconds per Combo expended when using Skills",
-					statOrder = { 6785 },
+					statOrder = { 6780 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5984,7 +5984,7 @@ return {
 				tradeHashes = { [1936645603] = { "Gain 30% of Physical Damage as Extra Fire Damage" },  },
 				bonded = {
 					"Triggered Spells deal 20% increased Spell Damage",
-					statOrder = { 10323 },
+					statOrder = { 10316 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -5999,7 +5999,7 @@ return {
 				tradeHashes = { [2091621414] = { "Causes Bleeding on Hit" }, [1940865751] = { "Adds 4 to 8 Physical Damage" },  },
 				bonded = {
 					"10% increased Magnitude of Bleeding you inflict",
-					statOrder = { 4809 },
+					statOrder = { 4806 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -6038,11 +6038,11 @@ return {
 		["talisman"] = {
 				type = "Rune",
 				"Gain 1 Druidic Prowess for every 20 total Rage spent",
-				statOrder = { 6774 },
+				statOrder = { 6769 },
 				tradeHashes = { [1273508088] = { "Gain 1 Druidic Prowess for every 20 total Rage spent" },  },
 				bonded = {
 					"Enemies in your Presence are Hindered",
-					statOrder = { 4695 },
+					statOrder = { 4693 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -6052,7 +6052,7 @@ return {
 		["talisman"] = {
 				type = "Rune",
 				"Every 5 Rage also grants 5% of Damage taken Recouped as Life",
-				statOrder = { 10562 },
+				statOrder = { 10555 },
 				tradeHashes = { [1895552497] = { "Every 5 Rage also grants 5% of Damage taken Recouped as Life" },  },
 				bonded = {
 					"Attacks have 20% chance to cause Bleeding",
@@ -6083,7 +6083,7 @@ return {
 				"Alternating every 5 seconds:",
 				"Take 20% less Damage from Hits",
 				"Take 20% less Damage over time",
-				statOrder = { 6965, 6965.1, 6965.2 },
+				statOrder = { 6960, 6960.1, 6960.2 },
 				tradeHashes = { [258955603] = { "Alternating every 5 seconds:", "Take 20% less Damage from Hits", "Take 20% less Damage over time" },  },
 				bonded = {
 					"25% increased Mana Regeneration Rate",
@@ -6098,7 +6098,7 @@ return {
 				type = "Rune",
 				"On Hitting an enemy, gains maximum added Lightning damage equal to",
 				"the enemy's Power for 20 seconds, up to a total of 120",
-				statOrder = { 7800, 7800.1 },
+				statOrder = { 7795, 7795.1 },
 				tradeHashes = { [3538915253] = { "On Hitting an enemy, gains maximum added Lightning damage equal to", "the enemy's Power for 20 seconds, up to a total of 120" },  },
 				bonded = {
 					"15% increased Attack Speed",
@@ -6112,7 +6112,7 @@ return {
 		["shield"] = {
 				type = "Rune",
 				"Off-hand Hits inflict Runefather's Challenge",
-				statOrder = { 10566 },
+				statOrder = { 10559 },
 				tradeHashes = { [3430033313] = { "Off-hand Hits inflict Runefather's Challenge" },  },
 				bonded = {
 					"+45% to Cold Resistance",
@@ -6130,7 +6130,7 @@ return {
 				tradeHashes = { [275498888] = { "Maximum Quality is 40%" },  },
 				bonded = {
 					"Skills which Empower an Attack have 20% chance to not count that Attack",
-					statOrder = { 5404 },
+					statOrder = { 5400 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -6154,11 +6154,11 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"+1 to Armour per Strength",
-				statOrder = { 6764 },
+				statOrder = { 6759 },
 				tradeHashes = { [1291132817] = { "+1 to Armour per Strength" },  },
 				bonded = {
 					"1% increased Damage per 15 Strength",
-					statOrder = { 6000 },
+					statOrder = { 5995 },
 				},
 				isSocketBound = false,
 				rank = { 65 },
@@ -6168,7 +6168,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"+1 to maximum Life per 8 Armour on Equipped Helmet",
-				statOrder = { 6722 },
+				statOrder = { 6717 },
 				tradeHashes = { [2785209416] = { "+1 to maximum Life per 8 Armour on Equipped Helmet" },  },
 				bonded = {
 					"+20 to Spirit",
@@ -6181,7 +6181,7 @@ return {
 				type = "Rune",
 				"Gain Maximum Energy Shield equal to 50% of total",
 				"Strength Requirements of Equipped Armour Items",
-				statOrder = { 6812, 6812.1 },
+				statOrder = { 6807, 6807.1 },
 				tradeHashes = { [2444976134] = { "Gain Maximum Energy Shield equal to 50% of total", "Strength Requirements of Equipped Armour Items" },  },
 				bonded = {
 					"+20 to Strength",
@@ -6193,11 +6193,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"Hits against you have no Critical Damage Bonus while on Consecrated Ground",
-				statOrder = { 9818 },
+				statOrder = { 9812 },
 				tradeHashes = { [1800433827] = { "Hits against you have no Critical Damage Bonus while on Consecrated Ground" },  },
 				bonded = {
 					"20% increased Effect of Consecrated Ground you create",
-					statOrder = { 5748 },
+					statOrder = { 5744 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -6220,7 +6220,7 @@ return {
 				type = "Rune",
 				"Gain 1% of Damage as Extra Damage of a random Element per",
 				"Rune Socketed in Equipped Items",
-				statOrder = { 9261, 9261.1 },
+				statOrder = { 9255, 9255.1 },
 				tradeHashes = { [3557924960] = { "Gain 1% of Damage as Extra Damage of a random Element per", "Rune Socketed in Equipped Items" },  },
 				bonded = {
 					"20% increased Elemental Damage",
@@ -6232,11 +6232,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"50% increased Runic Ward Regeneration Rate while Sprinting",
-				statOrder = { 10522 },
+				statOrder = { 10515 },
 				tradeHashes = { [2441825294] = { "50% increased Runic Ward Regeneration Rate while Sprinting" },  },
 				bonded = {
 					"15% increased Runic Ward Cost Efficiency",
-					statOrder = { 4763 },
+					statOrder = { 4760 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -6246,7 +6246,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
-				statOrder = { 6779 },
+				statOrder = { 6774 },
 				tradeHashes = { [901336307] = { "Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds" },  },
 				bonded = {
 					"40% increased Endurance Charge Duration",
@@ -6270,11 +6270,11 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds",
-				statOrder = { 6804 },
+				statOrder = { 6799 },
 				tradeHashes = { [293832783] = { "When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds" },  },
 				bonded = {
 					"20% increased Guard gained",
-					statOrder = { 6951 },
+					statOrder = { 6946 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -6284,11 +6284,11 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
-				statOrder = { 7212 },
+				statOrder = { 7207 },
 				tradeHashes = { [2889034188] = { "Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits" },  },
 				bonded = {
 					"30% increased Immobilisation buildup",
-					statOrder = { 7193 },
+					statOrder = { 7188 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -6296,7 +6296,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently",
-				statOrder = { 7487 },
+				statOrder = { 7482 },
 				tradeHashes = { [445996047] = { "Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently" },  },
 				bonded = {
 					"20% increased Life Regeneration rate",
@@ -6308,11 +6308,11 @@ return {
 		["body armour"] = {
 				type = "Rune",
 				"Thorns Damage is Lucky against targets with Fully Broken Armour",
-				statOrder = { 10253 },
+				statOrder = { 10246 },
 				tradeHashes = { [1871622140] = { "Thorns Damage is Lucky against targets with Fully Broken Armour" },  },
 				bonded = {
 					"30% increased Thorns damage",
-					statOrder = { 10254 },
+					statOrder = { 10247 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -6326,7 +6326,7 @@ return {
 				tradeHashes = { [681332047] = { "8% increased Attack Speed" },  },
 				bonded = {
 					"20% reduced Slowing Potency of Debuffs on You",
-					statOrder = { 4747 },
+					statOrder = { 4745 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6349,7 +6349,7 @@ return {
 				type = "Idol",
 				"25% reduced Poison Duration",
 				"Targets can be affected by +1 of your Poisons at the same time",
-				statOrder = { 2896, 9327 },
+				statOrder = { 2896, 9321 },
 				tradeHashes = { [1755296234] = { "Targets can be affected by +1 of your Poisons at the same time" }, [2011656677] = { "25% reduced Poison Duration" },  },
 				bonded = {
 					"Gain 13% of Physical Damage as extra Chaos Damage",
@@ -6365,7 +6365,7 @@ return {
 				tradeHashes = { [262946222] = { "Allies in your Presence deal 13 to 27 added Attack Chaos Damage" },  },
 				bonded = {
 					"15% increased Withered Magnitude",
-					statOrder = { 10556 },
+					statOrder = { 10549 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6375,11 +6375,11 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"50% increased total Power counted by Warcries",
-				statOrder = { 10512 },
+				statOrder = { 10505 },
 				tradeHashes = { [2663359259] = { "50% increased total Power counted by Warcries" },  },
 				bonded = {
 					"30% increased Glory generation",
-					statOrder = { 6914 },
+					statOrder = { 6909 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6387,11 +6387,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"15% increased Damage per each different Companion in your Presence",
-				statOrder = { 5953 },
+				statOrder = { 5948 },
 				tradeHashes = { [3151560620] = { "15% increased Damage per each different Companion in your Presence" },  },
 				bonded = {
 					"15% increased Reservation Efficiency of Companion Skills",
-					statOrder = { 9764 },
+					statOrder = { 9758 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6401,11 +6401,11 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"15% increased Cost Efficiency",
-				statOrder = { 4743 },
+				statOrder = { 4741 },
 				tradeHashes = { [263495202] = { "15% increased Cost Efficiency" },  },
 				bonded = {
 					"Meta Skills have 15% increased Reservation Efficiency",
-					statOrder = { 9766 },
+					statOrder = { 9760 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6413,11 +6413,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"15% increased Mana Recovery rate while your Companion is in your Presence",
-				statOrder = { 7996 },
+				statOrder = { 7991 },
 				tradeHashes = { [1779262102] = { "15% increased Mana Recovery rate while your Companion is in your Presence" },  },
 				bonded = {
 					"8% increased Life Recovery Rate while your Companion is in your Presence",
-					statOrder = { 7485 },
+					statOrder = { 7480 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6443,7 +6443,7 @@ return {
 				tradeHashes = { [3824372849] = { "20% increased Curse Duration" },  },
 				bonded = {
 					"Curse zones erupt after 20% reduced delay",
-					statOrder = { 4678 },
+					statOrder = { 4676 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6453,11 +6453,11 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"+1 Charm Slot",
-				statOrder = { 9316 },
+				statOrder = { 9310 },
 				tradeHashes = { [554899692] = { "+1 Charm Slot" },  },
 				bonded = {
 					"Storm Skills have +1 to Limit",
-					statOrder = { 10110 },
+					statOrder = { 10103 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6465,11 +6465,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Flasks gain 0.2 charges per Second",
-				statOrder = { 6888 },
+				statOrder = { 6883 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
 				bonded = {
 					"20% increased Life and Mana Recovery from Flasks",
-					statOrder = { 6644 },
+					statOrder = { 6639 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6479,11 +6479,11 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"8% increased Reservation Efficiency of Minion Skills",
-				statOrder = { 9767 },
+				statOrder = { 9761 },
 				tradeHashes = { [1805633363] = { "8% increased Reservation Efficiency of Minion Skills" },  },
 				bonded = {
 					"Minions Revive 8% faster",
-					statOrder = { 9085 },
+					statOrder = { 9080 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6491,11 +6491,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence",
-				statOrder = { 6904 },
+				statOrder = { 6899 },
 				tradeHashes = { [2829985691] = { "40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence" },  },
 				bonded = {
 					"Companions have 25% increased maximum Life",
-					statOrder = { 5726 },
+					statOrder = { 5722 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6509,7 +6509,7 @@ return {
 				tradeHashes = { [2353576063] = { "8% increased Curse Magnitudes" },  },
 				bonded = {
 					"Remnants you create have 15% increased effect",
-					statOrder = { 9736 },
+					statOrder = { 9730 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6521,7 +6521,7 @@ return {
 				tradeHashes = { [1998951374] = { "Allies in your Presence have 10% increased Attack Speed" },  },
 				bonded = {
 					"10% increased Skill Speed while Shapeshifted",
-					statOrder = { 9916 },
+					statOrder = { 9909 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6535,7 +6535,7 @@ return {
 				tradeHashes = { [770672621] = { "Minions have 15% increased maximum Life" },  },
 				bonded = {
 					"Remnants can be collected from 30% further away",
-					statOrder = { 9738 },
+					statOrder = { 9732 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6547,7 +6547,7 @@ return {
 				tradeHashes = { [1798257884] = { "Allies in your Presence deal 40% increased Damage" },  },
 				bonded = {
 					"40% increased Damage while Shapeshifted",
-					statOrder = { 5962 },
+					statOrder = { 5957 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6557,7 +6557,7 @@ return {
 		["focus"] = {
 				type = "Idol",
 				"12% increased Cooldown Recovery Rate",
-				statOrder = { 4677 },
+				statOrder = { 4103 },
 				tradeHashes = { [1004011302] = { "12% increased Cooldown Recovery Rate" },  },
 				bonded = {
 					"20% increased effect of Archon Buffs on you",
@@ -6573,7 +6573,7 @@ return {
 				tradeHashes = { [289128254] = { "Allies in your Presence have 10% increased Cast Speed" },  },
 				bonded = {
 					"10% increased Skill Speed while Shapeshifted",
-					statOrder = { 9916 },
+					statOrder = { 9909 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6587,7 +6587,7 @@ return {
 				tradeHashes = { [624954515] = { "25% increased Accuracy Rating" },  },
 				bonded = {
 					"30% increased Charm Charges gained",
-					statOrder = { 5605 },
+					statOrder = { 5601 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6599,7 +6599,7 @@ return {
 				tradeHashes = { [1250712710] = { "Allies in your Presence have 14% increased Critical Hit Chance" },  },
 				bonded = {
 					"25% increased Critical Hit Chance while Shapeshifted",
-					statOrder = { 5835 },
+					statOrder = { 5831 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6609,7 +6609,7 @@ return {
 		["gloves"] = {
 				type = "Idol",
 				"15% increased Magnitude of Bleeding you inflict",
-				statOrder = { 4809 },
+				statOrder = { 4806 },
 				tradeHashes = { [3166958180] = { "15% increased Magnitude of Bleeding you inflict" },  },
 				bonded = {
 					"25% reduced Magnitude of Bleeding on You",
@@ -6625,7 +6625,7 @@ return {
 				tradeHashes = { [3057012405] = { "Allies in your Presence have 20% increased Critical Damage Bonus" },  },
 				bonded = {
 					"25% increased Critical Hit Chance while Shapeshifted",
-					statOrder = { 5835 },
+					statOrder = { 5831 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6635,11 +6635,11 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"Projectiles have 15% chance to Fork",
-				statOrder = { 9544 },
+				statOrder = { 9538 },
 				tradeHashes = { [1549287843] = { "Projectiles have 15% chance to Fork" },  },
 				bonded = {
 					"Projectiles have 25% chance for an additional Projectile when Forking",
-					statOrder = { 5515 },
+					statOrder = { 5511 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6661,7 +6661,7 @@ return {
 		["gloves"] = {
 				type = "Idol",
 				"Gain 1 Rage on Melee Hit",
-				statOrder = { 6873 },
+				statOrder = { 6868 },
 				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" },  },
 				bonded = {
 					"25% increased Warcry Cooldown Recovery Rate",
@@ -6677,7 +6677,7 @@ return {
 				tradeHashes = { [1911097163] = { "Allies in your Presence Regenerate 0.5% of your Maximum Life per second" },  },
 				bonded = {
 					"25% increased Life Regeneration rate while Shapeshifted",
-					statOrder = { 7504 },
+					statOrder = { 7499 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6691,7 +6691,7 @@ return {
 				tradeHashes = { [280731498] = { "10% increased Area of Effect" },  },
 				bonded = {
 					"12% increased Reservation Efficiency of Companion Skills",
-					statOrder = { 9764 },
+					statOrder = { 9758 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6717,7 +6717,7 @@ return {
 				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
 				bonded = {
 					"15% chance for Damage of Enemies Hitting you to be Unlucky",
-					statOrder = { 6403 },
+					statOrder = { 6398 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6729,7 +6729,7 @@ return {
 				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
 				bonded = {
 					"15% chance for Damage of Enemies Hitting you to be Unlucky",
-					statOrder = { 6403 },
+					statOrder = { 6398 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6741,7 +6741,7 @@ return {
 				tradeHashes = { [3850614073] = { "Allies in your Presence have +12% to all Elemental Resistances" },  },
 				bonded = {
 					"+20% of Armour also applies to Elemental Damage while Shapeshifted",
-					statOrder = { 10564 },
+					statOrder = { 10557 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6755,7 +6755,7 @@ return {
 				tradeHashes = { [3917489142] = { "12% increased Rarity of Items found" },  },
 				bonded = {
 					"10% increased Quantity of Gold Dropped by Slain Enemies",
-					statOrder = { 6917 },
+					statOrder = { 6912 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6767,7 +6767,7 @@ return {
 				tradeHashes = { [3984865854] = { "15% increased Spirit" },  },
 				bonded = {
 					"Minions have 30% increased Cooldown Recovery Rate for Command Skills",
-					statOrder = { 9024 },
+					statOrder = { 9019 },
 				},
 				isSocketBound = false,
 				rank = { 0 },
@@ -6777,8 +6777,8 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"Idols socketed in this item gain the benefits of their Bonded modifiers",
-				statOrder = { 7733 },
-				tradeHashes = { [726496846] = { "Idols socketed in this item gain the benefits of their Bonded modifiers" }, [3843204282] = { "" },  },
+				statOrder = { 7728 },
+				tradeHashes = { [3843204282] = { "" }, [726496846] = { "Idols socketed in this item gain the benefits of their Bonded modifiers" },  },
 				bonded = {
 					"+5% to Quality of all Skills",
 					statOrder = { 975 },
@@ -6807,7 +6807,7 @@ return {
 				tradeHashes = { [3362812763] = { "+25% of Armour also applies to Elemental Damage" },  },
 				bonded = {
 					"12% increased Damage for each type of Elemental Ailment on Enemy",
-					statOrder = { 5954 },
+					statOrder = { 5949 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6819,7 +6819,7 @@ return {
 				tradeHashes = { [3033371881] = { "Gain Deflection Rating equal to 20% of Evasion Rating" },  },
 				bonded = {
 					"12% increased Damage for each type of Elemental Ailment on Enemy",
-					statOrder = { 5954 },
+					statOrder = { 5949 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6827,11 +6827,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Companions deal 10% more Damage for each different type of dead Companion you have",
-				statOrder = { 5719 },
+				statOrder = { 5715 },
 				tradeHashes = { [2882351629] = { "Companions deal 10% more Damage for each different type of dead Companion you have" },  },
 				bonded = {
 					"Recover 3% of maximum Life when one of your Minions is Revived",
-					statOrder = { 10596 },
+					statOrder = { 10589 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6841,11 +6841,11 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"30% increased Skill Effect Duration with Plant Skills",
-				statOrder = { 9487 },
+				statOrder = { 9481 },
 				tradeHashes = { [4065951768] = { "30% increased Skill Effect Duration with Plant Skills" },  },
 				bonded = {
 					"Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
-					statOrder = { 5365 },
+					statOrder = { 5361 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6853,11 +6853,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
-				statOrder = { 5365 },
+				statOrder = { 5361 },
 				tradeHashes = { [2681952497] = { "Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time" },  },
 				bonded = {
 					"30% increased Skill Effect Duration with Plant Skills",
-					statOrder = { 9487 },
+					statOrder = { 9481 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6867,11 +6867,11 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"Skills have 10% chance to not remove Charges but still count as consuming them",
-				statOrder = { 5603 },
+				statOrder = { 5599 },
 				tradeHashes = { [2942439603] = { "Skills have 10% chance to not remove Charges but still count as consuming them" },  },
 				bonded = {
 					"15% chance for Charms you use to not consume Charges",
-					statOrder = { 5634 },
+					statOrder = { 5630 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6893,7 +6893,7 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"15% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
-				statOrder = { 5519 },
+				statOrder = { 5515 },
 				tradeHashes = { [1228682002] = { "15% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
 				bonded = {
 					"+1 to Maximum Endurance Charges",
@@ -6919,7 +6919,7 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"15% chance when you gain a Power Charge to gain an additional Power Charge",
-				statOrder = { 5521 },
+				statOrder = { 5517 },
 				tradeHashes = { [3537994888] = { "15% chance when you gain a Power Charge to gain an additional Power Charge" },  },
 				bonded = {
 					"+1 to Maximum Power Charges",
@@ -6935,7 +6935,7 @@ return {
 				tradeHashes = { [4226127445] = { "If you would gain a Power Charge, Allies in your Presence gain that Charge instead" },  },
 				bonded = {
 					"40% increased maximum Energy Shield if you've consumed a Power Charge Recently",
-					statOrder = { 6417 },
+					statOrder = { 6412 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6945,7 +6945,7 @@ return {
 		["gloves"] = {
 				type = "Idol",
 				"15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
-				statOrder = { 5520 },
+				statOrder = { 5516 },
 				tradeHashes = { [2916861134] = { "15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
 				bonded = {
 					"+1 to Maximum Frenzy Charges",
@@ -6961,7 +6961,7 @@ return {
 				tradeHashes = { [2211478554] = { "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead" },  },
 				bonded = {
 					"40% increased Evasion Rating if you've consumed a Frenzy Charge Recently",
-					statOrder = { 6488 },
+					statOrder = { 6483 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -6971,7 +6971,7 @@ return {
 		["shield"] = {
 				type = "Idol",
 				"15% increased Block chance while your Companion is in your Presence",
-				statOrder = { 4939 },
+				statOrder = { 4936 },
 				tradeHashes = { [3087034595] = { "15% increased Block chance while your Companion is in your Presence" },  },
 				bonded = {
 					"+3% to maximum Block chance",
@@ -6993,11 +6993,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Companions in your Presence gain 1 Rage on hit",
-				statOrder = { 5739 },
+				statOrder = { 5735 },
 				tradeHashes = { [2652394701] = { "Companions in your Presence gain 1 Rage on hit" },  },
 				bonded = {
 					"Companions have 30% increased Area of Effect",
-					statOrder = { 5715 },
+					statOrder = { 5711 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7008,7 +7008,7 @@ return {
 				type = "Idol",
 				"-20% to all Elemental Resistances",
 				"Gain 20% of Damage as Extra Damage of a random Element",
-				statOrder = { 1013, 9260 },
+				statOrder = { 1013, 9254 },
 				tradeHashes = { [3617669804] = { "Gain 20% of Damage as Extra Damage of a random Element" }, [2901986750] = { "-20% to all Elemental Resistances" },  },
 				bonded = {
 					"-20% to Chaos Resistance",
@@ -7022,12 +7022,12 @@ return {
 				type = "Idol",
 				"Companions in your Presence have -20% to all Elemental Resistances",
 				"Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element",
-				statOrder = { 5737, 5742 },
-				tradeHashes = { [4200448078] = { "Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element" }, [1539508682] = { "Companions in your Presence have -20% to all Elemental Resistances" },  },
+				statOrder = { 5733, 5738 },
+				tradeHashes = { [1539508682] = { "Companions in your Presence have -20% to all Elemental Resistances" }, [4200448078] = { "Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element" },  },
 				bonded = {
 					"Allies in your Presence Gain 20% of Damage as Extra Chaos Damage",
 					"Companions in your Presence have -20% to Chaos Resistance",
-					statOrder = { 4288, 5736 },
+					statOrder = { 4288, 5732 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7038,12 +7038,12 @@ return {
 				type = "Idol",
 				"25% reduced Spirit",
 				"Meta Skills gain 40% increased Energy",
-				statOrder = { 1417, 6410 },
+				statOrder = { 1417, 6405 },
 				tradeHashes = { [4236566306] = { "Meta Skills gain 40% increased Energy" }, [1416406066] = { "25% reduced Spirit" },  },
 				bonded = {
 					"Invocated skills have 25% increased Maximum Energy",
 					"Meta Skills have 25% reduced Reservation Efficiency",
-					statOrder = { 7385, 9766 },
+					statOrder = { 7380, 9760 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7053,7 +7053,7 @@ return {
 				"40% reduced Presence Area of Effect",
 				"Aura Skills have 25% increased Magnitudes",
 				statOrder = { 1069, 2574 },
-				tradeHashes = { [315791320] = { "Aura Skills have 25% increased Magnitudes" }, [101878827] = { "40% reduced Presence Area of Effect" },  },
+				tradeHashes = { [101878827] = { "40% reduced Presence Area of Effect" }, [315791320] = { "Aura Skills have 25% increased Magnitudes" },  },
 				bonded = {
 					"Allies in your Presence Regenerate 3% of your Maximum Life per second",
 					"25% reduced Life Regeneration rate",
@@ -7068,12 +7068,12 @@ return {
 				type = "Idol",
 				"30% reduced maximum Mana",
 				"Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana",
-				statOrder = { 894, 9259 },
-				tradeHashes = { [1693515857] = { "Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana" }, [2748665614] = { "30% reduced maximum Mana" },  },
+				statOrder = { 894, 9253 },
+				tradeHashes = { [2748665614] = { "30% reduced maximum Mana" }, [1693515857] = { "Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana" },  },
 				bonded = {
 					"30% reduced Mana Cost Efficiency",
 					"12% increased Skill Speed while on Low Mana",
-					statOrder = { 4718, 9915 },
+					statOrder = { 4716, 9908 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7082,12 +7082,12 @@ return {
 				type = "Idol",
 				"30% reduced Mana Cost Efficiency of Command Skills",
 				"Minions deal 60% increased Damage with Command Skills",
-				statOrder = { 4719, 9027 },
+				statOrder = { 4717, 9022 },
 				tradeHashes = { [3742865955] = { "Minions deal 60% increased Damage with Command Skills" }, [553018427] = { "30% reduced Mana Cost Efficiency of Command Skills" },  },
 				bonded = {
 					"25% reduced Reservation Efficiency of Minion Skills",
 					"Temporary Minion Skills have +2 to Limit of Minions summoned",
-					statOrder = { 9767, 10247 },
+					statOrder = { 9761, 10240 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7123,7 +7123,7 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"10% increased Deflection Rating",
-				statOrder = { 6119 },
+				statOrder = { 6114 },
 				tradeHashes = { [3040571529] = { "10% increased Deflection Rating" },  },
 				bonded = {
 					"+12% to Cold Resistance",
@@ -7135,7 +7135,7 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Companions have 12% increased Attack Speed",
-				statOrder = { 5716 },
+				statOrder = { 5712 },
 				tradeHashes = { [666077204] = { "Companions have 12% increased Attack Speed" },  },
 				bonded = {
 					"8% increased Attack Speed while your Companion is in your Presence",
@@ -7161,11 +7161,11 @@ return {
 		["sceptre"] = {
 				type = "Idol",
 				"Companions have 25% increased maximum Life",
-				statOrder = { 5726 },
+				statOrder = { 5722 },
 				tradeHashes = { [1805182458] = { "Companions have 25% increased maximum Life" },  },
 				bonded = {
 					"25% increased Damage while your Companion is in your Presence",
-					statOrder = { 5961 },
+					statOrder = { 5956 },
 				},
 				isSocketBound = false,
 				rank = { 50 },
@@ -7175,7 +7175,7 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"Enemies which are on Full Life cannot Evade your Hits",
-				statOrder = { 5305 },
+				statOrder = { 5301 },
 				tradeHashes = { [4111745607] = { "Enemies which are on Full Life cannot Evade your Hits" },  },
 				bonded = {
 					"30% increased Accuracy Rating",
@@ -7188,11 +7188,11 @@ return {
 				type = "Idol",
 				"Prevent +5% of Damage from Deflected Hits if you've",
 				"Deflected no Hits Recently",
-				statOrder = { 4680, 4680.1 },
+				statOrder = { 4678, 4678.1 },
 				tradeHashes = { [967155385] = { "Prevent +5% of Damage from Deflected Hits if you've", "Deflected no Hits Recently" },  },
 				bonded = {
 					"8% increased Deflection Rating",
-					statOrder = { 6119 },
+					statOrder = { 6114 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7200,11 +7200,11 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"Gain Onslaught for 4 seconds when your Marks Activate",
-				statOrder = { 6825 },
+				statOrder = { 6820 },
 				tradeHashes = { [1811977226] = { "Gain Onslaught for 4 seconds when your Marks Activate" },  },
 				bonded = {
 					"Buffs on you expire 10% slower",
-					statOrder = { 5240 },
+					statOrder = { 5236 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7214,7 +7214,7 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"+3 to Spirit per Idol socketed in your Equipment",
-				statOrder = { 4754 },
+				statOrder = { 4751 },
 				tradeHashes = { [1073847159] = { "+3 to Spirit per Idol socketed in your Equipment" },  },
 				bonded = {
 					"5% increased Spirit",
@@ -7226,11 +7226,11 @@ return {
 		["gloves"] = {
 				type = "Idol",
 				"Companions gain Onslaught for 4 seconds on Hitting your Marked targets",
-				statOrder = { 5733 },
+				statOrder = { 5729 },
 				tradeHashes = { [226999623] = { "Companions gain Onslaught for 4 seconds on Hitting your Marked targets" },  },
 				bonded = {
 					"Companions deal 30% increased Damage",
-					statOrder = { 5722 },
+					statOrder = { 5718 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7238,7 +7238,7 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"1% increased Movement Speed while Sprinting per Persistent Minion",
-				statOrder = { 10070 },
+				statOrder = { 10063 },
 				tradeHashes = { [3639405795] = { "1% increased Movement Speed while Sprinting per Persistent Minion" },  },
 				bonded = {
 					"Minions have 12% increased maximum Life",
@@ -7252,11 +7252,11 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit",
-				statOrder = { 6803 },
+				statOrder = { 6798 },
 				tradeHashes = { [3863682550] = { "Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit" },  },
 				bonded = {
 					"Buffs on you expire 10% slower",
-					statOrder = { 5240 },
+					statOrder = { 5236 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7276,7 +7276,7 @@ return {
 		["body armour"] = {
 				type = "Idol",
 				"200% increased Stun Threshold if you've been Stunned Recently",
-				statOrder = { 10132 },
+				statOrder = { 10125 },
 				tradeHashes = { [751944209] = { "200% increased Stun Threshold if you've been Stunned Recently" },  },
 				bonded = {
 					"25% increased Stun Threshold",
@@ -7290,11 +7290,11 @@ return {
 		["helmet"] = {
 				type = "Idol",
 				"Enemies have no Critical Damage Bonus for 4 seconds after you Blind them",
-				statOrder = { 6388 },
+				statOrder = { 6383 },
 				tradeHashes = { [25786091] = { "Enemies have no Critical Damage Bonus for 4 seconds after you Blind them" },  },
 				bonded = {
 					"20% increased Blind Effect",
-					statOrder = { 4928 },
+					statOrder = { 4925 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7302,7 +7302,7 @@ return {
 		["gloves"] = {
 				type = "Idol",
 				"Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds",
-				statOrder = { 5822 },
+				statOrder = { 5818 },
 				tradeHashes = { [3370077792] = { "Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds" },  },
 				bonded = {
 					"15% increased Critical Hit Chance",
@@ -7314,11 +7314,11 @@ return {
 		["boots"] = {
 				type = "Idol",
 				"Your speed is Unaffected by Slows while Sprinting",
-				statOrder = { 9939 },
+				statOrder = { 9932 },
 				tradeHashes = { [3128773415] = { "Your speed is Unaffected by Slows while Sprinting" },  },
 				bonded = {
 					"8% increased Movement Speed while Sprinting",
-					statOrder = { 10069 },
+					statOrder = { 10062 },
 				},
 				isSocketBound = false,
 				rank = { 60 },
@@ -7328,7 +7328,7 @@ return {
 		["helmet"] = {
 				type = "CongealedMist",
 				"Raven-Touched",
-				statOrder = { 10757 },
+				statOrder = { 10758 },
 				tradeHashes = { [3198163869] = { "Raven-Touched" },  },
 				isSocketBound = true,
 				rank = { 60 },

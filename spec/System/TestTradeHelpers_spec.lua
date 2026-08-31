@@ -81,6 +81,7 @@ describe("TradeHelpers trade hash matching", function()
 			assert.is_true(shouldNegate)
 			assert.equal(1, #ids)
 		end)
+
 		it("detects mods with lua pattern characters correctly", function()
 			-- there is a form of this line which is literally 3.5% without a variable
 			local ids, value = tradeHelpers.findTradeHash("Socketed Gems have +3.5% Critical Hit Chance")
@@ -107,6 +108,48 @@ describe("TradeHelpers trade hash matching", function()
 			assert.is_true(contains(ids,
 				HashStats({ "attack_critical_strike_chance_+%", "local_jewel_mod_stats_added_to_notable_passives" })))
 			assert.equal(7, value)
+		end)
+
+		it("picks the canonical stat when the descriptor orders values right to left", function()
+			-- Kitava's Thirst's vestigial implicit. its descriptor is "{1}% chance ... {0} Mana ...",
+			-- so the canonical stat (2) is the first value in the text, not the second
+			local ids, value = tradeHelpers.findTradeHash(
+				"25% chance to Trigger Socketed Spells when you Spend at least 100 Mana on an\nUpfront Cost to Use or Trigger a Skill, with a 0.1 second Cooldown")
+			assert.is_truthy(isValueInArray(ids,
+				HashStats({ "cast_socketed_spells_on_X_mana_spent", "cast_socketed_spells_on_mana_spent_%_chance" })))
+			assert.equal(25, value)
+		end)
+
+		it("picks the canonical stat on a single line right to left descriptor", function()
+			-- "{1}% increased Movement Speed for {0} seconds on Throwing a Trap"
+			local ids, value = tradeHelpers.findTradeHash("15% increased Movement Speed for 9 seconds on Throwing a Trap")
+			assert.is_truthy(isValueInArray(ids,
+				HashStats({ "movement_speed_bonus_when_throwing_trap_ms", "movement_speed_+%_on_throwing_trap" })))
+			assert.equal(15, value)
+		end)
+
+		it("uses the value implied by the limits when the canonical stat has no value group", function()
+			-- this form is only used when the chance is 100, so the chance is left out of the text
+			-- even though it is the canonical stat
+			local ids, value = tradeHelpers.findTradeHash("Flasks gain 2 Charges when you take a Critical Hit")
+			assert.is_truthy(isValueInArray(ids,
+				HashStats({ "gain_flask_charge_when_crit_%", "gain_flask_charge_when_crit_amount" })))
+			assert.equal(100, value)
+		end)
+
+		it("does not repeat a hash when several forms of one stat match", function()
+			local ids = tradeHelpers.findTradeHash("Regenerate 5% of maximum Life per second")
+			assert.equal(1, #ids)
+		end)
+
+		it("matches a descriptor with an indexed group and no canonical stat flag", function()
+			-- this descriptor bundles three stats and only renders {1}, with no canonical stat flag
+			local ids, value = tradeHelpers.findTradeHash("You can only Socket 1 Emerald Jewel in this item")
+			assert.is_truthy(isValueInArray(ids, HashStats({
+				"local_can_socket_x_ruby_jewels_exclude_disallowed_types",
+				"local_can_socket_x_emerald_jewels_exclude_disallowed_types",
+				"local_can_socket_x_sapphire_jewels_exclude_disallowed_types" })))
+			assert.equal(1, value)
 		end)
 	end)
 	describe("findTradeIdOption", function()

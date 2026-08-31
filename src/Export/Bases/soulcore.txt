@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type SoulCore
 #baseMatch Metadata/Items/SoulCores/SoulCore
@@ -22,3 +22,4 @@ local itemBases = ...
 
 #type CongealedMist
 #baseMatch Metadata/Items/SoulCores/AugmentAnoint
+end
