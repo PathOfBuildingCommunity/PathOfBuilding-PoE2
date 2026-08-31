@@ -173,6 +173,7 @@ function TooltipClass:AddLine(size, text, font, background, modLine)
 		else
 			fontToUse = "VAR"
 		end
+		local activeColour
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
 				t_insert(self.blocks, { height = size + 2})
@@ -180,7 +181,6 @@ function TooltipClass:AddLine(size, text, font, background, modLine)
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
 			if self.maxWidth then
-				local activeColour
 				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
 					if activeColour then wrappedLine = activeColour .. wrappedLine end
 					for pos, code in s_gmatch(wrappedLine, "()%^(.)") do
