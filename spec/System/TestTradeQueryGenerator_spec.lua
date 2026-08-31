@@ -1,5 +1,5 @@
 describe("TradeQueryGenerator", function()
-	local mock_queryGen = new("TradeQueryGenerator", { itemsTab = {} })
+	local mock_queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = {} })
 
 	describe("ProcessMod", function()
 		-- Pass: Mod line maps correctly to trade stat entry without error
@@ -101,26 +101,60 @@ describe("TradeQueryGenerator", function()
 
 			assert.are.equal(result, 1.2)
 		end)
+
+		it("supports light radius as a player stat weight", function()
+			local lightRadiusStat
+			local minionLightRadiusStat
+			for _, stat in ipairs(data.powerStatList) do
+				if stat.stat == "LightRadiusMod" then
+					lightRadiusStat = stat
+				elseif stat.stat == "MinionLightRadiusMod" then
+					minionLightRadiusStat = stat
+				end
+			end
+
+			assert.is_not_nil(lightRadiusStat)
+			assert.is_nil(minionLightRadiusStat)
+			local result = mock_queryGen.WeightedRatioOutputs(
+				{ LightRadiusMod = 1 },
+				{ LightRadiusMod = 1.25 },
+				{ { stat = lightRadiusStat.stat, weightMult = 1 } })
+			assert.are.equal(result, 1.25)
+		end)
 	end)
 
 	describe("Filter prioritization", function()
-		-- Pass: Limits mods to MAX_FILTERS (2 in test), preserving top priorities
-		-- Fail: Exceeds limit, indicating over-generation of filters, risking API query size errors or rate limits
-		it("respects MAX_FILTERS", function()
-			local orig_max = _G.MAX_FILTERS
-			_G.MAX_FILTERS = 2
-			mock_queryGen.modWeights = { { weight = 10, tradeModId = "id1" }, { weight = 5, tradeModId = "id2" } }
-			table.sort(mock_queryGen.modWeights, function(a, b)
-				return math.abs(a.weight) > math.abs(b.weight)
-			end)
-			local prioritized = {}
-			for i, entry in ipairs(mock_queryGen.modWeights) do
-				if #prioritized < _G.MAX_FILTERS then
-					table.insert(prioritized, entry)
-				end
+		it("counts socket constraints against MAX_FILTERS", function()
+			local queryGen = new("TradeQueryGenerator"):TradeQueryGenerator({ itemsTab = { items = {} } })
+			queryGen.modWeights = {}
+			for index = 1, 40 do
+				table.insert(queryGen.modWeights, {
+					tradeModId = "explicit.stat_" .. index,
+					weight = 1,
+					meanStatDiff = 41 - index,
+				})
 			end
-			assert.are.equal(#prioritized, 2)
-			_G.MAX_FILTERS = orig_max
+			queryGen.calcContext = {
+				testItem = new("Item"):Item("Rarity: RARE\nNew Item\nGold Ring\nImplicits: 0"),
+				baseOutput = {},
+				baseStatValue = 0,
+				itemCategoryQueryStr = "accessory.ring",
+				special = {},
+				options = {
+					statWeights = {},
+					includeMirrored = false,
+					sockets = 3,
+				},
+			}
+			queryGen.tradeTypeIndex = 1
+			local query
+			queryGen.requesterCallback = function(_, queryJson)
+				query = require("dkjson").decode(queryJson).query
+			end
+			queryGen:FinishQuery()
+
+			assert.are.equal(32, #query.stats[1].filters)
+			assert.is_not_nil(query.filters.equipment_filters.filters.rune_sockets)
 		end)
 	end)
 end)

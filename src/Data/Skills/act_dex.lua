@@ -4,9 +4,8 @@
 -- Active Dexterity skill gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
-
+			return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 skills["AlchemistsBoonPlayer"] = {
 	name = "Alchemist's Boon",
 	baseTypeName = "Alchemist's Boon",
@@ -11443,4 +11442,4 @@ skills["WindSerpentsFuryPlayer"] = {
 			},
 		},
 	}
-}
+}			end

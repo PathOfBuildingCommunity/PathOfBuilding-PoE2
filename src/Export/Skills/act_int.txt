@@ -3,8 +3,8 @@
 -- Active Intelligence skill gems
 -- Skill data (c) Grinding Gear Games
 --
-local skills, mod, flag, skill = ...
-
+return function(skills, mod, flag, skill)
+---@cast mod SkillModFunction
 #skill ArcPlayer
 #set ArcPlayer
 #flags spell chaining projectile
@@ -1285,6 +1285,14 @@ statMap = {
 #skill SummonSkeletalReaversPlayer
 #set SummonSkeletalReaversPlayer
 #flags spell minion duration
+statMap = {
+	["attack_speed_+%_per_rage"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Multiplier", var = "RageEffect" }) }),
+	},
+	["minion_rage_effect_+%"] = {
+		mod("MinionModifier", "LIST", { mod = mod("RageEffect", "INC", nil) }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1593,3 +1601,4 @@ statMap = {
 },
 #mods
 #skillEnd
+end

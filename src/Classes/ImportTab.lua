@@ -6,8 +6,8 @@
 local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
-local b_rshift = bit.rshift
-local band = bit.band
+local t_concat = table.concat
+local s_format = string.format
 local m_max = math.max
 local dkjson = require "dkjson"
 
@@ -17,24 +17,27 @@ local realmList = {
 	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
 }
 
-local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
-	self.ControlHost()
-	self.Control()
+---@class ImportTab: ControlHost, Control
+local ImportTabClass = newClass("ImportTab", "ControlHost", "Control")
+
+function ImportTabClass:ImportTab(build)
+	self:ControlHost()
+	self:Control()
 
 	self.build = build
 	if not main.api then
-		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+		main.api = new("PoEAPI"):PoEAPI(main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 	end
 
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 200}, "Character Import")
-	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
+	self.controls.sectionCharImport = new("SectionControl"):SectionControl({ "TOPLEFT", self, "TOPLEFT" }, { 10, 18, 650, 200 }, "Character Import")
+	self.controls.charImportStatusLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 14, 200, 16 }, function()
 		return "^7Character import status: "..(type(self.charImportStatus) == "function" and self.charImportStatus() or self.charImportStatus)
 	end)
 
-	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
+	self.controls.logoutApiButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.charImportStatusLabel, "TOPRIGHT" }, { 4, 0, 180, 16 }, "^7Logout from Path of Exile API", function()
 		main.lastToken = nil
 		main.api.authToken = nil
 		main.lastRefreshToken = nil
@@ -49,11 +52,11 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
 	end
 
-	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
+	self.controls.characterImportAnchor = new("Control"):Control({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 40, 200, 16 })
 	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 200 end
 
 	-- Stage: Authenticate
-	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
+	self.controls.authenticateButton = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, "^7Authorize with Path of Exile", function()
 		main.api:FetchAuthToken(function(_, errCode)
 			if main.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
@@ -71,39 +74,39 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 60) - os.time()) .. ") - URL copied to clipboard" end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
 	end
 
 	-- Stage: fetch characters
-	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, select your character's realm:")
+	self.controls.accountNameHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.characterImportAnchor, "TOPLEFT" }, { 0, 0, 200, 16 }, "^7To start importing a character, select your character's realm:")
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
-	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList)
+	self.controls.accountRealm = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.accountNameHeader, "BOTTOMLEFT" }, { 0, 4, 60, 20 }, realmList)
 	self.controls.accountRealm:SelByValue(main.lastRealm or "PC", "id")
 
-	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
+	self.controls.accountNameGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.accountNameHeader, "RIGHT" }, { 8, 0, 60, 20 }, "Start", function()
 		self:DownloadCharacterList()
 	end)
 
 	-- Stage: select character and import data
-	self.controls.charSelectHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16}, "^7Choose character to import data from:")
+	self.controls.charSelectHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionCharImport, "TOPLEFT" }, { 6, 40, 200, 16 }, "^7Choose character to import data from:")
 	self.controls.charSelectHeader.shown = function()
 		return self.charImportMode == "SELECTCHAR" or self.charImportMode == "IMPORTING"
 	end
-	self.controls.charSelectLeagueLabel = new("LabelControl", {"TOPLEFT",self.controls.charSelectHeader,"BOTTOMLEFT"}, {0, 6, 0, 14}, "^7League:")
-	self.controls.charSelectLeague = new("DropDownControl", {"LEFT",self.controls.charSelectLeagueLabel,"RIGHT"}, {4, 0, 150, 18}, nil, function(index, value)
+	self.controls.charSelectLeagueLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelectHeader, "BOTTOMLEFT" }, { 0, 6, 0, 14 }, "^7League:")
+	self.controls.charSelectLeague = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.charSelectLeagueLabel, "RIGHT" }, { 4, 0, 150, 18 }, nil, function(index, value)
 		self:BuildCharacterList(value.league)
 	end)
-	self.controls.charSelect = new("DropDownControl", {"TOPLEFT",self.controls.charSelectHeader,"BOTTOMLEFT"}, {0, 24, 400, 18})
+	self.controls.charSelect = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.charSelectHeader, "BOTTOMLEFT" }, { 0, 24, 400, 18 })
 	self.controls.charSelect.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "^7Import:")
-	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
+	self.controls.charImportHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.charSelect, "BOTTOMLEFT" }, { 0, 16, 200, 16 }, "^7Import:")
+	self.controls.charImportTree = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportHeader, "RIGHT" }, { 8, 0, 170, 20 }, "Passive Tree and Jewels", function()
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
 				self:DownloadPassiveTree()
@@ -115,32 +118,32 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.charImportTree.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportTreeClearJewels = new("CheckBoxControl", {"LEFT",self.controls.charImportTree,"RIGHT"}, {90, 0, 18}, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
-	self.controls.charImportItems = new("ButtonControl", {"LEFT",self.controls.charImportTree, "LEFT"}, {0, 36, 110, 20}, "Items and Skills", function()
+	self.controls.charImportTreeClearJewels = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportTree, "RIGHT" }, { 90, 0, 18 }, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
+	self.controls.charImportItems = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.charImportTree, "LEFT" }, { 0, 36, 110, 20 }, "Items and Skills", function()
 		self:DownloadItems()
 	end)
 	self.controls.charImportItems.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportItemsClearSkills = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {85, 0, 18}, "Delete skills:", nil, "Delete all existing skills when importing.", true)
-	self.controls.charImportItemsClearItems = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {220, 0, 18}, "Delete equipment:", nil, "Delete all equipped items when importing.", true)
-	self.controls.charImportItemsIgnoreWeaponSwap = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {380, 0, 18}, "Ignore weapon swap:", nil, "Ignore items and skills in weapon swap.", false)
+	self.controls.charImportItemsClearSkills = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 85, 0, 18 }, "Delete skills:", nil, "Delete all existing skills when importing.", true)
+	self.controls.charImportItemsClearItems = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 220, 0, 18 }, "Delete equipment:", nil, "Delete all equipped items when importing.", true)
+	self.controls.charImportItemsIgnoreWeaponSwap = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.charImportItems, "RIGHT" }, { 380, 0, 18 }, "Ignore weapon swap:", nil, "Ignore items and skills in weapon swap.", false)
 
 	-- Build import/export
-	self.controls.sectionBuild = new("SectionControl", {"TOPLEFT",self.controls.sectionCharImport,"BOTTOMLEFT",true}, {0, 18, 650, 182}, "Build Sharing")
-	self.controls.generateCodeLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionBuild,"TOPLEFT"}, {6, 14, 0, 16}, "^7Generate a code to share this build with other Path of Building users:")
-	self.controls.generateCode = new("ButtonControl", {"LEFT",self.controls.generateCodeLabel,"RIGHT"}, {4, 0, 80, 20}, "Generate", function()
+	self.controls.sectionBuild = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionCharImport, "BOTTOMLEFT", true }, { 0, 18, 650, 182 }, "Build Sharing")
+	self.controls.generateCodeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.sectionBuild, "TOPLEFT" }, { 6, 14, 0, 16 }, "^7Generate a code to share this build with other Path of Building users:")
+	self.controls.generateCode = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeLabel, "RIGHT" }, { 4, 0, 80, 20 }, "Generate", function()
 		self.controls.generateCodeOut:SetText(common.base64.encode(Deflate(self.build:SaveDB("code"))):gsub("+","-"):gsub("/","_"))
 	end)
-	self.controls.enablePartyExportBuffs = new("CheckBoxControl", {"LEFT",self.controls.generateCode,"RIGHT"}, {100, 0, 18}, "Export Support", function(state)
+	self.controls.enablePartyExportBuffs = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.generateCode, "RIGHT" }, { 100, 0, 18 }, "Export Support", function(state)
 		self.build.partyTab.enableExportBuffs = state
 		self.build.buildFlag = true
 	end, "This is for party play, to export support character, it enables the exporting of auras, curses and modifiers to the enemy", false)
-	self.controls.generateCodeOut = new("EditControl", {"TOPLEFT",self.controls.generateCodeLabel,"BOTTOMLEFT"}, {0, 8, 250, 20}, "", "Code", "%Z")
+	self.controls.generateCodeOut = new("EditControl"):EditControl({ "TOPLEFT", self.controls.generateCodeLabel, "BOTTOMLEFT" }, { 0, 8, 250, 20 }, "", "Code", "%Z")
 	self.controls.generateCodeOut.enabled = function()
 		return #self.controls.generateCodeOut.buf > 0
 	end
-	self.controls.generateCodeCopy = new("ButtonControl", {"LEFT",self.controls.generateCodeOut,"RIGHT"}, {8, 0, 60, 20}, "Copy", function()
+	self.controls.generateCodeCopy = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.generateCodeOut, "RIGHT" }, { 8, 0, 60, 20 }, "Copy", function()
 		Copy(self.controls.generateCodeOut.buf)
 		self.controls.generateCodeOut:SetText("")
 	end)
@@ -160,12 +163,12 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	local exportWebsitesList = getExportSitesFromImportList()
 
-	self.controls.exportFrom = new("DropDownControl", { "LEFT", self.controls.generateCodeCopy,"RIGHT"}, {8, 0, 120, 20}, exportWebsitesList, function(_, selectedWebsite)
+	self.controls.exportFrom = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.generateCodeCopy, "RIGHT" }, { 8, 0, 120, 20 }, exportWebsitesList, function(_, selectedWebsite)
 		main.lastExportWebsite = selectedWebsite.id
 		self.exportWebsiteSelected = selectedWebsite.id
 	end)
 	self.controls.exportFrom:SelByValue(self.exportWebsiteSelected or main.lastExportWebsite or "Pastebin", "id")
-	self.controls.generateCodeByLink = new("ButtonControl", { "LEFT", self.controls.exportFrom, "RIGHT"}, {8, 0, 100, 20}, "Share", function()
+	self.controls.generateCodeByLink = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.exportFrom, "RIGHT" }, { 8, 0, 100, 20 }, "Share", function()
 		local exportWebsite = exportWebsitesList[self.controls.exportFrom.selIndex]
 		local subScriptId = buildSites.UploadBuild(self.controls.generateCodeOut.buf, exportWebsite)
 		if subScriptId then
@@ -197,8 +200,8 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 		return #self.controls.generateCodeOut.buf > 0
 	end
-	self.controls.generateCodeNote = new("LabelControl", {"TOPLEFT",self.controls.generateCodeOut,"BOTTOMLEFT"}, {0, 4, 0, 14}, "^7Note: this code can be very long; you can use 'Share' to shrink it.")
-	self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, {0, 26, 0, 16}, "^7To import a build, enter URL or code here:")
+	self.controls.generateCodeNote = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeOut, "BOTTOMLEFT" }, { 0, 4, 0, 14 }, "^7Note: this code can be very long; you can use 'Share' to shrink it.")
+	self.controls.importCodeHeader = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.generateCodeNote, "BOTTOMLEFT" }, { 0, 26, 0, 16 }, "^7To import a build, enter URL or code here:")
 
 	local importCodeHandle = function (buf)
 		self.importCodeSite = nil
@@ -296,21 +299,21 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 	end
 
-	self.controls.importCodeIn = new("EditControl", {"TOPLEFT",self.controls.importCodeHeader,"BOTTOMLEFT"}, {0, 4, 328, 20}, "", nil, nil, nil, importCodeHandle, nil, nil, true)
+	self.controls.importCodeIn = new("EditControl"):EditControl({ "TOPLEFT", self.controls.importCodeHeader, "BOTTOMLEFT" }, { 0, 4, 328, 20 }, "", nil, nil, nil, importCodeHandle, nil, nil, true)
 	self.controls.importCodeIn.enterFunc = function()
 		if self.importCodeValid then
 			self.controls.importCodeGo.onClick()
 		end
 	end
-	self.controls.importCodeState = new("LabelControl", {"LEFT",self.controls.importCodeIn,"RIGHT"}, {8, 0, 0, 16})
+	self.controls.importCodeState = new("LabelControl"):LabelControl({ "LEFT", self.controls.importCodeIn, "RIGHT" }, { 8, 0, 0, 16 })
 	self.controls.importCodeState.label = function()
 		return self.importCodeDetail or ""
 	end
-	self.controls.importCodeMode = new("DropDownControl", {"TOPLEFT",self.controls.importCodeIn,"BOTTOMLEFT"}, {0, 4, 200, 20}, { "Import to this build", "Import to a new build", "Import as comparison" })
+	self.controls.importCodeMode = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.importCodeIn, "BOTTOMLEFT" }, { 0, 4, 200, 20 }, { "Import to this build", "Import to a new build", "Import as comparison" })
 	self.controls.importCodeMode.enabled = function()
 		return (self.build.dbFileName or self.controls.importCodeMode.selIndex == 3) and self.importCodeValid
 	end
-	self.controls.importCodeGo = new("ButtonControl", {"LEFT",self.controls.importCodeMode,"RIGHT"}, {8, 0, 160, 20}, "Import", function()
+	self.controls.importCodeGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importCodeMode, "RIGHT" }, { 8, 0, 160, 20 }, "Import", function()
 		if self.importCodeSite and not self.importCodeXML then
 			self.importCodeFetching = true
 			local selectedWebsite = buildSites.websiteList[self.importCodeSite]
@@ -348,10 +351,184 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 	end
 
+	-- Path of Exile 2 BuildPlanner export
+	local BuildExportPoE2 = require("Modules.BuildExportPoE2")
+	local function updateBuildPlannerPath()
+		if not self.controls.poe2ExportPath then return end
+		local buildName = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder
+		local spec = self.build.treeTab and self.build.treeTab.specList[self.exportSpecIndex]
+		self.controls.poe2ExportPath:SetText(BuildExportPoE2.BuildPath(buildName, spec and spec.treeVersion, self.controls.poe2ExportPath.buf))
+	end
+	self.controls.sectionPoE2Export = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.sectionBuild, "BOTTOMLEFT", true }, { 0, 18, 650, 330 }, "Export to in-game build planner")
+	self.controls.poe2ExportDesc = new("LabelControl"):LabelControl({"TOPLEFT",self.controls.sectionPoE2Export,"TOPLEFT"}, {6, 14, 0, 16}, "^7Save this build as a .build file the in-game build planner can load.")
+	self.controls.poe2ExportDesc2 = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.poe2ExportDesc, "BOTTOMLEFT" }, { 0, 2, 0, 14 }, "^8Each file holds one passive tree, one skill set and one item set.")
+
+	self.controls.buildPlannerBuildName = new("EditControl"):EditControl({ "TOPLEFT", self.controls.poe2ExportDesc2, "BOTTOMLEFT" }, { 0, 8, 200, 20 }, nil, "Build name", nil, nil, function()
+		updateBuildPlannerPath()
+	end)
+	self.controls.buildPlannerBuildName:SetPlaceholder("Unnamed Build")
+	self.controls.buildPlannerAuthorName = new("EditControl"):EditControl({"LEFT",self.controls.buildPlannerBuildName,"RIGHT"}, {8, 0, 200, 20}, nil, "Author name", nil, nil)
+	self.controls.buildPlannerAuthorName:SetPlaceholder("Author")
+	self.controls.buildPlannerTreeLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 0, 8, 0, 16 }, "^7Tree")
+	self.controls.buildPlannerSkillLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 188, 8, 0, 16 }, "^7Skill")
+	self.controls.buildPlannerItemLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerBuildName, "BOTTOMLEFT" }, { 376, 8, 0, 16 }, "^7Item")
+	self.controls.buildPlannerSpec = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.buildPlannerTreeLabel, "BOTTOMLEFT" }, { 0, 2, 180, 20 }, {}, function(index, value)
+		self.exportSpecIndex = value.key
+		updateBuildPlannerPath()
+	end, "^7Which passive tree to export")
+	self.controls.buildPlannerSkillSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSpec, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
+		self.exportSkillSetId = value.key
+	end, "^7Which skill set to export")
+	self.controls.buildPlannerItemSet = new("DropDownControl"):DropDownControl({ "LEFT", self.controls.buildPlannerSkillSet, "RIGHT" }, { 8, 0, 180, 20 }, {}, function(index, value)
+		self.exportItemSetId = value.key
+	end, "^7Which item set to export")
+	self.controls.buildPlannerUseGeneratedItemText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 2, 18 }, "Generated text for empty item notes", function()
+		self.build.modFlag = true
+	end, "^7For items without a note, generate a note that contains the current mods, item name and item base", true)
+	self.controls.buildPlannerUseGeneratedItemText.labelRight = true
+	self:RefreshBuildPlannerSets()
+
+	self.controls.buildPlannerDescLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerSpec, "BOTTOMLEFT" }, { 0, 28, 0, 16 }, "^7Description:")
+	self.controls.buildPlannerDescription = new("EditControl"):EditControl({"TOPLEFT",self.controls.buildPlannerDescLabel,"BOTTOMLEFT"}, {0, 8, 560, 64}, "", nil, "^%C\t\n", nil, nil, 16)
+	self.controls.poe2ExportPath = new("EditControl"):EditControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 8, 560, 20 }, BuildExportPoE2.BuildPath(self.controls.buildPlannerBuildName.placeholder), "Path", nil, 260)
+	updateBuildPlannerPath()
+	self.controls.poe2ExportPath.shown = function() return self.controls.poe2ExportShowPath.state end
+	self.controls.poe2ExportPathDisplay = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 10, 0, 16 }, function()
+		return "^8Save location: " .. BuildExportPoE2.DisplayPath(self.controls.poe2ExportPath.buf)
+	end)
+	self.controls.poe2ExportPathDisplay.shown = function() return not self.controls.poe2ExportShowPath.state end
+	local function displayPath(path)
+		return self.controls.poe2ExportShowPath.state and path or BuildExportPoE2.DisplayPath(path)
+	end
+	self.controls.poe2ExportOpenFolder = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 36, 110, 20 }, "Open Folder", function()
+		local path = self.controls.poe2ExportPath.buf
+		local directory = path:match("^(.*[/\\])") or "."
+		local err = OpenURL(directory)
+		if err then
+			main:OpenMessagePopup("Error", "Couldn't open the folder:\n" .. displayPath(directory) .. "\n\n" .. err)
+		end
+	end)
+	self.controls.poe2ExportOpenFolder.tooltipText = "^7Open the BuildPlanner export folder."
+	self.controls.poe2ExportShowPath = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.poe2ExportOpenFolder, "RIGHT" }, { 120, 1, 18 }, "Show full path", nil, "^7Reveal the editable absolute save path.", false)
+	self.controls.poe2ExportSave = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.controls.buildPlannerDescription, "BOTTOMLEFT" }, { 0, 64, 140, 20 }, "Export Selected Sets", function()
+		local path = self.controls.poe2ExportPath.buf
+		local function doWrite()
+			local ok, err = BuildExportPoE2.WriteFile(self.build, path, self:GetBuildPlannerMetadata(), {
+				specIndex = self.exportSpecIndex,
+				skillSetId = self.exportSkillSetId,
+				itemSetId = self.exportItemSetId,
+			})
+			if not ok then
+				main:OpenMessagePopup("Error", "Couldn't save the build file to:\n" .. displayPath(path) .. "\n\n" .. err .. "\nMake sure the save folder exists and is writable.")
+			else
+				main:OpenMessagePopup("Success", string.format("Build file exported successfully to:\n%s", displayPath(path)))
+			end
+		end
+		-- Confirm overwrite if the file already exists.
+		local existing = io.open(path, "r")
+		if existing then
+			existing:close()
+			main:OpenConfirmPopup("Overwrite?", "A file already exists at:\n" .. displayPath(path) .. "\n\nOverwrite it?", "Overwrite", doWrite)
+		else
+			doWrite()
+		end
+	end)
+	self.controls.poe2ExportSave.enabled = function()
+		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
+	end
+	self.controls.poe2ExportSave.tooltipText = "^7Writes a single file containing the three sets picked above."
+	self.controls.poe2ExportSaveAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.poe2ExportSave, "RIGHT" }, { 8, 0, 140, 20 }, "Export All Loadouts", function()
+		local path = self.controls.poe2ExportPath.buf
+		local loadouts = BuildExportPoE2.GetLoadouts(self.build)
+		local function doWrite()
+			local written, errors = BuildExportPoE2.WriteAllLoadouts(self.build, path, self:GetBuildPlannerMetadata(), loadouts)
+			local displayedPaths = {}
+			for _, writtenPath in ipairs(written) do
+				t_insert(displayedPaths, displayPath(writtenPath))
+			end
+			local msg = s_format("Wrote %d file(s):\n%s", #written, t_concat(displayedPaths, "\n"))
+			if #errors > 0 then
+				msg = msg .. s_format("\n\n%d failed:\n%s", #errors, t_concat(errors, "\n"))
+			end
+			main:OpenMessagePopup("Loadout export", msg)
+		end
+		local existingFiles = {}
+		for _, loadout in ipairs(loadouts) do
+			local spec = BuildExportPoE2.ResolveSelection(self.build, loadout)
+			local loadoutPath = BuildExportPoE2.LoadoutPath(path, loadout.fileName or loadout.name, spec and spec.treeVersion)
+			local existing = io.open(loadoutPath, "r")
+			if existing then
+				existing:close()
+				t_insert(existingFiles, loadoutPath:match("([^/\\]+)$"))
+			end
+		end
+		if #existingFiles > 0 then
+			main:OpenConfirmPopup("Overwrite?",
+				s_format("%d file(s) already exist:\n%s\n\nOverwrite them?", #existingFiles, t_concat(existingFiles, "\n")),
+				"Overwrite", doWrite)
+		else
+			doWrite()
+		end
+	end)
+	self.controls.poe2ExportSaveAll.enabled = function()
+		return self.controls.poe2ExportPath.buf and self.controls.poe2ExportPath.buf ~= ""
+	end
+	self.controls.poe2ExportSaveAll.tooltipText = "^7Exports one file per loadout. The loadout name is appended to each filename."
+
 	-- validate the status of the api the first time
 	self:RefreshAuthStatus()
-end)
+	return self
+end
 
+-- Metadata shared by both export buttons.
+function ImportTabClass:GetBuildPlannerMetadata()
+	return {
+		name = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder,
+		author = self.controls.buildPlannerAuthorName.buf ~= "" and self.controls.buildPlannerAuthorName.buf or self.controls.buildPlannerAuthorName.placeholder,
+		description = self.controls.buildPlannerDescription.buf,
+		useGeneratedItemText = self.controls.buildPlannerUseGeneratedItemText.state,
+	}
+end
+
+-- Rebuild the three set dropdowns
+function ImportTabClass:RefreshBuildPlannerSets()
+	local build = self.build
+	if not (build and build.treeTab and build.skillsTab and build.itemsTab) then return end
+
+	-- these shouldn't really ever be empty as even a fresh build will have default sets active
+	local treeList = {}
+	for index, spec in ipairs(build.treeTab.specList) do
+		t_insert(treeList, { label = spec.title or "Default", key = index })
+	end
+
+	local skillList = {}
+	for _, setId in ipairs(build.skillsTab.skillSetOrderList) do
+		local skillSet = build.skillsTab.skillSets[setId]
+		if skillSet then
+			t_insert(skillList, { label = skillSet.title or "Default", key = setId })
+		end
+	end
+
+	local itemList = {}
+	for _, setId in ipairs(build.itemsTab.itemSetOrderList) do
+		local itemSet = build.itemsTab.itemSets[setId]
+		if itemSet then
+			t_insert(itemList, { label = itemSet.title or "Default", key = setId })
+		end
+	end
+
+	self.controls.buildPlannerSpec:SetList(treeList)
+	self.controls.buildPlannerSkillSet:SetList(skillList)
+	self.controls.buildPlannerItemSet:SetList(itemList)
+
+	-- ensure selected index is in bounds and that something is selected
+	self.controls.buildPlannerSpec.selIndex = nil
+	self.controls.buildPlannerSkillSet.selIndex = nil
+	self.controls.buildPlannerItemSet.selIndex = nil
+	self.controls.buildPlannerSpec:SetSel(1)
+	self.controls.buildPlannerSkillSet:SetSel(1)
+	self.controls.buildPlannerItemSet:SetSel(1)
+end
 function ImportTabClass:RefreshAuthStatus()
 	main.api:ValidateAuth(function(valid, updateSettings)
 			if valid then
@@ -385,6 +562,7 @@ function ImportTabClass:Load(xml, fileName)
 	self.importLink = xml.attrib.importLink
 	self.controls.enablePartyExportBuffs.state = xml.attrib.exportParty == "true"
 	self.build.partyTab.enableExportBuffs = self.controls.enablePartyExportBuffs.state
+	self.controls.buildPlannerUseGeneratedItemText.state = xml.attrib.useGeneratedItemText ~= "false"
 	if self.lastAccountHash then
 		for accountName in pairs(main.gameAccounts) do
 			if common.sha1(accountName) == self.lastAccountHash then
@@ -402,6 +580,7 @@ function ImportTabClass:Save(xml)
 		lastAccountHash = self.lastAccountHash,
 		lastCharacterHash = self.lastCharacterHash,
 		exportParty = tostring(self.controls.enablePartyExportBuffs.state),
+		useGeneratedItemText = tostring(self.controls.buildPlannerUseGeneratedItemText.state),
 		importLink = self.importLink
 	}
 
@@ -944,6 +1123,9 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			t_insert(preservedSocketGroupStateByKey[key], snapshotSocketGroupReimportState(socketGroup, index == self.build.mainSocketGroup))
 		end
 		wipeTable(self.build.skillsTab.socketGroupList)
+		self.build.skillsTab.controls.groupList.selIndex = nil
+		self.build.skillsTab.controls.groupList.selValue = nil
+		self.build.skillsTab:SetDisplayGroup()
 	end
 	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
 	--ConPrintTable(charItemData)
@@ -962,11 +1144,15 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
-		-- This could be done better with the character melee skills data at some point.
+		-- Prefer the character skill requirement, then fall back to equipped items for older responses and dual wielding.
 		if typeLine:match("Mace Strike") then
+			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
+			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
 			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
 			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if weapon2Sel == 0 then
+			if requiredWeaponType == "Two Hand Mace" then
+				gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+			elseif weapon2Sel == 0 then
 				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
@@ -1136,6 +1322,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
+	self.build.calcsTab:BuildOutput()
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
@@ -1154,7 +1341,7 @@ function ImportTabClass:ImportChakra(slotName, runeName)
 	end
 end
 
-local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC", [13] = "RARE", [14] = "UNIQUE" }
+local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC", [11] = "NORMAL", [12] = "MAGIC", [13] = "RARE", [14] = "UNIQUE" }
 local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt", ["IncursionArmLeft"] = "Arm 2", ["IncursionArmRight"] = "Arm 1", ["IncursionLegLeft"] = "Leg 2", ["IncursionLegRight"] = "Leg 1" }
 
 function ImportTabClass:ImportItem(itemData, slotName)
@@ -1188,7 +1375,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		return
 	end
 
-	local item = new("Item")
+	local item = new("Item"):Item()
 
 	-- Determine rarity, display name and base type of the item
 	item.rarity = rarityMap[itemData.frameType]
@@ -1257,34 +1444,36 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-			if escapeGGGString(property.name) == "Quality" then
+			local propertyName = escapeGGGString(property.name)
+			if propertyName == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
-			elseif property.name == "Radius" then
+			elseif propertyName == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
-			elseif property.name == "Limited to" then
+			elseif propertyName == "Limited to" then
 				item.limit = tonumber(property.values[1][1])
-			elseif property.name == "Evasion Rating" then
+			elseif propertyName == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
 					-- Another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Armour/Evasion)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
-			elseif property.name == "Energy Shield" then
+			elseif propertyName == "Energy Shield" then
 				if item.baseName == "Two-Toned Boots (Armour/Evasion)" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			if propertyName == "Energy Shield" or propertyName == "Runic Ward" or propertyName == "Armour" or propertyName == "Evasion Rating" then
 				item.armourData = item.armourData or { }
+				local defenceType = propertyName:gsub("Runic Ward", "Ward"):gsub(" Rating", ""):gsub(" ", "")
 				for _, value in ipairs(property.values) do
-					item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] = (item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] or 0) + tonumber(value[1])
+					item.armourData[defenceType] = (item.armourData[defenceType] or 0) + tonumber(value[1])
 				end
 			end
 		end
 	end
-	item.mirrored = itemData.mirrored
+	item.mirrored = itemData.duplicated or itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
@@ -1349,13 +1538,15 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		end
 	end
 	if itemData.implicitMods then
-		for _, line in ipairs(itemData.implicitMods) do
-			for line in line:gmatch("[^\n]+") do
+		for _, itemMod in ipairs(itemData.implicitMods) do
+			local modLine = itemMod.description or itemMod
+			for line in modLine:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.implicitModLines, { line = line, extra = extra, mods = modList or { } })
 			end
 		end
 	end
+	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
 	if itemData.fracturedMods then
 		for _, line in ipairs(itemData.fracturedMods) do
 			for line in line:gmatch("[^\n]+") do
@@ -1365,10 +1556,15 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		end
 	end
 	if itemData.explicitMods then
-		for _, line in ipairs(itemData.explicitMods) do
-			for line in line:gmatch("[^\n]+") do
+		for _, itemMod in ipairs(itemData.explicitMods) do
+			local modLine = itemMod.description or itemMod
+			local flags = itemMod.flags or itemMod
+			for line in modLine:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { } })
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { },
+					fractured = flags.fractured,
+					crafted = flags.crafted,
+					mutated = flags.mutated })
 			end
 		end
 	end
@@ -1380,6 +1576,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
+	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
 	if itemData.mutatedMods then
 		for _, line in ipairs(itemData.mutatedMods) do
 			for line in line:gmatch("[^\n]+") do
@@ -1388,6 +1585,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
+	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
 	if itemData.craftedMods then
 		for _, line in ipairs(itemData.craftedMods) do
 			for line in line:gmatch("[^\n]+") do

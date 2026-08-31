@@ -51,42 +51,17 @@ directiveTable.base = function(state, args, out)
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
 
-	local function writeModLines(modLines, out)
-		for _, modLine in ipairs(modLines) do
-			out:write('\t\t["'..modLine.slotType..'"] = {\n')
-			out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
-			if modLine.limit then
-				out:write('\t\t\t\tlimit = ' .. modLine.limit .. ',\n')
-			end
-			out:write('\t\t\t\tlocalMod = ' .. tostring(modLine.localMod) .. ',\n')
-			-- only write labels/statOrder if present
-			if modLine.label and #modLine.label > 0 then
-				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
-				local statOrder = modLine.statOrder or {}
-				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
-				out:write('\t\t\t\ttradeHashes = { ')
-				for hash, desc in pairs(modLine.tradeHashes) do
-					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
-					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
-				end
-				out:write(' },\n')
-			end
-			out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
-			out:write('\t\t\t\trank = ' .. (modLine.rank or 0) .. ',\n')
-			out:write('\t\t},\n')
-		end
-	end
-
 	-- Check for Standard Weapon, Armour, Caster Runes
 	local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
 	local soulCoreStats = dat("SoulCoreStats"):GetRowList("Id", soulCores)
 	out:write('\t["', displayName, '"] = {\n')
+	-- Regular and Bonded stats may be separate data rows for the same slot. Keep an
+	-- ordered output list and a slot lookup so each Lua key is emitted exactly once.
 	local modLines = { }
-	local rank = 0
+	local modLinesBySlot = { }
+	local rank = soulCores.LevelReq or 0
 	for _, soulCoreStat in ipairs(soulCoreStats) do
-		rank = soulCores.LevelReq or 0
-
-		local stats = {}
+		local stats = { }
 		local statHashes = {}
 		for i, statKey in ipairs(soulCoreStat.Stats) do
 			local statValue = soulCoreStat["StatValue"][i]
@@ -98,7 +73,7 @@ directiveTable.base = function(state, args, out)
 			local statValue = soulCoreStat["BondedValues"][i]
 			bondedStats[statKey.Id] = { min = statValue, max = statValue, bonded = true }
 		end
-		if next(stats) then
+		if next(stats) or next(bondedStats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
 				local statsCopy = {}
 				for k, v in pairs(stats) do statsCopy[k] = { min = v.min, max = v.max } end
@@ -106,16 +81,7 @@ directiveTable.base = function(state, args, out)
 				for k, v in pairs(bondedStats) do bondedStatsCopy[k] = { min = v.min, max = v.max, bonded = v.bonded } end
 				local descStats, orders = describeStats(statsCopy)
 				local descBondedStats, bondedOrders = describeStats(bondedStatsCopy)
-				for i, stat in ipairs(descBondedStats) do
-					descBondedStats[i] = "Bonded: " .. stat
-				end
-				for _, stat in ipairs(descBondedStats) do
-					table.insert(descStats, stat)
-				end
-				for _, order in ipairs(bondedOrders) do
-					table.insert(orders, order)
-				end
-				if #orders > 0 then
+				if #orders > 0 or #bondedOrders > 0 then
 					local modIdx = 1
 					local tradeHashes = {}
 					local localMod = true
@@ -144,27 +110,67 @@ directiveTable.base = function(state, args, out)
 						tradeHashes[murmurHash2(bytes, 0x02312233)] = description
 						modIdx = modIdx + 1
 					end
-					local out = {
-						type = soulCores.Type.Id,
-						-- note that there are limit types. for example ancient
-						-- augments have their own entry which limits you to one
-						-- ancient augment
-						limit = soulCores.Limit and soulCores.Limit.Limit,
-						localMod = localMod,
-						slotType = class,
-						label = descStats,
-						statOrder = orders,
-						rank = rank,
-						tradeHashes = tradeHashes,
-						isSocketBound = soulCores.IsSocketBound
-					}
-					table.insert(modLines, out)
+					local modLine = modLinesBySlot[class]
+					if not modLine then
+						modLine = {
+							type = soulCores.Type.Id,
+							limit = soulCores.Limit and soulCores.Limit.Limit,
+							limitId = soulCores.Limit and soulCores.Limit.Id,
+							localMod = localMod,
+							slotType = class,
+							label = descStats,
+							statOrder = orders,
+							bondedLabel = descBondedStats,
+							bondedStatOrder = bondedOrders,
+							rank = rank,
+							tradeHashes = tradeHashes,
+							isSocketBound = soulCores.IsSocketBound
+						}
+						modLinesBySlot[class] = modLine
+						table.insert(modLines, modLine)
+					else
+						modLine.localMod = modLine.localMod and localMod
+						for _, line in ipairs(descStats) do table.insert(modLine.label, line) end
+						for _, order in ipairs(orders) do table.insert(modLine.statOrder, order) end
+						for _, line in ipairs(descBondedStats) do table.insert(modLine.bondedLabel, line) end
+						for _, order in ipairs(bondedOrders) do table.insert(modLine.bondedStatOrder, order) end
+						for hash, desc in pairs(tradeHashes) do modLine.tradeHashes[hash] = desc end
+					end
 				end
 			end
 		end
 	end
 
-	writeModLines(modLines, out)
+	for _, modLine in ipairs(modLines) do
+		out:write('\t\t["'..modLine.slotType..'"] = {\n')
+		out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
+		if modLine.limit then
+			out:write('\t\t\t\tlimit = ' .. modLine.limit .. ',\n')
+			if modLine.limitId ~= "GenericLimit1" then
+				out:write('\t\t\t\tlimitId = "' .. modLine.limitId .. '",\n')
+			end
+		end
+		out:write('\t\t\t\tlocalMod = ' .. tostring(modLine.localMod) .. ',\n')
+		if #modLine.label > 0 then
+			out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
+			out:write('\t\t\t\tstatOrder = { '..table.concat(modLine.statOrder, ', ')..' },\n')
+		end
+		out:write('\t\t\t\ttradeHashes = { ')
+		for hash, desc in pairs(modLine.tradeHashes) do
+			local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+			out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+		end
+		out:write(' },\n')
+		if #modLine.bondedLabel > 0 then
+			out:write('\t\t\t\tbonded = {\n')
+			out:write('\t\t\t\t\t"'..table.concat(modLine.bondedLabel, '",\n\t\t\t\t\t"')..'",\n')
+			out:write('\t\t\t\t\tstatOrder = { '..table.concat(modLine.bondedStatOrder, ', ')..' },\n')
+			out:write('\t\t\t\t},\n')
+		end
+		out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
+		out:write('\t\t\t\trank = { '..modLine.rank..' },\n')
+		out:write('\t\t},\n')
+	end
 	out:write('\t},\n')
 end
 

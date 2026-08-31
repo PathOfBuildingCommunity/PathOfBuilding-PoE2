@@ -8,8 +8,11 @@ local t_insert = table.insert
 local t_remove = table.remove
 local t_sort = table.sort
 
-local PowerReportListClass = newClass("PowerReportListControl", "ListControl", function(self, anchor, rect, nodeSelectCallback)
-	self.ListControl(anchor, rect, 16, "VERTICAL", false)
+---@class PowerReportListControl: ListControl
+local PowerReportListClass = newClass("PowerReportListControl", "ListControl")
+
+function PowerReportListClass:PowerReportListControl(anchor, rect, nodeSelectCallback)
+	self:ListControl(anchor, rect, 16, "VERTICAL", false)
 
 	local width = rect[3]
 	self.powerColumn = { width = width * 0.16, label = "", sortable = true }
@@ -26,7 +29,7 @@ local PowerReportListClass = newClass("PowerReportListControl", "ListControl", f
 	self.allocated = false
 	self.label = "Building Tree..."
 	
-	self.controls.filterSelect = new("DropDownControl", {"BOTTOMRIGHT", self, "TOPRIGHT"}, {0, -2, 200, 20},
+	self.controls.filterSelect = new("DropDownControl"):DropDownControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 200, 20 },
 		{ "Show Unallocated", "Show Unallocated & Clusters", "Show Allocated" },
 		function(index, value)
 			self.showClusters = index == 2
@@ -34,7 +37,8 @@ local PowerReportListClass = newClass("PowerReportListControl", "ListControl", f
 			self:ReList()
 			self:ReSort(3) -- Sort by power
 		end)
-end)
+	return self
+end
 
 function PowerReportListClass:SetReport(stat, report)
 	self.powerColumn.label = stat and stat.label or ""
@@ -102,6 +106,8 @@ function PowerReportListClass:ReList()
 		end
 		if self.allocated then
 			insert = item.allocated
+		elseif item.allocated then
+			insert = false
 		end
 
 		if insert then

@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
-local itemBases = ...
+return function(itemBases)
 
 #type Sceptre
 #socketLimit 3
@@ -18,3 +18,4 @@ local itemBases = ...
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b Shrine Sceptre (Purity of Cold)
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c Shrine Sceptre (Purity of Lighting)
 #forceShow false
+end

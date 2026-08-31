@@ -8,8 +8,19 @@ local t_insert = table.insert
 local m_min = math.min
 
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
-local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(self, anchor, x, y, itemsTab, slotName, slotLabel, nodeId)
-	self.DropDownControl(anchor, {x, y, 310, 20}, { }, function(index, value)
+local BuildExportPoE2 = LoadModule("Modules/BuildExportPoE2")
+---@class ItemSlotControl: DropDownControl
+local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
+
+---@param anchor Anchor?
+---@param x Prop<number>
+---@param y Prop<number>
+---@param itemsTab ItemsTab
+---@param slotName string
+---@param slotLabel? string
+---@param nodeId integer?
+function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLabel, nodeId)
+	self:DropDownControl(anchor, {x, y, 310, 20}, { }, function(index, value)
 		if self.items[index] ~= self.selItemId then
 			self:SetSelItemId(self.items[index])
 			itemsTab:PopulateSlots()
@@ -29,8 +40,23 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 	self.selItemId = 0
 	self.slotName = slotName
 	self.slotNum = tonumber(slotName:match("%d+$") or slotName:match("%d+"))
+	if data.buildFileInventorySlotMap[slotName] then
+		self.controls.noteButton = new("ButtonControl"):ButtonControl({"LEFT",self,"RIGHT"}, {2, 0, 20, 20}, "~", function()
+			local item = itemsTab.items[self.selItemId]
+			main:OpenNoteEditPopup(self.slotName, self.note or "", function(note)
+				self.note = note
+				itemsTab:PopulateSlots()
+				itemsTab:AddUndoState()
+				itemsTab.build.buildFlag = true
+			end, item and BuildExportPoE2.ItemAdditionalText(item))
+		end)
+		self.controls.noteButton.tooltipFunc = function(tooltip)
+			tooltip:Clear()
+			tooltip:AddBuildPlannerNote(14, self.note and self.note ~= "" and self.note or "Add a note for this item slot")
+		end
+	end
 	if slotName:match("Flask") then
-		self.controls.activate = new("CheckBoxControl", {"RIGHT",self,"LEFT"}, {-2, 0, 20}, nil, function(state)
+		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)
 			self.active = state
 			itemsTab.activeItemSet[self.slotName].active = state
 			itemsTab:AddUndoState()
@@ -42,7 +68,7 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 		self.controls.activate.tooltipText = "Activate this flask."
 		self.labelOffset = -24
 	elseif slotName:match("Charm") then
-		self.controls.activate = new("CheckBoxControl", {"RIGHT",self,"LEFT"}, {-2, 0, 20}, nil, function(state)
+		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)
 			self.active = state
 			itemsTab.activeItemSet[self.slotName].active = state
 			itemsTab:AddUndoState()
@@ -61,7 +87,9 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 	self.tooltipFunc = function(tooltip, mode, index, itemId)
 		local item = itemsTab.items[self.items[index]]
 		-- not selControl.ListControl allows hover when All Items or Unique/Rare DB Sections are in focus
-		if main.popups[1] or mode == "OUT" or not item or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
+		if main.popups[1] or mode == "OUT" or not item
+			or self.controls.noteButton and self:GetMouseOverControl() == self.controls.noteButton -- Note button has its own tooltip
+			or (not self.dropped and itemsTab.selControl and itemsTab.selControl ~= self.controls.activate and not itemsTab.selControl.ListControl) then
 			tooltip:Clear(true)
 			elseif tooltip:CheckForUpdate(item, launch.devModeAlt, itemsTab.build.outputRevision, IsKeyDown("SHIFT")) then
 			itemsTab:AddItemTooltip(tooltip, item, self)
@@ -69,7 +97,8 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 	end
 	self.label = slotLabel or slotName
 	self.nodeId = nodeId
-end)
+	return self
+end
 
 function ItemSlotClass:SetSelItemId(selItemId)
 	if self.nodeId then
@@ -113,6 +142,9 @@ function ItemSlotClass:Populate()
 	for i, jewelSocket in ipairs(self.jewelSocketList) do
 		jewelSocket.inactive = i > jewelSocketCount
 	end
+	if not self.nodeId then
+		self.itemsTab.activeItemSet[self.slotName].note = self.note
+	end
 end
 
 function ItemSlotClass:CanReceiveDrag(type, value)
@@ -123,7 +155,7 @@ function ItemSlotClass:ReceiveDrag(type, value, source)
 	if value.id and self.itemsTab.items[value.id] then
 		self:SetSelItemId(value.id)
 	else
-		local newItem = new("Item", value.raw)
+		local newItem = new("Item"):Item(value.raw)
 		newItem:NormaliseQuality()
 		self.itemsTab:AddItem(newItem, true)
 		self:SetSelItemId(newItem.id)
@@ -153,10 +185,17 @@ function ItemSlotClass:Draw(viewPort)
 end
 
 function ItemSlotClass:OnKeyDown(key)
-	if not self:IsShown() or not self:IsEnabled() then
+	if not self:IsShown() then
 		return
 	end
 	local mOverControl = self:GetMouseOverControl()
+	-- Notes don't care if the item slot is enabled or not
+	if mOverControl and mOverControl == self.controls.noteButton then
+		return mOverControl:OnKeyDown(key)
+	end
+	if not self:IsEnabled() then
+		return
+	end
 	if mOverControl and mOverControl == self.controls.activate then
 		return mOverControl:OnKeyDown(key)
 	end

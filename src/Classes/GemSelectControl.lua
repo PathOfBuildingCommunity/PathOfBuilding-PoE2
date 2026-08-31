@@ -15,9 +15,18 @@ local gemTooltip = LoadModule("Classes/GemTooltip")
 
 local toolTipText = "Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area"
 
-local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self, anchor, rect, skillsTab, index, changeFunc, forceTooltip)
-	self.EditControl(anchor, rect, nil, nil, "^ %a':-")
-	self.controls.scrollBar = new("ScrollBarControl", { "TOPRIGHT", self, "TOPRIGHT" }, {-1, 0, 18, 0}, (self.height - 4) * 4)
+---@class GemSelectControl: EditControl
+local GemSelectClass = newClass("GemSelectControl", "EditControl")
+
+---@param anchor Anchor?
+---@param rect Rect?
+---@param skillsTab SkillsTab
+---@param index integer
+---@param changeFunc fun(...)
+---@param forceTooltip boolean
+function GemSelectClass:GemSelectControl(anchor, rect, skillsTab, index, changeFunc, forceTooltip)
+	self:EditControl(anchor, rect, nil, nil, "^ %a':-")
+	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)
 	self.controls.scrollBar.y = function()
 		local width, height = self:GetSize()
 		return height + 1
@@ -36,6 +45,7 @@ local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self
 	self.forceTooltip = forceTooltip
 	self.list = { }
 	self.mode = ""
+	self.dpsBuildFlag = false
 	self.changeFunc = function()
 		if not self.dropped then
 			self.dropped = true
@@ -45,7 +55,8 @@ local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self
 		self:BuildList(self.buf)
 		self:UpdateGem()
 	end
-end)
+	return self
+end
 
 function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions)
 	local gemList = self.skillsTab.displayGroup.gemList
@@ -139,11 +150,12 @@ function GemSelectClass:BuildList(buf)
 		t_remove(tagsList, 1)
 
 		-- Search for gem name using increasingly broad search patterns
+		local lowerSearch = searchTerm:lower()
 		local patternList = {
-			"^ " .. searchTerm:lower().."$", -- Exact match
-			"^" .. searchTerm:lower():gsub("%a", " %0%%l+") .. "$", -- Simple abbreviation ("CtF" -> "Cold to Fire")
-			"^ " .. searchTerm:lower(), -- Starts with
-			searchTerm:lower(), -- Contains
+			"^ " .. lowerSearch.."$", -- Exact match
+			"^" .. lowerSearch:gsub("%a", " %0%%l+") .. "$", -- Simple abbreviation ("CtF" -> "Cold to Fire")
+			"^ " .. lowerSearch, -- Starts with
+			lowerSearch, -- Contains
 		}
 		for i, pattern in ipairs(patternList) do
 			local matchList = { }
@@ -317,42 +329,104 @@ function GemSelectClass:UpdateSortCache()
 	-- Check for nil because some fields may not be populated, default to 0
 	local baseDPS = (dpsField == "FullDPS" and calcBase[dpsField] ~= nil and calcBase[dpsField]) or (calcBase.Minion and calcBase.Minion.CombinedDPS) or (calcBase[dpsField] ~= nil and calcBase[dpsField]) or 0
 
+	sortCache.calcFunc = calcFunc
+	sortCache.useFullDPS = useFullDPS
+	sortCache.fastCalcOptions = fastCalcOptions
+	sortCache.baseDPS = baseDPS
+	sortCache.dpsField = dpsField
+	sortCache.pendingGems = { }
+
 	for gemId, gemData in pairs(self.gems) do
 		sortCache.dps[gemId] = baseDPS
-		-- Ignore gems that don't support the active skill
+		-- Gems that support the active skill or have global effects need DPS calc
 		if sortCache.canSupport[gemId] or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support) then
-			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions)
-			-- Check for nil because some fields may not be populated, default to 0
-			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
+			t_insert(sortCache.pendingGems, gemId)
 		end
-		-- Color based on the DPS
-		if sortCache.dps[gemId] > baseDPS then
-			sortCache.dpsColor[gemId] = "^x228866"
-		elseif sortCache.dps[gemId] < baseDPS then
-			sortCache.dpsColor[gemId] = "^xFF4422"
-		else
-			sortCache.dpsColor[gemId] = "^xFFFF66"
-		end
+		-- Neutral color until DPS is computed
+		sortCache.dpsColor[gemId] = ""
 	end
 
-	--ConPrintf("Gem Selector time: %d ms", GetTime() - start)
+	self.dpsBuildFlag = true
 end
 
 function GemSelectClass:SortGemList(gemList)
 	local sortCache = self.sortCache
+	local gems = self.gems
+	-- cache names to avoid repeated table lookups in comparator
+	local names = {}
+	for _, gemId in ipairs(gemList) do
+		local gem = gems[gemId]
+		names[gemId] = gem and gem.name or gemId
+	end
 	t_sort(gemList, function(a, b)
 		if sortCache.canSupport[a] == sortCache.canSupport[b] then
 			if self.skillsTab.sortGemsByDPS and sortCache.dps[a] ~= sortCache.dps[b] then
 				return sortCache.dps[a] > sortCache.dps[b]
 			else
-				local nameA = (self.gems[a] and self.gems[a].name) or a
-				local nameB = (self.gems[b] and self.gems[b].name) or b
-				return nameA < nameB
+				return names[a] < names[b]
 			end
 		else
 			return sortCache.canSupport[a]
 		end
 	end)
+end
+
+function GemSelectClass:SyncSelection()
+	self.selIndex = 0
+	for index, gemId in ipairs(self.list) do
+		if self.gems[gemId] and self.gems[gemId].name:lower() == self.buf:lower() then
+			self.selIndex = index
+			self:ScrollSelIntoView()
+			break
+		end
+	end
+end
+
+function GemSelectClass:SortCurrentList()
+	if #self.searchStr == 0 then
+		self:SortGemList(self.list)
+		self:SyncSelection()
+	end
+end
+
+function GemSelectClass:DPSBuilder()
+	local sortCache = self.sortCache
+	if not sortCache or not sortCache.pendingGems then return end
+
+	local pending = sortCache.pendingGems
+	local calcFunc = sortCache.calcFunc
+	local useFullDPS = sortCache.useFullDPS
+	local fastCalcOptions = sortCache.fastCalcOptions
+	local baseDPS = sortCache.baseDPS
+	local dpsField = sortCache.dpsField
+	local start = GetTime()
+
+	for index, gemId in ipairs(pending) do
+		local gemData = self.gems[gemId]
+		if gemData then
+			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions)
+			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
+			if sortCache.dps[gemId] > baseDPS then
+				sortCache.dpsColor[gemId] = "^x228866"
+			elseif sortCache.dps[gemId] < baseDPS then
+				sortCache.dpsColor[gemId] = "^xFF4422"
+			else
+				sortCache.dpsColor[gemId] = "^xFFFF66"
+			end
+		end
+		local now = GetTime()
+		if now - start > 50 then
+			self:SortCurrentList()
+			if self.dpsBuilderCallback then
+				self.dpsBuilderCallback(m_floor(index/#pending*100))
+			end
+			coroutine.yield()
+			start = now
+		end
+	end
+
+	self:SortCurrentList()
+	sortCache.pendingGems = nil
 end
 
 function GemSelectClass:UpdateGem(setText, addUndo, focusLost)
@@ -404,7 +478,40 @@ function GemSelectClass:IsMouseOver()
 	return mOver, mOverComp
 end
 
+function GemSelectClass:IsHoverSelectionReady()
+	if not self.hoverSel then
+		self.lastHoverSel = nil
+		self.hoverFrameCount = 0
+		return false
+	end
+	if self.hoverSel == self.lastHoverSel then
+		self.hoverFrameCount = (self.hoverFrameCount or 0) + 1
+	else
+		self.lastHoverSel = self.hoverSel
+		self.hoverFrameCount = 0
+	end
+	return self.hoverFrameCount >= 2
+end
+
 function GemSelectClass:Draw(viewPort, noTooltip)
+	self.sortPercentage = self.sortPercentage or ""
+	if self.dpsBuildFlag then
+		self.dpsBuildFlag = false
+		self.dpsBuilder = coroutine.create(self.DPSBuilder)
+		self.dpsBuilderCallback = function(percentage)
+			self.sortPercentage = ("%d%%"):format(percentage)
+		end
+	end
+	if self.dpsBuilder then
+		local res, errMsg = coroutine.resume(self.dpsBuilder, self)
+		if launch.devMode and not res then
+			error(errMsg)
+		end
+		if coroutine.status(self.dpsBuilder) == "dead" then
+			self.dpsBuilder = nil
+		end
+	end
+
 	self.EditControl:Draw(viewPort, noTooltip and not self.forceTooltip)
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
@@ -423,6 +530,10 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 	end
 	if self.dropped then
 		SetDrawLayer(nil, 5)
+		if self.dpsBuilder then
+			SetDrawColor(0.75, 0.75, 0.75)
+			DrawString(x + width - 4, y, "RIGHT_X", height - 2, "VAR", "Sorting " .. self.sortPercentage)
+		end
 		local cursorX, cursorY = GetCursorPos()
 		self.hoverSel = mOverComp == "DROP" and math.floor((cursorY - y - height + scrollBar.offset) / (height - 4)) + 1
 		if self.hoverSel and not self.gems[self.list[self.hoverSel]] then
@@ -452,10 +563,10 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local gemText = gemData and gemData.name or "<No matches>"
 			DrawString(0, y, "LEFT", height - 4, "VAR", gemText)
 			if gemData then
-				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] then
+				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] and self.sortCache.dpsColor[gemId] ~= "" then
 					SetDrawColor(self.sortCache.dpsColor[gemId])
 					main:DrawCheckMark(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y + (height - 4) / 2, (height - 4) * 0.8)
-				elseif gemData.grantedEffect.hasGlobalEffect then
+				elseif gemData.grantedEffect.hasGlobalEffect and self.sortCache.dpsColor[gemId] ~= "" then
 					SetDrawColor(self.sortCache.dpsColor[gemId])
 					DrawString(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y - 2, "CENTER_X", height, "VAR", "+")
 				end
@@ -463,7 +574,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		end
 		SetViewport()
 		self:DrawControls(viewPort, (noTooltip and not self.forceTooltip) and self)
-		if self.hoverSel then
+		if self:IsHoverSelectionReady() then
 			local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				self.tooltip.maxWidth = 500
@@ -498,6 +609,8 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		end
 		SetDrawLayer(nil, 0)
 	else
+		self.lastHoverSel = nil
+		self.hoverFrameCount = 0
 		-- not dropped
 		local hoverControl
 		if self.skillsTab.selControl and self.skillsTab.selControl._className == "GemSelectControl" then
@@ -521,7 +634,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			self.tooltip:Clear(true)
 			self.tooltip.maxWidth = 600
 			if gemInstance and gemInstance.gemData then
-				self:AddGemTooltip(gemInstance)
+				self:AddGemTooltip(gemInstance, true)
 			else
 				self.tooltip:AddLine(16, toolTipText)
 			end
@@ -568,33 +681,29 @@ function GemSelectClass:CheckSupporting(gemA, gemB)
 		(gemA.gemData.secondaryGrantedEffect and gemA.gemData.secondaryGrantedEffect.support and not gemB.gemData.grantedEffect.support and gemA.supportEffect and gemA.supportEffect.isSupporting and gemA.supportEffect.isSupporting[gemB])
 end
 
-function GemSelectClass:AddGemTooltip(gemInstance)
-	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance)
+function GemSelectClass:AddGemTooltip(gemInstance, includeBuildPlannerNote)
+	gemTooltip.AddGemTooltip(self.tooltip, self.skillsTab.build, gemInstance, { includeBuildPlannerNote = includeBuildPlannerNote })
 end
 function GemSelectClass:OnFocusGained()
 	self.EditControl:OnFocusGained()
 	self.dropped = true
-	self.selIndex = 0
 	self:UpdateSortCache()
 	self:BuildList("")
-	for index, gemId in pairs(self.list) do
-		if self.gems[gemId].name == self.buf then
-			self.selIndex = index
-			self:ScrollSelIntoView()
-			break
-		end
-	end
+	self:SyncSelection()
 	self.initialBuf = self.buf
-	self.initialIndex = self.selIndex
+end
+
+function GemSelectClass:CancelSelection()
+	self.dropped = false
+	self.buf = self.initialBuf
+	self:BuildList("")
+	self:SyncSelection()
+	self:UpdateGem(false, true, true)
 end
 
 function GemSelectClass:OnFocusLost()
 	if self.dropped then
-		self.dropped = false
-		if self.noMatches then
-			self:SetText("")
-		end
-		self:UpdateGem(true, true, true)
+		self:CancelSelection()
 	end
 end
 
@@ -628,6 +737,7 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 	end
 	if self.dropped then
 		if key:match("BUTTON") and not self:IsMouseOver() then
+			self:CancelSelection()
 			return
 		end
 		if key == "LEFTBUTTON" then
@@ -650,11 +760,7 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 			self:UpdateGem(true, true, true)
 			return
 		elseif key == "ESCAPE" then
-			self.dropped = false
-			self:BuildList("")
-			self.buf = self.initialBuf
-			self.selIndex = self.initialIndex
-			self:UpdateGem(false,true, true)
+			self:CancelSelection()
 			return
 		elseif self.controls.scrollBar:IsScrollUpKey(key) then
 			self.controls.scrollBar:Scroll(-1)
@@ -679,10 +785,21 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 				self:ScrollSelIntoView()
 			end
 		end
+	elseif key == "RIGHTBUTTON" and IsKeyDown("SHIFT") then
+		-- Shift+Right-Click: edit the per-gem author note for the PoE2 .build export.
+		local gemList = self.skillsTab.displayGroup and self.skillsTab.displayGroup.gemList
+		local gemInstance = gemList and gemList[self.index]
+		if gemInstance then
+			local title = "Note: " .. ((gemInstance.nameSpec and gemInstance.nameSpec ~= "") and gemInstance.nameSpec or "Gem")
+			main:OpenNoteEditPopup(title, gemInstance.note, function(text)
+				gemInstance.note = text
+				self.skillsTab.build.modFlag = true
+			end)
+		end
+		return
 	elseif key == "RETURN" or key == "RIGHTBUTTON" then
 		self.dropped = true
 		self:UpdateSortCache()
-		self.initialIndex = self.selIndex
 		self.initialBuf = self.buf
 		return self
 	end

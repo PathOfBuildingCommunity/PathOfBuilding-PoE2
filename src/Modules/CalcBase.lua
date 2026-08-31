@@ -1,0 +1,233 @@
+-- This module is used as a base that the other calc sections can `require` to add their functions to
+---@class Calcs
+local calcs = {}
+return calcs
+
+---@class Output
+---@field MainHand Output?
+---@field OffHand Output?
+---@field Minion Output?
+---@field ActivePhantasmLimit number?
+---@field ActiveSpectreLimit number?
+---@field BattleCryExertsCount number?
+---@field BattleMageCryCastTime number?
+---@field BattleMageCryCooldown number?
+---@field BattleMageCryDuration number?
+---@field BattlemageUpTimeRatio number?
+---@field BleedDamage number?
+---@field ChaosHitAverage number?
+---@field ChaosResist number?
+---@field ColdHitAverage number?
+---@field ColdResistOverCap number?
+---@field ColdResistTotal number?
+---@field CullMultiplier number?
+---@field Dex number?
+---@field EffectiveBlockChance number?
+---@field EffectiveProjectileBlockChance number?
+---@field EffectiveSpellBlockChance number?
+---@field EffectiveSpellProjectileBlockChance number?
+---@field EnergyShieldLeechDuration number?
+---@field EnergyShieldRecoupRecoveryAvg number?
+---@field EnergyShieldRegenRecovery number?
+---@field ESCost  number?
+---@field FireHitAverage  number?
+---@field FireResistOverCap number?
+---@field FireResistTotal number?
+---@field FreezeChanceOnCrit number?
+---@field FreezeChanceOnHit number?
+---@field GlobalWarcryUptimeRatio number?
+---@field IgniteAvoidChance number?
+---@field IgniteChanceOnCrit number?
+---@field IgniteChanceOnHit number?
+---@field InfernalCryCastTime number?
+---@field InfernalCryCooldown number?
+---@field InfernalCryDuration number?
+---@field InfernalExertsCount number?
+---@field InfernalUpTimeRatio number?
+---@field Int number?
+---@field LifeCancellableReservation  number?
+---@field LifeCost  number?
+---@field LifeLeechDuration number?
+---@field LifeRecoupRecoveryAvg number?
+---@field LifeRegenRecovery number?
+---@field LifeReservedPercent number?
+---@field LifeUnreserved number?
+---@field LightningHitAverage number?
+---@field LightningResist number?
+---@field LightningResistOverCap number?
+---@field LightningResistTotal number?
+---@field ManaCost number?
+---@field ManaCostRaw number?
+---@field ManaHasCost boolean?
+---@field ManaLeechDuration number?
+---@field ManaRecoupRecoveryAvg number?
+---@field ManaRegenRecovery number?
+---@field ManaUnreserved number?
+---@field PhysicalTakenDamage number?
+---@field PhysicalTakenHit number?
+---@field PoisonAvoidChance number?
+---@field RageCost number?
+---@field ReservationDpsMultiplier number?
+---@field ReturnChance number?
+---@field SelfIgniteDuration number?
+---@field SelfIgniteEffect number?
+---@field SelfPoisonDuration number?
+---@field SelfPoisonEffect number?
+---@field Str number?
+---@field TotalVaalRejuvenationTotemLife number?
+---@field TotemChaosResist number?
+---@field TotemLife number?
+
+---@class Breakdown
+---@field MainHand Breakdown?
+---@field OffHand Breakdown?
+
+---@class PartyActor
+---@field output Output
+---@field modDB ModDB
+---@field Aura table
+---@field Curse table
+---@field Warcry table
+---@field Link table
+
+---@class Actor
+---@field output Output
+---@field modDB ModDB
+---@field level number
+---@field enemy Actor?
+---@field player Actor?
+---@field parent Actor?
+---@field partyMembers PartyActor?
+---@field breakdown? Breakdown?
+---@field activeSkillList? ActiveSkill[]
+---@field mainSkill? ActiveSkill
+---@field itemList? table<string, Item>
+---@field weaponData1? table
+---@field weaponData2? table
+---@field weaponRange1 number?
+---@field weaponRange2 number?
+---@field minionData table?
+---@field type string?
+---@field hostile boolean?
+---@field uses table<string, boolean>?
+---@field itemSet table?
+---@field lifeTable number[]?
+---@field hiddenDamageFixup number?
+---@field appliedEnemyModifiers table?
+---@field damageShiftTable table?
+---@field damageOverTimeShiftTable table?
+---@field spectreLifeList table[]?
+---@field companionLifeList table[]?
+---@field reserved_LifeBase number?
+---@field reserved_LifePercent number?
+---@field reserved_ManaBase number?
+---@field reserved_ManaPercent number?
+---@field reserved_SpiritBase number?
+---@field reserved_SpiritPercent number?
+---@field uncancellable_LifeReservation number?
+---@field uncancellable_ManaReservation number?
+---@field uncancellable_SpiritReservation number?
+
+---@class ActiveSkill
+---@field activeEffect table
+---@field supportList table[]
+---@field actor Actor
+---@field summonSkill? ActiveSkill
+---@field socketGroup? table
+---@field skillData table<string, any>
+---@field skillTypes table<number, boolean>
+---@field minionSkillTypes? table<number, boolean>
+---@field effectList table[]
+---@field buffList table[]
+---@field baseSkillModList ModList
+---@field skillModList ModList
+---@field extraSkillModList? Mod[]
+---@field skillCfg ModCfg
+---@field weapon1Cfg? ModCfg
+---@field weapon2Cfg? ModCfg
+---@field weapon1Flags number
+---@field weapon2Flags number
+---@field minion? Actor
+---@field minionList? string[]
+---@field mirage? table
+---@field slotName? string
+---@field skillPart? number
+---@field skillPartName? string
+---@field skillTotemId? number
+---@field activeMineCount? number
+---@field activeStageCount? number
+---@field disableReason? string
+---@field triggeredBy? table
+---@field infoMessage? string
+---@field infoMessage2? string
+---@field infoTrigger? string
+---@field buffSkill? boolean
+---@field minionBuffSkill? boolean
+---@field totemBuffSkill? boolean
+---@field debuffSkill? boolean
+---@field conversionTable? table
+---@field gainTable? table
+---@field decayCfg? ModCfg
+---@field dotCfg? ModCfg
+
+---@class Env
+---@field build Build
+---@field data table
+---@field configInput table<string, any>
+---@field configPlaceholder table<string, any>
+---@field calcsInput table<string, any>
+---@field mode CalcEnvMode
+---@field buildBreakdown boolean
+---@field spec PassiveSpec
+---@field classId number
+---@field modDB ModDB
+---@field enemyDB ModDB
+---@field itemModDB ModDB
+---@field player Actor
+---@field enemy Actor
+---@field minion? Actor
+---@field partyMembers? PartyActor
+---@field enemyLevel number
+---@field mode_buffs boolean
+---@field mode_combat boolean
+---@field mode_effective boolean
+---@field allocNodes table<number, Node>
+---@field useAltGemQualityStats boolean?
+---@field requirementsTableItems table[]
+---@field requirementsTableGems table[]
+---@field requirementsTable table[]
+---@field radiusJewelList table[]
+---@field extraRadiusNodeList table
+---@field grantedSkills table[]
+---@field grantedSkillsNodes table[]
+---@field grantedSkillsItems table[]
+---@field explodeSources table[]
+---@field itemWarnings table<string, table>
+---@field flasks table<Item, boolean>
+---@field charms table<Item, boolean>
+---@field grantedPassives table<number, boolean>
+---@field auxSkillList ActiveSkill[]
+---@field mainSocketGroup number
+---@field crossLinkedSupportGroups table<string, string[]>
+---@field keystonesAdded? table<string, boolean>
+---@field buffs? table<string, ModList>
+---@field minionBuffs? table<string, ModList>
+---@field debuffs? table<string, ModList>
+---@field curseSlots? table[]
+---@field limitedSkills? table<string, boolean>
+---@field talismanModList? ModList
+---@field theIronMass? ModList
+---@field weaponModList1? ModList
+---@field sourceGemPropertyInfo? table<any, TabulatedMod[]>
+---@field override? CalcOverride
+---@field virtuousMoteSkillCount? table<string, number>
+---@field skillsUsed? table<string, boolean>
+---@field conditionsUsed? table<string, Mod[]>
+---@field enemyConditionsUsed? table<string, Mod[]>
+---@field minionConditionsUsed? table<string, Mod[]>
+---@field multipliersUsed? table<string, Mod[]>
+---@field enemyMultipliersUsed? table<string, Mod[]>
+---@field perStatsUsed? table<string, Mod[]>
+---@field enemyPerStatsUsed? table<string, Mod[]>
+---@field tagTypesUsed? table<string, Mod[]>
+---@field modsUsed? table<string, Mod[]>

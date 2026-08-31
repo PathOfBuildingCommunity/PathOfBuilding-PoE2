@@ -63,6 +63,47 @@ describe("TestSkills", function()
 		assertGemSupportLevel("Apocalypse", 3, 4)
 	end)
 
+	it("applies Leylines Runic Ward degeneration", function()
+		build.skillsTab:PasteSocketGroup("Leylines 1/0  1")
+		build.configTab.input.onLeyline = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.near(206 / 60, output.WardDegen, 0.01)
+		assert.are.near(output.WardRegen - output.WardDegen, output.WardRegenRecovery, 0.01)
+	end)
+
+	it("calculates Scouring Flame runic ward cost and efficiency", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\nScouring Flame 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(2, build.calcsTab.mainOutput.WardCost)
+
+		build.configTab.input.customMods = "100% increased Runic Ward Cost Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(1, build.calcsTab.mainOutput.WardCost)
+	end)
+
+	it("calculates runic infusion support costs from maximum runic ward", function()
+		for _, support in ipairs({ "Runic Infusion", "Olroth's Hubris" }) do
+			newBuild()
+			build.configTab.input.customMods = "+100 to maximum Runic Ward"
+			build.configTab:BuildModList()
+			build.itemsTab:CreateDisplayItemFromRaw("New Item\nMarauding Mace")
+			build.itemsTab:AddDisplayItem()
+			build.skillsTab:PasteSocketGroup("Leap Slam 1/0  1\n" .. support .. " 1/0  1")
+			runCallback("OnFrame")
+			assert.are.equals(20, build.calcsTab.mainOutput.WardCost)
+		end
+	end)
+
+	it("calculates Runic Reprieve's ongoing runic ward cost", function()
+		build.skillsTab:PasteSocketGroup("Runic Reprieve 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(3, build.calcsTab.mainOutput.WardPerSecondCost)
+	end)
+
 	it("applies Advanced Thaumaturgy quality stats only when enabled", function()
 		local advancedThaumaturgy = build.spec.nodes[14429]
 		assert.is_not_nil(advancedThaumaturgy)
@@ -126,8 +167,8 @@ describe("TestSkills", function()
 			AddSeparator = function()
 			end,
 		}
-		local spectreList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
-		local beastList = new("MinionListControl", nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
+		local spectreList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Spectres")
+		local beastList = new("MinionListControl"):MinionListControl(nil, { 0, 0, 100, 100 }, testData, { "A" }, nil, "Beasts", true)
 
 		spectreList:AddValueTooltip(tooltip, 1, "A")
 		assert.matches("Resistances:.*75", table.concat(tooltip.lines, "\n"))
@@ -136,7 +177,7 @@ describe("TestSkills", function()
 		assert.matches("Resistances:.*50", table.concat(tooltip.lines, "\n"))
 
 		local sourceList = { "A", "B" }
-		local sourceControl = new("MinionSearchListControl", nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
+		local sourceControl = new("MinionSearchListControl"):MinionSearchListControl(nil, { 0, 0, 100, 100 }, testData, sourceList, beastList, "Beasts", true)
 		sourceControl.controls.sortModeDropDown.selIndex = 9
 		sourceControl:sortSourceList()
 		assert.are.equals("B", sourceControl.list[1])
@@ -465,8 +506,8 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local genericEfficiencyCost = build.calcsTab.mainOutput.ManaCost
-		-- Test actual behavior: 9/1.25 = 7.2 (not rounded)
-		assert.True(math.abs(genericEfficiencyCost - 7.2) < 0.001)
+		-- The game rounds 9 / 1.25 = 7.2 after applying efficiency.
+		assert.are.equals(7, genericEfficiencyCost)
 
 		-- Test multiple efficiency sources stacking additively
 		build.configTab.input.customMods = "25% increased Cost Efficiency\n25% increased Mana Cost Efficiency"
@@ -487,7 +528,65 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
-		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+		assert.are.equals(9, finalCost) -- round(floor(9 * 1.5) / 1.5)
+	end)
+
+	it("converts positive flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(11, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("converts positive flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(13, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to partial Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skills Cost Life instead of 15% of Mana Cost\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(1, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("does not convert negative flat Mana cost to full Life cost", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		build.configTab.input.customMods = "Skill Mana Costs Converted to Life Costs\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(9, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+	end)
+
+	it("moves only positive flat Mana cost when skills cost Life instead", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
+		runCallback("OnFrame")
+		local baseManaCost = build.calcsTab.mainOutput.ManaCost
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\n+4 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost + 4, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
+
+		build.configTab.input.customMods = "Skills Cost Life instead of Mana\nNon-Channelling Skills have -7 to Total Mana Cost"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(baseManaCost, build.calcsTab.mainOutput.LifeCost)
+		assert.are.equals(0, build.calcsTab.mainOutput.ManaCost)
 	end)
 
 	it("Test socket group pasting with corruption levels and count", function()
@@ -1144,6 +1243,46 @@ describe("TestSkills", function()
 		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
 		assert.truthy(breakdownText:match("inverted hit"))
 		assert.truthy(breakdownText:match("weighted average"))
+	end)
+
+	it("ignores non-negative elemental resistance after inversion", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = -50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("inverts the selected lowest elemental resistance", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.enemyColdResist = 20
+		build.configTab.input.enemyLightningResist = 30
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nElemental Damage you Deal with Hits is Resisted by Lowest Elemental Resistance instead"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.2, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("shows the resistance used for each inversion outcome", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("0%% ^8%(non%-inverted hit after penetration%)"))
+		assert.truthy(breakdownText:match("%-50%% ^8%(inverted hit after penetration%)"))
 	end)
 
 	it("Test granted skills with exposure stats make exposure configurable", function()

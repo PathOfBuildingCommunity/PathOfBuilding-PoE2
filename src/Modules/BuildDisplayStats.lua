@@ -6,7 +6,40 @@
 -- This defines the stats in the side bar, and also which stats show in node/item comparisons
 -- This may be user-customisable in the future
 
+local defenseIgnoredSections = { "Base from Gear", "Inc. from Tree" }
+---@alias DisplayStatCondFunc fun(value: any, output: table):boolean? Show the row only when this returns truthy (usually receives the value and the actor output; the label-only variant receives output as its first arg)
+---@alias DisplayStatWarnFunc fun(value: any, output: table):string|boolean|nil Returns a warning string to surface, or falsy for none
 
+---@class DisplayStat                    One sidebar stat row (also drives node/item comparisons). An empty `{}` is a separator.
+---@field stat? string                   Output value name, e.g. "Life", "TotalDPS", "MainHand"
+---@field childStat? string              Nested output field when `stat` is a table, e.g. "Accuracy" for MainHand.Accuracy
+---@field label? string                  Display label shown before the value
+---@field fmt? string                    C-style format spec applied to the value, e.g. "d", ".1f", ".2f%%", "+d%%"
+---@field breakdown? string              Override key for the sidebar breakdown. Should be set if the stat/childStat names don't match up with the breakdown names, or if the breakdown is conditional, but the cell isn't.
+---@field modNames string[]?             Modifier names to show in the breakdown popup. This should only be used if the breakdown itself doesn't list the mods. E.g. Life doesn't. Additionally, you can set this to { "" } when breakdown is also set to always show the cell info, even if the breakdown itself is nil.
+---@field ignoredSections string[]?      A list of breakdown sections which shouldn't be shown. Useful to avoid duplicated info.
+---@field color? string                  Colour escape code for the label (e.g. colorCodes.LIFE)
+---@field flag? string                   Only show when the main skill has this skill flag
+---@field notFlag? string                Hide when the main skill has this skill flag
+---@field condFunc? DisplayStatCondFunc  Extra condition gating whether the row is shown
+---@field warnFunc? DisplayStatWarnFunc  Produces a warning message for the warnings panel
+---@field warnColor? boolean             Colour the value red when `warnFunc` returns truthy
+---@field suffix? string|fun(value:any, output:table):string|nil Parenthesised suffix appended after the value
+---@field suffixCondFunc? fun(value:any, output:table):boolean? Gates whether `suffix` is shown
+---@field overCapStat? string            Output name of the "over cap" counterpart shown alongside (e.g. resistances)
+---@field overCapStatCondFunc? fun(value:any, output:table):boolean? Gates whether the over-cap value is shown
+---@field compactValue? boolean          Allow compact formatting (e.g. 712.3K) when the user setting is on
+---@field compPercent? boolean           Include a percentage delta in node/item comparisons
+---@field lowerIsBetter? boolean         Treat a decrease as an improvement in comparisons
+---@field pc? boolean                    Multiply the value by 100 (fractional value shown as a percentage)
+---@field mod? boolean                   Value is a modifier: scale by 100 and subtract 100 (shows the +/- portion)
+---@field hideStat? boolean              Compute/consider the stat but don't render a sidebar row
+---@field chaosInoc? boolean             Use the muted "immune" colour instead of red for a zero/negative value
+---@field pool? string                   Associated resource pool name (e.g. "ManaUnreserved") for cost rows
+---@field labelStat? string              Output name rendered inline for a label-only row
+---@field val? string                    Static parenthesised note for a label-only row
+
+---@type DisplayStat[]
 local displayStats = {
 	{ stat = "ActiveMinionLimit", label = "Active Minion Limit", fmt = "d" },
 	{ stat = "AverageHit", label = "Average Hit", fmt = ".1f", compPercent = true },
@@ -15,8 +48,8 @@ local displayStats = {
 	{ stat = "AverageDamage", label = "Average Damage", fmt = ".1f", compPercent = true, flag = "monsterExplode", condFunc = function(v,o) return o.HitChance ~= 100 end },
 	{ stat = "AverageBurstDamage", label = "Average Burst Damage", fmt = ".1f", compPercent = true, condFunc = function(v,o) return o.AverageBurstHits and o.AverageBurstHits > 1 and v > 0 end },
 	{ stat = "PvpAverageDamage", label = "PvP Average Damage", fmt = ".1f", compPercent = true, flag = "attackPvP" },
-	{ stat = "Speed", label = "Attack Rate", fmt = ".2f", compPercent = true, flag = "attack", condFunc = function(v,o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end },
-	{ stat = "Speed", label = "Cast Rate", fmt = ".2f", compPercent = true, flag = "spell", condFunc = function(v,o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end },
+	{ stat = "Speed", label = "Attack Rate", fmt = ".2f", compPercent = true, flag = "attack", condFunc = function(v, o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end, breakdown = "Speed", modNames = { "Speed" }, ignoredSections = { "Inc. Cast Speed", "More Cast Speed", } },
+	{ stat = "Speed", label = "Cast Rate", fmt = ".2f", compPercent = true, flag = "spell", condFunc = function(v, o) return v > 0 and not o.ChannelTime and (o.TriggerTime or 0) == 0 end, modNames = { "Speed" } },
 	{ stat = "Speed", label = "Effective Trigger Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 end },
 	{ stat = "WarcryCastTime", label = "Cast Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, flag = "warcry" },
 	{ stat = "ChannelTime", label = "Channel Time", fmt = ".2fs", compPercent = true, flag = "channelRelease", lowerIsBetter = true, condFunc = function(v,o) return not o.TriggerTime end },
@@ -30,11 +63,11 @@ local displayStats = {
 	{ stat = "TotemPlacementTime", label = "Totem Placement Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return not o.TriggerTime end },
 	{ stat = "FiringRate", label = "Firing Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return o.FiringRate end },
 	{ stat = "ReloadTime", label = "Reload Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ReloadTime end },
-	{ stat = "PreEffectiveCritChance", label = "Crit Chance", fmt = ".2f%%", flag = "hit" },
-	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return v ~= o.PreEffectiveCritChance end },
+	{ stat = "PreEffectiveCritChance", label = "Crit Chance", fmt = ".2f%%", flag = "hit", breakdown = "PreEffectiveCritChance" },
+	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v, o) return v ~= o.PreEffectiveCritChance end, breakdown = "CritChance" },
 	{ stat = "CritBifurcates", label = "Crit Bifurcate Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return (o.CritForks or 0) > 0 end },
-	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
-	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack" },
+	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v, o) return (o.CritChance or 0) > 0 end, breakdown = "CritMultiplier" },
+	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack", breakdown = "HitChance" },
 	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", condFunc = function(v,o) return o.enemyHasSpellBlock end },
 	{ stat = "AccuracyHitChanceUncapped", label = "Uncap. Hit Chance", fmt = ".0f%%", flag = "attack", condFunc = function(v,o) if o.AccuracyHitChanceUncapped then return o.AccuracyHitChanceUncapped > 100 end end },
 	{ stat = "TotalDPS", label = "Hit DPS", fmt = ".1f", compPercent = true, flag = "notAverage" },
@@ -74,7 +107,7 @@ local displayStats = {
 	{ stat = "SealCooldown", label = "Seal Gain Frequency", fmt = ".2fs", lowerIsBetter = true },
 	{ stat = "SealMax", label = "Max Number of Seals", fmt = "d" },
 	{ stat = "TimeMaxSeals", label = "Time to Gain Max Seals", fmt = ".2fs", lowerIsBetter = true },
-	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm" },
+	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm", breakdown = "AreaOfEffectRadius", modNames = { "AreaOfEffect" } },
 	{ stat = "BrandAttachmentRangeMetre", label = "Attachment Range", fmt = ".1fm", flag = "brand" },
 	{ stat = "BrandTicks", label = "Activations per Brand", fmt = "d", flag = "brand" },
 	{ stat = "ManaCost", label = "Mana Cost", fmt = "d", color = colorCodes.MANA, pool = "ManaUnreserved", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaHasCost end },
@@ -88,15 +121,18 @@ local displayStats = {
 	{ stat = "ESCost", label = "Energy Shield Cost", fmt = "d", color = colorCodes.ES, pool = "EnergyShield", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESHasCost end },
 	{ stat = "ESPerSecondCost", label = "ES Cost per second", fmt = ".2f", color = colorCodes.ES, pool = "EnergyShield", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPerSecondHasCost end },
 	{ stat = "ESPercentPerSecondCost", label = "ES Cost per second", fmt = ".2f%%", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPercentPerSecondHasCost end },
+	{ stat = "WardCost", label = "Runic Ward Cost", fmt = "d", color = colorCodes.WARD, pool = "Ward", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.WardHasCost end },
+	{ stat = "WardPercentCost", label = "Runic Ward Cost", fmt = "d%%", color = colorCodes.WARD, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.WardPercentHasCost end },
+	{ stat = "WardPerSecondCost", label = "Runic Ward Cost / s", fmt = ".2f", color = colorCodes.WARD, pool = "Ward", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.WardPerSecondHasCost end },
 	{ stat = "RageCost", label = "Rage Cost", fmt = "d", color = colorCodes.RAGE, pool = "Rage", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RageHasCost end },
 	{ stat = "RagePerSecondCost", label = "Rage Cost per second", fmt = ".2f", color = colorCodes.RAGE, pool = "Rage", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RagePerSecondHasCost end },
 	{ stat = "SoulCost", label = "Soul Cost", fmt = "d", color = colorCodes.RAGE, pool = "Soul", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.SoulHasCost end },
 	{ },
-	{ stat = "Str", label = "Strength", color = colorCodes.STRENGTH, fmt = "d" },
+	{ stat = "Str", label = "Strength", color = colorCodes.STRENGTH, fmt = "d", breakdown = "Str", modNames = { "" } },
 	{ stat = "ReqStr", label = "Strength Required", color = colorCodes.STRENGTH, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Str end, warnFunc = function(v,o) return "You do not meet the Strength requirement of " .. (o.ReqStrItem.source == "Item" and o.ReqStrItem.sourceItem.name or o.ReqStrItem.source == "Gem" and o.ReqStrItem.sourceGem.nameSpec or o.ReqStrItem.source == "Support Gems" and "your total Strength support gems.") end },
-	{ stat = "Dex", label = "Dexterity", color = colorCodes.DEXTERITY, fmt = "d" },
+	{ stat = "Dex", label = "Dexterity", color = colorCodes.DEXTERITY, fmt = "d", breakdown = "Dex", modNames = { "" } },
 	{ stat = "ReqDex", label = "Dexterity Required", color = colorCodes.DEXTERITY, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Dex end, warnFunc = function(v,o) return "You do not meet the Dexterity requirement of " .. (o.ReqDexItem.source == "Item" and o.ReqDexItem.sourceItem.name or o.ReqDexItem.source == "Gem" and o.ReqDexItem.sourceGem.nameSpec or o.ReqDexItem.source == "Support Gems" and "your total Dexterity support gems.") end },
-	{ stat = "Int", label = "Intelligence", color = colorCodes.INTELLIGENCE, fmt = "d" },
+	{ stat = "Int", label = "Intelligence", color = colorCodes.INTELLIGENCE, fmt = "d", breakdown = "Int", modNames = { "" } },
 	{ stat = "ReqInt", label = "Intelligence Required", color = colorCodes.INTELLIGENCE, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Int end, warnFunc = function(v,o) return "You do not meet the Intelligence requirement of " .. (o.ReqIntItem.source == "Item" and o.ReqIntItem.sourceItem.name or o.ReqIntItem.source == "Gem" and o.ReqIntItem.sourceGem.nameSpec or o.ReqIntItem.source == "Support Gems" and "your total Intelligence support gems.") end },
 	{ },
 	{ stat = "Devotion", label = "Devotion", color = colorCodes.RARE, fmt = "d" },
@@ -117,36 +153,40 @@ local displayStats = {
 	{ stat = "Darkness", label = "Total Darkness", fmt = "d", color = colorCodes.CHAOS},
 	{ stat = "ReservedDarkness", label = "Reserved Darkness", fmt ="d", color = colorCodes.CHAOS},
 	{ },
-	{ stat = "Life", label = "Total Life", fmt = "d", color = colorCodes.LIFE, compPercent = true },
+	{ stat = "Spirit", label = "Total Spirit", fmt = "d", color = colorCodes.SPIRIT, compPercent = true, ignoredSections = defenseIgnoredSections, modNames = { "Spirit" } },
+	{ stat = "SpiritUnreserved", label = "Unreserved Spirit", fmt = "d", color = colorCodes.SPIRIT, condFunc = function(v, o) return v < o.Spirit end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Spirit is negative" end, breakdown = "SpiritReserved" },
+	{ stat = "SpiritUnreservedPercent", label = "Unreserved Spirit", fmt = "d%%", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < 100 end, breakdown = "SpiritReserved" },
+	{ },
+	{ stat = "Life", label = "Total Life", fmt = "d", color = colorCodes.LIFE, compPercent = true, modNames = { "Life" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "Spec:LifeInc", label = "%Inc Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v > 0 and o.Life > 1 end },
-	{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v <= 0 and "Your unreserved Life is below 1" end },
+	{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v <= 0 and "Your unreserved Life is below 1" end, breakdown = "LifeReserved", modNames = { "" } },
 	{ stat = "LifeRecoverable", label = "Life Recoverable", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.LifeUnreserved end, },
-	{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end },
-	{ stat = "LifeRegenRecovery", label = "Life Regen", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v,o) return o.LifeRecovery <= 0 and o.LifeRegenRecovery ~= 0 end },
-	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v,o) return o.LifeRecovery > 0 and o.LifeRegenRecovery ~= 0 end },
-	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
+	{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end, breakdown = "LifeReserved", modNames = { "" } },
+	{ stat = "LifeRegenRecovery", label = "Life Regen", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery <= 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
+	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE, condFunc = function(v, o) return o.LifeRecovery > 0 and o.LifeRegenRecovery ~= 0 end, breakdown = "LifeRegenRecovery" },
+	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true, breakdown = "LifeLeech" },
 	{ stat = "LifeLeechGainPerHit", label = "Life Leech/Gain per Hit", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
 	{ },
-	{ stat = "Mana", label = "Total Mana", fmt = "d", color = colorCodes.MANA, compPercent = true },
+	{ stat = "Mana", label = "Total Mana", fmt = "d", color = colorCodes.MANA, compPercent = true, modNames = { "Mana" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "Spec:ManaInc", label = "%Inc Mana from Tree", color = colorCodes.MANA, fmt = "d%%" },
-	{ stat = "ManaUnreserved", label = "Unreserved Mana", fmt = "d", color = colorCodes.MANA, condFunc = function(v,o) return v < o.Mana end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Mana is negative" end },
-	{ stat = "ManaUnreservedPercent", label = "Unreserved Mana", fmt = "d%%", color = colorCodes.MANA, condFunc = function(v,o) return v < 100 end },
+	{ stat = "ManaUnreserved", label = "Unreserved Mana", fmt = "d", color = colorCodes.MANA, condFunc = function(v,o) return v < o.Mana end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Mana is negative" end, breakdown = "ManaReserved" },
+	{ stat = "ManaUnreservedPercent", label = "Unreserved Mana", fmt = "d%%", color = colorCodes.MANA, condFunc = function(v, o) return v < 100 end, breakdown = "ManaReserved" },
 	{ stat = "ManaRegenRecovery", label = "Mana Regen", fmt = ".1f", color = colorCodes.MANA, condFunc = function(v,o) return o.ManaRecovery <= 0 and o.ManaRegenRecovery ~= 0 end },
 	{ stat = "ManaRegenRecovery", label = "Mana Recovery", fmt = ".1f", color = colorCodes.MANA, condFunc = function(v,o) return o.ManaRecovery > 0 and o.ManaRegenRecovery ~= 0 end },
-	{ stat = "ManaLeechGainRate", label = "Mana Leech/On Hit Rate", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
+	{ stat = "ManaLeechGainRate", label = "Mana Leech/On Hit Rate", fmt = ".1f", color = colorCodes.MANA, compPercent = true, breakdown = "ManaLeech" },
 	{ stat = "ManaLeechGainPerHit", label = "Mana Leech/Gain per Hit", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
 	{ },
-	{ stat = "Spirit", label = "Total Spirit", fmt = "d", color = colorCodes.SPIRIT, compPercent = true },
-	{ stat = "SpiritUnreserved", label = "Unreserved Spirit", fmt = "d", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < o.Spirit end, compPercent = true, warnFunc = function(v) return v < 0 and "Your unreserved Spirit is negative" end },
-	{ stat = "SpiritUnreservedPercent", label = "Unreserved Spirit", fmt = "d%%", color = colorCodes.SPIRIT, condFunc = function(v,o) return v < 100 end },
-	{ },
-	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true },
+	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, modNames = { "EnergyShield", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "EnergyShieldRecoveryCap", label = "Recoverable ES", color = colorCodes.ES, fmt = "d", condFunc = function(v,o) return o.CappingES end },
 	{ stat = "Spec:EnergyShieldInc", label = "%Inc ES from Tree", color = colorCodes.ES, fmt = "d%%" },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Regen", color = colorCodes.ES, fmt = ".1f", condFunc = function(v,o) return o.EnergyShieldRecovery <= 0 and o.EnergyShieldRegenRecovery ~= 0 end },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Recovery", color = colorCodes.ES, fmt = ".1f", condFunc = function(v,o) return o.EnergyShieldRecovery > 0 and o.EnergyShieldRegenRecovery ~= 0 end },
-	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", color = colorCodes.ES, fmt = ".1f", compPercent = true },
+	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", color = colorCodes.ES, fmt = ".1f", compPercent = true, breakdown = "EnergyShieldLeech" },
 	{ stat = "EnergyShieldLeechGainPerHit", label = "ES Leech/Gain per Hit", color = colorCodes.ES, fmt = ".1f", compPercent = true },
+	{ },
+	{ stat = "Ward", label = "Runic Ward", fmt = "d", color = colorCodes.WARD, compPercent = true },
+	{ stat = "WardRegenRecovery", label = "Runic Ward Regen", fmt = ".1f", color = colorCodes.WARD, condFunc = function(v,o) return o.WardRecovery <= 0 and o.WardRegenRecovery ~= 0 end },
+	{ stat = "WardRegenRecovery", label = "Runic Ward Recovery", fmt = ".1f", color = colorCodes.WARD, condFunc = function(v,o) return o.WardRecovery > 0 and o.WardRegenRecovery ~= 0 end },
 	{ },
 	{ stat = "Rage", label = "Rage", fmt = "d", color = colorCodes.RAGE, compPercent = true },
 	{ stat = "RageRegenRecovery", label = "Rage Regen", fmt = ".1f", color = colorCodes.RAGE, compPercent = true },
@@ -155,27 +195,28 @@ local displayStats = {
 	{ stat = "TotalNetRegen", label = "Total Net Recovery", fmt = "+.1f" },
 	{ stat = "NetLifeRegen", label = "Net Life Recovery", fmt = "+.1f", color = colorCodes.LIFE },
 	{ stat = "NetManaRegen", label = "Net Mana Recovery", fmt = "+.1f", color = colorCodes.MANA },
+	{ stat = "NetWardRegen", label = "Net Runic Ward Recovery", fmt = "+.1f", color = colorCodes.WARD },
 	{ stat = "NetEnergyShieldRegen", label = "Net ES Recovery", fmt = "+.1f", color = colorCodes.ES },
 	{ },
-	{ stat = "Evasion", label = "Evasion Rating", fmt = "d", color = colorCodes.EVASION, compPercent = true },
+	{ stat = "Evasion", label = "Evasion rating", fmt = "d", color = colorCodes.EVASION, compPercent = true, modNames = { "Evasion", "ArmourAndEvasion", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "Spec:EvasionInc", label = "%Inc Evasion from Tree", color = colorCodes.EVASION, fmt = "d%%" },
 	{ stat = "EvadeChance", label = "Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.noSplitEvade end },
 	{ stat = "MeleeEvadeChance", label = "Melee Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.splitEvade end },
 	{ stat = "ProjectileEvadeChance", label = "Projectile Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.splitEvade end },
 	{ stat = "SpellEvadeChance", label = "Spell Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.splitEvade end },
 	{ stat = "SpellProjectileEvadeChance", label = "Spell Proj. Evade Chance", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.splitEvade end },
-	{ stat = "DeflectionRating", label = "Deflection Rating", fmt = "d", color = colorCodes.EVASION, compPercent = true },
+	{ stat = "DeflectionRating", label = "Deflection Rating", fmt = "d", color = colorCodes.EVASION, compPercent = true, modNames = { "EvasionGainAsDeflection", "ArmourGainAsDeflection", "DeflectionRating" }, breakdown = "" },
 	{ stat = "DeflectChance", label = "Deflect Chance", fmt = "d%%", color = colorCodes.EVASION, compPercent = true },
 	{ },
-	{ stat = "Armour", label = "Armour", fmt = "d", compPercent = true },
+	{ stat = "Armour", label = "Armour", fmt = "d", compPercent = true, modNames = { "Armour", "ArmourAndEvasion", "Defences", "ArmourDefense" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "Spec:ArmourInc", label = "%Inc Armour from Tree", fmt = "d%%" },
 	{ stat = "PhysicalDamageReduction", label = "Phys. Damage Reduction", fmt = "d%%", condFunc = function() return true end },
 	{ },
-	{ stat = "EffectiveBlockChance", label = "Block Chance", fmt = "d%%", overCapStat = "BlockChanceOverCap" },
-	{ stat = "EffectiveSpellBlockChance", label = "Spell Block Chance", fmt = "d%%", overCapStat = "SpellBlockChanceOverCap" },
+	{ stat = "EffectiveBlockChance", label = "Block Chance", fmt = ".3f%%", overCapStat = "BlockChanceOverCap", breakdown = "BlockChance" },
+	{ stat = "EffectiveSpellBlockChance", label = "Spell Block Chance", fmt = ".3f%%", overCapStat = "SpellBlockChanceOverCap", breakdown = "SpellBlockChance" },
 	{ stat = "AttackDodgeChance", label = "Attack Dodge Chance", fmt = "d%%", overCapStat = "AttackDodgeChanceOverCap" },
 	{ stat = "SpellDodgeChance", label = "Spell Dodge Chance", fmt = "d%%", overCapStat = "SpellDodgeChanceOverCap" },
-	{ stat = "EffectiveSpellSuppressionChance", label = "Spell Suppression Chance", fmt = "d%%", overCapStat = "SpellSuppressionChanceOverCap" },
+	{ stat = "EffectiveSpellSuppressionChance", label = "Spell Suppression Chance", fmt = ".2f%%", overCapStat = "SpellSuppressionChanceOverCap", breakdown = "", modNames = { "SpellSuppressionChance" } },
 	{ },
 	{ stat = "FireResist", label = "Fire Resistance", fmt = "d%%", color = colorCodes.FIRE, condFunc = function() return true end, overCapStat = "FireResistOverCap"},
 	{ stat = "FireResistOverCap", label = "Fire Res. Over Max", fmt = "d%%", hideStat = true },
@@ -218,6 +259,7 @@ local displayStats = {
 	{ },
 	{ stat = "SkillDPS", label = "Skill DPS", condFunc = function() return true end },
 }
+---@type DisplayStat[]
 local minionDisplayStats = {
 	{ stat = "AverageDamage", label = "Average Damage", fmt = ".1f", compPercent = true },
 	{ stat = "Speed", label = "Attack/Cast Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return v > 0 and (o.TriggerTime or 0) == 0 end },
@@ -241,14 +283,15 @@ local minionDisplayStats = {
 	{ stat = "ReservationDPS", label = "Reservation DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return (o.ReservationDPS or 0) > 0 end },
 	{ stat = "CombinedDPS", label = "Combined DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= ((o.TotalDPS or 0) + (o.TotalDot or 0)) and v ~= o.WithImpaleDPS and v ~= o.WithPoisonDPS and v ~= o.WithIgniteDPS and v ~= o.WithBleedDPS end},
 	{ stat = "Cooldown", label = "Skill Cooldown", fmt = ".3fs", lowerIsBetter = true },
-	{ stat = "Life", label = "Total Life", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
+	{ stat = "Life", label = "Total Life", fmt = ".1f", color = colorCodes.LIFE, compPercent = true, modNames = { "Life" }, ignoredSections = { "Base from Gear", "Inc. from Tree" } },
 	{ stat = "LifeRegenRecovery", label = "Life Recovery", fmt = ".1f", color = colorCodes.LIFE },
 	{ stat = "LifeLeechGainRate", label = "Life Leech/On Hit Rate", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
-	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true },
+	{ stat = "EnergyShield", label = "Energy Shield", fmt = "d", color = colorCodes.ES, compPercent = true, modNames = { "EnergyShield", "Defences" }, ignoredSections = defenseIgnoredSections },
 	{ stat = "EnergyShieldRegenRecovery", label = "ES Recovery", fmt = ".1f", color = colorCodes.ES },
 	{ stat = "EnergyShieldLeechGainRate", label = "ES Leech/On Hit Rate", fmt = ".1f", color = colorCodes.ES, compPercent = true },
 }
 -- Extra stats saved to the xml if not already saved there, mostly for 3rd party tools
+---@type string[]
 local extraSaveStats = {
 	"PowerCharges",
 	"PowerChargesMax",
@@ -260,4 +303,4 @@ local extraSaveStats = {
 	"ActiveMinionLimit",
 }
 
-return displayStats, minionDisplayStats, extraSaveStats
+return { displayStats = displayStats, minionDisplayStats = minionDisplayStats, extraSaveStats = extraSaveStats }

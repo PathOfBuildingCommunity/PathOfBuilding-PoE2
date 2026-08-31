@@ -2,7 +2,7 @@
 -- Path of Building
 -- World Area Data (c) Grinding Gear Games
 
-local worldAreas, _ = ...
+return function(worldAreas)
 
 worldAreas["CharacterSelect"] = {
 	name = "Character Select (Act 1)",
@@ -991,6 +991,54 @@ worldAreas["HideoutBlankVolcanicCave"] = {
 worldAreas["HideoutVampireManor"] = {
 	name = "Bloodreaver Manor Hideout (Act 1)",
 	baseName = "Bloodreaver Manor Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutRemidusMonastery_"] = {
+	name = "Saints End Monastery Hideout (Act 1)",
+	baseName = "Saints End Monastery Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankIce"] = {
+	name = "Frozen Lake Hideout (Act 1)",
+	baseName = "Frozen Lake Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankFire"] = {
+	name = "Wildfire Clearing Hideout (Act 1)",
+	baseName = "Wildfire Clearing Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutShip"] = {
+	name = "The Sovereign Hideout (Act 1)",
+	baseName = "The Sovereign Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -7373,3 +7421,4 @@ worldAreas["MapUniqueInitialTower"] = {
 }
 
 return worldAreas
+end

@@ -202,7 +202,7 @@ describe("TestConfig", function()
 		local configSetService
 
 		before_each(function()
-			configSetService = new("ConfigSetService", build.configTab)
+			configSetService = new("ConfigSetService"):ConfigSetService(build.configTab)
 		end)
 
 		describe("NewConfigSet", function()
@@ -344,7 +344,7 @@ describe("TestConfig", function()
 		local configSetService
 
 		before_each(function()
-			configSetService = new("ConfigSetService", build.configTab)
+			configSetService = new("ConfigSetService"):ConfigSetService(build.configTab)
 		end)
 
 		describe("Input and placeholder persistence", function()
