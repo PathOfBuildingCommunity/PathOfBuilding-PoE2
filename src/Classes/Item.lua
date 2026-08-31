@@ -1700,7 +1700,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		local runeData = data.itemMods.Runes[runeName]
 		if runeData then
 			for _, slotData in pairs(runeData) do
-				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank[1])
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.levelReq)
 			end
 		end
 	end
@@ -2196,23 +2196,27 @@ end
 -- Return the item's calculated modifiers for a slot, including only Bonded modifiers
 -- enabled by the global Rune/Idol unlock or this item's Idol-only unlock.
 function ItemClass:GetActiveModListForSlotNum(slotNum, canUseBonded)
-	local canUseBondedIdols = canUseBonded or self.socketedIdolsUseBondedModifiers
-	local baseList = self.baseModList
-	if canUseBondedIdols then
+	local bondedState = canUseBonded and "all" or self.socketedIdolsUseBondedModifiers and "idol" or nil
+	if self.activeBondedState ~= bondedState then
+		local baseList = self.baseModList
 		local activeBaseList
-		for _, modLine in ipairs(self.runeModLines or { }) do
-			local canUseBondedMod = modLine.bonded and (modLine.augmentType == "Rune" and canUseBonded or modLine.augmentType == "Idol" and canUseBondedIdols)
-			if canUseBondedMod and modLine.bondedModList and modLine.bondedModList[1] then
-				activeBaseList = activeBaseList or new("ModList"):ModList()
-				activeBaseList:AddList(modLine.bondedModList)
+		if bondedState then
+			for _, modLine in ipairs(self.runeModLines or { }) do
+				local canUseBondedMod = modLine.bonded and (bondedState == "all" or modLine.augmentType == "Idol")
+				if canUseBondedMod and modLine.bondedModList and modLine.bondedModList[1] then
+					activeBaseList = activeBaseList or new("ModList"):ModList()
+					activeBaseList:AddList(modLine.bondedModList)
+				end
 			end
 		end
 		if activeBaseList then
 			activeBaseList:AddList(baseList)
 			baseList = activeBaseList
 		end
+		self:BuildModListsForSlots(baseList)
+		self.activeBondedState = bondedState
 	end
-	return self:BuildModListForSlotNum(baseList, slotNum)
+	return self.modList or self.slotModList[slotNum]
 end
 
 -- Rebuild explicit modifiers using the item's affixes
@@ -2664,6 +2668,17 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	return { unpack(modList) }
 end
 
+function ItemClass:BuildModListsForSlots(baseList)
+	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" or self.type == "Ring" then
+		self.slotModList = { }
+		for i = 1, self.type == "Ring" and 3 or 2 do
+			self.slotModList[i] = self:BuildModListForSlotNum(baseList, i)
+		end
+	else
+		self.modList = self:BuildModListForSlotNum(baseList)
+	end
+end
+
 function getRangedModList(item, modLine)
 	if not modLine.range or not modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
 		return
@@ -2843,15 +2858,6 @@ function ItemClass:BuildModList()
 		self.sockets = newSockets
 	end
 	self.socketedJewelEffectModifier = 1 + calcLocal(baseList, "SocketedJewelEffect", "INC", 0) / 100
-	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" or self.type == "Ring" then
-		self.slotModList = { }
-		for i = 1, 2 do
-			self.slotModList[i] = self:BuildModListForSlotNum(baseList, i)
-		end
-		if self.type == "Ring" then
-			self.slotModList[3] = self:BuildModListForSlotNum(baseList, 3)
-		end
-	else
-		self.modList = self:BuildModListForSlotNum(baseList)
-	end
+	self:BuildModListsForSlots(baseList)
+	self.activeBondedState = nil
 end

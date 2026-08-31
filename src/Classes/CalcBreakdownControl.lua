@@ -458,6 +458,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.sourceName = row.mod.source:match("Quest:(.+)")
 		elseif sourceType == "Custom" then
 			row.sourceName = row.mod.source:match("Custom:(.+)")
+		elseif sourceType == "Rune" then
+			row.sourceName = row.mod.source:match("Rune:(.+)")
 		end
 
 		if row.mod.flags ~= 0 or row.mod.keywordFlags ~= 0 then

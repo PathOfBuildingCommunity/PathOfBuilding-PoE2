@@ -1102,6 +1102,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				self.build.itemsTab:DeleteItem(self.build.itemsTab.items[slot.selItemId])
 			end
 		end
+		for _, slotName in ipairs(self.build.itemsTab.runeSlotOrder) do
+			self.build.itemsTab.runeSlots[slotName]:SelByValue("None", "name")
+			self.build.itemsTab.activeItemSet[slotName].runeName = "None"
+		end
 	end
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
@@ -1338,7 +1342,17 @@ local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"]
 
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
-		if itemData.inventoryId == "PassiveJewels" then
+		if itemData.inventoryId == "Chakra" then
+			slotName = self.build.itemsTab.runeSlotOrder[itemData.x + 1]
+			local slot = slotName and self.build.itemsTab.runeSlots[slotName]
+			if slot and itemData.baseType then
+				slot:SelByValue(itemData.baseType, "name")
+				if slot:GetSelValue().name == itemData.baseType then
+					self.build.itemsTab.activeItemSet[slotName].runeName = itemData.baseType
+				end
+				return
+			end
+		elseif itemData.inventoryId == "PassiveJewels" then
 			slotName = "Jewel ".. self.build.latestTree.jewelSlots[itemData.x + 1]
 		elseif itemData.inventoryId == "Flask" then
 			if itemData.x > 1 then

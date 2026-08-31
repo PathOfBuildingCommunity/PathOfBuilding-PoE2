@@ -1372,13 +1372,9 @@ c["0.3% of Physical Attack Damage Leeched as Life per Red Socket"]={{[1]={flags=
 c["0.3% of Physical Attack Damage Leeched as Mana per Blue Socket"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.3}},"   per Blue Socket "}
 c["0.4% of Physical Attack Damage Leeched as Mana per Blue Socket"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.4}},"   per Blue Socket "}
 c["0.5% of maximum Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
-c["1 Boots socket"]={{}," Boots socket "}
-c["1 Gloves socket"]={{}," Gloves socket "}
-c["1 Gloves socket 1 Boots socket"]={{}," Gloves socket 1 Boots socket "}
-c["1 Helmet socket"]={{}," Helmet socket "}
-c["1 Helmet socket 2 Body Armour sockets"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets "}
-c["1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets 1 Gloves socket "}
-c["1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets 1 Gloves socket 1 Boots socket "}
+c["1 Boots socket"]={{},nil}
+c["1 Gloves socket"]={{},nil}
+c["1 Helmet socket"]={{},nil}
 c["1 Rage Regenerated for every 25 Mana Regeneration per Second"]={{[1]={[1]={div=25,stat="ManaRegen",type="PerStat"},flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["1 to 3 Added Attack Physical Damage per 25 Strength"]={{[1]={[1]={div=25,stat="Str",type="PerStat"},flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={[1]={div=25,stat="Str",type="PerStat"},flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=3}},nil}
 c["1% additional Physical Damage Reduction per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=1}},nil}
@@ -2660,9 +2656,7 @@ c["19% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags
 c["19% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=19}},nil}
 c["19% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-19}},nil}
 c["195% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
-c["2 Body Armour sockets"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets "}
-c["2 Body Armour sockets 1 Gloves socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets 1 Gloves socket "}
-c["2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets 1 Gloves socket 1 Boots socket "}
+c["2 Body Armour sockets"]={{},nil}
 c["2 Enemy Writhing Worms escape the Flask when used Writhing Worms are destroyed when Hit"]={{}," Enemy Writhing Worms escape the Flask when used Writhing Worms are destroyed when Hit "}
 c["2 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}},nil}
 c["2 to 19 Lightning Damage per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=2},[2]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=19}},nil}
@@ -5001,13 +4995,13 @@ c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShoc
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
-end)();(function()
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
 c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},nil}
 c["76% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},"  if used  "}
+end)();(function()
 c["78% increased Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=78}},nil}
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
 c["8 to 14 Fire Damage per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value=8},[2]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value=14}},nil}
@@ -6819,12 +6813,7 @@ c["Can instead consume 25% of maximum Mana to trigger Charms with insufficient c
 c["Can only use a Normal Body Armour"]={nil,"Can only use a Normal Body Armour "}
 c["Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated"]={nil,"Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated "}
 c["Can roll Ring Modifiers"]={nil,"Can roll Ring Modifiers "}
-c["Can tattoo Runes onto your body, gaining"]={nil,"Can tattoo Runes onto your body, gaining "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets:"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket "}
+c["Can tattoo Runes onto your body, gaining"]={{[1]={flags=0,keywordFlags=0,name="SocketRunesOnCharacter",type="FLAG",value=true}},nil}
 c["Can't use Body Armour"]={{[1]={[1]={slotName="Body Armour",type="DisablesItem"},flags=0,keywordFlags=0,name="CanNotUseBody",type="Flag",value=1}},nil}
 c["Can't use Helmets"]={nil,"Can't use Helmets "}
 c["Can't use Helmets Your Critical Hit Chance is Lucky"]={nil,"Can't use Helmets Your Critical Hit Chance is Lucky "}
@@ -9996,14 +9985,9 @@ c["Your spells have 100% chance to Shock against Frozen Enemies"]={nil,"Your spe
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"},[2]={flags=0,keywordFlags=0,name="Condition:HaveZealot'sOath",type="FLAG",value=true}},nil}
 c["Zealot's Oath during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
-c["additional Rune-only sockets:"]={nil,"additional Rune-only sockets: "}
-c["additional Rune-only sockets: 1 Helmet socket"]={nil,"additional Rune-only sockets: 1 Helmet socket "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket "}
+c["additional Rune-only sockets:"]={{},nil}
 c["as being boosted by Chilled Ground"]={nil,"as being boosted by Chilled Ground "}
 c["as being boosted by Ignited Ground"]={nil,"as being boosted by Ignited Ground "}
-end)();(function()
 c["as being boosted by Ignited, Shocked, and Chilled Ground"]={nil,"as being boosted by Ignited, Shocked, and Chilled Ground "}
 c["as being boosted by Shocked Ground"]={nil,"as being boosted by Shocked Ground "}
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
@@ -10019,5 +10003,6 @@ c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}
+end)();(function()
 end)();
 return c

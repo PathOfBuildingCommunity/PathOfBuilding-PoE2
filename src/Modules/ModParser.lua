@@ -6312,7 +6312,13 @@ local specialModList = {
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? ?[%a%s]* modifier magnitudes"] = {},
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? effect of [sp][ur][fe]fixes"] = {},
 	["[%a%s]* modifier magnitudes are doubled"] = {},
-	["can be modified while corrupted"] = {}
+	["can be modified while corrupted"] = {},
+	["can tattoo runes onto your body, gaining"] = { flag("SocketRunesOnCharacter") },
+	["additional rune%-only sockets:"] = {},
+	["(%d+) helmet sockets?"] = {},
+	["(%d+) body armour sockets?"] = {},
+	["(%d+) gloves sockets?"] = {},
+	["(%d+) boots sockets?"] = {},
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name), flag("Condition:Have"..firstToUpper(name):gsub(" %l", string.upper):gsub(" ", "")) }

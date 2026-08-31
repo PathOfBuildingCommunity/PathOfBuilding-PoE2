@@ -974,6 +974,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			addGrantedPassiveNode(env, node)
 		end
 
+		-- save augment counts so we can track going over count limits
+		local augmentCounts = {}
+		if modDB:Flag(nil, "SocketRunesOnCharacter") or nodesModsList:Flag(nil, "SocketRunesOnCharacter") then
+			for runeSlotName, slot in pairs(build.itemsTab.runeSlots) do
+				local rune = slot:GetSelValue()
+				if runeSlotName == override.repSlotName then
+					rune = override.repRune
+				end
+				if rune.name ~= "None" then
+					augmentCounts[rune.name] = (augmentCounts[rune.name] or 0) + 1
+				end
+				for _, mod in ipairs(rune.mods) do
+					env.itemModDB:AddMod(mod)
+				end
+			end
+		end
 		local items = {}
 		local jewelLimits = {}
 		local giantsBlood = weaponFlagState.giantsBlood
@@ -1272,6 +1288,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for i = 1, item.itemSocketCount do
 					local runeName = item.runes[i]
 					if runeName and runeName ~= "None" then
+						augmentCounts[item.runes[i]] = (augmentCounts[item.runes[i]] or 0) + 1
 						socketed = socketed + 1
 						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
 						local runeData = data.itemMods.Runes[runeName]
@@ -1491,6 +1508,28 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.charms[override.toggleCharm] = nil
 			else
 				env.charms[override.toggleCharm] = true
+			end
+		end
+
+		local augmentLimits = { }
+		for augmentName, count in pairs(augmentCounts) do
+			local dbAugment = data.itemMods.Runes[augmentName] or {}
+			local _, dbMod = next(dbAugment)
+			if dbMod and dbMod.limit then
+				local limit = augmentLimits[dbMod.limitId or augmentName]
+				if not limit then
+					limit = { count = 0, max = dbMod.limit, names = { } }
+					augmentLimits[dbMod.limitId or augmentName] = limit
+				end
+				limit.count += count
+				t_insert(limit.names, augmentName)
+			end
+		end
+		for _, limit in pairs(augmentLimits) do
+			if limit.count > limit.max and env.build.calcsTab.mainEnv then
+				table.sort(limit.names)
+				env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning or { }
+				t_insert(env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning, table.concat(limit.names, ", "))
 			end
 		end
 	end

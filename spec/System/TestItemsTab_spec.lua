@@ -683,6 +683,31 @@ Ruby]])
 				end
 			end)
 
+			it("restricts augments that cannot be socketed in unique items", function()
+				local item = new("Item"):Item("Rarity: UNIQUE\nTest Unique\nSlayer Armour\nSockets: S")
+				local validRunes = { }
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					validRunes[rune.name] = true
+				end
+
+				assert.is_nil(validRunes["Serle's Triumph"])
+				assert.is_true(validRunes["Aldur's Legacy"])
+			end)
+
+			it("restricts augments that cannot be socketed in jewellery", function()
+				local item = new("Item"):Item(data.uniques.belt[6])
+				assert.matches("Darkness Enthroned", item.name, nil, true)
+				item.variant = 2 -- Body Armour
+				item:BuildModList()
+				local validRunes = { }
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					validRunes[rune.name] = true
+				end
+
+				assert.is_nil(validRunes["Aldur's Legacy"])
+				assert.is_true(validRunes["Desert Rune"])
+			end)
+
 			it("refreshes valid augments when the item variant changes", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
 				item.variant = 3 -- Boots
@@ -831,6 +856,204 @@ Ruby]])
 			build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
 
 			assert.are.equals(1, #newItem.enchantModLines)
+		end)
+	end)
+	describe("TestMartialArtistRunes", function()
+		before_each(function()
+			newBuild()
+		end)
+
+		local function enableSlots()
+			build.configTab.input.customMods = "Can tattoo runes onto your body, gaining"
+			build.configTab:BuildModList()
+			build.buildFlag = true
+			runCallback("OnFrame")
+		end
+
+		local function selectRune(slotName, runeName)
+			enableSlots()
+			local slot = build.itemsTab.runeSlots[slotName]
+			slot:SelByValue(runeName, "name")
+			slot.selFunc(slot.selIndex, slot:GetSelValue())
+			build.buildFlag = true
+			runCallback("OnFrame")
+		end
+
+
+		it("creates the expected character rune slots", function()
+			local expected = {
+				"Helmet Rune #1",
+				"Body Armour Rune #1",
+				"Body Armour Rune #2",
+				"Gloves Rune #1",
+				"Boots Rune #1",
+			}
+			for _, slotName in ipairs(expected) do
+				assert.is_not_nil(build.itemsTab.runeSlots[slotName])
+			end
+		end)
+
+		it("only lists global runes that can be socketed in Chakra slots", function()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			assert.are.equals("None", slot.list[1].label)
+			for _, rune in ipairs(slot.list) do
+				assert.is_not_nil(rune.mods)
+				if rune.name ~= "None" then
+					assert.is_true(rune.canSocketInChakraSlots)
+				end
+			end
+		end)
+
+		it("applies a global armour rune's mods to the character", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			selectRune("Helmet Rune #1", "Desert Rune")
+			assert.are.equals(baseFireRes + 14, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("shows character rune attributes in the sidebar breakdown", function()
+			selectRune("Boots Rune #1", "Lesser Resolve Rune")
+			local intelligenceLine
+			for _, line in ipairs(build.controls.statBox.list) do
+				if line.breakdown == "Int" then
+					intelligenceLine = line
+					break
+				end
+			end
+
+			assert.has_no.errors(function()
+				build:SetDisplayStat({ line = intelligenceLine, x = 0, y = 0, width = 300 }, false)
+			end)
+		end)
+
+		it("calculates a hovered character rune without treating it as an item", function()
+			enableSlots()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			slot:SelByValue("Desert Rune", "name")
+			local rune = slot:GetSelValue()
+			local calcFunc = build.calcsTab:GetMiscCalculator()
+
+			assert.has_no.errors(function()
+				calcFunc({ repSlotName = "Helmet Rune #1", repRune = rune })
+			end)
+		end)
+
+		it("caches hovered rune calculations until the build changes", function()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			slot:SelByValue("Desert Rune", "name")
+			local rune = slot:GetSelValue()
+			slot:SelByValue("None", "name")
+			local calcCount = 0
+			build.calcsTab.GetMiscCalculator = function()
+				return function()
+					calcCount = calcCount + 1
+					return { }
+				end, { }
+			end
+			build.AddStatComparesToTooltip = function() end
+
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			assert.are.equals(1, calcCount)
+			build.outputRevision = build.outputRevision + 1
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			assert.are.equals(2, calcCount)
+		end)
+
+		it("selecting None applies no rune mods", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			selectRune("Helmet Rune #1", "Desert Rune")
+			assert.are.equals(baseFireRes + 14, build.calcsTab.mainOutput.FireResistTotal)
+			selectRune("Helmet Rune #1", "None")
+			assert.are.equals(baseFireRes, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("stacks runes from independent character slots", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			selectRune("Helmet Rune #1", "Desert Rune")
+			selectRune("Boots Rune #1", "Desert Rune")
+			assert.are.equals(baseFireRes + 28, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("restores rune selections with undo and redo", function()
+			build.itemsTab:ResetUndo()
+			selectRune("Helmet Rune #1", "Desert Rune")
+			assert.are.equals("Desert Rune", build.itemsTab.activeItemSet["Helmet Rune #1"].runeName)
+
+			build.itemsTab:Undo()
+			assert.are.equals("None", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+			assert.are.equals("None", build.itemsTab.activeItemSet["Helmet Rune #1"].runeName)
+
+			build.itemsTab:Redo()
+			assert.are.equals("Desert Rune", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+			assert.are.equals("Desert Rune", build.itemsTab.activeItemSet["Helmet Rune #1"].runeName)
+		end)
+
+		it("keeps rune selections with their item set", function()
+			selectRune("Helmet Rune #1", "Desert Rune")
+			local secondSet = build.itemsTab:NewItemSet(nil, "Second")
+
+			build.itemsTab:SetActiveItemSet(secondSet.id)
+			assert.are.equals("None", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+			selectRune("Helmet Rune #1", "Glacial Rune")
+
+			build.itemsTab:SetActiveItemSet(1)
+			assert.are.equals("Desert Rune", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+			build.itemsTab:SetActiveItemSet(secondSet.id)
+			assert.are.equals("Glacial Rune", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+		end)
+
+		it("saves and loads character rune selections", function()
+			selectRune("Helmet Rune #1", "Desert Rune")
+			local xml = { }
+			build.itemsTab:Save(xml)
+
+			newBuild()
+			build.itemsTab:Load(xml)
+
+			assert.are.equals("Desert Rune", build.itemsTab.runeSlots["Helmet Rune #1"]:GetSelValue().name)
+			assert.are.equals("Desert Rune", build.itemsTab.activeItemSet["Helmet Rune #1"].runeName)
+		end)
+
+		it("ignores plural character socket descriptions", function()
+			local mods, extra = modLib.parseMod("2 Body Armour sockets")
+			assert.are.same({}, mods)
+			assert.is_nil(extra)
+		end)
+
+		it("sets the SocketRunesOnCharacter flag when granted by a mod", function()
+			assert.is_nil(build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter"))
+
+			build.configTab.input.customMods = "Can tattoo runes onto your body, gaining"
+			build.configTab:BuildModList()
+			build.buildFlag = true
+			runCallback("OnFrame")
+
+			assert.truthy(build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter"))
+		end)
+
+		it("warns when a limited rune exceeds its augment limit", function()
+			selectRune("Body Armour Rune #1", "Craiceann's Rune of Warding")
+			selectRune("Body Armour Rune #2", "Craiceann's Rune of Warding")
+
+			local warnings = build.controls.warnings.lines
+			assert.is_not_nil(warnings)
+			assert.equal("You are exceeding augment limit with: Craiceann's Rune of Warding", warnings[1])
+		end)
+
+		it("groups runes that share a named augment limit", function()
+			selectRune("Helmet Rune #1", "Legacy of Elevore")
+			selectRune("Body Armour Rune #1", "Legacy of Bramblejack")
+
+			local warnings = build.controls.warnings.lines
+			assert.is_not_nil(warnings)
+			assert.equal("You are exceeding augment limit with: Legacy of Bramblejack, Legacy of Elevore", warnings[1])
+		end)
+
+		it("does not group unrelated individually limited runes", function()
+			selectRune("Boots Rune #1", "Farrul's Rune of Grace")
+			selectRune("Body Armour Rune #1", "Craiceann's Rune of Warding")
+
+			assert.are.equals(0, #build.controls.warnings.lines)
 		end)
 	end)
 end)
