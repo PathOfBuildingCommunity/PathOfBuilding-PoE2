@@ -63,6 +63,47 @@ describe("TestSkills", function()
 		assertGemSupportLevel("Apocalypse", 3, 4)
 	end)
 
+	it("applies Leylines Runic Ward degeneration", function()
+		build.skillsTab:PasteSocketGroup("Leylines 1/0  1")
+		build.configTab.input.onLeyline = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.near(206 / 60, output.WardDegen, 0.01)
+		assert.are.near(output.WardRegen - output.WardDegen, output.WardRegenRecovery, 0.01)
+	end)
+
+	it("calculates Scouring Flame runic ward cost and efficiency", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\nScouring Flame 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(2, build.calcsTab.mainOutput.WardCost)
+
+		build.configTab.input.customMods = "100% increased Runic Ward Cost Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(1, build.calcsTab.mainOutput.WardCost)
+	end)
+
+	it("calculates runic infusion support costs from maximum runic ward", function()
+		for _, support in ipairs({ "Runic Infusion", "Olroth's Hubris" }) do
+			newBuild()
+			build.configTab.input.customMods = "+100 to maximum Runic Ward"
+			build.configTab:BuildModList()
+			build.itemsTab:CreateDisplayItemFromRaw("New Item\nMarauding Mace")
+			build.itemsTab:AddDisplayItem()
+			build.skillsTab:PasteSocketGroup("Leap Slam 1/0  1\n" .. support .. " 1/0  1")
+			runCallback("OnFrame")
+			assert.are.equals(20, build.calcsTab.mainOutput.WardCost)
+		end
+	end)
+
+	it("calculates Runic Reprieve's ongoing runic ward cost", function()
+		build.skillsTab:PasteSocketGroup("Runic Reprieve 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(3, build.calcsTab.mainOutput.WardPerSecondCost)
+	end)
+
 	it("applies Advanced Thaumaturgy quality stats only when enabled", function()
 		local advancedThaumaturgy = build.spec.nodes[14429]
 		assert.is_not_nil(advancedThaumaturgy)
@@ -1202,6 +1243,46 @@ describe("TestSkills", function()
 		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
 		assert.truthy(breakdownText:match("inverted hit"))
 		assert.truthy(breakdownText:match("weighted average"))
+	end)
+
+	it("ignores non-negative elemental resistance after inversion", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = -50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("inverts the selected lowest elemental resistance", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.enemyColdResist = 20
+		build.configTab.input.enemyLightningResist = 30
+		build.configTab.input.customMods = "Hits have 100% chance to treat Enemy Monster Elemental Resistance values as inverted\nElemental Damage you Deal with Hits is Resisted by Lowest Elemental Resistance instead"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.2, build.calcsTab.calcsOutput.FireEffMult)
+	end)
+
+	it("shows the resistance used for each inversion outcome", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyFireResist = 50
+		build.configTab.input.conditionEnemyFrozen = true
+		build.configTab.input.customMods = "Hits have 50% chance to treat Enemy Monster Elemental Resistance values as inverted\nHits ignore non-negative Elemental Resistances of Frozen Enemies"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.25, build.calcsTab.calcsOutput.FireEffMult)
+		local breakdownText = table.concat(build.calcsTab.calcsEnv.player.breakdown.FireEffMult, "\n")
+		assert.truthy(breakdownText:match("0%% ^8%(non%-inverted hit after penetration%)"))
+		assert.truthy(breakdownText:match("%-50%% ^8%(inverted hit after penetration%)"))
 	end)
 
 	it("Test granted skills with exposure stats make exposure configurable", function()

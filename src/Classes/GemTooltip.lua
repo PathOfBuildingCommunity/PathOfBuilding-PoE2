@@ -19,11 +19,10 @@ local function addDescriptionLine(tooltip, build, statSet, line, stat, index, co
 	if source then
 		if launch.devModeAlt then
 			local devText = stat
-			if source[1] then
-				if not source[1].value then
-					source[1].value = stat
-				end
-				devText = modLib.formatMod(source[1])
+			local sourceMod = source[1] and copyTable(source[1].name and source[1] or source[1][1])
+			if sourceMod then
+				sourceMod.value = sourceMod.value or stat
+				devText = modLib.formatMod(sourceMod)
 			end
 			line = line .. " ^2" .. devText
 		end

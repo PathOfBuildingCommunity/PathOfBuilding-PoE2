@@ -1102,6 +1102,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				self.build.itemsTab:DeleteItem(self.build.itemsTab.items[slot.selItemId])
 			end
 		end
+		for _, slotName in ipairs(self.build.itemsTab.runeSlotOrder) do
+			self.build.itemsTab.runeSlots[slotName]:SelByValue("None", "name")
+			self.build.itemsTab.activeItemSet[slotName].runeName = "None"
+		end
 	end
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
@@ -1144,11 +1148,15 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
-		-- This could be done better with the character melee skills data at some point.
+		-- Prefer the character skill requirement, then fall back to equipped items for older responses and dual wielding.
 		if typeLine:match("Mace Strike") then
+			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
+			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
 			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
 			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if weapon2Sel == 0 then
+			if requiredWeaponType == "Two Hand Mace" then
+				gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+			elseif weapon2Sel == 0 then
 				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
@@ -1318,6 +1326,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
+	self.build.calcsTab:BuildOutput()
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
@@ -1333,7 +1342,17 @@ local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"]
 
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
-		if itemData.inventoryId == "PassiveJewels" then
+		if itemData.inventoryId == "Chakra" then
+			slotName = self.build.itemsTab.runeSlotOrder[itemData.x + 1]
+			local slot = slotName and self.build.itemsTab.runeSlots[slotName]
+			if slot and itemData.baseType then
+				slot:SelByValue(itemData.baseType, "name")
+				if slot:GetSelValue().name == itemData.baseType then
+					self.build.itemsTab.activeItemSet[slotName].runeName = itemData.baseType
+				end
+				return
+			end
+		elseif itemData.inventoryId == "PassiveJewels" then
 			slotName = "Jewel ".. self.build.latestTree.jewelSlots[itemData.x + 1]
 		elseif itemData.inventoryId == "Flask" then
 			if itemData.x > 1 then
@@ -1419,29 +1438,31 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-			if escapeGGGString(property.name) == "Quality" then
+			local propertyName = escapeGGGString(property.name)
+			if propertyName == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
-			elseif property.name == "Radius" then
+			elseif propertyName == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
-			elseif property.name == "Limited to" then
+			elseif propertyName == "Limited to" then
 				item.limit = tonumber(property.values[1][1])
-			elseif property.name == "Evasion Rating" then
+			elseif propertyName == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
 					-- Another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Armour/Evasion)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
-			elseif property.name == "Energy Shield" then
+			elseif propertyName == "Energy Shield" then
 				if item.baseName == "Two-Toned Boots (Armour/Evasion)" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			if propertyName == "Energy Shield" or propertyName == "Runic Ward" or propertyName == "Armour" or propertyName == "Evasion Rating" then
 				item.armourData = item.armourData or { }
+				local defenceType = propertyName:gsub("Runic Ward", "Ward"):gsub(" Rating", ""):gsub(" ", "")
 				for _, value in ipairs(property.values) do
-					item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] = (item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] or 0) + tonumber(value[1])
+					item.armourData[defenceType] = (item.armourData[defenceType] or 0) + tonumber(value[1])
 				end
 			end
 		end

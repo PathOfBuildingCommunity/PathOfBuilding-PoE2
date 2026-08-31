@@ -589,9 +589,13 @@ function ConfigTabClass:ConfigTab(build)
 					return out
 				end))
 			end
-			if varData.ifFlag then
-				t_insert(shownFuncs, listOrSingleIfOption(varData.ifFlag, function(ifOption)
+			local ifFlag = varData.ifPlayerFlag or varData.ifFlag
+			if ifFlag then
+				t_insert(shownFuncs, listOrSingleIfOption(ifFlag, function(ifOption)
 					local mainEnv = self.build.calcsTab.mainEnv
+					if varData.ifPlayerFlag and mainEnv.minion then
+						return false
+					end
 					local skillModList = mainEnv.player.mainSkill.skillModList
 					local skillFlags = mainEnv.player.mainSkill.activeEffect.statSet.skillFlags
 					-- Check both the skill mods for flags and flags that are set via calcPerform
@@ -603,6 +607,12 @@ function ConfigTabClass:ConfigTab(build)
 						skillFlags = mainEnv.minion.mainSkill.activeEffect.statSet.skillFlags
 						return skillFlags[ifOption] or skillModList:Flag(nil, ifOption)
 					end
+				end))
+			end
+			if varData.ifMinionFlag then
+				t_insert(shownFuncs, listOrSingleIfOption(varData.ifMinionFlag, function(ifOption)
+					local minion = self.build.calcsTab.mainEnv.minion
+					return minion and minion.modDB and minion.modDB:Flag(nil, ifOption)
 				end))
 			end
 			if varData.ifMod then

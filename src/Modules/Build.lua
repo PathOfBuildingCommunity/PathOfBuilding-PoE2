@@ -2479,7 +2479,7 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 			end
 		end
 	end
-	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList"}) do
+	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Runic Ward"] = "WardCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList"}) do
 		if actor.output[warningFlag] then
 			local line = "You do not have enough "..(actor.output.EnergyShieldProtectsMana and pool == "Mana" and "Energy Shield and Mana" or pool).." to use: "
 			for _, skill in ipairs(actor.output[warningFlag]) do
@@ -2514,6 +2514,11 @@ function buildMode:InsertItemWarnings()
 	if self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning) do
 			InsertIfNew(self.controls.warnings.lines, "You are exceeding jewel limit with the jewel "..warning)
+		end
+	end
+	if self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning then
+		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning) do
+			InsertIfNew(self.controls.warnings.lines, "You are exceeding augment limit with: "..warning)
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.socketLimitWarning then

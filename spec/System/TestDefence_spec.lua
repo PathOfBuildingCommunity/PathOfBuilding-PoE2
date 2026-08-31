@@ -49,6 +49,148 @@ describe("TestDefence", function()
 		assert.are.equals(manaWithoutTotalEnergyShield + 100, player.output.Mana)
 	end)
 
+	it("applies energy shield modifiers to runic ward when redirected", function()
+		build.configTab.input.customMods = [[
+			+100 to maximum Runic Ward
+			100% increased maximum Runic Ward
+			100% increased maximum Energy Shield
+			Increases and Reductions to maximum Energy Shield instead apply to Ward
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(300, build.calcsTab.mainOutput.Ward)
+	end)
+
+	it("does not apply energy shield more modifiers to redirected runic ward", function()
+		build.configTab.input.customMods = [[
+			+100 to maximum Runic Ward
+			100% more maximum Energy Shield
+			Increases and Reductions to maximum Energy Shield instead apply to Ward
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(100, build.calcsTab.mainOutput.Ward)
+	end)
+
+	it("applies mana regeneration to runic ward before mana degeneration", function()
+		build.configTab.input.customMods = "+100 to maximum Runic Ward\nLose 5% of maximum Mana per Second"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Test Wand
+			Runic Fork
+			Sockets: S
+			Rune: Warding Rune of Equinox
+			Implicits: 3
+			{enchant}{rune}40% less Mana Regeneration Rate
+			{enchant}{rune}Mana Recovery from Regeneration is also applied to Runic Ward
+			{enchant}{rune}Bonded: 20% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.is_true(output.ManaDegen > 0)
+		assert.are.near(output.ManaRegen, output.WardRecovery, 0.1)
+		assert.are.near(output.ManaRegen - output.ManaDegen, output.ManaRegenRecovery, 0.1)
+	end)
+
+	it("applies life flask recovery to runic ward through Warding Rune of Nourishment", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1")
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Test Gloves
+			Runeforged Stocky Mitts
+			Sockets: S
+			Rune: Warding Rune of Nourishment
+			Implicits: 2
+			{enchant}{rune}15% Life Recovery from Flasks also applies to Runic Ward
+			{enchant}{rune}Bonded: 15% increased Life Recovery from Flasks
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Test Flask
+			Ultimate Life Flask
+			Life Flask Effects are not removed when Unreserved Life is Filled
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.itemsTab:EquipItemInSet(build.itemsTab.items[2], build.itemsTab.activeItemSetId)
+		build.itemsTab.slots["Flask 1"].active = true
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		assert.are.equals(15, build.calcsTab.calcsEnv.player.modDB:Sum("BASE", nil, "LifeFlaskRecoveryAppliesToWard"))
+		assert.is_true(output.LifeRecovery > 0)
+		assert.is_true(output.WardRecovery > 0)
+		assert.are.near(output.LifeRecovery * 0.15, output.WardRecovery, 0.01)
+	end)
+
+	it("includes runic ward in comprehensive net recovery", function()
+		build.configTab.input.customMods = "+100 to maximum Runic Ward"
+		build.configTab.input.enemyDamageType = "DamageOverTime"
+		build.configTab.input.enemyFireDamage = 100
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		assert.are.equals(output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetWardRegen + output.ComprehensiveNetEnergyShieldRegen, output.ComprehensiveTotalNetRegen)
+	end)
+
+	it("does not count fully bypassed runic ward as a hit pool", function()
+		build.configTab.input.customMods = "All damage taken bypasses Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local withoutWard = build.calcsTab.calcsOutput.FireTotalHitPool
+
+		build.configTab.input.customMods = "+100 to maximum Runic Ward\nAll damage taken bypasses Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		assert.are.equals(withoutWard, output.FireTotalHitPool)
+		assert.is_true(output.NumberOfDamagingHits < data.misc.ehpCalcMaxIterationsToCalc)
+	end)
+
+	it("adds non-bypassed runic ward to damage over time pool", function()
+		build.configTab.input.customMods = ""
+		build.configTab.input.enemyDamageType = "DamageOverTime"
+		build.configTab.input.enemyFireDamage = 100
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local withoutWard = build.calcsTab.calcsOutput.FireTotalPool
+
+		build.configTab.input.customMods = "+100 to maximum Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(withoutWard + 100, build.calcsTab.calcsOutput.FireTotalPool)
+
+		build.configTab.input.customMods = "+100 to maximum Runic Ward\nAll damage taken bypasses Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(withoutWard, build.calcsTab.calcsOutput.FireTotalPool)
+	end)
+
+	it("includes remaining runic ward in hit pool tracking", function()
+		build.configTab.input.customMods = "+100 to maximum Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		local poolsRemaining = build.calcsTab.calcs.reducePoolsByDamage(nil, { Physical = 1 }, build.calcsTab.calcsEnv.player)
+
+		assert.are.near(output.PhysicalTotalHitPool - 1, poolsRemaining.hitPoolRemaining, 0.01)
+
+		build.configTab.input.customMods = "+100 to maximum Runic Ward\nAll damage taken bypasses Runic Ward"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		output = build.calcsTab.calcsOutput
+		poolsRemaining = build.calcsTab.calcs.reducePoolsByDamage(nil, { Physical = 1 }, build.calcsTab.calcsEnv.player)
+		assert.are.near(output.PhysicalTotalHitPool - 1, poolsRemaining.hitPoolRemaining, 0.01)
+	end)
+
 	it("no armour max hits", function()
 		build.configTab.input.enemyIsBoss = "None"
 		build.configTab.input.customMods = ""

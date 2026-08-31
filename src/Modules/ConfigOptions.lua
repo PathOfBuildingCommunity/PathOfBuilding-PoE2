@@ -158,6 +158,18 @@ local configSettings = {
 		modList:NewMod("Condition:UseCurrentEnergyShield", "FLAG", true, "Config")
 		modList:NewMod("Multiplier:CurrentEnergyShield", "BASE", val, "Config")
 	end },
+	{ var = "conditionLowRunicWard", type = "check", label = "Are you on low ^xFFFF77Runic Ward?", ifCond = "LowRunicWard", tooltip = "You are on Low ^xFFFF77Runic Ward^7 if you have 35% of your maximum ^xFFFF77Runic Ward^7 or less.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LowRunicWard", "FLAG", true, "Config")
+		modList:NewMod("Condition:MissingRunicWard", "FLAG", true, "Config")
+	end },
+	{ var = "conditionMissingRunicWard", type = "check", label = "Are you missing ^xFFFF77Runic Ward?", ifCond = "MissingRunicWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:MissingRunicWard", "FLAG", true, "Config")
+	end },
+	{ var = "conditionNoRunicWard", type = "check", label = "Do you have no ^xFFFF77Runic Ward?", ifCond = "NoRunicWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:NoRunicWard", "FLAG", true, "Config")
+		modList:NewMod("Condition:LowRunicWard", "FLAG", true, "Config")
+		modList:NewMod("Condition:MissingRunicWard", "FLAG", true, "Config")
+	end },
 	{ var = "minionsConditionFullLife", type = "check", label = "Are your Minions always on Full ^xE05030Life?", ifMinionCond = "FullLife", apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:FullLife", "FLAG", true, "Config") }, "Config")
 	end },
@@ -185,7 +197,7 @@ local configSettings = {
 		end
 	end },
 	{ var = "EHPUnluckyWorstOf", type = "list", label = "EHP calc unlucky:", tooltip = "Sets the EHP calc to pretend its unlucky and reduce the effects of random events such as\n\tBlock/Spell Block Chance\n\tDodge/Spell Dodge Chance\n\tSpell Suppression Chance\n\tAvoidance Chance", list = {{val=1,label="Average"},{val=2,label="Unlucky"},{val=4,label="Very Unlucky"}} },
-	{ var = "DisableEHPGainOnBlock", type = "check", label = "Disable EHP gain on block/suppress:", ifMod = {"LifeOnBlock", "ManaOnBlock", "EnergyShieldOnBlock", "EnergyShieldOnSpellBlock", "LifeOnSuppress", "EnergyShieldOnSuppress"}, tooltip = "Sets the EHP calc to not apply gain on block and suppress effects"},
+	{ var = "DisableEHPGainOnBlock", type = "check", label = "Disable EHP gain on block/suppress:", ifMod = {"LifeOnBlock", "ManaOnBlock", "WardOnBlock", "EnergyShieldOnBlock", "EnergyShieldOnSpellBlock", "LifeOnSuppress", "EnergyShieldOnSuppress"}, tooltip = "Sets the EHP calc to not apply gain on block and suppress effects"},
 	{ var = "armourCalculationMode", type = "list", label = "Armour calculation mode:", ifCond = { "ArmourMax", "ArmourAvg" }, tooltip = "Controls how Defending with Double Armour is calculated:\n\tMinimum: never Defend with Double Armour\n\tAverage: Damage Reduction from Defending with Double Armour is proportional to chance\n\tMaximum: always Defend with Double Armour\nThis setting has no effect if you have 100% chance to Defend with Double Armour.", list = {{val="MIN",label="Minimum"},{val="AVERAGE",label="Average"},{val="MAX",label="Maximum"}}, apply = function(val, modList, enemyModList)
 		if val == "MAX" then
 			modList:NewMod("Condition:ArmourMax", "FLAG", true, "Config")
@@ -461,6 +473,10 @@ local configSettings = {
 	{ label = "Into the Breach:", ifSkill = "Into the Breach" },
 	{ var = "purpleFlameStacks", type = "count", label = "Purple Flames collected:", tooltip = "Number of Purple Flames of Chayula collected (max 10).", ifSkill = "Into the Breach", defaultState = 10, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:PurpleFlamesCount", "BASE", m_min(val, 10), "Config")
+	end },
+	{ label = "Leylines:", ifSkill = "Leylines" },
+	{ var = "onLeyline", type = "check", label = "Are you on a Leyline?", ifSkill = "Leylines", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:OnLeyline", "FLAG", true, "Config")
 	end },
 	{ label = "Link Skills:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" } },
 	{ var = "multiplierLinkedTargets", type = "count", label = "# of linked Targets:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" }, apply = function(val, modList, enemyModList)
@@ -961,8 +977,10 @@ Huge sets the radius to 11.
 	{ var = "multiplierDefiance", type = "count", label = "Defiance:", ifMult = "Defiance", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Defiance", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierRage", type = "count", label = "^xFF9922Rage:", ifPlayerFlag = "Condition:CanGainRage", tooltip = "Base Maximum ^xFF9922Rage ^7is 30, and inherently grants 1% More Attack Damage per 1 ^xFF9922Rage^7\nYou lose 5 ^xFF9922Rage ^7every second if you have not been Hit or gained ^xFF9922Rage ^7in the last 4 seconds.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" })
+	end },
+	{ var = "multiplierMinionRage", type = "count", label = "Minion ^xFF9922Rage:", ifMinionFlag = "Condition:CanGainRage", tooltip = "Sets the Minion's current Rage.\nRage is capped at Minion's Maximum Rage.", apply = function(val, modList, enemyModList) modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Multiplier:RageStack", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainRage" }) }, "Config")
 	end },
 	{ var = "multiplierCombo", type = "count", label = "Combo:", ifMult = "ComboStacks", tooltip = "Some skills and effects require a certain Combo count to use.\nCombo is built by successfully Striking Enemies.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:ComboStacks", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })

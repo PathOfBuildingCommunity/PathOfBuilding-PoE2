@@ -94,6 +94,21 @@ describe("ImportTab", function()
 		assert.True(importedSpec.nodes[templarStartPassive.id].alloc)
 		assert.True(importedSpec.nodes[templarStartPassive.id].connectedToStart)
 	end)
+
+	it("imports the Runic Ward item property", function()
+		build.importTab:ImportItem({
+			id = "runic-ward-test",
+			frameType = 0,
+			name = "",
+			typeLine = "Runeforged Sentinel Greathelm",
+			inventoryId = "Helm",
+			ilvl = 52,
+			properties = { { name = "[Ward|Runic Ward]", values = { { "180", 0 } } } },
+		})
+
+		local item = build.itemsTab.items[build.itemsTab.slots["Helmet"].selItemId]
+		assert.is_truthy(item.raw:match("Runic Ward: 180"))
+	end)
 end)
 
 describe("ImportTab BuildPlanner export option", function()

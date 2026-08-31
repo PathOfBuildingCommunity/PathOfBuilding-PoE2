@@ -170,7 +170,7 @@ local modNameList = {
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
 	["tribute"] = "Tribute",
-	-- Life/Mana/Spirit/Darkness
+	-- Life/Mana/Spirit/Runic Ward/Darkness
 	["maximum darkness"] = "Darkness",
 	["spirit"] = "Spirit",
 	["maximum spirit"] = "Spirit",
@@ -183,6 +183,7 @@ local modNameList = {
 	["maximum mana"] = "Mana",
 	["mana regeneration"] = "ManaRegen",
 	["mana regeneration rate"] = "ManaRegen",
+	["runic ward regeneration rate"] = "WardRegen",
 	["mana cost"] = "ManaCost",
 	["mana cost of"] = "ManaCost",
 	["mana cost of skills"] = "ManaCost",
@@ -208,6 +209,7 @@ local modNameList = {
 	["life cost efficiency of skills"] = "LifeCostEfficiency",
 	["spirit cost efficiency"] = "SpiritCostEfficiency",
 	["spirit cost efficiency of skills"] = "SpiritCostEfficiency",
+	["runic ward cost efficiency"] = "WardCostEfficiency",
 	["energy shield cost efficiency"] = "ESCostEfficiency",
 	["energy shield cost efficiency of skills"] = "ESCostEfficiency",
 	["es cost efficiency"] = "ESCostEfficiency",
@@ -243,6 +245,8 @@ local modNameList = {
 	["evasion rating"] = "Evasion",
 	["energy shield"] = "EnergyShield",
 	["ward"] = "Ward",
+	["runic ward"] = "Ward",
+	["maximum runic ward"] = "Ward",
 	["armour and evasion"] = "ArmourAndEvasion",
 	["armour and evasion rating"] = "ArmourAndEvasion",
 	["evasion rating and armour"] = "ArmourAndEvasion",
@@ -250,7 +254,7 @@ local modNameList = {
 	["evasion rating and energy shield"] = "EvasionAndEnergyShield",
 	["global evasion rating and energy shield"] = { "Evasion", "EnergyShield" },
 	["evasion and energy shield"] = "EvasionAndEnergyShield",
-	["armour, evasion and energy shield"] = "Defences",
+	["armour, evasion and energy shield"] = { "Armour", "Evasion", "EnergyShield" },
 	["defences"] = "Defences",
 	["to evade"] = "EvadeChance",
 	["chance to evade"] = "EvadeChance",
@@ -1438,8 +1442,6 @@ local preFlagList = {
 	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^enemies in your presence [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
-	-- Bonded
-	["^bonded: "] = { tag = { type = "Condition", var = "CanUseBondedModifiers" } },
 }
 
 -- List of modifier tags
@@ -1600,6 +1602,8 @@ local modTagList = {
 	["per (%d+) of maximum life or maximum mana, whichever is lower"] = function(num) return { tag = { type = "PerStat", stat = "LowestOfMaximumLifeAndMaximumMana", div = num } } end,
 	["per (%d+) player maximum life"] = function(num) return { tag = { type = "PerStat", stat = "Life", div = num, actor = "parent" } } end,
 	["per (%d+) life cost"] = function(num) return { tag = { type = "PerStat", stat = "LifeCost", div = num}} end,
+	["per (%d+) runic ward cost"] = function(num) return { tag = { type = "PerStat", stat = "WardCost", div = num}} end,
+	["per (%d+) maximum runic ward"] = function(num) return { tag = { type = "PerStat", stat = "Ward", div = num } } end,
 	["per (%d+) maximum mana"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["per (%d+) maximum mana, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
 	["per (%d+) maximum mana, up to a maximum of (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
@@ -1781,6 +1785,10 @@ local modTagList = {
 	["if used while y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["on reaching low life"] = { tag = { type = "Condition", var = "LowLife" } },
+	["while you are missing runic ward"] = { tag = { type = "Condition", var = "MissingRunicWard" } },
+	["while missing runic ward"] = { tag = { type = "Condition", var = "MissingRunicWard" } },
+	["while you have no runic ward"] = { tag = { type = "Condition", var = "NoRunicWard" } },
+	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low runic ward"] = { tag = { type = "Condition", var = "LowRunicWard" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?not on low life"] = { tag = { type = "Condition", var = "LowLife", neg = true } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
 	["if y?o?u?%s?a?r?e?%s?on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
@@ -2281,6 +2289,9 @@ local specialModList = {
 	["enemies you kill during effect have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as damage of a random element"] = function(chance, _, amount)	-- Oriath's End
 		return explodeFunc(chance, amount, "randomElement", { type = "Condition", var = "UsingFlask" })
 	end,
+	["lose (%d+)%% life per second while you have no runic ward during effect"] = function(num)
+		return { mod("LifeDegenPercent", "BASE", num, { type = "Condition", var = "NoRunicWard" }, { type = "Condition", var = "UsingFlask" }) }
+	end,
 	["enemies you kill while affected by glorious madness have a (%d+)%% chance to explode, dealing a (.+) of their life as (.+) damage"] = function(chance, _, amount, type)	-- Beacon of Madness
 		return explodeFunc(chance, amount, type, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end,
@@ -2400,6 +2411,7 @@ local specialModList = {
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
+	["mana recovery from regeneration is also applied to runic ward"] = { flag("ManaRegenerationRecoversWard") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life regeneration has no effect"] = { flag("NoLifeRegen") },
 	["life recharges instead of energy shield"] = { flag("EnergyShieldRechargeAppliesToLife") },
@@ -2537,7 +2549,7 @@ local specialModList = {
 	["auras from your skills have (%d+)%% increased effect on you"] = function(num) return { mod("SkillAuraEffectOnSelf", "INC", num) } end,
 	["increases and reductions to mana regeneration rate instead apply to rage regeneration rate"] = { flag("ManaRegenToRageRegen") },
 	["increases and reductions to maximum energy shield instead apply to ward"] = { flag("EnergyShieldToWard") },
-	["(%d+)%% of damage taken bypasses ward"] = function(num) return { mod("WardBypass", "BASE", num) } end,
+	["all damage taken bypasses runic ward"] = { mod("WardBypass", "BASE", 100) },
 	["maximum energy shield is (%d+)"] = function(num) return { mod("EnergyShield", "OVERRIDE", num ) } end,
 	["cannot have energy shield"] = { flag("CannotHaveES") },
 	["regenerate ([%d%.]+) life per second per maximum energy shield"] = function(num) return {
@@ -2581,6 +2593,7 @@ local specialModList = {
 	},
 	["life recovery from flasks also applies to energy shield"] = { flag("LifeFlaskAppliesToEnergyShield") },
 	["life recovery from flasks applies to energy shield instead"] = { flag("LifeFlaskAppliesToEnergyShield"), flag("LifeFlaskDoesNotApply") },
+	["(%d+)%% life recovery from flasks also applies to runic ward"] = function(num) return { mod("LifeFlaskRecoveryAppliesToWard", "BASE", num) } end,
 	["non%-instant mana recovery from flasks is also recovered as life"] = { flag("ManaFlaskAppliesToLife") },
 	["life leech effects recover energy shield instead while on full life"] = { flag("ImmortalAmbition", { type = "Condition", var = "FullLife" }, { type = "Condition", var = "LeechingLife" }) },
 	["shepherd of souls"] = { mod("Damage", "MORE", -30, { type = "SkillType", skillType = SkillType.Vaal, neg = true }) },
@@ -3428,7 +3441,10 @@ local specialModList = {
 	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
 	["walk the paths not taken"] = { },
 	["gain the benefits of bonded modifiers on runes and idols"] = {
-		flag("Condition:CanUseBondedModifiers"),
+		flag("CanUseBonded"),
+	},
+	["idols socketed in this item gain the benefits of their bonded modifiers"] = {
+		flag("SocketedIdolsUseBondedModifiers"),
 	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
@@ -5103,6 +5119,7 @@ local specialModList = {
 	["damage t?a?k?e?n? from blocked hits cannot bypass energy shield"] = { flag("BlockedDamageDoesntBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["damage t?a?k?e?n? from unblocked hits always bypasses energy shield"] = { flag("UnblockedDamageDoesBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["recover (%d+) life when you block"] = function(num) return { mod("LifeOnBlock", "BASE", num) } end,
+	["recover (%d+) runic ward when you block"] = function(num) return { mod("WardOnBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you block spell damage"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
 	["recover (%d+) energy shield when you suppress spell damage"] = function(num) return { mod("EnergyShieldOnSuppress", "BASE", num) } end,
 	["recover (%d+) life when you suppress spell damage"] = function(num) return { mod("LifeOnSuppress", "BASE", num) } end,
@@ -5383,7 +5400,6 @@ local specialModList = {
 	} end,
 	["phasing while on low life"] = { flag("Condition:Phasing", { type = "Condition", var = "LowLife" }) },
 	["cannot be ignited while on low life"] = { flag("IgniteImmune", { type = "Condition", var = "LowLife" }), },
-	["ward does not break during f?l?a?s?k? ?effect"] = { flag("WardNotBreak", { type = "Condition", var = "UsingFlask" }) },
 	["stun threshold is based on energy shield instead of life"] = {
 		flag("StunThresholdBasedOnEnergyShieldInsteadOfLife"),
 		mod("StunThresholdEnergyShieldPercent", "BASE", 100),
@@ -6296,7 +6312,13 @@ local specialModList = {
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? ?[%a%s]* modifier magnitudes"] = {},
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? effect of [sp][ur][fe]fixes"] = {},
 	["[%a%s]* modifier magnitudes are doubled"] = {},
-	["can be modified while corrupted"] = {}
+	["can be modified while corrupted"] = {},
+	["can tattoo runes onto your body, gaining"] = { flag("SocketRunesOnCharacter") },
+	["additional rune%-only sockets:"] = {},
+	["(%d+) helmet sockets?"] = {},
+	["(%d+) body armour sockets?"] = {},
+	["(%d+) gloves sockets?"] = {},
+	["(%d+) boots sockets?"] = {},
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name), flag("Condition:Have"..firstToUpper(name):gsub(" %l", string.upper):gsub(" ", "")) }
@@ -6362,6 +6384,7 @@ local suffixTypes = {
 	["converted to chaos damage"] = "ConvertToChaos",
 	["added as energy shield"] = "GainAsEnergyShield",
 	["as extra maximum energy shield"] = "GainAsEnergyShield",
+	["as extra maximum runic ward"] = "GainAsWard",
 	["converted to energy shield"] = "ConvertToEnergyShield",
 	["as armour"] = "GainAsArmour",
 	["as extra armour"] = "GainAsArmour",
@@ -6398,6 +6421,7 @@ local resourceTypes = {
 	["life"] = "Life",
 	["mana"] = "Mana",
 	["energy shield"] = "EnergyShield",
+	["runic ward"] = "Ward",
 	["life and mana"] = { "Life", "Mana" },
 	["life and energy shield"] = { "Life", "EnergyShield" },
 	["life, mana and energy shield"] = { "Life", "Mana", "EnergyShield" },

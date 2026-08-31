@@ -39,6 +39,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("PowerChargesMax", "BASE", data.characterConstants["max_power_charges"], "Base")
 	modDB:NewMod("FrenzyChargesMax", "BASE", data.characterConstants["max_frenzy_charges"], "Base")
 	modDB:NewMod("EnduranceChargesMax", "BASE", data.characterConstants["max_endurance_charges"], "Base")
+	modDB:NewMod("MaximumRage", "BASE", data.gameConstants["BaseMaximumRage"], "Base")
 	modDB:NewMod("SiphoningChargesMax", "BASE", 0, "Base")
 	modDB:NewMod("ChallengerChargesMax", "BASE", 0, "Base")
 	modDB:NewMod("BlitzChargesMax", "BASE", 0, "Base")
@@ -835,6 +836,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Life", "BASE", data.characterConstants["life_per_level"], "Base", { type = "Multiplier", var = "Level", base = 16 })
 		modDB:NewMod("Mana", "BASE", data.characterConstants["mana_per_level"], "Base", { type = "Multiplier", var = "Level", base = 30 })
 		modDB:NewMod("ManaRegen", "BASE", env.data.misc.ManaRegenBase, "Base", { type = "PerStat", stat = "Mana", div = 1 }, { type = "Condition", var = "NoInherentManaRegen", neg = true })
+		modDB:NewMod("WardRegenPercent", "BASE", data.gameConstants["BaseWardRegenerationPercentPerMinute"]/60, "Base" )
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Tribute", "BASE", 0, "Base")
@@ -850,7 +852,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TotemColdResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemChaosResist", "BASE", 20, "Base")
-		modDB:NewMod("MaximumRage", "BASE", data.gameConstants["BaseMaximumRage"], "Base")
 		modDB:NewMod("MaximumFortification", "BASE", data.characterConstants["base_max_fortification"], "Base")
 		modDB:NewMod("MaximumValour", "BASE", 50, "Base")
 		modDB:NewMod("SoulEaterMax", "BASE", 45, "Base")
@@ -997,6 +998,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
 	env.useAltGemQualityStats = nodesModsList:Flag(nil, "GemlingQuality")
+	local canUseBonded = nodesModsList:Flag(nil, "CanUseBonded")
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -1018,9 +1020,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
 
 	local weaponFlagState = {
-		giantsBlood = nodesModsList:Flag(nil, "GiantsBlood") or false,
-		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or false,
-		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or false,
+		giantsBlood = nodesModsList:Flag(nil, "GiantsBlood") or modDB:Flag(nil, "GiantsBlood") or false,
+		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or modDB:Flag(nil, "InstrumentsOfPower") or false,
+		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or modDB:Flag(nil, "LordOfTheWilds") or false,
 	}
 	-- Only mutate equipped items in the real build pass; calculator overrides (e.g. node power) are transient.
 	if mode == "MAIN" then
@@ -1046,6 +1048,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			addGrantedPassiveNode(env, node)
 		end
 
+		-- save augment counts so we can track going over count limits
+		local augmentCounts = {}
+		if modDB:Flag(nil, "SocketRunesOnCharacter") or nodesModsList:Flag(nil, "SocketRunesOnCharacter") then
+			for runeSlotName, slot in pairs(build.itemsTab.runeSlots) do
+				local rune = slot:GetSelValue()
+				if runeSlotName == override.repSlotName then
+					rune = override.repRune
+				end
+				if rune.name ~= "None" then
+					augmentCounts[rune.name] = (augmentCounts[rune.name] or 0) + 1
+				end
+				for _, mod in ipairs(rune.mods) do
+					env.itemModDB:AddMod(mod)
+				end
+			end
+		end
 		local items = {}
 		local jewelLimits = {}
 		local giantsBlood = weaponFlagState.giantsBlood
@@ -1060,18 +1078,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
-			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
-			(
-				(not lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type ~= "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")
-				or (not instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type ~= "Focus")
-				or (not giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace"))
-				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
-			) then
-				goto continue
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
 			else
 				item = build.itemsTab.items[slot.selItemId]
+			end
+			-- if we are replacing the main hand weapon, we should unequip the off hand weapon if it's not allowed
+			local overrideTwoHand = override.repItem and override.repItem.base.type and not (env.data.weaponTypeInfo[override.repItem.base.type] or {}).oneHand
+			if overrideTwoHand and override.repSlotName and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") then
+				local allowLordOfTheWilds = lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type == "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
+				local allowInstrumentsOfPower = instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type == "Focus"
+				local allowGiantsBlood = giantsBlood and item and item.type ~= "Quiver" and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace")
+				local allowQuiver = (override.repItem.base.type == "Bow" and item and item.base.type == "Quiver")
+				local allowOffHand = allowLordOfTheWilds or allowInstrumentsOfPower or allowGiantsBlood or allowQuiver
+				if not allowOffHand then
+					goto continue
+				end
 			end
 			if item and item.grantedSkills then
 				-- Find skills granted by this item
@@ -1200,7 +1222,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			for _, slot in pairs(build.itemsTab.orderedSlots) do
 				local slotName = slot.slotName
 				if items[slotName] then
-					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum] or {}
+					local srcList = items[slotName]:GetActiveModListForSlotNum(slot.slotNum, canUseBonded)
 					for _, mod in ipairs(srcList) do
 						-- checks if it disables another slot
 						for _, tag in ipairs(mod) do
@@ -1297,7 +1319,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if item then
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
-				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+				local srcList = item:GetActiveModListForSlotNum(slot.slotNum, canUseBonded)
 				local corruptedJewelEffect = slot.nodeId and getCorruptedJewelEffect(env, item, node) or 0
 
 				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
@@ -1333,6 +1355,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for i = 1, item.itemSocketCount do
 					local runeName = item.runes[i]
 					if runeName and runeName ~= "None" then
+						augmentCounts[item.runes[i]] = (augmentCounts[item.runes[i]] or 0) + 1
 						socketed = socketed + 1
 						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
 						local runeData = data.itemMods.Runes[runeName]
@@ -1554,6 +1577,28 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.charms[override.toggleCharm] = true
 			end
 		end
+
+		local augmentLimits = { }
+		for augmentName, count in pairs(augmentCounts) do
+			local dbAugment = data.itemMods.Runes[augmentName] or {}
+			local _, dbMod = next(dbAugment)
+			if dbMod and dbMod.limit then
+				local limit = augmentLimits[dbMod.limitId or augmentName]
+				if not limit then
+					limit = { count = 0, max = dbMod.limit, names = { } }
+					augmentLimits[dbMod.limitId or augmentName] = limit
+				end
+				limit.count += count
+				t_insert(limit.names, augmentName)
+			end
+		end
+		for _, limit in pairs(augmentLimits) do
+			if limit.count > limit.max and env.build.calcsTab.mainEnv then
+				table.sort(limit.names)
+				env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning or { }
+				t_insert(env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning, table.concat(limit.names, ", "))
+			end
+		end
 	end
 
 	-- Merge env.itemModDB with env.ModDB
@@ -1605,7 +1650,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
 		local quiverEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
-		local modList = env.player.itemList["Weapon 2"].modList
+		local modList = env.player.itemList["Weapon 2"]:GetActiveModListForSlotNum(2, canUseBonded)
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
 			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
@@ -1615,7 +1660,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	
 	if env.player.itemList["Amulet"] and env.player.itemList["Amulet"].type == "Amulet" then
 		local amuletEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromAmulet") / 100
-		local modList = env.player.itemList["Amulet"].modList
+		local modList = env.player.itemList["Amulet"]:GetActiveModListForSlotNum(nil, canUseBonded)
 		for _, mod in ipairs(modList) do
 			local modCopy = copyTable(mod)
 			modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletEffectMod * 100) .. "% Amulet Bonus Effect"

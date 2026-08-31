@@ -521,7 +521,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 	end
 
 	local ward = poolTbl.Ward or output.Ward or 0
-	local restoreWard = modDB:Flag(nil, "WardNotBreak") and ward or 0
+	local wardApplies = modDB:Sum("BASE", nil, "WardBypass") == 0
 
 	local energyShield = poolTbl.EnergyShield or output.EnergyShieldRecoveryCap
 	local mana = poolTbl.Mana or output.ManaUnreserved or 0
@@ -579,12 +579,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				guard.shared = guard.shared - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].sharedGuard = tempDamage >= 1 and tempDamage or nil
-			end
-			if ward > 0 then
-				local tempDamage = m_min(damageRemainder * (1 - (modDB:Sum("BASE", nil, "WardBypass") or 0) / 100), ward)
-				ward = ward - tempDamage
-				damageRemainder = damageRemainder - tempDamage
-				resourcesLostToTypeDamage[damageType].ward = tempDamage >= 1 and tempDamage or nil
 			end
 			damageRemaindersBeforeES[damageType] = damageRemainder > 0 and damageRemainder or nil
 		end
@@ -662,23 +656,35 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				end
 			end
 			if life > 0 then
-				local tempDamage = m_min(damageRemainder, life)
+				local tempDamage = m_min(damageRemainder, life - 1)
 				life = life - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].life = (resourcesLostToTypeDamage[damageType].life or 0) + (tempDamage > 0 and tempDamage or 0)
+				if ward > 0 and wardApplies then
+					local tempDamage = m_min(damageRemainder, ward)
+					ward = ward - tempDamage
+					damageRemainder = damageRemainder - tempDamage
+					resourcesLostToTypeDamage[damageType].runicWard = tempDamage >= 1 and tempDamage or nil
+				end
+				if damageRemainder > 0 then
+					local tempDamage = m_min(damageRemainder, life)
+					life = life - tempDamage
+					damageRemainder = damageRemainder - tempDamage
+					resourcesLostToTypeDamage[damageType].life = (resourcesLostToTypeDamage[damageType].life or 0) + (tempDamage > 0 and tempDamage or 0)
+				end
 			end
 			overkillDamage = overkillDamage + damageRemainder
 			resourcesLostToTypeDamage[damageType].overkill = damageRemainder >= 1 and damageRemainder or nil
 		end
 	end
 	local hitPoolRemaining = calcLifeHitPoolWithLossPrevention(life, output.Life, output.preventedLifeLoss, lifeLossBelowHalfPrevented) +
-		(MoMPoolRemaining ~= m_huge and MoMPoolRemaining or 0) + (esPoolRemaining ~= m_huge and esPoolRemaining or 0)
+		(MoMPoolRemaining ~= m_huge and MoMPoolRemaining or 0) + (esPoolRemaining ~= m_huge and esPoolRemaining or 0) + (wardApplies and ward or 0)
 
 	return {
 		AlliesTakenBeforeYou = alliesTakenBeforeYou,
 		Aegis = aegis,
 		Guard = guard,
-		Ward = restoreWard,
+		Ward = ward,
 		EnergyShield = energyShield,
 		Mana = mana,
 		Life = life,
@@ -740,9 +746,6 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	if output.sharedGuardAbsorb and output.sharedGuardAbsorb > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge ^7(%d remaining)", output.sharedGuardAbsorb - poolsRemaining.Guard.shared, poolsRemaining.Guard.shared))
 	end
-	if output.Ward and output.Ward > 0 then
-		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Ward", output.Ward))
-	end
 	if output.EnergyShieldRecoveryCap ~= poolsRemaining.EnergyShield and output.EnergyShieldRecoveryCap and output.EnergyShieldRecoveryCap > 0 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield ^7(%d remaining)", output.EnergyShieldRecoveryCap - poolsRemaining.EnergyShield, poolsRemaining.EnergyShield))
 	end
@@ -756,6 +759,9 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime))
 	end
 	t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life ^7(%d remaining)", output.LifeRecoverable - poolsRemaining.Life, poolsRemaining.Life))
+	if output.Ward and output.Ward > 0 then
+		t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward ^7(%d remaining)", output.Ward - poolsRemaining.Ward, poolsRemaining.Ward))
+	end
 	if poolsRemaining.OverkillDamage >= 1 then
 		t_insert(breakdownTable, s_format("\t%d "..colorCodes.NEGATIVE.."Overkill damage", poolsRemaining.OverkillDamage))
 	end
@@ -1181,7 +1187,6 @@ function calcs.defence(env, actor)
 	do
 		-- Pre-calculate Life/Mana/Spirit for mods such as Beidat's hand
 		calcs.doActorLifeManaSpirit(actor, true)
-		local ward = 0
 		local energyShield = 0
 		local armour = 0
 		local evasion = 0
@@ -1204,7 +1209,6 @@ function calcs.defence(env, actor)
 					if modDB:Flag(nil, "EnergyShieldToWard") then
 						local inc = modDB:Sum("INC", slotCfg, "Ward", "Defences", "EnergyShield")
 						local more = modDB:More(slotCfg, "Ward", "Defences")
-						ward = ward + wardBase * (1 + inc / 100) * more
 						gearWard = gearWard + wardBase
 						if breakdown then
 							t_insert(breakdown["Ward"].slots, {
@@ -1217,7 +1221,6 @@ function calcs.defence(env, actor)
 							})
 						end
 					else
-						ward = ward + wardBase * calcLib.mod(modDB, slotCfg, "Ward", "Defences")
 						gearWard = gearWard + wardBase
 						if breakdown then
 							breakdown.slot(slot, nil, slotCfg, wardBase, nil, "Ward", "Defences")
@@ -1292,7 +1295,6 @@ function calcs.defence(env, actor)
 			if modDB:Flag(nil, "EnergyShieldToWard") then
 				local inc = modDB:Sum("INC", nil, "Ward", "Defences", "EnergyShield")
 				local more = modDB:More(nil, "Ward", "Defences")
-				ward = ward + wardBase * (1 + inc / 100) * more
 				if breakdown then
 					t_insert(breakdown["Ward"].slots, {
 						base = wardBase,
@@ -1304,7 +1306,6 @@ function calcs.defence(env, actor)
 					})
 				end
 			else
-				ward = ward + wardBase * calcLib.mod(modDB, nil, "Ward", "Defences")
 				if breakdown then
 					breakdown.slot("Global", nil, nil, wardBase, nil, "Ward", "Defences")
 				end
@@ -1344,6 +1345,7 @@ function calcs.defence(env, actor)
 			{ name = "EnergyShield", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "EnergyShield", "Defences" }, modsTotal = { "EnergyShieldTotal" }, defence = true },
 			{ name = "Life", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Life" }, modsTotal = { "LifeTotal" }, },
 			{ name = "Mana", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Mana" }, modsTotal = { "ManaTotal" }, },
+			{ name = "Ward", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Ward", "Defences" }, modsInc = modDB:Flag(nil, "EnergyShieldToWard") and { "EnergyShield" }, modsTotal = { "WardTotal" }, defence = true },
 		}
 		for _, source in ipairs(resourceList) do
 			output[source.name] = (output[source.name] or 0)
@@ -1363,6 +1365,9 @@ function calcs.defence(env, actor)
 			for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
 				local item = actor.itemList[slot]
 				source.basePerSlot[slot] = item and item.armourData and item:GetArmourDataValue(source.name, actor.level) or 0
+				if source.name == "Ward" and slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
+					source.basePerSlot[slot] = source.basePerSlot[slot] * 2
+				end
 			end
 			source.totalBase = modDB:Sum("BASE", nil, unpack(source.modsTotal))
 		end
@@ -1424,9 +1429,13 @@ function calcs.defence(env, actor)
 		for _, res in ipairs(resourceList) do
 			if res.defence then
 				for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
-					output[res.name] = output[res.name] + res.basePerSlot[slot] * calcLib.mod(modDB, { slotName = slot }, unpack(res.mods))
+					local inc, more = calcLib.mods(modDB, { slotName = slot }, unpack(res.mods))
+					inc = inc + (res.modsInc and modDB:Sum("INC", { slotName = slot }, unpack(res.modsInc)) / 100 or 0)
+					output[res.name] = output[res.name] + res.basePerSlot[slot] * inc * more
 				end
-				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + res.totalBase
+				local inc, more = calcLib.mods(modDB, nil, unpack(res.mods))
+				inc = inc + (res.modsInc and modDB:Sum("INC", nil, unpack(res.modsInc)) / 100 or 0)
+				output[res.name] = output[res.name] + res.globalBase * inc * more + res.totalBase
 			else
 				modDB:NewMod("Extra"..res.name, "BASE", res.globalBase, "Conversion")
 				modDB:NewMod(res.name.."Total", "BASE", res.totalBase, "Conversion")
@@ -1448,7 +1457,7 @@ function calcs.defence(env, actor)
 		output.SpellEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "SpellEvasion")), 0)
 		output.SpellProjectileEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "SpellProjectileEvasion")), 0)
 		output.LowestOfArmourAndEvasion = m_min(output.Armour, output.Evasion)
-		output.Ward = m_max(m_floor(ward), 0)
+		output.Ward = m_max(round(output.Ward), 0)
 		output["Gear:Ward"] = gearWard
 		output["Gear:EnergyShield"] = gearEnergyShield
 		output["Gear:Armour"] = gearArmour
@@ -1685,7 +1694,7 @@ function calcs.defence(env, actor)
 	end
 
 	-- Regeneration
-	local resources = {"Mana", "Life", "Energy Shield", "Rage"}
+	local resources = {"Mana", "Life", "Energy Shield", "Rage", "Ward"}
 	for i, resourceName in ipairs(resources) do
 		local resource = resourceName:gsub(" ", "")
 		local pool = output[resource] or 0
@@ -1881,18 +1890,6 @@ function calcs.defence(env, actor)
 		end
 	end
 
-	-- Ward recharge
-	output.WardRechargeDelay = data.misc.WardRechargeDelay / (1 + modDB:Sum("INC", nil, "WardRechargeFaster") / 100)
-	if breakdown then
-		if output.WardRechargeDelay ~= data.misc.WardRechargeDelay then
-			breakdown.WardRechargeDelay = {
-				s_format("%.2fs ^8(base)", data.misc.WardRechargeDelay),
-				s_format("/ %.2f ^8(faster start)", 1 + modDB:Sum("INC", nil, "WardRechargeFaster") / 100),
-				s_format("= %.2fs", output.WardRechargeDelay)
-			}
-		end
-	end
-
 	-- Damage Reduction
 	output.DamageReductionMax = modDB:Max(nil, "DamageReductionMax") or data.misc.DamageReductionCap
 	modDB:NewMod("ArmourAppliesToPhysicalDamageTaken", "BASE", 100)
@@ -1942,6 +1939,8 @@ function calcs.defence(env, actor)
 	end
 
 	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
+
+	output.WardOnBlock = modDB:Sum("BASE", nil, "WardOnBlock")
 
 	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
 	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
@@ -2037,26 +2036,24 @@ function calcs.defence(env, actor)
 end
 
 -- function that iteratively reduces pools until life hits 0 to determine the number of hits it would take with given damage to die
-local function numberOfHitsToDie(output, modDB, actor, DamageIn)
+local function numberOfHitsToDie(output, actor, DamageIn)
 	local numHits = 0
 	DamageIn["cycles"] = DamageIn["cycles"] or 1
 	DamageIn["iterations"] = DamageIn["iterations"] or 0
 
-	-- check damage in isn't 0 and that ward doesn't mitigate all damage
+	-- Check damage in isn't 0
 	for _, damageType in ipairs(dmgTypeList) do
 		numHits = numHits + DamageIn[damageType]
 	end
 	if numHits == 0 then
-		return m_huge
-	elseif modDB:Flag(nil, "WardNotBreak") and output.Ward > 0 and numHits < output.Ward then
 		return m_huge
 	else
 		numHits = 0
 	end
 
 	local ward = output.Ward or 0
-	-- don't apply non-perma ward for speed up calcs as it won't zero it correctly per hit
-	if (not modDB:Flag(nil, "WardNotBreak")) and DamageIn["cycles"] > 1 then
+	-- Don't apply Runic Ward when batching hits, as it only protects the first hit.
+	if DamageIn["cycles"] > 1 then
 		ward = 0
 	end
 	local aegis = {}
@@ -2111,8 +2108,6 @@ local function numberOfHitsToDie(output, modDB, actor, DamageIn)
 		DamageIn["TrackRecoupable"] = false
 		DamageIn["TrackLifeLossOverTime"] = false
 	end
-	DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
-
 	local VaalArcticArmourHitsLeft = output.VaalArcticArmourLife
 	if DamageIn["cycles"] > 1 then
 		VaalArcticArmourHitsLeft = 0
@@ -2138,6 +2133,7 @@ local function numberOfHitsToDie(output, modDB, actor, DamageIn)
 			poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit * (gainMult - 1), gainMult * (output.LifeRecoverable or 0))
 			poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1), gainMult * (output.ManaUnreserved or 0))
 			poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1), gainMult * output.EnergyShieldRecoveryCap)
+			poolTable.Ward = m_min(poolTable.Ward + DamageIn.WardWhenHit * (gainMult - 1), gainMult * (output.Ward or 0))
 		end
 		poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
 
@@ -2149,6 +2145,7 @@ local function numberOfHitsToDie(output, modDB, actor, DamageIn)
 			poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
 			poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.ManaUnreserved or 0)
 			poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit, output.EnergyShieldRecoveryCap)
+			poolTable.Ward = m_min(poolTable.Ward + (DamageIn.WardWhenHit or 0), output.Ward or 0)
 		end
 		iterationMultiplier = 1
 		-- to speed it up, run recursively but accelerated
@@ -2167,10 +2164,11 @@ local function numberOfHitsToDie(output, modDB, actor, DamageIn)
 				Damage.LifeWhenHit = DamageIn.LifeWhenHit
 				Damage.ManaWhenHit = DamageIn.ManaWhenHit
 				Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
+				Damage.WardWhenHit = DamageIn.WardWhenHit
 			end
 			Damage["cycles"] = DamageIn["cycles"] * speedUp
 			Damage["iterations"] = DamageIn["iterations"]
-			iterationMultiplier = m_max((numberOfHitsToDie(output, modDB, actor, Damage) - 1) * speedUp - 1, 1)
+			iterationMultiplier = m_max((numberOfHitsToDie(output, actor, Damage) - 1) * speedUp - 1, 1)
 			if iterationMultiplier == m_huge then -- avoid unnecessary calculations if we know we survive infinite hits.
 				return m_huge
 			end
@@ -3181,6 +3179,7 @@ function calcs.buildDefenceEstimations(env, actor)
 	end
 
 	--total pool
+	local ward = modDB:Sum("BASE", nil, "WardBypass") == 0 and output.Ward or 0
 	for _, damageType in ipairs(dmgTypeList) do
 		output[damageType.."TotalPool"] = output[damageType.."ManaEffectiveLife"]
 		output[damageType.."TotalHitPool"] = output[damageType.."MoMHitPool"]
@@ -3199,6 +3198,8 @@ function calcs.buildDefenceEstimations(env, actor)
 				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.EnergyShieldRecoveryCap / chaosESMultiplier
 			end
 		end
+		local poolBeforeWard = output[damageType.."TotalPool"]
+		output[damageType.."TotalPool"] = poolBeforeWard + ward
 		if breakdown then
 			breakdown[damageType.."TotalPool"] = {
 				s_format("Life: %d", output.LifeRecoverable)
@@ -3208,9 +3209,12 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			if modDB:Flag(nil, "EternalLife") then
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Energy Shield: %d%s", output.EnergyShieldRecoveryCap / chaosESMultiplier, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Life change prevented by Eternal Life: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier))
+				t_insert(breakdown[damageType.."TotalPool"], s_format("Life change prevented by Eternal Life: %d", poolBeforeWard - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier))
 			elseif esBypass < 1 then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
+				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", poolBeforeWard - output[damageType.."ManaEffectiveLife"]))
+			end
+			if ward > 0 then
+				t_insert(breakdown[damageType.."TotalPool"], s_format("Runic Ward: %d", ward))
 			end
 			t_insert(breakdown[damageType.."TotalPool"], s_format("Total Pool: %d", output[damageType.."TotalPool"]))
 		end
@@ -3224,7 +3228,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn[damageType] = output[damageType.."TakenHit"]
 			end
 			DamageIn["LimitEHPSpeedup"] = output["preventedLifeLossTotal"] > 0
-			output["NumberOfDamagingHits"] = numberOfHitsToDie(output, modDB, actor, DamageIn)
+			output["NumberOfDamagingHits"] = numberOfHitsToDie(output, actor, DamageIn)
 		end
 
 
@@ -3243,6 +3247,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.LifeWhenHit = output.LifeOnBlock * BlockChance
 				DamageIn.ManaWhenHit = output.ManaOnBlock * BlockChance
 				DamageIn.EnergyShieldWhenHit = output.EnergyShieldOnBlock * BlockChance
+				DamageIn.WardWhenHit = output.WardOnBlock * BlockChance
 				if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
 					DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock * BlockChance
 				elseif damageCategoryConfig == "Average" then
@@ -3274,13 +3279,14 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			-- gain when hit (currently just gain on block/suppress)
 			if not env.configInput.DisableEHPGainOnBlock then
-				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0 or DamageIn.EnergyShieldWhenHit ~= 0 then
+				if (DamageIn.LifeWhenHit or 0) ~= 0 or (DamageIn.ManaWhenHit or 0) ~= 0 or DamageIn.EnergyShieldWhenHit ~= 0 or DamageIn.WardWhenHit ~= 0 then
 					DamageIn.GainWhenHit = true
 				end
 			else
 				DamageIn.LifeWhenHit = 0
 				DamageIn.ManaWhenHit = 0
 				DamageIn.EnergyShieldWhenHit = 0
+				DamageIn.WardWhenHit = 0
 			end
 			for _, damageType in ipairs(dmgTypeList) do
 				 -- Emperor's Vigilance (this needs to fail with divine flesh as it can't override it, hence the check for high bypass)
@@ -3318,7 +3324,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			DamageIn["LimitEHPSpeedup"] = DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - averageAvoidChance / 100))
-			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(output, modDB, actor, DamageIn) or output["NumberOfDamagingHits"]
+			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(output, actor, DamageIn) or output["NumberOfDamagingHits"]
 			if breakdown then
 				breakdown["ConfiguredDamageChance"] = {
 					s_format("%.2f ^8(chance for block to fail)", 1 - BlockChance)
@@ -3616,14 +3622,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		-- fix total pools, as they aren't used anymore
 		for _, damageType in ipairs(dmgTypeList) do
 			-- ward
-			local wardBypass = modDB:Sum("BASE", nil, "WardBypass") or 0
-			if wardBypass > 0 then
-				local poolProtected = output.Ward / (1 - wardBypass / 100) * (wardBypass / 100)
-				local sourcePool = output[damageType.."TotalHitPool"]
-				sourcePool = m_max(sourcePool - poolProtected, 0) + m_min(sourcePool, poolProtected) / (wardBypass / 100)
-				output[damageType.."TotalHitPool"] = sourcePool
-			else
-				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.Ward or 0
+			if modDB:Sum("BASE", nil, "WardBypass") == 0 then
+				output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.Ward
 			end
 			-- aegis
 			output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + m_max(m_max(output[damageType.."Aegis"], output["sharedAegis"]), isElemental[damageType] and output[damageType.."AegisDisplay"] or 0)
@@ -3915,6 +3915,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetLifeRegen = output.LifeRegenRecovery
 			output.NetManaRegen = output.ManaRegenRecovery
 			output.NetEnergyShieldRegen = output.EnergyShieldRegenRecovery
+			output.NetWardRegen = output.WardRegenRecovery
 			local totalLifeDegen = 0
 			local totalManaDegen = 0
 			local totalEnergyShieldDegen = 0
@@ -3985,7 +3986,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.NetLifeRegen = output.NetLifeRegen - totalLifeDegen
 			output.NetManaRegen = output.NetManaRegen - totalManaDegen
 			output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
-			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
+			output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen + output.NetWardRegen
 			if breakdown then
 				t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
 				t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
@@ -3993,6 +3994,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(total mana regen)", output.ManaRegenRecovery))
 				t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
 				t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
+				breakdown.NetWardRegen = { s_format("%.1f ^8(total runic ward regen)", output.WardRegenRecovery) }
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(total energy shield degen)", totalEnergyShieldDegen))
 				t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
@@ -4000,6 +4002,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					s_format("Net Life Regen: %.1f", output.NetLifeRegen),
 					s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
 					s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
+					s_format("+ Net Runic Ward Regen: %.1f", output.NetWardRegen),
 					s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
 				}
 			end
@@ -4155,6 +4158,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			else
 				output.ComprehensiveNetLifeRegen = output.LifeRegenRecovery
 				output.ComprehensiveNetManaRegen = output.ManaRegenRecovery
+				output.ComprehensiveNetWardRegen = output.WardRegenRecovery
 				output.ComprehensiveNetEnergyShieldRegen = output.EnergyShieldRegenRecovery
 				local totalLifeDegen = 0
 				local totalManaDegen = 0
@@ -4227,7 +4231,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				output.ComprehensiveNetLifeRegen = output.ComprehensiveNetLifeRegen + (output.LifeRecoupRecoveryAvg or 0) - totalLifeDegen - (output.LifeLossLostAvg or 0)
 				output.ComprehensiveNetManaRegen = output.ComprehensiveNetManaRegen + (output.ManaRecoupRecoveryAvg or 0) - totalManaDegen
 				output.ComprehensiveNetEnergyShieldRegen = output.ComprehensiveNetEnergyShieldRegen + (output.EnergyShieldRecoupRecoveryAvg or 0) - totalEnergyShieldDegen
-				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetEnergyShieldRegen
+				output.ComprehensiveTotalNetRegen = output.ComprehensiveNetLifeRegen + output.ComprehensiveNetManaRegen + output.ComprehensiveNetWardRegen + output.ComprehensiveNetEnergyShieldRegen
 				if breakdown then
 					t_insert(breakdown.ComprehensiveNetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
 					if (output.LifeRecoupRecoveryAvg or 0) ~= 0 then
@@ -4244,6 +4248,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					end
 					t_insert(breakdown.ComprehensiveNetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
 					t_insert(breakdown.ComprehensiveNetManaRegen, s_format("= %.1f", output.ComprehensiveNetManaRegen))
+					breakdown.ComprehensiveNetWardRegen = { s_format("%.1f ^8(total runic ward regen)", output.WardRegenRecovery) }
 					t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
 					if (output.EnergyShieldRecoupRecoveryAvg or 0) ~= 0 then
 						t_insert(breakdown.ComprehensiveNetEnergyShieldRegen, s_format("+ %.1f ^8(average energy shield recoup)", (output.EnergyShieldRecoupRecoveryAvg or 0)))
@@ -4253,6 +4258,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					breakdown.ComprehensiveTotalNetRegen = {
 						s_format("Net Life Regen: %.1f", output.ComprehensiveNetLifeRegen),
 						s_format("+ Net Mana Regen: %.1f", output.ComprehensiveNetManaRegen),
+						s_format("+ Net Runic Ward Regen: %.1f", output.ComprehensiveNetWardRegen),
 						s_format("+ Net Energy Shield Regen: %.1f", output.ComprehensiveNetEnergyShieldRegen),
 						s_format("= Total Net Regen: %.1f", output.ComprehensiveTotalNetRegen)
 					}
@@ -4333,10 +4339,6 @@ function calcs.buildDefenceEstimations(env, actor)
 				resourcesLostSum = resourcesLostSum + resourcesLost.sharedGuard
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.SCOURGE.."Shared Guard charge", resourcesLost.sharedGuard))
 			end
-			if resourcesLost.ward then
-				resourcesLostSum = resourcesLostSum + resourcesLost.ward
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Ward", resourcesLost.ward))
-			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
@@ -4355,6 +4357,10 @@ function calcs.buildDefenceEstimations(env, actor)
 			if resourcesLost.life and resourcesLost.life > 0 then
 				resourcesLostSum = resourcesLostSum + resourcesLost.life
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.LIFE.."Life", resourcesLost.life))
+			end
+			if resourcesLost.runicWard then
+				resourcesLostSum = resourcesLostSum + resourcesLost.runicWard
+				t_insert(breakdownTable, s_format("\t%d "..colorCodes.WARD.."Runic Ward", resourcesLost.runicWard))
 			end
 			if resourcesLost.overkill then
 				resourcesLostSum = resourcesLostSum + resourcesLost.overkill
