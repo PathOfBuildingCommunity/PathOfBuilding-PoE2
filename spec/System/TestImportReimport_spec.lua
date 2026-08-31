@@ -250,11 +250,16 @@ Fireball 20/0  1
 		helmet.explicitMods = {
 			"You can wield Two-Handed Axes, Maces and Swords in one hand",
 		}
+		local maceStrike = makeGemEntry(false, "Mace Strike", 20)
+		maceStrike.weaponRequirements = {
+			{ name = "", values = { { "[Mace|Two Hand Mace]", 0 } } },
+		}
 
-		build.importTab:ImportItemsAndSkills(buildImportPayload({ shield, weapon, helmet }, {}))
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ shield, weapon, helmet }, { maceStrike }))
 
 		assert.are_not.equal(0, build.itemsTab.slots["Weapon 1 Swap"].selItemId)
 		assert.are_not.equal(0, build.itemsTab.slots["Weapon 2 Swap"].selItemId)
+		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemId)
 	end)
 
 	it("uses unique database and rune levels when importing unique items from account data", function()
