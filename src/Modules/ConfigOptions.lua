@@ -165,6 +165,11 @@ local configSettings = {
 	{ var = "conditionMissingRunicWard", type = "check", label = "Are you missing ^xFFFF77Runic Ward?", ifCond = "MissingRunicWard", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:MissingRunicWard", "FLAG", true, "Config")
 	end },
+	{ var = "conditionNoRunicWard", type = "check", label = "Do you have no ^xFFFF77Runic Ward?", ifCond = "NoRunicWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:NoRunicWard", "FLAG", true, "Config")
+		modList:NewMod("Condition:LowRunicWard", "FLAG", true, "Config")
+		modList:NewMod("Condition:MissingRunicWard", "FLAG", true, "Config")
+	end },
 	{ var = "minionsConditionFullLife", type = "check", label = "Are your Minions always on Full ^xE05030Life?", ifMinionCond = "FullLife", apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:FullLife", "FLAG", true, "Config") }, "Config")
 	end },
@@ -468,6 +473,10 @@ local configSettings = {
 	{ label = "Into the Breach:", ifSkill = "Into the Breach" },
 	{ var = "purpleFlameStacks", type = "count", label = "Purple Flames collected:", tooltip = "Number of Purple Flames of Chayula collected (max 10).", ifSkill = "Into the Breach", defaultState = 10, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:PurpleFlamesCount", "BASE", m_min(val, 10), "Config")
+	end },
+	{ label = "Leylines:", ifSkill = "Leylines" },
+	{ var = "onLeyline", type = "check", label = "Are you on a Leyline?", ifSkill = "Leylines", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:OnLeyline", "FLAG", true, "Config")
 	end },
 	{ label = "Link Skills:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" } },
 	{ var = "multiplierLinkedTargets", type = "count", label = "# of linked Targets:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" }, apply = function(val, modList, enemyModList)

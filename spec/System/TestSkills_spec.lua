@@ -63,6 +63,47 @@ describe("TestSkills", function()
 		assertGemSupportLevel("Apocalypse", 3, 4)
 	end)
 
+	it("applies Leylines Runic Ward degeneration", function()
+		build.skillsTab:PasteSocketGroup("Leylines 1/0  1")
+		build.configTab.input.onLeyline = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.near(206 / 60, output.WardDegen, 0.01)
+		assert.are.near(output.WardRegen - output.WardDegen, output.WardRegenRecovery, 0.01)
+	end)
+
+	it("calculates Scouring Flame runic ward cost and efficiency", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\nScouring Flame 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(2, build.calcsTab.mainOutput.WardCost)
+
+		build.configTab.input.customMods = "100% increased Runic Ward Cost Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(1, build.calcsTab.mainOutput.WardCost)
+	end)
+
+	it("calculates runic infusion support costs from maximum runic ward", function()
+		for _, support in ipairs({ "Runic Infusion", "Olroth's Hubris" }) do
+			newBuild()
+			build.configTab.input.customMods = "+100 to maximum Runic Ward"
+			build.configTab:BuildModList()
+			build.itemsTab:CreateDisplayItemFromRaw("New Item\nMarauding Mace")
+			build.itemsTab:AddDisplayItem()
+			build.skillsTab:PasteSocketGroup("Leap Slam 1/0  1\n" .. support .. " 1/0  1")
+			runCallback("OnFrame")
+			assert.are.equals(20, build.calcsTab.mainOutput.WardCost)
+		end
+	end)
+
+	it("calculates Runic Reprieve's ongoing runic ward cost", function()
+		build.skillsTab:PasteSocketGroup("Runic Reprieve 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(3, build.calcsTab.mainOutput.WardPerSecondCost)
+	end)
+
 	it("applies Advanced Thaumaturgy quality stats only when enabled", function()
 		local advancedThaumaturgy = build.spec.nodes[14429]
 		assert.is_not_nil(advancedThaumaturgy)

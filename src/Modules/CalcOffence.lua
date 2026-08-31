@@ -2069,15 +2069,15 @@ function calcs.offence(env, actor, activeSkill)
 		["Mana"] = { type = "Mana", upfront = true, percent = false, text = "mana", baseCost = 0, baseCostRaw = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["Life"] = { type = "Life", upfront = true, percent = false, text = "life", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["ES"] = { type = "ES", upfront = true, percent = false, text = "ES", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["Ward"] = { type = "Ward", upfront = true, percent = false, text = "ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Ward"] = { type = "Ward", upfront = true, percent = false, text = "runic ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["Soul"] = { type = "Soul", upfront = true, percent = false, unaffectedByGenericCostMults = true, text = "soul", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["Rage"] = { type = "Rage", upfront = true, percent = false, text = "rage", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["ManaPercent"] = { type = "Mana", upfront = true, percent = true, text = "mana", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["LifePercent"] = { type = "Life", upfront = true, percent = true, text = "life", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["WardPercent"] = { type = "Ward", upfront = true, percent = true, text = "ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["WardPercent"] = { type = "Ward", upfront = true, percent = true, text = "runic ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["ManaPerMinute"] = { type = "Mana", upfront = false, percent = false, text = "mana/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["LifePerMinute"] = { type = "Life", upfront = false, percent = false, text = "life/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["WardPerMinute"] = { type = "Ward", upfront = false, percent = false, text = "ward/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["WardPerMinute"] = { type = "Ward", upfront = false, percent = false, text = "runic ward/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["ManaPercentPerMinute"] = { type = "Mana", upfront = false, percent = true, text = "mana/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["LifePercentPerMinute"] = { type = "Life", upfront = false, percent = true, text = "life/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 		["ESPerMinute"] = { type = "ES", upfront = false, percent = false, text = "ES/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
@@ -2145,7 +2145,7 @@ function calcs.offence(env, actor, activeSkill)
 					val.baseCost = costs[manaType].baseCost
 					val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * additionalESCost))
 				end
-			elseif val.type == "Ward" then
+			elseif val.type == "Ward" and resource == "Ward" then
 				local wardCostFromOtherCosts = 0
 				if wardCostPctOfMana ~= 0 then
 					wardCostFromOtherCosts = wardCostFromOtherCosts + round(costs["Mana"].finalBaseCost * wardCostPctOfMana)
@@ -3987,9 +3987,6 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.DoubleDamageEffect = output.DoubleDamageChance / 100
 		output.ScaledDamageEffect = output.ScaledDamageEffect * (1 + output.DoubleDamageEffect + output.TripleDamageEffect)
-
-		skillData.dpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
-
 
 		output.DpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
 

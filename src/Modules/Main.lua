@@ -1595,7 +1595,7 @@ end
 function main:StatColor(stat, base, limit)
 	if limit and stat > limit then
 		return colorCodes.NEGATIVE
-	elseif stat ~= base then
+	elseif base and stat ~= base then
 		return colorCodes.MAGIC
 	else
 		return "^7"

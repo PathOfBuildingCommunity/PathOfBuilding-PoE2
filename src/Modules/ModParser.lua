@@ -244,6 +244,7 @@ local modNameList = {
 	["evasion"] = "Evasion",
 	["evasion rating"] = "Evasion",
 	["energy shield"] = "EnergyShield",
+	["ward"] = "Ward",
 	["runic ward"] = "Ward",
 	["maximum runic ward"] = "Ward",
 	["armour and evasion"] = "ArmourAndEvasion",
@@ -1787,6 +1788,8 @@ local modTagList = {
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["on reaching low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["while you are missing runic ward"] = { tag = { type = "Condition", var = "MissingRunicWard" } },
+	["while missing runic ward"] = { tag = { type = "Condition", var = "MissingRunicWard" } },
+	["while you have no runic ward"] = { tag = { type = "Condition", var = "NoRunicWard" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low runic ward"] = { tag = { type = "Condition", var = "LowRunicWard" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?not on low life"] = { tag = { type = "Condition", var = "LowLife", neg = true } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
@@ -2288,6 +2291,9 @@ local specialModList = {
 	["enemies you kill during effect have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as damage of a random element"] = function(chance, _, amount)	-- Oriath's End
 		return explodeFunc(chance, amount, "randomElement", { type = "Condition", var = "UsingFlask" })
 	end,
+	["lose (%d+)%% life per second while you have no runic ward during effect"] = function(num)
+		return { mod("LifeDegenPercent", "BASE", num, { type = "Condition", var = "NoRunicWard" }, { type = "Condition", var = "UsingFlask" }) }
+	end,
 	["enemies you kill while affected by glorious madness have a (%d+)%% chance to explode, dealing a (.+) of their life as (.+) damage"] = function(chance, _, amount, type)	-- Beacon of Madness
 		return explodeFunc(chance, amount, type, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end,
@@ -2407,7 +2413,7 @@ local specialModList = {
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
-	["mana recovery from regeneration is also applied to runic ward"] = { flag("RuneOfEquinox") },
+	["mana recovery from regeneration is also applied to runic ward"] = { flag("ManaRegenerationRecoversWard") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life regeneration has no effect"] = { flag("NoLifeRegen") },
 	["life recharges instead of energy shield"] = { flag("EnergyShieldRechargeAppliesToLife") },
@@ -2589,6 +2595,7 @@ local specialModList = {
 	},
 	["life recovery from flasks also applies to energy shield"] = { flag("LifeFlaskAppliesToEnergyShield") },
 	["life recovery from flasks applies to energy shield instead"] = { flag("LifeFlaskAppliesToEnergyShield"), flag("LifeFlaskDoesNotApply") },
+	["(%d+)%% life recovery from flasks also applies to runic ward"] = function(num) return { mod("LifeFlaskRecoveryAppliesToWard", "BASE", num) } end,
 	["non%-instant mana recovery from flasks is also recovered as life"] = { flag("ManaFlaskAppliesToLife") },
 	["life leech effects recover energy shield instead while on full life"] = { flag("ImmortalAmbition", { type = "Condition", var = "FullLife" }, { type = "Condition", var = "LeechingLife" }) },
 	["shepherd of souls"] = { mod("Damage", "MORE", -30, { type = "SkillType", skillType = SkillType.Vaal, neg = true }) },
@@ -5392,7 +5399,6 @@ local specialModList = {
 	} end,
 	["phasing while on low life"] = { flag("Condition:Phasing", { type = "Condition", var = "LowLife" }) },
 	["cannot be ignited while on low life"] = { flag("IgniteImmune", { type = "Condition", var = "LowLife" }), },
-	["ward does not break during f?l?a?s?k? ?effect"] = { flag("WardNotBreak", { type = "Condition", var = "UsingFlask" }) },
 	["stun threshold is based on energy shield instead of life"] = {
 		flag("StunThresholdBasedOnEnergyShieldInsteadOfLife"),
 		mod("StunThresholdEnergyShieldPercent", "BASE", 100),

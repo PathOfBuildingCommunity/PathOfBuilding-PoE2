@@ -10119,6 +10119,15 @@ skills["LeylinesPlayer"] = {
 			baseEffectiveness = 106,
 			incrementalEffectiveness = 0.27000001072884,
 			statDescriptionScope = "leylines",
+			statMap = {
+				["skill_leylines_ward_degeneration_per_minute"] = {
+					mod("WardDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnLeyline" }),
+					div = 60,
+				},
+				["skill_leylines_spell_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Condition", var = "OnLeyline" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

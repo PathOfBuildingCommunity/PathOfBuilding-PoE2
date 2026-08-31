@@ -3554,7 +3554,7 @@ function CompareTabClass:DrawItemExpanded(item, x, startY, colWidth, otherModMap
 					drawY = drawY + lineHeight
 				end
 				if ward > 0 then
-					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FWard: " .. colorCodes.MAGIC .. "%d", ward))
+					DrawString(x, drawY, "LEFT", fontSize, "VAR", s_format("^x7F7F7FRunic Ward: " .. colorCodes.MAGIC .. "%d", ward))
 					drawY = drawY + lineHeight
 				end
 				if armourData.BlockChance and armourData.BlockChance > 0 then
