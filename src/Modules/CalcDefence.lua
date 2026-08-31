@@ -423,6 +423,16 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 	end
 	return damageBreakdown, totalDamageTaken
 end
+local function damageMitigationMultiplierForType(output, modDB, damageType, damage, type)
+	local effectiveAppliedArmour = output[type .. "EffectiveAppliedArmour"]
+	local armourDRPercent = calcs.armourReductionF(effectiveAppliedArmour, damage)
+	local flatDRPercent = modDB:Flag(nil, "SelfIgnore" .. "Base" .. type .. "DamageReduction") and 0 or output["Base" .. type .. "DamageReductionWhenHit"] or output["Base" .. type .. "DamageReduction"]
+	local totalDRPercent = m_min(output[damageType .. "DamageReductionMax"], armourDRPercent + flatDRPercent)
+	local enemyOverwhelmPercent = modDB:Flag(nil, "SelfIgnore" .. type .. "DamageReduction") and 0 or output[type .. "EnemyOverwhelm"]
+	local totalDRMulti = 1 - m_max(m_min(output[damageType .. "DamageReductionMax"], totalDRPercent - enemyOverwhelmPercent), 0) / 100
+	local totalResistMult = output[type .. "ResistTakenHitMulti"]
+	return totalResistMult * totalDRMulti
+end
 
 ---Calculates the taken damages from enemy outgoing damage
 ---@param rawDamage number raw incoming damage number, after enemy damage multiplier
@@ -433,16 +443,6 @@ function calcs.takenHitFromDamage(rawDamage, damageType, actor)
 	---@class Output
 	local output = actor.output
 	local modDB = actor.modDB
-	local function damageMitigationMultiplierForType(damage, type)
-		local effectiveAppliedArmour = output[type .."EffectiveAppliedArmour"]
-		local armourDRPercent = calcs.armourReductionF(effectiveAppliedArmour, damage)
-		local flatDRPercent = modDB:Flag(nil, "SelfIgnore".."Base".. type .."DamageReduction") and 0 or output["Base".. type .."DamageReductionWhenHit"] or output["Base".. type .."DamageReduction"]
-		local totalDRPercent = m_min(output[damageType.."DamageReductionMax"], armourDRPercent + flatDRPercent)
-		local enemyOverwhelmPercent = modDB:Flag(nil, "SelfIgnore".. type .."DamageReduction") and 0 or output[type .."EnemyOverwhelm"]
-		local totalDRMulti = 1 - m_max(m_min(output[damageType.."DamageReductionMax"], totalDRPercent - enemyOverwhelmPercent), 0) / 100
-		local totalResistMult = output[type .."ResistTakenHitMulti"]
-		return totalResistMult * totalDRMulti
-	end
 	local receivedDamageSum = 0
 	local damages = { }
 	for damageConvertedType, convertPercent in pairs(actor.damageShiftTable[damageType]) do
@@ -450,7 +450,7 @@ function calcs.takenHitFromDamage(rawDamage, damageType, actor)
 		if convertPercent > 0 or takenFlat ~= 0 then
 			local convertedDamage = rawDamage * convertPercent / 100
 			local vaalArctic = m_min(-modDB:Sum("MORE", nil, "VaalArcticArmourMitigation") / 100, 1)
-			local reducedDamage = round(m_max(convertedDamage * damageMitigationMultiplierForType(convertedDamage, damageConvertedType) + takenFlat, 0) * output[damageConvertedType .."AfterReductionTakenHitMulti"]) * (1 - vaalArctic)
+			local reducedDamage = round(m_max(convertedDamage * damageMitigationMultiplierForType(output, modDB, damageType, convertedDamage, damageConvertedType) + takenFlat, 0) * output[damageConvertedType .. "AfterReductionTakenHitMulti"]) * (1 - vaalArctic)
 			receivedDamageSum = receivedDamageSum + reducedDamage
 			damages[damageConvertedType] = (reducedDamage > 0 or convertPercent > 0) and reducedDamage or nil
 		end

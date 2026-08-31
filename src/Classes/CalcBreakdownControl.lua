@@ -312,7 +312,13 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 		rowList = copyTable(modList)
 	else
 		if type(sectionData.modName) == "table" then
-			rowList = modStore:Tabulate(sectionData.modType, cfg, unpack(sectionData.modName))
+			rowList = {}
+			for _, mod in ipairs(sectionData.modName) do
+				local mods = modStore:Tabulate(sectionData.modType, cfg, mod)
+				for _, mod in ipairs(mods) do
+					table.insert(rowList, mod)
+				end
+			end
 		else
 			rowList = modStore:Tabulate(sectionData.modType, cfg, sectionData.modName)
 		end

@@ -179,6 +179,24 @@ local function addWeaponBaseStats(actor)
 	end
 end
 
+local function hasActiveSkillExposureSource(activeSkill, modName)
+	return activeSkill.skillModList and activeSkill.skillCfg
+		and (activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, modName) or activeSkill.skillModList:HasMod("FLAG", activeSkill.skillCfg, "InflictExposure"))
+		or activeSkill.baseSkillModList
+		and (activeSkill.baseSkillModList:HasMod("BASE", nil, modName) or activeSkill.baseSkillModList:HasMod("FLAG", nil, "InflictExposure"))
+end
+local function hasExposureSource(modDB, env, element)
+	local modName = element .. "ExposureChance"
+	if modDB:Sum("BASE", nil, modName) > 0 or modDB:HasMod("FLAG", nil, "InflictExposure") then
+		return true
+	end
+	for _, activeSkill in ipairs(env.player.activeSkillList) do
+		if hasActiveSkillExposureSource(activeSkill, modName) then
+			return true
+		end
+	end
+	return false
+end
 -- Generic radius/area calculator for a given key prefix (e.g. "Presence", "Surrounded")
 ---@param actor Actor
 ---@param key string  -- e.g. "Presence" or "Surrounded"
@@ -210,6 +228,34 @@ local function calcBuffRadius(actor, key)
 			t_insert(actor.breakdown[modKey], s_format(" x %.2f  ^8(more)", moreRadius))
 			t_insert(actor.breakdown[modKey], s_format(" = %.1fm", scaledRadius / 10))
 		end
+	end
+end
+local function calculateAttributes(modDB, output, breakdown, condList)
+	for _ = 1, 2 do -- Calculate twice because of circular dependency (X attribute higher than Y attribute)
+		for _, stat in ipairs({ "Str", "Dex", "Int" }) do
+			output[stat] = m_max(round(calcLib.val(modDB, stat)), 0)
+			if breakdown then
+				breakdown[stat] = breakdown.simple(nil, nil, output[stat], stat)
+			end
+		end
+
+		local stats = { output.Str, output.Dex, output.Int }
+		table.sort(stats)
+		output.LowestAttribute = stats[1]
+		condList["TwoHighestAttributesEqual"] = stats[2] == stats[3]
+
+		condList["DexHigherThanInt"] = output.Dex > output.Int
+		condList["StrHigherThanInt"] = output.Str > output.Int
+		condList["IntHigherThanDex"] = output.Int > output.Dex
+		condList["StrHigherThanDex"] = output.Str > output.Dex
+		condList["IntHigherThanStr"] = output.Int > output.Str
+		condList["DexHigherThanStr"] = output.Dex > output.Str
+
+		condList["StrHighestAttribute"] = output.Str >= output.Dex and output.Str >= output.Int
+		condList["IntHighestAttribute"] = output.Int >= output.Str and output.Int >= output.Dex
+		condList["DexHighestAttribute"] = output.Dex >= output.Str and output.Dex >= output.Int
+		condList["IntSingleHighestAttribute"] = output.Int > output.Str and output.Int > output.Dex
+		condList["DexSingleHighestAttribute"] = output.Dex > output.Str and output.Dex > output.Int
 	end
 end
 -- Calculate attributes, and set conditions
@@ -424,70 +470,22 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 	if env.mode_effective then
-		local function hasActiveSkillExposureSource(activeSkill, modName)
-			return activeSkill.skillModList and activeSkill.skillCfg
-				and (activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, modName) or activeSkill.skillModList:HasMod("FLAG", activeSkill.skillCfg, "InflictExposure"))
-				or activeSkill.baseSkillModList
-				and (activeSkill.baseSkillModList:HasMod("BASE", nil, modName) or activeSkill.baseSkillModList:HasMod("FLAG", nil, "InflictExposure"))
-		end
-		local function hasExposureSource(element)
-			local modName = element .. "ExposureChance"
-			if modDB:Sum("BASE", nil, modName) > 0 or modDB:HasMod("FLAG", nil, "InflictExposure") then
-				return true
-			end
-			for _, activeSkill in ipairs(env.player.activeSkillList) do
-				if hasActiveSkillExposureSource(activeSkill, modName) then
-					return true
-				end
-			end
-			return false
-		end
-		if hasExposureSource("Fire") then
+		if hasExposureSource(modDB, env, "Fire") then
 			condList["CanApplyFireExposure"] = true
 			modDB:NewMod("Condition:CanApplyFireExposure", "FLAG", true, "Exposure")
 		end
-		if hasExposureSource("Cold") then
+		if hasExposureSource(modDB, env, "Cold") then
 			condList["CanApplyColdExposure"] = true
 			modDB:NewMod("Condition:CanApplyColdExposure", "FLAG", true, "Exposure")
 		end
-		if hasExposureSource("Lightning") then
+		if hasExposureSource(modDB, env, "Lightning") then
 			condList["CanApplyLightningExposure"] = true
 			modDB:NewMod("Condition:CanApplyLightningExposure", "FLAG", true, "Exposure")
 		end
 	end
 
-	-- Calculate attributes
-	local calculateAttributes = function()
-		for pass = 1, 2 do -- Calculate twice because of circular dependency (X attribute higher than Y attribute)
-			for _, stat in ipairs({ "Str", "Dex", "Int" }) do
-				output[stat] = m_max(round(calcLib.val(modDB, stat)), 0)
-				if breakdown then
-					breakdown[stat] = breakdown.simple(nil, nil, output[stat], stat)
-				end
-			end
-
-			local stats = { output.Str, output.Dex, output.Int }
-			table.sort(stats)
-			output.LowestAttribute = stats[1]
-			condList["TwoHighestAttributesEqual"] = stats[2] == stats[3]
-
-			condList["DexHigherThanInt"] = output.Dex > output.Int
-			condList["StrHigherThanInt"] = output.Str > output.Int
-			condList["IntHigherThanDex"] = output.Int > output.Dex
-			condList["StrHigherThanDex"] = output.Str > output.Dex
-			condList["IntHigherThanStr"] = output.Int > output.Str
-			condList["DexHigherThanStr"] = output.Dex > output.Str
-
-			condList["StrHighestAttribute"] = output.Str >= output.Dex and output.Str >= output.Int
-			condList["IntHighestAttribute"] = output.Int >= output.Str and output.Int >= output.Dex
-			condList["DexHighestAttribute"] = output.Dex >= output.Str and output.Dex >= output.Int
-			condList["IntSingleHighestAttribute"] = output.Int > output.Str and output.Int > output.Dex
-			condList["DexSingleHighestAttribute"] = output.Dex > output.Str and output.Dex > output.Int
-		end
-	end
-
 	-- Calculate total attributes
-	calculateAttributes()
+	calculateAttributes(modDB, output, breakdown, condList)
 	output.TotalAttr = output.Str + output.Dex + output.Int
 
 	-- Special case for Devotion / Tribute
@@ -1168,6 +1166,19 @@ local function addMinionModifiers(modList, skillCfg, minion)
 	end
 end
 
+local function setSpectreSource(modList, sourceSkill, activeSkill, castingMinion)
+	if activeSkill.skillFlags.spectre then
+		local source = "Spectre:"
+		if sourceSkill then
+			source = source .. sourceSkill .. " - " .. castingMinion.minionData.name
+		else
+			source = source .. castingMinion.minionData.name
+		end
+		for i = 1, #modList do
+			modList[i].source = source
+		end
+	end
+end
 -- Finalises the environment and performs the stat calculations:
 -- 1. Merges keystone modifiers
 -- 2. Initialises minion skills
@@ -1632,14 +1643,8 @@ function calcs.perform(env, skipEHP)
 		return out
 	end
 
-	local function mergeFlasks(flasks, onlyRecovery, checkNonRecoveryFlasksForMinions)
-		local flaskBuffs = { }
-		local flaskConditions = {}
-		local flaskBuffsPerBase = {}
-		local flaskBuffsNonPlayer = {}
-		local flaskBuffsPerBaseNonPlayer = {}
 
-		local function calcFlaskMods(item, baseName, buffModList, modList, onlyMinion)
+	local function calcFlaskMods(item, baseName, buffModList, modList, onlyMinion, flaskBuffs, flaskBuffsPerBase, onlyRecovery, checkNonRecoveryFlasksForMinions, flaskBuffsNonPlayer, flaskBuffsPerBaseNonPlayer)
 			local flaskEffectInc = effectInc + item.flaskData.effectInc
 			local flaskEffectIncNonPlayer = effectIncNonPlayer + item.flaskData.effectInc
 			if item.rarity == "MAGIC" and not (item.base.flask.life or item.base.flask.mana) then
@@ -1660,7 +1665,7 @@ function calcs.perform(env, skipEHP)
 					mergeBuff(srcList, flaskBuffsPerBase[item.baseName], baseName)
 				end
 				if (not onlyRecovery or checkNonRecoveryFlasksForMinions) and (flasksApplyToMinion or quickSilverAppliesToAllies or (nonUniqueFlasksApplyToMinion and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")) then
-					srcList = new("ModList"):ModList()
+				local srcList = new("ModList"):ModList()
 					srcList:ScaleAddList(buffModList, effectModNonPlayer)
 					mergeBuff(srcList, flaskBuffsNonPlayer, baseName)
 					mergeBuff(srcList, flaskBuffsPerBaseNonPlayer[item.baseName], baseName)
@@ -1691,6 +1696,12 @@ function calcs.perform(env, skipEHP)
 				end
 			end
 		end
+	local function mergeFlasks(flasks, onlyRecovery, checkNonRecoveryFlasksForMinions)
+		local flaskBuffs = {}
+		local flaskConditions = {}
+		local flaskBuffsPerBase = {}
+		local flaskBuffsNonPlayer = {}
+		local flaskBuffsPerBaseNonPlayer = {}
 
 		for item in pairs(flasks) do
 			flaskBuffsPerBase[item.baseName] = flaskBuffsPerBase[item.baseName] or {}
@@ -1706,16 +1717,16 @@ function calcs.perform(env, skipEHP)
 
 			if onlyRecovery then
 				if item.base.flask.life and not modDB:Flag(nil, "CannotRecoverLifeOutsideLeech") then
-					calcFlaskMods(item, "LifeFlask", calcFlaskRecovery("Life", item), {})
+					calcFlaskMods(item, "LifeFlask", calcFlaskRecovery("Life", item), {}, nil, flaskBuffs, flaskBuffsPerBase, onlyRecovery, checkNonRecoveryFlasksForMinions, flaskBuffsNonPlayer, flaskBuffsPerBaseNonPlayer)
 				end
 				if item.base.flask.mana then
-					calcFlaskMods(item, "ManaFlask", calcFlaskRecovery("Mana", item), {})
+					calcFlaskMods(item, "ManaFlask", calcFlaskRecovery("Mana", item), {}, nil, flaskBuffs, flaskBuffsPerBase, onlyRecovery, checkNonRecoveryFlasksForMinions, flaskBuffsNonPlayer, flaskBuffsPerBaseNonPlayer)
 				end
 				if checkNonRecoveryFlasksForMinions then
-					calcFlaskMods(item, item.baseName, item.buffModList, item.modList, true)
+					calcFlaskMods(item, item.baseName, item.buffModList, item.modList, true, flaskBuffs, flaskBuffsPerBase, onlyRecovery, checkNonRecoveryFlasksForMinions, flaskBuffsNonPlayer, flaskBuffsPerBaseNonPlayer)
 				end
 			else
-				calcFlaskMods(item, item.baseName, item.buffModList, item.modList)
+				calcFlaskMods(item, item.baseName, item.buffModList, item.modList, nil, flaskBuffs, flaskBuffsPerBase, onlyRecovery, checkNonRecoveryFlasksForMinions, flaskBuffsNonPlayer, flaskBuffsPerBaseNonPlayer)
 			end
 		end
 		if not modDB:Flag(nil, "FlasksDoNotApplyToPlayer") then
@@ -1758,12 +1769,8 @@ function calcs.perform(env, skipEHP)
 		output.CharmLimit = charmLimit
 	end
 
-	local function mergeCharms(charms)
-		local charmBuffs = { }
-		local charmConditions = {}
-		local charmBuffsPerBase = {}
 
-		local function calcCharmMods(item, baseName, buffModList, modList)
+	local function calcCharmMods(item, baseName, buffModList, modList, charmBuffs, charmBuffsPerBase)
 			local charmEffectInc = effectInc + item.charmData.effectInc
 			if item.rarity == "MAGIC" then
 				charmEffectInc = charmEffectInc + effectIncMagic
@@ -1794,8 +1801,11 @@ function calcs.perform(env, skipEHP)
 				mergeBuff(srcList, charmBuffsPerBase[item.baseName], key)
 			end
 		end
+	local function mergeCharms(charms)
+		local charmBuffs = {}
+		local charmConditions = {}
+		local charmBuffsPerBase = {}
 
-		local usedCharms = 0
 		for item in pairs(charms) do
 			if charmLimit <= 0 then
 				break
@@ -1804,7 +1814,7 @@ function calcs.perform(env, skipEHP)
 			charmBuffsPerBase[item.baseName] = charmBuffsPerBase[item.baseName] or {}
 			charmConditions["UsingCharm"] = true
 			charmConditions["Using"..item.baseName:gsub("%s+", "")] = true
-			calcCharmMods(item, item.baseName, item.buffModList, item.modList)
+			calcCharmMods(item, item.baseName, item.buffModList, item.modList, charmBuffs, charmBuffsPerBase)
 		end
 		output.EmptyCharms = charmLimit
 		for charmCond, status in pairs(charmConditions) do
@@ -1848,6 +1858,11 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- Process attribute requirements
+	local function getSourceNameTooltipFunc(item, reqSource)
+		return function(tooltip)
+			env.build.itemsTab:AddItemTooltip(tooltip, item, reqSource.sourceSlot)
+		end
+	end
 	do
 		local reqMultItem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalItemAttributeRequirements")
 		local reqMultGem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalGemAttributeRequirements")
@@ -1917,10 +1932,8 @@ function calcs.perform(env, skipEHP)
 						}
 						if reqSource.source == "Item" then
 							local item = reqSource.sourceItem
-							row.sourceName = colorCodes[item.rarity]..item.name
-							row.sourceNameTooltip = function(tooltip)
-								env.build.itemsTab:AddItemTooltip(tooltip, item, reqSource.sourceSlot)
-							end
+							row.sourceName = colorCodes[item.rarity] .. item.name
+							row.sourceNameTooltip = getSourceNameTooltipFunc(item, reqSource)
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
 						elseif reqSource.source == "Support Gems" then
@@ -2568,19 +2581,6 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.minion and activeSkill.minion.activeSkillList then
 			local castingMinion = activeSkill.minion
 			for _, activeMinionSkill in ipairs(activeSkill.minion.activeSkillList) do
-			local function setSpectreSource(modList, sourceSkill)
-				if activeSkill.skillFlags.spectre then
-					local source = "Spectre:"
-					if sourceSkill then
-						source = source..sourceSkill.." - "..castingMinion.minionData.name
-					else
-						source = source..castingMinion.minionData.name
-					end
-					for i = 1, #modList do
-						modList[i].source = source
-					end
-				end
-			end
 				local skillModList = activeMinionSkill.skillModList
 				local skillCfg = activeMinionSkill.skillCfg
 				for _, buff in ipairs(activeMinionSkill.buffList) do
@@ -2658,7 +2658,7 @@ function calcs.perform(env, skipEHP)
 										local srcList = new("ModList"):ModList()
 										srcList:ScaleAddList(buff.modList, mult)
 										srcList:ScaleAddList(extraAuraModList, mult)
-										setSpectreSource(srcList, buff.name)
+										setSpectreSource(srcList, buff.name, activeSkill, castingMinion)
 										mergeBuff(srcList, buffs, buff.name)
 									end
 								end
@@ -2673,7 +2673,7 @@ function calcs.perform(env, skipEHP)
 										local srcList = new("ModList"):ModList()
 										srcList:ScaleAddList(buff.modList, mult)
 										srcList:ScaleAddList(extraAuraModList, mult)
-										setSpectreSource(srcList, buff.name)
+										setSpectreSource(srcList, buff.name, activeSkill, castingMinion)
 										mergeBuff(srcList, minionBuffs, buff.name)
 									end
 								end
@@ -2683,7 +2683,7 @@ function calcs.perform(env, skipEHP)
 								local newModList = new("ModList"):ModList()
 								newModList:AddList(buff.modList)
 								newModList:AddList(extraAuraModList)
-								setSpectreSource(newModList, buff.name)
+								setSpectreSource(newModList, buff.name, activeSkill, castingMinion)
 								if buffExports["Aura"][buff.name] then
 									buffExports["Aura"][buff.name.."_Debuff"] = buffExports["Aura"][buff.name]
 								end
@@ -2722,7 +2722,7 @@ function calcs.perform(env, skipEHP)
 											end
 										end
 									end
-									setSpectreSource(srcList)
+									setSpectreSource(srcList, nil, activeSkill, castingMinion)
 									mergeBuff(srcList, buffs, "Totem "..buff.name)
 								end
 							end
@@ -3445,7 +3445,6 @@ function calcs.perform(env, skipEHP)
 		return effect
 	end
 
-	-- Apply exposures
 	for _, element in ipairs({ "Fire", "Cold", "Lightning" }) do
 		if not modDB:Flag(nil, "ElementalEquilibrium") -- if Elemental Equilibrium isn't active we just process Exposure normally
 			or element == "Fire" and not enemyDB:Flag(nil, "Condition:HitByFireDamage")
@@ -3456,16 +3455,15 @@ function calcs.perform(env, skipEHP)
 			local extraExposure = modDB:Sum("BASE", nil, "ExtraExposure", "Extra"..element.."Exposure")
 			local globalExposureEffect = modDB:Sum("INC", nil, element.."ExposureEffect")
 			local exposureEffectOnSelf = enemyDB:More(nil, "ExposureEffectOnSelf")
-			local function checkExposure(value, modSource, skillExposureEffect)
+			for _, mod in ipairs(enemyDB:Tabulate("BASE", nil, element .. "Exposure")) do
+				local skillExposureEffect = getSkillExposureEffect(mod.mod.source, element)
 				-- Resolve each exposure source independently so skill-specific effect only scales the exposure from that skill.
+				local value = mod.value
 				value = m_floor((value + extraExposure) * ((globalExposureEffect + skillExposureEffect) / 100 + 1) * exposureEffectOnSelf)
 				if value > magnitude then
 					magnitude = value
-					source = modSource
+					source = mod.mod.source
 				end
-			end
-			for _, mod in ipairs(enemyDB:Tabulate("BASE", nil, element.."Exposure")) do
-				checkExposure(mod.value, mod.mod.source, getSkillExposureEffect(mod.mod.source, element))
 			end
 			if magnitude > 0 then
 				local exposureMin = modDB:Override(nil, "ExposureMin")

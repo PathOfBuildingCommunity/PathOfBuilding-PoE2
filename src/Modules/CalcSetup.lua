@@ -626,6 +626,43 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 	end
 end
 
+local function processGrantedEffect(grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
+	if not grantedEffect or not grantedEffect.support then
+		return
+	end
+	local supportEffect = {
+		grantedEffect = grantedEffect,
+		level = gemInstance.level,
+		quality = gemInstance.quality,
+		srcInstance = gemInstance,
+		gemData = gemInstance.gemData,
+		superseded = false,
+		isSupporting = {},
+	}
+	if env.mode == "MAIN" then
+		gemInstance.displayEffect = supportEffect
+		gemInstance.supportEffect = supportEffect
+	end
+	if gemInstance.gemData then
+		local playerItems = env.player.itemList
+		local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]
+		applyGemMods(supportEffect, socketedIn and getGemModList(env, groupCfg, socketedIn.color, gemIndex) or propertyModList)
+		if not processedSockets[gemInstance] then
+			processedSockets[gemInstance] = true
+			applySocketMods(env, gemInstance.gemData, groupCfg, gemIndex, playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].name)
+			-- Keep track of the gem count for each color socketed in this group
+			groupCfg.intelligenceGems = (groupCfg.intelligenceGems or 0) + (gemInstance.gemData.tags.intelligence and 1 or 0)
+			groupCfg.dexterityGems = (groupCfg.dexterityGems or 0) + (gemInstance.gemData.tags.dexterity and 1 or 0)
+			groupCfg.strengthGems = (groupCfg.strengthGems or 0) + (gemInstance.gemData.tags.strength and 1 or 0)
+		end
+	end
+	-- Validate support gem level in case there is no active skill (and no full calculation)
+	calcLib.validateGemLevel(supportEffect)
+
+	for _, targetList in ipairs(targetListList) do
+		addBestSupport(supportEffect, targetList, env.mode)
+	end
+end
 ---@alias CalcEnvMode "MAIN"|"CALCS"|"CALCULATOR"
 -- Initialise environment:
 -- 1. Initialises the player and enemy modifier databases
@@ -643,7 +680,6 @@ end
 ---@return ModDB? cachedEnemyDB
 ---@return ModDB? cachedMinionDB
 function calcs.initEnv(build, mode, override, specEnv)
-	ClearMatchKeywordFlagsCache()
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
@@ -1875,50 +1911,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 						gemInstance.supportEffect = nil
 					end
 					if gemInstance.enabled then
-						local function processGrantedEffect(grantedEffect)
-							if not grantedEffect or not grantedEffect.support then
-								return
-							end
-							local supportEffect = {
-								grantedEffect = grantedEffect,
-								level = gemInstance.level,
-								quality = gemInstance.quality,
-								srcInstance = gemInstance,
-								gemData = gemInstance.gemData,
-								superseded = false,
-								isSupporting = { },
-							}
-							if env.mode == "MAIN" then
-								gemInstance.displayEffect = supportEffect
-								gemInstance.supportEffect = supportEffect
-							end
-							if gemInstance.gemData then
-								local playerItems = env.player.itemList
-								local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]
-								applyGemMods(supportEffect, socketedIn and getGemModList(env, groupCfg, socketedIn.color, gemIndex) or propertyModList)
-								if not processedSockets[gemInstance] then
-									processedSockets[gemInstance] = true
-									applySocketMods(env, gemInstance.gemData, groupCfg, gemIndex, playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].name)
-									-- Keep track of the gem count for each color socketed in this group
-									groupCfg.intelligenceGems = (groupCfg.intelligenceGems or 0) + (gemInstance.gemData.tags.intelligence and 1 or 0)
-									groupCfg.dexterityGems = (groupCfg.dexterityGems or 0) + (gemInstance.gemData.tags.dexterity and 1 or 0)
-									groupCfg.strengthGems = (groupCfg.strengthGems or 0) + (gemInstance.gemData.tags.strength and 1 or 0)
-								end
-							end
-							-- Validate support gem level in case there is no active skill (and no full calculation)
-							calcLib.validateGemLevel(supportEffect)
-
-							for _, targetList in ipairs(targetListList) do
-								addBestSupport(supportEffect, targetList, env.mode)
-							end
-						end
 						if gemInstance.gemData then
-							processGrantedEffect(gemInstance.gemData.grantedEffect)
+							processGrantedEffect(gemInstance.gemData.grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 							for _, additional in ipairs(gemInstance.gemData.additionalGrantedEffects) do
-								processGrantedEffect(additional)
+								processGrantedEffect(additional, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 							end
 						else
-							processGrantedEffect(gemInstance.grantedEffect)
+							processGrantedEffect(gemInstance.grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 						end
 					end
 				end

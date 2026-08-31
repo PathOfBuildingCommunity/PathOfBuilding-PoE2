@@ -310,31 +310,12 @@ local band = AND64
 local bnot = NOT64
 local MatchAllMask = bnot(KeywordFlag.MatchAll)
 
--- Two-level numeric-key cache to avoid building string keys or allocating tables per call.
-local matchKeywordFlagsCache = {}
-function ClearMatchKeywordFlagsCache()
-	-- cheap full reset without reallocating the outer table
-	for k in pairs(matchKeywordFlagsCache) do
-		matchKeywordFlagsCache[k] = nil
-	end
-end
 
 ---@param keywordFlags number The KeywordFlags to be compared to.
 ---@param modKeywordFlags number The KeywordFlags stored in the mod.
 ---@return boolean Whether the KeywordFlags in the mod are satisfied.
 function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 	-- Cache lookup
-	local row = matchKeywordFlagsCache[keywordFlags]
-	if row then
-		local cached = row[modKeywordFlags]
-		if cached ~= nil then
-			return cached
-		end
-	else
-		row = {}
-		matchKeywordFlagsCache[keywordFlags] = row
-	end
-	-- Not in cache, compute normally
 	local matchAll = band(modKeywordFlags, KeywordFlag.MatchAll) ~= 0
 	local modMasked = band(modKeywordFlags, MatchAllMask)
 	local keywordMasked = band(keywordFlags, MatchAllMask)
@@ -345,7 +326,7 @@ function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 	else
 		matches = (modMasked == 0) or (band(keywordMasked, modMasked) ~= 0)
 	end
-	row[modKeywordFlags] = matches -- Add to cache
+	-- row[modKeywordFlags] = matches -- Add to cache
 	return matches
 end
 
