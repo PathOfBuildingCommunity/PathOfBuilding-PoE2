@@ -1053,7 +1053,7 @@ Ruby]])
 			selectRune("Boots Rune #1", "Farrul's Rune of Grace")
 			selectRune("Body Armour Rune #1", "Craiceann's Rune of Warding")
 
-			assert.is_nil(build.controls.warnings.lines)
+			assert.are.equals(0, #build.controls.warnings.lines)
 		end)
 	end)
 end)

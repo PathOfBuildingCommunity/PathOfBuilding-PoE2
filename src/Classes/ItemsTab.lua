@@ -2291,7 +2291,7 @@ function ItemsTabClass:IsSocketBoundRune(item, runeName, validRunes)
 	end
 	for _, rune in ipairs(validRunes or self:GetValidRunesForItem(item)) do
 		if rune.name == runeName then
-			return rune.isSocketBound
+			return rune.isSocketBound or false
 		end
 	end
 	return false
