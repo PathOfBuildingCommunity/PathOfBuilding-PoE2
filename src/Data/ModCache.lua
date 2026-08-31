@@ -7850,7 +7850,7 @@ c["Gain no inherent bonus from Dexterity 1% increased Armour per 2 Dexterity"]={
 c["Gain no inherent bonus from Intelligence"]={{[1]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
 c["Gain no inherent bonus from Strength"]={{[1]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
 c["Gain no inherent bonuses from Attributes"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeBonuses",type="FLAG",value=true}},nil}
-c["Gain the benefits of Bonded modifiers on Runes and Idols"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanUseBondedModifiers",type="FLAG",value=true}},nil}
+c["Gain the benefits of Bonded modifiers on Runes and Idols"]={{[1]={flags=0,keywordFlags=0,name="CanUseBonded",type="FLAG",value=true}},nil}
 c["Gains 0.15 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.15}},nil}
 c["Gains 0.18 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.18}},nil}
 c["Gains 0.20 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.2}},nil}
