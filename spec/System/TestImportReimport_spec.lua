@@ -238,6 +238,25 @@ Fireball 20/0  1
 		assert.are.equal(0, build.itemsTab.slots["Gloves Jewel Socket 2"].selItemId)
 	end)
 
+	it("keeps an imported shield equipped with Bringer of Rain and a two-handed mace", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local shield = makeImportItem("Glacial Fortress", "Offhand2", "test-import-shield")
+		local weapon = makeImportItem("Ironwood Greathammer", "Weapon2", "test-import-two-handed-mace")
+		local helmet = makeImportItem("Decorated Helm", "Helm", "test-import-bringer-of-rain")
+		helmet.frameType = 3
+		helmet.name = "The Bringer of Rain"
+		helmet.explicitMods = {
+			"You can wield Two-Handed Axes, Maces and Swords in one hand",
+		}
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ shield, weapon, helmet }, {}))
+
+		assert.are_not.equal(0, build.itemsTab.slots["Weapon 1 Swap"].selItemId)
+		assert.are_not.equal(0, build.itemsTab.slots["Weapon 2 Swap"].selItemId)
+	end)
+
 	it("uses unique database and rune levels when importing unique items from account data", function()
 		while main.uniqueDB.loading do
 			runCallback("OnFrame")
