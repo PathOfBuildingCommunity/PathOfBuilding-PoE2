@@ -14,6 +14,12 @@ describe("TetsItemMods", function()
 		assert.is_nil(mod.weightMultiplierKey)
 	end)
 
+	it("does not colour a stat as modified without a base value", function()
+		assert.are.equals("^7", main:StatColor(10, nil, 90))
+		assert.are.equals(colorCodes.MAGIC, main:StatColor(10, 5, 90))
+		assert.are.equals(colorCodes.NEGATIVE, main:StatColor(100, nil, 90))
+	end)
+
 	it("shows duplicate selected variants in item tooltips when enabled", function()
 		local item = new("Item"):Item([[
 			Rarity: Unique

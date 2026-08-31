@@ -29,7 +29,7 @@ return {
 	[5] = {
 		Resource = "Ward",
 		Stat = "base_ward_cost",
-		ResourceString = "{0} Ward",
+		ResourceString = "{0} Runic Ward",
 		Divisor = 1,
 	},
 	[6] = {
@@ -47,7 +47,7 @@ return {
 	[8] = {
 		Resource = "WardPercent",
 		Stat = "base_ward_cost_%",
-		ResourceString = "{0}% Ward",
+		ResourceString = "{0}% Runic Ward",
 		Divisor = 1,
 	},
 	[9] = {
@@ -107,7 +107,7 @@ return {
 	[18] = {
 		Resource = "WardPerMinute",
 		Stat = "base_ward_cost_per_minute",
-		ResourceString = "{0} Ward per second",
+		ResourceString = "{0} Runic Ward per second",
 		Divisor = 60,
 	},
 	[19] = {

@@ -1628,6 +1628,10 @@ function calcs.perform(env, skipEHP)
 		if (modDB:Flag(nil, type.."FlaskAppliesToLife")) then
 			t_insert(out, modLib.createMod("LifeRecovery", "BASE", flaskTotal / flaskDur, name))
 		end
+		local wardRecoveryPercent = type == "Life" and modDB:Sum("BASE", nil, "LifeFlaskRecoveryAppliesToWard") or 0
+		if wardRecoveryPercent > 0 then
+			t_insert(out, modLib.createMod("WardRecovery", "BASE", flaskTotal / flaskDur * wardRecoveryPercent / 100, name))
+		end
 
 		return out
 	end

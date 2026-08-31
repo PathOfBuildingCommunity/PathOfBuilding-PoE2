@@ -10,10 +10,14 @@ out:write('return {\n')
 local costSize = 0
 for c in dat("CostTypes"):Rows() do
 	costSize = costSize + 1
+	local resourceString = tostring(c.ResourceString)
+	if tostring(c.Resource):match("^Ward") then
+		resourceString = resourceString:gsub("Ward", "Runic Ward")
+	end
 	out:write('\t[', c._rowIndex, '] = {\n')
 	out:write('\t\tResource = "', tostring(c.Resource), '",\n')
 	out:write('\t\tStat = ', c.Stat and ('"'..tostring(c.Stat.Id)..'"') or tostring(c.Stat), ',\n')
-	out:write('\t\tResourceString = "', tostring(c.ResourceString), '",\n')
+	out:write('\t\tResourceString = "', resourceString, '",\n')
 	out:write('\t\tDivisor = ', c.Divisor, ',\n')
 	out:write('\t},\n')
 end

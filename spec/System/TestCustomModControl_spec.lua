@@ -151,6 +151,29 @@ describe("Custom modifier controls", function()
 		end
 	end)
 
+	it("distinguishes missing and empty runic ward conditions", function()
+		local missingMods, missingExtra = modLib.parseMod("10% increased Attack Speed while missing Runic Ward")
+		local missingCondition
+		for _, tag in ipairs(missingMods[1]) do
+			if tag.type == "Condition" then
+				missingCondition = tag
+			end
+		end
+		assert.is_nil(missingExtra)
+		assert.are.equals("MissingRunicWard", missingCondition.var)
+		assert.is_nil(missingCondition.neg)
+
+		local noWardMods, noWardExtra = modLib.parseMod("Lose 5% Life per second while you have no Runic Ward during Effect")
+		local noWardCondition
+		for _, tag in ipairs(noWardMods[1]) do
+			if tag.type == "Condition" and tag.var == "NoRunicWard" then
+				noWardCondition = tag
+			end
+		end
+		assert.is_nil(noWardExtra)
+		assert.is_not_nil(noWardCondition)
+	end)
+
 	it("uses the expanded browser dimensions", function()
 		local popup = openModBrowser()
 		local listWidth, listHeight = popup.controls.listControl:GetSize()

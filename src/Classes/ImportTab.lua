@@ -1419,29 +1419,31 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-			if escapeGGGString(property.name) == "Quality" then
+			local propertyName = escapeGGGString(property.name)
+			if propertyName == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
-			elseif property.name == "Radius" then
+			elseif propertyName == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
-			elseif property.name == "Limited to" then
+			elseif propertyName == "Limited to" then
 				item.limit = tonumber(property.values[1][1])
-			elseif property.name == "Evasion Rating" then
+			elseif propertyName == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
 					-- Another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Armour/Evasion)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
-			elseif property.name == "Energy Shield" then
+			elseif propertyName == "Energy Shield" then
 				if item.baseName == "Two-Toned Boots (Armour/Evasion)" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			if propertyName == "Energy Shield" or propertyName == "Runic Ward" or propertyName == "Armour" or propertyName == "Evasion Rating" then
 				item.armourData = item.armourData or { }
+				local defenceType = propertyName:gsub("Runic Ward", "Ward"):gsub(" Rating", ""):gsub(" ", "")
 				for _, value in ipairs(property.values) do
-					item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] = (item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] or 0) + tonumber(value[1])
+					item.armourData[defenceType] = (item.armourData[defenceType] or 0) + tonumber(value[1])
 				end
 			end
 		end

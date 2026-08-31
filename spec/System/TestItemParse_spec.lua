@@ -26,6 +26,13 @@ describe("TestItemParse", function()
 	--	assert.are.equals(180, item.armourData.Ward)
 	--end)
 
+	it("Ward defence", function()
+		local item = new("Item"):Item(raw("Ward: 180", "Runic Crown"))
+		assert.are.equals(180, item.armourData.Ward)
+		item = new("Item"):Item(raw("Runic Ward: 180", "Runic Crown"))
+		assert.are.equals(180, item.armourData.Ward)
+	end)
+
 	it("Title", function()
 		local item = new("Item"):Item([[
 			Rarity: Rare
