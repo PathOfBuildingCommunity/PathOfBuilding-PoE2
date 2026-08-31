@@ -663,6 +663,40 @@ local function processGrantedEffect(grantedEffect, gemInstance, env, groupCfg, g
 		addBestSupport(supportEffect, targetList, env.mode)
 	end
 end
+local function getNormalizedSkillLevel(grantedSkill)
+	-- Levels in socketGroup.gemList[1].level are normalized
+	-- grantedSkill.level is not causing group match miss which causes all things that rely on group order to fail
+	local normalizedGrantedSkill = {
+		grantedEffect = data.skills[grantedSkill.skillId],
+		level = grantedSkill.level
+	}
+	calcLib.validateGemLevel(normalizedGrantedSkill)
+	return normalizedGrantedSkill.level
+end
+
+local thornsStats = { "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }
+local function modDBHasThornsDamage(modDB)
+	for _, stat in ipairs(thornsStats) do
+		local mods = modDB.mods[stat]
+		if mods then
+			for _, mod in ipairs(mods) do
+				if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
+					return true
+				end
+			end
+		end
+	end
+	return modDB.parent and modDBHasThornsDamage(modDB.parent)
+end
+
+local function defaultRadiusJewelFunc(node, out, data)
+	-- Default function just tallies all stats in radius
+	if node then
+		for _, stat in pairs({ "Str", "Dex", "Int" }) do
+			data[stat] = (data[stat] or 0) + out:Sum("BASE", nil, stat)
+		end
+	end
+end
 ---@alias CalcEnvMode "MAIN"|"CALCS"|"CALCULATOR"
 -- Initialise environment:
 -- 1. Initialises the player and enemy modifier databases
@@ -1094,14 +1128,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					if item and not (node and node.sinister) and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
 						-- Jewel has a radius, add it to the list
-						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
-							-- Default function just tallies all stats in radius
-							if node then
-								for _, stat in pairs({"Str","Dex","Int"}) do
-									data[stat] = (data[stat] or 0) + out:Sum("BASE", nil, stat)
-								end
-							end
-						end } }
+						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = defaultRadiusJewelFunc } }
 						for _, func in ipairs(funcList) do
 							t_insert(env.radiusJewelList, {
 								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
@@ -1617,17 +1644,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
-			local function getNormalizedSkillLevel(grantedSkill)
-				-- Levels in socketGroup.gemList[1].level are normalized
-				-- grantedSkill.level is not causing group match miss which causes all things that rely on group order to fail
-				local normalizedGrantedSkill = {
-					grantedEffect = data.skills[grantedSkill.skillId],
-					level = grantedSkill.level
-				}
-				calcLib.validateGemLevel(normalizedGrantedSkill)
-				return normalizedGrantedSkill.level
-			end
-
 			-- Process extra skills granted by items or tree nodes
 			local markList = wipeTable(tempTable1)
 			for _, grantedSkill in ipairs(env.grantedSkills) do
@@ -1721,16 +1737,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 
 			do
-				local function modDBHasThornsDamage(modDB)
-					for _, stat in ipairs({ "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }) do
-						for _, mod in ipairs(modDB.mods[stat] or { }) do
-							if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
-								return true
-							end
-						end
-					end
-					return modDB.parent and modDBHasThornsDamage(modDB.parent)
-				end
 				local hasThornsDamage = modDBHasThornsDamage(env.modDB)
 				if not hasThornsDamage then
 					for _, socketGroup in pairs(build.skillsTab.socketGroupList) do

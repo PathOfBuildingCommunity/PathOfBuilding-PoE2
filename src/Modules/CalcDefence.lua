@@ -764,6 +764,21 @@ local function incomingDamageBreakdown(breakdownTable, poolsRemaining, output)
 	return breakdownTable
 end
 
+local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageType)
+	output[damageType .. recoupType .. "Recoup"] = recoup * output[recoupType .. "RecoveryRateMod"]
+	output["anyRecoup"] = output["anyRecoup"] + output[damageType .. recoupType .. "Recoup"]
+	if breakdown then
+		if output[recoupType .. "RecoveryRateMod"] ~= 1 then
+			breakdown[damageType .. recoupType .. "Recoup"] = {
+				s_format("%d%% ^8(base)", recoup),
+				s_format("* %.2f ^8(recovery rate modifier)", output[recoupType .. "RecoveryRateMod"]),
+				s_format("= %.1f%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
+			}
+		else
+			breakdown[damageType .. recoupType .. "Recoup"] = { s_format("%d%% over %d seconds", output[damageType .. recoupType .. "Recoup"], (modDB:Flag(nil, "4Second" .. recoupType .. "Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
+		end
+	end
+end
 -- Performs all ingame and related defensive calculations
 function calcs.defence(env, actor)
 	local modDB = actor.modDB
@@ -1810,29 +1825,13 @@ function calcs.defence(env, actor)
 		output.EnergyShieldRecharge = 0
 	end
 
-	-- recoup
-	local function calcRecoup(recoup, recoupType, damageType)
-		output[damageType..recoupType.."Recoup"] = recoup * output[recoupType.."RecoveryRateMod"]
-		output["anyRecoup"] = output["anyRecoup"] + output[damageType..recoupType.."Recoup"]
-		if breakdown then
-			if output[recoupType.."RecoveryRateMod"] ~= 1 then
-				breakdown[damageType..recoupType.."Recoup"] = {
-					s_format("%d%% ^8(base)", recoup),
-					s_format("* %.2f ^8(recovery rate modifier)", output[recoupType.."RecoveryRateMod"]),
-					s_format("= %.1f%% over %d seconds", output[damageType..recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
-				}
-			else
-				breakdown[damageType..recoupType.."Recoup"] = { s_format("%d%% over %d seconds", output[damageType..recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
-			end
-		end
-	end
 	do
 		-- base Life/Mana/Energy Shield Recoup calcs
 		output["anyRecoup"] = 0
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for _, recoupType in ipairs(recoupTypeList) do
 			local recoup = modDB:Sum("BASE", nil, recoupType.."Recoup")
-			calcRecoup(recoup, recoupType, "")
+			calcRecoup(output, breakdown, modDB, recoup, recoupType, "")
 
 			if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
 				local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
@@ -1843,7 +1842,7 @@ function calcs.defence(env, actor)
 		for _, recoupType in ipairs(recoupTypeList) do
 			for _, damageType in ipairs(dmgTypeList) do
 				local recoup = modDB:Sum("BASE", nil, damageType..recoupType.."Recoup")
-				calcRecoup(recoup, recoupType, damageType)
+				calcRecoup(output, breakdown, modDB, recoup, recoupType, damageType)
 
 				if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
 					local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
@@ -2037,6 +2036,175 @@ function calcs.defence(env, actor)
 	end
 end
 
+-- function that iteratively reduces pools until life hits 0 to determine the number of hits it would take with given damage to die
+local function numberOfHitsToDie(output, modDB, actor, DamageIn)
+	local numHits = 0
+	DamageIn["cycles"] = DamageIn["cycles"] or 1
+	DamageIn["iterations"] = DamageIn["iterations"] or 0
+
+	-- check damage in isn't 0 and that ward doesn't mitigate all damage
+	for _, damageType in ipairs(dmgTypeList) do
+		numHits = numHits + DamageIn[damageType]
+	end
+	if numHits == 0 then
+		return m_huge
+	elseif modDB:Flag(nil, "WardNotBreak") and output.Ward > 0 and numHits < output.Ward then
+		return m_huge
+	else
+		numHits = 0
+	end
+
+	local ward = output.Ward or 0
+	-- don't apply non-perma ward for speed up calcs as it won't zero it correctly per hit
+	if (not modDB:Flag(nil, "WardNotBreak")) and DamageIn["cycles"] > 1 then
+		ward = 0
+	end
+	local aegis = {}
+	aegis["shared"] = output["sharedAegis"] or 0
+	aegis["sharedElemental"] = output["sharedElementalAegis"] or 0
+	local guard = {}
+	guard["shared"] = output.sharedGuardAbsorb or 0
+	for _, damageType in ipairs(dmgTypeList) do
+		aegis[damageType] = output[damageType .. "Aegis"] or 0
+		guard[damageType] = output[damageType .. "GuardAbsorb"] or 0
+	end
+	local alliesTakenBeforeYou = {}
+	if output.FrostShieldLife then
+		alliesTakenBeforeYou["frostShield"] = { remaining = output.FrostShieldLife, percent = output.FrostShieldDamageMitigation / 100 }
+	end
+	if output.TotalSpectreLife then
+		alliesTakenBeforeYou["spectres"] = { remaining = output.TotalSpectreLife, percent = output.SpectreAllyDamageMitigation / 100 }
+	end
+	if output.TotalTotemLife then
+		alliesTakenBeforeYou["totems"] = { remaining = output.TotalTotemLife, percent = output.TotemAllyDamageMitigation / 100 }
+	end
+	if output.TotalVaalRejuvenationTotemLife then
+		alliesTakenBeforeYou["vaalRejuvenationTotems"] = { remaining = output.TotalVaalRejuvenationTotemLife, percent = output.VaalRejuvenationTotemAllyDamageMitigation / 100 }
+	end
+	if output.TotalRadianceSentinelLife then
+		alliesTakenBeforeYou["radianceSentinel"] = { remaining = output.TotalRadianceSentinelLife, percent = output.RadianceSentinelAllyDamageMitigation / 100 }
+	end
+	if output.TotalCompanionLife then
+		alliesTakenBeforeYou["companion"] = { remaining = output.TotalCompanionLife, percent = output.CompanionAllyDamageMitigation / 100 }
+	end
+	if output.AlliedEnergyShield then
+		alliesTakenBeforeYou["soulLink"] = { remaining = output.AlliedEnergyShield, percent = output.SoulLinkMitigation / 100 }
+	end
+
+	local poolTable = {
+		AlliesTakenBeforeYou = alliesTakenBeforeYou,
+		Aegis = aegis,
+		Guard = guard,
+		Ward = ward,
+		EnergyShield = output.EnergyShieldRecoveryCap,
+		Mana = output.ManaUnreserved or 0,
+		Life = output.LifeRecoverable or 0,
+		LifeLossLostOverTime = output.LifeLossLostOverTime or 0,
+		LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime or 0,
+		damageTakenThatCanBeRecouped = {}
+	}
+
+	if DamageIn["cycles"] == 1 then
+		DamageIn["TrackRecoupable"] = DamageIn["TrackRecoupable"] or false
+		DamageIn["TrackLifeLossOverTime"] = DamageIn["TrackLifeLossOverTime"] or false
+	else
+		DamageIn["TrackRecoupable"] = false
+		DamageIn["TrackLifeLossOverTime"] = false
+	end
+	DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
+
+	local VaalArcticArmourHitsLeft = output.VaalArcticArmourLife
+	if DamageIn["cycles"] > 1 then
+		VaalArcticArmourHitsLeft = 0
+	end
+
+	local iterationMultiplier = 1
+	local damageTotal = 0
+	local maxDamage = data.misc.ehpCalcMaxDamage
+	local maxIterations = data.misc.ehpCalcMaxIterationsToCalc
+	while poolTable.Life > 0 and DamageIn["iterations"] < maxIterations do
+		DamageIn["iterations"] = DamageIn["iterations"] + 1
+		local Damage = {}
+		damageTotal = 0
+		local VaalArcticArmourMultiplier = VaalArcticArmourHitsLeft > 0 and ((1 - output["VaalArcticArmourMitigation"] * m_min(VaalArcticArmourHitsLeft / iterationMultiplier, 1))) or 1
+		VaalArcticArmourHitsLeft = VaalArcticArmourHitsLeft - iterationMultiplier
+		for _, damageType in ipairs(dmgTypeList) do
+			local damage = DamageIn[damageType] or 0
+			Damage[damageType] = damage > 0 and damage * iterationMultiplier * VaalArcticArmourMultiplier or nil
+			damageTotal = damageTotal + damage
+		end
+		if DamageIn.GainWhenHit and (iterationMultiplier > 1 or DamageIn["cycles"] > 1) then
+			local gainMult = iterationMultiplier * DamageIn["cycles"]
+			poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit * (gainMult - 1), gainMult * (output.LifeRecoverable or 0))
+			poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1), gainMult * (output.ManaUnreserved or 0))
+			poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1), gainMult * output.EnergyShieldRecoveryCap)
+		end
+		poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
+
+		-- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
+		if poolTable.Life > 0 and damageTotal >= maxDamage then
+			return m_huge
+		end
+		if DamageIn.GainWhenHit and poolTable.Life > 0 then
+			poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
+			poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.ManaUnreserved or 0)
+			poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit, output.EnergyShieldRecoveryCap)
+		end
+		iterationMultiplier = 1
+		-- to speed it up, run recursively but accelerated
+		-- MoM/life-loss-prevention mechanics can collapse too many hits into one
+		-- resulting in eHP jumps so we slow the acceleration.
+		local speedUp = DamageIn["LimitEHPSpeedup"] and 4 or data.misc.ehpCalcSpeedUp
+		DamageIn["cyclesRan"] = DamageIn["cyclesRan"] or false
+		if not DamageIn["cyclesRan"] and poolTable.Life > 0 and DamageIn["iterations"] < maxIterations then
+			Damage = {}
+			for _, damageType in ipairs(dmgTypeList) do
+				Damage[damageType] = DamageIn[damageType] * speedUp
+			end
+			Damage["LimitEHPSpeedup"] = DamageIn["LimitEHPSpeedup"]
+			if DamageIn.GainWhenHit then
+				Damage.GainWhenHit = true
+				Damage.LifeWhenHit = DamageIn.LifeWhenHit
+				Damage.ManaWhenHit = DamageIn.ManaWhenHit
+				Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
+			end
+			Damage["cycles"] = DamageIn["cycles"] * speedUp
+			Damage["iterations"] = DamageIn["iterations"]
+			iterationMultiplier = m_max((numberOfHitsToDie(output, modDB, actor, Damage) - 1) * speedUp - 1, 1)
+			if iterationMultiplier == m_huge then -- avoid unnecessary calculations if we know we survive infinite hits.
+				return m_huge
+			end
+			DamageIn["iterations"] = Damage["iterations"]
+			DamageIn["cyclesRan"] = true
+		end
+		numHits = numHits + iterationMultiplier
+	end
+	if DamageIn.TrackRecoupable then
+		for damageType, recoupable in pairs(poolTable.damageTakenThatCanBeRecouped) do
+			output[damageType .. "RecoupableDamageTaken"] = output[damageType .. "RecoupableDamageTaken"] + recoupable
+		end
+	end
+	if DamageIn["TrackLifeLossOverTime"] then
+		output.LifeLossLostOverTime = output.LifeLossLostOverTime + poolTable.LifeLossLostOverTime
+		output.LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime + poolTable.LifeBelowHalfLossLostOverTime
+	end
+
+	if poolTable.Life == 0 and DamageIn["cycles"] == 1 then -- Don't count overkill damage and only on final pass as to not break speedup.
+		numHits = numHits - poolTable.OverkillDamage / damageTotal
+	end
+	-- Recalculate total hit damage
+	damageTotal = 0
+	for _, damageType in ipairs(dmgTypeList) do
+		damageTotal = damageTotal + DamageIn[damageType] * numHits
+	end
+	if poolTable.Life >= 0 and damageTotal >= maxDamage then -- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
+		return m_huge
+	end
+	if numHits ~= numHits then
+		return 0
+	end
+	return m_max(numHits, 0)
+end
 -- Performs all extra defensive calculations ( eg EHP, maxHit )
 function calcs.buildDefenceEstimations(env, actor)
 	local modDB = actor.modDB
@@ -3048,176 +3216,6 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 
-	-- helper function that iteratively reduces pools until life hits 0 to determine the number of hits it would take with given damage to die
-	local function numberOfHitsToDie(DamageIn)
-		local numHits = 0
-		DamageIn["cycles"] = DamageIn["cycles"] or 1
-		DamageIn["iterations"] = DamageIn["iterations"] or 0
-
-		-- check damage in isn't 0 and that ward doesn't mitigate all damage
-		for _, damageType in ipairs(dmgTypeList) do
-			numHits = numHits + DamageIn[damageType]
-		end
-		if numHits == 0 then
-			return m_huge
-		elseif modDB:Flag(nil, "WardNotBreak") and output.Ward > 0 and numHits < output.Ward then
-			return m_huge
-		else
-			numHits = 0
-		end
-
-		local ward = output.Ward or 0
-		-- don't apply non-perma ward for speed up calcs as it won't zero it correctly per hit
-		if (not modDB:Flag(nil, "WardNotBreak")) and DamageIn["cycles"] > 1 then
-			ward = 0
-		end
-		local aegis = { }
-		aegis["shared"] = output["sharedAegis"] or 0
-		aegis["sharedElemental"] = output["sharedElementalAegis"] or 0
-		local guard = { }
-		guard["shared"] = output.sharedGuardAbsorb or 0
-		for _, damageType in ipairs(dmgTypeList) do
-			aegis[damageType] = output[damageType.."Aegis"] or 0
-			guard[damageType] = output[damageType.."GuardAbsorb"] or 0
-		end
-		local alliesTakenBeforeYou = {}
-		if output.FrostShieldLife then
-			alliesTakenBeforeYou["frostShield"] = { remaining = output.FrostShieldLife, percent = output.FrostShieldDamageMitigation / 100 }
-		end
-		if output.TotalSpectreLife then
-			alliesTakenBeforeYou["spectres"] = { remaining = output.TotalSpectreLife, percent = output.SpectreAllyDamageMitigation / 100 }
-		end
-		if output.TotalTotemLife then
-			alliesTakenBeforeYou["totems"] = { remaining = output.TotalTotemLife, percent = output.TotemAllyDamageMitigation / 100 }
-		end
-		if output.TotalVaalRejuvenationTotemLife then
-			alliesTakenBeforeYou["vaalRejuvenationTotems"] = { remaining = output.TotalVaalRejuvenationTotemLife, percent = output.VaalRejuvenationTotemAllyDamageMitigation / 100 }
-		end
-		if output.TotalRadianceSentinelLife then
-			alliesTakenBeforeYou["radianceSentinel"] = { remaining = output.TotalRadianceSentinelLife, percent = output.RadianceSentinelAllyDamageMitigation / 100 }
-		end
-		if output.TotalCompanionLife then
-			alliesTakenBeforeYou["companion"] = { remaining = output.TotalCompanionLife, percent = output.CompanionAllyDamageMitigation / 100 }
-		end
-		if output.AlliedEnergyShield then
-			alliesTakenBeforeYou["soulLink"] = { remaining = output.AlliedEnergyShield, percent = output.SoulLinkMitigation / 100 }
-		end
-
-		local poolTable = {
-			AlliesTakenBeforeYou = alliesTakenBeforeYou,
-			Aegis = aegis,
-			Guard = guard,
-			Ward = ward,
-			EnergyShield = output.EnergyShieldRecoveryCap,
-			Mana = output.ManaUnreserved or 0,
-			Life = output.LifeRecoverable or 0,
-			LifeLossLostOverTime = output.LifeLossLostOverTime or 0,
-			LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime or 0,
-			damageTakenThatCanBeRecouped = { }
-		}
-
-		if DamageIn["cycles"] == 1 then
-			DamageIn["TrackRecoupable"] = DamageIn["TrackRecoupable"] or false
-			DamageIn["TrackLifeLossOverTime"] = DamageIn["TrackLifeLossOverTime"] or false
-		else
-			DamageIn["TrackRecoupable"] = false
-			DamageIn["TrackLifeLossOverTime"] = false
-		end
-		DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
-
-		local VaalArcticArmourHitsLeft = output.VaalArcticArmourLife
-		if DamageIn["cycles"] > 1 then
-			VaalArcticArmourHitsLeft = 0
-		end
-
-		local iterationMultiplier = 1
-		local damageTotal = 0
-		local maxDamage = data.misc.ehpCalcMaxDamage
-		local maxIterations = data.misc.ehpCalcMaxIterationsToCalc
-		while poolTable.Life > 0 and DamageIn["iterations"] < maxIterations do
-			DamageIn["iterations"] = DamageIn["iterations"] + 1
-			local Damage = { }
-			damageTotal = 0
-			local VaalArcticArmourMultiplier = VaalArcticArmourHitsLeft > 0 and (( 1 - output["VaalArcticArmourMitigation"] * m_min(VaalArcticArmourHitsLeft / iterationMultiplier, 1))) or 1
-			VaalArcticArmourHitsLeft = VaalArcticArmourHitsLeft - iterationMultiplier
-			for _, damageType in ipairs(dmgTypeList) do
-				local damage = DamageIn[damageType] or 0
-				Damage[damageType] = damage > 0 and damage * iterationMultiplier * VaalArcticArmourMultiplier or nil
-				damageTotal = damageTotal + damage
-			end
-			if DamageIn.GainWhenHit and (iterationMultiplier > 1 or DamageIn["cycles"] > 1) then
-				local gainMult = iterationMultiplier * DamageIn["cycles"]
-				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit * (gainMult - 1), gainMult * (output.LifeRecoverable or 0))
-				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit * (gainMult - 1), gainMult * (output.ManaUnreserved or 0))
-				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit * (gainMult - 1), gainMult * output.EnergyShieldRecoveryCap)
-			end
-			poolTable = calcs.reducePoolsByDamage(poolTable, Damage, actor)
-
-			-- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
-			if poolTable.Life > 0 and damageTotal >= maxDamage then
-				return m_huge
-			end
-			if DamageIn.GainWhenHit and poolTable.Life > 0 then
-				poolTable.Life = m_min(poolTable.Life + DamageIn.LifeWhenHit, output.LifeRecoverable or 0)
-				poolTable.Mana = m_min(poolTable.Mana + DamageIn.ManaWhenHit, output.ManaUnreserved or 0)
-				poolTable.EnergyShield = m_min(poolTable.EnergyShield + DamageIn.EnergyShieldWhenHit, output.EnergyShieldRecoveryCap)
-			end
-			iterationMultiplier = 1
-			-- to speed it up, run recursively but accelerated
-			-- MoM/life-loss-prevention mechanics can collapse too many hits into one
-			-- resulting in eHP jumps so we slow the acceleration.
-			local speedUp = DamageIn["LimitEHPSpeedup"] and 4 or data.misc.ehpCalcSpeedUp
-			DamageIn["cyclesRan"] = DamageIn["cyclesRan"] or false
-			if not DamageIn["cyclesRan"] and poolTable.Life > 0 and DamageIn["iterations"] < maxIterations then
-				Damage = { }
-				for _, damageType in ipairs(dmgTypeList) do
-					Damage[damageType] = DamageIn[damageType] * speedUp
-				end
-				Damage["LimitEHPSpeedup"] = DamageIn["LimitEHPSpeedup"]
-				if DamageIn.GainWhenHit then
-					Damage.GainWhenHit = true
-					Damage.LifeWhenHit = DamageIn.LifeWhenHit
-					Damage.ManaWhenHit = DamageIn.ManaWhenHit
-					Damage.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit
-				end
-				Damage["cycles"] = DamageIn["cycles"] * speedUp
-				Damage["iterations"] = DamageIn["iterations"]
-				iterationMultiplier = m_max((numberOfHitsToDie(Damage) - 1) * speedUp - 1, 1)
-				if iterationMultiplier == m_huge then -- avoid unnecessary calculations if we know we survive infinite hits.
-					return m_huge
-				end
-				DamageIn["iterations"] = Damage["iterations"]
-				DamageIn["cyclesRan"] = true
-			end
-			numHits = numHits + iterationMultiplier
-		end
-		if DamageIn.TrackRecoupable then
-			for damageType, recoupable in pairs(poolTable.damageTakenThatCanBeRecouped) do
-				output[damageType.."RecoupableDamageTaken"] = output[damageType.."RecoupableDamageTaken"] + recoupable
-			end
-		end
-		if DamageIn["TrackLifeLossOverTime"] then
-			output.LifeLossLostOverTime = output.LifeLossLostOverTime + poolTable.LifeLossLostOverTime
-			output.LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime + poolTable.LifeBelowHalfLossLostOverTime
-		end
-
-		if poolTable.Life == 0 and DamageIn["cycles"] == 1 then -- Don't count overkill damage and only on final pass as to not break speedup.
-			numHits = numHits - poolTable.OverkillDamage / damageTotal
-		end
-		-- Recalculate total hit damage
-		damageTotal = 0
-		for _, damageType in ipairs(dmgTypeList) do
-			damageTotal = damageTotal + DamageIn[damageType] * numHits
-		end
-		if poolTable.Life >= 0 and damageTotal >= maxDamage then -- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
-			return m_huge
-		end
-		if numHits ~= numHits then
-			return 0
-		end
-		return m_max(numHits, 0)
-	end
-
 	if damageCategoryConfig ~= "DamageOverTime" then
 		-- number of damaging hits needed to be taken to die
 		do
@@ -3226,7 +3224,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn[damageType] = output[damageType.."TakenHit"]
 			end
 			DamageIn["LimitEHPSpeedup"] = output["preventedLifeLossTotal"] > 0
-			output["NumberOfDamagingHits"] = numberOfHitsToDie(DamageIn)
+			output["NumberOfDamagingHits"] = numberOfHitsToDie(output, modDB, actor, DamageIn)
 		end
 
 
@@ -3320,7 +3318,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			DamageIn["LimitEHPSpeedup"] = DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - averageAvoidChance / 100))
-			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]
+			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(output, modDB, actor, DamageIn) or output["NumberOfDamagingHits"]
 			if breakdown then
 				breakdown["ConfiguredDamageChance"] = {
 					s_format("%.2f ^8(chance for block to fail)", 1 - BlockChance)

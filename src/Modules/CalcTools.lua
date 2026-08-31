@@ -217,8 +217,10 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, 
 		end
 		stats[stat] = (stats[stat] or 0) + statValue
 	end
-	for _, stat in ipairs(statSet.constantStats or {}) do
-		stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
+	if statSet.constantStats then
+		for _, stat in ipairs(statSet.constantStats) do
+			stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
+		end
 	end
 	return stats
 end

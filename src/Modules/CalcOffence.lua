@@ -5056,7 +5056,7 @@ function calcs.offence(env, actor, activeSkill)
 		---@param sourceCritChance number
 		---@param sourceHitDmg number
 		---@param sourceCritDmg number
-		---@param hideFromBreakdown boolean
+		---@param hideFromBreakdown boolean?
 		---@return number baseVal
 		local function calcAilmentDamage(ailment, sourceCritChance, sourceHitDmg, sourceCritDmg, hideFromBreakdown)
 

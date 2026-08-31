@@ -146,6 +146,7 @@ end
 
 -- The functions are created here so that new() does not create closures, which aborts JIT traces
 local function makeUnconstructedMeta(class, className)
+	-- disabled for performance reasons for now
 	-- return {
 	-- __index = function(obj, key)
 	-- 	if key == className then
@@ -804,31 +805,32 @@ function triangular(n)
 end
 
 -- Formats "1234.56" -> "1,234.5"
-function formatNumSep(str)
-	return string.gsub(str, "(%^?x?%x?%x?%x?%x?%x?%x?-?%d+%.?%d+)", function(m)
-		local colour = m:match("(^x%x%x%x%x%x%x)") or m:match("(%^%d)") or ""
-		local str = m:gsub("(^x%x%x%x%x%x%x)", ""):gsub("(%^%d)", "")
-		if str == "" or (colour == "" and m:match("%^")) then  -- return if we have an invalid color code or a completely stripped number.
-			return m
-		end
-		local x, y, minus, integer, fraction = str:find("(-?)(%d+)(%.?%d*)")
-		if main.showThousandsSeparators then
-			rev1kSep = utf8.reverse(main.thousandsSeparator)
-			integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1"..rev1kSep))
-			-- There will be leading separators if the number of digits are divisible by 3
-			-- This checks for their presence and removes them
-			-- Don't use patterns here because thousandsSeparator can be a pattern control character, and will crash if used
-			if main.thousandsSeparator ~= "" then
-				local thousandsSeparator = utf8.find(integer, rev1kSep, 1, 2)
-				if thousandsSeparator and thousandsSeparator == 1 then
-					integer = utf8.sub(integer, 2)
-				end
+local function formatNumSepInner(m)
+	local colour = m:match("(^x%x%x%x%x%x%x)") or m:match("(%^%d)") or ""
+	local str = m:gsub("(^x%x%x%x%x%x%x)", ""):gsub("(%^%d)", "")
+	if str == "" or (colour == "" and m:match("%^")) then -- return if we have an invalid color code or a completely stripped number.
+		return m
+	end
+	local x, y, minus, integer, fraction = str:find("(-?)(%d+)(%.?%d*)")
+	if main.showThousandsSeparators then
+		rev1kSep = utf8.reverse(main.thousandsSeparator)
+		integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1" .. rev1kSep))
+		-- There will be leading separators if the number of digits are divisible by 3
+		-- This checks for their presence and removes them
+		-- Don't use patterns here because thousandsSeparator can be a pattern control character, and will crash if used
+		if main.thousandsSeparator ~= "" then
+			local thousandsSeparator = utf8.find(integer, rev1kSep, 1, 2)
+			if thousandsSeparator and thousandsSeparator == 1 then
+				integer = utf8.sub(integer, 2)
 			end
-		else
-			integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1"))
 		end
-		return colour..minus..integer..utf8.gsub(fraction, "%.", main.decimalSeparator)
-	end)
+	else
+		integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1"))
+	end
+	return colour .. minus .. integer .. utf8.gsub(fraction, "%.", main.decimalSeparator)
+end
+function formatNumSep(str)
+	return string.gsub(str, "(%^?x?%x?%x?%x?%x?%x?%x?-?%d+%.?%d+)", formatNumSepInner)
 end
 
 function getFormatNumSep(dec)
