@@ -194,10 +194,11 @@ describe("TestIdolatry", function()
 		local physicalMin = item.weaponData[1].PhysicalMin
 		local physicalMax = item.weaponData[1].PhysicalMax
 
-		item:GetActiveModListForSlotNum(1, true)
+		local bondedModList = item:GetActiveModListForSlotNum(1, true)
 
 		assert.are.equals(physicalMin + 14, item.weaponData[1].PhysicalMin)
 		assert.are.equals(physicalMax + 20, item.weaponData[1].PhysicalMax)
+		assert.are.equals(bondedModList, item:GetActiveModListForSlotNum(1, true))
 
 		item:GetActiveModListForSlotNum(1, false)
 		assert.are.equals(physicalMin, item.weaponData[1].PhysicalMin)
