@@ -56026,28 +56026,28 @@ return {
 			name="IsSocketBound",
 			refTo="",
 			type="Bool",
-			width=150
+			width=90
 		},
 		[8]={
 			list=false,
-			name="",
+			name="CanSocketInChakraSlots",
 			refTo="",
 			type="Bool",
-			width=150
+			width=140
 		},
 		[9]={
 			list=false,
-			name="",
+			name="CanSocketInUniqueItems",
 			refTo="",
 			type="Bool",
-			width=150
+			width=140
 		},
 		[10]={
 			list=false,
-			name="",
+			name="CanSocketInJewellery",
 			refTo="",
 			type="Bool",
-			width=150
+			width=130
 		},
 		[11]={
 			list=false,
@@ -56061,7 +56061,14 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=100
+		},
+		[13]={
+			list=false,
+			name="CanSocketInCorruptedSanctified",
+			refTo="",
+			type="Bool",
+			width=190
 		}
 	},
 	soulcoresperclass={

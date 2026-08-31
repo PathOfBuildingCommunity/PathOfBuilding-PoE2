@@ -27,7 +27,7 @@ describe("TestSocketables", function()
 
 	local slotTypeTest = function(slotType, itemBase)
 		-- ConPrintf("Testing: %s", slotType)
-		local itemRaw = "Test\n" .. itemBase .. "\nSockets: S"
+		local itemRaw = "Rarity: RARE\nTest\n" .. itemBase .. "\nSockets: S"
 
 		-- Create an ItemTab and add a socketable item to it
 		local item = new("Item"):Item(itemRaw)

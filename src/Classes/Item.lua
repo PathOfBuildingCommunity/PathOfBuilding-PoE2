@@ -1700,7 +1700,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		local runeData = data.itemMods.Runes[runeName]
 		if runeData then
 			for _, slotData in pairs(runeData) do
-				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.rank[1])
+				self.requirements.runeLevel = m_max(self.requirements.runeLevel, slotData.levelReq)
 			end
 		end
 	end

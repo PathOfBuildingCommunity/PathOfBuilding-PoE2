@@ -192,7 +192,7 @@ function ItemsTabClass:ItemsTab(build)
 	for slotType, list in pairs(runeList) do
 		t_insert(list, runeModLines[1])
 		for _, rune in ipairs(runeModLines) do
-			if rune.type == "Rune" and not rune.localMod and (rune.slot == slotType or rune.slot == "armour") then
+			if rune.canSocketInChakraSlots and not rune.isSocketBound and (rune.slot == slotType or rune.slot == "armour") then
 				t_insert(list, rune)
 			end
 		end
@@ -272,9 +272,10 @@ function ItemsTabClass:ItemsTab(build)
 			self.build.buildFlag = true
 		end)
 		runeSlot.anchor.collapse = true
+		local outputCache = { }
+		local outputCacheRevision
 		runeSlot.tooltipFunc = function(tooltip, mode, index, rune)
-			tooltip:Clear()
-			if rune.name ~= "None" then
+			if tooltip:CheckForUpdate(rune, self.build.outputRevision) and rune.name ~= "None" then
 				tooltip:AddLine(16, "^7" .. rune.name)
 				if rune.limit then
 					tooltip:AddLine(14, "^7" .. s_format("Limited to: %d", rune.limit))
@@ -287,10 +288,15 @@ function ItemsTabClass:ItemsTab(build)
 						tooltip:AddLine(14, colorCodes.MAGIC .. line)
 					end
 				end
-				local calcFunc = self.build.calcsTab:GetMiscCalculator()
-				local outputBase = calcFunc()
-				local outputNew = calcFunc({ repSlotName = slotName, repRune = rune })
-				self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\n^7Adding this mod will give: ")
+				if rune ~= runeSlot:GetSelValue() then
+					if outputCacheRevision ~= self.build.outputRevision then
+						outputCache = { }
+						outputCacheRevision = self.build.outputRevision
+					end
+					local calcFunc, outputBase = self.build.calcsTab:GetMiscCalculator()
+					outputCache[rune] = outputCache[rune] or calcFunc({ repSlotName = slotName, repRune = rune })
+					self.build:AddStatComparesToTooltip(tooltip, outputBase, outputCache[rune], "\n^7Adding this mod will give: ")
+				end
 			end
 		end
 		self.controls[slotName .. " Label"] = new("LabelControl"):LabelControl({ "RIGHT", runeSlot, "LEFT" }, { -2, 0, 16, 16 }, s_format("^7%s:", label))
@@ -2228,7 +2234,7 @@ for name, runeMods in pairs(data.itemMods.Runes) do
 			end
 		end
 		local order = (runeMod.statOrder and runeMod.statOrder[1]) or (runeMod.bonded and runeMod.bonded.statOrder and runeMod.bonded.statOrder[1]) or 0
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, mods = mods, req = runeMod.rank[1], order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound, localMod = runeMod.localMod, limit = runeMod.limit })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, mods = mods, req = runeMod.levelReq, order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound, localMod = runeMod.localMod, limit = runeMod.limit, canSocketInChakraSlots = runeMod.canSocketInChakraSlots, canSocketInUniqueItems = runeMod.canSocketInUniqueItems, canSocketInJewellery = runeMod.canSocketInJewellery })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -2254,10 +2260,12 @@ function ItemsTabClass:GetValidRunesForItem(item)
 	end
 	local baseType, specificType = item:GetSocketedAugmentTypes()
 	local soulCoreTypes = item.socketedSoulCoreTypes
+	local uniqueItem = item.rarity == "UNIQUE" or item.rarity == "RELIC"
+	local jewellery = item.type == "Ring" or item.type == "Amulet" or item.type == "Belt"
 	for _, rune in ipairs(runeModLines) do
 		if rune.slot == "None" then
 			t_insert(runes, rune)
-		elseif (rune.slot == baseType or rune.slot == specificType or (rune.type == "SoulCore" and soulCoreTypes[rune.slot])) and (not socketedItemType or rune.type == socketedItemType) then
+		elseif (rune.slot == baseType or rune.slot == specificType or (rune.type == "SoulCore" and soulCoreTypes[rune.slot])) and (not socketedItemType or rune.type == socketedItemType) and (not uniqueItem or rune.canSocketInUniqueItems) and (not jewellery or rune.canSocketInJewellery) then
 			local addedRune = addedRunes[rune.name]
 			if not addedRune then
 				addedRune = copyTable(rune, true)

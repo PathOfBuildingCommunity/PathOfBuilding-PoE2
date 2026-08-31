@@ -683,6 +683,31 @@ Ruby]])
 				end
 			end)
 
+			it("restricts augments that cannot be socketed in unique items", function()
+				local item = new("Item"):Item("Rarity: UNIQUE\nTest Unique\nSlayer Armour\nSockets: S")
+				local validRunes = { }
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					validRunes[rune.name] = true
+				end
+
+				assert.is_nil(validRunes["Serle's Triumph"])
+				assert.is_true(validRunes["Aldur's Legacy"])
+			end)
+
+			it("restricts augments that cannot be socketed in jewellery", function()
+				local item = new("Item"):Item(data.uniques.belt[6])
+				assert.matches("Darkness Enthroned", item.name, nil, true)
+				item.variant = 2 -- Body Armour
+				item:BuildModList()
+				local validRunes = { }
+				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
+					validRunes[rune.name] = true
+				end
+
+				assert.is_nil(validRunes["Aldur's Legacy"])
+				assert.is_true(validRunes["Desert Rune"])
+			end)
+
 			it("refreshes valid augments when the item variant changes", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
 				item.variant = 3 -- Boots
@@ -868,11 +893,14 @@ Ruby]])
 			end
 		end)
 
-		it("only lists global (non-local) runes and defaults to None", function()
+		it("only lists global runes that can be socketed in Chakra slots", function()
 			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
 			assert.are.equals("None", slot.list[1].label)
 			for _, rune in ipairs(slot.list) do
 				assert.is_not_nil(rune.mods)
+				if rune.name ~= "None" then
+					assert.is_true(rune.canSocketInChakraSlots)
+				end
 			end
 		end)
 
@@ -900,13 +928,35 @@ Ruby]])
 		it("calculates a hovered character rune without treating it as an item", function()
 			enableSlots()
 			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
-			slot:SelByValue("Aldur's Legacy", "name")
-			assert.are.equals("Aldur's Legacy", slot:GetSelValue().name)
+			slot:SelByValue("Desert Rune", "name")
+			local rune = slot:GetSelValue()
 			local calcFunc = build.calcsTab:GetMiscCalculator()
 
 			assert.has_no.errors(function()
-				calcFunc({ repSlotName = "Helmet Rune #1", repRune = slot:GetSelValue() })
+				calcFunc({ repSlotName = "Helmet Rune #1", repRune = rune })
 			end)
+		end)
+
+		it("caches hovered rune calculations until the build changes", function()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			slot:SelByValue("Desert Rune", "name")
+			local rune = slot:GetSelValue()
+			slot:SelByValue("None", "name")
+			local calcCount = 0
+			build.calcsTab.GetMiscCalculator = function()
+				return function()
+					calcCount = calcCount + 1
+					return { }
+				end, { }
+			end
+			build.AddStatComparesToTooltip = function() end
+
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			assert.are.equals(1, calcCount)
+			build.outputRevision = build.outputRevision + 1
+			slot.tooltipFunc(slot.tooltip, "HOVER", 1, rune)
+			assert.are.equals(2, calcCount)
 		end)
 
 		it("selecting None applies no rune mods", function()

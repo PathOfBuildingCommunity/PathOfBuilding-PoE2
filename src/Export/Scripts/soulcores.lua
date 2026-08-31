@@ -59,7 +59,6 @@ directiveTable.base = function(state, args, out)
 	-- ordered output list and a slot lookup so each Lua key is emitted exactly once.
 	local modLines = { }
 	local modLinesBySlot = { }
-	local rank = soulCores.LevelReq or 0
 	for _, soulCoreStat in ipairs(soulCoreStats) do
 		local stats = { }
 		local statHashes = {}
@@ -114,6 +113,10 @@ directiveTable.base = function(state, args, out)
 					if not modLine then
 						modLine = {
 							type = soulCores.Type.Id,
+							canSocketInChakraSlots = soulCores.CanSocketInChakraSlots,
+							canSocketInUniqueItems = soulCores.CanSocketInUniqueItems,
+							canSocketInJewellery = soulCores.CanSocketInJewellery,
+							canSocketInCorruptedSanctified = soulCores.CanSocketInCorruptedSanctified,
 							limit = soulCores.Limit and soulCores.Limit.Limit,
 							limitId = soulCores.Limit and soulCores.Limit.Id,
 							localMod = localMod,
@@ -122,7 +125,7 @@ directiveTable.base = function(state, args, out)
 							statOrder = orders,
 							bondedLabel = descBondedStats,
 							bondedStatOrder = bondedOrders,
-							rank = rank,
+							levelReq = soulCores.LevelReq,
 							tradeHashes = tradeHashes,
 							isSocketBound = soulCores.IsSocketBound
 						}
@@ -167,8 +170,12 @@ directiveTable.base = function(state, args, out)
 			out:write('\t\t\t\t\tstatOrder = { '..table.concat(modLine.bondedStatOrder, ', ')..' },\n')
 			out:write('\t\t\t\t},\n')
 		end
-		out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
-		out:write('\t\t\t\trank = { '..modLine.rank..' },\n')
+		for _, field in ipairs({ "isSocketBound", "canSocketInChakraSlots", "canSocketInUniqueItems", "canSocketInJewellery", "canSocketInCorruptedSanctified" }) do
+			if modLine[field] then
+				out:write('\t\t\t\t' .. field .. ' = true,\n')
+			end
+		end
+		out:write('\t\t\t\tlevelReq = '..modLine.levelReq..',\n')
 		out:write('\t\t},\n')
 	end
 	out:write('\t},\n')
