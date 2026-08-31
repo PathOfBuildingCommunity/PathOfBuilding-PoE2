@@ -1733,8 +1733,7 @@ c["10% of Fire Damage from Hits taken as Physical Damage"]={{[1]={flags=0,keywor
 c["10% of Physical Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=10}},nil}
 c["10% of Physical Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=10}},nil}
 c["10% of Physical Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=10}},nil}
-c["10% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=10}},"  prevented Recouped as Life "}
-c["10% of Physical Damage prevented Recouped as Life 14% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=10}},"  prevented Recouped as Life 14% increased speed of Recoup Effects "}
+c["10% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamagePreventedLifeRecoup",type="BASE",value=10}},nil}
 c["10% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalLifeRecoup",type="BASE",value=10}},nil}
 c["10% of Physical damage dealt by your Hits causes Blood Loss"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=10}},"  dealt by your Hits causes Blood Loss "}
 c["10% of Physical damage dealt by your Hits causes Blood Loss Vaal Pact"]={{[1]={flags=0,keywordFlags=512,name="PhysicalDamage",type="BASE",value=10}},"  dealt by your Hits causes Blood Loss  Pact "}
@@ -1774,8 +1773,8 @@ c["10% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="Self
 c["10% reduced maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-10}},nil}
 c["100 Passive Skill Points become Weapon Set Skill Points"]={{[1]={flags=0,keywordFlags=0,name="PassivePointsToWeaponSetPoints",type="BASE",value=100}},nil}
 c["100% Chance to Cause Monster to Flee on Block"]={{}," to Cause Monster to Flee on Block "}
-c["100% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30"]={{},"% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 "}
-c["100% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings"]={{},"% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings "}
+c["100% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30"]={{},"% Surpassing chance  to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 "}
+c["100% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings"]={{},"% Surpassing chance  to gain Mountain's Teachings on Immobilising an enemy, up to a maximum of 30 Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings "}
 c["100% chance to Avoid being Chilled during Onslaught"]={{[1]={[1]={type="Condition",var="Onslaught"},flags=0,keywordFlags=0,name="AvoidChill",type="BASE",value=100}},nil}
 c["100% chance to Avoid being Ignited while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=100}},nil}
 c["100% chance to Daze Enemies whose Hits you Block with a raised Shield"]={{[1]={flags=0,keywordFlags=0,name="DazeChance",type="BASE",value=100}},"  Enemies whose Hits you Block with a raised Shield "}
@@ -1925,7 +1924,7 @@ c["11% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThresh
 c["11% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=11}},nil}
 c["11% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=11}},nil}
 c["11% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=11}},nil}
-c["11% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=11}}," speed of Recoup s "}
+c["11% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="RecoupSpeed",type="INC",value=11}},nil}
 c["11% less damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-11}},nil}
 c["11% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=11}},nil}
 c["110% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=110}},nil}
@@ -2187,8 +2186,7 @@ c["14% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShock
 c["14% increased Spell Damage per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=14}},nil}
 c["14% increased Spirit Reservation Efficiency"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=14}},nil}
 c["14% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=14}},nil}
-c["14% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=14}}," speed of Recoup s "}
-c["14% increased speed of Recoup Effects Recover 4% of maximum Life on Killing a Poisoned Enemy"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=14}}," speed of Recoup s Recover 4% of maximum Life ing a Poisoned Enemy "}
+c["14% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="RecoupSpeed",type="INC",value=14}},nil}
 c["14% less damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-14}},nil}
 c["14% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=14}},nil}
 c["140% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=140}},nil}
@@ -2465,8 +2463,7 @@ c["15% of Damage from Hits is taken from your Damageable Companion's Life before
 c["15% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=15}},nil}
 c["15% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}},nil}
 c["15% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=15}},nil}
-c["15% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=15}},"  from Deflected Hits Recouped as Life "}
-c["15% of Damage taken from Deflected Hits Recouped as Life 20% faster start of Energy Shield Recharge when not on Full Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=15}},"  from Deflected Hits Recouped as Life 20% faster start of Energy Shield Recharge  "}
+c["15% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoupFromDeflectedHits",type="BASE",value=15}},nil}
 c["15% of Elemental Damage taken Recouped as Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LightningEnergyShieldRecoup",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ColdEnergyShieldRecoup",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="FireEnergyShieldRecoup",type="BASE",value=15}},nil}
 c["15% of Fire Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=15}},nil}
 c["15% of Fire damage taken as Cold damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenAsCold",type="BASE",value=15}},nil}
@@ -3011,7 +3008,7 @@ c["20% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["20% increased maximum Energy Shield if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
 c["20% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=20}},nil}
 c["20% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=20}},nil}
-c["20% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=20}}," speed of Recoup s "}
+c["20% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="RecoupSpeed",type="INC",value=20}},nil}
 c["20% less Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="MORE",value=-20}},nil}
 c["20% less Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="MORE",value=-20}},nil}
 c["20% less Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="MORE",value=-20},[2]={flags=0,keywordFlags=0,name="Dex",type="MORE",value=-20},[3]={flags=0,keywordFlags=0,name="Int",type="MORE",value=-20},[4]={flags=0,keywordFlags=0,name="All",type="MORE",value=-20}},nil}
@@ -3404,7 +3401,7 @@ c["25% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=1024
 c["25% increased chance to inflict Bleeding"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="INC",value=25}}," chance  "}
 c["25% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=25}},nil}
 c["25% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=25}},nil}
-c["25% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," speed of Recoup s "}
+c["25% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="RecoupSpeed",type="INC",value=25}},nil}
 c["25% less Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="MORE",value=-25}},nil}
 c["25% less Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="MORE",value=-25}},nil}
 c["25% more Attack damage while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=1,keywordFlags=0,name="Damage",type="MORE",value=25}},nil}
@@ -3418,7 +3415,7 @@ c["25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is belo
 c["25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds"]={{[1]={[1]={type="Condition",var="HitSpellRecently"},flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="BASE",value=25}},"  bypasses Energy Shield if Energy Shield is below half Gain 1 Runic Binding , no more than once every 0.5 seconds "}
 c["25% of Elemental damage from Hits taken as Chaos damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageFromHitsTakenAsChaos",type="BASE",value=25}},nil}
 c["25% of Elemental damage from Hits taken as Physical damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageFromHitsTakenAsPhysical",type="BASE",value=25}},nil}
-c["25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={{}," if none was gained in the past 2 seconds "}
+c["25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={{[1]={flags=0,keywordFlags=0,name="InfernalFlameDecayPercent",type="BASE",value=25}},nil}
 c["25% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AbyssalWastingAlsoGrants",type="LIST",value={mod={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=25},unscalable=true}}},nil}
 c["25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead"]={{[1]={flags=0,keywordFlags=0,name="LifeLossPrevented",type="BASE",value=25}},nil}
 c["25% of Mana Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AbyssalWastingAlsoGrants",type="LIST",value={mod={flags=0,keywordFlags=0,name="InstantManaLeech",type="BASE",value=25},unscalable=true}}},nil}
@@ -3597,7 +3594,7 @@ c["30 to 40 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="Physic
 c["30 to 45 Physical Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="PhysicalMin",type="BASE",value=30},[2]={flags=32,keywordFlags=0,name="PhysicalMax",type="BASE",value=45}},nil}
 c["30 to 47 Cold Thorns damage"]={{[1]={flags=32,keywordFlags=0,name="ColdMin",type="BASE",value=30},[2]={flags=32,keywordFlags=0,name="ColdMax",type="BASE",value=47}},nil}
 c["30% Chance to cause Bleeding Enemies to Flee on hit"]={{[1]={flags=4,keywordFlags=0,name="BleedChance",type="BASE",value=30}},"  Enemies to Flee  "}
-c["30% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy if you have the Way of the Mountain Ascendancy Passive Skill"]={{},"% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy if you have the Way of the Mountain Ascendancy Passive Skill "}
+c["30% Surpassing chance per enemy Power to gain Mountain's Teachings on Immobilising an enemy if you have the Way of the Mountain Ascendancy Passive Skill"]={{},"% Surpassing chance  to gain Mountain's Teachings on Immobilising an enemy if you have the Way of the Mountain Ascendancy Passive Skill "}
 c["30% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LightningLuckyHitsChance",type="BASE",value=30}},nil}
 c["30% chance for Spell Damage with Critical Hits to be Lucky"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2,keywordFlags=0,name="Damage",type="BASE",value=30}}," for    to be Lucky "}
 c["30% chance for Spell Damage with Critical Hits to be Lucky 60% chance for Spell Damage with Critical Hits to be Lucky"]={{[1]={[1]={type="Condition",var="CriticalStrike"},[2]={type="Condition",var="CriticalStrike"},flags=2,keywordFlags=0,name="Damage",type="BASE",value=30}}," for    to be Lucky 60% chance for Spell Damage  to be Lucky "}
@@ -4436,11 +4433,8 @@ c["5% of Physical Damage from Hits taken as Chaos Damage"]={{[1]={flags=0,keywor
 c["5% of Physical Damage from Hits taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsCold",type="BASE",value=5}},nil}
 c["5% of Physical Damage from Hits taken as Damage of a Random Element"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=1.6666666666667},[2]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsCold",type="BASE",value=1.6666666666667},[3]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsLightning",type="BASE",value=1.6666666666667}},nil}
 c["5% of Physical Damage from Hits taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=5}},nil}
-c["5% of Physical Damage prevented Recouped as Energy Shield per enemy Power"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}},"  prevented Recouped as Energy Shield per enemy Power "}
-c["5% of Physical Damage prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}},"  prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge "}
-c["5% of Physical Damage prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge You cannot Recover Energy Shield from Regeneration"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}},"  prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge You cannot Recover Energy Shield from Regeneration "}
-c["5% of Physical Damage prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}},"  prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour "}
-c["5% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}},"  prevented Recouped as Life "}
+c["5% of Physical Damage prevented Recouped as Energy Shield per enemy Power"]={{[1]={[1]={type="Multiplier",var="EnemyPower"},flags=0,keywordFlags=0,name="PhysicalDamagePreventedEnergyShieldRecoup",type="BASE",value=5}},nil}
+c["5% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamagePreventedLifeRecoup",type="BASE",value=5}},nil}
 c["5% of Physical Damage taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=5}},nil}
 c["5% of Physical Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=5}},nil}
 c["5% of Physical Damage taken as Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=5}},nil}
@@ -4639,7 +4633,7 @@ c["50% more Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194
 c["50% more Mana Cost of Skills if you have no Energy Shield"]={{[1]={[1]={neg=true,type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=50}},nil}
 c["50% more amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="MORE",value=50}},nil}
 c["50% more damage against enemies with an Open Weakness"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
-c["50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ChaosDamage",type="BASE",value=50}},"  you prevent when Hit Recouped as Life and Mana  "}
+c["50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ChaosDamagePreventedLifeRecoup",type="BASE",value=50},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ChaosDamagePreventedManaRecoup",type="BASE",value=50}},nil}
 c["50% of Charges consumed by used Charms are granted to your Life Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Charms are granted to your Life Flasks "}
 c["50% of Charges consumed by used Charms are granted to your Life Flasks 50% of Charges consumed by used Life Flasks are granted to your Charms"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Charms are granted to your Life Flasks 50% of Charges consumed by used Life Flasks are granted to your Charms "}
 c["50% of Charges consumed by used Life Flasks are granted to your Charms"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=50}},"  consumed by used Life Flasks are granted to your Charms "}
@@ -4654,7 +4648,7 @@ c["50% of Physical Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFlag
 c["50% of Physical Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=50}},nil}
 c["50% of Physical Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=50}},nil}
 c["50% of Physical Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=50}},nil}
-c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
+c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamagePreventedLifeRecoup",type="BASE",value=50}},nil}
 c["50% of Physical Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=50}},nil}
 c["50% of Physical damage from Hits taken as Lightning damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsLightning",type="BASE",value=50}},nil}
 c["50% of Skill Mana costs Converted to Life Costs during any Life Flask Effect"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=50}},nil}
@@ -4865,7 +4859,7 @@ c["60% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["60% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},nil}
 c["60% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=60},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=60},[3]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 3",type="INC",value=60}},nil}
 c["60% less Life Flask Recovery"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=-60}},"  Flask Recovery "}
-c["60% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=60}},"  from enemies with an Open Weakness Recouped as Life and Energy Shield "}
+c["60% of damage taken from enemies with an Open Weakness Recouped as Life and Energy Shield"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=60}},"   Recouped as Life and Energy Shield "}
 c["60% of your current Energy Shield is added to your Armour for"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=60}}," your current  is added to your Armour for "}
 c["60% of your current Energy Shield is added to your Armour for determining your Physical Damage Reduction from Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldAppliesToPhysicalDamageTaken",type="BASE",value=60}},nil}
 c["60% reduced Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="INC",value=-60}},nil}
@@ -5001,13 +4995,13 @@ c["75% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["75% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=32,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
-end)();(function()
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
+end)();(function()
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
 c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},nil}
 c["76% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},"  if used  "}
@@ -5141,17 +5135,17 @@ c["8% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name=
 c["8% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=8}},nil}
 c["8% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=8}},nil}
 c["8% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=8}},nil}
-c["8% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}}," speed of Recoup s "}
+c["8% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="RecoupSpeed",type="INC",value=8}},nil}
 c["8% less damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-8}},nil}
 c["8% of Damage Taken Recouped as Life, Mana and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="EnergyShieldRecoup",type="BASE",value=8},[3]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=8}},nil}
 c["8% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=8}},nil}
 c["8% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=8}},nil}
 c["8% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=8}},nil}
-c["8% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=8}},"  from Deflected Hits Recouped as Life "}
+c["8% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoupFromDeflectedHits",type="BASE",value=8}},nil}
 c["8% of Maximum Energy Shield taken as Physical Damage on Minion Death"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnergyShieldAsPhysical",type="BASE",value=8}}}},"  taken  on  Death "}
 c["8% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=8}},nil}
 c["8% of Physical Damage from Hits taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=8}},nil}
-c["8% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=8}},"  prevented Recouped as Life "}
+c["8% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamagePreventedLifeRecoup",type="BASE",value=8}},nil}
 c["8% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=8}},nil}
 c["8% of Spell Mana Cost Converted to Life Cost"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=8}},nil}
 c["8% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-8}},nil}
@@ -5271,7 +5265,7 @@ c["90% increased Reservation Efficiency of Remnant Skills"]={{[1]={flags=0,keywo
 c["90% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=90}},nil}
 c["90% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=32,keywordFlags=0,name="Damage",type="INC",value=90}},nil}
 c["90% less Life Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="MORE",value=-90}},nil}
-c["90% of damage taken from enemies with an Open Weakness Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=90}},"  from enemies with an Open Weakness Recouped as Life "}
+c["90% of damage taken from enemies with an Open Weakness Recouped as Life"]={{[1]={[1]={type="Condition",var="EnemyHasOpenWeakness"},flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=90}},"   Recouped as Life "}
 c["92% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=92}},nil}
 c["93% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=93}},nil}
 c["93% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=93}},nil}
@@ -7081,7 +7075,7 @@ c["DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated"]={nil,"DNT-
 c["DNT-UNUSED Break Armour equal to 7% of Physical Spell damage dealt"]={nil,"DNT-UNUSED Break Armour equal to 7% of Physical Spell damage dealt "}
 c["DNT-UNUSED Gain 20% Edict Declaration when you disable a rare monster mod"]={nil,"DNT-UNUSED Gain 20% Edict Declaration when you disable a rare monster mod "}
 c["DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup"]={nil,"DNT-UNUSED Lightning Damage from Hits against Bleeding enemies Contributes to Electrocute buildup "}
-c["Damage Blocked is Recouped as Mana"]={nil,"Damage Blocked is Recouped as Mana "}
+c["Damage Blocked is Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="DamageBlockedManaRecoup",type="BASE",value=100}},nil}
 c["Damage Penetrates (2-4)% Cold Resistance"]={nil,"Damage Penetrates (2-4)% Cold Resistance "}
 c["Damage Penetrates (2-4)% Fire Resistance"]={nil,"Damage Penetrates (2-4)% Fire Resistance "}
 c["Damage Penetrates (2-4)% Lightning Resistance"]={nil,"Damage Penetrates (2-4)% Lightning Resistance "}
@@ -7243,8 +7237,7 @@ c["Effect is not removed when Unreserved Mana is Filled"]={{[1]={flags=0,keyword
 c["Eldritch Battery"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Eldritch Battery"},[2]={flags=0,keywordFlags=0,name="Condition:HaveEldritchBattery",type="FLAG",value=true}},nil}
 c["Elemental Ailment Threshold is increased by Uncapped Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="AilmentThresholdIncreasedByUncappedChaosRes",type="FLAG",value=true}},nil}
 c["Elemental Ailments other than Freeze you inflict are Reflected to you"]={nil,"Elemental Ailments other than Freeze you inflict are Reflected to you "}
-c["Elemental Archon does not expire while on High Infernal Flame"]={nil,"Elemental Archon does not expire while on High Infernal Flame "}
-c["Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame"]={nil,"Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame "}
+c["Elemental Archon does not expire while on High Infernal Flame"]={{[1]={[1]={type="Condition",var="HighInfernalFlame"},flags=0,keywordFlags=0,name="ElementalArchonDoesNotExpire",type="FLAG",value=true}},nil}
 c["Elemental Damage also Contributes to Bleeding Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanBleed",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanBleed",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanBleed",type="FLAG",value=true}},nil}
 c["Elemental Damage from Hits Contributes to Flammability, Ignite, and Chill Magnitudes, Freeze Buildup, and Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="FireCanChill",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanFreeze",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true},[5]={flags=0,keywordFlags=0,name="ColdCanShock",type="FLAG",value=true},[6]={flags=0,keywordFlags=0,name="LightningCanIgnite",type="FLAG",value=true},[7]={flags=0,keywordFlags=0,name="LightningCanChill",type="FLAG",value=true},[8]={flags=0,keywordFlags=0,name="LightningCanFreeze",type="FLAG",value=true}},nil}
 c["Elemental Damage from your Hits is Resisted by the enemy's lowest Elemental Resistance"]={nil,"Elemental Damage from your Hits is Resisted by the enemy's lowest Elemental Resistance "}
@@ -7756,9 +7749,7 @@ c["Gain Deflection Rating equal to 6% of Evasion Rating"]={{[1]={flags=0,keyword
 c["Gain Deflection Rating equal to 60% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=60}},nil}
 c["Gain Deflection Rating equal to 8% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=8}},nil}
 c["Gain Elemental Archon after spending 100% of your Maximum Mana"]={nil,"Elemental Archon after spending 100% of your Maximum Mana "}
-c["Gain Elemental Archon when you cast a Spell while on High Infernal Flame"]={nil,"Elemental Archon when you cast a Spell while on High Infernal Flame "}
-c["Gain Elemental Archon when you cast a Spell while on High Infernal Flame Elemental Archon does not expire while on High Infernal Flame"]={nil,"Elemental Archon when you cast a Spell while on High Infernal Flame Elemental Archon does not expire while on High Infernal Flame "}
-c["Gain Elemental Archon when you cast a Spell while on High Infernal Flame Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame"]={nil,"Elemental Archon when you cast a Spell while on High Infernal Flame Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame "}
+c["Gain Elemental Archon when you cast a Spell while on High Infernal Flame"]={{[1]={[1]={type="Condition",var="HighInfernalFlame"},flags=0,keywordFlags=0,name="Condition:CanGainElementalArchon",type="FLAG",value=true}},nil}
 c["Gain Elemental Archon when your Energy Shield Recharge begins"]={nil,"Elemental Archon when your Energy Shield Recharge begins "}
 c["Gain Endurance Charges instead of Power Charges"]={nil,"Endurance Charges instead of Power Charges "}
 c["Gain Finality for 0.5 seconds per Combo expended when using Skills"]={nil,"Finality for 0.5 seconds per Combo expended when using Skills "}
@@ -7770,10 +7761,7 @@ c["Gain Guard equal to 20% of missing Energy Shield for 4 seconds when you Dodge
 c["Gain Guard equal to 20% of missing Energy Shield for 4 seconds when you Dodge Roll Maximum amount of Guard is based on maximum Energy Shield instead"]={nil,"Guard equal to 20% of missing Energy Shield  when you Dodge Roll Maximum amount of Guard is based on maximum Energy Shield instead "}
 c["Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends"]={nil,"Guard equal to Current Runic Ward  when Effect ends "}
 c["Gain Immunity to Physical Damage for 1.5 seconds on Rampage"]={nil,"Immunity to Physical Damage for 1.5 seconds on"}
-c["Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Infernal Flame instead of spending Mana for Skill costs "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Gain Infernal Flame instead of spending Mana for Skill costs"]={{[1]={flags=0,keywordFlags=0,name="GainInfernalFlameInsteadOfManaCost",type="FLAG",value=true}},nil}
 c["Gain Maddening Presence for 10 seconds when you Kill a Rare or Unique Enemy"]={{[1]={[1]={type="Condition",var="KilledUniqueEnemy"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="HasMaddeningPresence",type="FLAG",value=true}}}},nil}
 c["Gain Onslaught for 4 seconds on Hit while at maximum Frenzy Charges"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},[2]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="Onslaught",type="FLAG",value=true}},nil}
 c["Gain Onslaught for 4 seconds when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies "}
@@ -8527,14 +8515,13 @@ c["Lose 5% Life per second while you have no Runic Ward during Effect Mana Recov
 c["Lose 5% of Energy Shield per second"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldDegenPercent",type="BASE",value=5}},nil}
 c["Lose 5% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeDegenPercent",type="BASE",value=5}},nil}
 c["Lose 5% of maximum Mana per Second"]={{[1]={flags=0,keywordFlags=0,name="ManaDegenPercent",type="BASE",value=5}},nil}
-c["Lose Elemental Archon on reaching maximum Infernal Flame"]={nil,"Lose Elemental Archon on reaching maximum Infernal Flame "}
+c["Lose Elemental Archon on reaching maximum Infernal Flame"]={{[1]={flags=0,keywordFlags=0,name="LoseElementalArchonOnMaximumInfernalFlame",type="FLAG",value=true}},nil}
 c["Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings"]={nil,"Lose a Mountain's Teaching when you are Hit, or when you use or Sustain an Attack that benefits from Mountain's Teachings "}
 c["Lose all Eaten Souls when you use a Flask"]={nil,"Lose all Eaten Souls when you use a Flask "}
 c["Lose all Fragile Regrowth when Hit"]={nil,"Lose all Fragile Regrowth when Hit "}
 c["Lose all Fragile Regrowth when Hit Gain 1 Fragile Regrowth each second"]={nil,"Lose all Fragile Regrowth when Hit Gain 1 Fragile Regrowth each second "}
 c["Lose all Frenzy, Endurance, and Power Charges when you Move"]={nil,"Lose all Frenzy, Endurance, and Power Charges when you Move "}
-c["Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Lose all Infernal Flame on reaching maximum Infernal Flame"]={{[1]={flags=0,keywordFlags=0,name="InfernalFlameResetsOnMaximum",type="FLAG",value=true}},nil}
 c["Lose all Power Charges on reaching maximum Power Charges"]={nil,"Lose all Power Charges on reaching maximum Power Charges "}
 c["Lose all Power Charges on reaching maximum Power Charges Shocks you when you reach maximum Power Charges"]={nil,"Lose all Power Charges on reaching maximum Power Charges Shocks you when you reach maximum Power Charges "}
 c["Lose all Rage on reaching Maximum Rage"]={nil,"Lose all Rage on reaching Maximum Rage "}
@@ -8569,11 +8556,7 @@ c["Maximum Chance to Evade is 50%"]={{[1]={flags=0,keywordFlags=0,name="EvadeCha
 c["Maximum Energy Shield cannot be Converted"]={nil,"Maximum Energy Shield cannot be Converted "}
 c["Maximum Energy Shield cannot be Converted Regenerate 2 Life per second for every 10 Intelligence"]={nil,"Maximum Energy Shield cannot be Converted Regenerate 2 Life per second for every 10 Intelligence "}
 c["Maximum Life is 1"]={{[1]={flags=0,keywordFlags=0,name="Life",type="OVERRIDE",value=1}},nil}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Maximum Mana is replaced by twice as much Maximum Infernal Flame"]={{[1]={flags=0,keywordFlags=0,name="PyromanticPact",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="InfernalFlameManaRatio",type="BASE",value=2}},nil}
 c["Maximum Physical Damage Reduction is 50%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReductionMax",type="MAX",value=50}},nil}
 c["Maximum Quality is 200%"]={{},nil}
 c["Maximum Quality is 40%"]={{},nil}
@@ -9056,8 +9039,7 @@ c["Raised Zombies have +28% to all Resistances"]={{[1]={[1]={includeTransfigured
 c["Raised Zombies have +5000 to maximum Life"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=5000}}}},nil}
 c["Rampage"]={{[1]={flags=0,keywordFlags=0,name="Condition:Rampage",type="FLAG",value=true}},nil}
 c["Raven-Touched"]={nil,"Raven-Touched "}
-c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
-c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
+c["Recoup 5% of damage taken by your Totems as Life"]={{[1]={flags=0,keywordFlags=0,name="TotemDamageTakenLifeRecoup",type="BASE",value=5}},nil}
 c["Recover 0.75% of maximum Life per Poison affecting Enemies you Kill"]={nil,"Recover 0.75% of maximum Life per Poison affecting Enemies you Kill "}
 c["Recover 1% of maximum Energy Shield on Kill"]={nil,"Recover 1% of maximum Energy Shield on Kill "}
 c["Recover 1% of maximum Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
@@ -9581,9 +9563,7 @@ c["Take 50% less Damage over Time if you've started taking Damage over Time in t
 c["Take 50% more Damage over Time if you haven't started taking Damage over Time in the past second"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=50}},"  if you haven't started taking Damage over Time in the past second "}
 c["Take 63% of Mana Costs you pay for Skills as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsPhysical",type="BASE",value=63}}," s you pay for Skills  "}
 c["Take Physical Damage per total unmet Strength Requirement when you Attack"]={nil,"Physical Damage per total unmet Strength Requirement when you Attack "}
-c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
-c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame"]={nil,"maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame "}
-c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
+c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={{[1]={flags=0,keywordFlags=0,name="InfernalFlameOverflowSelfHit",type="FLAG",value=true}},nil}
 c["Take no Damage from Volatility"]={nil,"no Damage from Volatility "}
 c["Take no Extra Damage from Critical Hits"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=100}},nil}
 c["Tame Beast can capture Unique Beasts"]={nil,"can capture Unique Beasts "}
@@ -10003,7 +9983,6 @@ c["additional Elemental Infusion of the same type"]={nil,"additional Elemental I
 c["additional Rune-only sockets:"]={nil,"additional Rune-only sockets: "}
 c["additional Rune-only sockets: 1 Helmet socket"]={nil,"additional Rune-only sockets: 1 Helmet socket "}
 c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
-end)();(function()
 c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket "}
 c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket "}
 c["as being boosted by Chilled Ground"]={nil,"as being boosted by Chilled Ground "}

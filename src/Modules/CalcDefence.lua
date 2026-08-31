@@ -26,6 +26,38 @@ local isElemental = { Fire = true, Cold = true, Lightning = true }
 -- List of all damage types, ordered according to the conversion sequence
 local hitSourceList = {"Attack", "Spell"}
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
+local recoupTypeList = {"Life", "Mana", "EnergyShield"}
+
+local function recoupSpeedMod(modDB)
+	return m_max(1 + modDB:Sum("INC", nil, "RecoupSpeed") / 100, 0.01)
+end
+local function recoupBaseDuration(modDB, recoupType)
+	if recoupType == "Life" and modDB:Flag(nil, "3SecondLifeRecoup") then
+		return data.misc.RecoupDurationOverride3
+	end
+	if recoupType and modDB:Flag(nil, "3Second"..recoupType.."Recoup") then
+		return data.misc.RecoupDurationOverride3
+	end
+	if modDB:Flag(nil, "3SecondRecoup") then
+		return data.misc.RecoupDurationOverride3
+	end
+	if recoupType and modDB:Flag(nil, "4Second"..recoupType.."Recoup") then
+		return data.misc.RecoupDurationOverride4
+	end
+	if modDB:Flag(nil, "4SecondRecoup") then
+		return data.misc.RecoupDurationOverride4
+	end
+	return data.misc.RecoupDurationBase
+end
+local function recoupDurationFor(modDB, recoupType, explicitBase)
+	return (explicitBase or recoupBaseDuration(modDB, recoupType)) / recoupSpeedMod(modDB)
+end
+local function formatRecoupDuration(duration)
+	if duration == m_floor(duration) then
+		return s_format("%d seconds", duration)
+	end
+	return s_format("%.2f seconds", duration)
+end
 
 local resistTypeList = { "Fire", "Cold", "Lightning", "Chaos" }
 
@@ -125,7 +157,29 @@ function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 		output.Life = 1
 		condList["FullLife"] = true
 	end
-	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+	if modDB:Flag(nil, "PyromanticPact") then
+		local ratio = modDB:Sum("BASE", nil, "InfernalFlameManaRatio")
+		if ratio == 0 then
+			ratio = 2
+		end
+		output.ManaBeforeInfernalFlame = output.Mana
+		output.InfernalFlameMax = m_max(round(output.Mana * ratio), 1)
+		output.Mana = 0
+		condList["PyromanticPact"] = true
+		modDB:NewMod("NoManaRegen", "FLAG", true, "Pyromantic Pact")
+		modDB:NewMod("CannotLeechMana", "FLAG", true, "Pyromantic Pact")
+		if breakdown and breakdown.Mana then
+			t_insert(breakdown.Mana, s_format("^8Pyromantic Pact: %d mana → %d Infernal Flame (x%g)", output.ManaBeforeInfernalFlame, output.InfernalFlameMax, ratio))
+		end
+		if breakdown then
+			breakdown.InfernalFlameMax = {
+				s_format("%d ^8(maximum mana before replacement)", output.ManaBeforeInfernalFlame),
+				s_format("x %g ^8(Infernal Flame from mana)", ratio),
+				s_format("= %d", output.InfernalFlameMax),
+			}
+		end
+	end
+	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.ManaBeforeInfernalFlame or output.Mana)
 end
 
 
@@ -1812,6 +1866,7 @@ function calcs.defence(env, actor)
 
 	-- recoup
 	local function calcRecoup(recoup, recoupType, damageType)
+		local duration = recoupDurationFor(modDB, recoupType)
 		output[damageType..recoupType.."Recoup"] = recoup * output[recoupType.."RecoveryRateMod"]
 		output["anyRecoup"] = output["anyRecoup"] + output[damageType..recoupType.."Recoup"]
 		if breakdown then
@@ -1819,39 +1874,146 @@ function calcs.defence(env, actor)
 				breakdown[damageType..recoupType.."Recoup"] = {
 					s_format("%d%% ^8(base)", recoup),
 					s_format("* %.2f ^8(recovery rate modifier)", output[recoupType.."RecoveryRateMod"]),
-					s_format("= %.1f%% over %d seconds", output[damageType..recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
+					s_format("= %.1f%% over %s", output[damageType..recoupType.."Recoup"], formatRecoupDuration(duration))
 				}
 			else
-				breakdown[damageType..recoupType.."Recoup"] = { s_format("%d%% over %d seconds", output[damageType..recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
+				breakdown[damageType..recoupType.."Recoup"] = { s_format("%d%% over %s", output[damageType..recoupType.."Recoup"], formatRecoupDuration(duration)) }
 			end
 		end
 	end
 	do
-		-- base Life/Mana/Energy Shield Recoup calcs
 		output["anyRecoup"] = 0
-		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
-		for _, recoupType in ipairs(recoupTypeList) do
-			local recoup = modDB:Sum("BASE", nil, recoupType.."Recoup")
-			calcRecoup(recoup, recoupType, "")
+		output.RecoupSpeed = modDB:Sum("INC", nil, "RecoupSpeed")
+		output.RecoupDuration = recoupDurationFor(modDB)
+		output.LifeRecoupDuration = recoupDurationFor(modDB, "Life")
+		output.ManaRecoupDuration = recoupDurationFor(modDB, "Mana")
+		output.EnergyShieldRecoupDuration = recoupDurationFor(modDB, "EnergyShield")
 
-			if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
-				local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
-				modDB:ReplaceMod("EnergyShieldRecoup", "BASE", recoup, mod.source)
-			end
+		-- base Life/Mana/Energy Shield Recoup calcs
+		for _, recoupType in ipairs(recoupTypeList) do
+			calcRecoup(modDB:Sum("BASE", nil, recoupType.."Recoup"), recoupType, "")
 		end
 		-- iterate over each damageType and add to base Life/Mana/Energy Shield Recoup
 		for _, recoupType in ipairs(recoupTypeList) do
 			for _, damageType in ipairs(dmgTypeList) do
-				local recoup = modDB:Sum("BASE", nil, damageType..recoupType.."Recoup")
-				calcRecoup(recoup, recoupType, damageType)
-
-				if modDB:Flag(nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup") then -- Sacrosanctum
-					local mod = modDB:Tabulate("FLAG", nil, "Add"..recoupType.."RecoupToEnergyShieldRecoup")[1].mod
-					modDB:ReplaceMod(damageType.."EnergyShieldRecoup", "BASE", recoup, mod.source)
-				end
+				calcRecoup(modDB:Sum("BASE", nil, damageType..recoupType.."Recoup"), recoupType, damageType)
 			end
 		end
-		-- pseudo recoup (eg %physical damage prevented from hits regenerated)
+
+		-- Prevented-damage recoup (PoE2: recoup, not regeneration)
+		for _, resource in ipairs(recoupTypeList) do
+			for _, damageType in ipairs(dmgTypeList) do
+				calcRecoup(modDB:Sum("BASE", nil, damageType.."DamagePrevented"..resource.."Recoup"), resource, damageType.."DamagePrevented")
+			end
+		end
+
+		local function copyRecoupToEnergyShield(srcType)
+			local function copyOne(srcName, dstName)
+				local src = output[srcName] or 0
+				if src == 0 then
+					return
+				end
+				local dst = src
+				if (output[srcType.."RecoveryRateMod"] or 0) ~= 0 then
+					dst = src / output[srcType.."RecoveryRateMod"] * output.EnergyShieldRecoveryRateMod
+				end
+				output[dstName] = (output[dstName] or 0) + dst
+				output.anyRecoup = output.anyRecoup + dst
+			end
+			copyOne(srcType.."Recoup", "EnergyShieldRecoup")
+			for _, damageType in ipairs(dmgTypeList) do
+				copyOne(damageType..srcType.."Recoup", damageType.."EnergyShieldRecoup")
+				copyOne(damageType.."DamagePrevented"..srcType.."Recoup", damageType.."DamagePreventedEnergyShieldRecoup")
+			end
+		end
+		local function moveLifeRecoupToEnergyShield()
+			local function moveOne(srcName, dstName)
+				local src = output[srcName] or 0
+				if src == 0 then
+					return
+				end
+				local dst = src
+				if output.LifeRecoveryRateMod ~= 0 then
+					dst = src / output.LifeRecoveryRateMod * output.EnergyShieldRecoveryRateMod
+				end
+				output[dstName] = (output[dstName] or 0) + dst
+				output.anyRecoup = output.anyRecoup + dst - src
+				output[srcName] = 0
+			end
+			moveOne("LifeRecoup", "EnergyShieldRecoup")
+			for _, damageType in ipairs(dmgTypeList) do
+				moveOne(damageType.."LifeRecoup", damageType.."EnergyShieldRecoup")
+				moveOne(damageType.."DamagePreventedLifeRecoup", damageType.."DamagePreventedEnergyShieldRecoup")
+			end
+		end
+		if modDB:Flag(nil, "LifeRecoupAppliesToEnergyShieldInstead") then
+			moveLifeRecoupToEnergyShield()
+		end
+		if modDB:Flag(nil, "AddLifeRecoupToEnergyShieldRecoup") then
+			copyRecoupToEnergyShield("Life")
+		end
+		if modDB:Flag(nil, "AddManaRecoupToEnergyShieldRecoup") then
+			copyRecoupToEnergyShield("Mana")
+		end
+
+		local deflectLifeRecoup = modDB:Sum("BASE", nil, "LifeRecoupFromDeflectedHits")
+		if deflectLifeRecoup > 0 then
+			calcRecoup(deflectLifeRecoup, "Life", "Deflected")
+		end
+
+		local blockedManaRecoup = modDB:Sum("BASE", nil, "DamageBlockedManaRecoup")
+		if blockedManaRecoup > 0 then
+			calcRecoup(blockedManaRecoup, "Mana", "Blocked")
+		end
+
+		local redirectedLifeRecoup = modDB:Sum("BASE", nil, "LifeRecoupFromRedirected")
+		if redirectedLifeRecoup > 0 then
+			calcRecoup(redirectedLifeRecoup, "Life", "Redirected")
+		end
+
+		local totemLifeRecoup = modDB:Sum("BASE", nil, "TotemDamageTakenLifeRecoup")
+		if totemLifeRecoup > 0 then
+			calcRecoup(totemLifeRecoup, "Life", "Totem")
+		end
+		local offeringLifeRecoup = modDB:Sum("BASE", nil, "OfferingDamageTakenLifeRecoup")
+		if offeringLifeRecoup > 0 then
+			calcRecoup(offeringLifeRecoup, "Life", "Offering")
+		end
+
+		-- Absorption charges: elemental damage recouped as ES over 4 seconds
+		local absorptionRecoup = (modDB:Sum("BASE", nil, "PerAbsorptionElementalEnergyShieldRecoup") or 0) * (output.AbsorptionCharges or 0)
+		if absorptionRecoup > 0 then
+			output.AbsorptionElementalEnergyShieldRecoupDuration = recoupDurationFor(modDB, "EnergyShield", data.misc.RecoupDurationOverride4)
+			output.AbsorptionElementalEnergyShieldRecoup = absorptionRecoup * output.EnergyShieldRecoveryRateMod
+			output.anyRecoup = output.anyRecoup + output.AbsorptionElementalEnergyShieldRecoup
+			if (output.ElementalEnergyShieldRecoup or 0) == 0 then
+				output.ElementalEnergyShieldRecoup = output.AbsorptionElementalEnergyShieldRecoup
+			end
+			if breakdown then
+				breakdown.AbsorptionElementalEnergyShieldRecoup = {
+					s_format("%d%% ^8(per absorption charge)", modDB:Sum("BASE", nil, "PerAbsorptionElementalEnergyShieldRecoup")),
+					s_format("x %d ^8(absorption charges)", output.AbsorptionCharges or 0),
+					s_format("* %.2f ^8(recovery rate modifier)", output.EnergyShieldRecoveryRateMod),
+					s_format("= %.1f%% over %s", output.AbsorptionElementalEnergyShieldRecoup, formatRecoupDuration(output.AbsorptionElementalEnergyShieldRecoupDuration)),
+				}
+			end
+		end
+
+		local lifeRecoupOver4 = modDB:Sum("BASE", nil, "LifeRecoupOver4Seconds")
+		if lifeRecoupOver4 > 0 then
+			output.LifeRecoupOver4SecondsDuration = recoupDurationFor(modDB, "Life", data.misc.RecoupDurationOverride4)
+			output.LifeRecoupOver4Seconds = lifeRecoupOver4 * output.LifeRecoveryRateMod
+			output.anyRecoup = output.anyRecoup + output.LifeRecoupOver4Seconds
+			if breakdown then
+				breakdown.LifeRecoupOver4Seconds = {
+					s_format("%d%% ^8(base)", lifeRecoupOver4),
+					s_format("* %.2f ^8(recovery rate modifier)", output.LifeRecoveryRateMod),
+					s_format("= %.1f%% over %s", output.LifeRecoupOver4Seconds, formatRecoupDuration(output.LifeRecoupOver4SecondsDuration)),
+				}
+			end
+		end
+
+		-- pseudo recoup (eg %physical damage prevented from hits regenerated) — PoE1 regen wording only
 		for _, resource in ipairs(recoupTypeList) do
 			if not modDB:Flag(nil, "No"..resource.."Regen") and not modDB:Flag(nil, "CannotGain"..resource) then
 				local PhysicalDamageMitigatedPseudoRecoup = modDB:Sum("BASE", nil, "PhysicalDamageMitigated"..resource.."PseudoRecoup")
@@ -3423,85 +3585,127 @@ function calcs.buildDefenceEstimations(env, actor)
 	if output["anyRecoup"] > 0 and damageCategoryConfig ~= "DamageOverTime" then
 		local totalDamage = 0
 		local totalElementalDamage = 0
-		local totalPhysicalDamageMitigated = output["NumberOfMitigatedDamagingHits"] * (output.PhysicalTakenDamage - output.PhysicalTakenHit)
-		local extraPseudoRecoup = {}
+		local totalTakenHit = 0
+		local hits = output["NumberOfMitigatedDamagingHits"] or 0
+		local survivalTime = output["EHPSurvivalTime"] or 0
+		local recoupInstances = { Life = { }, Mana = { }, EnergyShield = { } }
+		local function addRecoupInstance(resource, amount, duration, label)
+			if (amount or 0) == 0 or (duration or 0) == 0 then
+				return
+			end
+			t_insert(recoupInstances[resource], { amount = amount, duration = duration, label = label })
+			output["Total"..resource.."RecoupRecovery"] = (output["Total"..resource.."RecoupRecovery"] or 0) + amount
+		end
 		for _, damageType in ipairs(dmgTypeList) do
-			totalDamage = totalDamage + output[damageType.."RecoupableDamageTaken"]
+			totalDamage = totalDamage + (output[damageType.."RecoupableDamageTaken"] or 0)
+			totalTakenHit = totalTakenHit + (output[damageType.."TakenHit"] or 0)
 			if isElemental[damageType] then
-				totalElementalDamage = totalElementalDamage + output[damageType.."RecoupableDamageTaken"]
+				totalElementalDamage = totalElementalDamage + (output[damageType.."RecoupableDamageTaken"] or 0)
 			end
 		end
-		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
+		local preventedByType = { }
+		local totalPrevented = 0
+		local totalElementalPrevented = 0
+		for _, damageType in ipairs(dmgTypeList) do
+			local originating = hits * (output[damageType.."TakenDamage"] or 0)
+			local taken = output[damageType.."RecoupableDamageTaken"] or 0
+			preventedByType[damageType] = m_max(originating - taken, 0)
+			totalPrevented = totalPrevented + preventedByType[damageType]
+			if isElemental[damageType] then
+				totalElementalPrevented = totalElementalPrevented + preventedByType[damageType]
+			end
+		end
+		local blockChance = (output.EffectiveBlockChance or 0) / 100
+		if damageCategoryConfig ~= "Melee" and damageCategoryConfig ~= "Untyped" and output["Effective"..damageCategoryConfig.."BlockChance"] then
+			blockChance = output["Effective"..damageCategoryConfig.."BlockChance"] / 100
+		end
+		local blockPortion = blockChance * (output.BlockEffect or 100) / 100
+		local totalBlocked = hits * totalTakenHit * blockPortion
+		local deflectChance = (output.DeflectChance or 0) / 100
+		local deflectEffect = (output.DeflectEffect or 0) / 100
+		local totalDeflectedTaken
+		if deflectChance >= 1 then
+			totalDeflectedTaken = totalDamage
+		else
+			totalDeflectedTaken = hits * totalTakenHit * deflectChance * (1 - deflectEffect)
+		end
+		local companionPct = (output.CompanionAllyDamageMitigation or 0) / 100
+		local redirectedDamage = 0
+		if companionPct > 0 and companionPct < 1 then
+			redirectedDamage = totalDamage * companionPct / (1 - companionPct)
+		end
+
 		for i, recoupType in ipairs(recoupTypeList) do
-			local recoupTime = (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8
-			output["Total"..recoupType.."RecoupRecovery"] = (output[recoupType.."Recoup"] or 0) / 100 * totalDamage
-			if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
-				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output["Elemental"..recoupType.."Recoup"] / 100 * totalElementalDamage
+			local recoupTime = recoupDurationFor(modDB, recoupType)
+			output["Total"..recoupType.."RecoupRecovery"] = 0
+			if (output[recoupType.."Recoup"] or 0) > 0 then
+				addRecoupInstance(recoupType, output[recoupType.."Recoup"] / 100 * totalDamage, recoupTime, "damage taken")
 			end
 			for _, damageType in ipairs(dmgTypeList) do
-				if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."RecoupableDamageTaken"] > 0 then
-					output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output[damageType..recoupType.."Recoup"] / 100 * output[damageType.."RecoupableDamageTaken"]
+				if (output[damageType..recoupType.."Recoup"] or 0) > 0 and (output[damageType.."RecoupableDamageTaken"] or 0) > 0 then
+					addRecoupInstance(recoupType, output[damageType..recoupType.."Recoup"] / 100 * output[damageType.."RecoupableDamageTaken"], recoupTime, damageType.." taken")
+				end
+				local preventedPct = output[damageType.."DamagePrevented"..recoupType.."Recoup"] or 0
+				if preventedPct > 0 and preventedByType[damageType] > 0 then
+					addRecoupInstance(recoupType, preventedPct / 100 * preventedByType[damageType], recoupTime, damageType.." prevented")
 				end
 			end
-			output["Total"..recoupType.."PseudoRecoup"] = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] or 0) / 100 * totalPhysicalDamageMitigated
+			if recoupType == "Mana" and (output.BlockedManaRecoup or 0) > 0 and totalBlocked > 0 then
+				addRecoupInstance("Mana", output.BlockedManaRecoup / 100 * totalBlocked, recoupTime, "blocked")
+			end
+			if recoupType == "Life" and (output.DeflectedLifeRecoup or 0) > 0 and totalDeflectedTaken > 0 then
+				addRecoupInstance("Life", output.DeflectedLifeRecoup / 100 * totalDeflectedTaken, recoupTime, "deflected hits")
+			end
+			if recoupType == "Life" and (output.RedirectedLifeRecoup or 0) > 0 and redirectedDamage > 0 then
+				addRecoupInstance("Life", output.RedirectedLifeRecoup / 100 * redirectedDamage, recoupTime, "redirected to companion")
+			end
+			if recoupType == "EnergyShield" and (output.AbsorptionElementalEnergyShieldRecoup or 0) > 0 and totalElementalDamage > 0 then
+				addRecoupInstance("EnergyShield", output.AbsorptionElementalEnergyShieldRecoup / 100 * totalElementalDamage, output.AbsorptionElementalEnergyShieldRecoupDuration, "absorption charges")
+			end
+			if recoupType == "Life" and (output.LifeRecoupOver4Seconds or 0) > 0 then
+				addRecoupInstance("Life", output.LifeRecoupOver4Seconds / 100 * totalDamage, output.LifeRecoupOver4SecondsDuration, "over 4 seconds")
+			end
+
+			output["Total"..recoupType.."PseudoRecoup"] = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] or 0) / 100 * hits * ((output.PhysicalTakenDamage or 0) - (output.PhysicalTakenHit or 0))
 			local PseudoRecoupDuration = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoupDuration"] or 4)
-			-- Pious Path
-			if output["Total"..recoupType.."PseudoRecoup"] ~= 0 then
-				for j=i+1,#recoupTypeList do
+			if output["Total"..recoupType.."PseudoRecoup"] ~= 0 and not modDB:Flag(nil, "UnaffectedBy"..recoupType.."Regen") then
+				addRecoupInstance(recoupType, output["Total"..recoupType.."PseudoRecoup"], PseudoRecoupDuration, "mitigated regen")
+				for j = i + 1, #recoupTypeList do
 					if modDB:Flag(nil, recoupType.."RegenerationRecovers"..recoupTypeList[j]) and not modDB:Flag(nil, "UnaffectedBy"..recoupTypeList[j].."Regen") and not modDB:Flag(nil, "No"..recoupTypeList[j].."Regen") and not modDB:Flag(nil, "CannotGain"..recoupTypeList[j]) then
-						extraPseudoRecoup[recoupTypeList[j]] = { output["Total"..recoupType.."PseudoRecoup"] * output[recoupTypeList[j].."RecoveryRateMod"] / output[recoupType.."RecoveryRateMod"], PseudoRecoupDuration }
+						addRecoupInstance(recoupTypeList[j], output["Total"..recoupType.."PseudoRecoup"] * output[recoupTypeList[j].."RecoveryRateMod"] / output[recoupType.."RecoveryRateMod"], PseudoRecoupDuration, "mitigated regen")
 					end
 				end
+			else
+				output["Total"..recoupType.."PseudoRecoup"] = ((not modDB:Flag(nil, "UnaffectedBy"..recoupType.."Regen")) and output["Total"..recoupType.."PseudoRecoup"] or 0)
 			end
-			output["Total"..recoupType.."PseudoRecoup"] = ((not modDB:Flag(nil, "UnaffectedBy"..recoupType.."Regen")) and output["Total"..recoupType.."PseudoRecoup"] or 0)
-			output[recoupType.."RecoupRecoveryMax"] = output["Total"..recoupType.."RecoupRecovery"] / recoupTime + output["Total"..recoupType.."PseudoRecoup"] / PseudoRecoupDuration + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0)
-			output[recoupType.."RecoupRecoveryAvg"] = output["Total"..recoupType.."RecoupRecovery"] / (output["EHPSurvivalTime"] + recoupTime) + output["Total"..recoupType.."PseudoRecoup"] / (output["EHPSurvivalTime"] + PseudoRecoupDuration) + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0)
+
+			output[recoupType.."RecoupRecoveryMax"] = 0
+			output[recoupType.."RecoupRecoveryAvg"] = 0
+			for _, instance in ipairs(recoupInstances[recoupType]) do
+				output[recoupType.."RecoupRecoveryMax"] = output[recoupType.."RecoupRecoveryMax"] + instance.amount / instance.duration
+				output[recoupType.."RecoupRecoveryAvg"] = output[recoupType.."RecoupRecoveryAvg"] + instance.amount / (survivalTime + instance.duration)
+			end
 			if breakdown then
-				local multipleTypes = 0
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
-				if (output[recoupType.."Recoup"] or 0) > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(total damage taken during ehp calcs)", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[recoupType.."Recoup"] / 100))
-					multipleTypes = multipleTypes + 1
-				end
-				if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
+				local multipleTypes = 0
+				for _, instance in ipairs(recoupInstances[recoupType]) do
 					if multipleTypes > 0 then
 						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 					end
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total elemental damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output["Elemental"..recoupType.."Recoup"] / 100))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%.0f ^8(%s recoup amount)", multipleTypes > 0 and "+" or "", instance.amount, instance.label))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %s)", instance.duration, formatRecoupDuration(instance.duration)))
 					multipleTypes = multipleTypes + 1
 				end
-				for _, damageType in ipairs(dmgTypeList) do
-					if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."RecoupableDamageTaken"] > 0 then
-						if multipleTypes > 0 then
-							t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
-						end
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total %s damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage, damageType))
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[damageType..recoupType.."Recoup"] / 100))
-						multipleTypes = multipleTypes + 1
-					end
-				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", output["Total"..recoupType.."RecoupRecovery"]))
-				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", recoupTime, recoupTime))
-				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", PseudoRecoupDuration, PseudoRecoupDuration))
-				end
-				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", extraPseudoRecoup[recoupType][2], extraPseudoRecoup[recoupType][2]))
-				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryMax"]))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds))", (output["EHPSurvivalTime"] + recoupTime), recoupTime))
-				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + PseudoRecoupDuration), PseudoRecoupDuration))
-				end
-				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2]), extraPseudoRecoup[recoupType][2]))
+				breakdown[recoupType.."RecoupRecoveryAvg"] = { }
+				multipleTypes = 0
+				for _, instance in ipairs(recoupInstances[recoupType]) do
+					if multipleTypes > 0 then
+						t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format(""))
+					end
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("%s%.0f ^8(%s recoup amount)", multipleTypes > 0 and "+" or "", instance.amount, instance.label))
+					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(survival time + %s)", survivalTime + instance.duration, formatRecoupDuration(instance.duration)))
+					multipleTypes = multipleTypes + 1
 				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryAvg"]))
 			end
@@ -4367,6 +4571,131 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 	--endregion
+end
+
+--- Finish Infernal Flame current value, overflow rate, and recoup after skill cost/speed are known.
+function calcs.applyInfernalFlame(env, actor)
+	local modDB = actor.modDB
+	local output = actor.output
+	local breakdown = actor.breakdown
+	if not modDB:Flag(nil, "PyromanticPact") then
+		return
+	end
+	local maxFlame = output.InfernalFlameMax or 0
+	local cost = output.ManaCost or 0
+	local uses = modDB:Sum("BASE", nil, "Multiplier:InfernalFlameSkillUses")
+	local current = 0
+	if cost > 0 then
+		current = m_min(uses * cost, maxFlame)
+	end
+	local overflow = modDB:Flag(nil, "Condition:InfernalFlameOverflow") or (maxFlame > 0 and cost > 0 and uses * cost >= maxFlame)
+	if overflow then
+		current = maxFlame
+	end
+	output.InfernalFlame = current
+	output.InfernalFlamePercent = maxFlame > 0 and (current / maxFlame * 100) or 0
+
+	if overflow or (maxFlame > 0 and current >= maxFlame) then
+		modDB.conditions["AtMaximumInfernalFlame"] = true
+	end
+	if output.InfernalFlamePercent >= data.misc.InfernalFlameHighPercent and not overflow then
+		modDB.conditions["HighInfernalFlame"] = true
+	end
+	if output.InfernalFlamePercent <= data.misc.LowPoolThreshold * 100 then
+		modDB.conditions["LowInfernalFlame"] = true
+	end
+
+	if overflow and modDB:Flag(nil, "InfernalFlameOverflowSelfHit") then
+		local raw = (output.Life or 0) + (output.EnergyShield or 0)
+		output.InfernalFlameOverflowHit = raw
+		if actor.damageShiftTable and actor.damageShiftTable.Fire then
+			output.InfernalFlameOverflowTaken = calcs.takenHitFromDamage(raw, "Fire", actor)
+		else
+			local fireMult = output.FireBaseTakenHitMult or (1 - (output.FireResist or 0) / 100)
+			output.InfernalFlameOverflowTaken = raw * fireMult
+		end
+		local usesToFill = 1
+		if cost > 0 and maxFlame > 0 then
+			usesToFill = m_max(m_ceil(maxFlame / cost), 1)
+		end
+		local speed = output.Speed or 0
+		output.InfernalFlameOverflowsPerSecond = speed / usesToFill
+		local taken = output.InfernalFlameOverflowTaken or 0
+		local overflowPerSecond = output.InfernalFlameOverflowsPerSecond
+		output.InfernalFlameOverflowInterval = overflowPerSecond > 0 and (1 / overflowPerSecond) or 0
+		if breakdown then
+			breakdown.InfernalFlameOverflowTaken = {
+				s_format("%d ^8(maximum life)", output.Life or 0),
+				s_format("+ %d ^8(energy shield)", output.EnergyShield or 0),
+				s_format("= %d ^8(raw fire hit)", raw),
+				s_format("= %.0f ^8(taken after fire mitigation)", output.InfernalFlameOverflowTaken),
+			}
+			breakdown.InfernalFlameOverflowsPerSecond = {
+				s_format("%.2f ^8(cast/attack rate)", speed),
+				s_format("/ %d ^8(uses to fill Infernal Flame)", usesToFill),
+				s_format("= %.2f overflows per second", overflowPerSecond),
+			}
+			breakdown.InfernalFlameOverflowInterval = {
+				s_format("1 / %.2f ^8(overflows per second)", overflowPerSecond),
+				s_format("= %.2fs between overflows", output.InfernalFlameOverflowInterval),
+			}
+		end
+		for _, recoupType in ipairs({ "Life", "EnergyShield" }) do
+			local duration = recoupDurationFor(modDB, recoupType)
+			local pct = (output[recoupType.."Recoup"] or 0) + (output["Fire"..recoupType.."Recoup"] or 0)
+			output["InfernalFlameOverflow"..recoupType.."RecoupPct"] = pct
+			output["InfernalFlameOverflow"..recoupType.."RecoupDuration"] = duration
+			local amount = taken * pct / 100
+			output["InfernalFlameOverflow"..recoupType.."RecoupAmount"] = amount
+			output["InfernalFlameOverflow"..recoupType.."RecoupOne"] = duration > 0 and (amount / duration) or 0
+			output["InfernalFlameOverflow"..recoupType.."Overlap"] = (output.InfernalFlameOverflowInterval > 0) and (duration / output.InfernalFlameOverflowInterval) or 0
+			local stacked = overflowPerSecond * amount
+			output["InfernalFlameOverflow"..recoupType.."RecoupStacked"] = stacked
+			output["InfernalFlameOverflow"..recoupType.."RecoupOverDuration"] = stacked * duration
+			output["InfernalFlameOverflow"..recoupType.."NetPerOverflow"] = stacked * output.InfernalFlameOverflowInterval - taken
+			output["InfernalFlameOverflow"..recoupType.."TimeToRecoup"] = stacked > 0 and (taken / stacked) or 0
+			if stacked > 0 then
+				output["ComprehensiveNet"..recoupType.."Regen"] = (output["ComprehensiveNet"..recoupType.."Regen"] or 0) + stacked
+			end
+			if breakdown then
+				breakdown["InfernalFlameOverflow"..recoupType.."RecoupAmount"] = {
+					s_format("%.0f ^8(overflow fire taken)", taken),
+					s_format("* %.2f ^8(%s recoup including recovery rate)", pct / 100, recoupType == "Life" and "life" or "ES"),
+					s_format("= %.0f recouped from one overflow", amount),
+				}
+				breakdown["InfernalFlameOverflow"..recoupType.."RecoupOne"] = {
+					s_format("%.0f ^8(recouped per overflow)", amount),
+					s_format("/ %.2f ^8(recoup duration)", duration),
+					s_format("= %.1f per second from one instance", output["InfernalFlameOverflow"..recoupType.."RecoupOne"]),
+				}
+				breakdown["InfernalFlameOverflow"..recoupType.."RecoupStacked"] = {
+					s_format("%.2f ^8(overflows per second)", overflowPerSecond),
+					s_format("* %.0f ^8(recouped per overflow)", amount),
+					s_format("= %.1f per second stacked", stacked),
+					s_format("^8(%.2fs / %.2fs = %.2f overlapping instances)", duration, output.InfernalFlameOverflowInterval, output["InfernalFlameOverflow"..recoupType.."Overlap"]),
+				}
+				breakdown["InfernalFlameOverflow"..recoupType.."RecoupOverDuration"] = {
+					s_format("%.1f ^8(stacked recoup per second)", stacked),
+					s_format("* %.2f ^8(recoup duration)", duration),
+					s_format("= %.0f recovered over one duration window", stacked * duration),
+				}
+				breakdown["InfernalFlameOverflow"..recoupType.."NetPerOverflow"] = {
+					s_format("%.1f ^8(stacked recoup per second)", stacked),
+					s_format("* %.2f ^8(seconds between overflows)", output.InfernalFlameOverflowInterval),
+					s_format("- %.0f ^8(overflow taken)", taken),
+					s_format("= %.0f net per overflow ^8(positive means the cycle recovers more than the hit)", output["InfernalFlameOverflow"..recoupType.."NetPerOverflow"]),
+				}
+				breakdown["InfernalFlameOverflow"..recoupType.."TimeToRecoup"] = {
+					s_format("%.0f ^8(overflow taken)", taken),
+					s_format("/ %.1f ^8(stacked recoup per second)", stacked),
+					s_format("= %.2fs to recoup the hit ^8(vs %.2fs between overflows)", output["InfernalFlameOverflow"..recoupType.."TimeToRecoup"], output.InfernalFlameOverflowInterval),
+				}
+			end
+		end
+		output.ComprehensiveTotalNetRegen = (output.ComprehensiveNetLifeRegen or 0) + (output.ComprehensiveNetManaRegen or 0) + (output.ComprehensiveNetEnergyShieldRegen or 0)
+		output.InfernalFlameOverflowLifeRecoup = output.InfernalFlameOverflowLifeRecoupStacked
+		output.InfernalFlameOverflowEnergyShieldRecoup = output.InfernalFlameOverflowEnergyShieldRecoupStacked
+	end
 end
 
 return calcs

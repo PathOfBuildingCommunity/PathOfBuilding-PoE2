@@ -3488,6 +3488,7 @@ function calcs.perform(env, skipEHP)
 	--if not calcs.mirages(env) then
 		calcs.offence(env, env.player, env.player.mainSkill)
 	--end
+	calcs.applyInfernalFlame(env, env.player)
 
 	if env.minion then
 		calcs.defence(env, env.minion)

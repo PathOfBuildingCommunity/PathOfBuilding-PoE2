@@ -340,6 +340,13 @@ local configSettings = {
 	{ var = "darkPactSkeletonLife", type = "count", label = "Skeleton ^xE05030Life:", ifSkill = "Dark Pact", tooltip = "Sets the maximum ^xE05030Life ^7of the Skeleton that is being targeted.", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "skeletonLife", value = val }, "Config", { type = "SkillName", skillName = "Dark Pact" })
 	end },
+	{ label = "Pyromantic Pact:", ifMod = "PyromanticPact" },
+	{ var = "multiplierInfernalFlameSkillUses", type = "countAllowZero", label = "# of skill uses:", ifMod = "PyromanticPact", tooltip = "Number of times you have used your main skill since Infernal Flame last reset.\nInfernal Flame gained = uses × the skill's mana cost (capped at maximum Infernal Flame).\nThis only sets current flame / whether you have overflowed.\nOverflow rate (overflows per second) always uses your main skill's cast/attack rate and ceil(max Infernal Flame / cost).", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:InfernalFlameSkillUses", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionInfernalFlameOverflow", type = "check", label = "Overflow Infernal Flame?", ifMod = "PyromanticPact", defaultState = true, tooltip = "When Infernal Flame reaches maximum you take maximum Life and Energy Shield as Fire damage and Infernal Flame resets.\nEnable this to include that self-hit and recoup from it (Calcs → Infernal Flame Overflow Recoup).\nImplied if # of skill uses × mana cost is at least maximum Infernal Flame.\nOverflows per second = cast rate / casts needed to fill the bar, not the use count.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:InfernalFlameOverflow", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ label = "Demon Form:", ifSkill = "Demon Form" },
 	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, tooltip = "Players need a minimum of 2 ^xE05030Life ^7to enter Demon Form, so you cannot use it with Chaos Inoculation", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "StatThreshold", stat = "Life", threshold = 2 })

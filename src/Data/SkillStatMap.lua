@@ -2558,6 +2558,24 @@ return function(mod, flag, skill)
 ["companion_takes_%_damage_before_you_from_support"] = {
 	mod("TakenFromCompanionBeforeYou", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
 },
+["loyalty_%_of_redirected_damage_recouped_as_life_for_owner"] = {
+	mod("LifeRecoupFromRedirected", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+},
+["oasis_damage_recouped_as_life_%"] = {
+	mod("LifeRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Oasis" }),
+},
+["oasis_damage_recouped_as_mana_%"] = {
+	mod("ManaRecoup", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Oasis" }),
+},
+["animus_exchange_damage_taken_goes_to_life_over_4_seconds_%"] = {
+	mod("LifeRecoupOver4Seconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Animus Sensitivity" }),
+},
+["recoup_mana_%_on_minion_death"] = {
+	mod("ManaRecoupOnMinionDeath", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+},
+["recoup_%_of_spell_cost_as_mana_on_cast"] = {
+	mod("ManaRecoupOnCastCost", "BASE", nil),
+},
 ["minion_damage_+%_final_per_different_elemental_ailment_on_target"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }) }),
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) }),

@@ -742,4 +742,157 @@ describe("TestDefence", function()
 			assert.are.equals(baseMaxHit, build.calcsTab.calcsOutput.PhysicalMaximumHitTaken)
 		end)
 	end)
+
+	describe("recoup", function()
+		it("recoups damage taken over 8 seconds by default", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(10, build.calcsTab.calcsOutput.LifeRecoup)
+			assert.are.equals(8, build.calcsTab.calcsOutput.LifeRecoupDuration)
+			assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryMax > 0)
+		end)
+
+		it("shortens recoup duration with recoup speed without changing amount", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			local amount = build.calcsTab.calcsOutput.LifeRecoup
+			local maxRecovery = build.calcsTab.calcsOutput.LifeRecoupRecoveryMax
+
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life\n25% increased speed of Recoup Effects"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(amount, build.calcsTab.calcsOutput.LifeRecoup)
+			assert.are.near(6.4, build.calcsTab.calcsOutput.LifeRecoupDuration, 0.001)
+			assert.are.near(maxRecovery * 8 / 6.4, build.calcsTab.calcsOutput.LifeRecoupRecoveryMax, 0.05)
+		end)
+
+		it("uses a 4 second base duration when recoup effects occur over 4 seconds", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life\nRecoup Effects instead occur over 4 seconds"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(4, build.calcsTab.calcsOutput.LifeRecoupDuration)
+			assert.are.equals(10, build.calcsTab.calcsOutput.LifeRecoup)
+		end)
+
+		it("applies recoup speed after a 4 second duration override", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life\nRecoup Effects instead occur over 4 seconds\n25% increased speed of Recoup Effects"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.near(3.2, build.calcsTab.calcsOutput.LifeRecoupDuration, 0.001)
+			assert.are.equals(10, build.calcsTab.calcsOutput.LifeRecoup)
+		end)
+
+		it("multiplies recoup amount by recovery rate", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life\n100% increased Life Recovery Rate"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(20, build.calcsTab.calcsOutput.LifeRecoup)
+			assert.are.equals(8, build.calcsTab.calcsOutput.LifeRecoupDuration)
+		end)
+
+		it("parses physical damage prevented recoup instead of extra physical damage", function()
+			build.configTab.input.customMods = "+10000 to Armour\n50% of Physical Damage prevented Recouped as Life"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(50, build.calcsTab.calcsOutput.PhysicalDamagePreventedLifeRecoup)
+			assert.True((build.calcsTab.calcsEnv.player.modDB:Sum("BASE", nil, "PhysicalDamage") or 0) < 50)
+			assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryMax > 0)
+		end)
+
+		it("recoups blocked damage as mana", function()
+			build.configTab.input.customMods = "+80% Chance to Block Attack Damage\nDamage Blocked is Recouped as Mana"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(100, build.calcsTab.calcsOutput.BlockedManaRecoup)
+			assert.True(build.calcsTab.calcsOutput.ManaRecoupRecoveryMax > 0)
+		end)
+
+		it("parses recoup from deflected hits", function()
+			build.configTab.input.customMods = "15% of Damage taken from Deflected Hits Recouped as Life"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(15, build.calcsTab.calcsOutput.DeflectedLifeRecoup)
+		end)
+
+		it("scales life recoup with rage", function()
+			build.configTab.input.customMods = "Gain 1 Rage when you Kill an Enemy\nEvery 5 Rage also grants 5% of Damage taken Recouped as Life"
+			build.configTab.input.multiplierRage = 10
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(10, build.calcsTab.calcsOutput.LifeRecoup)
+		end)
+
+		it("does not recoup damage over time", function()
+			build.configTab.input.customMods = "10% of Damage taken Recouped as Life"
+			build.configTab.input.enemyDamageType = "DamageOverTime"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			assert.are.equals(10, build.calcsTab.calcsOutput.LifeRecoup)
+			assert.is_nil(build.calcsTab.calcsOutput.LifeRecoupRecoveryMax)
+		end)
+	end)
+
+	describe("Pyromantic Pact", function()
+		local pactMods = "Maximum Mana is replaced by twice as much Maximum Infernal Flame\n\z
+		Gain Infernal Flame instead of spending Mana for Skill costs\n\z
+		Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum\n\z
+		Lose all Infernal Flame on reaching maximum Infernal Flame\n\z
+		25% of Infernal Flame lost per second if none was gained in the past 2 seconds"
+
+		it("replaces mana with twice as much Infernal Flame", function()
+			build.configTab.input.customMods = pactMods
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			assert.True(output.InfernalFlameMax > 0)
+			assert.are.equals(output.ManaBeforeInfernalFlame * 2, output.InfernalFlameMax)
+			assert.are.equals(0, output.Mana)
+		end)
+
+		it("uses a 1x mana ratio for the legacy wording", function()
+			build.configTab.input.customMods = "Maximum Mana is replaced by Maximum Infernal Flame"
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			assert.are.equals(output.ManaBeforeInfernalFlame, output.InfernalFlameMax)
+			assert.are.equals(0, output.Mana)
+		end)
+
+		it("takes a fire hit of life and energy shield on overflow", function()
+			build.configTab.input.customMods = pactMods.."\n+75% to Fire Resistance"
+			build.configTab.input.conditionInfernalFlameOverflow = true
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			assert.True(output.InfernalFlameOverflowHit > 0)
+			assert.True(output.InfernalFlameOverflowTaken > 0)
+			assert.True(output.InfernalFlameOverflowTaken < output.InfernalFlameOverflowHit)
+		end)
+
+		it("recoups the overflow fire hit", function()
+			build.configTab.input.customMods = pactMods.."\n10% of Damage taken Recouped as Life"
+			build.configTab.input.conditionInfernalFlameOverflow = true
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+
+			local output = build.calcsTab.calcsOutput
+			assert.are.near(output.InfernalFlameOverflowTaken * 0.10, output.InfernalFlameOverflowLifeRecoupAmount, 0.5)
+			assert.True(output.InfernalFlameOverflowLifeRecoupAmount > 0)
+		end)
+	end)
 end)

@@ -2250,6 +2250,9 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	-- Eldritch Battery adds maximum Energy Shield to the Mana available for payable-cost damage.
 	output.ManaCostPayablePool = (output.ManaUnreserved or 0) + (modDB:Flag(nil, "EnergyShieldProtectsMana") and output.EnergyShield or 0)
+	if modDB:Flag(nil, "PyromanticPact") then
+		output.ManaCostPayablePool = output.InfernalFlameMax or output.ManaCostPayablePool
+	end
 
 	-- account for Sacrificial Zeal
 	-- Note: Sacrificial Zeal grants Added Spell Physical Damage equal to 25% of the Skill's Mana Cost, and causes you to take Physical Damage over Time, for 4 seconds
