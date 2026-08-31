@@ -656,18 +656,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local foundExplicit, foundImplicit
 	local linePrefix = ""
 	local linePostfix = ""
-	local function storedRunesCanBeRebuilt()
-		if #self.runes == 0 then
-			return false
-		end
-		for _, rune in ipairs(self.runes) do
-			if rune ~= "None" and not data.itemMods.Runes[rune] then
-				return false
-			end
-		end
-		return true
-	end
-
 	while self.rawLines[l] do
 		local line = self.rawLines[l]
 		if flaskBuffLines and flaskBuffLines[line] then
@@ -1123,9 +1111,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					foundImplicit = true
 					gameModeStage = "IMPLICIT"
 				end
-				-- Rune names are authoritative when present; their exported lines are rebuilt
-				-- below. Advanced-copy Bonded lines are also skipped rather than parsed.
-				if modLine.rune and not modLine.disabled and (storedRunesCanBeRebuilt() or line:match("^Bonded:%s+")) then
+				-- Bonded is display text, not modifier syntax; known rune lines are rebuilt below.
+				if modLine.rune and not modLine.disabled and line:match("^Bonded:%s+") then
 					skippedRuneLines = skippedRuneLines + 1
 					goto continue
 				end
@@ -1376,7 +1363,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base then
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre or self.itemSocketCount > 0 then
 			local shouldFixRunesOnItem = #self.runes == 0
-			local canRebuildRunes = storedRunesCanBeRebuilt()
+			local canRebuildRunes = #self.runes > 0
+			for _, rune in ipairs(self.runes) do
+				if rune ~= "None" and not data.itemMods.Runes[rune] then
+					canRebuildRunes = false
+					break
+				end
+			end
 
 			local function getRuneLineParts(modLine)
 				local values = { }
@@ -2115,32 +2108,9 @@ function ItemClass:UpdateRunes()
 		self.requirements.level = self.requirements.naturalLevel
 	end
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType, soulCoreTypes)
-		local rune = data.itemMods.Runes[runeName]
-		local gatheredRuneMods = { }
-		if rune then
-			if rune[baseType] then
-				-- for _, mod in pairs(rune[baseType]) do
-					t_insert(gatheredRuneMods, rune[baseType])
-				-- end
-			end
-			if rune[specificType] then
-				-- for _, mod in pairs(rune[specificType]) do
-					t_insert(gatheredRuneMods, rune[specificType])
-				-- end
-			end
-			for soulCoreType in pairs(soulCoreTypes) do
-				local soulCoreMod = rune[soulCoreType]
-				if soulCoreMod and soulCoreMod.type == "SoulCore" then
-					t_insert(gatheredRuneMods, soulCoreMod)
-				end
-			end
-		end
-		return gatheredRuneMods
-	end
 	local statOrder = {}
-	-- Normal and Bonded stats share display ordering and stacking, but Bonded stats stay
-	-- unparsed until calculation confirms that the relevant Rune or Idol unlock is active.
+	-- Normal and Bonded stats share display ordering and stacking, but Bonded is only
+	-- added for display; it is not part of the text sent to the modifier parser.
 	local addModLine = function(mod, line, order, bonded)
 		local orderValue = order or 0
 		local displayLine = bonded and "Bonded: " .. line or line
@@ -2153,16 +2123,12 @@ function ItemClass:UpdateRunes()
 				start = e + 1
 				return tonumber(num) + tonumber(other)
 			end)
-			if not bonded then
-				local modList, extra = modLib.parseMod(statOrder[orderKey].line)
-				statOrder[orderKey].modList = modList or { }
-				statOrder[orderKey].extra = extra
-			end
+			local parseLine = statOrder[orderKey].line:gsub("^Bonded:%s*", "")
+			local modList, extra = modLib.parseMod(parseLine)
+			statOrder[orderKey].modList = modList or { }
+			statOrder[orderKey].extra = extra
 		else
-			local modList, extra
-			if not bonded then
-				modList, extra = modLib.parseMod(line)
-			end
+			local modList, extra = modLib.parseMod(line)
 			local modLine = { line = displayLine, order = orderValue, modList = modList or { }, extra = extra, rune = true, enchant = true, augmentType = mod.type }
 			if bonded then
 				modLine.bonded = true
@@ -2181,7 +2147,22 @@ function ItemClass:UpdateRunes()
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local gatheredMods = getModRunesForTypes(name, baseType, specificType, soulCoreTypes)
+			local rune = data.itemMods.Runes[name]
+			local gatheredMods = { }
+			if rune then
+				if rune[baseType] then
+					t_insert(gatheredMods, rune[baseType])
+				end
+				if rune[specificType] then
+					t_insert(gatheredMods, rune[specificType])
+				end
+				for soulCoreType in pairs(soulCoreTypes) do
+					local soulCoreMod = rune[soulCoreType]
+					if soulCoreMod and soulCoreMod.type == "SoulCore" then
+						t_insert(gatheredMods, soulCoreMod)
+					end
+				end
+			end
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					addModLine(mod, modLine, mod.statOrder and mod.statOrder[i], false)
@@ -2215,50 +2196,23 @@ end
 -- Return the item's calculated modifiers for a slot, including only Bonded modifiers
 -- enabled by the global Rune/Idol unlock or this item's Idol-only unlock.
 function ItemClass:GetActiveModListForSlotNum(slotNum, canUseBonded)
-	local srcList = self.modList or (self.slotModList and self.slotModList[slotNum]) or { }
 	local canUseBondedIdols = canUseBonded or self.socketedIdolsUseBondedModifiers
-	if not canUseBondedIdols then
-		return srcList
-	end
-
-	local out
-	for _, modLine in ipairs(self.runeModLines or { }) do
-		local canUseBondedMod = modLine.bonded and (modLine.augmentType == "Rune" and canUseBonded or modLine.augmentType == "Idol" and canUseBondedIdols)
-		if canUseBondedMod then
-			if not modLine.bondedModList then
-				local modList, extra = modLib.parseMod(modLine.line:gsub("^Bonded:%s*", ""))
-				modLine.bondedModList = { }
-				if modList and not extra then
-					for _, mod in ipairs(modList) do
-						t_insert(modLine.bondedModList, modLib.setSource(mod, self.modSource))
-					end
-
-					-- Socketed augment effect is represented as an additional scaled copy,
-					-- matching the established processing for ordinary rune modifiers.
-					local effectModifier = self.socketedAugmentItemEffectModifier or 0
-					if modLine.augmentType == "Rune" then
-						effectModifier = effectModifier + (self.socketedRuneEffectModifier or 0)
-					end
-					if effectModifier ~= 0 and not modLine.socketedRuneEffectAlreadyApplied then
-						local scaledList = new("ModList"):ModList()
-						for _, mod in ipairs(modList) do
-							scaledList:ScaleAddMod(mod, effectModifier)
-						end
-						for _, mod in ipairs(scaledList) do
-							t_insert(modLine.bondedModList, modLib.setSource(mod, self.modSource))
-						end
-					end
-				end
-			end
-			if modLine.bondedModList[1] then
-				out = out or copyTable(srcList, false)
-				for _, mod in ipairs(modLine.bondedModList) do
-					t_insert(out, mod)
-				end
+	local baseList = self.baseModList
+	if canUseBondedIdols then
+		local activeBaseList
+		for _, modLine in ipairs(self.runeModLines or { }) do
+			local canUseBondedMod = modLine.bonded and (modLine.augmentType == "Rune" and canUseBonded or modLine.augmentType == "Idol" and canUseBondedIdols)
+			if canUseBondedMod and modLine.bondedModList and modLine.bondedModList[1] then
+				activeBaseList = activeBaseList or new("ModList"):ModList()
+				activeBaseList:AddList(modLine.bondedModList)
 			end
 		end
+		if activeBaseList then
+			activeBaseList:AddList(baseList)
+			baseList = activeBaseList
+		end
 	end
-	return out or srcList
+	return self:BuildModListForSlotNum(baseList, slotNum)
 end
 
 -- Rebuild explicit modifiers using the item's affixes
@@ -2752,10 +2706,7 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
-		if modLine.bonded then
-			modLine.bondedModList = nil
-			return
-		end
+		modLine.bondedModList = nil
 		if modLine.disabled then
 			return
 		end
@@ -2772,6 +2723,11 @@ function ItemClass:BuildModList()
 			end
 			-- handle understood modifier variable properties
 			if not modLine.extra then
+				local targetList = baseList
+				if modLine.bonded then
+					modLine.bondedModList = new("ModList"):ModList()
+					targetList = modLine.bondedModList
+				end
 				local rangedModList = getRangedModList(self, modLine)
 				if rangedModList then
 					modLine.modList = rangedModList
@@ -2779,7 +2735,7 @@ function ItemClass:BuildModList()
 				end
 				for _, mod in ipairs(modLine.modList) do
 					for _ = 1, variantCount do
-						baseList:AddMod(modLib.setSource(mod, self.modSource))
+						targetList:AddMod(modLib.setSource(mod, self.modSource))
 					end
 				end
 				if modLine.modTags and #modLine.modTags > 0 then
@@ -2819,9 +2775,10 @@ function ItemClass:BuildModList()
 		elseif modLine.augmentType == "Rune" then
 			effectModifier = effectModifier + self.socketedRuneEffectModifier
 		end
-		if effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
+		local targetList = modLine.bonded and modLine.bondedModList or baseList
+		if targetList and effectModifier and effectModifier ~= 0 and self:CheckModLineVariant(modLine) and not modLine.extra and not modLine.socketedRuneEffectAlreadyApplied then
 			for _, mod in ipairs(modLine.modList) do
-				baseList:ScaleAddMod(mod, effectModifier)
+				targetList:ScaleAddMod(mod, effectModifier)
 			end
 		end
 	end

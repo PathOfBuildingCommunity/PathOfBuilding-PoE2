@@ -801,10 +801,10 @@ Ruby]])
 				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[2])
 			end)
 
-			it("uses the regular rune mod as the dropdown label", function ()
-				local weaponMods = data.itemMods.Runes["Perfect Robust Rune"].weapon
-				assert.are.equals("+15 to Strength", weaponMods[1])
-				assert.are.same({ "Adds 6 to 10 Physical Damage to Attacks", "Adds 6 to 10 Fire damage to Attacks" }, { unpack(weaponMods.bonded) })
+			it("keeps pure Bonded slot entries and uses the regular rune mod as the dropdown label", function ()
+				local runeMods = data.itemMods.Runes["Perfect Resolve Rune"]
+				assert.are.same({ "Adds 6 to 10 Physical Damage to Attacks", "Adds 5 to 8 Cold damage to Attacks" }, { unpack(runeMods.weapon.bonded) })
+				assert.are.same({ "+50 to maximum Energy Shield" }, { unpack(runeMods.wand.bonded) })
 
 				local item = new("Item"):Item([[
 					Test Wand
@@ -812,12 +812,12 @@ Ruby]])
 				]])
 
 				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
-					if rune.name == "Perfect Robust Rune" then
-						assert.are.equals("+15 to Strength", rune.label)
+					if rune.name == "Perfect Resolve Rune" then
+						assert.are.equals("+15 to Intelligence", rune.label)
 						return
 					end
 				end
-				assert.fail("Perfect Robust Rune was not valid for a wand")
+				assert.fail("Perfect Resolve Rune was not valid for a wand")
 			end)
 		end)
 

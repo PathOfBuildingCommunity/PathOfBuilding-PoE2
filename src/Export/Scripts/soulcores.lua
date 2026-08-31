@@ -51,35 +51,6 @@ directiveTable.base = function(state, args, out)
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
 
-	local function writeModLines(modLines, out)
-		for _, modLine in ipairs(modLines) do
-			out:write('\t\t["'..modLine.slotType..'"] = {\n')
-			out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
-			-- only write labels/statOrder if present
-			if modLine.label and #modLine.label > 0 then
-				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
-				local statOrder = modLine.statOrder or {}
-				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
-			end
-			out:write('\t\t\t\ttradeHashes = { ')
-			for hash, desc in pairs(modLine.tradeHashes or {}) do
-				local descriptionLines = '"'..table.concat(desc, '", "')..'"'
-				out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
-			end
-			out:write(' },\n')
-			if modLine.bondedLabel and #modLine.bondedLabel > 0 then
-				out:write('\t\t\t\tbonded = {\n')
-				out:write('\t\t\t\t\t"'..table.concat(modLine.bondedLabel, '",\n\t\t\t\t\t"')..'",\n')
-				local bondedStatOrder = modLine.bondedStatOrder or {}
-				out:write('\t\t\t\t\tstatOrder = { '..table.concat(bondedStatOrder, ', ')..' },\n')
-				out:write('\t\t\t\t},\n')
-			end
-				out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
-			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
-			out:write('\t\t},\n')
-		end
-	end
-
 	-- Check for Standard Weapon, Armour, Caster Runes
 	local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
 	local soulCoreStats = dat("SoulCoreStats"):GetRowList("Id", soulCores)
@@ -162,7 +133,29 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 
-	writeModLines(modLines, out)
+	for _, modLine in ipairs(modLines) do
+		out:write('\t\t["'..modLine.slotType..'"] = {\n')
+		out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
+		if #modLine.label > 0 then
+			out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
+			out:write('\t\t\t\tstatOrder = { '..table.concat(modLine.statOrder, ', ')..' },\n')
+		end
+		out:write('\t\t\t\ttradeHashes = { ')
+		for hash, desc in pairs(modLine.tradeHashes) do
+			local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+			out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+		end
+		out:write(' },\n')
+		if #modLine.bondedLabel > 0 then
+			out:write('\t\t\t\tbonded = {\n')
+			out:write('\t\t\t\t\t"'..table.concat(modLine.bondedLabel, '",\n\t\t\t\t\t"')..'",\n')
+			out:write('\t\t\t\t\tstatOrder = { '..table.concat(modLine.bondedStatOrder, ', ')..' },\n')
+			out:write('\t\t\t\t},\n')
+		end
+		out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
+		out:write('\t\t\t\trank = { '..modLine.rank..' },\n')
+		out:write('\t\t},\n')
+	end
 	out:write('\t},\n')
 end
 

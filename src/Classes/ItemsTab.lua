@@ -2158,9 +2158,7 @@ function ItemsTabClass:GetValidRunesForItem(item)
 				t_insert(runes, addedRune)
 				addedRunes[rune.name] = addedRune
 			end
-			if rune.label then
-				addedRune.label = rune.label
-			end
+			addedRune.label = addedRune.label or rune.label
 			for _, line in ipairs(rune.lines) do
 				t_insert(addedRune.lines, line)
 			end

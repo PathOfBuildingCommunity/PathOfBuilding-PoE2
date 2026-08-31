@@ -110,6 +110,11 @@ describe("TestIdolatry", function()
 		assert.are.equals(1, #globalUnlock)
 		assert.are.equals("CanUseBonded", globalUnlock[1].name)
 		assert.are.equals("FLAG", globalUnlock[1].type)
+
+		-- Bonded is no longer consumed as a parser prefix, so other prefixes still apply.
+		local minionMod, extra = parseMod("Minions have 30% increased Area of Effect")
+		assert.is_nil(extra)
+		assert.are.equals("MinionModifier", minionMod[1].name)
 	end)
 
 	it("enables only Idol Bonded modifiers from Fox Idol locally", function()
@@ -134,9 +139,9 @@ describe("TestIdolatry", function()
 			end
 		end
 		assert.is_not_nil(foxBondedLine)
-		assert.are.equals(0, #foxBondedLine.modList)
+		assert.are.equals("GemProperty", foxBondedLine.modList[1].name)
 		assert.is_not_nil(bodyRuneBondedLife)
-		assert.are.equals(0, #bodyRuneBondedLife.modList)
+		assert.are.equals("Life", bodyRuneBondedLife.modList[1].name)
 
 		build.itemsTab:AddItem(item)
 		build.buildFlag = true
@@ -152,11 +157,51 @@ describe("TestIdolatry", function()
 		end
 		assert.is_not_nil(foxBondedQuality)
 		assert.is_not_nil(foxBondedLine.bondedModList)
-		assert.is_nil(bodyRuneBondedLife.bondedModList)
 
 		for _, mod in ipairs(modDB.mods.Life or { }) do
 			assert.is_false(mod.type == "BASE" and mod.value == 20 and mod.source == item.modSource)
 		end
+	end)
+
+	it("does not enable disabled Bonded modifiers", function()
+		local item = new("Item"):Item([[
+			Test Body
+			Rusted Cuirass
+		]])
+		item.itemSocketCount = 1
+		item.runes = { "Lesser Body Rune" }
+		item:UpdateRunes()
+		for _, modLine in ipairs(item.runeModLines) do
+			if modLine.line == "Bonded: +20 to maximum Life" then
+				modLine.disabled = true
+			end
+		end
+		item:BuildModList()
+		for _, mod in ipairs(item:GetActiveModListForSlotNum(nil, true)) do
+			assert.is_false(mod.name == "Life" and mod.type == "BASE" and mod.value == 20)
+		end
+	end)
+
+	it("processes active Bonded modifiers through local item calculations", function()
+		local item = new("Item"):Item([[
+			Test Mace
+			Marauding Mace
+		]])
+		item.itemSocketCount = 1
+		item.runes = { "Legacy of Brynhand's Mark" }
+		item:UpdateRunes()
+		item:BuildModList()
+		local physicalMin = item.weaponData[1].PhysicalMin
+		local physicalMax = item.weaponData[1].PhysicalMax
+
+		item:GetActiveModListForSlotNum(1, true)
+
+		assert.are.equals(physicalMin + 14, item.weaponData[1].PhysicalMin)
+		assert.are.equals(physicalMax + 20, item.weaponData[1].PhysicalMax)
+
+		item:GetActiveModListForSlotNum(1, false)
+		assert.are.equals(physicalMin, item.weaponData[1].PhysicalMin)
+		assert.are.equals(physicalMax, item.weaponData[1].PhysicalMax)
 	end)
 
 	it("enables and scales Bonded modifiers from the ascendancy flag", function()
