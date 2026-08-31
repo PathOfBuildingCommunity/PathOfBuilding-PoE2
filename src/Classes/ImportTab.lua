@@ -1144,11 +1144,15 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
-		-- This could be done better with the character melee skills data at some point.
+		-- Prefer the character skill requirement, then fall back to equipped items for older responses and dual wielding.
 		if typeLine:match("Mace Strike") then
+			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
+			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
 			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
 			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if weapon2Sel == 0 then
+			if requiredWeaponType == "Two Hand Mace" then
+				gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+			elseif weapon2Sel == 0 then
 				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
 					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
 				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
@@ -1318,6 +1322,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
+	self.build.calcsTab:BuildOutput()
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
