@@ -2669,6 +2669,9 @@ local specialModList = {
 	["defend with (%d+)%% of armour while not on low energy shield"] = function(num) return {
 		mod("ArmourDefense", "MAX", num - 100, "Armour and Energy Shield Mastery", { type = "Condition", var = "LowEnergyShield", neg = true }),
 	} end,
+	["defend with (%d+)%% of armour while you have energy shield"] = function(num) return {
+		mod("ArmourDefense", "MAX", num - 100, { type = "Condition", var = "HaveEnergyShield" }),
+	} end,
 	["(%d+)%% increased armour and energy shield from equipped body armour if equipped helmet, gloves and boots all have armour and energy shield"] = function(num) return {
 		mod("Body ArmourESAndArmour", "INC", num,
 			{ type = "StatThreshold", stat = "ArmourOnGloves", threshold = 1},
@@ -6308,6 +6311,10 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
+    ["convert 1%% of maximum life to twice as much armour per 1%% chaos resistance above 0%%"] = { 
+		mod("LifeConvertToArmour", "BASE", 1, { type = "PerStat", stat = "ChaosResist"}),
+		mod("LifeGainAsArmour", "BASE", 1, { type = "PerStat", stat = "ChaosResist"})
+	},
 	-- handled in item parsing
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? ?[%a%s]* modifier magnitudes"] = {},
 	["%d+%% [ir][ne][cd][ru][ec][ae][sd]e?d? effect of [sp][ur][fe]fixes"] = {},

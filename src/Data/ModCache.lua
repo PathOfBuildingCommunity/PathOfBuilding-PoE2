@@ -6982,8 +6982,7 @@ c["Consume all Rage when Shapeshifting to Human form to recover 1% of maximum li
 c["Consumes Frenzy Charges on use"]={nil,"Consumes Frenzy Charges on use "}
 c["Consumes a Void Charge to Trigger Level 20 Void Shot when you fire Arrows with a Non-Triggered Skill"]={{},nil}
 c["Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60%"]={nil,"Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60% "}
-c["Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%"]={nil,"Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0% "}
-c["Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0% Defend with 200% of Armour while you have Energy Shield"]={nil,"Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0% Defend with 200% of Armour while you have Energy Shield "}
+c["Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%"]={{[1]={[1]={stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeConvertToArmour",type="BASE",value=1},[2]={[1]={stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeGainAsArmour",type="BASE",value=1}},nil}
 c["Convert 100% of Fire Damage with Mace Skills to Cold Damage"]={nil,"Convert 100% of Fire Damage with Mace Skills to Cold Damage "}
 c["Convert 100% of maximum Energy Shield to maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity "}
 c["Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity "}
@@ -7183,13 +7182,12 @@ c["Defend against Hits as though you had 1% more Armour per 1% current Energy Sh
 c["Defend with 120% of Armour against Projectile Attacks"]={nil,"Defend with 120% of Armour against Projectile Attacks "}
 c["Defend with 120% of Armour while not on Low Energy Shield"]={{[1]={[1]={neg=true,type="Condition",var="LowEnergyShield"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour and Energy Shield Mastery",type="MAX",value=20}},nil}
 c["Defend with 150% of Armour against Hits from Enemies that are further than 6m away"]={nil,"Defend with 150% of Armour against Hits from Enemies that are further than 6m away "}
-c["Defend with 175% of Armour while you have Energy Shield"]={nil,"Defend with 175% of Armour while you have Energy Shield "}
+c["Defend with 175% of Armour while you have Energy Shield"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="ArmourDefense",type="MAX",value=75}},nil}
 c["Defend with 200% of Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourDefense",type="MAX",value=100}},nil}
 c["Defend with 200% of Armour against Critical Hits"]={nil,"Defend with 200% of Armour against Critical Hits "}
 c["Defend with 200% of Armour against Critical Hits +15 to Strength"]={nil,"Defend with 200% of Armour against Critical Hits +15 to Strength "}
 c["Defend with 200% of Armour during effect"]={{[1]={flags=0,keywordFlags=0,name="ArmourDefense",type="MAX",value=100}},nil}
-c["Defend with 200% of Armour while you have Energy Shield"]={nil,"Defend with 200% of Armour while you have Energy Shield "}
-c["Defend with 200% of Armour while you have Energy Shield Damage over Time cannot bypass your Energy Shield"]={nil,"Defend with 200% of Armour while you have Energy Shield Damage over Time cannot bypass your Energy Shield "}
+c["Defend with 200% of Armour while you have Energy Shield"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="ArmourDefense",type="MAX",value=100}},nil}
 c["Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Bleeding on you "}
 c["Deflected Hits cannot inflict Maim on you"]={nil,"Deflected Hits cannot inflict Maim on you "}
 c["Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you "}
@@ -10003,6 +10001,5 @@ c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}
-end)();(function()
 end)();
 return c
