@@ -1692,7 +1692,9 @@ describe("TestSkills", function()
 	end)
 
 	it("preserves generated supports when the granted skill level changes", function()
-		local item = new("Item"):Item("New Item\nRazor Quarterstaff\nGrants Skill: Level 1 Fireball")
+		build.characterLevel = 90
+		build.characterLevelAutoMode = false
+		local item = new("Item"):Item("New Item\nRazor Quarterstaff\nGrants Skill: Level 1 Fireball\n+100 to Intelligence")
 		build.itemsTab:AddItem(item, true)
 		build.itemsTab.slots["Weapon 1"]:SetSelItemId(item.id)
 		recalculate()

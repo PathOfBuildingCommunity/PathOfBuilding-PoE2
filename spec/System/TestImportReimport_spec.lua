@@ -312,6 +312,56 @@ Fireball 20/0  1
 		assert.are.equal("Feeding Frenzy II", wolfGroups[1].gemList[2].nameSpec)
 	end)
 
+	it("downlevels item-granted skills to meet attribute requirements", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+		build.configTab.modList:NewMod("Str", "BASE", 98 - build.calcsTab.mainOutput.Str, "Test")
+		build.configTab.modList:NewMod("Int", "BASE", 107 - build.calcsTab.mainOutput.Int, "Test")
+		local sceptre = makeImportItem("Stoic Sceptre", "Offhand")
+		sceptre.explicitMods = { "Grants Skill: Level 19 Discipline" }
+		local payload = buildImportPayload({ sceptre }, {
+			makeGemEntry(false, "Discipline", 19),
+		})
+		payload.level = 94
+		build.importTab:ImportItemsAndSkills(payload)
+		runCallback("OnFrame")
+
+		local discipline = build.skillsTab.socketGroupList[1].gemList[1]
+		assert.are.equal(19, discipline.sourceLevel)
+		assert.are.equal(18, discipline.level)
+	end)
+
+	it("attaches imported auto-levelled tree skills to their generated source group", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+		build.characterLevel = 94
+		local wildProtectorNode = build.spec.nodes[62743]
+		wildProtectorNode.alloc = true
+		wildProtectorNode.allocMode = 0
+		build.spec.allocNodes[wildProtectorNode.id] = wildProtectorNode
+
+		local payload = buildImportPayload({}, {
+			makeGemEntry(false, "Wild Protector", 20, {
+				makeGemEntry(true, "Feeding Frenzy II", 1),
+			}),
+		})
+		payload.level = 94
+		build.importTab:ImportItemsAndSkills(payload)
+		runCallback("OnFrame")
+
+		local protectorGroups = { }
+		for _, socketGroup in ipairs(build.skillsTab.socketGroupList) do
+			if socketGroup.gemList[1] and socketGroup.gemList[1].nameSpec == "Wild Protector" then
+				table.insert(protectorGroups, socketGroup)
+			end
+		end
+		assert.are.equal(1, #protectorGroups)
+		assert.are.equal(wildProtectorNode, protectorGroups[1].sourceNode)
+		assert.is_true(protectorGroups[1].gemList[1].fromTree)
+		assert.are.equal(20, protectorGroups[1].gemList[1].level)
+		assert.are.equal("Feeding Frenzy II", protectorGroups[1].gemList[2].nameSpec)
+	end)
+
 	it("uses unique database and rune levels when importing unique items from account data", function()
 		while main.uniqueDB.loading do
 			runCallback("OnFrame")

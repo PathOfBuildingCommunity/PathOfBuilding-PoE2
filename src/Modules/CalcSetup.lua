@@ -675,6 +675,26 @@ local function getNormalizedSkillLevel(grantedSkill)
 	return normalizedGrantedSkill.level
 end
 
+local function getGrantedSkillLevel(gemData, maxLevel, characterLevel, modDB)
+	local str, dex, int
+	if modDB then
+		str = m_max(round(calcLib.val(modDB, "Str")), 0)
+		dex = m_max(round(calcLib.val(modDB, "Dex")), 0)
+		int = m_max(round(calcLib.val(modDB, "Int")), 0)
+	end
+	for level = maxLevel, 1, -1 do
+		local levelData = gemData.grantedEffect.levels[level]
+		local levelRequirement = levelData and levelData.levelRequirement
+		if levelRequirement and levelRequirement <= characterLevel and (not modDB
+			or calcLib.getGemStatRequirement(levelRequirement, gemData.reqStr, false) <= str
+			and calcLib.getGemStatRequirement(levelRequirement, gemData.reqDex, false) <= dex
+			and calcLib.getGemStatRequirement(levelRequirement, gemData.reqInt, false) <= int) then
+			return level
+		end
+	end
+	return 1
+end
+
 local thornsStats = { "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }
 local function modDBHasThornsDamage(modDB)
 	for _, stat in ipairs(thornsStats) do
@@ -1801,6 +1821,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			local migratedLegacyGroups
 			for _, grantedSkill in ipairs(env.grantedSkills) do
+				if grantedSkill.sourceNode then
+					local grantedEffect = data.skills[grantedSkill.skillId]
+					local gemData = data.gems[data.gemForSkill[grantedEffect]]
+					grantedSkill.level = getGrantedSkillLevel(gemData, gemData.naturalMaxLevel, build.characterLevel)
+				end
 				local normalizedSkillLevel
 				-- Check if a matching group already exists
 				local group, legacyGroup
@@ -1856,6 +1881,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				}
 				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
 				activeGemInstance.fromTree = grantedSkill.sourceNode ~= nil
+				activeGemInstance.sourceLevel = grantedSkill.sourceItem and grantedSkill.level or nil
 				activeGemInstance.skillId = grantedSkill.skillId
 				activeGemInstance.gemId = nil
 				activeGemInstance.level = grantedSkill.level
@@ -2072,6 +2098,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 		-- Process support gems adding them to applicable support lists
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
 			group.usingSkillSet = build.skillsTab:GetSocketGroupWeaponSet(group)
+			local sourceGem = group.gemList[1]
+			if sourceGem and sourceGem.fromItem and sourceGem.sourceLevel and sourceGem.gemData and group.usingSkillSet == env.weaponSet then
+				local level = getGrantedSkillLevel(sourceGem.gemData, sourceGem.sourceLevel, build.characterLevel, env.modDB)
+				if sourceGem.level ~= level then
+					sourceGem.level = level
+					local grantedEffect = sourceGem.gemData.grantedEffect
+					sourceGem.reqLevel = grantedEffect.levels[level].levelRequirement
+					sourceGem.reqStr = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqStr, false)
+					sourceGem.reqDex = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqDex, false)
+					sourceGem.reqInt = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqInt, false)
+				end
+			end
 			-- if group is main skill or group is enabled
 			if index == env.mainSocketGroup or group.enabled then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
