@@ -251,10 +251,11 @@ function ItemDBClass:ListBuilder()
 		local useFullDPS = self.sortDetail.stat == "FullDPS"
 		local start = GetTime()
 		local calcFunc, calcBase = self.itemsTab.build.calcsTab:GetMiscCalculator(self.build)
+		local weaponSet = self.itemsTab.build.calcsTab.mainEnv and self.itemsTab.build.calcsTab.mainEnv.weaponSet or (self.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
 		for itemIndex, item in ipairs(list) do
 			item.measuredPower = nil
 			for slotName, slot in pairs(self.itemsTab.slots) do
-				if self.itemsTab:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+				if self.itemsTab:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == weaponSet) then
 					local output = calcFunc(item.base.flask and { toggleFlask = item } or item.base.charm and { toggleCharm = item } or { repSlotName = slotName, repItem = item }, useFullDPS)
 					local measuredPower = data.powerStatList.GetFromOutput(output, self.sortDetail)
 					item.measuredPower = item.measuredPower and m_max(item.measuredPower, measuredPower) or measuredPower

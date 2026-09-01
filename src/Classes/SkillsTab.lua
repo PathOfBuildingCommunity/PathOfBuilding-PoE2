@@ -10,23 +10,6 @@ local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
 
-local groupSlotDropList = {
-	{ label = "None" },
-	{ label = "Weapon 1", slotName = "Weapon 1" },
-	{ label = "Weapon 2", slotName = "Weapon 2" },
-	{ label = "Weapon 1 (Swap)", slotName = "Weapon 1 Swap" },
-	{ label = "Weapon 2 (Swap)", slotName = "Weapon 2 Swap" },
-	{ label = "Helmet", slotName = "Helmet" },
-	{ label = "Body Armour", slotName = "Body Armour" },
-	{ label = "Gloves", slotName = "Gloves" },
-	{ label = "Boots", slotName = "Boots" },
-	{ label = "Amulet", slotName = "Amulet" },
-	{ label = "Ring 1", slotName = "Ring 1" },
-	{ label = "Ring 2", slotName = "Ring 2" },
-	{ label = "Ring 3", slotName = "Ring 3" },
-	{ label = "Belt", slotName = "Belt" },
-}
-
 local defaultGemLevelList = {
 	{
 		label = "Normal Maximum",
@@ -171,31 +154,50 @@ function SkillsTabClass:SkillsTab(build)
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlotLabel = new("LabelControl"):LabelControl({ "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 0, 30, 0, 16 }, "^7Socketed in:")
-	self.controls.groupSlot = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 85, 28, 130, 20 }, groupSlotDropList, function(index, value)
-		self.displayGroup.slot = value.slotName
+	local function updateWeaponSet(set, state)
+		if not state and not self.displayGroup[set == 1 and "set2" or "set1"] then
+			self.controls[set == 1 and "set1Enabled" or "set2Enabled"].state = true
+			return
+		end
+		self.displayGroup[set == 1 and "set1" or "set2"] = state
 		self:AddUndoState()
 		self.build.buildFlag = true
+	end
+	self.controls.set1Enabled = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 42, 30, 20 }, "Set 1:", function(state)
+		updateWeaponSet(1, state)
 	end)
-	self.controls.groupSlot.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode == "OUT" or index == 1 then
-			tooltip:AddLine(16, "Select the item in which this skill is socketed.")
-			tooltip:AddLine(16, "This will allow the skill to benefit from modifiers on the item that affect socketed gems.")
-		else
-			local slot = self.build.itemsTab.slots[value.slotName]
-			local ttItem = self.build.itemsTab.items[slot.selItemId]
-			if ttItem then
-				self.build.itemsTab:AddItemTooltip(tooltip, ttItem, slot)
-			else
-				tooltip:AddLine(16, "No item is equipped in this slot.")
+	self.controls.set2Enabled = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.set1Enabled, "RIGHT" }, { 50, 0, 20 }, "Set 2:", function(state)
+		updateWeaponSet(2, state)
+	end)
+	for set, control in ipairs({ self.controls.set1Enabled, self.controls.set2Enabled }) do
+		control.label = function()
+			local valid = true
+			if self.displayGroup then
+				if self:IsSocketGroupWeaponSetLocked(self.displayGroup) then
+					valid = self.displayGroup[set == 1 and "set1" or "set2"]
+				elseif not self.displayGroup.forcedBoth then
+					valid = self:IsSocketGroupWeaponSetValid(self.displayGroup, set)
+				end
+			end
+			return (valid and "" or colorCodes.NEGATIVE) .. "Set " .. set .. ":"
+		end
+		control.enabled = function()
+			return self.displayGroup and not self:IsSocketGroupWeaponSetLocked(self.displayGroup) and not self.displayGroup.forcedBoth and self:IsSocketGroupWeaponSetValid(self.displayGroup, set)
+		end
+		control.tooltipFunc = function(tooltip)
+			if self.displayGroup and self.displayGroup.forcedBoth then
+				tooltip:Clear()
+				tooltip:AddLine(16, "This skill reserves Spirit in all weapon sets and must be enabled in both sets.")
+			elseif self.displayGroup and self:IsSocketGroupWeaponSetLocked(self.displayGroup) then
+				tooltip:Clear()
+				tooltip:AddLine(16, "Skills granted by items in weapon slots can only be used in that item's weapon set.")
+			elseif self.displayGroup and not self:IsSocketGroupWeaponSetValid(self.displayGroup, set) then
+				tooltip:Clear()
+				tooltip:AddLine(16, colorCodes.NEGATIVE .. "This skill cannot be used with the weapons equipped in Set " .. set .. ".")
 			end
 		end
 	end
-	self.controls.groupSlot.enabled = function()
-		return self.displayGroup.source == nil
-	end
-	self.controls.groupEnabled = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.groupSlot, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
+	self.controls.groupEnabled = new("CheckBoxControl"):CheckBoxControl({ "LEFT", self.controls.set2Enabled, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
 		self.displayGroup.enabled = state
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -230,9 +232,9 @@ function SkillsTabClass:SkillsTab(build)
 	self.controls.groupCount.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.sourceNote = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.groupSlotLabel, "TOPLEFT" }, { 0, 30, 0, 16 })
+	self.controls.sourceNote = new("LabelControl"):LabelControl({ "TOPLEFT", self.controls.groupLabel, "TOPLEFT" }, { 0, 58, 0, 16 })
 	self.controls.sourceNote.shown = function()
-		return self.displayGroup.source ~= nil
+		return self.displayGroup.explodeSources ~= nil
 	end
 	self.controls.sourceNote.label = function()
 		local label
@@ -243,25 +245,6 @@ which comes from the following sources:]]
 				label = label .. "\n\t" .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???")
 			end
 			label = label .. "^7\nYou cannot delete this group, but it will disappear if you lose the above sources."
-		else
-			local activeGem = self.displayGroup.gemList[1]
-			local sourceName
-			if self.displayGroup.sourceItem then
-				sourceName = "'" .. colorCodes[self.displayGroup.sourceItem.rarity] .. self.displayGroup.sourceItem.name
-			elseif self.displayGroup.sourceNode then
-				sourceName = "'" .. colorCodes["NORMAL"] .. self.displayGroup.sourceNode.name
-			else
-				sourceName = "'" .. colorCodes["NORMAL"] .. "?"
-			end
-			sourceName = sourceName .. "^7'"
-			label = [[^7This is a special group created for the ']] .. activeGem.color .. (activeGem.grantedEffect and activeGem.grantedEffect.name or activeGem.nameSpec) .. [[^7' skill,
-which is being provided by ]] .. sourceName .. [[.
-You cannot delete this group, but it will disappear if you ]] .. (self.displayGroup.sourceNode and [[un-allocate the node.]] or [[un-equip the item.]])
-			if not self.displayGroup.noSupports then
-				label = label .. "\n\n" .. [[You cannot add support gems to this group, but support gems in
-any other group socketed into ]] .. sourceName .. [[
-will automatically apply to the skill.]]
-			end
 		end
 		return label
 	end
@@ -310,8 +293,12 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 	socketGroup.includeInFullDPS = node.attrib.includeInFullDPS and node.attrib.includeInFullDPS == "true"
 	socketGroup.groupCount = tonumber(node.attrib.groupCount)
 	socketGroup.label = node.attrib.label
-	socketGroup.slot = node.attrib.slot
 	socketGroup.source = node.attrib.source
+	-- Ordinary groups no longer expose a slot selector, but retain legacy slot data
+	-- until CalcSetup migrates old same-slot supports into generated source groups.
+	socketGroup.slot = node.attrib.slot
+	socketGroup.set1 = node.attrib.set1 and node.attrib.set1 == "true"
+	socketGroup.set2 = node.attrib.set2 and node.attrib.set2 == "true"
 	socketGroup.mainActiveSkill = tonumber(node.attrib.mainActiveSkill) or 1
 	socketGroup.mainActiveSkillCalcs = tonumber(node.attrib.mainActiveSkillCalcs) or 1
 	socketGroup.gemList = { }
@@ -401,7 +388,12 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		socketGroup.gemList[1].skillPart = tonumber(node.attrib.skillPart)
 	end
 	self:ProcessSocketGroup(socketGroup)
-	t_insert(self.skillSets[skillSetId].socketGroupList, socketGroup)
+	if node.attrib.removed == "true" then
+		local key = (node.attrib.removedSource or "") .. "\0" .. (node.attrib.removedSlot or "") .. "\0" .. (node.attrib.removedSkillId or "")
+		self.skillSets[skillSetId].removedSocketGroupList[key] = socketGroup
+	else
+		t_insert(self.skillSets[skillSetId].socketGroupList, socketGroup)
+	end
 end
 
 function SkillsTabClass:Load(xml, fileName)
@@ -469,7 +461,21 @@ function SkillsTabClass:Save(xml)
 		local child = { elem = "SkillSet", attrib = { id = tostring(skillSetId), title = skillSet.title } }
 		t_insert(xml, child)
 
+		local socketGroups = { }
 		for _, socketGroup in ipairs(skillSet.socketGroupList) do
+			t_insert(socketGroups, { group = socketGroup })
+		end
+		local removedKeys = { }
+		for key in pairs(skillSet.removedSocketGroupList or { }) do
+			t_insert(removedKeys, key)
+		end
+		table.sort(removedKeys)
+		for _, key in ipairs(removedKeys) do
+			local source, slot, skillId = key:match("^(.-)%z(.-)%z(.*)$")
+			t_insert(socketGroups, { group = skillSet.removedSocketGroupList[key], removed = true, source = source, slot = slot, skillId = skillId })
+		end
+		for _, entry in ipairs(socketGroups) do
+			local socketGroup = entry.group
 			local node = { elem = "Skill", attrib = {
 				enabled = tostring(socketGroup.enabled),
 				includeInFullDPS = tostring(socketGroup.includeInFullDPS),
@@ -477,8 +483,14 @@ function SkillsTabClass:Save(xml)
 				label = socketGroup.label,
 				slot = socketGroup.slot,
 				source = socketGroup.source,
+				set1 = tostring(socketGroup.set1 ~= false),
+				set2 = tostring(socketGroup.set2 ~= false),
 				mainActiveSkill = tostring(socketGroup.mainActiveSkill),
 				mainActiveSkillCalcs = tostring(socketGroup.mainActiveSkillCalcs),
+				removed = entry.removed and "true" or nil,
+				removedSource = entry.source,
+				removedSlot = entry.slot,
+				removedSkillId = entry.skillId,
 			} }
 			for _, gemInstance in ipairs(socketGroup.gemList) do
 				local gemInfo =  { elem = "Gem", attrib = {
@@ -552,6 +564,14 @@ function SkillsTabClass:Save(xml)
 end
 
 function SkillsTabClass:Draw(viewPort, inputEvents)
+	local validity = self.weaponSetValidityCache and self.weaponSetValidityCache[self.displayGroup]
+	local needsReconcile = self.weaponSetValidityRevision ~= self.build.outputRevision
+		or self.displayGroup and not self:IsSocketGroupWeaponSetLocked(self.displayGroup) and not self.displayGroup.forcedBoth
+		and (not validity or validity[1] == nil or validity[2] == nil)
+	if needsReconcile and self.displayGroup and self.build.calcsTab and self.build.calcsTab.mainEnv
+		and self:ReconcileSocketGroupWeaponSets(self.build.calcsTab.mainEnv, self.displayGroup) then
+		self.build.buildFlag = true
+	end
 	self.x = viewPort.x
 	self.y = viewPort.y
 	self.width = viewPort.width
@@ -619,9 +639,7 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 	if socketGroup.label and socketGroup.label:match("%S") then
 		skillText = skillText .. "Label: " .. socketGroup.label .. "\r\n"
 	end
-	if socketGroup.slot then
-		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
-	end
+	skillText = skillText .. "Weapon Set: " .. self:GetSocketGroupWeaponSetLabel(socketGroup) .. "\r\n"
 	for _, gemInstance in ipairs(socketGroup.gemList) do
 		skillText = skillText .. string.format(
 			"%s %d/%d %s %s%s\r\n",
@@ -662,6 +680,11 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		local slot = skillText:match("Slot: (%C+)")
 		if slot then
 			newGroup.slot = slot
+		end
+		local weaponSet = skillText:match("Weapon Set: Set ([12])")
+		if weaponSet then
+			newGroup.set1 = weaponSet == "1"
+			newGroup.set2 = weaponSet == "2"
 		end
 		for line in skillText:gmatch("([^\r\n]+)") do
 			local currentLine = line -- reassignment to local var to avoid modifying iter var
@@ -736,6 +759,10 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 	end
 end
 
+local function isGeneratedSourceGem(socketGroup, index)
+	return index == 1 and socketGroup and (socketGroup.source or socketGroup.sourceItem or socketGroup.sourceNode)
+end
+
 -- Create the controls for editing the gem at a given index
 function SkillsTabClass:CreateGemSlot(index)
 	local slot = { }
@@ -771,9 +798,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end)
 	end
 	slot.delete.shown = function()
-		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.source == nil
+		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.explodeSources == nil
 	end
 	slot.delete.enabled = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	slot.delete.tooltipText = "Remove this gem."
@@ -841,6 +871,9 @@ function SkillsTabClass:CreateGemSlot(index)
 			self.build.buildFlag = true
 		end
 	end, true)
+	slot.nameSpec.enabled = function()
+		return not isGeneratedSourceGem(self.displayGroup, index)
+	end
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
 
@@ -863,6 +896,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end)
 	slot.level:AddToTabGroup(self.controls.groupLabel)
 	slot.level.enabled = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Level"] = slot.level
@@ -978,6 +1014,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.quality:AddToTabGroup(self.controls.groupLabel)
 	slot.quality.enabled = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
@@ -1018,6 +1057,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.enabled.enabled = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Enable"] = slot.enabled
@@ -1040,6 +1082,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		self.build.buildFlag = true
 	end)
 	slot.count.shown = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
 		if gemInstance then
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
@@ -1059,6 +1104,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.count.enabled = function()
+		if isGeneratedSourceGem(self.displayGroup, index) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Count"] = slot.count
@@ -1242,6 +1290,7 @@ end
 function SkillsTabClass:ProcessSocketGroup(socketGroup)
 	-- Loop through the skill gem list
 	local data = self.build.data
+	socketGroup.forcedBoth = false
 	for _, gemInstance in ipairs(socketGroup.gemList) do
 		gemInstance.color = "^8"
 		gemInstance.nameSpec = gemInstance.nameSpec or ""
@@ -1262,13 +1311,15 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			end
 		elseif gemInstance.skillId then
 			-- Specified by skill ID
-			-- Used for skills granted by items
+			-- Used for skills granted by items and passive tree nodes
 			gemInstance.errMsg = nil
-			local gemId = data.gemForSkill[gemInstance.skillId]
+			local grantedEffect = data.skills[gemInstance.skillId]
+			local gemId = data.gemForSkill[grantedEffect]
 			if gemId then
 				gemInstance.gemData = data.gems[gemId]
+				gemInstance.nameSpec = gemInstance.gemData.name
 			else
-				gemInstance.grantedEffect = data.skills[gemInstance.skillId]
+				gemInstance.grantedEffect = grantedEffect
 			end
 			if gemInstance.triggered and gemInstance.grantedEffect then
 				if gemInstance.grantedEffect.levels[gemInstance.level] then
@@ -1293,6 +1344,14 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		end
 		if gemInstance.gemData or gemInstance.grantedEffect then
 			local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData.grantedEffect
+			if not socketGroup.forcedBoth and grantedEffect.statSets then
+				for _, statSet in pairs(grantedEffect.statSets) do
+					if statSet.stats and isValueInArray(statSet.stats, "display_skill_reserves_in_all_weapon_sets") then
+						socketGroup.forcedBoth = true
+						break
+					end
+				end
+			end
 			if grantedEffect.color == 1 then
 				gemInstance.color = colorCodes.STRENGTH
 			elseif grantedEffect.color == 2 then
@@ -1319,6 +1378,158 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			end
 		end
 	end
+	local sourceSlot = socketGroup.sourceItem and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
+	if sourceSlot and sourceSlot.weaponSet then
+		socketGroup.set1 = sourceSlot.weaponSet ~= 2
+		socketGroup.set2 = sourceSlot.weaponSet ~= 1
+	else
+		socketGroup.set1 = socketGroup.forcedBoth or socketGroup.set1 ~= false
+		socketGroup.set2 = socketGroup.forcedBoth or socketGroup.set2 ~= false
+	end
+	if not socketGroup.set1 and not socketGroup.set2 then
+		socketGroup.set1 = true
+		socketGroup.set2 = true
+	end
+end
+
+function SkillsTabClass:IsSocketGroupWeaponSetLocked(socketGroup)
+	local sourceSlot = socketGroup and socketGroup.sourceItem and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
+	return sourceSlot and sourceSlot.weaponSet ~= nil
+end
+
+function SkillsTabClass:GetSocketGroupWeaponSet(socketGroup)
+	if not socketGroup or socketGroup.set1 ~= false and socketGroup.set2 ~= false then
+		return self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	elseif socketGroup.set2 then
+		return 2
+	end
+	return 1
+end
+
+function SkillsTabClass:GetSocketGroupWeaponSetLabel(socketGroup)
+	if not socketGroup or socketGroup.set1 ~= false and socketGroup.set2 ~= false then
+		return "Both"
+	elseif socketGroup.set2 then
+		return "Set 2"
+	end
+	return "Set 1"
+end
+
+local function cacheWeaponSetContext(skillsTab, context)
+	if not context then
+		return
+	end
+	local groupSkillIndex = { }
+	for _, activeSkill in ipairs(context.weaponSetValidationSkillList or context.player.activeSkillList) do
+		local socketGroup = activeSkill.socketGroup
+		if socketGroup then
+			groupSkillIndex[socketGroup] = (groupSkillIndex[socketGroup] or 0) + 1
+			local selectedIndex = context.mode == "CALCS" and socketGroup.mainActiveSkillCalcs or socketGroup.mainActiveSkill
+			if groupSkillIndex[socketGroup] == (selectedIndex or 1) then
+				local flags = context.mode == "CALCS" and activeSkill.activeEffect.statSetCalcs and activeSkill.activeEffect.statSetCalcs.skillFlags
+					or activeSkill.activeEffect.statSet and activeSkill.activeEffect.statSet.skillFlags
+				skillsTab.weaponSetValidityCache[socketGroup] = skillsTab.weaponSetValidityCache[socketGroup] or { }
+				skillsTab.weaponSetValidityCache[socketGroup][context.weaponSet] = not (flags and flags.disable)
+			end
+		end
+	end
+end
+
+function SkillsTabClass:CacheSocketGroupWeaponSetValidity(env)
+	if not env or env.outputRevision ~= self.build.outputRevision then
+		return
+	end
+	if not self.weaponSetValidityCache or self.weaponSetValidityRevision ~= self.build.outputRevision then
+		self.weaponSetValidityRevision = self.build.outputRevision
+		self.weaponSetValidityCache = { }
+	end
+	cacheWeaponSetContext(self, env)
+	if env.weaponSetEnvs then
+		for _, context in pairs(env.weaponSetEnvs) do
+			cacheWeaponSetContext(self, context)
+		end
+	end
+end
+
+function SkillsTabClass:ApplySocketGroupWeaponSetValidity(socketGroup, set1Valid, set2Valid)
+	local set1, set2
+	if set1Valid ~= set2Valid then
+		set1, set2 = set1Valid, set2Valid
+	elseif not set1Valid or not socketGroup.set1 and not socketGroup.set2 then
+		set1, set2 = true, true
+	else
+		return false
+	end
+	local changed = socketGroup.set1 ~= set1 or socketGroup.set2 ~= set2
+	socketGroup.set1, socketGroup.set2 = set1, set2
+	return changed
+end
+
+function SkillsTabClass:ReconcileSocketGroupWeaponSets(env, validateSocketGroup)
+	self:CacheSocketGroupWeaponSetValidity(env)
+	local changed = false
+	for _, socketGroup in ipairs(self.socketGroupList) do
+		if socketGroup.enabled and not self:IsSocketGroupWeaponSetLocked(socketGroup) and not socketGroup.forcedBoth then
+			local validity = self.weaponSetValidityCache and self.weaponSetValidityCache[socketGroup]
+			if socketGroup == validateSocketGroup then
+				self:IsSocketGroupWeaponSetValid(socketGroup, 1)
+				self:IsSocketGroupWeaponSetValid(socketGroup, 2)
+				validity = self.weaponSetValidityCache[socketGroup]
+			elseif validity and validity[env.weaponSet] == false then
+				self:IsSocketGroupWeaponSetValid(socketGroup, env.weaponSet == 1 and 2 or 1)
+				validity = self.weaponSetValidityCache[socketGroup]
+			end
+			if validity and validity[1] ~= nil and validity[2] ~= nil then
+				changed = self:ApplySocketGroupWeaponSetValidity(socketGroup, validity[1], validity[2]) or changed
+			end
+		end
+	end
+	if changed then
+		self:AddUndoState()
+		if self.displayGroup then
+			self.controls.set1Enabled.state = self.displayGroup.set1
+			self.controls.set2Enabled.state = self.displayGroup.set2
+		end
+	end
+	return changed
+end
+
+function SkillsTabClass:IsSocketGroupWeaponSetValid(socketGroup, weaponSet)
+	if not socketGroup or not self.build.calcsTab or self.weaponSetValidityInProgress then
+		return true
+	end
+	if not self.weaponSetValidityCache or self.weaponSetValidityRevision ~= self.build.outputRevision then
+		self.weaponSetValidityRevision = self.build.outputRevision
+		self.weaponSetValidityCache = { }
+	end
+	self.weaponSetValidityCache[socketGroup] = self.weaponSetValidityCache[socketGroup] or { }
+	if self.weaponSetValidityCache[socketGroup][weaponSet] ~= nil then
+		return self.weaponSetValidityCache[socketGroup][weaponSet]
+	end
+	self:CacheSocketGroupWeaponSetValidity(self.build.calcsTab.mainEnv)
+	if self.weaponSetValidityCache[socketGroup][weaponSet] ~= nil then
+		return self.weaponSetValidityCache[socketGroup][weaponSet]
+	end
+	local groupIndex = isValueInArray(self.socketGroupList, socketGroup)
+	if not groupIndex then
+		return true
+	end
+	self.weaponSetValidityInProgress = true
+	local valid = true
+	local ok, env = pcall(self.build.calcsTab.calcs.initEnv, self.build, "CALCULATOR", {
+		weaponSet = weaponSet,
+		mainSocketGroup = groupIndex,
+		skipWeaponSetContexts = true,
+	})
+	if ok and env and env.player.mainSkill then
+		local flags = env.player.mainSkill.activeEffect.statSet and env.player.mainSkill.activeEffect.statSet.skillFlags
+		valid = not (flags and flags.disable)
+	elseif not ok then
+		ConPrintf("Error validating weapon set %d for socket group %d: %s", weaponSet, groupIndex, tostring(env))
+	end
+	self.weaponSetValidityInProgress = false
+	self.weaponSetValidityCache[socketGroup][weaponSet] = valid
+	return valid
 end
 
 -- Set the skill to be displayed/edited
@@ -1329,7 +1540,8 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 
 		-- Update the main controls
 		self.controls.groupLabel:SetText(socketGroup.label)
-		self.controls.groupSlot:SelByValue(socketGroup.slot, "slotName")
+		self.controls.set1Enabled.state = socketGroup.set1
+		self.controls.set2Enabled.state = socketGroup.set2
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
 		self.controls.groupCount:SetText(socketGroup.groupCount or 1)
@@ -1355,9 +1567,6 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			tooltip:AddLine(18, "^7Source: " .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???"))
 		end
 		return
-	end
-	if socketGroup.enabled and not socketGroup.slotEnabled then
-		tooltip:AddLine(16, "^7Note: this group is disabled because it is socketed in the inactive weapon set.")
 	end
 	local sourceSingle = socketGroup.sourceItem or socketGroup.sourceNode
 	if sourceSingle then
@@ -1414,7 +1623,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 				reason = "(Unsupported)"
 			elseif not gemInstance.enabled then
 				reason = "(Disabled)"
-			elseif not socketGroup.enabled or not socketGroup.slotEnabled then
+			elseif not socketGroup.enabled then
 			elseif grantedEffect.support then
 				if displayEffect.superseded then
 					reason = "(Superseded)"
@@ -1435,21 +1644,31 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 	end
 end
 
+local function cloneSocketGroup(socketGroup)
+	local clone = copyTable(socketGroup, true)
+	clone.gemList = { }
+	for gemIndex, gem in pairs(socketGroup.gemList) do
+		clone.gemList[gemIndex] = copyTable(gem, true)
+	end
+	return clone
+end
+
+local function cloneSocketGroupList(socketGroupList)
+	local clone = { }
+	for key, socketGroup in pairs(socketGroupList or { }) do
+		clone[key] = cloneSocketGroup(socketGroup)
+	end
+	return clone
+end
+
 function SkillsTabClass:CreateUndoState()
 	local state = { }
 	state.activeSkillSetId = self.activeSkillSetId
 	state.skillSets = { }
 	for skillSetIndex, skillSet in pairs(self.skillSets) do
 		local newSkillSet = copyTable(skillSet, true)
-		newSkillSet.socketGroupList = { }
-		for socketGroupIndex, socketGroup in pairs(skillSet.socketGroupList) do
-			local newGroup = copyTable(socketGroup, true)
-			newGroup.gemList = { }
-			for gemIndex, gem in pairs(socketGroup.gemList) do
-				newGroup.gemList[gemIndex] = copyTable(gem, true)
-			end
-			newSkillSet.socketGroupList[socketGroupIndex] = newGroup
-		end
+		newSkillSet.socketGroupList = cloneSocketGroupList(skillSet.socketGroupList)
+		newSkillSet.removedSocketGroupList = cloneSocketGroupList(skillSet.removedSocketGroupList)
 		state.skillSets[skillSetIndex] = newSkillSet
 	end
 	state.skillSetOrderList = copyTable(self.skillSetOrderList)
@@ -1491,7 +1710,7 @@ end
 
 -- Creates a new skill set without adding to order list
 function SkillsTabClass:CreateSkillSet(skillSetId, title)
-	local skillSet = { id = skillSetId, title = title, socketGroupList = {} }
+	local skillSet = { id = skillSetId, title = title, socketGroupList = { }, removedSocketGroupList = { } }
 	if not skillSetId then
 		skillSet.id = #self.skillSets + 1
 	end
@@ -1511,15 +1730,8 @@ function SkillsTabClass:CopySkillSet(sourceSkillSetId, newSkillSetName)
 	local skillSet = self.skillSets[sourceSkillSetId]
 	local newSkillSet = copyTable(skillSet, true)
 	newSkillSet.title = newSkillSetName or skillSet.title .. " (Copy)"
-	newSkillSet.socketGroupList = {}
-	for socketGroupIndex, socketGroup in pairs(skillSet.socketGroupList) do
-		local newGroup = copyTable(socketGroup, true)
-		newGroup.gemList = {}
-		for gemIndex, gem in pairs(socketGroup.gemList) do
-			newGroup.gemList[gemIndex] = copyTable(gem, true)
-		end
-		t_insert(newSkillSet.socketGroupList, newGroup)
-	end
+	newSkillSet.socketGroupList = cloneSocketGroupList(skillSet.socketGroupList)
+	newSkillSet.removedSocketGroupList = cloneSocketGroupList(skillSet.removedSocketGroupList)
 	newSkillSet.id = #self.skillSets + 1
 	self.skillSets[newSkillSet.id] = newSkillSet
 	t_insert(self.skillSetOrderList, newSkillSet.id)

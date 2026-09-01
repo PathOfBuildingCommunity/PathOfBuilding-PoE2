@@ -281,27 +281,26 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
 	end
-	if not enabled then
-		return
-	end
-	if mOver and not noTooltip then
+	if enabled and mOver and not noTooltip then
 		SetDrawLayer(nil, 100)
 		self:DrawTooltip(x, y, width, height, viewPort)
 		SetDrawLayer(nil, 0)
 	end
-	self:UpdateScrollBars()
+	if enabled then
+		self:UpdateScrollBars()
+	end
 	local marginL = textX - x - 2
 	local marginR = self.controls.scrollBarV:IsShown() and 14 or 0
 	local marginB = self.controls.scrollBarH:IsShown() and 14 or 0
 	SetViewport(textX, textY, width - 4 - marginL - marginR, height - 4 - marginB)
-	if not self.hasFocus then
+	if not enabled or not self.hasFocus then
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
 			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
 		else
 			SetDrawColor(self.inactiveCol)
 			if self.inactiveText then
-				local inactiveText = type(inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
+				local inactiveText = type(self.inactiveText) == "string" and self.inactiveText or self.inactiveText(self.buf)
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, inactiveText)
 			elseif self.protected then
 				DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, string.rep(protected_replace, #self.buf))

@@ -195,8 +195,10 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 		breakdown.SpiritReserved = { reservations = { } }
 	end
 	for _, activeSkill in ipairs(actor.activeSkillList) do
+		local socketGroup = activeSkill.socketGroup
+		local activeInWeaponSet = activeSkill.actor == actor or socketGroup and socketGroup.forcedBoth
 		local isTotemAndAncestralBond = activeSkill.skillTypes[SkillType.SummonsTotem] and modDB:Flag(nil, "AncestralBond")
-		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] or isTotemAndAncestralBond then
+		if activeInWeaponSet and ((activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] or isTotemAndAncestralBond) then
 			local skillModList = activeSkill.skillModList
 			local skillCfg = activeSkill.skillCfg
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)

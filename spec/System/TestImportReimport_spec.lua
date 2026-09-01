@@ -286,6 +286,32 @@ Fireball 20/0  1
 		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemId)
 	end)
 
+	it("attaches imported item-granted skills to their generated source group", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		local sceptre = makeImportItem("Stoic Sceptre", "Offhand")
+		sceptre.explicitMods = { "Grants Skill: Level 20 Azmerian Wolf" }
+		build.importTab:ImportItemsAndSkills(buildImportPayload({ sceptre }, {
+			makeGemEntry(false, "Azmerian Wolf", 20, {
+				makeGemEntry(true, "Feeding Frenzy II", 1),
+			}),
+		}))
+		runCallback("OnFrame")
+
+		local wolfGroups = { }
+		for _, socketGroup in ipairs(build.skillsTab.socketGroupList) do
+			if socketGroup.gemList[1] and socketGroup.gemList[1].nameSpec == "Azmerian Wolf" then
+				table.insert(wolfGroups, socketGroup)
+			end
+		end
+		assert.are.equal(1, #wolfGroups)
+		assert.are.equal("Weapon 2", wolfGroups[1].slot)
+		assert.is_not_nil(wolfGroups[1].sourceItem)
+		assert.is_true(wolfGroups[1].gemList[1].fromItem)
+		assert.are.equal("Feeding Frenzy II", wolfGroups[1].gemList[2].nameSpec)
+	end)
+
 	it("uses unique database and rune levels when importing unique items from account data", function()
 		while main.uniqueDB.loading do
 			runCallback("OnFrame")
