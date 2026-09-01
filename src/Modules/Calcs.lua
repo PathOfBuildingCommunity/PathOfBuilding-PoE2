@@ -166,6 +166,37 @@ local mergeStatsSpec = {
 	{ key = "CullMultiplier", target = "cullingMulti", mode = "cull" },
 }
 
+-- Merge one captured calc pass into the Full DPS totals
+local function mergeFullDPSPass(fullDPS, sources, pass)
+	for _, actor in ipairs(pass.actors) do
+		local out = actor.out
+		if out.TotalDPS and out.TotalDPS > 0 then
+			t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart })
+			fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * actor.count
+		end
+		for _, stat in ipairs(mergeStatsSpec) do
+			local value = out[stat.key]
+			if value then
+				if stat.mode == "max" then
+					if value > fullDPS[stat.target] then
+						fullDPS[stat.target] = value
+						sources[stat.target] = actor.sourceName
+					end
+				elseif stat.mode == "add" then
+					if value > 0 then
+						fullDPS[stat.target] = fullDPS[stat.target] + value * (stat.scaled and actor.count or 1)
+					end
+				elseif stat.mode == "cull" and value > 1 and value > fullDPS[stat.target] then
+					fullDPS[stat.target] = value
+				end
+			end
+		end
+		if out.TotalDot and out.TotalDot > 0 and actor.dotScale then
+			fullDPS.dotDPS = fullDPS.dotDPS + out.TotalDot * actor.dotScale
+		end
+	end
+end
+
 -- Tolerant modifier equality for the Full DPS input diff: mod tables are pointer-stable
 -- across initEnv calls within one build revision, except for a few mods constructed per
 -- pass (e.g. GemLevel, level-scaled support mods), which are compared structurally instead.
@@ -257,43 +288,6 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 
 	local sources = { }
 
-	local function mergeStats(out, count, sourceName)
-		for _, stat in ipairs(mergeStatsSpec) do
-			local value = out[stat.key]
-			if value then
-				if stat.mode == "max" then
-					if value > fullDPS[stat.target] then
-						fullDPS[stat.target] = value
-						sources[stat.target] = sourceName
-					end
-				elseif stat.mode == "add" then
-					if value > 0 then
-						fullDPS[stat.target] = fullDPS[stat.target] + value * (stat.scaled and count or 1)
-					end
-				elseif stat.mode == "cull" then
-					if value > 1 and value > fullDPS[stat.target] then
-						fullDPS[stat.target] = value
-					end
-				end
-			end
-		end
-	end
-
-	-- Merge one captured calc pass into the Full DPS totals
-	local function mergePass(pass)
-		for _, actor in ipairs(pass.actors) do
-			local out = actor.out
-			if out.TotalDPS and out.TotalDPS > 0 then
-				t_insert(fullDPS.skills, { name = actor.name, dps = out.TotalDPS, count = actor.count, trigger = actor.trigger, skillPart = actor.skillPart })
-				fullDPS.combinedDPS = fullDPS.combinedDPS + out.TotalDPS * actor.count
-			end
-			mergeStats(out, actor.count, actor.sourceName)
-			if out.TotalDot and out.TotalDot > 0 and actor.dotScale then
-				fullDPS.dotDPS = fullDPS.dotDPS + out.TotalDot * actor.dotScale
-			end
-		end
-	end
-
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local uuid = cacheStore and cacheSkillUUID(activeSkill, fullEnv)
@@ -313,7 +307,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				-- This skill's own mod list and the coupling surface are unchanged since the
 				-- capture pass, so its results cannot have changed: merge the cached passes
 				for _, pass in ipairs(cachedPasses) do
-					mergePass(pass)
+					mergeFullDPSPass(fullDPS, sources, pass)
 				end
 			elseif enabled then
 				local ownRef
@@ -376,7 +370,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					sourceName = skillName,
 					dotScale = dotCanStack and activeSkillCount or 1,
 				})
-				mergePass(pass)
+				mergeFullDPSPass(fullDPS, sources, pass)
 				if cacheStore and fullDPSCache.capture and ownRef then
 					cacheStore.snapshots[uuid] = { pass }
 					cacheStore.refs[uuid] = ownRef

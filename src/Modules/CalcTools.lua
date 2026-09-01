@@ -75,24 +75,29 @@ function calcLib.validateGemLevel(gemInstance)
 	end
 end
 
+local typeExpressionStack = { }
+
 -- Evaluate a skill type postfix expression
 function calcLib.doesTypeExpressionMatch(checkTypes, skillTypes, minionTypes)
-	local stack = { }
+	local stackSize = 0
 	for _, skillType in pairs(checkTypes) do
 		if skillType == SkillType.OR then
-			local other = t_remove(stack)
-			stack[#stack] = stack[#stack] or other
+			local other = typeExpressionStack[stackSize]
+			stackSize = stackSize - 1
+			typeExpressionStack[stackSize] = typeExpressionStack[stackSize] or other
 		elseif skillType == SkillType.AND then
-			local other = t_remove(stack)
-			stack[#stack] = stack[#stack] and other
+			local other = typeExpressionStack[stackSize]
+			stackSize = stackSize - 1
+			typeExpressionStack[stackSize] = typeExpressionStack[stackSize] and other
 		elseif skillType == SkillType.NOT then
-			stack[#stack] = not stack[#stack]
+			typeExpressionStack[stackSize] = not typeExpressionStack[stackSize]
 		else
-			t_insert(stack, skillTypes[skillType] or (minionTypes and minionTypes[skillType]) or false)
+			stackSize = stackSize + 1
+			typeExpressionStack[stackSize] = skillTypes[skillType] or (minionTypes and minionTypes[skillType]) or false
 		end
 	end
-	for _, val in ipairs(stack) do
-		if val then
+	for index = 1, stackSize do
+		if typeExpressionStack[index] then
 			return true
 		end
 	end

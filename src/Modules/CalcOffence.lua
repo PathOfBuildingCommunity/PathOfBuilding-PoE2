@@ -67,6 +67,77 @@ local globalOutput = nil
 ---@type Breakdown?
 local globalBreakdown = nil
 
+local function processDamageConversion(skillModList, skillCfg, fromType, skill)
+	local total = 0
+	local totalConv = wipeTable(tempTable1)
+
+	-- Calculate conversion for this damage type
+	for _, toType in ipairs(dmgTypeList) do
+		local conv
+		if skill then
+			conv = m_max(skillModList:Sum("BASE", skillCfg,
+				"SkillDamageConvertTo"..toType,
+				"Skill"..fromType.."DamageConvertTo"..toType), 0)
+		else
+			conv = m_max(skillModList:Sum("BASE", skillCfg,
+				"DamageConvertTo"..toType,
+				fromType.."DamageConvertTo"..toType,
+				isElemental[fromType] and "ElementalDamageConvertTo"..toType or nil,
+				fromType ~= "Chaos" and "NonChaosDamageConvertTo"..toType or nil), 0)
+		end
+
+		totalConv[toType] = conv / 100
+		total = total + conv
+	end
+
+	-- Scale if over 100%
+	if total > 100 then
+		local factor = 100 / total
+		for type, val in pairs(totalConv) do
+			totalConv[type] = val * factor
+		end
+		total = 100
+	end
+
+	return totalConv, total
+end
+
+local selfHitHandlers = {
+	["Heartbound Loop"] = function(activeSkill, output, breakdown)
+		if activeSkill.activeEffect.grantedEffect.name == "Summon Skeletons" then
+			local dmgType, dmgVal
+			for _, value in ipairs(activeSkill.skillModList:List(nil, "HeartboundLoopSelfDamage")) do -- Combines dmg taken from both ring accounting for catalysts
+				dmgVal = (dmgVal or 0) + value.baseDamage
+				dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
+			end
+			if dmgType and dmgVal then
+				-- !!!! WARNING !!!! --
+				-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
+				local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
+				t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
+				t_insert(dmgBreakdown, 2, s_format(""))
+				t_insert(dmgBreakdown, s_format("Total Heartbound Loop damage taken per cast/attack: %.2f * %d ^8(minions per cast)^7 = %.2f",totalDmgTaken, output.SummonedMinionsPerCast, totalDmgTaken * output.SummonedMinionsPerCast))
+				return dmgBreakdown, totalDmgTaken * output.SummonedMinionsPerCast
+			end
+		end
+	end,
+	["Trauma"] = function(activeSkill, output, breakdown)
+		local dmgType = "Physical"
+		local currentTraumaStacks =  math.max(activeSkill.skillModList:Sum("BASE", nil, "Multiplier:TraumaStacks"), 1)
+		local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
+		local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
+		if dmgType and dmgVal then
+			-- !!!! WARNING !!!! --
+			-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
+			local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
+			t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
+			t_insert(dmgBreakdown, 2, s_format(""))
+			t_insert(dmgBreakdown, s_format("Total Trauma damage taken per cast/attack: %.2f ", totalDmgTaken))
+			return dmgBreakdown, totalDmgTaken
+		end
+	end,
+}
+
 local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 	local skillModList = activeSkill.skillModList
 	-- Calculate conversions
@@ -2370,72 +2441,9 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
-	-- Calculate conversion
-	local function processDamageConversion(fromType, skill)
-		local total = 0
-		local totalConv = wipeTable(tempTable1)
-
-		-- Calculate conversion for this damage type
-		for _, toType in ipairs(dmgTypeList) do
-			local conv
-			if skill then
-				conv = m_max(skillModList:Sum("BASE", skillCfg,
-					"SkillDamageConvertTo"..toType,
-					"Skill"..fromType.."DamageConvertTo"..toType), 0)
-			else
-				conv = m_max(skillModList:Sum("BASE", skillCfg,
-					"DamageConvertTo"..toType,
-					fromType.."DamageConvertTo"..toType,
-					isElemental[fromType] and "ElementalDamageConvertTo"..toType or nil,
-					fromType ~= "Chaos" and "NonChaosDamageConvertTo"..toType or nil), 0)
-			end
-
-			totalConv[toType] = conv / 100
-			total = total + conv
-		end
-
-		-- Scale if over 100%
-		if total > 100 then
-			local factor = 100 / total
-			for type, val in pairs(totalConv) do
-				totalConv[type] = val * factor
-			end
-			total = 100
-		end
-
-		return totalConv, total
-	end
-
-	local function buildGainTable()
-		for _, damageType in ipairs(dmgTypeList) do
-			activeSkill.gainTable[damageType] = {}
-			for _, toType in ipairs(dmgTypeList) do
-				local globalGain = m_max(skillModList:Sum("BASE", skillCfg,
-					"DamageAs"..toType,
-					"DamageGainAs"..toType,
-					damageType.."DamageAs"..toType,
-					damageType.."DamageGainAs"..toType,
-					isElemental[damageType] and "ElementalDamageAs"..toType or nil,
-					isElemental[damageType] and "ElementalDamageGainAs"..toType or nil,
-					damageType ~= "Chaos" and "NonChaosDamageAs"..toType or nil,
-					damageType ~= "Chaos" and "NonChaosDamageGainAs"..toType or nil), 0)
-				local skillGain = m_max(skillModList:Sum("BASE", skillCfg,
-					"SkillDamageGainAs"..toType,
-					"Skill"..damageType.."DamageGainAs"..toType,
-					isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
-					damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
-				if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
-					activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
-				else
-					activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
-				end
-			end
-		end
-	end
-
 	-- First step: Process skill conversion
 	for _, damageType in ipairs(dmgTypeList) do
-		local skillConv, skillTotal = processDamageConversion(damageType, true)
+		local skillConv, skillTotal = processDamageConversion(skillModList, skillCfg, damageType, true)
 		for toType, amount in pairs(skillConv) do
 			activeSkill.conversionTable[damageType][toType] = amount
 		end
@@ -2448,7 +2456,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Handle global conversion of unconverted damage first
 		if activeSkill.conversionTable[damageType].mult > 0 then
-			local globalConv, globalTotal = processDamageConversion(damageType)
+			local globalConv, globalTotal = processDamageConversion(skillModList, skillCfg, damageType)
 			if globalTotal > 0 then
 				local unconvertedMult = activeSkill.conversionTable[damageType].mult
 				tempConversions[damageType] = {
@@ -2464,7 +2472,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- Process global conversion on skill-converted damage
 		for toType, amount in pairs(activeSkill.conversionTable[damageType]) do
 			if amount > 0 and toType ~= "mult" then
-				local globalConv, globalTotal = processDamageConversion(toType)
+				local globalConv, globalTotal = processDamageConversion(skillModList, skillCfg, toType)
 				if globalTotal > 0 then
 					tempConversions[toType] = {
 						base = amount * (1 - globalTotal / 100),
@@ -4091,7 +4099,30 @@ function calcs.offence(env, actor, activeSkill)
 		--Calculate reservation DPS
 		globalOutput.ReservationDpsMultiplier = 100 / (100 - enemyDB:Sum("BASE", nil, "LifeReservationPercent"))
 
-		buildGainTable()
+		for _, damageType in ipairs(dmgTypeList) do
+			activeSkill.gainTable[damageType] = {}
+			for _, toType in ipairs(dmgTypeList) do
+				local globalGain = m_max(skillModList:Sum("BASE", skillCfg,
+					"DamageAs"..toType,
+					"DamageGainAs"..toType,
+					damageType.."DamageAs"..toType,
+					damageType.."DamageGainAs"..toType,
+					isElemental[damageType] and "ElementalDamageAs"..toType or nil,
+					isElemental[damageType] and "ElementalDamageGainAs"..toType or nil,
+					damageType ~= "Chaos" and "NonChaosDamageAs"..toType or nil,
+					damageType ~= "Chaos" and "NonChaosDamageGainAs"..toType or nil), 0)
+				local skillGain = m_max(skillModList:Sum("BASE", skillCfg,
+					"SkillDamageGainAs"..toType,
+					"Skill"..damageType.."DamageGainAs"..toType,
+					isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
+					damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
+				if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
+					activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
+				else
+					activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
+				end
+			end
+		end
 
 		-- Calculate base hit damage
 		for _, damageType in ipairs(dmgTypeList) do
@@ -6196,44 +6227,7 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Self hit dmg calcs
 	do
-		-- Handler functions for self hit sources
-		local nameToHandler = {
-			["Heartbound Loop"] = function(activeSkill, output, breakdown)
-				if activeSkill.activeEffect.grantedEffect.name == "Summon Skeletons" then
-					local dmgType, dmgVal
-					for _, value in ipairs(activeSkill.skillModList:List(nil, "HeartboundLoopSelfDamage")) do -- Combines dmg taken from both ring accounting for catalysts
-						dmgVal = (dmgVal or 0) + value.baseDamage
-						dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
-					end
-					if dmgType and dmgVal then
-						-- !!!! WARNING !!!! --
-						-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
-						local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-						t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
-						t_insert(dmgBreakdown, 2, s_format(""))
-						t_insert(dmgBreakdown, s_format("Total Heartbound Loop damage taken per cast/attack: %.2f * %d ^8(minions per cast)^7 = %.2f",totalDmgTaken, output.SummonedMinionsPerCast, totalDmgTaken * output.SummonedMinionsPerCast))
-						return dmgBreakdown, totalDmgTaken * output.SummonedMinionsPerCast
-					end
-				end
-			end,
-			["Trauma"] = function(activeSkill, output, breakdown)
-				local dmgType = "Physical"
-				local currentTraumaStacks =  math.max(activeSkill.skillModList:Sum("BASE", nil, "Multiplier:TraumaStacks"), 1)
-				local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
-				local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
-				if dmgType and dmgVal then
-					-- !!!! WARNING !!!! --
-					-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
-					local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-					t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
-					t_insert(dmgBreakdown, 2, s_format(""))
-					t_insert(dmgBreakdown, s_format("Total Trauma damage taken per cast/attack: %.2f ", totalDmgTaken))
-					return dmgBreakdown, totalDmgTaken
-				end
-			end,
-		}
-
-		for _, sourceFunc in pairs(nameToHandler) do
+		for _, sourceFunc in pairs(selfHitHandlers) do
 			local selfHitBreakdown, dmgTaken = sourceFunc(activeSkill, output, breakdown)
 			if dmgTaken then
 				output.SelfHitDamage = (output.SelfHitDamage or 0) + dmgTaken
