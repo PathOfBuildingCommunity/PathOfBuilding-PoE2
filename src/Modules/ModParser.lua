@@ -6311,7 +6311,7 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
-	["convert (%d+)%% of maximum life to twice as much armour per ([%d%.]+)%% chaos resistance above 0%%"] = function(life, _, res) return {
+	["convert ([%d%.]+)%% of maximum life to twice as much armour per ([%d%.]+)%% chaos resistance above 0%%"] = function(life, _, res) return {
 		mod("LifeConvertToArmour", "BASE", tonumber(life), { type = "PerStat", stat = "ChaosResist", div = tonumber(res)}),
 		mod("LifeGainAsArmour", "BASE", tonumber(life), { type = "PerStat", stat = "ChaosResist", div = tonumber(res)})
 	} end,
