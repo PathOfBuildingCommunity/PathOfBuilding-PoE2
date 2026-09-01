@@ -6982,7 +6982,7 @@ c["Consume all Rage when Shapeshifting to Human form to recover 1% of maximum li
 c["Consumes Frenzy Charges on use"]={nil,"Consumes Frenzy Charges on use "}
 c["Consumes a Void Charge to Trigger Level 20 Void Shot when you fire Arrows with a Non-Triggered Skill"]={{},nil}
 c["Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60%"]={nil,"Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60% "}
-c["Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%"]={{[1]={[1]={stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeConvertToArmour",type="BASE",value=1},[2]={[1]={stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeGainAsArmour",type="BASE",value=1}},nil}
+c["Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%"]={{[1]={[1]={div=1,stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeConvertToArmour",type="BASE",value=1},[2]={[1]={div=1,stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="LifeGainAsArmour",type="BASE",value=1}},nil}
 c["Convert 100% of Fire Damage with Mace Skills to Cold Damage"]={nil,"Convert 100% of Fire Damage with Mace Skills to Cold Damage "}
 c["Convert 100% of maximum Energy Shield to maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity "}
 c["Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity "}
