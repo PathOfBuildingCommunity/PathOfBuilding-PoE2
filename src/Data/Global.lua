@@ -117,91 +117,88 @@ function colorCodeToMarkupColour(code)
 	local b = tonumber(code:sub(5, 6), 16)
 	return string.format("<rgb(%d, %d, %d)>", r, g, b)
 end
--- NOTE: the LuaJIT bitwise operations we have are not 64-bit
--- so we need to implement them ourselves. Lua uses 53-bit doubles.
+-- NOTE: the LuaJIT bitwise operations we have are not 64-bit for Lua numbers, which are doubles
+-- (53-bit) so we need to implement them ourselves. We also cannot effectively use FFI `uint64_t` as
+-- they would be boxed.
 local HIGH_MASK_53 = 0x1FFFFF
-function OR64(...)
-    local args = {...}
-    if #args < 2 then
-        return args[1] or 0
-    end
+-- Combining two 53-bit halves is done in an odd way as we have to do it while avoiding breaking
+-- LuaJIT traces and pointless allocations. This code is often called in very hot loops.
+local bit_band, bit_bor, bit_bxor = bit.band, bit.bor, bit.bxor
+local m_floor = math.floor
 
-    -- Start with first value
-    local result = args[1]
-
-    -- OR with each subsequent value
-    for i = 2, #args do
-        -- Split into high and low 32-bit parts
-        local ah = math.floor(result / 0x100000000)
-        local al = result % 0x100000000
-        local bh = math.floor(args[i] / 0x100000000)
-        local bl = args[i] % 0x100000000
-
-        -- Perform OR operation on both parts
-        local high = bit.bor(ah, bh)
-        local low = bit.bor(al, bl)
-
-        -- Combine the results
-        result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
-    end
-
-    return result
+local function or2(a, b)
+	-- Split into high and low 32-bit parts and perform OR operation on both parts
+	local high = bit_bor(m_floor(a / 0x100000000), m_floor(b / 0x100000000))
+	local low = bit_bor(a % 0x100000000, b % 0x100000000)
+	-- Combine the results
+	return bit_band(high, HIGH_MASK_53) * 0x100000000 + low
 end
 
-function AND64(...)
-    local args = {...}
-    if #args < 2 then
-        return args[1] or 0
-    end
-
-    -- Start with first value
-    local result = args[1]
-
-    -- AND with each subsequent value
-    for i = 2, #args do
-        -- Split into high and low 32-bit parts
-        local ah = math.floor(result / 0x100000000)
-        local al = result % 0x100000000
-        local bh = math.floor(args[i] / 0x100000000)
-        local bl = args[i] % 0x100000000
-
-        -- Perform AND operation on both parts
-        local high = bit.band(ah, bh)
-        local low = bit.band(al, bl)
-
-        -- Combine the results
-        result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
-    end
-
-    return result
+local function and2(a, b)
+	-- Split into high and low 32-bit parts and perform AND operation on both parts
+	local high = bit_band(m_floor(a / 0x100000000), m_floor(b / 0x100000000))
+	local low = bit_band(a % 0x100000000, b % 0x100000000)
+	-- Combine the results
+	return bit_band(high, HIGH_MASK_53) * 0x100000000 + low
 end
 
-function XOR64(...)
-    local args = {...}
-    if #args < 2 then
-        return args[1] or 0
-    end
+local function xor2(a, b)
+	-- Split into high and low 32-bit parts and perform XOR operation on both parts
+	local high = bit_bxor(m_floor(a / 0x100000000), m_floor(b / 0x100000000))
+	local low = bit_bxor(a % 0x100000000, b % 0x100000000)
+	-- Combine the results
+	return bit_band(high, HIGH_MASK_53) * 0x100000000 + low
+end
 
-    -- Start with first value
-    local result = args[1]
+function OR64(a, b, c, d, e, f, g, h)
+	if b == nil then return a or 0 end
+	local r = or2(a, b)
+	if c == nil then return r end
+	r = or2(r, c)
+	if d == nil then return r end
+	r = or2(r, d)
+	if e == nil then return r end
+	r = or2(r, e)
+	if f == nil then return r end
+	r = or2(r, f)
+	if g == nil then return r end
+	r = or2(r, g)
+	if h == nil then return r end
+	return or2(r, h)
+end
 
-    -- XOR with each subsequent value
-    for i = 2, #args do
-        -- Split into high and low 32-bit parts
-        local ah = math.floor(result / 0x100000000)
-        local al = result % 0x100000000
-        local bh = math.floor(args[i] / 0x100000000)
-        local bl = args[i] % 0x100000000
+function AND64(a, b, c, d, e, f, g, h)
+	if b == nil then return a or 0 end
+	local r = and2(a, b)
+	if c == nil then return r end
+	r = and2(r, c)
+	if d == nil then return r end
+	r = and2(r, d)
+	if e == nil then return r end
+	r = and2(r, e)
+	if f == nil then return r end
+	r = and2(r, f)
+	if g == nil then return r end
+	r = and2(r, g)
+	if h == nil then return r end
+	return and2(r, h)
+end
 
-        -- Perform XOR operation on both parts
-        local high = bit.bxor(ah, bh)
-        local low = bit.bxor(al, bl)
-
-        -- Combine the results
-        result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
-    end
-
-    return result
+function XOR64(a, b, c, d, e, f, g, h)
+	if b == nil then return a or 0 end
+	local r = xor2(a, b)
+	if c == nil then return r end
+	r = xor2(r, c)
+	if d == nil then return r end
+	r = xor2(r, d)
+	if e == nil then return r end
+	r = xor2(r, e)
+	if f == nil then return r end
+	r = xor2(r, f)
+	if g == nil then return r end
+	r = xor2(r, g)
+	if h == nil then return r end
+	return xor2(r, h)
 end
 
 function NOT64(a)
@@ -313,31 +310,12 @@ local band = AND64
 local bnot = NOT64
 local MatchAllMask = bnot(KeywordFlag.MatchAll)
 
--- Two-level numeric-key cache to avoid building string keys or allocating tables per call.
-local matchKeywordFlagsCache = {}
-function ClearMatchKeywordFlagsCache()
-	-- cheap full reset without reallocating the outer table
-	for k in pairs(matchKeywordFlagsCache) do
-		matchKeywordFlagsCache[k] = nil
-	end
-end
 
 ---@param keywordFlags number The KeywordFlags to be compared to.
 ---@param modKeywordFlags number The KeywordFlags stored in the mod.
 ---@return boolean Whether the KeywordFlags in the mod are satisfied.
 function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 	-- Cache lookup
-	local row = matchKeywordFlagsCache[keywordFlags]
-	if row then
-		local cached = row[modKeywordFlags]
-		if cached ~= nil then
-			return cached
-		end
-	else
-		row = {}
-		matchKeywordFlagsCache[keywordFlags] = row
-	end
-	-- Not in cache, compute normally
 	local matchAll = band(modKeywordFlags, KeywordFlag.MatchAll) ~= 0
 	local modMasked = band(modKeywordFlags, MatchAllMask)
 	local keywordMasked = band(keywordFlags, MatchAllMask)
@@ -348,7 +326,7 @@ function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 	else
 		matches = (modMasked == 0) or (band(keywordMasked, modMasked) ~= 0)
 	end
-	row[modKeywordFlags] = matches -- Add to cache
+	-- row[modKeywordFlags] = matches -- Add to cache
 	return matches
 end
 

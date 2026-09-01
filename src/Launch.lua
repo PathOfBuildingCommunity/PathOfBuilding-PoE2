@@ -16,7 +16,7 @@ ConExecute("set vid_resizable 3")
 ---@diagnostic disable-next-line: lowercase-global
 launch = { }
 SetMainObject(launch)
-jit.opt.start('maxtrace=4000','maxmcode=8192')
+jit.opt.start('maxtrace=20000', 'maxmcode=8192')
 collectgarbage("setpause", 400)
 
 function launch:OnInit()

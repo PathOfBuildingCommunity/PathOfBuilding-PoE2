@@ -113,11 +113,15 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
+local function capitaliseWord(a, b)
+	return a .. string.lower(b)
+end
+
 local function getCorruptedJewelEffect(env, item, node)
 	if not item or item.type ~= "Jewel" or not item.corrupted or not node or node.containJewelSocket or node.sinister or item.base.subType == "Charm" then
 		return 0
 	end
-	local rarity = item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end)
+	local rarity = item.rarity:gsub("(%a)(%u*)", capitaliseWord)
 	return env.modDB.multipliers["Corrupted" .. rarity .. "JewelEffect"] or 0
 end
 
@@ -623,6 +627,77 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 	end
 end
 
+local function processGrantedEffect(grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
+	if not grantedEffect or not grantedEffect.support then
+		return
+	end
+	local supportEffect = {
+		grantedEffect = grantedEffect,
+		level = gemInstance.level,
+		quality = gemInstance.quality,
+		srcInstance = gemInstance,
+		gemData = gemInstance.gemData,
+		superseded = false,
+		isSupporting = {},
+	}
+	if env.mode == "MAIN" then
+		gemInstance.displayEffect = supportEffect
+		gemInstance.supportEffect = supportEffect
+	end
+	if gemInstance.gemData then
+		local playerItems = env.player.itemList
+		local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]
+		applyGemMods(supportEffect, socketedIn and getGemModList(env, groupCfg, socketedIn.color, gemIndex) or propertyModList)
+		if not processedSockets[gemInstance] then
+			processedSockets[gemInstance] = true
+			applySocketMods(env, gemInstance.gemData, groupCfg, gemIndex, playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].name)
+			-- Keep track of the gem count for each color socketed in this group
+			groupCfg.intelligenceGems = (groupCfg.intelligenceGems or 0) + (gemInstance.gemData.tags.intelligence and 1 or 0)
+			groupCfg.dexterityGems = (groupCfg.dexterityGems or 0) + (gemInstance.gemData.tags.dexterity and 1 or 0)
+			groupCfg.strengthGems = (groupCfg.strengthGems or 0) + (gemInstance.gemData.tags.strength and 1 or 0)
+		end
+	end
+	-- Validate support gem level in case there is no active skill (and no full calculation)
+	calcLib.validateGemLevel(supportEffect)
+
+	for _, targetList in ipairs(targetListList) do
+		addBestSupport(supportEffect, targetList, env.mode)
+	end
+end
+local function getNormalizedSkillLevel(grantedSkill)
+	-- Levels in socketGroup.gemList[1].level are normalized
+	-- grantedSkill.level is not causing group match miss which causes all things that rely on group order to fail
+	local normalizedGrantedSkill = {
+		grantedEffect = data.skills[grantedSkill.skillId],
+		level = grantedSkill.level
+	}
+	calcLib.validateGemLevel(normalizedGrantedSkill)
+	return normalizedGrantedSkill.level
+end
+
+local thornsStats = { "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }
+local function modDBHasThornsDamage(modDB)
+	for _, stat in ipairs(thornsStats) do
+		local mods = modDB.mods[stat]
+		if mods then
+			for _, mod in ipairs(mods) do
+				if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
+					return true
+				end
+			end
+		end
+	end
+	return modDB.parent and modDBHasThornsDamage(modDB.parent)
+end
+
+local function defaultRadiusJewelFunc(node, out, data)
+	-- Default function just tallies all stats in radius
+	if node then
+		for _, stat in pairs({ "Str", "Dex", "Int" }) do
+			data[stat] = (data[stat] or 0) + out:Sum("BASE", nil, stat)
+		end
+	end
+end
 ---@alias CalcEnvMode "MAIN"|"CALCS"|"CALCULATOR"
 -- Initialise environment:
 -- 1. Initialises the player and enemy modifier databases
@@ -640,7 +715,6 @@ end
 ---@return ModDB? cachedEnemyDB
 ---@return ModDB? cachedMinionDB
 function calcs.initEnv(build, mode, override, specEnv)
-	ClearMatchKeywordFlagsCache()
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
@@ -1076,14 +1150,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					if item and not (node and node.sinister) and ( item.jewelRadiusIndex or (override and override.extraJewelFuncs and #override.extraJewelFuncs > 0) ) then
 						-- Jewel has a radius, add it to the list
-						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = function(node, out, data)
-							-- Default function just tallies all stats in radius
-							if node then
-								for _, stat in pairs({"Str","Dex","Int"}) do
-									data[stat] = (data[stat] or 0) + out:Sum("BASE", nil, stat)
-								end
-							end
-						end } }
+						local funcList = (item.jewelData and item.jewelData.funcList) or { { type = "Self", func = defaultRadiusJewelFunc } }
 						for _, func in ipairs(funcList) do
 							t_insert(env.radiusJewelList, {
 								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
@@ -1622,17 +1689,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
-			local function getNormalizedSkillLevel(grantedSkill)
-				-- Levels in socketGroup.gemList[1].level are normalized
-				-- grantedSkill.level is not causing group match miss which causes all things that rely on group order to fail
-				local normalizedGrantedSkill = {
-					grantedEffect = data.skills[grantedSkill.skillId],
-					level = grantedSkill.level
-				}
-				calcLib.validateGemLevel(normalizedGrantedSkill)
-				return normalizedGrantedSkill.level
-			end
-
 			-- Process extra skills granted by items or tree nodes
 			local markList = wipeTable(tempTable1)
 			for _, grantedSkill in ipairs(env.grantedSkills) do
@@ -1726,16 +1782,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 
 			do
-				local function modDBHasThornsDamage(modDB)
-					for _, stat in ipairs({ "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }) do
-						for _, mod in ipairs(modDB.mods[stat] or { }) do
-							if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
-								return true
-							end
-						end
-					end
-					return modDB.parent and modDBHasThornsDamage(modDB.parent)
-				end
 				local hasThornsDamage = modDBHasThornsDamage(env.modDB)
 				if not hasThornsDamage then
 					for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
@@ -1916,50 +1962,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 						gemInstance.supportEffect = nil
 					end
 					if gemInstance.enabled then
-						local function processGrantedEffect(grantedEffect)
-							if not grantedEffect or not grantedEffect.support then
-								return
-							end
-							local supportEffect = {
-								grantedEffect = grantedEffect,
-								level = gemInstance.level,
-								quality = gemInstance.quality,
-								srcInstance = gemInstance,
-								gemData = gemInstance.gemData,
-								superseded = false,
-								isSupporting = { },
-							}
-							if env.mode == "MAIN" then
-								gemInstance.displayEffect = supportEffect
-								gemInstance.supportEffect = supportEffect
-							end
-							if gemInstance.gemData then
-								local playerItems = env.player.itemList
-								local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]
-								applyGemMods(supportEffect, socketedIn and getGemModList(env, groupCfg, socketedIn.color, gemIndex) or propertyModList)
-								if not processedSockets[gemInstance] then
-									processedSockets[gemInstance] = true
-									applySocketMods(env, gemInstance.gemData, groupCfg, gemIndex, playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].name)
-									-- Keep track of the gem count for each color socketed in this group
-									groupCfg.intelligenceGems = (groupCfg.intelligenceGems or 0) + (gemInstance.gemData.tags.intelligence and 1 or 0)
-									groupCfg.dexterityGems = (groupCfg.dexterityGems or 0) + (gemInstance.gemData.tags.dexterity and 1 or 0)
-									groupCfg.strengthGems = (groupCfg.strengthGems or 0) + (gemInstance.gemData.tags.strength and 1 or 0)
-								end
-							end
-							-- Validate support gem level in case there is no active skill (and no full calculation)
-							calcLib.validateGemLevel(supportEffect)
-
-							for _, targetList in ipairs(targetListList) do
-								addBestSupport(supportEffect, targetList, env.mode)
-							end
-						end
 						if gemInstance.gemData then
-							processGrantedEffect(gemInstance.gemData.grantedEffect)
+							processGrantedEffect(gemInstance.gemData.grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 							for _, additional in ipairs(gemInstance.gemData.additionalGrantedEffects) do
-								processGrantedEffect(additional)
+								processGrantedEffect(additional, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 							end
 						else
-							processGrantedEffect(gemInstance.grantedEffect)
+							processGrantedEffect(gemInstance.grantedEffect, gemInstance, env, groupCfg, gemIndex, propertyModList, processedSockets, targetListList)
 						end
 					end
 				end

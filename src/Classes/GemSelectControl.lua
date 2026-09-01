@@ -236,7 +236,7 @@ function GemSelectClass:BuildList(buf)
 end
 
 function GemSelectClass:UpdateSortCache()
-	--local start = GetTime()
+	local start = GetTime()
 	local sortCache = self.sortCache
 	local sameSortBy = self.sortGemsBy == self.lastSortGemsBy
 	-- Don't update the cache if no settings have changed that would impact the ordering
@@ -270,7 +270,8 @@ function GemSelectClass:UpdateSortCache()
 		canSupport = { },
 		dps = { },
 		dpsColor = { },
-		sortType = self.skillsTab.sortGemsByDPSField
+		sortType = self.skillsTab.sortGemsByDPSField,
+		startTime = start,
 	}
 	self.sortCache = sortCache
 
@@ -426,6 +427,7 @@ function GemSelectClass:DPSBuilder()
 	end
 
 	self:SortCurrentList()
+	--ConPrintf("Gem Selector time: %d ms", GetTime() - sortCache.startTime)
 	sortCache.pendingGems = nil
 end
 

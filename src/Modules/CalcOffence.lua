@@ -67,6 +67,77 @@ local globalOutput = nil
 ---@type Breakdown?
 local globalBreakdown = nil
 
+local function processDamageConversion(skillModList, skillCfg, fromType, skill)
+	local total = 0
+	local totalConv = wipeTable(tempTable1)
+
+	-- Calculate conversion for this damage type
+	for _, toType in ipairs(dmgTypeList) do
+		local conv
+		if skill then
+			conv = m_max(skillModList:Sum("BASE", skillCfg,
+				"SkillDamageConvertTo"..toType,
+				"Skill"..fromType.."DamageConvertTo"..toType), 0)
+		else
+			conv = m_max(skillModList:Sum("BASE", skillCfg,
+				"DamageConvertTo"..toType,
+				fromType.."DamageConvertTo"..toType,
+				isElemental[fromType] and "ElementalDamageConvertTo"..toType or nil,
+				fromType ~= "Chaos" and "NonChaosDamageConvertTo"..toType or nil), 0)
+		end
+
+		totalConv[toType] = conv / 100
+		total = total + conv
+	end
+
+	-- Scale if over 100%
+	if total > 100 then
+		local factor = 100 / total
+		for type, val in pairs(totalConv) do
+			totalConv[type] = val * factor
+		end
+		total = 100
+	end
+
+	return totalConv, total
+end
+
+local selfHitHandlers = {
+	["Heartbound Loop"] = function(activeSkill, output, breakdown)
+		if activeSkill.activeEffect.grantedEffect.name == "Summon Skeletons" then
+			local dmgType, dmgVal
+			for _, value in ipairs(activeSkill.skillModList:List(nil, "HeartboundLoopSelfDamage")) do -- Combines dmg taken from both ring accounting for catalysts
+				dmgVal = (dmgVal or 0) + value.baseDamage
+				dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
+			end
+			if dmgType and dmgVal then
+				-- !!!! WARNING !!!! --
+				-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
+				local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
+				t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
+				t_insert(dmgBreakdown, 2, s_format(""))
+				t_insert(dmgBreakdown, s_format("Total Heartbound Loop damage taken per cast/attack: %.2f * %d ^8(minions per cast)^7 = %.2f",totalDmgTaken, output.SummonedMinionsPerCast, totalDmgTaken * output.SummonedMinionsPerCast))
+				return dmgBreakdown, totalDmgTaken * output.SummonedMinionsPerCast
+			end
+		end
+	end,
+	["Trauma"] = function(activeSkill, output, breakdown)
+		local dmgType = "Physical"
+		local currentTraumaStacks =  math.max(activeSkill.skillModList:Sum("BASE", nil, "Multiplier:TraumaStacks"), 1)
+		local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
+		local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
+		if dmgType and dmgVal then
+			-- !!!! WARNING !!!! --
+			-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
+			local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
+			t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
+			t_insert(dmgBreakdown, 2, s_format(""))
+			t_insert(dmgBreakdown, s_format("Total Trauma damage taken per cast/attack: %.2f ", totalDmgTaken))
+			return dmgBreakdown, totalDmgTaken
+		end
+	end,
+}
+
 local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 	local skillModList = activeSkill.skillModList
 	-- Calculate conversions
@@ -392,6 +463,63 @@ function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
 	return duration
 end
 
+local calcPenResist = function(resist, minPen, pen)
+	return resist > minPen and m_max(resist - pen, minPen) or resist
+end
+
+local function calcHitResist(resist, minPen, pen, cannotElePenIgnore, ignoreNonNegativeEleRes)
+	if not cannotElePenIgnore and ignoreNonNegativeEleRes and resist >= 0 then
+		return 0
+	end
+	return cannotElePenIgnore and resist or calcPenResist(resist, minPen, pen)
+end
+
+-- Determine base leech value according to resource (using function to avoid repetition)
+---@param resource string "Life" | "Mana" | "EnergyShield"
+---@param dmgType string "Physical" | "Cold" | "Fire" | "Lightning" | "Chaos"
+---@return number
+local function getBaseLeech(resource, dmgType, skillModList, cfg, enemyDB)
+	local leech = 0
+	if (not skillModList:Flag(cfg, "Condition:No" .. resource .. "LeechFrom" .. dmgType .. "Damage")) and not (isElemental[dmgType] and skillModList:Flag(cfg, "No" .. resource .. "LeechFromElementalDamage")) then
+		-- Check if converted physical leech (most PoE2 leech is physical only by default)
+		local convertModName, convertFlag
+		if isElemental[dmgType] and skillModList:Flag(cfg, resource .. "LeechBasedOnElementalDamage") then
+			convertFlag = resource .. "LeechBasedOnElementalDamage"
+			convertModName = "ElementalDamage" .. resource .. "Leech"
+		elseif skillModList:Flag(cfg, resource .. "LeechBasedOn" .. dmgType .. "Damage") then
+			convertFlag = resource .. "LeechBasedOn" .. dmgType .. "Damage"
+			convertModName = dmgType .. "Damage" .. resource .. "Leech"
+		end
+		if convertModName and convertFlag then
+			local tempCfg = copyTable(cfg, true)
+			tempCfg.overrideCond = { ["No" .. resource .. "LeechFromPhysicalDamage"] = false } -- Need to force Condition to `false`, to calculate original phys leech values
+			local physLeechMods = skillModList:Tabulate("BASE", tempCfg, "PhysicalDamage" .. resource .. "Leech")
+			for _, entry in ipairs(physLeechMods) do
+				-- Add new leech mods for that damage type with the same conditions, source, etc.
+				local newMod = copyTable(entry.mod)
+				newMod.name = convertModName
+				-- Tags that specifically disable Physical Damage leech need to be removed
+				local hasNoPhysLeech, tagIndex = modLib.hasTag(newMod, { type = "Condition", var = "No" .. resource .. "LeechFromPhysicalDamage", neg = true })
+				if hasNoPhysLeech then
+					t_remove(newMod, tagIndex)
+				end
+				if not skillModList:ReplaceModInternal(newMod) then -- using `ReplaceModInternal` instead of `ReplaceMod`, so I don't have to unpack the mod first
+					skillModList:AddMod(newMod)
+				end
+			end
+		end
+		leech = skillModList:Sum("BASE", cfg, "Damage" .. resource .. "Leech", dmgType .. "Damage" .. resource .. "Leech", isElemental[dmgType] and "ElementalDamage" .. resource .. "Leech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamage" .. resource .. "Leech") / 100
+	elseif skillModList:Flag(cfg, "Condition:No" .. resource .. "LeechFrom" .. dmgType .. "Damage") then
+		-- dmgType leech should not apply, but still needs to exist for possible conversion so adding additional condition tag instead
+		local noLeechFlagTag = { type = "Condition", var = "No" .. resource .. "LeechFrom" .. dmgType .. "Damage", neg = true }
+		for _, entry in ipairs(skillModList:Tabulate("BASE", cfg, dmgType .. "Damage" .. resource .. "Leech")) do
+			if not modLib.hasTag(entry.mod, noLeechFlagTag) then
+				t_insert(entry.mod, noLeechFlagTag)
+			end
+		end
+	end
+	return leech and leech or 0
+end
 -- Performs all offensive calculations
 ---@param env Env
 ---@param actor Actor
@@ -2313,72 +2441,9 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
-	-- Calculate conversion
-	local function processDamageConversion(fromType, skill)
-		local total = 0
-		local totalConv = wipeTable(tempTable1)
-
-		-- Calculate conversion for this damage type
-		for _, toType in ipairs(dmgTypeList) do
-			local conv
-			if skill then
-				conv = m_max(skillModList:Sum("BASE", skillCfg,
-					"SkillDamageConvertTo"..toType,
-					"Skill"..fromType.."DamageConvertTo"..toType), 0)
-			else
-				conv = m_max(skillModList:Sum("BASE", skillCfg,
-					"DamageConvertTo"..toType,
-					fromType.."DamageConvertTo"..toType,
-					isElemental[fromType] and "ElementalDamageConvertTo"..toType or nil,
-					fromType ~= "Chaos" and "NonChaosDamageConvertTo"..toType or nil), 0)
-			end
-
-			totalConv[toType] = conv / 100
-			total = total + conv
-		end
-
-		-- Scale if over 100%
-		if total > 100 then
-			local factor = 100 / total
-			for type, val in pairs(totalConv) do
-				totalConv[type] = val * factor
-			end
-			total = 100
-		end
-
-		return totalConv, total
-	end
-
-	local function buildGainTable()
-		for _, damageType in ipairs(dmgTypeList) do
-			activeSkill.gainTable[damageType] = {}
-			for _, toType in ipairs(dmgTypeList) do
-				local globalGain = m_max(skillModList:Sum("BASE", skillCfg,
-					"DamageAs"..toType,
-					"DamageGainAs"..toType,
-					damageType.."DamageAs"..toType,
-					damageType.."DamageGainAs"..toType,
-					isElemental[damageType] and "ElementalDamageAs"..toType or nil,
-					isElemental[damageType] and "ElementalDamageGainAs"..toType or nil,
-					damageType ~= "Chaos" and "NonChaosDamageAs"..toType or nil,
-					damageType ~= "Chaos" and "NonChaosDamageGainAs"..toType or nil), 0)
-				local skillGain = m_max(skillModList:Sum("BASE", skillCfg,
-					"SkillDamageGainAs"..toType,
-					"Skill"..damageType.."DamageGainAs"..toType,
-					isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
-					damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
-				if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
-					activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
-				else
-					activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
-				end
-			end
-		end
-	end
-
 	-- First step: Process skill conversion
 	for _, damageType in ipairs(dmgTypeList) do
-		local skillConv, skillTotal = processDamageConversion(damageType, true)
+		local skillConv, skillTotal = processDamageConversion(skillModList, skillCfg, damageType, true)
 		for toType, amount in pairs(skillConv) do
 			activeSkill.conversionTable[damageType][toType] = amount
 		end
@@ -2391,7 +2456,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Handle global conversion of unconverted damage first
 		if activeSkill.conversionTable[damageType].mult > 0 then
-			local globalConv, globalTotal = processDamageConversion(damageType)
+			local globalConv, globalTotal = processDamageConversion(skillModList, skillCfg, damageType)
 			if globalTotal > 0 then
 				local unconvertedMult = activeSkill.conversionTable[damageType].mult
 				tempConversions[damageType] = {
@@ -2407,7 +2472,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- Process global conversion on skill-converted damage
 		for toType, amount in pairs(activeSkill.conversionTable[damageType]) do
 			if amount > 0 and toType ~= "mult" then
-				local globalConv, globalTotal = processDamageConversion(toType)
+				local globalConv, globalTotal = processDamageConversion(skillModList, skillCfg, toType)
 				if globalTotal > 0 then
 					tempConversions[toType] = {
 						base = amount * (1 - globalTotal / 100),
@@ -3272,6 +3337,100 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	-- Calculate leech
+	local function getLeechInstances(amount, total, hitRate)
+		if total == 0 then
+			return 0, 0
+		end
+		local duration = amount / total / data.misc.LeechRateBase
+		return duration, duration * hitRate
+	end
+	-- dynamic way of calculating the Ancestral Boost from a single source without duplicating the code
+	-- uptimeOverride: Ancestral Empowerment
+	-- combinedCalcs: ignore INC AoE as we will run that in calcCombinedAncestralBoost
+	local function calcAncestralBoost(skillName, moreDmg, uptimeOverride, combinedCalcs)
+		globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
+		local skillNameVar = skillName:gsub(" ", "")   -- Fist Of War -> FistOfWar
+		local skillNameLabel = skillName:lower()
+
+		globalOutput[skillNameVar .. "DamageMultiplier"] = moreDmg or 1
+		globalOutput[skillNameVar .. "UptimeRatio"] = uptimeOverride or m_min((1 / globalOutput.Speed) / globalOutput[skillNameVar .. "Cooldown"], 1) * 100
+		if globalBreakdown then
+			globalBreakdown[skillNameVar .. "UptimeRatio"] = {
+				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+				s_format("/ %.2f, 1) ^8(" .. skillNameLabel .. " cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]),
+				s_format("= %d%%", globalOutput[skillNameVar .. "UptimeRatio"]),
+			}
+		end
+		globalOutput["Avg" .. skillNameVar .. "Damage"] = globalOutput[skillNameVar .. "DamageMultiplier"]
+		globalOutput["Avg" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput["Avg" .. skillNameVar .. "Damage"] * (globalOutput[skillNameVar .. "UptimeRatio"] / 100)
+		if globalBreakdown then
+			globalBreakdown["Avg" .. skillNameVar .. "DamageEffect"] = {
+				s_format("1 + (%.2f ^8(" .. skillNameLabel .. " damage multiplier)", globalOutput[skillNameVar .. "DamageMultiplier"]),
+				s_format("x %.2f) ^8(" .. skillNameLabel .. " uptime ratio)", globalOutput[skillNameVar .. "UptimeRatio"] / 100),
+				s_format("= %.2f", globalOutput["Avg" .. skillNameVar .. "DamageEffect"]),
+			}
+		end
+		globalOutput["Max" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput[skillNameVar .. "DamageMultiplier"]
+		if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
+			output[skillNameVar .. "DamageEffect"] = globalOutput["Max" .. skillNameVar .. "DamageEffect"]
+		else
+			output[skillNameVar .. "DamageEffect"] = globalOutput["Avg" .. skillNameVar .. "DamageEffect"]
+		end
+		calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
+		globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg" .. skillNameVar .. "DamageEffect"]
+		globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max" .. skillNameVar .. "DamageEffect"]
+	end
+
+	-- combine Ancestral Empowerment with other sources of Slam Ancestral Boost, namely Fist of War, when both active
+	local function calcCombinedAncestralBoost(skillName, moreDmg, uptimeOverride, additionalSkillName)
+		globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
+		local skillNameVar = skillName:gsub(" ", "")   -- Fist Of War -> FistOfWar
+		local skillNameLabel = skillName:lower()
+
+		globalOutput[skillNameVar .. "DamageMultiplier"] = moreDmg or 1
+		-- for CalcSections, set the AncestralEmpowerment damage for mod breakdown
+		globalOutput[skillNameVar .. "CombinedDamageMultiplier"] = globalOutput[skillNameVar .. "DamageMultiplier"]
+		skillNameVar = skillNameVar .. "Combined"
+		local additionalSkillNameVar = additionalSkillName:gsub(" ", "")
+		local additionalSkillNameLabel = additionalSkillName:lower()
+
+		-- a lot of these are doubled up because it would be very long lines otherwise and hopefully this helps legibility
+		globalOutput[skillNameVar .. "UptimeRatio"] = uptimeOverride or m_min((1 / globalOutput.Speed) / globalOutput[skillNameVar .. "Cooldown"], 1) * 100
+		globalOutput[skillNameVar .. "UptimeRatio"] = m_min(globalOutput[skillNameVar .. "UptimeRatio"] + (globalOutput[additionalSkillNameVar .. "UptimeRatio"] or 0), 100)
+		if globalBreakdown then
+			globalBreakdown[skillNameVar .. "UptimeRatio"] = {
+				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+				s_format("/ %.2f, 1) ^8(" .. skillNameLabel .. " cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]),
+				"+",
+				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+				s_format("/ %.2f, 1) ^8(" .. additionalSkillNameLabel .. " cooldown)", globalOutput[additionalSkillNameVar .. "Cooldown"]),
+				"capped at 100%",
+				s_format("= %d%%", globalOutput[skillNameVar .. "UptimeRatio"]),
+			}
+		end
+		globalOutput["Avg" .. skillNameVar .. "Damage"] = globalOutput[skillNameVar .. "DamageMultiplier"]
+		globalOutput["Avg" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput["Avg" .. skillNameVar .. "Damage"] * (globalOutput[skillNameVar .. "UptimeRatio"] / 100)
+		if globalBreakdown then
+			globalBreakdown["Avg" .. skillNameVar .. "DamageEffect"] = {
+				s_format("1 + (%.2f x %.2f) ^8(combined ancestral boost damage multiplier x uptime ratio)", globalOutput[skillNameVar .. "DamageMultiplier"], globalOutput[skillNameVar .. "UptimeRatio"] / 100),
+				s_format("= %.2f", globalOutput["Avg" .. skillNameVar .. "DamageEffect"]),
+			}
+		end
+		globalOutput["Max" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput[skillNameVar .. "DamageMultiplier"]
+		if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
+			output[skillNameVar .. "DamageEffect"] = globalOutput["Max" .. skillNameVar .. "DamageEffect"]
+		else
+			output[skillNameVar .. "DamageEffect"] = globalOutput["Avg" .. skillNameVar .. "DamageEffect"]
+		end
+		calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
+		globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg" .. skillNameVar .. "DamageEffect"]
+		globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max" .. skillNameVar .. "DamageEffect"]
+	end
+	-- Check if player is supposed to ignore a damage type, or if it's ignored on enemy side
+	local useThisResist = function(cfg, damageType)
+		return not skillModList:Flag(cfg, "Ignore"..damageType.."Resistance", isElemental[damageType] and "IgnoreElementalResistances" or nil) and not enemyDB:Flag(nil, "SelfIgnore"..damageType.."Resistance")
+	end
 	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
@@ -3529,110 +3688,25 @@ function calcs.offence(env, actor, activeSkill)
 			local ruthlessBlowStunEffect = (ruthlessBlowChance / 100) * ruthlessBlowStunMultiplier
 			skillModList:NewMod("EnemyHeavyStunBuildup", "MORE", ruthlessBlowStunEffect * 100, "Ruthless Blows")
 
-			local ancestrallyBoostedIncDamageMulti = modDB:Sum("INC", cfg, "AncestralBoostDamage") / 100
-			local ancestrallyBoostedIncArea = skillModList:Sum("INC", cfg, "AncestralBoostAreaOfEffect")
 			-- Condition:AncestrallyBoosted * AncestralBoostEffect (e.g. Fist of War III)
 			local ancestrallyBoostedMoreDamageMulti = skillModList:Sum("BASE", cfg, "AncestralBoostMoreDamage") / 100
-
-			-- dynamic way of calculating the Ancestral Boost from a single source without duplicating the code
-			-- uptimeOverride: Ancestral Empowerment
-			-- combinedCalcs: ignore INC AoE as we will run that in calcCombinedAncestralBoost
-			local function calcAncestralBoost(skillName, uptimeOverride, combinedCalcs)
-				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
-				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
-				local skillNameLabel = skillName:lower()
-
-				globalOutput[skillNameVar.."DamageMultiplier"] = ancestrallyBoostedMoreDamageMulti
-				globalOutput[skillNameVar.."UptimeRatio"] = uptimeOverride or m_min( (1 / globalOutput.Speed) / globalOutput[skillNameVar.."Cooldown"], 1) * 100
-				if globalBreakdown then
-					globalBreakdown[skillNameVar.."UptimeRatio"] = {
-						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-						s_format("/ %.2f, 1) ^8("..skillNameLabel.." cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar.."Cooldown"]),
-						s_format("= %d%%", globalOutput[skillNameVar.."UptimeRatio"]),
-					}
-				end
-				globalOutput["Avg"..skillNameVar.."Damage"] = globalOutput[skillNameVar.."DamageMultiplier"]
-				globalOutput["Avg"..skillNameVar.."DamageEffect"] = 1 + globalOutput["Avg"..skillNameVar.."Damage"] * (globalOutput[skillNameVar.."UptimeRatio"] / 100)
-				if globalBreakdown then
-					globalBreakdown["Avg"..skillNameVar.."DamageEffect"] = {
-						s_format("1 + (%.2f ^8("..skillNameLabel.." damage multiplier)", globalOutput[skillNameVar.."DamageMultiplier"]),
-						s_format("x %.2f) ^8("..skillNameLabel.." uptime ratio)", globalOutput[skillNameVar.."UptimeRatio"] / 100),
-						s_format("= %.2f", globalOutput["Avg"..skillNameVar.."DamageEffect"]),
-					}
-				end
-				globalOutput["Max"..skillNameVar.."DamageEffect"] = 1 + globalOutput[skillNameVar.."DamageMultiplier"]
-				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-					output[skillNameVar.."DamageEffect"] = globalOutput["Max"..skillNameVar.."DamageEffect"]
-				else
-					output[skillNameVar.."DamageEffect"] = globalOutput["Avg"..skillNameVar.."DamageEffect"]
-				end
-				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
-				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg"..skillNameVar.."DamageEffect"]
-				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max"..skillNameVar.."DamageEffect"]
-			end
-
-			-- combine Ancestral Empowerment with other sources of Slam Ancestral Boost, namely Fist of War, when both active
-			local function calcCombinedAncestralBoost(skillName, uptimeOverride, additionalSkillName)
-				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
-				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
-				local skillNameLabel = skillName:lower()
-
-				globalOutput[skillNameVar.."DamageMultiplier"] = ancestrallyBoostedMoreDamageMulti
-				-- for CalcSections, set the AncestralEmpowerment damage for mod breakdown
-				globalOutput[skillNameVar.."CombinedDamageMultiplier"] = globalOutput[skillNameVar.."DamageMultiplier"]
-				skillNameVar = skillNameVar.."Combined"
-				local additionalSkillNameVar = additionalSkillName:gsub(" ", "")
-				local additionalSkillNameLabel = additionalSkillName:lower()
-
-				-- a lot of these are doubled up because it would be very long lines otherwise and hopefully this helps legibility
-				globalOutput[skillNameVar.."UptimeRatio"] = uptimeOverride or m_min( (1 / globalOutput.Speed) / globalOutput[skillNameVar.."Cooldown"], 1) * 100
-				globalOutput[skillNameVar.."UptimeRatio"] = m_min(globalOutput[skillNameVar.."UptimeRatio"] + (globalOutput[additionalSkillNameVar.."UptimeRatio"] or 0), 100)
-				if globalBreakdown then
-					globalBreakdown[skillNameVar.."UptimeRatio"] = {
-						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-						s_format("/ %.2f, 1) ^8("..skillNameLabel.." cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar.."Cooldown"]),
-						"+",
-						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-						s_format("/ %.2f, 1) ^8("..additionalSkillNameLabel.." cooldown)", globalOutput[additionalSkillNameVar.."Cooldown"]),
-						"capped at 100%",
-						s_format("= %d%%", globalOutput[skillNameVar.."UptimeRatio"]),
-					}
-				end
-				globalOutput["Avg"..skillNameVar.."Damage"] = globalOutput[skillNameVar.."DamageMultiplier"]
-				globalOutput["Avg"..skillNameVar.."DamageEffect"] = 1 + globalOutput["Avg"..skillNameVar.."Damage"] * (globalOutput[skillNameVar.."UptimeRatio"] / 100)
-				if globalBreakdown then
-					globalBreakdown["Avg"..skillNameVar.."DamageEffect"] = {
-						s_format("1 + (%.2f x %.2f) ^8(combined ancestral boost damage multiplier x uptime ratio)", globalOutput[skillNameVar.."DamageMultiplier"], globalOutput[skillNameVar.."UptimeRatio"] / 100),
-						s_format("= %.2f", globalOutput["Avg"..skillNameVar.."DamageEffect"]),
-					}
-				end
-				globalOutput["Max"..skillNameVar.."DamageEffect"] = 1 + globalOutput[skillNameVar.."DamageMultiplier"]
-				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-					output[skillNameVar.."DamageEffect"] = globalOutput["Max"..skillNameVar.."DamageEffect"]
-				else
-					output[skillNameVar.."DamageEffect"] = globalOutput["Avg"..skillNameVar.."DamageEffect"]
-				end
-				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
-				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg"..skillNameVar.."DamageEffect"]
-				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max"..skillNameVar.."DamageEffect"]
-			end
 
 			globalOutput.FistOfWarCooldown = skillModList:Sum("BASE", cfg, "FistOfWarCooldown") or 0
 			if skillModList:Flag(cfg, "AncestralEmpowerment") and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
 				if globalOutput.FistOfWarCooldown ~= 0 then -- get the fist of war calcs in output to use in Empowerment
-					calcAncestralBoost("Fist Of War", nil, true)
+					calcAncestralBoost("Fist Of War", ancestrallyBoostedMoreDamageMulti, nil, true)
 					globalOutput.TheoreticalOffensiveWarcryEffect = 1 -- reset effects from FistOfWar calc, we combine later
 					globalOutput.TheoreticalMaxOffensiveWarcryEffect = 1
 
-					calcCombinedAncestralBoost("Ancestral Empowerment", 50, "Fist Of War")
+					calcCombinedAncestralBoost("Ancestral Empowerment", ancestrallyBoostedMoreDamageMulti, 50, "Fist Of War")
 					globalOutput.FistOfWarUptimeRatio = nil -- hide from CalcSections, but we need it for the combined calc first
 				else
-					calcAncestralBoost("Ancestral Empowerment", 50)
+					calcAncestralBoost("Ancestral Empowerment", ancestrallyBoostedMoreDamageMulti, 50)
 				end
 			end
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill & NOT used by mirage or other
 			if not skillModList:Flag(cfg, "AncestralEmpowerment") and globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
-				calcAncestralBoost("Fist Of War")
+				calcAncestralBoost("Fist Of War", ancestrallyBoostedMoreDamageMulti)
 			else
 				output.FistOfWarDamageEffect = 1
 			end
@@ -3640,7 +3714,7 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput.AncestralCallCooldown = skillModList:Sum("BASE", cfg, "AncestralCallCooldown") or 0
 			-- If Ancestral Call & Active Skill is NOT a Vaal Skill & NOT used by mirage or other & NOT a Channel Skill
 			if globalOutput.AncestralCallCooldown ~= 0 and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] and not activeSkill.skillTypes[SkillType.Channel] then
-				calcAncestralBoost("Ancestral Call")
+				calcAncestralBoost("Ancestral Call", ancestrallyBoostedMoreDamageMulti)
 			else
 				output.AncestralCallDamageEffect = 1
 			end
@@ -4025,7 +4099,30 @@ function calcs.offence(env, actor, activeSkill)
 		--Calculate reservation DPS
 		globalOutput.ReservationDpsMultiplier = 100 / (100 - enemyDB:Sum("BASE", nil, "LifeReservationPercent"))
 
-		buildGainTable()
+		for _, damageType in ipairs(dmgTypeList) do
+			activeSkill.gainTable[damageType] = {}
+			for _, toType in ipairs(dmgTypeList) do
+				local globalGain = m_max(skillModList:Sum("BASE", skillCfg,
+					"DamageAs"..toType,
+					"DamageGainAs"..toType,
+					damageType.."DamageAs"..toType,
+					damageType.."DamageGainAs"..toType,
+					isElemental[damageType] and "ElementalDamageAs"..toType or nil,
+					isElemental[damageType] and "ElementalDamageGainAs"..toType or nil,
+					damageType ~= "Chaos" and "NonChaosDamageAs"..toType or nil,
+					damageType ~= "Chaos" and "NonChaosDamageGainAs"..toType or nil), 0)
+				local skillGain = m_max(skillModList:Sum("BASE", skillCfg,
+					"SkillDamageGainAs"..toType,
+					"Skill"..damageType.."DamageGainAs"..toType,
+					isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
+					damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
+				if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
+					activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
+				else
+					activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
+				end
+			end
+		end
 
 		-- Calculate base hit damage
 		for _, damageType in ipairs(dmgTypeList) do
@@ -4193,11 +4290,6 @@ function calcs.offence(env, actor, activeSkill)
 						local takenInc = enemyDB:Sum("INC", cfg, "DamageTaken", damageType.."DamageTaken")
 						local takenMore = enemyDB:More(cfg, "DamageTaken", damageType.."DamageTaken")
 
-						-- Check if player is supposed to ignore a damage type, or if it's ignored on enemy side
-						local useThisResist = function(damageType)
-							return not skillModList:Flag(cfg, "Ignore"..damageType.."Resistance", isElemental[damageType] and "IgnoreElementalResistances" or nil) and not enemyDB:Flag(nil, "SelfIgnore"..damageType.."Resistance")
-						end
-
 						if damageType == "Physical" then
 							local enemyArmourMin = 0
 							if modDB:GetCondition("CanArmourBreakBelowZero", cfg, nil) then -- check for possibility to break Armour below zero
@@ -4234,7 +4326,7 @@ function calcs.offence(env, actor, activeSkill)
 								end
 								-- Find the lowest resist of all the elements and use that if it's lower
 								for _, eleDamageType in ipairs(dmgTypeList) do
-									if isElemental[eleDamageType] and useThisResist(eleDamageType) and damageType ~= eleDamageType then
+									if isElemental[eleDamageType] and useThisResist(cfg,eleDamageType) and damageType ~= eleDamageType then
 										local currentElementResist = calcResistForType(eleDamageType, cfg)
 										-- If it's explicitly lower, then use the resist and update which element we're using to account for penetration
 										if skillModList:Flag(cfg, "ChaosDamageUsesHighestResistance") then
@@ -4279,21 +4371,12 @@ function calcs.offence(env, actor, activeSkill)
 							takenInc = takenInc + enemyDB:Sum("INC", nil, "TrapMineDamageTaken")
 						end
 						local effMult = (1 + takenInc / 100) * takenMore
-						local useRes = useThisResist(damageType)
+						local useRes = useThisResist(cfg,damageType)
 						local effectiveResist = resist
-						local calcPenResist = function(resist)
-							return resist > minPen and m_max(resist - pen, minPen) or resist
-						end
 						local cannotElePenIgnore = isElemental[damageType] and skillModList:Flag(cfg, "CannotElePenIgnore")
 						local ignoreNonNegativeEleRes = isElemental[damageType] and modDB:Flag(cfg, "IgnoreNonNegativeEleRes")
-						local calcHitResist = function(hitResist)
-							if not cannotElePenIgnore and ignoreNonNegativeEleRes and hitResist >= 0 then
-								return 0
-							end
-							return cannotElePenIgnore and hitResist or calcPenResist(hitResist)
-						end
-						local normalHitResist = calcHitResist(resist)
-						local invertedHitResist = calcHitResist(-resist)
+						local normalHitResist = calcHitResist(resist, minPen, pen, cannotElePenIgnore, ignoreNonNegativeEleRes)
+						local invertedHitResist = calcHitResist(-resist, minPen, pen, cannotElePenIgnore, ignoreNonNegativeEleRes)
 						local usesResistance = cannotElePenIgnore or useRes
 						if usesResistance then
 							if isElemental[damageType] and invertChance > 0 then
@@ -4327,59 +4410,12 @@ function calcs.offence(env, actor, activeSkill)
 					local energyShieldLeech = 0
 					local manaLeech = 0
 
-					-- Determine base leech value according to resource (using function to avoid repetition)
-					---@param resource string "Life" | "Mana" | "EnergyShield"
-					---@param dmgType string "Physical" | "Cold" | "Fire" | "Lightning" | "Chaos"
-					---@return number
-					local function getBaseLeech(resource, dmgType)
-						local leech = 0
-						if (not skillModList:Flag(cfg, "Condition:No" .. resource .. "LeechFrom" .. dmgType .. "Damage" )) and not (isElemental[dmgType] and skillModList:Flag(cfg, "No" .. resource .. "LeechFromElementalDamage" )) then
-							-- Check if converted physical leech (most PoE2 leech is physical only by default)
-							local convertModName, convertFlag
-							if isElemental[dmgType] and skillModList:Flag(cfg, resource .. "LeechBasedOnElementalDamage") then
-								convertFlag = resource .. "LeechBasedOnElementalDamage"
-								convertModName = "ElementalDamage" .. resource .. "Leech"
-							elseif skillModList:Flag(cfg, resource .. "LeechBasedOn".. dmgType .. "Damage") then
-								convertFlag = resource .. "LeechBasedOn" .. dmgType .. "Damage"
-								convertModName = dmgType .. "Damage" .. resource .. "Leech"
-							end
-							if convertModName and convertFlag then
-								local tempCfg = copyTable(cfg, true)
-								tempCfg.overrideCond = { ["No" .. resource .. "LeechFromPhysicalDamage"] = false } -- Need to force Condition to `false`, to calculate original phys leech values
-								local physLeechMods = skillModList:Tabulate("BASE", tempCfg , "PhysicalDamage" .. resource .. "Leech")
-								for _, entry in ipairs(physLeechMods) do
-									-- Add new leech mods for that damage type with the same conditions, source, etc.
-									local newMod = copyTable(entry.mod)
-									newMod.name = convertModName
-									-- Tags that specifically disable Physical Damage leech need to be removed
-									local hasNoPhysLeech, tagIndex = modLib.hasTag(newMod, { type = "Condition", var = "No" .. resource .. "LeechFromPhysicalDamage", neg = true })
-									if hasNoPhysLeech then
-										t_remove(newMod, tagIndex)
-									end
-									if not skillModList:ReplaceModInternal(newMod) then -- using `ReplaceModInternal` instead of `ReplaceMod`, so I don't have to unpack the mod first
-										skillModList:AddMod(newMod)
-									end
-								end
-							end
-							leech = skillModList:Sum("BASE", cfg, "Damage" .. resource .. "Leech", dmgType.."Damage" .. resource .. "Leech", isElemental[dmgType] and "ElementalDamage" .. resource .. "Leech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamage" .. resource .. "Leech") / 100
-						elseif skillModList:Flag(cfg, "Condition:No" .. resource .. "LeechFrom" .. dmgType .. "Damage" ) then
-							-- dmgType leech should not apply, but still needs to exist for possible conversion so adding additional condition tag instead
-							local noLeechFlagTag = { type = "Condition", var = "No" .. resource .. "LeechFrom" .. dmgType .. "Damage", neg = true }
-							for _, entry in ipairs(skillModList:Tabulate("BASE", cfg, dmgType .. "Damage" .. resource .. "Leech")) do
-								if not modLib.hasTag(entry.mod, noLeechFlagTag) then
-									t_insert(entry.mod, noLeechFlagTag )
-								end
-							end
-						end
-						return leech and leech or 0
-					end
-
 					if skillFlags.mine or skillFlags.trap or skillFlags.totem then
 						lifeLeech = skillModList:Sum("BASE", cfg, "DamageLifeLeechToPlayer")
 					else
-						lifeLeech = getBaseLeech("Life", damageType)
-						energyShieldLeech = getBaseLeech("EnergyShield", damageType)
-						manaLeech = getBaseLeech("Mana", damageType)
+						lifeLeech = getBaseLeech("Life", damageType, skillModList, cfg, enemyDB)
+						energyShieldLeech = getBaseLeech("EnergyShield", damageType, skillModList, cfg, enemyDB)
+						manaLeech = getBaseLeech("Mana", damageType, skillModList, cfg, enemyDB)
 					end
 
 					if ghostReaver and not noLifeLeech then
@@ -4465,14 +4501,7 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("Condition:"..highestType.."IsHighestDamageType", "FLAG", true, "Config")
 		end
 
-		-- Calculate leech
-		local function getLeechInstances(amount, total)
-			if total == 0 then
-				return 0, 0
-			end
-			local duration = amount / total / data.misc.LeechRateBase
-			return duration, duration * hitRate
-		end
+
 
 		--Instant Leech
 		output.LifeLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantLifeLeech") or 0, 100), 0) / 100
@@ -4494,11 +4523,11 @@ function calcs.offence(env, actor, activeSkill)
 			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
 		end
 
-		output.LifeLeechDuration, output.LifeLeechInstances = getLeechInstances(output.LifeLeech, globalOutput.Life)
+		output.LifeLeechDuration, output.LifeLeechInstances = getLeechInstances(output.LifeLeech, globalOutput.Life, hitRate)
 		output.LifeLeechInstantRate = output.LifeLeechInstant * hitRate
-		output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstances = getLeechInstances(output.EnergyShieldLeech, globalOutput.EnergyShield)
+		output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstances = getLeechInstances(output.EnergyShieldLeech, globalOutput.EnergyShield, hitRate)
 		output.EnergyShieldLeechInstantRate = output.EnergyShieldLeechInstant * hitRate
-		output.ManaLeechDuration, output.ManaLeechInstances = getLeechInstances(output.ManaLeech, globalOutput.Mana)
+		output.ManaLeechDuration, output.ManaLeechInstances = getLeechInstances(output.ManaLeech, globalOutput.Mana, hitRate)
 		output.ManaLeechInstantRate = output.ManaLeechInstant * hitRate
 
 		-- Calculate gain on hit
@@ -5077,7 +5106,7 @@ function calcs.offence(env, actor, activeSkill)
 		---@param sourceCritChance number
 		---@param sourceHitDmg number
 		---@param sourceCritDmg number
-		---@param hideFromBreakdown boolean
+		---@param hideFromBreakdown boolean?
 		---@return number baseVal
 		local function calcAilmentDamage(ailment, sourceCritChance, sourceHitDmg, sourceCritDmg, hideFromBreakdown)
 
@@ -5159,6 +5188,7 @@ function calcs.offence(env, actor, activeSkill)
 			return baseVal
 		end
 
+		local critMetatable = { __index = |_, key| -> skillCfg.skillCond[key] or cfg.skillCond[key] }
 		---Calculate global / breakdown values for a damaging ailment
 		---@param ailment string
 		---@param ailmentDamageType table
@@ -5181,7 +5211,7 @@ function calcs.offence(env, actor, activeSkill)
 				slotName = skillCfg.slotName,
 				flags = bor(ModFlag.Dot, ModFlag.Ailment, band(cfg.flags, ModFlag.WeaponMask), band(cfg.flags, ModFlag.Melee) ~= 0 and ModFlag.MeleeHit or 0),
 				keywordFlags = bor(band(cfg.keywordFlags, bnot(KeywordFlag.Hit)), KeywordFlag[ailment], KeywordFlag.Ailment, KeywordFlag[ailmentDamageType .. "Dot"]),
-				skillCond = setmetatable({["CriticalStrike"] = true }, { __index = function(table, key) return skillCfg.skillCond[key] or cfg.skillCond[key] end } ),
+				skillCond = setmetatable({ ["CriticalStrike"] = true },critMetatable ),
 				skillDist = skillCfg.skillDist,
 			}
 
@@ -6197,44 +6227,7 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Self hit dmg calcs
 	do
-		-- Handler functions for self hit sources
-		local nameToHandler = {
-			["Heartbound Loop"] = function(activeSkill, output, breakdown)
-				if activeSkill.activeEffect.grantedEffect.name == "Summon Skeletons" then
-					local dmgType, dmgVal
-					for _, value in ipairs(activeSkill.skillModList:List(nil, "HeartboundLoopSelfDamage")) do -- Combines dmg taken from both ring accounting for catalysts
-						dmgVal = (dmgVal or 0) + value.baseDamage
-						dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
-					end
-					if dmgType and dmgVal then
-						-- !!!! WARNING !!!! --
-						-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
-						local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-						t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
-						t_insert(dmgBreakdown, 2, s_format(""))
-						t_insert(dmgBreakdown, s_format("Total Heartbound Loop damage taken per cast/attack: %.2f * %d ^8(minions per cast)^7 = %.2f",totalDmgTaken, output.SummonedMinionsPerCast, totalDmgTaken * output.SummonedMinionsPerCast))
-						return dmgBreakdown, totalDmgTaken * output.SummonedMinionsPerCast
-					end
-				end
-			end,
-			["Trauma"] = function(activeSkill, output, breakdown)
-				local dmgType = "Physical"
-				local currentTraumaStacks =  math.max(activeSkill.skillModList:Sum("BASE", nil, "Multiplier:TraumaStacks"), 1)
-				local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
-				local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
-				if dmgType and dmgVal then
-					-- !!!! WARNING !!!! --
-					-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
-					local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-					t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
-					t_insert(dmgBreakdown, 2, s_format(""))
-					t_insert(dmgBreakdown, s_format("Total Trauma damage taken per cast/attack: %.2f ", totalDmgTaken))
-					return dmgBreakdown, totalDmgTaken
-				end
-			end,
-		}
-
-		for _, sourceFunc in pairs(nameToHandler) do
+		for _, sourceFunc in pairs(selfHitHandlers) do
 			local selfHitBreakdown, dmgTaken = sourceFunc(activeSkill, output, breakdown)
 			if dmgTaken then
 				output.SelfHitDamage = (output.SelfHitDamage or 0) + dmgTaken

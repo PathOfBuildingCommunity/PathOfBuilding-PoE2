@@ -77,18 +77,7 @@ local function isGlobalEffect(modOrGroup)
 	end
 	return false
 end
-
--- Merge skill effect modifiers with given mod list
--- If a stat set is provided, merge it and global effects from the other stat sets
-function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
-	calcLib.validateGemLevel(skillEffect)
-	-- Verify that statSet provided is from skillEffect
-	if statSet and not isValueInArray(skillEffect.grantedEffect.statSets, statSet) then
-		return
-	end
-	local grantedEffect = skillEffect.grantedEffect
-	local selectedGlobalStats = { }
-	local function mergeStatSet(set, onlyGlobals)
+local function mergeStatSet(set, onlyGlobals, skillEffect, grantedEffect, env, extraStats, modList, selectedGlobalStats)
 		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set, env.useAltGemQualityStats)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
@@ -122,14 +111,24 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 			end
 		end
 	end
+-- Merge skill effect modifiers with given mod list
+-- If a stat set is provided, merge it and global effects from the other stat sets
+function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
+	calcLib.validateGemLevel(skillEffect)
+	-- Verify that statSet provided is from skillEffect
+	if statSet and not isValueInArray(skillEffect.grantedEffect.statSets, statSet) then
+		return
+	end
+	local selectedGlobalStats = {}
+	local grantedEffect = skillEffect.grantedEffect
 	for _, set in ipairs(statSet and {statSet} or grantedEffect.statSets) do
-		mergeStatSet(set)
+		mergeStatSet(set, nil, skillEffect, grantedEffect, env, extraStats, modList, selectedGlobalStats)
 		modList:AddList(set.baseMods)
 	end
 	if statSet then
 		for _, set in ipairs(grantedEffect.statSets) do
 			if set ~= statSet then
-				mergeStatSet(set, true)
+				mergeStatSet(set, true, skillEffect, grantedEffect, env, extraStats, modList, selectedGlobalStats)
 				for _, baseMod in ipairs(set.baseMods or { }) do
 					if isGlobalEffect(baseMod) then
 						modList:AddMod(baseMod)

@@ -14,18 +14,36 @@ calcLib = { }
 
 -- Calculate and combine INC/MORE modifiers for the given modifier names
 function calcLib.mod(modStore, cfg, ...)
-	return (1 + (modStore:Sum("INC", cfg, ...)) / 100) * modStore:More(cfg, ...)
+	local inc, more = calcLib.mods(modStore, cfg, ...)
+	return inc * more
 end
 
 ---Calculates additive and multiplicative modifiers for specified modifier names
 ---@param modStore table
 ---@param cfg table
----@param ... string @Mod name(s)
----@return number, number @increased, more
+---@param ... string Mod names. Do not call this in a hot loop with more than 5 mod names, as this will break JIT traces.
+---@return number increased, number more
 function calcLib.mods(modStore, cfg, ...)
-	local inc = 1 + modStore:Sum("INC", cfg, ...) / 100
-	local more = modStore:More(cfg, ...)
-	return inc, more
+	-- Call separated by argument count so that we can avoid breaking LuaJIT traces. Both calling
+	-- `select(i, ...)` with a non-const integer and passing `f(...)` will abort a trace.
+	local n = select('#', ...)
+	if n == 1 then
+		local a = ...
+		return 1 + modStore:Sum("INC", cfg, a) / 100, modStore:More(cfg, a)
+	elseif n == 2 then
+		local a, b = ...
+		return 1 + modStore:Sum("INC", cfg, a, b) / 100, modStore:More(cfg, a, b)
+	elseif n == 3 then
+		local a, b, c = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c) / 100, modStore:More(cfg, a, b, c)
+	elseif n == 4 then
+		local a, b, c, d = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c, d) / 100, modStore:More(cfg, a, b, c, d)
+	elseif n == 5 then
+		local a, b, c, d, e = ...
+		return 1 + modStore:Sum("INC", cfg, a, b, c, d, e) / 100, modStore:More(cfg, a, b, c, d, e)
+	end
+	return 1 + modStore:Sum("INC", cfg, ...) / 100, modStore:More(cfg, ...)
 end
 
 -- Calculate value
@@ -57,24 +75,29 @@ function calcLib.validateGemLevel(gemInstance)
 	end
 end
 
+local typeExpressionStack = { }
+
 -- Evaluate a skill type postfix expression
 function calcLib.doesTypeExpressionMatch(checkTypes, skillTypes, minionTypes)
-	local stack = { }
+	local stackSize = 0
 	for _, skillType in pairs(checkTypes) do
 		if skillType == SkillType.OR then
-			local other = t_remove(stack)
-			stack[#stack] = stack[#stack] or other
+			local other = typeExpressionStack[stackSize]
+			stackSize = stackSize - 1
+			typeExpressionStack[stackSize] = typeExpressionStack[stackSize] or other
 		elseif skillType == SkillType.AND then
-			local other = t_remove(stack)
-			stack[#stack] = stack[#stack] and other
+			local other = typeExpressionStack[stackSize]
+			stackSize = stackSize - 1
+			typeExpressionStack[stackSize] = typeExpressionStack[stackSize] and other
 		elseif skillType == SkillType.NOT then
-			stack[#stack] = not stack[#stack]
+			typeExpressionStack[stackSize] = not typeExpressionStack[stackSize]
 		else
-			t_insert(stack, skillTypes[skillType] or (minionTypes and minionTypes[skillType]) or false)
+			stackSize = stackSize + 1
+			typeExpressionStack[stackSize] = skillTypes[skillType] or (minionTypes and minionTypes[skillType]) or false
 		end
 	end
-	for _, val in ipairs(stack) do
-		if val then
+	for index = 1, stackSize do
+		if typeExpressionStack[index] then
 			return true
 		end
 	end
@@ -199,8 +222,10 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, 
 		end
 		stats[stat] = (stats[stat] or 0) + statValue
 	end
-	for _, stat in ipairs(statSet.constantStats or {}) do
-		stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
+	if statSet.constantStats then
+		for _, stat in ipairs(statSet.constantStats) do
+			stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
+		end
 	end
 	return stats
 end
