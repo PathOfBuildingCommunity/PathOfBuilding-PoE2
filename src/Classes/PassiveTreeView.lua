@@ -680,10 +680,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 
-	local connectorColor = { 1, 1, 1 }
-	local function setConnectorColor(r, g, b)
-		connectorColor[1], connectorColor[2], connectorColor[3] = r, g, b
-	end
 	local function nodeIsHoverPathEndpoint(node)
 		if node == hoverNode or hoverPath[node] then
 			return true
@@ -740,15 +736,18 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if baseState == "Active" and state ~= "Active" then
 			state = "Active"
 			connector.colour = brightGreen
-		elseif baseState ~= "Active" and state == "Active" then
+		end
+		if baseState ~= "Active" and state == "Active" then
 			connector.colour = brightRed
-		elseif baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
+		end
+		if baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
 			if spec.allocMode == 1 then
 				connector.colour = alloc1Red
 			elseif spec.allocMode == 2 then
 				connector.colour = alloc2Green
 			end
-		elseif baseState == "Active" and state == "Active" and not connector.ascendancyName then
+		end
+		if baseState == "Active" and state == "Active" and not connector.ascendancyName then
 			local allocMode = (node1 and node1.allocMode and node1.allocMode ~= 0 and node1.allocMode) or (node2 and node2.allocMode and node2.allocMode ~= 0 and node2.allocMode) or 0
 			if allocMode == 1 then
 				connector.colour = alloc1Red
@@ -813,16 +812,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	for assetName, connectors in pairs(self.connectorQueue) do
-		local handle = tree:GetAssetByName(assetName).handle
-		local currentColour
+			local handle = tree:GetAssetByName(assetName).handle
+			local currentColour
 		for i = 1, connectors.n do
-			local connector = connectors[i]
-			local c = connector.c
-			local colour = connector.colour or white
-			if currentColour ~= colour then
-				SetDrawColor(colour)
-				currentColour = colour
-			end
+				local connector = connectors[i]
+				local c = connector.c
+				local colour = connector.colour or white
+				if currentColour ~= colour then
+					SetDrawColor(colour)
+					currentColour = colour
+				end
 			DrawImageQuad(handle, c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16])
 		end
 	end
