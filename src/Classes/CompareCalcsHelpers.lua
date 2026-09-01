@@ -102,7 +102,13 @@ function M.TabulateMods(sectionData, actor)
 
 	local rowList
 	if type(sectionData.modName) == "table" then
-		rowList = modStore:Tabulate(sectionData.modType, cfg, unpack(sectionData.modName))
+		rowList = { }
+		for index = 1, #sectionData.modName, 8 do
+			local rows = modStore:Tabulate(sectionData.modType, cfg, unpack(sectionData.modName, index, math.min(index + 7, #sectionData.modName)))
+			for _, row in ipairs(rows) do
+				t_insert(rowList, row)
+			end
+		end
 	else
 		rowList = modStore:Tabulate(sectionData.modType, cfg, sectionData.modName)
 	end
