@@ -279,7 +279,7 @@ Smuggler Coat
 Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
-(100-150)% increased Evasion Rating
+(250-300)% increased Evasion Rating
 -(15-10)% to Fire Resistance
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
@@ -794,7 +794,7 @@ Variant: Current
 +(50-70) to maximum Mana
 {variant:2}-15% to Cold Resistance
 {variant:1}+(20-30)% to Lightning Resistance
-{variant:2}+(30-40)% to Lightning Resistance
+{variant:2}+(20-30)% to Lightning Resistance
 20% chance to gain a Power Charge on Hit
 Lose all Power Charges on reaching maximum Power Charges
 Shocks you when you reach maximum Power Charges
@@ -805,7 +805,8 @@ Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
 (50-80)% increased Evasion and Energy Shield
-+(15-25)% to Lightning Resistance
+-15% to Cold Resistance
++(30-40)% to Lightning Resistance
 {variant:3}(15-30)% increased Energy Shield Recharge Rate
 {variant:1,2}(30-50)% faster start of Energy Shield Recharge
 {variant:2,3}All Damage taken from Hits Contributes to Magnitude of Chill inflicted on you

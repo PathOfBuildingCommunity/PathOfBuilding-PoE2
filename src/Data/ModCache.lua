@@ -270,6 +270,7 @@ c["+100% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlag
 c["+100% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=100}},nil}
 c["+100% of Armour applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=100},[3]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=100}},nil}
 c["+100% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=100}},nil}
+c["+100% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=100}},nil}
 c["+100% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=100}},nil}
 c["+1000 to Evasion Rating while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1000}},nil}
 c["+1000 to Spectre maximum Life"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Spectre",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=1000}}}},nil}
@@ -4846,6 +4847,7 @@ c["60% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCryst
 c["60% increased Intelligence Requirement"]={{[1]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=60}},nil}
 c["60% increased Magnitude of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=60}},nil}
 c["60% increased Mana Cost Efficiency of Marks"]={{[1]={[1]={skillType=99,type="SkillType"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},nil}
+c["60% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=60}},nil}
 c["60% increased Mana Regeneration Rate while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=60}},nil}
 c["60% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=60}},nil}
 c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
@@ -4999,9 +5001,9 @@ c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
+end)();(function()
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
-end)();(function()
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
 c["76% more Recovery if used while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},nil}
 c["76% more Recovery if used while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="FlaskLifeRecoveryLowLife",type="MORE",value=76}},"  if used  "}
@@ -5303,6 +5305,7 @@ c["Adds 1 to 100 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Lightnin
 c["Adds 1 to 11 Lightning Damage to Spells"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=11}},nil}
 c["Adds 1 to 111 Lightning Damage to Unarmed Melee Hits"]={{[1]={flags=16777476,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=16777476,keywordFlags=0,name="LightningMax",type="BASE",value=111}},nil}
 c["Adds 1 to 113 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=113}},nil}
+c["Adds 1 to 115 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=115}},nil}
 c["Adds 1 to 120 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=120}},nil}
 c["Adds 1 to 2 Lightning damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=2}},nil}
 c["Adds 1 to 200 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=200}},nil}
@@ -10000,10 +10003,10 @@ c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Po
 c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
+end)();(function()
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
-end)();(function()
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}

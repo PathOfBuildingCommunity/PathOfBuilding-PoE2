@@ -223,7 +223,7 @@ Spiked Buckler
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-(50-80)% increased Evasion Rating
+(60-100)% increased Evasion Rating
 +(10-15)% to all Elemental Resistances
 Parrying applies 10 Stacks of Critical Weakness
 100% increased Parry Damage
@@ -353,7 +353,7 @@ Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 {variant:1,2}(30-40)% increased Block chance
-{variant:3}(10-15)% increased Block chance
+{variant:3}(15-20)% increased Block chance
 (30-50)% increased Armour and Energy Shield
 {variant:1}+(15-30) to maximum Mana
 {variant:2,3}+(50-70) to maximum Mana

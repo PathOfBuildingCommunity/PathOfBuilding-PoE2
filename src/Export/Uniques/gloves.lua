@@ -23,7 +23,7 @@ Variant: Current
 Dreadfist
 Bolstered Mitts
 League: Dawn of the Hunt
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent6
 UniqueCriticalMultiplier2
 UniqueImpaleOnCriticalHit1
 UniqueCriticalsCannotConsumeImpale1

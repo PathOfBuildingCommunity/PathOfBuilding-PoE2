@@ -266,7 +266,7 @@ Smuggler Coat
 Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
-UniqueLocalIncreasedEvasionRatingPercent4
+UniqueLocalIncreasedEvasionRatingPercent19
 UniqueFireResist17
 UniqueColdResist17
 UniqueLightningResist14
@@ -752,8 +752,8 @@ Variant: Pre 0.1.1
 Variant: Current
 UniqueIncreasedMana16
 {variant:2}UniqueColdResist27
-{variant:1}UniqueLightningResist7[20,30]
-{variant:2}UniqueLightningResist7
+{variant:1}UniqueLightningResist12[20,30]
+{variant:2}UniqueLightningResist12
 UniquePowerChargeOnHit1
 UniqueLosePowerChargesOnMaxCharges1
 UniqueShockOnMaxPowerCharges1
@@ -764,9 +764,10 @@ Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield5
-UniqueLightningResist2
+UniqueLightningResist5
+UniqueColdResist27
 {variant:1,2}UniqueEnergyShieldDelay1
-{variant:2,3}AllDamageTakenCanChillUnique__1
+{variant:2,3}AllDamageTakenCanChillUnique__2
 {variant:3}UniqueEnergyShieldRechargeRate8
 UniqueReverseChill1
 ]],[[

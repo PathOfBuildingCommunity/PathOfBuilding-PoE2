@@ -77,8 +77,8 @@ Torment Club
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
-{variant:1}UniqueLocalAddedLightningDamage1[1,1][60,80]
-{variant:2}UniqueLocalAddedLightningDamage1
+{variant:1}UniqueLocalAddedLightningDamage4[1,1][60,80]
+{variant:2}UniqueLocalAddedLightningDamage4
 UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
@@ -155,9 +155,9 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage9[10,12][18,22]
 {variant:2}UniqueLocalAddedPhysicalDamage9
-{variant:1}UniqueLocalAddedLightningDamage3[1,1][36,42]
-{variant:2}UniqueLocalAddedLightningDamage3
-UniqueLocalIncreasedAttackSpeed5
+{variant:1}UniqueLocalAddedLightningDamage10[1,1][36,42]
+{variant:2}UniqueLocalAddedLightningDamage10
+UniqueLocalIncreasedAttackSpeed7
 UniqueLocalAllDamageCanElectrocute1
 ]],[[
 Chober Chaber

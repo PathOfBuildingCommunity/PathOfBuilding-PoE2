@@ -24,7 +24,7 @@ Implicits: 1
 Dreadfist
 Bolstered Mitts
 League: Dawn of the Hunt
-(50-100)% increased Armour
+(60-100)% increased Armour
 (20-30)% increased Critical Damage Bonus
 Critical Hits inflict Impale
 Critical Hits cannot Extract Impale

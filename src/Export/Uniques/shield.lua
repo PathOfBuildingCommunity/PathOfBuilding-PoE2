@@ -184,8 +184,8 @@ UniqueEnfeebleOnBlockChance1
 Silverthorne
 Spiked Buckler
 League: Dawn of the Hunt
-UniqueLocalIncreasedEvasionRatingPercent29
-UniqueAllResistances19
+UniqueLocalIncreasedEvasionRatingPercent28
+UniqueAllResistances25
 UniqueCriticalWeaknessOnParry1
 UniqueParryDamage1
 ]],[[
@@ -276,8 +276,8 @@ Blazon Crest Shield
 Variant: Pre 0.1.1
 Variant: Pre 0.3.0
 Variant: Current
-{variant:1,2}UniqueLocalBlockChance1[30,40]
-{variant:3}UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance3[30,40]
+{variant:3}UniqueLocalBlockChance3
 UniqueLocalIncreasedArmourAndEnergyShield2
 {variant:1}UniqueIncreasedMana4[15,30]
 {variant:2,3}UniqueIncreasedMana4

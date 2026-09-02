@@ -73,7 +73,7 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueIncreasedMana32[50,50]
 {variant:2}UniqueIncreasedMana32
-UniqueManaRegeneration29
+UniqueManaRegeneration22
 {variant:1}UniqueGainManaAsExtraEnergyShield1[20,30]
 {variant:2}UniqueGainManaAsExtraEnergyShield1
 ]],[[
@@ -222,8 +222,8 @@ Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 UniqueMaximumLifeIncrease7
-{variant:1,2}UniqueFireResist12[30,40]
-{variant:3}UniqueFireResist12
+{variant:1,2}UniqueFireResist25[30,40]
+{variant:3}UniqueFireResist25
 {variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
 {variant:2}UniqueEnemiesInPresenceFireExposure1[-10,-10]
 {variant:3}UniqueEnemiesInPresenceFireExposure1

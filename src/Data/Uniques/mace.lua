@@ -81,7 +81,7 @@ Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
 {variant:1}Adds 1 to (60-80) Lightning Damage
-{variant:2}Adds 1 to (80-120) Lightning Damage
+{variant:2}Adds 1 to (60-80) Lightning Damage
 +(300-400) to Accuracy Rating
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to
@@ -161,7 +161,7 @@ Variant: Current
 {variant:1}Adds (10-12) to (18-22) Physical Damage
 {variant:2}Adds (18-22) to (24-28) Physical Damage
 {variant:1}Adds 1 to (36-42) Lightning Damage
-{variant:2}Adds 1 to (50-55) Lightning Damage
+{variant:2}Adds 1 to (110-115) Lightning Damage
 (10-15)% increased Attack Speed
 All damage with this Weapon causes Electrocution buildup
 ]],[[
