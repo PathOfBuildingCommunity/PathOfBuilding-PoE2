@@ -569,6 +569,10 @@ describe("TestSkillsTab", function()
 					gemList = { { skillId = "BlinkReservationPlayer", level = 1, quality = 0, enabled = true } },
 				}
 				build.skillsTab:ProcessSocketGroup(group)
+				table.insert(build.skillsTab.socketGroupList, group)
+				build.mainSocketGroup = #build.skillsTab.socketGroupList
+				build.buildFlag = true
+				runCallback("OnFrame")
 				assert.is_true(group.forcedBoth)
 				assert.is_true(group.set1)
 				assert.is_true(group.set2)

@@ -484,7 +484,7 @@ function CalcsTabClass:SearchMatch(txt)
 end
 
 -- Build the calculation output tables
-function CalcsTabClass:BuildOutput()
+function CalcsTabClass:BuildOutput(validateWeaponSets)
 	self.powerBuildFlag = true
 
 	--[[
@@ -503,7 +503,7 @@ function CalcsTabClass:BuildOutput()
 	end
 
 	self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
-	if self.build.skillsTab:ReconcileSocketGroupWeaponSets(self.mainEnv) then
+	if self.build.skillsTab:ReconcileSocketGroupWeaponSets(self.mainEnv, validateWeaponSets) then
 		wipeGlobalCache()
 		self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
 		self.build.skillsTab:CacheSocketGroupWeaponSetValidity(self.mainEnv)

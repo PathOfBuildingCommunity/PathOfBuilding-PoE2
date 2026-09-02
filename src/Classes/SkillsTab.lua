@@ -1290,7 +1290,6 @@ end
 function SkillsTabClass:ProcessSocketGroup(socketGroup)
 	-- Loop through the skill gem list
 	local data = self.build.data
-	socketGroup.forcedBoth = false
 	for _, gemInstance in ipairs(socketGroup.gemList) do
 		gemInstance.color = "^8"
 		gemInstance.nameSpec = gemInstance.nameSpec or ""
@@ -1344,14 +1343,6 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		end
 		if gemInstance.gemData or gemInstance.grantedEffect then
 			local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData.grantedEffect
-			if not socketGroup.forcedBoth and grantedEffect.statSets then
-				for _, statSet in pairs(grantedEffect.statSets) do
-					if statSet.stats and isValueInArray(statSet.stats, "display_skill_reserves_in_all_weapon_sets") then
-						socketGroup.forcedBoth = true
-						break
-					end
-				end
-			end
 			if grantedEffect.color == 1 then
 				gemInstance.color = colorCodes.STRENGTH
 			elseif grantedEffect.color == 2 then
@@ -1423,6 +1414,9 @@ local function cacheWeaponSetContext(skillsTab, context)
 	for _, activeSkill in ipairs(context.weaponSetValidationSkillList or context.player.activeSkillList) do
 		local socketGroup = activeSkill.socketGroup
 		if socketGroup then
+			if activeSkill.skillData.reservesInAllWeaponSets then
+				socketGroup.forcedBoth = true
+			end
 			groupSkillIndex[socketGroup] = (groupSkillIndex[socketGroup] or 0) + 1
 			local selectedIndex = context.mode == "CALCS" and socketGroup.mainActiveSkillCalcs or socketGroup.mainActiveSkill
 			if groupSkillIndex[socketGroup] == (selectedIndex or 1) then
@@ -1436,12 +1430,15 @@ local function cacheWeaponSetContext(skillsTab, context)
 end
 
 function SkillsTabClass:CacheSocketGroupWeaponSetValidity(env)
-	if not env or env.outputRevision ~= self.build.outputRevision then
-		return
-	end
 	if not self.weaponSetValidityCache or self.weaponSetValidityRevision ~= self.build.outputRevision then
 		self.weaponSetValidityRevision = self.build.outputRevision
 		self.weaponSetValidityCache = { }
+		for _, socketGroup in ipairs(self.socketGroupList) do
+			socketGroup.forcedBoth = false
+		end
+	end
+	if not env or env.outputRevision ~= self.build.outputRevision then
+		return
 	end
 	cacheWeaponSetContext(self, env)
 	if env.weaponSetEnvs then
@@ -1469,18 +1466,23 @@ function SkillsTabClass:ReconcileSocketGroupWeaponSets(env, validateSocketGroup)
 	self:CacheSocketGroupWeaponSetValidity(env)
 	local changed = false
 	for _, socketGroup in ipairs(self.socketGroupList) do
-		if socketGroup.enabled and not self:IsSocketGroupWeaponSetLocked(socketGroup) and not socketGroup.forcedBoth then
-			local validity = self.weaponSetValidityCache and self.weaponSetValidityCache[socketGroup]
-			if socketGroup == validateSocketGroup then
-				self:IsSocketGroupWeaponSetValid(socketGroup, 1)
-				self:IsSocketGroupWeaponSetValid(socketGroup, 2)
-				validity = self.weaponSetValidityCache[socketGroup]
-			elseif validity and validity[env.weaponSet] == false then
-				self:IsSocketGroupWeaponSetValid(socketGroup, env.weaponSet == 1 and 2 or 1)
-				validity = self.weaponSetValidityCache[socketGroup]
-			end
-			if validity and validity[1] ~= nil and validity[2] ~= nil then
-				changed = self:ApplySocketGroupWeaponSetValidity(socketGroup, validity[1], validity[2]) or changed
+		if socketGroup.enabled and not self:IsSocketGroupWeaponSetLocked(socketGroup) then
+			if socketGroup.forcedBoth then
+				changed = not socketGroup.set1 or not socketGroup.set2 or changed
+				socketGroup.set1, socketGroup.set2 = true, true
+			else
+				local validity = self.weaponSetValidityCache and self.weaponSetValidityCache[socketGroup]
+				if validateSocketGroup == true or socketGroup == validateSocketGroup then
+					self:IsSocketGroupWeaponSetValid(socketGroup, 1)
+					self:IsSocketGroupWeaponSetValid(socketGroup, 2)
+					validity = self.weaponSetValidityCache[socketGroup]
+				elseif validity and validity[env.weaponSet] == false then
+					self:IsSocketGroupWeaponSetValid(socketGroup, env.weaponSet == 1 and 2 or 1)
+					validity = self.weaponSetValidityCache[socketGroup]
+				end
+				if validity and validity[1] ~= nil and validity[2] ~= nil then
+					changed = self:ApplySocketGroupWeaponSetValidity(socketGroup, validity[1], validity[2]) or changed
+				end
 			end
 		end
 	end
@@ -1498,15 +1500,8 @@ function SkillsTabClass:IsSocketGroupWeaponSetValid(socketGroup, weaponSet)
 	if not socketGroup or not self.build.calcsTab or self.weaponSetValidityInProgress then
 		return true
 	end
-	if not self.weaponSetValidityCache or self.weaponSetValidityRevision ~= self.build.outputRevision then
-		self.weaponSetValidityRevision = self.build.outputRevision
-		self.weaponSetValidityCache = { }
-	end
-	self.weaponSetValidityCache[socketGroup] = self.weaponSetValidityCache[socketGroup] or { }
-	if self.weaponSetValidityCache[socketGroup][weaponSet] ~= nil then
-		return self.weaponSetValidityCache[socketGroup][weaponSet]
-	end
 	self:CacheSocketGroupWeaponSetValidity(self.build.calcsTab.mainEnv)
+	self.weaponSetValidityCache[socketGroup] = self.weaponSetValidityCache[socketGroup] or { }
 	if self.weaponSetValidityCache[socketGroup][weaponSet] ~= nil then
 		return self.weaponSetValidityCache[socketGroup][weaponSet]
 	end
@@ -1522,8 +1517,8 @@ function SkillsTabClass:IsSocketGroupWeaponSetValid(socketGroup, weaponSet)
 		skipWeaponSetContexts = true,
 	})
 	if ok and env and env.player.mainSkill then
-		local flags = env.player.mainSkill.activeEffect.statSet and env.player.mainSkill.activeEffect.statSet.skillFlags
-		valid = not (flags and flags.disable)
+		self:CacheSocketGroupWeaponSetValidity(env)
+		valid = self.weaponSetValidityCache[socketGroup][weaponSet] ~= false
 	elseif not ok then
 		ConPrintf("Error validating weapon set %d for socket group %d: %s", weaponSet, groupIndex, tostring(env))
 	end

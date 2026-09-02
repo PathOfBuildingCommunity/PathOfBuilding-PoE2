@@ -286,6 +286,23 @@ Fireball 20/0  1
 		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemId)
 	end)
 
+	it("assigns imported skills to their only valid weapon set immediately", function()
+		build.importTab.controls.charImportItemsClearItems.state = true
+		build.importTab.controls.charImportItemsClearSkills.state = true
+
+		build.importTab:ImportItemsAndSkills(buildImportPayload({
+			makeImportItem("Crude Bow", "Weapon", "test-import-bow"),
+		}, {
+			makeGemEntry(false, "Mirage Archer", 20, {
+				makeGemEntry(false, "Ice Shot", 20),
+			}),
+		}))
+
+		local mirageArcher = build.skillsTab.socketGroupList[1]
+		assert.is_true(mirageArcher.set1)
+		assert.is_false(mirageArcher.set2)
+	end)
+
 	it("attaches imported item-granted skills to their generated source group", function()
 		build.importTab.controls.charImportItemsClearItems.state = true
 		build.importTab.controls.charImportItemsClearSkills.state = true
