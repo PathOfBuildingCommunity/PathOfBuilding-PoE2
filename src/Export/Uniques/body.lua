@@ -7,20 +7,51 @@ Atziri's Splendour
 Sacrificial Regalia
 Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
 League: Fate of the Vaal
-Variant: Helmet
-Variant: Gloves
-Variant: Boots
-Variant: Shield
+Selected Variant: 1
+Variant: Helmet (AR/EV/ES)
+Variant: Gloves (AR/EV/ES)
+Variant: Boots (AR/EV/ES)
+Variant: Shield (AR/EV/ES)
+Variant: Helmet (AR)
+Variant: Gloves (AR)
+Variant: Boots (AR)
+Variant: Shield (AR)
+Variant: Shield (ES)
+Variant: Helmet (EV)
+Variant: Gloves (EV)
+Variant: Boots (EV)
+Variant: Shield (EV)
+Variant: Helmet (ES)
+Variant: Gloves (ES)
+Variant: Boots (ES)
+Variant: Helmet (AR/EV)
+Variant: Gloves (AR/EV)
+Variant: Boots (AR/EV)
+Variant: Shield (AR/EV)
+Variant: Helmet (AR/ES)
+Variant: Gloves (AR/ES)
+Variant: Boots (AR/ES)
+Variant: Shield (AR/ES)
+Variant: Helmet (EV/ES)
+Variant: Gloves (EV/ES)
+Variant: Boots (EV/ES)
+Variant: Shield (EV/ES)
 Sockets: S S S S S S
 UniqueOnlySocketSoulCores1
 UniqueLocalNoAttributeRequirements2
-UniqueAtziriSplendourArmourEvasionAndEnergyShield1
+{variant:1,2,3,4}UniqueAtziriSplendourArmourEvasionAndEnergyShield1
+{variant:5,6,7,8}UniqueAtziriSplendourArmour1
+{variant:9,10,11,12}UniqueAtziriSplendourEvasion1
+{variant:13,14,15,16}UniqueAtziriSplendourEnergyShield1
+{variant:17,18,19,20}UniqueAtziriSplendourArmourAndEvasion1
+{variant:21,22,23,24}UniqueAtziriSplendourArmourAndEnergyShield1
+{variant:25,26,27,28}UniqueAtziriSplendourEnergyShieldAndEvasion1
 UniqueAllResistances27
 UniqueCorruptedSkillGemManaCostConvertedToLife1
-{variant:1}UniqueLocalSoulCoreAlsoGainBenefitsFromHelmet1
-{variant:2}UniqueLocalSoulCoreAlsoGainBenefitsFromGloves1
-{variant:3}UniqueLocalSoulCoreAlsoGainBenefitsFromBoots1
-{variant:4}UniqueLocalSoulCoreAlsoGainBenefitsFromShield1
+{variant:1,5,9,13,17,21,25}UniqueLocalSoulCoreAlsoGainBenefitsFromHelmet1
+{variant:2,6,10,14,18,22,26}UniqueLocalSoulCoreAlsoGainBenefitsFromGloves1
+{variant:3,7,11,15,19,23,27}UniqueLocalSoulCoreAlsoGainBenefitsFromBoots1
+{variant:4,8,12,16,20,24,28}UniqueLocalSoulCoreAlsoGainBenefitsFromShield1
 ]],[[
 Blackbraid
 Fur Plate
