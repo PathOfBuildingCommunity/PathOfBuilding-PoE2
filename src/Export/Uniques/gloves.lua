@@ -106,9 +106,9 @@ UniqueGainFearIncarnateOnCulling1
 ]],[[
 Idle Hands
 Sectioned Bracers
-UniqueLocalIncreasedEvasionRatingPercent3
+UniqueLocalIncreasedEvasionRatingPercent7
 UniqueIncreasedAccuracy4
-UniqueIntelligence3
+UniqueIntelligence19
 UniqueIncreasedAttackSpeedFullMana1
 UniqueFullManaThreshold1
 ]],[[
@@ -140,7 +140,7 @@ Snakebite
 Spined Bracers
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedEvasionRatingPercent3
+UniqueLocalIncreasedEvasionRatingPercent8
 UniqueChaosResist6
 {variant:2}UniqueLifeRegeneration12
 {variant:1}UniqueBaseChanceToPoison1[20,20]
@@ -164,7 +164,7 @@ UniqueDoubleIgniteChance1
 ]],[[
 Demon Stitcher
 Intricate Gloves
-UniqueIncreasedEnergyShield2
+UniqueLocalIncreasedEnergyShield4
 UniqueIncreasedLife15
 UniqueIncreasedCastSpeed7
 UniqueSacrificeLifeToGainEnergyShield1
@@ -317,7 +317,7 @@ UniqueCannotImmobilise1
 ]],[[
 Shackles of the Wretched
 Aged Cuffs
-UniqueLocalIncreasedArmourAndEnergyShield2
+UniqueLocalIncreasedArmourAndEnergyShield3
 UniqueChillImmunityWhenChilled1
 UniqueFreezeImmunityWhenFrozen1
 UniqueIgniteImmunityWhenIgnited1
@@ -362,7 +362,7 @@ Gauze Wraps
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-UniqueLocalIncreasedEvasionAndEnergyShield1
+UniqueLocalIncreasedEvasionAndEnergyShield4
 UniqueIncreasedAttackSpeed1
 {variant:3}UniqueCannotInflictElementalAilments1
 {variant:1}UniqueBaseChanceToPoison2[5,10]

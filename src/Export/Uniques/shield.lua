@@ -127,8 +127,8 @@ Iron Buckler
 Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
-{variant:1}UniqueLocalBlockChance14[20,30]
-{variant:2}UniqueLocalBlockChance14
+{variant:1}UniqueLocalBlockChance11[20,30]
+{variant:2}UniqueLocalBlockChance11
 UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
@@ -333,7 +333,7 @@ Omen Crest Shield
 UniqueMaximumFireResist2
 UniqueFireResist16
 UniqueFireResistOnLowLife1
-LifeRegenerationRatePercentageUniqueShieldStrInt3
+UniqueLifeRegenerationPercent1
 UniqueLifeRegenerationPercentOnLowLife1
 ]],[[
 Saffell's Frame

@@ -116,7 +116,7 @@ Greed's Embrace
 Vaal Cuirass
 UniqueIncreasedStrengthRequirements1
 UniqueMovementVelocity8
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent15
 UniqueItemFoundRarityIncrease12
 UniqueFireResist12
 ]],[[
@@ -256,7 +256,7 @@ Variant: Current
 {variant:2,3}UniqueLocalIncreasedEvasionRatingPercent23
 {variant:1}UniqueIncreasedLife1[30,50]
 {variant:2,3}UniqueIncreasedLife1
-UniqueChaosResist1
+UniqueChaosResist8
 UniqueLifeRegeneration1
 UniqueCannotBePoisoned1
 {variant:3}UniqueEvasionAppliesToDeflection2
@@ -424,10 +424,10 @@ Tetzlapokal's Desire
 Votive Raiment
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedEnergyShieldPercent11
-UniqueStrength10
+UniqueLocalIncreasedEnergyShieldPercent17
+UniqueStrength22
 {variant:2}UniqueIntelligence32
-UniqueChaosResist1
+UniqueChaosResist13
 UniqueLifeRecharge1
 ]],[[
 Vis Mortis
@@ -454,9 +454,9 @@ Belly of the Beast
 Explorer Armour
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedArmourAndEvasion7
+UniqueLocalIncreasedArmourAndEvasion16
 UniqueIncreasedLife31
-UniqueStunThreshold9
+UniqueStunThreshold11
 UniqueInstantLifeFlaskRecovery1
 {variant:2}UniqueAttackerTakesDamage6
 ]],[[
@@ -659,7 +659,7 @@ Sacrificial Mantle
 League: Dawn of the Hunt
 Variant: Pre 0.5.0
 Variant: Current
-UniqueLocalIncreasedArmourAndEnergyShield12
+UniqueLocalIncreasedArmourAndEnergyShield13
 {variant:2}UniqueIncreasedSpirit15
 UniqueStrength42
 UniqueIntelligence40
@@ -773,9 +773,9 @@ UniqueReverseChill1
 Zerphi's Serape
 Scalper's Jacket
 League: Dawn of the Hunt
-UniqueLocalIncreasedEvasionAndEnergyShield11
-UniqueIncreasedMana7
-UniqueReducedLocalAttributeRequirements4
+UniqueLocalIncreasedEvasionAndEnergyShield9
+UniqueIncreasedMana21
+UniqueReducedLocalAttributeRequirements3
 UniqueLifeRegenerationRate2
 UniqueManaRegeneration31
 UniqueHasSoulEater1

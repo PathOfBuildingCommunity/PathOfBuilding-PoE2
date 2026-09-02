@@ -177,7 +177,7 @@ Variant: Current
 {variant:1}+(40-60) to maximum Mana
 {variant:2}+(60-100) to maximum Mana
 {variant:1}(10-20)% increased Rarity of Items found
-{variant:2}(10-15)% increased Rarity of Items found
+{variant:2}(10-20)% increased Rarity of Items found
 {variant:1}Gain (25-30)% of maximum Life as Extra maximum Energy Shield
 {variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
 {variant:1}(20-25)% of Damage taken bypasses Energy Shield

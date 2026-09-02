@@ -220,8 +220,8 @@ UniqueAftershockChance1
 ]],[[
 Quecholli
 Crumbling Maul
-UniqueLocalIncreasedPhysicalDamagePercent4
-UniqueAllAttributes7
+UniqueLocalIncreasedPhysicalDamagePercent8
+UniqueAllAttributes8
 UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1

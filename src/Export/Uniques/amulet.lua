@@ -178,9 +178,9 @@ UniqueAllDamage2
 ]],[[
 Serpent's Egg
 Gold Amulet
-UniqueAllAttributes1
-UniqueChaosResist1
-UniqueManaRegeneration6
+UniqueAllAttributes10
+UniqueChaosResist17
+UniqueManaRegeneration23
 UniqueAdditionalChargeGeneration1
 ]],[[
 Stone of Lazhwar

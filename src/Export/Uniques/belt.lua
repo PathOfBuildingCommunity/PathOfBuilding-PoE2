@@ -199,7 +199,7 @@ UniqueFlaskLifeRecoveryEnergyShield1
 Soul Tether
 Long Belt
 UniqueIncreasedEnergyShield2
-UniqueIntelligence9
+UniqueIntelligence27
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
 ]],[[

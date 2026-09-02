@@ -231,7 +231,7 @@ Quecholli
 Crumbling Maul
 Implicits: 1
 Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage
-(80-120)% increased Physical Damage
+(100-150)% increased Physical Damage
 +(10-15) to all Attributes
 Gain 30 Life per enemy killed
 Hits with this Weapon have no Critical Damage Bonus

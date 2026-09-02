@@ -255,9 +255,9 @@ Seed of Cataclysm
 Lazuli Ring
 Variant: Pre 0.5.0
 Variant: Current
-UniqueSpellCriticalStrikeChance2
+UniqueSpellCriticalStrikeChance3
 {variant:1}UniqueSpellCriticalStrikeMultiplier1
-UniqueChaosResist2
+UniqueChaosResist20
 UniqueManaCostReduction2
 {variant:2}UniqueSpellCriticalStrikeMultiplierPerSpellCritRecently1
 {variant:2}UniqueChanceForSpellCriticalHitsToBeLucky1

@@ -254,8 +254,8 @@ Variant: Pre 0.4.0
 Variant: Current
 {variant:1,2}UniqueMovementVelocity17[10,15]
 {variant:3}UniqueMovementVelocity17
-UniqueLocalIncreasedEvasionAndEnergyShield9
-UniqueIntelligence6
+UniqueLocalIncreasedEvasionAndEnergyShield11
+UniqueIntelligence26
 UniqueMaximumPowerCharges1
 {variant:1}UniqueCriticalMultiplierPerPowerCharge1[8,8]
 {variant:2,3}UniqueCriticalMultiplierPerPowerCharge1

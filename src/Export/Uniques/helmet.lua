@@ -174,10 +174,10 @@ Atziri's Disdain
 Gold Circlet
 Variant: 0.2.0
 Variant: Current
-{variant:1}UniqueIncreasedMana12[40,60]
-{variant:2}UniqueIncreasedMana12
-{variant:1}UniqueItemFoundRarityIncrease2[10,20]
-{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueIncreasedMana26[40,60]
+{variant:2}UniqueIncreasedMana26
+{variant:1}UniqueItemFoundRarityIncrease14[10,20]
+{variant:2}UniqueItemFoundRarityIncrease14
 {variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
 {variant:2}UniqueDamageBypassEnergyShieldPercent1
 {variant:1}UniqueEnergyShieldAsPercentOfLife1[25,30]
@@ -237,7 +237,7 @@ UniqueCannotRecoverManaExceptRegen1
 Mask of the Stitched Demon
 Feathered Tiara
 UniqueLocalIncreasedEnergyShieldPercent18
-UniqueChaosResist1
+UniqueChaosResist14
 UniqueCannotGainEnergyShield1
 UniqueLifeRegenPerEnergyShield1
 ]],[[
@@ -545,9 +545,9 @@ Tribal Mask
 Variant: Pre 0.4.0
 Variant: Equipment
 Variant: Skill Gems
-UniqueLocalIncreasedEvasionAndEnergyShield7
-UniqueCriticalStrikeChance1
-UniqueChaosResist2
+UniqueLocalIncreasedEvasionAndEnergyShield10
+UniqueCriticalStrikeChance8
+UniqueChaosResist15
 {variant:1}UniqueGlobalItemAttributeRequirements1
 {variant:2}UniqueGlobalEquipmentAttributeRequirements1
 {variant:3}UniqueGlobalGemAttributeRequirements1

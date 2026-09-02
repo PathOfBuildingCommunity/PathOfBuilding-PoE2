@@ -9,7 +9,7 @@ Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent13
-UniqueEnergyShieldRechargeRate7
+UniqueEnergyShieldRechargeRate4
 {variant:1}UniqueEnergyShieldDelay5
 UniqueElementalDamageTakenAsChaos1
 UniqueChanceToBePoisoned1
