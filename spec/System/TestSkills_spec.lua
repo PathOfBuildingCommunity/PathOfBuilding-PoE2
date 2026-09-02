@@ -1717,6 +1717,25 @@ describe("TestSkills", function()
 		assert.are.equals("Arcane Tempo I", grantedGroup.gemList[2].nameSpec)
 	end)
 
+	it("updates the displayed level of a tree-granted skill when the character levels up", function()
+		build.characterLevel = 1
+		build.characterLevelAutoMode = false
+		local node = build.spec.nodes[11641]
+		node.alloc = true
+		build.spec.allocNodes[node.id] = node
+		recalculate()
+
+		local grantedGroup = findGrantedGroup("sourceNode", node)
+		build.skillsTab:SetDisplayGroup(grantedGroup)
+		assert.are.equals("1", build.skillsTab.gemSlots[1].level.buf)
+
+		build.characterLevel = 3
+		recalculate()
+		assert.are.equals(2, grantedGroup.gemList[1].level)
+		build.skillsTab:UpdateGemSlots()
+		assert.are.equals("2", build.skillsTab.gemSlots[1].level.buf)
+	end)
+
 	it("allows weapon-set selection for skills granted by non-weapon items", function()
 		local item = new("Item"):Item("New Item\nChain Mail\nGrants Skill: Level 1 Fireball")
 		build.itemsTab:AddItem(item, true)

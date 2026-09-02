@@ -1216,7 +1216,11 @@ function SkillsTabClass:UpdateGemSlots()
 			slot.count:SetText(1)
 			slot.corruptLevel.selIndex = 1
 		else
-			slot.nameSpec.inactiveCol = self.displayGroup.gemList[slotIndex].color
+			local gemInstance = self.displayGroup.gemList[slotIndex]
+			slot.nameSpec.inactiveCol = gemInstance.color
+			if isGeneratedSourceGem(self.displayGroup, slotIndex) and tonumber(slot.level.buf) ~= gemInstance.level then
+				slot.level:SetText(gemInstance.level)
+			end
 		end
 	end
 	self:UpdateGlobalGemCountAssignments()
