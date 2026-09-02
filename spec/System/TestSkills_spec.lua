@@ -313,6 +313,24 @@ describe("TestSkills", function()
 		assert.is_true(#build.controls.mainSkillMinionSkill.list > 0, "minion skill dropdown should have entries")
 	end)
 
+	it("shows minion skill controls for a skill assigned to the inactive weapon set", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		socketGroup.set1 = false
+		socketGroup.set2 = true
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		build.skillsTab.socketGroupList[2].set2 = false
+		build.mainSocketGroup = 1
+		build.itemsTab.activeItemSet.useSecondWeaponSet = false
+
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.calcsTab.mainEnv.weaponSet)
+		assert.is_not_nil(socketGroup.displaySkillList[1].minion)
+		assert.is_true(build.controls.mainSkillMinionSkill.shown)
+		assert.is_true(build.controls.mainSkillMinionSkillStatSet.shown)
+	end)
+
 	it("does not crash rendering socket tooltip when minion skill selection is missing", function()
 		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 		runCallback("OnFrame")

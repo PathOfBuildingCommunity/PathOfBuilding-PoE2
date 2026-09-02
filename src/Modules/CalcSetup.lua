@@ -2357,8 +2357,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 
 				-- Save the active skill list for display in the socket group tooltip
-				group.displaySkillList = socketGroupSkillList
-			elseif env.mode == "CALCS" then
+				if group.usingSkillSet == env.weaponSet then
+					group.displaySkillList = socketGroupSkillList
+				end
+			elseif env.mode == "CALCS" and group.usingSkillSet == env.weaponSet then
 				group.displaySkillListCalcs = socketGroupSkillList
 			end
 
