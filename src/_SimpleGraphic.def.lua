@@ -363,14 +363,46 @@ function Paste() end
 ---@return string? compressedData
 ---@return string? errMsg
 function Deflate(data)
-	return ""
+	local zlib = require("ffi-zlib")
+	local results = {}
+	local idx = 1
+	local strLen = #data
+	zlib.deflateGzip(function(n)
+		local endIdx = math.min(strLen, idx + n)
+		if idx >= endIdx then
+			return nil
+		end
+		local chunk = string.sub(data, idx, endIdx)
+		idx = endIdx + 1
+		return chunk
+	end, function(outputData)
+		table.insert(results, outputData)
+		-- 16k buffer, windowBits 15 for ZLib header + DEFLATE. memLevel 9 is equal to what SG uses
+	end, 2 ^ 14, { windowBits = 15, memLevel = 9 })
+	return table.concat(results)
 end
 
 ---@param data string
 ---@return string? data
 ---@return string? errMsg
 function Inflate(data)
-	return ""
+	local zlib = require("ffi-zlib")
+	local results = {}
+	local idx = 1
+	local strLen = #data
+	zlib.inflateGzip(function(n)
+		local endIdx = math.min(strLen, idx + n)
+		if idx >= endIdx then
+			return nil
+		end
+		local chunk = string.sub(data, idx, endIdx)
+		idx = endIdx + 1
+		return chunk
+	end, function(outputData)
+		table.insert(results, outputData)
+		-- 16k buffer, windowBits 15 for ZLib header + DEFLATE
+	end, 2 ^ 14, 15)
+	return table.concat(results)
 end
 
 ---@return integer timeMillis

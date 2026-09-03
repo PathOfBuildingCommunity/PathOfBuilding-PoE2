@@ -192,7 +192,7 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 		return string.format("%%%02X", string.byte(c))
 	end):gsub(" ", "+")
 	url = url .. "/" .. encodedLeague
-	url = url .. "?q=" .. urlEncode(queryJson)
+	url = url .. "?q=" .. tradeHelpers.B64GzipEncode(queryJson)
 
 	return url
 end

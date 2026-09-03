@@ -169,4 +169,18 @@ describe("TradeHelpers trade hash matching", function()
 			assert.is_nil(tradeHelpers.findTradeIdOption("+100 to IQ", "explicit"))
 		end)
 	end)
+	describe("gzip decode", function()
+		local sampleText = "Test string please ignore"
+		local gzipped = tradeHelpers.B64GzipEncode(sampleText)
+		local roundTrip = tradeHelpers.B64GzipDecode(gzipped)
+
+		assert.are.Equal("H4sIAAAAAAAACgtJLS5RKC4pysxLVyjISU0sTlXITM/LL0oFAAgo9BkZAAAA", gzipped)
+		assert.are.Equal(sampleText, roundTrip)
+		assert.are_not_equal(sampleText, gzipped)
+
+		local longText = string.rep("12345678", 4096)
+		local gzippedLong = tradeHelpers.B64GzipEncode(longText)
+		local longRoundTrip = tradeHelpers.B64GzipDecode(gzippedLong)
+		assert.are.Equal(longText, longRoundTrip)
+	end)
 end)

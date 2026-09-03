@@ -7,6 +7,7 @@
 
 local dkjson = require "dkjson"
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
+local tradeHelpers = require("Classes.TradeHelpers")
 
 local get_time = os.time
 local t_insert = table.insert
@@ -1125,7 +1126,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			end
 			if main.api.authToken == nil then
 				local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague)
-				url = url .. "?q=" .. urlEncode(query)
+				url = url .. "?q=" .. tradeHelpers.B64GzipEncode(query)
 				controls["uri"..context.row_idx]:SetText(url, true)
 				return
 			end
@@ -1384,7 +1385,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 
 				local exactQueryStr = dkjson.encode(exactQuery)
 
-				local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s?q=%s", self.pbLeague, urlEncode(exactQueryStr))
+			local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s?q=%s", self.pbLeague, tradeHelpers.B64GzipEncode(exactQueryStr))
 
 				Copy(encodedUrl)
 				OpenURL(encodedUrl)
