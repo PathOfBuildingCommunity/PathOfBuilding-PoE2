@@ -145,7 +145,7 @@ Grants Skill: Raise Shield
 +(10-15) to Strength
 +(60-80) to Stun Threshold
 {version:2}Intimidate Enemies on Block for 8 seconds
-{version:1}UniqueEnemiesBlockedAreIntimidated
+{version:1}Permanently Intimidate enemies on Block
 ]],
 -- Shield: Evasion
 [[

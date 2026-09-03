@@ -120,7 +120,7 @@ Version: Current
 UniqueIncreasedLife20
 UniqueStrength13
 UniqueStunThreshold8
-{version:1}UniqueEnemiesBlockedAreIntimidated
+{version:1}UniqueEnemiesBlockedAreIntimidated1
 {version:2}UniqueEnemiesBlockedAreIntimidatedDuration1
 ]],
 -- Shield: Evasion
