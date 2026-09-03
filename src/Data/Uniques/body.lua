@@ -25,18 +25,18 @@ Sockets: S S S S S S
 Implicits: 1
 +1 to Level of all Corrupted Skill Gems
 Only Soul Cores can be Socketed in this item
-{variant:3}This item gains bonuses from Socketed Soul Cores as though it was also Boots
-{variant:2}This item gains bonuses from Socketed Soul Cores as though it was also Gloves
-{variant:1}This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
-{variant:4}This item gains bonuses from Socketed Soul Cores as though it was also a Shield
+{variant:3}{group:1}This item gains bonuses from Socketed Soul Cores as though it was also Boots
+{variant:2}{group:1}This item gains bonuses from Socketed Soul Cores as though it was also Gloves
+{variant:1}{group:1}This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
+{variant:4}{group:1}This item gains bonuses from Socketed Soul Cores as though it was also a Shield
 Has no Attribute Requirements
-{variant:6}(200-300)% increased Armour
-{variant:7}(200-300)% increased Evasion Rating
-{variant:8}(200-300)% increased Energy Shield
-{variant:9}(120-180)% increased Armour and Evasion
-{variant:10}(120-180)% increased Armour and Energy Shield
-{variant:11}(120-180)% increased Evasion and Energy Shield
-{variant:5}(80-120)% increased Armour, Evasion and Energy Shield
+{variant:6}{group:2}(200-300)% increased Armour
+{variant:7}{group:2}(200-300)% increased Evasion Rating
+{variant:8}{group:2}(200-300)% increased Energy Shield
+{variant:9}{group:2}(120-180)% increased Armour and Evasion
+{variant:10}{group:2}(120-180)% increased Armour and Energy Shield
+{variant:11}{group:2}(120-180)% increased Evasion and Energy Shield
+{variant:5}{group:2}(80-120)% increased Armour, Evasion and Energy Shield
 +(10-20)% to all Elemental Resistances
 Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs
 ]],[[

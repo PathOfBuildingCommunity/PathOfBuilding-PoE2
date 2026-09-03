@@ -24,19 +24,19 @@ Variant: EV/ES
 Sockets: S S S S S S
 UniqueOnlySocketSoulCores1
 UniqueLocalNoAttributeRequirements2
-{variant:5}UniqueAtziriSplendourArmourEvasionAndEnergyShield1
-{variant:6}UniqueAtziriSplendourArmour1
-{variant:7}UniqueAtziriSplendourEvasion1
-{variant:8}UniqueAtziriSplendourEnergyShield1
-{variant:9}UniqueAtziriSplendourArmourAndEvasion1
-{variant:10}UniqueAtziriSplendourArmourAndEnergyShield1
-{variant:11}UniqueAtziriSplendourEnergyShieldAndEvasion1
+{variant:5}{group:2}UniqueAtziriSplendourArmourEvasionAndEnergyShield1
+{variant:6}{group:2}UniqueAtziriSplendourArmour1
+{variant:7}{group:2}UniqueAtziriSplendourEvasion1
+{variant:8}{group:2}UniqueAtziriSplendourEnergyShield1
+{variant:9}{group:2}UniqueAtziriSplendourArmourAndEvasion1
+{variant:10}{group:2}UniqueAtziriSplendourArmourAndEnergyShield1
+{variant:11}{group:2}UniqueAtziriSplendourEnergyShieldAndEvasion1
 UniqueAllResistances27
 UniqueCorruptedSkillGemManaCostConvertedToLife1
-{variant:1}UniqueLocalSoulCoreAlsoGainBenefitsFromHelmet1
-{variant:2}UniqueLocalSoulCoreAlsoGainBenefitsFromGloves1
-{variant:3}UniqueLocalSoulCoreAlsoGainBenefitsFromBoots1
-{variant:4}UniqueLocalSoulCoreAlsoGainBenefitsFromShield1
+{variant:1}{group:1}UniqueLocalSoulCoreAlsoGainBenefitsFromHelmet1
+{variant:2}{group:1}UniqueLocalSoulCoreAlsoGainBenefitsFromGloves1
+{variant:3}{group:1}UniqueLocalSoulCoreAlsoGainBenefitsFromBoots1
+{variant:4}{group:1}UniqueLocalSoulCoreAlsoGainBenefitsFromShield1
 ]],[[
 Blackbraid
 Fur Plate
