@@ -596,4 +596,50 @@ function M.newPlainNumericEdit(anchor, rect, init, prompt, limit, integer, chang
 	end
 	return ctrl
 end
+
+
+---@param str string String which will be encoded
+---@return string result The given string, gzipped and then Base64URL encoded
+function M.B64GzipEncode(str)
+	local zlib = require("ffi-zlib")
+	local b64 = require("base64")
+	local results = {}
+	local idx = 1
+	local strLen = #str
+	zlib.deflateGzip(function(n)
+		local endIdx = math.min(strLen, idx + n)
+		if idx >= endIdx then
+			return nil
+		end
+		local chunk = string.sub(str, idx, endIdx)
+		idx = endIdx + 1
+		return chunk
+	end, function(data)
+		table.insert(results, data)
+	end)
+	return b64.encode(table.concat(results)):gsub("%+", "-"):gsub("/", "_")
+end
+
+---@param str string String which will be decoded
+---@return string result The given string, Base64URL decoded and the ungzipped
+function M.B64GzipDecode(str)
+	local zlib = require("ffi-zlib")
+	local b64 = require("base64")
+	str = b64.decode(str:gsub("%-", "+"):gsub("_", "/"))
+	local results = {}
+	local idx = 1
+	local strLen = #str
+	zlib.inflateGzip(function(n)
+		local endIdx = math.min(strLen, idx + n)
+		if idx >= endIdx then
+			return nil
+		end
+		local chunk = string.sub(str, idx, endIdx)
+		idx = endIdx + 1
+		return chunk
+	end, function(data)
+		table.insert(results, data)
+	end)
+	return table.concat(results)
+end
 return M
