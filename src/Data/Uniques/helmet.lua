@@ -553,6 +553,7 @@ Tribal Mask
 Variant: Pre 0.4.0
 Variant: Equipment
 Variant: Skill Gems
+Has no Attribute Requirements
 (100-150)% increased Evasion and Energy Shield
 (20-30)% increased Critical Hit Chance
 +(13-17)% to Chaos Resistance

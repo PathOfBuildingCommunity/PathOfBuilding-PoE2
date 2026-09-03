@@ -545,6 +545,7 @@ Tribal Mask
 Variant: Pre 0.4.0
 Variant: Equipment
 Variant: Skill Gems
+UniqueLocalNoAttributeRequirements2
 UniqueLocalIncreasedEvasionAndEnergyShield10
 UniqueCriticalStrikeChance8
 UniqueChaosResist15
