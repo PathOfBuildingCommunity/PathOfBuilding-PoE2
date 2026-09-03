@@ -11,7 +11,7 @@ UniqueIncreasedMana51
 UniqueGlobalCharmIncreasedDuration1
 UniqueAdditionalCharm3
 UniqueDexterity41
-BeltImplicitIncreasedCharmChargesGained1
+UniqueIncreasedCharmChargesGained2
 ]],[[
 Birthright Buckle
 Wide Belt

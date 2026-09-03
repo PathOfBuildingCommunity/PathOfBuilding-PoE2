@@ -14,12 +14,14 @@ UniqueFlaskDuration__1
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
-Variant: Pre 0.4.0
-Variant: Current
-UniqueFlaskFullInstantRecovery1
+Version: Pre 0.4.0
+Version: Pre 0.5.0
+Version: Current
+{version:1,2}UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
-{variant:1}UniqueFlaskOverhealToGuard1[10,10]
-{variant:2}UniqueFlaskOverhealToGuard1
+{version:1}UniqueFlaskOverhealToGuard1[10,10]
+{version:2}UniqueFlaskOverhealToGuard1
+{version:3}UniqueFlaskWardGainedAsGuard1
 ]],[[
 Opportunity
 Ultimate Life Flask

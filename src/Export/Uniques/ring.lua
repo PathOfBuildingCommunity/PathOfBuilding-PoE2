@@ -63,6 +63,7 @@ UniqueLifeRegeneration4
 {variant:1}UniqueAddedChaosDamage1[2,3][4,5]
 {variant:2}UniqueAddedChaosDamage1
 UniqueChanceToIntimidateOnHit1
+{variant:2}UniqueArmourAppliesToChaosDamage1
 ]],[[
 Blistering Bond
 Ruby Ring

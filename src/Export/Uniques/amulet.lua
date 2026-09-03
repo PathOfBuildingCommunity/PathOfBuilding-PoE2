@@ -124,9 +124,13 @@ BlindImmunityUnique__1
 ]],[[
 Idol of Uldurn
 Crimson Amulet
+Version: Pre 0.5.0
+Version: Current
 UniqueIncreasedLife38
 UniqueDexterity29
 UniqueBaseLimit1
+{version:2}UniqueIncreasedMaximumSpiritPercent1
+{version:2}UniquePresenceRadius6
 ]],[[
 Igniferis
 Crimson Amulet

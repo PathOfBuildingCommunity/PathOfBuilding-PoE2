@@ -154,11 +154,15 @@ Cannot be Blinded
 ]],[[
 Idol of Uldurn
 Crimson Amulet
+Version: Pre 0.5.0
+Version: Current
 Requires Level 24
 Implicits: 1
 {tags:life}(2-4) Life Regeneration per second
 {tags:life}+(60-80) to maximum Life
 {tags:attribute}+(10-20) to Dexterity
+{version:2}(20-40)% reduced Presence Area of Effect
+{version:2}(10-15)% increased Spirit
 Skills have +1 to Limit
 ]],[[
 Igniferis
