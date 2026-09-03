@@ -72,7 +72,7 @@ UniqueCharmRecoverManaBasedOnLifeFlask1
 Beira's Anguish
 Dousing Charm
 League: Dawn of the Hunt
-UniqueFlaskChanceRechargeOnKill2
+UniqueFlaskChanceRechargeOnKill1
 UniqueCharmIgniteEnemiesInPresence1
 ]],[[
 The Black Cat
@@ -105,7 +105,7 @@ UniqueCharmRecoupChaosDamagePrevented1
 Nascent Hope
 Thawing Charm
 League: Dawn of the Hunt
-UniqueFlaskChanceRechargeOnKill1
+UniqueFlaskChanceRechargeOnKill2
 UniqueCharmStartEnergyShieldRecharge1
 ]],[[
 Ngamahu's Chosen

@@ -167,7 +167,7 @@ Implicits: 1
 {tags:life}(2-4) Life Regeneration per second
 {tags:fire}+(10-20)% to Fire Resistance
 {tags:mana}(20-30)% increased Mana Regeneration Rate
-25% reduced Light Radius
+25% increased Light Radius
 Life Recovery from Regeneration is not applied
 Every 4 seconds, Recover 1 Life for every 0.2 Life Recovery per second from Regeneration
 ]],[[

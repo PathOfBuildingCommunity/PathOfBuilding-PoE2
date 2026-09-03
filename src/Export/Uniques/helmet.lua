@@ -5,8 +5,8 @@ return {
 [[
 Black Sun Crest
 Wrapped Greathelm
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
-UniqueLightRadius2
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent8
+UniqueLightRadius4
 UniquePercentageStrength1
 UniquePercentageDexterity1
 UniquePercentageIntelligence1
@@ -14,10 +14,10 @@ UniquePercentageIntelligence1
 Blood Price
 Fierce Greathelm
 League: Dawn of the Hunt
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent26
 UniqueEnemiesInPresenceReservesLife1
 UniqueLifeRegeneration18
-UniqueStunThreshold18
+UniqueStunThreshold17
 UniquePresenceRadius3
 ]],[[
 Corona of the Red Sun
@@ -34,8 +34,8 @@ Deidbell
 Elite Greathelm
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
-{variant:2}UniqueStrength31
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent21
+{variant:2}UniqueStrength30
 UniqueWarcrySpeed1
 UniqueWarcryCorpseExplosion1
 UniqueWarcryAreaOfEffect1
@@ -57,7 +57,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating5
 UniqueItemFoundRarityIncrease4
-UniqueStrength10
+UniqueStrength17
 UniqueRageOnHit1
 UniqueIncreasedArmourPerRage1
 ]],[[
@@ -71,7 +71,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating5
 UniqueItemFoundRarityIncrease4
-UniqueDexterity3
+UniqueDexterity15
 UniqueRageOnHit1
 UniqueIncreasedStunThresholdPerRage1
 ]],
@@ -79,8 +79,8 @@ UniqueIncreasedStunThresholdPerRage1
 [[
 Alpha's Howl
 Armoured Cap
-UniqueLocalIncreasedEvasionRatingPercent1
-UniqueIncreasedSpirit1
+UniqueLocalIncreasedEvasionRatingPercent18
+UniqueIncreasedSpirit4
 UniqueColdResist16
 UniqueDoublePresenceRadius1
 ]],[[
@@ -88,7 +88,7 @@ The Black Insignia
 Corsair Cap
 League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent24
-UniqueItemFoundRarityIncrease14
+UniqueItemFoundRarityIncrease20
 UniqueLightningResist24
 UniqueTailwindOnCriticalStrike1
 UniqueLoseTailwindOnHit1
@@ -109,7 +109,7 @@ Hunter Hood
 Variant: Pre 0.1.1
 Variant: Pre 0.5.0
 Variant: Current
-UniqueLocalIncreasedEvasionRatingPercent2
+UniqueLocalIncreasedEvasionRatingPercent21
 {variant:1}UniqueDexterity26[10,20]
 {variant:2,3}UniqueDexterity26
 {variant:1,2}UniqueCharmChargeGeneration1[30,30]
@@ -127,9 +127,9 @@ Heatshiver
 Velvet Cap
 League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent31
-UniqueIncreasedMana45
+UniqueIncreasedMana47
 UniqueFireResist33
-UniqueColdResist28
+UniqueColdResist34
 UniqueColdAddedAsFireChilledEnemy1
 ]],[[
 Innsmouth
@@ -138,15 +138,15 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueLocalIncreasedEvasionRating5
 UniqueMaximumManaIncrease2
-UniqueColdResist3
+UniqueColdResist6
 UniqueChaosResist3
 UniqueManaRegeneration4
 ]],[[
 Myris Uxor
 Covert Hood
-UniqueLocalIncreasedEvasionRatingPercent3
-UniqueIncreasedAccuracy5
-UniqueIncreasedMana7
+UniqueLocalIncreasedEvasionRatingPercent14
+UniqueIncreasedAccuracy6
+UniqueIncreasedMana18
 UniqueCullingStrikeThreshold1
 ]],[[
 Radiant Grief
@@ -154,8 +154,8 @@ Lace Hood
 Variant: Pre 0.5.0
 Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent1
-UniqueFireResist6
-UniqueLightRadius7
+UniqueFireResist15
+UniqueLightRadius10
 {variant:1}UniqueIgniteEnemiesInPresence1[100,100]
 {variant:2}UniqueIgniteEnemiesInPresence1
 ]],[[
@@ -164,8 +164,8 @@ Leatherbound Hood
 League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent26
 UniqueCriticalStrikeChance13
-UniqueDexterity38
-EvasionRatingPercentOnLowLifeUniqueHelmetDex4
+UniqueDexterity36
+UniqueEvasionRatingPercentOnLowLife1
 UniqueDamageRemovedFromCompanion1
 ]],
 -- Helmet: Energy Shield
@@ -186,10 +186,10 @@ Variant: Current
 Crown of Eyes
 Vermeil Circlet
 League: Dawn of the Hunt
-UniqueLocalIncreasedEnergyShieldPercent23
+UniqueLocalIncreasedEnergyShieldPercent16
 UniqueIncreasedAccuracy9
-UniqueAllAttributes7
-UniqueFireResist9
+UniqueAllAttributes13
+UniqueFireResist19
 UniqueSpellDamageModifiersApplyToAttackDamage1
 ]],[[
 Crown of Thorns
@@ -203,10 +203,10 @@ The Devouring Diadem
 Wicker Tiara
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedEnergyShieldPercent1
-{variant:2}UniqueIncreasedLife42
-UniqueIntelligence6
-UniqueChaosResist3
+UniqueLocalIncreasedEnergyShieldPercent4
+{variant:2}UniqueIncreasedLife43
+UniqueIntelligence7
+UniqueChaosResist5
 UniqueConsumeCorpseRecoverLife1
 ]],[[
 Forbidden Gaze
@@ -248,7 +248,7 @@ Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedEnergyShield8
-UniqueDexterity3
+UniqueDexterity30
 UniqueEnemiesInPresenceBlinded1
 {variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
 {variant:2}UniqueEnemiesInPresenceGainCritWeakness1[15,15]
@@ -259,7 +259,7 @@ Jade Tiara
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield17
 UniqueSpellDamage3
-UniqueIncreasedMana28
+UniqueIncreasedMana40
 UniqueIncreasedCastSpeed12
 UniquePhysicalDamageOnSkillUse1
 ]],[[
@@ -267,10 +267,10 @@ Visage of Ayah
 Beaded Circlet
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedEnergyShieldPercent2
+UniqueLocalIncreasedEnergyShieldPercent8
 UniqueItemFoundRarityIncrease8
 UniqueCriticalStrikeChance1
-{variant:2}UniqueLightningResist22
+{variant:2}UniqueLightningResist21
 UniqueEldritchBattery1
 ]],
 -- Helmet: Armour/Evasion
@@ -359,10 +359,10 @@ Ironride
 Visored Helm
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedArmourAndEvasion11
+UniqueLocalIncreasedArmourAndEvasion20
 {variant:2}UniqueIncreasedLife44
-UniqueIncreasedMana5
-UniqueLightningResist14
+UniqueIncreasedMana25
+UniqueLightningResist15
 UniqueAccuracyUnaffectedDistance1
 ]],[[
 The Smiling Knight
@@ -377,9 +377,9 @@ UniqueAggravateBleedOnCrit1
 ]],[[
 The Vile Knight
 Shielded Helm
-UniqueLocalIncreasedArmourAndEvasion2
-UniqueIncreasedAccuracy7
-UniqueLifeRegeneration3
+UniqueLocalIncreasedArmourAndEvasion17
+UniqueIncreasedAccuracy8
+UniqueLifeRegeneration7
 UniqueBuildDamageAgainstRareAndUnique1
 ]],
 -- Helmet: Armour/Energy Shield
@@ -389,7 +389,7 @@ Horned Crown
 Variant: Pre 0.1.1
 Variant: Current
 UniqueMovementVelocity6
-UniqueLocalIncreasedArmourAndEnergyShield5
+UniqueLocalIncreasedArmourAndEnergyShield8
 {variant:1}UniqueIncreasedLife12[40,60]
 {variant:2}UniqueIncreasedLife12
 UniqueReducedChillEffectOnSelf1
@@ -409,7 +409,7 @@ Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield5
 UniqueIncreasedLife13
-UniqueItemFoundRarityIncrease3
+UniqueItemFoundRarityIncrease9
 {variant:2}UniqueAttackerTakesDamage5
 UniqueThornsOnAnyHit1
 ]],[[
@@ -417,8 +417,8 @@ Crown of the Victor
 Iron Crown
 Variant: Pre 0.2.0
 Variant: Current
-{variant:1}UniqueItemFoundRarityIncrease2[10,20]
-{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueItemFoundRarityIncrease7[10,20]
+{variant:2}UniqueItemFoundRarityIncrease7
 UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1
@@ -473,8 +473,8 @@ Variant: Current
 {variant:2}UniqueLocalIncreasedEvasionAndEnergyShield14
 {variant:1}UniqueCriticalStrikeChance3[20,40]
 {variant:2}UniqueCriticalStrikeChance3
-UniqueDexterity2
-UniqueIntelligence6
+UniqueDexterity13
+UniqueIntelligence14
 UniquePoisonOnCrit1
 ]],[[
 Glimpse of Chaos
@@ -506,7 +506,7 @@ Leer Cast
 Hooded Mask
 Variant: Pre 0.1.1
 Variant: Current
-UniqueIncreasedLife32
+UniqueIncreasedLife5
 UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
 {variant:2}UniqueDexterity32
@@ -517,7 +517,7 @@ Face Mask
 UniqueLocalBaseEvasionRatingAndEnergyShield2
 UniqueSpellCriticalStrikeChance1
 UniqueStrength8
-UniqueIntelligence10
+UniqueIntelligence6
 UniqueBloodMagic1
 ]],[[
 Mind of the Council
@@ -528,14 +528,14 @@ Variant: Current
 {variant:1}UniqueLocalIncreasedEvasionAndEnergyShield16[60,90]
 {variant:2}UniqueLocalIncreasedEvasionAndEnergyShield16
 UniqueIncreasedMana42
-UniqueLightningResist20
+UniqueLightningResist25
 UniqueAttackManaCost1
 UniqueAttackMaxLightningDamage1
 ]],[[
 The Three Dragons
 Solid Mask
 UniqueLocalIncreasedEvasionAndEnergyShield8
-UniqueAllResistances6
+UniqueAllResistances7
 UniqueFireShocks1
 UniqueColdIgnites1
 UniqueLightningFreezes1
@@ -559,8 +559,8 @@ Grand Visage
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
 Variant: Current
-UniqueIncreasedMana12
-UniqueLightRadius9
+UniqueIncreasedMana34
+UniqueLightRadius15
 {variant:1}UniqueLocalArmourAndEvasionAndEnergyShield2[100,150]
 {variant:2}UniqueLocalArmourAndEvasionAndEnergyShield2
 UniqueGlobalItemAttributeRequirements2

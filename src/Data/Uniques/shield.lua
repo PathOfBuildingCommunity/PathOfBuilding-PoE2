@@ -137,12 +137,15 @@ for 4 seconds, every 0.25 seconds while raised
 ]],[[
 Wulfsbane
 Painted Tower Shield
+Version: Pre 0.3.0
+Version: Current
 Implicits: 1
 Grants Skill: Raise Shield
 +(40-60) to maximum Life
 +(10-15) to Strength
 +(60-80) to Stun Threshold
-Permanently Intimidate enemies on Block
+{version:2}Intimidate Enemies on Block for 8 seconds
+{version:1}UniqueEnemiesBlockedAreIntimidated
 ]],
 -- Shield: Evasion
 [[
@@ -333,6 +336,7 @@ No Movement Speed Penalty while Shield is Raised
 ]],[[
 Merit of Service
 Pelage Targe
+Source: No longer obtainable
 Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1

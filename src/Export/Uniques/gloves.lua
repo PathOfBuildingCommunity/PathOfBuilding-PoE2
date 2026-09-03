@@ -56,7 +56,7 @@ Variant: Pre 0.1.1
 Variant: Current
 UniqueIncreasedSkillSpeed1
 {variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating3
-UniqueIncreasedLife3
+UniqueIncreasedLife9
 UniqueMaximumManaIncrease3
 UniqueShareChargesWithAllies1
 ]],[[
@@ -64,7 +64,7 @@ Empire's Grasp
 Titan Mitts
 League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent30
-UniqueStrength23
+UniqueStrength41
 UniqueLifeGainedFromEnemyDeath11
 UniqueIncreasedPhysicalDamagePercent1
 UniqueEnemyKnockbackDirectionReversed1
@@ -117,9 +117,9 @@ Fine Bracers
 Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent12
-UniqueCriticalStrikeChance1
+UniqueCriticalStrikeChance5
 UniqueIncreasedAttackSpeed3
-UniqueDexterity2
+UniqueDexterity19
 {variant:2}UniqueCriticalStrikesCannotBeRerolled1
 UniqueCriticalStrikeMultiplierOverride1
 ]],[[
@@ -173,7 +173,7 @@ Doedre's Tenure
 Stitched Gloves
 Variant: Pre 0.1.1
 Variant: Current
-{variant:2}UniqueLocalIncreasedEnergyShield12
+{variant:2}UniqueLocalIncreasedEnergyShield10
 UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
 UniqueIntelligence18
@@ -183,22 +183,22 @@ Furtive Wraps
 League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionAndEnergyShield17
 UniqueAddedLightningDamage3
-UniqueIntelligence31
+UniqueIntelligence34
 UniqueLightningResist26
 UniqueLeechEnergyShieldInsteadofLife1
 ]],[[
 Kitoko's Current
 Jewelled Gloves
 UniqueLocalIncreasedEnergyShieldPercent7
-UniqueDexterity2
+UniqueDexterity10
 UniqueAttackAndCastSpeed1
 UniqueLightningDamageCanElectrocute1
 ]],[[
 Leopold's Applause
 Embroidered Gloves
 League: Dawn of the Hunt
-UniqueLocalIncreasedEnergyShieldPercent1
-UniqueIncreasedMana12
+UniqueLocalIncreasedEnergyShieldPercent25
+UniqueIncreasedMana48
 UniqueItemFoundRarityIncrease21
 UniqueElementalPenetration1
 UniqueElementalPenetrationBelowZero1
@@ -206,10 +206,10 @@ UniqueElementalPenetrationBelowZero1
 Nightscale
 Pauascale Gloves
 League: Dawn of the Hunt
-UniqueLocalIncreasedEnergyShieldPercent25
+UniqueLocalIncreasedEnergyShieldPercent20
 UniqueCriticalStrikeChance14
-UniqueIntelligence29
-UniqueColdResist34
+UniqueIntelligence10
+UniqueColdResist30
 UniqueManaRegenerationRateIfCritRecently1
 UniqueNoManaRegenIfNotCritRecently1
 ]],[[
@@ -233,7 +233,7 @@ Aerisvane's Wings
 Burnished Gauntlets
 UniqueLocalIncreasedArmourAndEvasion15
 UniqueIncreasedAttackSpeed4
-UniqueIntelligence9
+UniqueIntelligence22
 UniqueDecimatingStrike1
 ]],[[
 Aurseize
@@ -245,10 +245,10 @@ UniqueMaximumLifeOnKillPercent1
 Death Articulated
 Ornate Gauntlets
 League: Dawn of the Hunt
-UniqueLocalIncreasedArmourAndEvasion26
-UniqueIncreasedAttackSpeed8
-UniqueChaosResist25
-UniqueLifeDegenerationPercentGracePeriod1
+UniqueLocalIncreasedArmourAndEvasion30
+UniqueIncreasedAttackSpeed9
+UniqueChaosResist35
+UniqueLifeDegenerationPercentGracePeriod3
 UniqueRageRegeneration1
 UniqueNonherentRageLoss1
 ]],[[
@@ -268,17 +268,17 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueLocalIncreasedArmourAndEvasion25
 UniqueAddedPhysicalDamage3
-UniqueIncreasedLife6
+UniqueIncreasedLife10
 UniqueIncreasedAttackSpeed2
 UniqueStrengthSatisfiesAllWeaponRequirements1
 ]],[[
 Valako's Vice
 Plate Gauntlets
 League: Dawn of the Hunt
-UniqueLocalIncreasedArmourAndEvasion6
-UniqueIncreasedAttackSpeed9
-UniqueStrength41
-UniqueDexterity37
+UniqueLocalIncreasedArmourAndEvasion19
+UniqueIncreasedAttackSpeed11
+UniqueStrength23
+UniqueDexterity24
 UniqueLightningResist23
 UniqueFireDamageConvertToLightning1
 ]],
@@ -289,7 +289,7 @@ Goldcast Cuffs
 Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueLocalIncreasedEnergyShield11
-UniqueIntelligence6
+UniqueIntelligence12
 UniqueFireResist7
 UniqueColdResist9
 UniqueFireDamageConvertToCold1
@@ -328,7 +328,7 @@ UniqueReflectCurseToSelf1
 [[
 Blessed Bonds
 Linen Wraps
-Source: Drops from unique{Zarokh, the Temporal}
+Source: No longer obtainable
 UniqueLocalBaseEvasionRatingAndEnergyShield1
 UniqueManaGainedFromEnemyDeath8
 UniqueColdExposureOnIgnite1
@@ -352,7 +352,7 @@ Linen Wraps
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield2
-UniqueIncreasedLife10
+UniqueIncreasedLife6
 {variant:2}UniqueCriticalMultiplier3
 UniqueLifeFlaskNoRecovery1
 UniqueDoubleOnKillEffects1
@@ -387,7 +387,7 @@ Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
-UniqueIncreasedSkillSpeed1
+UniqueIncreasedSkillSpeed5
 {variant:1}UniqueLocalArmourAndEvasionAndEnergyShield3[40,60]
 {variant:2}UniqueLocalArmourAndEvasionAndEnergyShield3[100,150]
 {variant:3}UniqueLocalArmourAndEvasionAndEnergyShield3

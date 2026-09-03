@@ -13,7 +13,7 @@ Variant: Current
 {variant:2}UniqueLocalCriticalMultiplier1[30,40]
 {variant:3,4}UniqueLocalCriticalMultiplier1
 {variant:1,2,3}UniqueAdditionalArrow1
-UniqueLifeGainedFromEnemyDeath4
+UniqueLifeGainedFromEnemyDeath5
 UniqueManaGainedFromEnemyDeath6
 {variant:4}UniqueAdditionalArrowChance1
 ]],[[
@@ -23,8 +23,8 @@ League: Dawn of the Hunt
 Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalAddedPhysicalDamage7
-UniqueDexterity4
-UniqueManaRegeneration3
+UniqueDexterity17
+UniqueManaRegeneration5
 {variant:1}UniqueLocalPhysicalDamageAddedAsEachElement1[50,50]
 {variant:2}UniqueLocalPhysicalDamageAddedAsEachElement1
 ]],[[
@@ -67,7 +67,7 @@ Variant: Current
 UniqueLocalIncreasedPhysicalDamagePercent14
 UniqueLocalIncreasedAccuracy8
 UniqueLocalIncreasedAttackSpeed22
-UniqueDexterity44
+UniqueDexterity42
 UniqueLioneyeDodgeRoll1
 {variant:1}UniqueRepeatNoEnemyInPresence[1,1]
 {variant:2}UniqueRepeatNoEnemyInPresence
@@ -106,7 +106,7 @@ Variant: Pre 0.4.0
 Variant: Current
 {variant:1}UniqueLocalAddedLightningDamage6[1,1][200,300]
 {variant:2}UniqueLocalAddedLightningDamage6
-UniqueLocalIncreasedAttackSpeed17
+UniqueLocalIncreasedAttackSpeed13
 UniqueLightningDamageConvertToChaos1
 UniqueChaosDamageCanShock1
 ]],[[

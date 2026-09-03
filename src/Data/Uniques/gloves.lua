@@ -333,7 +333,7 @@ Curses you inflict are reflected back to you
 [[
 Blessed Bonds
 Linen Wraps
-Source: Drops from unique{Zarokh, the Temporal}
+Source: No longer obtainable
 Requires Level 56
 +(60-100) to Evasion Rating
 +(30-50) to maximum Energy Shield

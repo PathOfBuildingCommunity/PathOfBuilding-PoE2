@@ -159,7 +159,6 @@ Studded Greatclub
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (10-12) to (18-22) Physical Damage
-{variant:2}Adds (18-22) to (24-28) Physical Damage
 {variant:1}Adds 1 to (36-42) Lightning Damage
 {variant:2}Adds 1 to (110-115) Lightning Damage
 (10-15)% increased Attack Speed

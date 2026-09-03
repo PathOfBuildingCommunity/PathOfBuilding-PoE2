@@ -8,8 +8,8 @@ Broadhead Quiver
 Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueAddedColdDamage2
-UniqueIncreasedAttackSpeed4
-UniqueColdResist4
+UniqueIncreasedAttackSpeed5
+UniqueColdResist18
 UniqueEnemiesChilledIncreasedDamageTaken1
 UniqueDamageAddedAsColdAttacks1
 ]],[[
@@ -26,7 +26,7 @@ Fire Quiver
 Variant: Pre 0.1.1
 Variant: Current
 {variant:2}UniqueAddedFireDamage1
-UniqueIncreasedMana5
+UniqueIncreasedMana23
 UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
 UniqueDamageAddedAsFireAttacks1
@@ -52,7 +52,7 @@ Sacral Quiver
 League: Dawn of the Hunt
 Variant: Pre 0.4.0
 Variant: Current
-UniqueIncreasedAttackSpeed5
+UniqueIncreasedAttackSpeed10
 UniqueLifeGainPerTarget2
 UniqueArrowPierceChance1
 {variant:1}UniqueBowDamageFromLifeFlaskCharges1[10,10][5,5]

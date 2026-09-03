@@ -111,6 +111,7 @@ Vaal Cuirass
 ]],[[
 The Road Warrior
 Raider Plate
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}(50-100)% increased Armour
@@ -777,7 +778,6 @@ Anchorite Garb
 Variant: Pre 0.1.1
 Variant: Current
 +(50-70) to maximum Mana
-{variant:2}-15% to Cold Resistance
 {variant:1}+(20-30)% to Lightning Resistance
 {variant:2}+(20-30)% to Lightning Resistance
 20% chance to gain a Power Charge on Hit
