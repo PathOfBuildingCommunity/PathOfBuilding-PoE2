@@ -2417,6 +2417,7 @@ c["15% increased Spell Damage while holding a Shield"]={{[1]={[1]={type="Conditi
 c["15% increased Spell Damage while wielding a Staff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Spell Damage while you have Arcane Surge"]={{[1]={[1]={type="Condition",var="AffectedByArcaneSurge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Spell damage for each 200 total Mana you have Spent Recently"]={{[1]={[1]={div=200,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
+c["15% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=15}},nil}
 c["15% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=15}},nil}
 c["15% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=15}},nil}
 c["15% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=15}},nil}
@@ -5000,8 +5001,8 @@ c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShoc
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
-c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
 end)();(function()
+c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
@@ -5418,7 +5419,6 @@ c["Adds 200 to 400 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",ty
 c["Adds 201 to 333 Chaos damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=201},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=333}},nil}
 c["Adds 21 to 34 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=21},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=34}},nil}
 c["Adds 21 to 37 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=21},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=37}},nil}
-c["Adds 22 to 28 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=28}},nil}
 c["Adds 22 to 33 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=33}},nil}
 c["Adds 22 to 35 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=35}},nil}
 c["Adds 22 to 35 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=35}},nil}
@@ -7761,6 +7761,7 @@ c["Gain Guard equal to 15% of missing Energy Shield for 4 seconds when you Dodge
 c["Gain Guard equal to 20% of missing Energy Shield for 4 seconds when you Dodge Roll"]={nil,"Guard equal to 20% of missing Energy Shield  when you Dodge Roll "}
 c["Gain Guard equal to 20% of missing Energy Shield for 4 seconds when you Dodge Roll Maximum amount of Guard is based on maximum Energy Shield instead"]={nil,"Guard equal to 20% of missing Energy Shield  when you Dodge Roll Maximum amount of Guard is based on maximum Energy Shield instead "}
 c["Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends"]={nil,"Guard equal to Current Runic Ward  when Effect ends "}
+c["Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends Excess Life Recovery added as Guard for 10 seconds"]={nil,"Guard equal to Current Runic Ward  when Effect ends Excess Life Recovery added as Guard  "}
 c["Gain Immunity to Physical Damage for 1.5 seconds on Rampage"]={nil,"Immunity to Physical Damage for 1.5 seconds on"}
 c["Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Infernal Flame instead of spending Mana for Skill costs "}
 c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum "}
@@ -8358,6 +8359,7 @@ c["Instant Recovery"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",
 c["Insufficient Mana doesn't prevent your Melee Attacks"]={nil,"Insufficient Mana doesn't prevent your Melee Attacks "}
 c["Intimidate Enemies for 4 seconds on Hit with Attacks while at maximum Endurance Charges"]={{[1]={[1]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},[2]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
 c["Intimidate Enemies on Block for 8 seconds"]={nil,"Intimidate Enemies on Block for 8 seconds "}
+c["Intimidate Enemies on Block for 8 seconds UniqueEnemiesBlockedAreIntimidated"]={nil,"Intimidate Enemies on Block for 8 seconds UniqueEnemiesBlockedAreIntimidated "}
 c["Invocated Spells deal 15% increased Damage"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="Damage",type="INC",value=15}},nil}
 c["Invocated Spells deal 70% increased Damage"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="Damage",type="INC",value=70}},nil}
 c["Invocated Spells deal 82% increased Damage"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="Damage",type="INC",value=82}},nil}
@@ -9256,6 +9258,7 @@ c["Regenerate 5 Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegen"
 c["Regenerate 5% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 5% of maximum Life over 1 second when Stunned "}
 c["Regenerate 5% of maximum Life per second if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["Regenerate 5% of maximum Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
+c["Regenerate 5.0% of maximum Runic Ward per second during Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="WardRegenPercent",type="BASE",value=5}},nil}
 c["Regenerate 6% of your maximum Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegenPercent",type="BASE",value=6}},nil}
 c["Regenerate 7 Life over 1 second when you Cast a Spell"]={nil,"Regenerate 7 Life over 1 second when you Cast a Spell "}
 c["Regenerate 75 Life per second per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=75}},nil}
@@ -9698,6 +9701,7 @@ c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="S
 c["Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
 c["Unique Tamed Beasts have 30% increased movement speed"]={nil,"Unique Tamed Beasts have 30% increased movement speed "}
 c["Unique Tamed Beasts have 30% increased movement speed Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds"]={nil,"Unique Tamed Beasts have 30% increased movement speed Unique Tamed Beasts are Possessed by random Azmeri Spirits, changing every 20 seconds "}
+c["UniqueEnemiesBlockedAreIntimidated"]={nil,"UniqueEnemiesBlockedAreIntimidated "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"},[2]={flags=0,keywordFlags=0,name="Condition:HaveUnwaveringStance",type="FLAG",value=true}},nil}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Upgrades Radius to Large"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="timeLostJewelRadiusOverride",value=3}}},nil}
@@ -9999,11 +10003,11 @@ c["as being boosted by Shocked Ground"]={nil,"as being boosted by Shocked Ground
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
+end)();(function()
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
-end)();(function()
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
