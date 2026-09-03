@@ -14,13 +14,13 @@ Variant: Helmet
 Variant: Gloves
 Variant: Boots
 Variant: Shield
-Variant: AR/EV/ES
-Variant: AR
-Variant: EV
-Variant: ES
-Variant: AR/EV
-Variant: AR/ES
-Variant: EV/ES
+Variant: Armour/Evasion/Energy Shield
+Variant: Armour
+Variant: Evasion
+Variant: Energy Shield
+Variant: Armour/Evasion
+Variant: Armour/Energy Shield
+Variant: Evasion/Energy Shield
 Sockets: S S S S S S
 UniqueOnlySocketSoulCores1
 UniqueLocalNoAttributeRequirements2
