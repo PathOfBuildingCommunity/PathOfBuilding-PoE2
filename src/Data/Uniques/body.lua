@@ -7,51 +7,36 @@ Atziri's Splendour
 Sacrificial Regalia
 Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
 League: Fate of the Vaal
+Has Alt Variant: true
 Selected Variant: 1
-Variant: Helmet (AR/EV/ES)
-Variant: Gloves (AR/EV/ES)
-Variant: Boots (AR/EV/ES)
-Variant: Shield (AR/EV/ES)
-Variant: Helmet (AR)
-Variant: Gloves (AR)
-Variant: Boots (AR)
-Variant: Shield (AR)
-Variant: Shield (ES)
-Variant: Helmet (EV)
-Variant: Gloves (EV)
-Variant: Boots (EV)
-Variant: Shield (EV)
-Variant: Helmet (ES)
-Variant: Gloves (ES)
-Variant: Boots (ES)
-Variant: Helmet (AR/EV)
-Variant: Gloves (AR/EV)
-Variant: Boots (AR/EV)
-Variant: Shield (AR/EV)
-Variant: Helmet (AR/ES)
-Variant: Gloves (AR/ES)
-Variant: Boots (AR/ES)
-Variant: Shield (AR/ES)
-Variant: Helmet (EV/ES)
-Variant: Gloves (EV/ES)
-Variant: Boots (EV/ES)
-Variant: Shield (EV/ES)
+Selected Alt Variant: 5
+Variant: Helmet
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Variant: AR/EV/ES
+Variant: AR
+Variant: EV
+Variant: ES
+Variant: AR/EV
+Variant: AR/ES
+Variant: EV/ES
 Sockets: S S S S S S
 Implicits: 1
 +1 to Level of all Corrupted Skill Gems
 Only Soul Cores can be Socketed in this item
-{variant:3,7,11,15,19,23,27}This item gains bonuses from Socketed Soul Cores as though it was also Boots
-{variant:2,6,10,14,18,22,26}This item gains bonuses from Socketed Soul Cores as though it was also Gloves
-{variant:1,5,9,13,17,21,25}This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
-{variant:4,8,12,16,20,24,28}This item gains bonuses from Socketed Soul Cores as though it was also a Shield
+{variant:3}This item gains bonuses from Socketed Soul Cores as though it was also Boots
+{variant:2}This item gains bonuses from Socketed Soul Cores as though it was also Gloves
+{variant:1}This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
+{variant:4}This item gains bonuses from Socketed Soul Cores as though it was also a Shield
 Has no Attribute Requirements
-{variant:5,6,7,8}(200-300)% increased Armour
-{variant:9,10,11,12}(200-300)% increased Evasion Rating
-{variant:13,14,15,16}(200-300)% increased Energy Shield
-{variant:17,18,19,20}(120-180)% increased Armour and Evasion
-{variant:21,22,23,24}(120-180)% increased Armour and Energy Shield
-{variant:25,26,27,28}(120-180)% increased Evasion and Energy Shield
-{variant:1,2,3,4}(80-120)% increased Armour, Evasion and Energy Shield
+{variant:6}(200-300)% increased Armour
+{variant:7}(200-300)% increased Evasion Rating
+{variant:8}(200-300)% increased Energy Shield
+{variant:9}(120-180)% increased Armour and Evasion
+{variant:10}(120-180)% increased Armour and Energy Shield
+{variant:11}(120-180)% increased Evasion and Energy Shield
+{variant:5}(80-120)% increased Armour, Evasion and Energy Shield
 +(10-20)% to all Elemental Resistances
 Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs
 ]],[[
