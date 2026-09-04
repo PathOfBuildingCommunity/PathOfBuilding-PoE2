@@ -864,6 +864,34 @@ describe("TestItemParse", function()
 		assert.are.equals(65, item.requirements.level)
 	end)
 
+	it("does not duplicate socket lines when rebuilding pasted game items", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Rage Mast
+			Razor Quarterstaff
+			--------
+			Item Level: 81
+			--------
+			Sockets: S S
+		]])
+
+		assert.are.equals(2, item.itemSocketCount)
+		assert.are.equals(2, #item.sockets)
+
+		local rawItem = item:BuildRaw()
+		local socketLineCount = 0
+		for line in rawItem:gmatch("[^\n]+") do
+			if line:match("^Sockets:") then
+				socketLineCount = socketLineCount + 1
+			end
+		end
+		assert.are.equals(1, socketLineCount)
+
+		item = new("Item", rawItem)
+		assert.are.equals(2, item.itemSocketCount)
+		assert.are.equals(2, #item.sockets)
+	end)
+
 	it("multi-line rune mod", function()
 		-- Thruldana is Bow-only as well
 		local item = new("Item"):Item([[
