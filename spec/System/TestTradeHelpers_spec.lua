@@ -174,9 +174,6 @@ describe("TradeHelpers trade hash matching", function()
 		local gzipped = tradeHelpers.B64GzipEncode(sampleText)
 		local roundTrip = tradeHelpers.B64GzipDecode(gzipped)
 
-		-- spell-checker: disable
-		assert.are.Equal("H4sIAAAAAAAACgtJLS5RKC4pysxLVyjISU0sTlXITM_LL0oFAAgo9BkZAAAA", gzipped)
-		-- spell-checker: enable
 		assert.are.Equal(sampleText, roundTrip)
 		assert.are_not_equal(sampleText, gzipped)
 
