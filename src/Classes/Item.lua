@@ -2621,6 +2621,12 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 
 		local jewelData = self.jewelData
+		-- Rebuild rather than append: GetActiveModListForSlotNum rebuilds the
+		-- mod list without going through BuildModList, the only place that
+		-- resets jewelData, so this list would grow on every rebuild.
+		-- Cleared to nil, not {}, because CalcSetup falls back to the default
+		-- radius func with `funcList or { ... }` and {} is truthy in Lua.
+		jewelData.funcList = nil
 		for _, func in ipairs(modList:List(nil, "JewelFunc")) do
 			jewelData.funcList = jewelData.funcList or { }
 			t_insert(jewelData.funcList, func)
