@@ -2177,6 +2177,10 @@ local mod = modLib.createMod
 local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
+-- Rite of Passage spirit possession, toggled from the Configuration tab
+local function possessedBy(spirit)
+	return { type = "Condition", var = "PossessedBySpiritOfThe"..spirit }
+end
 
 local gems = {}
 for id in pairs(data.gems) do
@@ -5850,6 +5854,62 @@ local specialModList = {
 	},
 	["gain 0%% to 40%% increased movement speed at random when hit, until hit again"] = {
 		flag("Condition:HaveGamblesprint"),
+	},
+	["possessed by spirit of the bear for (%d+) seconds on use"] = {
+		mod("Life", "INC", 20, possessedBy("Bear")),
+		mod("StunThreshold", "INC", 60, possessedBy("Bear")),
+		mod("EnemyHeavyStunBuildup", "INC", 60, possessedBy("Bear")),
+		mod("DamageTaken", "INC", -20, possessedBy("Bear")),
+	},
+	["possessed by spirit of the boar for (%d+) seconds on use"] = {
+		mod("DamageGainAsFire", "BASE", 20, possessedBy("Boar")),
+		mod("BleedChance", "BASE", 100, possessedBy("Boar")),
+		mod("DamageTaken", "INC", -20, possessedBy("Boar")),
+	},
+	["possessed by spirit of the cat for (%d+) seconds on use"] = {
+		mod("Evasion", "INC", 60, possessedBy("Cat")),
+		mod("CritChance", "INC", 100, possessedBy("Cat")),
+		mod("Speed", "INC", 30, possessedBy("Cat")),
+		mod("WarcrySpeed", "INC", 30, possessedBy("Cat")),
+		mod("TotemPlacementSpeed", "INC", 30, possessedBy("Cat")),
+		mod("MovementSpeed", "INC", 15, possessedBy("Cat")),
+	},
+	["possessed by spirit of the owl for (%d+) seconds on use"] = {
+		mod("EnergyShield", "INC", 60, possessedBy("Owl")),
+		mod("Damage", "INC", 80, possessedBy("Owl")),
+		mod("DamageGainAsCold", "BASE", 20, possessedBy("Owl")),
+	},
+	["possessed by spirit of the ox for (%d+) seconds on use"] = {
+		-- slowing potency is missing
+		mod("AilmentThreshold", "INC", 60, possessedBy("Ox")),
+		mod("Armour", "INC", 60, possessedBy("Ox")),
+		mod("DamageTaken", "INC", -20, possessedBy("Ox")),
+	},
+	["possessed by spirit of the primate for (%d+) seconds on use"] = {
+		flag("CanChill", possessedBy("Primate")),
+		mod("EnemyFreezeBuildup", "INC", 60, possessedBy("Primate")),
+		mod("Damage", "INC", 80, possessedBy("Primate")),
+	},
+	["possessed by spirit of the serpent for (%d+) seconds on use"] = {
+		flag("CanPoison", possessedBy("Serpent")),
+		mod("PoisonChance", "BASE", 100, possessedBy("Serpent")),
+		mod("Damage", "INC", 80, possessedBy("Serpent")),
+	},
+	["possessed by spirit of the stag for (%d+) seconds on use"] = {
+		mod("ElementalResist", "BASE", 30, possessedBy("Stag")),
+		mod("Speed", "INC", 30, possessedBy("Stag")),
+		mod("WarcrySpeed", "INC", 30, possessedBy("Stag")),
+		mod("TotemPlacementSpeed", "INC", 30, possessedBy("Stag")),
+		mod("MovementSpeed", "INC", 15, possessedBy("Stag")),
+		mod("DamageGainAsLightning", "BASE", 20, possessedBy("Stag")),
+	},
+	["possessed by spirit of the wolf for (%d+) seconds on use"] = {
+		-- Maim is missing; cam be set manually in config
+		mod("Speed", "INC", 30, possessedBy("Wolf")),
+		mod("WarcrySpeed", "INC", 30, possessedBy("Wolf")),
+		mod("TotemPlacementSpeed", "INC", 30, possessedBy("Wolf")),
+		mod("MovementSpeed", "INC", 15, possessedBy("Wolf")),
+		flag("Condition:CanArmourBreak", possessedBy("Wolf")),
 	},
 	["trigger socketed curse spell when you cast a curse spell, with a ([%d%.]+) second cooldown"] = {
 		mod("ExtraSupport", "LIST", { skillId = "SupportUniqueCastCurseOnCurse", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }),
