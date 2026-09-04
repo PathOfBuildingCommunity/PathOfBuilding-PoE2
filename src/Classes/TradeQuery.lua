@@ -1117,7 +1117,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name" .. row_idx] = new("LabelControl"):LabelControl(top_pane_alignment_ref, { 0, row_idx * (row_height + row_vertical_padding), 135, row_height - 4 }, nameColor .. slotTbl.slotName)
 	controls["bestButton" .. row_idx] = new("ButtonControl"):ButtonControl({ "LEFT", controls["name" .. row_idx], "LEFT" }, { 135 + 8, 0, 80, row_height }, "Find best", function()
-		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, function(context, query, errMsg)
+		---@param query table A table of filters
+		local function requestQueryHandler(context, query, errMsg)
 			if errMsg then
 				self:SetNotice(context.controls.pbNotice, colorCodes.NEGATIVE .. errMsg)
 				return
@@ -1126,11 +1127,17 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			end
 			if main.api.authToken == nil then
 				local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague)
-				url = url .. "?q=" .. tradeHelpers.B64GzipEncode(query)
+				url = url .. "/" .. tradeHelpers.B64GzipEncode(dkjson.encode(query))
 				controls["uri"..context.row_idx]:SetText(url, true)
 				return
 			end
 			context.controls["priceButton"..context.row_idx].label = "Searching..."
+			-- the query that can be included in the url only contains the filters, which means we
+			-- need to modify the query slightly for the POST endpoint
+			query = dkjson.encode({
+				query = query,
+				sort = { ["statgroup.0"] = "desc" },
+			})
 			self.lastQueries[row_idx] = query
 			self.tradeQueryRequests:SearchWithQueryWeightAdjusted(self.pbRealm, self.pbLeague, query,
 				function(items, errMsg)
@@ -1186,7 +1193,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 					end
 				}
 			)
-		end)
+		end
+		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, requestQueryHandler)
 	end)
 	controls["bestButton"..row_idx].shown = function() return not self.resultTbl[row_idx] end
 	controls["bestButton"..row_idx].enabled = function() return self.pbLeague end
@@ -1383,9 +1391,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				exactQuery.query.filters.trade_filters.filters = exactQuery.query.filters.trade_filters.filters or { }
 				exactQuery.query.filters.trade_filters.filters.account = { input = itemResult.trader }
 
-				local exactQueryStr = dkjson.encode(exactQuery)
+			local exactQueryStr = dkjson.encode(exactQuery.query)
 
-			local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s?q=%s", self.pbLeague, tradeHelpers.B64GzipEncode(exactQueryStr))
+			local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s/%s", self.pbLeague, tradeHelpers.B64GzipEncode(exactQueryStr))
 
 				Copy(encodedUrl)
 				OpenURL(encodedUrl)
