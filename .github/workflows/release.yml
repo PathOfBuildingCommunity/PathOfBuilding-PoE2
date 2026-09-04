@@ -14,30 +14,42 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+            - name: Set line endings
+              run: git config --global core.autocrlf true
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v5
               with:
                 ref: 'dev'
             - name: Generate Release notes
               if: ${{ github.event.inputs.releaseNoteUrl == '' }}
               run: >
                 echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token;
-                gh release view $(basename $(gh release create v${{ github.event.inputs.releaseVersion }} --title "Release ${{ github.event.inputs.releaseVersion }}" --draft --generate-notes)) > temp_change.md
+                gh release view $(basename $(gh release create --target dev v${{ github.event.inputs.releaseVersion }} --title "Release ${{ github.event.inputs.releaseVersion }}" --draft --generate-notes)) > temp_change.md
             - name: Use existing Release notes
               if: ${{ github.event.inputs.releaseNoteUrl != '' }}
               run: >
                 echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token;
                 gh release view $(basename ${{ github.event.inputs.releaseNoteUrl }}) > temp_change.md
+            # The initial draft release must target dev for the changelog generation, but the final release should use the last commit on master to avoid tagging a wrong commit
+            - name: Change release target to master
+              run: |
+                gh release edit v${{ github.event.inputs.releaseVersion }} --target master
             - name: Tweak changelogs
               run: |
                 # Remove carriage returns to be able to run the script
                 sed -i 's/\r$//' .github/tweak_changelogs.sh
                 chmod +x .github/tweak_changelogs.sh
                 .github/tweak_changelogs.sh "v${{ github.event.inputs.releaseVersion }}"
+            - name: Update manifest version
+              run: |
+                sed -ri "s/<Version number=\"([^\"]*)\"/<Version number=\"${{ github.event.inputs.releaseVersion }}\"/g" manifest.xml
+            - name: Update manifest.xml
+              run: python3 update_manifest.py --quiet --in-place
             - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v5
+              uses: peter-evans/create-pull-request@v7
               with:
-                  draft: true
+                  # draft: always-true is needed for the workaround described at https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#workarounds-to-trigger-further-workflow-runs
+                  draft: always-true
                   title: Release ${{ github.event.inputs.releaseVersion }}
                   branch: release-${{ github.event.inputs.releaseVersion }}
                   body: |

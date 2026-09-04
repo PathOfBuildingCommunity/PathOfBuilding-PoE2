@@ -1,0 +1,36 @@
+# These checks are run for PRs preparing a release
+name: Release Check
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      # ready_for_review is needed for the workaround described at https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#workarounds-to-trigger-further-workflow-runs
+      - ready_for_review
+    branches:
+      - 'dev'
+    paths:
+      - 'manifest.xml'
+      - 'changelog.txt' # To detect if this is a release PR
+  workflow_dispatch:
+jobs:
+  check_manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set line endings
+        run: git config --global core.autocrlf true
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update manifest
+        run: python3 update_manifest.py --quiet --in-place
+      - name: Check if the generated manifest is different
+        run: git diff --exit-code manifest.xml
+      - name: Check if the manifest version is correct
+        if: startsWith(github.head_ref, 'release-')
+        run: |
+          MANIFEST_VERSION=$(grep -o '<Version number="[^"]*' manifest.xml | sed 's/<Version number="//')
+          BRANCH_VERSION=$(echo ${{ github.head_ref }} | sed 's/release-//')
+          if [ "$MANIFEST_VERSION" != "$BRANCH_VERSION" ]; then
+            echo "Manifest version ($MANIFEST_VERSION) does not match branch version ($BRANCH_VERSION)"
+            exit 1
+          fi
