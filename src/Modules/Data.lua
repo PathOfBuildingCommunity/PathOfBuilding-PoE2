@@ -967,6 +967,7 @@ end
 
 -- Load gems
 data.gems = LoadModule("Data/Gems")
+data.characterMeleeSkills = LoadModule("Data/CharacterMeleeSkills")
 data.assets = LoadModule("Data/Assets")
 data.skillAssets = LoadModule("Data/Skills/SkillAssets")
 data.gemForSkill = { }
@@ -1066,6 +1067,17 @@ for gemId, gem in pairs(data.gems) do
 end
 for id, gem in pairs(toAddGems) do
     data.gems[id] = gem
+end
+
+-- Resolve exported default-attack gem IDs once. Keep missing entries as false so
+-- later entries are still processed when a skill is not implemented yet.
+for _, offHandSkills in pairs(data.characterMeleeSkills) do
+	for _, gems in pairs(offHandSkills) do
+		for index, gameId in ipairs(gems) do
+			local variants = data.gemsByGameId[gameId]
+			gems[index] = variants and variants[next(variants)] or false
+		end
+	end
 end
 
 -- Load minions

@@ -1787,12 +1787,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local localIncEffect = 0
 		local hasWSCondition = false
 		local newSd = copyTable(mNode.sd)
+		local weaponSet = build.calcsTab.mainEnv and build.calcsTab.mainEnv.weaponSet or (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
 		for _, mod in ipairs(mNode.finalModList) do
 			-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
 			-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
 			for _, modCriteria in ipairs(mod) do
 				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
-					if (tonumber(modCriteria.var:match("(%d)")) == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+					if tonumber(modCriteria.var:match("(%d)")) == weaponSet then
 						if mod.name == "JewelSmallPassiveSkillEffect" then
 							localIncEffect = mod.value
 						elseif mod.name == "JewelNotablePassiveSkillEffect" then

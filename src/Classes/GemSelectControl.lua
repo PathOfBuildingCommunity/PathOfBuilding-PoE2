@@ -110,7 +110,7 @@ function GemSelectClass:PopulateGemList()
 	local characterLevel = self.skillsTab.build and self.skillsTab.build.characterLevel or 1
 
 	for gemId, gemData in pairs(self.skillsTab.build.data.gems) do
-		if (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
+		if not gemData.grantedEffect.fromItem and not gemData.grantedEffect.fromTree and (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
 			local levelRequirement = (gemData.grantedEffect.levels and gemData.grantedEffect.levels[1] and gemData.grantedEffect.levels[1].levelRequirement) or 1
 			if characterLevel >= levelRequirement or not matchLevel then
 				if self.skillsTab.showLegacyGems or not (self.skillsTab.showLegacyGems and gemData.grantedEffect.legacy) then
@@ -496,15 +496,16 @@ function GemSelectClass:IsHoverSelectionReady()
 end
 
 function GemSelectClass:Draw(viewPort, noTooltip)
+	local enabled = self:IsEnabled()
 	self.sortPercentage = self.sortPercentage or ""
-	if self.dpsBuildFlag then
+	if enabled and self.dpsBuildFlag then
 		self.dpsBuildFlag = false
 		self.dpsBuilder = coroutine.create(self.DPSBuilder)
 		self.dpsBuilderCallback = function(percentage)
 			self.sortPercentage = ("%d%%"):format(percentage)
 		end
 	end
-	if self.dpsBuilder then
+	if enabled and self.dpsBuilder then
 		local res, errMsg = coroutine.resume(self.dpsBuilder, self)
 		if launch.devMode and not res then
 			error(errMsg)
@@ -517,7 +518,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 	self.EditControl:Draw(viewPort, noTooltip and not self.forceTooltip)
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
-	local enabled = self:IsEnabled()
 	local mOver, mOverComp = self:IsMouseOver()
 	local dropHeight = (height - 4) * m_min(#self.list, 15)
 	local scrollBar = self.controls.scrollBar

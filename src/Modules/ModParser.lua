@@ -3586,6 +3586,7 @@ local specialModList = {
 		mod("ScoldsBridleSelfDamage", "LIST", {dmgMult = dmgMult, damageType = dmgType})
 	} end,
 	-- Extra skill/support
+	["grants skill: spear throw"] = { }, -- Display-only; granted by CharacterMeleeSkills.
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,
 	["[ct][ar][si][tg]g?e?r?s? level (%d+) (.+) when equipped"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,

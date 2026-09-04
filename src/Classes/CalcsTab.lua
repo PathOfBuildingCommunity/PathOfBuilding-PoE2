@@ -39,21 +39,22 @@ function CalcsTabClass:CalcsTab(build)
 	t_insert(self.controls, self.controls.search)
 
 	-- Special section for skill/mode selection
-	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
-		{ label = "Socket Group", { controlName = "mainSocketGroup", 
-					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
-				self.input.skill_number = index
-				self:AddUndoState()
-				self.build.buildFlag = true
-			end) {
-				tooltipFunc = function(tooltip, mode, index, value)
-					local socketGroup = self.build.skillsTab.socketGroupList[index]
-					if socketGroup and tooltip:CheckForUpdate(socketGroup, self.build.outputRevision) then
-						self.build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
-					end
+	self.socketGroupRow = { label = "Socket Group: Both", { controlName = "mainSocketGroup",
+		control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
+			self.input.skill_number = index
+			self:AddUndoState()
+			self.build.buildFlag = true
+		end) {
+			tooltipFunc = function(tooltip, mode, index, value)
+				local socketGroup = self.build.skillsTab.socketGroupList[index]
+				if socketGroup and tooltip:CheckForUpdate(socketGroup, self.build.outputRevision) then
+					self.build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
 				end
-			}
-		}, },
+			end
+		}
+	} }
+	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
+		self.socketGroupRow,
 		{ label = "Active Skill", { controlName = "mainSkill", 
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
@@ -483,7 +484,7 @@ function CalcsTabClass:SearchMatch(txt)
 end
 
 -- Build the calculation output tables
-function CalcsTabClass:BuildOutput()
+function CalcsTabClass:BuildOutput(validateWeaponSets)
 	self.powerBuildFlag = true
 
 	--[[
@@ -502,9 +503,16 @@ function CalcsTabClass:BuildOutput()
 	end
 
 	self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
+	if self.build.skillsTab:ReconcileSocketGroupWeaponSets(self.mainEnv, validateWeaponSets) then
+		wipeGlobalCache()
+		self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
+		self.build.skillsTab:CacheSocketGroupWeaponSetValidity(self.mainEnv)
+	end
 	self.mainOutput = self.mainEnv.player.output
 	self.calcsEnv = self.calcs.buildOutput(self.build, "CALCS")
 	self.calcsOutput = self.calcsEnv.player.output
+	self.build.controls.mainSkillLabel.label = "^7Main Skill: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])
+	self.socketGroupRow.label = "Socket Group: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.input.skill_number])
 
 	if self.displayData then
 		self.controls.breakdown:SetBreakdownData()

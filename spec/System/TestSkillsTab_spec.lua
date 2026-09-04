@@ -382,6 +382,7 @@ describe("TestSkillsTab", function()
 			it("Initializes new skill sets with default structure", function()
 				assert.is_not_nil(build.skillsTab.skillSets[1])
 				assert.is_not_nil(build.skillsTab.skillSets[1].socketGroupList)
+				assert.is_not_nil(build.skillsTab.skillSets[1].removedSocketGroupList)
 				assert.is_not_nil(build.skillsTab.skillSets[1].id)
 			end)
 
@@ -392,11 +393,213 @@ describe("TestSkillsTab", function()
 					gemList = {}
 				}
 				build.skillsTab.skillSets[1].socketGroupList[1] = testSocketGroup
+				build.skillsTab.skillSets[1].removedSocketGroupList.cached = {
+					label = "Cached",
+					gemList = { { nameSpec = "Arcane Tempo I", level = 1 } },
+				}
 
 				local newSkillSet = build.skillsTab:CopySkillSet(1, "Copy Test")
 
 				assert.are.equals("Original", newSkillSet.socketGroupList[1].label)
 				assert.is_false(newSkillSet.socketGroupList[1].enabled)
+				assert.are.equals("Cached", newSkillSet.removedSocketGroupList.cached.label)
+				assert.are_not.equals(build.skillsTab.skillSets[1].removedSocketGroupList.cached, newSkillSet.removedSocketGroupList.cached)
+			end)
+
+			it("Clones removed granted-skill groups in undo states", function()
+				local cachedGroup = {
+					label = "Granted",
+					enabled = true,
+					gemList = { { skillId = "GrantedSkill", level = 1, enabled = true } },
+				}
+				build.skillsTab.skillSets[1].removedSocketGroupList.granted = cachedGroup
+
+				local state = build.skillsTab:CreateUndoState()
+				local savedGroup = state.skillSets[1].removedSocketGroupList.granted
+				build.skillsTab.skillSets[1].removedSocketGroupList.granted = nil
+				cachedGroup.gemList[1].level = 2
+
+				assert.are_not.equal(cachedGroup, savedGroup)
+				assert.are_not.equal(cachedGroup.gemList[1], savedGroup.gemList[1])
+				assert.are.equals(1, savedGroup.gemList[1].level)
+			end)
+
+			it("persists removed granted-skill groups", function()
+				local key = "Item:Test\0Weapon 1\0Fireball"
+				build.skillsTab.skillSets[1].removedSocketGroupList[key] = {
+					label = "Cached",
+					enabled = true,
+					set1 = true,
+					set2 = false,
+					gemList = { { nameSpec = "Arcane Tempo I", level = 1, quality = 0, enabled = true, count = 1 } },
+				}
+				local xml = { }
+				build.skillsTab:Save(xml)
+				build.skillsTab:Load(xml)
+
+				local restored = build.skillsTab.skillSets[1].removedSocketGroupList[key]
+				assert.is_not_nil(restored)
+				assert.are.equals("Cached", restored.label)
+				assert.are.equals("Arcane Tempo I", restored.gemList[1].nameSpec)
+				assert.is_false(restored.set2)
+			end)
+
+			it("keeps special generated source gems immutable", function()
+				local group = {
+					source = "Thorns",
+					enabled = true,
+					gemList = { { skillId = "ThornsPlayer", level = 1, quality = 0, enabled = true } },
+				}
+				build.skillsTab:SetDisplayGroup(group)
+
+				assert.is_false(build.skillsTab.gemSlots[1].delete:IsEnabled())
+				assert.is_false(build.skillsTab.gemSlots[1].nameSpec:IsEnabled())
+			end)
+		end)
+
+		describe("Weapon set assignments", function()
+			it("does not calculate weapon-set validity before the first output revision", function()
+				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+				local group = build.skillsTab.socketGroupList[1]
+				build.outputRevision = nil
+				build.skillsTab.weaponSetValidityRevision = nil
+				build.skillsTab.weaponSetValidityCache = nil
+
+				assert.has_no.errors(function()
+					build.skillsTab:SetDisplayGroup(group)
+				end)
+				assert.is_nil(build.skillsTab.weaponSetValidityCache)
+			end)
+
+			it("calculates the inactive context only when checkbox validity is requested", function()
+				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+				local group = build.skillsTab.socketGroupList[1]
+				build.mainSocketGroup = 1
+				build.buildFlag = true
+				runCallback("OnFrame")
+				build.skillsTab.weaponSetValidityCache = nil
+				build.skillsTab.weaponSetValidityRevision = nil
+
+				local calcs = build.calcsTab.calcs
+				local initEnv = calcs.initEnv
+				local initCount = 0
+				calcs.initEnv = function(...)
+					initCount = initCount + 1
+					return initEnv(...)
+				end
+				local set1Valid = build.skillsTab:IsSocketGroupWeaponSetValid(group, 1)
+				local set2Valid = build.skillsTab:IsSocketGroupWeaponSetValid(group, 2)
+				calcs.initEnv = initEnv
+
+				assert.is_true(set1Valid)
+				assert.is_true(set2Valid)
+				assert.are.equals(1, initCount)
+			end)
+
+			it("keeps a set selectable when validity calculation fails", function()
+				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+				local group = build.skillsTab.socketGroupList[1]
+				local calcs = build.calcsTab.calcs
+				local initEnv = calcs.initEnv
+				local mainEnv = build.calcsTab.mainEnv
+				build.calcsTab.mainEnv = nil
+				build.skillsTab.weaponSetValidityCache = nil
+				build.skillsTab.weaponSetValidityRevision = nil
+				calcs.initEnv = function()
+					error("validation failed")
+				end
+
+				local valid = build.skillsTab:IsSocketGroupWeaponSetValid(group, 1)
+
+				calcs.initEnv = initEnv
+				build.calcsTab.mainEnv = mainEnv
+				assert.is_true(valid)
+			end)
+
+			it("shows the selected assignment in sidebar and Calcs headings", function()
+				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+				local group = build.skillsTab.socketGroupList[1]
+				group.set1 = false
+				group.set2 = true
+				build.mainSocketGroup = 1
+				build.calcsTab.input.skill_number = 1
+				build.buildFlag = true
+				runCallback("OnFrame")
+
+				assert.are.equals("^7Main Skill: Set 2", build.controls.mainSkillLabel:GetProperty("label"))
+				assert.are.equals("Socket Group: Set 2", build.calcsTab.socketGroupRow.label)
+			end)
+
+			it("defaults legacy groups to both sets and preserves explicit false values", function()
+				build.skillsTab:LoadSkill({ elem = "Skill", attrib = { enabled = "true" } }, 1)
+				local legacy = build.skillsTab.skillSets[1].socketGroupList[#build.skillsTab.skillSets[1].socketGroupList]
+				assert.is_true(legacy.set1)
+				assert.is_true(legacy.set2)
+
+				legacy.set1 = false
+				local xml = { }
+				build.skillsTab:Save(xml)
+				local savedGroup = xml[1][#xml[1]]
+				assert.are.equals("false", savedGroup.attrib.set1)
+				assert.are.equals("true", savedGroup.attrib.set2)
+			end)
+
+			it("persists the fixed set of generated default attacks", function()
+				build.skillsTab:LoadSkill({ elem = "Skill", attrib = {
+					enabled = "true",
+					source = "Default Attack",
+					slot = "Weapon 1 Swap",
+				} }, 1)
+				local group = build.skillsTab.skillSets[1].socketGroupList[#build.skillsTab.skillSets[1].socketGroupList]
+				assert.is_false(group.set1)
+				assert.is_true(group.set2)
+				assert.is_true(build.skillsTab:IsSocketGroupWeaponSetLocked(group))
+
+				local xml = { }
+				build.skillsTab:Save(xml)
+				assert.are.equals("Default Attack", xml[1][#xml[1]].attrib.source)
+				assert.are.equals("Weapon 1 Swap", xml[1][#xml[1]].attrib.slot)
+			end)
+
+			it("normalizes persisted groups with neither weapon set selected", function()
+				build.skillsTab:LoadSkill({ elem = "Skill", attrib = { enabled = "true", set1 = "false", set2 = "false" } }, 1)
+				local socketGroup = build.skillsTab.skillSets[1].socketGroupList[#build.skillsTab.skillSets[1].socketGroupList]
+				assert.is_true(socketGroup.set1)
+				assert.is_true(socketGroup.set2)
+			end)
+
+			it("does not allow both weapon sets to be unchecked", function()
+				local group = { enabled = true, set1 = true, set2 = false, gemList = { } }
+				build.skillsTab:SetDisplayGroup(group)
+				build.skillsTab.controls.set1Enabled.state = false
+				build.skillsTab.controls.set1Enabled.changeFunc(false)
+				assert.is_true(build.skillsTab.controls.set1Enabled.state)
+				assert.is_true(group.set1)
+				assert.is_false(group.set2)
+			end)
+
+			it("forces skills with the all-weapon-sets reservation stat to both", function()
+				local group = {
+					enabled = true,
+					set1 = true,
+					set2 = false,
+					gemList = { { skillId = "BlinkReservationPlayer", level = 1, quality = 0, enabled = true } },
+				}
+				build.skillsTab:ProcessSocketGroup(group)
+				table.insert(build.skillsTab.socketGroupList, group)
+				build.mainSocketGroup = #build.skillsTab.socketGroupList
+				build.buildFlag = true
+				runCallback("OnFrame")
+				assert.is_true(group.forcedBoth)
+				assert.is_true(group.set1)
+				assert.is_true(group.set2)
+			end)
+
+			it("hides item and tree granted effects from the gem selector", function()
+				for _, gemData in pairs(build.skillsTab.gemSlots[1].nameSpec.gems) do
+					assert.is_not_true(gemData.grantedEffect.fromItem)
+					assert.is_not_true(gemData.grantedEffect.fromTree)
+				end
 			end)
 		end)
 	end)

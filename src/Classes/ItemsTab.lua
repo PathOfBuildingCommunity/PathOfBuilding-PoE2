@@ -349,15 +349,6 @@ function ItemsTabClass:ItemsTab(build)
 			self.activeItemSet.useSecondWeaponSet = false
 			self:AddUndoState()
 			self.build.buildFlag = true
-			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
-			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 2 then
-				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
-					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 1 then
-						self.build.mainSocketGroup = index
-						break
-					end
-				end
-			end
 		end
 	end)
 	self.controls.weaponSwap1.overSizeText = 3
@@ -369,15 +360,6 @@ function ItemsTabClass:ItemsTab(build)
 			self.activeItemSet.useSecondWeaponSet = true
 			self:AddUndoState()
 			self.build.buildFlag = true
-			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
-			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 1 then
-				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
-					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 2 then
-						self.build.mainSocketGroup = index
-						break
-					end
-				end
-			end
 		end
 	end)
 	self.controls.weaponSwap2.overSizeText = 3
@@ -4358,8 +4340,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		self:UpdateSockets()
 		-- Build sorted list of slots to compare with
 		local compareSlots = { }
+		local weaponSet = self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.weaponSet or (self.activeItemSet.useSecondWeaponSet and 2 or 1)
 		for slotName, slot in pairs(self.slots) do
-			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) and slot.shown() then
+			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == weaponSet) and (slot.weaponSet or slot.shown()) then
 				t_insert(compareSlots, slot)
 			end
 		end
@@ -4391,6 +4374,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		-- one slot
 		if main.slotOnlyTooltips and slot then
 			slot = type(slot) ~= "string" and slot or self.slots[slot]
+			if slot and slot.weaponSet then
+				slot = self.slots[slot.slotName:gsub(" Swap", "") .. (weaponSet == 2 and " Swap" or "")]
+			end
 			if slot then addCompareForSlot(slot) end
 			return
 		end
