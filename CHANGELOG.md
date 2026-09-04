@@ -1,5 +1,71 @@
 # Changelog
 
+## [beta](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/beta) (2026/09/04)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.23.1...beta)
+
+
+## What's Changed
+### New to Path of Building
+- Name the weapon set that has points available [\#2418](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2418) ([lucaskarsten](https://github.com/lucaskarsten))
+- Add breakdowns to the build side bar on mouseover [\#2435](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2435) ([vaisest](https://github.com/vaisest))
+- Add Path of Exile 2 BuildPlanner (.build) export [\#2432](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2432) ([vaisest](https://github.com/vaisest))
+- Port add comparisons to config tab tooltips (#10050) [\#2438](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2438) ([vaisest](https://github.com/vaisest))
+- Port refactor custom modifiers block into toggleable blocks (#10050, #10112, #10168) [\#2439](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2439) ([vaisest](https://github.com/vaisest))
+- Port add comparisons to config tab tooltips (#10050) [\#2440](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2440) ([vaisest](https://github.com/vaisest))
+- Improve Build Export qol [\#2436](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2436) ([LocalIdentity](https://github.com/LocalIdentity))
+- Port "Improve buy similar matching" (#10284) [\#2441](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2441) ([vaisest](https://github.com/vaisest))
+- Port "Use Currency Exchange API instead of poe.ninja in trader" #10077 [\#2442](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2442) ([vaisest](https://github.com/vaisest))
+- Improve stat search with pseudo stats and word order ignore [\#2446](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2446) ([vaisest](https://github.com/vaisest))
+- Add NOT filters to trader [\#2447](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2447) ([vaisest](https://github.com/vaisest))
+- Improve calc performance [\#2448](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2448) ([vaisest](https://github.com/vaisest))
+- Add support for increased mod magnitude mods and Unborn Lich [\#2453](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2453) ([vaisest](https://github.com/vaisest))
+- Add support for Grip of Kulemak's Abyssal Wasting [\#2455](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2455) ([vaisest](https://github.com/vaisest))
+- [pob1-port] Add sorting for modifier dropdowns in crafting UI [\#2470](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2470) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Allow recursive build list search with class filtering [\#2464](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2464) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Allow toggling individual item mods just by clicking on them [\#2462](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2462) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Add items filter by loadout [\#2463](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2463) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Add Light Radius to weighted trade stats [\#2483](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2483) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix item modifier classification on character import [\#2486](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2486) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] More generous OAuth timeout [\#2488](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2488) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Increase wait time for OAuth login and copy URL to clipboard [\#2481](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2481) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Update gem control to lazily sort by DPS [\#2473](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2473) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Allow calc panes to become overlay windows [\#2487](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2487) ([github-actions](https://github.com/github-actions)[bot])
+- Implement scoring % breakdown to Trader result dropdown [\#2374](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2374) ([Lawlzer](https://github.com/Lawlzer))
+- Add Minion Rage configuration support [\#2425](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2425) ([kylande01](https://github.com/kylande01))
+- Add support for Runic ward [\#2146](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2146) ([Blitz54](https://github.com/Blitz54))
+- Add support for Idolatry and change how Bonded lines are parsed [\#2366](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2366) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add Martial Artist Rune slots [\#1991](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1991) ([vaisest](https://github.com/vaisest))
+- Improve JITability of Calc-related code: [\#2494](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2494) ([vaisest](https://github.com/vaisest))
+- Added support for Decree of Loyalty mods [\#2497](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2497) ([ntcarlson](https://github.com/ntcarlson))
+### User Interface
+- Fix trader row hiding logic [\#2444](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2444) ([vaisest](https://github.com/vaisest))
+- [pob1-port] Show augmented Armour/Evasion/Ward/Energy Shield in blue on item tooltip [\#2468](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2468) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Clarify stat-difference shortcut context [\#2484](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2484) ([github-actions](https://github.com/github-actions)[bot])
+### Fixed Calculations
+- [pob1-port] Fix Shield block chance calcs [\#2466](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2466) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix precision of Critical Strike Chance value [\#2460](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2460) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix Mana cost efficiency rounding [\#2458](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2458) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix skill Area of Effect rounding and minion skill AoE values [\#2479](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2479) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix "x to Total Mana Cost" mods not working correctly with Life / ES cost conversion [\#2478](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2478) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix rounding of scaled damage conversion percentages [\#2477](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2477) ([github-actions](https://github.com/github-actions)[bot])
+- Fix calculation of Rakiatas Flow and sources of "ignore non-negative elemental resistances" [\#2373](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2373) ([emptywalls](https://github.com/emptywalls))
+- Fix Ancestrally Boosted Strikes incorrectly having a base More Damage Multiplier [\#2370](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2370) ([Peechey](https://github.com/Peechey))
+### Fixed Behaviours
+- Don't count support gems when deciding if a gem group is provided [\#2411](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2411) ([lucaskarsten](https://github.com/lucaskarsten))
+- Fix Exposure mod on Whisper Ice not working [\#2419](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2419) ([lucaskarsten](https://github.com/lucaskarsten))
+- [pob1-port] Fix being unable to set Enemy Resistance to 0 in config tab [\#2461](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2461) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix mirrored items missing "Mirrored" text when using API character import [\#2475](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2475) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix allocated nodes appearing in unallocated power report list [\#2476](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2476) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix reimport of skills showing old gem data [\#2491](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2491) ([github-actions](https://github.com/github-actions)[bot])
+- [pob1-port] Fix various issues with advanced copy/paste [\#2474](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2474) ([github-actions](https://github.com/github-actions)[bot])
+- Fix crash when adding +1 Suffix Rune [\#2372](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2372) ([sengokudaikon](https://github.com/sengokudaikon))
+- Fix 2H weapons not removing off-hand items in comparisons [\#2368](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2368) ([vaisest](https://github.com/vaisest))
+- Fix Bringer of Rain not importing off hand Shield [\#2496](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2496) ([LocalIdentity](https://github.com/LocalIdentity))
+### Accuracy Improvements
+- Parse "+#% to Maximum Quality" [\#2417](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/2417) ([lucaskarsten](https://github.com/lucaskarsten))
+
+
 ## [v0.23.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.23.1) (2026/07/28)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.23.0...v0.23.1)

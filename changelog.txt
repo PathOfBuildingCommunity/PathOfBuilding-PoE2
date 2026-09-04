@@ -1,3 +1,68 @@
+VERSION[beta][2026/09/04]
+
+--- New to Path of Building ---
+* Name the weapon set that has points available (lucaskarsten)
+* Add breakdowns to the build side bar on mouseover (vaisest)
+* Add Path of Exile 2 BuildPlanner (.build) export (vaisest)
+* Port add comparisons to config tab tooltips (#10050) (vaisest)
+* Port refactor custom modifiers block into toggleable blocks (#10050, #10112, #10168) (vaisest)
+* Port add comparisons to config tab tooltips (#10050) (vaisest)
+* Improve Build Export qol (LocalIdentity)
+* Port "Improve buy similar matching" (#10284) (vaisest)
+* Port "Use Currency Exchange API instead of poe.ninja in trader" #10077 (vaisest)
+* Improve stat search with pseudo stats and word order ignore (vaisest)
+* Add NOT filters to trader (vaisest)
+* Improve calc performance (vaisest)
+* Add support for increased mod magnitude mods and Unborn Lich (vaisest)
+* Add support for Grip of Kulemak's Abyssal Wasting (vaisest)
+* [pob1-port] Add sorting for modifier dropdowns in crafting UI (github-actions[bot])
+* [pob1-port] Allow recursive build list search with class filtering (github-actions[bot])
+* [pob1-port] Allow toggling individual item mods just by clicking on them (github-actions[bot])
+* [pob1-port] Add items filter by loadout (github-actions[bot])
+* [pob1-port] Add Light Radius to weighted trade stats (github-actions[bot])
+* [pob1-port] Fix item modifier classification on character import (github-actions[bot])
+* [pob1-port] More generous OAuth timeout (github-actions[bot])
+* [pob1-port] Increase wait time for OAuth login and copy URL to clipboard (github-actions[bot])
+* [pob1-port] Update gem control to lazily sort by DPS (github-actions[bot])
+* [pob1-port] Allow calc panes to become overlay windows (github-actions[bot])
+* Implement scoring % breakdown to Trader result dropdown (Lawlzer)
+* Add Minion Rage configuration support (kylande01)
+* Add support for Runic ward (Blitz54)
+* Add support for Idolatry and change how Bonded lines are parsed (LocalIdentity)
+* Add Martial Artist Rune slots (vaisest)
+* Improve JITability of Calc-related code: (vaisest)
+* Added support for Decree of Loyalty mods (ntcarlson)
+
+--- User Interface ---
+* Fix trader row hiding logic (vaisest)
+* [pob1-port] Show augmented Armour/Evasion/Ward/Energy Shield in blue on item tooltip (github-actions[bot])
+* [pob1-port] Clarify stat-difference shortcut context (github-actions[bot])
+
+--- Fixed Calculations ---
+* [pob1-port] Fix Shield block chance calcs (github-actions[bot])
+* [pob1-port] Fix precision of Critical Strike Chance value (github-actions[bot])
+* [pob1-port] Fix Mana cost efficiency rounding (github-actions[bot])
+* [pob1-port] Fix skill Area of Effect rounding and minion skill AoE values (github-actions[bot])
+* [pob1-port] Fix "x to Total Mana Cost" mods not working correctly with Life / ES cost conversion (github-actions[bot])
+* [pob1-port] Fix rounding of scaled damage conversion percentages (github-actions[bot])
+* Fix calculation of Rakiatas Flow and sources of "ignore non-negative elemental resistances" (emptywalls)
+* Fix Ancestrally Boosted Strikes incorrectly having a base More Damage Multiplier (Peechey)
+
+--- Fixed Behaviours ---
+* Don't count support gems when deciding if a gem group is provided (lucaskarsten)
+* Fix Exposure mod on Whisper Ice not working (lucaskarsten)
+* [pob1-port] Fix being unable to set Enemy Resistance to 0 in config tab (github-actions[bot])
+* [pob1-port] Fix mirrored items missing "Mirrored" text when using API character import (github-actions[bot])
+* [pob1-port] Fix allocated nodes appearing in unallocated power report list (github-actions[bot])
+* [pob1-port] Fix reimport of skills showing old gem data (github-actions[bot])
+* [pob1-port] Fix various issues with advanced copy/paste (github-actions[bot])
+* Fix crash when adding +1 Suffix Rune (sengokudaikon)
+* Fix 2H weapons not removing off-hand items in comparisons (vaisest)
+* Fix Bringer of Rain not importing off hand Shield (LocalIdentity)
+
+--- Accuracy Improvements ---
+* Parse "+#% to Maximum Quality" (lucaskarsten)
+
 VERSION[0.23.1][2026/07/28]
 
 --- Fixed Crashes ---
