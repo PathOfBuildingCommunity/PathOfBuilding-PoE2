@@ -149,12 +149,12 @@ Implicits: 1
 			controls.mod1Check.state = true
 			controls.mod1Check.changeFunc(true)
 			controls.search.onClick()
-			local queryJson = copiedUrl:match("%?q=(.*)"):gsub("%%(%x%x)", function(hex)
+			local queryB64 = copiedUrl:match("Test%%20League/(.*)$"):gsub("%%(%x%x)", function(hex)
 				return string.char(tonumber(hex, 16))
 			end)
-			local query = require("dkjson").decode(queryJson)
+			local query = require("dkjson").decode(require("Classes.TradeHelpers").B64GzipDecode(queryB64))
 
-			assert.same({ { type = "and", filters = { { id = "explicit.stat_1526933524" } } } }, query.query.stats)
+			assert.same({ { type = "and", filters = { { id = "explicit.stat_1526933524" } } } }, query.stats)
 		end)
 
 		it("rebuilds the URL when league and listed status change", function()
@@ -165,13 +165,15 @@ Implicits: 1
 			controls.leagueDrop:SetSel(2)
 			controls.search.onClick()
 			assert.not_equal(initialUrl, copiedUrl)
-			assert.is_truthy(copiedUrl:find("/Standard?", 1, true))
+			assert.is_truthy(copiedUrl:find("/Standard/", 1, true))
 			local standardUrl = copiedUrl
 
 			controls.listedDrop:SetSel(4)
 			controls.search.onClick()
 			assert.not_equal(standardUrl, copiedUrl)
-			assert.is_truthy(copiedUrl:find("any", 1, true))
+			local b64 = copiedUrl:match("Standard/(.-)$")
+			local json = require("Classes.TradeHelpers").B64GzipDecode(b64)
+			assert.is_truthy(json:find("any", 1, true))
 		end)
 
 		it("persists popup selector choices", function()
