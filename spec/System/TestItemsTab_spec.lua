@@ -16,6 +16,41 @@ describe("TestItemsTab", function()
 		runCallback("OnFrame")
 	end)
 
+	it("compares weapons in the skill's assigned set, with Both following the Items tab", function()
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		local group = build.skillsTab.displayGroup
+		build.mainSocketGroup = isValueInArray(build.skillsTab.socketGroupList, group)
+		local staff = new("Item"):Item("New Item\nWrapped Quarterstaff")
+		local slots
+		build.calcsTab.GetMiscCalculator = function()
+			return function(override)
+				table.insert(slots, override.repSlotName)
+				return { }
+			end, { }
+		end
+		build.AddStatComparesToTooltip = function() end
+		local slotOnlyTooltips = main.slotOnlyTooltips
+		for _, case in ipairs({
+			{ true, true, false, "Weapon 1" },
+			{ true, true, true, "Weapon 1 Swap" },
+			{ true, false, true, "Weapon 1" },
+			{ false, true, false, "Weapon 1 Swap" },
+		}) do
+			group.set1, group.set2 = case[1], case[2]
+			build.itemsTab.activeItemSet.useSecondWeaponSet = case[3]
+			build.buildFlag = true
+			runCallback("OnFrame")
+			for _, slotOnly in ipairs({ false, true }) do
+				main.slotOnlyTooltips = slotOnly
+				slots = { }
+				local shownSlot = case[3] and "Weapon 1 Swap" or "Weapon 1"
+				build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), staff, slotOnly and shownSlot or nil, true)
+				main.slotOnlyTooltips = slotOnlyTooltips
+				assert.are.same({ case[4] }, slots)
+			end
+		end
+	end)
+
 	it("keeps item tooltips for socket slots without note buttons", function()
 		local item = new("Item"):Item([[Rarity: RARE
 Test Jewel

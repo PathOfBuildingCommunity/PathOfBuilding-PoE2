@@ -4342,7 +4342,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		local compareSlots = { }
 		local weaponSet = self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.weaponSet or (self.activeItemSet.useSecondWeaponSet and 2 or 1)
 		for slotName, slot in pairs(self.slots) do
-			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == weaponSet) and slot.shown() then
+			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == weaponSet) and (slot.weaponSet or slot.shown()) then
 				t_insert(compareSlots, slot)
 			end
 		end
@@ -4374,6 +4374,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		-- one slot
 		if main.slotOnlyTooltips and slot then
 			slot = type(slot) ~= "string" and slot or self.slots[slot]
+			if slot and slot.weaponSet then
+				slot = self.slots[slot.slotName:gsub(" Swap", "") .. (weaponSet == 2 and " Swap" or "")]
+			end
 			if slot then addCompareForSlot(slot) end
 			return
 		end
