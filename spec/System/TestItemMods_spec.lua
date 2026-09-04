@@ -640,7 +640,6 @@ describe("TetsItemMods", function()
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
-		runCallback("OnFrame")
 		assert.True(build.calcsTab.calcsOutput.ChillEffectMod ~= nil)
 	end)
 
