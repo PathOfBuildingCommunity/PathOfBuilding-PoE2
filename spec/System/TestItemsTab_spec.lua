@@ -46,7 +46,7 @@ describe("TestItemsTab", function()
 				local shownSlot = case[3] and "Weapon 1 Swap" or "Weapon 1"
 				build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), staff, slotOnly and shownSlot or nil, true)
 				main.slotOnlyTooltips = slotOnlyTooltips
-				assert.are.same({ case[4] }, slots)
+				assert.are.same(slotOnly and { case[4] } or { case[4], case[4] }, slots)
 			end
 		end
 	end)

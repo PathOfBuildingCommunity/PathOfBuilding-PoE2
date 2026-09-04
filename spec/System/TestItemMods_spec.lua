@@ -639,8 +639,8 @@ describe("TetsItemMods", function()
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
-		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
-		assert.True(build.calcsTab.calcsOutput.ChillEffectMod ~= nil)
+		local skill = build.calcsTab.mainEnv.player.mainSkill
+		assert.is_true(skill.skillModList:Flag(skill.weapon1Cfg, "CanChill"))
 	end)
 
 	it("ironbound", function()
