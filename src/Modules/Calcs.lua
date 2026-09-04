@@ -533,7 +533,11 @@ function calcs.buildOutput(build, mode)
 	if mode == "MAIN" then
 		for _, skill in ipairs(env.player.activeSkillList) do
 			local uuid = cacheSkillUUID(skill, env)
-			if not GlobalCache.cachedData[mode][uuid] then
+			local group = skill.socketGroup
+			-- Bare default attacks in the other set need no cost calculation until inspected.
+			local deferred = group and group.source == "Default Attack" and #group.gemList == 1
+				and not group.includeInFullDPS and group.usingSkillSet ~= env.weaponSet
+			if not deferred and not GlobalCache.cachedData[mode][uuid] then
 				calcs.buildActiveSkill(env, mode, skill, uuid)
 			end
 			if GlobalCache.cachedData[mode][uuid] and (not skill.triggeredBy or skill.triggeredBy.grantedEffect.id ~= "SupportBlasphemyPlayer") then

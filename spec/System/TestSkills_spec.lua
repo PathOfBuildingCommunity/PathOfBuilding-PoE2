@@ -685,7 +685,6 @@ describe("TestSkills", function()
 			Warmonger Bow
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
 		runCallback("OnFrame")
 		build.configTab.input.useFrenzyCharges = true
@@ -708,7 +707,6 @@ describe("TestSkills", function()
 			Warmonger Bow
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1\nHeightened Charges 1/0 1")
 		runCallback("OnFrame")
 		build.configTab.input.useFrenzyCharges = true
@@ -734,7 +732,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Unearth 20/0  1")
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nRage I 1/0  1")
@@ -769,7 +766,6 @@ describe("TestSkills", function()
 			Increases and Reductions to Minion Damage also affect you
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nRage I 1/0  1")
 		runCallback("OnFrame")
@@ -1091,7 +1087,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
 		runCallback("OnFrame")
@@ -1109,7 +1104,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Ice Shot 20/0  1")
 		runCallback("OnFrame")
@@ -1187,7 +1181,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Lightning Arrow 1/0  1\nMinion Pact I 1/0  1")
 		runCallback("OnFrame")
@@ -1227,7 +1220,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
 		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
@@ -1567,7 +1559,7 @@ describe("TestSkills", function()
 		local bow = new("Item"):Item("New Item\nCrude Bow")
 		build.itemsTab:AddItem(bow, true)
 		build.itemsTab.slots["Weapon 1 Swap"]:SetSelItemId(bow.id)
-		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 20/0  1")
 		local group = build.skillsTab.socketGroupList[1]
 		assignWeaponSet(group)
 		recalculate()
@@ -1592,7 +1584,7 @@ describe("TestSkills", function()
 		build.itemsTab:AddItem(bow, true)
 		build.itemsTab.slots["Weapon 1"]:SetSelItemId(quarterstaff.id)
 		build.itemsTab.slots["Weapon 1 Swap"]:SetSelItemId(bow.id)
-		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 20/0  1")
 		local group = build.skillsTab.socketGroupList[1]
 		assignWeaponSet(group)
 		build.mainSocketGroup = 1
@@ -1631,6 +1623,122 @@ describe("TestSkills", function()
 		assert.is_true(grantedGroup.set2)
 		assert.are.equals(2, build.calcsTab.mainEnv.weaponSet)
 		assert.are.equals(3, grantedGroup.displaySkillList[1].activeEffect.level)
+	end)
+
+	it("keeps both sets' default attacks and treats a quiver as unarmed", function()
+		local bow = new("Item"):Item("New Item\nCrude Bow")
+		local quiver = new("Item"):Item("New Item\nBroadhead Quiver")
+		local quarterstaff = new("Item"):Item("New Item\nRazor Quarterstaff")
+		build.itemsTab:AddItem(bow, true)
+		build.itemsTab:AddItem(quiver, true)
+		build.itemsTab:AddItem(quarterstaff, true)
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(bow.id)
+		build.itemsTab.slots["Weapon 2"]:SetSelItemId(quiver.id)
+		build.itemsTab.slots["Weapon 1 Swap"]:SetSelItemId(quarterstaff.id)
+		recalculate()
+
+		local defaultAttack = findGrantedGroup("slot", "Weapon 1")
+		local mainGroup = build.skillsTab.socketGroupList[build.mainSocketGroup]
+		assert.are.equals("Bow Shot", defaultAttack.gemList[1].nameSpec)
+		assert.is_true(defaultAttack.set1)
+		assert.is_false(defaultAttack.set2)
+		assert.is_true(build.skillsTab:IsSocketGroupWeaponSetLocked(defaultAttack))
+		table.insert(defaultAttack.gemList, {
+			nameSpec = "Minion Pact I",
+			level = 1,
+			quality = 0,
+			enabled = true,
+			enableGlobal1 = true,
+			count = 1,
+		})
+		build.skillsTab:ProcessSocketGroup(defaultAttack)
+
+		build.itemsTab.activeItemSet.useSecondWeaponSet = true
+		recalculate()
+		assert.are.equals(defaultAttack, findGrantedGroup("slot", "Weapon 1"))
+		assert.are.equals(mainGroup, build.skillsTab.socketGroupList[build.mainSocketGroup])
+		assert.are.equals("Quarterstaff Strike", findGrantedGroup("slot", "Weapon 1 Swap").gemList[1].nameSpec)
+
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(0)
+		recalculate()
+		assert.is_nil(findGrantedGroup("slot", "Weapon 1"))
+
+		build.itemsTab.activeItemSet.useSecondWeaponSet = false
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(bow.id)
+		recalculate()
+		local restoredAttack = findGrantedGroup("slot", "Weapon 1")
+		assert.are.equals("Bow Shot", restoredAttack.gemList[1].nameSpec)
+		assert.are.equals("Minion Pact I", restoredAttack.gemList[2].nameSpec)
+	end)
+
+	it("merges default attacks into the user group without losing settings or other active gems", function()
+		local bow = new("Item"):Item("New Item\nCrude Bow")
+		build.itemsTab:AddItem(bow, true)
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(bow.id)
+		recalculate()
+		local generated = findGrantedGroup("source", "Default Attack")
+		table.insert(generated.gemList, { nameSpec = "Spark", level = 1, quality = 0, enabled = true })
+		build.skillsTab:ProcessSocketGroup(generated)
+		build.skillsTab:PasteSocketGroup("Label: My attack\nBow Shot 20/0  1\nMinion Pact I 1/0  1\nFireball 1/0  1")
+		local defaultAttack = build.skillsTab.displayGroup
+		defaultAttack.enabled = false
+		defaultAttack.includeInFullDPS = true
+		defaultAttack.groupCount = 3
+		build.calcsTab.input.skill_number = #build.skillsTab.socketGroupList
+		recalculate()
+
+		assert.are.equals(1, #build.skillsTab.socketGroupList)
+		assert.are.equals(defaultAttack, build.skillsTab.socketGroupList[build.mainSocketGroup])
+		assert.are.equals(defaultAttack, build.skillsTab.socketGroupList[build.calcsTab.input.skill_number])
+		assert.are.equals(defaultAttack, build.skillsTab.displayGroup)
+		assert.are.equals("My attack", defaultAttack.label)
+		assert.is_false(defaultAttack.enabled)
+		assert.is_true(defaultAttack.includeInFullDPS)
+		assert.are.equals(3, defaultAttack.groupCount)
+		assert.are.equals(4, #defaultAttack.gemList)
+		assert.are.equals("Minion Pact I", defaultAttack.gemList[2].nameSpec)
+		assert.are.equals("Fireball", defaultAttack.gemList[3].nameSpec)
+		assert.are.equals("Spark", defaultAttack.gemList[4].nameSpec)
+		recalculate()
+		assert.are.equals(4, #defaultAttack.gemList)
+	end)
+
+	it("defers alternate-set default attacks until inspected or included in Full DPS", function()
+		build.characterLevel = 90
+		local bow = new("Item"):Item("New Item\nCrude Bow")
+		local staff = new("Item"):Item("New Item\nWrapped Quarterstaff")
+		build.itemsTab:AddItem(bow, true)
+		build.itemsTab:AddItem(staff, true)
+		build.itemsTab.slots["Weapon 1"]:SetSelItemId(bow.id)
+		build.itemsTab.slots["Weapon 1 Swap"]:SetSelItemId(staff.id)
+		local calcs = build.calcsTab.calcs
+		local initEnv = calcs.initEnv
+		local otherSetCalls = 0
+		calcs.initEnv = function(buildArg, mode, override, specEnv)
+			if override and override.weaponSet == 2 then otherSetCalls = otherSetCalls + 1 end
+			return initEnv(buildArg, mode, override, specEnv)
+		end
+		local ok, err = pcall(recalculate)
+		calcs.initEnv = initEnv
+		assert.is_true(ok, err)
+		assert.are.equals(0, otherSetCalls)
+		local env = build.calcsTab.mainEnv
+		assert.is_nil(env.weaponSetEnvs)
+		local staffGroup = findGrantedGroup("slot", "Weapon 1 Swap")
+		assert.are.equals(0, #staffGroup.displaySkillList)
+		build.skillsTab:AddSocketGroupTooltip(new("Tooltip"):Tooltip(), staffGroup)
+		assert.are.equals("Quarterstaff Strike", staffGroup.displaySkillList[1].activeEffect.grantedEffect.name)
+		local cachedDisplaySkills = staffGroup.displaySkillList
+		build.skillsTab:SetDisplayGroup(staffGroup)
+		assert.are.equals(cachedDisplaySkills, staffGroup.displaySkillList)
+
+		build.characterLevel = 1
+		recalculate()
+		build.skillsTab:SetDisplayGroup(staffGroup)
+		assert.are.equals(1, staffGroup.displaySkillList[1].activeEffect.level)
+		staffGroup.includeInFullDPS = true
+		recalculate()
+		assert.is_not_nil(build.calcsTab.mainEnv.weaponSetEnvs[2])
 	end)
 
 	it("preserves supports on item-granted skill groups when the item is re-equipped", function()
@@ -1718,6 +1826,8 @@ describe("TestSkills", function()
 		recalculate()
 
 		local grantedGroup = findGrantedGroup("sourceItem", item)
+		assert.are.equals(1, grantedGroup.gemList[1].sourceLevel)
+		assert.are.equals(1, grantedGroup.gemList[1].level)
 		table.insert(grantedGroup.gemList, {
 			nameSpec = "Arcane Tempo I",
 			level = 1,
@@ -1986,7 +2096,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 
 		build.skillsTab:PasteSocketGroup("Boneshatter 20/0  1\nAncestral Call I 1/0  1")
 		runCallback("OnFrame")
@@ -2022,7 +2131,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War I 1/0  1")
 		runCallback("OnFrame")
 		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"
@@ -2042,7 +2150,6 @@ describe("TestSkills", function()
 			Quality: 0
 		]])
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War III 1/0  1")
 		runCallback("OnFrame")
 		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"

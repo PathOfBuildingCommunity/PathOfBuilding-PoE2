@@ -695,6 +695,22 @@ local function getGrantedSkillLevel(gemData, maxLevel, characterLevel, modDB)
 	return 1
 end
 
+local defaultAttackSlots = {
+	{ "Weapon 1", "Weapon 2" },
+	{ "Weapon 1 Swap", "Weapon 2 Swap" },
+}
+
+local function getCharacterMeleeSkillClass(item)
+	if item and item.base then
+		if item.base.tags.buckler then
+			return "Buckler"
+		elseif item.base.weapon then
+			return item.base.subType or item.base.type
+		end
+	end
+	return "Unarmed"
+end
+
 local thornsStats = { "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }
 local function modDBHasThornsDamage(modDB)
 	for _, stat in ipairs(thornsStats) do
@@ -779,7 +795,7 @@ end
 
 local grantedSkillGroupStateFields = { "label", "enabled", "includeInFullDPS", "groupCount", "set1", "set2", "mainActiveSkill", "mainActiveSkillCalcs" }
 local function cacheGrantedSkillGroupState(build, group)
-	local sourceSlot = group.sourceItem and group.slot and build.itemsTab.slots[group.slot]
+	local sourceSlot = (group.sourceItem or group.source == "Default Attack") and group.slot and build.itemsTab.slots[group.slot]
 	local customized = #group.gemList > 1 or group.label and group.label:match("%S") or group.enabled == false
 		or group.includeInFullDPS or group.groupCount and group.groupCount ~= 1
 		or not (sourceSlot and sourceSlot.weaponSet) and (group.set1 == false or group.set2 == false)
@@ -1808,8 +1824,26 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
+			-- Keep both sets available, independently of the Items tab's selected set.
+			for _, slots in ipairs(defaultAttackSlots) do
+				local mainItem = build.itemsTab.items[build.itemsTab.slots[slots[1]].selItemId]
+				local offItem = build.itemsTab.items[build.itemsTab.slots[slots[2]].selItemId]
+				local skillsForMainHand = data.characterMeleeSkills[getCharacterMeleeSkillClass(mainItem)]
+				local defaultGems = skillsForMainHand and skillsForMainHand[getCharacterMeleeSkillClass(offItem)]
+				for _, gemData in ipairs(defaultGems or { }) do
+					if gemData then
+						t_insert(env.grantedSkills, {
+							skillId = gemData.grantedEffectId, nameSpec = gemData.name, slotName = slots[1], source = "Default Attack",
+							level = getGrantedSkillLevel(gemData, gemData.naturalMaxLevel, build.characterLevel),
+						})
+					end
+				end
+			end
 			-- Process extra skills granted by items or tree nodes
 			local markList = wipeTable(tempTable1)
+			local mainGroup = build.skillsTab.socketGroupList[build.mainSocketGroup]
+			local calcsGroup = build.skillsTab.socketGroupList[build.calcsTab.input.skill_number]
+			local mergedGroups = { }
 			local removedSocketGroupList = build.skillsTab.skillSets[build.skillsTab.activeSkillSetId].removedSocketGroupList
 			local legacySupportGroups
 			for _, socketGroup in ipairs(build.skillsTab.socketGroupList) do
@@ -1834,21 +1868,35 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if gemInstance and gemInstance.skillId == grantedSkill.skillId then
 						if socketGroup.source == grantedSkill.source and socketGroup.slot == grantedSkill.slotName then
 							group = socketGroup
-							break
-						elseif not legacyGroup and not markList[socketGroup] and not socketGroup.source then
-							local matchingLevel = gemInstance.level == grantedSkill.level
+						elseif not legacyGroup and not markList[socketGroup] and not socketGroup.source
+							and (grantedSkill.source ~= "Default Attack" or socketGroup.set1 and socketGroup.set2
+								or build.skillsTab:GetSocketGroupWeaponSet(socketGroup) == build.itemsTab.slots[grantedSkill.slotName].weaponSet) then
+							local matchingLevel = grantedSkill.source == "Default Attack" or gemInstance.level == grantedSkill.level
 							if not matchingLevel then
 								normalizedSkillLevel = normalizedSkillLevel or getNormalizedSkillLevel(grantedSkill)
 								matchingLevel = gemInstance.level == normalizedSkillLevel
 							end
 							local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData and gemInstance.gemData.grantedEffect
-							if matchingLevel and grantedEffect and (grantedSkill.sourceItem and grantedEffect.fromItem or grantedSkill.sourceNode and grantedEffect.fromTree) then
+							if matchingLevel and grantedEffect and (grantedSkill.sourceItem and grantedEffect.fromItem or grantedSkill.sourceNode and grantedEffect.fromTree
+								or grantedSkill.source == "Default Attack" and grantedEffect.fromItem) then
 								legacyGroup = socketGroup
 							end
 						end
 					end
 				end
-				group = group or legacyGroup
+				if group and legacyGroup then
+					-- Keep the user's group, including its settings and any other active gems.
+					for index = 2, #group.gemList do
+						if not socketGroupHasGem(legacyGroup, group.gemList[index]) then
+							t_insert(legacyGroup.gemList, copyTable(group.gemList[index], true))
+						end
+					end
+					mergedGroups[group] = true
+					if mainGroup == group then mainGroup = legacyGroup end
+					if calcsGroup == group then calcsGroup = legacyGroup end
+					if build.skillsTab.displayGroup == group then build.skillsTab.displayGroup = legacyGroup end
+				end
+				group = legacyGroup or group
 				if group then
 					markList[group] = true
 				end
@@ -1879,7 +1927,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					skillId = grantedSkill.skillId,
 					nameSpec = grantedSkill.nameSpec,
 				}
-				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
+				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil or grantedSkill.source == "Default Attack"
 				activeGemInstance.fromTree = grantedSkill.sourceNode ~= nil
 				activeGemInstance.sourceLevel = grantedSkill.sourceItem and grantedSkill.level or nil
 				activeGemInstance.skillId = grantedSkill.skillId
@@ -2015,10 +2063,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local i = 1
 			while build.skillsTab.socketGroupList[i] do
 				local socketGroup = build.skillsTab.socketGroupList[i]
-				if socketGroup.source and not markList[socketGroup] then
+				if mergedGroups[socketGroup] or socketGroup.source and not markList[socketGroup] then
 					local removed = t_remove(build.skillsTab.socketGroupList, i)
 					local sourceGem = removed.gemList[1]
-					if sourceGem and removed.source ~= "Explode" and removed.source ~= "Thorns" then
+					if not mergedGroups[socketGroup] and sourceGem and removed.source ~= "Explode" and removed.source ~= "Thorns" then
 						local cachedState = cacheGrantedSkillGroupState(build, removed)
 						if cachedState then
 							removedSocketGroupList[getGrantedSkillGroupKey(removed.source, removed.slot, sourceGem.skillId)] = cachedState
@@ -2028,6 +2076,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 						build.skillsTab.displayGroup = nil
 					end
 				else
+					if socketGroup == mainGroup then build.mainSocketGroup = i end
+					if socketGroup == calcsGroup then build.calcsTab.input.skill_number = i end
 					i = i + 1
 				end
 			end
@@ -2036,7 +2086,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			-- imported build contains only a skill granted by a swapped weapon. Restart
 			-- before weapon data and modifiers are consumed if that changes the context.
 			if not override.weaponSet then
-				local resolvedMainSocketGroup = m_min(m_max(#build.skillsTab.socketGroupList, 1), env.mainSocketGroup)
+				local resolvedMainSocketGroup = m_min(m_max(#build.skillsTab.socketGroupList, 1), override.mainSocketGroup or build.mainSocketGroup)
 				local resolvedGroup = build.skillsTab.socketGroupList[resolvedMainSocketGroup]
 				local resolvedWeaponSet = build.skillsTab:GetSocketGroupWeaponSet(resolvedGroup)
 				if resolvedMainSocketGroup ~= env.mainSocketGroup or resolvedWeaponSet ~= env.weaponSet then
@@ -2359,6 +2409,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 				-- Save the active skill list for display in the socket group tooltip
 				if group.usingSkillSet == env.weaponSet then
 					group.displaySkillList = socketGroupSkillList
+				elseif not group.displaySkillList then
+					group.displaySkillList = { }
 				end
 			elseif env.mode == "CALCS" and group.usingSkillSet == env.weaponSet then
 				group.displaySkillListCalcs = socketGroupSkillList
@@ -2404,7 +2456,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local otherSet
 			local otherSetMainGroup
 			for index, group in ipairs(build.skillsTab.socketGroupList) do
-				if group.enabled and group.usingSkillSet ~= env.weaponSet then
+				-- Bare default attacks have no auxiliary effects; evaluate their set when selected.
+				if group.enabled and group.usingSkillSet ~= env.weaponSet
+					and (group.source ~= "Default Attack" or #group.gemList > 1 or group.includeInFullDPS) then
 					otherSet = group.usingSkillSet
 					otherSetMainGroup = index
 					break

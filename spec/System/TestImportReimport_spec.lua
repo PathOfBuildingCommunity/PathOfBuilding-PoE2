@@ -262,6 +262,31 @@ Fireball 20/0  1
 		assert.are.equal(0, build.itemsTab.slots["Gloves Jewel Socket 2"].selItemId)
 	end)
 
+	it("resolves imported default attack variants from equipment when weapon requirements are absent", function()
+		for _, case in ipairs({
+			{ false, false, "1HMace" }, -- Unarmed Facebreaker fallback
+			{ "Wooden Club", false, "1HMace" },
+			{ "Wooden Club", "Splintered Tower Shield", "1HMace" },
+			{ "Wooden Club", "Wooden Club", "MaceMace" },
+			{ "Ironwood Greathammer", false, "2HMace" },
+			{ "Hardwood Spear", false, "Spear", "Spear Stab" },
+			{ "Hardwood Spear", "Leather Buckler", "SpearOffHand", "Spear Stab" },
+			{ "Hardwood Spear", "Splintered Tower Shield", "Spear", "Spear Stab" },
+		}) do
+			newBuild()
+			local equipment = { }
+			if case[1] then table.insert(equipment, makeImportItem(case[1], "Weapon", "main-hand")) end
+			if case[2] then table.insert(equipment, makeImportItem(case[2], "Offhand", "off-hand")) end
+			local skill = makeGemEntry(false, case[4] or "Mace Strike", 1, { makeGemEntry(true, "Minion Pact I", 1) })
+			build.importTab:ImportItemsAndSkills(buildImportPayload(equipment, { skill }))
+			local group = build.skillsTab.socketGroupList[1]
+			assert.are.equals(case[4] and 2 or 1, #build.skillsTab.socketGroupList) -- Spears also grant Spear Throw.
+			assert.are.equals("Metadata/Items/Gems/SkillGemPlayerDefault" .. case[3], group.gemList[1].gemData.id)
+			assert.are.equals(2, #group.gemList)
+			assert.are.equals("Minion Pact I", group.gemList[2].nameSpec)
+		end
+	end)
+
 	it("keeps an imported shield equipped with Bringer of Rain and a two-handed mace", function()
 		build.importTab.controls.charImportItemsClearItems.state = true
 		build.importTab.controls.charImportItemsClearSkills.state = true
@@ -283,7 +308,40 @@ Fireball 20/0  1
 
 		assert.are_not.equal(0, build.itemsTab.slots["Weapon 1 Swap"].selItemId)
 		assert.are_not.equal(0, build.itemsTab.slots["Weapon 2 Swap"].selItemId)
-		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemId)
+		assert.are.equal("Metadata/Items/Gems/SkillGemPlayerDefault2HMace", build.skillsTab.socketGroupList[1].gemList[1].gemData.id)
+	end)
+
+	it("imports level-one Spear Throw entries into auto-levelled default attack groups", function()
+		local spear1 = makeImportItem("Soaring Spear", "Weapon", "spear-1")
+		local spear2 = makeImportItem("Grand Spear", "Weapon2", "spear-2")
+		for _, spear in ipairs({ spear1, spear2 }) do
+			spear.grantedSkills = { { name = "Grants Skill", values = { { "Spear Throw", 25 } } } }
+		end
+		local payload = buildImportPayload({ spear1, spear2 }, {
+			makeGemEntry(false, "Spear Throw", 1, { makeGemEntry(true, "Minion Pact I", 1) }),
+			makeGemEntry(false, "Spear Throw", 1),
+		})
+		payload.level = 90
+		build.importTab.controls.charImportItemsClearSkills.state = true
+		for _ = 1, 2 do
+			build.importTab:ImportItemsAndSkills(payload)
+			runCallback("OnFrame")
+			local groups, supports = 0, 0
+			local slots = { }
+			for _, group in ipairs(build.skillsTab.socketGroupList) do
+				if group.gemList[1].skillId == "SpearThrowPlayer" then
+					groups = groups + 1
+					supports = supports + #group.gemList - 1
+					assert.are.equals("Default Attack", group.source)
+					assert.are.equals(20, group.gemList[1].level)
+					slots[group.slot] = true
+				end
+			end
+			assert.are.equals(2, groups)
+			assert.are.equals(1, supports)
+			assert.is_true(slots["Weapon 1"])
+			assert.is_true(slots["Weapon 1 Swap"])
+		end
 	end)
 
 	it("assigns imported skills to their only valid weapon set immediately", function()

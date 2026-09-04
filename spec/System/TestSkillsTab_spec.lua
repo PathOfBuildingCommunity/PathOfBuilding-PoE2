@@ -544,6 +544,23 @@ describe("TestSkillsTab", function()
 				assert.are.equals("true", savedGroup.attrib.set2)
 			end)
 
+			it("persists the fixed set of generated default attacks", function()
+				build.skillsTab:LoadSkill({ elem = "Skill", attrib = {
+					enabled = "true",
+					source = "Default Attack",
+					slot = "Weapon 1 Swap",
+				} }, 1)
+				local group = build.skillsTab.skillSets[1].socketGroupList[#build.skillsTab.skillSets[1].socketGroupList]
+				assert.is_false(group.set1)
+				assert.is_true(group.set2)
+				assert.is_true(build.skillsTab:IsSocketGroupWeaponSetLocked(group))
+
+				local xml = { }
+				build.skillsTab:Save(xml)
+				assert.are.equals("Default Attack", xml[1][#xml[1]].attrib.source)
+				assert.are.equals("Weapon 1 Swap", xml[1][#xml[1]].attrib.slot)
+			end)
+
 			it("normalizes persisted groups with neither weapon set selected", function()
 				build.skillsTab:LoadSkill({ elem = "Skill", attrib = { enabled = "true", set1 = "false", set2 = "false" } }, 1)
 				local socketGroup = build.skillsTab.skillSets[1].socketGroupList[#build.skillsTab.skillSets[1].socketGroupList]

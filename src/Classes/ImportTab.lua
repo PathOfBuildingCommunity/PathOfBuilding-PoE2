@@ -1152,28 +1152,18 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if typeLine:match("Mace Strike") then
 			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
 			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if requiredWeaponType == "Two Hand Mace" then
-				gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-			elseif weapon2Sel == 0 then
-				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			else
-				if self.build.itemsTab.items[weapon2Sel].base.type == "One Hand Mace" or self.build.itemsTab.items[weapon2Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultMaceMace" -- Dual wielding maces
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			end
-		end
-		if typeLine:match("Spear Stab") and (self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0) ~= 0 then
-			gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearOffHand"
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 2"].selItemId]
+			-- Facebreaker uses the one-handed variant when no mace is equipped.
+			local mainType = requiredWeaponType == "Two Hand Mace" and requiredWeaponType
+				or mainItem and mainItem.base.type == "Two Hand Mace" and mainItem.base.type or "One Hand Mace"
+			local offType = requiredWeaponType ~= "Two Hand Mace" and offItem and offItem.base.type or "Unarmed"
+			local maceSkills = self.build.data.characterMeleeSkills[mainType]
+			gemId = (maceSkills[offType] or maceSkills.Unarmed)[1].id
+		elseif typeLine:match("Spear Stab") then
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 2"].selItemId]
+			local offType = offItem and offItem.base.tags.buckler and "Buckler" or "Unarmed"
+			gemId = self.build.data.characterMeleeSkills.Spear[offType][1].id
 		end
 
 		if gemId then

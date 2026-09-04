@@ -179,4 +179,18 @@ for row in dat("BaseItemTypes"):Rows() do
 	end
 end
 utils.saveTableToFile("../Data/CurrencyNames.lua", currencies, "This file contains mapping item names for every currency base item type ID.\nUsed for working with the currency exchange which uses item type IDs.")
+
+local characterMeleeSkills = { }
+for row in dat("CharacterMeleeSkills"):Rows() do
+	local mainHand = row.MainHandItem.ItemClass.Id
+	local offHand = row.OffHandItem.ItemClass.Id
+	local skillGems = { }
+	for _, skillGem in ipairs(row.SkillGem) do
+		skillGems[#skillGems + 1] = skillGem.BaseItemType.Id
+	end
+	characterMeleeSkills[mainHand] = characterMeleeSkills[mainHand] or { }
+	characterMeleeSkills[mainHand][offHand] = skillGems
+end
+utils.saveTableToFile("../Data/CharacterMeleeSkills.lua", characterMeleeSkills, "Default skill gem base item IDs keyed by main-hand and off-hand WieldableClasses item class IDs.")
+
 print("Misc data exported.")

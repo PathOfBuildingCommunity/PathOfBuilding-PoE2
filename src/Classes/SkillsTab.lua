@@ -190,7 +190,9 @@ function SkillsTabClass:SkillsTab(build)
 				tooltip:AddLine(16, "This skill reserves Spirit in all weapon sets and must be enabled in both sets.")
 			elseif self.displayGroup and self:IsSocketGroupWeaponSetLocked(self.displayGroup) then
 				tooltip:Clear()
-				tooltip:AddLine(16, "Skills granted by items in weapon slots can only be used in that item's weapon set.")
+				tooltip:AddLine(16, self.displayGroup.source == "Default Attack"
+					and "Default attack skills can only be used in the weapon set that grants them."
+					or "Skills granted by items in weapon slots can only be used in that item's weapon set.")
 			elseif self.displayGroup and not self:IsSocketGroupWeaponSetValid(self.displayGroup, set) then
 				tooltip:Clear()
 				tooltip:AddLine(16, colorCodes.NEGATIVE .. "This skill cannot be used with the weapons equipped in Set " .. set .. ".")
@@ -1203,6 +1205,7 @@ function SkillsTabClass:UpdateGemSlots()
 	if not self.displayGroup then
 		return
 	end
+	self:EnsureSocketGroupDisplaySkills(self.displayGroup)
 	for slotIndex = 1, #self.displayGroup.gemList + 1 do
 		if not self.gemSlots[slotIndex] then
 			self:CreateGemSlot(slotIndex)
@@ -1373,7 +1376,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			end
 		end
 	end
-	local sourceSlot = socketGroup.sourceItem and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
+	local sourceSlot = (socketGroup.sourceItem or socketGroup.source == "Default Attack") and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
 	if sourceSlot and sourceSlot.weaponSet then
 		socketGroup.set1 = sourceSlot.weaponSet ~= 2
 		socketGroup.set2 = sourceSlot.weaponSet ~= 1
@@ -1388,7 +1391,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 end
 
 function SkillsTabClass:IsSocketGroupWeaponSetLocked(socketGroup)
-	local sourceSlot = socketGroup and socketGroup.sourceItem and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
+	local sourceSlot = socketGroup and (socketGroup.sourceItem or socketGroup.source == "Default Attack") and socketGroup.slot and self.build.itemsTab.slots[socketGroup.slot]
 	return sourceSlot and sourceSlot.weaponSet ~= nil
 end
 
@@ -1560,7 +1563,21 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 	end
 end
 
+-- Reuse the calculation cache to resolve deferred default attacks only when inspected.
+function SkillsTabClass:EnsureSocketGroupDisplaySkills(socketGroup)
+	local env = self.build.calcsTab.mainEnv
+	if socketGroup.source ~= "Default Attack" or not env or env.outputRevision ~= self.build.outputRevision then
+		return
+	end
+	for _, skill in ipairs(env.player.activeSkillList) do
+		if skill.socketGroup == socketGroup and not GlobalCache.cachedData.MAIN[cacheSkillUUID(skill, env)] then
+			self.build.calcsTab.calcs.buildActiveSkill(env, "MAIN", skill)
+		end
+	end
+end
+
 function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
+	self:EnsureSocketGroupDisplaySkills(socketGroup)
 	if socketGroup.explodeSources then
 		for _, source in ipairs(socketGroup.explodeSources) do
 			tooltip:AddLine(18, "^7Source: " .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???"))
