@@ -148,8 +148,8 @@ describe("TradeQueryGenerator", function()
 			}
 			queryGen.tradeTypeIndex = 1
 			local query
-			queryGen.requesterCallback = function(_, queryJson)
-				query = require("dkjson").decode(queryJson).query
+			queryGen.requesterCallback = function(_, queryTable)
+				query = queryTable
 			end
 			queryGen:FinishQuery()
 
