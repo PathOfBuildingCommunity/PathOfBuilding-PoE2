@@ -8,7 +8,7 @@ Bloodstone Amulet
 Variant: Pre 0.2.0
 Variant: Pre 0.4.0
 Variant: Current
-UniqueMovementVelocity6
+UniqueMovementVelocity18
 UniqueIncreasedSkillSpeed2
 UniqueIncreasedPhysicalDamageReductionRatingPercent1
 {variant:1}UniqueBlockChanceIncrease1[20,20]
@@ -26,9 +26,9 @@ UniquePhysicalAttackDamageTaken2
 ]],[[
 Beacon of Azis
 Solar Amulet
-UniqueIncreasedMana12
+UniqueIncreasedMana31
 UniqueIncreasedSpirit5
-UniqueLightRadius7
+UniqueLightRadius13
 UniqueCriticalStrikesIgnoreResistances1
 ]],[[
 Carnage Heart
@@ -37,7 +37,7 @@ Variant: Pre 0.4.0
 Variant: Pre 0.5.0
 Variant: Current
 UniqueMaximumLifeIncrease3
-UniqueAllAttributes1
+UniqueAllAttributes4
 UniqueAllResistances6
 {variant:1}UniqueLifeLeechAmount1[100,100]
 {variant:2,3}UniqueLifeLeechAmount1
@@ -60,7 +60,7 @@ Variant: Pre 0.2.1
 Variant: Pre 0.4.0
 Variant: Current
 UniqueMaximumLifeIncrease6
-UniqueStrength2
+UniqueStrength25
 UniqueManaRegeneration13
 {variant:1}UniqueGainMissingLifeBeforeHit1[5,5]
 {variant:2}UniqueGainMissingLifeBeforeHit1[10,10]
@@ -73,7 +73,7 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueIncreasedMana32[50,50]
 {variant:2}UniqueIncreasedMana32
-UniqueManaRegeneration29
+UniqueManaRegeneration22
 {variant:1}UniqueGainManaAsExtraEnergyShield1[20,30]
 {variant:2}UniqueGainManaAsExtraEnergyShield1
 ]],[[
@@ -101,7 +101,7 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueItemFoundRarityIncrease2[10,20]
 {variant:2}UniqueItemFoundRarityIncrease2
-UniqueManaRegeneration7
+UniqueManaRegeneration21
 UniqueTakeFireDamageOnIgnite1
 UniqueGlobalFireGemLevel1
 ]],[[
@@ -124,15 +124,19 @@ BlindImmunityUnique__1
 ]],[[
 Idol of Uldurn
 Crimson Amulet
-UniqueIncreasedLife14
-UniqueDexterity2
+Version: Pre 0.5.0
+Version: Current
+UniqueIncreasedLife38
+UniqueDexterity29
 UniqueBaseLimit1
+{version:2}UniqueIncreasedMaximumSpiritPercent1
+{version:2}UniquePresenceRadius6
 ]],[[
 Igniferis
 Crimson Amulet
 UniqueFireResist23
-UniqueManaRegeneration6
-UniqueLightRadius1
+UniqueManaRegeneration24
+UniqueLightRadius14
 UniqueLifeRegenerationNotApplied1
 UniqueRecoverLifeBasedOnRegen1
 ]],[[
@@ -150,7 +154,7 @@ Ligurium Talisman
 Lapis Amulet
 UniqueIncreasedEnergyShield3
 UniqueIncreasedSpirit6
-UniqueIntelligence9
+UniqueIntelligence30
 UniqueEnergyShieldRegenerationFromLife1
 ]],[[
 The Pandemonius
@@ -165,22 +169,22 @@ UniqueOnHitBlindChilledEnemies1
 ]],[[
 Revered Resin
 Amber Amulet
-UniqueIncreasedLife3
+UniqueIncreasedLife41
 UniqueFlaskLifeRecoveryRate5
 UniqueLifeFlaskChargeGeneration2
 ]],[[
 Rondel of Fragility
 Lunar Amulet
 UniqueIncreasedSkillSpeed4
-UniqueCriticalStrikeChance1
+UniqueCriticalStrikeChance10
 UniqueAllResistances11
 UniqueAllDamage2
 ]],[[
 Serpent's Egg
 Gold Amulet
-UniqueAllAttributes1
-UniqueChaosResist1
-UniqueManaRegeneration6
+UniqueAllAttributes10
+UniqueChaosResist17
+UniqueManaRegeneration23
 UniqueAdditionalChargeGeneration1
 ]],[[
 Stone of Lazhwar
@@ -192,7 +196,7 @@ UniqueBlockPercentWithFocus1
 ]],[[
 Surefooted Sigil
 Jade Amulet
-UniqueIncreasedLife3
+UniqueIncreasedLife36
 UniqueDexterity28
 UniqueDodgeRollDistance1
 UniqueEvasionRatingDodgeRoll1
@@ -208,11 +212,11 @@ Ungil's Harmony
 Azure Amulet
 Variant: Pre 0.1.1
 Variant: Current
-UniqueIncreasedLife5
-UniqueIncreasedMana5
+UniqueIncreasedLife32
+UniqueIncreasedMana27
 {variant:1}UniqueCriticalStrikeChance9[100,100]
 {variant:2}UniqueCriticalStrikeChance9
-UniqueStunThreshold6
+UniqueStunThreshold14
 UniqueNoCriticalStrikeMultiplier1
 ]],[[
 Xoph's Blood
@@ -222,8 +226,8 @@ Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 UniqueMaximumLifeIncrease7
-{variant:1,2}UniqueFireResist12[30,40]
-{variant:3}UniqueFireResist12
+{variant:1,2}UniqueFireResist25[30,40]
+{variant:3}UniqueFireResist25
 {variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
 {variant:2}UniqueEnemiesInPresenceFireExposure1[-10,-10]
 {variant:3}UniqueEnemiesInPresenceFireExposure1
@@ -233,7 +237,7 @@ Bloodstone Amulet
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
 Variant: Current
-UniqueAllResistances19
+UniqueAllResistances18
 UniqueElementalDamagePercent1
 {variant:1}UniqueEnemiesTakeIncreasedDamagePerAilmentType1[5,10]
 {variant:2}UniqueEnemiesTakeIncreasedDamagePerAilmentType1

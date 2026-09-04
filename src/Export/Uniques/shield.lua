@@ -7,7 +7,7 @@ Chernobog's Pillar
 Blacksteel Tower Shield
 League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent28
-UniqueFireResist8
+UniqueFireResist31
 UniqueChaosResist32
 UniqueStunThreshold19
 UniqueDamageGainedAsFirePerBlock1
@@ -17,8 +17,8 @@ Splintered Tower Shield
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent17
-UniqueStrength3
-{variant:2}UniqueLifeRegeneration15
+UniqueStrength16
+{variant:2}UniqueLifeRegeneration11
 {variant:1}UniqueIncreasedStunThreshold1[30,30]
 {variant:2}UniqueIncreasedStunThreshold1
 UniqueDoubleStunThresholdWhileActiveBlock1
@@ -66,7 +66,7 @@ League: Dawn of the Hunt
 {variant:1}UniqueLocalBlockChance14[20,30]
 {variant:2}UniqueLocalBlockChance14
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent27
-UniqueStrength36
+UniqueStrength34
 UniqueStunThreshold18
 UniqueEnemiesInPresenceMonsterPower1
 ]],[[
@@ -75,7 +75,7 @@ The Surrender
 {variant:2}Vaal Tower Shield
 Variant: Pre 0.4.0
 Variant: Current
-UniqueLocalBlockChance7
+UniqueLocalBlockChance6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent20
 UniqueStunThreshold12
 UniqueRecoverLifePercentOnBlock1
@@ -109,16 +109,19 @@ Window to Paradise
 Barricade Tower Shield
 League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent25
-UniqueIncreasedMana47
-UniqueAllResistances24
+UniqueIncreasedMana37
+UniqueAllResistances19
 UniqueRaiseShieldApplyExposure1
 ]],[[
 Wulfsbane
 Painted Tower Shield
-UniqueIncreasedLife3
-UniqueStrength3
-UniqueStunThreshold7
-UniqueEnemiesBlockedAreIntimidated1
+Version: Pre 0.3.0
+Version: Current
+UniqueIncreasedLife20
+UniqueStrength13
+UniqueStunThreshold8
+{version:1}UniqueEnemiesBlockedAreIntimidated1
+{version:2}UniqueEnemiesBlockedAreIntimidatedDuration1
 ]],
 -- Shield: Evasion
 [[
@@ -127,8 +130,8 @@ Iron Buckler
 Variant: Pre 0.3.0
 Variant: Current
 League: Dawn of the Hunt
-{variant:1}UniqueLocalBlockChance14[20,30]
-{variant:2}UniqueLocalBlockChance14
+{variant:1}UniqueLocalBlockChance11[20,30]
+{variant:2}UniqueLocalBlockChance11
 UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
@@ -136,9 +139,9 @@ UniqueApplyCorruptedBloodOnBlock1
 Calgyra's Arc
 Ornate Buckler
 League: Dawn of the Hunt
-UniqueLocalIncreasedEvasionRatingPercent28
-UniqueIncreasedMana12
-UniqueIntelligence6
+UniqueLocalIncreasedEvasionRatingPercent30
+UniqueIncreasedMana45
+UniqueIntelligence35
 UniqueProjectileParryInfiniteDistance1
 UniqueParriedDebuffDuration1
 ]],[[
@@ -157,7 +160,7 @@ Kaltenhalt
 Ridged Buckler
 League: Rise of the Abyssal
 UniqueLocalIncreasedEvasionRatingPercent15
-MaximumColdResistUniqueShieldDex1
+UniqueMaximumColdResist2
 UniqueColdResist15
 UniqueParryStunModifiersApplyToFreeze1
 UniqueParryConvertToCold1
@@ -167,7 +170,7 @@ Nocturne
 Wooden Buckler
 League: Dawn of the Hunt
 UniqueIncreasedMana44
-UniqueAllResistances25
+UniqueAllResistances24
 UniqueIncreasedAccuracyPercent1
 UniqueParriedCausesSpellDamageTaken1
 UniqueParriedDebuffDuration2
@@ -176,7 +179,7 @@ Rondel de Ezo
 Plated Buckler
 League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent27
-UniqueDexterity2
+UniqueDexterity39
 UniqueLifeRegeneration24
 UniqueBlockChanceProjectiles1
 UniqueEnfeebleOnBlockChance1
@@ -184,8 +187,8 @@ UniqueEnfeebleOnBlockChance1
 Silverthorne
 Spiked Buckler
 League: Dawn of the Hunt
-UniqueLocalIncreasedEvasionRatingPercent29
-UniqueAllResistances19
+UniqueLocalIncreasedEvasionRatingPercent28
+UniqueAllResistances25
 UniqueCriticalWeaknessOnParry1
 UniqueParryDamage1
 ]],[[
@@ -230,8 +233,8 @@ Hardwood Targe
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalBlockChance8
-UniqueLocalIncreasedArmourAndEvasion2
-{variant:2}UniqueIncreasedLife43
+UniqueLocalIncreasedArmourAndEvasion21
+{variant:2}UniqueIncreasedLife42
 {variant:2}UniqueIncreasedMana36
 UniqueMaximumLifeOnKillPercent2
 UniqueMaximumManaOnKillPercent1
@@ -261,6 +264,7 @@ UniqueNoMovementPenaltyRaisedShield1
 ]],[[
 Merit of Service
 Pelage Targe
+Source: No longer obtainable
 Variant: Pre 0.3.0
 Variant: Current
 {variant:1}UniqueLocalBlockChance4[30,50]
@@ -276,8 +280,8 @@ Blazon Crest Shield
 Variant: Pre 0.1.1
 Variant: Pre 0.3.0
 Variant: Current
-{variant:1,2}UniqueLocalBlockChance1[30,40]
-{variant:3}UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance3[30,40]
+{variant:3}UniqueLocalBlockChance3
 UniqueLocalIncreasedArmourAndEnergyShield2
 {variant:1}UniqueIncreasedMana4[15,30]
 {variant:2,3}UniqueIncreasedMana4
@@ -285,9 +289,9 @@ UniqueDamageBlockedRecoupedAsMana1
 ]],[[
 Crest of Ardura
 Jingling Crest Shield
-UniqueLocalIncreasedArmourAndEnergyShield14
-UniqueIntelligence6
-UniqueManaRegeneration3
+UniqueLocalIncreasedArmourAndEnergyShield15
+UniqueIntelligence25
+UniqueManaRegeneration14
 UniqueGlobalCooldownRecovery1
 ]],[[
 Mahuxotl's Machination
@@ -311,7 +315,7 @@ Sigil Crest Shield
 {variant:3}UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
 {variant:1}UniqueIncreasedSpirit2
-UniqueChaosResist1
+UniqueChaosResist10
 {variant:2,3}UniqueLifeRegenerationRate1
 ]],[[
 Prism Guardian
@@ -333,7 +337,7 @@ Omen Crest Shield
 UniqueMaximumFireResist2
 UniqueFireResist16
 UniqueFireResistOnLowLife1
-LifeRegenerationRatePercentageUniqueShieldStrInt3
+UniqueLifeRegenerationPercent1
 UniqueLifeRegenerationPercentOnLowLife1
 ]],[[
 Saffell's Frame

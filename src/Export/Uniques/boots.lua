@@ -20,14 +20,14 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueMovementVelocity20[15,15]
 {variant:2}UniqueMovementVelocity20
-UniqueIncreasedLife3
-{variant:1}UniqueFireResist14[10,20]
-{variant:2}UniqueFireResist14
+UniqueIncreasedLife34
+{variant:1}UniqueFireResist21[10,20]
+{variant:2}UniqueFireResist21
 UniqueBurningGroundWhileMovingMaximumLife1
 ]],[[
 Corpsewade
 Iron Greaves
-UniqueMovementVelocity1
+UniqueMovementVelocity4
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent9
 UniqueStrength11
 UniqueTriggerDecomposeOnStep1
@@ -36,9 +36,9 @@ The Infinite Pursuit
 Bronze Greaves
 Variant: Pre 0.1.1
 Variant: Current
-UniqueMovementVelocity1
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
-UniqueIncreasedLife7
+UniqueMovementVelocity9
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent16
+UniqueIncreasedLife23
 UniqueAilmentChanceRecieved1
 {variant:1}UniqueMovementVelocityWithAilment1[20,20]
 {variant:2}UniqueMovementVelocityWithAilment1
@@ -60,8 +60,8 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueMovementVelocity5[10,10]
 {variant:2}UniqueMovementVelocity5
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent7
-UniqueReducedLocalAttributeRequirements3
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
+UniqueReducedLocalAttributeRequirements4
 UniqueOverkillDamagePhysical1
 ]],
 -- Boots: Evasion
@@ -71,8 +71,8 @@ Laced Boots
 Variant: Pre 0.1.1
 Variant: Current
 UniqueMovementVelocity19
-UniqueIncreasedLife3
-UniqueStunThreshold7
+UniqueIncreasedLife33
+UniqueStunThreshold15
 {variant:1}UniqueThornsCriticalStrikeChance1[15,15]
 {variant:2}UniqueThornsCriticalStrikeChance1
 {variant:2}UniqueAttackerTakesDamage4
@@ -80,8 +80,8 @@ UniqueStunThreshold7
 Bushwhack
 Lizardscale Boots
 UniqueMovementVelocity10
-UniqueLocalIncreasedEvasionRatingPercent2
-UniqueDexterity2
+UniqueLocalIncreasedEvasionRatingPercent10
+UniqueDexterity16
 UniquePhysicalDamagePin1
 ]],[[
 Gamblesprint
@@ -127,16 +127,16 @@ Luminous Pace
 Straw Sandals
 Variant: Pre 0.1.1
 Variant: Current
-UniqueMovementVelocity1
-{variant:2}UniqueLocalIncreasedEnergyShield10
-UniqueIntelligence3
+UniqueMovementVelocity7
+{variant:2}UniqueLocalIncreasedEnergyShield12
+UniqueIntelligence15
 UniqueEnergyShieldRechargeRate1
 UniqueEnergyShieldDelay3
 ]],[[
 Wanderlust
 Wrapped Sandals
 UniqueMovementVelocity11
-UniqueLocalIncreasedEnergyShield1
+UniqueLocalIncreasedEnergyShield6
 UniqueDexterity21
 UniqueNoSlowPotency1
 ]],[[
@@ -144,10 +144,10 @@ Windscream
 Feathered Sandals
 Variant: Pre 0.1.1
 Variant: Current
-{variant:1}UniqueMovementVelocity2[10,15]
-{variant:2}UniqueMovementVelocity2
-UniqueLocalIncreasedEnergyShieldPercent10
-UniqueIntelligence6
+{variant:1}UniqueMovementVelocity14[10,15]
+{variant:2}UniqueMovementVelocity14
+UniqueLocalIncreasedEnergyShieldPercent15
+UniqueIntelligence23
 {variant:2}UniqueCurseCastSpeed1
 UniqueCurseNoActivationDelay1
 ]],[[
@@ -172,9 +172,9 @@ Darkray Vectors
 Braced Sabatons
 UniqueLocalIncreasedArmourAndEvasion6
 UniqueLightningResist4
-UniqueLightRadius1
+UniqueLightRadius6
 UniqueMovementVelocityPerFrenzyCharge1
-MaximumFrenzyChargesUniqueBootsStrDex2_
+UniqueMaximumFrenzyCharges1
 ]],[[
 The Knight-errant
 Mail Sabatons
@@ -188,7 +188,7 @@ UniqueIronReflexes1
 ]],[[
 Obern's Bastion
 Stacked Sabatons
-UniqueLocalIncreasedArmourAndEvasion12
+UniqueLocalIncreasedArmourAndEvasion18
 UniqueLifeRegeneration8
 UniqueStunRecovery1
 UniqueReducedChillDuration1
@@ -243,7 +243,7 @@ Variant: Pre 0.4.0.
 Variant: Current
 {variant:2}UniqueMovementVelocity28
 UniqueLocalIncreasedEvasionAndEnergyShield7
-UniqueIncreasedMana5
+UniqueIncreasedMana10
 UniqueChaosResist1
 UniqueDodgeRollPhasing1
 ]],[[
@@ -254,8 +254,8 @@ Variant: Pre 0.4.0
 Variant: Current
 {variant:1,2}UniqueMovementVelocity17[10,15]
 {variant:3}UniqueMovementVelocity17
-UniqueLocalIncreasedEvasionAndEnergyShield9
-UniqueIntelligence6
+UniqueLocalIncreasedEvasionAndEnergyShield11
+UniqueIntelligence26
 UniqueMaximumPowerCharges1
 {variant:1}UniqueCriticalMultiplierPerPowerCharge1[8,8]
 {variant:2,3}UniqueCriticalMultiplierPerPowerCharge1

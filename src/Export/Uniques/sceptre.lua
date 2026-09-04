@@ -7,8 +7,8 @@ The Dark Defiler
 Rattling Sceptre
 Variant: Pre 0.1.1
 Variant: Current
-UniqueIncreasedMana2
-UniqueIntelligence3
+UniqueIncreasedMana14
+UniqueIntelligence5
 UniqueManaRegeneration1
 {variant:1}UniqueExtraChaosDamagePerUndeadMinion1[3,3]
 {variant:2}UniqueExtraChaosDamagePerUndeadMinion1
@@ -16,7 +16,7 @@ UniqueManaRegeneration1
 Font of Power
 Omen Sceptre
 UniqueLocalIncreasedSpiritPercent1
-UniqueIncreasedMana7
+UniqueIncreasedMana15
 UniqueManaRegeneration6
 UniqueManaScarificeToAllies1
 ]],[[
@@ -53,7 +53,7 @@ UniqueDamageGainedAsCold1
 UniqueNearbyAlliesAddedColdDamage1
 UniqueBaseLifeRegenToAllies1
 UniqueIntelligence42
-UniqueLightRadius15
+UniqueLightRadius9
 UniqueColdShrine1
 ]],[[
 Guiding Palm of the Heart
@@ -66,7 +66,7 @@ UniqueDamageGainedAsFire2
 UniqueNearbyAlliesAddedFireDamage1
 UniqueBaseLifeRegenToAllies1
 UniqueStrength43
-UniqueLightRadius14
+UniqueLightRadius9
 UniqueFireShrine1
 ]],[[
 Guiding Palm of the Mind
@@ -78,8 +78,8 @@ Grants Skill: Level (1-20) Purity of Lightning
 UniqueDamageGainedAsLightning1
 UniqueNearbyAlliesAddedLightningDamage1
 UniqueBaseLifeRegenToAllies1
-UniqueDexterity42
-UniqueLightRadius11
+UniqueDexterity44
+UniqueLightRadius9
 UniqueLightningShrine1
 ]],[[
 Palm of the Dreamer

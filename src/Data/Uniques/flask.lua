@@ -16,12 +16,15 @@ No Inherent loss of Rage during effect
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
-Variant: Pre 0.4.0
-Variant: Current
-Instant Recovery
+Version: Pre 0.4.0
+Version: Pre 0.5.0
+Version: Current
+{version:1,2}Instant Recovery
 (100-150)% increased Charges per use
-{variant:1}Excess Life Recovery added as Guard for 10 seconds
-{variant:2}Excess Life Recovery added as Guard for 20 seconds
+{version:3}Regenerate (2.5-5)% of maximum Runic Ward per second during Effect
+{version:3}Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends
+{version:1}Excess Life Recovery added as Guard for 10 seconds
+{version:2}Excess Life Recovery added as Guard for 20 seconds
 ]],[[
 Opportunity
 Ultimate Life Flask

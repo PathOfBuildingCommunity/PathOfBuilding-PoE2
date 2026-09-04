@@ -18,7 +18,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage5[3,4][6,8]
 {variant:2}UniqueLocalAddedPhysicalDamage5
-UniqueLocalIncreasedAccuracy1
+UniqueLocalIncreasedAccuracy2
 {variant:2}UniqueLocalIncreasedAttackSpeed12
 {variant:1}UniqueStrength15[5,10]
 {variant:2}UniqueStrength15
@@ -77,8 +77,8 @@ Torment Club
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
-{variant:1}UniqueLocalAddedLightningDamage1[1,1][60,80]
-{variant:2}UniqueLocalAddedLightningDamage1
+{variant:1}UniqueLocalAddedLightningDamage4[1,1][60,80]
+{variant:2}UniqueLocalAddedLightningDamage4
 UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
@@ -154,10 +154,9 @@ Studded Greatclub
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage9[10,12][18,22]
-{variant:2}UniqueLocalAddedPhysicalDamage9
-{variant:1}UniqueLocalAddedLightningDamage3[1,1][36,42]
-{variant:2}UniqueLocalAddedLightningDamage3
-UniqueLocalIncreasedAttackSpeed5
+{variant:1}UniqueLocalAddedLightningDamage10[1,1][36,42]
+{variant:2}UniqueLocalAddedLightningDamage10
+UniqueLocalIncreasedAttackSpeed7
 UniqueLocalAllDamageCanElectrocute1
 ]],[[
 Chober Chaber
@@ -168,7 +167,7 @@ Variant: Current
 UniqueIntelligenceRequirements1
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent4
 {variant:2,3}UniqueLocalAddedPhysicalDamage12
-UniqueIncreasedMana22
+UniqueIncreasedMana28
 {variant:2,3}UniqueIncreasedSpirit8
 {variant:1}UniqueLocalCriticalStrikeChance3
 UniqueMinionDamageAffectsYou1
@@ -214,14 +213,14 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent6[60,80]
 {variant:2}UniqueLocalIncreasedPhysicalDamagePercent6
-UniqueStrength3
+UniqueStrength26
 UniqueLifeGainedFromEnemyDeath6
 UniqueAftershockChance1
 ]],[[
 Quecholli
 Crumbling Maul
-UniqueLocalIncreasedPhysicalDamagePercent4
-UniqueAllAttributes7
+UniqueLocalIncreasedPhysicalDamagePercent8
+UniqueAllAttributes8
 UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1
@@ -273,7 +272,7 @@ Temple Maul
 League: Dawn of the Hunt
 UniqueDexterityRequirements1
 UniqueStrengthRequirements1
-UniqueLocalIncreasedPhysicalDamagePercent5
+UniqueLocalIncreasedPhysicalDamagePercent10
 UniqueLocalIncreasedAttackSpeed15
 UniqueLightRadius17
 UniqueAlwaysHits1

@@ -9,7 +9,7 @@ Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent13
-UniqueEnergyShieldRechargeRate7
+UniqueEnergyShieldRechargeRate4
 {variant:1}UniqueEnergyShieldDelay5
 UniqueElementalDamageTakenAsChaos1
 UniqueChanceToBePoisoned1
@@ -19,9 +19,9 @@ Carrion Call
 Engraved Focus
 Variant: Pre 0.1.1
 Variant: Current
-UniqueIncreasedEnergyShield3
-UniqueMinionLife1
-UniqueManaRegeneration6
+UniqueLocalIncreasedEnergyShield7
+UniqueMinionLife4
+UniqueManaRegeneration15
 {variant:2}UniqueMinionDamage1
 UniqueMinionResistanceEqualYours1
 ]],[[
@@ -42,7 +42,7 @@ UniqueLocalIncreasedEnergyShield14
 {variant:1,2}UniqueSpellDamageOnWeapon5[60,80]
 {variant:3}UniqueSpellDamageOnWeapon5
 UniqueIntelligence41
-UniqueChaosResist16
+UniqueChaosResist27
 {variant:1}UniqueCriticalWeaknessOnSpellCrit1[3,5]
 {variant:2,3}UniqueCriticalWeaknessOnSpellCrit1
 ]],[[
@@ -50,9 +50,9 @@ The Eternal Spark
 Crystal Focus
 Variant: Pre 0.1.1
 Variant: Current
-UniqueLocalIncreasedEnergyShieldPercent3
+UniqueLocalIncreasedEnergyShieldPercent19
 UniqueMaximumLightningResist2
-RingImplicitLightningResistance1
+UniqueLightningResist16
 {variant:2}UniqueManaRegeneration28
 {variant:1}UniqueManaRegenerationWhileStationary1[50,50]
 {variant:2}UniqueManaRegenerationWhileStationary1

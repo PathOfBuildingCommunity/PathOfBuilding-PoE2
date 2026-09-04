@@ -24,7 +24,7 @@ Implicits: 1
 Dreadfist
 Bolstered Mitts
 League: Dawn of the Hunt
-(50-100)% increased Armour
+(60-100)% increased Armour
 (20-30)% increased Critical Damage Bonus
 Critical Hits inflict Impale
 Critical Hits cannot Extract Impale
@@ -333,7 +333,7 @@ Curses you inflict are reflected back to you
 [[
 Blessed Bonds
 Linen Wraps
-Source: Drops from unique{Zarokh, the Temporal}
+Source: No longer obtainable
 Requires Level 56
 +(60-100) to Evasion Rating
 +(30-50) to maximum Energy Shield

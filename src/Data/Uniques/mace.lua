@@ -81,7 +81,7 @@ Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
 {variant:1}Adds 1 to (60-80) Lightning Damage
-{variant:2}Adds 1 to (80-120) Lightning Damage
+{variant:2}Adds 1 to (60-80) Lightning Damage
 +(300-400) to Accuracy Rating
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to
@@ -159,9 +159,8 @@ Studded Greatclub
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (10-12) to (18-22) Physical Damage
-{variant:2}Adds (18-22) to (24-28) Physical Damage
 {variant:1}Adds 1 to (36-42) Lightning Damage
-{variant:2}Adds 1 to (50-55) Lightning Damage
+{variant:2}Adds 1 to (110-115) Lightning Damage
 (10-15)% increased Attack Speed
 All damage with this Weapon causes Electrocution buildup
 ]],[[
@@ -231,7 +230,7 @@ Quecholli
 Crumbling Maul
 Implicits: 1
 Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage
-(80-120)% increased Physical Damage
+(100-150)% increased Physical Damage
 +(10-15) to all Attributes
 Gain 30 Life per enemy killed
 Hits with this Weapon have no Critical Damage Bonus

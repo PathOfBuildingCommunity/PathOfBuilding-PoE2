@@ -90,7 +90,7 @@ Implicits: 1
 {tags:mana}(20-30)% increased Mana Regeneration Rate
 {variant:1}{tags:mana}+50 to maximum Mana
 {variant:2}{tags:mana}+(40-60) to maximum Mana
-{tags:mana}50% increased Mana Regeneration Rate
+{tags:mana}(40-60)% increased Mana Regeneration Rate
 {variant:1}{tags:defences}Gain (20-30)% of maximum Mana as Extra maximum Energy Shield
 {variant:2}{tags:defences}Gain (4-6)% of maximum Mana as Extra maximum Energy Shield
 ]],[[
@@ -154,11 +154,15 @@ Cannot be Blinded
 ]],[[
 Idol of Uldurn
 Crimson Amulet
+Version: Pre 0.5.0
+Version: Current
 Requires Level 24
 Implicits: 1
 {tags:life}(2-4) Life Regeneration per second
 {tags:life}+(60-80) to maximum Life
 {tags:attribute}+(10-20) to Dexterity
+{version:2}(20-40)% reduced Presence Area of Effect
+{version:2}(10-15)% increased Spirit
 Skills have +1 to Limit
 ]],[[
 Igniferis
@@ -167,7 +171,7 @@ Implicits: 1
 {tags:life}(2-4) Life Regeneration per second
 {tags:fire}+(10-20)% to Fire Resistance
 {tags:mana}(20-30)% increased Mana Regeneration Rate
-25% reduced Light Radius
+25% increased Light Radius
 Life Recovery from Regeneration is not applied
 Every 4 seconds, Recover 1 Life for every 0.2 Life Recovery per second from Regeneration
 ]],[[
@@ -285,7 +289,7 @@ Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-20)% increased maximum Life
 {variant:1,2}{tags:fire}+(30-40)% to Fire Resistance
-{variant:3}{tags:fire}+(20-30)% to Fire Resistance
+{variant:3}{tags:fire}+(50-100)% to Fire Resistance
 {variant:1}Enemies in your Presence have +1% to Fire Resistance
 {variant:2}Enemies in your Presence have -10% to Fire Resistance
 {variant:3}Enemies in your Presence have -25% to Fire Resistance
