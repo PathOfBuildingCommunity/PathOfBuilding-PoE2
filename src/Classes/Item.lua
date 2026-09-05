@@ -710,10 +710,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				local backupAffixList = { }
 				for modId, modData in pairs(self.affixes) do
 					-- these can produce false positives, and only ever exist on the monk glove base
-					if modId:match("^HandWraps") and not self.name:match("Fists of Stone") then
-						continue
-					end
-					if modData.affix == modName then
+					if not (modId:match("^HandWraps") and not self.name:match("Fists of Stone")) and modData.affix == modName then
 						if self:GetModSpawnWeight(modData) > 0 then
 							if modData.type == "Prefix" then
 								t_insert(self.pendingAffixList, { modId = modId, table = self.prefixes })
@@ -1396,7 +1393,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					local strippedModLine = getRuneLineParts(modLine.line)
 					if (disabledRuneLines[strippedModLine] or 0) > 0 then
 						modLine.disabled = true
-						disabledRuneLines[strippedModLine] -= 1
+						disabledRuneLines[strippedModLine] = disabledRuneLines[strippedModLine] - 1
 					end
 				end
 			end
@@ -1628,7 +1625,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		if #self.modMagnitudeMods > 0 then
 			for _, modMagnitudeMod in ipairs(self.modMagnitudeMods) do
 				if self:UsesVersionedOrGroupedVariants() and not self:CheckModLineVariant(modMagnitudeMod.sourceLine) then
-					continue
+					goto continueMagnitudeMod
 				end
 				local modLists
 				if modMagnitudeMod.modType then
@@ -1640,7 +1637,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					for _, mod in ipairs(mods or {}) do
 						-- avoid scaling variant lines which are not active
 						if self:GetModLineVariantCount(mod) == 0 or mod.unscalable then
-							continue
+							goto continueMod
 						end
 						-- Modifiers that grant skills are not affected by modifier magnitude.
 						local grantsSkill = false
@@ -1690,8 +1687,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								mod.extra = extra
 							end
 						end
+						::continueMod::
 					end
 				end
+				::continueMagnitudeMod::
 			end
 		end
 	end

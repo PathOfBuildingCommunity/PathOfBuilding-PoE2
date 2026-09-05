@@ -5188,7 +5188,7 @@ function calcs.offence(env, actor, activeSkill)
 			return baseVal
 		end
 
-		local critMetatable = { __index = |_, key| -> skillCfg.skillCond[key] or cfg.skillCond[key] }
+		local critMetatable = { __index = function(_, key) return skillCfg.skillCond[key] or cfg.skillCond[key] end }
 		---Calculate global / breakdown values for a damaging ailment
 		---@param ailment string
 		---@param ailmentDamageType table

@@ -234,8 +234,8 @@ function TooltipClass:AddBuildPlannerNote(size, text, prefix)
 				depth, closeBrace = 1, openBrace + 1
 				while closeBrace <= finish and depth > 0 do
 					local char = text:sub(closeBrace, closeBrace)
-					if char == "{" then depth += 1 elseif char == "}" then depth -= 1 end
-					closeBrace += 1
+					if char == "{" then depth = depth + 1 elseif char == "}" then depth = depth - 1 end
+					closeBrace = closeBrace + 1
 				end
 			end
 			if validMarkup and depth == 0 then
@@ -247,9 +247,9 @@ function TooltipClass:AddBuildPlannerNote(size, text, prefix)
 					if tag == "s" then lineSize = m_floor(size * 0.75 + 0.5) elseif tag == "m" then lineSize = size elseif tag == "l" then lineSize = m_floor(size * 1.25 + 0.5) end
 					if font ~= nil or lineSize then
 						local line = 1
-						for _ in text:sub(1, tagStart - 1):gmatch("\n") do line += 1 end
+						for _ in text:sub(1, tagStart - 1):gmatch("\n") do line = line + 1 end
 						local lastLine = line
-						for _ in text:sub(tagStart, closeBrace - 1):gmatch("\n") do lastLine += 1 end
+						for _ in text:sub(tagStart, closeBrace - 1):gmatch("\n") do lastLine = lastLine + 1 end
 						for index = line, lastLine do
 							lineStyles[index] = lineStyles[index] or { }
 							if font ~= nil then lineStyles[index].font = font end
@@ -277,7 +277,7 @@ function TooltipClass:AddBuildPlannerNote(size, text, prefix)
 	for renderedLine in (renderedText .. "\n"):gmatch("([^\n]*)\n") do
 		local style = lineStyles[line]
 		self:AddLine(style and style.size or size, (line == 1 and (prefix or "") or "") .. renderedLine, style and style.font)
-		line += 1
+		line = line + 1
 	end
 end
 

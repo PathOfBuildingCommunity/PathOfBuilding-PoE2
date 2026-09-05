@@ -202,13 +202,13 @@ describe("TetsItemMods", function()
 		build.itemsTab.controls.craftingSorting:SelByValue("Life", "stat")
 		build.calcsTab.GetMiscCalculator = function()
 			return function(args)
-				calcCount += 1
+				calcCount = calcCount + 1
 				local life = 0
 				for _, modLine in ipairs(args.repItem.explicitModLines) do
 					if modLine.line == "+19 to maximum Life" then
-						retainedCount += 1
+						retainedCount = retainedCount + 1
 					end
-					life += tonumber(modLine.line:match("%+(%d+) to maximum Life")) or 0
+					life = life + (tonumber(modLine.line:match("%+(%d+) to maximum Life")) or 0)
 				end
 				return { Life = life }
 			end

@@ -201,7 +201,7 @@ for _, name in ipairs(itemTypes) do
 				if mod.modTags then
 					for _, tag in ipairs(mod.modTags) do
 						if tag == "unveiled_mod" then
-							prefix ..= "{desecrated}"
+							prefix = prefix .. "{desecrated}"
 						end
 					end
 				end

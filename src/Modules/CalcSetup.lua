@@ -1588,7 +1588,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					limit = { count = 0, max = dbMod.limit, names = { } }
 					augmentLimits[dbMod.limitId or augmentName] = limit
 				end
-				limit.count += count
+				limit.count = limit.count + count
 				t_insert(limit.names, augmentName)
 			end
 		end
