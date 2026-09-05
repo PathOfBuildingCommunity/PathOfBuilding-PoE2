@@ -539,6 +539,29 @@ Item Level: 80
 		assert.are.equals("Witch", loadClass("0_4", 1))
 	end)
 
+	it("switches attribute nodes without copying the passive tree graph", function()
+		local source
+		for _, node in pairs(build.spec.tree.nodes) do
+			if node.isAttribute then
+				source = node
+				break
+			end
+		end
+		assert.is_not_nil(source)
+
+		local option = source.options[1]
+		build.spec:SwitchAttributeNode(source.id, 1)
+		local override = build.spec.hashOverrides[source.id]
+
+		assert.is_not_nil(override)
+		assert.are_not.equals(source, override)
+		assert.are.equals(source.group, override.group)
+		assert.are.equals(source.options, override.options)
+		assert.are.equals(option.name, override.dn)
+		assert.are.same(option.sd, override.sd)
+		assert.are_not.equals(option.sd, override.sd)
+	end)
+
 	local function allocNode(spec, nodeId, allocMode)
 		local node = spec.nodes[nodeId]
 		spec.allocMode = allocMode

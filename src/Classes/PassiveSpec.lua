@@ -2717,11 +2717,14 @@ end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
-		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+		local newNode = copyTableSafe(self.tree.nodes[nodeId], true, true)
 		if not newNode.isAttribute then return end -- safety check
 		
 		local option = newNode.options[attributeIndex]
 		self:ReplaceNode(newNode, option)
+		if newNode.sd then
+			newNode.sd = copyTable(newNode.sd, true)
+		end
 		self.tree:ProcessStats(newNode)
 		
 		self.hashOverrides[nodeId] = newNode
