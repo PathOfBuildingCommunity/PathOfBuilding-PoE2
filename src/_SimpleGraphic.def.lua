@@ -104,7 +104,7 @@ local texHandleClass = {}
 local textureInfoClass = {}
 
 ---@class Texture
-local Texture = {}
+Texture = {}
 
 ---@return TexHandle
 function Texture.new() end
