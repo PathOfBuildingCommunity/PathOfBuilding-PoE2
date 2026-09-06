@@ -1394,7 +1394,7 @@ function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, tr
 		local heightActive = data.height
 
 		local function rotate(x, y, cx, cy, theta)
-			local translatedX = x - cy
+			local translatedX = x - cx
 			local translatedY = y - cy
 
 			local cosTheta = math.cos(theta)
