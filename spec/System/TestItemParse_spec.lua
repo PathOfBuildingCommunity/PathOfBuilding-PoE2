@@ -623,17 +623,17 @@ describe("TestItemParse", function()
 			Rune: Soul Core of Atmohua
 			LevelReq: 79
 			Implicits: 4
-			{enchant}{rune}Convert 20% of Requirements to Dexterity
-			{enchant}{rune}Convert 20% of Requirements to Intelligence
-			{enchant}{rune}Convert 20% of Requirements to Strength
+			{enchant}{rune}Convert 40% of Requirements to Dexterity
+			{enchant}{rune}Convert 40% of Requirements to Intelligence
+			{enchant}{rune}Convert 40% of Requirements to Strength
 			{tags:block}{range:1}+(10-15)% to Block chance
 			Corrupted
 			]])
 		item:BuildAndParseRaw()
-		assert.are.equals(35, item.requirements.strMod)
-		assert.are.equals(86, item.requirements.dexMod)
-		assert.are.equals(55, item.requirements.intMod)	
-		
+		assert.are.equals(70, item.requirements.strMod)
+		assert.are.equals(45, item.requirements.dexMod)
+		assert.are.equals(60, item.requirements.intMod)
+
 	end)
 
 
@@ -1043,7 +1043,7 @@ describe("TestItemParse", function()
 			--------
 			Item Level: 86
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			Only Soul Cores can be Socketed in this item
 			This item gains bonuses from Socketed Soul Cores as though it was also a Shield
@@ -1052,7 +1052,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba", "None", "None", "None", "None", "None" }, item.runes)
-		assert.are.equals("Hits against you have 40% reduced Critical Damage Bonus", item.runeModLines[1].line)
+		assert.are.equals("Hits against you have 100% reduced Critical Damage Bonus", item.runeModLines[1].line)
 	end)
 
 	it("infers pasted Soul Core lines with socketed Soul Core effect", function()
@@ -1064,7 +1064,7 @@ describe("TestItemParse", function()
 			--------
 			Sockets: S
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			100% increased effect of Socketed Soul Cores
 		]])
@@ -1072,7 +1072,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
-		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 100%% reduced Critical Damage Bonus"))
 	end)
 
 	it("jewel sockets", function()
