@@ -3,35 +3,29 @@
 
 return {
 	ddsCoords={
-		["gem-backgrounds_-1334431720_-163311_<unknown>.dds.zst"]={
-			AncestralWarriorTotemPlayer=1
-		},
-		["gem-backgrounds_-647393904_529_<unknown>.dds.zst"]={
-			ArcPlayer=1
-		},
-		["gem-backgrounds_-647725320_-425455_<unknown>.dds.zst"]={
+		["gem-backgrounds_-1630295784_637_<unknown>.dds.zst"]={
 			BoneshatterPlayer=1
 		},
-		["gem-backgrounds_-647893408_-425455_<unknown>.dds.zst"]={
-			BoneOfferingPlayer=1
-		},
-		["gem-backgrounds_-647952328_-425455_<unknown>.dds.zst"]={
-			MetaBarrierInvocationPlayer=1
-		},
-		["gem-backgrounds_-647992232_-425455_<unknown>.dds.zst"]={
+		["gem-backgrounds_-1630578808_-425347_<unknown>.dds.zst"]={
 			BarragePlayer=1
 		},
-		["gem-backgrounds_-648059232_-425455_<unknown>.dds.zst"]={
-			BoneCagePlayer=1
-		},
-		["gem-backgrounds_-648103800_-425455_<unknown>.dds.zst"]={
+		["gem-backgrounds_-1630747224_-425347_<unknown>.dds.zst"]={
 			ArmourBreakerPlayer=1
 		},
-		["gem-backgrounds_-648786008_-163311_<unknown>.dds.zst"]={
+		["gem-backgrounds_-1630814616_-425347_<unknown>.dds.zst"]={
+			ArcPlayer=1
+		},
+		["gem-backgrounds_-1630928024_-425347_<unknown>.dds.zst"]={
 			ArcticArmourPlayer=1
 		},
+		["gem-backgrounds_-1631290904_-163203_<unknown>.dds.zst"]={
+			AncestralWarriorTotemPlayer=1
+		},
+		["gem-backgrounds_-1632205592_-163203_<unknown>.dds.zst"]={
+			BonestormPlayer=1
+		},
 		["gem-backgrounds_0_0_<unknown>.dds.zst"]={
-			BonestormPlayer=1,
+			BoneCagePlayer=1,
 			ChargedStaffPlayer=2,
 			CometPlayer=4,
 			ContagionPlayer=5,
@@ -119,6 +113,12 @@ return {
 			VulnerabilityPlayer=83,
 			WaveOfFrostPlayer=84,
 			WhirlingAssaultPlayer=85
+		},
+		["gem-backgrounds_0_1080336384_<unknown>.dds.zst"]={
+			BoneOfferingPlayer=1
+		},
+		["gem-backgrounds_0_1081184256_<unknown>.dds.zst"]={
+			MetaBarrierInvocationPlayer=1
 		},
 		["gem-icons_108_108_RGBA.dds.zst"]={
 			["Art/2DItems/Gems/New/NewSupport/DangerousResolveSupportGem.dds"]=1,

@@ -7060,6 +7060,7 @@ c["Curses you inflict have infinite Duration You can apply an additional Curse"]
 c["Curses you inflict ignore Curse limit"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=99}},nil}
 c["Curses you inflict spread to enemies within 3 metres when Cursed enemy dies"]={nil,"Curses you inflict spread to enemies within 3 metres when Cursed enemy dies "}
 c["Curses you inflict spread to enemies within 3 metres when Cursed enemy dies Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence"]={nil,"Curses you inflict spread to enemies within 3 metres when Cursed enemy dies Gain 1 Dark Whisper every second there is a Cursed Enemy in your Presence "}
+c["DNT Obliterated #233763"]={nil,"DNT Obliterated #233763 "}
 c["DNT-UNUSED 20% chance when hitting a Rare Monster to disable one of its Modifiers"]={nil,"DNT-UNUSED 20% chance when hitting a Rare Monster to disable one of its Modifiers "}
 c["DNT-UNUSED Blasphemy has no Reservation"]={nil,"DNT-UNUSED Blasphemy has no Reservation "}
 c["DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated"]={nil,"DNT-UNUSED Bleeding you inflict on Shocked enemies is Aggravated "}
@@ -8794,13 +8795,13 @@ c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="RageEffect",type="OVERRI
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
 c["Non-Channelling Attacks cost an additional 6% of your maximum Mana"]={nil,"Non-Channelling Attacks cost an additional 6% of your maximum Mana "}
 c["Non-Channelling Attacks have Added Lightning Damage equal to 3% of maximum Mana"]={nil,"Non-Channelling Attacks have Added Lightning Damage equal to 3% of maximum Mana "}
+c["Non-Channelling Skills have 3% increased Spell Critical Hit Chance per 100 maximum Mana"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Mana",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={{[1]={[1]={floor=true,percent=6,stat="Life",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="LifeCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["Non-Channelling Spells deal 6% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
 c["Non-Channelling Spells deal 6% increased Damage per 100 maximum Mana"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Mana",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
 c["Non-Channelling Spells have 25% chance to cost Double Mana and Critically Hit"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},flags=2,keywordFlags=0,name="Mana",type="BASE",value=25}}," to cost Double  and Critically Hit "}
 c["Non-Channelling Spells have 3% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
-c["Non-Channelling Spells have 3% increased Critical Hit Chance per 100 maximum Mana"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Mana",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
 c["Non-Channelling Spells have 3% increased Magnitude of Ailments per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=0,keywordFlags=131072,name="AilmentMagnitude",type="INC",value=3}},nil}
 c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["Non-Critical Hits deal no Damage"]={{[1]={[1]={neg=true,type="Condition",var="CriticalStrike"},flags=4,keywordFlags=0,name="Damage",type="MORE",value=-100}},nil}
@@ -9305,7 +9306,7 @@ c["Ritual Cadence"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",va
 c["Rogue Equipment cannot be found"]={nil,"Rogue Equipment cannot be found "}
 c["Rogue Perks are doubled"]={{},"Rogue Perks are d "}
 c["Rolls only the minimum or maximum Damage value for each Damage Type"]={nil,"Rolls only the minimum or maximum Damage value for each Damage Type "}
-c["Runic Ward recovery can can Overflow maximum Runic Ward"]={nil,"Runic Ward recovery can can Overflow maximum Runic Ward "}
+c["Runic Ward recovery can Overflow maximum Runic Ward"]={nil,"Runic Ward recovery can Overflow maximum Runic Ward "}
 c["Sacrifice 10% of maximum Life to gain that much Energy Shield when you Cast a Spell"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="Life",type="BASE",value=10}},"  to gain that much Energy Shield when you Cast a  "}
 c["Sacrifice 15% of maximum Life to gain that much Energy Shield when you Cast a Spell"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="Life",type="BASE",value=15}},"  to gain that much Energy Shield when you Cast a  "}
 c["Sacrifice 20% of Mana and they Leech that Mana"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=20}},"  and they Leech that Mana "}
