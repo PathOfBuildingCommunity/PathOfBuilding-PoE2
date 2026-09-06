@@ -3,7 +3,7 @@
 
 return {
 	ddsCoords={
-		["monster-categories_36_36_BC7.dds.zst"]={
+		["monster-categories_44_44_BC7.dds.zst"]={
 			Beast=1,
 			Construct=2,
 			Demon=3,

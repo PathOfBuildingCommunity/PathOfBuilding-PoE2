@@ -8918,12 +8918,11 @@ return {
 		tags = {
 			grants_active_skill = true,
 			attack = true,
-			area = true,
 			ammunition = true,
 			projectile = true,
 		},
 		gemType = "Attack",
-		tagString = "AoE, Ammunition, Projectile",
+		tagString = "Ammunition, Projectile",
 		weaponRequirements = "Crossbow",
 		reqStr = 0,
 		reqDex = 0,

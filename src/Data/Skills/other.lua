@@ -127,7 +127,7 @@ skills["AcidicConcoctionPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionPoisonSkill.dds",
 	fromTree = true,
 	color = 4,
-	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area. The thrown flask Consumes Poison on Hit to cause an acidic burst. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack",
+	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area. The thrown flask Consumes Poison on Hit to cause an acidic burst. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Physical] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -1792,9 +1792,9 @@ skills["AzmerianSwarmPlayer"] = {
 		"AzmerianSwarm",
 	},
 	color = 4,
-	description = "While active, summons short-lived Azmerian Swarms when you kill enemies affected by Elemental Ailments or hit Rare or Unique enemies affected by Elemental Ailments. The swarms are untargetable Minions that pursue nearby enemies to Attack them and infict Faerie Fire on Hit.",
+	description = "While active, summons short-lived Azmerian Swarms when you kill enemies affected by Elemental Ailments or hit Rare or Unique enemies affected by Elemental Ailments. The swarms are untargetable Minions that pursue nearby enemies to Attack them and inflict Faerie Fire on Hit.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.MeleeSingleTarget] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "max_azmerian_swarms", 0.1, {  } },
@@ -2495,7 +2495,7 @@ skills["BleedingConcoctionPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionBleedSkill.dds",
 	fromTree = true,
 	color = 4,
-	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area and Aggravating Bleeding on Enemies hit. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack",
+	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area and Aggravating Bleeding on Enemies hit. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -2957,7 +2957,7 @@ skills["ExplodingPoisonToadPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/MurkshaftToads.dds",
 	fromItem = true,
 	color = 4,
-	description = "This skill creates a toad that jumps around briefly, then explodes the toad, dealing Attack damage in an area and inflicting Poison.  Damage you deal with skill is not based on your Weapon",
+	description = "This skill creates a toad that jumps around briefly, the toad then explodes, dealing Attack damage in an area and inflicting Poison.  Damage you deal with this skill is not based on your Weapon.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Physical] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.NonWeaponAttack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.UseGlobalStats] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -3905,7 +3905,7 @@ skills["MeleeCrossbowPlayer"] = {
 	fromItem = true,
 	color = 4,
 	description = "Fire a bolt from your crossbow.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -4520,7 +4520,7 @@ skills["DetonateLivingPlayer"] = {
 	baseTypeName = "Detonate Living",
 	icon = "Art/2DArt/SkillIcons/ExpeditionDetonateLiving.dds",
 	color = 4,
-	description = "Hit an enemy under the Culling Strike Threshold, causing them to violently explode, damaging surrounding enemies. Highlights enemies under the Culling Strike Threshold.",
+	description = "Spend Runic Ward to cause a destabilising Hit against an enemy under the Culling Strike Threshold, making them violently explode. Highlights enemies under the Culling Strike Threshold.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.65,
 	qualityStats = {
@@ -5929,7 +5929,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionFireSkill.dds",
 	fromTree = true,
 	color = 4,
-	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Fire Attack damage in an area. Additional smaller flasks are thrown at nearby Ignited Enemies. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack",
+	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Fire Attack damage in an area. Additional smaller flasks are thrown at nearby Ignited Enemies. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -7439,7 +7439,7 @@ skills["FulminatingConcoctionPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionLightningSkill.dds",
 	fromTree = true,
 	color = 4,
-	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Lightning Attack damage in an area with high chance to Shock. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack",
+	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Lightning Attack damage in an area with high chance to Shock. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -13589,7 +13589,7 @@ skills["RefutationPlayer"] = {
 	baseTypeName = "Refutation",
 	icon = "Art/2DArt/SkillIcons/ExpeditionRunicFortress.dds",
 	color = 4,
-	description = "Spends all your Ward to gain a short-duration Buff that causes you to Block all Blockable Hits and apply Parried to enemies from which you've Blocked a Hit. This Buff is removed if you are Heavy Stunned. While this Buff is active, you cannot be Light Stunned, but Blocking too much damage may Heavy Stun you.",
+	description = "Spends all your Runic Ward to gain a short-duration Buff that causes you to Block all Blockable Hits and apply Parried to enemies from which you've Blocked a Hit. This Buff is removed if you are Heavy Stunned. While this Buff is active, you cannot be Light Stunned, but Blocking too much damage may Heavy Stun you.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.65,
 	qualityStats = {
@@ -14022,7 +14022,7 @@ skills["CurseOfRepulsionPlayer"] = {
 	baseTypeName = "Repulsion",
 	icon = "Art/2DArt/SkillIcons/ExpeditionMarkofRepulsion.dds",
 	color = 4,
-	description = "Target an area and Curse enemies within with a Verisium Rune, inflicting them with Fragility. Hitting these enemies causes the Curse to Trigger an explosion to deal damage in an area and apply significant Knockback to other enemies near the Cursed target, with more Stun buildup based on the Fragility on the target Hit.",
+	description = "Spend Runic Ward to Curse enemies with a Verisium Rune, inflicting them with Fragility. Hitting these enemies removes the Curse to Trigger an explosion, Knocking Back nearby enemies and causing more Stun buildup based on the Fragility on the target Hit.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.Cascadable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMounted] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -15629,7 +15629,7 @@ skills["ShatteringConcoctionPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionColdSkill.dds",
 	fromTree = true,
 	color = 4,
-	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Cold Attack damage in an area and inflicting Exposure. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack",
+	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Cold Attack damage in an area and inflicting Exposure. This damage is not based on your unarmed damage, so this is not considered an Unarmed Attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Cold] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -16162,7 +16162,7 @@ skills["SkyfallPlayer"] = {
 	baseTypeName = "Skyfall",
 	icon = "Art/2DArt/SkillIcons/ExpeditionVerisiumComet.dds",
 	color = 4,
-	description = "Build Glory by spending Runic Ward. When you have maximum Glory, you may call down a mass of Verisium from the sky, dealing high damage at the targeted location and summoning a Temporary Minion. Targeting close to you will cause you to jump back as you cast. Consumes a Verisium Infusion, if possible, to increase the number of Minions summoned .",
+	description = "Build Glory by spending Runic Ward. When you have maximum Glory, you may call down a mass of Verisium from the sky, dealing high damage at the targeted location and summoning a Temporary Minion. Targeting close to you will cause you to jump back as you cast. Consumes a Verisium Infusion, if possible, to increase the number of Minions summoned.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Physical] = true, [SkillType.Cascadable] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.HasUsageCondition] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cold] = true, },
 	castTime = 1,
@@ -19770,7 +19770,7 @@ skills["VerisiumManifestationPlayer"] = {
 	icon = "Art/2DArt/SkillIcons/ExpeditionRunewordManifest.dds",
 	color = 4,
 	description = "While active, Hitting with an Attack will spend Runic Ward to summon a Verisium Manifestation, a short-lived Temporary Minion that rapidly Attacks nearby enemies, ignoring commands. Enemies will not directly engage these Minions, and can pass through them.",
-	skillTypes = { [SkillType.UsableWhileMoving] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, },
+	skillTypes = { [SkillType.UsableWhileMoving] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Duration] = true, [SkillType.UnlimitedTotems] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -20389,7 +20389,7 @@ skills["VoltaicBarrierPlayer"] = {
 	baseTypeName = "Voltaic Barrier",
 	icon = "Art/2DArt/SkillIcons/ExpeditionCracklingBarrier.dds",
 	color = 4,
-	description = "Raise a pair of electrified pylons in front of you which project a wall of electricity between them, damaging and Electrocuting enemies caught between them. Projectiles you fire through the wall become energised, and discharge that energy on Hit as Chaining Lightning beams.",
+	description = "Spend Runic Ward to raise a pair of electrified pylons in front of you which project a wall of electricity between them, damaging and Electrocuting enemies caught between them. Projectiles you fire through the wall become energised, and discharge that energy on Hit as Chaining Lightning beams.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Wall] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
 		["Bow"] = true,

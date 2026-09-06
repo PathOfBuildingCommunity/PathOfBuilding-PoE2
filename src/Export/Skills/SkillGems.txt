@@ -705,7 +705,6 @@ Arbiter's Ignition            		----		SupportArbitersIgnitionPlayer
 Arcane Surge                  		----		SupportArcaneSurgePlayer
 Astral Projection             		----		SupportAstralProjectionPlayer
 Atziri's Allure               		----		SupportAtzirisAllurePlayer
-Atziri's Call                 		----		SupportAtzirisCallPlayer	TriggeredAtzirisCallPlayer
 Atziri's Communion            		----		SupportAtzirisCommunionPlayer
 Bhatair's Vengeance           		----		SupportBhatairsVengeancePlayer
 Bidding I                     		----		SupportBiddingPlayer

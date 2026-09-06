@@ -16995,20 +16995,6 @@ return {
 				["type"] = "explicit",
 			},
 		},
-		["2704225257"] = {
-			["Body Armour"] = {
-				["max"] = 24,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "explicit.stat_2704225257",
-				["text"] = "# to Spirit",
-				["type"] = "explicit",
-			},
-			["usePositiveSign"] = true,
-		},
 		["2704905000"] = {
 			["AnyJewel"] = {
 				["max"] = 7,
@@ -22272,6 +22258,10 @@ return {
 			["Amulet"] = {
 				["max"] = 50,
 				["min"] = 30,
+			},
+			["Body Armour"] = {
+				["max"] = 24,
+				["min"] = 1,
 			},
 			["Chest"] = {
 				["max"] = 61,
@@ -27692,8 +27682,16 @@ return {
 				["max"] = 300,
 				["min"] = 100,
 			},
+			["2HWeapon"] = {
+				["max"] = 50,
+				["min"] = 30,
+			},
 			["Amulet"] = {
 				["max"] = 40,
+				["min"] = 30,
+			},
+			["Quarterstaff"] = {
+				["max"] = 50,
 				["min"] = 30,
 			},
 			["Wand"] = {
@@ -28211,17 +28209,9 @@ return {
 			},
 		},
 		["774059442"] = {
-			["2HWeapon"] = {
-				["max"] = 50,
-				["min"] = 30,
-			},
 			["Chest"] = {
 				["max"] = 1000,
 				["min"] = 750,
-			},
-			["Quarterstaff"] = {
-				["max"] = 50,
-				["min"] = 30,
 			},
 			["specialCaseData"] = {
 			},
@@ -28354,8 +28344,8 @@ return {
 		},
 		["1011760251"] = {
 			["Boots"] = {
-				["max"] = 1,
-				["min"] = 1,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["specialCaseData"] = {
 			},
@@ -28403,48 +28393,48 @@ return {
 		},
 		["1030153674"] = {
 			["1HMace"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["1HWeapon"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["2HMace"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["2HWeapon"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Bow"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Claw"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Crossbow"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Flail"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Quarterstaff"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Spear"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["Talisman"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 4,
+				["min"] = 4,
 			},
 			["specialCaseData"] = {
 			},
@@ -29074,8 +29064,8 @@ return {
 		},
 		["1444556985"] = {
 			["Helmet"] = {
-				["max"] = 8,
-				["min"] = 8,
+				["max"] = 10,
+				["min"] = 10,
 			},
 			["specialCaseData"] = {
 			},
@@ -29100,131 +29090,78 @@ return {
 		},
 		["1496740334"] = {
 			["1HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["1HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Boots"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Bow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Chest"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Claw"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Crossbow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Flail"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Focus"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Gloves"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Helmet"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Quarterstaff"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Shield"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Spear"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Talisman"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
 				["id"] = "rune.stat_1496740334",
 				["text"] = "Convert #% of Requirements to Dexterity",
-				["type"] = "augment",
-			},
-		},
-		["1519615863"] = {
-			["1HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["1HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["2HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["2HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Bow"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Claw"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Crossbow"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Flail"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Quarterstaff"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Spear"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Talisman"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_1519615863",
-				["text"] = "#% chance to cause Bleeding on Hit",
 				["type"] = "augment",
 			},
 		},
@@ -29290,72 +29227,72 @@ return {
 		},
 		["1556124492"] = {
 			["1HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["1HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Boots"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Bow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Chest"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Claw"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Crossbow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Flail"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Focus"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Gloves"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Helmet"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Quarterstaff"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Shield"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Spear"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Talisman"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["specialCaseData"] = {
 			},
@@ -30257,8 +30194,8 @@ return {
 				["min"] = -25,
 			},
 			["Boots"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 20,
+				["min"] = 20,
 			},
 			["Bow"] = {
 				["max"] = -25,
@@ -30299,48 +30236,48 @@ return {
 		},
 		["2023107756"] = {
 			["1HMace"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["1HWeapon"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["2HMace"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["2HWeapon"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Bow"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Claw"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Crossbow"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Flail"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Quarterstaff"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Spear"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["Talisman"] = {
-				["max"] = 2,
-				["min"] = 2,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -30817,8 +30754,8 @@ return {
 		},
 		["2363593824"] = {
 			["Boots"] = {
-				["max"] = 12,
-				["min"] = 12,
+				["max"] = 15,
+				["min"] = 15,
 			},
 			["specialCaseData"] = {
 			},
@@ -31491,8 +31428,8 @@ return {
 		},
 		["2748665614"] = {
 			["Helmet"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},
@@ -31529,20 +31466,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2785209416",
 				["text"] = "# to maximum Life per 8 Armour on Equipped Helmet",
-				["type"] = "augment",
-			},
-			["usePositiveSign"] = true,
-		},
-		["280497929"] = {
-			["Helmet"] = {
-				["max"] = 1,
-				["min"] = 1,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_280497929",
-				["text"] = "# to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
@@ -31728,28 +31651,28 @@ return {
 		},
 		["2901986750"] = {
 			["Boots"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 6,
+				["min"] = 6,
 			},
 			["Chest"] = {
 				["max"] = 20,
-				["min"] = 5,
+				["min"] = 6,
 			},
 			["Focus"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 6,
+				["min"] = 6,
 			},
 			["Gloves"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 6,
+				["min"] = 6,
 			},
 			["Helmet"] = {
-				["max"] = 5,
+				["max"] = 6,
 				["min"] = 5,
 			},
 			["Shield"] = {
-				["max"] = 5,
-				["min"] = 5,
+				["max"] = 6,
+				["min"] = 6,
 			},
 			["specialCaseData"] = {
 			},
@@ -31800,72 +31723,72 @@ return {
 		},
 		["2913012734"] = {
 			["1HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["1HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HMace"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Boots"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Bow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Chest"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Claw"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Crossbow"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Flail"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Focus"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Gloves"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Helmet"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Quarterstaff"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Shield"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Spear"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Talisman"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["specialCaseData"] = {
 			},
@@ -31938,28 +31861,28 @@ return {
 		},
 		["2923486259"] = {
 			["Boots"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["Chest"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["Focus"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["Gloves"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["Helmet"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["Shield"] = {
-				["max"] = 11,
-				["min"] = 11,
+				["max"] = 13,
+				["min"] = 13,
 			},
 			["specialCaseData"] = {
 			},
@@ -31969,59 +31892,6 @@ return {
 				["type"] = "augment",
 			},
 			["usePositiveSign"] = true,
-		},
-		["293638271"] = {
-			["1HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["1HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["2HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["2HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Bow"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Claw"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Crossbow"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Flail"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Quarterstaff"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Spear"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Talisman"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_293638271",
-				["text"] = "#% increased chance to Shock",
-				["type"] = "augment",
-			},
 		},
 		["293832783"] = {
 			["Boots"] = {
@@ -32059,59 +31929,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2957287092",
 				["text"] = "Chance to Block Damage is Lucky",
-				["type"] = "augment",
-			},
-		},
-		["2968503605"] = {
-			["1HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["1HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["2HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["2HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Bow"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Claw"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Crossbow"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Flail"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Quarterstaff"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Spear"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["Talisman"] = {
-				["max"] = 30,
-				["min"] = 30,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_2968503605",
-				["text"] = "#% increased Flammability Magnitude",
 				["type"] = "augment",
 			},
 		},
@@ -32394,16 +32211,56 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3170380905"] = {
-			["Shield"] = {
-				["max"] = 2,
-				["min"] = 2,
+		["3166958180"] = {
+			["1HMace"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["1HWeapon"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["2HMace"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["2HWeapon"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Bow"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Claw"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Crossbow"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Flail"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Quarterstaff"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Spear"] = {
+				["max"] = 40,
+				["min"] = 40,
+			},
+			["Talisman"] = {
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["specialCaseData"] = {
 			},
 			["tradeMod"] = {
-				["id"] = "rune.stat_3170380905",
-				["text"] = "Gain 1% of damage as Fire damage per #% Chance to Block",
+				["id"] = "rune.stat_3166958180",
+				["text"] = "#% increased Magnitude of Bleeding you inflict",
 				["type"] = "augment",
 			},
 		},
@@ -32916,23 +32773,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3398301358"] = {
-			["Chest"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Focus"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3398301358",
-				["text"] = "Gain additional Ailment Threshold equal to #% of maximum Energy Shield",
-				["type"] = "augment",
-			},
-		},
 		["3398787959"] = {
 			["1HMace"] = {
 				["max"] = 13,
@@ -33273,19 +33113,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3544800472"] = {
-			["Boots"] = {
-				["max"] = 25,
-				["min"] = 25,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3544800472",
-				["text"] = "#% increased Elemental Ailment Threshold",
-				["type"] = "augment",
-			},
-		},
 		["3552135623"] = {
 			["Chest"] = {
 				["max"] = 3,
@@ -33310,19 +33137,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3570773271",
 				["text"] = "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
-				["type"] = "augment",
-			},
-		},
-		["3585532255"] = {
-			["Helmet"] = {
-				["max"] = 20,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3585532255",
-				["text"] = "#% increased Charm Charges gained",
 				["type"] = "augment",
 			},
 		},
@@ -33371,8 +33185,8 @@ return {
 		},
 		["3676141501"] = {
 			["Helmet"] = {
-				["max"] = 1,
-				["min"] = 1,
+				["max"] = 2,
+				["min"] = 2,
 			},
 			["specialCaseData"] = {
 			},
@@ -33571,23 +33385,6 @@ return {
 				["type"] = "augment",
 			},
 		},
-		["3759663284"] = {
-			["2HWeapon"] = {
-				["max"] = 20,
-				["min"] = 20,
-			},
-			["Bow"] = {
-				["max"] = 20,
-				["min"] = 20,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3759663284",
-				["text"] = "#% increased Projectile Speed",
-				["type"] = "augment",
-			},
-		},
 		["3801067695"] = {
 			["Boots"] = {
 				["max"] = 10,
@@ -33644,8 +33441,8 @@ return {
 				["min"] = 20,
 			},
 			["Boots"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 20,
+				["min"] = 20,
 			},
 			["Sceptre"] = {
 				["max"] = 20,
@@ -33697,12 +33494,12 @@ return {
 		},
 		["3855016469"] = {
 			["Chest"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 50,
+				["min"] = 50,
 			},
 			["Shield"] = {
-				["max"] = 20,
-				["min"] = 20,
+				["max"] = 50,
+				["min"] = 50,
 			},
 			["specialCaseData"] = {
 			},
@@ -33748,48 +33545,48 @@ return {
 		},
 		["387439868"] = {
 			["1HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["1HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["2HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Bow"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Claw"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Crossbow"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Flail"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Quarterstaff"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Spear"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["Talisman"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 40,
+				["min"] = 40,
 			},
 			["specialCaseData"] = {
 			},
@@ -33814,59 +33611,6 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_3885405204",
 				["text"] = "Bow Attacks fire # additional Arrows",
-				["type"] = "augment",
-			},
-		},
-		["3885634897"] = {
-			["1HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["1HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["2HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["2HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Bow"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Claw"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Crossbow"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Flail"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Quarterstaff"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Spear"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Talisman"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["specialCaseData"] = {
-			},
-			["tradeMod"] = {
-				["id"] = "rune.stat_3885634897",
-				["text"] = "#% chance to Poison on Hit with this weapon",
 				["type"] = "augment",
 			},
 		},
@@ -34048,48 +33792,48 @@ return {
 		},
 		["4064396395"] = {
 			["1HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["1HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["2HMace"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["2HWeapon"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Bow"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Claw"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Crossbow"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Flail"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Quarterstaff"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Spear"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["Talisman"] = {
-				["max"] = 15,
-				["min"] = 15,
+				["max"] = 25,
+				["min"] = 25,
 			},
 			["specialCaseData"] = {
 			},
@@ -34237,14 +33981,6 @@ return {
 			["2HWeapon"] = {
 				["max"] = 16,
 				["min"] = 10,
-			},
-			["Chest"] = {
-				["max"] = 15,
-				["min"] = 15,
-			},
-			["Focus"] = {
-				["max"] = 15,
-				["min"] = 15,
 			},
 			["Staff"] = {
 				["max"] = 16,
@@ -34450,48 +34186,48 @@ return {
 		},
 		["473429811"] = {
 			["1HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["1HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["2HMace"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["2HWeapon"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Bow"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Claw"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Crossbow"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Flail"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Quarterstaff"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Spear"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["Talisman"] = {
-				["max"] = 30,
-				["min"] = 30,
+				["max"] = 60,
+				["min"] = 60,
 			},
 			["specialCaseData"] = {
 			},
@@ -35287,19 +35023,19 @@ return {
 		},
 		["737908626"] = {
 			["1HWeapon"] = {
-				["max"] = 28,
+				["max"] = 30,
 				["min"] = 16,
 			},
 			["2HWeapon"] = {
-				["max"] = 28,
+				["max"] = 30,
 				["min"] = 16,
 			},
 			["Staff"] = {
-				["max"] = 28,
+				["max"] = 30,
 				["min"] = 16,
 			},
 			["Wand"] = {
-				["max"] = 28,
+				["max"] = 30,
 				["min"] = 16,
 			},
 			["specialCaseData"] = {
@@ -35554,13 +35290,57 @@ return {
 			["usePositiveSign"] = true,
 		},
 		["805298720"] = {
+			["1HMace"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
 			["1HWeapon"] = {
 				["max"] = 3,
-				["min"] = 3,
+				["min"] = 1,
+			},
+			["2HMace"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Bow"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Claw"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Crossbow"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Flail"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Quarterstaff"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Spear"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Staff"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+			["Talisman"] = {
+				["max"] = 1,
+				["min"] = 1,
 			},
 			["Wand"] = {
 				["max"] = 3,
-				["min"] = 3,
+				["min"] = 1,
 			},
 			["specialCaseData"] = {
 			},
@@ -35883,8 +35663,8 @@ return {
 		},
 		["983749596"] = {
 			["Chest"] = {
-				["max"] = 3,
-				["min"] = 3,
+				["max"] = 5,
+				["min"] = 5,
 			},
 			["specialCaseData"] = {
 			},

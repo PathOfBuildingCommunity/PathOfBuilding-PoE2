@@ -8463,7 +8463,7 @@ skills["FlameblastPlayer"] = {
 	baseTypeName = "Flameblast",
 	icon = "Art/2DArt/SkillIcons/SorceressFlameblast.dds",
 	color = 3,
-	description = "Channel to build destructive energy around you. Releasing the energy causes a devastating explosion that is larger and more intense the longer you Channelled for.",
+	description = "Channel to build destructive energy around you. Releasing the energy causes a devastating explosion that is larger and more intense the longer you Channel for.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.GainsStages] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.25,
 	qualityStats = {
@@ -8615,7 +8615,7 @@ skills["FlickerStrikePlayer"] = {
 	baseTypeName = "Flicker Strike",
 	icon = "Art/2DArt/SkillIcons/MonkFlickerStrikeTeleport.dds",
 	color = 3,
-	description = "Teleport to a enemy and Strike them. Consumes Power Charges to perform additional teleporting Strikes on nearby enemies.",
+	description = "Teleport to an enemy and Strike them. Consumes Power Charges to perform additional teleporting Strikes on nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
 	weaponTypes = {
 		["Staff"] = true,
@@ -10439,7 +10439,7 @@ skills["GatheringStormPlayer"] = {
 	baseTypeName = "Gathering Storm",
 	icon = "Art/2DArt/SkillIcons/MonkGatheringStorm.dds",
 	color = 3,
-	description = "Flip backward and Channel to charge your Quarterstaff with Lightning. Releasing dashes towards the target location, damaging enemies along the way. Releasing with Perfect Timing performs a Lightning-assisted dash that releases shockwaves from enemies you dash through. Perfectly Timed dash also explodes Tempest Bells on hit creating a shockwave that deals more damage and has a larger area, leaving Shocked Ground in its wake. This skill cannot be Ancestrally Boosted.",
+	description = "Flip backward and Channel to charge your Quarterstaff with Lightning. Releasing causes you to dash towards the target location, damaging enemies along the way. Releasing with Perfect Timing performs a Lightning-assisted dash that releases shockwaves from enemies you dash through. Perfectly Timed dash also explodes Tempest Bells on hit creating a shockwave that deals more damage and has a larger area, leaving Shocked Ground in its wake. This skill cannot be Ancestrally Boosted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.PerfectTiming] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, [SkillType.CannotSpiritStrike] = true, },
 	weaponTypes = {
 		["Staff"] = true,
@@ -15333,7 +15333,7 @@ skills["MantraOfDestructionPlayer"] = {
 	baseTypeName = "Mantra of Destruction",
 	icon = "Art/2DArt/SkillIcons/MonkMantraofDestruction.dds",
 	color = 3,
-	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to Empower your next Quarterstaff Attack, causing it to deal additional Chaos damage. Each kill with the Empowered Attack grants\nPurple Flames of Chayula for a duration.",
+	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to Empower your next Quarterstaff Attack, causing it to deal additional Chaos damage. Each kill with the Empowered Attack grants Purple Flames of Chayula for a duration.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Chaos] = true, [SkillType.HasUsageCondition] = true, },
 	weaponTypes = {
 		["Staff"] = true,
@@ -15722,7 +15722,7 @@ skills["PainOfferingPlayer"] = {
 	baseTypeName = "Pain Offering",
 	icon = "Art/2DArt/SkillIcons/WitchPainOffering.dds",
 	color = 3,
-	description = "Skewer a Skeleton on a bone spike to send nearby Minions into a frenzy as long as the spike remains, making their skills faster and harder hitting.  The bone spike is itself a Minion. If it dies, the effect ends immediately.",
+	description = "Skewer a Skeleton on a bone spike to send nearby Minions into a frenzy as long as the spike remains, making their skills faster and harder hitting. \nThe bone spike is itself a Minion. If it dies, the effect ends immediately.",
 	skillTypes = { [SkillType.Offering] = true, [SkillType.Minion] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesMinion] = true, [SkillType.Limit] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
 	minionSkillTypes = { [SkillType.Aura] = true, },
 	castTime = 0.6,
@@ -19568,7 +19568,7 @@ skills["SoulOfferingPlayer"] = {
 	baseTypeName = "Soul Offering",
 	icon = "Art/2DArt/SkillIcons/WitchPowerOffering.dds",
 	color = 3,
-	description = "Skewer a Skeleton on a bone spike, granting you a powerful Spell damage Buff as long as the spike remains. Does not affect your Minions.  The bone spike is itself a Minion. If it dies, the effect ends immediately.",
+	description = "Skewer a Skeleton on a bone spike, granting you a powerful Spell damage Buff as long as the spike remains. Does not affect your Minions. \nThe bone spike is itself a Minion. If it dies, the effect ends immediately.",
 	skillTypes = { [SkillType.Offering] = true, [SkillType.Minion] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Triggerable] = true, [SkillType.CreatesMinion] = true, [SkillType.Limit] = true, [SkillType.Buff] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -22614,7 +22614,7 @@ skills["VulnerabilityPlayer"] = {
 	baseTypeName = "Vulnerability",
 	icon = "Art/2DArt/SkillIcons/vulnerability.dds",
 	color = 3,
-	description = "Curse all targets in an area after a short delay. making Hits against them ignore a portion of their Armour.",
+	description = "Curse all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.7,
 	qualityStats = {

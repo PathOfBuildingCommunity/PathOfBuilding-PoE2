@@ -1406,14 +1406,17 @@ return {
 			ClassesWitch=34,
 			ClassesWitchhunter=35
 		},
-		["ascendancy-background_4000_4000_BC7.dds.zst"]={
+		["ascendancy-background_4008_4008_BC7.dds.zst"]={
 			BGTree=1,
 			BGTreeActive=2
 		},
-		["background_1024_1024_BC7.dds.zst"]={
+		["background_1048_1048_BC7.dds.zst"]={
 			Background2=1
 		},
-		["group-background_104_104_BC7.dds.zst"]={
+		["group-background_100_100_BC7.dds.zst"]={
+			AscendancyMiddle=1
+		},
+		["group-background_112_112_BC7.dds.zst"]={
 			PSSkillFrame=6,
 			PSSkillFrameActive=4,
 			PSSkillFrameHighlighted=5,
@@ -1421,7 +1424,7 @@ return {
 			["art/textures/interface/2d/2dart/uiimages/ingame/oraclepassiveskillscreenpassiveframecanallocate.dds"]=2,
 			["art/textures/interface/2d/2dart/uiimages/ingame/oraclepassiveskillscreenpassiveframenormal.dds"]=3
 		},
-		["group-background_152_156_BC7.dds.zst"]={
+		["group-background_160_164_BC7.dds.zst"]={
 			JewelFrameAllocated=16,
 			JewelFrameCanAllocate=17,
 			JewelFrameUnallocated=18,
@@ -1441,15 +1444,15 @@ return {
 			["art/textures/interface/2d/2dart/uiimages/ingame/oraclepassiveskillscreennotableframecanallocate.dds"]=11,
 			["art/textures/interface/2d/2dart/uiimages/ingame/oraclepassiveskillscreennotableframenormal.dds"]=12
 		},
-		["group-background_156_156_BC7.dds.zst"]={
+		["group-background_164_164_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/delirium/voicesjewel/voicesjewelframe.dds"]=1
 		},
-		["group-background_160_160_BC7.dds.zst"]={
+		["group-background_168_168_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/anointpassiveskillscreenframelargeallocated.dds"]=1,
 			["art/textures/interface/2d/2dart/uiimages/ingame/anointpassiveskillscreenframelargecanallocate.dds"]=2,
 			["art/textures/interface/2d/2dart/uiimages/ingame/anointpassiveskillscreenframelargenormal.dds"]=3
 		},
-		["group-background_160_164_BC7.dds.zst"]={
+		["group-background_168_172_BC7.dds.zst"]={
 			["Abyssal LichFrameSmallAllocated"]=1,
 			["Abyssal LichFrameSmallCanAllocate"]=2,
 			["Abyssal LichFrameSmallNormal"]=3,
@@ -1520,7 +1523,7 @@ return {
 			WitchhunterFrameSmallCanAllocate=5,
 			WitchhunterFrameSmallNormal=6
 		},
-		["group-background_208_208_BC7.dds.zst"]={
+		["group-background_216_216_BC7.dds.zst"]={
 			["Abyssal LichFrameLargeAllocated"]=1,
 			["Abyssal LichFrameLargeCanAllocate"]=2,
 			["Abyssal LichFrameLargeNormal"]=3,
@@ -1591,30 +1594,27 @@ return {
 			WitchhunterFrameLargeCanAllocate=5,
 			WitchhunterFrameLargeNormal=6
 		},
-		["group-background_220_224_BC7.dds.zst"]={
+		["group-background_228_232_BC7.dds.zst"]={
 			KeystoneFrameAllocated=1,
 			KeystoneFrameCanAllocate=2,
 			KeystoneFrameUnallocated=3
 		},
-		["group-background_360_360_BC7.dds.zst"]={
+		["group-background_368_368_BC7.dds.zst"]={
 			PSGroupBackground1=1,
 			PSGroupBackgroundSmallBlank=1
 		},
-		["group-background_468_468_BC7.dds.zst"]={
+		["group-background_476_476_BC7.dds.zst"]={
 			PSGroupBackground2=1,
 			PSGroupBackgroundMediumBlank=1
 		},
-		["group-background_528_528_BC7.dds.zst"]={
+		["group-background_536_536_BC7.dds.zst"]={
 			PSStartNodeBackgroundInactive=1
 		},
-		["group-background_740_376_BC7.dds.zst"]={
+		["group-background_748_392_BC7.dds.zst"]={
 			PSGroupBackground3=1,
 			PSGroupBackgroundLargeBlank=1
 		},
-		["group-background_92_92_BC7.dds.zst"]={
-			AscendancyMiddle=1
-		},
-		["jewel-sockets_152_156_BC7.dds.zst"]={
+		["jewel-sockets_160_164_BC7.dds.zst"]={
 			["Against the Darkness"]=15,
 			["Controlled Metamorphosis"]=4,
 			Diamond=6,
@@ -1636,7 +1636,7 @@ return {
 			["Undying Hate"]=2,
 			Voices=5
 		},
-		["legion_1024_1024_BC7.dds.zst"]={
+		["legion_1032_1032_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/abyss/abysspassiveskillscreenjewelcircle1.dds"]=1
 		},
 		["legion_128_128_BC1.dds.zst"]={
@@ -1680,7 +1680,7 @@ return {
 			["Art/2DArt/SkillIcons/passives/VaalNotableOffensive.dds"]=38,
 			["Art/2DArt/SkillIcons/passives/WindDancer.dds"]=39
 		},
-		["legion_564_564_BC7.dds.zst"]={
+		["legion_572_572_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle1.dds"]=1,
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle2.dds"]=2,
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle1.dds"]=3,
@@ -1701,7 +1701,7 @@ return {
 			["Art/2DArt/SkillIcons/passives/VaalDefensive.dds"]=4,
 			["Art/2DArt/SkillIcons/passives/VaalOffensive.dds"]=5
 		},
-		["mastery-active-effect_776_768_BC7.dds.zst"]={
+		["mastery-active-effect_784_776_BC7.dds.zst"]={
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern"]=1,
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern"]=2,
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern"]=3,
@@ -51835,7 +51835,7 @@ return {
 			},
 			group=1388,
 			icon="Art/2DArt/SkillIcons/passives/CompanionsNode1.dds",
-			name="Defenses and Companion Life",
+			name="Defences and Companion Life",
 			orbit=3,
 			orbitIndex=2,
 			skill=16568,
@@ -88444,7 +88444,7 @@ return {
 			group=1467,
 			icon="Art/2DArt/SkillIcons/passives/trapdamage.dds",
 			isNotable=true,
-			name="Devestating Devices",
+			name="Devastating Devices",
 			orbit=6,
 			orbitIndex=36,
 			skill=37688,
@@ -107717,7 +107717,7 @@ return {
 			},
 			group=935,
 			icon="Art/2DArt/SkillIcons/passives/lifeleech.dds",
-			name="Life Leech. Armour and Evasion while Leeching",
+			name="Life Leech, Armour and Evasion while Leeching",
 			orbit=2,
 			orbitIndex=23,
 			skill=48583,
@@ -125906,7 +125906,7 @@ return {
 			},
 			group=935,
 			icon="Art/2DArt/SkillIcons/passives/lifeleech.dds",
-			name="Life Leech. Armour and Evasion while Leeching",
+			name="Life Leech, Armour and Evasion while Leeching",
 			orbit=2,
 			orbitIndex=19,
 			skill=58783,

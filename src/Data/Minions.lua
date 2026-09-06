@@ -82,7 +82,7 @@ minions["SummonedRagingSpirit"] = {
 
 minions["RaisedSkeletonSniper"] = {
 	name = "Skeletal Sniper",
-	monsterTags = { "bone_armour", "bones", "has_bow", "medium_movement", "physical_affinity", "puncturing_weapon", "ranged", "skeleton", "Stab_onhit_audio", "undead", },
+	monsterTags = { "bone_armour", "bones", "has_bow", "medium_movement", "physical_affinity", "puncturing_weapon", "ranged", "skeleton", "Stab1HMetal_onhit_audio", "undead", },
 	life = 0.55,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -121,7 +121,7 @@ minions["RaisedSkeletonSniper"] = {
 
 minions["RaisedSkeletonBrute"] = {
 	name = "Skeletal Brute",
-	monsterTags = { "2HBluntMetal_onhit_audio", "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
+	monsterTags = { "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "Mace2HMetal_onhit_audio", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
 	life = 1.2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.7,
@@ -326,7 +326,7 @@ minions["RaisedSkeletonArsonist"] = {
 
 minions["RaisedSkeletonReaver"] = {
 	name = "Skeletal Reaver",
-	monsterTags = { "1HAxe_onhit_audio", "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
+	monsterTags = { "Axe1HMetal_onhit_audio", "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
 	life = 0.7,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.2,
@@ -368,7 +368,7 @@ minions["RaisedSkeletonReaver"] = {
 
 minions["RaisedSkeletonWarriors"] = {
 	name = "Skeletal Warrior",
-	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
+	monsterTags = { "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "Sword1H_onhit_audio", "undead", },
 	life = 0.88,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -567,7 +567,7 @@ minions["AncestralSpiritCaster"] = {
 
 minions["AncestralSpiritWarhorn"] = {
 	name = "Ancestral Warhorn",
-	monsterTags = { "2HBluntWood_onhit_audio", "bludgeoning_weapon", "has_one_hand_mace", "has_one_handed_melee", "human", "humanoid", "karui", "light_armour", "medium_height", "melee", "not_int", "physical_affinity", "very_slow_movement", },
+	monsterTags = { "bludgeoning_weapon", "has_one_hand_mace", "has_one_handed_melee", "human", "humanoid", "karui", "light_armour", "Mace2HWood_onhit_audio", "medium_height", "melee", "not_int", "physical_affinity", "very_slow_movement", },
 	life = 0.75,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.35,
@@ -950,7 +950,7 @@ minions["WolfMinion"] = {
 
 minions["BeetleMinion"] = {
 	name = "Corpse Beetle",
-	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "insect", "sand_blood", "very_fast_movement", },
+	monsterTags = { "allows_inc_aoe", "beast", "insect", "sand_blood", "Slice1HMetal_onhit_audio", "very_fast_movement", },
 	life = 0.4,
 	fireResist = 0,
 	coldResist = 0,
@@ -1246,7 +1246,7 @@ minions["AzmerianSwarm"] = {
 
 minions["AzmerianWolf"] = {
 	name = "Azmerian Wolf",
-	monsterTags = { "1HSword_onhit_audio", "beast", "mammal_beast", "medium_movement", "not_int", "not_str", "red_blood", },
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "not_int", "not_str", "red_blood", "Sword1H_onhit_audio", },
 	life = 2.7,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.3,
@@ -1294,7 +1294,7 @@ minions["AzmerianWolf"] = {
 
 minions["BearCompanion"] = {
 	name = "Wild Bear Spirit",
-	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "not_dex", "not_int", "red_blood", "Slice1HMetal_onhit_audio", },
 	life = 1.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 1,

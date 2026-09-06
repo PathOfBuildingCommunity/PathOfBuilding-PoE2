@@ -3504,7 +3504,7 @@ skills["HeraldOfThunderPlayer"] = {
 	baseTypeName = "Herald of Thunder",
 	icon = "Art/2DArt/SkillIcons/HeraldOfThunderSkill.dds",
 	color = 2,
-	description = "While active, killing Shocked enemies with a non-Herald Attack Hit will cause subsequent Attack Hits to release lightning bolts which deals Attack damage to all surrounding enemies.",
+	description = "While active, killing Shocked enemies with a non-Herald Attack Hit will cause subsequent Attack Hits to release lightning bolts which dealAttack damage to all surrounding enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Herald] = true, [SkillType.Attack] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
 		["Bow"] = true,

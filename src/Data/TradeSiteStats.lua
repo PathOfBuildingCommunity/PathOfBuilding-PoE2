@@ -869,7 +869,7 @@ return {
 				["type"] = "explicit",
 			},
 			{
-				["id"] = "explicit.stat_3591307827",
+				["id"] = "explicit.stat_3937291366",
 				["text"] = "#% chance to add a Vaal Beacon Unique Monster to the Map",
 				["type"] = "explicit",
 			},
@@ -1794,6 +1794,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_3039133122",
+				["text"] = "#% increased Expedition Explosive Area of Effect in Map",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_1539368271",
 				["text"] = "#% increased Expedition Explosive Placement Range",
 				["type"] = "explicit",
@@ -1811,6 +1816,11 @@ return {
 			{
 				["id"] = "explicit.stat_3289828378",
 				["text"] = "#% increased Expedition Explosive Radius in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2905096233",
+				["text"] = "#% increased Expedition Monster Rarity in Map",
 				["type"] = "explicit",
 			},
 			{
@@ -11209,6 +11219,36 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_1183698646",
+				["text"] = "Expeditions contain 1 Additional Boss encased in ice in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_1109460697",
+				["text"] = "Expeditions contain 1 Additional Verisium Sentry in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_2852112245",
+				["text"] = "Expeditions contain 1 Vaal Relic in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_181823691",
+				["text"] = "Expeditions contain 1 buried Strongbox in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_779964546",
+				["text"] = "Expeditions have +#% Surpassing chance to Duplicate Runic Monsters in Map",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_3653794255",
+				["text"] = "Expeditions have +#% Surpassing chance to contain an additional Verisium Remnant",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_3753446846",
 				["text"] = "Expeditions in Area have # Remnants",
 				["type"] = "explicit",
@@ -11454,6 +11494,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_2771095426",
+				["text"] = "Gain #% of damage as Fire damage per 1% Chance to Block",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_1228337241",
 				["text"] = "Gain #% of maximum Life as Extra maximum Energy Shield",
 				["type"] = "explicit",
@@ -11496,11 +11541,6 @@ return {
 			{
 				["id"] = "explicit.stat_3492740640",
 				["text"] = "Gain 1 Runic Binding on Hit with Spells, no more than once every 0.5 seconds Lose all Runic Bindings when you Shapeshift to gain that much Unbound Potential",
-				["type"] = "explicit",
-			},
-			{
-				["id"] = "explicit.stat_3170380905",
-				["text"] = "Gain 1% of damage as Fire damage per #% Chance to Block",
 				["type"] = "explicit",
 			},
 			{
@@ -12789,6 +12829,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_3520418269",
+				["text"] = "Monsters from Verisium Remnants drop #% increased Verisium",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2887760183",
 				["text"] = "Monsters gain #% of maximum Life as Extra maximum Energy Shield",
 				["type"] = "explicit",
@@ -12919,6 +12964,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_1367999357",
+				["text"] = "Non-Channelling Skills have #% increased Spell Critical Hit Chance per 100 maximum Mana",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_1920747151",
 				["text"] = "Non-Channelling Spells cost an additional #% of your maximum Life",
 				["type"] = "explicit",
@@ -12936,11 +12986,6 @@ return {
 			{
 				["id"] = "explicit.stat_170426423",
 				["text"] = "Non-Channelling Spells have #% increased Critical Hit Chance per 100 maximum Life",
-				["type"] = "explicit",
-			},
-			{
-				["id"] = "explicit.stat_1367999357",
-				["text"] = "Non-Channelling Spells have #% increased Critical Hit Chance per 100 maximum Mana",
 				["type"] = "explicit",
 			},
 			{
@@ -14389,6 +14434,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_3076483222|61382",
+				["text"] = "Sacrifice up to 2 Divine Orbs to receive double on Trial completion",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_3076483222|38303",
 				["text"] = "Sacrifice up to 20 Arcanist's Etchers to receive double on Trial completion",
 				["type"] = "explicit",
@@ -14421,11 +14471,6 @@ return {
 			{
 				["id"] = "explicit.stat_3076483222|54496",
 				["text"] = "Sacrifice up to 20 Regal Orbs to receive double on Trial completion",
-				["type"] = "explicit",
-			},
-			{
-				["id"] = "explicit.stat_3076483222|61382",
-				["text"] = "Sacrifice up to 3 Divine Orbs to receive double on Trial completion",
 				["type"] = "explicit",
 			},
 			{
@@ -15179,6 +15224,11 @@ return {
 				["type"] = "explicit",
 			},
 			{
+				["id"] = "explicit.stat_3963944561",
+				["text"] = "The first unearthed Runic Monster will be a Rare Monster in Map",
+				["type"] = "explicit",
+			},
+			{
 				["id"] = "explicit.stat_2980117882",
 				["text"] = "This Flask cannot be Used but applies its Effect constantly",
 				["type"] = "explicit",
@@ -15341,6 +15391,11 @@ return {
 			{
 				["id"] = "explicit.stat_3831171903|20",
 				["text"] = "Vaal Pact",
+				["type"] = "explicit",
+			},
+			{
+				["id"] = "explicit.stat_3871299443",
+				["text"] = "Verisium Remnants have +#% chance to add an additional Runic Modifier in Map",
 				["type"] = "explicit",
 			},
 			{
@@ -16491,7 +16546,7 @@ return {
 			},
 			{
 				["id"] = "implicit.stat_3408607858",
-				["text"] = "Runic Ward recovery can can Overflow maximum Runic Ward",
+				["text"] = "Runic Ward recovery can Overflow maximum Runic Ward",
 				["type"] = "implicit",
 			},
 			{
@@ -18601,6 +18656,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|21213",
+				["text"] = "Allocates Cirel of Tarth's Light",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|57805",
 				["text"] = "Allocates Clear Space",
 				["type"] = "fractured",
@@ -19446,6 +19506,11 @@ return {
 				["type"] = "fractured",
 			},
 			{
+				["id"] = "fractured.stat_2954116742|27704",
+				["text"] = "Allocates Grace of the Ancestors",
+				["type"] = "fractured",
+			},
+			{
 				["id"] = "fractured.stat_2954116742|58714",
 				["text"] = "Allocates Grenadier",
 				["type"] = "fractured",
@@ -19848,6 +19913,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|63431",
 				["text"] = "Allocates Leeching Toxins",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|19644",
+				["text"] = "Allocates Left Hand of Darkness",
 				["type"] = "fractured",
 			},
 			{
@@ -20578,6 +20648,11 @@ return {
 			{
 				["id"] = "fractured.stat_2954116742|5335",
 				["text"] = "Allocates Shimmering Mirage",
+				["type"] = "fractured",
+			},
+			{
+				["id"] = "fractured.stat_2954116742|29800",
+				["text"] = "Allocates Shocking Limit",
 				["type"] = "fractured",
 			},
 			{
@@ -33304,13 +33379,58 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3268281424",
+				["text"] = "# to Level of all Grenade Skill Gems",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_1147690586",
 				["text"] = "# to Level of all Lightning Skills",
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3148103963",
+				["text"] = "# to Level of all Nova Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2296009672",
+				["text"] = "# to Level of all Plant Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1839315243",
+				["text"] = "# to Level of all Slam Skill Gems",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_124131830",
 				["text"] = "# to Level of all Spell Skills",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1062190843",
+				["text"] = "# to Level of all Storm Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2305301734",
+				["text"] = "# to Level of all Strike Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2336703514",
+				["text"] = "# to Level of all Totem Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2148999925",
+				["text"] = "# to Level of all Warcry Skill Gems",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_653358410",
+				["text"] = "# to Level of all Wind Skill Gems",
 				["type"] = "augment",
 			},
 			{
@@ -33391,6 +33511,11 @@ return {
 			{
 				["id"] = "rune.stat_280497929",
 				["text"] = "# to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_995044379",
+				["text"] = "# to maximum Mana per 3 Item Armour on Equipped Helmet",
 				["type"] = "augment",
 			},
 			{
@@ -33589,6 +33714,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_1519474779",
+				["text"] = "#% increased Effect of Non-Damaging Ailments on you",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_3544800472",
 				["text"] = "#% increased Elemental Ailment Threshold",
 				["type"] = "augment",
@@ -33601,6 +33731,16 @@ return {
 			{
 				["id"] = "rune.stat_2339757871",
 				["text"] = "#% increased Energy Shield Recharge Rate",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_1195319608",
+				["text"] = "#% increased Energy Shield from Equipped Body Armour",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3174700878",
+				["text"] = "#% increased Energy Shield from Equipped Focus",
 				["type"] = "augment",
 			},
 			{
@@ -33644,6 +33784,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_3791899485",
+				["text"] = "#% increased Ignite Magnitude",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_330530785",
 				["text"] = "#% increased Immobilisation buildup",
 				["type"] = "augment",
@@ -33679,6 +33824,16 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2487305362",
+				["text"] = "#% increased Magnitude of Poison you inflict",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2527686725",
+				["text"] = "#% increased Magnitude of Shock you inflict",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_2876843277",
 				["text"] = "#% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
 				["type"] = "augment",
@@ -33696,6 +33851,11 @@ return {
 			{
 				["id"] = "rune.stat_789117908",
 				["text"] = "#% increased Mana Regeneration Rate",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_4169430079",
+				["text"] = "#% increased Maximum Life for each Corrupted Item Equipped",
 				["type"] = "augment",
 			},
 			{
@@ -33741,6 +33901,11 @@ return {
 			{
 				["id"] = "rune.stat_1509134228",
 				["text"] = "#% increased Physical Damage",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3985867204",
+				["text"] = "#% increased Pin duration",
 				["type"] = "augment",
 			},
 			{
@@ -33804,6 +33969,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2203195791",
+				["text"] = "#% increased Skill Speed for each Corrupted Item Equipped",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_924253255",
 				["text"] = "#% increased Slowing Potency of Debuffs on You",
 				["type"] = "augment",
@@ -33826,6 +33996,11 @@ return {
 			{
 				["id"] = "rune.stat_3984865854",
 				["text"] = "#% increased Spirit",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_2247017114",
+				["text"] = "#% increased Spirit for each Corrupted Item Equipped",
 				["type"] = "augment",
 			},
 			{
@@ -33935,7 +34110,7 @@ return {
 			},
 			{
 				["id"] = "rune.stat_4217453078",
-				["text"] = "#% of Chaos Damage from Hits taken as a Damage of a random Element",
+				["text"] = "#% of Chaos Damage from Hits taken as Damage of a random Element",
 				["type"] = "augment",
 			},
 			{
@@ -33996,6 +34171,11 @@ return {
 			{
 				["id"] = "rune.stat_2923486259",
 				["text"] = "#% to Chaos Resistance",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_138373935",
+				["text"] = "#% to Chaos Resistance for each Corrupted Item Equipped",
 				["type"] = "augment",
 			},
 			{
@@ -35449,6 +35629,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2139847597",
+				["text"] = "Corrupting will always result in change",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_935518591",
 				["text"] = "Critical Hit chance is Lucky against Parried enemies",
 				["type"] = "augment",
@@ -35481,6 +35666,11 @@ return {
 			{
 				["id"] = "rune.stat_1933674044",
 				["text"] = "Destroys all Augment Sockets on the item to create a Jewel Socket",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_3686997387",
+				["text"] = "Double Stun Threshold while Shield is Raised",
 				["type"] = "augment",
 			},
 			{
@@ -35639,6 +35829,11 @@ return {
 				["type"] = "augment",
 			},
 			{
+				["id"] = "rune.stat_2621116283",
+				["text"] = "Gain #% of damage as Fire damage per 2% Chance to Block",
+				["type"] = "augment",
+			},
+			{
 				["id"] = "rune.stat_386720106",
 				["text"] = "Gain #% of maximum Life as Extra maximum Runic Ward",
 				["type"] = "augment",
@@ -35651,11 +35846,6 @@ return {
 			{
 				["id"] = "rune.stat_901336307",
 				["text"] = "Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
-				["type"] = "augment",
-			},
-			{
-				["id"] = "rune.stat_3170380905",
-				["text"] = "Gain 1% of damage as Fire damage per #% Chance to Block",
 				["type"] = "augment",
 			},
 			{
@@ -35871,6 +36061,11 @@ return {
 			{
 				["id"] = "rune.stat_967155385",
 				["text"] = "Prevent #% of Damage from Deflected Hits if you've Deflected no Hits Recently",
+				["type"] = "augment",
+			},
+			{
+				["id"] = "rune.stat_4081947835",
+				["text"] = "Projectiles have #% chance to Chain an additional time from terrain",
 				["type"] = "augment",
 			},
 			{
@@ -39886,13 +40081,13 @@ return {
 				["type"] = "sanctum",
 			},
 			{
-				["id"] = "sanctum.stat_2878762585",
-				["text"] = "#% chance to Avoid Resolve loss from Enemy Hits",
+				["id"] = "sanctum.stat_2284543592",
+				["text"] = "#% chance to Avoid Honour loss from Enemy Hits if you've been Hit Recently",
 				["type"] = "sanctum",
 			},
 			{
-				["id"] = "sanctum.stat_2284543592",
-				["text"] = "#% chance to Avoid Resolve loss from Enemy Hits if you've been Hit Recently",
+				["id"] = "sanctum.stat_2878762585",
+				["text"] = "#% chance to Avoid Resolve loss from Enemy Hits",
 				["type"] = "sanctum",
 			},
 			{
