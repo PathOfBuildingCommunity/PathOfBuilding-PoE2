@@ -822,8 +822,8 @@ Ruby]])
 				end
 				assert.are.equals(1, ticabaCount)
 				assert.are.equals(2, #ticabaRune.lines)
-				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[1])
-				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[2])
+				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[1])
+				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[2])
 			end)
 
 			it("keeps pure Bonded slot entries and uses the regular rune mod as the dropdown label", function ()
