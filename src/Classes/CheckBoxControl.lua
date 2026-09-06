@@ -77,7 +77,7 @@ function CheckBoxClass:Draw(viewPort, noTooltip)
 		else
 			SetDrawColor(0.5, 0.5, 0.5)
 		end
-		DrawImage(self.checkImage.handle, x + 1, y + 1, size - 2, size - 2, self.checkImage[1])
+		DrawImage(self.checkImage.handle, x + 1, y + 1, size - 2, size - 2, unpack(self.checkImage))
 	else
 		if self.state then
 			if not enabled then

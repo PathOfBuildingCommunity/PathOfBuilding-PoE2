@@ -218,8 +218,21 @@ function DrawImage(imgHandle, left, top, width, height, tcLeft, tcTop, tcRight, 
 ---@param top        number
 ---@param width      number
 ---@param height     number
----@param stackIdx integer must be positive
----@param mask? integer must be positive
+---@param stackIdx   integer must be positive
+---@param mask?      integer must be positive
+function DrawImage(imgHandle, left, top, width, height, stackIdx, mask) end
+
+---@param imgHandle? ImageHandle
+---@param left       number
+---@param top        number
+---@param width      number
+---@param height     number
+---@param tcLeft     number
+---@param tcTop      number
+---@param tcRight    number
+---@param tcBottom   number
+---@param stackIdx   integer must be positive
+---@param mask?      integer must be positive
 function DrawImage(imgHandle, left, top, width, height, tcLeft, tcTop, tcRight, tcBottom, stackIdx, mask) end
 
 ---@param imgHandle? ImageHandle
@@ -241,6 +254,7 @@ function DrawImageQuad(imgHandle, x1, y1, x2, y2, x3, y3, x4, y4) end
 ---@param x3         number
 ---@param y3         number
 ---@param x4         number
+---@param y4         number
 ---@param s1         number
 ---@param t1         number
 ---@param s2         number
@@ -260,8 +274,29 @@ function DrawImageQuad(imgHandle, x1, y1, x2, y2, x3, y3, x4, y4, s1, t1, s2, t2
 ---@param y3         number
 ---@param x4         number
 ---@param y4         number
----@param stackIdx   integer? must be positive
----@param mask       integer? must be positive
+---@param s1         number
+---@param t1         number
+---@param s2         number
+---@param t2         number
+---@param s3         number
+---@param t3         number
+---@param s4         number
+---@param t4         number
+---@param stackIdx   integer must be positive
+---@param mask?      integer must be positive
+function DrawImageQuad(imgHandle, x1, y1, x2, y2, x3, y3, x4, y4, s1, t1, s2, t2, s3, t3, s4, t4, stackIdx, mask) end
+
+---@param imgHandle? ImageHandle
+---@param x1         number
+---@param y1         number
+---@param x2         number
+---@param y2         number
+---@param x3         number
+---@param y3         number
+---@param x4         number
+---@param y4         number
+---@param stackIdx   integer must be positive
+---@param mask?      integer must be positive
 function DrawImageQuad(imgHandle, x1, y1, x2, y2, x3, y3, x4, y4, stackIdx, mask) end
 
 ---@param left   number

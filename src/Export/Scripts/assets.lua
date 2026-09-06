@@ -20,9 +20,13 @@ local function isValidSkillDisplayName(name)
 	return true
 end
 
-local function commonMetadata(alias)
+local function commonMetadata(alias, x, y, w, h)
 	return {
 		alias = alias,
+		x = x,
+		y = y,
+		w = w,
+		h = h,
 	}
 end
 
@@ -87,7 +91,7 @@ local monsterCategorySheet = assetSheets.newSheet("monster-categories", defaultM
 for category in dat("MonsterCategories"):Rows() do
 	if not category.Type:find("^%[DNT") then
 		local asset = uiImages[string.lower(category.HudImage)]
-		assetSheets.addToSheet(monsterCategorySheet, asset.path, "monster-categories", commonMetadata(category.Type))
+		assetSheets.addToSheet(monsterCategorySheet, asset.path, "monster-categories", commonMetadata(category.Type, asset.x, asset.y, asset.width, asset.height))
 	end
 end
 

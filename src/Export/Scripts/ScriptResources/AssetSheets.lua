@@ -99,7 +99,11 @@ function assetSheets.calculateDDSPack(sheet, fromBase, toBase, is4kEnabled)
 			for _, metadata in pairs(stack.sections) do
 				for _, meta in ipairs(metadata) do
 					local icon = meta.alias or stack.icon
-					ddsCoords[file][icon] = position
+					if meta.x and meta.y and meta.w and meta.h then
+						ddsCoords[file][icon] = { meta.x, meta.y, meta.w, meta.h, position }
+					else
+						ddsCoords[file][icon] = position
+					end
 				end
 			end
 			table.insert(stacks, stack.tex)
