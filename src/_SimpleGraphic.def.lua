@@ -360,49 +360,19 @@ function Copy(text) end
 function Paste() end
 
 ---@param data string
+---@param isGzip boolean? Whether a Gzip header should be used instead of the default ZLib header.
 ---@return string? compressedData
 ---@return string? errMsg
-function Deflate(data)
-	local zlib = require("ffi-zlib")
-	local results = {}
-	local idx = 1
-	local strLen = #data
-	zlib.deflateGzip(function(n)
-		local endIdx = math.min(strLen, idx + n)
-		if idx >= endIdx then
-			return nil
-		end
-		local chunk = string.sub(data, idx, endIdx)
-		idx = endIdx + 1
-		return chunk
-	end, function(outputData)
-		table.insert(results, outputData)
-		-- 16k buffer, windowBits 15 for ZLib header + DEFLATE. memLevel 9 is equal to what SG uses
-	end, 2 ^ 14, { windowBits = 15, memLevel = 9 })
-	return table.concat(results)
+function Deflate(data, isGzip)
+	-- TODO: add FFI bindings to `runtime/zlib1.dll` similar to what SimpleGraphic does
+	return ""
 end
 
----@param data string
+---@param data string DEFLATE data with either ZLib or Gzip headers. The format is detected automatically. Raw DEFLATE data is not supported.
 ---@return string? data
 ---@return string? errMsg
 function Inflate(data)
-	local zlib = require("ffi-zlib")
-	local results = {}
-	local idx = 1
-	local strLen = #data
-	zlib.inflateGzip(function(n)
-		local endIdx = math.min(strLen, idx + n)
-		if idx >= endIdx then
-			return nil
-		end
-		local chunk = string.sub(data, idx, endIdx)
-		idx = endIdx + 1
-		return chunk
-	end, function(outputData)
-		table.insert(results, outputData)
-		-- 16k buffer, windowBits 15 for ZLib header + DEFLATE
-	end, 2 ^ 14, 15)
-	return table.concat(results)
+	return ""
 end
 
 ---@return integer timeMillis
