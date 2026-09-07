@@ -599,16 +599,20 @@ end
 
 
 ---@param str string String which will be encoded
----@return string result The given string, gzipped and then Base64URL encoded
+---@return string? result The given string, gzipped and then Base64URL encoded
 function M.B64GzipEncode(str)
 	local b64 = require("base64")
-	return b64.encode(Deflate(str, true)):gsub("%+", "-"):gsub("/", "_")
+	local deflated = Deflate(str, true)
+	if not deflated then return end
+	return b64.encode(deflated):gsub("%+", "-"):gsub("/", "_")
 end
 
 ---@param str string String which will be decoded
----@return string result The given string, Base64URL decoded and the ungzipped
+---@return string? result The given string, Base64URL decoded and the ungzipped
 function M.B64GzipDecode(str)
 	local b64 = require("base64")
-	return Inflate(b64.decode(str:gsub("%-", "+"):gsub("_", "/")))
+	local data = b64.decode(str:gsub("%-", "+"):gsub("_", "/"))
+	if not data then return end
+	return Inflate(data)
 end
 return M
