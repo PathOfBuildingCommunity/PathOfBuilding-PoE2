@@ -35740,28 +35740,28 @@ return {
 		},
 		[5]={
 			list=false,
-			name="SapphirePrefix",
+			name="EmeraldPrefix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[6]={
 			list=false,
-			name="SapphireSuffix",
+			name="EmeraldSuffix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[7]={
 			list=false,
-			name="EmeraldPrefix",
+			name="SapphirePrefix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[8]={
 			list=false,
-			name="EmeraldSuffix",
+			name="SapphireSuffix",
 			refTo="Mods",
 			type="Key",
 			width=150
