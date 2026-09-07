@@ -582,4 +582,3 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	end
 	return result
 end
-
