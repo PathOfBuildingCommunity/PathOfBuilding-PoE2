@@ -455,7 +455,11 @@ end
 
 ---@param callback fun(items:table, errMsg:string, query: string?)
 function TradeQueryRequestsClass:SearchWithURL(url, callback)
-	local subpath = url:match(self.hostName .. "trade2/search/(.+)$")
+	local prefix = self.hostName .. "trade2/search/"
+	if url:sub(1, #prefix) ~= prefix then
+		return callback(nil, "Invalid URL", nil)
+	end
+	local subpath = url:sub(#prefix + 1)
 	local paths = {}
 	for path in subpath:gmatch("[^/]+") do
 		table.insert(paths, path)
@@ -467,7 +471,10 @@ function TradeQueryRequestsClass:SearchWithURL(url, callback)
 	if #paths == 3 then
 		realm = paths[1]
 	end
-	league = paths[#paths-1]
+	-- URL path segments are already escaped; buildUrl encodes the league again.
+	league = paths[#paths-1]:gsub("%%(%x%x)", function(hex)
+		return string.char(tonumber(hex, 16))
+	end)
 	queryId = paths[#paths]
 	self:FetchSearchQuery(realm, league, queryId, function(query, errMsg)
 		if errMsg then
@@ -476,8 +483,8 @@ function TradeQueryRequestsClass:SearchWithURL(url, callback)
 
 		-- update sorting on provided url to sort by weights.
 		local json_data = dkjson.decode(query)
-		if not json_data or json_data.error then
-			errMsg = json_data and json_data.error or "Failed to parse search query JSON"
+		if type(json_data) ~= "table" or json_data.error or type(json_data.query) ~= "table" then
+			return callback(nil, type(json_data) == "table" and json_data.error or "Failed to parse search query JSON", nil)
 		end
 		if json_data.query.stats and json_data.query.stats[1] and json_data.query.stats[1].type == "weight" then
 			json_data.sort = {}
@@ -498,6 +505,21 @@ end
 ---@param league string
 ---@param callback fun(query:string, errMsg:string)
 function TradeQueryRequestsClass:FetchSearchQuery(realm, league, queryId, callback)
+	-- Browser share links can contain a gzip-compressed query instead of a saved ID.
+	if queryId:sub(1, 4) == "H4sI" then
+		local ok, query = pcall(function()
+			local compressed = require("base64").decode(queryId:gsub("-", "+"):gsub("_", "/"))
+			return LoadModule("Modules/TradeQueryDecode")(compressed)
+		end)
+		if not ok or not query then
+			return callback(nil, "Failed to decode compressed search query")
+		end
+		local data = dkjson.decode(query)
+		if type(data) ~= "table" then
+			return callback(nil, "Failed to parse compressed search query")
+		end
+		return callback(dkjson.encode({ query = data }))
+	end
 	local url = self:buildUrl(self.hostName .. "api/trade2/search", realm, league, queryId)
 	table.insert(self.requestQueue["search"], {
 		url = url,
@@ -560,3 +582,4 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	end
 	return result
 end
+
