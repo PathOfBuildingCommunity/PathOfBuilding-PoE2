@@ -491,6 +491,9 @@ holding Shift will put it in the second.]])
 		end
 		if self.displayItem:UsesVersionedOrGroupedVariants() then
 			local rows = self.displayItem.versionList and #self.displayItem.versionList > 1 and 1 or 0
+			if self.displayItem.baseList and #self.displayItem.baseList then
+				rows += 1
+			end
 			if self.displayItem:HasIndependentVariants() then
 				rows = rows + (#self.displayItem.variantList > 1 and 1 or 0)
 			else
@@ -504,15 +507,16 @@ holding Shift will put it in the second.]])
 			end
 			return rows > 0 and rows * 24 + 4 or 0
 		end
-		if not self.controls.displayItemVariant:IsShown() then
+		if not self.controls.displayItemVariant:IsShown() and not self.controls.displayItemBaseVariant:IsShown() then
 			return 0
 		end
 		return (28 +
-		(self.displayItem.hasAltVariant and 24 or 0) +
-		(self.displayItem.hasAltVariant2 and 24 or 0) +
-		(self.displayItem.hasAltVariant3 and 24 or 0) +
-		(self.displayItem.hasAltVariant4 and 24 or 0) +
-		(self.displayItem.hasAltVariant5 and 24 or 0))
+			(self.displayItem.baseList and 24 or 0) +
+			(self.displayItem.hasAltVariant and 24 or 0) +
+			(self.displayItem.hasAltVariant2 and 24 or 0) +
+			(self.displayItem.hasAltVariant3 and 24 or 0) +
+			(self.displayItem.hasAltVariant4 and 24 or 0) +
+			(self.displayItem.hasAltVariant5 and 24 or 0))
 	end})
 	self.controls.displayItemVersion = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
 		self.displayItem.selectedVersion = index
@@ -528,11 +532,30 @@ holding Shift will put it in the second.]])
 		return self.displayItem and self.displayItem:UsesVersionedOrGroupedVariants()
 			and self.displayItem.versionList and #self.displayItem.versionList > 1
 	end
+	self.controls.displayItemBaseVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
+		self.displayItem.selectedBase = index
+		self.displayItem:NormaliseVariantSelections()
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemVariantControls()
+		self:UpdateRuneControls()
+		self:UpdateDisplayItemTooltip()
+		self:UpdateDisplayItemRangeLines()
+	end)
+	self.controls.displayItemBaseVariant.y = function()
+		return self.controls.displayItemVersion:IsShown() and 24 or 0
+	end
+	self.controls.displayItemBaseVariant.maxDroppedWidth = 1000
+	self.controls.displayItemBaseVariant.shown = function()
+		return self.displayItem.baseList and #self.displayItem.baseList > 1
+	end
 	self.controls.displayItemVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
 		self:SelectDisplayItemVariant(index, value, "variant", self.controls.displayItemVariant)
 	end)
 	self.controls.displayItemVariant.y = function()
-		return self.controls.displayItemVersion:IsShown() and 24 or 0
+		local y = 0
+		y += self.controls.displayItemBaseVariant:IsShown() and 24 or 0
+		y += self.controls.displayItemVersion:IsShown() and 24 or 0
+		return y
 	end
 	self.controls.displayItemVariant.maxDroppedWidth = 1000
 	self.controls.displayItemVariant.shown = function()
@@ -2064,6 +2087,7 @@ function ItemsTabClass:UpdateDisplayItemVariantControls()
 end
 
 -- Sets the display item to the given item
+---@param item Item
 function ItemsTabClass:SetDisplayItem(item)
 	self.displayItem = item
 	if item then
@@ -2079,6 +2103,9 @@ function ItemsTabClass:SetDisplayItem(item)
 			self.controls.displayItemVariant.selIndex = item.variant
 			self.controls.displayItemVariant:CheckDroppedWidth(true)
 		end
+		self.controls.displayItemBaseVariant.list = item.baseList or {}
+		self.controls.displayItemBaseVariant.selIndex = item.selectedBase or 1
+		self.controls.displayItemBaseVariant:CheckDroppedWidth(true)
 		if not usesVersionedOrGroupedVariants and item.hasAltVariant then
 			self.controls.displayItemAltVariant.list = item.variantList
 			self.controls.displayItemAltVariant.selIndex = item.variantAlt

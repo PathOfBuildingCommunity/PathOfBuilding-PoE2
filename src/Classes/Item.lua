@@ -350,9 +350,11 @@ end
 local variantSelectionSpecNames = {
 	["Version"] = true,
 	["Variant"] = true,
+	["Base Variant"] = true,
 	["Selected Version"] = true,
 	["Selected Variant Group"] = true,
 	["Selected Variant"] = true,
+	["Selected Base Variant"] = true,
 }
 
 function ItemClass:HasVariantGroups()
@@ -450,6 +452,7 @@ function ItemClass:GetUniqueDBItem()
 		return dbItem
 	end
 end
+---@alias ItemRarity "NORMAL"|"MAGIC"|"RARE"|"UNIQUE"|"RELIC"
 ---@class ModLine A modifier line on an item. An in-game mod can translate to multiple ModLines.
 ---@field modList Mod[]
 ---@field line string The actual text for the line. This might describe a range of values, in which case applyRange() can be used with this and the range value to get a ranged line.
@@ -462,6 +465,7 @@ end
 ---@field versionList table<number, boolean>?
 ---@field variantGroupList table<number, boolean>?
 ---@field modId string?
+---@field rarity ItemRarity Defaults to unique, if not given in item string or constructor.
 
 local getRangedModList
 -- Parse raw item data and extract item name, base type, quality, and modifiers
@@ -566,6 +570,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local implicitLines = 0
 	local skippedRuneLines = 0
 	self.variantList = nil
+	self.baseList = nil
 	self.versionList = nil
 	-- group ID -> variant ID -> eligible version IDs; version 0 means every version.
 	---@type table<number, table<number, table<number, boolean>>>
@@ -580,6 +585,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			if specName == "Version" then
 				self.versionList = self.versionList or { }
 				t_insert(self.versionList, specVal)
+			elseif specName == "Base Variant" then
+				self.baseList = self.baseList or {}
+				self.selectedBase = self.selectedBase or 1
+				t_insert(self.baseList, specVal)
 			elseif specName == "Variant" then
 				self.variantList = self.variantList or { }
 				-- This has to be kept for backwards compatibility
@@ -594,18 +603,22 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 			elseif specName == "Selected Variant" then
 				self.variant = specToNumber(specVal)
+			elseif specName == "Selected Base Variant" then
+				self.selectedBase = specToNumber(specVal)
 			end
 		end
 
 		local variantSpec = rawLine:match("{variant:([^}]*)}")
 		local versionSpec = rawLine:match("{version:([^}]*)}")
 		local groupSpec = rawLine:match("{group:([^}]*)}")
-		if variantSpec or versionSpec or groupSpec then
+		local baseSpec = rawLine:match("{base:([^}]*)}")
+		if variantSpec or versionSpec or groupSpec or baseSpec then
 			local selectionTags = {
 				line = rawLine,
 				variantList = variantSpec and parseIdSpec(variantSpec) or nil,
 				versionList = versionSpec and parseIdSpec(versionSpec) or nil,
 				variantGroupList = groupSpec and parseIdSpec(groupSpec, true) or nil,
+				baseList = baseSpec and parseIdSpec(baseSpec) or nil,
 			}
 			selectionTagsByLine[lineIndex] = selectionTags
 		end
@@ -879,6 +892,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.variantAlt4 = specToNumber(specVal)
 				elseif specName == "Selected Alt Variant Five" then
 					self.variantAlt5 = specToNumber(specVal)
+				elseif specName == "Selected Base Variant" then
+					self.selectedBase = specToNumber(specVal)
 				elseif specName == "Allow Duplicate Variants" then
 					self.allowDuplicateVariants = specVal == "true"
 				elseif specName == "Has Variants" or specName == "Selected Variants" then
@@ -968,6 +983,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						modLine.variantList = selectionTags and selectionTags.variantList or parseIdSpec(val)
 					elseif k == "version" then
 						modLine.versionList = selectionTags and selectionTags.versionList or parseIdSpec(val)
+					elseif k == "base" then
+						modLine.baseVariantList = selectionTags and selectionTags.baseList or parseIdSpec(val)
 					elseif k == "group" then
 						modLine.variantGroupList = selectionTags and selectionTags.variantGroupList or parseIdSpec(val, true)
 					elseif k == "tags" then
@@ -1054,21 +1071,23 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					baseName = "Two-Toned Boots (Armour/Energy Shield)"
 				end
 				local base = data.itemBases[baseName]
-				if baseName:find("Runeforged") or baseName:find("Runemastered") then
-					self.runicItem = true
-				end
 				if base then
 					-- Items with variants can have multiple bases
 					self.baseLines[baseName] = {
 						line = baseName,
 						variantList = modLine.variantList,
+						baseVariantList = modLine.baseVariantList,
 						versionList = modLine.versionList,
 						variantGroupList = modLine.variantGroupList,
 					}
 					-- Set the actual base if variant matches or doesn't have variants
 					local usesVersionedOrGroupedVariants = self:UsesVersionedOrGroupedVariants()
 					local baseMatches = usesVersionedOrGroupedVariants and self:CheckModLineVariant(modLine)
-						or (not usesVersionedOrGroupedVariants and (not self.variant or not modLine.variantList or modLine.variantList[self.variant]))
+						or (not usesVersionedOrGroupedVariants and
+							((not self.variant or not modLine.variantList or modLine.variantList[self.variant])
+								and (not self.selectedBase or not modLine.baseVariantList or modLine.baseVariantList[self.selectedBase])
+							)
+						)
 					if baseMatches then
 						self.baseName = baseName
 						if not (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
@@ -1355,6 +1374,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 		::continue::
 		l = l + 1
+	end
+	if self.baseName and (self.baseName:find("Runeforged") or self.baseName:find("Runemastered")) then
+		self.runicItem = true
 	end
 	if self.baseName and self.title then
 		self.name = self.title .. ", " .. self.baseName:gsub(" %(.+%)","")
@@ -1967,6 +1989,9 @@ function ItemClass:BuildRaw()
 		if modLine.versionList then
 			prependToAllLines("{version:" .. makeIdSpec(modLine.versionList) .. "}")
 		end
+		if modLine.baseVariantList then
+			prependToAllLines("{base:" .. makeIdSpec(modLine.baseVariantList) .. "}")
+		end
 		if not hasNewSelection and modLine.modTags and #modLine.modTags > 0 then
 			line = "{tags:" .. table.concat(modLine.modTags, ",") .. "}" .. line
 		end
@@ -1978,6 +2003,14 @@ function ItemClass:BuildRaw()
 		end
 		if self.selectedVersion then
 			t_insert(rawLines, "Selected Version: " .. self.selectedVersion)
+		end
+	end
+	if self.baseList then
+		for _, baseName in ipairs(self.baseList) do
+			t_insert(rawLines, "Base Variant: " .. baseName)
+		end
+		if self.selectedBase then
+			t_insert(rawLines, "Selected Base Variant: " .. self.selectedBase)
 		end
 	end
 	if self.variantList then
@@ -1998,7 +2031,7 @@ function ItemClass:BuildRaw()
 		end
 
 		for _, baseLine in pairs(self.baseLines or { }) do
-			if baseLine.variantList or baseLine.versionList or baseLine.variantGroupList then
+			if baseLine.variantList or baseLine.versionList or baseLine.variantGroupList or baseLine.baseVariantList then
 				writeModLine(baseLine)
 			end
 		end
@@ -2028,7 +2061,7 @@ function ItemClass:BuildRaw()
 	end
 	if not self.variantList then
 		for _, baseLine in pairs(self.baseLines or { }) do
-			if baseLine.versionList or baseLine.variantGroupList then
+			if baseLine.versionList or baseLine.variantGroupList or baseLine.baseVariantList then
 				writeModLine(baseLine)
 			end
 		end
@@ -2291,6 +2324,9 @@ function ItemClass:CheckModLineVariant(modLine)
 		if modLine.versionList and (not self.selectedVersion or not modLine.versionList[self.selectedVersion]) then
 			return false
 		end
+		if modLine.baseVariantList and (not self.selectedBase or not modLine.baseVariantList[self.selectedBase]) then
+			return false
+		end
 		if modLine.variantGroupList then
 			if not modLine.variantList then
 				return false
@@ -2307,6 +2343,9 @@ function ItemClass:CheckModLineVariant(modLine)
 			return modLine.variantList[self.variant] or false
 		end
 		return not modLine.variantList
+	end
+	if self.baseList and modLine.baseVariantList then
+		return modLine.baseVariantList[self.selectedBase]
 	end
 	return not modLine.variantList
 		or modLine.variantList[self.variant]
