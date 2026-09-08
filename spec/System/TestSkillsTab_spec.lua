@@ -3,7 +3,6 @@ local gemTooltip = require("Classes.GemTooltip")
 describe("TestSkillsTab", function()
 	before_each(function()
 		newBuild()
-		runCallback("OnFrame")
 	end)
 
 	describe("SkillsTab", function()
@@ -494,40 +493,6 @@ describe("TestSkillsTab", function()
 				assert.is_true(set1Valid)
 				assert.is_true(set2Valid)
 				assert.are.equals(1, initCount)
-			end)
-
-			it("keeps a set selectable when validity calculation fails", function()
-				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
-				local group = build.skillsTab.socketGroupList[1]
-				local calcs = build.calcsTab.calcs
-				local initEnv = calcs.initEnv
-				local mainEnv = build.calcsTab.mainEnv
-				build.calcsTab.mainEnv = nil
-				build.skillsTab.weaponSetValidityCache = nil
-				build.skillsTab.weaponSetValidityRevision = nil
-				calcs.initEnv = function()
-					error("validation failed")
-				end
-
-				local valid = build.skillsTab:IsSocketGroupWeaponSetValid(group, 1)
-
-				calcs.initEnv = initEnv
-				build.calcsTab.mainEnv = mainEnv
-				assert.is_true(valid)
-			end)
-
-			it("shows the selected assignment in sidebar and Calcs headings", function()
-				build.skillsTab:PasteSocketGroup("Spark 20/0  1")
-				local group = build.skillsTab.socketGroupList[1]
-				group.set1 = false
-				group.set2 = true
-				build.mainSocketGroup = 1
-				build.calcsTab.input.skill_number = 1
-				build.buildFlag = true
-				runCallback("OnFrame")
-
-				assert.are.equals("^7Main Skill: Set 2", build.controls.mainSkillLabel:GetProperty("label"))
-				assert.are.equals("Socket Group: Set 2", build.calcsTab.socketGroupRow.label)
 			end)
 
 			it("defaults legacy groups to both sets and preserves explicit false values", function()

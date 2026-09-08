@@ -272,15 +272,21 @@ Fireball 20/0  1
 			{ "Hardwood Spear", false, "Spear", "Spear Stab" },
 			{ "Hardwood Spear", "Leather Buckler", "SpearOffHand", "Spear Stab" },
 			{ "Hardwood Spear", "Splintered Tower Shield", "Spear", "Spear Stab" },
+			{ "Hardwood Spear", "Leather Buckler", "SpearOffHand", "Spear Stab", true },
 		}) do
 			newBuild()
 			local equipment = { }
-			if case[1] then table.insert(equipment, makeImportItem(case[1], "Weapon", "main-hand")) end
-			if case[2] then table.insert(equipment, makeImportItem(case[2], "Offhand", "off-hand")) end
+			if case[5] then table.insert(equipment, makeImportItem("Crude Bow", "Weapon", "bow")) end
+			if case[1] then table.insert(equipment, makeImportItem(case[1], case[5] and "Weapon2" or "Weapon", "main-hand")) end
+			if case[2] then table.insert(equipment, makeImportItem(case[2], case[5] and "Offhand2" or "Offhand", "off-hand")) end
 			local skill = makeGemEntry(false, case[4] or "Mace Strike", 1, { makeGemEntry(true, "Minion Pact I", 1) })
 			build.importTab:ImportItemsAndSkills(buildImportPayload(equipment, { skill }))
 			local group = build.skillsTab.socketGroupList[1]
-			assert.are.equals(case[4] and 2 or 1, #build.skillsTab.socketGroupList) -- Spears also grant Spear Throw.
+			assert.are.equals(case[5] and 3 or case[4] and 2 or 1, #build.skillsTab.socketGroupList) -- Spears also grant Spear Throw.
+			if case[5] then
+				assert.are.equals("Default Attack", group.source)
+				assert.are.equals("Weapon 1 Swap", group.slot)
+			end
 			assert.are.equals("Metadata/Items/Gems/SkillGemPlayerDefault" .. case[3], group.gemList[1].gemData.id)
 			assert.are.equals(2, #group.gemList)
 			assert.are.equals("Minion Pact I", group.gemList[2].nameSpec)

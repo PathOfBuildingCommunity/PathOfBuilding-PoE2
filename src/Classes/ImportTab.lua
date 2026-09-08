@@ -1161,7 +1161,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			local maceSkills = self.build.data.characterMeleeSkills[mainType]
 			gemId = (maceSkills[offType] or maceSkills.Unarmed)[1].id
 		elseif typeLine:match("Spear Stab") then
-			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 2"].selItemId]
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local swapItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1 Swap"].selItemId]
+			local slot = (not mainItem or mainItem.base.type ~= "Spear") and swapItem and swapItem.base.type == "Spear" and "Weapon 2 Swap" or "Weapon 2"
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet[slot].selItemId]
 			local offType = offItem and offItem.base.tags.buckler and "Buckler" or "Unarmed"
 			gemId = self.build.data.characterMeleeSkills.Spear[offType][1].id
 		end

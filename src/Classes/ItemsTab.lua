@@ -4375,7 +4375,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		if main.slotOnlyTooltips and slot then
 			slot = type(slot) ~= "string" and slot or self.slots[slot]
 			if slot and slot.weaponSet then
-				slot = self.slots[slot.slotName:gsub(" Swap", "") .. (weaponSet == 2 and " Swap" or "")]
+				slot = self.slots[(slot.slotName:gsub(" Swap", ""):gsub("^Weapon %d", weaponSet == 2 and "%0 Swap" or "%0"))]
 			end
 			if slot then addCompareForSlot(slot) end
 			return

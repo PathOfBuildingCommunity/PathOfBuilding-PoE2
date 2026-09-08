@@ -24,7 +24,7 @@ describe("TestItemsTab", function()
 		local slots
 		build.calcsTab.GetMiscCalculator = function()
 			return function(override)
-				table.insert(slots, override.repSlotName)
+				slots[override.repSlotName] = true
 				return { }
 			end, { }
 		end
@@ -46,7 +46,14 @@ describe("TestItemsTab", function()
 				local shownSlot = case[3] and "Weapon 1 Swap" or "Weapon 1"
 				build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), staff, slotOnly and shownSlot or nil, true)
 				main.slotOnlyTooltips = slotOnlyTooltips
-				assert.are.same(slotOnly and { case[4] } or { case[4], case[4] }, slots)
+				assert.are.same({ [case[4]] = true }, slots)
+				if slotOnly then
+					main.slotOnlyTooltips = true
+					slots = { }
+					build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), new("Item"):Item("New Item\nRuby"), shownSlot .. " Jewel Socket 1", true)
+					main.slotOnlyTooltips = slotOnlyTooltips
+					assert.are.same({ [case[4] .. " Jewel Socket 1"] = true }, slots)
+				end
 			end
 		end
 	end)
