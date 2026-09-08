@@ -1148,3 +1148,6 @@ data.questRewards = LoadModule("Data/QuestRewards")
 data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
 LoadModule("Data/WorldAreas")(data.worldAreas)
+
+-- a map of slot to weight key which is on the mods
+data.runeInfluences = { Boots = { "chronomancy" }, Gloves = { "marksman", "decay" }, Helmets = { "berserking" }, Weapon = { "destruction" }, ["Body Armour"] = { "soul" } }
