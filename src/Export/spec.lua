@@ -25068,28 +25068,28 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[15]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[16]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[17]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[18]={
 			list=false,
@@ -25110,7 +25110,7 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		},
 		[21]={
 			list=true,
@@ -49900,28 +49900,28 @@ return {
 			name="ProjectileSpeed",
 			refTo="",
 			type="Int",
-			width=150
+			width=110
 		},
 		[6]={
 			list=false,
-			name="",
+			name="UseTargetLocation",
 			refTo="",
 			type="Bool",
-			width=50
+			width=110
 		},
 		[7]={
 			list=false,
-			name="",
+			name="CollisionRadius",
 			refTo="",
 			type="Int",
-			width=50
+			width=90
 		},
 		[8]={
 			list=false,
-			name="",
+			name="RandomizeVisualRotationOnSpawn",
 			refTo="",
 			type="Bool",
-			width=50
+			width=190
 		},
 		[9]={
 			list=false,
@@ -49942,25 +49942,25 @@ return {
 			name="MiscAnimated",
 			refTo="MiscAnimated",
 			type="Key",
-			width=70
+			width=80
 		},
 		[12]={
 			list=false,
-			name="",
+			name="CollisionCandidateRadius",
 			refTo="",
 			type="Int",
-			width=70
+			width=140
 		},
 		[13]={
 			list=false,
-			name="",
+			name="ApplyProjectileSpeedToAuxiliarySpeed",
 			refTo="",
 			type="Bool",
 			width=70
 		},
 		[14]={
 			list=false,
-			name="",
+			name="AuxiliarySpeedCannotBeBelowBase",
 			refTo="",
 			type="Bool",
 			width=70
@@ -50037,45 +50037,45 @@ return {
 		},
 		[25]={
 			list=false,
-			name="",
+			name="VisualScaleMinPercent",
 			refTo="",
 			type="Int",
-			width=50
+			width=120
 		},
 		[26]={
 			list=false,
-			name="",
+			name="VisualScaleMaxPercent",
 			refTo="",
 			type="Int",
-			width=50
+			width=130
 		},
 		[27]={
 			list=false,
-			name="",
+			name="MiscEffectPackArtVariation",
 			refTo="",
 			type="Int",
-			width=50
+			width=180
 		},
 		[28]={
 			list=true,
-			name="",
+			name="FizzleAnimationNames",
 			refTo="",
 			type="String",
-			width=70
+			width=120
 		},
 		[29]={
 			list=false,
-			name="",
+			name="InheritOwnerVisualScale",
 			refTo="",
 			type="Bool",
-			width=50
+			width=140
 		},
 		[30]={
 			list=true,
-			name="",
+			name="CollisionBehaviourFlags",
 			refTo="",
 			type="Int",
-			width=50
+			width=130
 		},
 		[31]={
 			list=false,
@@ -50100,7 +50100,7 @@ return {
 		},
 		[34]={
 			list=false,
-			name="DamageEffect",
+			name="DamageEffect1",
 			refTo="DamageEffectVariations",
 			type="Key",
 			width=250
@@ -50121,7 +50121,7 @@ return {
 		},
 		[37]={
 			list=false,
-			name="DamageEffect",
+			name="DamageEffect2",
 			refTo="DamageEffectVariations",
 			type="Key",
 			width=200
