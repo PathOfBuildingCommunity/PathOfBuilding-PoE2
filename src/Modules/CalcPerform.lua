@@ -1707,7 +1707,20 @@ function calcs.perform(env, skipEHP)
 		local flaskBuffsNonPlayer = {}
 		local flaskBuffsPerBaseNonPlayer = {}
 
+		local slotIndex = env.itemSlotIndex or { }
+		local orderedFlasks = { }
 		for item in pairs(flasks) do
+			t_insert(orderedFlasks, item)
+		end
+		table.sort(orderedFlasks, function(a, b)
+			local posA = slotIndex[a] or 0
+			local posB = slotIndex[b] or 0
+			if posA ~= posB then
+				return posA < posB
+			end
+			return (a.id or 0) < (b.id or 0)
+		end)
+		for _, item in ipairs(orderedFlasks) do
 			flaskBuffsPerBase[item.baseName] = flaskBuffsPerBase[item.baseName] or {}
 			flaskBuffsPerBaseNonPlayer[item.baseName] = flaskBuffsPerBaseNonPlayer[item.baseName] or {}
 			flaskConditions["UsingFlask"] = true
@@ -1810,7 +1823,20 @@ function calcs.perform(env, skipEHP)
 		local charmConditions = {}
 		local charmBuffsPerBase = {}
 
+		local slotIndex = env.itemSlotIndex or { }
+		local orderedCharms = { }
 		for item in pairs(charms) do
+			t_insert(orderedCharms, item)
+		end
+		table.sort(orderedCharms, function(a, b)
+			local posA = slotIndex[a] or 0
+			local posB = slotIndex[b] or 0
+			if posA ~= posB then
+				return posA < posB
+			end
+			return (a.id or 0) < (b.id or 0)
+		end)
+		for _, item in ipairs(orderedCharms) do
 			if charmLimit <= 0 then
 				break
 			end

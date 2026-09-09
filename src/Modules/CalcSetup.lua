@@ -1267,10 +1267,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 		end
 
+		env.itemSlotIndex = { }
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
 			local node = slot.nodeId and env.spec.nodes[slot.nodeId]
+			if item then
+				env.itemSlotIndex[item] = tonumber(slotName:match("%d+")) or 0
+			end
 			if item and item.type == "Flask" then
 				if slot.active then
 					env.flasks[item] = true
