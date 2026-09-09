@@ -3436,9 +3436,9 @@ local specialModList = {
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
 	-- Druid -- Shaman
 	["enemies in your presence have exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
 	},
 	-- Druid -- Oracle
 	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
