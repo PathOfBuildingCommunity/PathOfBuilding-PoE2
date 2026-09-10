@@ -339,9 +339,30 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 			if not connectors then
 				goto endConnection
 			end
-			t_insert(self.connectors, connectors[1])
-			if connectors[2] then
-				t_insert(self.connectors, connectors[2])
+			-- precalculate some information for tree views:
+			for i = 1, #connectors do
+				-- culling
+				local connector = connectors[i]
+				local minX, minY = math.huge, math.huge
+				local maxX, maxY = -math.huge, -math.huge
+				for _, vert in pairs(connector.vert) do
+					for j = 1, 7, 2 do
+						local x, y = vert[j], vert[j + 1]
+						if x < minX then minX = x end
+						if x > maxX then maxX = x end
+						if y < minY then minY = y end
+						if y > maxY then maxY = y end
+					end
+				end
+				connector.minX, connector.minY = minX, minY
+				connector.maxX, connector.maxY = maxX, maxY
+
+				-- asset key names
+				connector.assetNames = {}
+				for state, _ in pairs(connector.vert) do
+					connector.assetNames[state] = string.format("%s%s%s", connector.connectionArt, connector.type, state)
+				end
+				t_insert(self.connectors, connector)
 			end
 			:: endConnection ::
 		end

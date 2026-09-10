@@ -3,6 +3,21 @@ describe("TreeTab", function()
 		newBuild()
 	end)
 
+	it("Draws after switching between tree versions with different connector assets", function()
+		local viewer = build.treeTab.viewer
+		local viewport = { x = 0, y = 0, width = 1920, height = 1080 }
+		viewer.zoom = 0.5
+		viewer:Draw(build, viewport, {})
+
+		local oldSpec = new("PassiveSpec"):PassiveSpec(build, "0_1")
+		table.insert(build.treeTab.specList, oldSpec)
+		build.treeTab:SetActiveSpec(#build.treeTab.specList)
+		viewer:Draw(build, viewport, {})
+
+		build.treeTab:SetActiveSpec(1)
+		viewer:Draw(build, viewport, {})
+	end)
+
 	describe("CopyTree", function()
 		it("Copies a tree spec with a new name", function()
 			local newTitle = "Copied Tree"
