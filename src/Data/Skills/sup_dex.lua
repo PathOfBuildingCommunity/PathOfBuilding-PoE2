@@ -2312,7 +2312,7 @@ skills["SupportFrenziedRipostePlayer"] = {
 }
 skills["SupportFrozenSpitePlayer"] = {
 	name = "Frozen Spite",
-	description = "Supports Attack Skills, causing them to create Ice Fragments on killing Frozen Enemies. Cannot Support Totem Skills and does not modify Skills used by Minions.",
+	description = "Supports Skills that Hit enemies, causing them to create Ice Fragments on killing Frozen Enemies. Cannot Support Totem Skills and does not modify Skills used by Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },

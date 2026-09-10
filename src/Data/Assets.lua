@@ -3,13 +3,49 @@
 
 return {
 	ddsCoords={
-		["monster-categories_36_36_BC7.dds.zst"]={
-			Beast=1,
-			Construct=2,
-			Demon=3,
-			Eldritch=4,
-			Humanoid=5,
-			Undead=6
+		["monster-categories_44_44_BC7.dds.zst"]={
+			Beast={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=1
+			},
+			Construct={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=2
+			},
+			Demon={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=3
+			},
+			Eldritch={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=4
+			},
+			Humanoid={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=5
+			},
+			Undead={
+				[1]=0,
+				[2]=0,
+				[3]=32,
+				[4]=32,
+				[5]=6
+			}
 		}
 	}
 }

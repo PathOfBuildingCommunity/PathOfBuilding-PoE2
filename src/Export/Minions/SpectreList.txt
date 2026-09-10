@@ -156,7 +156,7 @@ Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge             
 Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCaster               		----		Unearthed Runecaster
 Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAxeShield            		----		Unearthed Soldier
 Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin                             		----		Unearthed Urchin
-Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest                         		----		Black Scythe Arbalist
+Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest                         		----		Black Scythe Arbalest
 Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight                   		----		Knight of the Sun
 Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster                   		----		Runed Knight
 Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer                     		----		Priest of the Chalice
@@ -194,6 +194,7 @@ Metadata/Monsters/HyenaMonster/HyenaCentaurSpear                                
 Metadata/Monsters/HyenaMonster/HyenaCentaurSpearBossMinion_                               		----		Sun Clan Scavenger
 Metadata/Monsters/HyenaMonster/Runemarked/HyenaCentaurRunemarked                          		----		Sun Clan Scavenger
 Metadata/Monsters/HyenaMonster/RathbreakerBossMinion1                                     		----		Rathbreaker
+Metadata/Monsters/HyenaMonster/RathbreakerBossCampaignSTANDALONE                          		----		Rathbreaker
 Metadata/Monsters/HyenaMonster/RathbreakerBossMinion2                                     		----		Caedron, the Hyena Lord
 Metadata/Monsters/ShellMonster/ShellMonster                                               		----		Brimstone Crab
 Metadata/Monsters/ShellMonster/ShellMonsterPoison_                                        		----		Caustic Crab
@@ -820,6 +821,7 @@ Metadata/Monsters/SerpentClanMonster/SerpentClan1SanctumTrial                   
 Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                            		----		Quake Golem
 Metadata/Monsters/SaltGolem/SaltGolemNoEmergeSanctumTrial                                 		----		Quake Golem
 Metadata/Monsters/HyenaMonster/Runemarked/HyenaCentaurRunemarked                          		----		Sun Clan Scavenger
+Metadata/Monsters/HyenaMonster/RathbreakerBossCampaignSTANDALONE                          		----		Rathbreaker
 Metadata/Monsters/SandGolemancer/SandGolemancerSanctumTrial                               		----		Desiccated Lich
 Metadata/Monsters/SandGolemancer/Runemarked/SandGolemancerRunemarked                      		----		Desiccated Lich
 Metadata/Monsters/SandGolemancer/SandGolemancerTornado                                    		----		Desiccated Lich
@@ -934,6 +936,7 @@ Metadata/Monsters/CrowBell/CrowBellBossMinion1                                  
 Metadata/Monsters/CrowBell/CrowBellBossMinion2                                            		----		The Black Crow
 Metadata/Monsters/Wraith/WraithSpookyColdSpectre                                          		----		Frost Wraith
 Metadata/Monsters/Wraith/WraithSpookyLightningSpectre                                     		----		Lightning Wraith
+Metadata/Monsters/MudBurrower/MudBurrowerHeadBossCampaignSTANDALONE_                      		----		The Devourer
 Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
 Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
 Metadata/Monsters/MudBurrower/MudBurrowerHeadBossMinion2                                  		----		Gorian, the Moving Earth
@@ -979,6 +982,7 @@ Metadata/Monsters/Mercenary/Infected/InfectedMercenaryCrossbowExecutionerMinionS
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeShieldExecutionerMinion_STANDALONE		----		Decrepit Mercenary
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeAxeExecutionerMinion             		----		Decrepit Mercenary
 Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxeAxeExecutionerMinionSTANDALONE   		----		Decrepit Mercenary
+Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossCampaignSTANDALONE               		----		Xyclucian, the Chimera
 Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2                          		----		Xilozoma, the Maw-Beast
 Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion1                          		----		Xyclucian, the Chimera
 Metadata/Monsters/ChimeraWetlandsBoss/ChimeraWetlandsBossMinion2                          		----		Xilozoma, the Maw-Beast
@@ -986,6 +990,7 @@ Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2                         
 Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion1                                   		----		Uxmal, the Beastlord
 Metadata/Monsters/Ultimatum/ChimeraUltimatumBossMinion2                                   		----		Gressor-Kul, the Apex
 Metadata/Monsters/Bird2/MutantBird2Minion1                                                		----		Scourge of the Skies
+Metadata/Monsters/Bird2/MutantBird2NOUltimatumCampaignSTANDALONE                          		----		Scourge of the Skies
 Metadata/Monsters/Bird2/MutantBird2Minion2                                                		----		Chetza, the Feathered Plague
 Metadata/Monsters/Bird2/MutantBird2Minion2                                                		----		Chetza, the Feathered Plague
 Metadata/Monsters/Bird2/MutantBird2Minion1                                                		----		Scourge of the Skies
@@ -1078,6 +1083,7 @@ Metadata/Monsters/SandGolemancer/SandGolemancerSanctumTrialTime                 
 Metadata/Monsters/MarAcolyte/Runemarked/MarAcolyteRunemarked                              		----		Mar Acolyte
 Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealotSummoner_01           		----		Lost-men Zealot
 Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealotSummonerAbyssPit      		----		Lost-men Zealot
+Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreNoEmerge                   		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreSanctumTrialNoEmerge       		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSickleShieldSanctumTrialNoEmerge  		----		Terracotta Soldier
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreSanctumTrialNoEmerge       		----		Terracotta Soldier
@@ -1130,10 +1136,12 @@ Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange2         
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange3                   		----		Ill-fated Explorer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange4                   		----		Ill-fated Explorer
 Metadata/Monsters/Quadrilla/Runemarked/QuadrillaRunemarked                                		----		Quadrilla
+Metadata/Monsters/Quadrilla/QuadrillaBossCampaignSTANDALONE                               		----		Mighty Silverfist
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion1                                          		----		Mighty Silverfist
 Metadata/Monsters/Quadrilla/QuadrillaBossMinion2                                          		----		Zekoa, the Headcrusher
+Metadata/Monsters/Quadrilla/IcyQuadrillaBossCampaignSTANDALONE                            		----		The Abominable Yeti
 Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2                                       		----		The Frostborn Fiend
 Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion1                                       		----		The Abominable Yeti
 Metadata/Monsters/Quadrilla/IcyQuadrillaBossMinion2                                       		----		The Frostborn Fiend
@@ -1224,6 +1232,7 @@ Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_                      
 Metadata/Monsters/SkeletonProwler/SkeletonProwlerWet_                                     		----		Prowling Skeleton
 Metadata/Monsters/TarHulk/Runemarked/PaleHulkRunemarked_                                  		----		Pale Abductor
 Metadata/Monsters/DeepDwellerBoss/Runemarked/SpikedDwellerRunemarked                      		----		Spiked Scuttler
+Metadata/Monsters/GreatWhiteOne/GreatWhiteOneCampaignSTANDALONE                           		----		Great White One
 Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2                                      		----		The Sandstrider
 Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion1                                      		----		Great White One
 Metadata/Monsters/GreatWhiteOne/GreatWhiteOneMinion2                                      		----		The Sandstrider
@@ -1235,6 +1244,7 @@ Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker                             
 Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker                                       		----		Tuskbearer Kin
 Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman                                       		----		Shaman Kin
 Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman                                       		----		Shaman Kin
+Metadata/Monsters/Goblins/Beast/ArenaBeastBossCampaignSTANDALONE                          		----		The Blind Beast
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Ravenous Fang
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion1_                                    		----		The Ravenous Fang
 Metadata/Monsters/Goblins/Beast/ArenaBeastBossMinion2                                     		----		The Ravenous Fang
@@ -1291,8 +1301,9 @@ Metadata/Monsters/ChaosGodGorilla/ChaosGodGorillaInterlude                      
 Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
 Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
 Metadata/Monsters/ChaosGodOwlBoss/ChaosGodOwlBossMinion                                   		----		Bahlak, the Sky Seer
-Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Rakkar, the Frozen Talon
-Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Rakkar, the Frozen Talon
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossCampaignSTANDALONE                            		----		Rakkar, the Frozen Talon
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Thraeven, Wing of Winter
+Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion1                                       		----		Thraeven, Wing of Winter
 Metadata/Monsters/ChaosGodOwlBoss/IcyOwlBossMinion2                                       		----		Thraeven, Wing of Winter
 Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion2                        		----		Karash, The Dune Dweller
 Metadata/Monsters/MarakethSanctumTrial/Boss/Shakari/ShakariMinion1_                       		----		Ashar, the Sand Mother
@@ -1356,6 +1367,7 @@ Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                          
 Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre                         		----		Bloodbilge
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyBig                                   		----		Fettered Hook
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyMinion                                		----		Fettered Hook
+Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossCampaignSTANDALONE             		----		Vornas, the Fell Flame
 Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2                        		----		Morvak, the Infernal
 Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion1                        		----		Vornas, the Fell Flame
 Metadata/Monsters/Goblins/Beast/FireBeastBoss/FireBeastBossMinion2                        		----		Morvak, the Infernal

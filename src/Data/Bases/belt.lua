@@ -105,7 +105,7 @@ itemBases["Runemastered Heavy Belt"] = {
 	charmLimit = 0,
 	hidden = true,
 	tags = { belt = true, default = true, genesis_tree_caster = true, genesis_tree_minion = true, runeforged = true, },
-	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\nRunic Ward recovery can can Overflow maximum Runic Ward",
+	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slot\nRunic Ward recovery can Overflow maximum Runic Ward",
 	implicitModTypes = { {  }, { "charm" }, {  }, },
 	req = { level = 50, },
 }

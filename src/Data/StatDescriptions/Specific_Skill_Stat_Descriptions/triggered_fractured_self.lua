@@ -91,7 +91,7 @@ return {
 						[2]=1
 					}
 				},
-				text="Limit {0} Fractured Mimics"
+				text="Limit {0} Fractured Mimic"
 			},
 			[2]={
 				limit={

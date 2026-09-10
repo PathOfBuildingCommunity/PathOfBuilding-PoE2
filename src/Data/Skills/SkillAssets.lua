@@ -3,7 +3,7 @@
 
 return {
 	ddsCoords={
-		["gem-backgrounds_700_372_BC7.dds.zst"]={
+		["gem-backgrounds_708_380_BC7.dds.zst"]={
 			AncestralWarriorTotemPlayer=1,
 			ArcPlayer=2,
 			ArcticArmourPlayer=3,
@@ -28,12 +28,12 @@ return {
 			FallingThunderPlayer=26,
 			FireballPlayer=27,
 			FirestormPlayer=28,
-			FlameWallPlayer=29,
-			FlameblastPlayer=30,
+			FlameWallPlayer=30,
+			FlameblastPlayer=29,
 			FlickerStrikePlayer=31,
-			FrostBombPlayer=32,
-			FrostWallPlayer=33,
-			FrostboltPlayer=34,
+			FrostBombPlayer=33,
+			FrostWallPlayer=34,
+			FrostboltPlayer=32,
 			FrozenLocusPlayer=35,
 			GaleStrikePlayer=95,
 			GasArrowPlayer=36,
@@ -49,7 +49,7 @@ return {
 			LightningArrowPlayer=46,
 			LightningConduitPlayer=47,
 			LightningRodPlayer=48,
-			LightningSpearPlayer=81,
+			LightningSpearPlayer=82,
 			LightningWarpPlayer=49,
 			MagmaBarrierPlayer=50,
 			ManaRemnantsPlayer=23,
@@ -78,7 +78,7 @@ return {
 			SparkPlayer=78,
 			SpiralVolleyPlayer=79,
 			StaggeringPalmPlayer=80,
-			StormcallerArrowPlayer=82,
+			StormcallerArrowPlayer=81,
 			SummonSkeletalArsonistsPlayer=67,
 			SummonSkeletalBrutesPlayer=68,
 			SummonSkeletalClericsPlayer=69,

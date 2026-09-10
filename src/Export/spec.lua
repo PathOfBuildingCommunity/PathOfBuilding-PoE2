@@ -35740,28 +35740,28 @@ return {
 		},
 		[5]={
 			list=false,
-			name="SapphirePrefix",
+			name="EmeraldPrefix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[6]={
 			list=false,
-			name="SapphireSuffix",
+			name="EmeraldSuffix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[7]={
 			list=false,
-			name="EmeraldPrefix",
+			name="SapphirePrefix",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[8]={
 			list=false,
-			name="EmeraldSuffix",
+			name="SapphireSuffix",
 			refTo="Mods",
 			type="Key",
 			width=150
@@ -40744,314 +40744,321 @@ return {
 			width=80
 		},
 		[22]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[23]={
 			list=false,
 			name="Daemon",
 			refTo="",
 			type="String",
 			width=150
 		},
-		[23]={
+		[24]={
 			list=true,
 			name="MonsterKillAchievements",
 			refTo="AchievementItems",
 			type="Key",
 			width=150
 		},
-		[24]={
+		[25]={
 			list=true,
 			name="ArchnemesisType",
 			refTo="ModType",
 			type="Key",
 			width=240
 		},
-		[25]={
+		[26]={
 			list=false,
 			name="Stat5Value",
 			refTo="",
 			type="Interval",
 			width=60
 		},
-		[26]={
+		[27]={
 			list=false,
 			name="Stat5",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
-		[27]={
+		[28]={
 			list=true,
 			name="FullClear",
 			refTo="AchievementItems",
 			type="Key",
 			width=100
 		},
-		[28]={
+		[29]={
 			list=true,
 			name="AchievementItemsKey",
 			refTo="AchievementItems",
 			type="Key",
 			width=130
 		},
-		[29]={
+		[30]={
 			list=true,
 			name="GenerationWeightTags",
 			refTo="Tags",
 			type="Key",
 			width=130
 		},
-		[30]={
+		[31]={
 			list=true,
 			name="GenerationWeightValues",
 			refTo="",
 			type="Int",
 			width=130
 		},
-		[31]={
+		[32]={
 			list=true,
 			name="ModifyMapsAchievements",
 			refTo="AchievementItems",
 			type="Key",
 			width=150
 		},
-		[32]={
+		[33]={
 			list=false,
 			name="Stat6Value",
 			refTo="",
 			type="Interval",
 			width=130
 		},
-		[33]={
+		[34]={
 			list=false,
 			name="Stat6",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
-		[34]={
+		[35]={
 			list=false,
 			name="MaxLevel",
 			refTo="",
 			type="Int",
 			width=50
 		},
-		[35]={
+		[36]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=40
 		},
-		[36]={
+		[37]={
 			list=true,
 			name="CraftingClassRestrictions",
 			refTo="ItemClasses",
 			type="Key",
 			width=150
 		},
-		[37]={
+		[38]={
 			list=false,
 			name="MonsterOnDeath",
 			refTo="",
 			type="String",
 			width=100
 		},
-		[38]={
+		[39]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=200
 		},
-		[39]={
+		[40]={
 			list=true,
 			name="HeistAchievements",
 			refTo="AchievementItems",
 			type="Key",
 			width=230
 		},
-		[40]={
+		[41]={
 			list=false,
 			name="Heist_SubStatValue1",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[41]={
+		[42]={
 			list=false,
 			name="Heist_SubStatValue2",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[42]={
+		[43]={
 			list=false,
 			name="Heist_StatsKey0",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
-		[43]={
+		[44]={
 			list=false,
 			name="Heist_StatsKey1",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
-		[44]={
+		[45]={
 			list=false,
 			name="Heist_AddStatValue1",
 			refTo="",
 			type="Int",
 			width=240
 		},
-		[45]={
+		[46]={
 			list=false,
 			name="Heist_AddStatValue2",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[46]={
+		[47]={
 			list=false,
 			name="InfluenceTypes",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[47]={
+		[48]={
 			list=true,
 			name="ImplicitTags",
 			refTo="Tags",
 			type="Key",
 			width=150
 		},
-		[48]={
+		[49]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=150
 		},
-		[49]={
+		[50]={
 			list=false,
 			name="UnknownStat1",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[50]={
+		[51]={
 			list=false,
 			name="UnknownStat2",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[51]={
+		[52]={
 			list=false,
 			name="UnknownStat3",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[52]={
+		[53]={
 			list=false,
 			name="UnknownStat4",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[53]={
+		[54]={
 			list=false,
 			name="UnknownStat5",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[54]={
+		[55]={
 			list=false,
 			name="UnknownStat6",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[55]={
+		[56]={
 			list=false,
 			name="UnknownStat7",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[56]={
+		[57]={
 			list=false,
 			name="UnknownStat8",
 			refTo="",
 			type="Interval",
 			width=150
 		},
-		[57]={
+		[58]={
 			list=false,
 			name="BuffTemplate",
 			refTo="BuffTemplates",
 			type="Key",
 			width=150
 		},
-		[58]={
+		[59]={
 			list=false,
 			name="ArchnemesisMinionMod",
 			refTo="Mods",
 			type="ShortKey",
 			width=290
 		},
-		[59]={
+		[60]={
 			list=false,
 			name="HASH32",
 			refTo="",
 			type="UInt",
 			width=150
 		},
-		[60]={
+		[61]={
 			list=true,
 			name="BuffTemplate2",
 			refTo="BuffTemplates",
 			type="Key",
 			width=150
 		},
-		[61]={
+		[62]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[62]={
+		[63]={
 			list=true,
 			name="",
 			refTo="GrantedEffectsPerLevel",
 			type="Key",
 			width=90
 		},
-		[63]={
+		[64]={
 			list=false,
 			name="NodeType",
 			refTo="PassiveNodeTypes",
 			type="Enum",
 			width=120
 		},
-		[64]={
+		[65]={
 			list=false,
 			name="IsUnscalable",
 			refTo="",
 			type="Bool",
 			width=140
 		},
-		[65]={
+		[66]={
 			list=false,
 			name="SpawnLevel_Override",
 			refTo="",
 			type="Int",
 			width=130
 		},
-		[66]={
+		[67]={
 			list=true,
 			name="SpawnWeight",
 			refTo="",
@@ -63411,7 +63418,7 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
+			type="Int",
 			width=50
 		},
 		[60]={
@@ -63425,7 +63432,7 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
+			type="Int",
 			width=50
 		},
 		[62]={
@@ -63437,9 +63444,9 @@ return {
 		},
 		[63]={
 			list=false,
-			name="",
-			refTo="",
-			type="Int",
+			name="Ruleset",
+			refTo="Rulesets",
+			type="Key",
 			width=50
 		},
 		[64]={
@@ -63450,66 +63457,66 @@ return {
 			width=50
 		},
 		[65]={
-			list=false,
-			name="Ruleset",
-			refTo="Rulesets",
-			type="Key",
-			width=50
-		},
-		[66]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[67]={
 			list=true,
 			name="",
 			refTo="WorldAreas",
 			type="ShortKey",
 			width=40
 		},
+		[66]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[67]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
 		[68]={
-			list=true,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[69]={
-			list=true,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[70]={
 			list=true,
 			name="QuestFlags",
 			refTo="QuestFlags",
 			type="Key",
 			width=150
 		},
-		[71]={
+		[69]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=90
 		},
-		[72]={
+		[70]={
 			list=false,
 			name="Description",
 			refTo="",
 			type="String",
 			width=200
 		},
-		[73]={
+		[71]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
+			width=50
+		},
+		[72]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[73]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
 			width=50
 		},
 		[74]={
@@ -63517,35 +63524,35 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=50
+			width=150
 		},
 		[75]={
 			list=false,
 			name="",
 			refTo="",
-			type="Bool",
-			width=50
+			type="Int",
+			width=150
 		},
 		[76]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
+			type="Bool",
 			width=150
 		},
 		[77]={
-			list=false,
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=300
+		},
+		[78]={
+			list=true,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
-		},
-		[78]={
-			list=false,
-			name="",
-			refTo="",
-			type="Bool",
-			width=150
+			width=300
 		},
 		[79]={
 			list=true,
@@ -63555,20 +63562,6 @@ return {
 			width=300
 		},
 		[80]={
-			list=true,
-			name="",
-			refTo="",
-			type="Int",
-			width=300
-		},
-		[81]={
-			list=true,
-			name="",
-			refTo="",
-			type="Key",
-			width=300
-		},
-		[82]={
 			list=true,
 			name="",
 			refTo="",

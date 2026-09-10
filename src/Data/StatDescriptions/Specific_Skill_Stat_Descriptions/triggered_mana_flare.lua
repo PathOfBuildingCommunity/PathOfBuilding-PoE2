@@ -42,7 +42,24 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Consumes {0}% of current Mana to deal that much Fire damage"
+			}
+		},
+		stats={
+			[1]="support_mana_flare_%_of_current_mana_consumed"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["support_mana_flare_%_of_current_mana_consumed"]=3
 }

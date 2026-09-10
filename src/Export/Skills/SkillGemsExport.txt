@@ -4749,17 +4749,6 @@
 #mods
 #skillEnd
 
-#skill SupportAtzirisCallPlayer
-#set SupportAtzirisCallPlayer
-#mods
-#skillEnd
-
-#skill TriggeredAtzirisCallPlayer
-#set TriggeredAtzirisCallPlayer
-#flags
-#mods
-#skillEnd
-
 #skill SupportAtzirisCommunionPlayer
 #set SupportAtzirisCommunionPlayer
 #mods

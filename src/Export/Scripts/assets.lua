@@ -20,13 +20,20 @@ local function isValidSkillDisplayName(name)
 	return true
 end
 
-local function commonMetadata(alias)
+local function commonMetadata(alias, x, y, w, h)
 	return {
 		alias = alias,
+		x = x,
+		y = y,
+		w = w,
+		h = h,
 	}
 end
 
 main.skillAssetCacheExtract = main.skillAssetCacheExtract or { }
+main.assetCacheExtract = main.assetCacheExtract or { }
+main.ggpk:ExtractList({ uiImagesFile }, main.assetCacheExtract)
+local uiImages = assetSheets.parseUIImages(uiImagesFile)
 local assetPath = GetWorkDir() .. "/../Data/Skills/"
 MakeDir(assetPath)
 local defaultMaxWidth = 1500
@@ -50,7 +57,13 @@ for skillGem in dat("SkillGems"):Rows() do
 		for _, effect in pairs(skillGem.GemEffects) do
 			name = effect.GrantedEffect.Id
 		end
-		assetSheets.addToSheet(getSheet("gem-backgrounds"), skillGem.HoverImage, "gem-backgrounds", commonMetadata(name))
+		-- 0.5.5 changed HoverImage from a texture path to a UI image name
+		local hoverImage = skillGem.HoverImage
+		if not hoverImage:lower():match("%.dds$") then
+			local asset = uiImages[string.lower(hoverImage)]
+			hoverImage = asset and asset.path
+		end
+		assetSheets.addToSheet(getSheet("gem-backgrounds"), hoverImage, "gem-backgrounds", commonMetadata(name))
 	end
 end
 
@@ -71,17 +84,14 @@ out:write('-- Skill image data (c) Grinding Gear Games\n\nreturn ')
 writeLuaTable(out, skillAssets, 1)
 out:close()
 
-main.assetCacheExtract = main.assetCacheExtract or { }
 local assets = {
 	ddsCoords = { },
 }
-main.ggpk:ExtractList({ uiImagesFile }, main.assetCacheExtract)
-local uiImages = assetSheets.parseUIImages(uiImagesFile)
 local monsterCategorySheet = assetSheets.newSheet("monster-categories", defaultMaxWidth, 100)
 for category in dat("MonsterCategories"):Rows() do
 	if not category.Type:find("^%[DNT") then
 		local asset = uiImages[string.lower(category.HudImage)]
-		assetSheets.addToSheet(monsterCategorySheet, asset.path, "monster-categories", commonMetadata(category.Type))
+		assetSheets.addToSheet(monsterCategorySheet, asset.path, "monster-categories", commonMetadata(category.Type, asset.x, asset.y, asset.width, asset.height))
 	end
 end
 

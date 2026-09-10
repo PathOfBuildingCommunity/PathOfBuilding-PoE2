@@ -1148,18 +1148,6 @@ worldAreas["MapHideoutCanal_Claimable"] = {
 	},
 }
 
-worldAreas["KaruiShowcase"] = {
-	name = "Heart of the Tribe (Act 4)",
-	baseName = "Heart of the Tribe",
-	tags = { "area_with_water" },
-	act = 4,
-	level = 30,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
 worldAreas["G_login"] = {
 	name = "Login Scene (Act 1)",
 	baseName = "Login Scene",
@@ -6372,7 +6360,7 @@ worldAreas["ExpeditionSubArea_Kalguur"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Black Scythe Arbalist",
+		"Black Scythe Arbalest",
 		"Black Scythe Mercenary",
 		"Druid of the Broken Circle",
 		"Knight of the Sun",
@@ -6426,7 +6414,7 @@ worldAreas["ExpeditionSubArea_Kalguur_Act2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Black Scythe Arbalist",
+		"Black Scythe Arbalest",
 		"Black Scythe Mercenary",
 		"Quake Golem",
 		"Skitter Golem",
@@ -6539,7 +6527,7 @@ worldAreas["ExpeditionSubArea_VoranaBoss"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Black Scythe Arbalist",
+		"Black Scythe Arbalest",
 		"Black Scythe Mercenary",
 		"Gargantuan Wasp",
 		"Nymph Wasp",
@@ -7073,21 +7061,6 @@ worldAreas["Abyss_Pinnacle"] = {
 	},
 	bossVarieties = {
 		"Vessel of Kulemak",
-	},
-}
-
-worldAreas["KaruiBossShowcase"] = {
-	name = "Karui Boss Showcase (Act 4)",
-	baseName = "Karui Boss Showcase",
-	tags = { "area_with_water" },
-	act = 4,
-	level = 30,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Tavakai, the Chieftain",
 	},
 }
 
