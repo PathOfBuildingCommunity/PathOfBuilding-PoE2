@@ -437,10 +437,15 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillFlags = activeEffect.statSet.skillFlags
 	end
 	-- Active skills granted by support gems inherit the level of the skill that support applied to.
+	local supportGrantedInheritedLevel
 	if activeEffect.gemData and activeEffect.gemData.grantedEffect.support then
-		for _, supportEffect in ipairs(activeSkill.supportList) do
-			if supportEffect.srcInstance == activeEffect.srcInstance and supportEffect.activeSkillLevel then
-				activeEffect.level = supportEffect.activeSkillLevel
+		for _, skill in ipairs(env.player.activeSkillList) do
+			local effect = skill.activeEffect
+			if effect ~= activeEffect and effect.level and skill.socketGroup == activeSkill.socketGroup
+				and not (effect.gemData and effect.gemData.grantedEffect.support) then
+				supportGrantedInheritedLevel = effect.level
+				activeEffect.level = effect.level
+				activeSkill.skillData.inheritsGemLevel = true
 				break
 			end
 		end
@@ -770,7 +775,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Apply gem/quality modifiers from support gems
-	skillModList:NewMod("GemLevel", "BASE", activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.level or activeSkill.activeEffect.level, "Max Level")
+	local gemMaxLevel = supportGrantedInheritedLevel or (activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.level) or activeSkill.activeEffect.level
+	local gemMaxLevelSource = supportGrantedInheritedLevel and "Inherited Max Level" or "Max Level"
+	skillModList:NewMod("GemLevel", "BASE", gemMaxLevel, gemMaxLevelSource)
 	if activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.corrupted and not (activeSkill.activeEffect.srcInstance.fromItem or activeSkill.activeEffect.srcInstance.fromTree or activeSkill.activeEffect.grantedEffect.fromItem or activeSkill.activeEffect.grantedEffect.fromTree) then
 		skillModList:NewMod("GemCorruptionLevel", "BASE", activeSkill.activeEffect.srcInstance.corruptLevel, "Corruption")
 		activeSkill.skillCfg.skillCond["GemCorrupted"] = true
