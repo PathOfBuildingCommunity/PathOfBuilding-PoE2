@@ -662,8 +662,9 @@ Ruby]])
 			it("uses variant socket types for valid augments", function ()
 				for _, itemRaw in ipairs({ data.uniques.belt[6], data.uniques.body[1] }) do
 					local item = new("Item"):Item(itemRaw)
-					item.variant = 1 -- Helmet
-					item:BuildModList()
+					build.itemsTab:SetDisplayItem(item)
+					build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+					item = build.itemsTab.displayItem
 
 					local foundHelmetSoulCore = false
 					for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
@@ -710,11 +711,15 @@ Ruby]])
 
 			it("refreshes valid augments when the item variant changes", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
-				item.variant = 3 -- Boots
+				item.variantGroupSelections[1] = 3 -- Boots
 				item:BuildModList()
 				build.itemsTab:SetDisplayItem(item)
+				assert.is_true(build.itemsTab.displayItem.socketedSoulCoreTypes["boots"])
+				assert.is_nil(build.itemsTab.displayItem.socketedSoulCoreTypes["helmet"])
 
 				build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+				assert.is_true(build.itemsTab.displayItem.socketedSoulCoreTypes["helmet"])
+				assert.is_nil(build.itemsTab.displayItem.socketedSoulCoreTypes["boots"])
 
 				local foundMaximumRage = false
 				for _, rune in ipairs(build.itemsTab.controls.displayItemRune1.list) do
@@ -809,7 +814,7 @@ Ruby]])
 
 			it("deduplicates valid augments by socketed item name", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
-				item.variant = 4 -- Shield
+				item.variantGroupSelections[1] = 4 -- Shield
 				item:BuildModList()
 
 				local ticabaCount = 0

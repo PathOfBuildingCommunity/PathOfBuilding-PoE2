@@ -1003,7 +1003,7 @@ describe("TestItemParse", function()
 
 	it("parses Atziri's Splendour soul core socket types", function()
 		local item = new("Item"):Item(data.uniques.body[1])
-		item.variant = 1 -- Helmet
+		item.variantGroupSelections[1] = 1 -- Helmet
 		item:BuildModList()
 
 		assert.is_true(item.socketedSoulCoreTypes["helmet"])
