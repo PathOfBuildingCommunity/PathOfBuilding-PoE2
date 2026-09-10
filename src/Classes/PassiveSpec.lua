@@ -252,7 +252,13 @@ end
 function PassiveSpecClass:Save(xml)
 	local allocNodeIdList = { }
 	local weaponSets = {}
-	for nodeId, node in pairs(self.allocNodes) do
+	local sortedAllocNodeIds = { }
+	for nodeId in pairs(self.allocNodes) do
+		t_insert(sortedAllocNodeIds, nodeId)
+	end
+	table.sort(sortedAllocNodeIds)
+	for _, nodeId in ipairs(sortedAllocNodeIds) do
+		local node = self.allocNodes[nodeId]
 		if not (node.isGrantedPassive and node.isFreeAllocate) then
 			t_insert(allocNodeIdList, nodeId)
 		end
@@ -264,9 +270,14 @@ function PassiveSpecClass:Save(xml)
 			t_insert(weaponSets[weaponSet], nodeId)
 		end
 	end
+	local masteryNodeIdList = { }
+	for mastery in pairs(self.masterySelections) do
+		t_insert(masteryNodeIdList, mastery)
+	end
+	table.sort(masteryNodeIdList)
 	local masterySelections = { }
-	for mastery, effect in pairs(self.masterySelections) do
-		t_insert(masterySelections, "{"..mastery..","..effect.."}")
+	for _, mastery in ipairs(masteryNodeIdList) do
+		t_insert(masterySelections, "{"..mastery..","..self.masterySelections[mastery].."}")
 	end
 
 	local classInternalId = self.tree.classes[self.curClassId].integerId
@@ -296,10 +307,15 @@ function PassiveSpecClass:Save(xml)
 	})
 
 	if #weaponSets > 0 then
-		for weaponSet, nodes in pairs(weaponSets) do
+		local weaponSetNumbers = { }
+		for weaponSet in pairs(weaponSets) do
+			t_insert(weaponSetNumbers, weaponSet)
+		end
+		table.sort(weaponSetNumbers)
+		for _, weaponSet in ipairs(weaponSetNumbers) do
 			t_insert(xml, {
 				elem = "WeaponSet"..weaponSet,
-				attrib = { nodes = table.concat(nodes, ",") }
+				attrib = { nodes = table.concat(weaponSets[weaponSet], ",") }
 			})
 		end
 	end
@@ -307,7 +323,13 @@ function PassiveSpecClass:Save(xml)
 	local sockets = {
 		elem = "Sockets"
 	}
-	for nodeId, itemId in pairs(self.jewels) do
+	local socketNodeIdList = { }
+	for nodeId in pairs(self.jewels) do
+		t_insert(socketNodeIdList, nodeId)
+	end
+	table.sort(socketNodeIdList)
+	for _, nodeId in ipairs(socketNodeIdList) do
+		local itemId = self.jewels[nodeId]
 		-- jewel socket contents should not be saved unless they contain a valid jewel
 		if itemId > 0 then
 			local socket = { elem = "Socket", attrib = { nodeId = tostring(nodeId), itemId = tostring(itemId) }}
@@ -321,7 +343,13 @@ function PassiveSpecClass:Save(xml)
 	}
 	if self.hashOverrides then
 		local strList, dexList, intList = { }, { }, { }
-		for nodeId, node in pairs(self.hashOverrides) do
+		local overrideNodeIdList = { }
+		for nodeId in pairs(self.hashOverrides) do
+			t_insert(overrideNodeIdList, nodeId)
+		end
+		table.sort(overrideNodeIdList)
+		for _, nodeId in ipairs(overrideNodeIdList) do
+			local node = self.hashOverrides[nodeId]
 			if node.isAttribute then
 				if node.dn == "Strength" then
 					t_insert(strList, nodeId)
@@ -616,7 +644,13 @@ function PassiveSpecClass:EncodeURL(prefix)
 	local clusterNodeIds = {}
 	local masteryNodeIds = {}
 
-	for id, node in pairs(self.allocNodes) do
+	local encodeNodeIdList = { }
+	for id in pairs(self.allocNodes) do
+		t_insert(encodeNodeIdList, id)
+	end
+	table.sort(encodeNodeIdList)
+	for _, id in ipairs(encodeNodeIdList) do
+		local node = self.allocNodes[id]
 		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and id < 65536 and nodeCount < 255 then
 			t_insert(a, m_floor(id / 256))
 			t_insert(a, id % 256)

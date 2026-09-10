@@ -1353,7 +1353,8 @@ function ItemsTabClass:Save(xml)
 	for _, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
 		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
-		for slotName, slot in pairs(self.slots) do
+		for _, slot in ipairs(self.orderedSlots) do
+			local slotName = slot.slotName
 			if not slot.parentSlot or itemSet[slotName].selItemId ~= 0 then
 				if not slot.nodeId then
 					t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true", note = itemSet[slotName].note }})
@@ -1364,7 +1365,7 @@ function ItemsTabClass:Save(xml)
 				end
 			end
 		end
-		for slotName, _ in pairs(self.runeSlots) do
+		for _, slotName in ipairs(self.runeSlotOrder) do
 			local runeName = (itemSet[slotName] and itemSet[slotName].runeName) or "None"
 			local node = { elem = "RuneSlot", attrib = { slotName = slotName, runeName = runeName } }
 			t_insert(child, node)
