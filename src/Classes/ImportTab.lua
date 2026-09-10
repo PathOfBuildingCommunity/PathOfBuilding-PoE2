@@ -1533,15 +1533,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.fracturedMods then
-		for _, line in ipairs(itemData.fracturedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, fractured = true })
-			end
-		end
-	end
 	if itemData.explicitMods then
 		for _, itemMod in ipairs(itemData.explicitMods) do
 			local modLine = itemMod.description or itemMod
@@ -1551,33 +1542,9 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { },
 					fractured = flags.fractured,
 					crafted = flags.crafted,
-					mutated = flags.mutated })
-			end
-		end
-	end
-	if itemData.desecratedMods then
-		for _, line in ipairs(itemData.desecratedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.mutatedMods then
-		for _, line in ipairs(itemData.mutatedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, mutated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.craftedMods then
-		for _, line in ipairs(itemData.craftedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
+					mutated = flags.mutated,
+					desecrated = flags.desecrated,
+				})
 			end
 		end
 	end
