@@ -2344,8 +2344,8 @@ function ItemClass:CheckModLineVariant(modLine)
 		end
 		return not modLine.variantList
 	end
-	if self.baseList and modLine.baseVariantList then
-		return modLine.baseVariantList[self.selectedBase]
+	if self.baseList and modLine.baseVariantList and not modLine.baseVariantList[self.selectedBase] then
+		return false
 	end
 	return not modLine.variantList
 		or modLine.variantList[self.variant]

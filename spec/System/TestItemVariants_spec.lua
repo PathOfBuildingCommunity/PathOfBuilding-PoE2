@@ -447,6 +447,36 @@ describe("Versioned item variants", function()
 	end)
 
 	describe("Base Variant selection (separate from mod variants)", function()
+		it("requires both base and ordinary mod variant selections to match", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Combined Tag Test
+				{base:1}Gold Ring
+				{base:2}Iron Ring
+				Base Variant: Gold
+				Base Variant: Iron
+				Selected Base Variant: 1
+				Variant: Life
+				Variant: Mana
+				Selected Variant: 2
+				Implicits: 0
+				{base:1}{variant:1}+10 to maximum Life
+				{base:1}{variant:2}+20 to maximum Mana
+			]])
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			item.variant = 1
+			item:BuildAndParseRaw()
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			item.selectedBase = 2
+			item:BuildAndParseRaw()
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Mana"))
+		end)
+
 		it("selects a base independently from an independent variant", function()
 			local item = new("Item"):Item([[
 				Rarity: Unique
