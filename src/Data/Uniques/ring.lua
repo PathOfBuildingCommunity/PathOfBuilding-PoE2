@@ -71,6 +71,7 @@ Implicits: 1
 {tags:life}(3-6) Life Regeneration per second
 {variant:1}{tags:chaos,attack}Adds (2-3) to (4-5) Chaos Damage to Attacks
 {variant:2}{tags:chaos,attack}Adds (4-6) to (8-10) Chaos Damage to Attacks
+{variant:2}+(10-20)% of Armour also applies to Chaos Damage
 25% chance to Intimidate Enemies for 4 seconds on Hit
 ]],[[
 Blistering Bond

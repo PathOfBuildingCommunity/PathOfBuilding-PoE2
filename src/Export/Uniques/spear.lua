@@ -20,7 +20,7 @@ Hunting Spear
 League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage19
 UniqueLocalIncreasedAccuracy7
-UniqueLocalIncreasedAttackSpeed1
+UniqueLocalIncreasedAttackSpeed18
 UniqueLocalAllDamageCanPin1
 UniqueLocalIncreasedProjectileSpeed1
 ]],[[
@@ -66,7 +66,7 @@ UniqueLocalPoisonOnHit1
 Skysliver
 Winged Spear
 League: Dawn of the Hunt
-UniqueLocalNoWeaponPhysicalDamage1
+UniqueLocalNoWeaponPhysicalDamage4
 UniqueLocalAddedLightningDamage1
 UniqueLocalIncreasedAttackSpeed3
 UniqueShockChanceIncrease1
@@ -94,7 +94,7 @@ League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage21
 {variant:1}UniqueLocalCriticalStrikeChance8[1000,2000]
 {variant:2}UniqueLocalCriticalStrikeChance8
-UniqueIntelligence34
+UniqueIntelligence38
 UniqueRollCriticalChanceTwice1
 UniqueLifeCost2
 ]],[[

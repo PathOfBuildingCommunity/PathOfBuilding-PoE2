@@ -11,11 +11,11 @@ UniqueIncreasedMana51
 UniqueGlobalCharmIncreasedDuration1
 UniqueAdditionalCharm3
 UniqueDexterity41
-BeltImplicitIncreasedCharmChargesGained1
+UniqueIncreasedCharmChargesGained2
 ]],[[
 Birthright Buckle
 Wide Belt
-UniqueIncreasedPhysicalDamageReductionRating1
+UniqueIncreasedPhysicalDamageReductionRating2
 UniqueReducedFlaskChargesUsed3
 UniqueIncreasedFlaskChargesGained3
 UniqueInstantLifeFlaskOnLowLife1
@@ -25,11 +25,11 @@ Byrnabas
 Wide Belt
 Variant: Pre 0.1.1
 Variant: Current
-UniqueIncreasedMana7
+UniqueIncreasedMana9
 {variant:1}UniqueLightningResist7[20,30]
 {variant:2}UniqueLightningResist7
 UniqueLifeRegeneration2
-Cannot be Shocked
+UniqueCannotBeShocked1
 ]],[[
 Cat O' Nine Tails
 Utility Belt
@@ -67,8 +67,8 @@ The Gnashing Sash
 Wide Belt
 League: Dawn of the Hunt
 UniqueFlaskLifeRecoveryRate7
-UniqueChaosResist14
-UniqueLifeDegenerationPercentGracePeriod2
+UniqueChaosResist33
+UniqueLifeDegenerationPercentGracePeriod1
 UniqueLifeFlasksOvercapLife1
 ]],[[
 Goregirdle
@@ -178,13 +178,13 @@ UniqueIncreasedFlaskChargesGained1
 ]],[[
 Midnight Braid
 Rawhide Belt
-UniqueIncreasedMana5
-UniqueAllResistances8
+UniqueIncreasedMana19
+UniqueAllResistances9
 UniqueDamageTakenGoesToMana1
 ]],[[
 Ryslatha's Coil
 Ornate Belt
-UniqueIncreasedLife7
+UniqueIncreasedLife19
 UniqueFlaskLifeRecoveryRate1
 UniquePhysicalMaximumDamageModifier1
 UniquePhysicalMinimumDamageModifier1
@@ -192,14 +192,14 @@ UniquePhysicalMinimumDamageModifier1
 Shavronne's Satchel
 Fine Belt
 UniqueFlaskLifeRecoveryRate3
-UniqueIntelligence9
+UniqueIntelligence20
 UniqueIncreasedFlaskChargesGained2
 UniqueFlaskLifeRecoveryEnergyShield1
 ]],[[
 Soul Tether
 Long Belt
 UniqueIncreasedEnergyShield2
-UniqueIntelligence9
+UniqueIntelligence27
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
 ]],[[
@@ -217,7 +217,7 @@ Waistgate
 Heavy Belt
 League: Dawn of the Hunt
 UniqueIncreasedLife45
-UniqueIncreasedMana50
+UniqueIncreasedMana38
 UniqueFlaskLifeRecoveryRate6
 UniqueFlaskManaRecoveryRate4
 UniqueLifeManaFlaskAnySlot1

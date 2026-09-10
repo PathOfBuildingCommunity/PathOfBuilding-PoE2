@@ -36,7 +36,7 @@ Radius: Variable
 {variant:6}Only affects Passives in Large Ring
 {variant:7}Only affects Passives in Very Large Ring
 {variant:8}Only affects Passives in Massive Ring
-JewelUniqueAllocateDisconnectedPassives
+AllocateDisconnectedPassivesDonutUnique__1
 UniqueAllResistances12
 {version:1}UniqueChaosResist18
 ]],[[

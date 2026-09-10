@@ -33,7 +33,7 @@ UniqueLifeGainedFromEnemyDeath10
 ]],[[
 Enezun's Charge
 Volatile Wand
-UniqueSpellDamageOnWeapon2
+UniqueSpellDamageOnWeapon4
 UniqueSpellCriticalStrikeChance2
 UniqueManaGainedFromEnemyDeath9
 UniqueChanceToNotConsumeCorpse1
@@ -74,7 +74,7 @@ The Wicked Quill
 Withered Wand
 League: Dawn of the Hunt
 UniqueSpellDamageOnWeapon6
-UniqueIncreasedMana12
+UniqueIncreasedMana41
 UniqueChaosResist29
 UniqueSpellWitherOnHitChance1
 ]],

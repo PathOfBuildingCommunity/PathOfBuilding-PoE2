@@ -14,12 +14,14 @@ UniqueFlaskDuration__1
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
-Variant: Pre 0.4.0
-Variant: Current
-UniqueFlaskFullInstantRecovery1
+Version: Pre 0.4.0
+Version: Pre 0.5.0
+Version: Current
+{version:1,2}UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
-{variant:1}UniqueFlaskOverhealToGuard1[10,10]
-{variant:2}UniqueFlaskOverhealToGuard1
+{version:1}UniqueFlaskOverhealToGuard1[10,10]
+{version:2}UniqueFlaskOverhealToGuard1
+{version:3}UniqueFlaskWardGainedAsGuard1
 ]],[[
 Opportunity
 Ultimate Life Flask
@@ -72,7 +74,7 @@ UniqueCharmRecoverManaBasedOnLifeFlask1
 Beira's Anguish
 Dousing Charm
 League: Dawn of the Hunt
-UniqueFlaskChanceRechargeOnKill2
+UniqueFlaskChanceRechargeOnKill1
 UniqueCharmIgniteEnemiesInPresence1
 ]],[[
 The Black Cat
@@ -105,7 +107,7 @@ UniqueCharmRecoupChaosDamagePrevented1
 Nascent Hope
 Thawing Charm
 League: Dawn of the Hunt
-UniqueFlaskChanceRechargeOnKill1
+UniqueFlaskChanceRechargeOnKill2
 UniqueCharmStartEnergyShieldRecharge1
 ]],[[
 Ngamahu's Chosen

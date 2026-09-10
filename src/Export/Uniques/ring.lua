@@ -63,13 +63,14 @@ UniqueLifeRegeneration4
 {variant:1}UniqueAddedChaosDamage1[2,3][4,5]
 {variant:2}UniqueAddedChaosDamage1
 UniqueChanceToIntimidateOnHit1
+{variant:2}UniqueArmourAppliesToChaosDamage1
 ]],[[
 Blistering Bond
 Ruby Ring
 Variant: Pre 0.5.0
 Variant: Current
-UniqueIncreasedLife3
-UniqueFireResist18
+UniqueIncreasedLife40
+UniqueFireResist26
 UniqueColdResist22
 UniqueSelfBleedFireDamage1
 {variant:2}UniqueFireDamageAlsoContributesToBleed1
@@ -81,7 +82,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueColdResist23[-15,-10]
 {variant:2}UniqueColdResist23
-UniqueLightningResist4
+UniqueLightningResist20
 {variant:1}UniqueManaRegeneration27[25,35]
 {variant:2}UniqueManaRegeneration27
 UniqueEnemyExtraDamageRollsWithLightningDamage1
@@ -91,13 +92,13 @@ Unset Ring
 League: Dawn of the Hunt
 UniqueItemFoundRarityIncrease22
 UniqueChaosResist34
-UniqueLifeDegenerationPercentGracePeriod3
+UniqueLifeDegenerationPercentGracePeriod2
 UniquePhysicalDamageMaximumLife1
 ]],[[
 Call of the Brotherhood
 Topaz Ring
-UniqueIntelligence6
-UniqueManaRegeneration18
+UniqueIntelligence29
+UniqueManaRegeneration19
 UniqueFreezeDamageIncrease4
 UniqueLightningDamageConvertToCold1
 ]],[[
@@ -105,7 +106,7 @@ Cracklecreep
 Ruby Ring
 UniqueFireDamagePercent1
 UniqueLifeRegeneration9
-UniqueManaRegeneration6
+UniqueManaRegeneration16
 UniqueRingIgniteProliferation1
 ]],[[
 Death Rush
@@ -147,7 +148,7 @@ UniqueAllAttributes9
 Evergrasping Ring
 Pearl Ring
 League: Dawn of the Hunt
-UniqueIncreasedMana12
+UniqueIncreasedMana39
 UniqueAlliesInPresenceGainedAsChaos1
 UniqueEnemiesInPresenceGainedAsChaos1
 ]],[[
@@ -163,7 +164,7 @@ Glowswarm
 Lazuli Ring
 Variant: Pre 0.5.0
 Variant: Current
-UniqueIncreasedMana7
+UniqueIncreasedMana35
 UniqueFlaskManaRecoveryRate3
 UniqueManaFlaskChargeGeneration2
 {variant:2}UniqueGuardFromManaFlask1
@@ -171,7 +172,7 @@ UniqueManaFlaskChargeGeneration2
 Heartbound Loop
 Pearl Ring
 UniqueMinionLife3
-UniqueLifeRegeneration3
+UniqueLifeRegeneration6
 UniqueManaRegeneration11
 UniqueSelfPhysicalDamageOnMinionDeath1
 UniqueMinionReviveSpeed2
@@ -179,8 +180,8 @@ UniqueMinionReviveSpeed2
 Icefang Orbit
 Iron Ring
 League: Dawn of the Hunt
-UniqueAddedPhysicalDamage7
-UniqueDexterity37
+UniqueAddedPhysicalDamage8
+UniqueDexterity23
 UniqueBaseChanceToPoison3
 UniqueChilledWhilePoisoned1
 UniqueNonChilledEnemiesPoisonAndChill1
@@ -195,7 +196,7 @@ Levinstone
 Topaz Ring
 Variant: Pre 0.5.0
 Variant: Current
-UniqueIncreasedMana7
+UniqueIncreasedMana30
 UniqueShockChanceIncrease2
 {variant:1}UniqueGlobalLightningGemLevel1
 {variant:2}UniqueLightningSpellsChain1
@@ -203,7 +204,7 @@ UniqueShockChanceIncrease2
 ]],[[
 Ming's Heart
 Amethyst Ring
-UniqueMaximumLifeIncrease3
+UniqueMaximumLifeIncrease5
 UniqueDamageAddedAsChaos1
 UniqueAllDefences1
 ]],[[
@@ -217,15 +218,15 @@ UniqueElementalDamageConvertToChaos1
 ]],[[
 Perandus Seal
 Gold Ring
-UniqueIncreasedMana5
-UniqueAllAttributes2
+UniqueIncreasedMana24
+UniqueAllAttributes6
 UniqueGoldFoundIncrease1
 ]],[[
 Polcirkeln
 Sapphire Ring
 UniqueColdDamagePercent1
-UniqueIncreasedMana7
-UniqueStrength3
+UniqueIncreasedMana29
+UniqueStrength27
 UniqueChillHitsCauseShattering1
 ]],[[
 Prized Pain
@@ -233,7 +234,7 @@ Iron Ring
 Variant: Pre 0.5.0
 Variant: Current
 League: Dawn of the Hunt
-UniqueStrength41
+UniqueStrength36
 UniqueLifeCostAsManaCost2
 {variant:1}UniqueThornsDamageOnStun1
 UniqueAttackerTakesDamage7
@@ -255,9 +256,9 @@ Seed of Cataclysm
 Lazuli Ring
 Variant: Pre 0.5.0
 Variant: Current
-UniqueSpellCriticalStrikeChance2
+UniqueSpellCriticalStrikeChance3
 {variant:1}UniqueSpellCriticalStrikeMultiplier1
-UniqueChaosResist2
+UniqueChaosResist20
 UniqueManaCostReduction2
 {variant:2}UniqueSpellCriticalStrikeMultiplierPerSpellCritRecently1
 {variant:2}UniqueChanceForSpellCriticalHitsToBeLucky1
@@ -301,8 +302,8 @@ UniqueHitDamageAgainstEnemiesInPresence1
 Venopuncture
 Iron Ring
 League: Dawn of the Hunt
-UniqueAddedPhysicalDamage8
-UniqueStrength41
+UniqueAddedPhysicalDamage7
+UniqueStrength20
 UniqueChilledWhileBleeding1
 UniqueNonChilledEnemiesBleedAndChill1
 UniqueGlobalChanceToBleed2

@@ -37,8 +37,8 @@ Variant: Pre 0.4.0
 Variant: Current
 {variant:1}UniqueLightningDamageOnWeapon1
 {variant:2}UniqueSpellDamageOnWeapon11
-UniqueIncreasedCastSpeed4
-UniqueManaRegeneration6
+UniqueIncreasedCastSpeed10
+UniqueManaRegeneration25
 {variant:2}UniqueShockChanceIncrease4
 UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
@@ -65,9 +65,9 @@ Sire of Shards
 Chiming Staff
 League: Dawn of the Hunt
 UniqueSpellDamageOnWeapon7
-UniqueIncreasedCastSpeed4
+UniqueIncreasedCastSpeed13
 UniqueAllResistances22
-LightRadiusUniqueStaff10_
+UniqueLightRadius18
 UniqueSpellAdditionalProjectilesInCircle1
 ]],[[
 Taryn's Shiver
@@ -76,7 +76,7 @@ Variant: Pre 0.4.0
 Variant: Current
 {variant:1}UniqueColdDamageOnWeapon1
 {variant:2}UniqueSpellDamageOnWeapon10
-UniqueIncreasedCastSpeed4
+UniqueIncreasedCastSpeed5
 {variant:1}UniqueFreezeDamageIncrease1[100,100]
 {variant:2}UniqueFreezeDamageIncrease1
 {variant:1}UniqueFrozenMonstersTakeIncreasedDamage1[50,50]
@@ -135,7 +135,7 @@ Variant: Current
 {variant:2}UniqueLocalAddedLightningDamage5
 UniqueLocalCriticalStrikeChance2
 UniqueLocalIncreasedAttackSpeed9
-UniqueManaRegeneration13
+UniqueManaRegeneration17
 UniqueHalvedSpiritReservation1
 ]],[[
 Nazir's Judgement
@@ -145,7 +145,7 @@ Variant: Pre 0.3.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent4
 {variant:2,3}UniqueLocalAddedPhysicalDamage13
-UniqueIncreasedAccuracy2
+UniqueLocalIncreasedAccuracy4
 UniqueStunDuration1
 UniqueLocalDazeBuildup1
 {variant:3}UniqueMeleeDamageAgainstStunnedEnemies1
@@ -169,8 +169,8 @@ Variant: Current
 {variant:2}UniqueLocalAddedFireDamage3
 {variant:2}UniqueLocalIncreasedAccuracy6
 UniqueFireResist13
-UniqueIgniteChanceIncrease1
-UniqueLightRadius7
+UniqueIgniteChanceIncrease2
+UniqueLightRadius8
 ]],[[
 The Unborn Lich
 Ravenous Staff
