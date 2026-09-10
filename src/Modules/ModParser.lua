@@ -4426,6 +4426,7 @@ local specialModList = {
 	} end,
 	["(%d+)%% increased movement speed while on full life"] = function(num) return { mod("MovementSpeed", "INC", num, { type = "Condition", var = "FullLife" }) } end,
 	["when you warcry, you and nearby allies gain onslaught for 4 seconds"] = { mod("ExtraAura", "LIST", { mod = flag("Onslaught") }, { type = "Condition", var = "UsedWarcryRecently" }) },
+	["this flask cannot be used but applies its effect constantly"] = { flag("ConstantFlaskEffect") },
 	["warcries grant arcane surge to you and allies, with (%d+)%% increased effect per (%d+) power, up to (%d+)%%"] = function(num, _, div, limit) return {
 		mod("ExtraAura", "LIST", { mod = flag("Condition:ArcaneSurge")}, { type = "Condition", var = "UsedWarcryRecently" }),
 		mod("ArcaneSurgeEffect", "INC", num, { type = "PerStat", stat = "WarcryPower", div = tonumber(div), globalLimit = tonumber(limit), globalLimitKey = "Brinerot Flag"}, { type = "Condition", var = "UsedWarcryRecently" }),

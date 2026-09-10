@@ -9596,8 +9596,7 @@ c["The next Attack you use within 4 seconds after Heavy Stunning a Rare or Uniqu
 c["The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted Ancestrally Boosted Attacks deal 30% increased Damage"]={nil,"The next Attack you use within 4 seconds after Heavy Stunning a Rare or Unique Enemy is Ancestrally Boosted Ancestrally Boosted Attacks deal 30% increased Damage "}
 c["The next Fire Spell you cast yourself after using a Warcry is Ancestrally Boosted"]={nil,"The next Fire Spell you cast yourself after using a Warcry is Ancestrally Boosted "}
 c["There is no Limit on the number of Banners you can place"]={nil,"There is no Limit on the number of Banners you can place "}
-c["This Flask cannot be Used but applies its Effect constantly"]={nil,"This Flask cannot be Used but applies its Effect constantly "}
-c["This Flask cannot be Used but applies its Effect constantly 80% reduced Amount Recovered"]={nil,"This Flask cannot be Used but applies its Effect constantly 80% reduced Amount Recovered "}
+c["This Flask cannot be Used but applies its Effect constantly"]={{[1]={flags=0,keywordFlags=0,name="ConstantFlaskEffect",type="FLAG",value=true}},nil}
 c["This Weapon's Critical Hit Chance is 100%"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="CritChance",value=100}}},nil}
 c["This item gains bonuses from Socketed Items as though it was Boots"]={{},nil}
 c["This item gains bonuses from Socketed Items as though it was Gloves"]={{},nil}

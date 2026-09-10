@@ -1280,6 +1280,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if item.flaskData.lifeTotal > highestLifeRecovery then
 						env.itemModDB.multipliers["LifeFlaskRecovery"] = item.flaskData.lifeTotal
 					end
+					-- lavianga's spirits regen
+				elseif item.hasConstantManaEffect then
+					modDB:NewMod("ManaRegen", "BASE", item.flaskData.manaGradual, "Constant Mana Flask")
 				end
 				env.itemModDB.multipliers[item.base.subType..slotName:gsub(" ", "").."MaxCharges"] = item.flaskData.chargesMax
 				item = nil

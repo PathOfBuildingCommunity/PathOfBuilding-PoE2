@@ -2569,6 +2569,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local durationInc = calcLocal(modList, "Duration", "INC", 0)
 		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
 		if self.base.flask.life or self.base.flask.mana then
+			self.hasConstantManaEffect = calcLocal(modList, "ConstantFlaskEffect", "FLAG", 0)
 			-- Recovery flask
 			flaskData.instantPerc = calcLocal(modList, "FlaskInstantRecovery", "BASE", 0)
 			local recoveryMod = 1 + calcLocal(modList, "FlaskRecovery", "INC", 0) / 100
