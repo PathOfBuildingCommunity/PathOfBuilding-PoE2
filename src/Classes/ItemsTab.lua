@@ -3475,10 +3475,11 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end)
 			end
 		elseif sourceId == "RUNEINFLUENCED" then
-			local tags = data.runeInfluences[self.displayItem.base.type] or {}
+			local baseType, specificType = self.displayItem:GetSocketedAugmentTypes()
+			local tags = data.runeInfluences[specificType] or data.runeInfluences[baseType] or {}
 			for _, tag in ipairs(tags) do
 				for _, mod in pairsSortByKey(self.displayItem.affixes) do
-					if modHasSpawnTag(mod, tag) then
+					if modHasSpawnTag(mod, tag) and self.displayItem:GetModSpawnWeight(mod, { [tag] = true }) > 0 then
 						t_insert(modList, {
 							label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
 							mod = mod,

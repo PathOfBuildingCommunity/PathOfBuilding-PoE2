@@ -1149,5 +1149,12 @@ data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
 LoadModule("Data/WorldAreas")(data.worldAreas)
 
--- a map of slot to weight key which is on the mods
-data.runeInfluences = { Boots = { "chronomancy" }, Gloves = { "marksman", "decay" }, Helmets = { "berserking" }, Weapon = { "destruction" }, ["Body Armour"] = { "soul" } }
+-- Maps socketed augment types to the spawn tags granted by their influence runes.
+data.runeInfluences = {
+	boots = { "chronomancy" },
+	gloves = { "marksman", "decay" },
+	helmet = { "berserking" },
+	weapon = { "destruction" },
+	caster = { "destruction" },
+	["body armour"] = { "soul" },
+}

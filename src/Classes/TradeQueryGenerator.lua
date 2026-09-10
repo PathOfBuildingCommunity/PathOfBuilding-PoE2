@@ -606,6 +606,8 @@ function TradeQueryGeneratorClass:InitMods()
 
 	-- 0.5 rune influence mods. e.g. can roll chronomancy modifiers
 
+	-- a map of slot to weight key which is on the mods
+	local runeInfluences = { Boots = { "chronomancy" }, Gloves = { "marksman", "decay" }, Helmets = { "berserking" }, Weapon = { "destruction" }, ["Body Armour"] = { "soul" } }
 	local function hasSpawnTag(mod, tag)
 		local idx = 1
 		while mod.weightKey[idx] do
@@ -616,7 +618,7 @@ function TradeQueryGeneratorClass:InitMods()
 		end
 		return false
 	end
-	for slot, tags in pairsSortByKey(data.runeInfluences) do
+	for slot, tags in pairsSortByKey(runeInfluences) do
 		for _, tag in ipairs(tags) do
 			local mods = {}
 			for _, mod in pairsSortByKey(data.itemMods.Item) do
