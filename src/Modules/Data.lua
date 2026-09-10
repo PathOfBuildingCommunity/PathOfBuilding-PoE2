@@ -1160,3 +1160,13 @@ data.questRewards = LoadModule("Data/QuestRewards")
 data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
 LoadModule("Data/WorldAreas")(data.worldAreas)
+
+-- Maps socketed augment types to the spawn tags granted by their influence runes.
+data.runeInfluences = {
+	boots = { "chronomancy" },
+	gloves = { "marksman", "decay" },
+	helmet = { "berserking" },
+	weapon = { "destruction" },
+	caster = { "destruction" },
+	["body armour"] = { "soul" },
+}

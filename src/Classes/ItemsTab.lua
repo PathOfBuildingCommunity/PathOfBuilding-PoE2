@@ -3338,6 +3338,39 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			controls.modSelect:SetSel(1, true)
 		end
 	end
+	local function modHasSpawnTag(mod, tag)
+		local idx = 1
+		while mod.weightKey[idx] do
+			if (mod.weightKey[idx] == tag) and (mod.weightVal[idx] > 0) then
+				return true
+			end
+			idx = idx + 1
+		end
+		return false
+	end
+	local function desecratedSortFunc(a, b)
+		local modA = a.mod
+		local modB = b.mod
+
+		-- Desecrated specific mods always come first
+		if a.desecratedSpecific ~= b.desecratedSpecific then
+			return a.desecratedSpecific == true
+		end
+
+		for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
+			local statA = modA.statOrder and modA.statOrder[i]
+			local statB = modB.statOrder and modB.statOrder[i]
+
+			if not statA then
+				return true
+			elseif not statB then
+				return false
+			elseif statA ~= statB then
+				return statA < statB
+			end
+		end
+		return (modA.level or 0) > (modB.level or 0)
+	end
 	---Mutates modList to contain mods from the specified source
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
@@ -3423,6 +3456,21 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					end
 				end)
 			end
+		elseif sourceId == "RUNEINFLUENCED" then
+			local baseType, specificType = self.displayItem:GetSocketedAugmentTypes()
+			local tags = data.runeInfluences[specificType] or data.runeInfluences[baseType] or {}
+			for _, tag in ipairs(tags) do
+				for _, mod in pairsSortByKey(self.displayItem.affixes) do
+					if modHasSpawnTag(mod, tag) and self.displayItem:GetModSpawnWeight(mod, { [tag] = true }) > 0 then
+						t_insert(modList, {
+							label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
+							mod = mod,
+							type = "custom",
+						})
+					end
+				end
+			end
+			table.sort(modList, desecratedSortFunc)
 		elseif sourceId == "DESECRATED" then
 			local function isDesecratedMod(mod)
 				for _, tag in ipairs(mod.modTags or { }) do
@@ -3450,29 +3498,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					})
 				end
 			end
-			table.sort(modList, function(a, b)
-				local modA = a.mod
-				local modB = b.mod
-
-				-- Desecrated specific mods always come first
-				if a.desecratedSpecific ~= b.desecratedSpecific then
-					return a.desecratedSpecific == true
-				end
-
-				for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
-					local statA = modA.statOrder and modA.statOrder[i]
-					local statB = modB.statOrder and modB.statOrder[i]
-
-					if not statA then
-						return true
-					elseif not statB then
-						return false
-					elseif statA ~= statB then
-						return statA < statB
-					end
-				end
-				return (modA.level or 0) > (modB.level or 0)
-			end)
+			table.sort(modList, desecratedSortFunc)
 		end
 		setDefaultSortOrder(modList)
 	end
@@ -3482,6 +3508,8 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	buildMods("DESECRATED")
 	local hasDesecratedMods = #modList > 0
+	buildMods("RUNEINFLUENCED")
+	local hasRuneInfluencedMods = #modList > 0
 	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods,
 									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
 	if #modList > 0 then
@@ -3489,6 +3517,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	if hasDesecratedMods then
 		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
+	end
+	if hasRuneInfluencedMods then
+		t_insert(sourceList, { label = "Rune-Influenced", sourceId = "RUNEINFLUENCED" })
 	end
 	if self.displayItem.base.type == "Jewel" then
 		buildMods("EMOTION")
