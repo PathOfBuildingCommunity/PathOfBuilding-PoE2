@@ -1383,7 +1383,7 @@ function ItemsTabClass:Save(xml)
 				end
 			end
 		end
-		for slotName, _ in pairs(self.runeSlots) do
+		for _, slotName in ipairs(self.runeSlotOrder) do
 			local runeName = (itemSet[slotName] and itemSet[slotName].runeName) or "None"
 			local node = { elem = "RuneSlot", attrib = { slotName = slotName, runeName = runeName } }
 			t_insert(child, node)
