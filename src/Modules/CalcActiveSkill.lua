@@ -445,6 +445,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				and not (effect.gemData and effect.gemData.grantedEffect.support) then
 				supportGrantedInheritedLevel = effect.level
 				activeEffect.level = effect.level
+				activeSkill.skillData.inheritsGemLevel = true
 				break
 			end
 		end
