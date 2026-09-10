@@ -2454,8 +2454,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 			t_insert(env.player.activeSkillList, env.player.mainSkill)
 		end
 
+		-- some active skills, like those granted by support gems depend on the stats of other gems,
+		-- which means we have to do them last.
+		local deferredActiveSkills = {}
 		-- Build skill modifier lists
 		for _, activeSkill in pairs(env.player.activeSkillList) do
+			if activeSkill.activeEffect.gemData and activeSkill.activeEffect.gemData.grantedEffect.support then
+				table.insert(deferredActiveSkills, activeSkill)
+			else
+				calcs.buildActiveSkillModList(env, activeSkill)
+			end
+		end
+		for _, activeSkill in ipairs(deferredActiveSkills) do
 			calcs.buildActiveSkillModList(env, activeSkill)
 		end
 
