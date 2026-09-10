@@ -445,4 +445,160 @@ describe("Versioned item variants", function()
 			assert.equals(10, restored.baseModList:Sum("BASE", nil, "Life"))
 		end)
 	end)
+
+	describe("Base Variant selection (separate from mod variants)", function()
+		it("requires both base and ordinary mod variant selections to match", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Combined Tag Test
+				{base:1}Gold Ring
+				{base:2}Iron Ring
+				Base Variant: Gold
+				Base Variant: Iron
+				Selected Base Variant: 1
+				Variant: Life
+				Variant: Mana
+				Selected Variant: 2
+				Implicits: 0
+				{base:1}{variant:1}+10 to maximum Life
+				{base:1}{variant:2}+20 to maximum Mana
+			]])
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			item.variant = 1
+			item:BuildAndParseRaw()
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			item.selectedBase = 2
+			item:BuildAndParseRaw()
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Mana"))
+		end)
+
+		it("selects a base independently from an independent variant", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Base Variant Independent Test
+				{base:1}Gold Ring
+				{base:2}Iron Ring
+				Base Variant: Gold
+				Base Variant: Iron
+				Selected Base Variant: 2
+				Variant: Life
+				Variant: Mana
+				Selected Variant: 2
+				Implicits: 0
+				{variant:1}+10 to maximum Life
+				{variant:2}+20 to maximum Mana
+			]])
+			assert.equals("Iron Ring", item.baseName)
+			assert.equals(0, item.baseModList:Sum("BASE", nil, "Life"))
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			-- Changing the mod variant does not affect the selected base
+			item.variant = 1
+			item:BuildAndParseRaw()
+			assert.equals("Iron Ring", item.baseName)
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+
+			-- Changing the base variant does not affect the selected mod variant
+			item.selectedBase = 1
+			item:BuildAndParseRaw()
+			assert.equals("Gold Ring", item.baseName)
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+
+			assert.matches("Base Variant: Gold", item.raw, 1, true)
+			assert.matches("Base Variant: Iron", item.raw, 1, true)
+			assert.matches("Selected Base Variant: 1", item.raw, 1, true)
+			assert.matches("{base:1}Gold Ring", item.raw, 1, true)
+			assert.matches("{base:2}Iron Ring", item.raw, 1, true)
+
+			local restored = new("Item"):Item(item.raw)
+			assert.equals("Gold Ring", restored.baseName)
+			assert.equals(1, restored.variant)
+		end)
+
+		it("selects a base independently from the selected version", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Versioned Base Variant Test
+				{version:1}{base:1}Gold Ring
+				{version:1}{base:2}Iron Ring
+				{version:2}Ruby Ring
+				Version: Legacy
+				Version: Current
+				Selected Version: 1
+				Base Variant: Gold
+				Base Variant: Iron
+				Selected Base Variant: 2
+				Implicits: 0
+				{version:1}+10 to maximum Life
+				{version:2}+20 to maximum Life
+			]])
+			assert.equals("Iron Ring", item.baseName)
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+
+			-- Changing the base variant does not affect the selected version's mods
+			item.selectedBase = 1
+			item:BuildAndParseRaw()
+			assert.equals("Gold Ring", item.baseName)
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+
+			-- A version without per-base lines falls back to its one base regardless of the base variant selection
+			item.selectedVersion = 2
+			item:BuildAndParseRaw()
+			assert.equals("Ruby Ring", item.baseName)
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Life"))
+
+			item.selectedVersion = 1
+			item:BuildAndParseRaw()
+			assert.matches("{base:1}{version:1}Gold Ring", item.raw, 1, true)
+			assert.matches("Selected Base Variant: 1", item.raw, 1, true)
+
+			local restored = new("Item"):Item(item.raw)
+			assert.equals("Gold Ring", restored.baseName)
+			assert.equals(1, restored.selectedVersion)
+		end)
+
+		it("selects a base independently from grouped variants", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Grouped Base Variant Test
+				{base:1}Gold Ring
+				{base:2}Iron Ring
+				Base Variant: Gold
+				Base Variant: Iron
+				Selected Base Variant: 2
+				Variant: Life
+				Variant: Mana
+				Implicits: 0
+				{variant:1}{group:1}+10 to maximum Life
+				{variant:2}{group:1}+20 to maximum Mana
+			]])
+			assert.equals("Iron Ring", item.baseName)
+			assert.same({ 1 }, item.variantGroupSelections)
+			assert.equals(10, item.baseModList:Sum("BASE", nil, "Life"))
+
+			-- Changing the variant group selection does not affect the selected base
+			item.variantGroupSelections[1] = 2
+			item:BuildAndParseRaw()
+			assert.equals("Iron Ring", item.baseName)
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			-- Changing the base variant does not affect the variant group selection
+			item.selectedBase = 1
+			item:BuildAndParseRaw()
+			assert.equals("Gold Ring", item.baseName)
+			assert.equals(20, item.baseModList:Sum("BASE", nil, "Mana"))
+
+			assert.matches("{base:1}Gold Ring", item.raw, 1, true)
+			assert.matches("Selected Base Variant: 1", item.raw, 1, true)
+
+			local restored = new("Item"):Item(item.raw)
+			assert.equals("Gold Ring", restored.baseName)
+			assert.same({ 2 }, restored.variantGroupSelections)
+		end)
+	end)
 end)

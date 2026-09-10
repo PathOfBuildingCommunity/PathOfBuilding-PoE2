@@ -155,8 +155,36 @@ function main:Init()
 	local function loadItemDBs()
 		for type, typeList in pairsYield(data.uniques) do
 			for _, raw in pairs(typeList) do
-				newItem = new("Item"):Item(raw, "UNIQUE", true)
+				local newItem = new("Item"):Item(raw, "UNIQUE", true)
 				if newItem.base then
+					local baseBase = newItem.baseName
+					-- uniques with base variants are skipped as they can be handled manually
+					local hasBaseVariants = newItem.baseLines and not not next(newItem.baseLines)
+					if newItem.rarity == "UNIQUE" and not hasBaseVariants then
+						-- look for alternate runeforging bases
+						local bases = { { variantName = "Regular Base", baseName = baseBase } }
+						if data.itemBases["Runeforged " .. baseBase] then
+							table.insert(bases, { variantName = "Runeforged", baseName = "Runeforged " .. baseBase })
+						end
+						if data.itemBases["Runemastered " .. baseBase] then
+							table.insert(bases, { variantName = "Runemastered", baseName = "Runemastered " .. baseBase })
+						end
+						if #bases > 1 then
+						newItem.baseList = newItem.baseList ?? {}
+							local baseLines = {}
+							-- Add variants for each base
+							for _, base in ipairs(bases) do
+								local baseVariantList = { [#newItem.baseList + 1] = true, }
+								baseLines[base.baseName] = { line = base.baseName, baseVariantList = baseVariantList }
+								table.insert(newItem.baseList, base.variantName)
+							end
+							newItem.baseLines = baseLines
+							-- default to the original base
+							newItem.selectedBase = 1
+
+							newItem:BuildAndParseRaw()
+						end
+					end
 					self.uniqueDB.list[newItem.name] = newItem
 				elseif launch.devMode then
 					ConPrintf("Unique DB unrecognised item of type '%s':\n%s", type, raw)
@@ -168,7 +196,7 @@ function main:Init()
 		ConPrintf("Uniques loaded")
 
 		for _, raw in pairsYield(data.rares) do
-			newItem = new("Item"):Item(raw, "RARE", true)
+			local newItem = new("Item"):Item(raw, "RARE", true)
 			if newItem.base then
 				if newItem.crafted then
 					if newItem.base.implicit and #newItem.implicitModLines == 0 then
