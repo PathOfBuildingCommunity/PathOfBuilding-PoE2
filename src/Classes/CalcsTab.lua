@@ -511,7 +511,9 @@ function CalcsTabClass:BuildOutput(validateWeaponSets)
 	self.mainOutput = self.mainEnv.player.output
 	self.calcsEnv = self.calcs.buildOutput(self.build, "CALCS")
 	self.calcsOutput = self.calcsEnv.player.output
-	self.build.controls.mainSkillLabel.label = "^7Main Skill: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])
+	if self.build.controls.mainSkillLabel then -- Comparison builds have no sidebar.
+		self.build.controls.mainSkillLabel.label = "^7Main Skill: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])
+	end
 	self.socketGroupRow.label = "Socket Group: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.input.skill_number])
 
 	if self.displayData then

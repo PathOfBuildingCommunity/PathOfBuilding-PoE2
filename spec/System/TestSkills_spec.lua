@@ -1516,6 +1516,10 @@ describe("TestSkills", function()
 		assert.is_false(build.itemsTab.activeItemSet.useSecondWeaponSet)
 		assert.are.equals("^7Main Skill: Set 2", build.controls.mainSkillLabel:GetProperty("label"))
 		assert.are.equals("Socket Group: Set 2", build.calcsTab.socketGroupRow.label)
+		assert.is_true(build.compareTab:ImportBuild(build:SaveDB("test"), "Set 2 comparison"))
+		local comparison = build.compareTab:GetActiveCompare()
+		assert.are.equals(2, comparison.calcsTab.mainEnv.weaponSet)
+		assert.are.equals("Socket Group: Set 2", comparison.calcsTab.socketGroupRow.label)
 
 		assignWeaponSet(group)
 		build.itemsTab.activeItemSet.useSecondWeaponSet = false
