@@ -190,6 +190,36 @@ Item Level: 80
 		end
 	end)
 
+	it("builds opposite-set skill contexts with radius jewels", function()
+		local nodeId, node = firstNormalJewelSocket(build.spec)
+		build.spec:AllocNode(node)
+		socketJewel(nodeId, [[
+Rarity: RARE
+Test Mind
+Time-Lost Sapphire
+--------
+Radius: Large
+--------
+Item Level: 80
+--------
++10 to Intelligence
+]])
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1")
+		build.skillsTab.socketGroupList[1].set1 = true
+		build.skillsTab.socketGroupList[1].set2 = false
+		build.skillsTab.socketGroupList[2].set1 = false
+		build.skillsTab.socketGroupList[2].set2 = true
+		build.mainSocketGroup = 1
+		build.buildFlag = true
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+		assert.True(#build.calcsTab.mainEnv.radiusJewelList > 0)
+		assert.are.equals(2, build.calcsTab.mainEnv.weaponSetEnvs[2].weaponSet)
+	end)
+
 	it("does not apply jewel socket passive skill effect to jewels in item-granted Zarokh's Gift", function()
 		local normalNodeId, normalNode = firstNormalJewelSocket(build.spec)
 		build.spec:AllocNode(normalNode)

@@ -441,12 +441,10 @@ describe("TestAttacks", function()
 		
 		build.itemsTab:CreateDisplayItemFromRaw(slowHighDmgMace)
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.itemsTab.slots["Weapon 1"]:SetSelItemId(build.itemsTab.items[1].id)
 
 		build.itemsTab:CreateDisplayItemFromRaw(fastLowDmgMace)
 		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
 		build.itemsTab.slots["Weapon 2"]:SetSelItemId(build.itemsTab.items[2].id)
 
 		build.configTab.input.customMods = [[
@@ -454,7 +452,6 @@ describe("TestAttacks", function()
 			your hits can't be evaded
 		]]
 		build.configTab:BuildModList()
-		runCallback("OnFrame")
 	end
 
 	local function harmonicMean(a, b)

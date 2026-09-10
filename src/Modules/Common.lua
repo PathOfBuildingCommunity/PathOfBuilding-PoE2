@@ -923,7 +923,8 @@ function cacheSkillUUID(skill, env)
 		end
 	end
 
-	return strName.."_"..strSlotName.."_"..tostring(slotIndx) .. "_" .. tostring(groupIdx)
+	local weaponSet = skill.socketGroup and skill.socketGroup.usingSkillSet or env.weaponSet
+	return strName.."_"..strSlotName.."_"..tostring(slotIndx).."_"..tostring(groupIdx).."_WS"..tostring(weaponSet or 0)
 end
 
 -- Global Cache related

@@ -15,6 +15,18 @@ describe("TestItemParse", function()
 		assert.are.equals("UNIQUE", item.rarity)
 	end)
 
+	it("ignores display-only Spear Throw grants without affecting levelled item skills", function()
+		for _, line in ipairs({ "Grants Skill: Spear Throw", "grants skill: spear throw" }) do
+			local mods, extra = modLib.parseMod(line)
+			assert.are.same({ }, mods)
+			assert.is_nil(extra)
+		end
+		local item = new("Item"):Item(raw("Grants Skill: Spear Throw\nGrants Skill: Level 5 Fireball", "Hardwood Spear"))
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("FireballPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(5, item.grantedSkills[1].level)
+	end)
+
 	--it("Defence", function()
 	--	local item = new("Item"):Item(raw("Armour: 25"))
 	--	assert.are.equals(25, item.armourData.Armour)
@@ -220,8 +232,7 @@ describe("TestItemParse", function()
 		assert.are.equals(2, #item.implicitModLines)
 		assert.are.equals("Bleeding you inflict deals Damage 11% faster", item.implicitModLines[1].line)
 		assert.are.equals("Grants Skill: Spear Throw", item.implicitModLines[2].line)
-		assert.are.equals(1, #item.grantedSkills)
-		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(0, #item.grantedSkills)
 		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
 
 		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)

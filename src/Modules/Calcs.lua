@@ -81,6 +81,9 @@ end
 ---@field toggleCharm Item? Item object used as a table key.
 ---@field conditions string[]?
 ---@field extraJewelFuncs ModList?
+---@field weaponSet integer?
+---@field mainSocketGroup integer?
+---@field skipWeaponSetContexts boolean?
 
 -- Get calculator for other changes (adding/removing nodes, items, gems, etc)
 ---@param build Build
@@ -248,6 +251,22 @@ local function surfacesEqual(refSurface, curSurface)
 	return refSurface.metaStr == curSurface.metaStr and modListsEqual(refSurface.mods, curSurface.mods)
 end
 
+local function getSocketGroupOverride(build, override, socketGroup)
+	local skillOverride = copyTable(override or { }, true)
+	skillOverride.weaponSet = socketGroup.usingSkillSet
+	skillOverride.mainSocketGroup = isValueInArray(build.skillsTab.socketGroupList, socketGroup)
+	return skillOverride
+end
+
+local function findActiveSkillInEnv(env, sourceSkill)
+	for _, candidate in ipairs(env.player.activeSkillList) do
+		if candidate.socketGroup == sourceSkill.socketGroup and candidate.activeEffect.srcInstance == sourceSkill.activeEffect.srcInstance
+			and candidate.activeEffect.grantedEffect.id == sourceSkill.activeEffect.grantedEffect.id then
+			return candidate
+		end
+	end
+end
+
 function calcs.calcFullDPS(build, mode, override, specEnv)
 	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
 	local usedEnv = nil
@@ -287,11 +306,24 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 
 
 	local sources = { }
+	local initialWeaponSet = fullEnv.weaponSet
+	local initialActiveSkillList = fullEnv.player.activeSkillList
 
-	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
+	for activeSkillIndex, sourceSkill in ipairs(initialActiveSkillList) do
+		local activeSkill = sourceSkill
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
-			local uuid = cacheStore and cacheSkillUUID(activeSkill, fullEnv)
-			local canCacheSkill = not (activeSkill.triggeredBy or activeSkill.skillData.triggered)
+			local skillEnv = fullEnv
+			local groupSet = activeSkill.socketGroup.usingSkillSet
+			local crossSetSkill = groupSet ~= initialWeaponSet
+			if groupSet ~= fullEnv.weaponSet then
+				skillEnv = fullEnv.weaponSetEnvs and fullEnv.weaponSetEnvs[groupSet]
+				if not skillEnv then
+					skillEnv = calcs.initEnv(build, mode, getSocketGroupOverride(build, override, activeSkill.socketGroup))
+				end
+			end
+			activeSkill = findActiveSkillInEnv(skillEnv, sourceSkill) or activeSkill
+			local uuid = cacheStore and cacheSkillUUID(activeSkill, skillEnv)
+			local canCacheSkill = not crossSetSkill and not (activeSkill.triggeredBy or activeSkill.skillData.triggered)
 			local cachedPasses
 			if canCacheSkill and surfaceSame and activeSkill.baseSkillModList then
 				local ref = cacheStore.refs[uuid]
@@ -318,9 +350,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 						ownRef[i] = mod
 					end
 				end
-				fullEnv.player.mainSkill = activeSkill
-				calcs.perform(fullEnv, true)
-				usedEnv = fullEnv
+				skillEnv.player.mainSkill = activeSkill
+				calcs.perform(skillEnv, true)
+				usedEnv = skillEnv
 				-- Capture this pass's results into a plain snapshot, then merge it into the totals;
 				-- the snapshot lets later calls reuse the results when this skill's inputs are unchanged
 				local skillName = calcs.getActiveSkillDisplayName(activeSkill)
@@ -340,7 +372,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 						dotScale = 1,
 					})
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
-					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
+					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and skillEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
 						activeSkillCount = 1
 						activeSkill.infoMessage2 = "Skill Damage"
 					end
@@ -376,15 +408,30 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					cacheStore.refs[uuid] = ownRef
 				end
 
-				-- Re-Build env calculator for new run
-				local accelerationTbl = {
-					nodeAlloc = true,
-					requirementsItems = true,
-					requirementsGems = true,
-					skills = true,
-					everything = true,
-				}
-				fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+				local nextSkill
+				for nextIndex = activeSkillIndex + 1, #initialActiveSkillList do
+					local candidate = initialActiveSkillList[nextIndex]
+					if candidate.socketGroup and candidate.socketGroup.includeInFullDPS then
+						nextSkill = candidate
+						break
+					end
+				end
+				if nextSkill then
+					if fullEnv.weaponSetEnvs or nextSkill.socketGroup.usingSkillSet ~= fullEnv.weaponSet then
+						-- Per-set databases cannot be reused across a set transition, and paired
+						-- environments share auxiliary skill objects mutated by perform().
+						fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, getSocketGroupOverride(build, override, nextSkill.socketGroup))
+					else
+						local accelerationTbl = {
+							nodeAlloc = true,
+							requirementsItems = true,
+							requirementsGems = true,
+							skills = true,
+							everything = true,
+						}
+						fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+					end
+				end
 			end
 		end
 	end
@@ -440,7 +487,9 @@ end
 
 -- Process active skill
 function calcs.buildActiveSkill(env, mode, skill, targetUUID, limitedProcessingFlags)
-	local fullEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
+	local socketGroup = skill.socketGroup
+	local skillOverride = socketGroup and getSocketGroupOverride(env.build, env.override, socketGroup) or env.override
+	local fullEnv, _, _, _ = calcs.initEnv(env.build, mode, skillOverride)
 	fullEnv.buildBreakdown = false
 
 	-- env.limitedSkills contains a map of uuids that should be limited in calculation
@@ -484,7 +533,11 @@ function calcs.buildOutput(build, mode)
 	if mode == "MAIN" then
 		for _, skill in ipairs(env.player.activeSkillList) do
 			local uuid = cacheSkillUUID(skill, env)
-			if not GlobalCache.cachedData[mode][uuid] then
+			local group = skill.socketGroup
+			-- Bare default attacks in the other set need no cost calculation until inspected.
+			local deferred = group and group.source == "Default Attack" and #group.gemList == 1
+				and not group.includeInFullDPS and group.usingSkillSet ~= env.weaponSet
+			if not deferred and not GlobalCache.cachedData[mode][uuid] then
 				calcs.buildActiveSkill(env, mode, skill, uuid)
 			end
 			if GlobalCache.cachedData[mode][uuid] and (not skill.triggeredBy or skill.triggeredBy.grantedEffect.id ~= "SupportBlasphemyPlayer") then

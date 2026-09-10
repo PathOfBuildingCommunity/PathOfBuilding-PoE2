@@ -1219,7 +1219,7 @@ function PassiveSpecClass:SetGrantedPassiveNodes(grantedNodeMap)
 	return changed
 end
 
-function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllocNodes, ignoreJewelLimits, override, nodesModsList)
+function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllocNodes, ignoreJewelLimits, override, nodesModsList, activeWeaponSet)
 	override = override or { }
 	local granted = { }
 	local allocNodes = { }
@@ -1228,7 +1228,6 @@ function PassiveSpecClass:CollectGrantedPassiveNodesFromItems(itemsTab, baseAllo
 			allocNodes[nodeId] = node
 		end
 	end
-	local activeWeaponSet = itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
 	local jewelLimits = { }
 	local changed = true
 	local safety = 0

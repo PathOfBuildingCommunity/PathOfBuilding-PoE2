@@ -182,6 +182,9 @@ return function(mod, flag, skill)
 	mod("LifeReservePercentPerSpirit", "BASE", nil),
 	div = 100,
 },
+["display_skill_reserves_in_all_weapon_sets"] = {
+	skill("reservesInAllWeaponSets", true),
+},
 ["base_skill_cost_life_instead_of_mana"] = {
 	flag("CostLifeInsteadOfMana"),
 },
