@@ -812,9 +812,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	for assetName, connectors in pairs(self.connectorQueue) do
+		-- Empty queues may reference assets from a previously displayed tree version.
+		if connectors.n > 0 then
 			local handle = tree:GetAssetByName(assetName).handle
 			local currentColour
-		for i = 1, connectors.n do
+			for i = 1, connectors.n do
 				local connector = connectors[i]
 				local c = connector.c
 				local colour = connector.colour or white
@@ -822,7 +824,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					SetDrawColor(colour)
 					currentColour = colour
 				end
-			DrawImageQuad(handle, c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16])
+				DrawImageQuad(handle, c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16])
+			end
 		end
 	end
 	-- Draw connectors for compare-only subgraphs (cluster jewels only in compare build)
