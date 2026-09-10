@@ -1273,7 +1273,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local item = items[slotName]
 			local node = slot.nodeId and env.spec.nodes[slot.nodeId]
 			if item then
-				env.itemSlotIndex[item] = tonumber(slotName:match("%d+")) or 0
+				local slotIndex = tonumber(slotName:match("%d+")) or 0
+				-- Repeated flasks/charms keep their earliest active slot.
+				if not (env.flasks[item] or env.charms[item]) then
+					env.itemSlotIndex[item] = slotIndex
+				elseif slot.active then
+					env.itemSlotIndex[item] = m_min(env.itemSlotIndex[item], slotIndex)
+				end
 			end
 			if item and item.type == "Flask" then
 				if slot.active then
