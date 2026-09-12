@@ -2273,7 +2273,7 @@ end
 -- forward declarations
 local dmgTypes
 -- List of special modifiers
----@type table<string, Mod[]|fun(...: any):Mod[]>
+---@type table<string, Mod[]|fun(...: any):Mod[]?>
 local specialModList = {
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
@@ -6146,6 +6146,16 @@ local specialModList = {
 	["flamethrower, seismic and lightning spire trap have (%d+)%% increased cooldown recovery rate"] = function(num) return { mod("CooldownRecovery", "INC", num, { type = "SkillName", skillNameList = { "Flamethrower Trap", "Seismic Trap", "Lightning Spire Trap" }, includeTransfigured = true }) } end,
 	["flamethrower, seismic and lightning spire trap have %-(%d+) cooldown uses?"] = function(num) return { mod("AdditionalCooldownUses", "BASE", -num, { type = "SkillName", skillNameList = { "Flamethrower Trap", "Seismic Trap",  "Lightning Spire Trap" }, includeTransfigured = true }) } end,
 	["skills have %+(%d+) to limit"] = function(num) return { mod("AdditionalCooldownUses", "BASE", num) } end,
+	["(%a+) skills have %+(%d+) to limit"] = function(_, skillTypeMaybe, num)
+		local skillTypeMap = {
+			storm = "Storm",
+			fissure = "CreatesFissure",
+		}
+		local skillType = SkillType?.[skillTypeMap[skillTypeMaybe]]
+		if skillType then
+			return { mod("AdditionalCooldownUses", "BASE", num, { type = "SkillType", skillType = skillType }) }
+		else return nil end
+	end,
 	["flameblast starts with (%d+) additional stages"] = function(num) return { mod("Multiplier:FlameblastMinimumStage", "BASE", num, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }) } end,
 	["incinerate starts with (%d+) additional stages"] = function(num) return { mod("Multiplier:IncinerateMinimumStage", "BASE", num, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }) } end,
 	["%+([%d%.]+) seconds to flameblast and incinerate cooldown"] = function(num) return {
