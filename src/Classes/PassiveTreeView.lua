@@ -1306,8 +1306,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
 				circle2 = circle1
 			end
-			self:DrawImageRotated(circle1.handle, scrX, scrY, outerSize * 2, outerSize * 2, -0.7, unpack(circle1))
-			self:DrawImageRotated(circle2.handle, scrX, scrY, outerSize * 2, outerSize * 2, 0.7, unpack(circle2))
+			self:DrawImageRotated(circle1.handle, scrX, scrY, outerSize * 2, outerSize * 2, -0.7, circle1)
+			self:DrawImageRotated(circle2.handle, scrX, scrY, outerSize * 2, outerSize * 2, 0.7, circle2)
 		else
 			self:DrawImageRotated(self.jewelShadedOuterRing, scrX, scrY, outerSize * 2, outerSize * 2, -0.7)
 			self:DrawImageRotated(self.jewelShadedOuterRingFlipped, scrX, scrY, outerSize * 2, outerSize * 2, 0.7)
@@ -1396,17 +1396,21 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 		DrawImage(data.handle, x - width, y, width * 2, height * 2, 0, 1, 1, 0)
 	else
 		if data[2] then
-			DrawImage(data.handle, x - width, y - height, width * 2, height * 2, data[1], data[2], data[3], data[4])
+			DrawImage(data.handle, x - width, y - height, width * 2, height * 2, data[1], data[2], data[3], data[4], data[5])
 		else
 			DrawImage(data.handle, x - width, y - height, width * 2, height * 2, data[1])
 		end
 	end
 end
 
-function PassiveTreeViewClass:DrawImageRotated(handle, x, y, width, height, angle, ...)
+function PassiveTreeViewClass:DrawImageRotated(handle, x, y, width, height, angle, data)
 	if main.showAnimations == false then
 		-- Skip rotation and animation
-		DrawImage(handle, x - width / 2, y - height / 2, width, height, ...)
+		if data then
+			DrawImage(handle, x - width / 2, y - height / 2, width, height, unpack(data))
+		else
+			DrawImage(handle, x - width / 2, y - height / 2, width, height)
+		end
 		return
 	end
 
@@ -1425,54 +1429,80 @@ function PassiveTreeViewClass:DrawImageRotated(handle, x, y, width, height, angl
 	local x4 = x - hw * cosA - hh * sinA
 	local y4 = y - hw * sinA + hh * cosA
 
-	DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4, ...)
+	local lengthData = data and #data or 0
+	if lengthData == 0 then
+		DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4)
+	elseif lengthData == 1 then
+		-- stack idx only
+		DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4, data[1])
+	elseif lengthData == 4 or lengthData == 5 then
+		DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4,
+			-- top-left
+			data[1], data[2],
+			-- top-right
+			data[3], data[2],
+			-- bottom-right
+			data[3], data[4],
+			-- bottom-left
+			data[1], data[4],
+			-- stack idx
+			data[5]
+		)
+	else
+		error("Invalid DrawImageRotated data length")
+	end
 end
 
+local function rotate(x, y, cx, cy, theta)
+	local translatedX = x - cx
+	local translatedY = y - cy
+
+	local cosTheta = math.cos(theta)
+	local sinTheta = math.sin(theta)
+	local rotatedX = translatedX * cosTheta - translatedY * sinTheta
+	local rotatedY = translatedX * sinTheta + translatedY * cosTheta
+
+	return rotatedX + cx, rotatedY + cy
+end
 function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)
 	local vertActive = {}
-		local xActive = xTree
-		local yActive = yTree
-		local widthActive = data.width
-		local heightActive = data.height
+	local xActive = xTree
+	local yActive = yTree
+	local widthActive = data.width
+	local heightActive = data.height
 
-		local function rotate(x, y, cx, cy, theta)
-			local translatedX = x - cx
-			local translatedY = y - cy
+	local x1, y1 = xActive - widthActive, yActive - heightActive
+	local x2, y2 = xActive + widthActive, yActive - heightActive
+	local x3, y3 = xActive + widthActive, yActive + heightActive
+	local x4, y4 = xActive - widthActive, yActive + heightActive
 
-			local cosTheta = math.cos(theta)
-			local sinTheta = math.sin(theta)
-			local rotatedX =  translatedX * cosTheta - translatedY * sinTheta
-			local rotatedY =  translatedX * sinTheta + translatedY * cosTheta
+	-- rotate the quad
+	x1, y1 = treeToScreen(rotate(x1, y1, xActive, yActive, angleRad))
+	x2, y2 = treeToScreen(rotate(x2, y2, xActive, yActive, angleRad))
+	x3, y3 = treeToScreen(rotate(x3, y3, xActive, yActive, angleRad))
+	x4, y4 = treeToScreen(rotate(x4, y4, xActive, yActive, angleRad))
 
-			return rotatedX + cx, rotatedY + cy
-		end
-
-		vertActive[1], vertActive[2] = xActive - widthActive, yActive - heightActive
-		vertActive[3], vertActive[4] = xActive + widthActive, yActive - heightActive
-		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
-		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
-
-		local lengthData = #data
-		if lengthData == 1 then
-			vertActive[9] = data[1] -- s1 (stack)
-		elseif lengthData == 4 then
-			vertActive[9], vertActive[10] = data[1], data[2] -- top-left
-			vertActive[11], vertActive[12] = data[3], data[2] -- top-right
-			vertActive[13], vertActive[14] = data[3], data[4] -- bottom-right
-			vertActive[15], vertActive[16] = data[1], data[4] -- bottom-left
-		else
-			for iData, vData in ipairs(data) do
-				vertActive[9 + (iData - 1)] = vData
-			end
-		end
-
-		-- rotate the quad
-		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
-		vertActive[3], vertActive[4] = treeToScreen(rotate(vertActive[3], vertActive[4], xActive, yActive, angleRad))
-		vertActive[5], vertActive[6] = treeToScreen(rotate(vertActive[5], vertActive[6], xActive, yActive, angleRad))
-		vertActive[7], vertActive[8] = treeToScreen(rotate(vertActive[7], vertActive[8], xActive, yActive, angleRad))
-
-		DrawImageQuad(data.handle, unpack(vertActive))
+	local lengthData = data and #data or 0
+	if lengthData == 0 then
+		DrawImageQuad(data.handle, x1, y1, x2, y2, x3, y3, x4, y4)
+	elseif lengthData == 1 then
+		DrawImageQuad(data.handle, x1, y1, x2, y2, x3, y3, x4, y4, data[1])
+	elseif lengthData == 4 or lengthData == 5 then
+		DrawImageQuad(data.handle, x1, y1, x2, y2, x3, y3, x4, y4,
+			-- top-left
+			data[1], data[2],
+			-- top-right
+			data[3], data[2],
+			-- bottom-right
+			data[3], data[4],
+			-- bottom-left
+			data[1], data[4],
+			-- stack idx
+			data[5]
+		)
+	else
+		error("Invalid DrawQuadAndRotate data length")
+	end
 end
 
 -- Zoom the tree in or out

@@ -97,14 +97,14 @@ local function getSkillAssetByName(name)
 			assetData.handle = NewImageHandle()
 			assetData.handle:Load("Data/Skills/" .. file, "CLAMP")
 			assetData.width, assetData.height = assetData.handle:ImageSize()
-			for assetName, position in pairs(fileInfo) do
-				skillAssetMap[assetName] = {
+			for assetName, positionData in pairs(fileInfo) do
+				local asset = {
 					found = assetData.width > 0,
 					handle = assetData.handle,
 					width = assetData.width,
 					height = assetData.height,
-					[1] = position,
 				}
+				skillAssetMap[assetName] = applyDDSCoords(asset, positionData, assetData.width, assetData.height)
 			end
 		end
 	end
