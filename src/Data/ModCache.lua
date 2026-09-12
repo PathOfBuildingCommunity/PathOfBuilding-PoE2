@@ -2363,8 +2363,7 @@ c["15% increased Magnitude of Daze"]={{}," Magnitude of Daze "}
 c["15% increased Magnitude of Jagged Ground you create"]={{[1]={flags=0,keywordFlags=0,name="EnemyJaggedGroundMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=15}},nil}
 c["15% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=15}},nil}
-c["15% increased Mana Cost Efficiency of Command Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=15}},"  of Command Skills "}
-c["15% increased Mana Cost Efficiency of Command Skills +1 maximum stacks of Puppet Master"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=15}},"  of Command Skills +1 maximum stacks of Puppet Master "}
+c["15% increased Mana Cost Efficiency of Command Skills"]={{[1]={[1]={type="Condition",var="CommandableSkill"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=15}},nil}
 c["15% increased Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=15}},nil}
 c["15% increased Mana Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGained",type="INC",value=15}},nil}
 c["15% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=15}},nil}
@@ -3978,7 +3977,7 @@ c["35% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=
 c["35% of Physical Damage taken as Lightning while your Shield is raised"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="BASE",value=35}},"  as Lightning while your Shield is raised "}
 c["35% reduced Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=-35}},nil}
 c["35% reduced Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=-35},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=-35},[3]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-35}},nil}
-c["35% reduced Effect of Non-Damaging Ailments on you"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=-35},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=-35},[3]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=-35}},"  on you "}
+c["35% reduced Effect of Non-Damaging Ailments on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-35},[2]={flags=0,keywordFlags=0,name="SelfFreezeEffect",type="INC",value=-35},[3]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-35}},nil}
 c["35% reduced Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=-35}},nil}
 c["35% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-35}},nil}
 c["350 Physical Damage taken on Minion Death"]={{[1]={flags=0,keywordFlags=0,name="HeartboundLoopSelfDamage",type="LIST",value={baseDamage=350,damageType="physical"}}},nil}
@@ -5001,8 +5000,8 @@ c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShoc
 c["75% increased effect of Socketed Augment Items"]={{[1]={flags=0,keywordFlags=0,name="SocketedAugmentItemEffect",type="INC",value=75}},nil}
 c["75% more Stun Buildup with Lightning Damage"]={{[1]={[1]={type="Condition",var="LightningHasDamage"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
-end)();(function()
 c["75% of Volatility Physical Damage Taken as Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=75}}," Volatility   "}
+end)();(function()
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["75% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-75}},nil}
 c["75% reduced Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-75}},nil}
@@ -7304,6 +7303,7 @@ c["Enemies in your Presence are Slowed by 20%"]={{[1]={[1]={type="Condition",var
 c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"count as having  Power "}
 c["Enemies in your Presence gain 1 Gruelling Madness each second"]={{}," Gruelling Madness each second "}
+c["Enemies in your Presence gain 1 Gruelling Madness each second Raven-Touched"]={{}," Gruelling Madness each second Raven-Touched "}
 c["Enemies in your Presence have +1% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}}}},nil}
 c["Enemies in your Presence have -10% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-10}}}},nil}
 c["Enemies in your Presence have -25% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-25}}}},nil}
@@ -7443,7 +7443,7 @@ c["Fire Damage from Hits also Contributes to Poison Magnitude"]={nil,"Fire Damag
 c["Fire Resistance is unaffected by Area Penalties"]={nil,"Fire Resistance is unaffected by Area Penalties "}
 c["Fire Skills have 20% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=32,name="PoisonChance",type="BASE",value=20}},nil}
 c["Fire Spells Convert 100% of Fire Damage to Chaos Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value="100"}},nil}
-c["Fissure Skills have +1 to Limit"]={nil,"Fissure Skills have +1 to Limit "}
+c["Fissure Skills have +1 to Limit"]={{[1]={[1]={skillType=164,type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value="1"}},nil}
 c["Flammability Magnitude is doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="EnemyIgniteChanceDoubledLimit",type="Multiplier",var="EnemyIgniteChanceDoubled"},flags=0,keywordFlags=0,name="EnemyIgniteChance",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:EnemyIgniteChanceDoubled",type="OVERRIDE",value=1}},nil}
 c["Flammability has no Reservation if Cast as an Aura"]={{[1]={[1]={type="SkillId"},[2]={skillType=39,type="SkillType"},[3]={neg=true,skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={type="SkillId"},[2]={skillType=39,type="SkillType"},[3]={neg=true,skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={type="SkillId"},[2]={skillType=39,type="SkillType"},[3]={neg=true,skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={type="SkillId"},[2]={skillType=39,type="SkillType"},[3]={neg=true,skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
 c["Flasks applied to you have 8% increased Effect"]={{[1]={[1]={actor="player",type="ActorCondition"},flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=8}},nil}
@@ -7481,6 +7481,7 @@ c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosi
 c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill  Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill  Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Fear Incarnate when you Cull a target"]={{}," Fear Incarnate when you Cull a target "}
+c["Gain 1 Fear Incarnate when you Cull a target Raven-Touched"]={{}," Fear Incarnate when you Cull a target Raven-Touched "}
 c["Gain 1 Fear Overwhelming when you Cull a target"]={{}," Fear Overwhelming when you Cull a target "}
 c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Life Flask Charge per 2% Life spent"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"  Flask Charge per 2% Life spent "}
@@ -8854,7 +8855,7 @@ c["Only affects Passives in Small Ring"]={{[1]={flags=0,keywordFlags=0,name="Jew
 c["Only affects Passives in Very Large Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=11}}},nil}
 c["Only affects Passives in Very Small Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=5}}},nil}
 c["Onslaught"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
-c["Orb Skills have +1 to Limit"]={nil,"Orb Skills have +1 to Limit "}
+c["Orb Skills have +1 to Limit"]={{[1]={[1]={skillType=101,type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value="1"}},nil}
 c["Other Modifiers to Movement Speed except for Sprinting do not apply"]={nil,"Other Modifiers to Movement Speed except for Sprinting do not apply "}
 c["Other Modifiers to Movement Speed except for Sprinting do not apply Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%"]={nil,"Other Modifiers to Movement Speed except for Sprinting do not apply Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75% "}
 c["Other Modifiers to Movement Speed except for Sprinting do not apply Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75%"]={nil,"Other Modifiers to Movement Speed except for Sprinting do not apply Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75% "}
@@ -9047,7 +9048,7 @@ c["Raised Zombies deal 113% more Physical Damage"]={{[1]={[1]={includeTransfigur
 c["Raised Zombies have +28% to all Resistances"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=28}}},[2]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=28}}}},nil}
 c["Raised Zombies have +5000 to maximum Life"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=5000}}}},nil}
 c["Rampage"]={{[1]={flags=0,keywordFlags=0,name="Condition:Rampage",type="FLAG",value=true}},nil}
-c["Raven-Touched"]={nil,"Raven-Touched "}
+c["Raven-Touched"]={{},nil}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recover 0.75% of maximum Life per Poison affecting Enemies you Kill"]={nil,"Recover 0.75% of maximum Life per Poison affecting Enemies you Kill "}
@@ -10002,8 +10003,8 @@ c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at l
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
-c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
 end)();(function()
+c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
