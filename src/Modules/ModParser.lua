@@ -814,6 +814,7 @@ local modNameList = {
 	["effect of chill on you"] = "SelfChillEffect",
 	["effect of freeze on you"] = "SelfFreezeEffect",
 	["effect of shock on you"] = "SelfShockEffect",
+	["effect of non-damaging ailments on you"] = { "SelfChillEffect", "SelfFreezeEffect", "SelfShockEffect" },
 	["effect of non-damaging ailments"] = { "EnemyShockMagnitude", "EnemyChillMagnitude", "EnemyFreezeBuildup" },
 	["effect of non-damaging ailments you inflict"] = { "EnemyShockMagnitude", "EnemyChillMagnitude", "EnemyFreezeBuildup" },
 	["magnitude of non-damaging ailments you inflict"] = { "EnemyShockMagnitude", "EnemyChillMagnitude", "EnemyFreezeBuildup" },
