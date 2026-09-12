@@ -2253,6 +2253,7 @@ local function extraSupport(name, level, slot)
 	end
 end
 
+---@return Mod[]
 local explodeFunc = function(chance, amount, type, ...)
 	local amountNumber = tonumber(amount) or (amount == "tenth" and 10) or (amount == "quarter" and 25)
 	if not amountNumber then
@@ -2269,7 +2270,7 @@ end
 -- forward declarations
 local dmgTypes
 -- List of special modifiers
----@type table<string, Mod[]>
+---@type table<string, Mod[]|fun(...: any):Mod[]>
 local specialModList = {
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
@@ -2587,6 +2588,7 @@ local specialModList = {
 	["armour also applies to (%a+) damage"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
 	["%+?(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
 	["%+?(%d+)%% of armour also applies to (%a+) damage"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
+	["%+?(%d+)%% of armour also applies to (%a+) damage while on full energy shield"] = function(num, _, dmgType) return { mod("ArmourAppliesTo" .. firstToUpper(dmgType) .. "DamageTaken", "BASE", num, { type = "Condition", var = "FullEnergyShield" }) } end,
 	["maximum damage reduction for any damage type is (%d+)%%"] = function(num) return { mod("DamageReductionMax", "MAX", num) } end,
 	["maximum (%a+) damage reduction is (%d+)%%"] = function(_, dmgType, numStr) return { mod(firstToUpper(dmgType) .. "DamageReductionMax", "MAX", tonumber(numStr)) } end,
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {
