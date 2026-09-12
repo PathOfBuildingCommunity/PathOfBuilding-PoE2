@@ -6156,6 +6156,7 @@ local specialModList = {
 		local skillTypeMap = {
 			storm = "Storm",
 			fissure = "CreatesFissure",
+			orb = "Orb",
 		}
 		local skillType = SkillType?.[skillTypeMap[skillTypeMaybe]]
 		if skillType then
