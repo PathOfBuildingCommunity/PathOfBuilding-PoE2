@@ -6242,6 +6242,8 @@ local specialModList = {
 	["%+(%d+) to maximum snipe stages"] = function(num) return { mod("Multiplier:SnipeStagesMax", "BASE", num, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }) } end,
 	["chain hook has %+([%d%.]+) metres? to radius per (%d+) rage"] = function(num, _, rage) return { mod("AreaOfEffect", "BASE", num * 10, { type = "PerStat", stat = "Rage", div = tonumber(rage) }, { type = "SkillName", skillName = "Chain Hook", includeTransfigured = true }) } end,
 	["%+([%d%.]+) metres? to discharge radius"] = function(num) return { mod("AreaOfEffect", "BASE", num * 10, { type = "SkillName", skillName = "Discharge", includeTransfigured = true }) } end,
+	["increases and reductions to life regeneration rate also apply to mana regeneration rate"] = { flag("LifeRegenAppliesToManaRegen") },
+	["increases and reductions to movement speed also apply to energy shield recharge rate"] = { flag("MovementSpeedAppliesToEnergyShieldRecharge") },
 	-- Alternate Quality
 	["quality does not increase physical damage"] = { mod("AlternateQualityWeapon", "BASE", 1) },
 	["(%d+)%% increased critical hit chance per 4%% quality"] = function(num) return { mod("AlternateQualityLocalCritChancePer4Quality", "INC", num) } end,

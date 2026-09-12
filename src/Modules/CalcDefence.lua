@@ -1112,7 +1112,13 @@ function calcs.defence(env, actor)
 			modDB:NewMod("EnergyShieldRecharge", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
 	end
-
+	if modDB:Flag(nil, "MovementSpeedAppliesToEnergyShieldRecharge") then
+		-- Jiquani's Thesis boots conversion
+		for i, value in ipairs(modDB:Tabulate("INC", {}, "MovementSpeed")) do
+			local mod = value.mod
+			modDB:NewMod("EnergyShieldRecharge", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if modDB:Flag(nil, "ManaRegenAppliesToEnergyShieldRecharge") then
 		-- Mana Regen conversion from Waveshaper
 		for i, value in ipairs(modDB:Tabulate("INC",  { }, "ManaRegen")) do
@@ -1120,7 +1126,13 @@ function calcs.defence(env, actor)
 			modDB:NewMod("EnergyShieldRecharge", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
-
+	if modDB:Flag(nil, "LifeRegenAppliesToManaRegen") then
+		-- Life Regen conversion from Kurgal's Gaze
+		for i, value in ipairs(modDB:Tabulate("INC", {}, "LifeRegen")) do
+			local mod = value.mod
+			modDB:NewMod("ManaRegen", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if modDB:Flag(nil, "EnergyShieldIncreasedByOvercappedColdRes") then
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EnergyShieldIncreasedByOvercappedColdRes")) do
 			local mod = value.mod
