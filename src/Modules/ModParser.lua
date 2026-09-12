@@ -2881,6 +2881,7 @@ local specialModList = {
 	["you have (%d+) fortification"] = function(num) return { mod("MinimumFortification", "BASE", num) } end,
 	["nearby allies count as having fortification equal to yours"] = { mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("YourFortifyEqualToParent", "FLAG", true, { type = "GlobalEffect", effectType = "Global", unscalable = true } ) }) },
 	["enemies taunted by you cannot evade attacks"] = { mod("EnemyModifier", "LIST", { mod = flag("CannotEvade", { type = "Condition", var = "Taunted" }) }) },
+	["targets that are blinded, maimed, and bleeding cannot evade your hits"] = { mod("EnemyModifier", "LIST", { mod = flag("CannotEvade", { type = "ActorCondition", var = "Blinded" }, { type = "ActorCondition", var = "Maimed" }, { type = "ActorCondition", var = "Bleeding" }) }) },
 	["if you've impaled an enemy recently, you and nearby allies have %+(%d+) to armour"] = function (num) return { mod("ExtraAura", "LIST", { mod = mod("Armour", "BASE", num) }, { type = "Condition", var = "ImpaledRecently" }) } end,
 	["your hits permanently intimidate enemies that are on full life"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated", { type = "Condition", var = "ChampionIntimidate" }) }) },
 	["you and allies affected by your placed banners regenerate ([%d%.]+)%% of life per second for each stage"] = function(num) return {
