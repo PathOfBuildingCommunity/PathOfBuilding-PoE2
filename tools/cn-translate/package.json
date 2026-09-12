@@ -1,0 +1,16 @@
+{
+  "name": "tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "userscript.template.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pathofexile-dat": "^15.1.0",
+    "pathofexile-dat-schema": "^8.0.0"
+  }
+}
