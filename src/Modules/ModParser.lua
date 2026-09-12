@@ -1626,6 +1626,7 @@ local modTagList = {
 	["per (%d+) maximum energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) maximum energy shield on helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
+	["per (%d+) item evasion rating on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnHelmet", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion r?a?t?i?n?g? ?on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
