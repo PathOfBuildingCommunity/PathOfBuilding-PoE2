@@ -6328,6 +6328,7 @@ local specialModList = {
 	["(%d+) body armour sockets?"] = {},
 	["(%d+) gloves sockets?"] = {},
 	["(%d+) boots sockets?"] = {},
+	["raven%-touched"] = {},
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name), flag("Condition:Have"..firstToUpper(name):gsub(" %l", string.upper):gsub(" ", "")) }

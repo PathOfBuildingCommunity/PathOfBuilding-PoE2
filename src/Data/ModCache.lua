@@ -7304,6 +7304,7 @@ c["Enemies in your Presence are Slowed by 20%"]={{[1]={[1]={type="Condition",var
 c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"count as having  Power "}
 c["Enemies in your Presence gain 1 Gruelling Madness each second"]={{}," Gruelling Madness each second "}
+c["Enemies in your Presence gain 1 Gruelling Madness each second Raven-Touched"]={{}," Gruelling Madness each second Raven-Touched "}
 c["Enemies in your Presence have +1% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=1}}}},nil}
 c["Enemies in your Presence have -10% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-10}}}},nil}
 c["Enemies in your Presence have -25% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-25}}}},nil}
@@ -7481,6 +7482,7 @@ c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill"]={{}," Explosi
 c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill  Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill  Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Explosive Rhythm every 3 times you use a Grenade Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour for 10 Seconds"]={{}," Explosive Rhythm every 3 times you use a  Skill Remove all Explosive Rhythm on reaching 10 to gain Explosive Fervour  "}
 c["Gain 1 Fear Incarnate when you Cull a target"]={{}," Fear Incarnate when you Cull a target "}
+c["Gain 1 Fear Incarnate when you Cull a target Raven-Touched"]={{}," Fear Incarnate when you Cull a target Raven-Touched "}
 c["Gain 1 Fear Overwhelming when you Cull a target"]={{}," Fear Overwhelming when you Cull a target "}
 c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Life Flask Charge per 2% Life spent"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"  Flask Charge per 2% Life spent "}
@@ -9047,7 +9049,7 @@ c["Raised Zombies deal 113% more Physical Damage"]={{[1]={[1]={includeTransfigur
 c["Raised Zombies have +28% to all Resistances"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=28}}},[2]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=28}}}},nil}
 c["Raised Zombies have +5000 to maximum Life"]={{[1]={[1]={includeTransfigured=true,skillName="Raise Zombie",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=5000}}}},nil}
 c["Rampage"]={{[1]={flags=0,keywordFlags=0,name="Condition:Rampage",type="FLAG",value=true}},nil}
-c["Raven-Touched"]={nil,"Raven-Touched "}
+c["Raven-Touched"]={{},nil}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recover 0.75% of maximum Life per Poison affecting Enemies you Kill"]={nil,"Recover 0.75% of maximum Life per Poison affecting Enemies you Kill "}
@@ -10001,9 +10003,9 @@ c["as being boosted by Shocked Ground"]={nil,"as being boosted by Shocked Ground
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
+end)();(function()
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
-end)();(function()
 c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
