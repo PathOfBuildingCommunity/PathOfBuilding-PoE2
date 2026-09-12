@@ -4554,6 +4554,7 @@ local specialModList = {
 	["abyssal wasting you inflict also prevents targets from inflicting elemental ailments"] = {
 		mod("AbyssalWastingAlsoGrants", "LIST", { mod = mod("AvoidElementalAilments", "BASE", 100), unscalable = true, }),
 	},
+	["hits against you have no critical damage bonus while on consecrated ground"] = {mod("ReduceCritExtraDamage", "BASE", 100, { type = "Condition", var = "OnConsecratedGround" })},
 	["socketed skills apply fire, cold and lightning exposure on hit"] = {
 		mod("FireExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
 		mod("ColdExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
