@@ -1614,6 +1614,7 @@ local modTagList = {
 	["equal to (%d+)%% of (y?o?u?r? ?) maximum mana"] = function(num) return { tag = { type = "PercentStat", stat = "Mana", percent = num } } end,
 	["equal to (%d+)%% of (i?t?e?m? ?)armour on equipped body armour"] = function(num) return { tag = { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num } } end,
 	["per (%d+) spirit"] = function(num) return { tag = { type = "PerStat", stat = "Spirit", div = num } } end,
+	["per (%d+) spirit, up to a maximum of (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Spirit", div = num, limit = tonumber(limit), limitTotal = true } } end,
 	["per (%d+) unreserved darkness"] = function(num) return { tag = { type = "PerStat", stat = "UnreservedDarkness", div = num } } end,
 	["per (%d+) accuracy rating"] = function(num) return { tag = { type = "PerStat", stat = "Accuracy", div = num } } end,
 	["per (%d+) accuracy rating, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Accuracy", div = num, limit = tonumber(limit), limitTotal = true } } end,
