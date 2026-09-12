@@ -813,7 +813,11 @@ holding Shift will put it in the second.]])
 					tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", value.req))
 				end
 				for _, line in ipairs(value.lines) do
-					tooltip:AddLine(14, colorCodes.MAGIC .. line)
+					-- rune mod lines don't need a range applied to them
+					local stripped = line:gsub("Bonded: ", "")
+					local modList, extra = modLib.parseMod(stripped)
+					local colour = ((not not modList) and not extra) and colorCodes.MAGIC or colorCodes.UNSUPPORTED
+					tooltip:AddLine(14, colour .. line)
 				end
 				-- Adding Comparison
 				local compLines = { type = "Rune" }
