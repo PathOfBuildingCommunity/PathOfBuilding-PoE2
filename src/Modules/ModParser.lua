@@ -2520,6 +2520,7 @@ local specialModList = {
 		mod("BleedChance", "BASE", 100, nil, bor(ModFlag.Attack, ModFlag.Projectile)),
 		mod("EnemyKnockbackChance", "BASE", 100, nil, bor(ModFlag.Attack, ModFlag.Projectile)),
 	},
+	["knocks enemies back on hit"] = {mod("EnemyKnockbackChance", "BASE", 100, KeywordFlag.Hit, nil)},
 	["projectiles cannot pierce, fork or chain"] = {
 		flag("CannotPierce", nil, ModFlag.Projectile),
 		flag("CannotChain", nil, ModFlag.Projectile),
