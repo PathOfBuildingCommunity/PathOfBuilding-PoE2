@@ -1484,6 +1484,7 @@ local modTagList = {
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
 	["per socketed rune or soul core"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
 	["per socket filled"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
+	["per idol socketed in your equipment"] = { tag = { type = "Multiplier", var = "IdolsInEquipment", actor = "player" } },
 	["per idol in your equipment"] = { tag = { type = "Multiplier", var = "IdolsInEquipment", actor = "player" } },
 	["per non%-idol augment in your equipment"] = { tag = { type = "Multiplier", var = "NonIdolAugmentsInEquipment", actor = "player" } },
 	["per (%d+) (%a+) support gems socketed"] = function(num, _, color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems", div = num } } end,
