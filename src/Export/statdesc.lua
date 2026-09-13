@@ -47,6 +47,14 @@ function loadStatFile(fileName)
 				local statLimits, quality, text, special = line:match('([%d%-#| !]+)%s*([%w_]*)%s*"(.-)"%s*(.*)')
 				if statLimits then
 					local desc = { text = escapeGGGString(text):gsub("\\([^nb])", "\\n%1"), limit = { } }
+					for id, display in text:gmatch("%[([^|%]]+)|([^%]]+)%]") do
+						desc.keywords = desc.keywords or { }
+						table.insert(desc.keywords, { id = id, text = display })
+					end
+					for id in text:gmatch("%[([^|%]]+)%]") do
+						desc.keywords = desc.keywords or { }
+						table.insert(desc.keywords, { id = id, text = id })
+					end
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
 						
@@ -157,6 +165,7 @@ end
 function describeStats(stats)
 	local out = { }
 	local orders = { }
+	local keywords = { }
 	local descriptors = { }
 	local missing = {false}
 	for s, v in pairs(stats) do
@@ -410,11 +419,12 @@ function describeStats(stats)
 			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
 				table.insert(out, sanitiseText(line))
 				table.insert(orders, order)
+				table.insert(keywords, desc.keywords or false)
 				order = order + 0.1
 			end
 		end
 	end
-	return out, orders, missing
+	return out, orders, missing, keywords
 end
 
 function describeMod(mod)

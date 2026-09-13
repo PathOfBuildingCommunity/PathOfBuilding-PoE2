@@ -113,6 +113,7 @@ function main:Init()
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
 	--self.showPublicBuilds = true
 	self.showFlavourText = true
+	self.showKeywordTooltips = true
 	self.showAnimations = true
 	self.showAllItemAffixes = true
 	self.disableScrollControlInteraction = false
@@ -716,6 +717,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.showFlavourText then
 					self.showFlavourText = node.attrib.showFlavourText == "true"
 				end
+				if node.attrib.showKeywordTooltips then
+					self.showKeywordTooltips = node.attrib.showKeywordTooltips == "true"
+				end
 				if node.attrib.showAnimations then
 					self.showAnimations = node.attrib.showAnimations == "true"
 				end
@@ -858,6 +862,7 @@ function main:SaveSettings()
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
 		showFlavourText = tostring(self.showFlavourText),
+		showKeywordTooltips = tostring(self.showKeywordTooltips),
 		showAnimations = tostring(self.showAnimations),
 		showAllItemAffixes = tostring(self.showAllItemAffixes),
 		disableScrollControlInteraction = tostring(self.disableScrollControlInteraction),
@@ -943,6 +948,7 @@ function main:OpenOptionsPopup(savedState)
 		invertSliderScrollDirection = self.invertSliderScrollDirection,
 		disableDevAutoSave = self.disableDevAutoSave,
 		showFlavourText = self.showFlavourText,
+		showKeywordTooltips = self.showKeywordTooltips,
 		showAnimations = self.showAnimations,
 		showAllItemAffixes = self.showAllItemAffixes,
 		disableScrollControlInteraction = self.disableScrollControlInteraction,
@@ -1109,6 +1115,10 @@ function main:OpenOptionsPopup(savedState)
 	controls.showFlavourText.tooltipText = "If updating while inside a build, please re-load the build after saving."
 
 	nextRow()
+	controls.showKeywordTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Explain keywords in tree tooltips:", function(state)
+		self.showKeywordTooltips = state
+	end)
+	nextRow()
 	controls.showAnimations = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
 		self.showAnimations = state
 	end)
@@ -1238,6 +1248,7 @@ function main:OpenOptionsPopup(savedState)
 	controls.titlebarName.state = self.showTitlebarName
 	--controls.showPublicBuilds.state = self.showPublicBuilds
 	controls.showFlavourText.state = self.showFlavourText
+	controls.showKeywordTooltips.state = self.showKeywordTooltips
 	controls.showAnimations.state = self.showAnimations
 	controls.showAllItemAffixes.state = self.showAllItemAffixes
 	controls.disableScrollControlInteraction.state = self.disableScrollControlInteraction
@@ -1300,6 +1311,7 @@ function main:OpenOptionsPopup(savedState)
 		self.disableDevAutoSave = savedState.disableDevAutoSave
 		self.showPublicBuilds = savedState.showPublicBuilds
 		self.showFlavourText = savedState.showFlavourText
+		self.showKeywordTooltips = savedState.showKeywordTooltips
 		self.showAnimations = savedState.showAnimations
 		self.showAllItemAffixes = savedState.showAllItemAffixes
 		self.disableScrollControlInteraction = savedState.disableScrollControlInteraction

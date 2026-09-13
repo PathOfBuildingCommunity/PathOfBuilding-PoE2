@@ -22,6 +22,97 @@ local JEWEL_RADIUS_TINT_NEUTRAL = { 1, 1, 1, 0.7 }
 local JEWEL_RADIUS_TINT_PRIMARY_ONLY = { 1, 0, 0, 0.7 }
 local JEWEL_RADIUS_TINT_COMPARE_ONLY = { 0, 1, 0, 0.7 }
 
+-- GGG tags keyword references inside popup text as [Id] or [Id|Display], and wraps
+-- emphasis as <tag>{text}. Strip both down to the plain words.
+local keywordBodyColour = "^xA0A080"
+local function stripKeywordText(text)
+	-- unwrap innermost first, since these nest: <font>{<italic>{<rgb>{text}}}
+	local prev
+	repeat
+		prev = text
+		text = text:gsub("<[^<>]+>{([^{}]*)}", "%1")
+	until text == prev
+	-- then drop any tag left without braces, including the <> from <<Name>>
+	repeat
+		prev = text
+		text = text:gsub("<[^<>]*>", "")
+	until text == prev
+	return (text:gsub("%[([^|%]]+)|([^%]]+)%]", "%2"):gsub("%[([^|%]]+)%]", "%1"))
+end
+
+local function keywordTags(node, index)
+	local tags
+	for entry in (node.keywordPopups and node.keywordPopups[index] or ""):gmatch("[^;]+") do
+		local id, display = entry:match("^([^|]+)|(.+)$")
+		tags = tags or { }
+		t_insert(tags, { id = id or entry, text = display or entry })
+	end
+	return tags
+end
+
+-- Keywords not worth explaining on a passive node due them being self-explanatory. 
+local deniedKeywords = { }
+for _, id in ipairs({
+	"Recently",      -- past 4 seconds
+	"MaximumTotal",  -- explains modifier ranges
+	"Equipment",     -- "Equipment are items that can be Equipped"
+	"Equipped",      -- restates weapons/armour is worn
+	"Rune",          -- "Runes are Augments of Kalguuran origin and make."
+	"Power",         -- monster difficulty rating
+	"BuffMagnitude", -- Buff/Debuff Scaling
+	"Hit",
+	"Attack",
+	"Spell",
+	"Energy Shield",
+	"Melee",
+	"Projectile",
+	"Flasks",
+	"Resistances",
+	"Jewels",
+	"Minions",
+	"Totems",
+	"ItemRarity",
+	-- weapon and off-hand types, where the popup just restates the base item
+	"Axe", "Mace", "Sword", "Bow", "Crossbow", "Spear", "Dagger", "Claw", "Flail",
+	"Wand", "Staff", "Sceptre", "Quarterstaff", "Buckler", "Shield", "Focus", "Two-Handed",
+	-- Stats
+	"Strength", "Dexterity", "Intelligence",
+	-- Damage Types
+	"Physical", "Fire", "Cold", "Lightning", "Chaos", "ElementalDamage"
+}) do
+	deniedKeywords[id] = true
+end
+
+local function findKeywords(node)
+	local granted, mentioned, seen = { }, { }, { }
+	for index, line in ipairs(node.sd or { }) do
+		for _, tag in ipairs(keywordTags(node, index) or { }) do
+			local popup = data.keywordPopups[tag.id]
+			if popup and popup.description and popup.description ~= "" and not seen[tag.id] then
+				seen[tag.id] = true
+				if line == tag.text or line == "Grants " .. tag.text then
+					t_insert(granted, popup)
+				elseif main.showKeywordTooltips and not deniedKeywords[tag.id] then
+					t_insert(mentioned, popup)
+				end
+			end
+		end
+	end
+	return granted, mentioned
+end
+
+local function keywordWords(node, index)
+	local words
+	for _, tag in ipairs(keywordTags(node, index) or { }) do
+		local popup = data.keywordPopups[tag.id]
+		if popup and popup.description and popup.description ~= "" and not deniedKeywords[tag.id] then
+			words = words or { }
+			words[tag.text] = true
+		end
+	end
+	return words
+end
+
 ---@class PassiveTreeView
 local PassiveTreeViewClass = newClass("PassiveTreeView")
 
@@ -1217,7 +1308,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			-- Draw tooltip
 			SetDrawLayer(nil, 100)
 			local size = m_floor(node.size * scale)
-			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
+			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode, IsKeyDown("ALT"), main.showKeywordTooltips) then
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
@@ -1890,8 +1981,23 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
+		local granted, mentioned = findKeywords(mNode)
 		for i, line in ipairs(mNode.sd) do
+			-- only the words GGG tagged on this particular line
+			tooltip.underlineWords = keywordWords(mNode, i)
 			addModInfoToTooltip(mNode, i, line, localIncEffect)
+		end
+		tooltip.underlineWords = nil
+		-- A node whose stat line is nothing but a keyword is explained inline: there is only
+		-- ever one, and it is the whole point of the node
+		for _, popup in ipairs(granted) do
+			tooltip:AddSeparator(10)
+			tooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+			tooltip:AddLine(14, keywordBodyColour .. stripKeywordText(popup.description:gsub("\r", "")))
+		end
+		if mentioned[1] and not IsKeyDown("ALT") then
+			tooltip:AddSeparator(10)
+			tooltip:AddLine(14, colorCodes.TIP .. "Tip: Hold Alt to explain the keywords in this node")
 		end
 		-- add child tooltip for skills
 		self.skillTooltip:Clear()
@@ -1909,6 +2015,17 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 						break
 					end
 				end
+			end
+		end
+		-- Keywords the node merely mentions go in the side tooltip, since there can be
+		-- several long ones and they would otherwise move the stat and allocation numbers
+		if IsKeyDown("ALT") then
+			for _, popup in ipairs(mentioned) do
+				if #self.skillTooltip.lines > 0 then
+					self.skillTooltip:AddSeparator(10)
+				end
+				self.skillTooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+				self.skillTooltip:AddLine(14, keywordBodyColour .. stripKeywordText(popup.description:gsub("\r", "")))
 			end
 		end
 	end
