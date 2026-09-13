@@ -108,32 +108,33 @@ local treeData = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
 local nodes = treeData.nodes
 
 do
-    local megalomaniac = {
-        "Megalomaniac",
-        "Diamond",
+	local megalomaniac = {
+		"Megalomaniac",
+		"Diamond",
 		"Source: Drops from unique{Kosis, The Revelation}",
-        "Limited to: 1",
-        "Has Alt Variant: true",
-        "Has Alt Variant Two: true",
-    }
-    local megalomaniacMods = { }
-    for _, node in pairs(nodes) do
-        if node.isNotable == true and node.recipe then
-            table.insert(megalomaniacMods, node)
-        end
-    end
-    table.sort(megalomaniacMods, function(a, b) return a.name < b.name end)  -- Sort by name, if needed
-    for _, node in ipairs(megalomaniacMods) do
-        table.insert(megalomaniac, "Variant: " .. node.name)  -- Add the name of the node to megalomaniac
-    end
-    table.insert(megalomaniac, "Selected Variant: 1")
-    table.insert(megalomaniac, "Selected Alt Variant: 2")
-    table.insert(megalomaniac, "Selected Alt Variant: 3")
+		"Limited to: 1",
+		"Has Alt Variant: true",
+		"Has Alt Variant Two: true",
+	}
+	local megalomaniacMods = {}
+	for _, node in pairs(nodes) do
+		if node.isNotable == true and node.recipe then
+			table.insert(megalomaniacMods, node)
+		end
+	end
+	table.sort(megalomaniacMods, function(a, b) return a.name < b.name end) -- Sort by name, if needed
+	for _, node in ipairs(megalomaniacMods) do
+		table.insert(megalomaniac, "Variant: " .. node.name)             -- Add the name of the node to megalomaniac
+	end
+	table.insert(megalomaniac, "Selected Variant: 1")
+	table.insert(megalomaniac, "Selected Alt Variant: 2")
+	table.insert(megalomaniac, "Selected Alt Variant: 3")
+	table.insert(megalomaniac, "Implicits: " .. #megalomaniacMods)
 	for index, node in ipairs(megalomaniacMods) do
-		table.insert(megalomaniac, "{variant:"..index.."}Allocates "..node.name)
+		table.insert(megalomaniac, "{variant:" .. index .. "}{enchant}Allocates " .. node.name)
 	end
 	table.insert(megalomaniac, "Corrupted")
-    table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
+	table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
 end
 
 do
