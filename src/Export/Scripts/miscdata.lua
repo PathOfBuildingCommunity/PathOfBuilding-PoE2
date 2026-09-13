@@ -193,4 +193,12 @@ for row in dat("CharacterMeleeSkills"):Rows() do
 end
 utils.saveTableToFile("../Data/CharacterMeleeSkills.lua", characterMeleeSkills, "Default skill gem base item IDs keyed by main-hand and off-hand WieldableClasses item class IDs.")
 
+local keywordPopups = { }
+for row in dat("KeywordPopups"):Rows() do
+	keywordPopups[row.Id] = { name = row.Name, description = row.Description }
+end
+
+-- tweak to allow multiline to maintain GGG's paragraph breaks
+utils.saveTableToFile("../Data/KeywordPopups.lua", keywordPopups, "This file contains the GGG keyword popup descriptions.", true)
+
 print("Misc data exported.")
