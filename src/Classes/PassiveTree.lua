@@ -152,14 +152,12 @@ function PassiveTreeClass:PassiveTree(treeVersion)
 	for file, fileInfo in pairs(self.ddsCoords) do
 		local data = { }
 		self:LoadImage(file, data, "CLAMP")
-		for name, position in pairs(fileInfo) do
-			self.ddsMap[name] = {
+		for name, positionData in pairs(fileInfo) do
+			local asset = {
 				found = data.width > 0,
 				handle = data.handle,
-				width = data.width,
-				height = data.height,
-				[1] = position
 			}
+			self.ddsMap[name] = applyDDSCoords(asset, positionData, data.width, data.height)
 		end
 	end
 
