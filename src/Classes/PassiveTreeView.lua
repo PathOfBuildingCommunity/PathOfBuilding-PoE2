@@ -601,7 +601,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 	if bg.width > 0 then
 		SetDrawColor(1, 1, 1, 1)
-		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
+		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, bg[1], bg[2], bg[3], bg[4])
 	end
 
 	-- draw allocMode text
