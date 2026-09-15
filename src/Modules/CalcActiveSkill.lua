@@ -778,6 +778,10 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local gemMaxLevel = supportGrantedInheritedLevel or (activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.level) or activeSkill.activeEffect.level
 	local gemMaxLevelSource = supportGrantedInheritedLevel and "Inherited Max Level" or "Max Level"
 	skillModList:NewMod("GemLevel", "BASE", gemMaxLevel, gemMaxLevelSource)
+	local gemBaseQuality = (activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.quality) or activeSkill.activeEffect.quality
+	if gemBaseQuality then
+		skillModList:NewMod("GemQuality", "BASE", gemBaseQuality, "Gem Quality")
+	end
 	if activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.corrupted and not (activeSkill.activeEffect.srcInstance.fromItem or activeSkill.activeEffect.srcInstance.fromTree or activeSkill.activeEffect.grantedEffect.fromItem or activeSkill.activeEffect.grantedEffect.fromTree) then
 		skillModList:NewMod("GemCorruptionLevel", "BASE", activeSkill.activeEffect.srcInstance.corruptLevel, "Corruption")
 		activeSkill.skillCfg.skillCond["GemCorrupted"] = true
@@ -794,7 +798,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 
 	for _, gemProperty  in ipairs((activeSkill.activeEffect.gemPropertyInfo or {})) do
 		local value =  gemProperty.value
-		skillModList:NewMod("GemItem".. value.key:gsub("^%l", string.upper), "BASE", value.value, gemProperty.mod.source, #gemProperty.mod > 0 and gemProperty.mod[1] or nil)
+		skillModList:NewMod("GemGlobal" .. value.key:gsub("^%l", string.upper), "BASE", value.value, gemProperty.mod.source, #gemProperty.mod > 0 and gemProperty.mod[1] or nil)
 	end
 
 	-- Add active gem modifiers
