@@ -3654,28 +3654,50 @@ function calcs.perform(env, skipEHP)
 		local mainSkill = env.player.mainSkill
 		if mainSkill.activeEffect and mainSkill.activeEffect.level and mainSkill.activeEffect.srcInstance then
 			local baseLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemLevel")
-			local totalItemLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemItemLevel")
+			local totalItemLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemGlobalLevel")
 			local totalSupportLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportLevel")
 			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
+			local inheritsLevel = mainSkill.skillData.inheritsGemLevel
 			output.GemHasLevel = true
-			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
+			output.GemLevel = m_max(inheritsLevel and baseLevel or (baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel), 1)
 
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
 				t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from gem)", baseLevel))
-				if totalSupportLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from support)", totalSupportLevel))
-				end
-				if totalItemLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
-				end
-				if totalCorruptionLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
-				elseif totalCorruptionLevel < 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
+				-- support gems inherit levels from the parent gem, which means showing level modifiers is pointless
+				if not inheritsLevel then
+					if totalSupportLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from support)", totalSupportLevel))
+					end
+					if totalItemLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+					end
+					if totalCorruptionLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+					elseif totalCorruptionLevel < 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
+					end
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
+			end
+		end
+		if mainSkill.activeEffect and mainSkill.activeEffect.quality and mainSkill.activeEffect.srcInstance then
+			local baseQuality = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemQuality")
+			local totalGlobalQuality = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemGlobalQuality")
+			local totalSupportQuality = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportQuality")
+
+			output.GemQuality = baseQuality + totalSupportQuality + totalGlobalQuality
+			if env.player.breakdown then
+				env.player.breakdown.GemQuality = {}
+				t_insert(env.player.breakdown.GemQuality, s_format("%d ^8(quality from gem)", baseQuality))
+				if totalSupportQuality > 0 then
+					t_insert(env.player.breakdown.GemQuality, s_format("+ %d ^8(quality from supports)", totalSupportQuality))
+				end
+				if totalGlobalQuality > 0 then
+					t_insert(env.player.breakdown.GemQuality, s_format("+ %d ^8(quality from global modifiers)", totalGlobalQuality))
+				end
+				t_insert(env.player.breakdown.GemQuality, s_format("= %d", output.GemQuality))
 			end
 		end
 	end
