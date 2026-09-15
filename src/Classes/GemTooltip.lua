@@ -101,11 +101,30 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalLevel - gemInstance.level - corruptLevel .. " Levels from Supports", "FONTIN SC")
 		end
 	end
-	if not levelRange and addReq and displayInstance.quality > 0 then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Quality: " .. colorCodes.MAGIC .. "+%d%%^7%s",
-			gemInstance.quality,
-			(displayInstance.quality > gemInstance.quality) and " (" .. colorCodes.MAGIC .. "+" .. (displayInstance.quality - gemInstance.quality) .. "^7)" or ""
-		), "FONTIN SC")
+	-- gem quality by type
+	local isSupport = displayInstance.gemData?.gemType == "Support"
+	if not levelRange and addReq and displayInstance.quality > 0 and not isSupport then
+		local totalGlobalQuality = 0
+		if displayInstance.gemPropertyInfo then
+			for i, prop in ipairs(displayInstance.gemPropertyInfo) do
+				if prop.value and prop.value.key == "quality" and prop.value.value then
+					totalGlobalQuality = totalGlobalQuality + prop.value.value
+				end
+			end
+		end
+		totalGlobalQuality = math.floor(totalGlobalQuality)
+		local gemQuality = gemInstance.quality
+		if gemQuality > 0
+		then
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "   Quality: ^7" .. colorCodes.MAGIC .. gemQuality .. "%", "FONTIN SC")
+		end
+		if totalGlobalQuality > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalGlobalQuality .. "% Quality from Global Modifiers", "FONTIN SC")
+		end
+		local supportQuality = math.floor(displayInstance.quality) - totalGlobalQuality - gemQuality
+		if supportQuality > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. supportQuality .. "% Quality from Supports", "FONTIN SC")
+		end
 	end
 	if not levelRange and grantedEffect.support then
 		if levelStats.manaMultiplier and levelStats.reservationMultiplier and levelStats.manaMultiplier == levelStats.reservationMultiplier then
