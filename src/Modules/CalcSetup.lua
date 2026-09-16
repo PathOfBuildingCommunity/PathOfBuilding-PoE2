@@ -2164,7 +2164,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if sourceGem.level ~= level then
 					sourceGem.level = level
 					local grantedEffect = sourceGem.gemData.grantedEffect
-					sourceGem.reqLevel = grantedEffect.levels[level].levelRequirement
+					local levelData = grantedEffect.levels[level]
+					if not levelData then
+						level = next(grantedEffect.levels)
+						sourceGem.level = level
+						levelData = grantedEffect.levels[level]
+					end
+					sourceGem.reqLevel = levelData.levelRequirement
 					sourceGem.reqStr = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqStr, false)
 					sourceGem.reqDex = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqDex, false)
 					sourceGem.reqInt = calcLib.getGemStatRequirement(sourceGem.reqLevel, sourceGem.gemData.reqInt, false)
