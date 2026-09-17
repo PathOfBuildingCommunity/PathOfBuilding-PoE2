@@ -2702,6 +2702,11 @@ local specialModList = {
 		flag("AncestralEmpowerment", { type = "SkillType", skillType = SkillType.Slam }),
 		flag("Condition:AncestrallyBoosted", { type = "SkillType", skillType = SkillType.Slam }),
 	},
+	-- Aftershocks
+	["(%d+)%% chance for slam skills to cause an additional aftershock"] = function(num) return { mod("AftershockChance", "BASE", num, { type = "SkillType", skillType = SkillType.Slam }) } end,
+	["(%d+)%% chance for slam skills you use yourself to cause an additional aftershock"] = function(num) return { mod("AftershockChance", "BASE", num, { type = "SkillType", skillType = SkillType.Slam }) } end, -- Earthbreaker (Titan Ascendancy)
+	["(%d+)%% chance for mace slam skills you use yourself to cause an additional aftershock"] = function(num) return { mod("AftershockChance", "BASE", num, nil, ModFlag.Mace, 0, { type = "SkillType", skillType = SkillType.Slam }) } end,
+	["(%d+)%% chance for shapeshift slam skills you use yourself to cause an additional aftershock"] = function(num) return { mod("AftershockChance", "BASE", num, { type = "SkillType", skillType = SkillType.Slam }, { type = "SkillType", skillType = SkillType.Shapeshift }) } end,
 	-- Leech Related
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },

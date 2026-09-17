@@ -303,9 +303,10 @@ statMap = {
 		mod("AilmentMagnitude", "MORE", nil, 0, bit.bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite)),
 	},
 },
+#baseMod skill("cannotCauseAftershock", true)
 #mods
 #set EarthquakeAftershockPlayer
-#flags attack melee area
+#flags attack melee area duration
 statMap = {
 	["jagged_ground_effect_+%"] = {
 		mod("Damage", "MORE", nil, 0, 0),
@@ -315,6 +316,8 @@ statMap = {
 	},
 },
 #baseMod skill("showAverage", true)
+#baseMod skill("duration", 4)
+#baseMod skill("hitRateLimitedByDuration", true)
 #mods
 #skillEnd
 

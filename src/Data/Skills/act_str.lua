@@ -4142,6 +4142,9 @@ skills["EarthquakePlayer"] = {
 				area = true,
 				duration = true,
 			},
+			baseMods = {
+				skill("cannotCauseAftershock", true),
+			},
 			constantStats = {
 				{ "skill_jagged_ground_base_duration_ms", 4000 },
 				{ "jagged_ground_effect_+%", 100 },
@@ -4217,9 +4220,12 @@ skills["EarthquakePlayer"] = {
 				attack = true,
 				melee = true,
 				area = true,
+				duration = true,
 			},
 			baseMods = {
 				skill("showAverage", true),
+				skill("duration", 4),
+				skill("hitRateLimitedByDuration", true),
 			},
 			constantStats = {
 				{ "jagged_ground_effect_+%", 100 },
