@@ -539,7 +539,6 @@ end
 ---@param w number|nil optional width of the UI element being hovered over. Tooltip will position itself outside this box (if possible)
 ---@param h number|nil optional height of the UI element being hovered over. Needs to be provided alongside `w`
 ---@param viewPort table A table `{x, y, width, height}` contains active screen boundaries
-
 function TooltipClass:Draw(x, y, w, h, viewPort)
 	if #self.lines == 0 then
 		return
