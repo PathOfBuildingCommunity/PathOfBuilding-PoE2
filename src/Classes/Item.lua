@@ -2660,10 +2660,15 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 
 		local jewelData = self.jewelData
+		-- Rebuild the list from scratch: jewelData is only cleared when the item is reparsed,
+		-- while this runs again whenever the slot mod list is rebuilt (see GetActiveModListForSlotNum),
+		-- so appending would apply the jewel's radius functions once more on every rebuild
+		local funcList = nil
 		for _, func in ipairs(modList:List(nil, "JewelFunc")) do
-			jewelData.funcList = jewelData.funcList or { }
-			t_insert(jewelData.funcList, func)
+			funcList = funcList or { }
+			t_insert(funcList, func)
 		end
+		jewelData.funcList = funcList
 		for _, value in ipairs(modList:List(nil, "JewelData")) do
 			jewelData[value.key] = value.value
 		end
