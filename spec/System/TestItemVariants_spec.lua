@@ -602,3 +602,43 @@ describe("Versioned item variants", function()
 		end)
 	end)
 end)
+
+describe("Runeforging base variants from the unique database", function()
+	local function uniqueList()
+		while main.uniqueDB.loading do
+			runCallback("OnFrame")
+		end
+		return main.uniqueDB.list
+	end
+
+	it("injects the runeforging bases into a unique that declares none itself", function()
+		local item = uniqueList()["Wanderlust, Wrapped Sandals"]
+		assert.is_not_nil(item)
+		assert.same({ "Regular Base", "Runeforged", "Runemastered" }, item.baseList)
+		assert.equals(1, item.selectedBase)
+		assert.equals("Wrapped Sandals", item.baseName)
+		assert.same({ [1] = true }, item.baseLines["Wrapped Sandals"].baseVariantList)
+		assert.same({ [2] = true }, item.baseLines["Runeforged Wrapped Sandals"].baseVariantList)
+		assert.same({ [3] = true }, item.baseLines["Runemastered Wrapped Sandals"].baseVariantList)
+	end)
+
+	it("keeps the injected bases selectable through a raw round trip", function()
+		local item = new("Item"):Item(uniqueList()["Wanderlust, Wrapped Sandals"].raw)
+		assert.same({ "Regular Base", "Runeforged", "Runemastered" }, item.baseList)
+		item.selectedBase = 3
+		item:BuildAndParseRaw()
+		assert.equals("Runemastered Wrapped Sandals", item.baseName)
+	end)
+
+	it("injects the runeforging bases into every eligible unique", function()
+		local missing = { }
+		for name, item in pairs(uniqueList()) do
+			local baseName = item.baseName
+			if baseName and not item.baseList
+				and (data.itemBases["Runeforged " .. baseName] or data.itemBases["Runemastered " .. baseName]) then
+				table.insert(missing, name)
+			end
+		end
+		assert.same({ }, missing)
+	end)
+end)

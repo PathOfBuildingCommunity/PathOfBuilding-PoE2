@@ -159,7 +159,9 @@ function main:Init()
 				if newItem.base then
 					local baseBase = newItem.baseName
 					-- uniques with base variants are skipped as they can be handled manually
-					local hasBaseVariants = newItem.baseLines and not not next(newItem.baseLines)
+					-- baseLines always contains the item's own base, so the item only declares
+					-- base variants of its own when a "Base Variant:" line filled baseList
+					local hasBaseVariants = newItem.baseList and not not next(newItem.baseList)
 					if newItem.rarity == "UNIQUE" and not hasBaseVariants then
 						-- look for alternate runeforging bases
 						local bases = { { variantName = "Regular Base", baseName = baseBase } }
@@ -170,7 +172,7 @@ function main:Init()
 							table.insert(bases, { variantName = "Runemastered", baseName = "Runemastered " .. baseBase })
 						end
 						if #bases > 1 then
-						newItem.baseList = newItem.baseList ?? {}
+							newItem.baseList = { }
 							local baseLines = {}
 							-- Add variants for each base
 							for _, base in ipairs(bases) do
