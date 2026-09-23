@@ -360,7 +360,9 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 end
 
 -- Based on code from FR and BS found in act_*.txt
----@param activeSkill/output/breakdown references table passed in from calc offence
+---@param activeSkill any
+---@param output Output
+---@param breakdown Breakdown
 ---@param sourceType string type of incoming damage - it will be converted (taken as) from this type if applicable
 ---@param baseDmg string for which to calculate the damage
 ---@return table of taken damage parts, and number, sum of damages
@@ -1521,29 +1523,50 @@ function calcs.defence(env, actor)
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Approximate evade chance: %d%%", output.EvadeChance),
 				}
+				---@class EvasionGraphData
+				breakdown.EvadeChance.graph = {
+					configAccuracy = enemyAccuracy,
+					evasion = output.MeleeEvasion,
+				}
 				breakdown.MeleeEvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Effective Evasion: %d", output.MeleeEvasion),
 					s_format("Approximate melee evade chance: %d%%", output.MeleeEvadeChance),
+					graph = {
+						configAccuracy = enemyAccuracy,
+						evasion = output.MeleeEvasion,
+					}
 				}
 				breakdown.ProjectileEvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Effective Evasion: %d", output.ProjectileEvasion),
 					s_format("Approximate projectile evade chance: %d%%", output.ProjectileEvadeChance),
+					graph = {
+						configAccuracy = enemyAccuracy,
+						evasion = output.ProjectileEvasion,
+					}
 				}
 				breakdown.SpellEvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Effective Evasion: %d", output.SpellEvasion),
 					s_format("Approximate spell evade chance: %d%%", output.SpellEvadeChance),
+					graph = {
+						configAccuracy = enemyAccuracy,
+						evasion = output.SpellEvasion,
+					}
 				}
 				breakdown.SpellProjectileEvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Effective Evasion: %d", output.SpellProjectileEvasion),
 					s_format("Approximate spell projectile evade chance: %d%%", output.SpellProjectileEvadeChance),
+					graph = {
+						configAccuracy = enemyAccuracy,
+						evasion = output.SpellProjectileEvasion,
+					}
 				}
 			end
 		end
@@ -1560,6 +1583,11 @@ function calcs.defence(env, actor)
 				s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
 				s_format("Average enemy accuracy: %d", enemyAccuracy),
 				s_format("Approximate deflect chance: %d%%", output.DeflectChance),
+				---@class DeflectionGraphData
+				graph = {
+					configAccuracy = enemyAccuracy,
+					deflection = output.DeflectionRating,
+				}
 			}
 		end
 	end
@@ -2532,6 +2560,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		local reduction = modDB:Flag(nil, "SelfIgnore".."Base"..damageType.."DamageReduction") and 0 or output["Base"..damageType.."DamageReductionWhenHit"] or output["Base"..damageType.."DamageReduction"]
 		local enemyPen = modDB:Flag(nil, "SelfIgnore"..damageType.."Resistance", "EnemyCannotPen"..damageType.."Resistance") and 0 or output[damageType.."EnemyPen"]
 		local enemyOverwhelm = modDB:Flag(nil, "SelfIgnore"..damageType.."DamageReduction") and 0 or output[damageType.."EnemyOverwhelm"]
+		---@type number
 		local damage = output[damageType.."TakenDamage"]
 		local impaleDamage = enemyImpaleChance > 0 and (damageType == "Physical" and (damage * data.misc.ImpaleStoredDamageBase) or 0) or 0
 
@@ -2613,6 +2642,15 @@ function calcs.buildDefenceEstimations(env, actor)
 				else
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage: %d ^8(total incoming damage)", damage))
 				end
+				---@class ArmourGraphData
+				---@field maxHit number Added later by max hit calcs
+				breakdown[damageType .. "DamageReduction"].graph = {
+					baseDR = reduction,
+					maxDR = output[damageType .. "DamageReductionMax"],
+					overwhelm = enemyOverwhelm,
+					armour = effectiveAppliedArmour,
+					configHit = damage,
+				}
 			end
 			if reduction ~= 0 then
 				t_insert(breakdown[damageType.."DamageReduction"], s_format("Base %s Damage Reduction: %d%%", damageType, reduction))
@@ -3828,6 +3866,9 @@ function calcs.buildDefenceEstimations(env, actor)
 
 				t_insert(breakdown[maxHitCurType], "^8Such a hit would drain the following resources:")
 				breakdown[maxHitCurType] = incomingDamageBreakdown(breakdown[maxHitCurType], calcs.reducePoolsByDamage(nil, takenDamages, actor), output)
+				if breakdown[damageType .. "DamageReduction"]?.graph then
+					breakdown[damageType .. "DamageReduction"].graph.maxHit = finalMaxHit
+				end
 			end
 		end
 
