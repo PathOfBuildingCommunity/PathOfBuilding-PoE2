@@ -374,6 +374,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/LiquidEmotionOutcomes.dat",
 		"Data/Balance/BuildPlannerInventories.dat",
 		"Data/Balance/Inventories.dat",
+		"Data/Balance/Expedition2VerisiumCrafts.dat",
 	}
 	local csdFiles = {
 		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

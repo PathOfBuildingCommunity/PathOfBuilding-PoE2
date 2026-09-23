@@ -20781,7 +20781,7 @@ return {
 			name="OriginalBaseType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=400
 		},
 		[2]={
 			list=false,
@@ -20795,7 +20795,7 @@ return {
 			name="NewBaseType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=400
 		},
 		[4]={
 			list=true,
