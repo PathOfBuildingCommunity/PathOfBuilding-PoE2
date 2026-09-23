@@ -492,7 +492,8 @@ holding Shift will put it in the second.]])
 		if not self.controls.displayItemVariant:IsShown() and not self.controls.displayItemBaseVariant:IsShown() then
 			return 0
 		end
-		return (28 +
+		return (4 +
+			(self.displayItem.variantList and 24 or 0) +
 			(self.displayItem.baseList and 24 or 0) +
 			(self.displayItem.hasAltVariant and 24 or 0) +
 			(self.displayItem.hasAltVariant2 and 24 or 0) +

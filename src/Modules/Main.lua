@@ -159,15 +159,18 @@ function main:Init()
 				if newItem.base then
 					local baseBase = newItem.baseName
 					-- uniques with base variants are skipped as they can be handled manually
-					local hasBaseVariants = newItem.baseLines and not not next(newItem.baseLines)
+					local hasBaseVariants = newItem.baseList and not not next(newItem.baseList)
 					if newItem.rarity == "UNIQUE" and not hasBaseVariants then
 						-- look for alternate runeforging bases
 						local bases = { { variantName = "Regular Base", baseName = baseBase } }
-						if data.itemBases["Runeforged " .. baseBase] then
-							table.insert(bases, { variantName = "Runeforged", baseName = "Runeforged " .. baseBase })
-						end
-						if data.itemBases["Runemastered " .. baseBase] then
-							table.insert(bases, { variantName = "Runemastered", baseName = "Runemastered " .. baseBase })
+						local seenBases = {}
+						if data.runeforgingCrafts[baseBase] then
+							for _, base in ipairs(data.runeforgingCrafts[baseBase]) do
+								if seenBases[base.name] or not data.itemBases[base.name] then continue end
+								seenBases[base.name] = true
+								local craftType = base.name:find("Runeforged", 1, true) and "Runeforged" or "Runemastered"
+								table.insert(bases, { variantName = craftType, baseName = base.name })
+							end
 						end
 						if #bases > 1 then
 						newItem.baseList = newItem.baseList ?? {}

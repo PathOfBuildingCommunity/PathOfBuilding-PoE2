@@ -601,4 +601,46 @@ describe("Versioned item variants", function()
 			assert.same({ 2 }, restored.variantGroupSelections)
 		end)
 	end)
+	describe("unique database runeforging bases", function()
+		local function dbItem(key)
+			while main.uniqueDB.loading do
+				runCallback("OnFrame")
+			end
+			local entry = main.uniqueDB.list[key]
+			assert.is_not_nil(entry)
+			return new("Item"):Item(entry.raw)
+		end
+
+		it("adds a base variant for each runeforging craft of the item's base", function()
+			local item = dbItem("Apron of Emiran, Hermit Garb")
+			assert.same({ "Regular Base", "Runeforged", "Runemastered" }, item.baseList)
+			assert.equals(1, item.selectedBase)
+			assert.equals("Hermit Garb", item.baseName)
+
+			item.selectedBase = 2
+			item:BuildAndParseRaw()
+			assert.equals("Runeforged Hermit Garb", item.baseName)
+
+			item.selectedBase = 3
+			item:BuildAndParseRaw()
+			assert.equals("Runemastered Hermit Garb", item.baseName)
+		end)
+
+		it("takes the craft base names from the craft data instead of prefixing the original base", function()
+			local item = dbItem("Voll's Protector, Plated Vestments")
+			assert.same({ "Regular Base", "Runeforged", "Runemastered" }, item.baseList)
+
+			item.selectedBase = 3
+			item:BuildAndParseRaw()
+			assert.equals("Runemastered Ironclad Vestments", item.baseName)
+		end)
+
+		it("leaves bases without runeforging crafts alone", function()
+			assert.is_nil(data.runeforgingCrafts["Gold Ring"])
+			local item = dbItem("Andvarius, Gold Ring")
+			assert.is_nil(item.baseList)
+			assert.is_nil(item.selectedBase)
+			assert.equals("Gold Ring", item.baseName)
+		end)
+	end)
 end)
