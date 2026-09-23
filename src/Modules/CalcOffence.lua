@@ -432,6 +432,14 @@ function calcSkillCooldown(skillModList, skillCfg, skillData)
 	end
 end
 
+-- Time between hits of a skill that can only hit once per duration-long effect that cannot be refreshed early
+-- (e.g. Earthquake's Aftershock: Jagged Ground cannot be created on top of an existing patch). A use that lands
+-- before the previous effect ends creates nothing, so the next effect comes from the first use at or after the end
+local function calcDurationLimitedHitTime(useTime, duration)
+	local usesPerHit = m_max(m_ceil(duration / useTime - 1e-9), 1)
+	return useTime * usesPerHit, usesPerHit
+end
+
 local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 	local baseSpeed = 1 / skillModList:Sum("BASE", skillCfg, "WarcryCastTime")
 	local warcryCastTime = baseSpeed * calcLib.mod(skillModList, skillCfg, "WarcrySpeed") * calcs.actionSpeedMod(actor)
@@ -3144,9 +3152,8 @@ function calcs.offence(env, actor, activeSkill)
 				output.BrandTicks = m_floor(output.Duration * output.HitSpeed)
 			end
 		elseif skillData.hitRateLimitedByDuration and output.Time and globalOutput.Duration and globalOutput.Duration > 0 and not skillData.triggeredOnDeath then
-			-- The hit cannot occur more than once per skill duration on a target (e.g. Earthquake's Aftershock:
-			-- Jagged Ground cannot be created on top of an existing patch), so the hit rate is capped by the duration
-			output.HitTime = m_max(output.Time, globalOutput.Duration)
+			-- Only every Nth use creates the effect that hits (e.g. Earthquake's Jagged Ground), see calcDurationLimitedHitTime
+			output.HitTime, output.UsesPerHit = calcDurationLimitedHitTime(output.Time, globalOutput.Duration)
 			output.HitSpeed = 1 / output.HitTime
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
@@ -3254,7 +3261,7 @@ function calcs.offence(env, actor, activeSkill)
 			output.HitSpeed = 1 / output.HitTime
 		elseif skillData.hitRateLimitedByDuration and output.Time and output.Duration and output.Duration > 0 and not skillData.triggeredOnDeath then
 			-- Recompute from the combined attack time of both weapons when dual wielding
-			output.HitTime = m_max(output.Time, output.Duration)
+			output.HitTime, output.UsesPerHit = calcDurationLimitedHitTime(output.Time, output.Duration)
 			output.HitSpeed = 1 / output.HitTime
 		elseif skillData.timeOverride and not skillData.triggeredOnDeath then
 			output.Time = skillData.timeOverride
@@ -3293,8 +3300,14 @@ function calcs.offence(env, actor, activeSkill)
 			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
 		elseif skillData.hitRateLimitedByDuration and output.HitSpeed and not skillData.triggeredOnDeath then
 			breakdown.HitTime = { }
-			t_insert(breakdown.HitTime, s_format("max(%.2f, %.2f) ^8max(%s time, skill duration)", output.Time, globalOutput.Duration, isAttack and "attack" or "cast"))
-			t_insert(breakdown.HitTime, s_format("= %.2f", output.HitTime))
+			local useName = isAttack and "attack" or "cast"
+			local usesPerHit = output.UsesPerHit or 1
+			t_insert(breakdown.HitTime, s_format("%.3f ^8(%s time)", output.Time, useName))
+			t_insert(breakdown.HitTime, s_format("x %d ^8(%ss per hit: ceil(%.3f skill duration / %.3f %s time))", usesPerHit, useName, globalOutput.Duration, output.Time, useName))
+			if usesPerHit > 1 then
+				t_insert(breakdown.HitTime, s_format("^8(a %s landing before the previous effect ends creates no new one)", useName))
+			end
+			t_insert(breakdown.HitTime, s_format("= %.3f", output.HitTime))
 			breakdown.HitSpeed = { }
 			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time)", output.HitTime))
 			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
