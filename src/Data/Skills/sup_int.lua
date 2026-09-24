@@ -3182,7 +3182,9 @@ skills["ChaosFrogExplosionPlayer"] = {
 		[40] = { critChance = 7, levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 			preDamageFunc = function(activeSkill, output)
-				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval") / 1000
+				local interval = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval")
+				-- returning infinity sets dps to zero if the support part of this isn't actually active
+				activeSkill.skillData.hitTimeMultiplier = (interval != 0) and (interval / 1000) or math.huge
 			end,
 	statSets = {
 		[1] = {

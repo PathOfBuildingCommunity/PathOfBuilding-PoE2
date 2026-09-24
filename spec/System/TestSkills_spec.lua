@@ -2228,5 +2228,23 @@ describe("TestSkills", function()
 		local noParrySpellDmg = build.calcsTab.mainOutput.AverageDamage
 		assert.equals(withParrySpellDmg, noParrySpellDmg, "Parry should not affect spell damage")
 	end)
-	
+	it("deals no damage when the support is not attached to a curse", function()
+		build.skillsTab:PasteSocketGroup([[Weapon Set: Both
+Fireball 20/0  1
+Doedre's Undoing 1/0  1]])
+		runCallback("OnFrame")
+		selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "ChaosFrogExplosionPlayer")
+		assert.are.equals(0, build.calcsTab.calcsOutput.TotalDPS)
+		assert.are.equals(0, build.calcsTab.calcsOutput.HitSpeed)
+	end)
+
+	it("deals damage when the support is attached to a curse", function()
+		build.skillsTab:PasteSocketGroup([[Weapon Set: Both
+Doedre's Undoing 1/0  1
+Elemental Weakness 20/0  1]])
+		runCallback("OnFrame")
+		selectActiveSkillById(build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList], "ChaosFrogExplosionPlayer")
+		assert.True(build.calcsTab.calcsOutput.TotalDPS > 0)
+		assert.True(build.calcsTab.calcsOutput.HitSpeed > 0)
+	end)
 end)
