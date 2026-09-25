@@ -6410,48 +6410,11 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	local bestCull = 1
-	if activeSkill.mirage and activeSkill.mirage.output and activeSkill.mirage.output.TotalDPS then
-		local mirageCount = activeSkill.mirage.count or 1
-		output.MirageDPS = activeSkill.mirage.output.TotalDPS * mirageCount
-		output.CombinedDPS = output.CombinedDPS + activeSkill.mirage.output.TotalDPS * mirageCount
-		output.MirageBurningGroundDPS = activeSkill.mirage.output.BurningGroundDPS
-		output.MirageCausticGroundDPS = activeSkill.mirage.output.CausticGroundDPS
-
-		if activeSkill.mirage.output.IgniteDPS and activeSkill.mirage.output.IgniteDPS > (output.IgniteDPS or 0) then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.IgniteDPS
-			output.IgniteDPS = 0
-		end
-		if activeSkill.mirage.output.BleedDPS and activeSkill.mirage.output.BleedDPS > (output.BleedDPS or 0) then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.BleedDPS
-			output.BleedDPS = 0
-		end
-
-		if activeSkill.mirage.output.PoisonDPS then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.PoisonDPS * mirageCount
-			output.CombinedDPS = output.CombinedDPS + activeSkill.mirage.output.PoisonDPS * mirageCount
-		end
-		if activeSkill.mirage.output.ImpaleDPS then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.ImpaleDPS * mirageCount
-			output.CombinedDPS = output.CombinedDPS + activeSkill.mirage.output.ImpaleDPS * mirageCount
-		end
-		if activeSkill.mirage.output.DecayDPS then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.DecayDPS
-			output.CombinedDPS = output.CombinedDPS + activeSkill.mirage.output.DecayDPS
-		end
-		if activeSkill.mirage.output.TotalDot and (skillFlags.DotCanStack or not output.TotalDot or output.TotalDot == 0) then
-			output.MirageDPS = output.MirageDPS + activeSkill.mirage.output.TotalDot * (skillFlags.DotCanStack and mirageCount or 1)
-			output.CombinedDPS = output.CombinedDPS + activeSkill.mirage.output.TotalDot * (skillFlags.DotCanStack and mirageCount or 1)
-		end
-		if activeSkill.mirage.output.CullMultiplier > 1 then
-			bestCull = activeSkill.mirage.output.CullMultiplier
-		end
-	end
-
 	local TotalDotDPS = (output.TotalDot or 0)
 		+ (output.TotalPoisonDPS or output.PoisonDPS or 0)
-		+ (m_max(output.CausticGroundDPS or 0, output.MirageCausticGroundDPS or 0 ))
+		+ (output.CausticGroundDPS or 0)
 		+ (output.TotalIgniteDPS or output.IgniteDPS or 0)
-		+ (m_max(output.BurningGroundDPS or 0, output.MirageBurningGroundDPS or 0))
+		+ (output.BurningGroundDPS or 0)
 		+ (output.TotalBleedDPS or output.BleedDPS or 0)
 		+ (output.CorruptingBloodDPS or 0)
 		+ (output.DecayDPS or 0)

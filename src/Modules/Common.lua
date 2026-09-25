@@ -928,6 +928,24 @@ function cacheSkillUUID(skill, env)
 end
 
 -- Global Cache related
+---@class CachedSkillData
+---@field Name string
+---@field Speed number
+---@field HitSpeed number?
+---@field ManaCost number?
+---@field LifeCost number?
+---@field ESCost number?
+---@field RageCost number?
+---@field HitChance number?
+---@field AccuracyHitChance number?
+---@field PreEffectiveCritChance number?
+---@field CritChance number?
+---@field TotalDPS number?
+---@field ActiveSkill ActiveSkill
+---@field Env Env
+
+---@param uuid string
+---@param env Env
 function cacheData(uuid, env)
 	GlobalCache.cachedData[env.mode][uuid] = {
 		Name = env.player.mainSkill.activeEffect.grantedEffect.name,

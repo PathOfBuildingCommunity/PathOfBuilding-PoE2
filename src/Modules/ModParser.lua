@@ -686,6 +686,8 @@ local modNameList = {
 	["melee strike range with this weapon"] = "MeleeWeaponRange",
 	["metres to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["metre to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
+	["metres to dodge roll distance"] = "DodgeRollDistance",
+	["metre to dodge roll distance"] = "DodgeRollDistance",
 	["to deal double damage"] = "DoubleDamageChance",
 	["to deal triple damage"] = "TripleDamageChance",
 	["curse activation"] = "CurseActivation",
@@ -2089,6 +2091,7 @@ local modTagList = {
 		{ type = "StatThreshold", stat = "ManaReserved", threshold = 1} } },
 	["if you've shattered an enemy recently"] = { tag = { type = "Condition", var = "ShatteredEnemyRecently" } },
 	["if you've dodge rolled recently"] = { tag = { type = "Condition", var = "DodgeRolledRecently" } },
+	["if you haven't dodge rolled recently"] = { tag = { type = "Condition", var = "DodgeRolledRecently", neg = true } },
 	-- Enemy status conditions
 	["at close range"] = { tag = { type = "Condition", var = "AtCloseRange" } },
 	["against rare [ao][nr]d? unique enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
@@ -3565,6 +3568,12 @@ local specialModList = {
 		mod("ExtraSkill", "LIST", { skillId = "Snipe", level = num }),
 		mod("ExtraSupport", "LIST", { skillId = "ChannelledSnipeSupport", level = num }, { type = "SocketedIn", slotName = "{SlotName}" }),
 	} end,
+	-- Meta gem Energy
+	["meta skills gain (%d+)%% increased energy"] = function(num) return { mod("EnergyGenerated", "INC", num, { type = "SkillType", skillType = SkillType.Meta }) } end,
+	["meta skills gain (%d+)%% reduced energy"] = function(num) return { mod("EnergyGenerated", "INC", -num, { type = "SkillType", skillType = SkillType.Meta }) } end,
+	["meta skills gain (%d+)%% more energy"] = function(num) return { mod("EnergyGenerated", "MORE", num, { type = "SkillType", skillType = SkillType.Meta }) } end,
+	["meta skills gain (%d+)%% increased energy if you've dealt a critical hit recently"] = function(num) return { mod("EnergyGenerated", "INC", num, { type = "SkillType", skillType = SkillType.Meta }, { type = "Condition", var = "CritRecently" }) } end,
+	["meta skills gain (%d+)%% increased energy while on full mana"] = function(num) return { mod("EnergyGenerated", "INC", num, { type = "SkillType", skillType = SkillType.Meta }, { type = "Condition", var = "FullMana" }) } end,
 	-- Global gem modifiers
 	["gems socketed in red sockets have [%+%-](%d+) to level"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num, keyOfScaledMod = "value"  }, { type = "SocketedIn", slotName = "{SlotName}", socketColor = "R" }) } end,
 	["gems socketed in green sockets have [%+%-](%d+)%% to quality"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "quality", value = num, keyOfScaledMod = "value"  }, { type = "SocketedIn", slotName = "{SlotName}", socketColor = "G" }) } end,

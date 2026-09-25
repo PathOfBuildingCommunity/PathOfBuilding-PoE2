@@ -19,7 +19,6 @@ require("Modules.CalcActiveSkill")
 require("Modules.CalcDefence")
 require("Modules.CalcOffence")
 require("Modules.CalcTriggers")
-require("Modules.CalcMirages")
 
 -- Get the average value of a table -- note this is unused
 function math.average(t)
@@ -379,19 +378,6 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				end
 
 				local playerOut = captureFields(usedEnv.player.output)
-				if activeSkill.mirage then
-					local mirageCount = (activeSkill.mirage.count or 1) * activeSkillCount
-					t_insert(pass.actors, {
-						out = captureFields(activeSkill.mirage.output),
-						name = activeSkill.mirage.name .. " (Mirage)",
-						count = mirageCount,
-						trigger = activeSkill.mirage.infoTrigger,
-						skillPart = activeSkill.mirage.skillPartName,
-						sourceName = skillName .. " (Mirage)",
-						dotScale = (dotCanStack or (playerOut.TotalDot and playerOut.TotalDot == 0)) and (dotCanStack and mirageCount or 1) or nil,
-					})
-				end
-
 				local minionContributed = minionOut and minionOut.TotalDPS and minionOut.TotalDPS > 0
 				t_insert(pass.actors, {
 					out = playerOut,

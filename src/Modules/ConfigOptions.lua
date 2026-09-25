@@ -723,6 +723,16 @@ local configSettings = {
 	{ var = "vortexCastOnFrostbolt", type = "check", label = "Cast on Frostbolt?", ifSkill = "Vortex of Projection", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "SkillName", skillName = "Vortex of Projection" })
 	end },
+	{ label = "Meta Skills:", ifSkillType = SkillType.Meta },
+	{ var = "monsterPower", type = "count", label = "Monster Power:", ifSkillType = SkillType.Meta, defaultPlaceholderState = 20, tooltip = "Meta Skills gain Energy in proportion to the Power of the enemies involved.\nPower is assumed to be 20, the Power of a Unique enemy, but you can override it here.\n\tEach enemy's Power is its base Power multiplied by a rarity coefficient\n\tBase Power is usually between 0.5 and 3, depending on how strong the monster is\n\tThe rarity coefficient is 1, 2 or 5 for Normal, Magic or Rare enemies\n\tUnique enemies always have 20 Power\n\nThe total Power of a full pack is usually also around 15 to 20, but only if you hit every monster in it.", apply = function(val, modList, enemyModList)
+		modList:NewMod("MonsterPower", "OVERRIDE", val, "Config")
+	end },
+	{ var = "dodgeRollsPerSecond", type = "float", label = "Dodge Rolls per second:", ifSkill = "Cast on Dodge", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
+		modList:NewMod("DodgeRollsPerSecond", "OVERRIDE", val, "Config")
+	end },
+	{ var = "multiplierCharmChargesUsedPerSecond", type = "float", label = "Charm Charges used per second:", ifSkill = "Cast on Charm Use", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:CharmChargesUsedPerSecond", "BASE", val, "Config")
+	end },
 	{ label = "Warcry Skills:", ifFlag = "UsesWarcryPower" },
 	{ var = "multiplierWarcryPower", type = "count", label = "Warcry Power:", ifFlag = "UsesWarcryPower", tooltip = "Power determines how strong your Warcry buffs will be, and is based on the total strength of nearby enemies.\nPower is assumed to be 20 if your target is a Boss, but you can override it here if necessary.\n\tEach Normal enemy grants 1 Power\n\tEach Magic enemy grants 2 Power\n\tEach Rare enemy grants 10 Power\n\tEach Unique enemy grants 20 Power", apply = function(val, modList, enemyModList)
 		modList:NewMod("WarcryPower", "OVERRIDE", val, "Config")
