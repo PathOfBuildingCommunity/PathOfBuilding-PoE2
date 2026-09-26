@@ -1,0 +1,43 @@
+[project]
+name = "pob2-enhanced"
+version = "0.1.0"
+description = "Headless Path of Building 2 engine bridge: MCP server, REST API and web UI."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=2.2,<3",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+pob2 = "pob2.cli:main"
+pob2-mcp = "pob2.mcp_server:main"
+pob2-web = "pob2.web.app:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pob2"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]  # FastAPI Query()/Depends() defaults
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["engine: requires LuaJIT (2026-07-20+) and lua-utf8; skipped when unavailable"]

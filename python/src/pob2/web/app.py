@@ -1,0 +1,91 @@
+"""REST API + static web UI + MCP endpoint, all sharing one live build.
+
+Run:  uv run --directory python pob2-web            -> http://127.0.0.1:8080  (MCP at /mcp)
+"""
+
+from __future__ import annotations
+
+import argparse
+import contextlib
+import logging
+from pathlib import Path
+from typing import Any
+
+import httpx
+from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
+
+from pob2 import mcp_server
+from pob2.codec import CodecError
+from pob2.engine import EngineError
+from pob2.web import routes
+
+STATIC_DIR = Path(__file__).parent / "static"
+log = logging.getLogger("pob2.web")
+
+
+def create_app(with_mcp: bool = True) -> FastAPI:
+    mcp_app = mcp_server.mcp.streamable_http_app(streamable_http_path="/mcp") if with_mcp else None
+
+    @contextlib.asynccontextmanager
+    async def lifespan(_: FastAPI):  # type: ignore[no-untyped-def]
+        if mcp_app is not None:
+            async with mcp_server.mcp.session_manager.run():
+                yield
+        else:
+            yield
+        if mcp_server._service is not None:
+            mcp_server._service.engine.stop()
+
+    app = FastAPI(title="PoB2-Enhanced", version="0.1.0", lifespan=lifespan)
+    app.include_router(routes.router, prefix="/api")
+
+    @app.exception_handler(EngineError)
+    async def engine_error(_: Request, exc: EngineError) -> JSONResponse:
+        status = {"bad_request": 400, "not_found": 404, "method_not_found": 404, "timeout": 504}.get(exc.code, 500)
+        return JSONResponse({"error": str(exc), "code": exc.code}, status_code=status)
+
+    @app.exception_handler(CodecError)
+    async def codec_error(_: Request, exc: CodecError) -> JSONResponse:
+        return JSONResponse({"error": str(exc), "code": "bad_request"}, status_code=400)
+
+    @app.exception_handler(httpx.HTTPError)
+    async def fetch_error(_: Request, exc: httpx.HTTPError) -> JSONResponse:
+        return JSONResponse({"error": f"Could not fetch build link: {exc}", "code": "fetch"}, status_code=502)
+
+    if mcp_app is not None:
+        # Share the MCP routes (and therefore the same PoBService) with the web UI.
+        app.router.routes.extend(mcp_app.routes)
+
+    if STATIC_DIR.is_dir():
+        app.mount("/assets", StaticFiles(directory=STATIC_DIR / "assets"), name="assets")
+
+        @app.get("/{path:path}", include_in_schema=False)
+        async def spa(path: str) -> Any:
+            file = STATIC_DIR / path
+            if path and file.is_file() and STATIC_DIR in file.resolve().parents:
+                return FileResponse(file)
+            return FileResponse(STATIC_DIR / "index.html")
+
+    return app
+
+
+def main(argv: list[str] | None = None) -> None:
+    import uvicorn
+
+    parser = argparse.ArgumentParser(description="PoB2-Enhanced web UI + REST API + MCP endpoint")
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument("--no-mcp", action="store_true", help="Do not expose the MCP endpoint at /mcp")
+    parser.add_argument("--reload", action="store_true", help="Auto-reload on code changes (development)")
+    args = parser.parse_args(argv)
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    if args.reload:
+        uvicorn.run("pob2.web.app:create_app", factory=True, host=args.host, port=args.port, reload=True)
+    else:
+        uvicorn.run(create_app(with_mcp=not args.no_mcp), host=args.host, port=args.port)
+
+
+if __name__ == "__main__":
+    main()
