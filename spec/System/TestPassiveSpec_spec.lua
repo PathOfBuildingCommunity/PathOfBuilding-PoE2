@@ -220,6 +220,96 @@ Item Level: 80
 		assert.are.equals(2, build.calcsTab.mainEnv.weaponSetEnvs[2].weaponSet)
 	end)
 
+	local function selectLeylinesAscendancy(spec)
+		-- Leylines only counts for its own ascendancy, and changing class resets the
+		-- tree, so this must run before anything else is allocated
+		local ascend = spec.tree.ascendNameMap["Disciple of Varashta"]
+		spec:SelectClass(ascend.classId)
+		spec:SelectAscendClass(ascend.ascendClassId)
+		return select(2, assert(findNodeByName(spec, "Baryanic Leylines")))
+	end
+
+	local function socketSmallRadiusJewel(rarity, base)
+		local nodeId, node = firstNormalJewelSocket(build.spec)
+		build.spec:AllocNode(node)
+		local jewel = socketJewel(nodeId, table.concat({
+			"Rarity: " .. rarity,
+			"Test Jewel",
+			base,
+			"--------",
+			"Radius: Small",
+			"--------",
+			"Item Level: 80",
+			"--------",
+			"+10 to Intelligence",
+		}, "\n"))
+		runCallback("OnFrame")
+		return nodeId, node, jewel
+	end
+
+	local function radiusJewelNodeCount(env, socketNodeId)
+		for _, radiusJewel in ipairs(env.radiusJewelList) do
+			if radiusJewel.nodeId == socketNodeId then
+				local count = 0
+				for _ in pairs(radiusJewel.nodes) do
+					count = count + 1
+				end
+				return count
+			end
+		end
+	end
+
+	local function nodesInRadiusCount(node, radiusIndex)
+		local count = 0
+		for _ in pairs(node.nodesInRadius[radiusIndex]) do
+			count = count + 1
+		end
+		return count
+	end
+
+	it("Baryanic Leylines increases the radius of non-unique Time-Lost jewels", function()
+		local leylines = selectLeylinesAscendancy(build.spec)
+		local socketNodeId, socketNode, jewel = socketSmallRadiusJewel("RARE", "Time-Lost Sapphire")
+		local baseCount = nodesInRadiusCount(socketNode, jewel.jewelRadiusIndex)
+		local increasedCount = nodesInRadiusCount(socketNode, data.timeLostJewelIncreasedRadiusIndex[jewel.jewelRadiusIndex])
+		assert.True(increasedCount > baseCount)
+		assert.are.equals(baseCount, radiusJewelNodeCount(build.calcsTab.mainEnv, socketNodeId))
+
+		build.spec:AllocNode(leylines)
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		assert.are.equals(increasedCount, radiusJewelNodeCount(build.calcsTab.mainEnv, socketNodeId))
+	end)
+
+	it("Baryanic Leylines hover previews use the radius the jewel would have", function()
+		local leylines = selectLeylinesAscendancy(build.spec)
+		local socketNodeId, socketNode, jewel = socketSmallRadiusJewel("RARE", "Time-Lost Sapphire")
+		local baseCount = nodesInRadiusCount(socketNode, jewel.jewelRadiusIndex)
+		local increasedCount = nodesInRadiusCount(socketNode, data.timeLostJewelIncreasedRadiusIndex[jewel.jewelRadiusIndex])
+
+		local env = build.calcsTab.calcs.initEnv(build, "CALCULATOR", { addNodes = { [leylines] = true } })
+		assert.are.equals(increasedCount, radiusJewelNodeCount(env, socketNodeId))
+
+		build.spec:AllocNode(leylines)
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		env = build.calcsTab.calcs.initEnv(build, "CALCULATOR", { removeNodes = { [leylines] = true } })
+		assert.are.equals(baseCount, radiusJewelNodeCount(env, socketNodeId))
+	end)
+
+	it("Baryanic Leylines does not change the radius of unique or non-Time-Lost jewels", function()
+		for _, jewelType in ipairs({ { "UNIQUE", "Time-Lost Sapphire" }, { "RARE", "Sapphire" } }) do
+			newBuild()
+			local leylines = selectLeylinesAscendancy(build.spec)
+			build.spec:AllocNode(leylines)
+			local socketNodeId, socketNode, jewel = socketSmallRadiusJewel(jewelType[1], jewelType[2])
+
+			assert.are.equals(nodesInRadiusCount(socketNode, jewel.jewelRadiusIndex), radiusJewelNodeCount(build.calcsTab.mainEnv, socketNodeId), jewelType[1] .. " " .. jewelType[2])
+		end
+	end)
+
 	it("does not apply jewel socket passive skill effect to jewels in item-granted Zarokh's Gift", function()
 		local normalNodeId, normalNode = firstNormalJewelSocket(build.spec)
 		build.spec:AllocNode(normalNode)
