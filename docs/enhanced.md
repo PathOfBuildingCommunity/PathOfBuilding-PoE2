@@ -52,12 +52,39 @@ If port 8080 is taken, set `POB2_PORT` (shell variable or a `.env` file in the r
 On Windows without WSL or Docker, the desktop app in `runtime/` is unchanged. The headless engine needs a
 native `luajit.exe` built from the pinned commit (LuaJIT's own `src\msvcbuild.bat`). Put it next to the `lua-utf8.dll` from `runtime/` and point `POB2_LUAJIT` at it.
 
+### Tailscale (private HTTPS on your tailnet)
+
+`compose.tailscale.yml` runs PoB behind a Tailscale sidecar. No ports are published on the host. Only devices on
+your tailnet can reach it, at `https://pob2.<tailnet>.ts.net`, with a real TLS certificate from Tailscale Serve.
+
+1. In the [admin console](https://login.tailscale.com/admin/dns) enable **MagicDNS** and **HTTPS Certificates**,
+   and note the tailnet name (e.g. `tail1234.ts.net`).
+2. Create an [auth key](https://login.tailscale.com/admin/settings/keys).
+3. `cp .env.example .env`, then set `TS_AUTHKEY` and `TS_TAILNET`.
+4. `docker compose -f compose.tailscale.yml up -d --build`
+
+Connect agents from any tailnet device:
+
+```bash
+claude mcp add --transport http pob2 https://pob2.tail1234.ts.net/mcp
+```
+
+Notes:
+- The node's state is kept in the `tailscale-state` volume, so the auth key is only needed for the first login.
+  Without a key, `docker compose logs tailscale` prints a login URL.
+- Every tailnet member who can reach the node shares the one active build. Use `TS_EXTRA_ARGS=--advertise-tags=tag:pob2`
+  and an ACL rule to limit who can reach it.
+- Funnel (public internet exposure) is explicitly disabled in `docker/tailscale/serve.json`.
+- `/mcp` rejects Host headers it doesn't know (DNS-rebinding protection). The compose file sets
+  `POB2_ALLOWED_HOSTS` to the tailnet name. Set it yourself for any other reverse proxy.
+
 ### Configuration
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `POB2_LUAJIT` | `luajit` on `PATH` | LuaJIT executable |
 | `POB2_ROOT` | auto-detected | Repository root (contains `src/Launch.lua` and `engine/`) |
+| `POB2_ALLOWED_HOSTS` | (none) | Extra hostnames accepted by `/mcp`, comma-separated (localhost is always allowed) |
 
 ## Connecting AI agents (MCP)
 

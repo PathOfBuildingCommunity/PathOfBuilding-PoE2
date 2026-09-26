@@ -50,3 +50,6 @@ runtime/SimpleGraphic/Screenshots
 
 .emmyrc.json
 .luarc.json
+
+# Local secrets (Tailscale auth key etc.)
+.env

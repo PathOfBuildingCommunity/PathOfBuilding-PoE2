@@ -1,0 +1,39 @@
+# PoB2-Enhanced on your tailnet: https://<TS_HOSTNAME>.<TS_TAILNET>  (MCP at /mcp)
+# No host ports are published; only devices on your tailnet can reach it.
+#
+#   cp .env.example .env   # fill in TS_AUTHKEY and TS_TAILNET
+#   docker compose -f compose.tailscale.yml up -d --build
+#
+# Requires MagicDNS and HTTPS certificates enabled in the Tailscale admin console (DNS page).
+services:
+  tailscale:
+    image: tailscale/tailscale:stable
+    hostname: ${TS_HOSTNAME:-pob2}
+    environment:
+      TS_AUTHKEY: ${TS_AUTHKEY:-}            # optional after first login; state is persisted
+      TS_HOSTNAME: ${TS_HOSTNAME:-pob2}
+      TS_EXTRA_ARGS: ${TS_EXTRA_ARGS:-}      # e.g. --advertise-tags=tag:pob2
+      TS_STATE_DIR: /var/lib/tailscale
+      TS_SERVE_CONFIG: /config/serve.json
+      TS_USERSPACE: "true"                   # no /dev/net/tun or NET_ADMIN needed (works on Docker Desktop)
+    volumes:
+      - tailscale-state:/var/lib/tailscale
+      - ./docker/tailscale:/config:ro
+    restart: unless-stopped
+
+  pob2:
+    build:
+      context: .
+      dockerfile: docker/enhanced.Dockerfile
+    network_mode: service:tailscale          # share the tailscale container's network namespace
+    environment:
+      POB2_ALLOWED_HOSTS: ${TS_HOSTNAME:-pob2}.${TS_TAILNET:?Set TS_TAILNET in .env, e.g. tail1234.ts.net}
+    command: ["pob2-web", "--host", "127.0.0.1", "--port", "8080"]
+    depends_on:
+      - tailscale
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  tailscale-state:

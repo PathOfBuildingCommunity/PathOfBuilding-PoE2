@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import contextlib
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +16,7 @@ import httpx
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from mcp.server.transport_security import TransportSecuritySettings
 
 from pob2 import mcp_server
 from pob2.codec import CodecError
@@ -25,8 +27,24 @@ STATIC_DIR = Path(__file__).parent / "static"
 log = logging.getLogger("pob2.web")
 
 
+def mcp_transport_security(extra_hosts: str | None = None) -> TransportSecuritySettings:
+    """DNS-rebinding protection for /mcp: localhost plus hosts from POB2_ALLOWED_HOSTS (comma-separated),
+    e.g. the Tailscale name "pob2.tail1234.ts.net" or a reverse proxy's hostname."""
+    raw = os.environ.get("POB2_ALLOWED_HOSTS", "") if extra_hosts is None else extra_hosts
+    hosts = ["127.0.0.1:*", "localhost:*", "[::1]:*"]
+    origins = ["http://127.0.0.1:*", "http://localhost:*", "http://[::1]:*"]
+    for host in filter(None, (h.strip() for h in raw.split(","))):
+        hosts += [host, f"{host}:*"]
+        origins += [f"https://{host}", f"http://{host}", f"https://{host}:*", f"http://{host}:*"]
+    return TransportSecuritySettings(allowed_hosts=hosts, allowed_origins=origins)
+
+
 def create_app(with_mcp: bool = True) -> FastAPI:
-    mcp_app = mcp_server.mcp.streamable_http_app(streamable_http_path="/mcp") if with_mcp else None
+    mcp_app = (
+        mcp_server.mcp.streamable_http_app(streamable_http_path="/mcp", transport_security=mcp_transport_security())
+        if with_mcp
+        else None
+    )
 
     @contextlib.asynccontextmanager
     async def lifespan(_: FastAPI):  # type: ignore[no-untyped-def]
