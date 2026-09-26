@@ -47,6 +47,8 @@ docker build -f docker/enhanced.Dockerfile -t pob2-enhanced .
 docker run --rm -i pob2-enhanced pob2-mcp                 # MCP over stdio
 ```
 
+If port 8080 is taken, set `POB2_PORT` (shell variable or a `.env` file in the repo root), e.g. `POB2_PORT=8181`.
+
 On Windows without WSL or Docker, the desktop app in `runtime/` is unchanged. The headless engine needs a
 native `luajit.exe` built from the pinned commit (LuaJIT's own `src\msvcbuild.bat`). Put it next to the `lua-utf8.dll` from `runtime/` and point `POB2_LUAJIT` at it.
 

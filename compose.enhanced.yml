@@ -1,11 +1,12 @@
-# docker compose -f compose.enhanced.yml up --build   ->  http://localhost:8080  (MCP: http://localhost:8080/mcp)
+# docker compose -f compose.enhanced.yml up -d --build   ->  http://localhost:8080  (MCP: http://localhost:8080/mcp)
+# Port in use? Set POB2_PORT, e.g. POB2_PORT=8181 (or put POB2_PORT=8181 in a .env file next to this one).
 services:
   pob2:
     build:
       context: .
       dockerfile: docker/enhanced.Dockerfile
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:${POB2_PORT:-8080}:8080"
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
