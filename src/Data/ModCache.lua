@@ -8817,7 +8817,7 @@ c["Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Sk
 c["Non-Minion Skills have 50% less Reservation Efficiency"]={{[1]={[1]={neg=true,skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="MORE",value=-50}},nil}
 c["Non-Unique Life Flasks apply their Effects constantly"]={nil,"Non-Unique Life Flasks apply their Effects constantly "}
 c["Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant"]={nil,"Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant "}
-c["Non-Unique Time-Lost Jewels have 40% increased radius"]={nil,"Non-Unique Time-Lost Jewels have 40% increased radius "}
+c["Non-Unique Time-Lost Jewels have 40% increased radius"]={{[1]={flags=0,keywordFlags=0,name="NonUniqueTimeLostJewelRadius",type="INC",value=40}},nil}
 c["Non-instant Recovery from Mana Flasks also applies to Life"]={nil,"Non-instant Recovery from Mana Flasks also applies to Life "}
 c["Nova Spells have 20% less Area of Effect"]={{[1]={[1]={skillType=85,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="MORE",value=-20}},nil}
 c["Oasis"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Oasis"},[2]={flags=0,keywordFlags=0,name="Condition:HaveOasis",type="FLAG",value=true}},nil}
