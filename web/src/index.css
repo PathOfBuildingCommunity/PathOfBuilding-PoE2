@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #0b0c0e;
+  --color-ink-900: #121418;
+  --color-ink-850: #171a1f;
+  --color-ink-800: #1d2127;
+  --color-ink-700: #2a2f37;
+  --color-ink-600: #3a4049;
+  --color-ink-400: #7d8591;
+  --color-ink-200: #c9ced6;
+  --color-gold: #c8a24a;
+  --color-gold-soft: #e3c77e;
+  --color-life: #e05a5a;
+  --color-es: #7fb5e6;
+  --color-mana: #6f8cf0;
+  --color-good: #5fbf7a;
+  --color-bad: #e06a5a;
+  --color-magic: #8888ff;
+  --color-rare: #ffff77;
+  --color-unique: #af6025;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--color-ink-950); color: var(--color-ink-200); font-family: var(--font-sans); }
+
+@layer components {
+  .btn { @apply inline-flex items-center gap-1.5 rounded-md border border-ink-600 bg-ink-800 px-3 py-1.5 text-sm text-ink-200 transition hover:border-gold hover:text-gold-soft disabled:opacity-40 disabled:pointer-events-none; }
+  .btn-primary { @apply border-gold/60 bg-gold/15 text-gold-soft hover:bg-gold/25; }
+  .btn-ghost { @apply border-transparent bg-transparent px-2; }
+  .input { @apply w-full rounded-md border border-ink-600 bg-ink-900 px-2.5 py-1.5 text-sm text-ink-200 outline-none placeholder:text-ink-400 focus:border-gold; }
+  .panel { @apply rounded-lg border border-ink-700 bg-ink-850; }
+  .label { @apply text-xs font-medium uppercase tracking-wide text-ink-400; }
+}
