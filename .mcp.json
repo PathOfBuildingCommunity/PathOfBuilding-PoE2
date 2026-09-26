@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pob2": {
+      "command": "uv",
+      "args": ["run", "--directory", "python", "pob2-mcp"]
+    }
+  }
+}

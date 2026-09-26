@@ -1,0 +1,14 @@
+**/node_modules
+**/.venv
+**/__pycache__
+.git
+runtime/*
+!runtime/lua
+runtime-win32.zip
+python/src/pob2/web/static
+src/Export
+src/Builds
+# Tree sprites/textures are only used by the desktop renderer (~350 MB)
+src/TreeData/**/*.png
+src/TreeData/**/*.jpg
+src/TreeData/**/*.zst

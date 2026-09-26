@@ -1,0 +1,53 @@
+name: Enhanced (engine, MCP, web)
+on:
+  push:
+    branches: [dev, "claude/**"]
+    paths: ["engine/**", "python/**", "web/**", "src/**", "scripts/setup-engine.sh", ".github/workflows/enhanced.yml"]
+  pull_request:
+    paths: ["engine/**", "python/**", "web/**", "src/**", "scripts/setup-engine.sh", ".github/workflows/enhanced.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    env:
+      PREFIX: ${{ github.workspace }}/.luajit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Cache LuaJIT runtime
+        uses: actions/cache@v4
+        with:
+          path: .luajit
+          key: luajit-${{ runner.os }}-${{ hashFiles('scripts/setup-engine.sh') }}
+      - name: Build LuaJIT runtime
+        run: |
+          bash scripts/setup-engine.sh --runtime-only
+          echo "$PREFIX/bin" >> "$GITHUB_PATH"
+      - name: Lint
+        working-directory: python
+        run: |
+          uv sync --frozen
+          uv run ruff check src tests
+          uv run ruff format --check src tests
+      - name: Test
+        working-directory: python
+        run: uv run pytest -v
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run build

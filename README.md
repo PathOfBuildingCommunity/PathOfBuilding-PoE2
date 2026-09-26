@@ -1,4 +1,7 @@
 # Path of Building 2 Community
+> **PoB2-Enhanced fork:** adds a headless engine, an **MCP server** for AI agents, a REST API and a **web UI**,
+> all running the unmodified PoB calculations. See [docs/enhanced.md](docs/enhanced.md).
+
 ## Welcome to Path of Building 2, an offline build planner for Path of Exile 2!
 
 <p float="middle">
