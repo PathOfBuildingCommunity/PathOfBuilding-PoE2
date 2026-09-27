@@ -1269,15 +1269,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Draw ring overlays for jewel sockets
-	local function drawJewelRadius(jewel, scrX, scrY, tint)
-		-- (check for Time-Lost upgrades such as Baryanic Leylines) --
-		local effectiveRadiusIndex = jewel.jewelRadiusIndex
-		if effectiveRadiusIndex and jewel.base and jewel.base.subType == "Radius"
-			and jewel.rarity ~= "UNIQUE" and jewel.rarity ~= "RELIC"
-			and build.calcsTab and build.calcsTab.mainEnv and build.calcsTab.mainEnv.modDB then
-			effectiveRadiusIndex = data.resolveTimeLostRadiusIndex(effectiveRadiusIndex, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "NonUniqueTimeLostJewelRadius"))
-		end
-		local radData = build.data.jewelRadius[effectiveRadiusIndex]
+	local function drawJewelRadius(jewel, scrX, scrY, tint, jewelSpec)
+		-- Use the spec the ring belongs to, so compared trees can differ (e.g. Baryanic Leylines)
+		local radData = build.data.jewelRadius[jewelSpec:GetJewelRadiusIndex(jewel)]
 		local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 		local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
 		SetDrawColor(tint[1], tint[2], tint[3], tint[4])
@@ -1349,12 +1343,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local pHasRadius = jewel and jewel.jewelRadiusIndex
 				local cHasRadius = cJewel and cJewel.jewelRadiusIndex
 				local sameJewel = compareJewelsEqual(jewel, cJewel)
+				if sameJewel and pHasRadius and cHasRadius then
+					-- Identical jewels can have different radii when only one spec has a Time-Lost radius upgrade
+					sameJewel = spec:GetJewelRadiusIndex(jewel) == self.compareSpec:GetJewelRadiusIndex(cJewel)
+				end
 				if pHasRadius then
 					local tint = (not self.compareSpec or sameJewel) and JEWEL_RADIUS_TINT_NEUTRAL or JEWEL_RADIUS_TINT_PRIMARY_ONLY
-					drawJewelRadius(jewel, scrX, scrY, tint)
+					drawJewelRadius(jewel, scrX, scrY, tint, spec)
 				end
 				if cHasRadius and not sameJewel then
-					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY)
+					drawJewelRadius(cJewel, scrX, scrY, JEWEL_RADIUS_TINT_COMPARE_ONLY, self.compareSpec)
 				end
 			end
 		end
