@@ -1146,8 +1146,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							end
 						else
 							-- Jewel in socket is not Thread of Hope or similar
+							-- Use the increased radii instead of the base ones if the socketed jewel is upgraded
+							local isIncreased = jewel and spec:GetJewelRadiusIndex(jewel) ~= jewel.jewelRadiusIndex
 							for index, data in ipairs(build.data.jewelRadius) do
-								if hoverNode.nodesInRadius[index][node.id] then
+								if (not data.increased) == (not isIncreased) and hoverNode.nodesInRadius[index][node.id] then
 									-- Draw normal jewel radii
 									if data.inner == 0 then
 										SetDrawColor(data.col)
@@ -1320,6 +1322,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node == hoverNode then
 				local effectiveJewel = jewel or cJewel
 				local isThreadOfHope = effectiveJewel and effectiveJewel.jewelRadiusLabel == "Variable"
+				-- Preview the increased radii instead of the base ones if the socketed jewel is upgraded
+				local jewelSpec = jewel and spec or self.compareSpec
+				local isIncreased = effectiveJewel and jewelSpec and jewelSpec:GetJewelRadiusIndex(effectiveJewel) ~= effectiveJewel.jewelRadiusIndex
 				for _, radData in ipairs(build.data.jewelRadius) do
 					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
@@ -1332,7 +1337,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						end
 					else
 						-- Standard jewel: draw the full-disc radii (inner == 0)
-						if innerSize == 0 then
+						if innerSize == 0 and (not radData.increased) == (not isIncreased) then
 							SetDrawColor(radData.col)
 							DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						end

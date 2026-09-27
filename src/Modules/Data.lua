@@ -682,10 +682,11 @@ data.jewelRadii = {
 		{ inner = 1800, outer = 2100, col = "^x0099FF", label = "Variable" },
 
 		-- Baryanic Leylines (Disciple of Varashta): non-unique Time-Lost radius +40%
-		{ inner = 0, outer = 1400, col = "^xBB6600", label = "Small" },
-		{ inner = 0, outer = 1610, col = "^x66FFCC", label = "Medium" },
-		{ inner = 0, outer = 1820, col = "^x2222CC", label = "Large" },
-		{ inner = 0, outer = 2100, col = "^xC100FF", label = "Very Large" },
+		-- `increased` keeps these out of the radius previews unless the jewel is upgraded
+		{ inner = 0, outer = 1400, col = "^xBB6600", label = "Increased Small", increased = true },
+		{ inner = 0, outer = 1610, col = "^x66FFCC", label = "Increased Medium", increased = true },
+		{ inner = 0, outer = 1820, col = "^x2222CC", label = "Increased Large", increased = true },
+		{ inner = 0, outer = 2100, col = "^xC100FF", label = "Increased Very Large", increased = true },
 	}
 }
 
