@@ -520,11 +520,11 @@ local function getBaseLeech(resource, dmgType, skillModList, cfg, enemyDB)
 	end
 	return leech and leech or 0
 end
--- Performs all offensive calculations
+-- Performs all offensive calculations for one state of the enemy
 ---@param env Env
 ---@param actor Actor
 ---@param activeSkill ActiveSkill
-function calcs.offence(env, actor, activeSkill)
+local function calcOffence(env, actor, activeSkill)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
 	---@class Output
@@ -6468,4 +6468,197 @@ function calcs.offence(env, actor, activeSkill)
 	output.CullingDPS = output.CombinedDPS * (bestCull - 1)
 	output.ReservationDPS = output.CombinedDPS * (output.ReservationDpsMultiplier - 1)
 	output.CombinedDPS = output.CombinedDPS * bestCull * output.ReservationDpsMultiplier
+end
+
+-- Records everything the offence calculations change, so that they can be run again from the same state
+local function snapshotOffenceState(env, actor, activeSkill)
+	local snapshots = { }
+	local seen = { }
+	local function addTable(tbl)
+		if type(tbl) == "table" and not seen[tbl] then
+			seen[tbl] = true
+			t_insert(snapshots, { tbl = tbl, copy = copyTable(tbl, true) })
+		end
+	end
+	local function addModStore(store)
+		if type(store) ~= "table" or seen[store] then
+			return
+		end
+		addTable(store) -- a ModList keeps its mods in the store itself
+		addTable(store.conditions)
+		addTable(store.multipliers)
+		if store.mods then
+			addTable(store.mods)
+			for _, modList in pairs(store.mods) do
+				addTable(modList)
+			end
+		end
+		addModStore(store.parent)
+	end
+	for _, skill in ipairs({ activeSkill, env.player.mainSkill }) do
+		addModStore(skill.skillModList)
+		addTable(skill)
+		addTable(skill.skillData)
+		addTable(skill.skillCfg)
+		addTable(skill.skillCfg and skill.skillCfg.skillCond)
+		addTable(skill.weapon1Cfg)
+		addTable(skill.weapon2Cfg)
+		addTable(skill.activeEffect.statSet and skill.activeEffect.statSet.skillFlags)
+		addTable(skill.activeEffect.statSetCalcs and skill.activeEffect.statSetCalcs.skillFlags)
+	end
+	addModStore(actor.modDB)
+	addModStore(actor.enemy.modDB)
+	addModStore(env.player.modDB)
+	addModStore(env.minion and env.minion.modDB)
+	addTable(actor.output)
+	addTable(env.player.output)
+	addTable(actor.breakdown)
+	return snapshots
+end
+
+local function restoreOffenceState(snapshots)
+	for _, snapshot in ipairs(snapshots) do
+		wipeTable(snapshot.tbl)
+		for key, value in pairs(snapshot.copy) do
+			snapshot.tbl[key] = value
+		end
+	end
+end
+
+-- Heavy Stun buildup at which an enemy of each rarity is Primed for Stun (PoB does not model Magic enemies)
+local heavyStunPrimedThreshold = { Normal = 40, Magic = 50, Rare = 60, Unique = 70 }
+
+-- Estimates how many hits and how long it takes to Heavy Stun the enemy, and which share of the time it then spends
+-- Heavy Stunned. Only the first cycle is modelled: the bar fills from zero, the enemy stays Heavy Stunned for the
+-- Heavy Stun duration, and the bar resets.
+local function calcHeavyStunCycle(env, actor, activeSkill)
+	local output = actor.output
+	local breakdown = actor.breakdown
+	local skillModList = activeSkill.skillModList
+	local enemyDB = actor.enemy.modDB
+	local skillFlags = env.mode == "CALCS" and activeSkill.activeEffect.statSetCalcs.skillFlags or activeSkill.activeEffect.statSet.skillFlags
+	local cfg = skillFlags.weapon1Attack and activeSkill.weapon1Cfg or activeSkill.skillCfg
+	local buildup = output.HeavyStunBuildupAvg or 0
+	local quantityMultiplier = m_max(skillModList:Sum("BASE", activeSkill.skillCfg, "QuantityMultiplier"), 1)
+	local hitsPerSecond = (output.HitSpeed or output.Speed or 0) * (output.DpsMultiplier or 1) * quantityMultiplier * (output.HitChance or 100) / 100
+	output.HeavyStunUptime = 0
+	if skillFlags.disable or not skillFlags.hit or buildup <= 0 or hitsPerSecond <= 0 then
+		return
+	end
+
+	local baseDuration = data.monsterConstants["base_heavy_stun_duration_ms"] / 1000
+	local incDuration = skillModList:Sum("INC", cfg, "EnemyStunDuration")
+	local moreDuration = skillModList:More(cfg, "EnemyStunDuration")
+	local chanceToDouble = m_min(skillModList:Sum("BASE", cfg, "DoubleEnemyStunDurationChance") + enemyDB:Sum("BASE", nil, "SelfDoubleStunDurationChance"), 100)
+	local incRecovery = enemyDB:Sum("INC", nil, "StunRecovery")
+	output.HeavyStunDuration = baseDuration * (1 + incDuration / 100) * moreDuration * (1 + chanceToDouble / 100) / (1 + incRecovery / 100)
+
+	local hitsToFill = m_ceil(100 / buildup)
+	output.HitsToHeavyStun = hitsToFill
+	local crushingBlows = skillModList:Flag(cfg, "CrushingBlows")
+	local enemyRarity = enemyDB:Flag(nil, "Condition:Unique") and "Unique" or (enemyDB:Flag(nil, "Condition:RareOrUnique") and "Rare" or "Normal")
+	local primedThreshold = heavyStunPrimedThreshold[enemyRarity]
+	local hitsToPrime = m_ceil(primedThreshold / buildup)
+	if crushingBlows then
+		-- The Crushing Blow after the hit that Primes the enemy causes the Heavy Stun
+		output.HitsToHeavyStun = m_min(hitsToFill, hitsToPrime + 1)
+	end
+	output.TimeToHeavyStun = output.HitsToHeavyStun / hitsPerSecond
+	output.HeavyStunUptime = output.HeavyStunDuration / (output.HeavyStunDuration + output.TimeToHeavyStun) * 100
+
+	if breakdown then
+		breakdown.HitsToHeavyStun = {
+			s_format("100%% / %.1f%% ^8(Heavy Stun buildup per hit)", buildup),
+			s_format("= %d ^8(hits to fill the Heavy Stun bar)", hitsToFill),
+		}
+		if crushingBlows then
+			t_insert(breakdown.HitsToHeavyStun, s_format("%d%% / %.1f%% ^8(%s enemies are Primed for Stun at %d%% buildup)", primedThreshold, buildup, enemyRarity, primedThreshold))
+			t_insert(breakdown.HitsToHeavyStun, s_format("= %d + 1 ^8(hits to Prime for Stun, then a Crushing Blow)", hitsToPrime))
+			t_insert(breakdown.HitsToHeavyStun, s_format("= %d ^8(the fewer of the two)", output.HitsToHeavyStun))
+		end
+		breakdown.HeavyStunDuration = { s_format("%.2fs ^8(base Heavy Stun duration)", baseDuration) }
+		if incDuration ~= 0 then
+			t_insert(breakdown.HeavyStunDuration, s_format("x %.2f ^8(increased/reduced stun duration)", 1 + incDuration / 100))
+		end
+		if moreDuration ~= 1 then
+			t_insert(breakdown.HeavyStunDuration, s_format("x %.2f ^8(more/less stun duration)", moreDuration))
+		end
+		if chanceToDouble ~= 0 then
+			t_insert(breakdown.HeavyStunDuration, s_format("x %.2f ^8(chance to double stun duration)", 1 + chanceToDouble / 100))
+		end
+		if incRecovery ~= 0 then
+			t_insert(breakdown.HeavyStunDuration, s_format("/ %.2f ^8(increased/reduced enemy stun recovery)", 1 + incRecovery / 100))
+		end
+		t_insert(breakdown.HeavyStunDuration, s_format("= %.2fs", output.HeavyStunDuration))
+		breakdown.HeavyStunUptime = {
+			s_format("%d ^8(hits to Heavy Stun)", output.HitsToHeavyStun),
+			s_format("/ %.2f ^8(hits per second)", hitsPerSecond),
+			s_format("= %.2fs ^8(time to Heavy Stun)", output.TimeToHeavyStun),
+			s_format("%.2fs / (%.2fs + %.2fs) ^8(Heavy Stun duration / (Heavy Stun duration + time to Heavy Stun))", output.HeavyStunDuration, output.HeavyStunDuration, output.TimeToHeavyStun),
+			s_format("= %.1f%%", output.HeavyStunUptime),
+		}
+	end
+end
+
+-- The Heavy Stun estimate uses hits against an enemy that is not Heavy Stunned yet
+local heavyStunUnblendedStats = { HeavyStunBuildupAvg = true, HeavyStunDuration = true, HitsToHeavyStun = true, TimeToHeavyStun = true, HeavyStunUptime = true }
+
+local function blendHeavyStunOutput(output, stunnedOutput, uptime)
+	for stat, value in pairs(output) do
+		local stunnedValue = stunnedOutput[stat]
+		if type(value) == "number" and type(stunnedValue) == "number" and stunnedValue ~= value and not heavyStunUnblendedStats[stat] then
+			output[stat] = value + (stunnedValue - value) * uptime
+		elseif (stat == "MainHand" or stat == "OffHand") and type(value) == "table" and type(stunnedValue) == "table" then
+			blendHeavyStunOutput(value, stunnedValue, uptime)
+		end
+	end
+end
+
+-- Performs all offensive calculations
+-- When the enemy is Heavy Stunned for only part of the time, the calculations are run against a Heavy Stunned and a normal
+-- enemy, and the results are averaged by the share of the time the enemy spends Heavy Stunned
+---@param env Env
+---@param actor Actor
+---@param activeSkill ActiveSkill
+function calcs.offence(env, actor, activeSkill)
+	local mode = env.configInput.enemyHeavyStunMode
+	if mode ~= "CUSTOM" and mode ~= "CALCULATED" then
+		calcOffence(env, actor, activeSkill)
+		if mode ~= "ALWAYS" then
+			-- Only hits against an enemy that is not Heavy Stunned yet show how long it takes to Heavy Stun it
+			calcHeavyStunCycle(env, actor, activeSkill)
+		end
+		return
+	end
+
+	local enemyDB = actor.enemy.modDB
+	local snapshots = snapshotOffenceState(env, actor, activeSkill)
+	for _, condition in ipairs({ "HeavyStunned", "Stunned", "Immobilised" }) do
+		enemyDB:NewMod("Condition:"..condition, "FLAG", true, "Heavy Stun uptime", { type = "Condition", var = "Effective" })
+	end
+	calcOffence(env, actor, activeSkill)
+	local stunnedOutput = copyTable(actor.output, true)
+	restoreOffenceState(snapshots)
+
+	calcOffence(env, actor, activeSkill)
+	calcHeavyStunCycle(env, actor, activeSkill)
+	local output = actor.output
+	local uptime
+	if mode == "CUSTOM" then
+		uptime = m_min(m_max(enemyDB:Sum("BASE", nil, "HeavyStunUptime"), 0), 100)
+	else
+		uptime = output.HeavyStunUptime
+	end
+	local normalDPS = output.CombinedDPS
+	blendHeavyStunOutput(output, stunnedOutput, uptime / 100)
+
+	local breakdown = actor.breakdown
+	if breakdown then
+		breakdown.HeavyStunUptime = breakdown.HeavyStunUptime or { }
+		t_insert(breakdown.HeavyStunUptime, "")
+		t_insert(breakdown.HeavyStunUptime, s_format("DPS averaged over %.1f%% Heavy Stun uptime%s:", uptime, mode == "CUSTOM" and " ^8(from the Configuration tab)" or ""))
+		t_insert(breakdown.HeavyStunUptime, s_format("%.1f ^8(combined DPS against a Heavy Stunned enemy)", stunnedOutput.CombinedDPS or 0))
+		t_insert(breakdown.HeavyStunUptime, s_format("%.1f ^8(combined DPS against an enemy that is not Heavy Stunned)", normalDPS or 0))
+		t_insert(breakdown.HeavyStunUptime, s_format("= %.1f", output.CombinedDPS or 0))
+	end
 end

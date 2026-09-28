@@ -1576,6 +1576,9 @@ return function(mod, flag, skill)
 	flag("CannotHeavyStun"),
 	flag("CannotStun"),
 },
+["crushing_blow_vs_ignited_and_fully_armour_broken"] = {
+	flag("CrushingBlows", { type = "ActorCondition", actor = "enemy", var = "Ignited" }, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken" }),
+},
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
 },

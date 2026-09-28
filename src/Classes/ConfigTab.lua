@@ -405,7 +405,11 @@ function ConfigTabClass:ConfigTab(build)
 			end
 			if varData.ifOption then
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifOption, function(ifOption)
-					return self.configSets[self.activeConfigSetId].input[ifOption]
+					local value = self.configSets[self.activeConfigSetId].input[ifOption]
+					if varData.ifOptionValue ~= nil then
+						return value == varData.ifOptionValue
+					end
+					return value
 				end))
 			end
 			if varData.ifCond then
@@ -899,7 +903,14 @@ function ConfigTabClass:Load(xml, fileName)
 					self.configSets[configSetId].input[node.attrib.name] = node.attrib.string
 				end
 			elseif node.attrib.boolean then
-				self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
+				-- backwards compat: the Heavy Stunned checkbox became the Heavy Stun uptime mode list
+				if node.attrib.name == "conditionEnemyHeavyStunned" then
+					if node.attrib.boolean == "true" then
+						self.configSets[configSetId].input.enemyHeavyStunMode = "ALWAYS"
+					end
+				else
+					self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
+				end
 			else
 				launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing number, string or boolean attribute", fileName)
 				return true

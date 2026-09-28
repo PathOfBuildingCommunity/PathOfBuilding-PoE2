@@ -1705,10 +1705,15 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyStunned", type = "check", label = "Is the enemy Stunned?", ifEnemyCond = "Stunned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Stunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyHeavyStunned", type = "check", label = "Is the enemy Heavy Stunned?", ifEnemyCond = "HeavyStunned", tooltip = "This also implies that the enemy is stunned.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:HeavyStunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("Condition:Stunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	{ var = "enemyHeavyStunMode", type = "list", label = "Is the enemy Heavy Stunned?", ifEnemyCond = "HeavyStunned", tooltip = "Controls how often the enemy is Heavy Stunned:\n\tNo: never\n\tAlways: all the time, which also implies that the enemy is Stunned and Immobilised\n\tCustom %: for the entered share of the time\n\tCalculated: for the share of the time estimated from the skill's Stun buildup per hit, hits per second and Heavy Stun duration (2s base)\nWith Custom % and Calculated, damage is averaged between hits against a Heavy Stunned and a normal enemy.\nWith Crushing Blows, the hit after the one that Primes the enemy for Stun causes the Heavy Stun (Primed at 40% buildup for normal, 60% for rare and 70% for unique enemies).\nOnly the first Heavy Stun is modelled: the enemy's higher Stun threshold after being Heavy Stunned is ignored.", list = {{val="NONE",label="No"},{val="ALWAYS",label="Always"},{val="CUSTOM",label="Custom %"},{val="CALCULATED",label="Calculated"}}, apply = function(val, modList, enemyModList)
+		if val == "ALWAYS" then
+			enemyModList:NewMod("Condition:HeavyStunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("Condition:Stunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		end
+	end },
+	{ var = "enemyHeavyStunUptime", type = "countAllowZero", label = "Heavy Stun uptime %:", ifOption = "enemyHeavyStunMode", ifOptionValue = "CUSTOM", ifEnemyCond = "HeavyStunned", defaultPlaceholderState = 50, tooltip = "Share of the time the enemy spends Heavy Stunned.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("HeavyStunUptime", "BASE", m_max(m_min(val, 100), 0), "Config")
 	end },
 	{ var = "conditionEnemyBleeding", type = "check", label = "Is the enemy Bleeding?", ifEnemyCond = "Bleeding", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Bleeding", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
