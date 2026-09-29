@@ -3183,8 +3183,13 @@ skills["ChaosFrogExplosionPlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				local interval = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ToadSpawnInterval")
-				-- returning infinity sets dps to zero if the support part of this isn't actually active
-				activeSkill.skillData.hitTimeMultiplier = (interval != 0) and (interval / 1000) or math.huge
+				if interval == 0 then
+					-- An inactive support cannot spawn toads or deal damage, including ailments.
+					activeSkill.skillData.hitTimeMultiplier = math.huge
+					activeSkill.skillModList:NewMod("DealNoDamage", "FLAG", true, "Doedre's Undoing")
+				else
+					activeSkill.skillData.hitTimeMultiplier = interval / 1000
+				end
 			end,
 	statSets = {
 		[1] = {
