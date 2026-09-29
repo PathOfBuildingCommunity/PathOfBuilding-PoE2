@@ -229,3 +229,71 @@ Strict-Transport-Security: max-age=63115200; includeSubDomains; preload]]
 		end)
 	end)
 end)
+
+describe("TradeQueryRequests URL searches", function()
+	local requests
+	before_each(function()
+		requests = new("TradeQueryRequests"):TradeQueryRequests()
+	end)
+
+	it("encodes the league once for both query lookup and search", function()
+		requests:SearchWithURL("https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites/example", function() end)
+		local lookup = table.remove(requests.requestQueue.search, 1)
+		assert.are.equal("https://www.pathofexile.com/api/trade2/search/poe2/Forbidden%20Rites/example", lookup.url)
+		lookup.callback('{"query":{"stats":[]}}')
+		local search = requests.requestQueue.search[1]
+		assert.are.equal("https://www.pathofexile.com/api/trade2/search/poe2/Forbidden%20Rites", search.url)
+		assert.are.same({ price = "asc" }, require("dkjson").decode(search.body).sort)
+	end)
+
+	it("preserves escaped percent signs and slashes in league names", function()
+		requests:SearchWithURL("https://www.pathofexile.com/trade2/search/poe2/Test%2520%2FLeague/example", function() end)
+		assert.are.equal("https://www.pathofexile.com/api/trade2/search/poe2/Test%2520%2FLeague/example", requests.requestQueue.search[1].url)
+	end)
+
+	it("still accepts legacy URLs without a realm", function()
+		requests:SearchWithURL("https://www.pathofexile.com/trade2/search/Standard/example", function() end)
+		assert.are.equal("https://www.pathofexile.com/api/trade2/search/Standard/example", requests.requestQueue.search[1].url)
+	end)
+
+	it("rejects unrelated URLs without throwing or queueing a request", function()
+		local errorMessage
+		requests:SearchWithURL("https://example.com/trade2/search/Standard/example", function(_, err)
+			errorMessage = err
+		end)
+		assert.are.equal("Invalid URL", errorMessage)
+		assert.are.equal(0, #requests.requestQueue.search)
+	end)
+
+	it("reports malformed query responses without starting a search", function()
+		local errorMessage
+		requests:SearchWithURL("https://www.pathofexile.com/trade2/search/Standard/example", function(_, err)
+			errorMessage = err
+		end)
+		local lookup = table.remove(requests.requestQueue.search, 1)
+		lookup.callback('{}')
+		assert.are.equal("Failed to parse search query JSON", errorMessage)
+		assert.are.equal(0, #requests.requestQueue.search)
+	end)
+	it("submits compressed browser queries directly, including repeated searches", function()
+		local payload = "H4sIAAAAAAAAA42U62rkMAyF38W_hyDLF0nzKksp3ozbGtJMmksvlHn3VaalTSGm-yPEIcdfjk4kv5u70s15nMzx3Yz56XbzeCpT-tvlkznepW7Kh620e-7W22N6NUcPl8vlYOYxnfJ2_2Y5jKXNXxvsh_5tqMnbNOf78_i2rs_DXM69OZqXnIZz30xtHuYxGyWMaSzzT1F_7pe-PC36_vqRaU6zIv9s8LouWpPJr0NX2jI3q-YWbUQQ8gHNwTynbrnafcnl_mE2R-eoYYgOA3FAUvIuxJLwKmG_BwkNB6AYmCJa5BoEOXgKVmAXYmMj6MSFCBY81iDsRZg8xhqDick6dQNVIzZoHALRyx4EoWFxguQ4sPPVapwncDHybq6rE1IMgY1kN4y-fUj9f6Ya0YtHlUSplqJpSNB6az_GRyC9nLJczcavDLKktYoI1o2gtoBFsrAbRwMOmLTbPKLEGsRB0MDQQ9iDQENiI8P6KUe2SvHA4C1Hv1sPNFGs0w5jr6Ggr4TyqxVmG5i13x2QduvNx9xfx_mq2ex6LDrBsSEQzxyJBD5b4nt0v7en_mRW2upimX6cAVNul3E9ufQM-AfqJq6d4AQAAA"
+		for i = 1, 2 do
+			requests:SearchWithURL("https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites/" .. payload, function() end)
+			local search = table.remove(requests.requestQueue.search, 1)
+			assert.are.equal("https://www.pathofexile.com/api/trade2/search/poe2/Forbidden%20Rites", search.url)
+			local query = require("dkjson").decode(search.body)
+			assert.are.equal("weight", query.query.stats[1].type)
+			assert.are.equal("desc", query.sort["statgroup.0"])
+		end
+	end)
+
+	it("rejects damaged compressed queries without making a request", function()
+		local errorMessage
+		requests:SearchWithURL("https://www.pathofexile.com/trade2/search/poe2/Standard/H4sIAAAA", function(_, err)
+			errorMessage = err
+		end)
+		assert.are.equal("Failed to decode compressed search query", errorMessage)
+		assert.are.equal(0, #requests.requestQueue.search)
+	end)
+
+end)
