@@ -16,6 +16,31 @@ describe("TestItemsTab", function()
 		runCallback("OnFrame")
 	end)
 
+	it("colours complete multiline rune modifiers without joining normal and Bonded lines", function()
+		local firstLine = "Increases and Reductions to Spell Damage also"
+		local continuation = " apply to Attacks"
+		local supported = "+10 to maximum Life"
+		local blue, red = colorCodes.MAGIC, colorCodes.UNSUPPORTED
+		local cases = {
+			{ lines = { firstLine, continuation, supported }, colours = { blue, blue, blue } },
+			{ lines = { "Bonded: " .. firstLine, "Bonded: " .. continuation, supported }, colours = { blue, blue, blue } },
+			{ lines = { firstLine, "Bonded: " .. continuation }, colours = { red, red } },
+			{ lines = { "Bonded: " .. firstLine, continuation }, colours = { red, red } },
+			{ lines = { firstLine, supported, "Bonded: " .. supported, continuation }, colours = { red, blue, blue, red } },
+		}
+		local comparison = stub(build.itemsTab, "AddModComparisonTooltip")
+		for _, case in ipairs(cases) do
+			local tooltip = new("Tooltip"):Tooltip()
+			local value = { name = "Test Rune", req = 1, lines = case.lines }
+			build.itemsTab.controls.displayItemRune1.tooltipFunc(tooltip, "HOVER", 1, value)
+			assert.are.equal(#case.lines + 1, #tooltip.lines)
+			for index, line in ipairs(case.lines) do
+				assert.are.equal(case.colours[index] .. line, tooltip.lines[index + 1].text)
+			end
+		end
+		comparison:revert()
+	end)
+
 	it("compares weapons in the skill's assigned set, with Both following the Items tab", function()
 		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
 		local group = build.skillsTab.displayGroup

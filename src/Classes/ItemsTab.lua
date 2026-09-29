@@ -812,12 +812,31 @@ holding Shift will put it in the second.]])
 				if value.req > 1 then
 					tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", value.req))
 				end
-				for _, line in ipairs(value.lines) do
-					-- rune mod lines don't need a range applied to them
-					local stripped = line:gsub("Bonded: ", "")
+				local function stripRuneLine(line)
+					local stripped, bonded = line:gsub("^Bonded:%s*", "")
+					return stripped:match("^%s*(.-)%s*$"), bonded
+				end
+				local lineIndex = 1
+				while lineIndex <= #value.lines do
+					-- Match item parsing: retry unsupported text with its continuation line.
+					local stripped, bonded = stripRuneLine(value.lines[lineIndex])
 					local modList, extra = modLib.parseMod(stripped)
-					local colour = ((not not modList) and not extra) and colorCodes.MAGIC or colorCodes.UNSUPPORTED
-					tooltip:AddLine(14, colour .. line)
+					local lineCount = 1
+					if (not modList or extra) and value.lines[lineIndex + 1] then
+						local nextLine, nextBonded = stripRuneLine(value.lines[lineIndex + 1])
+						if bonded == nextBonded then
+							local combinedMods, combinedExtra = modLib.parseMod(stripped .. " " .. nextLine, true)
+							if combinedMods and not combinedExtra then
+								modList, extra = combinedMods, combinedExtra
+								lineCount = 2
+							end
+						end
+					end
+					local colour = (modList and not extra) and colorCodes.MAGIC or colorCodes.UNSUPPORTED
+					for index = lineIndex, lineIndex + lineCount - 1 do
+						tooltip:AddLine(14, colour .. value.lines[index])
+					end
+					lineIndex = lineIndex + lineCount
 				end
 				-- Adding Comparison
 				local compLines = { type = "Rune" }
