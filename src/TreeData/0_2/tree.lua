@@ -1119,9 +1119,6 @@ return {
 			BGTree=1,
 			BGTreeActive=2
 		},
-		["background_1024_1024_BC7.dds.zst"]={
-			Background2=1
-		},
 		["group-background_104_104_BC7.dds.zst"]={
 			PSSkillFrame=2,
 			PSSkillFrameActive=3,

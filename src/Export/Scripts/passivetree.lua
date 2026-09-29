@@ -241,7 +241,6 @@ local defaultMaxWidth = 1500
 local sheets = {
 	newSheet("skills",  defaultMaxWidth, 100),
 	newSheet("skills-disabled", defaultMaxWidth, 60),
-	newSheet("background", defaultMaxWidth, 100),
 	newSheet("group-background", defaultMaxWidth, 100),
 	newSheet("mastery-active-effect", defaultMaxWidth, 100),
 	newSheet("ascendancy-background", defaultMaxWidth, 100),
@@ -253,14 +252,13 @@ local sheets = {
 local sheetLocations = {
 	["skills"] = 1,
 	["skills-disabled"] = 2,
-	["background"] = 3,
-	["group-background"] = 4,
-	["mastery-active-effect"] = 5,
-	["ascendancy-background"] = 6,
-	["oils"] = 7,
-	["lines"] = 8,
-	["jewel-sockets"] = 9,
-	["legion"] = 10,
+	["group-background"] = 3,
+	["mastery-active-effect"] = 4,
+	["ascendancy-background"] = 5,
+	["oils"] = 6,
+	["lines"] = 7,
+	["jewel-sockets"] = 8,
+	["legion"] = 9,
 }
 local connectionArtToDecompose = {
 	Character = true,
@@ -306,17 +304,6 @@ end
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
 end
-
--- Looking for Background2
---printf("Extracting Background2...")
-local bg2 = uiImages["art/2dart/uiimages/common/background2"]
-if not bg2 then
-	printf("Background2 not found")
-	goto final
-end
-
--- for support we needs to _out.dds when .dds
-addToSheet(getSheet("background"), bg2.path, "background", commonMetadata("Background2"))
 
 -- add Group Background base ond UIArt from PassiveTree\
 --printf("Getting Background Group...")

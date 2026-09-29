@@ -1820,25 +1820,14 @@ function buildMode:OpenSpectreLibrary(library)
 			assetData.handle = NewImageHandle()
 			assetData.handle:Load("Assets/" .. file, "CLAMP")
 			assetData.width, assetData.height = assetData.handle:ImageSize()
-			for name, info in pairs(fileInfo) do
-				local image = {
+			for name, positionData in pairs(fileInfo) do
+				local asset = {
 					found = assetData.width > 0,
 					handle = assetData.handle,
 					width = assetData.width,
 					height = assetData.height,
 				}
-				images[name] = image
-				-- {x, y, w, h}
-				if type(info) == "table" then
-					-- scale pixel values to [0, 1]
-					image[1] = info[1] / assetData.width
-					image[2] = info[2] / assetData.height
-					image[3] = (info[1] + info[3]) / assetData.width
-					image[4] = (info[2] + info[4]) / assetData.height
-					image[5] = info[5]
-				else
-					image[1] = info
-				end
+				images[name] = applyDDSCoords(asset, positionData, assetData.width, assetData.height)
 			end
 		end
 		return images

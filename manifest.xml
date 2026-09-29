@@ -1250,7 +1250,6 @@
 	<File name="TreeData/0_1/ascendancy-background_1500_1500_BC7.dds.zst" part="tree" sha1="fc5111b72c5da72ddfa60149e40aa24235743580" />
 	<File name="TreeData/0_1/ascendancy-background_4000_4000_BC7.dds.zst" part="tree" sha1="3b55cc6cc196eb4e5fc198e59b131d7f0fcb3c06" />
 	<File name="TreeData/0_1/background_348_348_BC7.dds.zst" part="tree" sha1="d0ca1a91ddd57a3d8f37902fdb8a93adf0766967" />
-	<File name="TreeData/0_1/background_1024_1024_BC7.dds.zst" part="tree" sha1="9075f0f0e4db5fedd3ac542cfab37a15de5bcafe" />
 	<File name="TreeData/0_1/group-background_92_92_BC7.dds.zst" part="tree" sha1="715411b1326fcd5a4bddc2e803db945f5e65a838" />
 	<File name="TreeData/0_1/group-background_104_104_BC7.dds.zst" part="tree" sha1="3ece257b4bca23cc2420cec7944d1b72f5b464f2" />
 	<File name="TreeData/0_1/group-background_124_124_BC7.dds.zst" part="tree" sha1="fc01635b062e9924d034422b5db75d666bc8b0b3" />
@@ -1330,7 +1329,6 @@
 	<File name="TreeData/0_1/tree.lua" part="tree" sha1="24b1f04cbe97a5d1e6ab4ae706bc315dd419e82a" />
 	<File name="TreeData/0_2/ascendancy-background_1500_1500_BC7.dds.zst" part="tree" sha1="fbcc756df4f15d209201ed56c01bb31a661433be" />
 	<File name="TreeData/0_2/ascendancy-background_4000_4000_BC7.dds.zst" part="tree" sha1="b8915444bd4f812207cbbc52d9ab75336da9c9a1" />
-	<File name="TreeData/0_2/background_1024_1024_BC7.dds.zst" part="tree" sha1="9075f0f0e4db5fedd3ac542cfab37a15de5bcafe" />
 	<File name="TreeData/0_2/group-background_64_64_BC7.dds.zst" part="tree" sha1="9bcb96b1469b9591efe09053a509d6f51668f2bd" />
 	<File name="TreeData/0_2/group-background_92_92_BC7.dds.zst" part="tree" sha1="715411b1326fcd5a4bddc2e803db945f5e65a838" />
 	<File name="TreeData/0_2/group-background_104_104_BC7.dds.zst" part="tree" sha1="3ece257b4bca23cc2420cec7944d1b72f5b464f2" />
@@ -1395,7 +1393,6 @@
 	<File name="TreeData/0_2/tree.lua" part="tree" sha1="65813648276a98851204c1babd025ff649a29cde" />
 	<File name="TreeData/0_3/ascendancy-background_1500_1500_BC7.dds.zst" part="tree" sha1="942356d3b86733a3ed51021965654c6897e43ba7" />
 	<File name="TreeData/0_3/ascendancy-background_4000_4000_BC7.dds.zst" part="tree" sha1="b8915444bd4f812207cbbc52d9ab75336da9c9a1" />
-	<File name="TreeData/0_3/background_1024_1024_BC7.dds.zst" part="tree" sha1="9075f0f0e4db5fedd3ac542cfab37a15de5bcafe" />
 	<File name="TreeData/0_3/group-background_92_92_BC7.dds.zst" part="tree" sha1="715411b1326fcd5a4bddc2e803db945f5e65a838" />
 	<File name="TreeData/0_3/group-background_104_104_BC7.dds.zst" part="tree" sha1="4ae4be6fde8a0e640f6c52442d9f09270068fb4f" />
 	<File name="TreeData/0_3/group-background_152_156_BC7.dds.zst" part="tree" sha1="89273cc656bca8ede4f9233a24d96cfaf808bcbc" />
@@ -1457,7 +1454,6 @@
 	<File name="TreeData/0_3/tree.lua" part="tree" sha1="daad4a7bcbe6798d62fc62de1dc8365a74ff46cc" />
 	<File name="TreeData/0_4/ascendancy-background_1500_1500_BC7.dds.zst" part="tree" sha1="416c61950cfcc767854fc9884ca0993873af456c" />
 	<File name="TreeData/0_4/ascendancy-background_4000_4000_BC7.dds.zst" part="tree" sha1="b8915444bd4f812207cbbc52d9ab75336da9c9a1" />
-	<File name="TreeData/0_4/background_1024_1024_BC7.dds.zst" part="tree" sha1="9075f0f0e4db5fedd3ac542cfab37a15de5bcafe" />
 	<File name="TreeData/0_4/Character_orbit_intermediate0.png" part="tree" sha1="f349e91d02b829ca1f88e1e64b8209646e89afa9" />
 	<File name="TreeData/0_4/Character_orbit_intermediate1.png" part="tree" sha1="58e54d48c1bed462899e6ecf6cefd46b5100abb0" />
 	<File name="TreeData/0_4/Character_orbit_intermediate2.png" part="tree" sha1="257080863ba71e27657ef9d54a211bfa9ae0bd67" />
@@ -1577,7 +1573,6 @@
 	<File name="TreeData/0_4/tree.lua" part="tree" sha1="38affa436dfc5c2232deee865bd6de66e5b2a83f" />
 	<File name="TreeData/0_5/ascendancy-background_1500_1500_BC7.dds.zst" part="tree" sha1="fd2201f31f644ec09ca5fccc4850dbd42bbc92db" />
 	<File name="TreeData/0_5/ascendancy-background_4000_4000_BC7.dds.zst" part="tree" sha1="b8915444bd4f812207cbbc52d9ab75336da9c9a1" />
-	<File name="TreeData/0_5/background_1024_1024_BC7.dds.zst" part="tree" sha1="9075f0f0e4db5fedd3ac542cfab37a15de5bcafe" />
 	<File name="TreeData/0_5/Character_orbit_intermediate0.png" part="tree" sha1="f812439032c06d134dc566fe0adba194b1a774af" />
 	<File name="TreeData/0_5/Character_orbit_intermediate1.png" part="tree" sha1="124aace2550a71ebcc7f0940fe9ff6b03e708d9b" />
 	<File name="TreeData/0_5/Character_orbit_intermediate2.png" part="tree" sha1="4cf4cc1ff75495a5a6b765e97b5af29da8092d2a" />

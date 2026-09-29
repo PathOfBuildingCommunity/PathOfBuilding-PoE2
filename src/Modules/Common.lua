@@ -1116,3 +1116,33 @@ function HashStats(stats, extraStat)
 	end
 	return murmurHash2(statHashes, GGG_TRADE_SEED)
 end
+
+---@class DDSPosition
+---@field [1] number x
+---@field [2] number y
+---@field [3] number width
+---@field [4] number height
+---@field [5] number stack index
+local x -- avoids binding annotation to below function
+
+-- Calculates DDS asset position information for input into DrawImage
+---@param asset any
+---@param coords number|DDSPosition
+---@param sheetWidth number
+---@param sheetHeight number
+---@return any asset The asset, with either stack idx, or x, y, w, h, stackIdx added into it
+function applyDDSCoords(asset, coords, sheetWidth, sheetHeight)
+	asset.width, asset.height = sheetWidth, sheetHeight
+	if type(coords) == "number" then
+		asset[1] = coords
+	elseif sheetWidth > 0 and sheetHeight > 0 then
+		asset.width, asset.height = coords[3], coords[4]
+		-- Scale from pixel values to [0, 1]
+		asset[1] = coords[1] / sheetWidth
+		asset[2] = coords[2] / sheetHeight
+		asset[3] = (coords[1] + coords[3]) / sheetWidth
+		asset[4] = (coords[2] + coords[4]) / sheetHeight
+		asset[5] = coords[5]
+	end
+	return asset
+end
