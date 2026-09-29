@@ -692,7 +692,14 @@ local function getGrantedSkillLevel(gemData, maxLevel, characterLevel, modDB)
 			return level
 		end
 	end
-	return 1
+	-- Some granted skills only define higher levels (Pinnacle of Power has only 20)
+	local lowest
+	for level in pairs(gemData.grantedEffect.levels) do
+		if type(level) == "number" and (not lowest or level < lowest) then
+			lowest = level
+		end
+	end
+	return lowest or 1
 end
 
 local defaultAttackSlots = {
