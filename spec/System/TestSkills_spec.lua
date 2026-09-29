@@ -909,6 +909,77 @@ describe("TestSkills", function()
 		assert.are.equals(warcryFirstDps, supportFirstDps)
 	end)
 
+	it("support-granted active skills inherit from the supported skill regardless of meta gem order", function()
+		local expectedDamage
+		for _, socketGroupText in ipairs({
+			"Cast on Critical 10/0  1\nDespair 20/0  1\nDoedre's Undoing 1/0  1",
+			"Despair 20/0  1\nCast on Critical 10/0  1\nDoedre's Undoing 1/0  1",
+			"Doedre's Undoing 1/0  1\nCast on Critical 10/0  1\nDespair 20/0  1",
+		}) do
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText)
+			local socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+			recalculate()
+			local darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+			assert.is_not_nil(darkConsequences)
+			assert.are.equals(20, darkConsequences.activeEffect.level)
+			assert.are.equals(20, build.calcsTab.mainOutput.GemLevel)
+			assert.are.equals(20, build.calcsTab.calcsOutput.GemLevel)
+			local baseDamage = build.calcsTab.mainOutput.AverageDamage
+			assert.True(baseDamage > 0)
+			expectedDamage = expectedDamage or baseDamage
+			assert.are.equals(expectedDamage, baseDamage)
+
+			-- Inherit the curse's final level, including supports and global bonuses,
+			-- without adding the support gem's own matching chaos level bonus again.
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText .. "\nChaos Mastery 1/0  1")
+			socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+			build.configTab.input.customMods = "+2 to Level of all Chaos Skills"
+			build.configTab:BuildModList()
+			recalculate()
+			darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+			assert.are.equals(23, darkConsequences.activeEffect.level)
+			assert.are.equals(23, build.calcsTab.mainOutput.GemLevel)
+			assert.are.equals(23, build.calcsTab.calcsOutput.GemLevel)
+			assert.True(build.calcsTab.mainOutput.AverageDamage > baseDamage)
+
+			local calcFunc, calcBase = build.calcsTab:GetMiscCalculator()
+			assert.are.equals(23, calcBase.GemLevel)
+			assert.are.equals(23, calcFunc().GemLevel)
+		end
+	end)
+
+	it("support-granted active skills inherit tree gem levels from the linked skill", function()
+		build.skillsTab:PasteSocketGroup("Despair 20/0  1\nDoedre's Undoing 1/0  1")
+		local socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+		recalculate()
+		local darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+		assert.is_not_nil(darkConsequences)
+		assert.are.equals(20, darkConsequences.activeEffect.level)
+		assert.are.equals(20, build.calcsTab.mainOutput.GemLevel)
+		local baseDamage = build.calcsTab.mainOutput.AverageDamage
+
+		local chaosMasteryNode = build.spec.nodes[63074]
+		assert.are.equals("Dark Entries", chaosMasteryNode.dn)
+		assert.are.equals("+1 to Level of all Chaos Skills", chaosMasteryNode.sd[1])
+		chaosMasteryNode.alloc = true
+		build.spec.allocNodes[chaosMasteryNode.id] = chaosMasteryNode
+		recalculate()
+
+		darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+		-- the support gem also matches "all Chaos Skills", but its own gem level modifiers
+		-- must not stack on top of the level inherited from Despair
+		assert.are.equals(21, darkConsequences.activeEffect.level)
+		assert.are.equals(21, build.calcsTab.mainOutput.GemLevel)
+		assert.True(build.calcsTab.mainOutput.AverageDamage > baseDamage)
+
+		local calcFunc, calcBase = build.calcsTab:GetMiscCalculator()
+		local withoutNode = calcFunc({ removeNodes = { [chaosMasteryNode] = true } })
+		assert.are.equals(21, calcBase.GemLevel)
+		assert.are.equals(20, withoutNode.GemLevel)
+		assert.True(withoutNode.AverageDamage < calcBase.AverageDamage)
+	end)
 	it("Flame Breath attack speed scales DPS and is not capped by its channel cooldown", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item

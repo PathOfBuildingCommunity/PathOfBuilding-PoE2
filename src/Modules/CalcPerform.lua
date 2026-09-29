@@ -3658,22 +3658,26 @@ function calcs.perform(env, skipEHP)
 			local totalSupportLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportLevel")
 			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
+			local inheritsLevel = mainSkill.skillData.inheritsGemLevel
 			output.GemHasLevel = true
-			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
+			output.GemLevel = m_max(inheritsLevel and baseLevel or (baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel), 1)
 
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
 				t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from gem)", baseLevel))
-				if totalSupportLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from support)", totalSupportLevel))
-				end
-				if totalItemLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
-				end
-				if totalCorruptionLevel > 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
-				elseif totalCorruptionLevel < 0 then
-					t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
+				-- support gems inherit levels from the parent gem, which means showing level modifiers is pointless
+				if not inheritsLevel then
+					if totalSupportLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from support)", totalSupportLevel))
+					end
+					if totalItemLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+					end
+					if totalCorruptionLevel > 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+					elseif totalCorruptionLevel < 0 then
+						t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
+					end
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
 			end
