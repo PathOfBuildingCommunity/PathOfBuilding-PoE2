@@ -179,6 +179,7 @@ UniqueIncreasedLife57
 UniqueReducedLocalAttributeRequirements6
 UniqueDeflectChanceLuckyOnLowLife1
 UniqueEnemiesInPresenceGainGruelingMadness1
+UniqueCanBeInstilled
 ]],[[
 Briskwrap
 Rhoahide Coat

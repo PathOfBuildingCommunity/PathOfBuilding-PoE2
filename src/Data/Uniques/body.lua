@@ -186,6 +186,7 @@ Grants Skill: Level (1-20) Mist Raven
 100% increased Attribute Requirements
 Chance to Deflect is Lucky while on Low Life
 Enemies in your Presence gain 1 Gruelling Madness each second
+Raven-Touched
 ]],[[
 Briskwrap
 Rhoahide Coat

@@ -480,6 +480,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.spiritValue = nil
 	self.runicItem = nil
 	self.quality = nil
+	self.canBeAnointed = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
 	for line in raw:gmatch("%s*([^\n]*%S)") do
@@ -1263,7 +1264,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.prefixes.limit = (self.prefixes.limit or 0) + (tonumber(lineLower:match("%+(%d+) prefix modifiers? allowed")) or 0) - (tonumber(lineLower:match("%-(%d+) prefix modifiers? allowed")) or 0)
 				elseif lineLower:match(" suffix modifiers? allowed") then
 					self.suffixes.limit = (self.suffixes.limit or 0) + (tonumber(lineLower:match("%+(%d+) suffix modifiers? allowed")) or 0) - (tonumber(lineLower:match("%-(%d+) suffix modifiers? allowed")) or 0)
-				elseif lineLower == "this item can be anointed by cassia" then
+				elseif lineLower == "this item can be anointed by cassia" or lineLower == "raven-touched" then
 					self.canBeAnointed = true
 				elseif (lineLower == "can have 1 additional instilled modifier" or lineLower == "can have an additional instilled modifier") then
 					self.canHaveTwoEnchants = true

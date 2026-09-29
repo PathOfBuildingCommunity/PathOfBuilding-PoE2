@@ -103,6 +103,7 @@ UniqueIncreasedAttackSpeed16
 UniqueDexterity45
 UniqueAddedChaosDamage5
 UniqueGainFearIncarnateOnCulling1
+UniqueCanBeInstilled
 ]],[[
 Idle Hands
 Sectioned Bracers

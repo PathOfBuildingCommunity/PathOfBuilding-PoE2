@@ -106,6 +106,7 @@ Grants Skill: Level (1-20) Crushing Fear
 +(13-23) to Dexterity
 Adds (19-23) to (31-37) Chaos Damage to Attacks
 Gain 1 Fear Incarnate when you Cull a target
+Raven-Touched
 ]],[[
 Idle Hands
 Sectioned Bracers
