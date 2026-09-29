@@ -642,5 +642,90 @@ describe("Versioned item variants", function()
 			assert.is_nil(item.selectedBase)
 			assert.equals("Gold Ring", item.baseName)
 		end)
+
+		it("preserves legacy bases when switching versions and crafting choices", function()
+			for _, case in ipairs({
+				{ "The Surrender, Vaal Tower Shield", "Stone Tower Shield", "Vaal Tower Shield" },
+				{ "Voll's Protector, Plated Vestments", "Ironclad Vestments", "Plated Vestments" },
+			}) do
+				local item = dbItem(case[1])
+				item.variant = 1
+				item:BuildAndParseRaw()
+				assert.equals(case[2], item.baseName)
+				item.selectedBase = 3
+				item:BuildAndParseRaw()
+				assert.matches("Runemastered", item.baseName, 1, true)
+				item.selectedBase = 1
+				item:BuildAndParseRaw()
+				assert.equals(case[2], item.baseName)
+				item.variant = #item.variantList
+				item:BuildAndParseRaw()
+				assert.equals(case[3], item.baseName)
+				item.selectedBase = 3
+				item:BuildAndParseRaw()
+				item.selectedBase = 1
+				item:BuildAndParseRaw()
+				assert.equals(case[3], item.baseName)
+				assert.equals(case[3], new("Item"):Item(item.raw).baseName)
+			end
+		end)
+
+		it("adds and removes crafted implicits when changing base choices", function()
+			local item = dbItem("Wanderlust, Wrapped Sandals")
+			for _, baseId in ipairs({ 1, 3, 2, 3, 1 }) do
+				item.selectedBase = baseId
+				item:BuildAndParseRaw()
+				local expectedSpeed = baseId == 3 and 25 or 20
+				assert.equals(expectedSpeed, item.baseModList:Sum("INC", nil, "MovementSpeed"))
+				assert.equals(expectedSpeed, new("Item"):Item(item.raw).baseModList:Sum("INC", nil, "MovementSpeed"))
+			end
+		end)
+
+		it("replaces changed base implicits while preserving unique implicits", function()
+			local item = new("Item"):Item([[
+				Rarity: Unique
+				Craft Implicit Test
+				Warpick
+				Implicits: 2
+				+(5-10)% to Critical Damage Bonus
+				+17 to maximum Life
+			]])
+			item.implicitModLines[1].range = 0.2
+			itemLib.addRuneforgingBaseVariants(item)
+			for _, baseId in ipairs({ 1, 2, 1 }) do
+				item.selectedBase = baseId
+				item:BuildAndParseRaw()
+				assert.equals(17, item.baseModList:Sum("BASE", nil, "Life"))
+				local active = { }
+				for _, modLine in ipairs(item.implicitModLines) do
+					if item:CheckModLineVariant(modLine) then
+						active[modLine.line] = true
+					end
+					if modLine.line == "+(5-10)% to Critical Damage Bonus" then
+						assert.equals(0.2, modLine.range)
+					end
+				end
+				assert.equals(baseId == 1 or nil, active["+(5-10)% to Critical Damage Bonus"])
+				assert.equals(baseId == 2 or nil, active["(30-40)% increased effect of Fully Broken Armour"])
+			end
+		end)
+
+		it("does not duplicate shared implicits or augment an item twice", function()
+			local item = dbItem("The Surrender, Vaal Tower Shield")
+			for _, baseId in ipairs({ 1, 2, 3 }) do
+				item.selectedBase = baseId
+				item:BuildAndParseRaw()
+				local count = 0
+				for _, modLine in ipairs(item.implicitModLines) do
+					if modLine.line == "Grants Skill: Raise Shield" and item:CheckModLineVariant(modLine) then
+						count += 1
+					end
+				end
+				assert.equals(1, count)
+			end
+			local raw = item.raw
+			itemLib.addRuneforgingBaseVariants(item)
+			assert.equals(raw, item.raw)
+		end)
 	end)
 end)

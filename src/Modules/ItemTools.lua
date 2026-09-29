@@ -10,6 +10,104 @@ local m_max = math.max
 local m_floor = math.floor
 
 itemLib = { }
+
+local function addRuneforgingBaseMappings(item, bases)
+	-- Older records can omit the current variant's base tag and rely on the header.
+	-- Make that fallback explicit so switching back from a crafted base is stable.
+	local currentBaseLine = item.baseLines[item.baseName]
+	if item.variantList and not item:UsesVersionedOrGroupedVariants() and currentBaseLine.variantList then
+		for variantId in ipairs(item.variantList) do
+			local hasBase = false
+			for _, baseLine in pairs(item.baseLines) do
+				if not baseLine.variantList or baseLine.variantList[variantId] then
+					hasBase = true
+					break
+				end
+			end
+			if not hasBase then
+				currentBaseLine.variantList[variantId] = true
+			end
+		end
+	end
+	for _, baseLine in pairs(item.baseLines) do
+		baseLine.baseVariantList = { [1] = true }
+	end
+	item.baseList = { }
+	for baseId, base in ipairs(bases) do
+		t_insert(item.baseList, base.variantName)
+		if baseId > 1 then
+			item.baseLines[base.name] = { line = base.name, baseVariantList = { [baseId] = true } }
+		end
+	end
+end
+
+local function addRuneforgingImplicits(item, bases)
+	local originalBaseImplicits = { }
+	for line in (item.base.implicit or ""):gmatch("[^\n]+") do
+		originalBaseImplicits[line] = true
+	end
+	local existingItemImplicits = { }
+	for _, modLine in ipairs(item.implicitModLines) do
+		existingItemImplicits[modLine.line] = true
+	end
+	-- Only update original lines below, not the crafted implicits appended here.
+	local originalImplicitCount = #item.implicitModLines
+	for baseId = 2, #bases do
+		local baseData = data.itemBases[bases[baseId].name]
+		local craftImplicits = { }
+		local implicitIndex = 0
+		for line in (baseData.implicit or ""):gmatch("[^\n]+") do
+			implicitIndex += 1
+			craftImplicits[line] = true
+			-- Add only new base implicits; keep existing unique overrides intact.
+			if not originalBaseImplicits[line] and not existingItemImplicits[line] then
+				t_insert(item.implicitModLines, {
+					line = line,
+					range = 1,
+					modTags = baseData.implicitModTypes and baseData.implicitModTypes[implicitIndex],
+					baseVariantList = { [baseId] = true },
+				})
+			end
+		end
+		-- Original base implicits apply only to choices that still include them.
+		-- Other unique implicits retain their existing selection tags and rolls.
+		for modIndex = 1, originalImplicitCount do
+			local modLine = item.implicitModLines[modIndex]
+			if originalBaseImplicits[modLine.line] then
+				modLine.baseVariantList = modLine.baseVariantList or { [1] = true }
+				modLine.baseVariantList[baseId] = craftImplicits[modLine.line]
+			end
+		end
+	end
+end
+
+-- Add database crafting choices without discarding legacy bases or unique implicits.
+function itemLib.addRuneforgingBaseVariants(item)
+	if item.rarity ~= "UNIQUE" or (item.baseList and next(item.baseList)) then
+		return
+	end
+	-- Choice 1 always represents the original item, including its legacy bases.
+	local bases = { { name = item.baseName, variantName = "Regular Base" } }
+	local seenBases = { [item.baseName] = true }
+	for _, craft in ipairs(data.runeforgingCrafts[item.baseName] or { }) do
+		if not seenBases[craft.name] and data.itemBases[craft.name] then
+			seenBases[craft.name] = true
+			t_insert(bases, {
+				name = craft.name,
+				variantName = craft.name:find("Runeforged", 1, true) and "Runeforged" or "Runemastered",
+			})
+		end
+	end
+	if #bases == 1 then
+		return
+	end
+
+	addRuneforgingBaseMappings(item, bases)
+	addRuneforgingImplicits(item, bases)
+	item.selectedBase = 1
+	item:BuildAndParseRaw()
+end
+
 -- Apply a value scalar to the first n of any numbers present
 function itemLib.applyValueScalar(line, valueScalar, baseValueScalar, numbers, precision)
 	if not (valueScalar and type(valueScalar) == "number") then

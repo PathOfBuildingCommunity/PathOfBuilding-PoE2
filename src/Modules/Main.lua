@@ -157,37 +157,7 @@ function main:Init()
 			for _, raw in pairs(typeList) do
 				local newItem = new("Item"):Item(raw, "UNIQUE", true)
 				if newItem.base then
-					local baseBase = newItem.baseName
-					-- uniques with base variants are skipped as they can be handled manually
-					local hasBaseVariants = newItem.baseList and not not next(newItem.baseList)
-					if newItem.rarity == "UNIQUE" and not hasBaseVariants then
-						-- look for alternate runeforging bases
-						local bases = { { variantName = "Regular Base", baseName = baseBase } }
-						local seenBases = {}
-						if data.runeforgingCrafts[baseBase] then
-							for _, base in ipairs(data.runeforgingCrafts[baseBase]) do
-								if seenBases[base.name] or not data.itemBases[base.name] then continue end
-								seenBases[base.name] = true
-								local craftType = base.name:find("Runeforged", 1, true) and "Runeforged" or "Runemastered"
-								table.insert(bases, { variantName = craftType, baseName = base.name })
-							end
-						end
-						if #bases > 1 then
-						newItem.baseList = newItem.baseList ?? {}
-							local baseLines = {}
-							-- Add variants for each base
-							for _, base in ipairs(bases) do
-								local baseVariantList = { [#newItem.baseList + 1] = true, }
-								baseLines[base.baseName] = { line = base.baseName, baseVariantList = baseVariantList }
-								table.insert(newItem.baseList, base.variantName)
-							end
-							newItem.baseLines = baseLines
-							-- default to the original base
-							newItem.selectedBase = 1
-
-							newItem:BuildAndParseRaw()
-						end
-					end
+					itemLib.addRuneforgingBaseVariants(newItem)
 					self.uniqueDB.list[newItem.name] = newItem
 				elseif launch.devMode then
 					ConPrintf("Unique DB unrecognised item of type '%s':\n%s", type, raw)
