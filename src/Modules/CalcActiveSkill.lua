@@ -443,10 +443,19 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			local effect = skill.activeEffect
 			if effect ~= activeEffect and effect.level and skill.socketGroup == activeSkill.socketGroup
 				and not (effect.gemData and effect.gemData.grantedEffect.support) then
-				supportGrantedInheritedLevel = effect.level
-				activeEffect.level = effect.level
-				activeSkill.skillData.inheritsGemLevel = true
-				break
+				-- A meta group can contain unrelated active skills. Only inherit from
+				-- a skill to which this specific support instance was applied.
+				for _, supportEffect in ipairs(skill.effectList) do
+					if supportEffect.grantedEffect.support and supportEffect.srcInstance == activeEffect.srcInstance then
+						supportGrantedInheritedLevel = effect.level
+						activeEffect.level = effect.level
+						activeSkill.skillData.inheritsGemLevel = true
+						break
+					end
+				end
+				if supportGrantedInheritedLevel then
+					break
+				end
 			end
 		end
 	end

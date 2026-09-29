@@ -909,6 +909,47 @@ describe("TestSkills", function()
 		assert.are.equals(warcryFirstDps, supportFirstDps)
 	end)
 
+	it("support-granted active skills inherit from the supported skill regardless of meta gem order", function()
+		local expectedDamage
+		for _, socketGroupText in ipairs({
+			"Cast on Critical 10/0  1\nDespair 20/0  1\nDoedre's Undoing 1/0  1",
+			"Despair 20/0  1\nCast on Critical 10/0  1\nDoedre's Undoing 1/0  1",
+			"Doedre's Undoing 1/0  1\nCast on Critical 10/0  1\nDespair 20/0  1",
+		}) do
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText)
+			local socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+			recalculate()
+			local darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+			assert.is_not_nil(darkConsequences)
+			assert.are.equals(20, darkConsequences.activeEffect.level)
+			assert.are.equals(20, build.calcsTab.mainOutput.GemLevel)
+			assert.are.equals(20, build.calcsTab.calcsOutput.GemLevel)
+			local baseDamage = build.calcsTab.mainOutput.AverageDamage
+			assert.True(baseDamage > 0)
+			expectedDamage = expectedDamage or baseDamage
+			assert.are.equals(expectedDamage, baseDamage)
+
+			-- Inherit the curse's final level, including supports and global bonuses,
+			-- without adding the support gem's own matching chaos level bonus again.
+			newBuild()
+			build.skillsTab:PasteSocketGroup(socketGroupText .. "\nChaos Mastery 1/0  1")
+			socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+			build.configTab.input.customMods = "+2 to Level of all Chaos Skills"
+			build.configTab:BuildModList()
+			recalculate()
+			darkConsequences = selectActiveSkillById(socketGroup, "ChaosFrogExplosionPlayer")
+			assert.are.equals(23, darkConsequences.activeEffect.level)
+			assert.are.equals(23, build.calcsTab.mainOutput.GemLevel)
+			assert.are.equals(23, build.calcsTab.calcsOutput.GemLevel)
+			assert.True(build.calcsTab.mainOutput.AverageDamage > baseDamage)
+
+			local calcFunc, calcBase = build.calcsTab:GetMiscCalculator()
+			assert.are.equals(23, calcBase.GemLevel)
+			assert.are.equals(23, calcFunc().GemLevel)
+		end
+	end)
+
 	it("support-granted active skills inherit tree gem levels from the linked skill", function()
 		build.skillsTab:PasteSocketGroup("Despair 20/0  1\nDoedre's Undoing 1/0  1")
 		local socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
