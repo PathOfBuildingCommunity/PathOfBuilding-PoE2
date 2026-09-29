@@ -1383,7 +1383,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				-- use trade sum to get the specific item. both min and max
 				-- weight on site uses floats but only shows integer in the api
 				-- e.g. weight of 172.3 shows up as 172 in the api
-				exactQuery.query.stats[1].value = { min = floor(itemResult.weight, 1) - 1, max = round(itemResult.weight, 1) + 1 }
+				if exactQuery.query.stats[1].type == "weight" then
+					exactQuery.query.stats[1].value = { min = floor(itemResult.weight, 1) - 1, max = round(itemResult.weight, 1) + 1 }
+				end
 				-- also apply trader name. this should make false positives
 				-- extremely unlikely. this doesn't seem to take up a filter slot
 				exactQuery.query.filters = exactQuery.query.filters or { }
@@ -1391,9 +1393,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				exactQuery.query.filters.trade_filters.filters = exactQuery.query.filters.trade_filters.filters or { }
 				exactQuery.query.filters.trade_filters.filters.account = { input = itemResult.trader }
 
-			local exactQueryStr = dkjson.encode(exactQuery.query)
+				local exactQueryStr = dkjson.encode(exactQuery.query)
 
-			local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s/%s", self.pbLeague, tradeHelpers.B64GzipEncode(exactQueryStr))
+				local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s/%s", self.pbLeague, tradeHelpers.B64GzipEncode(exactQueryStr))
 
 				Copy(encodedUrl)
 				OpenURL(encodedUrl)

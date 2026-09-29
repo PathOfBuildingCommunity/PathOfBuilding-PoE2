@@ -203,7 +203,7 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 					if not queryJson.query.stats[1].value then
 						queryJson.query.stats[1].value = { min = 0 }
 					end
-					queryJson.query.stats[1].value.min = (tonumber(highestWeight) + queryJson.query.stats[1].value.min) / 2
+					queryJson.query.stats[1].value.min = (tonumber(highestWeight) + (queryJson.query.stats[1].value.min or 0)) / 2
 					query = dkjson.encode(queryJson)
 					self:PerformSearch(realm, league, query, performSearchCallback)
 				end)
@@ -467,6 +467,9 @@ end
 ---@param callback fun(items:table, errMsg:string, query: string?)
 function TradeQueryRequestsClass:SearchWithURL(url, callback)
 	local subpath = url:match(self.hostName .. "trade2/search/(.+)$")
+	if not subpath then
+		return callback(nil, "Invalid URL")
+	end
 	local paths = {}
 	for path in subpath:gmatch("[^/]+") do
 		table.insert(paths, path)
@@ -485,27 +488,32 @@ function TradeQueryRequestsClass:SearchWithURL(url, callback)
 		return callback(nil, "URL is malformed")
 	end
 	local queryIdDecoded = dkjson.decode(json)
-	if not queryIdDecoded or type(queryIdDecoded.stats) ~= "table" then
+	if type(queryIdDecoded) ~= "table" or type(queryIdDecoded.stats) ~= "table" or type(queryIdDecoded.stats[1]) ~= "table" then
 		return callback(nil, "URL is malformed")
 	end
-	-- the trader assumes that the first stat group will be a weight group
-	if queryIdDecoded.stats[1].type ~= "weight" then
-		for i, group in ipairs(queryIdDecoded.stats) do
-			-- swap a weight group to be the first group if it exists
-			if group.type == "weight" then
-				queryIdDecoded.stats[1], queryIdDecoded.stats[i] = queryIdDecoded.stats[i], queryIdDecoded.stats[1]
-				break
-			end
+	local weightGroupIndex
+	for i, group in ipairs(queryIdDecoded.stats) do
+		if type(group) ~= "table" or type(group.type) ~= "string" then
+			return callback(nil, "URL is malformed")
 		end
-	end
-	if queryIdDecoded.stats[1].type ~= "weight" then
-		return callback(nil, "Trade search URL is not a weight search")
+		if group.type == "weight" and not weightGroupIndex then
+			weightGroupIndex = i
+		end
 	end
 	local newQuery = {
 		query = queryIdDecoded,
-		sort = { ["statgroup.0"] = "desc" },
+		sort = { price = "asc" },
 	}
-	self:SearchWithQueryWeightAdjusted(realm, league, dkjson.encode(newQuery), callback)
+	if weightGroupIndex then
+		-- Purchase links expect the weighted group first.
+		queryIdDecoded.stats[1], queryIdDecoded.stats[weightGroupIndex] = queryIdDecoded.stats[weightGroupIndex], queryIdDecoded.stats[1]
+		newQuery.sort = { ["statgroup.0"] = "desc" }
+	end
+	-- Pasted searches contain user constraints; only generated searches may adjust weights.
+	local query = dkjson.encode(newQuery)
+	self:SearchWithQuery(realm, league, query, function(items, errMsg)
+		callback(items, errMsg, query)
+	end)
 end
 
 --- Fetches the list of all available leagues using trade2 league API
