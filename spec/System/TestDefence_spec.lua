@@ -49,6 +49,34 @@ describe("TestDefence", function()
 		assert.are.equals(manaWithoutTotalEnergyShield + 100, player.output.Mana)
 	end)
 
+	it("Geofri's Sanctuary mods work", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+		Geofri's Sanctuary
+		Revered Vestments
+		League: Runes of Aldur
+		Implicits: 1
+		+1% to all Maximum Elemental Resistances
+		(150-200)% increased Armour
+		+(10-20)% to all Elemental Resistances
+		Your maximum Energy Shield is equal to (200-300)% of your Strength
+		Maximum Energy Shield cannot be Converted
+		Regenerate 2 Life per second for every 10 Intelligence
+		Zealot's Oath]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.mainOutput
+		assert.are.equals(round(output.Str * 2.5), output.EnergyShield)
+
+		local manaWithoutEldritchBattery = output.Mana
+		build.configTab.input.customMods = "Converts all Energy Shield to Mana"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		output = build.calcsTab.mainOutput
+		assert.are.equals(round(output.Str * 2.5), output.EnergyShield)
+		assert.are.equals(manaWithoutEldritchBattery, output.Mana)
+	end)
 	it("applies energy shield modifiers to runic ward when redirected", function()
 		build.configTab.input.customMods = [[
 			+100 to maximum Runic Ward
