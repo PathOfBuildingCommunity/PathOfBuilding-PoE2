@@ -116,7 +116,8 @@ function launch:OnFrame()
 			end
 		end
 	end
-	self.devModeAlt = self.devMode and IsKeyDown("ALT")
+	--self.devModeAlt = self.devMode and IsKeyDown("ALT")
+	self.devModeAlt = false
 	SetDrawLayer(1000)
 	SetViewport()
 	if self.promptMsg then

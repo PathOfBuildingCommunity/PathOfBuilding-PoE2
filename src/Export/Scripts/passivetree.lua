@@ -836,7 +836,7 @@ for i, group in ipairs(psg.groups) do
 					totalStats = totalStats + 1
 					namesStats = namesStats .. stat.Id .. " | "
 				end
-				local out, orders, missing = describeStats(parseStats)
+				local out, orders, missing, keywords = describeStats(parseStats)
 				if #out < totalStats then
 					table.insert(missingStatInfo, "====================================")
 					table.insert(missingStatInfo,"Stats not found for passive " .. passiveRow.Name .. " " .. passive.id)
@@ -856,6 +856,23 @@ for i, group in ipairs(psg.groups) do
 				end
 				for k, line in ipairs(out) do
 					table.insert(node["stats"], line)
+					-- GGG tags keyword references in the stat text. Pack each line's tags into one
+					-- string, "id" where the display word matches the id and "id|display" where it
+					-- does not, joined with ";"
+					if keywords[k] then
+						local parts, seen = { }, { }
+						for _, tag in ipairs(keywords[k]) do
+							local packed = tag.id == tag.text and tag.id or (tag.id .. "|" .. tag.text)
+							if not seen[packed] then
+								seen[packed] = true
+								table.insert(parts, packed)
+							end
+						end
+						if parts[1] then
+							node["keywordPopups"] = node["keywordPopups"] or { }
+							node["keywordPopups"][#node["stats"]] = table.concat(parts, ";")
+						end
+					end
 				end
 			end
 

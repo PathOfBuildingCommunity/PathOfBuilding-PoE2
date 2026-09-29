@@ -479,6 +479,7 @@ data.defaultAilmentDamageTypes = {
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
 data.defaultHighPrecision = 1
 data.modScalability = LoadModule("Data/ModScalability")
+data.keywordPopups = LoadModule("Data/KeywordPopups")
 data.highPrecisionMods = {
 	["CritChance"] = {
 		["BASE"] = 2,

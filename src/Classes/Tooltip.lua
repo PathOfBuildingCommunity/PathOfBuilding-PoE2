@@ -165,6 +165,28 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
+function TooltipClass:GetUnderlineSpans(text)
+	if not self.underlineWords then
+		return nil
+	end
+	local plain = StripEscapes(text)
+	local spans
+	for word in pairs(self.underlineWords) do
+		local init = 1
+		while true do
+			local s, e = plain:find(word, init, true)
+			if not s then break end
+			if (s == 1 or not plain:sub(s - 1, s - 1):match("%w"))
+				and (e == #plain or not plain:sub(e + 1, e + 1):match("%w")) then
+				spans = spans or { }
+				t_insert(spans, { prefix = plain:sub(1, s - 1), text = word })
+			end
+			init = e + 1
+		end
+	end
+	return spans
+end
+
 function TooltipClass:AddLine(size, text, font, background, modLine)
 	if text then
 		local fontToUse
@@ -191,10 +213,10 @@ function TooltipClass:AddLine(size, text, font, background, modLine)
 						end
 					end
 					if activeColour then wrappedLine = wrappedLine .. "^7" end
-					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
+					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine, underline = self:GetUnderlineSpans(wrappedLine) })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background, modLine = modLine, underline = self:GetUnderlineSpans(line) })
 			end
 		end
 	end
@@ -463,6 +485,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				stackEntry.bounds = { x = x + (H_PAD / 2), y = y, width = ttW - H_PAD, height = data.size + 2 }
 				stackEntry.strikethrough = data.modLine.disabled
 			end
+			stackEntry.underline = data.underline
 			t_insert(drawStack, stackEntry)
 			y = y + data.size + 2
 
@@ -774,6 +797,18 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local strikeX = line[3] == "CENTER_X" and line[1] - textW / 2 or line[1]
 				SetDrawColor(0.75, 0.75, 0.75, 0.35)
 				DrawImage(nil, strikeX, line[2] + line[4] / 2, textW, 1)
+				SetDrawColor(prevR, prevG, prevB, prevA)
+			end
+			if line.underline then
+				local prevR, prevG, prevB, prevA = GetDrawColor()
+				local textW = DrawStringWidth(line[4], line[5], line[6])
+				local baseX = line[3] == "CENTER_X" and line[1] - textW / 2 or line[1]
+				SetDrawColor(0.65, 0.65, 0.65, 0.8)
+				for _, span in ipairs(line.underline) do
+					local preW = DrawStringWidth(line[4], line[5], span.prefix)
+					local wordW = DrawStringWidth(line[4], line[5], span.text)
+					DrawImage(nil, baseX + preW, line[2] + line[4], wordW, 1)
+				end
 				SetDrawColor(prevR, prevG, prevB, prevA)
 			end
 		end
