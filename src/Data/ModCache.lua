@@ -6993,7 +6993,7 @@ c["Convert 100% of Fire Damage with Mace Skills to Cold Damage"]={nil,"Convert 1
 c["Convert 100% of maximum Energy Shield to maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity "}
 c["Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity"]={nil,"Convert 100% of maximum Energy Shield to maximum Divinity 100% increased maximum Divinity "}
 c["Convert 100% of maximum Energy Shield to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
-c["Convert All Armour to Evasion Rating"]={nil,"Convert All Armour to Evasion Rating "}
+c["Convert All Armour to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="ArmourConvertToEvasion",type="BASE",value=100}},nil}
 c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
 c["Copy a random Modifier from each enemy in your Presence when"]={nil,"Copy a random Modifier from each enemy in your Presence when "}
 c["Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form"]={nil,"Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form "}
@@ -8558,8 +8558,7 @@ c["Maximum 10 Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth "}
 c["Maximum 10 Fragile Regrowth 0.5% of maximum Life Regenerated per second per Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth 0.5% of maximum Life Regenerated per second per Fragile Regrowth "}
 c["Maximum Block chance is 75%"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="OVERRIDE",value=75}},nil}
 c["Maximum Chance to Evade is 50%"]={{[1]={flags=0,keywordFlags=0,name="EvadeChanceMax",type="MAX",value=50}},nil}
-c["Maximum Energy Shield cannot be Converted"]={nil,"Maximum Energy Shield cannot be Converted "}
-c["Maximum Energy Shield cannot be Converted Regenerate 2 Life per second for every 10 Intelligence"]={nil,"Maximum Energy Shield cannot be Converted Regenerate 2 Life per second for every 10 Intelligence "}
+c["Maximum Energy Shield cannot be Converted"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldCannotBeConverted",type="FLAG",value=true}},nil}
 c["Maximum Life is 1"]={{[1]={flags=0,keywordFlags=0,name="Life",type="OVERRIDE",value=1}},nil}
 c["Maximum Mana is replaced by twice as much Maximum Infernal Flame"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame "}
 c["Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Maximum Mana is replaced by twice as much Maximum Infernal Flame Gain Infernal Flame instead of spending Mana for Skill costs "}
@@ -9981,9 +9980,8 @@ c["Your Totem Limit is doubled"]={{},"Your  Limit  "}
 c["Your Totem Limit is doubled No Charge requirement for placing Totems"]={{},"Your  Limit  No Charge requirement for placing Totems "}
 c["Your Totem Limit is doubled No Charge requirement for placing Totems Totems reserve 75 Spirit each"]={{[1]={[1]={globalLimit=100,globalLimitKey="SpiritDoubledLimit",type="Multiplier",var="SpiritDoubled"},flags=0,keywordFlags=16384,name="Spirit",type="MORE",value=100},[2]={flags=0,keywordFlags=16384,name="Multiplier:SpiritDoubled",type="OVERRIDE",value=1}},"Your  Limit  No Charge requirement for placing Totems Totems reserve 75  each "}
 c["Your base Energy Shield Recharge Delay is 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeBase",type="OVERRIDE",value=10}},nil}
-c["Your maximum Energy Shield is equal to 250% of your Strength"]={nil,"Your maximum Energy Shield is equal to 250% of your Strength "}
-c["Your maximum Energy Shield is equal to 300% of your Strength"]={nil,"Your maximum Energy Shield is equal to 300% of your Strength "}
-c["Your maximum Energy Shield is equal to 300% of your Strength Maximum Energy Shield cannot be Converted"]={nil,"Your maximum Energy Shield is equal to 300% of your Strength Maximum Energy Shield cannot be Converted "}
+c["Your maximum Energy Shield is equal to 250% of your Strength"]={{[1]={[1]={percent=250,stat="Str",type="PercentStat"},flags=0,keywordFlags=0,name="EnergyShield",type="OVERRIDE",value=1}},nil}
+c["Your maximum Energy Shield is equal to 300% of your Strength"]={{[1]={[1]={percent=300,stat="Str",type="PercentStat"},flags=0,keywordFlags=0,name="EnergyShield",type="OVERRIDE",value=1}},nil}
 c["Your other Modifiers to Rarity of Items found do not apply"]={nil,"Your other Modifiers to Rarity of Items found do not apply "}
 c["Your other Modifiers to Rarity of Items found do not apply +15% to Cold Resistance"]={nil,"Your other Modifiers to Rarity of Items found do not apply +15% to Cold Resistance "}
 c["Your speed is Unaffected by Slows while Sprinting"]={nil,"Your speed is Unaffected by Slows while Sprinting "}
@@ -10003,9 +10001,9 @@ c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["their Explicit Modifiers are transformed into more powerful related Modifiers"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers "}
-end)();(function()
 c["their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves"]={nil,"their Explicit Modifiers are transformed into more powerful related Modifiers Ignore Attribute Requirements to equip Gloves "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
+end)();(function()
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}

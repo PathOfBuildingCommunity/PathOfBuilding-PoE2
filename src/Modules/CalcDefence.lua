@@ -788,6 +788,7 @@ local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageTy
 end
 -- Performs all ingame and related defensive calculations
 function calcs.defence(env, actor)
+	---@type ModDB
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
 	---@class Output
@@ -1352,7 +1353,8 @@ function calcs.defence(env, actor)
 			output[source.name] = (output[source.name] or 0)
 			local totalConversion = 0
 			for _, target in ipairs(resourceList) do
-				source.conversionRate[target.name] = m_min(modDB:Sum("BASE", nil, source.name.."ConvertTo"..target.name), 100)
+				local conversionRate = modDB:Flag(nil, source.name .. "CannotBeConverted") and 0 or modDB:Sum("BASE", nil, source.name .. "ConvertTo" .. target.name)
+				source.conversionRate[target.name] = m_min(conversionRate, 100)
 				totalConversion = totalConversion + source.conversionRate[target.name]
 			end
 			if totalConversion > 100 then
