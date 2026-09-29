@@ -1534,12 +1534,9 @@ end
 
 function main:DrawBackground(viewPort)
 	SetDrawLayer(nil, -100)
-	SetDrawColor(0.5, 0.5, 0.5)
-
-	local bd = self.tree[latestTreeVersion]:GetAssetByName("Background2")
-
-	DrawImage(bd.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
-
+	SetDrawColor(8 / 255, 12 / 255, 17 / 255)
+	DrawImage(nil, viewPort.x, viewPort.y, viewPort.width, viewPort.height)
+	SetDrawColor(1, 1, 1, 1)
 	SetDrawLayer(nil, 0)
 end
 

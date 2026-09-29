@@ -1422,15 +1422,6 @@ return {
 				[5]=2
 			}
 		},
-		["background_1048_1048_BC7.dds.zst"]={
-			Background2={
-				[1]=8,
-				[2]=8,
-				[3]=1031,
-				[4]=1031,
-				[5]=1
-			}
-		},
 		["group-background_100_100_BC7.dds.zst"]={
 			AscendancyMiddle={
 				[1]=0,
