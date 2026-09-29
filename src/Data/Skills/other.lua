@@ -5776,7 +5776,7 @@ skills["EncaseInJadePlayer"] = {
 }
 skills["SupportEshsProwess"] = {
 	name = "Esh's Prowess",
-	description = "Supports Lightning skills that Hit targets, granting them an additional level and causing them to only roll the minimum or maximum value for Lightning damage. Does not support skills which do not have levels.",
+	description = "Supports Lightning Skills that Hit, granting them an additional level and causing them to only roll the minimum or maximum value for Lightning damage. Does not Support Skills which do not have levels.",
 	color = 4,
 	support = true,
 	requireSkillTypes = { SkillType.Lightning, SkillType.Damage, },
@@ -17787,7 +17787,7 @@ skills["StarbornOnslaughtPlayer"] = {
 }
 skills["SupportStyrnsFerocity"] = {
 	name = "Styrn's Ferocity",
-	description = "Supports Shield Skills that Hit enemies, causing those Hits to Crush their targets, additionally causing any Physical Damage Hits against those targets while Crushed to Break their Armour.",
+	description = "Supports Shield Skills that Hit, causing those Hits to Crush their targets, and Physical Hits against those targets while Crushed to Break their Armour.",
 	color = 4,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.RequiresShield, SkillType.AND, },
