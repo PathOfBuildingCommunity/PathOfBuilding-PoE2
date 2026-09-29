@@ -812,20 +812,18 @@ holding Shift will put it in the second.]])
 				if value.req > 1 then
 					tooltip:AddLine(14, "^7" .. s_format("Requires: Level %d", value.req))
 				end
-				local function stripRuneLine(line)
-					local stripped, bonded = line:gsub("^Bonded:%s*", "")
-					return stripped:match("^%s*(.-)%s*$"), bonded
-				end
 				local lineIndex = 1
-				while lineIndex <= #value.lines do
+				while lineIndex <= #value.modLines do
 					-- Match item parsing: retry unsupported text with its continuation line.
-					local stripped, bonded = stripRuneLine(value.lines[lineIndex])
-					local modList, extra = modLib.parseMod(stripped)
+					local modLine = value.modLines[lineIndex]
+					local line = modLine.line:match("^%s*(.-)%s*$")
+					local modList, extra = modLib.parseMod(line)
 					local lineCount = 1
-					if (not modList or extra) and value.lines[lineIndex + 1] then
-						local nextLine, nextBonded = stripRuneLine(value.lines[lineIndex + 1])
-						if bonded == nextBonded then
-							local combinedMods, combinedExtra = modLib.parseMod(stripped .. " " .. nextLine, true)
+					local nextModLine = value.modLines[lineIndex + 1]
+					if (not modList or extra) and nextModLine then
+						if modLine.bonded == nextModLine.bonded then
+							local nextLine = nextModLine.line:match("^%s*(.-)%s*$")
+							local combinedMods, combinedExtra = modLib.parseMod(line .. " " .. nextLine, true)
 							if combinedMods and not combinedExtra then
 								modList, extra = combinedMods, combinedExtra
 								lineCount = 2
@@ -2246,18 +2244,21 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-runeModLines = { { name = "None", label = "None", lines = { "None" }, mods = { }, req = 1, order = -1, slot = "None", group = -1, isSocketBound = false } }
+runeModLines = { { name = "None", label = "None", lines = { "None" }, modLines = { }, mods = { }, req = 1, order = -1, slot = "None", group = -1, isSocketBound = false } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
 		-- Bonded stats are stored separately for calculation, but remain part of the
 		-- visible rune description and are prefixed only at this presentation boundary.
 		local lines = { }
+		local modLines = { }
 		for _, line in ipairs(runeMod) do
 			t_insert(lines, line)
+			t_insert(modLines, { line = line, bonded = false })
 		end
 		for _, line in ipairs(runeMod.bonded or { }) do
 			t_insert(lines, "Bonded: " .. line)
+			t_insert(modLines, { line = line, bonded = true })
 		end
 		local mods = { }
 		for _, line in ipairs(runeMod) do
@@ -2267,7 +2268,7 @@ for name, runeMods in pairs(data.itemMods.Runes) do
 			end
 		end
 		local order = (runeMod.statOrder and runeMod.statOrder[1]) or (runeMod.bonded and runeMod.bonded.statOrder and runeMod.bonded.statOrder[1]) or 0
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, mods = mods, req = runeMod.levelReq, order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound, localMod = runeMod.localMod, limit = runeMod.limit, canSocketInChakraSlots = runeMod.canSocketInChakraSlots, canSocketInUniqueItems = runeMod.canSocketInUniqueItems, canSocketInJewellery = runeMod.canSocketInJewellery })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = lines, modLines = modLines, mods = mods, req = runeMod.levelReq, order = order, slot = slotType, type = runeMod.type, group = #lines, isSocketBound = runeMod.isSocketBound, localMod = runeMod.localMod, limit = runeMod.limit, canSocketInChakraSlots = runeMod.canSocketInChakraSlots, canSocketInUniqueItems = runeMod.canSocketInUniqueItems, canSocketInJewellery = runeMod.canSocketInJewellery })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -2303,12 +2304,14 @@ function ItemsTabClass:GetValidRunesForItem(item)
 			if not addedRune then
 				addedRune = copyTable(rune, true)
 				addedRune.lines = { }
+				addedRune.modLines = { }
 				t_insert(runes, addedRune)
 				addedRunes[rune.name] = addedRune
 			end
 			addedRune.label = addedRune.label or rune.label
-			for _, line in ipairs(rune.lines) do
+			for index, line in ipairs(rune.lines) do
 				t_insert(addedRune.lines, line)
+				t_insert(addedRune.modLines, rune.modLines[index])
 			end
 		end
 	end

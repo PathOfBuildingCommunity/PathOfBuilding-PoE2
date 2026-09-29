@@ -17,24 +17,32 @@ describe("TestItemsTab", function()
 	end)
 
 	it("colours complete multiline rune modifiers without joining normal and Bonded lines", function()
-		local firstLine = "Increases and Reductions to Spell Damage also"
-		local continuation = " apply to Attacks"
-		local supported = "+10 to maximum Life"
+		local firstLine = { line = "Increases and Reductions to Spell Damage also", bonded = false }
+		local continuation = { line = " apply to Attacks", bonded = false }
+		local supported = { line = "+10 to maximum Life", bonded = false }
+		local function bonded(modLine)
+			return { line = modLine.line, bonded = true }
+		end
 		local blue, red = colorCodes.MAGIC, colorCodes.UNSUPPORTED
 		local cases = {
 			{ lines = { firstLine, continuation, supported }, colours = { blue, blue, blue } },
-			{ lines = { "Bonded: " .. firstLine, "Bonded: " .. continuation, supported }, colours = { blue, blue, blue } },
-			{ lines = { firstLine, "Bonded: " .. continuation }, colours = { red, red } },
-			{ lines = { "Bonded: " .. firstLine, continuation }, colours = { red, red } },
-			{ lines = { firstLine, supported, "Bonded: " .. supported, continuation }, colours = { red, blue, blue, red } },
+			{ lines = { firstLine, continuation }, displayLines = { "First display line", "Continuation display line" }, colours = { blue, blue } },
+			{ lines = { bonded(firstLine), bonded(continuation), supported }, colours = { blue, blue, blue } },
+			{ lines = { firstLine, bonded(continuation) }, colours = { red, red } },
+			{ lines = { bonded(firstLine), continuation }, colours = { red, red } },
+			{ lines = { firstLine, supported, bonded(supported), continuation }, colours = { red, blue, blue, red } },
 		}
 		local comparison = stub(build.itemsTab, "AddModComparisonTooltip")
 		for _, case in ipairs(cases) do
 			local tooltip = new("Tooltip"):Tooltip()
-			local value = { name = "Test Rune", req = 1, lines = case.lines }
+			local value = { name = "Test Rune", req = 1, lines = { }, modLines = case.lines }
+			for _, modLine in ipairs(case.lines) do
+				table.insert(value.lines, (modLine.bonded and "Bonded: " or "") .. modLine.line)
+			end
+			value.lines = case.displayLines or value.lines
 			build.itemsTab.controls.displayItemRune1.tooltipFunc(tooltip, "HOVER", 1, value)
 			assert.are.equal(#case.lines + 1, #tooltip.lines)
-			for index, line in ipairs(case.lines) do
+			for index, line in ipairs(value.lines) do
 				assert.are.equal(case.colours[index] .. line, tooltip.lines[index + 1].text)
 			end
 		end
@@ -896,6 +904,10 @@ Ruby]])
 				assert.are.equals(2, #ticabaRune.lines)
 				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[1])
 				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[2])
+				assert.are.same({
+					{ line = ticabaRune.lines[1], bonded = false },
+					{ line = ticabaRune.lines[2], bonded = false },
+				}, ticabaRune.modLines)
 			end)
 
 			it("keeps pure Bonded slot entries and uses the regular rune mod as the dropdown label", function ()
@@ -911,6 +923,17 @@ Ruby]])
 				for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
 					if rune.name == "Perfect Resolve Rune" then
 						assert.are.equals("+15 to Intelligence", rune.label)
+						assert.are.equal(#rune.lines, #rune.modLines)
+						local bondedLines = { }
+						for index, modLine in ipairs(rune.modLines) do
+							assert.are.equal((modLine.bonded and "Bonded: " or "") .. modLine.line, rune.lines[index])
+							if modLine.bonded then
+								table.insert(bondedLines, modLine.line)
+							else
+								assert.are.equal("+15 to Intelligence", modLine.line)
+							end
+						end
+						assert.are.same({ "+50 to maximum Energy Shield" }, bondedLines)
 						return
 					end
 				end
