@@ -2522,7 +2522,6 @@ local specialModList = {
 		mod("BleedChance", "BASE", 100, nil, bor(ModFlag.Attack, ModFlag.Projectile)),
 		mod("EnemyKnockbackChance", "BASE", 100, nil, bor(ModFlag.Attack, ModFlag.Projectile)),
 	},
-	["knocks enemies back on hit"] = {mod("EnemyKnockbackChance", "BASE", 100, KeywordFlag.Hit, nil)},
 	["projectiles cannot pierce, fork or chain"] = {
 		flag("CannotPierce", nil, ModFlag.Projectile),
 		flag("CannotChain", nil, ModFlag.Projectile),
@@ -5445,6 +5444,7 @@ local specialModList = {
 	["your base energy shield recharge delay is (%d+) seconds"] = function(num) return { mod("EnergyShieldRechargeBase", "OVERRIDE", num), } end,
 	-- Knockback
 	["cannot knock enemies back"] = { flag("CannotKnockback") },
+	["knocks enemies back on hit"] = { flag("Knockback") },
 	["knocks back enemies if you get a critical hit with a q?u?a?r?t?e?r?staff"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Staff, { type = "Condition", var = "CriticalStrike" }) },
 	["knocks back enemies if you get a critical hit with a bow"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "CriticalStrike" }) },
 	["bow knockback at close range"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "AtCloseRange" }) },

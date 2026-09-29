@@ -480,6 +480,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.spiritValue = nil
 	self.runicItem = nil
 	self.quality = nil
+	self.canBeAnointed = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
 	for line in raw:gmatch("%s*([^\n]*%S)") do
@@ -2486,7 +2487,6 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 		self.craftedQuality = craftedQuality
 	end
-	local anointableItem
 	if self.quality then
 		modList:NewMod("Multiplier:QualityOn"..slotName, "BASE", self.quality, "Quality")
 	end
