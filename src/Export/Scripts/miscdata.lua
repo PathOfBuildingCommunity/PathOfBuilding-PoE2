@@ -193,4 +193,13 @@ for row in dat("CharacterMeleeSkills"):Rows() do
 end
 utils.saveTableToFile("../Data/CharacterMeleeSkills.lua", characterMeleeSkills, "Default skill gem base item IDs keyed by main-hand and off-hand WieldableClasses item class IDs.")
 
+local verisiumCrafts = {}
+for row in dat("Expedition2VerisiumCrafts"):Rows() do
+	local sourceBase = row.OriginalBaseType.Name
+	if not verisiumCrafts[sourceBase] then
+		verisiumCrafts[sourceBase] = {}
+	end
+	table.insert(verisiumCrafts[sourceBase], { baseTypeId = row.NewBaseType.Id, name = row.NewBaseType.Name })
+end
+utils.saveTableToFile("../Data/VerisiumCrafts.lua", verisiumCrafts, "A list of possible base type transformations in runeforging/mastering.")
 print("Misc data exported.")
