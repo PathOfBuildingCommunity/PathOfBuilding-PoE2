@@ -11,9 +11,10 @@ function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
 	local node = itemsTab.build.spec.nodes[nodeId]
 	if not node then return end
 	SetDrawLayer(nil, 15)
-	SetDrawColor(1, 1, 1)
 
 	local borderWidth = 1
+	-- draw white border
+	SetDrawColor(1, 1, 1)
 	DrawImage(nil, x, y, w + 2 * borderWidth, h + 2 * borderWidth)
 
 	local viewer = itemsTab.socketViewer
@@ -25,6 +26,9 @@ function M.DrawViewer(itemsTab, nodeId, x, y, w, h)
 	viewer.zoomY = -node.y / scale
 	-- offset viewport to be inside borders
 	SetViewport(x + borderWidth, y + borderWidth, w, h)
+	-- draw background
+	SetDrawColor(8 / 255, 12 / 255, 17 / 255, 1)
+	DrawImage(nil, 0, 0, w, h)
 	-- draw the actual image
 	viewer:Draw(itemsTab.build, { x = 0, y = 0, width = w, height = h }, {})
 	SetDrawLayer(nil, 30)
