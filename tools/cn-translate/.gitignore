@@ -1,0 +1,6 @@
+# Datamine toolchain — intermediate/regenerated artifacts are NOT committed.
+# The only committed *output* is the generated Lua table (src/Data/ChineseTranslation.lua),
+# produced by `node emit_lua.mjs`.
+node_modules/
+data/
+test/*.output

@@ -1,0 +1,25 @@
+Rarity: Rare
+冷酷 之幕
+符文法术冠冕
+头盔
+--------
+品质: +20% (augmented)
+--------
+Requires: Level 70, 99 Int
+--------
+物品等级: 82
+--------
+Sockets: S
+--------
+[Armour|护甲]、[Evasion|闪避]和[EnergyShield|能量护盾]提高 18% (rune)
+[ShamanOnlyMods|羁绊]： +20 生命上限 (rune)
+[ShamanOnlyMods|羁绊]： +20 魔力上限 (rune)
+--------
+[EnergyShield|能量护盾]提高 113%
++28 魔力上限
+[Resistances|火焰抗性] +45%
+[Resistances|冰霜抗性] +43%
+[Resistances|闪电抗性] +42%
++56 [EnergyShield|能量护盾]上限 (desecrated)
+--------
+Note: 12 divine
