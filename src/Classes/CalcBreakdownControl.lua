@@ -13,6 +13,7 @@ local m_cos = math.cos
 local m_pi = math.pi
 local band = AND64  -- bit.band
 
+local graph = require("Modules.BreakdownGraph")
 ---@class CalcBreakdownControl: Control, ControlHost
 local CalcBreakdownClass = newClass("CalcBreakdownControl", "Control", "ControlHost")
 
@@ -176,6 +177,14 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		})
 	end
 
+	if breakdown.graph then
+		t_insert(self.sectionList, {
+			type = "GRAPH",
+			graph = breakdown.graph,
+			width = 400,
+			height = 200,
+		})
+	end
 	if breakdown.rowList and #breakdown.rowList > 0 then
 		-- sort by the first column (the value)
 		local rowList = copyTable(breakdown.rowList, true)
@@ -768,6 +777,8 @@ function CalcBreakdownClass:Draw(viewPort)
 			SetDrawColor(1, 1, 1)
 			DrawImage(nil, x + 2, sectionY, section.width - 4, section.height)
 			self:DrawRadiusVisual(x + 4, sectionY + 2, section.width - 8, section.height - 4, section.radius)
+		elseif section.type == "GRAPH" then
+			graph.DrawGraph(x + 1, sectionY + 1, section.width - 2, section.height - 2, section.graph)
 		end
 	end
 	SetDrawLayer(nil, 0)
