@@ -899,7 +899,14 @@ function ConfigTabClass:Load(xml, fileName)
 					self.configSets[configSetId].input[node.attrib.name] = node.attrib.string
 				end
 			elseif node.attrib.boolean then
-				self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
+				-- backwards compat: the Heavy Stunned checkbox became the Heavy Stun uptime list
+				if node.attrib.name == "conditionEnemyHeavyStunned" then
+					if node.attrib.boolean == "true" then
+						self.configSets[configSetId].input.enemyHeavyStunUptime = "100"
+					end
+				else
+					self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
+				end
 			else
 				launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing number, string or boolean attribute", fileName)
 				return true
