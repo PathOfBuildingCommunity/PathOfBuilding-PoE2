@@ -206,57 +206,35 @@ return function(modDB, output, actor)
 		return out
 	end
 
-	function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, instantLeechProportion, hitRate)
+	function breakdown.leech(amount, instant, instantRate, instances, dur, recoveryRateMod, hitRate)
 		local out = { }
-		if actor.mainSkill.skillData.showAverage then
-			if instant > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
-				end
+		if instant > 0 then
+			t_insert(out, s_format("Instant Leech: %.1f ^8per hit", instant))
+			if not actor.mainSkill.skillData.showAverage then
+				t_insert(out, s_format("Instant Leech per second: %.1f ^8(%.1f x %.2f hits per second)", instantRate, instant, hitRate))
 			end
-			if instances > 0 then
-				t_insert(out, "Total leeched per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
+		end
+		if dur > 0 then
+			if actor.mainSkill.skillData.showAverage then
+				t_insert(out, "Leeched over time per hit:")
+				t_insert(out, s_format("%.1f", amount))
+				if recoveryRateMod ~= 1 then
+					t_insert(out, s_format("x %.2f ^8(recovery rate modifier)", recoveryRateMod))
 				end
-				t_insert(out, s_format("x %.2fs ^8(instance duration)", dur))
-				t_insert(out, s_format("= %.1f", pool * data.misc.LeechRateBase * rateMod * dur))
-			end
-		else
-			if instantRate > 0 then
-				if instantLeechProportion ~= 1 then
-					t_insert(out, s_format("Instant Leech: %.1f ^8(%d%% x %.1f)", instant, instantLeechProportion * 100, dur * pool * data.misc.LeechRateBase / (1-instantLeechProportion)))
-				else
-					t_insert(out, s_format("Instant Leech: %.1f", instant))
+				t_insert(out, s_format("= %.1f ^8over %.2fs", amount * recoveryRateMod, dur))
+			else
+				local instanceRate = amount / dur * recoveryRateMod
+				t_insert(out, "Rate of one instance:")
+				t_insert(out, s_format("%.1f ^8(leeched over time per hit)", amount))
+				t_insert(out, s_format("/ %.2fs ^8(instance duration)", dur))
+				if recoveryRateMod ~= 1 then
+					t_insert(out, s_format("x %.2f ^8(recovery rate modifier)", recoveryRateMod))
 				end
-				t_insert(out, s_format("Instant Leech per second: %.1f ^8(%.1f x %.2f)", instantRate, instant, hitRate))
-			end
-			if instances > 0 then
-				t_insert(out, "Rate per instance:")
-				t_insert(out, s_format("%d ^8(size of leech destination pool)", pool))
-				t_insert(out, s_format("x %.2f ^8(base leech rate is %d%% per second)", data.misc.LeechRateBase, 100 * data.misc.LeechRateBase))
-				local rateMod = calcLib.mod(modDB, skillCfg, rate)
-				if rateMod ~= 1 then
-					t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
-				end
-				t_insert(out, s_format("= %.1f ^8per second", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, "Maximum leech rate against one target:")
-				t_insert(out, s_format("%.1f", pool * data.misc.LeechRateBase * rateMod))
-				t_insert(out, s_format("x %.2f ^8(average instances)", instances))
-				local total = pool * data.misc.LeechRateBase * rateMod * instances
-				t_insert(out, s_format("= %.1f ^8per second", total))
-				if total <= max then
-					t_insert(out, s_format("Time to reach max: %.1fs", dur))
-				end
-				t_insert(out, s_format("Leech rate cap: %.1f", max))
-				if total > max then
-					t_insert(out, s_format("Time to reach cap: %.1fs", dur / total * max))
-				end
+				t_insert(out, s_format("= %.1f ^8per second", instanceRate))
+				t_insert(out, "Only one instance recovers at a time:")
+				t_insert(out, s_format("%.1f", instanceRate))
+				t_insert(out, s_format("x %.2f ^8(uptime: %.2f hits per second x %.2fs, up to 100%%)", m_min(instances, 1), hitRate, dur))
+				t_insert(out, s_format("= %.1f ^8per second", instanceRate * m_min(instances, 1)))
 			end
 		end
 		return out
