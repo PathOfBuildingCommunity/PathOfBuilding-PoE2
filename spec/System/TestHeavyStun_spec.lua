@@ -54,32 +54,29 @@ describe("TestHeavyStun", function()
 	end)
 
 	describe("configuration", function()
-		it("loads the old Heavy Stunned checkbox as Always", function()
+		it("loads the old Heavy Stunned checkbox as 100% uptime", function()
 			build.configTab:Load({ attrib = { }, { elem = "Input", attrib = { name = "conditionEnemyHeavyStunned", boolean = "true" } } }, "test")
 
-			assert.are.equals("ALWAYS", build.configTab.configSets[1].input.enemyHeavyStunMode)
+			assert.are.equals("100", build.configTab.configSets[1].input.enemyHeavyStunUptime)
 			assert.is_nil(build.configTab.configSets[1].input.conditionEnemyHeavyStunned)
 		end)
 
-		it("shows the uptime field only for Custom %", function()
-			setupMaceStrike()
-			local stunMod = "100% more Damage against Heavy Stunned Enemies"
-			local control = build.configTab.varControls.enemyHeavyStunUptime
+		it("offers None, fixed uptimes and Calculated in one list", function()
+			local labels = { }
+			for _, item in ipairs(build.configTab.varControls.enemyHeavyStunUptime.list) do
+				labels[#labels + 1] = item.label
+			end
 
-			setConfig({ enemyHeavyStunMode = "CALCULATED" }, stunMod)
-			assert.is_false(control.shown())
-
-			setConfig({ enemyHeavyStunMode = "CUSTOM" }, stunMod)
-			assert.is_true(control.shown())
+			assert.are.same({ "None", "25%", "50%", "75%", "100%", "Calculated" }, labels)
 		end)
 
-		it("treats the enemy as Heavy Stunned all the time for Always", function()
+		it("treats the enemy as Heavy Stunned all the time at 100%", function()
 			setupMaceStrike()
 			local stunMod = "100% more Damage against Heavy Stunned Enemies"
 
-			setConfig({ enemyHeavyStunMode = "NONE" }, stunMod)
+			setConfig({ enemyHeavyStunUptime = "NONE" }, stunMod)
 			local notStunnedHit = build.calcsTab.mainOutput.AverageDamage
-			setConfig({ enemyHeavyStunMode = "ALWAYS" }, stunMod)
+			setConfig({ enemyHeavyStunUptime = "100" }, stunMod)
 
 			assert.are.equals(round(notStunnedHit * 2, 4), round(build.calcsTab.mainOutput.AverageDamage, 4))
 		end)
@@ -111,40 +108,29 @@ describe("TestHeavyStun", function()
 			end
 		end
 
-		it("averages damage against a Heavy Stunned and a normal enemy by the custom uptime", function()
+		it("averages damage against a Heavy Stunned and a normal enemy by the selected uptime", function()
 			setupMaceStrike()
-			setConfig({ enemyHeavyStunMode = "NONE" }, stunMod)
+			setConfig({ enemyHeavyStunUptime = "NONE" }, stunMod)
 			local normalDPS = build.calcsTab.mainOutput.CombinedDPS
-			setConfig({ enemyHeavyStunMode = "ALWAYS" }, stunMod)
+			setConfig({ enemyHeavyStunUptime = "100" }, stunMod)
 			local stunnedDPS = build.calcsTab.mainOutput.CombinedDPS
 			assert.is_true(stunnedDPS > normalDPS)
 
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 40 }, stunMod)
+			for _, uptime in ipairs({ 25, 50, 75 }) do
+				setConfig({ enemyHeavyStunUptime = tostring(uptime) }, stunMod)
 
-			assert.are.equals(round(0.4 * stunnedDPS + 0.6 * normalDPS, 6), round(build.calcsTab.mainOutput.CombinedDPS, 6))
-		end)
-
-		it("matches No at 0% and Always at 100% custom uptime", function()
-			setupMaceStrike()
-			setConfig({ enemyHeavyStunMode = "NONE" }, stunMod)
-			local normal = numericOutputs(build.calcsTab.mainOutput)
-			setConfig({ enemyHeavyStunMode = "ALWAYS" }, stunMod)
-			local stunned = numericOutputs(build.calcsTab.mainOutput)
-
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 0 }, stunMod)
-			assertSameOutputs(normal, numericOutputs(build.calcsTab.mainOutput))
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 100 }, stunMod)
-			assert.are.equals(round(stunned.CombinedDPS, 6), round(build.calcsTab.mainOutput.CombinedDPS, 6))
+				assert.are.equals(round(normalDPS + (stunnedDPS - normalDPS) * uptime / 100, 6), round(build.calcsTab.mainOutput.CombinedDPS, 6))
+			end
 		end)
 
 		it("does not apply offence mods twice when blending", function()
 			equipMace()
 			build.skillsTab:PasteSocketGroup("skillId:Melee2HMacePlayer Mace Strike 20/0  1\nRuthless 1/0  1")
 			build.mainSocketGroup = 1
-			setConfig({ enemyHeavyStunMode = "NONE" })
+			setConfig({ enemyHeavyStunUptime = "NONE" })
 			local normal = numericOutputs(build.calcsTab.mainOutput)
 
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 50 })
+			setConfig({ enemyHeavyStunUptime = "50" })
 
 			assertSameOutputs(normal, numericOutputs(build.calcsTab.mainOutput))
 		end)
@@ -152,10 +138,10 @@ describe("TestHeavyStun", function()
 		it("does not apply spell offence mods twice when blending", function()
 			build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
 			build.mainSocketGroup = 1
-			setConfig({ enemyHeavyStunMode = "NONE" })
+			setConfig({ enemyHeavyStunUptime = "NONE" })
 			local normal = numericOutputs(build.calcsTab.mainOutput)
 
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 50 })
+			setConfig({ enemyHeavyStunUptime = "50" })
 
 			assertSameOutputs(normal, numericOutputs(build.calcsTab.mainOutput))
 		end)
@@ -163,10 +149,10 @@ describe("TestHeavyStun", function()
 		it("does not apply minion offence mods twice when blending", function()
 			build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
 			build.mainSocketGroup = 1
-			setConfig({ enemyHeavyStunMode = "NONE" })
+			setConfig({ enemyHeavyStunUptime = "NONE" })
 			local normal = numericOutputs(build.calcsTab.mainEnv.minion.output)
 
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 50 })
+			setConfig({ enemyHeavyStunUptime = "50" })
 
 			assertSameOutputs(normal, numericOutputs(build.calcsTab.mainEnv.minion.output))
 		end)
@@ -174,14 +160,14 @@ describe("TestHeavyStun", function()
 		it("averages damage by the calculated uptime", function()
 			setupMaceStrike()
 			local enemy = { enemyIsBoss = "None", enemyLevel = 20 }
-			enemy.enemyHeavyStunMode = "NONE"
+			enemy.enemyHeavyStunUptime = "NONE"
 			setConfig(enemy, stunMod)
 			local normalDPS = build.calcsTab.mainOutput.CombinedDPS
-			enemy.enemyHeavyStunMode = "ALWAYS"
+			enemy.enemyHeavyStunUptime = "100"
 			setConfig(enemy, stunMod)
 			local stunnedDPS = build.calcsTab.mainOutput.CombinedDPS
 
-			enemy.enemyHeavyStunMode = "CALCULATED"
+			enemy.enemyHeavyStunUptime = "CALCULATED"
 			setConfig(enemy, stunMod)
 			local output = build.calcsTab.mainOutput
 
@@ -191,7 +177,7 @@ describe("TestHeavyStun", function()
 
 		it("leaves the enemy not Heavy Stunned after blending", function()
 			setupMaceStrike()
-			setConfig({ enemyHeavyStunMode = "CUSTOM", enemyHeavyStunUptime = 50 }, stunMod)
+			setConfig({ enemyHeavyStunUptime = "50" }, stunMod)
 
 			assert.is_true(not build.calcsTab.mainEnv.enemy.modDB:Flag(nil, "Condition:HeavyStunned"))
 		end)
@@ -202,7 +188,7 @@ describe("TestHeavyStun", function()
 		local baseMods = "Adds 100 to 100 Physical Damage to Attacks"
 
 		local function calculate(customMods, enemy)
-			local input = { enemyHeavyStunMode = "CALCULATED", enemyIsBoss = "None", enemyLevel = 20, conditionEnemyRareOrUnique = false }
+			local input = { enemyHeavyStunUptime = "CALCULATED", enemyIsBoss = "None", enemyLevel = 20, conditionEnemyRareOrUnique = false }
 			for var, val in pairs(enemy or { }) do
 				input[var] = val
 			end
@@ -287,9 +273,9 @@ describe("TestHeavyStun", function()
 		end)
 
 		it("estimates the uptime when the enemy is not Heavy Stunned, but not when it always is", function()
-			assert.is_true(calculate(nil, { enemyHeavyStunMode = "NONE" }).HeavyStunUptime > 0)
+			assert.is_true(calculate(nil, { enemyHeavyStunUptime = "NONE" }).HeavyStunUptime > 0)
 
-			assert.is_nil(calculate(nil, { enemyHeavyStunMode = "ALWAYS" }).HitsToHeavyStun)
+			assert.is_nil(calculate(nil, { enemyHeavyStunUptime = "100" }).HitsToHeavyStun)
 		end)
 
 		it("explains the uptime in the Calcs tab", function()

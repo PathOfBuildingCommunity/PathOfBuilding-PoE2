@@ -6621,10 +6621,11 @@ end
 ---@param actor Actor
 ---@param activeSkill ActiveSkill
 function calcs.offence(env, actor, activeSkill)
-	local mode = env.configInput.enemyHeavyStunMode
-	if mode ~= "CUSTOM" and mode ~= "CALCULATED" then
+	local uptimeSetting = env.configInput.enemyHeavyStunUptime
+	local selectedUptime = tonumber(uptimeSetting)
+	if uptimeSetting ~= "CALCULATED" and not (selectedUptime and selectedUptime > 0 and selectedUptime < 100) then
 		calcOffence(env, actor, activeSkill)
-		if mode ~= "ALWAYS" then
+		if selectedUptime ~= 100 then
 			-- Only hits against an enemy that is not Heavy Stunned yet show how long it takes to Heavy Stun it
 			calcHeavyStunCycle(env, actor, activeSkill)
 		end
@@ -6643,12 +6644,7 @@ function calcs.offence(env, actor, activeSkill)
 	calcOffence(env, actor, activeSkill)
 	calcHeavyStunCycle(env, actor, activeSkill)
 	local output = actor.output
-	local uptime
-	if mode == "CUSTOM" then
-		uptime = m_min(m_max(enemyDB:Sum("BASE", nil, "HeavyStunUptime"), 0), 100)
-	else
-		uptime = output.HeavyStunUptime
-	end
+	local uptime = selectedUptime or output.HeavyStunUptime
 	local normalDPS = output.CombinedDPS
 	blendHeavyStunOutput(output, stunnedOutput, uptime / 100)
 
@@ -6656,7 +6652,7 @@ function calcs.offence(env, actor, activeSkill)
 	if breakdown then
 		breakdown.HeavyStunUptime = breakdown.HeavyStunUptime or { }
 		t_insert(breakdown.HeavyStunUptime, "")
-		t_insert(breakdown.HeavyStunUptime, s_format("DPS averaged over %.1f%% Heavy Stun uptime%s:", uptime, mode == "CUSTOM" and " ^8(from the Configuration tab)" or ""))
+		t_insert(breakdown.HeavyStunUptime, s_format("DPS averaged over %.1f%% Heavy Stun uptime%s:", uptime, selectedUptime and " ^8(from the Configuration tab)" or ""))
 		t_insert(breakdown.HeavyStunUptime, s_format("%.1f ^8(combined DPS against a Heavy Stunned enemy)", stunnedOutput.CombinedDPS or 0))
 		t_insert(breakdown.HeavyStunUptime, s_format("%.1f ^8(combined DPS against an enemy that is not Heavy Stunned)", normalDPS or 0))
 		t_insert(breakdown.HeavyStunUptime, s_format("= %.1f", output.CombinedDPS or 0))

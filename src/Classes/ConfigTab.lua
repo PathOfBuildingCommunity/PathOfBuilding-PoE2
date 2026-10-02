@@ -405,11 +405,7 @@ function ConfigTabClass:ConfigTab(build)
 			end
 			if varData.ifOption then
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifOption, function(ifOption)
-					local value = self.configSets[self.activeConfigSetId].input[ifOption]
-					if varData.ifOptionValue ~= nil then
-						return value == varData.ifOptionValue
-					end
-					return value
+					return self.configSets[self.activeConfigSetId].input[ifOption]
 				end))
 			end
 			if varData.ifCond then
@@ -903,10 +899,10 @@ function ConfigTabClass:Load(xml, fileName)
 					self.configSets[configSetId].input[node.attrib.name] = node.attrib.string
 				end
 			elseif node.attrib.boolean then
-				-- backwards compat: the Heavy Stunned checkbox became the Heavy Stun uptime mode list
+				-- backwards compat: the Heavy Stunned checkbox became the Heavy Stun uptime list
 				if node.attrib.name == "conditionEnemyHeavyStunned" then
 					if node.attrib.boolean == "true" then
-						self.configSets[configSetId].input.enemyHeavyStunMode = "ALWAYS"
+						self.configSets[configSetId].input.enemyHeavyStunUptime = "100"
 					end
 				else
 					self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
