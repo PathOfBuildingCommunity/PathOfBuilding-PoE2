@@ -432,6 +432,14 @@ function calcSkillCooldown(skillModList, skillCfg, skillData)
 	end
 end
 
+-- Time between hits of a skill that can only hit once per duration-long effect that cannot be refreshed early
+-- (e.g. Earthquake's Aftershock: Jagged Ground cannot be created on top of an existing patch). A use that lands
+-- before the previous effect ends creates nothing, so the next effect comes from the first use at or after the end
+local function calcDurationLimitedHitTime(useTime, duration)
+	local usesPerHit = m_max(m_ceil(duration / useTime - 1e-9), 1)
+	return useTime * usesPerHit, usesPerHit
+end
+
 local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 	local baseSpeed = 1 / skillModList:Sum("BASE", skillCfg, "WarcryCastTime")
 	local warcryCastTime = baseSpeed * calcLib.mod(skillModList, skillCfg, "WarcrySpeed") * calcs.actionSpeedMod(actor)
@@ -3008,7 +3016,7 @@ function calcs.offence(env, actor, activeSkill)
 					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
 				end
 			end
-			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
+			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride or skillData.hitRateLimitedByDuration then
 				skillFlags.notAverage = true
 				skillFlags.showAverage = false
 				skillData.showAverage = false
@@ -3143,6 +3151,10 @@ function calcs.offence(env, actor, activeSkill)
 			if skillFlags.brand and not skillModList:Flag(nil, "UnlimitedBrandDuration") then
 				output.BrandTicks = m_floor(output.Duration * output.HitSpeed)
 			end
+		elseif skillData.hitRateLimitedByDuration and output.Time and globalOutput.Duration and globalOutput.Duration > 0 and not skillData.triggeredOnDeath then
+			-- Only every Nth use creates the effect that hits (e.g. Earthquake's Jagged Ground), see calcDurationLimitedHitTime
+			output.HitTime, output.UsesPerHit = calcDurationLimitedHitTime(output.Time, globalOutput.Duration)
+			output.HitSpeed = 1 / output.HitTime
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
 			if skillFlags.channelRelease and skillData.minChannelTime then
@@ -3247,6 +3259,10 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
+		elseif skillData.hitRateLimitedByDuration and output.Time and output.Duration and output.Duration > 0 and not skillData.triggeredOnDeath then
+			-- Recompute from the combined attack time of both weapons when dual wielding
+			output.HitTime, output.UsesPerHit = calcDurationLimitedHitTime(output.Time, output.Duration)
+			output.HitSpeed = 1 / output.HitTime
 		elseif skillData.timeOverride and not skillData.triggeredOnDeath then
 			output.Time = skillData.timeOverride
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
@@ -3281,6 +3297,19 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			breakdown.HitSpeed = { }
 			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time override)", output.HitTime))
+			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
+		elseif skillData.hitRateLimitedByDuration and output.HitSpeed and not skillData.triggeredOnDeath then
+			breakdown.HitTime = { }
+			local useName = isAttack and "attack" or "cast"
+			local usesPerHit = output.UsesPerHit or 1
+			t_insert(breakdown.HitTime, s_format("%.3f ^8(%s time)", output.Time, useName))
+			t_insert(breakdown.HitTime, s_format("x %d ^8(%ss per hit: ceil(%.3f skill duration / %.3f %s time))", usesPerHit, useName, globalOutput.Duration, output.Time, useName))
+			if usesPerHit > 1 then
+				t_insert(breakdown.HitTime, s_format("^8(a %s landing before the previous effect ends creates no new one)", useName))
+			end
+			t_insert(breakdown.HitTime, s_format("= %.3f", output.HitTime))
+			breakdown.HitSpeed = { }
+			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time)", output.HitTime))
 			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			breakdown.HitTime = { }
@@ -4062,7 +4091,16 @@ function calcs.offence(env, actor, activeSkill)
 		output.DoubleDamageEffect = output.DoubleDamageChance / 100
 		output.ScaledDamageEffect = output.ScaledDamageEffect * (1 + output.DoubleDamageEffect + output.TripleDamageEffect)
 
-		output.DpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
+		-- Calculate chance for slam skills to cause an additional aftershock, which repeats the hit
+		-- Chance is not capped: each full 100% is a guaranteed aftershock and the remainder is a chance for one more
+		-- Some slams have a separate stat set for the aftershock (e.g. Earthquake): only that set can cause additional aftershocks
+		output.AftershockEffect = 1
+		if activeSkill.skillTypes[SkillType.Slam] and not skillData.cannotCauseAftershock then
+			output.AftershockChance = skillModList:Sum("BASE", cfg, "AftershockChance")
+			output.AftershockEffect = 1 + output.AftershockChance / 100
+		end
+
+		output.DpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS") * output.AftershockEffect
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * output.DpsMultiplier
 
@@ -4728,6 +4766,8 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("AverageDamage", "DPS")
 		combineStat("PvpAverageDamage", "DPS")
 		combineStat("DpsMultiplier", "DPS")
+		combineStat("AftershockChance", "AVERAGE")
+		combineStat("AftershockEffect", "AVERAGE")
 		combineStat("TotalDPS", "DPS")
 		combineStat("PvpTotalDPS", "DPS")
 		combineStat("LifeLeechDuration", "DPS")
@@ -4872,8 +4912,13 @@ function calcs.offence(env, actor, activeSkill)
 				output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(cast rate)", output.Speed),
 			}
 		end
-		if output.DpsMultiplier ~= 1 then
-			t_insert(breakdown.TotalDPS, s_format("x %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+		local dpsMultiplier = output.DpsMultiplier
+		if output.AftershockEffect and output.AftershockEffect ~= 1 then
+			t_insert(breakdown.TotalDPS, s_format("x %.2f ^8(%d%% chance to cause an additional aftershock)", output.AftershockEffect, output.AftershockChance))
+			dpsMultiplier = round(dpsMultiplier / output.AftershockEffect, 4)
+		end
+		if dpsMultiplier ~= 1 then
+			t_insert(breakdown.TotalDPS, s_format("x %g ^8(DPS multiplier for this skill)", dpsMultiplier))
 		end
 		if quantityMultiplier > 1 then
 			t_insert(breakdown.TotalDPS, s_format("x %g ^8(quantity multiplier for this skill)", quantityMultiplier))
