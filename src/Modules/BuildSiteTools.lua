@@ -22,6 +22,10 @@ buildSites.websiteList = {
 		codeOut = "https://maxroll.gg/poe2/pob/", postUrl = "https://maxroll.gg/poe2/api/pob", postFields = "pobCode=", linkURL = "maxroll%.gg/poe2/pob/%1"
 	},
 	{
+		label = "PoB Archives", id = "PoBArchives", matchURL = "^https://pobarchives%.com/build/.+", regexURL = "pobarchives%.com/build/(%w+).*$", downloadURL = "pobarchives.com/build/%1/raw",
+		codeOut = "", postUrl = "https://pobarchives.com/api/pob/export", postFields = "", linkURL = "pobarchives.com/build/%1"
+	},
+	{
 		label = "pobb.in", id = "POBBin", matchURL = "^https://pobb%.in/.+", regexURL = "pobb%.in/(.+)%s*$", downloadURL = "pobb.in/pob/%1",
 		codeOut = "https://pobb.in/", postUrl = "https://pobb.in/pob/", postFields = "", linkURL = "pobb.in/%1"
 	},
