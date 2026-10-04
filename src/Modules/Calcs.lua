@@ -103,25 +103,32 @@ function calcs.getMiscCalculator(build)
 		env.player.output.FullDPS = fullDPS.combinedDPS
 		env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 	end
-	local fastEnv
+	-- One reusable environment per options table, so that interleaved hot loops (gem sorting,
+	-- node power) never accelerate on state carried over from each other's overrides
+	local fastEnvs = setmetatable({ }, { __mode = "k" })
 	return function(override, useFullDPS, fastCalcOptions)
 		if fastCalcOptions then
 			if fastCalcOptions.fullDPSOnly and usedFullDPS and useFullDPS then
 				-- The caller only reads the FullDPS roll-up (e.g. sorting gems by Full DPS), and
 				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely.
-				-- The base-pass cache store lets skills with unchanged inputs reuse their captured results
-				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = { store = fullDPSStore } })
+				-- The base-pass cache store lets skills with unchanged inputs reuse their captured results;
+				-- it only diffs skill-level inputs, so it is valid only while the tree and items are unchanged
+				local fullDPSCache = fastCalcOptions.nodeAlloc and fastCalcOptions.requirementsItems and { store = fullDPSStore } or nil
+				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = fullDPSCache })
 				return { SkillDPS = fullDPS.skills, FullDPS = fullDPS.combinedDPS, FullDotDPS = fullDPS.TotalDotDPS }
 			end
 			-- Accelerated pass for hot loops (e.g. gem dropdown DPS sorting): reuse the cached
 			-- DBs and environment so unchanged state (tree, items, requirements - per the
 			-- accelerate flags) is carried over instead of being rebuilt for every call.
 			-- The first call builds the reusable environment from scratch, like calcFullDPS does.
+			local fastEnv = fastEnvs[fastCalcOptions]
 			local accelerate = fastEnv and fastCalcOptions or nil
 			fastEnv = calcs.initEnv(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fastEnv, accelerate = accelerate })
+			fastEnvs[fastCalcOptions] = fastEnv
 			fastEnv.override = override
 			calcs.perform(fastEnv, fastCalcOptions.skipEHP)
-			if (useFullDPS ~= false or build.viewMode == "TREE") and usedFullDPS then
+			-- Fast-path callers read only the stat they asked for, so Full DPS is computed only on request
+			if useFullDPS and usedFullDPS then
 				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil})
 				fastEnv.player.output.SkillDPS = fullDPS.skills
 				fastEnv.player.output.FullDPS = fullDPS.combinedDPS
