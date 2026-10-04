@@ -551,6 +551,8 @@ end
 function CalcsTabClass:PowerBuilder()
 	-- local timer_start = GetTime()
 	local useFullDPS = self.powerStat and self.powerStat.stat == "FullDPS"
+	-- Only the selected power stat is read from each output, so skip the passes it does not need
+	local fastCalcOptions = { fullDPSOnly = useFullDPS, skipEHP = not (self.powerStat and self.powerStat.needsEHP) }
 	local calcFunc, calcBase = self:GetMiscCalculator()
 	local cache = { }
 	local distanceMap = { }
@@ -569,9 +571,20 @@ function CalcsTabClass:PowerBuilder()
 		coroutine.yield()
 	end
 	
+	local singleStat = self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes
 	local start = GetTime()
 	local nodeIndex = 0
 	local total = 0
+	local function step()
+		nodeIndex = nodeIndex + 1
+		if coroutine.running() and GetTime() - start > 100 then
+			if self.build.powerBuilderProgressCallback then
+				self.build.powerBuilderProgressCallback(m_floor(nodeIndex/total*100))
+			end
+			coroutine.yield()
+			start = GetTime()
+		end
+	end
 
 	for nodeId, node in pairs(self.build.spec.nodes) do
 		wipeTable(node.power)
@@ -598,6 +611,10 @@ function CalcsTabClass:PowerBuilder()
 				node.power.distance = dist
 				if (not self.nodePowerMaxDepth) or dist <= self.nodePowerMaxDepth then
 					total = total + 1
+					-- Path power is calculated in a second pass, so count it towards progress too
+					if singleStat and not node.ascendancyName and (node.alloc and #(node.depends or { }) > 1 or not node.alloc and node.path and dist > 1) then
+						total = total + 1
+					end
 				end
 			end
 		end
@@ -614,6 +631,9 @@ function CalcsTabClass:PowerBuilder()
 		end
 	end
 
+	-- Path power needs a calculation per path, so it is deferred until every node's own
+	-- power (all the heat map shows) is known
+	local pathJobs = { }
 	for _, data in ipairs(distanceList) do
 		local distance, nodes = data[1], data[2]
 		if self.nodePowerMaxDepth and self.nodePowerMaxDepth < distance then
@@ -622,7 +642,7 @@ function CalcsTabClass:PowerBuilder()
 		for nodeId, node in pairs(nodes) do
 			if not node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
 				if not cache[node.modKey] then
-					cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS)
+					cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
 				end
 				local output = cache[node.modKey]
 				if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
@@ -635,7 +655,7 @@ function CalcsTabClass:PowerBuilder()
 							pathNodes[node] = true
 						end
 						if distance > 1 then
-							node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc({ addNodes = pathNodes }, useFullDPS), calcBase)
+							t_insert(pathJobs, { node = node, override = { addNodes = pathNodes } })
 						end
 					end
 				elseif not self.powerStat or not self.powerStat.ignoreForNodes then
@@ -650,7 +670,7 @@ function CalcsTabClass:PowerBuilder()
 				end
 			elseif node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
 				if not cache[node.modKey.."_remove"] then
-					cache[node.modKey.."_remove"] = calcFunc({ removeNodes = { [node] = true } }, useFullDPS)
+					cache[node.modKey.."_remove"] = calcFunc({ removeNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
 				end
 				local output = cache[node.modKey.."_remove"]
 				if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
@@ -662,19 +682,12 @@ function CalcsTabClass:PowerBuilder()
 							pathNodes[node] = true
 						end
 						if #node.depends > 1 then
-							node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc({ removeNodes = pathNodes }, useFullDPS), calcBase)
+							t_insert(pathJobs, { node = node, override = { removeNodes = pathNodes } })
 						end
 					end
 				end
 			end
-			nodeIndex = nodeIndex + 1
-			if coroutine.running() and GetTime() - start > 100 then
-				if self.build.powerBuilderProgressCallback then
-					self.build.powerBuilderProgressCallback(m_floor(nodeIndex/total*100))
-				end
-				coroutine.yield()
-				start = GetTime()
-			end
+			step()
 		end
 	end
 
@@ -687,23 +700,22 @@ function CalcsTabClass:PowerBuilder()
 		wipeTable(node.power)
 		if not node.alloc and node.modKey ~= "" and not self.mainEnv.grantedPassives[nodeId] then
 			if not cache[node.modKey] then
-				cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS)
+				cache[node.modKey] = calcFunc({ addNodes = { [node] = true } }, useFullDPS, fastCalcOptions)
 			end
 			local output = cache[node.modKey]
 			if self.powerStat and self.powerStat.stat and not self.powerStat.ignoreForNodes then
 				node.power.singleStat = self:CalculatePowerStat(self.powerStat, output, calcBase)
 			end
-			nodeIndex = nodeIndex + 1
-			if coroutine.running() and GetTime() - start > 100 then
-				if self.build.powerBuilderProgressCallback then
-					self.build.powerBuilderProgressCallback(m_floor(nodeIndex/total*100))
-				end
-				coroutine.yield()
-				start = GetTime()
-			end
+			step()
 		end
 	end
+	-- The heat map is complete from here on
 	self.powerMax = newPowerMax
+
+	for _, job in ipairs(pathJobs) do
+		job.node.power.pathPower = self:CalculatePowerStat(self.powerStat, calcFunc(job.override, useFullDPS, fastCalcOptions), calcBase)
+		step()
+	end
 	self.powerBuilderInitialized = true
 	-- ConPrintf("Power Build time: %d ms", GetTime() - timer_start)
 end
