@@ -112,8 +112,10 @@ function calcs.getMiscCalculator(build)
 				-- The caller only reads the FullDPS roll-up (e.g. sorting gems by Full DPS), and
 				-- calcFullDPS builds its own environments, so the main-skill pass can be skipped entirely.
 				-- The base-pass cache store lets skills with unchanged inputs reuse their captured results;
-				-- it only diffs skill-level inputs, so it is valid only while the tree and items are unchanged
-				local fullDPSCache = fastCalcOptions.nodeAlloc and fastCalcOptions.requirementsItems and { store = fullDPSStore } or nil
+				-- it only diffs skill-level inputs, so it is valid only while the tree and items are unchanged.
+				-- Otherwise only skills that cannot deal damage reuse theirs
+				local treeAndItemsUnchanged = fastCalcOptions.nodeAlloc and fastCalcOptions.requirementsItems
+				local fullDPSCache = { store = fullDPSStore, inertOnly = not treeAndItemsUnchanged }
 				local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil, fullDPSCache = fullDPSCache })
 				return { SkillDPS = fullDPS.skills, FullDPS = fullDPS.combinedDPS, FullDotDPS = fullDPS.TotalDotDPS }
 			end
@@ -265,6 +267,28 @@ local function getSocketGroupOverride(build, override, socketGroup)
 	return skillOverride
 end
 
+-- Returns whether a captured pass contributed nothing to Full DPS from a skill that cannot deal
+-- damage itself (e.g. meta gems and mirage spawners), so no passive or item change can alter it
+local function isInertPass(activeSkill, pass)
+	local skillFlags = activeSkill.activeEffect.statSet.skillFlags
+	if skillFlags.hit or skillFlags.dot or activeSkill.minion or activeSkill.mirage then
+		return false
+	end
+	for _, actor in ipairs(pass.actors) do
+		for _, field in ipairs(harvestFields) do
+			local value = actor.out[field]
+			if field == "CullMultiplier" then
+				if value and value > 1 then
+					return false
+				end
+			elseif value and value ~= 0 then
+				return false
+			end
+		end
+	end
+	return true
+end
+
 local function findActiveSkillInEnv(env, sourceSkill)
 	for _, candidate in ipairs(env.player.activeSkillList) do
 		if candidate.socketGroup == sourceSkill.socketGroup and candidate.activeEffect.srcInstance == sourceSkill.activeEffect.srcInstance
@@ -280,15 +304,17 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	-- Optional per-skill result cache driven by input diffing (specEnv.fullDPSCache):
 	-- with capture set, each skill's harvested results are stored in the cache store along
 	-- with its input references (own mod list + the env's coupling surface); on later calls,
-	-- a skill whose references are unchanged merges its cached results instead of recalculating
+	-- a skill whose references are unchanged merges its cached results instead of recalculating.
+	-- With inertOnly set, only skills that cannot deal damage reuse their cached results.
 	local fullDPSCache = specEnv and specEnv.fullDPSCache
 	local cacheStore = fullDPSCache and fullDPSCache.store
 	local surfaceSame = false
-	if cacheStore then
+	if cacheStore and not fullDPSCache.inertOnly then
 		local curSurface = captureCouplingSurface(fullEnv)
 		if fullDPSCache.capture then
 			cacheStore.snapshots = { }
 			cacheStore.refs = { }
+			cacheStore.inert = { }
 			cacheStore.surface = curSurface
 		else
 			surfaceSame = cacheStore.surface ~= nil and surfacesEqual(cacheStore.surface, curSurface)
@@ -332,7 +358,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 			local uuid = cacheStore and cacheSkillUUID(activeSkill, skillEnv)
 			local canCacheSkill = not crossSetSkill and not (activeSkill.triggeredBy or activeSkill.skillData.triggered)
 			local cachedPasses
-			if canCacheSkill and surfaceSame and activeSkill.baseSkillModList then
+			if canCacheSkill and cacheStore and fullDPSCache.inertOnly then
+				cachedPasses = cacheStore.inert[uuid] and cacheStore.snapshots[uuid]
+			elseif canCacheSkill and surfaceSame and activeSkill.baseSkillModList then
 				local ref = cacheStore.refs[uuid]
 				if ref and cacheStore.snapshots[uuid] and modListsEqual(ref, activeSkill.baseSkillModList) then
 					cachedPasses = cacheStore.snapshots[uuid]
@@ -413,6 +441,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				if cacheStore and fullDPSCache.capture and ownRef then
 					cacheStore.snapshots[uuid] = { pass }
 					cacheStore.refs[uuid] = ownRef
+					cacheStore.inert[uuid] = isInertPass(activeSkill, pass)
 				end
 
 				local nextSkill

@@ -64,6 +64,28 @@ describe("TestNodePower", function()
 		assert.is_true(assertMatchesSlowPath(findStat("FullDPS")) > 0, "expected some node to change Full DPS")
 	end)
 
+	it("does not recalculate Full DPS skills that cannot deal damage", function()
+		setUp("Sorceress")
+		build.skillsTab:PasteSocketGroup("Wind Dancer 20/0  1")
+		runCallback("OnFrame")
+		build.skillsTab.socketGroupList[2].includeInFullDPS = true
+		build.buildFlag = true
+		runCallback("OnFrame")
+		local calcs = build.calcsTab.calcs
+		local realPerform = calcs.perform
+		local performs = { }
+		calcs.perform = function(env, ...)
+			realPerform(env, ...)
+			local name = env.player.mainSkill.activeEffect.grantedEffect.name
+			performs[name] = (performs[name] or 0) + 1
+		end
+		buildPower(findStat("FullDPS"))
+		calcs.perform = realPerform
+		assert.is_true((performs["Spark"] or 0) > 0, "Spark should be recalculated")
+		assert.is_nil(performs["Wind Dancer"], "Wind Dancer cannot deal damage and should be served from the base pass")
+		assertMatchesSlowPath(findStat("FullDPS"))
+	end)
+
 	it("Life power matches the full calculation", function()
 		setUp("Warrior")
 		assert.is_true(assertMatchesSlowPath(findStat("Life")) > 0, "expected some node to change Life")
