@@ -609,6 +609,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.buildPath then
 					self.buildPath = node.attrib.buildPath
 				end
+				if node.attrib.buildPlannerPath then
+					self.buildPlannerPath = node.attrib.buildPlannerPath
+				end
 				if node.attrib.nodePowerTheme then
 					self.nodePowerTheme = node.attrib.nodePowerTheme
 				end
@@ -808,6 +811,7 @@ function main:SaveSettings()
 		connectionProtocol = tostring(launch.connectionProtocol),
 		proxyURL = launch.proxyURL,
 		buildPath = (self.buildPath ~= self.defaultBuildPath and self.buildPath or nil),
+		buildPlannerPath = self.buildPlannerPath,
 		nodePowerTheme = self.nodePowerTheme,
 		colorPositive = self.colorPositive,
 		colorNegative = self.colorNegative,
@@ -923,7 +927,7 @@ function main:OpenOptionsPopup(savedState)
 	}
 
 	-- NOTE: Height needs to be adjusted if more menu options are added
-	local oneColumnHeightReq = 850 -- Min height required to not split menu into two columns
+	local oneColumnHeightReq = 876 -- Min height required to not split menu into two columns
 	local columnWidth = 600
 
 	local startingY = 20
@@ -1015,6 +1019,14 @@ function main:OpenOptionsPopup(savedState)
 		controls.buildPath:SetText(self.buildPath)
 	end
 	controls.buildPath.tooltipText = "Overrides the default save location for builds.\nThe default location is: '"..self.defaultBuildPath.."'"
+
+	nextRow()
+	controls.buildPlannerPath = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 290, 18 })
+	controls.buildPlannerPathLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.buildPlannerPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Build planner path:")
+	if self.buildPlannerPath then
+		controls.buildPlannerPath:SetText(self.buildPlannerPath)
+	end
+	controls.buildPlannerPath.tooltipText = "Overrides the folder used when exporting to the in-game build planner.\nUseful if your Documents folder is redirected (e.g. by OneDrive).\nThe default location is: '"..require("Modules.BuildExportPoE2").StandardDir().."'"
 
 	nextRow()
 	controls.nodePowerTheme = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
@@ -1236,6 +1248,14 @@ function main:OpenOptionsPopup(savedState)
 			end
 		else
 			self.buildPath = self.defaultBuildPath
+		end
+		local buildPlannerPath = controls.buildPlannerPath.buf:match("%S") and controls.buildPlannerPath.buf or nil
+		if buildPlannerPath ~= self.buildPlannerPath then
+			self.buildPlannerPath = buildPlannerPath
+			local importTab = self.modes.BUILD and self.modes.BUILD.importTab
+			if self.mode == "BUILD" and importTab then
+				importTab:ResetBuildPlannerPath()
+			end
 		end
 		if self.mode == "LIST" then
 			self.modes.LIST:BuildList()

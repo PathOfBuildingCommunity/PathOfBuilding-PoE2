@@ -28,11 +28,24 @@ local function treeVersionSuffix(treeVersion)
 	return treeVersion and " [" .. tostring(treeVersion):gsub("_", ".") .. "]" or ""
 end
 
-function M.DefaultDir()
+--- The game's own BuildPlanner folder, ignoring any user override.
+function M.StandardDir()
 	local home = os.getenv("USERPROFILE") or (GetScriptPath() .. "/../") or ""
 	local sep = home:find("\\") and "\\" or "/"
 	return home .. sep .. "Documents" .. sep .. "My Games" .. sep
 	     .. "Path of Exile 2" .. sep .. "BuildPlanner" .. sep
+end
+
+--- The export folder: the "Build planner path" option if set, otherwise the standard folder.
+function M.DefaultDir()
+	local custom = main and main.buildPlannerPath
+	if custom and custom:match("%S") then
+		if not custom:match("[/\\]$") then
+			custom = custom .. (custom:find("\\") and "\\" or "/")
+		end
+		return custom
+	end
+	return M.StandardDir()
 end
 
 function M.BuildPath(buildName, treeVersion, path)
@@ -45,7 +58,10 @@ function M.DisplayPath(path)
 	local sep = defaultDir:find("\\") and "\\" or "/"
 	if path:sub(1, #defaultDir):lower() == defaultDir:lower() then
 		local fileName = path:sub(#defaultDir + 1)
-		return "..." .. sep .. "Path of Exile 2" .. sep .. "BuildPlanner" .. (fileName ~= "" and sep .. fileName or "")
+		-- Show the last two folders of the export directory, e.g. "...\Path of Exile 2\BuildPlanner\My Build.build"
+		local parent, leaf = defaultDir:gsub("[/\\]+$", ""):match("([^/\\]*)[/\\]+([^/\\]+)$")
+		local shownDir = parent and (parent ~= "" and parent .. sep or "") .. leaf or defaultDir:gsub("[/\\]+$", "")
+		return "..." .. sep .. shownDir .. (fileName ~= "" and sep .. fileName or "")
 	end
 	return "..." .. sep .. (path:gsub("[/\\]+$", ""):match("([^/\\]+)$") or "")
 end
