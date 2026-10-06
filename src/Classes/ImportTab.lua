@@ -480,6 +480,14 @@ function ImportTabClass:ImportTab(build)
 	return self
 end
 
+-- Point the export path at the current default folder, e.g. after the "Build planner path" option changes.
+function ImportTabClass:ResetBuildPlannerPath()
+	local BuildExportPoE2 = require("Modules.BuildExportPoE2")
+	local buildName = self.controls.buildPlannerBuildName.buf ~= "" and self.controls.buildPlannerBuildName.buf or self.controls.buildPlannerBuildName.placeholder
+	local spec = self.build.treeTab and self.build.treeTab.specList[self.exportSpecIndex]
+	self.controls.poe2ExportPath:SetText(BuildExportPoE2.BuildPath(buildName, spec and spec.treeVersion))
+end
+
 -- Metadata shared by both export buttons.
 function ImportTabClass:GetBuildPlannerMetadata()
 	return {
