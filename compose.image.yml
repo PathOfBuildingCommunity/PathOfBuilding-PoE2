@@ -1,0 +1,19 @@
+# Run the prebuilt image (no build needed):
+#   docker compose -f compose.image.yml up -d   ->  http://localhost:8080  (MCP: http://localhost:8080/mcp)
+#   docker compose -f compose.image.yml pull && docker compose -f compose.image.yml up -d   # update
+#
+# Settings (environment or a .env file next to this one, see .env.example):
+#   POB2_IMAGE                image to run (default: the published GitHub Container Registry image)
+#   POB2_PORT=8080            host port
+#   POB2_BIND=127.0.0.1       0.0.0.0 to reach it from other machines (there is no login: keep it on a trusted network)
+#   POB2_ALLOWED_HOSTS=       hostnames other machines use for /mcp, e.g. "nas,192.168.1.20"
+services:
+  pob2:
+    image: ${POB2_IMAGE:-ghcr.io/skitty4fingers/pob-enhanced:latest}
+    ports:
+      - "${POB2_BIND:-127.0.0.1}:${POB2_PORT:-8080}:8080"
+    environment:
+      POB2_ALLOWED_HOSTS: ${POB2_ALLOWED_HOSTS:-}
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

@@ -1,7 +1,7 @@
 name: Enhanced (engine, MCP, web)
 on:
   push:
-    branches: [dev, "claude/**"]
+    branches: [main, dev, "claude/**"]
     paths: ["engine/**", "python/**", "web/**", "src/**", "scripts/setup-engine.sh", ".github/workflows/enhanced.yml"]
   pull_request:
     paths: ["engine/**", "python/**", "web/**", "src/**", "scripts/setup-engine.sh", ".github/workflows/enhanced.yml"]

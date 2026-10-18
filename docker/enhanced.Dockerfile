@@ -1,4 +1,4 @@
-# PoB2-Enhanced: headless engine + REST API + web UI + MCP endpoint.
+# PoB-Enhanced: headless engine + REST API + web UI + MCP endpoint.
 #   docker build -f docker/enhanced.Dockerfile -t pob2-enhanced .
 #   docker run --rm -p 8080:8080 pob2-enhanced              # web UI + REST + MCP at /mcp
 #   docker run --rm -i pob2-enhanced pob2-mcp               # MCP over stdio
@@ -22,20 +22,6 @@ RUN git clone --depth 1 --branch 0.1.6 https://github.com/starwing/luautf8 /tmp/
     && mkdir -p /opt/luajit/lib/lua/5.1 \
     && cc -O2 -fPIC -shared -I/opt/luajit/include/luajit-2.1 /tmp/luautf8/lutf8lib.c -o /opt/luajit/lib/lua/5.1/lua-utf8.so
 
-# PoE2 passive tree artwork: DDS texture arrays -> WebP sprites for the web UI (latest tree version).
-FROM python:3.12-slim AS treeart
-RUN pip install --no-cache-dir zstandard texture2ddecoder pillow
-WORKDIR /repo
-COPY scripts/build_tree_art.py scripts/
-COPY src/GameVersions.lua src/
-COPY src/TreeData/ src/TreeData/
-RUN python scripts/build_tree_art.py --out /tree-art
-
-# PoB sources without the compressed tree textures (only the desktop renderer reads those).
-FROM debian:bookworm-slim AS pobsrc
-COPY src/ /src/
-RUN find /src/TreeData -name '*.zst' -delete
-
 FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 COPY --from=luajit /opt/luajit /opt/luajit
@@ -47,8 +33,9 @@ RUN useradd --create-home pob
 WORKDIR /app
 COPY python/pyproject.toml python/uv.lock python/README.md python/
 RUN uv sync --directory python --frozen --no-dev --no-install-project
-COPY --chown=pob --from=pobsrc /src/ src/
-COPY --from=treeart /tree-art tree-art/
+COPY --chown=pob src/ src/
+# PoE2 tree artwork, pre-converted to WebP (regenerate with scripts/build_tree_art.py when TreeData changes).
+COPY tree-art/ tree-art/
 COPY runtime/lua/ runtime/lua/
 COPY engine/ engine/
 COPY python/ python/

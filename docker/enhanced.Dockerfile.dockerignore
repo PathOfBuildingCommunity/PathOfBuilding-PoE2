@@ -8,7 +8,7 @@ runtime-win32.zip
 python/src/pob2/web/static
 src/Export
 src/Builds
-tree-art
-# Desktop-only tree sprites. The .zst texture arrays are kept: the treeart stage converts them to WebP.
+# Tree sprites/textures are only used by the desktop renderer (~350 MB); the web UI uses tree-art/ instead.
 src/TreeData/**/*.png
 src/TreeData/**/*.jpg
+src/TreeData/**/*.zst

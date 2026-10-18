@@ -1,4 +1,4 @@
-# PoB2-Enhanced: headless engine, MCP server and web UI
+# PoB-Enhanced: headless engine, MCP server and web UI
 
 PoB2-Enhanced runs the unmodified Path of Building 2 calculation engine without the Windows desktop UI. It adds:
 
@@ -42,12 +42,17 @@ uv run --directory python pob2-web   # http://127.0.0.1:8080
 ### Docker (any OS, including Windows)
 
 ```bash
-docker compose -f compose.enhanced.yml up --build        # http://localhost:8080, MCP at http://localhost:8080/mcp
+docker run -d -p 8080:8080 ghcr.io/skitty4fingers/pob-enhanced:latest   # prebuilt image (published by CI)
+docker compose -f compose.image.yml up -d                              # same, with Compose
+docker compose -f compose.enhanced.yml up -d --build                   # build from source
 docker build -f docker/enhanced.Dockerfile -t pob2-enhanced .
-docker run --rm -i pob2-enhanced pob2-mcp                 # MCP over stdio
+docker run --rm -i pob2-enhanced pob2-mcp                              # MCP over stdio
 ```
 
-If port 8080 is taken, set `POB2_PORT` (shell variable or a `.env` file in the repo root), e.g. `POB2_PORT=8181`.
+All of these serve http://localhost:8080 with MCP at `/mcp`. The Compose files read `POB2_PORT` (host port),
+`POB2_BIND` (`127.0.0.1` by default; `0.0.0.0` to reach it from your network) and `POB2_ALLOWED_HOSTS` from the
+shell or a `.env` file (see `.env.example`). `.github/workflows/publish.yml` publishes the image to GitHub Container
+Registry on every push to `main` (amd64 and arm64).
 
 On Windows without WSL or Docker, the desktop app in `runtime/` is unchanged. The headless engine needs a
 native `luajit.exe` built from the pinned commit (LuaJIT's own `src\msvcbuild.bat`). Put it next to the `lua-utf8.dll` from `runtime/` and point `POB2_LUAJIT` at it.
@@ -90,8 +95,8 @@ Notes:
 ### Passive tree artwork
 
 The web tree draws the game's own PoE2 node icons, frames, class and ascendancy art. These come from the DDS texture
-arrays in `src/TreeData/<version>/` and are converted to WebP by `scripts/build_tree_art.py`. The Docker image does
-this at build time. Without Docker:
+arrays in `src/TreeData/<version>/`, converted to WebP by `scripts/build_tree_art.py` and committed in `tree-art/`
+(about 22 MB) so a clone or the Docker image needs no conversion step. After a tree data update, regenerate them:
 
 ```bash
 uv run --no-project --with zstandard --with texture2ddecoder --with pillow python scripts/build_tree_art.py
