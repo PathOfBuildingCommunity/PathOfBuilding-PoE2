@@ -30,6 +30,13 @@ Typical flow: load_build (share code / pobb.in link / XML) or new_build -> get_b
 inspect with get_stats, list_skills, list_items, get_passive_tree -> evaluate changes with
 compare_item / compare_passives BEFORE applying them with equip_item / allocate_passives ->
 export_build to hand the result back as a share code.
+To optimise toward a guide, load its PoE2 BuildPlanner .build file with load_reference_build, then use
+compare_to_reference (passive/skill/gear gaps) and reference_impact (ranked next steps by gain per point).
+get_advice says where the next point goes, which point to move and which attribute nodes to switch.
+BEFORE recommending that the user buy, equip or swap any item, call check_item and report its verdict, warnings
+(Spirit, totems, attribute requirements) and every damage skill. Never compare raw TotalDPS for totem skills: PoB
+reports totem DPS per totem; check_item/get_budget count the totems the Spirit budget can actually keep up.
+gear_advice, shopping_advice and gem_advice cover items, jewels, uniques to buy and gems; refresh_build re-imports.
 Stat values are PoB's calculated numbers for the current configuration (see list_config);
 enemy conditions and buffs in the config strongly affect DPS.
 """
@@ -52,7 +59,7 @@ def tool(annotations: ToolAnnotations) -> Any:
         def wrapper(*args: Any, **kwargs: Any) -> Any:
             try:
                 return fn(*args, **kwargs)
-            except (EngineError, CodecError, httpx.HTTPError) as exc:
+            except (EngineError, CodecError, httpx.HTTPError, ValueError, OSError) as exc:
                 raise ToolError(str(exc)) from exc
 
         return mcp.tool(annotations=annotations)(wrapper)
@@ -288,8 +295,14 @@ def deallocate_passives(ids: NodeIds) -> dict[str, Any]:
 
 @tool(WRITE)
 def import_tree_url(url: str) -> dict[str, Any]:
-    """Replace the passive tree from a pathofexile.com passive tree URL."""
+    """Replace the passive tree from a pathofexile2.com/game/passive-skill-tree/ link (or its code)."""
     return svc().call("tree.import_url", url=url)
+
+
+@tool(READ)
+def export_tree_url() -> dict[str, Any]:
+    """Link to the current passive tree on the official PoE2 planner (pathofexile2.com)."""
+    return svc().call("tree.export_url")
 
 
 # -- configuration ---------------------------------------------------------------------------------
@@ -333,6 +346,145 @@ def build_code() -> str:
 def build_xml() -> str:
     """Full XML of the active build."""
     return svc().export()["xml"]
+
+
+# -- reference build -------------------------------------------------------------------------------
+
+Level = Annotated[
+    int | None, Field(None, ge=1, le=100, description="Character level for staged guides (default: build level)")
+]
+
+
+@tool(WRITE)
+def load_reference_build(
+    content: Annotated[str | None, Field(description="Contents of a PoE2 BuildPlanner .build file (JSON)")] = None,
+    path: Annotated[str | None, Field(description="Path to a .build file readable by the server")] = None,
+) -> dict[str, Any] | None:
+    """Load a guide's .build file as the reference the live build is compared against."""
+    if content is None and path is None:
+        raise ToolError("Pass content or path")
+    if content is None:
+        with open(path, encoding="utf-8-sig") as f:  # noqa: PTH123
+            content = f.read()
+    return svc().set_reference(content)
+
+
+@tool(READ)
+def compare_to_reference(level: Level = None) -> dict[str, Any]:
+    """Gaps vs the reference: missing/extra passives, ascendancy, skill gems and supports, gear and guide notes."""
+    return svc().reference_compare(level)
+
+
+@tool(READ)
+def reference_impact(level: Level = None, limit: int = 20) -> dict[str, Any]:
+    """Stats on the full reference tree, guide notables ranked by DPS%+EHP% per point (with paths), and
+    what each extra notable you have is worth. No changes made."""
+    return svc().reference_impact(level, limit)
+
+
+@tool(REPLACE)
+def apply_reference_tree(level: Level = None) -> dict[str, Any]:
+    """Replace the passive tree with the reference tree (keeps class; attribute choices preserved)."""
+    return svc().apply_reference_tree(level)
+
+
+@tool(READ)
+def get_advice(
+    metric: Annotated[str, Field(description="balanced, dps or ehp")] = "balanced", level: Level = None
+) -> dict[str, Any]:
+    """Where the next passive point should go (with path), which allocated point to move, and recommended vs
+    current attribute node choices with reasons. Follows the reference guide when one is loaded. No changes made."""
+    return svc().advice(metric, level)
+
+
+AttributeChanges = Annotated[
+    list[dict[str, Any]],
+    Field(description='[{"id": <attribute node id>, "attribute": "Strength" | "Dexterity" | "Intelligence"}]'),
+]
+
+
+@tool(WRITE)
+def set_attribute_nodes(changes: AttributeChanges) -> dict[str, Any]:
+    """Choose the +5 attribute on attribute nodes."""
+    return svc().set_attributes(changes)
+
+
+Metric = Annotated[str, Field(description="balanced, dps or ehp")]
+
+
+@tool(REPLACE)
+def refresh_build() -> dict[str, Any]:
+    """Re-import the build from the link it was loaded from (e.g. a poe.ninja character page), keeping config."""
+    return svc().refresh()
+
+
+@tool(READ)
+def gear_advice(
+    slot: Annotated[str | None, Field(description="One slot (e.g. Gloves, Ring 1, Jewel 26196); omit for all")] = None,
+    metric: Metric = "balanced",
+    league: Annotated[str | None, Field(description="Trade league for search links")] = None,
+) -> Any:
+    """Per slot: what the item and each mod is worth (dead mods flagged), what to look for on a replacement,
+    upgrade headroom and a weighted trade-site search URL. All slots are sorted by headroom (best upgrade first)."""
+    return svc().gear_slot(slot, metric, league) if slot else svc().gear_overview(metric, league)
+
+
+@tool(READ)
+def shopping_advice(
+    metric: Metric = "balanced",
+    league: Annotated[str | None, Field(description="Trade league (default: the build's or current league)")] = None,
+    max_price: Annotated[float | None, Field(description="Budget in divine orbs")] = None,
+) -> dict[str, Any]:
+    """Uniques that would help this build most per slot, measured in PoB, with poe.ninja prices and trade links."""
+    return svc().gear_uniques(metric, league, max_price)
+
+
+@tool(READ)
+def gem_advice(metric: Metric = "balanced") -> dict[str, Any]:
+    """Skill gem advice: worth of each support, best replacement for the weakest support per skill (regular and
+    lineage), gem level/quality upgrades ranked by gain, and setup problems (disabled, duplicate, harmful)."""
+    return svc().gems_advice(metric)
+
+
+@tool(WRITE)
+def set_gem(
+    group: Annotated[int, Field(description="Socket group number (from list_skills)")],
+    index: Annotated[int, Field(description="Gem position in the group, 1-based")],
+    name: Annotated[str | None, Field(description="Replace with this gem")] = None,
+    level: int | None = None,
+    quality: int | None = None,
+    enabled: bool | None = None,
+) -> dict[str, Any]:
+    """Change one gem: swap it, or set its level, quality or enabled state."""
+    return svc().set_gem(group, index, name=name, level=level, quality=quality, enabled=enabled)
+
+
+@tool(READ)
+def check_item(
+    text: Annotated[str, Field(description="Item text copied from the game (Ctrl+C) or trade site")],
+    slot: Annotated[str | None, Field(description="Slot to test (default: wherever it does best)")] = None,
+) -> dict[str, Any]:
+    """Check before you buy: upgrade/sidegrade/downgrade verdict with reasons, each damage skill's DPS counting
+    totems, Spirit and totems before/after, defences and attribute requirements. Use before any purchase advice."""
+    return svc().check_item(text, slot)
+
+
+@tool(READ)
+def get_budget() -> dict[str, Any]:
+    """Spirit total, what reserves it, free Spirit, totems affordable vs the totem cap, main-skill DPS across totems."""
+    return svc().budget()
+
+
+@mcp.prompt()
+def optimize_to_reference(code: str) -> str:
+    """Plan how to move a character toward a loaded reference guide."""
+    return (
+        f"Load this build with load_build:\n\n{code}\n\n"
+        "A reference guide is loaded (load_reference_build). Call compare_to_reference and reference_impact. "
+        "Report: ascendancy/skill/support gaps, gear gaps with the guide's stat priorities, and a passive plan "
+        "ordered by gain per point (use the paths given), plus which extra nodes are cheapest to refund. "
+        "Quantify with the measured deltas. Ask before applying anything."
+    )
 
 
 @mcp.prompt()

@@ -170,7 +170,7 @@ function M.compare_nodes(params)
 	for _ in pairs(override.addNodes or { }) do pointDelta = pointDelta + 1 end
 	for _ in pairs(override.removeNodes or { }) do pointDelta = pointDelta - 1 end
 	local newOutput = calcFunc(override)
-	return { pointDelta = pointDelta, changes = diff(baseOutput, newOutput) }
+	return { pointDelta = pointDelta, changes = diff(baseOutput, newOutput), budget = require("pobapi.api.budget")._compare(baseOutput, newOutput) }
 end
 
 -- What-if for an item. Slot defaults to the item's primary slot.
@@ -187,9 +187,15 @@ function M.compare_item(params)
 	if not b.itemsTab.slots[slot] then
 		util.fail("Unknown slot: " .. tostring(slot))
 	end
-	local calcFunc, baseOutput = b.calcsTab:GetMiscCalculator()
+	local calcFunc, baseOutput = require("pobapi.api.budget")._calculator(b)
 	local newOutput = calcFunc({ repSlotName = slot, repItem = item })
-	return { slot = slot, item = item.name, changes = diff(baseOutput, newOutput) }
+	return {
+		slot = slot,
+		item = item.name,
+		changes = diff(baseOutput, newOutput),
+		-- Spirit/totems/requirements and main-skill DPS across all totems (the sidebar rows don't show these).
+		budget = require("pobapi.api.budget")._compare(baseOutput, newOutput),
+	}
 end
 
 return M

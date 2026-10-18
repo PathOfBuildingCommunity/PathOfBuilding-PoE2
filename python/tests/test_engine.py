@@ -1,5 +1,8 @@
 """Integration tests against the real PoB engine (LuaJIT worker)."""
 
+import base64
+import json
+
 import pytest
 
 from pob2 import codec
@@ -76,6 +79,122 @@ def test_tree_search_compare_allocate(witch):
     assert witch.call("stats.get", keys=["TotalDPS"])["TotalDPS"] == pytest.approx(dps["after"])
 
 
+def test_tree_url_is_poe2_and_round_trips(witch):
+    hits = witch.call("tree.search", query="Raw Destruction")
+    witch.call("tree.allocate", ids=[next(n["id"] for n in hits if n["name"] == "Raw Destruction")])
+    before = witch.call("tree.get")
+    link = witch.call("tree.export_url")
+    assert link["url"] == "https://pathofexile2.com/game/passive-skill-tree/" + link["code"]
+    assert base64.urlsafe_b64decode(link["code"])[:4] == b"\x00\x00\x00\x07"
+    witch.call("tree.reset")
+    after = witch.call("tree.import_url", url=link["url"])
+    assert after["className"] == before["className"] and after["ascendClassName"] == before["ascendClassName"]
+    assert {n["id"] for n in after["nodes"]} == {n["id"] for n in before["nodes"]}
+
+
+def test_tree_url_official_example(service):
+    # Empty Druid tree from pathofexile2.com (class 11, first ascendancy).
+    service.new_build()
+    tree = service.call("tree.import_url", url="https://pathofexile2.com/game/passive-skill-tree/AAAABwsBAAA=")
+    assert tree["className"] == "Druid" and tree["pointsUsed"] == 0
+
+
+def test_tree_layout_has_artwork(service):
+    layout = service.tree_layout()
+    assert layout["classes"] and layout["ascendancies"]
+    notable = next(n for n in layout["nodes"] if n["type"] == "Notable" and not n.get("ascendancy"))
+    assert notable["icon"].endswith(".dds") and len(notable["frame"]) == 3 and notable["r"] > 0
+    assert any(len(e) == 5 for e in layout["edges"])  # orbit arcs
+
+
+def test_reference_build_compare_and_impact(witch):
+    hits = witch.call("tree.search", query="Raw Destruction")
+    witch.call("tree.allocate", ids=[next(n["id"] for n in hits if n["name"] == "Raw Destruction")])
+    reference = {
+        "name": "Test guide",
+        "ascendancy": "Witch1",
+        "passives": [],
+        "skills": [
+            {"id": "Metadata/Items/Gems/SkillGemFireball", "level_interval": [1, 100]},
+            {"id": "Metadata/Items/Gems/SkillGemDefinitelyMissing", "level_interval": [1, 100]},
+        ],
+        "inventory_slots": [{"inventory_id": "Amulet1", "slot_x": 0, "additional_text": "<b>{Any} life amulet"}],
+    }
+    witch.set_reference(json.dumps(reference))
+    cmp = witch.reference_compare()
+    assert cmp["skills"][0]["name"] == "Fireball" and cmp["skills"][0]["found"]
+    assert cmp["unknownGems"] == ["Metadata/Items/Gems/SkillGemDefinitelyMissing"]
+    assert cmp["items"][0]["slot"] == "Amulet" and cmp["items"][0]["note"] == "Any life amulet"
+    # The guide takes no passives, so everything allocated is "extra" and respeccing loses DPS.
+    assert cmp["passives"]["extra"]
+    impact = witch.reference_impact()
+    assert impact["fullTree"]["removed"] > 0 and impact["fullTree"]["dpsPercent"] < 0
+    witch.clear_reference()
+
+
+def test_advisor_next_point_and_attributes(witch):
+    advice = witch.advice()
+    assert advice["mode"] == "free"
+    step = advice["next"]
+    assert step and step["path"][0] == step["first"]["id"] and step["path"][-1] == step["target"]["id"]
+    assert step["reason"] and step["perPoint"] > 0
+
+    # Allocate the nearest attribute node, then switch it and check the advice explains it.
+    attr = min(
+        (n for n in witch.call("tree.search", query="Attribute", includeMinor=True, limit=200) if n.get("isAttribute")),
+        key=lambda n: n.get("pathLength") or 99,
+    )
+    witch.call("tree.allocate", ids=[attr["id"]])
+    tree = witch.set_attributes([{"id": attr["id"], "attribute": "Intelligence"}])
+    assert next(n for n in tree["nodes"] if n["id"] == attr["id"])["name"] == "Intelligence"
+    entry = next(n for n in witch.advice()["attributes"]["nodes"] if n["id"] == attr["id"])
+    assert entry["current"] == "Intelligence" and entry["reason"]
+
+
+def test_gear_advice(witch):
+    witch.call("items.equip", text=WAND)
+    slots = {s["slot"]: s for s in witch.gear_slots()}
+    assert "Weapon 1" in slots and "Helmet" in slots  # empty standard slots are evaluated too
+    wand = witch.gear_slot("Weapon 1", league="Standard")
+    assert wand["item"]["baseName"] == "Attuned Wand"
+    life = next(m for m in wand["mods"] if "maximum Life" in m["text"])
+    assert life["lifeDelta"] > 0 and not life.get("dead")
+    assert wand["lookFor"] and wand["lookFor"][0]["percent"] > 0
+    assert wand["tradeUrl"].startswith("https://www.pathofexile.com/trade2/search/poe2/Standard?q=")
+    helmet = witch.gear_slot("Helmet")
+    assert "item" not in helmet and helmet["testBase"] and helmet["headroom"] > 0
+
+
+def test_gem_advice_and_set_gem(witch):
+    advice = witch.gems_advice()
+    fireball = next(g for g in advice["groups"] if "Fireball" in g["skills"])
+    gem = next(x for x in fireball["gems"] if x["name"] == "Fireball")
+    witch.set_gem(fireball["index"], gem["index"], level=1)
+    advice = witch.gems_advice()
+    assert any(u["kind"] == "level" and u["name"] == "Fireball" for u in advice["upgrades"])
+
+
+def test_budget_and_item_check(witch):
+    budget = witch.budget()
+    assert {"spirit", "reserved", "free", "effectiveDps", "reservations"} <= budget.keys()
+    check = witch.check_item(WAND)
+    assert check["slot"] == "Weapon 1" and check["verdict"] in {"upgrade", "sidegrade", "downgrade"}
+    fireball = next(s for s in check["skills"] if s["name"] == "Fireball")
+    assert fireball["after"] >= fireball["before"] and fireball["isMain"]
+    assert any("Effective HP" in r for r in check["reasons"])
+    compare = witch.call("stats.compare_item", text=WAND)
+    assert (
+        "warnings" in compare["budget"] and compare["budget"]["effectiveAfter"] >= compare["budget"]["effectiveBefore"]
+    )
+
+
+def test_reference_rejects_non_build_files(service):
+    with pytest.raises(ValueError):
+        service.set_reference("not json")
+    with pytest.raises(ValueError):
+        service.set_reference('{"hello": 1}')
+
+
 def test_config_affects_dps(witch):
     base = witch.call("stats.get", keys=["TotalDPS"])["TotalDPS"]
     witch.call("config.set", values={"conditionEnemyShocked": True})
@@ -102,4 +221,4 @@ def test_layout(service):
     layout = service.tree_layout()
     assert len(layout["nodes"]) > 1000
     ids = {n["id"] for n in layout["nodes"]}
-    assert all(a in ids and b in ids for a, b in layout["edges"][:200])
+    assert all(e[0] in ids and e[1] in ids for e in layout["edges"][:200])

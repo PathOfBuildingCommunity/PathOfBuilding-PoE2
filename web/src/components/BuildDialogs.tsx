@@ -11,7 +11,7 @@ export function ImportDialog({ onClose }: { onClose: () => void }) {
   const m = useBuildMutation((s: string) => api.post<BuildInfo>("/build/import", { source: s }));
   return (
     <Modal title="Import build" onClose={onClose}>
-      <label className="label">Share code, pobb.in / pastebin / poe.ninja link, or XML</label>
+      <label className="label">Share code, XML, or a link (pobb.in, pastebin, poe.ninja paste or poe.ninja character page). Links can be re-imported later with Update.</label>
       <textarea className="input mt-1.5 h-40 font-mono text-xs" value={source} onChange={(e) => setSource(e.target.value)} autoFocus />
       <ErrorText error={m.error} />
       <div className="mt-3 flex justify-end">

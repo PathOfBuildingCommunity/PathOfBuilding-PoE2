@@ -150,6 +150,38 @@ function M.remove(params)
 	return M.list()
 end
 
+-- Change one gem in a group: params.index (1-based gem position), optional name, level, quality, enabled.
+function M.set_gem(params)
+	local b, group, index = getGroup(params)
+	local gem = group.gemList[util.require(params, "index", "number")]
+	if not gem then
+		util.fail("No gem at index " .. tostring(params.index))
+	end
+	if params.name then
+		local found
+		for id, gemData in pairs(data.gems) do
+			if gemData.name == params.name then
+				found = id
+				break
+			end
+		end
+		if not found then
+			local suggestions = M.suggest(params.name)
+			util.fail(("Unknown gem '%s'%s"):format(params.name, #suggestions > 0 and (". Did you mean: " .. table.concat(suggestions, ", ") .. "?") or ""))
+		end
+		gem.gemId = found
+		gem.nameSpec = data.gems[found].name
+		gem.skillId = data.gems[found].grantedEffectId
+		gem.level = params.level or b.skillsTab:ProcessGemLevel(data.gems[found])
+	end
+	if params.level then gem.level = params.level end
+	if params.quality then gem.quality = params.quality end
+	if params.enabled ~= nil then gem.enabled = params.enabled end
+	b.skillsTab:ProcessSocketGroup(group)
+	session.recalc()
+	return groupInfo(b, index, group)
+end
+
 function M.set_enabled(params)
 	local b, group, index = getGroup(params)
 	group.enabled = params.enabled ~= false

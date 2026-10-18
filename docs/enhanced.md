@@ -85,6 +85,20 @@ Notes:
 | `POB2_LUAJIT` | `luajit` on `PATH` | LuaJIT executable |
 | `POB2_ROOT` | auto-detected | Repository root (contains `src/Launch.lua` and `engine/`) |
 | `POB2_ALLOWED_HOSTS` | (none) | Extra hostnames accepted by `/mcp`, comma-separated (localhost is always allowed) |
+| `POB2_TREE_ART` | `<repo>/tree-art` | Passive tree artwork served at `/tree-art` (see below) |
+
+### Passive tree artwork
+
+The web tree draws the game's own PoE2 node icons, frames, class and ascendancy art. These come from the DDS texture
+arrays in `src/TreeData/<version>/` and are converted to WebP by `scripts/build_tree_art.py`. The Docker image does
+this at build time. Without Docker:
+
+```bash
+uv run --no-project --with zstandard --with texture2ddecoder --with pillow python scripts/build_tree_art.py
+```
+
+Without the artwork the tree falls back to plain circles. Tree links use the official PoE2 planner format
+(`https://pathofexile2.com/game/passive-skill-tree/<code>`, version 7), including weapon-set and attribute choices.
 
 ## Connecting AI agents (MCP)
 
@@ -118,10 +132,14 @@ or with Docker: `"command": "docker", "args": ["run", "--rm", "-i", "pob2-enhanc
 | Stats | `get_stats`, `get_stat_summary` |
 | Skills | `list_skills`, `add_skill_group`, `set_main_skill`, `set_skill_group_enabled`, `remove_skill_group`, `search_gems` |
 | Items | `list_items`, `list_item_slots`, `compare_item`, `equip_item`, `unequip_item`, `parse_item`, `search_uniques`, `get_unique`, `search_item_bases` |
-| Tree | `get_passive_tree`, `search_passives`, `compare_passives`, `allocate_passives`, `deallocate_passives`, `import_tree_url` |
+| Tree | `get_passive_tree`, `search_passives`, `compare_passives`, `allocate_passives`, `deallocate_passives`, `import_tree_url`, `export_tree_url` |
 | Config | `list_config`, `set_config`, `set_custom_mods` |
+| Guide | `load_reference_build`, `compare_to_reference`, `reference_impact`, `apply_reference_tree` |
+| Advisor | `get_advice`, `set_attribute_nodes` |
+| Upgrades | `gear_advice`, `shopping_advice`, `gem_advice`, `set_gem`, `refresh_build` |
+| Budget | `check_item`, `get_budget` |
 
-Resources: `pob://build/code`, `pob://build/xml`. Prompts: `analyze_build`, `optimize_passives`.
+Resources: `pob://build/code`, `pob://build/xml`. Prompts: `analyze_build`, `optimize_passives`, `optimize_to_reference`.
 
 The `compare_*` tools run PoB's own what-if calculator, the same one behind the desktop tooltips, and never
 change the build. This lets an agent measure a change before applying it.
@@ -141,8 +159,81 @@ GET  /api/items    POST /api/items/equip|compare|parse   DELETE /api/items/{slot
 GET  /api/tree     GET /api/tree/layout|search|node/{id}   POST /api/tree/allocate|deallocate|compare|reset
 GET  /api/config   PATCH /api/config {values}   GET|PUT /api/config/custom-mods
 GET  /api/data/gems|uniques|uniques/{name}|bases
+GET|PUT|DELETE /api/reference  {content}   PoE2 BuildPlanner .build guide to compare against
+GET  /api/reference/compare?level=        passive / skill / gear gaps vs the guide
+GET  /api/reference/impact?level=&limit=  full guide tree stats, next steps ranked by gain per point
+POST /api/reference/apply-tree            replace the passive tree with the guide's
+GET  /api/advisor?metric=balanced|dps|ehp next point, point to move, attribute node advice
+POST /api/tree/attributes   {changes}     set +5 Str/Dex/Int on attribute nodes
+GET  /api/gear/slots | /api/gear/slot?slot=&metric=&league=   item/mod worth, what to look for, trade URL
+GET  /api/gear/uniques?metric=&league=&maxPrice=          uniques ranked per slot, poe.ninja prices
+GET  /api/gems/advice?metric=               support worth, swaps, level/quality upgrades, problems
+POST /api/skills/{group}/gems/{index}       {name?, level?, quality?, enabled?}
+GET  /api/build/source  POST /api/build/refresh   re-import from the source link, keeping config
+GET  /api/budget                            Spirit used/free, totems affordable vs cap, DPS across all totems
+POST /api/items/check   {text, slot?}       check before you buy: verdict, every skill, Spirit/totems, warnings
 GET  /api/revision              increments whenever the build changes
 ```
+
+## Reference guides (.build)
+
+The **Guide** tab (and the `*_reference*` MCP tools) compare the live build with a build guide exported as a PoE2
+BuildPlanner `.build` file (the format the in-game planner and Maxroll use). Import your character first, then upload
+the guide. You get:
+
+- passives the guide takes that you don't, and yours it doesn't, with weapon-set and ascendancy checks
+- skill gems and supports (tiers like "Biting Frost I/II" count as the same support), and the guide's gear and notes
+- the stat change from respeccing to the guide's whole tree, the guide's notables ranked by DPS% + EHP% per point
+  (each with the path through guide nodes, one click to allocate), and what each of your extra notables is worth
+
+Guides are staged by character level (`level_interval`); the comparison uses your build's level unless you pick a
+stage. The reference is kept in memory until replaced or the server restarts.
+
+## Advisor
+
+The Tree tab's **Advisor** panel (and `get_advice`) answers three questions, measured with PoB's calculator:
+
+- **Next point** (green, `NEXT`): the first node toward the best target by gain per point. With a guide loaded it
+  follows the guide's nodes; otherwise it searches notables within 8 points. Optimise for balanced, damage or defence.
+- **Move a point** (red, `MOVE`): the allocated end-of-branch node that is cheapest to refund (never disconnects
+  anything), with the gain from spending it on the next point. With a guide, only nodes the guide doesn't take.
+- **Attribute nodes** (amber, `→ Int`): recommended vs current +5 choice for every attribute node. Each swap is
+  measured, and gear/gem attribute requirements are respected (shortfalls are fixed first, surpluses spent on gain).
+  Hover a node for the reason; apply one or all.
+
+## Spirit, totems and "check before you buy"
+
+PoB reports a totem skill's DPS **per totem**, reserves Ancestral Bond's "75 Spirit per totem" only once, and does not
+parse "Your Totem Limit is doubled". On its own it therefore can't show that a weapon with less Spirit costs totems.
+PoB2-Enhanced adds a Spirit/totem budget on top of PoB's outputs (`engine/pobapi/api/budget.lua`):
+
+- totem cap = PoB's limit, doubled for Ancestral Bond while PoB doesn't apply it (detected at runtime)
+- totems kept up = min(cap, Spirit available ÷ Spirit per totem), or the Config tab's "# of Summoned Totems"
+- **DPS, all totems** = per-totem DPS × totems kept up. Every advisor (tree, gear, shop, gems, guide) scores with it,
+  so anything that costs totems or Spirit shows up as lost damage, with `totemsDelta` / `spiritDelta` on each row
+- what-ifs that replace an item also drop the skills that item granted (e.g. Sacred Flame's Purity of Fire)
+
+The sidebar shows Spirit in use, what reserves it, totems and the Spirit needed for the next one. **Check item**
+(Upgrades tab, Items tab, `check_item`) gives an upgrade/sidegrade/downgrade verdict with warnings for lost totems,
+Spirit shortfalls, attribute requirements and removed skills, and each damage skill measured separately. The Items
+tab asks for confirmation before equipping an item that has warnings.
+
+## Upgrades tab
+
+Everything is measured in your build by PoB (Balanced = DPS% + EHP%, or Damage / Defence only):
+
+- **Gear / Jewels**: per slot, what the item and each mod is worth (dead mods flagged; mods holding up an attribute
+  requirement are marked as needed), what to look for on a replacement (PoB's trade stat weighting at average rolls),
+  the headroom a good replacement would add, and a weighted pathofexile.com trade search. Empty slots are evaluated
+  with an endgame base (a focus behind a one-handed caster weapon, a quiver behind a bow, otherwise a shield).
+- **Gems**: what each support is worth (secondary damage skills on their own DPS, utility skills on the build), the
+  best replacement for the weakest support per skill (regular, plus the best lineage support), gem level/quality
+  upgrades, and problems (disabled, duplicate, harmful supports). One click applies a suggestion.
+- **Shop**: every unique in PoB's database that fits a slot, measured in your build, with poe.ninja prices for the
+  chosen league, a budget filter, best gain per divine, and trade links.
+
+Import a **poe.ninja character page** (`https://poe.ninja/poe2/builds/<league>/character/<account>/<name>`) or any
+build link and the header's **Update** button re-imports it later, keeping your Config tab settings.
 
 ## CLI
 

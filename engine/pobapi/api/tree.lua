@@ -1,6 +1,7 @@
 -- tree.*: passive tree state, search, allocation and layout for rendering.
 local util = require("pobapi.util")
 local session = require("pobapi.session")
+local treelink = require("pobapi.treelink")
 
 local M = { }
 
@@ -135,14 +136,39 @@ function M.reset()
 	return M.get()
 end
 
+-- Choose the +5 attribute on attribute nodes: changes = { { id = <node id>, attribute = "Strength"|"Dexterity"|"Intelligence" } }.
+function M.set_attributes(params)
+	local spec = session.build().spec
+	for _, change in ipairs(util.require(params, "changes", "table")) do
+		local id = tonumber(change.id)
+		local treeNode = id and spec.tree.nodes[id]
+		if not (treeNode and treeNode.isAttribute and treeNode.options) then
+			util.fail("Not an attribute node: " .. tostring(change.id))
+		end
+		local index
+		for i, option in ipairs(treeNode.options) do
+			if (option.dn or option.name) == change.attribute then
+				index = i
+			end
+		end
+		if not index then
+			util.fail("Unknown attribute: " .. tostring(change.attribute))
+		end
+		spec:SwitchAttributeNode(id, index)
+		spec:ReplaceNode(spec.nodes[id], spec.hashOverrides[id])
+	end
+	session.recalc()
+	return M.get()
+end
+
 function M.export_url()
-	return { url = session.build().spec:EncodeURL("https://pathofexile.com/passive-skill-tree/") }
+	local code = treelink.encode(session.build().spec)
+	return { url = treelink.PREFIX .. code, code = code }
 end
 
 function M.import_url(params)
 	local url = util.require(params, "url", "string")
-	local spec = session.build().spec
-	local err = spec:DecodeURL(url)
+	local err = treelink.decode(session.build().spec, url)
 	if err then
 		util.fail("Invalid tree URL: " .. tostring(err))
 	end
@@ -150,30 +176,146 @@ function M.import_url(params)
 	return M.get()
 end
 
--- Geometry for rendering the tree. Straight edges only; arcs are left to the client.
+local function round(v)
+	return math.floor(v * 10 + 0.5) / 10
+end
+
+local function width(size)
+	return size and size.width or nil
+end
+
+-- Orbit of the connection between two nodes, oriented from a to b.
+local function connectionOrbit(tree, a, b)
+	for _, c in ipairs(tree.nodes[a.id] and tree.nodes[a.id].connections or { }) do
+		if c.id == b.id then
+			return c.orbit or 0
+		end
+	end
+	for _, c in ipairs(tree.nodes[b.id] and tree.nodes[b.id].connections or { }) do
+		if c.id == a.id then
+			return -(c.orbit or 0)
+		end
+	end
+	return 0
+end
+
+-- Circle (cx, cy, r) a connection follows, mirroring PassiveTree:BuildConnector. nil for straight lines.
+local function connectionArc(tree, n1, n2, orbit)
+	local s = tree.scaleImage
+	if orbit ~= 0 and tree.orbitRadii[math.abs(orbit) + 1] then
+		local r = tree.orbitRadii[math.abs(orbit) + 1] * s
+		local dx, dy = n2.x - n1.x, n2.y - n1.y
+		local dist = math.sqrt(dx * dx + dy * dy)
+		if dist > 0 and dist < r * 2 then
+			local perp = math.sqrt(r * r - dist * dist / 4) * (orbit > 0 and 1 or -1)
+			return n1.x + dx / 2 + perp * (dy / dist), n1.y + dy / 2 - perp * (dx / dist), r
+		end
+	elseif n1.group and n1.group == n2.group and n1.o and n1.o > 0 and n1.o == n2.o then
+		return n1.group.x * s, n1.group.y * s, tree.orbitRadii[n1.o + 1] * s
+	end
+end
+
+-- Geometry and artwork for rendering the tree. Asset names resolve through /tree-art/<version>/manifest.json.
 function M.layout()
 	local spec = session.build().spec
+	local tree = spec.tree
+	local s = tree.scaleImage
 	local nodes = util.array()
 	local edges = util.array()
+	local decorations = util.array()
 	for id, node in pairs(spec.nodes) do
-		if node.x and node.type ~= "OnlyImage" and node.group then
-			nodes[#nodes + 1] = {
+		-- Base tree node: spec.nodes may hold a per-build attribute override.
+		local treeNode = tree.nodes[id] or node
+		if node.x and node.group and node.type == "OnlyImage" then
+			if node.activeEffectImage then
+				decorations[#decorations + 1] = { x = round(node.x), y = round(node.y), image = node.activeEffectImage, r = width(node.targetSize) }
+			end
+		elseif node.x and node.group then
+			local size = node.targetSize or { }
+			local entry = {
 				id = id,
-				x = math.floor(node.x + 0.5),
-				y = math.floor(node.y + 0.5),
+				x = round(node.x),
+				y = round(node.y),
 				type = node.type,
-				name = node.dn,
+				name = treeNode.dn or node.dn,
 				ascendancy = node.ascendancyName,
 				alloc = node.alloc or nil,
+				icon = treeNode.icon,
+				r = size.width,
+				fr = width(size.overlay),
+				effect = treeNode.activeEffectImage,
+				er = width(size.effect),
 			}
+			if node.type == "AscendClassStart" then
+				entry.frame = { "AscendancyMiddle", "AscendancyMiddle", "AscendancyMiddle" }
+			elseif node.overlay then
+				entry.frame = { node.overlay.unalloc, node.overlay.path, node.overlay.alloc }
+			end
+			if treeNode.isAttribute and treeNode.options then
+				entry.options = util.array()
+				for _, option in ipairs(treeNode.options) do
+					entry.options[#entry.options + 1] = { name = option.name, icon = option.icon }
+				end
+			end
+			nodes[#nodes + 1] = entry
 			for _, other in ipairs(node.linked or { }) do
-				if other.id > id and other.x and other.group and (node.ascendancyName == other.ascendancyName) then
-					edges[#edges + 1] = { id, other.id }
+				if other.id > id and other.x and other.group and other.type ~= "OnlyImage" and (node.ascendancyName == other.ascendancyName) then
+					local cx, cy, r = connectionArc(tree, node, other, connectionOrbit(tree, node, other))
+					edges[#edges + 1] = cx and { id, other.id, round(cx), round(cy), round(r) } or { id, other.id }
 				end
 			end
 		end
 	end
-	return { treeVersion = spec.treeVersion, nodes = nodes, edges = edges }
+	local classes = util.array()
+	for classId, class in pairs(tree.classes) do
+		local bg = class.background
+		if bg then
+			local ascendancyImages = { }
+			for ascendClassId, ascendClass in pairs(class.classes or { }) do
+				if ascendClassId ~= 0 and ascendClass.background then
+					ascendancyImages[ascendClass.id or ascendClass.name] = ascendClass.background.image
+				end
+			end
+			classes[#classes + 1] = {
+				id = classId,
+				name = class.name,
+				startNode = class.startNodeId,
+				image = bg.image,
+				ascendancyImages = ascendancyImages,
+				x = round(bg.x * s),
+				y = round(bg.y * s),
+				w = bg.width,
+				h = bg.height,
+				treeW = width(bg.bg),
+				activeW = width(bg.active),
+			}
+		end
+	end
+	local ascendancies = util.array()
+	for name, data in pairs(tree.ascendNameMap) do
+		local bg = data.ascendClass.background
+		if bg then
+			ascendancies[#ascendancies + 1] = {
+				name = name,
+				className = data.class.name,
+				image = bg.image,
+				x = round(bg.x * s),
+				y = round(bg.y * s),
+				w = bg.width,
+				h = bg.height,
+				replace = data.ascendClass.replace,
+				replaceBy = data.ascendClass.replaceBy,
+			}
+		end
+	end
+	return {
+		treeVersion = spec.treeVersion,
+		nodes = nodes,
+		edges = edges,
+		decorations = decorations,
+		classes = classes,
+		ascendancies = ascendancies,
+	}
 end
 
 return M

@@ -1,20 +1,25 @@
-import { Bot, Gem, Network, Settings2, Shield } from "lucide-react";
+import { BookOpen, Bot, Gem, Network, Settings2, Shield, TrendingUp } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { useLiveRevision, useOverview } from "./api/hooks";
 import { ErrorText } from "./components/ErrorText";
 import { Header } from "./components/Header";
+import { BudgetCard } from "./components/BudgetCard";
 import { StatPanel } from "./components/StatPanel";
 import { AiTab } from "./features/ai/AiTab";
 import { ConfigTab } from "./features/config/ConfigTab";
 import { ItemsTab } from "./features/items/ItemsTab";
+import { ReferenceTab } from "./features/reference/ReferenceTab";
 import { SkillsTab } from "./features/skills/SkillsTab";
 import { TreeTab } from "./features/tree/TreeTab";
+import { UpgradesTab } from "./features/upgrades/UpgradesTab";
 
 const TABS: { id: string; label: string; icon: ReactNode }[] = [
   { id: "tree", label: "Tree", icon: <Network size={15} /> },
   { id: "skills", label: "Skills", icon: <Gem size={15} /> },
   { id: "items", label: "Items", icon: <Shield size={15} /> },
   { id: "config", label: "Config", icon: <Settings2 size={15} /> },
+  { id: "upgrades", label: "Upgrades", icon: <TrendingUp size={15} /> },
+  { id: "reference", label: "Guide", icon: <BookOpen size={15} /> },
   { id: "ai", label: "AI / MCP", icon: <Bot size={15} /> },
 ];
 
@@ -43,6 +48,7 @@ export default function App() {
       {overview.error ? <div className="p-4"><ErrorText error={overview.error} /></div> : null}
       <div className="flex min-h-0 flex-1 flex-col md:flex-row">
         <aside className="order-2 max-h-[40vh] overflow-y-auto border-t border-ink-700 bg-ink-900 md:order-1 md:max-h-none md:w-72 md:shrink-0 md:border-t-0 md:border-r">
+          <BudgetCard />
           <StatPanel stats={overview.data?.stats} />
         </aside>
         <main className="order-1 flex min-h-0 min-w-0 flex-1 flex-col md:order-2">
@@ -64,6 +70,8 @@ export default function App() {
             {tab === "skills" && <SkillsTab />}
             {tab === "items" && <ItemsTab />}
             {tab === "config" && <ConfigTab />}
+            {tab === "upgrades" && <UpgradesTab />}
+            {tab === "reference" && <ReferenceTab />}
             {tab === "ai" && <AiTab />}
           </div>
         </main>

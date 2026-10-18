@@ -1,7 +1,7 @@
 -- Maps RPC method names ("namespace.method") to handler functions.
 local registry = { }
 
-local namespaces = { "build", "stats", "skills", "items", "tree", "config", "data" }
+local namespaces = { "build", "stats", "skills", "items", "tree", "config", "data", "reference", "advisor", "gear", "gems", "budget" }
 for _, ns in ipairs(namespaces) do
 	local mod = require("pobapi.api." .. ns)
 	for name, fn in pairs(mod) do

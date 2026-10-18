@@ -49,9 +49,19 @@ def resolve(source: str, *, timeout: float = 15.0) -> str:
     if text.startswith("<"):
         return text
     if text.startswith(("http://", "https://")):
+        from pob2 import market  # noqa: PLC0415 - avoid importing httpx-heavy helpers for plain codes
+
+        if market.is_character_url(text):
+            try:
+                return decode_code(market.character_code(text)[0])
+            except ValueError as exc:
+                raise CodecError(str(exc)) from exc
         url = raw_url(text)
         if not url:
-            raise CodecError("Unsupported link. Supported: pobb.in, pastebin.com, poe.ninja/poe2/pob.")
+            raise CodecError(
+                "Unsupported link. Supported: pobb.in, pastebin.com, poe.ninja/poe2/pob, and poe.ninja character "
+                "pages (poe2/builds/... or poe2/profile/...)."
+            )
         resp = httpx.get(url, timeout=timeout, follow_redirects=True)
         resp.raise_for_status()
         text = resp.text.strip()

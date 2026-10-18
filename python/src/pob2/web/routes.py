@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import APIRouter, Query
 from pydantic import BaseModel, Field
@@ -64,7 +64,7 @@ class NodeCompare(BaseModel):
 
 
 class TreeUrl(BaseModel):
-    url: str
+    url: str = Field(description="pathofexile2.com/game/passive-skill-tree/ link or its code")
 
 
 class ConfigValues(BaseModel):
@@ -73,6 +73,31 @@ class ConfigValues(BaseModel):
 
 class CustomMods(BaseModel):
     text: str
+
+
+class AttributeChange(BaseModel):
+    id: int
+    attribute: Literal["Strength", "Dexterity", "Intelligence"]
+
+
+class AttributeChanges(BaseModel):
+    changes: list[AttributeChange]
+
+
+class GemChange(BaseModel):
+    name: str | None = None
+    level: int | None = Field(None, ge=1, le=40)
+    quality: int | None = Field(None, ge=0, le=40)
+    enabled: bool | None = None
+
+
+class ItemCheck(BaseModel):
+    text: str = Field(description="Item text copied from the game (Ctrl+C)")
+    slot: str | None = Field(None, description="Slot to test in (default: where it does best)")
+
+
+class ReferenceUpload(BaseModel):
+    content: str = Field(description="Contents of a PoE2 BuildPlanner .build file (JSON)")
 
 
 # -- build -----------------------------------------------------------------------------------------
@@ -268,6 +293,110 @@ def get_custom_mods() -> Any:
 @router.put("/config/custom-mods")
 def put_custom_mods(body: CustomMods) -> Any:
     return svc().call("config.custom_mods", text=body.text)
+
+
+@router.post("/tree/attributes")
+def set_attributes(body: AttributeChanges) -> Any:
+    return svc().set_attributes([c.model_dump() for c in body.changes])
+
+
+@router.get("/advisor")
+def advisor(
+    metric: Literal["balanced", "dps", "ehp"] = "balanced",
+    level: int | None = Query(None, ge=1, le=100),
+    limit: int = Query(10, ge=1, le=50),
+) -> Any:
+    return svc().advice(metric, level, limit)
+
+
+@router.get("/build/source")
+def build_source() -> Any:
+    return svc().source_info()
+
+
+@router.post("/build/refresh")
+def refresh_build() -> Any:
+    return svc().refresh()
+
+
+@router.post("/skills/{group}/gems/{index}")
+def set_gem(group: int, index: int, body: GemChange) -> Any:
+    return svc().set_gem(group, index, **body.model_dump(exclude_none=True))
+
+
+@router.get("/gems/advice")
+def gems_advice(metric: Literal["balanced", "dps", "ehp"] = "balanced") -> Any:
+    return svc().gems_advice(metric)
+
+
+@router.get("/gear/slots")
+def gear_slots() -> Any:
+    return svc().gear_slots()
+
+
+@router.get("/gear/slot")
+def gear_slot(slot: str, metric: Literal["balanced", "dps", "ehp"] = "balanced", league: str | None = None) -> Any:
+    return svc().gear_slot(slot, metric, league)
+
+
+@router.get("/gear/uniques")
+def gear_uniques(
+    metric: Literal["balanced", "dps", "ehp"] = "balanced",
+    league: str | None = None,
+    maxPrice: float | None = Query(None, ge=0),  # noqa: N803 - query parameter name
+) -> Any:
+    return svc().gear_uniques(metric, league, maxPrice)
+
+
+@router.get("/market/leagues")
+def market_leagues() -> Any:
+    from pob2 import market
+
+    return {"leagues": market.leagues(), "default": svc().league()}
+
+
+@router.get("/budget")
+def budget() -> Any:
+    return svc().budget()
+
+
+@router.post("/items/check")
+def check_item(body: ItemCheck) -> Any:
+    return svc().check_item(body.text, body.slot)
+
+
+# -- reference build -------------------------------------------------------------------------------
+
+
+@router.get("/reference")
+def reference() -> Any:
+    return svc().reference_summary()
+
+
+@router.put("/reference")
+def set_reference(body: ReferenceUpload) -> Any:
+    return svc().set_reference(body.content)
+
+
+@router.delete("/reference")
+def clear_reference() -> Any:
+    svc().clear_reference()
+    return {"ok": True}
+
+
+@router.get("/reference/compare")
+def reference_compare(level: int | None = Query(None, ge=1, le=100)) -> Any:
+    return svc().reference_compare(level)
+
+
+@router.get("/reference/impact")
+def reference_impact(level: int | None = Query(None, ge=1, le=100), limit: int = Query(40, ge=1, le=200)) -> Any:
+    return svc().reference_impact(level, limit)
+
+
+@router.post("/reference/apply-tree")
+def apply_reference_tree(level: int | None = Query(None, ge=1, le=100)) -> Any:
+    return svc().apply_reference_tree(level)
 
 
 # -- data ------------------------------------------------------------------------------------------

@@ -2,12 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Crosshair, Link2, RotateCcw, Search } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api, qs } from "../../api/client";
-import { useBuildMutation, useTreeLayout } from "../../api/hooks";
-import type { Comparison, LayoutNode, TreeNodeInfo } from "../../api/types";
+import { useAdvice, useBuildMutation, useReference, useReferenceCompare, useTreeLayout } from "../../api/hooks";
+import type { Advice, Comparison, LayoutNode, SocketedJewel, TreeNodeInfo } from "../../api/types";
 import { DeltaTable } from "../../components/DeltaTable";
 import { ErrorText } from "../../components/ErrorText";
 import { Modal } from "../../components/Modal";
-import { draw, fitView, hitTest, type View } from "./renderer";
+import { AdvisorPanel } from "./AdvisorPanel";
+import { TreeArt } from "./art";
+import { draw, fitView, hitTest, type AdviceMarks, type View } from "./renderer";
 
 function useDebounced<T>(value: T, ms: number) {
   const [v, setV] = useState(value);
@@ -18,7 +20,15 @@ function useDebounced<T>(value: T, ms: number) {
   return v;
 }
 
-function NodeTooltip({ node, x, y, allocated }: { node: LayoutNode; x: number; y: number; allocated: boolean }) {
+interface TooltipNote {
+  title: string;
+  text: string;
+  color: string;
+}
+
+function NodeTooltip({ node, x, y, allocated, note, jewel }: {
+  node: LayoutNode; x: number; y: number; allocated: boolean; note?: TooltipNote; jewel?: SocketedJewel;
+}) {
   const info = useQuery({ queryKey: ["tree-node", node.id], queryFn: () => api.get<TreeNodeInfo>(`/tree/node/${node.id}`) });
   const settled = useDebounced(node.id, 180);
   const cmp = useQuery({
@@ -36,6 +46,22 @@ function NodeTooltip({ node, x, y, allocated }: { node: LayoutNode; x: number; y
       {info.data?.stats?.length ? (
         <ul className="mt-2 space-y-0.5 text-[13px] text-magic">{info.data.stats.map((s, i) => <li key={i}>{s}</li>)}</ul>
       ) : null}
+      {node.type === "Socket" && (
+        <div className="mt-2 text-[13px]">
+          {jewel ? (
+            <>
+              <div className={jewel.rarity === "UNIQUE" ? "text-unique" : jewel.rarity === "RARE" ? "text-rare" : "text-magic"}>{jewel.name}</div>
+              <ul className="mt-0.5 space-y-0.5 text-magic">{jewel.mods?.map((m, i) => <li key={i}>{m.text}</li>)}</ul>
+            </>
+          ) : <span className="text-ink-400">Empty socket</span>}
+        </div>
+      )}
+      {note && (
+        <div className="mt-2 rounded border px-2 py-1.5 text-xs" style={{ borderColor: note.color }}>
+          <div className="font-semibold" style={{ color: note.color }}>{note.title}</div>
+          <div className="text-ink-200">{note.text}</div>
+        </div>
+      )}
       <div className="mt-2 border-t border-ink-700 pt-2">
         <div className="label mb-1">{allocated ? "Removing" : "Allocating (with path)"}</div>
         {cmp.isFetching || !cmp.data ? <p className="text-xs text-ink-400">Calculating…</p> : <DeltaTable comparison={cmp.data} />}
@@ -46,14 +72,17 @@ function NodeTooltip({ node, x, y, allocated }: { node: LayoutNode; x: number; y
 
 function TreeUrlDialog({ onClose }: { onClose: () => void }) {
   const [url, setUrl] = useState("");
-  const exported = useQuery({ queryKey: ["tree-url"], queryFn: () => api.get<{ url: string }>("/tree/export-url") });
+  const exported = useQuery({ queryKey: ["tree-url"], queryFn: () => api.get<{ url: string; code: string }>("/tree/export-url") });
   const m = useBuildMutation((u: string) => api.post("/tree/import-url", { url: u }));
   return (
     <Modal title="Passive tree link" onClose={onClose}>
-      <label className="label">Current tree</label>
-      <input readOnly className="input mt-1 font-mono text-xs" value={exported.data?.url ?? "…"} onFocus={(e) => e.target.select()} />
-      <label className="label mt-4 block">Import from pathofexile.com tree URL</label>
-      <input className="input mt-1 font-mono text-xs" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://pathofexile.com/passive-skill-tree/…" />
+      <label className="label">Current tree (official PoE2 planner)</label>
+      <div className="mt-1 flex gap-2">
+        <input readOnly className="input font-mono text-xs" value={exported.data?.url ?? "…"} onFocus={(e) => e.target.select()} />
+        {exported.data && <a className="btn" href={exported.data.url} target="_blank" rel="noreferrer">Open</a>}
+      </div>
+      <label className="label mt-4 block">Import from a pathofexile2.com tree link</label>
+      <input className="input mt-1 font-mono text-xs" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://pathofexile2.com/game/passive-skill-tree/…" />
       <ErrorText error={m.error} />
       <div className="mt-3 flex justify-end">
         <button className="btn btn-primary" disabled={!url || m.isPending} onClick={() => m.mutate(url, { onSuccess: onClose })}>Import tree</button>
@@ -72,7 +101,58 @@ export function TreeTab() {
   const [query, setQuery] = useState("");
   const [showUrl, setShowUrl] = useState(false);
   const [, force] = useState(0);
+  const [art, setArt] = useState<TreeArt | null>(null);
+  const [showGuide, setShowGuide] = useState(true);
+  const reference = useReference();
+  const refCompare = useReferenceCompare(!!reference.data);
+  const planned = useMemo(
+    () => new Set(showGuide && reference.data ? refCompare.data?.passives.missing.map((n) => n.id) ?? [] : []),
+    [showGuide, reference.data, refCompare.data],
+  );
   const debounced = useDebounced(query.trim(), 250);
+  const [metric, setMetric] = useState<Advice["metric"]>("balanced");
+  const [showAdvisor, setShowAdvisor] = useState(true);
+  const advice = useAdvice(metric, showAdvisor);
+  const marks = useMemo<AdviceMarks | undefined>(() => {
+    const a = advice.data;
+    if (!showAdvisor || !a) return undefined;
+    return {
+      next: a.next?.first.id,
+      path: new Set(a.next?.path ?? []),
+      target: a.next?.target.id,
+      refund: a.move?.refund.node.id,
+      attributes: new Map(a.attributes.nodes.filter((n) => n.recommended !== n.current).map((n) => [n.id, n.recommended])),
+    };
+  }, [advice.data, showAdvisor]);
+  const noteFor = useCallback((id: number): TooltipNote | undefined => {
+    const a = advice.data;
+    if (!showAdvisor || !a) return undefined;
+    if (a.next && a.next.first.id === id) return { title: "Next point goes here", text: a.next.reason ?? "", color: "#4ade80" };
+    if (a.next && a.next.path.includes(id)) return { title: `On the way to ${a.next.target.name}`, text: a.next.reason ?? "", color: "#4ade80" };
+    if (a.move && a.move.refund.node.id === id) return { title: "Move this point", text: a.move.reason, color: "#f87171" };
+    const refund = a.refunds.find((r) => r.node.id === id);
+    if (refund) return { title: "Refund candidate", text: refund.reason, color: "#f87171" };
+    const attr = a.attributes.nodes.find((n) => n.id === id);
+    if (attr) {
+      const short: Record<string, string> = { Strength: "Str", Dexterity: "Dex", Intelligence: "Int" };
+      const title = attr.recommended !== attr.current
+        ? `Recommended: +5 ${short[attr.recommended]} (now ${attr.current === "unset" ? "unassigned" : `+5 ${short[attr.current]}`})`
+        : `+5 ${short[attr.current]} is right`;
+      return { title, text: attr.reason, color: "#fbbf24" };
+    }
+    return undefined;
+  }, [advice.data, showAdvisor]);
+
+  // PoE2 node artwork for this tree version (absent if scripts/build_tree_art.py has not been run).
+  const treeVersion = layout.data?.treeVersion;
+  useEffect(() => {
+    if (!treeVersion) return;
+    let live = true;
+    TreeArt.load(treeVersion, () => force((x) => x + 1)).then((a) => live && setArt(a));
+    return () => {
+      live = false;
+    };
+  }, [treeVersion]);
 
   const byId = useMemo(() => new Map(layout.data?.nodes.map((n) => [n.id, n]) ?? []), [layout.data]);
   const allocated = useMemo(() => new Set(layout.data?.allocated ?? []), [layout.data]);
@@ -93,8 +173,8 @@ export function TreeTab() {
     const canvas = canvasRef.current, data = layout.data, v = viewRef.current;
     if (!canvas || !data || !v) return;
     const ctx = canvas.getContext("2d");
-    if (ctx) draw(ctx, data, byId, v, { allocated, highlighted, hovered: hover?.node.id ?? null });
-  }, [layout.data, byId, allocated, highlighted, hover]);
+    if (ctx) draw(ctx, data, byId, v, { allocated, highlighted, hovered: hover?.node.id ?? null, art, planned, advice: marks });
+  }, [layout.data, byId, allocated, highlighted, hover, art, planned, marks]);
 
   const fit = useCallback((onlyAllocated: boolean) => {
     const wrap = wrapRef.current, data = layout.data;
@@ -202,6 +282,16 @@ export function TreeTab() {
         </div>
         {debounced.length >= 2 && <span className="text-xs text-ink-400">{search.data?.length ?? 0} matches</span>}
         <div className="ml-auto flex gap-2">
+          <label className="flex items-center gap-1.5 text-xs text-ink-400" title="Show the advisor panel and markers">
+            <input type="checkbox" checked={showAdvisor} onChange={(e) => setShowAdvisor(e.target.checked)} />
+            Advisor
+          </label>
+          {reference.data && (
+            <label className="flex items-center gap-1.5 text-xs text-ink-400" title="Outline the guide's nodes you haven't allocated">
+              <input type="checkbox" checked={showGuide} onChange={(e) => setShowGuide(e.target.checked)} />
+              Guide nodes{refCompare.data ? ` (${refCompare.data.passives.missing.length})` : ""}
+            </label>
+          )}
           <button className="btn" onClick={() => fit(true)} title="Fit to allocated nodes"><Crosshair size={14} /> Fit</button>
           <button className="btn" onClick={() => setShowUrl(true)}><Link2 size={14} /> Tree URL</button>
           <button className="btn" onClick={() => confirm("Reset all passive allocations?") && reset.mutate(undefined)}><RotateCcw size={14} /> Reset</button>
@@ -223,7 +313,14 @@ export function TreeTab() {
             onPointerLeave={() => setHover(null)}
           />
           {layout.isLoading && <div className="absolute inset-0 grid place-items-center text-sm text-ink-400">Loading tree…</div>}
-          {hover && <NodeTooltip node={hover.node} x={hover.x} y={hover.y} allocated={allocated.has(hover.node.id)} />}
+          {showAdvisor && layout.data && (
+            <AdvisorPanel advice={advice.data} loading={advice.isFetching} error={advice.error}
+              metric={metric} onMetric={setMetric} onShow={centerOn} />
+          )}
+          {hover && (
+            <NodeTooltip node={hover.node} x={hover.x} y={hover.y} allocated={allocated.has(hover.node.id)}
+              note={noteFor(hover.node.id)} jewel={layout.data?.jewels?.[String(hover.node.id)]} />
+          )}
           <div className="pointer-events-none absolute bottom-2 left-3 text-xs text-ink-400">
             Scroll to zoom · drag to pan · click a node to allocate / remove
           </div>
