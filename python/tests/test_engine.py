@@ -223,6 +223,11 @@ def test_socket_advice_and_plan(witch):
     blocked = witch.call("sockets.analyze", slot="Body Armour", limit=200)["slots"][0]["sockets"][1]["alternatives"]
     legacies = [a for a in blocked if a["name"].startswith("Legacy of")]
     assert legacies and all(a.get("blockedBy") for a in legacies)
+    # Limits count every equipped item even when only one slot is analysed.
+    witch.call("items.equip", text="Rarity: RARE\nTest Boots\nIron Greaves\nItem Level: 80\nSockets: S\nRune: None")
+    boots = witch.call("sockets.analyze", slot="Boots", limit=200)["slots"][0]["sockets"][0]["alternatives"]
+    legionstride = next(a for a in boots if a["name"] == "Legacy of Legionstride")
+    assert legionstride["blockedBy"][0]["slot"] == "Body Armour"
     before = witch.call("stats.get", keys=["TotalEHP", "Life"])
     plan = witch.socket_plan(max_swaps=2)
     assert plan["steps"] and plan["total"]["score"] > 0

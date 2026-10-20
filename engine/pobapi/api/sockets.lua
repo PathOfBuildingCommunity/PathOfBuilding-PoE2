@@ -210,7 +210,7 @@ function M.analyze(params)
 	local limit = tonumber(params.limit) or 5
 	local calcFunc, _, measure = gear._measurer(b, metric)
 	local entries = socketedItems(b, params.slot)
-	local everywhere = equippedRunes(entries)
+	local everywhere = equippedRunes(socketedItems(b)) -- limits count every equipped item, not just `slot`
 	local slots = util.array()
 	for _, entry in ipairs(entries) do
 		local item = entry.item
@@ -284,7 +284,7 @@ function M.optimize(params)
 		local short = { } -- per socket: names worth re-testing after the first full pass
 		for _ = 1, maxSwaps do
 			local calcFunc, _, measure = gear._measurer(b, metric)
-			local everywhere = equippedRunes(entries)
+			local everywhere = equippedRunes(socketedItems(b))
 			-- Rank every socket from the current state.
 			local ranked = { }
 			for _, entry in ipairs(entries) do
