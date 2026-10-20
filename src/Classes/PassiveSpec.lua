@@ -2750,13 +2750,52 @@ end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		-- Idempotence: already switched to exactly this option => no-op.
+		-- Without it, every re-switch deep-copies the SHARED tree node and
+		-- attaches a brand-new mirror generation (ReplaceNode / ProcessStats
+		-- below); BuildAllDependsAndPaths then projects the override back
+		-- onto the shared node, so the node's reachable graph doubles with
+		-- each call. Repeated allocate/deallocate cycles over an attribute
+		-- node (weapon-set switching, build import, tree reload with
+		-- retained overrides) accumulate generations: copy cost and Lua heap
+		-- grow exponentially until a single copyTableSafe hits LuaJIT's hard
+		-- 2^26 hash-node limit ("table overflow", LJ_MAX_HBITS).
+		local existing = self.hashOverrides[nodeId]
+		if existing and existing._attrOptionIndex == attributeIndex then
+			return
+		end
+		-- Build at most ONE mirror generation per (node, option).
+		-- main:LoadTree caches one PassiveTree per version for the life of
+		-- the process, while specs swap in fresh hashOverrides maps (import
+		-- and class change wipe it; DeallocNode nils entries). Re-attaching
+		-- the SAME cached mirror after such a reset keeps the shared node at
+		-- one generation per option. ReplaceNode/ProcessStats only ever
+		-- rewrite shared nodes FROM these overrides (an idempotent
+		-- re-projection), so reusing the object across specs is safe.
+		local cache = self.tree._attrSwitchCache
+		if not cache then
+			cache = { }
+			self.tree._attrSwitchCache = cache
+		end
+		local byIndex = cache[nodeId]
+		if not byIndex then
+			byIndex = { }
+			cache[nodeId] = byIndex
+		end
+		local cached = byIndex[attributeIndex]
+		if cached then
+			self.hashOverrides[nodeId] = cached
+			return
+		end
 		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
 		if not newNode.isAttribute then return end -- safety check
 		
 		local option = newNode.options[attributeIndex]
 		self:ReplaceNode(newNode, option)
 		self.tree:ProcessStats(newNode)
+		newNode._attrOptionIndex = attributeIndex
 		
+		byIndex[attributeIndex] = newNode
 		self.hashOverrides[nodeId] = newNode
 	end
 end
