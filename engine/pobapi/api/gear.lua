@@ -367,4 +367,7 @@ function M.uniques(params)
 	return res
 end
 
+M._metricOf = metricOf
+M._measurer = measurer
+
 return M

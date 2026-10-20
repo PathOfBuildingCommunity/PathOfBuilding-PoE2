@@ -440,6 +440,21 @@ def shopping_advice(
 
 
 @tool(READ)
+def socket_advice(
+    metric: Metric = "balanced",
+    slot: Annotated[str | None, Field(description="One slot (e.g. Body Armour); omit for all socketed items")] = None,
+    optimize: Annotated[bool, Field(description="Also build a combined swap plan (slower, ~15s)")] = False,
+) -> dict[str, Any]:
+    """Runes, soul cores and idols: each socketed augment's worth, the best legal replacements per socket (corruption,
+    level, per-item and character-wide limits such as Ancient Augment checked) and, with optimize, a combined plan of
+    swaps re-measured after each one. Lines PoB doesn't model are flagged 'unmodelled'."""
+    res = svc().socket_advice(metric, slot)
+    if optimize:
+        res = {**res, "plan": svc().socket_plan(metric)}
+    return res
+
+
+@tool(READ)
 def gem_advice(metric: Metric = "balanced") -> dict[str, Any]:
     """Skill gem advice: worth of each support, best replacement for the weakest support per skill (regular and
     lineage), gem level/quality upgrades ranked by gain, and setup problems (disabled, duplicate, harmful)."""

@@ -339,6 +339,23 @@ def gear_slot(slot: str, metric: Literal["balanced", "dps", "ehp"] = "balanced",
     return svc().gear_slot(slot, metric, league)
 
 
+@router.get("/sockets")
+def sockets(
+    metric: Literal["balanced", "dps", "ehp"] = "balanced", slot: str | None = None, limit: int = Query(5, ge=1, le=50)
+) -> Any:
+    return svc().socket_advice(metric, slot, limit)
+
+
+@router.get("/sockets/plan")
+def sockets_plan(
+    metric: Literal["balanced", "dps", "ehp"] = "balanced",
+    maxSwaps: int = Query(8, ge=1, le=20),  # noqa: N803 - query parameter name
+    minGain: float = Query(0.5, ge=0),  # noqa: N803
+    keepUnmodelled: bool = True,  # noqa: N803
+) -> Any:
+    return svc().socket_plan(metric, maxSwaps, minGain, keepUnmodelled)
+
+
 @router.get("/gear/uniques")
 def gear_uniques(
     metric: Literal["balanced", "dps", "ehp"] = "balanced",

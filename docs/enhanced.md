@@ -141,7 +141,7 @@ or with Docker: `"command": "docker", "args": ["run", "--rm", "-i", "pob2-enhanc
 | Config | `list_config`, `set_config`, `set_custom_mods` |
 | Guide | `load_reference_build`, `compare_to_reference`, `reference_impact`, `apply_reference_tree` |
 | Advisor | `get_advice`, `set_attribute_nodes` |
-| Upgrades | `gear_advice`, `shopping_advice`, `gem_advice`, `set_gem`, `refresh_build` |
+| Upgrades | `gear_advice`, `shopping_advice`, `gem_advice`, `socket_advice`, `set_gem`, `refresh_build` |
 | Budget | `check_item`, `get_budget` |
 
 Resources: `pob://build/code`, `pob://build/xml`. Prompts: `analyze_build`, `optimize_passives`, `optimize_to_reference`.
@@ -173,6 +173,8 @@ POST /api/tree/attributes   {changes}     set +5 Str/Dex/Int on attribute nodes
 GET  /api/gear/slots | /api/gear/slot?slot=&metric=&league=   item/mod worth, what to look for, trade URL
 GET  /api/gear/uniques?metric=&league=&maxPrice=          uniques ranked per slot, poe.ninja prices
 GET  /api/gems/advice?metric=               support worth, swaps, level/quality upgrades, problems
+GET  /api/sockets?metric=&slot=&limit=     rune/soul core/idol worth and best legal replacements per socket
+GET  /api/sockets/plan?metric=&maxSwaps=   combined socket swap plan (greedy, re-measured; nothing is changed)
 POST /api/skills/{group}/gems/{index}       {name?, level?, quality?, enabled?}
 GET  /api/build/source  POST /api/build/refresh   re-import from the source link, keeping config
 GET  /api/budget                            Spirit used/free, totems affordable vs cap, DPS across all totems

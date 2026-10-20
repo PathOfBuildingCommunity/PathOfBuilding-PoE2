@@ -202,6 +202,33 @@ def test_item_check_focus_goes_off_hand(witch):
     assert witch.check_item(FOCUS)["slot"] == "Weapon 2"
 
 
+SOCKETED_COAT = """Rarity: RARE
+Test Coat
+Conjurer Mantle
+Item Level: 80
+Sockets: S S
+Rune: Legacy of Blackbraid
+Rune: None
++100 to maximum Life"""
+
+
+def test_socket_advice_and_plan(witch):
+    witch.call("items.equip", text=SOCKETED_COAT, slot="Body Armour")
+    advice = witch.socket_advice()
+    coat = next(s for s in advice["slots"] if s["slot"] == "Body Armour")
+    first, empty = coat["sockets"]
+    assert first["current"] == "Legacy of Blackbraid" and "score" in first["worth"]
+    assert empty["current"] == "None" and empty["legalOptions"] > 0
+    # Another "Legacy of" rune shares Blackbraid's character-wide limit, so it is flagged, not offered as legal.
+    blocked = witch.call("sockets.analyze", slot="Body Armour", limit=200)["slots"][0]["sockets"][1]["alternatives"]
+    legacies = [a for a in blocked if a["name"].startswith("Legacy of")]
+    assert legacies and all(a.get("blockedBy") for a in legacies)
+    before = witch.call("stats.get", keys=["TotalEHP", "Life"])
+    plan = witch.socket_plan(max_swaps=2)
+    assert plan["steps"] and plan["total"]["score"] > 0
+    assert witch.call("stats.get", keys=["TotalEHP", "Life"]) == before  # nothing changed
+
+
 UNNAMED_HEARTWOOD, ANCESTRAL_BOND = 52374, 45202
 
 

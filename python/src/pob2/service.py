@@ -316,6 +316,24 @@ class PoBService:
         """Support worth, best replacement per skill, gem level/quality upgrades and setup problems."""
         return self._memoised(("gems.advise", metric), lambda: self.call("gems.advise", metric=metric))
 
+    def socket_advice(self, metric: str = "balanced", slot: str | None = None, limit: int = 5) -> dict[str, Any]:
+        """Each socketed rune/soul core/idol's worth and the best legal replacements per socket."""
+        return self._memoised(
+            ("sockets.analyze", metric, slot, limit),
+            lambda: self.call("sockets.analyze", metric=metric, slot=slot, limit=limit),
+        )
+
+    def socket_plan(
+        self, metric: str = "balanced", max_swaps: int = 8, min_gain: float = 0.5, keep_unmodelled: bool = True
+    ) -> dict[str, Any]:
+        """Greedy combined plan of socket swaps, re-measured after each one. Does not change the build."""
+        return self._memoised(
+            ("sockets.optimize", metric, max_swaps, min_gain, keep_unmodelled),
+            lambda: self.call(
+                "sockets.optimize", metric=metric, maxSwaps=max_swaps, minGain=min_gain, keepUnmodelled=keep_unmodelled
+            ),
+        )
+
     def set_gem(self, group: int, index: int, **changes: Any) -> dict[str, Any]:
         return self.call("skills.set_gem", group=group, index=index, **changes)
 
