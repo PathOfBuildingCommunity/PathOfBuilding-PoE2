@@ -18,11 +18,30 @@ local function doublingHandledByPoB()
 	return doublingParsed
 end
 
+-- How a totem skill's limit is made up: `extra` is the BASE ActiveTotemLimit from sources other than skill gems
+-- (passives, ascendancy, items), and `overridden` is set when a gem OVERRIDEs the limit. Spell Totem's data does
+-- that (a fixed 2, "Should fix to take from active part of gem"), which drops every extra such as Oracle's
+-- Unnamed Heartwood (+1 to maximum number of Summoned Totems).
+local function totemLimitParts(skill)
+	local res = { extra = 0 }
+	if not skill.skillModList or not skill.skillCfg then
+		return res
+	end
+	res.overridden = skill.skillModList:Override(skill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit") ~= nil or nil
+	for _, row in ipairs(skill.skillModList:Tabulate("BASE", skill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit")) do
+		local source = row.mod and row.mod.source or ""
+		if not source:match("^Skill:") then
+			res.extra = res.extra + (row.value or 0)
+		end
+	end
+	return res
+end
+
 -- Per-build facts that what-if outputs don't carry: Spirit cost per totem and how PoB counted it.
 function M._context(b)
 	b = b or session.build()
 	local env = b.calcsTab.mainEnv
-	local ctx = { ancestralBond = false, cost = nil, pobCount = 1, skills = { }, totemGroups = { }, mainGroup = b.mainSocketGroup }
+	local ctx = { ancestralBond = false, cost = nil, pobCount = 1, skills = { }, totemGroups = { }, totemLimits = { }, mainGroup = b.mainSocketGroup }
 	if not env or not env.player then
 		return ctx
 	end
@@ -37,6 +56,16 @@ function M._context(b)
 		local gi = skill.socketGroup and groupIndex[skill.socketGroup]
 		if gi and ((skill.skillFlags and skill.skillFlags.totem) or (skill.skillTypes and skill.skillTypes[SkillType.SummonsTotem])) then
 			ctx.totemGroups[gi] = true
+		end
+		if gi then
+			-- A meta gem's group holds the totem (Spell Totem) and the skill it casts (Grim Pillars); the override
+			-- sits on the cast skill, which is not flagged as a totem skill itself.
+			local parts, seen = totemLimitParts(skill), ctx.totemLimits[gi]
+			if seen then
+				parts.overridden = parts.overridden or seen.overridden
+				parts.extra = math.max(parts.extra, seen.extra)
+			end
+			ctx.totemLimits[gi] = parts
 		end
 		local reserved = skill.skillData and skill.skillData.SpiritReservedBase
 		if reserved and reserved > 0 then
@@ -61,23 +90,34 @@ function M._summarize(output, ctx, group)
 	}
 	res.reserved = res.spirit - res.unreserved
 	local limit = output.ActiveTotemLimit
-	if limit and limit > 0 and ctx.totemGroups[group or ctx.mainGroup] then
-		local cap = limit
+	group = group or ctx.mainGroup
+	if limit and limit > 0 and ctx.totemGroups[group] then
+		-- Split the limit into the skill's own base and the extras (passives, ascendancy, items). An OVERRIDE
+		-- (Spell Totem) hides the extras from PoB's number, so they are added back here.
+		local parts = ctx.totemLimits[group] or { extra = 0 }
+		local extra = parts.extra or 0
+		local base = parts.overridden and limit or math.max(limit - extra, 0)
 		if ctx.ancestralBond and not doublingHandledByPoB() then
-			cap = limit * 2
+			-- The order of "Totem Limit is doubled" and flat additions is not documented. In game, Spell Totem (2)
+			-- with Unnamed Heartwood (+1) and Ancestral Bond places 5 = 2 x 2 + 1, so only the base is doubled.
+			base = base * 2
+		end
+		local cap = base + extra
+		-- Config "# of Summoned Totems" may say more than PoB works out (e.g. mods it does not parse), and fewer.
+		local wanted = cap
+		if ctx.configuredTotems and ctx.configuredTotems > 0 then
+			wanted = ctx.configuredTotems
+			cap = math.max(cap, wanted)
 		end
 		res.totemCap = cap
-		res.totems = cap
+		res.totems = wanted
 		if ctx.cost and ctx.cost > 0 then
 			-- PoB already subtracted one totem's worth (pobCount); add it back and divide by the per-totem cost.
 			local affordable = math.floor((res.unreserved + ctx.cost * ctx.pobCount) / ctx.cost + 1e-9)
 			res.totemCost = ctx.cost
 			res.totemsAffordable = math.max(0, affordable)
-			res.totems = math.min(cap, res.totemsAffordable)
-			res.spiritLimited = res.totemsAffordable < cap or nil
-		end
-		if ctx.configuredTotems and ctx.configuredTotems > 0 then
-			res.totems = math.min(res.totems, ctx.configuredTotems)
+			res.totems = math.min(wanted, res.totemsAffordable)
+			res.spiritLimited = res.totemsAffordable < wanted or nil
 		end
 		res.perTotemDps = math.max(output.TotalDPS or 0, output.CombinedDPS or 0)
 	end

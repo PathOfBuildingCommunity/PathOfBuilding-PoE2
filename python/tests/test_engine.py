@@ -188,6 +188,29 @@ def test_budget_and_item_check(witch):
     )
 
 
+UNNAMED_HEARTWOOD, ANCESTRAL_BOND = 52374, 45202
+
+
+def test_budget_spell_totem_cap(service):
+    # Spell Totem OVERRIDEs the totem limit to 2, which drops Unnamed Heartwood's +1; in game this places 5 (2 x 2 + 1).
+    service.new_build("Druid", "Oracle", 90)
+    service.call("tree.allocate", ids=[UNNAMED_HEARTWOOD, ANCESTRAL_BOND])
+    service.call(
+        "skills.add",
+        gems=[{"name": "Grim Pillars", "level": 20}, {"name": "Spell Totem", "level": 19, "quality": 20}],
+    )
+    service.call("config.custom_mods", text="+296 to Spirit")
+    budget = service.budget()
+    assert budget["ancestralBond"] and budget["spirit"] == 396
+    assert (budget["totemCap"], budget["totems"], budget["free"]) == (5, 5, 21)
+    # "# of Summoned Totems" can raise the cap; Spirit still limits the totems.
+    service.call("config.set", values={"TotemsSummoned": 6})
+    budget = service.budget()
+    assert (budget["totemCap"], budget["totems"], budget["spiritLimited"]) == (6, 5, True)
+    service.call("config.set", values={"TotemsSummoned": 3})
+    assert service.budget()["totems"] == 3
+
+
 def test_reference_rejects_non_build_files(service):
     with pytest.raises(ValueError):
         service.set_reference("not json")
