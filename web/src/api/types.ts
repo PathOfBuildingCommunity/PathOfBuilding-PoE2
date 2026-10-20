@@ -493,3 +493,72 @@ export interface SourceInfo {
   league?: string;
   loadedAt?: number;
 }
+
+// -- sockets (runes, soul cores, idols) -------------------------------------------------------------------
+
+export interface SocketDelta {
+  score: number;
+  dpsPercent: number;
+  ehpPercent: number;
+  totemsDelta?: number;
+  spiritDelta?: number;
+}
+
+export interface SocketOption extends SocketDelta {
+  name: string;
+  type?: string;
+  limitId?: string;
+  lines: string[];
+  bonded?: string[];
+  /** Lines PoB does not model (their effect isn't in the numbers). */
+  unmodelled?: string[];
+  /** Only legal after freeing a character-wide limit held in these sockets. */
+  blockedBy?: { slot: string; socket: number; name: string }[];
+}
+
+export interface SocketWorth extends SocketOption {
+  dead?: boolean;
+  socketBound?: boolean;
+}
+
+export interface SocketInfo {
+  index: number;
+  current: string;
+  worth?: SocketWorth;
+  legalOptions?: number;
+  bestGain?: number;
+  alternatives?: SocketOption[];
+}
+
+export interface SocketSlot {
+  slot: string;
+  item: string;
+  corrupted?: boolean;
+  unique?: boolean;
+  sockets: SocketInfo[];
+}
+
+export interface SocketAdvice {
+  metric: string;
+  note: string;
+  slots: SocketSlot[];
+}
+
+export interface SocketPlanStep extends SocketDelta {
+  slot: string;
+  socket: number;
+  from: string;
+  to: string;
+  lines: string[];
+  unmodelled?: string[];
+  pairedWith?: string;
+  losesUnmodelled?: string[];
+}
+
+export interface SocketPlan {
+  metric: string;
+  steps: SocketPlanStep[];
+  total?: SocketDelta;
+  warnings: string[];
+  note: string;
+}

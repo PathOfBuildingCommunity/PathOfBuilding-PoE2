@@ -1,27 +1,27 @@
 import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
-import { AlertTriangle, ChevronDown, ChevronRight, ClipboardCheck, ExternalLink, Gem, Search, ShoppingCart, Shirt, Sparkles } from "lucide-react";
+import { AlertTriangle, ChevronDown, ChevronRight, CircleDot, ClipboardCheck, ExternalLink, Gem, Link2, ListOrdered, Lock, Search, ShoppingCart, Shirt, Sparkles } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
 import { api, qs } from "../../api/client";
 import { useBuildMutation } from "../../api/hooks";
-import type { Gain, GearSlot, GearSlotRef, GemAdvice, ItemCheck, UniqueSuggestion, UniquesAdvice } from "../../api/types";
+import type { Gain, GearSlot, GearSlotRef, GemAdvice, ItemCheck, SocketAdvice, SocketOption, SocketPlan, SocketSlot, UniqueSuggestion, UniquesAdvice } from "../../api/types";
 import { ErrorText } from "../../components/ErrorText";
 import { ItemVerdict } from "../../components/ItemVerdict";
 import { Modal } from "../../components/Modal";
 
 type Metric = "balanced" | "dps" | "ehp";
-type Section = "check" | "gear" | "jewels" | "gems" | "shop";
+type Section = "check" | "gear" | "jewels" | "sockets" | "gems" | "shop";
 
 const pct = (v: number) => `${v > 0 ? "+" : ""}${v.toFixed(1)}%`;
 const tone = (v: number) => (v > 0.05 ? "text-good" : v < -0.05 ? "text-bad" : "text-ink-400");
 const rarityColor = (r?: string) => (r === "UNIQUE" ? "text-unique" : r === "RARE" ? "text-rare" : r === "MAGIC" ? "text-magic" : "text-ink-200");
 
-function GainText({ g, compact }: { g?: Gain; compact?: boolean }) {
+function GainText({ g, compact }: { g?: Pick<Gain, "dpsPercent" | "ehpPercent"> & Partial<Gain>; compact?: boolean }) {
   if (!g) return null;
   const parts: ReactNode[] = [];
   if (Math.abs(g.dpsPercent) >= 0.05) parts.push(<span key="d" className={tone(g.dpsPercent)}>{pct(g.dpsPercent)} DPS</span>);
   if (Math.abs(g.ehpPercent) >= 0.05) parts.push(<span key="e" className={tone(g.ehpPercent)}>{pct(g.ehpPercent)} EHP</span>);
-  if (!compact && Math.abs(g.lifeDelta) >= 1) parts.push(<span key="l" className={tone(g.lifeDelta)}>{g.lifeDelta > 0 ? "+" : ""}{Math.round(g.lifeDelta)} Life</span>);
-  if (!compact && Math.abs(g.esDelta) >= 1) parts.push(<span key="s" className={tone(g.esDelta)}>{g.esDelta > 0 ? "+" : ""}{Math.round(g.esDelta)} ES</span>);
+  if (!compact && g.lifeDelta && Math.abs(g.lifeDelta) >= 1) parts.push(<span key="l" className={tone(g.lifeDelta)}>{g.lifeDelta > 0 ? "+" : ""}{Math.round(g.lifeDelta)} Life</span>);
+  if (!compact && g.esDelta && Math.abs(g.esDelta) >= 1) parts.push(<span key="s" className={tone(g.esDelta)}>{g.esDelta > 0 ? "+" : ""}{Math.round(g.esDelta)} ES</span>);
   if (g.totemsDelta) parts.push(<span key="t" className={`font-semibold ${tone(g.totemsDelta)}`}>{g.totemsDelta > 0 ? "+" : ""}{g.totemsDelta} totem{Math.abs(g.totemsDelta) === 1 ? "" : "s"}</span>);
   if (g.spiritDelta && !compact) parts.push(<span key="p" className={tone(g.spiritDelta)}>{g.spiritDelta > 0 ? "+" : ""}{Math.round(g.spiritDelta)} Spirit</span>);
   if (!parts.length) return <span className="text-ink-400">no measured change</span>;
@@ -261,6 +261,194 @@ function ShopSection({ uniques, loading, error, budget, setBudget }: {
   );
 }
 
+// -- sockets (runes, soul cores, idols) ---------------------------------------------------------------------
+
+const Badge = ({ className, title, children }: { className: string; title?: string; children: ReactNode }) => (
+  <span className={`rounded px-1.5 py-0.5 text-xs ${className}`} title={title}>{children}</span>
+);
+
+function AugmentLines({ o }: { o: Pick<SocketOption, "lines" | "unmodelled" | "bonded"> }) {
+  if (!o.lines.length) return null;
+  return (
+    <div className="text-xs text-ink-400">
+      {o.lines.map((l, i) => <div key={i} className={o.unmodelled?.includes(l) ? "italic" : "text-magic"}>{l}{o.unmodelled?.includes(l) ? " (not modelled)" : ""}</div>)}
+      {o.bonded?.length ? <div className="text-ink-400" title="Bonded lines only apply to some classes">Bonded: {o.bonded.join("; ")}</div> : null}
+    </div>
+  );
+}
+
+function SocketCard({ data }: { data: SocketSlot }) {
+  return (
+    <div className="panel">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-ink-700 px-4 py-3">
+        <span className="w-28 shrink-0 text-sm text-ink-400">{data.slot}</span>
+        <span className={`min-w-0 flex-1 truncate text-sm ${data.unique ? "text-unique" : "text-ink-200"}`}>{data.item}</span>
+        {data.corrupted && <Badge className="bg-bad/15 text-bad" title="Corrupted: only some augments can still be changed">corrupted</Badge>}
+      </div>
+      <div className="divide-y divide-ink-800">
+        {data.sockets.map((s) => {
+          const w = s.worth;
+          return (
+            <div key={s.index} className="grid gap-3 px-4 py-3 lg:grid-cols-2">
+              <div>
+                <div className="label mb-1">Socket {s.index}</div>
+                <div className="flex flex-wrap items-baseline gap-2 text-sm">
+                  <span className={s.current === "None" ? "text-ink-400" : "text-ink-200"}>{s.current === "None" ? "Empty" : s.current}</span>
+                  {w && (w.socketBound ? <Badge className="bg-ink-800 text-ink-400" title="Bound to this socket: it can't be swapped out"><Lock size={10} className="mr-1 inline" />socket-bound</Badge>
+                    : w.dead ? <Badge className="bg-bad/15 text-bad" title="Removing it changes nothing: swap it">dead</Badge>
+                      : w.unmodelled ? <Badge className="bg-gold/15 text-gold-soft" title={`PoB doesn't model: ${w.unmodelled.join("; ")}`}>unmodelled</Badge> : null)}
+                  {w && !w.dead && <span className="text-xs"><GainText g={w} compact /></span>}
+                </div>
+                {w && <AugmentLines o={w} />}
+              </div>
+              <div>
+                {s.alternatives ? (
+                  <>
+                    <div className="label mb-1">Alternatives{s.legalOptions ? ` (${s.legalOptions} options)` : ""}</div>
+                    {s.alternatives.length ? (
+                      <ul className="space-y-1.5 text-sm">
+                        {s.alternatives.map((a) => (
+                          <li key={a.name}>
+                            <div className="flex flex-wrap items-baseline gap-2">
+                              <span className={`min-w-0 flex-1 ${a.blockedBy ? "text-ink-400" : "text-ink-200"}`}>{a.name === "None" ? "Leave empty" : a.name}</span>
+                              {a.blockedBy && <Badge className="bg-rare/15 text-rare" title="A character-wide limit: free that socket first">blocked by {a.blockedBy.map((h) => `${h.slot} socket ${h.socket} (${h.name})`).join(", ")}</Badge>}
+                              {a.unmodelled && <Badge className="bg-gold/15 text-gold-soft" title={`PoB doesn't model: ${a.unmodelled.join("; ")}`}>unmodelled</Badge>}
+                              <span className="text-xs"><GainText g={a} compact /></span>
+                            </div>
+                            <AugmentLines o={a} />
+                          </li>
+                        ))}
+                      </ul>
+                    ) : <p className="text-sm text-ink-400">No legal alternatives.</p>}
+                  </>
+                ) : <p className="text-sm text-ink-400">Can't be changed.</p>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function SocketPlanPanel({ metric }: { metric: Metric }) {
+  const plan = useQuery({
+    queryKey: ["sockets-plan", metric],
+    queryFn: () => api.get<SocketPlan>(`/sockets/plan${qs({ metric })}`),
+  });
+  const p = plan.data;
+  // Paired swaps (freeing a limit in one socket to use it in another) arrive as consecutive steps.
+  const groups = useMemo(() => {
+    const out: NonNullable<typeof p>["steps"][] = [];
+    const steps = p?.steps ?? [];
+    for (let i = 0; i < steps.length; i++) {
+      const s = steps[i], n = steps[i + 1];
+      if (s.pairedWith && n && `${n.slot} socket ${n.socket}` === s.pairedWith) {
+        out.push([s, n]);
+        i++;
+      } else out.push([s]);
+    }
+    return out;
+  }, [p]);
+  return (
+    <div className="panel border-l-4 border-l-gold p-4">
+      <div className="mb-2 flex items-center gap-2">
+        <ListOrdered size={15} className="text-gold" />
+        <span className="label">Socket plan, in order</span>
+        {plan.isFetching && p && <span className="text-xs text-ink-400">updating…</span>}
+      </div>
+      <ErrorText error={plan.error} />
+      {plan.isLoading && <p className="text-sm text-ink-400">Trying every swap, applying the best and re-measuring (about 15 s)…</p>}
+      {p && (
+        <>
+          {groups.length ? (
+            <ol className="space-y-2">
+              {groups.map((g, gi) => (
+                <li key={gi} className={`flex gap-3 text-sm ${g.length > 1 ? "rounded border border-ink-700 p-2" : ""}`}>
+                  <span className="w-5 shrink-0 text-right tabular-nums text-ink-400">{gi + 1}.</span>
+                  <div className="min-w-0 flex-1 space-y-1.5">
+                    {g.length > 1 && <div className="flex items-center gap-1 text-xs text-rare"><Link2 size={12} /> Paired swap: do both together</div>}
+                    {g.map((s) => (
+                      <div key={`${s.slot}-${s.socket}`}>
+                        <div className="flex flex-wrap items-baseline gap-x-2">
+                          <span className="text-ink-400">{s.slot} socket {s.socket}:</span>
+                          <span className="text-ink-200">{s.from === "None" ? "empty" : s.from}</span>
+                          <span className="text-ink-400">→</span>
+                          <span className="text-good">{s.to === "None" ? "empty" : s.to}</span>
+                          {s.losesUnmodelled && <Badge className="bg-gold/15 text-gold-soft" title={s.losesUnmodelled.join("; ")}>loses unmodelled</Badge>}
+                          <span className="ml-auto text-xs"><GainText g={s} compact /></span>
+                        </div>
+                        <AugmentLines o={s} />
+                      </div>
+                    ))}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : <p className="text-sm text-ink-400">No swap gains enough to be worth it.</p>}
+          {p.total && (
+            <p className="mt-3 border-t border-ink-700 pt-2 text-sm">
+              <span className="text-ink-400">All steps together: </span><GainText g={p.total} />
+            </p>
+          )}
+          {p.warnings.length > 0 && (
+            <ul className="mt-2 space-y-1 text-sm text-rare">
+              {p.warnings.map((w, i) => <li key={i} className="flex gap-2"><AlertTriangle size={14} className="mt-0.5 shrink-0" /> {w}</li>)}
+            </ul>
+          )}
+          <p className="mt-2 text-xs text-ink-400">{p.note}</p>
+        </>
+      )}
+    </div>
+  );
+}
+
+function SocketsSection({ metric }: { metric: Metric }) {
+  const advice = useQuery({ queryKey: ["sockets", metric], queryFn: () => api.get<SocketAdvice>(`/sockets${qs({ metric, limit: 5 })}`) });
+  const [showPlan, setShowPlan] = useState(false);
+  const a = advice.data;
+  const all = (a?.slots ?? []).flatMap((s) => s.sockets.map((x) => ({ slot: s.slot, ...x })));
+  const dead = all.filter((x) => x.worth?.dead).length;
+  const empty = all.filter((x) => x.current === "None").length;
+  const best = all.filter((x) => (x.bestGain ?? 0) >= 0.5).sort((x, y) => (y.bestGain ?? 0) - (x.bestGain ?? 0))[0];
+  const bestAlt = best?.alternatives?.find((o) => !o.blockedBy);
+  return (
+    <div className="space-y-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <p className="min-w-0 flex-1 text-sm text-ink-400">
+          What each rune, soul core and idol is worth, and the best legal replacements. Nothing in your build changes.
+        </p>
+        <button className="btn btn-primary" onClick={() => setShowPlan(true)} disabled={showPlan}>
+          <ListOrdered size={14} /> Build plan
+        </button>
+      </div>
+      {showPlan && <SocketPlanPanel metric={metric} />}
+      <ErrorText error={advice.error} />
+      {advice.isLoading && <p className="text-sm text-ink-400">Measuring every socket and its legal options…</p>}
+      {best && bestAlt && (
+        <div className="panel flex flex-wrap items-center gap-3 border-l-4 border-l-good px-4 py-3">
+          <Sparkles size={16} className="text-good" />
+          <div className="min-w-0 flex-1 text-sm">
+            <span className="text-ink-400">Best single swap: </span>
+            <span className="font-semibold text-ink-200">{best.slot} socket {best.index}</span>
+            <span className="text-ink-400"> {best.current === "None" ? "(empty)" : best.current} → </span>
+            <span className="text-good">{bestAlt.name}</span> <span className="text-xs"><GainText g={bestAlt} compact /></span>
+          </div>
+        </div>
+      )}
+      {(dead > 0 || empty > 0) && (
+        <p className="flex items-center gap-2 text-sm text-rare">
+          <AlertTriangle size={14} />
+          {[dead ? `${dead} dead augment${dead > 1 ? "s" : ""}` : "", empty ? `${empty} empty socket${empty > 1 ? "s" : ""}` : ""].filter(Boolean).join(", ")}.
+        </p>
+      )}
+      {a?.slots.map((s) => <SocketCard key={s.slot} data={s} />)}
+      {a && a.slots.length === 0 && <p className="text-sm text-ink-400">No socketed items equipped.</p>}
+      {a && <p className="text-xs text-ink-400">{a.note}</p>}
+    </div>
+  );
+}
+
 // -- gems ---------------------------------------------------------------------------------------------------
 
 function GemsSection({ metric }: { metric: Metric }) {
@@ -355,6 +543,7 @@ export function UpgradesTab() {
     { id: "check", label: "Check item", icon: <ClipboardCheck size={14} /> },
     { id: "gear", label: "Gear", icon: <Shirt size={14} /> },
     { id: "jewels", label: "Jewels", icon: <Sparkles size={14} /> },
+    { id: "sockets", label: "Sockets", icon: <CircleDot size={14} /> },
     { id: "gems", label: "Gems", icon: <Gem size={14} /> },
     { id: "shop", label: "Shop", icon: <ShoppingCart size={14} /> },
   ];
@@ -376,7 +565,7 @@ export function UpgradesTab() {
             <option value="dps">Damage</option>
             <option value="ehp">Defence</option>
           </select>
-          {section !== "gems" && section !== "check" && (
+          {section !== "gems" && section !== "check" && section !== "sockets" && (
             <>
               League
               <select className="input w-auto" value={activeLeague ?? ""} onChange={(e) => setLeague(e.target.value || undefined)}>
@@ -389,6 +578,7 @@ export function UpgradesTab() {
       {section === "check" && <CheckSection />}
       {section === "gear" && <GearSection jewels={false} metric={metric} league={activeLeague} uniques={uniques.data} />}
       {section === "jewels" && <GearSection jewels metric={metric} league={activeLeague} uniques={uniques.data} />}
+      {section === "sockets" && <SocketsSection metric={metric} />}
       {section === "gems" && <GemsSection metric={metric} />}
       {section === "shop" && <ShopSection uniques={uniques.data} loading={uniques.isLoading} error={uniques.error} budget={budget} setBudget={setBudget} />}
     </div>
