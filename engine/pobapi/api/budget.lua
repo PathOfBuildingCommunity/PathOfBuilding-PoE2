@@ -243,6 +243,13 @@ local function slotFor(b, item, wanted)
 		return { wanted }
 	end
 	local primary = item:GetPrimarySlot()
+	-- Upstream only maps shields and quivers to the off-hand; a Focus comes back as "Focus", which is not a slot.
+	if item.type == "Focus" then
+		primary = "Weapon 2"
+	end
+	if not b.itemsTab.slots[primary] then
+		util.fail(("No slot for %s items (%s)"):format(tostring(item.type), tostring(primary)))
+	end
 	if primary == "Ring 1" then
 		return { "Ring 1", "Ring 2" }
 	end

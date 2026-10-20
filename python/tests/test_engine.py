@@ -188,6 +188,20 @@ def test_budget_and_item_check(witch):
     )
 
 
+FOCUS = """Rarity: Rare
+Test Focus
+Woven Focus
+--------
+Item Level: 80
+--------
+50% increased Spell Damage"""
+
+
+def test_item_check_focus_goes_off_hand(witch):
+    # Upstream maps a Focus to a "Focus" slot that does not exist.
+    assert witch.check_item(FOCUS)["slot"] == "Weapon 2"
+
+
 UNNAMED_HEARTWOOD, ANCESTRAL_BOND = 52374, 45202
 
 
