@@ -504,10 +504,19 @@ function copyTable(tbl, noRecurse)
 	return out
 end
 do
-	local subTableMap = { }
-	function copyTableSafe(tbl, noRecurse, preserveMeta, isSubTable)
+	-- The sub-table memo is threaded through the recursion as a parameter
+	-- rather than kept in a module-level table: it is created by the
+	-- outermost call and becomes garbage as soon as that call returns --
+	-- INCLUDING when it never returns (a copy abandoned while its coroutine
+	-- is suspended, or aborted by an error mid-copy). A module-level memo
+	-- was only wiped on the success path, so any abandoned copy pinned its
+	-- entire source sub-tree (and every mirror table already copied) for
+	-- the life of the process, growing the Lua heap until a memo write
+	-- threw "table overflow" and the post-error full GC ground for minutes.
+	function copyTableSafe(tbl, noRecurse, preserveMeta, isSubTable, subTableMap)
 		local out = {}
 		if not noRecurse then
+			subTableMap = subTableMap or { }
 			subTableMap[tbl] = out
 		end
 		if preserveMeta then
@@ -515,13 +524,10 @@ do
 		end
 		for k, v in pairs(tbl) do
 			if not noRecurse and type(v) == "table" then
-				out[k] = subTableMap[v] or copyTableSafe(v, false, preserveMeta, true)
+				out[k] = subTableMap[v] or copyTableSafe(v, false, preserveMeta, true, subTableMap)
 			else
 				out[k] = v
 			end
-		end
-		if not noRecurse and not isSubTable then
-			wipeTable(subTableMap)
 		end
 		return out
 	end
