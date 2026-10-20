@@ -125,11 +125,36 @@ export interface BudgetCompare {
   warnings: string[];
 }
 
+export interface Resource {
+  key: string;
+  label: string;
+  total: number;
+  unreserved?: number;
+  regen?: number;
+  costPerSecond?: number;
+}
+
 export interface Budget extends BudgetSummary {
   effectiveDps: number;
   free: number;
   ancestralBond?: boolean;
   reservations: { name: string; spirit: number; totem?: boolean; count?: number }[];
+  skill?: string;
+  ehp: number;
+  life: number;
+  es: number;
+  resources: Resource[];
+  defence: {
+    armour: number;
+    evasion: number;
+    block: number;
+    lifeRegen: number;
+    fire: number;
+    cold: number;
+    lightning: number;
+    chaos: number;
+    maxHit: number;
+  };
 }
 
 export interface ItemCheck {

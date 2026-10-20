@@ -218,21 +218,76 @@ function M.get()
 	local summary = M._summarize(output, ctx)
 	summary.effectiveDps = M._effectiveDps(output, summary)
 	summary.ancestralBond = ctx.ancestralBond or nil
+	-- Totems stay out whatever the main skill is: when it isn't the totem skill, count them via the totem group.
+	local spiritTotems, totemCost = summary.totems, summary.totemCost
+	if not spiritTotems and ctx.cost and ctx.cost > 0 then
+		local groups = { }
+		for gi in pairs(ctx.totemGroups) do groups[#groups + 1] = gi end
+		table.sort(groups)
+		if groups[1] then
+			local calcFunc = M._calculator(b)
+			local s = M._summarize(calcFunc({ mainSocketGroup = groups[1] }), ctx, groups[1])
+			spiritTotems, totemCost = s.totems, s.totemCost
+		end
+	end
 	summary.reservations = util.array()
 	for _, s in ipairs(ctx.skills) do
-		if s.totem and summary.totems then
-			summary.reservations[#summary.reservations + 1] = { name = s.name .. " totems", spirit = (summary.totemCost or 0) * summary.totems, totem = true, count = summary.totems }
+		if s.totem and spiritTotems then
+			summary.reservations[#summary.reservations + 1] = { name = s.name .. " totems", spirit = (totemCost or 0) * spiritTotems, totem = true, count = spiritTotems }
 		else
 			summary.reservations[#summary.reservations + 1] = { name = s.name, spirit = s.spirit }
 		end
 	end
-	if summary.totems then
+	if spiritTotems then
 		-- Spirit actually in use once every affordable totem is out.
-		summary.free = summary.spirit - (summary.reserved - (summary.totemCost or 0) * ctx.pobCount) - (summary.totemCost or 0) * summary.totems
+		summary.free = summary.spirit - (summary.reserved - (totemCost or 0) * ctx.pobCount) - (totemCost or 0) * spiritTotems
 	else
 		summary.free = summary.unreserved
 	end
+	local main = b.calcsTab.mainEnv and b.calcsTab.mainEnv.player and b.calcsTab.mainEnv.player.mainSkill
+	local ge = main and main.activeEffect and main.activeEffect.grantedEffect
+	summary.skill = ge and ge.name or nil
+	summary.ehp = output.TotalEHP or 0
+	summary.life = output.Life or 0
+	summary.es = output.EnergyShield or 0
+	summary.resources = M._resources(output)
+	summary.defence = {
+		armour = output.Armour or 0,
+		evasion = output.Evasion or 0,
+		block = output.EffectiveBlockChance or output.BlockChance or 0,
+		lifeRegen = output.LifeRegenRecovery or 0,
+		fire = output.FireResist or 0,
+		cold = output.ColdResist or 0,
+		lightning = output.LightningResist or 0,
+		chaos = output.ChaosResist or 0,
+		maxHit = output.PhysicalMaximumHitTaken or 0,
+	}
 	return summary
+end
+
+-- Resources the character has or the main skill spends, besides Spirit (reported separately).
+function M._resources(output)
+	local res = util.array()
+	local function add(key, label, total, extra)
+		local cost = output[key .. "PerSecondCost"]
+		if (total or 0) > 0 or (cost or 0) > 0 then
+			local r = extra or { }
+			r.key, r.label, r.total = key, label, total or 0
+			r.costPerSecond = (cost or 0) > 0 and cost or nil
+			res[#res + 1] = r
+		end
+	end
+	add("Mana", "Mana", output.Mana, { unreserved = output.ManaUnreserved, regen = output.ManaRegenRecovery })
+	add("Rage", "Rage", output.MaximumRage)
+	add("Ward", "Runic Ward", output.Ward, { regen = output.WardRegenRecovery })
+	-- Life and ES appear here only when the main skill spends them (they are shown with EHP anyway).
+	for _, key in ipairs({ "Life", "ES" }) do
+		local cost = output[key .. "PerSecondCost"]
+		if (cost or 0) > 0 then
+			res[#res + 1] = { key = key, label = key == "ES" and "Energy Shield" or "Life", total = key == "ES" and output.EnergyShield or output.Life, costPerSecond = cost }
+		end
+	end
+	return res
 end
 
 local function slotFor(b, item, wanted)

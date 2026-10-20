@@ -6,6 +6,15 @@ export function fmtNum(v: number, digits = 1): string {
   return Number.isInteger(v) ? v.toLocaleString() : v.toFixed(digits);
 }
 
+/** Headline style: always compact, no stray decimals (9.1K, 161.7K, 2.45M, 875). */
+export function fmtCompact(v: number): string {
+  const abs = Math.abs(v);
+  if (abs >= 1e9) return `${(v / 1e9).toFixed(2)}B`;
+  if (abs >= 1e6) return `${(v / 1e6).toFixed(2)}M`;
+  if (abs >= 1e3) return `${(v / 1e3).toFixed(1)}K`;
+  return Math.round(v).toLocaleString();
+}
+
 export const rarityColor: Record<string, string> = {
   NORMAL: "text-ink-200",
   MAGIC: "text-magic",

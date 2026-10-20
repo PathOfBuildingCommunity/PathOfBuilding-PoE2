@@ -176,7 +176,10 @@ def test_gem_advice_and_set_gem(witch):
 
 def test_budget_and_item_check(witch):
     budget = witch.budget()
-    assert {"spirit", "reserved", "free", "effectiveDps", "reservations"} <= budget.keys()
+    assert {"spirit", "reserved", "free", "effectiveDps", "reservations", "ehp", "life", "resources"} <= budget.keys()
+    mana = next(r for r in budget["resources"] if r["key"] == "Mana")
+    assert mana["total"] > 0 and "costPerSecond" in mana  # Fireball spends mana
+    assert "totems" not in budget  # not a totem skill
     check = witch.check_item(WAND)
     assert check["slot"] == "Weapon 1" and check["verdict"] in {"upgrade", "sidegrade", "downgrade"}
     fireball = next(s for s in check["skills"] if s["name"] == "Fireball")
@@ -249,6 +252,11 @@ def test_budget_spell_totem_cap(service):
     budget = service.budget()
     assert budget["ancestralBond"] and budget["spirit"] == 396
     assert (budget["totemCap"], budget["totems"], budget["free"]) == (5, 5, 21)
+    # Totems stay out when another skill is the main skill: Spirit still counts all five.
+    service.call("skills.add", gems=["Fireball"], makeMain=True)
+    other = service.budget()
+    assert "totems" not in other and other["free"] == 21
+    service.call("skills.set_main", group=1)
     # "# of Summoned Totems" can raise the cap; Spirit still limits the totems.
     service.call("config.set", values={"TotemsSummoned": 6})
     budget = service.budget()
