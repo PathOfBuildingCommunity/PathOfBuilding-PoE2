@@ -1471,6 +1471,18 @@ function PassiveSpecClass:BuildNodePathsToRootNodes(roots)
 		::continueBuildPath::
 	end
 end
+
+-- Returns the radius index a jewel uses in this spec, accounting for Time-Lost
+-- radius upgrades from allocated passives (e.g. Baryanic Leylines)
+function PassiveSpecClass:GetJewelRadiusIndex(item)
+	local radiusIndex = item.jewelRadiusIndex
+	if radiusIndex and item.base and item.base.subType == "Radius"
+		and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC" then
+		return data.resolveTimeLostRadiusIndex(radiusIndex, self.timeLostJewelRadiusIncrease)
+	end
+	return radiusIndex
+end
+
 -- Rebuilds dependencies and paths for all nodes
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
@@ -1493,6 +1505,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		end
 	end
 	wipeTable(intuitiveLeapLikeNodes)
+	self.timeLostJewelRadiusIncrease = 0
 	for id, node in pairs(self.allocNodes) do
 		if node.ascendancyName then -- avoid processing potentially replaceable nodes
 			self.tree:ProcessStats(node)
@@ -1501,6 +1514,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 					t_insert(intuitiveLeapLikeNodes, radius)
 				end
 			end
+			self.timeLostJewelRadiusIncrease = self.timeLostJewelRadiusIncrease + node.modList:Sum("INC", nil, "NonUniqueTimeLostJewelRadius")
 			processed[id] = true
 		end
 	end
