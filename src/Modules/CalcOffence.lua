@@ -2709,8 +2709,8 @@ function calcs.offence(env, actor, activeSkill)
 		local baseVsEnemy = skillModList:Sum("BASE", cfg, "Accuracy", "AccuracyVsEnemy")
 		local inc = skillModList:Sum("INC", cfg, "Accuracy")
 		local incVsEnemy = skillModList:Sum("INC", cfg, "Accuracy", "AccuracyVsEnemy")
-		local more = skillModList:More("MORE", cfg, "Accuracy")
-		local moreVsEnemy = skillModList:More("MORE", cfg, "Accuracy", "AccuracyVsEnemy")
+		local more = skillModList:More(cfg, "Accuracy")
+		local moreVsEnemy = skillModList:More(cfg, "Accuracy", "AccuracyVsEnemy")
 
 		local enemyDistance = env.modDB:Sum("BASE", nil, "Multiplier:enemyDistance") / 10 or 25
 		local enemyDistanceCapped = m_max(m_min(enemyDistance * 10, data.misc.AccuracyFalloffEnd), data.misc.AccuracyFalloffStart)
@@ -3084,7 +3084,7 @@ function calcs.offence(env, actor, activeSkill)
 					globalBreakdown.ReloadTime = { }
 					local baseReloadTime = source.ReloadTime
 					local incReloadSpeed = skillModList:Sum("INC", skillCfg, "ReloadSpeed")
-					local moreReloadSpeed = skillModList:More("MORE", skillCfg, "ReloadSpeed")
+					local moreReloadSpeed = skillModList:More(skillCfg, "ReloadSpeed")
 					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(base reload rate)", 1 / baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
@@ -3982,7 +3982,7 @@ function calcs.offence(env, actor, activeSkill)
 			else
 				local extraDamage = skillModList:Sum("BASE", cfg, "CritMultiplier") / 100
 				local extraDamageInc = 1 + skillModList:Sum("INC", cfg, "CritMultiplier") / 100
-				local extraDamageMore = skillModList:More("MORE", cfg, "CritMultiplier")
+				local extraDamageMore = skillModList:More(cfg, "CritMultiplier")
 				extraDamage = extraDamage * extraDamageInc * extraDamageMore
 				local multiOverride = skillModList:Override(skillCfg, "CritMultiplier")
 				if multiOverride then
