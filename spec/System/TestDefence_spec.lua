@@ -49,6 +49,49 @@ describe("TestDefence", function()
 		assert.are.equals(manaWithoutTotalEnergyShield + 100, player.output.Mana)
 	end)
 
+	it("scales conversion rates down proportionally when they total more than 100%", function()
+		-- 50% to Energy Shield plus 75% to Armour (with 75% Chaos Resistance) is 125%, so both scale by 100/125
+		build.configTab.input.customMods = "\z
+		50% of Maximum Life Converted to Energy Shield\n\z
+		Convert 1% of maximum Life to twice as much Armour per 1% Chaos Resistance above 0%\n\z
+		+75% to Chaos Resistance\n\z
+		"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local lifeBase = build.calcsTab.mainEnv.player.modDB:Sum("BASE", nil, "Life")
+		local factor = 100 / 125
+		assert.are.equals(round(lifeBase * 50 * factor / 100), build.calcsTab.mainOutput.EnergyShield)
+		assert.are.equals(round(lifeBase * (75 * factor + 75) / 100), build.calcsTab.mainOutput.Armour)
+	end)
+
+	it("takes each conversion target's share from the unconverted slot base", function()
+		local function energyShieldBodyArmourWith(customMods)
+			newBuild()
+			build.itemsTab:CreateDisplayItemFromRaw([[
+				New Item
+				Tattered Robe
+				+100 to maximum Energy Shield
+			]])
+			build.itemsTab:AddDisplayItem()
+			build.configTab.input.customMods = customMods
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			return build.calcsTab.mainOutput
+		end
+		local toMana = "Convert 40% of maximum Energy Shield to maximum Mana"
+		local asArmour = "Gain 20% of maximum Energy Shield as extra Armour"
+
+		local manaOnly = energyShieldBodyArmourWith(toMana)
+		local armourOnly = energyShieldBodyArmourWith(asArmour)
+		local both = energyShieldBodyArmourWith(toMana .. "\n" .. asArmour)
+
+		-- Gaining Armour from Energy Shield must not reduce the Energy Shield kept or the Mana converted
+		assert.are.equals(manaOnly.EnergyShield, both.EnergyShield)
+		assert.are.equals(manaOnly.Mana, both.Mana)
+		assert.are.equals(armourOnly.Armour, both.Armour)
+	end)
+
 	it("Geofri's Sanctuary mods work", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 		Geofri's Sanctuary
