@@ -139,6 +139,8 @@ end
 if draw then
 	--- <summary>翻译显示文本，并为含中文的文本选择字形图集。</summary>
 	function DrawString(left, top, align, height, fontName, text)
+		-- 配置占位符和计算结果允许传入数字，与测宽入口保持一致。
+		if type(text) ~= 'string' then text = tostring(text or '') end
 		text = localisation:Translate(text)
 		local font = activeFont()
 		if font and (localisation.rawUnicode or text:find('[\128-\255]')) then return font:Draw(left, top, align, height, text) end

@@ -115,6 +115,9 @@ function Dictionary:Translate(text, reverse)
 	local colour, body = text:match('^(%^x%x%x%x%x%x%x)(.*)$')
 	if not colour then colour, body = text:match('^(%^%d)(.*)$') end
 	if colour then return colour .. self:Translate(body, reverse) end
+	-- 提示框换行后会追加颜色重置码，译文匹配不应包含这些显示标记。
+	local colourStart = text:match('()%^x%x%x%x%x%x%x$') or text:match('()%^%d$')
+	if colourStart then return self:Translate(text:sub(1, colourStart - 1), reverse) .. text:sub(colourStart) end
 	local result
 	for _, template in ipairs(reverse and self.reverseTemplates or self.templates) do
 		if template.prefix == '' or text:sub(1, #template.prefix) == template.prefix then

@@ -1,5 +1,7 @@
 # poe.ninja 构筑本地化验收
 
+> 范围纠正：`audit-poe-ninja.lua` 只扫描构筑中的装备字段。技能和天赋 XML 段能够导入，不等于技能或天赋提示框已经翻译。本报告的“零未命中”不得用于全局中文化完成声明；全域缺口见 `localisation-runtime-audit.md`。
+
 验收日期：2026-10-29。使用 `src/Tests/Fixtures/poe-ninja/` 中保存的三个公开 PoB2 构筑：
 
 - `resurrectgodaura`

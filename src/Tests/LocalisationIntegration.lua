@@ -35,6 +35,24 @@ edit:SetText(''); edit:OnKeyDown('v')
 Paste, IsKeyDown = savedPaste, savedKey
 equal(edit.buf, '中文粘贴', '剪贴板保持 UTF-8')
 
+-- 配置页的默认占位值可能是数字，必须走真实编辑控件绘制回归。
+local viewPort = { x = 0, y = 0, width = 1920, height = 1080 }
+for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+	localisation:SetLanguage(language)
+	for _, value in ipairs({ 0, -5, 12.5 }) do
+		edit:SetText('')
+		edit.placeholder = value
+		local drawn, err = pcall(edit.Draw, edit, viewPort)
+		equal(drawn, true, language .. ' 数值占位符绘制 ' .. tostring(value) .. ': ' .. tostring(err))
+		equal(edit.placeholder, value, language .. ' 绘制不改写数值占位符')
+	end
+	local drawn, err = pcall(build.configTab.Draw, build.configTab, viewPort, { })
+	equal(drawn, true, language .. ' 配置页完整绘制: ' .. tostring(err))
+	equal(localisation.rawDepth, 0, language .. ' 绘制后恢复原文上下文')
+end
+edit.placeholder = nil
+localisation:SetLanguage('zh-CN')
+
 local clipboard = Paste
 Paste = function() return 'Fireball 20/0 1' end
 build.skillsTab:PasteSocketGroup()
@@ -122,6 +140,36 @@ equal(localisation.language, 'zh-CN', '无效语言回退默认语言')
 equal(localisation.invalidLanguage, 'missing-locale', '记录无效语言配置')
 localisation:SetLanguage('zh-CN'); main:SaveSettings()
 
+-- 天赋验收使用实际提示框内容，覆盖颜色码和换行产生的显示字符串。
+for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
+	localisation:SetLanguage(language)
+	for _, id in ipairs({ 4, 16, 30, 40 }) do
+		local node = assert(build.spec.nodes[id], '缺少天赋回归节点')
+		local tooltip = new('Tooltip'):Tooltip()
+		build.treeTab.viewer:AddNodeTooltip(tooltip, node, build, 0)
+		local text = { }
+		for _, line in ipairs(tooltip.lines) do
+			if line.text then text[#text + 1] = StripEscapes(line.text) end
+		end
+		text = table.concat(text, '\n')
+		equal(text:find(localisation:Translate(node.dn), 1, true) ~= nil, true, language .. ' 天赋标题进入真实提示框')
+		equal(text:find(node.dn, 1, true), nil, language .. ' 天赋标题未保留英文')
+		equal(text:find(localisation:Translate(node.sd[1]), 1, true) ~= nil, true, language .. ' 天赋属性进入真实提示框')
+	end
+end
+
+local languageTooltip = new('Tooltip'):Tooltip()
+localisation:SetLanguage('zh-CN')
+equal(languageTooltip:CheckForUpdate('language-fixture'), true, '提示框首次生成')
+languageTooltip:AddLine(16, 'Shock Chance')
+equal(languageTooltip.lines[1].text, '感电几率', '提示框保存当前语言译文')
+equal(languageTooltip:CheckForUpdate('language-fixture'), nil, '同语言保留提示框缓存')
+localisation:SetLanguage('en')
+equal(languageTooltip:CheckForUpdate('language-fixture'), true, '切换语言使提示框缓存失效')
+equal(#languageTooltip.lines, 0, '切换语言清理原提示框译文')
+languageTooltip:AddLine(16, 'Shock Chance')
+equal(languageTooltip.lines[1].text, 'Shock Chance', '切换英文后恢复原始名称')
+
 -- 读取 poe.ninja 的公开 PoB2 导出，验证真实构筑可以被 PoB2 解析。
 local dkjson = require('dkjson')
 local poeNinjaFixtures = {
@@ -147,6 +195,11 @@ for _, fixture in ipairs(poeNinjaFixtures) do
 	assert(#build.itemsTab.items > 0, fixture.id .. ' 装备没有进入 PoB2')
 	assert(#build.skillsTab.socketGroupList > 0, fixture.id .. ' 技能没有进入 PoB2')
 	assert(#build.xmlSectionList > 0, fixture.id .. ' XML 段没有被 PoB2 保留')
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+		localisation:SetLanguage(language)
+		local drawn, err = pcall(build.configTab.Draw, build.configTab, viewPort, { })
+		equal(drawn, true, fixture.id .. ' ' .. language .. ' 配置页绘制: ' .. tostring(err))
+	end
 end
 
 print(string.format('真实 PoB2 集成检查通过 %d 个断言。', assertions))

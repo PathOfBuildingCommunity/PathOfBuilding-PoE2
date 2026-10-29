@@ -158,8 +158,10 @@ function TooltipClass:CheckForUpdate(...)
 			doUpdate = true
 		end
 	end
-	if doUpdate or self.updateParams.notSupportedModTooltips ~= main.notSupportedModTooltips then
+	if doUpdate or self.updateParams.notSupportedModTooltips ~= main.notSupportedModTooltips or self.updateParams.language ~= localisation.language then
 		self.updateParams.notSupportedModTooltips = main.notSupportedModTooltips
+		-- 缓存中的提示框行包含译文，切换语言后必须重新生成。
+		self.updateParams.language = localisation.language
 		self:Clear()
 		return true
 	end
@@ -167,6 +169,8 @@ end
 
 function TooltipClass:AddLine(size, text, font, background, modLine)
 	if text then
+		-- 在拆行与换行前翻译，保留词条边界并按译文计算布局。
+		text = localisation:Translate(text)
 		local fontToUse
 		if main.showFlavourText then
 			fontToUse = font or "VAR"

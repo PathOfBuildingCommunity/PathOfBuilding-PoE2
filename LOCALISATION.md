@@ -65,6 +65,8 @@ test-localisation.cmd
 
 ## 验证范围与限制
 
+全量中文化尚未完成。全域数据与界面源码待核对候选见 `docs/localisation-runtime-audit.md`，可通过 `python tools/audit-localisation.py` 重新生成。三个 poe.ninja 构筑的装备字段扫描只覆盖样本中的装备，不代表技能、天赋和整个界面的翻译覆盖。
+
 实际构建、字体检查、Lua 测试和界面截图见 `docs/localisation-verification.md`。本次未验证在线角色数据的网络获取链路；角色数据转换通过离线结构和真实 PoB2 物品解析器验证。账号登录与鉴权不属于本地化功能验收范围。
 
 原词库中包含历史 PoE1 术语，也缺少部分新增 PoE2 词条。当前提供内置中文功能和可维护的工程，不宣称所有词条都已完成准确校对。未命中的内容保留英文；未知中文物品词条可能仍无法被官方英文解析器识别。
