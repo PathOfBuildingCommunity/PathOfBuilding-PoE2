@@ -1,0 +1,134 @@
+##statDescriptions修正##,##statDescriptions修正##
+
+Monsters have {0}% increased Area of Effect,怪物效果区域扩大 {0}%
+Monsters have {0}% reduced Area of Effect,怪物效果区域缩小　{0}%
+{0}% increased Reflected Physical Damage taken,承受的反射物理伤害提高 {0}%
+{0}% reduced Reflected Physical Damage taken,承受的反射物理伤害降低 {0}%
+Right ring slot: {0}% increased Reflected Physical Damage taken,右戒指栏位：承受的反射物理伤害提高 {0}%
+Right ring slot: {0}% reduced Reflected Physical Damage taken,右戒指栏位：承受的反射物理伤害降低 {0}%
+{0}% to Critical Strike Multiplier per {1} Strength on Unallocated Passives in Radius,范围内每 {1} 点未配置的力量予以{0}% 暴击伤害加成
+{0}% increased Attack Speed while Leeching,偷取时攻击速度提高 {0}%
+{0}% reduced Attack Speed while Leeching,偷取时攻击速度降低 {0}%
+Cannot be Stunned while Leeching,偷取时免疫晕眩
+Removes Elemental Ailments when you use a Flask,使用药剂时驱散元素异常状态
+Adds {0} to {1} Physical Damage to Attacks and Spells per Siphoning Charge,每个轮回球可使攻击和法术附加 {0} - {1} 基础物理伤害
+Enemies Taunted by you cannot Evade Attacks,被你嘲讽的敌人无法闪避攻击
+Gain a Void Charge every second,每秒获得一个虚空之矢
+Gain a Void Charge every {0} seconds,每 {0} 秒获得一个虚空之矢
+{0}% increased Physical Damage over Time taken while moving,移动时受到的物理持续伤害提高{0}%
+Impales you inflict last {0} additional Hits while using Pride,使用【尊严】时，你施加的【穿刺】效果持续 {0} 次额外击中
+Remove a Curse when you use a Mana Flask,使用魔力药剂时移除 1 个诅咒
+Remove a random Elemental Ailment when you use a Mana Flask,使用魔力药剂时移除 1 个随机元素异常状态
+Arcane Surge grants {0}% increased Cast Speed,【秘术增强】使施法速度加快 {0}%
+Minions deal {0}% more Damage,召唤生物造成的伤害总增{0}%
+Minions deal {0}% less Damage,召唤生物造成的伤害总降{0}%
+Strength's Damage bonus applies to Projectile Attack Damage as well for Supported Skills,力量的伤害加成同样作用于被辅助的技能的投射物攻击伤害
+Consecrated Ground you create causes Life Regeneration to,你产生的的奉献地面使得
+also Recover Energy Shield for you and Allies,你与你的友军的生命再生同样套用至能量护盾回复
+Ring has {0}% chance to Shock,新星有{0}%的几率造成感电
+{0}% of Physical Damage Converted to Lightning Damage while sphere is Shocked or Sapped,球体具有感电或力竭时，将 {0}% 物理伤害转化为闪电伤害
+"Every {1} seconds, gain {0}% of Physical Damage","每 {1} 秒，获得额外火焰伤害，"
+Skills Reserve Life instead of Mana,技能保留生命而非魔力
+Skills that have dealt a Critical Strike in the past {0} seconds deal {1}% more Elemental Damage with Hits and Ailments,在过去 {0} 秒内造成暴击的技能造成的击中元素伤害、异常状态元素伤害总增 {1}%
+Take {0}% less Damage over Time if you've started taking Damage over Time in the past second,你在承受持续伤害的第一秒内承受的持续伤害总降 {0}%
+Explosion deals {0}% more Damage with Hits per Explosive Arrow on Target,击中造成的爆炸伤害按照目标身上每支爆炸箭矢总增 {0}%
+Consumes {0} Charge from {1} Life Flask, if possible,若可能则消耗 {1} 瓶生命药剂的 {0} 层充能
+Consumes {0} Charges from {1} Life Flask, if possible,若可能则消耗 {1} 瓶生命药剂的 {0} 层充能
+You have {0} Fortification,你有 {0} 层护体
+{0} to maximum Fortification,护体上限 {0}
+{0}% chance to Suppress Spell Damage per Fortification,法术伤害压制率按照每层护体 {0}%
+Nearby Enemies have {0}% increased Life Regeneration Rate,周围敌人的生命再生率提高 {0}%
+Nearby Enemies have {0}% reduced Life Regeneration Rate,周围敌人的生命再生率降低 {0}%
+Mana Recovery from Regeneration is not applied,魔力再生无效
+{0}% chance to Avoid being Ignited while on Low Life,低血状态时有 {0}% 几率避免被点燃
+Minions have {0}% increased Attack Speed when on Low Life,召唤生物低血时，其攻击速度加快 {0}%
+Minions have {0}% reduced Attack Speed when on Low Life,召唤生物低血时，其攻击速度减慢 {0}%
+Minions have {0}% increased Cast Speed when on Low Life,召唤生物低血时，其施法速度加快 {0}%
+Minions have {0}% reduced Cast Speed when on Low Life,召唤生物低血时，其施法速度减慢 {0}%
+This Attack and Minions have {0}% increased Attack Speed when on Low Life,低血时攻击与召唤生物的攻击速度提高 {0}%
+This Attack and Minions have {0}% reduced Attack Speed when on Low Life,低血时攻击与召唤生物的攻击速度降低 {0}%
+This Spell and Minions have {0}% increased Cast Speed when on Low Life,当低血时，该法术与召唤生物的施法速度加快 {0}%
+This Spell and Minions have {0}% reduced Cast Speed when on Low Life,当低血时，该法术与召唤生物的施法速度减慢 {0}%
+Buff grants {0}% more Cleave Damage with Hits and Ailments to Enemies that are on Low Life,使劈砍对低血状态下的敌人造成的击中和异常状态伤害总增 {0}%
+Chaos Damage taken does not bypass Energy Shield while not on Low Life,未处于低血状态时，受到的混沌伤害无法忽略能量护盾
+Dread Banner grants an additional {0} to maximum Fortification when placing the Banner,恐怖之旗在放置时使护体上限额外 {0}
+Life Recovery from Regeneration is not applied,生命再生无效
+Regenerate {0} Life per Second while on Low Life,低血状态时每秒再生 {0} 生命
+{0}% increased Cast Speed while affected by Zealotry,受到【奋锐光环】影响时，施法速度加快 {0}%
+{0}% increased Evasion Rating per Green Socket on Main Hand Weapon,闪避值按照主手武器上每个绿色插槽提高 {0}%
+{0}% reduced Evasion Rating per Green Socket on Main Hand Weapon,闪避值按照主手武器上每个绿色插槽降低 {0}%
+{0} to Accuracy Rating per Green Socket on Equipped Bow,命中值按照装备的弓上每个绿色插槽 {0}
+Marked Enemy cannot Regenerate Life,被标记的敌人无法再生生命
+Prevent {0}% of Suppressed Spell Damage per Hit Suppressed Recently,近期每压制一次击中则提高 {0}% 的法术伤害压制量
+{0}% chance to Suppress Spell Damage per Hit Suppressed Recently,近期每压制一次击中则使法术压制率 {0}%
+Regenerate {0} Life per second for each {1}% Uncapped Fire Resistance,每拥有 {1}% 的绝对火焰抗性则每秒再生 {0} 点生命
+Stance Skills have {0} seconds to Cooldown,姿态技能的冷却时间为 {0} 秒
+Skills Cost Life instead of {0}% of Mana Cost,技能 {0}% 的魔力消耗改为消耗生命
+Ailments never count as being from Critical Strikes,暴击造成的异常状态不在其内
+You take {0}% reduced Extra Damage from Critical Strikes by Cursed Enemies,受诅咒的敌人对你造成的暴击额外伤害降低 {0}%
+
+##自己加的statDescriptions专精文本##,##自己加的statDescriptions专精文本##
+
+Deal 10% more Chaos Damage to enemies which have Energy Shield,对有能量护盾的敌人造成的混沌伤害总增 10%
+Recover 1% of Life per Withered Debuff on each Enemy you Kill,每杀死一个敌人，其所带的每层死亡凋零使你回复 1% 生命
+5% chance when you inflict Withered to inflict up to 15 Withered Debuffs instead,当你造成死亡凋零时，有 5% 的几率造成最多 15 层死亡凋零减益
+50% increased Projectile Speed while wielding a Dagger,持匕首时投射物速度提高 50%
+10% of Leech is Instant,10% 的偷取是瞬时的
+40% increased Armour and Evasion Rating while Leeching,偷取时护甲和闪避提高 40%
+25% more Damage with Hits against Enemies that cannot have Life Leeched from them,对无法偷取生命的敌人的攻击伤害总增 25%
+25% of Damage taken Recouped as Life if Leech was removed by Filling Unreserved Life Recently,如果近期因未保留生命值被补满而移除偷取，则所受伤害的 25% 吸纳为生命
+"25% increased Maximum total Life, Mana and Energy Shield Recovery per second from Leech","从偷取中获得的每秒最大生命、法力和能量护盾总恢复量提高 25%"
++1% to all maximum Elemental Resistances if you have Reserved Life and Mana,如果你有保留生命和魔力，则全元素最大抗性 +1%
+3% chance to Recover all Life when you Kill an Enemy,当你杀死一个敌人时有 3 %的几率回复所有生命
+Life Recoup Effects instead occur over 3 seconds,生命吸纳效果改为在 3 秒内生效
+"Every 3 seconds, Consume a nearby Corpse to Recover 10% of Life","每 3 秒，消耗附近一具尸体恢复 10% 生命"
+"Every 4 seconds, Recover 1 Life for every 0.1 Life Recovery per second from Regeneration","每 4 秒，按照每 0.1 生命再生回复 1 生命"
+Remove a random Non-Elemental Ailment when you use a Life Flask,你使用生命药剂时移除一个随机非元素异常状态
+20% increased Maximum Energy Shield if both Equipped Rings have Evasion Modifiers,如果两个装备的戒指都有闪避词缀，最大能量护盾提高 20%
+40% increased Energy Shield Recharge Rate if Equipped Amulet has an Evasion Modifier,如果装备的项链有闪避词缀，能量护盾充能率提高 40%
+100% increased Evasion Rating if Energy Shield Recharge has started in the past 2 seconds,如果能量盾在过去 2 秒内开始充能，则闪避值提高 100%
+"Every 4 seconds, Regenerate Energy Shield equal to 1% of Evasion Rating over 1 second","每 4 秒，在 1 秒内回复相当于闪避值 1% 的能量护盾"
+Gain 25 Life per Enemy Hit with Main Hand Claw Attacks,主手爪攻击每击中一个敌人获得 25 生命
+Gain 25 Mana per Enemy Hit with Off Hand Claw Attacks,副手爪攻击每击中一个敌人获得 25 魔力
+Inherent Attack Speed bonus from Dual Wielding is doubled while wielding two Claws,双持的固有攻速加成在双持爪时加倍
+60% increased Damage with Claws against Enemies that are on Low Life,爪对低血敌人造成的伤害提高 60%
+10% of Leech is Instant per Equipped Claw,每装备一把爪类武器，偷取就有 10% 为瞬时的
+50% increased Stealth if you've Hit With a Claw Recently,如果你近期用爪击中，則匿踪效果提高 50%
+Cannot be Stunned by Hits that deal only Physical Damage,无法被仅造成物理伤害的击中晕眩
+Hits have 40% chance to ignore Enemy Monster Physical Damage Reduction,击中有 40% 几率忽略敌方怪物的物理伤害减免
++6% to Damage over Time Multiplier for Bleeding per Impale on Enemy,敌人身上每有一层穿刺，对其的流血伤害的持续伤害加成 +6%
+"+15% chance to Suppress Spell Damage if Equipped Helmet, Body Armour, Gloves, and Boots all have Evasion Rating","如果装备的头盔、身体护甲、手套和鞋子都有闪避值，则法术压制几率 +15%"
+100% increased Evasion Rating from Equipped Body Armour,来自身体护甲的闪避值提高 100%
++50% to Critical Strike Multiplier against Stunned Enemies,对晕眩的敌人的暴击伤害加成 +50%
+Hits against you Cannot be Critical Strikes if you've been Stunned Recently,如果你近期晕眩过，你无法被暴击
+25% chance to deal a Stunning Hit to Nearby Enemy Monsters when you're Stunned,当你被晕眩时，有 25% 的几率对附近的敌方怪物造成晕眩
+"Gain Adrenaline when Stunned, for 2 seconds per 100ms of Stun Duration","晕眩时每遭遇 100 毫秒晕眩，获得 2 秒【肾上腺素】"
+
+##tree_dn修正##,##tree_dn修正##
+
+Damage Over Time,持续伤害
+Impale Chance,穿刺几率
+Spell Suppression Mastery,法术压制专精
+
+##tree_sd修正##,##tree_sd修正##
+
+20% increased Attack Speed while Leeching,偷取时攻击速度加快 20%
+Consecrated Ground you create causes Life Regeneration to\nalso Recover Energy Shield for you and Allies,你产生的的奉献地面使得\n你与你的友军的生命再生同样套用至能量护盾回复
+You have 20 Fortification,你有 20 层护体
+Take 50% less Damage over Time if you've started taking Damage over Time in the past second\n100% more Duration of Ailments on you,你在承受持续伤害的第一秒内承受的持续伤害总降 50%\n你身上的异常状态持续时间总增 100%
+Removes Elemental Ailments when you use a Flask,使用药剂时驱散元素异常状态
+30% increased Effect of non-Damaging Ailments on Enemies,对敌人施加的非伤害性异常状态的效果提高 30%
+10% increased Effect of non-Damaging Ailments on Enemies,对敌人施加的非伤害性异常状态的效果提高 10%
+8% increased Effect of non-Damaging Ailments on Enemies,对敌人施加的非伤害性异常状态的效果提高 8%
+
+
+##passiveTree修正##,##passiveTree修正##
+
+"(Shock increases Damage taken by up to 50%, depending on the amount of Lightning Damage in the hit, for 2 seconds)","（感电使受到的伤害提高至多50%并持续2秒，取决于击中造成的闪电伤害量）"
+(Maximum Rage is 50),(最大怒火为 50 层)
+(You lose 1 Rage every 0.5 seconds if you have not been Hit or gained Rage Recently),(如果你近期没有被击中或获得怒火，你每0.5秒失去1层怒火)
+(Intimidated enemies take 10% increased Attack Damage),（被威吓的敌人受到的攻击伤害提高10%）
+(Freeze lowers Enemy Action Speed to zero, preventing them from acting. Duration is based on the Cold Damage of the Hit),(冰冻将完全冻结敌人, 使其无法行动。冰冻的持续长度取决于命中时造成的冰霜伤害量)
+(Chill reduces Enemy Action Speed by up to 30%, depending on the amount of Cold Damage in the hit, for 2 seconds),(冰缓能至多使敌人行动速度降低30%并持续2秒，取决于击中造成的冰霜伤害量)
+"(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second, and Curses have 50% reduced effect on them)","（友军在你产生的奉献地面上按照生命上限百分比每秒再生生命，并且他们身上的诅咒效果降低 50%）"
+"(Take 1% less Damage from Hits per Fortification. Maximum 20 Fortification. Fortification lasts 6 seconds)",（受到的击中伤害按照每层护体效果总降1%。最多20层护体。护体持续6秒）

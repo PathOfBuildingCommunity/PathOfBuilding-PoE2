@@ -1042,7 +1042,7 @@ function string:matchOrPattern(pattern)
 
 	local orPatterns = generateOrPatterns(pattern)
 	for orPattern in pairs(orPatterns) do
-		if self:match(orPattern) then
+		if self:match(orPattern) or (localisation and localisation:Match(self, orPattern)) then
 			return true
 		end
 	end

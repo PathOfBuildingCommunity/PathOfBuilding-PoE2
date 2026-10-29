@@ -1,0 +1,169 @@
+"Average Hit:",平均击中:
+"Average Damage:",平均伤害:
+Average Burst Damage:,平均爆发伤害:
+PvP Average Damage:,PvP平均伤害:
+"Attack Rate:",攻击速率:
+"Cast Rate:",施法速率:
+Effective Trigger Rate:,有效触发速率:
+"Hit Rate:",击中速率
+"Trap Throwing Time:",陷阱投掷用时:
+"Trap Cooldown:",陷阱冷却:
+Mine Throwing Time:,地雷投掷用时:
+"Totem Placement Time:",图腾放置用时:
+"Crit Chance:",暴击率:
+"Effective Crit Chance:",有效暴击率:
+"Effective Crit Chance",有效暴击率
+"Crit Multiplier:",暴击伤害:
+"Hit Chance:",命中率:
+Hit DPS:,击中 DPS:
+PvP Hit DPS:,PvP 击中 DPS:
+"DoT DPS:","持续伤 DPS:"
+"Total DPS inc. DoT:","含持续伤总DPS:"
+"Bleed DPS:","流血 DPS:"
+Bleed DPS exceeds in game limit,流血DPS超过游戏上限
+Corrupting Blood DPS:,腐化之血 DPS:
+Corrupting Blood DPS exceeds in game limit,腐化之血DPS超过游戏上限
+Total Damage per Bleed:,每层流血总伤:
+Total DPS inc. Bleed:,含流血伤总DPS:
+Ignite DPS exceeds in game limit,点燃DPS超过游戏上限
+"Total Damage per Ignite:",每层点燃总伤害:
+Burning Ground DPS:,燃烧地面DPS:
+Burning Ground DPS exceeds in game limit,燃烧地面DPS超过游戏上限
+Mirage Burning Ground DPS:,幻影射手燃烧地面DPS:
+Mirage Burning Ground DPS exceeds in game limit,幻影射手燃烧地面DPS超过游戏上限
+"Total DPS inc. Ignite:","含点燃伤总DPS"
+"Average Dmg. inc. Ignite:","含点燃伤平均伤害"
+Single Poison DPS:,单层中毒 DPS:
+"Poison DPS:","中毒 DPS:"
+Poison DPS exceeds in game limit,中毒DPS超过游戏上限
+Caustic Ground DPS:,腐蚀地面DPS:
+Caustic Ground DPS exceeds in game limit,腐蚀地面DPS超过游戏上限
+Mirage Caustic Ground DPS:,幻影射手腐蚀地面面DPS:
+Mirage Caustic Ground DPS exceeds in game limit,幻影射手腐蚀地面DPS超过游戏上限
+"Total Damage per Poison:","每层中毒总伤害"
+"Total DPS inc. Poison:","含中毒伤总DPS"
+"Total DoT DPS:","总持续伤DPS:"
+DoT DPS exceeds in game limit,持续伤DPS超过游戏上限
+"Impale Damage:","穿刺伤害:"
+"Damage inc. Impale:","含穿刺伤害:"
+"Impale DPS:","穿刺 DPS:"
+"Total DPS inc. Impale:","含穿刺伤总DPS:"
+"Total Mirage DPS:","总幻影射手DPS:"
+Total Wisp DPS:,总鬼灵DPS:
+"Culling DPS:","终结 DPS:"
+Reservation DPS:,【血债】保留 DPS:
+"Combined DPS:","结合 DPS:"
+"Combined Total Damage:","结合总伤害:"
+Total Explode Chance:,总爆炸几率:
+Enemy Life Equivalent:,等效敌人生命:
+"Skill Cooldown:",技能冷却:
+Seal Gain Frequency:,封印获得速率:
+Max Number of Seals:,最大封印层数:
+Time to Gain Max Seals:,获得最大封印层数耗时:
+"AoE Radius:","范围效果半径:"
+Activations per Brand:,每烙印激活次数:
+"Mana Cost:",魔力消耗:
+Mana Cost per second:,每秒魔力消耗:
+"Life Cost:",生命消耗:
+Life Cost per second:,每秒生命消耗:
+"Energy Shield Cost:",能量护盾消耗:
+ES Cost per second:,每秒能量护盾消耗:
+"Rage Cost:",怒火消耗:
+Rage Cost per second:,每秒怒火消耗:
+Soul Cost:,灵魂消耗:
+Strength:,力量:
+"Strength Required:",力量需求:
+You do not meet the Strength requirement,你未满足力量需求
+Dexterity:,敏捷:
+"Dexterity Required:",敏捷需求:
+You do not meet the Dexterity requirement,你未满足敏捷需求
+Intelligence:,智慧:
+"Intelligence Required:",智慧需求:
+You do not meet the Intelligence requirement,你未满足智慧需求
+"Omniscience:",全知:
+"Omniscience Required:",全知需求:
+You do not meet the Omniscience requirement,你未满足全知需求
+Devotion:,奉献:
+Phys Max Hit:,物理击中最大承受值:
+Elemental Max Hit:,元素击中最大承受值:
+Fire Max Hit:,火焰击中最大承受值:
+Cold Max Hit:,冰霜击中最大承受值:
+Lightning Max Hit:,闪电击中最大承受值:
+Chaos Max Hit:,混沌击中最大承受值:
+You do not have enough Accuracy for Precise Technique,你未拥有满足【技艺精湛】需求的命中值
+"Total Life:",最大生命:
+"%Inc Life:",生命上限提高:
+"%Inc Life from Tree:",生命加成(天赋):
+"Unreserved Life:",未保留生命:
+Your unreserved Life is below 1,你的未保留生命低于1
+Life Recoverable:,可恢复生命:
+"Life Regen:",生命再生:
+Life Recovery:,生命恢复:
+"Life Leech/On Hit Rate:",生命偷取(击中速率):
+"Life Leech/Gain per Hit:",生命偷取(击中获得):
+"Total Mana:",最大魔力:
+"%Inc Mana from Tree:",魔力加成(天赋):
+"Unreserved Mana:",未保留魔力:
+Your unreserved Mana is negative,你的未保留魔力为负
+"Mana Regen:",魔力再生:
+Mana Recovery:,魔力恢复:
+"Mana Leech/On Hit Rate:",魔力偷取(击中速率)
+"Mana Leech/Gain per Hit:",魔力偷取(击中获得)
+"Energy Shield:",能量护盾:
+Recoverable ES:,可恢复能量护盾:
+"%Inc ES from Tree:","能量护盾加成(天赋):"
+ES Regen:,能量护盾再生:
+ES Recovery:,能量护盾恢复:
+"ES Leech/On Hit Rate:","能量护盾偷取(击中速率)"
+"ES Leech/Gain per Hit:","能量护盾偷取(击中获得)"
+Rage Regen:,怒火再生:
+"Total Spirit:",最大精魂:
+"Unreserved Spirit:",未保留精魂:
+"Evasion rating:",闪避值:
+"%Inc Evasion from Tree:",闪避加成(天赋):
+"Evade Chance:",闪避几率:
+"Melee Evade Chance:",近战闪避几率:
+"Projectile Evade Chance:",投射物闪避几率:
+Armour:,护甲:
+"%Inc Armour from Tree:",护甲加成(天赋):
+"Phys. Damage Reduction:",物理伤害减免:
+"Block Chance:",攻击格挡几率:
+"Spell Block Chance:",法术格挡几率:
+"Attack Dodge Chance:",攻击躲避几率:
+"Spell Dodge Chance:",法术躲避几率:
+"Spell Suppression Chance:",法术压制几率:
+"Fire Resistance:",火焰抗性:
+"Fire Res. Over Max:",火焰抗性(溢出):
+"Cold Resistance:",冰霜抗性:
+"Cold Res. Over Max:",冰霜抗性(溢出):
+"Lightning Resistance:",闪电抗性:
+"Lightning Res. Over Max:",闪电抗性(溢出):
+"Chaos Resistance:",混沌抗性:
+"Chaos Res. Over Max:",混沌抗性(溢出):
+"Movement Speed Modifier:",移动速度加成:
+"Full DPS:",最终总和DPS:
+Full Dot DPS:,最终总和持续伤DPS:
+Full Dot DPS exceeds in game limit,最终总和持续伤DPS超过游戏上限
+Minion Bleed DPS exceeds in game limit,召唤物流血DPS超过游戏上限
+Minion Ignite DPS exceeds in game limit,召唤物点燃DPS超过游戏上限
+Minion Poison dps exceeds in game limit,召唤物中毒DPS超过游戏上限
+Minion DoT DPS exceeds in game limit,召唤物持续伤DPS超过游戏上限
+"Presence Radius:",在场范围:
+Surrounded Radius:,包围判定范围:
+Chance to Blind:,致盲几率:
+Chance to Daze:,目眩几率:
+Inc. Quiver Effect:,箭袋效果提高:
+MS While Casting:,施法时移动速度:
+Eva. as Deflection:,闪避值视为偏转值:
+Arm. as Deflection:,护甲值视为偏转值:
+Enemy Aill. Thresh.:,敌人异常状态门槛
+Stun Buikdup:,眩晕累积
+Deflection Rating:,偏转值:
+Deflect Effect:,偏转效果:
+Deflect Chance:,偏转几率:
+Gem Req Mod:,技能宝石需求修正:
+Item Req Mod:,物品需求修正:
+Weapon Req Mod:,武器需求修正:
+Weap. Swap Speed:,武器切换速度:
+Ailment Threshold:,异常状态门槛:
+Charm limit:,护符数量上限:

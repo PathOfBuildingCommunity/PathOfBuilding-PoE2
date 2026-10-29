@@ -1,0 +1,583 @@
+" Abyss"," 深淵"
+" Apex"," 絕境"
+" Bind"," 羈絆"
+" Cage"," 囚籠"
+" Chambers"," 密室"
+" Coffers"," 冥棺"
+" Core"," 星核"
+" Court"," 靜院"
+" Cradle"," 搖籃"
+" Crag"," 絕壁"
+" Cramp"," 劇痛之境"
+" Crate"," 堅籠"
+" Crest"," 桂冠"
+" Depths"," 黑淵"
+" Dregs"," 沉積物"
+" Edge"," 刀鋒"
+" Frontier"," 壁壘"
+" Haven"," 庇蔭"
+" Keep"," 堅城"
+" Nexus"," 聖域"
+" Oubliette"," 窖間"
+" Panorama"," 望景"
+" Pit"," 巨坑"
+" Point"," 巔峰"
+" Reaches"," 驛站"
+" Refuge"," 庇護所"
+" Refuse"," 凶兆"
+" Remains"," 殘跡"
+" Remnant"," 遺地"
+" Rupture"," 破裂之境"
+" Sanctum"," 聖地"
+" Scum"," 泥潭"
+" Secrets"," 密境"
+" Sepulchre"," 墓場"
+" Shadows"," 影域"
+" Shard"," 破碎之地"
+" Slag"," 殘石"
+" Solitude"," 孤獨之境"
+" Spires"," 尖塔"
+" Trap"," 陷阱"
+" Vault"," 寶庫"
+" View"," 美景"
+" Vine"," 藤壁"
+" Waste"," 荒原"
+" Ziggurat"," 靈間"
+" Abode"," 居所"
+" Quarters"," 戒哨"
+" Roost"," 棲地"
+" Sector"," 轄域"
+" Zone"," 管區"
+" Precinct",苦行之域
+" Dwelling"," 住處"
+" Aegis"," 神盾"
+" Anthem"," 聖曲"
+" Arbiter",仲裁者
+" Arch"," 之弦"
+" Arrow"," 箭矢"
+" Badge"," 之徽"
+" Band"," 靈環"
+" Bane"," 禁域"
+" Barb"," 利勾"
+" Barrage"," 彈幕"
+" Barrier"," 屏障"
+" Bastion"," 堅堡"
+" Batter"," 重傷"
+" Beads"," 寶符"
+" Beak"," 尖喙"
+" Beam"," 光輝"
+" Bite"," 慧齒"
+" Blast"," 炎暴"
+" Blow"," 強擊"
+" Blunt"," 聖拳"
+" Bolt"," 重矢"
+" Bond"," 護環"
+" Braid"," 護鏈"
+" Branch"," 森靈"
+" Brand"," 神章"
+" Breaker"," 壞甲者"
+" Breeze"," 風語"
+" Brow"," 堅額"
+" Buckle"," 腹甲"
+" Bulwark"," 守護"
+" Burst"," 地裂"
+" Butcher"," 屠斧"
+" Call"," 靈喚"
+" Carapace"," 魔甲"
+" Caress"," 加護"
+" Chant"," 聖曲"
+" Charm"," 禮器"
+" Choker"," 聖符"
+" Circle"," 魔環"
+" Clasp"," 扣環"
+" Claw"," 殺手爪"
+" Cloak"," 隱袍"
+" Clutches"," 靈掌"
+" Coat"," 神袍"
+" Coil"," 指套"
+" Collar"," 頸符"
+" Cord"," 護腰環"
+" Corona"," 陽光之冠"
+" Cowl"," 護冠"
+" Crack"," 裂骨錘"
+" Crown"," 皇家之冠"
+" Crusher"," 衝鋒錘"
+" Cry"," 戰具"
+" Curtain"," 夜幕"
+" Dart"," 利芒"
+" Dash"," 疾影"
+" Dome"," 圓頂盔"
+" Duty"," 哨衛"
+" Emblem"," 榮耀之紋"
+" Etcher"," 骨雕"
+" Eye"," 之眼"
+" Fang"," 利牙"
+" Fend"," 鐵衛"
+" Finger"," 閃耀之指"
+" Fingers"," 護指套"
+" Fist"," 力量之拳"
+" Fletch"," 利眼"
+" Flight"," 飛矢"
+" Girdle"," 護帶"
+" Glance"," 護盔"
+" Glare",眩光
+" Globe",圓體
+" Gnarl"," 靈曲"
+" Gnash"," 石崩"
+" Goad"," 風喚"
+" Gorget"," 安魂符"
+" Grasp"," 魂掌"
+" Grinder"," 靈杵"
+" Grip"," 靈指"
+" Guard"," 軍衛"
+" Guardian"," 守衛者"
+" Guide"," 真眼"
+" Gutter"," 剖刃"
+" Gyre"," 風環"
+" Hail"," 尋風矢"
+" Halo"," 虹影"
+" Hand"," 健臂"
+" Harness"," 腹套"
+" Heart"," 護心符"
+" Hide"," 防身甲"
+" Hold"," 神力"
+" Hoof"," 足跡"
+" Horn"," 戰角"
+" Hunger"," 嗜魂具"
+" Idol"," 魔偶"
+" Impaler"," 穿體"
+" Iridescence",彩虹
+" Jack"," 保身"
+" Knell"," 喪儀"
+" Knot"," 魔語"
+" Knuckle"," 靈具"
+" Lash"," 飾帶"
+" League"," 盟誓"
+" Leash"," 護繩"
+" Leer",睨視
+" Lock"," 堅鎖"
+" Locket"," 保護符"
+" Loop"," 圓環"
+" Mangler"," 撕裂者"
+" Mantle"," 護障"
+" March"," 行靴"
+" Mark"," 寶記"
+" Mast"," 晴空"
+" Medallion"," 獎章"
+" Mitts"," 護手"
+" Nail"," 寶戒"
+" Nails"," 掌爪"
+" Needle"," 魔針"
+" Nock"," 影弦"
+" Noose"," 護頸索"
+" Pace"," 步伐"
+" Palm"," 護掌"
+" Paw"," 護指"
+" Peak"," 獨峰"
+" Pelt"," 韌衣"
+" Pendant"," 頸飾"
+" Pile"," 聖棒"
+" Pillar"," 靈柱"
+" Pith"," 靈光"
+" Pole"," 自然之力"
+" Post"," 之權"
+" Quill"," 凌羽"
+" Rain"," 之雨"
+" Ram"," 衝撞者"
+" Razor"," 剃刃"
+" Reach"," 目光"
+" Rend"," 斬刃"
+" Road"," 之途"
+" Roar"," 巨吼"
+" Rock"," 岩石"
+" Rod"," 之棒"
+" Rook"," 城塔"
+" Rosary"," 花符"
+" Ruin"," 裂毀者"
+" Salvation"," 救贖者"
+" Sanctuary"," 殿堂"
+" Saw"," 之鋸"
+" Scalpel"," 剖刀"
+" Scarab"," 聖物"
+" Scratch"," 刃痕"
+" Sever"," 斷魂者"
+" Shackle"," 縛靈"
+" Shatter"," 裂空"
+" Shell"," 堅殼"
+" Shelter"," 避難所"
+" Shot"," 嘯空矢"
+" Shroud"," 幽影"
+" Siege"," 破城弩"
+" Skewer"," 銳刃"
+" Skin"," 鋼膚"
+" Slayer"," 裂劈"
+" Slicer"," 斬殺"
+" Slippers"," 涼靴"
+" Smasher"," 巨錘"
+" Snare"," 浮雲"
+" Sole"," 之足"
+" Song"," 之曲"
+" Span"," 漫幕"
+" Spark"," 電球"
+" Spawn"," 再生"
+" Spear"," 長矛"
+" Spell"," 之術"
+" Sphere",天體
+" Spike"," 尖矢"
+" Spiker"," 鋒刃"
+" Spiral"," 之旋"
+" Spire"," 術渦"
+" Splitter"," 切割者"
+" Spur"," 套靴"
+" Star"," 之星"
+" Stinger"," 刺針"
+" Strap"," 縛帶"
+" Stride"," 行靴"
+" Strike"," 戰弦"
+" Suit"," 戰服"
+" Sunder"," 殘燼"
+" Talisman"," 巫符"
+" Talons"," 爪鋒"
+" Tether"," 束靈"
+" Thirst"," 渴望"
+" Thread"," 綢帶"
+" Thresher"," 之鏈"
+" Thunder"," 雷鳴"
+" Torc"," 頸環"
+" Touch"," 溫存"
+" Tower"," 之塔"
+" Track"," 蹤跡"
+" Trail"," 遠道"
+" Tread"," 漫步"
+" Turn"," 彎環"
+" Twine"," 無盡之弦"
+" Twirl"," 之輪"
+" Urge"," 迅步"
+" Veil"," 之幕"
+" Visage"," 慧眼"
+" Vise"," 猛鉗"
+" Visor"," 真視"
+" Volley"," 和諧之弦"
+" Ward"," 真實之衛"
+" Watch"," 眺望"
+" Weaver"," 織術者"
+" Whorl"," 螺旋"
+" Wish"," 希望"
+" Wind"," 破風"
+" Wing"," 光翼"
+" Wrap"," 覆身"
+" Wreck"," 遺骸"
+" Watcher"," 觀察者"
+" Construct","  構造"
+" Sentry","  哨兵"
+" Machine","  機械"
+" Keeper","  守護者"
+" Warden","  典獄長"
+" Artifice","  詭計"
+" Cast"," 之模"
+" Line"," 之線"
+" Tackle"," 捕繩"
+" Lure"," 誘餌"
+" Bait"," 之餌"
+" Fish"," 魚影"
+" Breach"," 魚籠"
+" Angler"," 長竿"
+" Sinker"," 沉籠"
+" Chum"," 誘捕者"
+" Gill"," 鰓網"
+" Jig"," 跳籠"
+" Prism",稜鏡
+" Hope",希望
+" Dream",夢境
+" Bliss",明亮
+" Delirium",迷幻
+" Solace",撫慰
+" Wisdom",智慧
+" Desire",渴望
+" Creed",教則
+" Wound",傷口
+" Blood",鮮血
+" Scar",瘡疤
+" Drop",水滴
+" Essence",精華
+" Dew",露水
+" Ichor",蝕骨
+" Stone",石肌
+" Sliver",流銀
+" Splinter",碎片
+" Vessel"," 之器"
+" Joy",歡愉
+" Cut",切口
+" Glimmer",光澤
+" Glisten",色澤
+" Shine",光芒
+" Ember",餘燼
+" Lens",透鏡
+" Bloom",繁花
+" Breath",之息
+" Pause",歇息
+" Ornament",之飾
+" Curio",逸品
+" Flame",火焰
+" Gaze",凝視
+" Stare",注視
+" Vision",遠見
+" Portent",預兆
+" Sight",遠目
+" Oculus",睛體
+" Orb",天體
+" Writ","  令狀"
+" Oath","  誓言"
+" Deed","  契據"
+" Scripture","  聖經"
+" Orders","  命令"
+" Pledge","  保證"
+" Manifesto","  宣言"
+" Pact","  協議"
+" Covenant","  盟約"
+" Testament","  遺囑"
+" Vow","  發誓"
+" Tool","  工具"
+" Kit","  套件"
+" Gear","  齒輪"
+" Implement","  實行"
+" Device","  設備"
+" Apparatus","  儀器"
+" Instrument","  儀器"
+" Material","  材料"
+" Equipment","  設備"
+" Contraption","  陷害"
+" Disguise","  偽裝"
+" Cover","  掩飾"
+" Bauble","  玩具"
+" Trinket","  飾品"
+" Fetish","  戀物癖"
+" Bead","  珠子"
+" Relic","  遺跡"
+" Invitation",邀請
+" Passage",通道
+" Key",關鍵
+" Offer",提供
+" Summons",召喚
+" Bid",出價
+" Excursion"," 旅程"
+" Undertaking","  承諾"
+" Enterprise","  企業"
+" Exploration","  勘探"
+" Journey","  旅行"
+" Expedition",探險
+" Voyage","  航程"
+" Trek","  跋涉"
+" Campaign","  活動"
+" Quest","  尋求"
+" Mission","  使命"
+" Colony","  殖民"
+" Outpost","  前哨"
+" Mandate","  授權"
+" Territory","  領土"
+" Lands","  土地"
+" Excavation","  挖掘"
+" Tale","  故事"
+" Saga","  佐賀"
+" Myth","  神話"
+" Ballad","  民謠"
+" Folktale","  民間故事"
+" Rite",儀式
+" Challenge",挑戰
+" Provocation",挑釁
+" Instigation",唆使
+" Incitement",煽動
+" Invocation",祈願
+" Liturgy",禮拜
+" Inscription",銘文
+" Inferno"," 煉獄"
+" Caldera"," 炎口"
+" Volcano"," 火山"
+" Lahar"," 火山泥流"
+" Magma"," 熔岩"
+" Firestorm"," 列炎峰報"
+" Zenith",巔峰
+" Nadir",谷底
+" District",區域
+" Cavern",洞穴
+" Filth",污垢
+" Clearing",空地
+" Sands",巢穴
+" Lair",空心
+" Hollow",畫廊
+" Gallery",巢穴
+" Den",藏身處
+" Hideaway",泥潭
+" Mire",水池
+" Pool",海灣
+" Gulf",泉水
+" Spring",攀爬
+" Climb",範圍
+" Range",領域
+" Realm",草皮
+" Turf",河岸
+" Bank",林地
+" Glade",風景
+" Landscape",懸崖
+" Bluff",一片
+" Swathe",大塊
+" Mass",碎石
+" Rubble",場地
+" Grounds",巨石
+" Monolith",庭院
+" Corridors",走廊
+" Alcove",凹室
+" Estate",莊園
+" Crossroads",十字路口
+" Morass",泥沼
+" Sludge",淤泥
+" Course",航向
+" Path",路徑
+" Compass",羅盤
+" Crosscut",橫穿
+" Direction",方向
+" Navigation",導航
+" Route",路線
+" Trajectory",彈道
+" Bearings",方位
+" Intent",意圖
+" Vector",向量
+" Control",控制
+" Charge",能量球
+" Progression",進度
+" Order",秩序
+" Choice",選擇
+" Resolve",決心
+" Determination",堅定
+" Gambit",策略
+" Carving",雕刻的
+" Full DPS",完整秒傷
+" Combined DPS",綜合秒傷
+" Hit DPS",擊中秒傷
+" Impale + Hit DPS","穿體 + 擊中秒傷"
+" Average Hit",平均擊中傷害
+" DoT DPS",持續秒傷
+" Bleed DPS",流血秒傷
+" Ignite DPS",點燃秒傷
+" Poison DPS",中毒秒傷
+" Life",生命
+" Life regen",生命回復
+" life leech",生命偷取
+" Armour",護甲
+" Evasion",閃避
+" Energy Shield",能量護盾
+" Recoverable ES",可恢復的能盾
+" Energy Shield regen",能量護盾回復
+" Energy Shield leech",能量護盾偷取
+" Mana",魔力
+" Mana regen",魔力回復
+" Mana leech",魔力偷取
+" Strength",力量
+" Dexterity",敏捷
+" Intelligence",智慧
+" Total Attributes",總能力值
+" Melee avoid chance",避免近戰傷害機率
+" Spell Avoid chance",避免法術傷害機率
+" Projectile Avoid chance",避免投射傷害機率
+" Effective Hit Pool",有效擊中血池
+" Eff. Maximum Hit Taken",承受有效大傷
+" Taken Phys dmg",承受物理傷害
+" Taken Lightning dmg",承受閃電傷害
+" Taken Cold dmg",承受冰凍傷害
+" Taken Fire dmg",承受火焰傷害
+" Taken Chaos dmg",承受混沌傷害
+" Crit Chance",暴擊率
+" Crit Multiplier",暴擊傷害
+" Bleed Chance",流血機率
+" Freeze Chance",冰凍機率
+" Ignite Chance",點燃機率
+" Shock Chance",感電機率
+" Move Speed",移動速度
+" Block Chance",格擋率
+" Spell Block Chance",法術格擋機率
+" Spell Suppression Chance",法術壓抑機率
+" Lake",迷湖
+" Strip",剝奪
+" Fen",沼地
+" Harbor",港口
+" Oasis",綠洲
+" Delta",三角洲
+" Lagoon",潟湖
+" Bay",海灣
+" Coast",海岸
+" Slough",泥沼
+" Retreat",隱居所
+" Inlet",水道
+" Sandbar",沙洲
+" Bayou",河口
+" Muck",爛泥地
+" Backwater",滯水
+" Tundra",苔原
+" Savanna",稀樹草原
+" Steppe",乾草原
+" Wilderness",荒野
+" Highlands",高地
+" Valley",谷地
+" Wasteland",荒地
+" Ruins",遺跡
+" Tendon",筋腱
+" Phalange",指骨
+" Gesture",手勢
+" Husk",殼身
+" Blaze",烈焰
+" Pyre",葬火
+" Cinder",焦炭
+" Furnace",熔爐
+" Kiln",火窯
+" Torus",火環
+" Eclipse",蝕影
+" Obsidian",黑曜
+" Coal",煤核
+" Agony",苦痛
+" Surge",奔湧
+" Discharge",釋放
+" Thought",思緒
+" Impulse",衝動
+" Epiphany",靈光
+" Slave",奴役
+" Curiousity",好奇
+" Envy",妒念
+" Repose",安眠
+" Undeath",不死
+" Dormancy",蟄伏
+" Inertia",惰性
+" Trance",恍惚
+" Coma",昏厥
+" Submersion",沉溺
+" Isolation",孤寂
+" Prison",囚牢
+" Eternity",永劫
+" Confinement",禁錮
+" Mother",母祀
+" Womb",子宮
+" Dust",塵末
+" Pursuit",追獵
+" Anticipation",渴望
+" Surrender",臣服
+" Kiss",親吻
+" Embrace",擁抱
+" Shift",轉化
+" Mimic",模仿
+" Howl",嚎叫
+" Spirit",精魂
+" Command",號令的
+" Edict",戒律的
+" Commandment",發號施令的
+" Decree",旨意的
+" Directive",標地的
+" Injunction",禁令的
+" Precept",訓誡的
+" Dictate",主宰的
+" Law",律法的
+" Judgment",審判的
+" Project",計畫的
+" Design",設計的
+" Terraform",改造的
+" Grind",研磨
+" Hustle",奔波
+" Toil",辛勞

@@ -1996,6 +1996,7 @@ end
 
 -- Attempt to create a new item from the given item raw text and sets it as the new display item
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
+	itemRaw = localisation:ItemText(itemRaw)
 	local newItem = new("Item"):Item(itemRaw)
 	if newItem.base then
 		self:CopyAnointsAndAugments(newItem, main.migrateAugments, false)
@@ -2887,7 +2888,9 @@ function ItemsTabClass:EditDisplayItemText(alsoAddItem)
 		controls.rarity.selIndex = 3
 	end
 	controls.edit.font = "FIXED"
-	controls.edit.pasteFilter = sanitiseText
+	controls.edit.pasteFilter = function(text)
+		return sanitiseText(localisation:ItemText(text))
+	end
 	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 470, 80, 20 }, self.displayItem and "Save" or "Create", function()
 		local id = self.displayItem and self.displayItem.id
 		self:CreateDisplayItemFromRaw(buildRaw(), not self.displayItem)
@@ -3719,11 +3722,12 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		return
 	end
 	-- Item name
-	if item.title then
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.title, "FONTIN SC")
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.baseName:gsub(" %(.+%)",""), "FONTIN SC")
+	local translatedTitle, translatedBaseName = localisation:ItemTitle(item)
+	if translatedTitle then
+		tooltip:AddLine(fontSizeTitle, rarityCode..translatedTitle, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, rarityCode..translatedBaseName, "FONTIN SC")
 	else
-		tooltip:AddLine(fontSizeTitle, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, rarityCode..translatedBaseName, "FONTIN SC")
 	end
 	tooltip.runicItem = item.runicItem
 	tooltip:AddSeparator(10)
@@ -3830,7 +3834,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		end
 	end
 	self:SetTooltipHeaderInfluence(tooltip, item)
-	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", typeStr), "FONTIN SC")
+	tooltip:AddLine(fontSizeBig, s_format("^x7F7F7F%s", localisation:Translate(typeStr)), "FONTIN SC")
 	if item.quality and item.quality > 0 then
 		tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FQuality: "..colorCodes.MAGIC.."+%d%%", item.quality), "FONTIN SC")
 	end

@@ -50,3 +50,15 @@ runtime/SimpleGraphic/Screenshots
 
 .emmyrc.json
 .luarc.json
+
+# 本地化工具编译产物；字体图集由 build.cmd 生成。
+tools/FontAtlas.exe
+tools/FontAtlas.obj
+tools/LuaRunner.exe
+tools/LuaRunner.obj
+src/Locales/Fonts/
+localisation-test-results.txt
+tools/*.png
+tools/*.pid
+src/Tests/*.log
+src/Tests/Run/

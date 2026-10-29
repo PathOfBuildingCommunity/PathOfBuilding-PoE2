@@ -304,7 +304,7 @@ end
 
 function main:DetectUnicodeSupport()
 	-- PoeCharm has utf8 global that normal PoB doesn't have
-	self.unicode = type(_G.utf8) == "table"
+	self.unicode = type(_G.utf8) == "table" or localisation ~= nil
 	if self.unicode then
 		ConPrintf("Unicode support detected")
 	end
@@ -601,6 +601,7 @@ function main:LoadSettings(ignoreBuild)
 					end
 				end
 			elseif node.elem == "Misc" then
+				localisation:SetLanguage(node.attrib.language or 'zh-CN')
 				if node.attrib.buildSortMode then
 					self.buildSortMode = node.attrib.buildSortMode
 				end
@@ -804,6 +805,7 @@ function main:SaveSettings()
 	end
 	t_insert(setXML, sharedItemList)
 	t_insert(setXML, { elem = "Misc", attrib = {
+		language = localisation.language,
 		buildSortMode = self.buildSortMode,
 		connectionProtocol = tostring(launch.connectionProtocol),
 		proxyURL = launch.proxyURL,
@@ -923,7 +925,7 @@ function main:OpenOptionsPopup(savedState)
 	}
 
 	-- NOTE: Height needs to be adjusted if more menu options are added
-	local oneColumnHeightReq = 850 -- Min height required to not split menu into two columns
+	local oneColumnHeightReq = 876 -- Min height required to not split menu into two columns
 	local columnWidth = 600
 
 	local startingY = 20
@@ -960,6 +962,14 @@ function main:OpenOptionsPopup(savedState)
 	local defaultLabelPlacementX = columnWidth*0.45
 
 	drawSectionHeader("app", "Application options")
+	local languageOptions = { }
+	for _, language in ipairs(localisation:LanguageList()) do
+		languageOptions[#languageOptions + 1] = { label = language.name, id = language.id }
+	end
+	controls.language = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 160, 18 }, languageOptions)
+	controls.language:SelByValue(localisation.language, "id")
+	controls.languageLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.language, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Language:")
+	nextRow()
 
 	controls.connectionProtocol = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
 		{ label = "Auto", protocol = 0 },
@@ -1244,6 +1254,7 @@ function main:OpenOptionsPopup(savedState)
 			main:SetManifestBranch(self.betaTest and "beta" or "master")
 		end
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
+		localisation:SetLanguage(controls.language.list[controls.language.selIndex].id)
 		main:ClosePopup()
 		main:SaveSettings()
 	end)

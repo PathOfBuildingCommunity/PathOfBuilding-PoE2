@@ -925,6 +925,7 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 end
 
 function ImportTabClass:ImportPassiveTreeAndJewels(charData)
+	charData = localisation:Character(charData)
 	local charPassiveData = charData.passives
 	self.charImportStatus = colorCodes.POSITIVE.."Passive tree and jewels successfully imported."
 	self.build.spec.jewel_data = copyTable(charPassiveData.jewel_data)
@@ -1095,6 +1096,7 @@ local function applySocketGroupReimportState(socketGroup, state)
 end
 
 function ImportTabClass:ImportItemsAndSkills(charData)
+	charData = localisation:Character(charData)
 	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
 		for _, slot in pairs(self.build.itemsTab.slots) do

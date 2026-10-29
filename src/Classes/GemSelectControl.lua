@@ -25,7 +25,7 @@ local GemSelectClass = newClass("GemSelectControl", "EditControl")
 ---@param changeFunc fun(...)
 ---@param forceTooltip boolean
 function GemSelectClass:GemSelectControl(anchor, rect, skillsTab, index, changeFunc, forceTooltip)
-	self:EditControl(anchor, rect, nil, nil, "^ %a':-")
+	self:EditControl(anchor, rect, nil, nil, main.unicode and "%c" or "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)
 	self.controls.scrollBar.y = function()
 		local width, height = self:GetSize()
@@ -160,13 +160,14 @@ function GemSelectClass:BuildList(buf)
 		for i, pattern in ipairs(patternList) do
 			local matchList = { }
 			for gemId, gemData in pairs(self.gems) do
-				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern)) then
+				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern) or (" "..localisation:Translate(gemData.name:lower())):match(pattern)) then
 					addThisGem = true
 					if #tagsList > 0 then
 						for _, tag in ipairs(tagsList) do
 							local tagName = tag:gsub("%s+", ""):lower()
 							local negateTag = tagName:sub(1, 1) == "-"
 							if negateTag then tagName = tagName:sub(2) end
+							tagName = localisation:TagName(gemData.tags, tagName)
 							if tagName == "active" then
 								tagName = "grants_active_skill"
 							elseif tagName == "int" then
@@ -207,7 +208,7 @@ function GemSelectClass:BuildList(buf)
 					elseif searchTerm == "aoe" then
 						searchTerm = "area"
 					end
-					if self:FilterSupport(gemId, gemData) and not added[gemId] and gemData.tags[searchTerm:lower()] == true then
+					if self:FilterSupport(gemId, gemData) and not added[gemId] and gemData.tags[localisation:TagName(gemData.tags, searchTerm:lower())] == true then
 						t_insert(matchList, gemId)
 						added[gemId] = true
 					end
