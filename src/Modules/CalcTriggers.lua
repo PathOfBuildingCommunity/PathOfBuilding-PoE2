@@ -53,10 +53,10 @@ local function processAddedCastTime(skill, breakdown)
 		skill.skillFlags.addsCastTime = true
 		if breakdown then
 			breakdown.AddedCastTime = {
-				s_format("%.2f ^8(base cast time of %s)", baseCastTime, skill.activeEffect.grantedEffect.name),
-				s_format("%.2f ^8(increased/reduced)", 1 + inc/100),
-				s_format("%.2f ^8(more/less)", more),
-				s_format("= %.2f ^8cast time", addsCastTime)
+				localisation:Text("calc.triggers.added_cast_time.line", { base_cast_time = baseCastTime, name = localisation:Field(skill.activeEffect.grantedEffect, 'name') }),
+				localisation:Text("calc.triggers.added_cast_time.line_2", { value = 1 + inc/100 }),
+				localisation:Text("calc.triggers.added_cast_time.line_3", { more = more }),
+				localisation:Text("calc.triggers.added_cast_time.line_4", { adds_cast_time = addsCastTime })
 			}
 		end
 		return addsCastTime, csi
@@ -64,7 +64,7 @@ local function processAddedCastTime(skill, breakdown)
 end
 
 local function packageSkillDataForSimulation(skill, env)
-	return { uuid = cacheSkillUUID(skill, env), cd = skill.skillData.cooldown, cdOverride = skill.skillModList:Override(skill.skillCfg, "CooldownRecovery"), addsCastTime = processAddedCastTime(skill), icdr = calcLib.mod(skill.skillModList, skill.skillCfg, "CooldownRecovery"), addedCooldown = skill.skillModList:Sum("BASE", skill.skillCfg, "CooldownRecovery")}
+	return { uuid = cacheSkillUUID(skill, env), skillDisplay = { nameKey = skill.activeEffect.grantedEffect.nameKey, slot = skill.socketGroup and skill.socketGroup.slot }, cd = skill.skillData.cooldown, cdOverride = skill.skillModList:Override(skill.skillCfg, "CooldownRecovery"), addsCastTime = processAddedCastTime(skill), icdr = calcLib.mod(skill.skillModList, skill.skillCfg, "CooldownRecovery"), addedCooldown = skill.skillModList:Sum("BASE", skill.skillCfg, "CooldownRecovery")}
 end
 
 local function defaultComparer(env, uuid, source, triggerRate)
@@ -125,7 +125,7 @@ function calcMultiSpellRotationImpact(env, skillRotation, sourceRate, triggerCD,
 		-- Account for trigger chance. Adds the expected value of a geometric distribution where p = chance multiplied by triggerIncrement
 		-- This allows for O(1) estimation of trigger chance impact on trigger rate as number of triggers approaches infinity
 		-- Credit to Logik and Quickstick. More info in prs linked here: https://github.com/PathOfBuildingCommunity/PathOfBuilding/pull/7244 and on discord.
-		t_insert(trigRateTable.rates, { name = sd.uuid, rate = 1 / (SIM_TIME / sd.count + (triggerIncrement / chance * 100) - triggerIncrement) })
+		t_insert(trigRateTable.rates, { name = sd.uuid, skillDisplay = sd.skillDisplay, rate = 1 / (SIM_TIME / sd.count + (triggerIncrement / chance * 100) - triggerIncrement) })
 		if cacheSkillUUID(actor.mainSkill, env) == sd.uuid then
 			mainRate = trigRateTable.rates[#trigRateTable.rates].rate
 		end
@@ -170,50 +170,50 @@ local function helmetFocusHandler(env)
 		if breakdown then
 			if triggeredCD then
 				breakdown.TriggerRateCap = {
-					s_format("%.2f ^8(base cooldown of triggered skill)", triggeredCD),
-					s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdrSkill),
-					s_format("= %.4f ^8(final cooldown of triggered skill)", triggeredCD / icdrSkill),
+					localisation:Text("calc.triggers.trigger_rate_cap.line", { triggered_cd = triggeredCD }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_2", { icdr_skill = icdrSkill }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_3", { value = triggeredCD / icdrSkill }),
 					"",
-					s_format("%.2f ^8(base cooldown of trigger)", triggerCD),
-					s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdrSkill),
-					s_format("= %.4f ^8(final cooldown of trigger)", triggerCD / icdrSkill),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_4", { trigger_cd = triggerCD }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_2", { icdr_skill = icdrSkill }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_5", { value = triggerCD / icdrSkill }),
 					"",
-					s_format("%.3f ^8(biggest of trigger cooldown and triggered skill cooldown)", modActionCooldown),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_6", { mod_action_cooldown = modActionCooldown }),
 					"",
-					(env.player.mainSkill.skillData.ignoresTickRate and "") or s_format("%.3f ^8(adjusted for server tick rate)", rateCapAdjusted),
+					(env.player.mainSkill.skillData.ignoresTickRate and "") or localisation:Text("calc.triggers.trigger_rate_cap.line_7", { rate_cap_adjusted = rateCapAdjusted }),
 					"",
-					"Trigger rate:",
+					localisation:Text("calc.triggers.trigger_rate_cap.line_17"),
 					s_format("1 / %.3f", rateCapAdjusted),
-					s_format("= %.2f ^8per second", triggerRate),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_8", { trigger_rate = triggerRate }),
 				}
 			else
 				breakdown.TriggerRateCap = {
-					"Triggered skill has no base cooldown",
+					localisation:Text("calc.triggers.trigger_rate_cap.line_15"),
 					"",
-					s_format("%.2f ^8(base cooldown of trigger)", triggerCD),
-					s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdrSkill),
-					s_format("= %.4f ^8(final cooldown of trigger)", triggerCD / icdrSkill),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_4", { trigger_cd = triggerCD }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_2", { icdr_skill = icdrSkill }),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_5", { value = triggerCD / icdrSkill }),
 					"",
-					(env.player.mainSkill.skillData.ignoresTickRate and "") or s_format("%.3f ^8(adjusted for server tick rate)", rateCapAdjusted),
+					(env.player.mainSkill.skillData.ignoresTickRate and "") or localisation:Text("calc.triggers.trigger_rate_cap.line_7", { rate_cap_adjusted = rateCapAdjusted }),
 					"",
-					"Trigger rate:",
+					localisation:Text("calc.triggers.trigger_rate_cap.line_16"),
 					s_format("1 / %.3f", rateCapAdjusted),
-					s_format("= %.3f ^8per second", triggerRate),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_9", { trigger_rate = triggerRate }),
 				}
 			end
 			breakdown.SkillTriggerRate = {
-				s_format("%.2f ^8(focus base cooldown)", skillFocus.levels[1].cooldown),
-				s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdrFocus),
-				s_format("+ %.2f ^8(skills are only triggered on activation thus we add focus duration)", focusDuration),
-				s_format("= %.2f ^8(effective skill cooldown for trigger purposes)", focusTotalCD),
+				localisation:Text("calc.triggers.skill_trigger_rate.line", { cooldown = skillFocus.levels[1].cooldown }),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_2", { icdr_focus = icdrFocus }),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_3", { focus_duration = focusDuration }),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_4", { focus_total_cd = focusTotalCD }),
 				"",
-				s_format("%.3f casts per second ^8(Assuming player uses focus exactly when its cooldown of %.2fs expires)", 1 / focusTotalCD, focusTotalCD)
+				localisation:Text("calc.triggers.skill_trigger_rate.line_5", { value = 1 / focusTotalCD, focus_total_cd = focusTotalCD })
 			}
 		end
 
 		-- Account for Trigger-related INC/MORE modifiers
 		addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-		env.player.mainSkill.infoMessage = "Assuming perfect focus Re-Use"
+		env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.helmet_focus_handler.info_message")
 		env.player.mainSkill.infoTrigger = triggerName
 		env.player.mainSkill.skillData.triggerRate = output.SkillTriggerRate
 		env.player.mainSkill.skillFlags.globalTrigger = true
@@ -241,11 +241,11 @@ local function CWCHandler(env)
 		end
 		if not source or #triggeredSkills < 1 then
 			env.player.mainSkill.skillData.triggered = nil
-			env.player.mainSkill.infoMessage2 = "DPS reported assuming Self-Cast"
-			env.player.mainSkill.infoMessage = s_format("No %s Triggering Skill Found", triggerName)
+			env.player.mainSkill.infoMessage2 = localisation:Text("ui.calc_triggers.state.cwchandler.info_message2")
+			env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.cwchandler.info_message", { trigger_name = localisation:TermRef("trigger_name", triggerName) })
 			env.player.mainSkill.infoTrigger = ""
 		else
-			local triggeredName = env.player.mainSkill.activeEffect.grantedEffect.name or "Triggered"
+			local triggeredName = localisation:Field(env.player.mainSkill.activeEffect.grantedEffect, "name") or localisation:Text("trigger.skill.short")
 
 			output.addsCastTime = processAddedCastTime(env.player.mainSkill, breakdown)
 
@@ -270,25 +270,25 @@ local function CWCHandler(env)
 			if breakdown then
 				if triggeredCD or cooldownOverride then
 					breakdown.TriggerRateCap = {
-						s_format("Cast While Channeling triggers %s every %.2fs while channeling %s ", triggeredName, source.skillData.triggerTime, source.activeEffect.grantedEffect.name),
-						s_format("%.3f ^8(adjusted for server tick rate)", adjTriggerInterval),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_10", { triggered_name = triggeredName, trigger_time = source.skillData.triggerTime, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_11", { adj_trigger_interval = adjTriggerInterval }),
 						"",
-						s_format("%.2f ^8(base cooldown of triggered skill)", triggeredCD),
-						s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdr),
-						s_format("= %.4f ^8(final cooldown of triggered skill)", triggeredCD / icdr),
+						localisation:Text("calc.triggers.trigger_rate_cap.line", { triggered_cd = triggeredCD }),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_12", { icdr = icdr }),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_13", { value = triggeredCD / icdr }),
 						"",
 					}
 					if cooldownOverride ~= nil then
-						breakdown.TriggerRateCap[4] = s_format("%.2f ^8(hard override of cooldown of %s)", cooldownOverride, triggeredName)
+						breakdown.TriggerRateCap[4] = localisation:Text("calc.triggers.cwchandler.line", { cooldown_override = cooldownOverride, triggered_name = triggeredName })
 						t_remove(breakdown.TriggerRateCap, 5)
 						t_remove(breakdown.TriggerRateCap, 5)
 					end
 				else
 					breakdown.TriggerRateCap = {
-						s_format("Cast While Channeling triggers %s every %.2fs while channeling %s ", triggeredName, source.skillData.triggerTime, source.activeEffect.grantedEffect.name),
-						s_format("%.3f ^8(adjusted for server tick rate)", adjTriggerInterval),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_10", { triggered_name = triggeredName, trigger_time = source.skillData.triggerTime, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }),
+						localisation:Text("calc.triggers.trigger_rate_cap.line_11", { adj_trigger_interval = adjTriggerInterval }),
 						"",
-						triggeredName .. " has no base cooldown or cooldown override",
+						localisation:Text("calc.triggers.trigger_rate_cap.line_18", { triggered_name = triggeredName }),
 						"",
 					}
 				end
@@ -307,40 +307,40 @@ local function CWCHandler(env)
 				end
 
 				if output.addsCastTime then
-					t_insert(breakdown.TriggerRateCap, "Cast While Channeling had no base cooldown")
-					t_insert(breakdown.TriggerRateCap, s_format("+ %.2f ^8(%s adds cast time as cooldown to trigger)", output.addsCastTime, triggeredName))
-					t_insert(breakdown.TriggerRateCap, s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdr))
-					t_insert(breakdown.TriggerRateCap, s_format("= %.4f ^8(final cooldown of triggered skill)", output.addsCastTime / icdr))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_2"))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_3", { adds_cast_time = output.addsCastTime, triggered_name = triggeredName }))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_4", { icdr = icdr }))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_5", { value = output.addsCastTime / icdr }))
 					t_insert(breakdown.TriggerRateCap, "")
-					t_insert(breakdown.TriggerRateCap, s_format("%.3f ^8(adjusted for server tick rate)", triggeredCDAdjusted))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_6", { triggered_cdadjusted = triggeredCDAdjusted }))
 					t_insert(breakdown.TriggerRateCap, "")
 
 					local extraCSINeeded = extraIncreaseNeeded(output.addsCastTime)
 					local extraICDRNeeded = extraIncreaseNeeded(triggeredTotalCooldown*icdr)
 					if extraICDRNeeded then
-						t_insert(breakdown.TriggerRateCap, s_format("^8(extra ICDR of %d%% would reach next breakpoint)", extraICDRNeeded))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_7", { extra_icdrneeded = extraICDRNeeded }))
 					end
 					if extraCSINeeded then
-						t_insert(breakdown.TriggerRateCap, s_format("^8(extra Cast Rate Increase of %d%% would reach next breakpoint)", extraCSINeeded))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_8", { extra_csineeded = extraCSINeeded }))
 						t_insert(breakdown.TriggerRateCap,"")
 					end
 				else
 					local extraICDRNeeded = extraIncreaseNeeded(triggeredTotalCooldown*icdr)
 					if extraICDRNeeded then
-						t_insert(breakdown.TriggerRateCap, s_format("^8(extra ICDR of %d%% would reach next breakpoint)", extraICDRNeeded))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_7", { extra_icdrneeded = extraICDRNeeded }))
 						t_insert(breakdown.TriggerRateCap,"")
 					end
 				end
 
-				t_insert(breakdown.TriggerRateCap, "Trigger rate:")
-				t_insert(breakdown.TriggerRateCap, s_format("1 / %.3f ^8(trigger rate adjusted for triggering interval)", 1 / output.TriggerRateCap))
-				t_insert(breakdown.TriggerRateCap, s_format("= %.2f ^8 %s casts per second", output.TriggerRateCap, triggeredName))
+				t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_9"))
+				t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_10", { value = 1 / output.TriggerRateCap }))
+				t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.cwchandler.line_11", { trigger_rate_cap = output.TriggerRateCap, triggered_name = triggeredName }))
 
 				if #triggeredSkills > 1 then
 					breakdown.SkillTriggerRate = {
-						s_format("%.2f ^8(%s triggers per second)", triggerRateOfTrigger, triggerName),
-						s_format("/ %.2f ^8(Estimated impact of linked spells)", (triggerRateOfTrigger / output.SkillTriggerRate) or 1),
-						s_format("= %.2f ^8%s casts per second", output.SkillTriggerRate, triggeredName),
+						localisation:Text("calc.triggers.skill_trigger_rate.line_6", { trigger_rate_of_trigger = triggerRateOfTrigger, trigger_name = localisation:TermRef("trigger_name", triggerName) }),
+						localisation:Text("calc.triggers.skill_trigger_rate.line_7", { value = (triggerRateOfTrigger / output.SkillTriggerRate or 1) }),
+						localisation:Text("calc.triggers.skill_trigger_rate.line_8", { skill_trigger_rate = output.SkillTriggerRate, triggered_name = triggeredName }),
 					}
 
 					if simBreakdown.extraSimInfo then
@@ -350,10 +350,10 @@ local function CWCHandler(env)
 					breakdown.SimData = {
 						rowList = { },
 						colList = {
-							{ label = "Rate", key = "rate" },
-							{ label = "Skill Name", key = "skillName" },
-							{ label = "Slot Name", key = "slotName" },
-							{ label = "Gem Index", key = "gemIndex" },
+							{ label = "Rate", labelKey = "ui.calc_triggers.cwchandler.rate.label", key = "rate" },
+							{ label = "Skill Name", labelKey = "ui.calc_triggers.cwchandler.skill_name.label", key = "skillName" },
+							{ label = "Slot Name", labelKey = "ui.calc_triggers.cwchandler.slot_name.label", key = "slotName" },
+							{ label = "Gem Index", labelKey = "ui.calc_triggers.cwchandler.gem_index.label", key = "gemIndex" },
 						},
 					}
 					for _, rateData in ipairs(simBreakdown.rates) do
@@ -365,7 +365,9 @@ local function CWCHandler(env)
 						local row = {
 							rate = round(rateData.rate,2),
 							skillName = t[1],
+								skillNameKey = rateData.skillDisplay and rateData.skillDisplay.nameKey,
 							slotName = t[2],
+								slotNameKey = rateData.skillDisplay and (rateData.skillDisplay.slot and localisation:TermKey("equipment.slot", rateData.skillDisplay.slot) or "trigger.slot.none"),
 							gemIndex = t[3],
 						}
 						t_insert(breakdown.SimData.rowList, row)
@@ -380,7 +382,7 @@ local function CWCHandler(env)
 			env.player.mainSkill.skillFlags.globalTrigger = true
 			env.player.mainSkill.skillData.triggerRate = output.SkillTriggerRate
 			env.player.mainSkill.skillData.triggerSourceUUID = cacheSkillUUID(source, env)
-			env.player.mainSkill.infoMessage = triggerName .."'s Trigger: ".. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.cwchandler.info_message_2", { trigger_name = localisation:TermRef("trigger_name", triggerName), name = localisation:Field(source.activeEffect.grantedEffect, 'name') })
 			env.player.infoTrigger = env.player.mainSkill.infoTrigger or triggerName
 		end
 	end
@@ -410,8 +412,8 @@ local function defaultTriggerHandler(env, config)
 	if #triggeredSkills > 0 or not config.triggeredSkillCond then
 		if not source and not (actor.mainSkill.skillFlags.globalTrigger and config.triggeredSkillCond) then
 			actor.mainSkill.skillData.triggered = nil
-			actor.mainSkill.infoMessage2 = "DPS reported assuming Self-Cast"
-			actor.mainSkill.infoMessage = s_format("No %s Triggering Skill Found", config.triggerName)
+			actor.mainSkill.infoMessage2 = localisation:Text("ui.calc_triggers.state.default_trigger_handler.info_message2")
+			actor.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.default_trigger_handler.info_message", { trigger_name = localisation:Field(config, "triggerName") })
 			actor.mainSkill.infoTrigger = ""
 		else
 			actor.mainSkill.skillData.triggered = true
@@ -419,10 +421,10 @@ local function defaultTriggerHandler(env, config)
 			-- Account for Arcanist Brand using activation frequency
 			if breakdown and actor.mainSkill.skillData.triggeredByBrand then
 				breakdown.EffectiveSourceRate = {
-					s_format("%.2f ^8(base activation cooldown of %s)", actor.mainSkill.triggeredBy.mainSkill.skillData.repeatFrequency, config.triggerName),
-					s_format("* %.2f ^8(more activation frequency)", actor.mainSkill.triggeredBy.activationFreqMore),
-					s_format("* %.2f ^8(increased activation frequency)", actor.mainSkill.triggeredBy.activationFreqInc),
-					s_format("= %.2f ^8(activation rate of %s)", trigRate, actor.mainSkill.triggeredBy.mainSkill.activeEffect.grantedEffect.name)
+					localisation:Text("calc.triggers.effective_source_rate.line", { repeat_frequency = actor.mainSkill.triggeredBy.mainSkill.skillData.repeatFrequency, trigger_name = localisation:Field(config, "triggerName") }),
+					localisation:Text("calc.triggers.effective_source_rate.line_2", { activation_freq_more = actor.mainSkill.triggeredBy.activationFreqMore }),
+					localisation:Text("calc.triggers.effective_source_rate.line_3", { activation_freq_inc = actor.mainSkill.triggeredBy.activationFreqInc }),
+					localisation:Text("calc.triggers.effective_source_rate.line_4", { trig_rate = trigRate, name = localisation:Field(actor.mainSkill.triggeredBy.mainSkill.activeEffect.grantedEffect, 'name') })
 				}
 			elseif breakdown then
 				breakdown.EffectiveSourceRate = {}
@@ -430,7 +432,7 @@ local function defaultTriggerHandler(env, config)
 					if config.assumingEveryHitKills then
 						t_insert(breakdown.EffectiveSourceRate, "Assuming every attack kills")
 					end
-					t_insert(breakdown.EffectiveSourceRate, s_format("%.2f ^8(%s %s)", trigRate, config.sourceName or source.activeEffect.grantedEffect.name, config.useCastRate and "cast rate" or "attack rate"))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text(config.useCastRate and "trigger.rate.cast" or "trigger.rate.attack", { rate = trigRate, source = config.sourceName and localisation:Field(config, "sourceName") or localisation:Field(source.activeEffect.grantedEffect, "name") }))
 				end
 			end
 
@@ -438,7 +440,7 @@ local function defaultTriggerHandler(env, config)
 			if trigRate and source and env.player.weaponData1.type and env.player.weaponData2.type and not source.skillData.combinesHitsWhenDualWielding and (source.skillTypes[SkillType.Melee] or source.skillTypes[SkillType.Attack]) and actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect.support and actor.mainSkill.triggeredBy.grantedEffect.fromItem then
 				trigRate = trigRate / 2
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, 2, s_format("/ 2 ^8(due to dual wielding)"))
+					t_insert(breakdown.EffectiveSourceRate, 2, localisation:Text("calc.triggers.default_trigger_handler.line"))
 				end
 			end
 
@@ -451,7 +453,7 @@ local function defaultTriggerHandler(env, config)
 				actor.mainSkill.skillFlags.HasSeals = true
 				actor.mainSkill.skillData.ignoresTickRate = true
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, s_format("x %.2f ^8(multiplier from Unleash)", unleashDpsMult))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_2", { unleash_dps_mult = unleashDpsMult }))
 				end
 			end
 
@@ -460,7 +462,7 @@ local function defaultTriggerHandler(env, config)
 				local multiHitDpsMult = GlobalCache.cachedData[env.mode][uuid].Env.player.output.ProjectileCount or 1
 				trigRate = trigRate * multiHitDpsMult
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, s_format("x %.2f ^8(%d projectiles hit)", multiHitDpsMult, multiHitDpsMult))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_3", { multi_hit_dps_mult = multiHitDpsMult, multi_hit_dps_mult_2 = multiHitDpsMult }))
 				end
 			end
 
@@ -470,7 +472,7 @@ local function defaultTriggerHandler(env, config)
 				local repeats = 1 + source.skillModList:Sum("BASE", nil, "RepeatCount")
 				trigRate = trigRate / repeats
 				if breakdown and repeats > 1 then
-					t_insert(breakdown.EffectiveSourceRate, s_format("/%d ^8(repeated attacks/casts do not count as they don't use mana)", repeats))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_4", { repeats = repeats }))
 				end
 			end
 
@@ -485,8 +487,8 @@ local function defaultTriggerHandler(env, config)
 				local battleMageHits = m_max(m_min(trigRate * battleMageDuration, battleMageExertsCount), 0)
 
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, s_format("^8(min(%.2f * %.2f, %d) = %.2f average number of exerted attacks capped by exerted count)", trigRate, battleMageDuration, battleMageExertsCount, battleMageHits))
-					t_insert(breakdown.EffectiveSourceRate, s_format("= %.2f / (%.2f + %.2f) ^8(the calculated number of exerted attacks happens every cooldown + duration)", battleMageHits, battleMageCastTime, battleMageCooldown))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_5", { trig_rate = trigRate, battle_mage_duration = battleMageDuration, battle_mage_exerts_count = battleMageExertsCount, battle_mage_hits = battleMageHits }))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_6", { battle_mage_hits = battleMageHits, battle_mage_cast_time = battleMageCastTime, battle_mage_cooldown = battleMageCooldown }))
 				end
 
 				-- The hits happen every battlemage cooldown + duration
@@ -504,8 +506,8 @@ local function defaultTriggerHandler(env, config)
 				local infernalCryHits = m_max(m_min(trigRate * infernalCryDuration, infernalCryExertsCount), 0)
 
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, s_format("^8(min(%.2f * %.2f, %d) = %.2f average number of exerted attacks capped by exerted count)", trigRate, infernalCryDuration, infernalCryExertsCount, infernalCryHits))
-					t_insert(breakdown.EffectiveSourceRate, s_format("= %.2f / (%.2f + %.2f) ^8(the calculated number of exerted attacks happens every cooldown + duration)", infernalCryHits, infernalCryCastTime, infernalCryCooldown))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_7", { trig_rate = trigRate, infernal_cry_duration = infernalCryDuration, infernal_cry_exerts_count = infernalCryExertsCount, infernal_cry_hits = infernalCryHits }))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_8", { infernal_cry_hits = infernalCryHits, infernal_cry_cast_time = infernalCryCastTime, infernal_cry_cooldown = infernalCryCooldown }))
 				end
 
 				-- The hits happen every Infernal Cry cooldown + duration
@@ -525,24 +527,24 @@ local function defaultTriggerHandler(env, config)
 					if sourceManaCost > 0 then
 						if breakdown then
 							breakdown.EffectiveSourceRate = {
-								s_format("%.4f ^8(Mana cost of trigger source)", sourceManaCost),
+								localisation:Text("calc.triggers.effective_source_rate.line_5", { source_mana_cost = sourceManaCost }),
 								s_format(""),
-								s_format("%.4f ^8(Mana Cost of triggered)", triggeredManaCost),
-								s_format("%.2f ^8(Manaforged threshold multiplier)", actor.mainSkill.skillData.ManaForgedArrowsPercentThreshold),
-								s_format("= %.4f ^8(Manaforged trigger threshold)", manaSpentThreshold),
+								localisation:Text("calc.triggers.effective_source_rate.line_6", { triggered_mana_cost = triggeredManaCost }),
+								localisation:Text("calc.triggers.effective_source_rate.line_7", { mana_forged_arrows_percent_threshold = actor.mainSkill.skillData.ManaForgedArrowsPercentThreshold }),
+								localisation:Text("calc.triggers.effective_source_rate.line_8", { mana_spent_threshold = manaSpentThreshold }),
 								s_format(""),
-								s_format("%.4f ^8(Manaforged trigger threshold)", manaSpentThreshold),
-								s_format("/ %.4f ^8(Mana cost of trigger source)", sourceManaCost),
-								s_format("= %.2f ^8(Skill usages required)", manaSpentThreshold / sourceManaCost),
+								localisation:Text("calc.triggers.effective_source_rate.line_9", { mana_spent_threshold = manaSpentThreshold }),
+								localisation:Text("calc.triggers.effective_source_rate.line_10", { source_mana_cost = sourceManaCost }),
+								localisation:Text("calc.triggers.effective_source_rate.line_11", { value = manaSpentThreshold / sourceManaCost }),
 								s_format(""),
 								breakdown.EffectiveSourceRate[1],
-								s_format("/ ceil(%.2f) ^8(%d Skill usages required)", manaSpentThreshold / sourceManaCost, m_ceil(manaSpentThreshold / sourceManaCost)),
+								localisation:Text("calc.triggers.effective_source_rate.line_12", { value = manaSpentThreshold / sourceManaCost, value_2 = m_ceil(manaSpentThreshold / sourceManaCost) }),
 							}
 						end
 						trigRate = trigRate / m_ceil(manaSpentThreshold / sourceManaCost)
 					else
 						if breakdown then
-							t_insert(breakdown.EffectiveSourceRate, s_format("Source skill has no mana cost", output.EffectiveSourceRate))
+							t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_43"))
 						end
 						trigRate = 0
 					end
@@ -562,7 +564,7 @@ local function defaultTriggerHandler(env, config)
 				triggerCD = triggerCD * icdr -- cancels out division by icdr lower, brand activation rate is not affected by icdr
 			end
 
-			local triggeredName = (actor.mainSkill.activeEffect.grantedEffect and actor ~= env.minion and actor.mainSkill.activeEffect.grantedEffect.name) or "Triggered skill"
+			local triggeredName = (actor.mainSkill.activeEffect.grantedEffect and actor ~= env.minion and localisation:Field(actor.mainSkill.activeEffect.grantedEffect, "name")) or localisation:Text("trigger.skill.generic")
 			local csi
 			output.addsCastTime, csi = processAddedCastTime(env.player.mainSkill, breakdown)
 
@@ -581,13 +583,13 @@ local function defaultTriggerHandler(env, config)
 			if config.triggerName == "Doom Blast" and env.build.configTab.input["doomBlastSource"] == "expiration" then
 				local expirationRate = 1 / GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration
 				if breakdown and breakdown.EffectiveSourceRate then
-						breakdown.EffectiveSourceRate[1] = s_format("1 / %.2f ^8(source curse duration)", GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration)
+						breakdown.EffectiveSourceRate[1] = localisation:Text("calc.triggers.default_trigger_handler.line_9", { duration = GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration })
 				end
 				if expirationRate > trigRate then
 					env.player.modDB:NewMod("UsesCurseOverlaps", "FLAG", true, "Config")
 					if breakdown and breakdown.EffectiveSourceRate then
-						t_insert(breakdown.EffectiveSourceRate, 2, s_format("max(%.2f, %.2f) ^8(If a curse expires instantly curse expiration is equivalent to curse replacement)", expirationRate, trigRate))
-						t_insert(breakdown.EffectiveSourceRate, 2, s_format("%.2f ^8(%s cast rate)", trigRate, source.activeEffect.grantedEffect.name))
+						t_insert(breakdown.EffectiveSourceRate, 2, localisation:Text("calc.triggers.default_trigger_handler.line_10", { expiration_rate = expirationRate, trig_rate = trigRate }))
+						t_insert(breakdown.EffectiveSourceRate, 2, localisation:Text("calc.triggers.default_trigger_handler.line_11", { trig_rate = trigRate, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }))
 					end
 				else
 					trigRate = expirationRate
@@ -601,7 +603,7 @@ local function defaultTriggerHandler(env, config)
 				end
 				if hexBlast then
 					if breakdown then
-						breakdown.EffectiveSourceRate[1] = s_format("1 / (%.2f + %.2f) ^8(sum of triggered curse and hexblast cast time)", 1/trigRate, 1/rate)
+						breakdown.EffectiveSourceRate[1] = localisation:Text("calc.triggers.default_trigger_handler.line_12", { value = 1/trigRate, value_2 = 1/rate })
 					end
 					trigRate = 1/ (1/trigRate + 1/rate)
 				end
@@ -611,50 +613,50 @@ local function defaultTriggerHandler(env, config)
 				breakdown.TriggerRateCap = {}
 
 				if cooldownOverride then
-					t_insert(breakdown.TriggerRateCap, s_format("%.2f ^8(hard override of cooldown of %s)", cooldownOverride, triggeredName))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_13", { cooldown_override = cooldownOverride, triggered_name = triggeredName }))
 				elseif triggeredCDAdjusted == 0 then
-					t_insert(breakdown.TriggerRateCap, triggeredName .. " has no base cooldown or cooldown override")
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_14", { triggered_name = triggeredName }))
 				else -- triggeredCDAdjusted ~= 0 triggered skill has some kind of cooldown
 					if triggeredCD then
-						t_insert(breakdown.TriggerRateCap, s_format("%.2f ^8(base cooldown of triggered skill)", triggeredCD))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_15", { triggered_cd = triggeredCD }))
 					else
-						t_insert(breakdown.TriggerRateCap, triggeredName .. " has no base cooldown or cooldown override")
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_14", { triggered_name = triggeredName }))
 					end
 					if addedCooldown then
-						t_insert(breakdown.TriggerRateCap, s_format("+ %.2f ^8(flat added cooldown)", addedCooldown))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_16", { added_cooldown = addedCooldown }))
 					end
-					t_insert(breakdown.TriggerRateCap, s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdr))
-					t_insert(breakdown.TriggerRateCap, s_format("= %.4f ^8(final cooldown of triggered skill)", triggeredCDAdjusted))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_17", { icdr = icdr }))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_18", { triggered_cdadjusted = triggeredCDAdjusted }))
 				end
 
 				t_insert(breakdown.TriggerRateCap, "")
 
 				if actor ~= env.minion then -- Minion triggers have internal triggers
 					if triggerCDAdjusted == 0 then
-						t_insert(breakdown.TriggerRateCap, s_format("Trigger rate based on %s cooldown", triggeredName))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_19", { triggered_name = triggeredName }))
 					else -- triggerCDAdjusted ~= 0 trigger has some kind of cooldown
 						if triggerCD then
-							t_insert(breakdown.TriggerRateCap, s_format("%.2f ^8(base cooldown of %s)", triggerCD, config.triggerName))
+							t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_20", { trigger_cd = triggerCD, trigger_name = localisation:Field(config, "triggerName") }))
 						else
-							t_insert(breakdown.TriggerRateCap, config.triggerName .. " has no base cooldown")
+							t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_21", { trigger_name = localisation:Field(config, "triggerName") }))
 						end
 						if output.addsCastTime then
-							t_insert(breakdown.TriggerRateCap, s_format("+ %.2f ^8(this skill adds cast time to cooldown when triggered)", output.addsCastTime))
+							t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_22", { adds_cast_time = output.addsCastTime }))
 						end
-						t_insert(breakdown.TriggerRateCap, s_format("/ %.2f ^8(increased/reduced cooldown recovery)", icdr))
-						t_insert(breakdown.TriggerRateCap, s_format("= %.4f ^8(final cooldown of trigger)", triggerCDAdjusted))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_17", { icdr = icdr }))
+						t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_23", { trigger_cdadjusted = triggerCDAdjusted }))
 					end
 				end
 
 				t_insert(breakdown.TriggerRateCap, "")
 
 				if triggeredCDAdjusted ~= 0 and triggerCDAdjusted ~= 0 then
-					t_insert(breakdown.TriggerRateCap, s_format("%.3f ^8(biggest of trigger cooldown and triggered skill cooldown)", actionCooldownAdjusted))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_24", { action_cooldown_adjusted = actionCooldownAdjusted }))
 				end
 
 				local displayCooldownRounding = (actor.mainSkill.skillData and not actor.mainSkill.skillData.ignoresTickRate and triggeredCDAdjusted ~= 0) or (actor.mainSkill.triggeredBy and not actor.mainSkill.triggeredBy.ignoresTickRate and triggerCDAdjusted ~= 0)
 				if displayCooldownRounding then
-					t_insert(breakdown.TriggerRateCap, s_format("%.3f ^8(adjusted for server tick rate)", actionCooldownTickRounded))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_25", { action_cooldown_tick_rounded = actionCooldownTickRounded }))
 				end
 
 				local function extraIncreaseNeeded(affectedCD)
@@ -672,22 +674,22 @@ local function defaultTriggerHandler(env, config)
 
 				local extraICDRNeeded = extraIncreaseNeeded(actionCooldown)
 				if extraICDRNeeded then
-					t_insert(breakdown.TriggerRateCap, s_format("^8(extra ICDR of %d%% would reach next breakpoint)", extraICDRNeeded))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_26", { extra_icdrneeded = extraICDRNeeded }))
 				end
 
 				local extraCSIncNeeded = output.addsCastTime and extraIncreaseNeeded(output.addsCastTime)
 				if extraCSIncNeeded then
-					t_insert(breakdown.TriggerRateCap, s_format("^8(extra ICS  of %d%% would reach next breakpoint)", extraCSIncNeeded))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_27", { extra_csinc_needed = extraCSIncNeeded }))
 				end
 
 				t_insert(breakdown.TriggerRateCap, "")
 
 				if not (triggeredCD or triggerCD or cooldownOverride) then
-					t_insert(breakdown.TriggerRateCap, "Assuming cast on every kill/attack/hit")
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_28"))
 				else
-					t_insert(breakdown.TriggerRateCap, "Trigger rate:")
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_29"))
 					t_insert(breakdown.TriggerRateCap, s_format("1 / %.3f", actionCooldownTickRounded))
-					t_insert(breakdown.TriggerRateCap, s_format("= %.2f ^8per second", output.TriggerRateCap))
+					t_insert(breakdown.TriggerRateCap, localisation:Text("calc.triggers.default_trigger_handler.line_30", { trigger_rate_cap = output.TriggerRateCap }))
 				end
 			end
 
@@ -702,8 +704,8 @@ local function defaultTriggerHandler(env, config)
 				output.EffectiveSourceRate = calcMultiSpellRotationImpact(env, {{ uuid = cacheSkillUUID(env.player.mainSkill, env), icdr = icdr}}, trigRate, vixensCD)
 				output.VixensTooMuchCastSpeedWarn = vixensCD > (1 / trigRate)
 				if breakdown then
-					t_insert(breakdown.EffectiveSourceRate, s_format("%.2f / %.2f = %.2f ^8(Vixen's trigger cooldown)", vixensCD * icdr, icdr, vixensCD))
-					t_insert(breakdown.EffectiveSourceRate, s_format("%.2f ^8(Simulated trigger rate of a curse socketed in Vixen's given ^7%.2f ^8CD and ^7%.2f ^8source rate)", output.EffectiveSourceRate, vixensCD, trigRate))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_31", { value = vixensCD * icdr, icdr = icdr, vixens_cd = vixensCD }))
+					t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_32", { effective_source_rate = output.EffectiveSourceRate, vixens_cd = vixensCD, trig_rate = trigRate }))
 				end
 			elseif trigRate ~= nil and not actor.mainSkill.skillFlags.globalTrigger and not config.ignoreSourceRate then
 				output.EffectiveSourceRate = trigRate
@@ -713,10 +715,10 @@ local function defaultTriggerHandler(env, config)
 			end
 
 			if breakdown and not actor.mainSkill.skillData.sourceRateIsFinal then
-				t_insert(breakdown.EffectiveSourceRate, s_format("= %.2f ^8(Effective source rate)", output.EffectiveSourceRate))
+				t_insert(breakdown.EffectiveSourceRate, localisation:Text("calc.triggers.default_trigger_handler.line_33", { effective_source_rate = output.EffectiveSourceRate }))
 			end
 
-			local skillName = (source and source.activeEffect.grantedEffect.name) or (actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect.name) or actor.mainSkill.activeEffect.grantedEffect.name
+			local skillName = localisation:Field(source and source.activeEffect.grantedEffect or actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect or actor.mainSkill.activeEffect.grantedEffect, "name")
 
 			if output.EffectiveSourceRate ~= 0 then
 				local triggerChance = 100
@@ -737,12 +739,12 @@ local function defaultTriggerHandler(env, config)
 							local effectiveHitChance = bothHit + mainHandHit * offHandMiss / 100 + mainHandMiss * offHandHit / 100
 							triggerChance = triggerChance * effectiveHitChance / 100
 							if breakdown then
-								t_insert(triggerChanceBreakdown, s_format("x %.2f%% ^8(%s effective hit chance for skills that hit with both weapons)", effectiveHitChance, source.activeEffect.grantedEffect.name))
+								t_insert(triggerChanceBreakdown, localisation:Text("calc.triggers.default_trigger_handler.line_34", { effective_hit_chance = effectiveHitChance, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }))
 							end
 						else
 							triggerChance = triggerChance * (sourceHitChance or 0) / 100
 							if breakdown then
-								t_insert(triggerChanceBreakdown, s_format("x %.2f%% ^8(%s hit chance)", sourceHitChance, source.activeEffect.grantedEffect.name))
+								t_insert(triggerChanceBreakdown, localisation:Text("calc.triggers.default_trigger_handler.line_35", { source_hit_chance = sourceHitChance, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }))
 							end
 						end
 					end
@@ -762,12 +764,12 @@ local function defaultTriggerHandler(env, config)
 								local effectiveCritChance = bothHit + mainHandCrit * offHandMiss / 100 + mainHandMiss * offHandCrit / 100
 								triggerChance = triggerChance * effectiveCritChance / 100
 								if breakdown then
-									t_insert(triggerChanceBreakdown, s_format("x %.2f%% ^8(%s effective crit chance for skills that hit with both weapons)", effectiveCritChance, source.activeEffect.grantedEffect.name))
+									t_insert(triggerChanceBreakdown, localisation:Text("calc.triggers.default_trigger_handler.line_36", { effective_crit_chance = effectiveCritChance, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }))
 								end
 							else
 								triggerChance = triggerChance * (sourceCritChance or 0) / 100
 								if breakdown then
-									t_insert(triggerChanceBreakdown, s_format("x %.2f%% ^8(%s crit chance)", sourceCritChance, source.activeEffect.grantedEffect.name))
+									t_insert(triggerChanceBreakdown, localisation:Text("calc.triggers.default_trigger_handler.line_37", { source_crit_chance = sourceCritChance, name = localisation:Field(source.activeEffect.grantedEffect, 'name') }))
 								end
 							end
 						end
@@ -778,7 +780,7 @@ local function defaultTriggerHandler(env, config)
 				if config.triggerChance and config.triggerChance ~= 100 then
 					triggerChance = triggerChance * config.triggerChance / 100
 					if breakdown then
-						t_insert(triggerChanceBreakdown, s_format("x %.2f%% ^8(chance to trigger)", config.triggerChance))
+						t_insert(triggerChanceBreakdown, localisation:Text("calc.triggers.default_trigger_handler.line_38", { trigger_chance = config.triggerChance }))
 					end
 				end
 
@@ -789,11 +791,11 @@ local function defaultTriggerHandler(env, config)
 					if breakdown then
 						if overlaps then
 							breakdown.SkillTriggerRate = {
-								s_format("min(%.2f, %.2f *  %d) ^8(%d overlaps)", output.TriggerRateCap, output.EffectiveSourceRate, overlaps, overlaps)
+								localisation:Text("calc.triggers.skill_trigger_rate.line_9", { trigger_rate_cap = output.TriggerRateCap, effective_source_rate = output.EffectiveSourceRate, overlaps = overlaps, overlaps_2 = overlaps })
 							}
 						else
 							breakdown.SkillTriggerRate = {
-								s_format("min(%.2f, %.2f)", output.TriggerRateCap, output.EffectiveSourceRate)
+								localisation:Text("calc.triggers.skill_trigger_rate.line_10", { trigger_rate_cap = output.TriggerRateCap, effective_source_rate = output.EffectiveSourceRate })
 							}
 						end
 					end
@@ -811,23 +813,23 @@ local function defaultTriggerHandler(env, config)
 					output.SkillTriggerRate = hits_per_cast * output.SkillTriggerRate
 					if breakdown then
 						breakdown.SkillTriggerRate = {
-							s_format("%.2f ^8(%s)", output.EffectiveSourceRate, (actor.mainSkill.skillData.triggeredByBrand and s_format("%s activations per second", source.activeEffect.grantedEffect.name)) or (not trigRate and s_format("%s triggers per second", skillName)) or "Effective source rate"),
-							s_format("/ %.2f ^8(Estimated impact of skill rotation, cooldown alignment and trigger chance)", m_max(output.EffectiveSourceRate / output.SkillTriggerRate, 1)),
-							s_format("= %.2f ^8per second", output.SkillTriggerRate),
+							s_format("%.2f ^8(%s)", output.EffectiveSourceRate, (actor.mainSkill.skillData.triggeredByBrand and localisation:Text("calc.triggers.skill_trigger_rate.line_11", { name = localisation:Field(source.activeEffect.grantedEffect, 'name') })) or (not trigRate and localisation:Text("calc.triggers.skill_trigger_rate.line_12", { skill_name = skillName })) or localisation:Text("trigger.rate.effective")),
+							localisation:Text("calc.triggers.skill_trigger_rate.line_13", { value = m_max(output.EffectiveSourceRate / output.SkillTriggerRate, 1) }),
+							localisation:Text("calc.triggers.skill_trigger_rate.line_14", { skill_trigger_rate = output.SkillTriggerRate }),
 						}
 						if triggerChance ~= 100 then
 							t_insert(breakdown.SkillTriggerRate, 1, "")
-							t_insert(breakdown.SkillTriggerRate, 1, s_format("= %.2f%% ^8(Effective chance to trigger)", triggerChance))
+							t_insert(breakdown.SkillTriggerRate, 1, localisation:Text("calc.triggers.default_trigger_handler.line_39", { trigger_chance = triggerChance }))
 							for _, line in ipairs(triggerChanceBreakdown) do
 								t_insert(breakdown.SkillTriggerRate, 1, line)
 							end
-							t_insert(breakdown.SkillTriggerRate, 1, "100% ^8(Base chance)")
+							t_insert(breakdown.SkillTriggerRate, 1, localisation:Text("calc.triggers.default_trigger_handler.line_40"))
 						end
 						if triggerBotsEffective then
-							t_insert(breakdown.SkillTriggerRate, 3, "x 2 ^8(Trigger bots effectively cause the skill to trigger twice)")
+							t_insert(breakdown.SkillTriggerRate, 3, localisation:Text("calc.triggers.default_trigger_handler.line_41"))
 						end
 						if hits_per_cast > 1 then
-							t_insert(breakdown.SkillTriggerRate, 3, s_format("x %.2f ^8(hits per triggered skill cast)", hits_per_cast))
+							t_insert(breakdown.SkillTriggerRate, 3, localisation:Text("calc.triggers.default_trigger_handler.line_42", { hits_per_cast = hits_per_cast }))
 						end
 						if simBreakdown.extraSimInfo then
 							t_insert(breakdown.SkillTriggerRate, "")
@@ -836,10 +838,10 @@ local function defaultTriggerHandler(env, config)
 						breakdown.SimData = {
 							rowList = { },
 							colList = {
-								{ label = "Rate", key = "rate" },
-								{ label = "Skill Name", key = "skillName" },
-								{ label = "Slot Name", key = "slotName" },
-								{ label = "Gem Index", key = "gemIndex" },
+								{ label = "Rate", labelKey = "ui.calc_triggers.cwchandler.rate.label", key = "rate" },
+								{ label = "Skill Name", labelKey = "ui.calc_triggers.cwchandler.skill_name.label", key = "skillName" },
+								{ label = "Slot Name", labelKey = "ui.calc_triggers.cwchandler.slot_name.label", key = "slotName" },
+								{ label = "Gem Index", labelKey = "ui.calc_triggers.cwchandler.gem_index.label", key = "gemIndex" },
 							},
 						}
 						for _, rateData in ipairs(simBreakdown.rates) do
@@ -851,18 +853,20 @@ local function defaultTriggerHandler(env, config)
 							local row = {
 								rate = round(rateData.rate, 2),
 								skillName = t[1],
+								skillNameKey = rateData.skillDisplay and rateData.skillDisplay.nameKey,
 								slotName = t[2],
+								slotNameKey = rateData.skillDisplay and (rateData.skillDisplay.slot and localisation:TermKey("equipment.slot", rateData.skillDisplay.slot) or "trigger.slot.none"),
 								gemIndex = t[3],
 							}
 							t_insert(breakdown.SimData.rowList, row)
 						end
-						t_insert(breakdown.SimData, s_format("Simulation duration: %.2f ^8(In game source skill usage duration in seconds)", simBreakdown.simTime, simBreakdown.simTime))
+						t_insert(breakdown.SimData, localisation:Text("calc.triggers.default_trigger_handler.line_44", { sim_time = simBreakdown.simTime }))
 					end
 				end
 			else
 				if breakdown then
 					breakdown.SkillTriggerRate = {
-						s_format("The trigger needs to be triggered for any skill to be triggered."),
+						localisation:Text("calc.triggers.skill_trigger_rate.line_15"),
 					}
 				end
 				output.SkillTriggerRate = 0
@@ -874,9 +878,12 @@ local function defaultTriggerHandler(env, config)
 			addTriggerIncMoreMods(actor.mainSkill, source or actor.mainSkill)
 			if source and source ~= actor.mainSkill then
 				actor.mainSkill.skillData.triggerSourceUUID = cacheSkillUUID(source, env)
-				actor.mainSkill.infoMessage = (config.customTriggerName or ((config.triggerName ~= source.activeEffect.grantedEffect.name and config.triggerName or triggeredName) .. ( actor == env.minion and "'s attack Trigger: " or "'s Trigger: "))) .. source.activeEffect.grantedEffect.name
+				actor.mainSkill.infoMessage = localisation:Text(config.customTriggerNameKey or (actor == env.minion and "trigger.status.attack_source" or "trigger.status.source"), config.customTriggerNameKey and { source = localisation:Field(source.activeEffect.grantedEffect, "name") } or {
+					trigger = config.triggerName ~= source.activeEffect.grantedEffect.name and localisation:Field(config, "triggerName") or triggeredName,
+					source = localisation:Field(source.activeEffect.grantedEffect, "name"),
+				})
 			else
-				actor.mainSkill.infoMessage = actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect.name or config.triggerName .. " Trigger"
+				actor.mainSkill.infoMessage = actor.mainSkill.triggeredBy and localisation:Field(actor.mainSkill.triggeredBy.grantedEffect, "name") or localisation:Text("ui.calc_triggers.state.default_trigger_handler.info_message_2", { trigger_name = localisation:Field(config, "triggerName") })
 			end
 
 			actor.mainSkill.infoTrigger = config.triggerName
@@ -916,14 +923,14 @@ local configTable = {
 		if env.player.modDB:Flag(nil, "Condition:Phasing") then
 			if env.player.breakdown then
 				env.player.breakdown.TriggerRateCap = {
-					s_format("%.2f ^8(Unseen Strike from The Hidden Blade has no cooldown but is still triggered)", env.player.mainSkill.skillData.triggerRateCapOverride),
+					localisation:Text("calc.triggers.trigger_rate_cap.line_14", { trigger_rate_cap_override = env.player.mainSkill.skillData.triggerRateCapOverride }),
 					s_format("= %.2f", env.player.mainSkill.skillData.triggerRateCapOverride),
 				}
 			end
 			return {source = env.player.mainSkill}
 		end
 		env.player.mainSkill.skillFlags.disable = true
-		env.player.mainSkill.disableReason = "This skill is requires you to be phasing"
+		env.player.mainSkill.disableReason = localisation:Text("ui.calc_triggers.state.details.disable_reason")
 	end,
 	["replica eternity shroud"] = function(env)
         env.player.mainSkill.skillFlags.globalTrigger = true
@@ -1104,8 +1111,8 @@ local configTable = {
 					end,
 					triggeredSkillCond = function(env, skill) return skill.skillData.triggeredByMeleeKill and slotMatch(env, skill) end}
 		else
-			env.player.mainSkill.infoMessage2 = "DPS reported assuming Self-Cast"
-			env.player.mainSkill.infoMessage = "Cast on Melee Kill requires recent kills"
+			env.player.mainSkill.infoMessage2 = localisation:Text("ui.calc_triggers.state.details.info_message2")
+			env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.details.info_message")
 		end
 	end,
 	["nova"] = function(env)
@@ -1122,8 +1129,8 @@ local configTable = {
 			env.player.output.CWDTThreshold = env.player.mainSkill.skillData.triggeredByDamageTaken * thresholdMod
 			if env.player.breakdown and env.player.output.CWDTThreshold ~= env.player.mainSkill.skillData.triggeredByDamageTaken then
 				env.player.breakdown.CWDTThreshold = {
-					s_format("%.2f ^8(base threshold)", env.player.mainSkill.skillData.triggeredByDamageTaken),
-					s_format("x %.2f ^8(threshold modifier)", thresholdMod),
+					localisation:Text("calc.triggers.cwdtthreshold.line", { triggered_by_damage_taken = env.player.mainSkill.skillData.triggeredByDamageTaken }),
+					localisation:Text("calc.triggers.cwdtthreshold.line_2", { threshold_mod = thresholdMod }),
 					s_format("= %.2f", env.player.output.CWDTThreshold),
 				}
 			end
@@ -1226,9 +1233,9 @@ local configTable = {
 		env.player.mainSkill.skillData.triggerRateCapOverride = 1 / GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration
 		if env.player.breakdown then
 			env.player.breakdown.SkillTriggerRate = {
-				s_format("Shattershard uses duration as pseudo cooldown"),
-				s_format("1 / %.2f ^8(Shattershard duration)", GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration),
-				s_format("= %.2f ^8per second", env.player.mainSkill.skillData.triggerRateCapOverride),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_16"),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_17", { duration = GlobalCache.cachedData[env.mode][uuid].Env.player.output.Duration }),
+				localisation:Text("calc.triggers.skill_trigger_rate.line_18", { trigger_rate_cap_override = env.player.mainSkill.skillData.triggerRateCapOverride }),
 			}
 		end
 		return {source = env.player.mainSkill}
@@ -1267,7 +1274,7 @@ local configTable = {
 	["cast on death"] = function(env)
         env.player.mainSkill.skillFlags.globalTrigger = true
 		env.player.mainSkill.skillData.triggered = true
-		env.player.mainSkill.infoMessage = env.player.mainSkill.activeEffect.grantedEffect.name .. " Triggered on Death"
+		env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.details.info_message_2", { name = localisation:Field(env.player.mainSkill.activeEffect.grantedEffect, 'name') })
 	end,
 	["combust"] = function(env)
 		return {triggerSkillCond = function(env, skill)	return skill.skillTypes[SkillType.Melee] end,
@@ -1295,7 +1302,7 @@ local configTable = {
 		env.player.mainSkill.skillData.ignoresTickRate = true
 		return {useCastRate = true,
 				overlaps = #env.player.modDB:Tabulate("BASE", nil, "Multiplier:CurseOverlaps") > 0 and m_max(env.player.modDB:Sum("BASE", nil, "Multiplier:CurseOverlaps"), 1),
-				customTriggerName = "Doom Blast triggering Hex: ",
+				customTriggerNameKey = "trigger.status.hex",
 				triggerSkillCond = function(env, skill) return skill.skillTypes[SkillType.Hex] and slotMatch(env, skill) end}
 	end,
 	["cast while channelling"] = function()
@@ -1374,8 +1381,8 @@ local configTable = {
 				return {trigRate = trigRate, source = source}
 			else
 				env.player.mainSkill.skillData.triggered = nil
-				env.player.mainSkill.infoMessage2 = "DPS reported assuming Self-Cast"
-				env.player.mainSkill.infoMessage = "Not enough Snipe stages to trigger this skill"
+				env.player.mainSkill.infoMessage2 = localisation:Text("ui.calc_triggers.state.details.info_message2")
+				env.player.mainSkill.infoMessage = localisation:Text("ui.calc_triggers.state.details.info_message_3")
 				env.player.mainSkill.infoTrigger = ""
 			end
 		end
@@ -1399,7 +1406,7 @@ local configTable = {
 			return {triggeredSkillCond = function(env, skill) return skill.skillTypes[SkillType.Spell] and slotMatch(env, skill) and skill ~= env.player.mainSkill.triggeredBy.mainSkill end,
 					trigRate = env.modDB:Sum("BASE", nil, "IntuitiveLinkSourceRate"),
 					source = env.player.mainSkill.triggeredBy.mainSkill,
-					sourceName = "Custom source",
+					sourceName = "Custom source", sourceNameKey = "trigger.source.custom",
 					useCastRate = true}
 		end
 	end,
@@ -1461,6 +1468,14 @@ function calcs.triggers(env, actor)
 		if config then
 		    config.actor = config.actor or actor
 			config.triggerName = config.triggerName or triggerName or skillName or uniqueName
+			local triggerEffect = actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect
+			local triggerKey = triggerEffect and config.triggerName == triggerEffect.name and triggerEffect.nameKey
+				or config.triggerName == skillName and actor.mainSkill.activeEffect.grantedEffect.nameKey
+				or localisation:TermKey("trigger_name", config.triggerName)
+			config.triggerNameKey = triggerKey
+			if not triggerKey then
+				config.triggerNameDisplay = function() return localisation:DataText("equipment_unique", config.triggerName, "name", config.triggerName) end
+			end
 			config.triggerChance = config.triggerChance or (actor.mainSkill.activeEffect.srcInstance and actor.mainSkill.activeEffect.srcInstance.triggerChance)
 			local triggerHandler = config.customHandler or defaultTriggerHandler
 		    triggerHandler(env, config)

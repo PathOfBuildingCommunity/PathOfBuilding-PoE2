@@ -87,6 +87,20 @@ local function statTexts(value, origin)
 	add('stat.template', origin, value.text)
 	for _, child in pairs(value) do if type(child) == 'table' then statTexts(child, origin) end end
 end
+-- 计算页的静态显示字段以前只出现在未分类源码中；现在按实际加载对象审计。
+local function displayFields(value, origin)
+	if type(value) ~= 'table' then return end
+	for key, child in pairs(value) do
+		local location = origin .. '.' .. tostring(key)
+		if key == 'label' or key == 'title' or key == 'tooltip' or key == 'text' or key == 'suffix' then
+			add('calcs.' .. key, location, child)
+		end
+		if type(child) == 'table' then displayFields(child, location) end
+	end
+end
+displayFields(LoadModule('Modules/CalcSections'), 'Modules/CalcSections')
+displayFields(build.displayStats, 'Modules/BuildDisplayStats.player')
+displayFields(build.minionDisplayStats, 'Modules/BuildDisplayStats.minion')
 for _, path in ipairs(manifest.statFiles) do statTexts(LoadModule(path), path) end
 for _, entry in ipairs(manifest.literals) do
 	local decode = assert(loadstring('return ' .. entry.literal), entry.origin)
@@ -104,10 +118,10 @@ local output = assert(io.open('../docs/localisation-runtime-missing.csv', 'wb'))
 output:write('language,domain,status,origin,references,source,translation\n')
 local report = assert(io.open('../docs/localisation-runtime-audit.md', 'wb'))
 report:write('# PoB2 全域本地化审计\n\n')
-report:write('运行范围：当前 PoB2 运行时、' .. nodes .. ' 个天赋节点、全部装备/技能/召唤物数据、配置文案及 ' .. #manifest.statFiles .. ' 个属性描述文件。\n\n')
+report:write('本次重新生成：2026-10-30，装备显示修复之后。\n\n运行范围：当前 PoB2 运行时、' .. nodes .. ' 个天赋节点、全部装备/技能/召唤物数据、配置和计算页静态显示字段及 ' .. #manifest.statFiles .. ' 个属性描述文件。源码候选覆盖 ' .. #manifest.sourceFiles .. ' 个 Lua 文件。全仓逐文件范围见 `localisation-repository-inventory.csv`；历史树、未加载数据、二进制原生界面与导出/开发工具没有冒充已运行验收。\n\n')
 report:write('命令：在工程根目录运行 `build.cmd`，然后 `python tools/audit-localisation.py`。\n\n')
 report:write('“回退”表示输出仍为原英文；“含拉丁字母”表示输出有变化但仍需复核，可能是未翻译片段，也可能是专名、快捷键或格式符。无拉丁字母同样不证明译名准确。统计按数据域内唯一文本计数，明细保留引用次数与定位。\n\n')
-report:write('`source.literal-review` 枚举 Classes、Modules 与 Launch 的全部字符串常量（排除注释），包含内部键、路径、调试文字和用户文案；仅作为防漏候选，状态固定为 unclassified，不进行翻译命中统计。函数生成文案与未触发的界面交互仍需真实窗口验收。\n\n')
+report:write('`source.literal-review` 递归枚举 Classes、Modules 及 src 根目录全部 Lua 的字符串常量（排除注释），包含内部键、路径、调试文字和用户文案；仅作为防漏候选，状态固定为 unclassified，不进行翻译命中统计。函数生成文案与未触发的界面交互仍需真实窗口验收。\n\n')
 report:write('| 语言 | 数据域 | 唯一文本 | 回退英文 | 含拉丁字母待复核 | 其余已变化 | 源码待分类 |\n|---|---|---:|---:|---:|---:|---:|\n')
 for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	localisation:SetLanguage(language)

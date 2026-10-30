@@ -1117,8 +1117,8 @@ Is the Bleed Aggravated?,该流血是否已被恶化加剧?
 Is enemy Armour Broken?,敌人是否被破甲?
 # of Broken Armour on enemy (if not maximum):,敌人被破坏的护甲:
 "Use this field to set a custom Armour Break value.",设置自定义的护甲破坏值
-"If left empty or set to 0, Fully Broken Armour will be assumed.",如果留空或设置为0,将假定护甲已被完全破坏
-"Armour cannot be broken below 0 unless stated otherwise.",除非另有说明,否则护甲不能被击破至0以下
+"If left empty or set to 0, Fully Broken Armour will be assumed.","如果留空或设置为0,将假定护甲已被完全破坏"
+"Armour cannot be broken below 0 unless stated otherwise.","除非另有说明,否则护甲不能被击破至0以下"
 Is the enemy Dazed?,敌人是否被目眩?
 Is the enemy Pinned?,敌人是否被钉身?
 Is the enemy Immobilised?,敌人是否被禁锢?

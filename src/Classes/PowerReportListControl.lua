@@ -17,20 +17,20 @@ function PowerReportListClass:PowerReportListControl(anchor, rect, nodeSelectCal
 	local width = rect[3]
 	self.powerColumn = { width = width * 0.16, label = "", sortable = true }
 	self.colList = {
-		{ width = width * 0.15, label = "Type", sortable = true },
-		{ width = width * 0.45, label = "Node Name" },
+		{ width = width * 0.15, label = "Type", labelKey = "ui.power_report_list_control.init.col_list.label_4", sortable = true },
+		{ width = width * 0.45, label = "Node Name", labelKey = "ui.power_report_list_control.init.col_list.label" },
 		self.powerColumn,
-		{ width = width * 0.05, label = "Points", sortable = true },
-		{ width = width * 0.16, label = "Per Point", sortable = true },
+		{ width = width * 0.05, label = "Points", labelKey = "ui.power_report_list_control.init.col_list.label_3", sortable = true },
+		{ width = width * 0.16, label = "Per Point", labelKey = "ui.power_report_list_control.init.col_list.label_2", sortable = true },
 	}
 	self.colLabels = true
 	self.nodeSelectCallback = nodeSelectCallback
 	self.showClusters = false
 	self.allocated = false
-	self.label = "Building Tree..."
+	self.label = localisation:Label("ui.power_report_list_control.init.label")
 	
 	self.controls.filterSelect = new("DropDownControl"):DropDownControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 200, 20 },
-		{ "Show Unallocated", "Show Unallocated & Clusters", "Show Allocated" },
+		localisation:List({ "Show Unallocated", "Show Unallocated & Clusters", "Show Allocated" }, { [1] = "ui.power_report_list_control.init.filter_select.label_2", [2] = "ui.power_report_list_control.init.filter_select.label_3", [3] = "ui.power_report_list_control.init.filter_select.label" }),
 		function(index, value)
 			self.showClusters = index == 2
 			self.allocated = index == 3
@@ -42,12 +42,14 @@ end
 
 function PowerReportListClass:SetReport(stat, report)
 	self.powerColumn.label = stat and stat.label or ""
+	self.powerColumn.labelKey = stat and stat.labelKey
+	self.powerColumn.labelParams = stat and stat.labelParams
 	self.originalList = report or {}
 
 	if stat and stat.stat then
-		self.label = report and "Click to focus node on tree" or "Building Tree..."
+		self.label = report and localisation:Label("ui.power_report_list_control.set_report.label") or localisation:Label("ui.power_report_list_control.init.label")
 	else
-		self.label = "^7\""..self.powerColumn.label.."\" not supported.  Select a specific stat from the dropdown."
+		self.label = localisation:Label("ui.power_report_list_control.set_report.label_2", { label = localisation:Field(self.powerColumn, 'label') })
 	end
 
 	self:ReList()

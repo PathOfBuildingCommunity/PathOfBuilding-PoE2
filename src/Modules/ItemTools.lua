@@ -441,13 +441,14 @@ function itemLib.formatModLine(modLine, dbMode, skipUnsupported)
 	if itemLib.isZeroValueLine(line) then -- Hack to hide 0-value modifiers
 		return
 	end
+	line = localisation:ModLine(modLine, line)
 	if modLine.disabled then
 		return colorCodes.DISABLED .. line
 	end
 	local colorCode
 	if modLine.extra and not skipUnsupported then
 		colorCode = colorCodes.UNSUPPORTED
-		line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
+		line = main.notSupportedModTooltips and (line .. localisation:Field(main, 'notSupportedTooltipText')) or line
 		if launch.devModeAlt then
 			line = line .. "   ^1'" .. modLine.extra .. "'"
 		end

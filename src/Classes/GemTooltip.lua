@@ -32,7 +32,7 @@ local function addDescriptionLine(tooltip, build, statSet, line, stat, index, co
 			line = line .. " ^1" .. stat
 		end
 		line = colorCodes.UNSUPPORTED .. line
-		line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
+		line = main.notSupportedModTooltips and (line .. localisation:Field(main, 'notSupportedTooltipText')) or line
 		tooltip:AddLine(fontSizeBig, line, "FONTIN SC", bg)
 	end
 end
@@ -64,7 +64,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 	end
 
 	if not levelRange and gemInstance.gemData.Tier and gemInstance.gemData.Tier > 0 and not grantedEffect.isLineage and not grantedEffect.hidden then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Tier: ^7%d", gemInstance.gemData.Tier), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_29", { tier = gemInstance.gemData.Tier }), "FONTIN SC")
 	end
 	if not levelRange and addReq and not grantedEffect.support then
 		local totalGlobalLevels = 0
@@ -82,23 +82,23 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		totalGlobalLevels > 0 or
 		(displayInstance.level - gemInstance.level - corruptLevel > 0)
 		then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Level: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")
-			tooltip:AddLine(fontSizeBig, "   ^7" .. gemInstance.level .. " Levels from Gem" .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text('ui.gem_tooltip.add_granted_effect_info.tooltip_30', { colour = colorCodes.MAGIC, level = totalLevel }), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, "   ^7" .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_15", { level = gemInstance.level, value = ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel and localisation:Ref("ui.gem_tooltip.add_granted_effect_info.tooltip_19")) or "") }), "FONTIN SC")
 		else
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Level: ^7" .. totalLevel .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or "")), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text('ui.gem_tooltip.add_granted_effect_info.tooltip_20', { level = totalLevel, maximum = gemInstance.level >= gemInstance.gemData.naturalMaxLevel and localisation:Ref('ui.gem_tooltip.add_granted_effect_info.tooltip_19') or '' }), "FONTIN SC")
 		end
 		if corruptLevel > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_13", { corrupt_level = corruptLevel }), "FONTIN SC")
 		elseif corruptLevel < 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   " .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   " .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_14", { corrupt_level = corruptLevel }), "FONTIN SC")
 		end
 		if totalGlobalLevels > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_16", { total_global_levels = totalGlobalLevels }), "FONTIN SC")
 			if totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels > 0 then
-				tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels .. " Levels from Supports", "FONTIN SC")
+				tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_17", { value = totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels }), "FONTIN SC")
 			end
 		elseif totalLevel - gemInstance.level - corruptLevel > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalLevel - gemInstance.level - corruptLevel .. " Levels from Supports", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_18", { value = totalLevel - gemInstance.level - corruptLevel }), "FONTIN SC")
 		end
 	end
 	-- gem quality by type
@@ -116,26 +116,26 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		local gemQuality = gemInstance.quality
 		if gemQuality > 0
 		then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "   Quality: ^7" .. colorCodes.MAGIC .. "+".. gemQuality .. "%", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_21", { magic = colorCodes.MAGIC, gem_quality = gemQuality }), "FONTIN SC")
 		end
 		if totalGlobalQuality > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. totalGlobalQuality .. "% Quality from Global Modifiers", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_22", { total_global_quality = totalGlobalQuality }), "FONTIN SC")
 		end
 		local supportQuality = math.floor(displayInstance.quality) - totalGlobalQuality - gemQuality
 		if supportQuality > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "   +" .. supportQuality .. "% Quality from Supports", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_23", { support_quality = supportQuality }), "FONTIN SC")
 		end
 	end
 	if not levelRange and grantedEffect.support then
 		if levelStats.manaMultiplier and levelStats.reservationMultiplier and levelStats.manaMultiplier == levelStats.reservationMultiplier then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Cost & Reservation Multiplier: ^7%d%%", levelStats.manaMultiplier + 100), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_11", { value = levelStats.manaMultiplier + 100 }), "FONTIN SC")
 		elseif levelStats.reservationMultiplier then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Reservation Multiplier: ^7%d%%", levelStats.reservationMultiplier + 100), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_25", { value = levelStats.reservationMultiplier + 100 }), "FONTIN SC")
 		elseif levelStats.manaMultiplier then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Cost Multiplier: ^7%d%%", levelStats.manaMultiplier + 100), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_10", { value = levelStats.manaMultiplier + 100 }), "FONTIN SC")
 		end
 		if levelStats.spiritReservationFlat then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Additional Reservation: ^7%d Spirit", levelStats.spiritReservationFlat), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip", { spirit_reservation_flat = levelStats.spiritReservationFlat }), "FONTIN SC")
 		end
 	else
 		if gemInstance.skillMinion and not levelRange then
@@ -146,10 +146,10 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 			end
 		end
 		if levelStats.spiritReservationFlat then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Reservation: ^7%s Spirit", valueOrRange("spiritReservationFlat")), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_26", { value = valueOrRange("spiritReservationFlat") }), "FONTIN SC")
 		end
 		if levelStats.spiritReservationPercent then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Reservation: ^7%s%% Spirit", valueOrRange("spiritReservationPercent", "%.1f")), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_27", { value = valueOrRange("spiritReservationPercent", "%.1f") }), "FONTIN SC")
 		end
 		local cost
 		for _, res in ipairs(data.costs) do
@@ -160,46 +160,48 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 					last = round(maxStats.cost[res.Resource] / res.Divisor, 2)
 				end
 				local value = first == last and string.format("%g", first) or string.format("(%g-%g)", first, last)
-				cost = (cost and (cost .. ", ") or "") .. res.ResourceString:gsub("{0}", value)
+				cost = (cost and (cost .. ", ") or "") .. localisation:Field(res, 'ResourceString', { value = value })
 			end
 		end
 		if cost then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "   Cost: ^7" .. cost, "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_9", { cost = cost }), "FONTIN SC")
 		end
 	end
 
 	if levelStats.cooldown then
-		local line = colorCodes.GEMINFO .. string.format("   Cooldown Time: ^7%s sec", valueOrRange("cooldown", "%.2f"))
+		local line
 		if levelStats.storedUses and levelStats.storedUses > 1 then
-			line = line .. string.format(" (%s uses)", valueOrRange("storedUses"))
+			line = localisation:Text('skill.cooldown.with_uses', { duration = valueOrRange('cooldown', '%.2f'), uses = valueOrRange('storedUses') })
+		else
+			line = localisation:Text('skill.cooldown.duration', { duration = valueOrRange('cooldown', '%.2f') })
 		end
-		tooltip:AddLine(fontSizeBig, line, "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. line, "FONTIN SC")
 	end
 	if levelStats.vaalStoredUses then
-		tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FCan Store ^7%d ^x7F7F7FUse (%d Souls)", levelStats.vaalStoredUses, levelStats.vaalStoredUses * levelStats.cost.Soul), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_5", { vaal_stored_uses = levelStats.vaalStoredUses, value = levelStats.vaalStoredUses * levelStats.cost.Soul }), "FONTIN SC")
 	end
 	if levelStats.soulPreventionDuration then
-		tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FSoul Gain Prevention: ^7%s sec", valueOrRange("soulPreventionDuration")), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_28", { value = valueOrRange("soulPreventionDuration") }), "FONTIN SC")
 	end
 	if gemInstance.gemData.tags.attack then
 		if levelStats.attackSpeedMultiplier then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Attack Speed: ^7%s%% of base", valueOrRange("attackSpeedMultiplier", nil, 100)), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_3", { value = valueOrRange("attackSpeedMultiplier", nil, 100) }), "FONTIN SC")
 		end
 		if levelStats.attackTime then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Attack Time: ^7%s sec", valueOrRange("attackTime", "%.2f", nil, 1000)), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_4", { value = valueOrRange("attackTime", "%.2f", nil, 1000) }), "FONTIN SC")
 		end
 		if levelStats.baseMultiplier then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Attack Damage: ^7%s%% of base", valueOrRange("baseMultiplier", "%g", nil, nil, 100)), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_2", { value = valueOrRange("baseMultiplier", "%g", nil, nil, 100) }), "FONTIN SC")
 		end
 	elseif not grantedEffect.hidden then
 		if (grantedEffect.castTime or 0) > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Cast Time: ^7%.2f sec", grantedEffect.castTime), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_7", { cast_time = grantedEffect.castTime }), "FONTIN SC")
 		else
-			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "   Cast Time: ^7Instant", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_6"), "FONTIN SC")
 		end
 	end
 	if levelStats.critChance then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("   Critical Hit Chance: ^7%s%%", valueOrRange("critChance", "%.2f")), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_12", { value = valueOrRange("critChance", "%.2f") }), "FONTIN SC")
 	end
 	if not levelRange and addReq then
 		local reqLevel = grantedEffect.levels[gemInstance.level] and grantedEffect.levels[gemInstance.level].levelRequirement or 1
@@ -209,16 +211,16 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 			calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqInt, grantedEffect.support))
 	end
 	if gemInstance.gemData.weaponRequirements and not grantedEffect.hidden then
-		tooltip:AddLine(fontSizeBig, "   ^x7F7F7FRequires: ^7" .. gemInstance.gemData.weaponRequirements, "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_24", { weapon_requirements = localisation:Field(gemInstance.gemData, "weaponRequirements") }), "FONTIN SC")
 	end
 	tooltip.center = true
 	if grantedEffect.description then
 		tooltip:AddSeparator(10)
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. grantedEffect.description, "FONTIN ITALIC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. localisation:Field(grantedEffect, "description"), "FONTIN ITALIC")
 	end
 	if displayInstance.corrupted == true then
 		tooltip:AddSeparator(10)
-		tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE .. "Corrupted", "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE .. localisation:Text("ui.gem_tooltip.add_granted_effect_info.tooltip_8"), "FONTIN SC")
 	end
 end
 
@@ -229,14 +231,14 @@ local function addStatSetInfo(tooltip, build, gemInstance, grantedEffect, statSe
 	local statSetLevel = statSet.levels[levelRange and gemInstance.level or displayInstance.level] or statSet.levels[1] or { }
 	if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
 		tooltip:AddSeparator(10)
-		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. statSet.label, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. localisation:Field(statSet, "label"), "FONTIN SC")
 		tooltip:AddSeparator(10)
 	end
 	if statSetLevel.critChance then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Critical Hit Chance: ^7%.2f%%", statSetLevel.critChance), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_stat_set_info.tooltip_2", { crit_chance = statSetLevel.critChance }), "FONTIN SC")
 	end
 	if statSetLevel.baseMultiplier then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. string.format("Attack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_stat_set_info.tooltip", { value = statSetLevel.baseMultiplier * 100 }), "FONTIN SC")
 	end
 	if build.data.describeStats then
 		if not noLabel then tooltip:AddSeparator(10) end
@@ -295,21 +297,18 @@ local function addQualityRangeInfo(tooltip, build, grantedEffect, addedHeader, i
 		if stat.stat and stat.value then
 			local stats = { [stat.stat] = 20 * stat.value }
 			local statSet = grantedEffect.statSets[(stat.statSetIndexes[1] or 0) + 1] or grantedEffect.statSets[1]
-			local descriptions, lineMap = build.data.describeStats(stats, statSet.statDescriptionScope, true)
+			local descriptions, lineMap = build.data.describeStats(stats, statSet.statDescriptionScope, true, function(value, index, firstNumber)
+				if not firstNumber then return value end
+				local sign = value:sub(1, 1)
+				if sign == '+' or sign == '-' then return sign .. '(0-' .. value:sub(2) .. ')' end
+				return '(0-' .. value .. ')'
+			end)
 			for _, line in ipairs(descriptions) do
 				local statName = lineMap[line] or stat.stat
 				if not addedHeader then
-					tooltip:AddLine(fontSizeBig, "\n^7Additional Effects From Quality:", "FONTIN SC")
+					tooltip:AddLine(fontSizeBig, localisation:Text("ui.gem_tooltip.add_quality_range_info.tooltip"), "FONTIN SC")
 					addedHeader = true
 				end
-				-- Let StatDescriber format the real 20 quality value, then turn only the displayed value into a 0-20 quality range.
-				line = line:gsub("([%+%-]?%d+%.?%d*)", function(value)
-					local sign = value:sub(1, 1)
-					if sign == "+" or sign == "-" then
-						return sign .. "(0-" .. value:sub(2) .. ")"
-					end
-					return "(0-" .. value .. ")"
-				end, 1)
 				addDescriptionLine(tooltip, build, statSet, line, statName, lineIndex, stat.color)
 				lineIndex = lineIndex + 1
 			end
@@ -345,21 +344,21 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	end
 
 	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
-		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. iconNameIndent .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name), "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. iconNameIndent .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or localisation:Field(gemInstance.gemData, "name")), "FONTIN SC")
 	else
-		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. iconNameIndent .. gemInstance.gemData.name, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. iconNameIndent .. localisation:Field(gemInstance.gemData, "name"), "FONTIN SC")
 	end
-	tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. iconTagIndent .. gemInstance.gemData.gemType, "FONTIN SC")
+	tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. iconTagIndent .. localisation:Field(gemInstance.gemData, "gemType"), "FONTIN SC")
 	tooltip:AddSeparator(8)
 	if grantedEffect.legacy then
-		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. "   Legacy Gem", "FONTIN SC")
-		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. "   Gem only exists in Standard League", "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. localisation:Text("ui.gem_tooltip.add_gem_tooltip.tooltip_3"), "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. localisation:Text("ui.gem_tooltip.add_gem_tooltip.tooltip_2"), "FONTIN SC")
 	end
 	if gemInstance.gemData.tagString ~= "" then
-		tooltip:AddLine(fontSizeBig, "   ^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN")
+		tooltip:AddLine(fontSizeBig, "   ^x7F7F7F" .. localisation:Field(gemInstance.gemData, "tagString"), "FONTIN")
 	end
 	if gemInstance.gemData.gemFamily then
-		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. "   Category: ^7" .. gemInstance.gemData.gemFamily, "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. localisation:Text("ui.gem_tooltip.add_gem_tooltip.tooltip", { gem_family = localisation:Field(gemInstance.gemData, "gemFamily") }), "FONTIN SC")
 	end
 	-- Default mode preserves the old GemSelectControl tooltip. levelRange is only for passive-tree granted skills.
 	addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, true, levelRange)
@@ -369,7 +368,7 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 		if not additional.support then
 			if additional.name ~= "" then
 				tooltip:AddSeparator(10)
-				tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. additional.name, "FONTIN SC")
+				tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. localisation:Field(additional, "name"), "FONTIN SC")
 			end
 			tooltip:AddSeparator(10)
 			addGrantedEffectInfo(tooltip, build, gemInstance, additional, nil, levelRange)
@@ -390,13 +389,13 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 
 	if grantedEffect.flavourText and main.showFlavourText then
 		tooltip:AddSeparator(10)
-		for _, line in ipairs(grantedEffect.flavourText) do
-			tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
+		for index, line in ipairs(grantedEffect.flavourText) do
+			tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. localisation:Line(grantedEffect, 'flavourText', index, line), "FONTIN SC ITALIC")
 		end
 	end
 	if options.includeBuildPlannerNote then
 		tooltip:AddSeparator(10)
-		tooltip:AddLine(14, colorCodes.TIP .. "Shift + Right-Click to add a build note (PoE2 .build export)")
+		tooltip:AddLine(14, colorCodes.TIP .. localisation:Text("ui.gem_tooltip.add_gem_tooltip.tooltip_4"))
 		if gemInstance.note and gemInstance.note ~= "" then
 			tooltip:AddBuildPlannerNote(14, gemInstance.note, "^7Note: ")
 		end

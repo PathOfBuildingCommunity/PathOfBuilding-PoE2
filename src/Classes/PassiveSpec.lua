@@ -123,7 +123,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 			if node.elem == "URL" then
 				-- Legacy format
 				if type(node[1]) ~= "string" then
-					launch:ShowErrMsg("^1Error parsing '%s': 'URL' element missing content", dbFileName)
+					launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error_5", { db_file_name = dbFileName }))
 					return true
 				end
 				url = node[1]
@@ -131,11 +131,11 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				for _, child in ipairs(node) do
 					if child.elem == "Socket" then
 						if not child.attrib.nodeId then
-							launch:ShowErrMsg("^1Error parsing '%s': 'Socket' element missing 'nodeId' attribute", dbFileName)
+							launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error_2", { db_file_name = dbFileName }))
 							return true
 						end
 						if not child.attrib.itemId then
-							launch:ShowErrMsg("^1Error parsing '%s': 'Socket' element missing 'itemId' attribute", dbFileName)
+							launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error", { db_file_name = dbFileName }))
 							return true
 						end
 						-- Some saved builds contain stale jewel socket item IDs after the
@@ -151,7 +151,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			elseif node.elem and node.elem:match("^WeaponSet") then
 				if not node.attrib.nodes then
-					launch:ShowErrMsg("^1Error parsing '%s': 'WeaponSet1' element missing 'nodes' attribute", dbFileName)
+					launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error_6", { db_file_name = dbFileName }))
 					return true
 				end
 				local weaponSet = tonumber(node.elem:match("^WeaponSet(%d)"))
@@ -202,12 +202,12 @@ function PassiveSpecClass:Load(xml, dbFileName)
 		end
 
 		if classId == -1 then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'classId' / 'classInternalId' attribute", dbFileName)
+			launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error_4", { db_file_name = dbFileName }))
 			return true
 		end
 
 		if ascendClassId == -1 then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'ascendClassId' / 'ascendancyInternalId' attribute", dbFileName)
+			launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.load.error_3", { db_file_name = dbFileName }))
 			return true
 		end
 
@@ -2085,7 +2085,10 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 		return 1
 	end
 	old.dn = newNode.dn
+	old.dnKey = newNode.dnKey
 	old.sd = newNode.sd
+	old.sdDisplay = newNode.sdDisplay
+	old.localisationDomain, old.localisationId = newNode.localisationDomain, newNode.localisationId
 	old.mods = newNode.mods
 	old.modKey = newNode.modKey
 	old.modList = new("ModList"):ModList()
@@ -2093,6 +2096,7 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.keystoneMod = newNode.keystoneMod
 	old.activeEffectImage = newNode.activeEffectImage
 	old.reminderText = newNode.reminderText or { }
+	old.reminderTextDisplay = newNode.reminderTextDisplay
 end
 
 ---Reconnects altered timeless jewel to class start, for Pure Talent
@@ -2531,7 +2535,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 			return ({[0] = 0, 1, 1, 2, 3, 4, 4, 5, 6, 7, 7,  8,  9, 10, 10, 11})[srcOidx]
 		else
 			-- there is no known case where this should happen...
-			launch:ShowErrMsg("^1Error: unexpected cluster jewel node counts %d -> %d", srcNodesPerOrbit, destNodesPerOrbit)
+			launch:ShowErrMsg("%s", localisation:Text("ui.passive_spec.translate_oidx.error", { src_nodes_per_orbit = srcNodesPerOrbit, dest_nodes_per_orbit = destNodesPerOrbit }))
 			-- ...but if a future patch adds one, this should end up only a little krangled, close enough for initial skill data imports:
 			return m_floor(srcOidx * destNodesPerOrbit / srcNodesPerOrbit)
 		end

@@ -114,9 +114,9 @@ local selfHitHandlers = {
 				-- !!!! WARNING !!!! --
 				-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
 				local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-				t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
+				t_insert(dmgBreakdown, 1, localisation:Text("calc.offence.details.line", { dmg_val = dmgVal }))
 				t_insert(dmgBreakdown, 2, s_format(""))
-				t_insert(dmgBreakdown, s_format("Total Heartbound Loop damage taken per cast/attack: %.2f * %d ^8(minions per cast)^7 = %.2f",totalDmgTaken, output.SummonedMinionsPerCast, totalDmgTaken * output.SummonedMinionsPerCast))
+				t_insert(dmgBreakdown, localisation:Text("calc.offence.details.line_2", { total_dmg_taken = totalDmgTaken, summoned_minions_per_cast = output.SummonedMinionsPerCast, value = totalDmgTaken * output.SummonedMinionsPerCast }))
 				return dmgBreakdown, totalDmgTaken * output.SummonedMinionsPerCast
 			end
 		end
@@ -130,9 +130,9 @@ local selfHitHandlers = {
 			-- !!!! WARNING !!!! --
 			-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
 			local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
-			t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
+			t_insert(dmgBreakdown, 1, localisation:Text("calc.offence.details.line_3", { damage_per_trauma = damagePerTrauma, dmg_type = dmgType, current_trauma_stacks = currentTraumaStacks, value = ((activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and localisation:Ref("calc.offence.details.line.parameter")) or localisation:Ref("calc.offence.details.line.parameter_2")), dmg_val = dmgVal, dmg_type_2 = dmgType }))
 			t_insert(dmgBreakdown, 2, s_format(""))
-			t_insert(dmgBreakdown, s_format("Total Trauma damage taken per cast/attack: %.2f ", totalDmgTaken))
+			t_insert(dmgBreakdown, localisation:Text("calc.offence.details.line_4", { total_dmg_taken = totalDmgTaken }))
 			return dmgBreakdown, totalDmgTaken
 		end
 	end,
@@ -190,10 +190,10 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 		-- No base damage for this type, don't need to calculate modifiers
 		if breakdown and (addMin ~= 0 or addMax ~= 0) then
 			t_insert(breakdown.damageTypes, {
-				source = damageType,
-				convSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. " to " .. addMax),
-				total = addMin .. " to " .. addMax,
-				convDst = convDst and s_format("%d%% to %s", conversionTable[damageType][convDst] * 100, convDst),
+				source = damageType, sourceKey = localisation:TermKey("damage_type", damageType),
+				convSrc = (addMin ~= 0 or addMax ~= 0) and (localisation:Text("calc.damage.range", { minimum = addMin, maximum = addMax })),
+				total = localisation:Text("calc.damage.range", { minimum = addMin, maximum = addMax }),
+				convDst = convDst and localisation:Text("calc.offence.calc_damage.line", { value = conversionTable[damageType][convDst] * 100, conv_dst = localisation:TermRef("damage_type", convDst) }),
 			})
 		end
 		return addMin, addMax
@@ -208,13 +208,13 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 
 	if breakdown then
 		t_insert(breakdown.damageTypes, {
-			source = damageType,
-			base = summedMin .. " to " .. summedMax,
+			source = damageType, sourceKey = localisation:TermKey("damage_type", damageType),
+			base = localisation:Text("calc.damage.range", { minimum = summedMin, maximum = summedMax }),
 			inc = (inc ~= 1 and "x "..inc),
 			more = (more ~= 1 and "x "..more),
-			convSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. " to " .. addMax),
-			total = (round(summedMin * inc * more) + addMin) .. " to " .. (round(summedMax * inc * more) + addMax),
-			convDst = convDst and conversionTable[damageType][convDst] > 0 and s_format("%d%% to %s", conversionTable[damageType][convDst] * 100, convDst),
+			convSrc = (addMin ~= 0 or addMax ~= 0) and (localisation:Text("calc.damage.range", { minimum = addMin, maximum = addMax })),
+			total = localisation:Text("calc.damage.range", { minimum = (round(summedMin * inc * more) + addMin), maximum = (round(summedMax * inc * more) + addMax) }),
+			convDst = convDst and conversionTable[damageType][convDst] > 0 and localisation:Text("calc.offence.calc_damage.line", { value = conversionTable[damageType][convDst] * 100, conv_dst = localisation:TermRef("damage_type", convDst) }),
 		})
 	end
 
@@ -325,7 +325,7 @@ local function setMoltenStrikeTertiaryRadiusBreakdown(breakdown, deadzoneRadius,
 	local breakdownRadius = breakdown.AreaOfEffectRadiusTertiary or { }
 	breakdown.AreaOfEffectRadiusTertiary = breakdownRadius
 	t_insert(breakdownRadius, label)
-	t_insert(breakdownRadius, " = (sqrt(R*R*a - r*r*(a-1)) - r) * s + r")
+	t_insert(breakdownRadius, localisation:Text("calc.offence.set_molten_strike_tertiary_radius_breakdown.line"))
 	t_insert(breakdownRadius, s_format(" = %d", currentDist))
 	if currentDist > 0 then
 		---Helper for finding one tertiary radius breakpoint value. This is a little slower than what
@@ -341,23 +341,23 @@ local function setMoltenStrikeTertiaryRadiusBreakdown(breakdown, deadzoneRadius,
 			until (newDist ~= currentDist) or (newDist == 0) -- stop once we've hit a new radius breakpoint
 			return args[argIdx] * sign -- remove the sign since we want all positive numbers
 		end
-		t_insert(breakdownRadius, s_format("^8Next AoE breakpoint: %d%% increased or %d%% more", findBreakpoint(1, 1), findBreakpoint(1, 2)))
-		t_insert(breakdownRadius, s_format("^8Next Proj. Speed breakpoint: %d%% increased or %d%% more", findBreakpoint(1, 3), findBreakpoint(1, 4)))
-		t_insert(breakdownRadius, s_format("^8Previous AoE breakpoint: %d%% increased or %d%% more", findBreakpoint(-1, 1), findBreakpoint(-1, 2)))
-		t_insert(breakdownRadius, s_format("^8Previous Proj. Speed breakpoint: %d%% increased or %d%% more", findBreakpoint(-1, 3), findBreakpoint(-1, 4)))
+		t_insert(breakdownRadius, localisation:Text("calc.offence.set_molten_strike_tertiary_radius_breakdown.line_2", { value = findBreakpoint(1, 1), value_2 = findBreakpoint(1, 2) }))
+		t_insert(breakdownRadius, localisation:Text("calc.offence.set_molten_strike_tertiary_radius_breakdown.line_3", { value = findBreakpoint(1, 3), value_2 = findBreakpoint(1, 4) }))
+		t_insert(breakdownRadius, localisation:Text("calc.offence.set_molten_strike_tertiary_radius_breakdown.line_4", { value = findBreakpoint(-1, 1), value_2 = findBreakpoint(-1, 2) }))
+		t_insert(breakdownRadius, localisation:Text("calc.offence.set_molten_strike_tertiary_radius_breakdown.line_5", { value = findBreakpoint(-1, 3), value_2 = findBreakpoint(-1, 4) }))
 	end
 	-- This is the input variable table.
 	breakdownRadius.label = "Inputs"
 	breakdownRadius.rowList = { }
 	breakdownRadius.colList = {
-		{ label = "Variable", key = "name" },
-		{ label = "Value", key = "value"},
-		{ label = "Description", key = "description" }
+		{ label = "Variable", labelKey = "ui.calc_offence.set_molten_strike_tertiary_radius_breakdown.name.label", key = "name" },
+		{ label = "Value", labelKey = "ui.calc_offence.set_molten_strike_tertiary_radius_breakdown.value.label", key = "value"},
+		{ label = "Description", labelKey = "ui.calc_offence.set_molten_strike_tertiary_radius_breakdown.description.label", key = "description" }
 	}
-	t_insert(breakdownRadius.rowList, { name = "r", value = s_format("%d", deadzoneRadius), description = "fixed deadzone radius" })
-	t_insert(breakdownRadius.rowList, { name = "R", value = s_format("%d", baseRadius), description = "base outer radius" })
-	t_insert(breakdownRadius.rowList, { name = "a", value = s_format("%.2f", currentAreaMod), description = "net AoE multiplier (scales area)" })
-	t_insert(breakdownRadius.rowList, { name = "s", value = s_format("%.2f", currentSpeedMod), description = "net projectile speed multiplier (scales range)" })
+	t_insert(breakdownRadius.rowList, { name = "r", value = s_format("%d", deadzoneRadius), description = "fixed deadzone radius", descriptionKey = "ui.calc_offence.field.description" })
+	t_insert(breakdownRadius.rowList, { name = "R", value = s_format("%d", baseRadius), description = "base outer radius", descriptionKey = "ui.calc_offence.field.description_2" })
+	t_insert(breakdownRadius.rowList, { name = "a", value = s_format("%.2f", currentAreaMod), description = "net AoE multiplier (scales area)", descriptionKey = "ui.calc_offence.field.description_3" })
+	t_insert(breakdownRadius.rowList, { name = "s", value = s_format("%.2f", currentSpeedMod), description = "net projectile speed multiplier (scales range)", descriptionKey = "ui.calc_offence.field.description_4" })
 	-- Trigger the inclusion of the radius display.
 	breakdownRadius.radius = currentDist
 end
@@ -639,9 +639,9 @@ function calcs.offence(env, actor, activeSkill)
 						local out = {}
 						local incAreaBreakpointTertiary, moreAreaBreakpointTertiary, redAreaBreakpointTertiary, lessAreaBreakpointTertiary = m_huge, m_huge, m_huge, m_huge
 						t_insert(out, skillData.radiusTertiaryLabel)
-						t_insert(out, s_format("R ^8(base radius)^7 x %.2f ^8(square root of area of effect modifier)", m_floor(100 * m_sqrt(output.AreaOfEffectModTertiary)) / 100))
+						t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line", { value = m_floor(100 * m_sqrt(output.AreaOfEffectModTertiary)) / 100 }))
 						if radiusMod ~= 1 then
-							t_insert(out, s_format("x %.2f ^8(final radius modifier)", radiusMod))
+							t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line_2", { radius_mod = radiusMod }))
 						end
 						local baseRadii = {}
 						for adjustedBaseRadius in pairs(baseRadiiOccurrences) do
@@ -649,16 +649,16 @@ function calcs.offence(env, actor, activeSkill)
 						end
 						table.sort(baseRadii, function(a,b) return a < b end)
 						for _, adjustedBaseRadius in ipairs(baseRadii) do
-							t_insert(out, s_format("%.1f%% ^8chance of^7 %.1fm ^8base radius resulting in^7 %.1fm ^8final radius", baseRadiiOccurrences[adjustedBaseRadius] / marginWidth * 100, adjustedBaseRadius / 10, radiusForBaseRadius[adjustedBaseRadius] / 10))
+							t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line_3", { value = baseRadiiOccurrences[adjustedBaseRadius] / marginWidth * 100, value_2 = adjustedBaseRadius / 10, value_3 = radiusForBaseRadius[adjustedBaseRadius] / 10 }))
 							local incAreaBreakpointTertiaryIntermediate, moreAreaBreakpointTertiaryIntermediate, redAreaBreakpointTertiaryIntermediate, lessAreaBreakpointTertiaryIntermediate = calcRadiusBreakpoints(adjustedBaseRadius, incAreaTertiary, moreAreaTertiary, radiusMod)
 							incAreaBreakpointTertiary = m_min(incAreaBreakpointTertiary, incAreaBreakpointTertiaryIntermediate)
 							moreAreaBreakpointTertiary = m_min(moreAreaBreakpointTertiary, moreAreaBreakpointTertiaryIntermediate)
 							redAreaBreakpointTertiary = m_min(redAreaBreakpointTertiary, redAreaBreakpointTertiaryIntermediate)
 							lessAreaBreakpointTertiary = m_min(lessAreaBreakpointTertiary, lessAreaBreakpointTertiaryIntermediate)
 						end
-						t_insert(out, s_format("^8Next closest 0.1m breakpoint: %d%% increased AoE / a %d%% more AoE multiplier", incAreaBreakpointTertiary, moreAreaBreakpointTertiary))
-						t_insert(out, s_format("^8Previous closest 0.1m breakpoint: %d%% reduced AoE / a %d%% less AoE multiplier", redAreaBreakpointTertiary, lessAreaBreakpointTertiary))
-						t_insert(out, s_format("On average, the radius is %.2fm", output.AreaOfEffectRadiusTertiary / 10))
+						t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line_4", { inc_area_breakpoint_tertiary = incAreaBreakpointTertiary, more_area_breakpoint_tertiary = moreAreaBreakpointTertiary }))
+						t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line_5", { red_area_breakpoint_tertiary = redAreaBreakpointTertiary, less_area_breakpoint_tertiary = lessAreaBreakpointTertiary }))
+						t_insert(out, localisation:Text("calc.offence.calc_area_of_effect.line_6", { value = output.AreaOfEffectRadiusTertiary / 10 }))
 						breakdown.AreaOfEffectRadiusTertiary = out
 					end
 				else
@@ -675,8 +675,8 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.AreaOfEffectMod = { }
 			if output.AreaOfEffectMod ~= 1 then
 				breakdown.multiChain(breakdown.AreaOfEffectMod, {
-					{ "%.2f ^8(increased/reduced)", 1 + skillModList:Sum("INC", skillCfg, "AreaOfEffect") / 100 },
-					{ "%.2f ^8(more/less)", skillModList:More(skillCfg, "AreaOfEffect") },
+					{ "%.2f ^8(increased/reduced)", 1 + skillModList:Sum("INC", skillCfg, "AreaOfEffect") / 100, formatKey = "calc.offence.calc_area_of_effect.factor", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less)", skillModList:More(skillCfg, "AreaOfEffect"), formatKey = "calc.offence.calc_area_of_effect.factor_2", formatParams = { value = 2 } },
 					total = s_format("= %.2f", output.AreaOfEffectMod),
 				})
 			end
@@ -1325,12 +1325,12 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.SealGainTime = { }
 			breakdown.multiChain(breakdown.SealGainTime, {
-				label = "Gain frequency:",
-				base = { "%.2fs ^8(base cast time)", activeSkill.activeEffect.grantedEffect.castTime },
-				{ "%.2f ^8(increased/reduced gain frequency)", 1 + skillModList:Sum("INC", skillCfg, "SealGainFrequency") / 100 },
-				{ "%d%% ^8(of cast time)", skillModList:Sum("BASE", skillCfg, "SealGainFrequency") },
-				{ "%.2f ^8(increased/reduced cast speed)", 1 / calcLib.mod(skillModList, skillCfg, "Speed") },
-				total = s_format("= %.2fs ^8per Seal", output.SealCooldown),
+				label = "Gain frequency:", labelKey = "ui.calc_offence.offence.label_3",
+				base = { "%.2fs ^8(base cast time)", activeSkill.activeEffect.grantedEffect.castTime, formatKey = "calc.offence.offence.factor", formatParams = { cast_time = 2 } },
+				{ "%.2f ^8(increased/reduced gain frequency)", 1 + skillModList:Sum("INC", skillCfg, "SealGainFrequency") / 100, formatKey = "calc.offence.offence.factor_2", formatParams = { value = 2 } },
+				{ "%d%% ^8(of cast time)", skillModList:Sum("BASE", skillCfg, "SealGainFrequency"), formatKey = "calc.offence.offence.factor_3", formatParams = { value = 2 } },
+				{ "%.2f ^8(increased/reduced cast speed)", 1 / calcLib.mod(skillModList, skillCfg, "Speed"), formatKey = "calc.offence.offence.factor_4", formatParams = { value = 2 } },
+				total = localisation:Text("calc.offence.offence.line", { seal_cooldown = output.SealCooldown }),
 			})
 		end
 	end
@@ -1558,9 +1558,9 @@ function calcs.offence(env, actor, activeSkill)
 				local more = skillModList:More(skillCfg, pool .. "Reserved", "Reserved", "ReservationMultiplier")
 				if inc ~= 0 and more ~= 1 then
 					breakdown[pool .. "ReservedMod"] = {
-						s_format("%.2f ^8(increased/reduced)", 1 + inc/100),
-						s_format("x %.2f ^8(more/less)", more),
-						s_format("/ %.2f ^8(reservation efficiency)", calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency")),
+						localisation:Text("calc.offence.offence.line_2", { value = 1 + inc/100 }),
+						localisation:Text("calc.offence.offence.line_3", { more = more }),
+						localisation:Text("calc.offence.offence.line_4", { value = calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency") }),
 						s_format("= %.2f", output[pool .. "ReservedMod"]),
 					}
 				end
@@ -1580,15 +1580,15 @@ function calcs.offence(env, actor, activeSkill)
 		output.CurseDelay = m_ceil(output.CurseDelay * data.misc.ServerTickRate) / data.misc.ServerTickRate
 		if breakdown and output.CurseDelay ~= output.CurseDelayBase then
 			breakdown.CurseDelay = {
-				s_format("%.2fs ^8(base)", output.CurseDelayBase),
+				localisation:Text("calc.offence.curse_delay.line", { curse_delay_base = output.CurseDelayBase }),
 			}
 			if curseDelayMod ~= 1 then
-				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(delay modifier)", curseDelayMod))
+				t_insert(breakdown.CurseDelay, localisation:Text("calc.offence.offence.line_5", { curse_delay_mod = curseDelayMod }))
 			end
 			if curseActivationMod ~= 1 then
-				t_insert(breakdown.CurseDelay, s_format("/ %.4f ^8(activation modifier)", curseActivationMod))
+				t_insert(breakdown.CurseDelay, localisation:Text("calc.offence.offence.line_6", { curse_activation_mod = curseActivationMod }))
 			end
-			t_insert(breakdown.CurseDelay, s_format("rounded up to nearest server tick"))
+			t_insert(breakdown.CurseDelay, localisation:Text("calc.offence.offence.line_7"))
 			t_insert(breakdown.CurseDelay, s_format("= %.3fs", output.CurseDelay))
 		end
 	end
@@ -1604,10 +1604,10 @@ function calcs.offence(env, actor, activeSkill)
 		output.PerfectTiming = baseTiming * perfectTimingMod
 		if breakdown then
 			breakdown.PerfectTiming = {
-				s_format("%.3fs ^8(Base Timing)", baseTiming),
-				s_format("x %.2f ^8(effect modifiers)", perfectTimingMod),
+				localisation:Text("calc.offence.perfect_timing.line", { base_timing = baseTiming }),
+				localisation:Text("calc.offence.perfect_timing.line_2", { perfect_timing_mod = perfectTimingMod }),
 				s_format("\n"),
-				s_format("= %.3fs ^8(Perfect Timing Window)", output.PerfectTiming),
+				localisation:Text("calc.offence.perfect_timing.line_3", { perfect_timing = output.PerfectTiming }),
 			}
 		end
 	end
@@ -1617,10 +1617,10 @@ function calcs.offence(env, actor, activeSkill)
 		output.MinionRevivalSpeed = baseMinionRevivalTime * (1 / MinionRevivalSpeedMod)
 		if breakdown then
 			breakdown.MinionRevivalSpeed = {
-				s_format("%.3fs ^8(Base Revival Time)", baseMinionRevivalTime),
-				s_format("x 1 / %.2f ^8(effect modifiers)", MinionRevivalSpeedMod),
+				localisation:Text("calc.offence.minion_revival_speed.line", { base_minion_revival_time = baseMinionRevivalTime }),
+				localisation:Text("calc.offence.minion_revival_speed.line_2", { minion_revival_speed_mod = MinionRevivalSpeedMod }),
 				s_format("\n"),
-				s_format("= %.3fs ^8(Total Revival Time)", output.MinionRevivalSpeed),
+				localisation:Text("calc.offence.minion_revival_speed.line_3", { minion_revival_speed = output.MinionRevivalSpeed }),
 			}
 		end
 	end
@@ -1632,13 +1632,13 @@ function calcs.offence(env, actor, activeSkill)
 		output.WarcryEffectMod = unscaledEffect * uptime
 		if breakdown then
 			breakdown.WarcryEffectMod = {
-					s_format("%.2f ^8(effect modifiers)", unscaledEffect)
+					localisation:Text("calc.offence.warcry_effect_mod.line", { unscaled_effect = unscaledEffect })
 			}
 			if env.modDB:Flag(nil, "Condition:WarcryMaxHit") or uptime ~= 1 then
 				if env.modDB:Flag(nil, "Condition:WarcryMaxHit") then
-					t_insert(breakdown.WarcryEffectMod, "* 100% uptime (WarcryMaxHit Override)")
+					t_insert(breakdown.WarcryEffectMod, localisation:Text("calc.offence.offence.line_8"))
 				elseif uptime ~= 1 then
-					t_insert(breakdown.WarcryEffectMod, s_format("* %.2f%% ^8(uptime)", uptime * 100))
+					t_insert(breakdown.WarcryEffectMod, localisation:Text("calc.offence.offence.line_9", { value = uptime * 100 }))
 				end
 				t_insert(breakdown.WarcryEffectMod, s_format("= %.1f%%", output.WarcryEffectMod * 100))
 			end
@@ -1668,9 +1668,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.LifeGainPerRemnant = m_floor(baseLifeGain * remnantEffectMod)
 			if breakdown then
 				breakdown.LifeGainPerRemnant = {
-					s_format("%d ^8(base life per remnant)", baseLifeGain),
-					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
-					s_format("= %d ^8(life per remnant)", output.LifeGainPerRemnant),
+					localisation:Text("calc.offence.life_gain_per_remnant.line", { base_life_gain = baseLifeGain }),
+					localisation:Text("calc.offence.life_gain_per_remnant.line_2", { remnant_effect_mod = remnantEffectMod }),
+					localisation:Text("calc.offence.life_gain_per_remnant.line_3", { life_gain_per_remnant = output.LifeGainPerRemnant }),
 				}
 			end
 		end
@@ -1679,9 +1679,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.ManaGainPerRemnant = m_floor(baseManaGain * remnantEffectMod)
 			if breakdown then
 				breakdown.ManaGainPerRemnant = {
-					s_format("%d ^8(base mana per remnant)", baseManaGain),
-					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
-					s_format("= %d ^8(mana per remnant)", output.ManaGainPerRemnant),
+					localisation:Text("calc.offence.mana_gain_per_remnant.line", { base_mana_gain = baseManaGain }),
+					localisation:Text("calc.offence.mana_gain_per_remnant.line_2", { remnant_effect_mod = remnantEffectMod }),
+					localisation:Text("calc.offence.mana_gain_per_remnant.line_3", { mana_gain_per_remnant = output.ManaGainPerRemnant }),
 				}
 			end
 		end
@@ -1691,9 +1691,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.ChaosGainPerFlame = m_floor(baseChaosGainPerFlame * remnantEffectMod * doubled)
 			if breakdown then
 				breakdown.ChaosGainPerFlame = {
-					s_format("%d%% ^8(base chaos gain per flame)", baseChaosGainPerFlame),
-					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
-					s_format("= %d%% ^8(damage gained as chaos per flame)", output.ChaosGainPerFlame),
+					localisation:Text("calc.offence.chaos_gain_per_flame.line", { base_chaos_gain_per_flame = baseChaosGainPerFlame }),
+					localisation:Text("calc.offence.chaos_gain_per_flame.line_2", { remnant_effect_mod = remnantEffectMod }),
+					localisation:Text("calc.offence.chaos_gain_per_flame.line_3", { chaos_gain_per_flame = output.ChaosGainPerFlame }),
 				}
 			end
 		end
@@ -1702,9 +1702,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.BreachFlameLifeLeech = m_floor(baseLifeLeech * remnantEffectMod)
 			if breakdown then
 				breakdown.BreachFlameLifeLeech = {
-					s_format("%d%% ^8(base life leech per flame)", baseLifeLeech),
-					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
-					s_format("= %d%% ^8(life leech per flame)", output.BreachFlameLifeLeech),
+					localisation:Text("calc.offence.breach_flame_life_leech.line", { base_life_leech = baseLifeLeech }),
+					localisation:Text("calc.offence.breach_flame_life_leech.line_2", { remnant_effect_mod = remnantEffectMod }),
+					localisation:Text("calc.offence.breach_flame_life_leech.line_3", { breach_flame_life_leech = output.BreachFlameLifeLeech }),
 				}
 			end
 		end
@@ -1713,9 +1713,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.BreachFlameManaLeech = m_floor(baseManaLeech * remnantEffectMod)
 			if breakdown then
 				breakdown.BreachFlameManaLeech = {
-					s_format("%d%% ^8(base mana leech per flame)", baseManaLeech),
-					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
-					s_format("= %d%% ^8(mana leech per flame)", output.BreachFlameManaLeech),
+					localisation:Text("calc.offence.breach_flame_mana_leech.line", { base_mana_leech = baseManaLeech }),
+					localisation:Text("calc.offence.breach_flame_mana_leech.line_2", { remnant_effect_mod = remnantEffectMod }),
+					localisation:Text("calc.offence.breach_flame_mana_leech.line_3", { breach_flame_mana_leech = output.BreachFlameManaLeech }),
 				}
 			end
 		end
@@ -1726,10 +1726,10 @@ function calcs.offence(env, actor, activeSkill)
 		output.IceCrystalLife = baseIceCrystal * IceCrystalLifeMod
 		if breakdown then
 			breakdown.IceCrystalLife = {
-				s_format("%.f ^8(Base Crystal Life)", baseIceCrystal),
-				s_format("x %.2f ^8(effect modifiers)", IceCrystalLifeMod),
+				localisation:Text("calc.offence.ice_crystal_life.line_2", { base_ice_crystal = baseIceCrystal }),
+				localisation:Text("calc.offence.ice_crystal_life.line", { ice_crystal_life_mod = IceCrystalLifeMod }),
 				s_format("\n"),
-				s_format("= %.f ^8(Ice Crystal Life)", output.IceCrystalLife),
+				localisation:Text("calc.offence.ice_crystal_life.line_3", { ice_crystal_life = output.IceCrystalLife }),
 			}
 		end
 	end
@@ -1756,21 +1756,21 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.TrapThrowingSpeed = { }
 			breakdown.multiChain(breakdown.TrapThrowingSpeed, {
-				label = "Throwing rate:",
-				base = { "%.2f ^8(base throwing rate)", baseSpeed },
-				{ "%.2f ^8(increased/reduced throwing speed)", 1 + skillModList:Sum("INC", skillCfg, "TrapThrowingSpeed") / 100 },
-				{ "%.2f ^8(more/less throwing speed)", skillModList:More(skillCfg, "TrapThrowingSpeed") },
-				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod },
-				total = s_format("= %.2f ^8per second", output.TrapThrowingSpeed),
+				label = "Throwing rate:", labelKey = "ui.calc_offence.offence.label_8",
+				base = { "%.2f ^8(base throwing rate)", baseSpeed, formatKey = "calc.offence.offence.factor_5", formatParams = { base_speed = 2 } },
+				{ "%.2f ^8(increased/reduced throwing speed)", 1 + skillModList:Sum("INC", skillCfg, "TrapThrowingSpeed") / 100, formatKey = "calc.offence.offence.factor_6", formatParams = { value = 2 } },
+				{ "%.2f ^8(more/less throwing speed)", skillModList:More(skillCfg, "TrapThrowingSpeed"), formatKey = "calc.offence.offence.factor_7", formatParams = { value = 2 } },
+				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod, formatKey = "calc.offence.offence.factor_8", formatParams = { action_speed_mod = 2 } },
+				total = localisation:Text("calc.offence.offence.line_10", { trap_throwing_speed = output.TrapThrowingSpeed }),
 			})
 		end
 		if breakdown and timeMod > 0 then
 			breakdown.TrapThrowingTime = { }
 			breakdown.multiChain(breakdown.TrapThrowingTime, {
-				label = "Throwing time:",
-				base = { "%.2f ^8(base throwing time)", 1 / (output.TrapThrowingSpeed * timeMod) },
-				{ "%.2f ^8(total modifier)", timeMod },
-				total = s_format("= %.2f ^8seconds per throw", output.TrapThrowingTime),
+				label = "Throwing time:", labelKey = "ui.calc_offence.offence.label_9",
+				base = { "%.2f ^8(base throwing time)", 1 / (output.TrapThrowingSpeed * timeMod), formatKey = "calc.offence.offence.factor_9", formatParams = { value = 2 } },
+				{ "%.2f ^8(total modifier)", timeMod, formatKey = "calc.offence.offence.factor_10", formatParams = { time_mod = 2 } },
+				total = localisation:Text("calc.offence.offence.line_11", { trap_throwing_time = output.TrapThrowingTime }),
 			})
 		end
 
@@ -1789,9 +1789,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if breakdown then
 				breakdown.TrapCooldown = {
-					s_format("%.2fs ^8(base)", skillData.trapCooldown or skillData.cooldown or 4),
-					s_format("/ %.2f ^8(increased/reduced cooldown recovery)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
-					"rounded up to nearest server tick",
+					localisation:Text("calc.offence.trap_cooldown.line", { value = ((skillData.trapCooldown or skillData.cooldown) or 4) }),
+					localisation:Text("calc.offence.trap_cooldown.line_2", { value = 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100 }),
+					localisation:Text("calc.offence.trap_cooldown.line_3"),
 					s_format("= %.3fs", output.TrapCooldown)
 				}
 			end
@@ -1815,22 +1815,22 @@ function calcs.offence(env, actor, activeSkill)
 
 		if breakdown then
 			breakdown.Cooldown = {
-				s_format("%.2fs ^8(base)", skillData.cooldown or 0 + addedCooldown),
-				s_format("/ %.2f ^8(increased/reduced cooldown recovery)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
+				localisation:Text("calc.offence.cooldown.line", { value = (skillData.cooldown or 0 + addedCooldown) }),
+				localisation:Text("calc.offence.cooldown.line_2", { value = 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100 }),
 			}
 
 			if cooldownMode == "AVERAGE" and noCooldownChance > 0 then
 				output.EffectiveCooldown = effectiveCooldown
 				breakdown.EffectiveCooldown = {
-					s_format("Effective Cooldown:"),
+					localisation:Text("calc.offence.effective_cooldown.line"),
 					unpack(breakdown.Cooldown),
 				}
-				t_insert(breakdown.EffectiveCooldown, s_format("* %.2f ^8(effect of %d%% chance to not consume cooldown)", effectiveCooldownMultiplier, noCooldownChance * 100))
+				t_insert(breakdown.EffectiveCooldown, localisation:Text("calc.offence.offence.line_12", { effective_cooldown_multiplier = effectiveCooldownMultiplier, value = noCooldownChance * 100 }))
 				t_insert(breakdown.EffectiveCooldown, s_format("= %.3fs", output.EffectiveCooldown))
 			end
 
 			if rounded then
-				t_insert(breakdown.Cooldown, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.Cooldown, localisation:Text("calc.offence.offence.line_7"))
 			end
 			t_insert(breakdown.Cooldown, s_format("= %.3fs", output.Cooldown))
 		end
@@ -1840,10 +1840,10 @@ function calcs.offence(env, actor, activeSkill)
 		local additionalUses = skillModList:Sum("BASE", skillCfg, "AdditionalCooldownUses")
 		output.StoredUses = baseUses + additionalUses
 		if breakdown then
-			breakdown.StoredUses = { s_format("%d ^8(skill use%s)", baseUses, baseUses == 1 and "" or "s" ) }
+			breakdown.StoredUses = { localisation:Text("calc.offence.stored_uses.line", { base_uses = baseUses, value = ((baseUses == 1 and "") or "s") }) }
 			if additionalUses ~= 0 then
-				t_insert(breakdown.StoredUses, s_format("+ %d ^8(additional use%s)", additionalUses, additionalUses == 1 and "" or "s"))
-				t_insert(breakdown.StoredUses, s_format("= %d ^8(total use%s)", output.StoredUses, output.StoredUses == 1 and "" or "s"))
+				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_13", { additional_uses = additionalUses, value = ((additionalUses == 1 and "") or "s") }))
+				t_insert(breakdown.StoredUses, localisation:Text("calc.offence.offence.line_14", { stored_uses = output.StoredUses, value = ((output.StoredUses == 1 and "") or "s") }))
 			end
 		end
 	end
@@ -1878,22 +1878,22 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.MineLayingTime = { }
 			breakdown.multiChain(breakdown.MineLayingTime, {
-				label = "Throwing rate:",
-				base = { "%.2f ^8(base throwing rate)", baseSpeed },
-				{ "%.2f ^8(increased/reduced throwing speed)", 1 + skillModList:Sum("INC", skillCfg, "MineLayingSpeed") / 100 },
-				{ "%.2f ^8(more/less throwing speed)", skillModList:More(skillCfg, "MineLayingSpeed") },
-				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod },
-				{ "%.2f ^8(additional mine thrown)", 1 / (1 + (output.MineThrowCount - 1) * 0.1)},
-				total = s_format("= %.2f ^8per second", output.MineLayingSpeed),
+				label = "Throwing rate:", labelKey = "ui.calc_offence.offence.label_8",
+				base = { "%.2f ^8(base throwing rate)", baseSpeed, formatKey = "calc.offence.offence.factor_5", formatParams = { base_speed = 2 } },
+				{ "%.2f ^8(increased/reduced throwing speed)", 1 + skillModList:Sum("INC", skillCfg, "MineLayingSpeed") / 100, formatKey = "calc.offence.offence.factor_11", formatParams = { value = 2 } },
+				{ "%.2f ^8(more/less throwing speed)", skillModList:More(skillCfg, "MineLayingSpeed"), formatKey = "calc.offence.offence.factor_12", formatParams = { value = 2 } },
+				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod, formatKey = "calc.offence.offence.factor_8", formatParams = { action_speed_mod = 2 } },
+				{ "%.2f ^8(additional mine thrown)", 1 / (1 + (output.MineThrowCount - 1) * 0.1), formatKey = "calc.offence.offence.factor_13", formatParams = { value = 2 } },
+				total = localisation:Text("calc.offence.offence.line_15", { mine_laying_speed = output.MineLayingSpeed }),
 			})
 		end
 		if breakdown and timeMod > 0 then
 			breakdown.MineThrowingTime = { }
 			breakdown.multiChain(breakdown.MineThrowingTime, {
-			label = "Throwing time:",
-				base = { "%.2f ^8(base throwing time)", 1 / (output.MineLayingSpeed * timeMod) },
-				{ "%.2f ^8(total modifier)", timeMod },
-				total = s_format("= %.2f ^8seconds per throw", output.MineLayingTime),
+			label = "Throwing time:", labelKey = "ui.calc_offence.offence.label_9",
+				base = { "%.2f ^8(base throwing time)", 1 / (output.MineLayingSpeed * timeMod), formatKey = "calc.offence.offence.factor_14", formatParams = { value = 2 } },
+				{ "%.2f ^8(total modifier)", timeMod, formatKey = "calc.offence.offence.factor_10", formatParams = { time_mod = 2 } },
+				total = localisation:Text("calc.offence.offence.line_16", { mine_laying_time = output.MineLayingTime }),
 			})
 		end
 
@@ -1926,19 +1926,19 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.TotemPlacementTime = { }
 			breakdown.multiChain(breakdown.TotemPlacementTime, {
-				label = "Placement speed:",
-				base = { "%.2f ^8(base placement speed)", baseSpeed },
-				{ "%.2f ^8(increased/reduced placement speed)", 1 + skillModList:Sum("INC", skillCfg, "TotemPlacementSpeed") / 100 },
-				{ "%.2f ^8(more/less placement speed)", skillModList:More(skillCfg, "TotemPlacementSpeed") },
-				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod },
-				total = s_format("= %.2f ^8per second", output.TotemPlacementSpeed),
+				label = "Placement speed:", labelKey = "ui.calc_offence.offence.label_6",
+				base = { "%.2f ^8(base placement speed)", baseSpeed, formatKey = "calc.offence.offence.factor_15", formatParams = { base_speed = 2 } },
+				{ "%.2f ^8(increased/reduced placement speed)", 1 + skillModList:Sum("INC", skillCfg, "TotemPlacementSpeed") / 100, formatKey = "calc.offence.offence.factor_16", formatParams = { value = 2 } },
+				{ "%.2f ^8(more/less placement speed)", skillModList:More(skillCfg, "TotemPlacementSpeed"), formatKey = "calc.offence.offence.factor_17", formatParams = { value = 2 } },
+				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod, formatKey = "calc.offence.offence.factor_8", formatParams = { action_speed_mod = 2 } },
+				total = localisation:Text("calc.offence.offence.line_17", { totem_placement_speed = output.TotemPlacementSpeed }),
 			})
 		end
 		output.ActiveTotemLimit = skillModList:Override(skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit") or skillModList:Sum("BASE", skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit")
 		output.TotemsSummoned = env.modDB:Override(nil, "TotemsSummoned") or output.ActiveTotemLimit
 		if breakdown then
 			breakdown.ActiveTotemLimit = {
-				"Totems Summoned: "..output.TotemsSummoned..(env.configInput.TotemsSummoned and " ^8(overridden from the Configuration tab)" or " ^8(can be overridden in the Configuration tab)"),
+				localisation:Text("calc.offence.active_totem_limit.line", { totems_summoned = output.TotemsSummoned, value = ((env.configInput.TotemsSummoned and localisation:Ref("calc.offence.active_totem_limit.line.parameter")) or localisation:Ref("calc.offence.active_totem_limit.line.parameter_2")) }),
 			}
 		end
 		output.TotemLifeMod = calcLib.mod(skillModList, skillCfg, "TotemLife")
@@ -1949,10 +1949,10 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.TotemLifeMod = breakdown.mod(skillModList, skillCfg, "TotemLife")
 			breakdown.TotemLife = {
-				"Totem level: "..skillData.totemLevel,
-				env.data.monsterAllyLifeTable[skillData.totemLevel].." ^8(base life for a level "..skillData.totemLevel.." monster)",
-				"x "..env.data.totemLifeMult[activeSkill.skillTotemId].." ^8(life multiplier for this totem type)",
-				"x "..output.TotemLifeMod.." ^8(totem life modifier)",
+				localisation:Text("calc.offence.totem_life.line", { totem_level = skillData.totemLevel }),
+				localisation:Text("calc.offence.totem_life.line_2", { value = env.data.monsterAllyLifeTable[skillData.totemLevel], totem_level = skillData.totemLevel }),
+				localisation:Text("calc.offence.totem_life.line_3", { value = env.data.totemLifeMult[activeSkill.skillTotemId] }),
+				localisation:Text("calc.offence.totem_life.line_4", { totem_life_mod = output.TotemLifeMod }),
 				"= "..output.TotemLife,
 			}
 			breakdown.TotemEnergyShield = breakdown.mod(skillModList, skillCfg, "TotemEnergyShield")
@@ -1980,12 +1980,12 @@ function calcs.offence(env, actor, activeSkill)
 		output.CorpseLife = output.BaseCorpseLife * output.CorpseLifeInc
 		if breakdown then
 			breakdown.CorpseLife = {
-				s_format("%d ^8(base life of a level %d monster)", env.data.monsterLifeTable[output.CorpseLevel or 1], output.CorpseLevel or "n/a"),
-				s_format("x %.2f ^8(%s variety multiplier)", env.data.monsterVarietyLifeMult[skillData.corpseMonsterVariety] or 1, skillData.corpseMonsterVariety),
-				s_format("x %.2f ^8(map level %d monster life multiplier from config)", env.data.mapLevelLifeMult[env.enemyLevel] or 1, env.enemyLevel),
-				s_format(" = %d ^8(base corpse life)", output.BaseCorpseLife),
+				localisation:Text("calc.offence.corpse_life.line", { value = env.data.monsterLifeTable[output.CorpseLevel or 1], value_2 = (output.CorpseLevel or "n/a") }),
+				localisation:Text("calc.offence.corpse_life.line_2", { value = (env.data.monsterVarietyLifeMult[skillData.corpseMonsterVariety] or 1), corpse_monster_variety = skillData.corpseMonsterVariety }),
+				localisation:Text("calc.offence.corpse_life.line_3", { value = (env.data.mapLevelLifeMult[env.enemyLevel] or 1), enemy_level = env.enemyLevel }),
+				localisation:Text("calc.offence.corpse_life.line_4", { base_corpse_life = output.BaseCorpseLife }),
 				s_format(""),
-				s_format("x %.2f ^8(corpse maximum life increases)", output.CorpseLifeInc),
+				localisation:Text("calc.offence.corpse_life.line_5", { corpse_life_inc = output.CorpseLifeInc }),
 				s_format(" = %d", output.CorpseLife),
 			}
 		end
@@ -2002,7 +2002,7 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.DurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			if breakdown.DurationMod and skillData.durationSecondary then
-				t_insert(breakdown.DurationMod, 1, "Primary duration:")
+				t_insert(breakdown.DurationMod, 1, localisation:Text("calc.offence.offence.line_18"))
 			end
 		end
 		local durationBase = (skillData.duration or 0) + skillModList:Sum("BASE", skillCfg, "Duration", "PrimaryDuration")
@@ -2014,15 +2014,15 @@ function calcs.offence(env, actor, activeSkill)
 			output.Duration = m_ceil(output.Duration * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.Duration ~= durationBase then
 				breakdown.Duration = {
-					s_format("%.2fs ^8(base)", durationBase),
+					localisation:Text("calc.offence.duration.line", { duration_base = durationBase }),
 				}
 				if output.DurationMod ~= 1 then
-					t_insert(breakdown.Duration, s_format("x %.4f ^8(duration modifier)", output.DurationMod))
+					t_insert(breakdown.Duration, localisation:Text("calc.offence.offence.line_19", { duration_mod = output.DurationMod }))
 				end
 				if skillData.debuff and debuffDurationMult ~= 1 then
-					t_insert(breakdown.Duration, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+					t_insert(breakdown.Duration, localisation:Text("calc.offence.offence.line_20", { value = 1 / debuffDurationMult }))
 				end
-				t_insert(breakdown.Duration, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.Duration, localisation:Text("calc.offence.offence.line_7"))
 				t_insert(breakdown.Duration, s_format("= %.3fs", output.Duration))
 			end
 		end
@@ -2038,18 +2038,18 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown and output.DurationSecondary ~= durationBase then
 				breakdown.SecondaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 				if breakdown.SecondaryDurationMod then
-					t_insert(breakdown.SecondaryDurationMod, 1, "Secondary duration:")
+					t_insert(breakdown.SecondaryDurationMod, 1, localisation:Text("calc.offence.offence.line_21"))
 				end
 				breakdown.DurationSecondary = {
-					s_format("%.2fs ^8(base)", durationBase),
+					localisation:Text("calc.offence.duration_secondary.line", { duration_base = durationBase }),
 				}
 				if output.DurationMod ~= 1 then
-					t_insert(breakdown.DurationSecondary, s_format("x %.4f ^8(duration modifier)", durationMod))
+					t_insert(breakdown.DurationSecondary, localisation:Text("calc.offence.offence.line_22", { duration_mod = durationMod }))
 				end
 				if skillData.debuffSecondary and debuffDurationMult ~= 1 then
-					t_insert(breakdown.DurationSecondary, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+					t_insert(breakdown.DurationSecondary, localisation:Text("calc.offence.offence.line_20", { value = 1 / debuffDurationMult }))
 				end
-				t_insert(breakdown.DurationSecondary, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.DurationSecondary, localisation:Text("calc.offence.offence.line_7"))
 				t_insert(breakdown.DurationSecondary, s_format("= %.3fs", output.DurationSecondary))
 			end
 		end
@@ -2065,18 +2065,18 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown and output.DurationTertiary ~= durationBase then
 				breakdown.TertiaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 				if breakdown.TertiaryDurationMod then
-					t_insert(breakdown.TertiaryDurationMod, 1, "Tertiary duration:")
+					t_insert(breakdown.TertiaryDurationMod, 1, localisation:Text("calc.offence.offence.line_23"))
 				end
 				breakdown.DurationTertiary = {
-					s_format("%.2fs ^8(base)", durationBase),
+					localisation:Text("calc.offence.duration_tertiary.line", { duration_base = durationBase }),
 				}
 				if output.DurationMod ~= 1 then
-					t_insert(breakdown.DurationTertiary, s_format("x %.4f ^8(duration modifier)", durationMod))
+					t_insert(breakdown.DurationTertiary, localisation:Text("calc.offence.offence.line_22", { duration_mod = durationMod }))
 				end
 				if skillData.debuffTertiary and debuffDurationMult ~= 1 then
-					t_insert(breakdown.DurationTertiary, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+					t_insert(breakdown.DurationTertiary, localisation:Text("calc.offence.offence.line_20", { value = 1 / debuffDurationMult }))
 				end
-				t_insert(breakdown.DurationTertiary, s_format("rounded up to nearest server tick"))
+				t_insert(breakdown.DurationTertiary, localisation:Text("calc.offence.offence.line_7"))
 				t_insert(breakdown.DurationTertiary, s_format("= %.3fs", output.DurationTertiary))
 			end
 		end
@@ -2088,9 +2088,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.AuraDuration = m_ceil(output.AuraDuration * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.AuraDuration ~= durationBase then
 				breakdown.AuraDuration = {
-					s_format("%.2fs ^8(base)", durationBase),
-					s_format("x %.4f ^8(duration modifier)", durationMod),
-					"rounded up to nearest server tick",
+					localisation:Text("calc.offence.aura_duration.line", { duration_base = durationBase }),
+					localisation:Text("calc.offence.aura_duration.line_2", { duration_mod = durationMod }),
+					localisation:Text("calc.offence.aura_duration.line_3"),
 					s_format("= %.3fs", output.AuraDuration),
 				}
 			end
@@ -2103,9 +2103,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.ReserveDuration = m_ceil(output.ReserveDuration * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.ReserveDuration ~= durationBase then
 				breakdown.ReserveDuration = {
-					s_format("%.2fs ^8(base)", durationBase),
-					s_format("x %.4f ^8(duration modifier)", durationMod),
-					"rounded up to nearest server tick",
+					localisation:Text("calc.offence.reserve_duration.line", { duration_base = durationBase }),
+					localisation:Text("calc.offence.reserve_duration.line_2", { duration_mod = durationMod }),
+					localisation:Text("calc.offence.reserve_duration.line_3"),
 					s_format("= %.3fs", output.ReserveDuration),
 				}
 			end
@@ -2118,9 +2118,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.SoulGainPreventionDuration = m_max(m_ceil(output.SoulGainPreventionDuration * data.misc.ServerTickRate), 1) / data.misc.ServerTickRate
 			if breakdown and output.SoulGainPreventionDuration ~= durationBase then
 				breakdown.SoulGainPreventionDuration = {
-					s_format("%.2fs ^8(base)", durationBase),
-					s_format("x %.4f ^8(duration modifier)", durationMod),
-					s_format("rounded up to nearest server tick"),
+					localisation:Text("calc.offence.soul_gain_prevention_duration.line", { duration_base = durationBase }),
+					localisation:Text("calc.offence.soul_gain_prevention_duration.line_2", { duration_mod = durationMod }),
+					localisation:Text("calc.offence.soul_gain_prevention_duration.line_3"),
 					s_format("= %.3fs", output.SoulGainPreventionDuration),
 				}
 			end
@@ -2132,12 +2132,12 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.TotemDurationMod = breakdown.mod(skillModList, skillCfg, "TotemDuration")
 			breakdown.TotemDuration = {
-				s_format("%.2fs ^8(base)", TotemDurationBase),
+				localisation:Text("calc.offence.totem_duration.line", { totem_duration_base = TotemDurationBase }),
 			}
 			if output.TotemDurationMod ~= 1 then
-				t_insert(breakdown.TotemDuration, s_format("x %.4f ^8(duration modifier)", output.TotemDurationMod))
+				t_insert(breakdown.TotemDuration, localisation:Text("calc.offence.offence.line_24", { totem_duration_mod = output.TotemDurationMod }))
 			end
-			t_insert(breakdown.TotemDuration, s_format("rounded up to nearest server tick"))
+			t_insert(breakdown.TotemDuration, localisation:Text("calc.offence.offence.line_7"))
 			t_insert(breakdown.TotemDuration, s_format("= %.3fs", output.TotemDuration))
 		end
 	end
@@ -2182,9 +2182,9 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.DetonationTime = { }
 			breakdown.multiChain(breakdown.DetonationTime, {
-				base = { "%.2fs ^8(base)", base },
-				{ "%.2f ^8(increased/reduced detonation time)", inc },
-				{ "%.2f ^8(more/less detonation time)", more },
+				base = { "%.2fs ^8(base)", base, formatKey = "calc.offence.offence.factor_18", formatParams = { base = 2 } },
+				{ "%.2f ^8(increased/reduced detonation time)", inc, formatKey = "calc.offence.offence.factor_19", formatParams = { inc = 2 } },
+				{ "%.2f ^8(more/less detonation time)", more, formatKey = "calc.offence.offence.factor_20", formatParams = { more = 2 } },
 				total = s_format("= %.2fs", output.DetonationTime),
 			})
 		end
@@ -2194,22 +2194,22 @@ function calcs.offence(env, actor, activeSkill)
 	local costs = {
 		order = { "Mana","Life","ES","Ward","Soul","Rage","ManaPercent","LifePercent","WardPercent","ManaPerMinute","LifePerMinute","WardPerMinute","ManaPercentPerMinute","LifePercentPerMinute","ESPerMinute","ESPercentPerMinute" },
 
-		["Mana"] = { type = "Mana", upfront = true, percent = false, text = "mana", baseCost = 0, baseCostRaw = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["Life"] = { type = "Life", upfront = true, percent = false, text = "life", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ES"] = { type = "ES", upfront = true, percent = false, text = "ES", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["Ward"] = { type = "Ward", upfront = true, percent = false, text = "runic ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["Soul"] = { type = "Soul", upfront = true, percent = false, unaffectedByGenericCostMults = true, text = "soul", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["Rage"] = { type = "Rage", upfront = true, percent = false, text = "rage", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ManaPercent"] = { type = "Mana", upfront = true, percent = true, text = "mana", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["LifePercent"] = { type = "Life", upfront = true, percent = true, text = "life", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["WardPercent"] = { type = "Ward", upfront = true, percent = true, text = "runic ward", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ManaPerMinute"] = { type = "Mana", upfront = false, percent = false, text = "mana/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["LifePerMinute"] = { type = "Life", upfront = false, percent = false, text = "life/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["WardPerMinute"] = { type = "Ward", upfront = false, percent = false, text = "runic ward/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ManaPercentPerMinute"] = { type = "Mana", upfront = false, percent = true, text = "mana/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["LifePercentPerMinute"] = { type = "Life", upfront = false, percent = true, text = "life/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ESPerMinute"] = { type = "ES", upfront = false, percent = false, text = "ES/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
-		["ESPercentPerMinute"] = { type = "ES", upfront = false, percent = true, text = "ES/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Mana"] = { type = "Mana", upfront = true, percent = false, text = "mana", textKey = "ui.calc_offence.offence.costs.text_5", baseCost = 0, baseCostRaw = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Life"] = { type = "Life", upfront = true, percent = false, text = "life", textKey = "ui.calc_offence.offence.costs.text_3", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ES"] = { type = "ES", upfront = true, percent = false, text = "ES", textKey = "ui.calc_offence.offence.costs.text", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Ward"] = { type = "Ward", upfront = true, percent = false, text = "runic ward", textKey = "ui.calc_offence.offence.costs.text_8", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Soul"] = { type = "Soul", upfront = true, percent = false, unaffectedByGenericCostMults = true, text = "soul", textKey = "ui.calc_offence.offence.costs.text_10", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["Rage"] = { type = "Rage", upfront = true, percent = false, text = "rage", textKey = "ui.calc_offence.offence.costs.text_7", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ManaPercent"] = { type = "Mana", upfront = true, percent = true, text = "mana", textKey = "ui.calc_offence.offence.costs.text_5", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["LifePercent"] = { type = "Life", upfront = true, percent = true, text = "life", textKey = "ui.calc_offence.offence.costs.text_3", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["WardPercent"] = { type = "Ward", upfront = true, percent = true, text = "runic ward", textKey = "ui.calc_offence.offence.costs.text_8", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ManaPerMinute"] = { type = "Mana", upfront = false, percent = false, text = "mana/s", textKey = "ui.calc_offence.offence.costs.text_6", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["LifePerMinute"] = { type = "Life", upfront = false, percent = false, text = "life/s", textKey = "ui.calc_offence.offence.costs.text_4", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["WardPerMinute"] = { type = "Ward", upfront = false, percent = false, text = "runic ward/s", textKey = "ui.calc_offence.offence.costs.text_9", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ManaPercentPerMinute"] = { type = "Mana", upfront = false, percent = true, text = "mana/s", textKey = "ui.calc_offence.offence.costs.text_6", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["LifePercentPerMinute"] = { type = "Life", upfront = false, percent = true, text = "life/s", textKey = "ui.calc_offence.offence.costs.text_4", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ESPerMinute"] = { type = "ES", upfront = false, percent = false, text = "ES/s", textKey = "ui.calc_offence.offence.costs.text_2", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
+		["ESPercentPerMinute"] = { type = "ES", upfront = false, percent = true, text = "ES/s", textKey = "ui.calc_offence.offence.costs.text_2", baseCost = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
 	}
 
 	if not skillModList:Flag(skillCfg, "HasNoCost") then
@@ -2357,37 +2357,37 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if breakdown and hasCost then
 				breakdown[costName] = {
-					s_format("%.2f"..(val.percent and "%%" or "").." ^8(base "..val.text.." cost)", val.baseCost)
+					localisation:Text(val.percent and "calc.cost.base_percent" or "calc.cost.base", { value = val.baseCost, resource = localisation:Field(val, "text") })
 				}
 				if mult ~= 1 then
-					t_insert(breakdown[costName], s_format("x %.4f ^8(cost multiplier)", mult))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_25", { mult = mult }))
 				end
 				if val.baseCostNoMult ~= 0 then
-					t_insert(breakdown[costName], s_format("+ %d ^8(additional "..val.text.." cost)", val.baseCostNoMult))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_233", { text = localisation:Field(val, 'text'), base_cost_no_mult = val.baseCostNoMult }))
 				end
 				if val.type == "Life" and (hybridLifeCost + additionalLifeCost) ~= 0 and not skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(mana cost conversion)", hybridLifeCost + additionalLifeCost))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_26", { value = hybridLifeCost + additionalLifeCost }))
 				end
 				if val.type == "ES" and additionalESCost ~= 0 and not skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(mana cost conversion)", additionalESCost))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_27", { additional_escost = additionalESCost }))
 				end
 				if inc ~= 0 then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(increased/reduced "..val.text.." cost)", 1 + inc/100))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_234", { text = localisation:Field(val, 'text'), value = 1 + inc/100 }))
 				end
 				if moreCost ~= 1 then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(more/less cost)", moreCost))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_28", { more_cost = moreCost }))
 				end
 				if moreType ~= 1 then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(more/less "..val.text.." cost)", moreType))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_235", { text = localisation:Field(val, 'text'), more_type = moreType }))
 				end
 				if costEfficiency ~= 1 then
-					t_insert(breakdown[costName], s_format("/ %.2f ^8("..val.text.." cost efficiency)", costEfficiency))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_236", { text = localisation:Field(val, 'text'), cost_efficiency = costEfficiency }))
 				end
 				if val.totalCost ~= 0 then
-					t_insert(breakdown[costName], s_format("%+d ^8(total "..val.text.." cost)", val.totalCost))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_237", { text = localisation:Field(val, 'text'), total_cost = val.totalCost }))
 				end
 				if val.type == "Mana" and hybridLifeCost > 0 then
-					t_insert(breakdown[costName], s_format("x %.2f ^8(%d%% paid for with life)", (1-hybridLifeCost), hybridLifeCost*100))
+					t_insert(breakdown[costName], localisation:Text("calc.offence.offence.line_29", { value = 1-hybridLifeCost, value_2 = hybridLifeCost*100 }))
 				end
 				t_insert(breakdown[costName], s_format("= %"..(val.upfront and "d" or ".2f")..(val.percent and "%%" or ""), output[costName]))
 			end
@@ -2541,7 +2541,7 @@ function calcs.offence(env, actor, activeSkill)
 				source.CritChance = skillData.CritChance
 			end
 			t_insert(passList, {
-				label = "Main Hand",
+				label = "Main Hand", labelKey = "ui.calc_offence.offence.label_4",
 				source = source,
 				cfg = activeSkill.weapon1Cfg,
 				output = output.MainHand,
@@ -2580,7 +2580,7 @@ function calcs.offence(env, actor, activeSkill)
 				source.AttackRate = 1000 / skillData.attackTime
 			end
 			t_insert(passList, {
-				label = "Off Hand",
+				label = "Off Hand", labelKey = "ui.calc_offence.offence.label_5",
 				source = source,
 				cfg = activeSkill.weapon2Cfg,
 				output = output.OffHand,
@@ -2589,7 +2589,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	else
 		t_insert(passList, {
-			label = "Skill",
+			label = "Skill", labelKey = "ui.calc_offence.offence.label_7",
 			source = skillData,
 			cfg = skillCfg,
 			output = output,
@@ -2628,15 +2628,15 @@ function calcs.offence(env, actor, activeSkill)
 					if not breakdown[stat] then
 						breakdown[stat] = { }
 					end
-					t_insert(breakdown[stat], "Contribution from Main Hand:")
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line"))
 					t_insert(breakdown[stat], s_format("%.1f", output.MainHand[stat]))
-					t_insert(breakdown[stat], s_format("x %.3f ^8(portion of instances created by main hand)", mainPortion))
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_2", { main_portion = mainPortion }))
 					t_insert(breakdown[stat], s_format("= %.1f", output.MainHand[stat] * mainPortion))
-					t_insert(breakdown[stat], "Contribution from Off Hand:")
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_3"))
 					t_insert(breakdown[stat], s_format("%.1f", output.OffHand[stat]))
-					t_insert(breakdown[stat], s_format("x %.3f ^8(portion of instances created by off hand)", offPortion))
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_4", { off_portion = offPortion }))
 					t_insert(breakdown[stat], s_format("= %.1f", output.OffHand[stat] * offPortion))
-					t_insert(breakdown[stat], "Total:")
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_5"))
 					t_insert(breakdown[stat], s_format("%.1f + %.1f", output.MainHand[stat] * mainPortion, output.OffHand[stat] * offPortion))
 					t_insert(breakdown[stat], s_format("= %.1f", output[stat]))
 				end
@@ -2657,15 +2657,15 @@ function calcs.offence(env, actor, activeSkill)
 				if breakdown then
 					if not breakdown[stat] then breakdown[stat] = { } end
 					t_insert(breakdown[stat], s_format(""))
-					t_insert(breakdown[stat], s_format("%.2f%% of ailment stacks use maximum damage", maxInstanceStacks * 100))
-					t_insert(breakdown[stat], s_format("Max Damage comes from %s", output.MainHand[stat] >= output.OffHand[stat] and "Main Hand" or "Off Hand"))
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_6", { value = maxInstanceStacks * 100 }))
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_7", { value = ((output.MainHand[stat] >= output.OffHand[stat] and localisation:Ref("calc.offence.combine_stat.line.parameter")) or localisation:Ref("calc.offence.combine_stat.line.parameter_2")) }))
 					t_insert(breakdown[stat], s_format("= %.1f", maxInstance * maxInstanceStacks))
 					if maxInstanceStacks < 1 then
-						t_insert(breakdown[stat], s_format("%.2f%% of ailment stacks use non-maximum damage", (1-maxInstanceStacks) * 100))
+						t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_8", { value = (1-maxInstanceStacks) * 100 }))
 						t_insert(breakdown[stat], s_format("= %.1f", minInstance * (1 - maxInstanceStacks)))
 					end
 					t_insert(breakdown[stat], "")
-					t_insert(breakdown[stat], "Total:")
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_5"))
 					if maxInstanceStacks < 1 then
 						t_insert(breakdown[stat], s_format("%.1f + %.1f", maxInstance * maxInstanceStacks, minInstance * (1 - maxInstanceStacks)))
 					end
@@ -2675,7 +2675,7 @@ function calcs.offence(env, actor, activeSkill)
 				output[stat] = output.MainHand[stat] or output.OffHand[stat]
 				if breakdown then
 					if not breakdown[stat] then breakdown[stat] = { } end
-					t_insert(breakdown[stat], s_format("All ailment stacks comes from %s", output.MainHand[stat] and "Main Hand" or "Off Hand"))
+					t_insert(breakdown[stat], localisation:Text("calc.offence.combine_stat.line_9", { value = ((output.MainHand[stat] and localisation:Ref("calc.offence.combine_stat.line.parameter")) or localisation:Ref("calc.offence.combine_stat.line.parameter_2")) }))
 				end
 			end
 		elseif mode == "DPS" then
@@ -2732,19 +2732,19 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.Accuracy = { }
 			breakdown.multiChain(breakdown.Accuracy, {
-				base = { "%g ^8(base)", base },
-				{ "%.2f ^8(increased/reduced)", 1 + inc / 100 },
-				{ "%.2f ^8(more/less)", more },
+				base = { "%g ^8(base)", base, formatKey = "calc.offence.offence.factor_21", formatParams = { base = 2 } },
+				{ "%.2f ^8(increased/reduced)", 1 + inc / 100, formatKey = "calc.offence.offence.factor_22", formatParams = { value = 2 } },
+				{ "%.2f ^8(more/less)", more, formatKey = "calc.offence.offence.factor_23", formatParams = { more = 2 } },
 				total = s_format("= %g", output.Accuracy)
 			})
 			if output.Accuracy ~= accuracyVsEnemy then
 				t_insert(breakdown.Accuracy, s_format(""))
 				breakdown.multiChain(breakdown.Accuracy, {
-					label = "Effective Accuracy vs Enemy",
-					base = { "%g ^8(base)", baseVsEnemy },
-					{ "%.2f ^8(distance penalty)", accuracyPenalty },
-					{ "%.2f ^8(increased/reduced)", 1 + incVsEnemy / 100 },
-					{ "%.2f ^8(more/less)", moreVsEnemy },
+					label = "Effective Accuracy vs Enemy", labelKey = "ui.calc_offence.offence.label_2",
+					base = { "%g ^8(base)", baseVsEnemy, formatKey = "calc.offence.offence.factor_24", formatParams = { base_vs_enemy = 2 } },
+					{ "%.2f ^8(distance penalty)", accuracyPenalty, formatKey = "calc.offence.offence.factor_25", formatParams = { accuracy_penalty = 2 } },
+					{ "%.2f ^8(increased/reduced)", 1 + incVsEnemy / 100, formatKey = "calc.offence.offence.factor_26", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less)", moreVsEnemy, formatKey = "calc.offence.offence.factor_27", formatParams = { more_vs_enemy = 2 } },
 					total = s_format("= %g", accuracyVsEnemy)
 				})
 			end
@@ -2757,7 +2757,7 @@ function calcs.offence(env, actor, activeSkill)
 			accuracyVsEnemy = storedMainHandAccuracyVsEnemy
 			if breakdown then
 				breakdown.Accuracy = {
-					"Using Main Hand Accuracy due to Mastery: "..output.Accuracy,
+					localisation:Text("calc.offence.accuracy.line", { accuracy = output.Accuracy }),
 				}
 			end
 		end
@@ -2777,10 +2777,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if breakdown then
 				breakdown.AccuracyHitChance = {
-					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
-					"Enemy evasion: " .. enemyEvasion,
+					localisation:Text("calc.offence.accuracy_hit_chance.line", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.offence.accuracy_hit_chance.line.parameter")) or localisation:Ref("calc.offence.accuracy_hit_chance.line.parameter_2")) }),
+					localisation:Text("calc.offence.accuracy_hit_chance.line_2", { enemy_evasion = enemyEvasion }),
 					"",
-					"Approximate hit chance at:",
+					localisation:Text("calc.offence.accuracy_hit_chance.line_3"),
 					}
 				-- Calculating individual hit chances at different distances
 				local hitChances = {}
@@ -2810,7 +2810,7 @@ function calcs.offence(env, actor, activeSkill)
 				-- Add note for uncapped hit chance / "Chance to hit with Attacks can exceed 100%"
 				if exceedsHitChance then
 					t_insert(breakdown.AccuracyHitChance, "") -- empty line for better readability
-					t_insert(breakdown.AccuracyHitChance, "^8Note: Your hit chance can exceed 100%.\nExcess values are shown as (+x%)")
+					t_insert(breakdown.AccuracyHitChance, localisation:Text("calc.offence.offence.line_30"))
 					t_insert(breakdown.AccuracyHitChance, "") -- empty line for better readability
 				end
 			end
@@ -2828,14 +2828,14 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown and output.enemyBlockChance > 0 then
 			if output.AccuracyHitChance < 100 then
 				breakdown.HitChance = {
-					"Accuracy Hit Chance: "..output.AccuracyHitChance.."%",
-					"Enemy Block Chance: "..output.enemyBlockChance.."%",
-					"Approximate hit chance: "..output.HitChance.."%",
+					localisation:Text("calc.offence.hit_chance.line_5", { accuracy_hit_chance = output.AccuracyHitChance }),
+					localisation:Text("calc.offence.hit_chance.line_6", { enemy_block_chance = output.enemyBlockChance }),
+					localisation:Text("calc.offence.hit_chance.line_7", { hit_chance = output.HitChance }),
 				}
 			else
 				breakdown.HitChance = {
-					"Enemy Block Chance: "..output.enemyBlockChance.."%",
-					"Approximate hit chance: "..output.HitChance.."%",
+					localisation:Text("calc.offence.hit_chance.line_6", { enemy_block_chance = output.enemyBlockChance }),
+					localisation:Text("calc.offence.hit_chance.line_7", { hit_chance = output.HitChance }),
 				}
 			end
 		end
@@ -2915,57 +2915,57 @@ function calcs.offence(env, actor, activeSkill)
 					storedSustainedTraumaBreakdown = { }
 					if incAttackSpeedPerTrauma == 0 then
 						breakdown.multiChain(storedSustainedTraumaBreakdown, {
-							label = "Trauma",
-							base = { "%.2f ^8(attack speed)", attackSpeedBeforeInc * (1 + inc/100) },
-							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
-							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
-							{ "%.2f ^8(duration)", duration },
+							label = "Trauma", labelKey = "ui.calc_offence.offence.label_10",
+							base = { "%.2f ^8(attack speed)", attackSpeedBeforeInc * (1 + inc/100), formatKey = "calc.offence.offence.factor_28", formatParams = { value = 2 } },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack, formatKey = "calc.offence.offence.factor_29", formatParams = { trauma_per_attack = 2 } },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100), formatKey = "calc.offence.offence.factor_30", formatParams = { value = 2 } },
+							{ "%.2f ^8(duration)", duration, formatKey = "calc.offence.offence.factor_31", formatParams = { duration = 2 } },
 							noTotal = true
 						})
 						if output.Repeats ~= 1 then
-							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+							t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_31", { repeats = output.Repeats }))
 						end
 					else
 						breakdown.multiChain(storedSustainedTraumaBreakdown, {
-							label = "Attack Speed before increased Attack Speed",
-							base = { "%.2f ^8(base)", 1 / baseTime },
-							{ "%.2f ^8(more/less)", more },
-							{ "%.2f ^8(action speed modifier)", globalOutput.ActionSpeedMod },
-							total = s_format("= %.2f ^8attacks per second", attackSpeedBeforeInc)
+							label = "Attack Speed before increased Attack Speed", labelKey = "ui.calc_offence.offence.label",
+							base = { "%.2f ^8(base)", 1 / baseTime, formatKey = "calc.offence.offence.factor_32", formatParams = { value = 2 } },
+							{ "%.2f ^8(more/less)", more, formatKey = "calc.offence.offence.factor_23", formatParams = { more = 2 } },
+							{ "%.2f ^8(action speed modifier)", globalOutput.ActionSpeedMod, formatKey = "calc.offence.offence.factor_33", formatParams = { action_speed_mod = 2 } },
+							total = localisation:Text("calc.offence.offence.line_32", { attack_speed_before_inc = attackSpeedBeforeInc })
 						})
 						t_insert(storedSustainedTraumaBreakdown, "")
 						breakdown.multiChain(storedSustainedTraumaBreakdown, {
-							label = "Trauma per second before increased Attack Speed",
-							base = { "%.2f ^8(base)", attackSpeedBeforeInc },
-							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
-							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
+							label = "Trauma per second before increased Attack Speed", labelKey = "ui.calc_offence.offence.label_11",
+							base = { "%.2f ^8(base)", attackSpeedBeforeInc, formatKey = "calc.offence.offence.factor_34", formatParams = { attack_speed_before_inc = 2 } },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack, formatKey = "calc.offence.offence.factor_29", formatParams = { trauma_per_attack = 2 } },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100), formatKey = "calc.offence.offence.factor_30", formatParams = { value = 2 } },
 							noTotal = true
 						})
 						if output.Repeats ~= 1 then
-							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+							t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_31", { repeats = output.Repeats }))
 						end
-						t_insert(storedSustainedTraumaBreakdown, s_format("= %.2f ^8trauma per second", traumaRateBeforeInc))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_33", { trauma_rate_before_inc = traumaRateBeforeInc }))
 						t_insert(storedSustainedTraumaBreakdown, "")
-						t_insert(storedSustainedTraumaBreakdown, "Trauma")
-						t_insert(storedSustainedTraumaBreakdown, s_format("%.2f ^8(base)", traumaRateBeforeInc))
-						t_insert(storedSustainedTraumaBreakdown, s_format("x %.2f ^8(increased/reduced)", (1 + inc / 100)))
-						t_insert(storedSustainedTraumaBreakdown, s_format("/ %.4f ^8(1 / duration - trauma per second * increased attack speed per trauma / 100)", ( 1 / duration - traumaRateBeforeInc * incAttackSpeedPerTrauma / 100 )))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_34"))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_35", { trauma_rate_before_inc = traumaRateBeforeInc }))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_36", { value = 1 + inc / 100 }))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_37", { value = 1 / duration - traumaRateBeforeInc * incAttackSpeedPerTrauma / 100 }))
 					end
-					t_insert(storedSustainedTraumaBreakdown, s_format("= "..(invalid and colorCodes.NEGATIVE or "").."%d ^8trauma", traumaBreakdown))
+					t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_238", { value = ((invalid and colorCodes.NEGATIVE) or ""), trauma_breakdown = traumaBreakdown }))
 					if invalid then
 						t_insert(storedSustainedTraumaBreakdown, "")
-						t_insert(storedSustainedTraumaBreakdown, "Attack Speed exceeds cap; Recalculating")
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_38"))
 						breakdown.multiChain(storedSustainedTraumaBreakdown, {
-							base = { "%.2f ^8(base)", effectiveAttackRateCap },
-							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
-							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
-							{ "%.2f ^8(duration)", (duration) },
+							base = { "%.2f ^8(base)", effectiveAttackRateCap, formatKey = "calc.offence.offence.factor_35", formatParams = { effective_attack_rate_cap = 2 } },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack, formatKey = "calc.offence.offence.factor_29", formatParams = { trauma_per_attack = 2 } },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100), formatKey = "calc.offence.offence.factor_30", formatParams = { value = 2 } },
+							{ "%.2f ^8(duration)", (duration), formatKey = "calc.offence.offence.factor_31", formatParams = { duration = 2 } },
 							noTotal = true
 						})
 						if output.Repeats ~= 1 then
-							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+							t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_31", { repeats = output.Repeats }))
 						end
-						t_insert(storedSustainedTraumaBreakdown, s_format("= %d ^8trauma", trauma))
+						t_insert(storedSustainedTraumaBreakdown, localisation:Text("calc.offence.offence.line_39", { trauma = trauma }))
 					end
 				end
 			end
@@ -3054,11 +3054,11 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.Speed = { }
 				breakdown.multiChain(breakdown.Speed, {
-					base = { "%.2f ^8(base)", 1 / baseTime },
-					{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
-					{ "%.2f ^8(more/less)", more },
-					{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1 },
-					total = s_format("= %.2f ^8casts per second", output.CastRate)
+					base = { "%.2f ^8(base)", 1 / baseTime, formatKey = "calc.offence.offence.factor_32", formatParams = { value = 2 } },
+					{ "%.2f ^8(increased/reduced)", 1 + inc/100, formatKey = "calc.offence.offence.factor_36", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less)", more, formatKey = "calc.offence.offence.factor_23", formatParams = { more = 2 } },
+					{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1, formatKey = "calc.offence.offence.factor_37", formatParams = { value = 2 } },
+					total = localisation:Text("calc.offence.offence.line_40", { cast_rate = output.CastRate })
 				})
 				-- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
 				-- note: if we are ever allowed to dual wield crossbows, this will need to be adjusted
@@ -3066,66 +3066,66 @@ function calcs.offence(env, actor, activeSkill)
 				if output.ReloadTime and source.ReloadTime then
 					globalBreakdown.FiringRate = { }
 					breakdown.multiChain(globalBreakdown.FiringRate, {
-						base = { "%.2f ^8(base)", 1 / baseTime },
-						{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
-						{ "%.2f ^8(more/less)", more },
-						{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1 }, -- currently no way fir standard crossbow skills to be used by totems, but leaving it in for future compatibility
-						total = s_format("= %.2f ^8bolts per second", output.FiringRate)
+						base = { "%.2f ^8(base)", 1 / baseTime, formatKey = "calc.offence.offence.factor_32", formatParams = { value = 2 } },
+						{ "%.2f ^8(increased/reduced)", 1 + inc/100, formatKey = "calc.offence.offence.factor_36", formatParams = { value = 2 } },
+						{ "%.2f ^8(more/less)", more, formatKey = "calc.offence.offence.factor_23", formatParams = { more = 2 } },
+						{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1, formatKey = "calc.offence.offence.factor_37", formatParams = { value = 2 } }, -- currently no way fir standard crossbow skills to be used by totems, but leaving it in for future compatibility
+						total = localisation:Text("calc.offence.offence.line_41", { firing_rate = output.FiringRate })
 					})
 
 					globalBreakdown.TotalFiringTime = { }
-					t_insert(globalBreakdown.TotalFiringTime, s_format("  1.00s / %.2f ^8(firing rate)", output.FiringRate))
-					t_insert(globalBreakdown.TotalFiringTime, s_format("= %.2fs ^8(time per bolt)", 1 / output.FiringRate))
+					t_insert(globalBreakdown.TotalFiringTime, localisation:Text("calc.offence.offence.line_42", { firing_rate = output.FiringRate }))
+					t_insert(globalBreakdown.TotalFiringTime, localisation:Text("calc.offence.offence.line_43", { value = 1 / output.FiringRate }))
 					t_insert(globalBreakdown.TotalFiringTime, s_format("\n"))
-					t_insert(globalBreakdown.TotalFiringTime, s_format("  %.2fs ^8(time per bolt)", 1/ output.FiringRate))
-					t_insert(globalBreakdown.TotalFiringTime, s_format("x %.2f ^8(eff. bolt count)", output.EffectiveBoltCount))
-					t_insert(globalBreakdown.TotalFiringTime, s_format("= %.2fs ^8(total firing time)", output.TotalFiringTime))
+					t_insert(globalBreakdown.TotalFiringTime, localisation:Text("calc.offence.offence.line_44", { value = 1/ output.FiringRate }))
+					t_insert(globalBreakdown.TotalFiringTime, localisation:Text("calc.offence.offence.line_45", { effective_bolt_count = output.EffectiveBoltCount }))
+					t_insert(globalBreakdown.TotalFiringTime, localisation:Text("calc.offence.offence.line_46", { total_firing_time = output.TotalFiringTime }))
 
 					globalBreakdown.ReloadTime = { }
 					local baseReloadTime = source.ReloadTime
 					local incReloadSpeed = skillModList:Sum("INC", skillCfg, "ReloadSpeed")
 					local moreReloadSpeed = skillModList:More("MORE", skillCfg, "ReloadSpeed")
-					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
-					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(base reload rate)", 1 / baseReloadTime))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_47", { base_reload_time = baseReloadTime }))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_48", { value = 1 / baseReloadTime }))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
-					t_insert(globalBreakdown.ReloadTime, s_format("^8Note: modifiers to attack speed also affect reload speed"))
-					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(increased/reduced)", 1 + (incReloadSpeed/100) + (inc/100) ))
-					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)",  1 * moreReloadSpeed * more ))
-					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(reload rate)", output.ReloadRate))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_49"))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_50", { value = 1 + (incReloadSpeed/100) + (inc/100) }))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_51", { value = 1 * moreReloadSpeed * more }))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_52", { reload_rate = output.ReloadRate }))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
-					t_insert(globalBreakdown.ReloadTime, s_format("   1.00s / %.2f ^8(reload rate)", output.ReloadRate))
-					t_insert(globalBreakdown.ReloadTime, s_format("= %.2fs ^8(reload time)", output.ReloadTime))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_53", { reload_rate = output.ReloadRate }))
+					t_insert(globalBreakdown.ReloadTime, localisation:Text("calc.offence.offence.line_54", { reload_time = output.ReloadTime }))
 
 					breakdown.Speed = { }
-					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total firing time)", output.TotalFiringTime))
-					t_insert(breakdown.Speed, s_format("+ %.2fs ^8(eff. reload time)", output.EffectiveReloadTime))
-					t_insert(breakdown.Speed, s_format("= %.2fs ^8(total attack time)", output.TotalFiringTime + output.EffectiveReloadTime))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_55", { total_firing_time = output.TotalFiringTime }))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_56", { effective_reload_time = output.EffectiveReloadTime }))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_57", { value = output.TotalFiringTime + output.EffectiveReloadTime }))
 					t_insert(breakdown.Speed, s_format("\n"))
-					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total attack time)", output.TotalFiringTime + output.EffectiveReloadTime))
-					t_insert(breakdown.Speed, s_format("/ %.2f ^8(eff. bolt count)", output.EffectiveBoltCount))
-					t_insert(breakdown.Speed, s_format("= %.2fs ^8(eff. attack time)", 1 / output.Speed))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_58", { value = output.TotalFiringTime + output.EffectiveReloadTime }))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_59", { effective_bolt_count = output.EffectiveBoltCount }))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_60", { value = 1 / output.Speed }))
 					t_insert(breakdown.Speed, s_format("\n"))
-					t_insert(breakdown.Speed, s_format(" 1 / %.2fs ^8(eff. attack time)", 1 / output.Speed))
-					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_61", { value = 1 / output.Speed }))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_62", { speed = output.Speed }))
 				end
 				-- Cooldown:
 				if output.Cooldown and (1 / output.Cooldown) < output.CastRate and not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
 					t_insert(breakdown.Speed, s_format("\n"))
-					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_63", { cooldown = output.Cooldown }))
 					if output.Repeats > 1 then
-						t_insert(breakdown.Speed, s_format("x %d ^8(repeat count)", output.Repeats))
+						t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_64", { repeats = output.Repeats }))
 					end
-					t_insert(breakdown.Speed, s_format("= %.2f ^8(casts per second)", output.Repeats / output.Cooldown))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_65", { value = output.Repeats / output.Cooldown }))
 					t_insert(breakdown.Speed, s_format("\n"))
-					t_insert(breakdown.Speed, s_format("= %.2f ^8(lower of cast rates)", output.Speed))
+					t_insert(breakdown.Speed, localisation:Text("calc.offence.offence.line_66", { speed = output.Speed }))
 				end
 			end
 			if breakdown and calcLib.mod(skillModList, skillCfg, "SkillAttackTime") > 0 then
 				breakdown.Time = { }
 				breakdown.multiChain(breakdown.Time, {
-					base = { "%.2f ^8(base)", 1 / (output.Speed * calcLib.mod(skillModList, skillCfg, "SkillAttackTime") ) },
-					{ "%.2f ^8(total modifier)", calcLib.mod(skillModList, skillCfg, "SkillAttackTime")  },
-					total = s_format("= %.2f ^8seconds per attack", output.Time)
+					base = { "%.2f ^8(base)", 1 / (output.Speed * calcLib.mod(skillModList, skillCfg, "SkillAttackTime") ), formatKey = "calc.offence.offence.factor_38", formatParams = { value = 2 } },
+					{ "%.2f ^8(total modifier)", calcLib.mod(skillModList, skillCfg, "SkillAttackTime"), formatKey = "calc.offence.offence.factor_39", formatParams = { value = 2 } },
+					total = localisation:Text("calc.offence.offence.line_67", { time = output.Time })
 				})
 			end
 
@@ -3193,7 +3193,7 @@ function calcs.offence(env, actor, activeSkill)
 			output.Time = output.OffHand.Time
 			if breakdown then
 				breakdown.Speed = {
-					"Use Offhand Weapon Attack Speed:",
+					localisation:Text("calc.offence.speed.line_2"),
 					s_format("= %.2f", output.Speed),
 				}
 			end
@@ -3201,20 +3201,20 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				if skillData.combinesHitsWhenDualWielding then
 					breakdown.Speed = {
-						"Combined hit from both weapons:",
+						localisation:Text("calc.offence.speed.line_3"),
 						s_format("1 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
 						s_format("= %.2f", output.Speed),
 					}
 				elseif skillData.doubleHitsWhenDualWielding then
 					breakdown.Speed = {
-						"Simultaneous hits from each weapon:",
+						localisation:Text("calc.offence.speed.line_4"),
 						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
-						s_format("%.2f ^8(hits twice per attack)", output.Speed),
+						localisation:Text("calc.offence.speed.line", { speed = output.Speed }),
 						s_format("= %.2f", output.Speed),
 					}
 				else
 					breakdown.Speed = {
-						"Alternating both weapons:",
+						localisation:Text("calc.offence.speed.line_5"),
 						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
 						s_format("= %.2f", output.Speed),
 					}
@@ -3233,10 +3233,10 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			if skillFlags.bothWeaponAttack then
 				breakdown.HitChance = {
-					"Both weapons:",
-					s_format("%.2f%% ^8(main hand)", output.MainHand.HitChance),
-					s_format("%.2f%% ^8(off hand)", output.OffHand.HitChance),
-					s_format("= %.2f%% ^8(average)", output.HitChance),
+					localisation:Text("calc.offence.hit_chance.line_4"),
+					localisation:Text("calc.offence.hit_chance.line", { hit_chance = output.MainHand.HitChance }),
+					localisation:Text("calc.offence.hit_chance.line_2", { hit_chance = output.OffHand.HitChance }),
+					localisation:Text("calc.offence.hit_chance.line_3", { hit_chance = output.HitChance }),
 				}
 			else
 				local handBreakdown = skillFlags.weapon1Attack and breakdown.MainHand or breakdown.OffHand
@@ -3267,40 +3267,40 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.channelTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			breakdown.ChannelTime = { }
 			if skillData.minChannelTime then
-				t_insert(breakdown.ChannelTime, s_format("%.2fs ^8(minimum channel time)", skillData.minChannelTime))
+				t_insert(breakdown.ChannelTime, localisation:Text("calc.offence.offence.line_68", { min_channel_time = skillData.minChannelTime }))
 				t_insert(breakdown.ChannelTime, s_format(""))
 			end
 			if isAttack then
-				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(attack time per stage)", 1 / output.ChannelSpeed))
+				t_insert(breakdown.ChannelTime, localisation:Text("calc.offence.offence.line_69", { value = 1 / output.ChannelSpeed }))
 			else
-				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(cast time per stage)", 1 / output.ChannelSpeed))
+				t_insert(breakdown.ChannelTime, localisation:Text("calc.offence.offence.line_70", { value = 1 / output.ChannelSpeed }))
 			end
-			t_insert(breakdown.ChannelTime, s_format("x %.2f ^8(channel time multiplier)", skillData.channelTimeMultiplier))
+			t_insert(breakdown.ChannelTime, localisation:Text("calc.offence.offence.line_71", { channel_time_multiplier = skillData.channelTimeMultiplier }))
 			t_insert(breakdown.ChannelTime, s_format("= %.2f", output.ChannelTime))
 		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			breakdown.HitSpeed = { }
-			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time override)", output.HitTime))
+			t_insert(breakdown.HitSpeed, localisation:Text("calc.offence.offence.line_72", { hit_time = output.HitTime }))
 			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			breakdown.HitTime = { }
 			if m_floor(skillData.hitTimeMultiplier) ~= skillData.hitTimeMultiplier then
-				t_insert(breakdown.HitTime, s_format(colorCodes.CUSTOM.."NOTE: First stage has a %.2fx channel time multiplier", skillData.hitTimeMultiplier - m_floor(skillData.hitTimeMultiplier)))
+				t_insert(breakdown.HitTime, localisation:Text("calc.offence.offence.line_73", { custom = colorCodes.CUSTOM, value = skillData.hitTimeMultiplier - m_floor(skillData.hitTimeMultiplier) }))
 			end
 			if isAttack then
-				t_insert(breakdown.HitTime, s_format("%.2f ^8(attack time)", output.Time))
+				t_insert(breakdown.HitTime, localisation:Text("calc.offence.offence.line_74", { time = output.Time }))
 			else
-				t_insert(breakdown.HitTime, s_format("%.2f ^8(cast time)", output.Time))
+				t_insert(breakdown.HitTime, localisation:Text("calc.offence.offence.line_75", { time = output.Time }))
 			end
-			t_insert(breakdown.HitTime, s_format("x %.2f ^8(channel time multiplier)", skillData.hitTimeMultiplier))
+			t_insert(breakdown.HitTime, localisation:Text("calc.offence.offence.line_76", { hit_time_multiplier = skillData.hitTimeMultiplier }))
 			t_insert(breakdown.HitTime, s_format("= %.2f", output.HitTime))
 			breakdown.HitSpeed = { }
 			if output.Cooldown and skillData.triggered then
-				t_insert(breakdown.HitSpeed, s_format("1 / min(%.2f, %.2f) ^8min(hit time, cooldown)", output.HitTime, output.Cooldown))
+				t_insert(breakdown.HitSpeed, localisation:Text("calc.offence.offence.line_77", { hit_time = output.HitTime, cooldown = output.Cooldown }))
 			elseif output.Cooldown then
-				t_insert(breakdown.HitSpeed, s_format("1 / (%.2f + %.2f) ^8(hit time + cooldown)", output.HitTime, output.Cooldown))
+				t_insert(breakdown.HitSpeed, localisation:Text("calc.offence.offence.line_78", { hit_time = output.HitTime, cooldown = output.Cooldown }))
 			else
-				t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time)", output.HitTime))
+				t_insert(breakdown.HitSpeed, localisation:Text("calc.offence.offence.line_79", { hit_time = output.HitTime }))
 			end
 			t_insert(breakdown.HitSpeed, s_format("= %.2f", output.HitSpeed))
 		end
@@ -3322,17 +3322,17 @@ function calcs.offence(env, actor, activeSkill)
 		output.MovementSpeedWhileUsingSkillPercent = (1 - total) * 100
 		if breakdown then
 			breakdown.MovementSpeedWhileUsingSkill = {
-				"Minimum Movement Speed while using this skill",
-				"^8(This is the lowest movement speed you will reach while using this skill,",
-				"^8subject to acceleration and deceleration)",
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_7"),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_8"),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_9"),
 				"",
-				s_format("%d%% ^8(movement speed penalty from using skill)", 100 - base * 100),
-				s_format("x %.2f) ^8(increased/reduced penalty)", 1 + inc / 100),
-				s_format("x %.2f) ^8(more/less penalty)", more),
-				s_format("= %.1f%% ^8(movement speed penalty)", 100 - output.MovementSpeedWhileUsingSkillPercent),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line", { value = 100 - base * 100 }),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_2", { value = 1 + inc / 100 }),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_3", { more = more }),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_4", { value = 100 - output.MovementSpeedWhileUsingSkillPercent }),
 				s_format(""),
-				s_format("100%% - %.1f%% ^8(100 - movement speed penalty)", 100 - output.MovementSpeedWhileUsingSkillPercent),
-				s_format("= %.1f%% ^8(movement speed while casting)", output.MovementSpeedWhileUsingSkillPercent),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_5", { value = 100 - output.MovementSpeedWhileUsingSkillPercent }),
+				localisation:Text("calc.offence.movement_speed_while_using_skill.line_6", { movement_speed_while_using_skill_percent = output.MovementSpeedWhileUsingSkillPercent }),
 			}
 		end
 	end
@@ -3357,8 +3357,8 @@ function calcs.offence(env, actor, activeSkill)
 		globalOutput[skillNameVar .. "UptimeRatio"] = uptimeOverride or m_min((1 / globalOutput.Speed) / globalOutput[skillNameVar .. "Cooldown"], 1) * 100
 		if globalBreakdown then
 			globalBreakdown[skillNameVar .. "UptimeRatio"] = {
-				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-				s_format("/ %.2f, 1) ^8(" .. skillNameLabel .. " cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]),
+				localisation:Text("calc.offence.calc_ancestral_boost.line", { speed = globalOutput.Speed }),
+				localisation:Text("calc.offence.calc_ancestral_boost.line_2", { skill_name_label = skillNameLabel, value = ((uptimeOverride and 1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]) }),
 				s_format("= %d%%", globalOutput[skillNameVar .. "UptimeRatio"]),
 			}
 		end
@@ -3366,8 +3366,8 @@ function calcs.offence(env, actor, activeSkill)
 		globalOutput["Avg" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput["Avg" .. skillNameVar .. "Damage"] * (globalOutput[skillNameVar .. "UptimeRatio"] / 100)
 		if globalBreakdown then
 			globalBreakdown["Avg" .. skillNameVar .. "DamageEffect"] = {
-				s_format("1 + (%.2f ^8(" .. skillNameLabel .. " damage multiplier)", globalOutput[skillNameVar .. "DamageMultiplier"]),
-				s_format("x %.2f) ^8(" .. skillNameLabel .. " uptime ratio)", globalOutput[skillNameVar .. "UptimeRatio"] / 100),
+				localisation:Text("calc.offence.calc_ancestral_boost.line_3", { skill_name_label = skillNameLabel, value = globalOutput[skillNameVar .. "DamageMultiplier"] }),
+				localisation:Text("calc.offence.calc_ancestral_boost.line_4", { skill_name_label = skillNameLabel, value = globalOutput[skillNameVar .. "UptimeRatio"] / 100 }),
 				s_format("= %.2f", globalOutput["Avg" .. skillNameVar .. "DamageEffect"]),
 			}
 		end
@@ -3400,11 +3400,11 @@ function calcs.offence(env, actor, activeSkill)
 		globalOutput[skillNameVar .. "UptimeRatio"] = m_min(globalOutput[skillNameVar .. "UptimeRatio"] + (globalOutput[additionalSkillNameVar .. "UptimeRatio"] or 0), 100)
 		if globalBreakdown then
 			globalBreakdown[skillNameVar .. "UptimeRatio"] = {
-				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-				s_format("/ %.2f, 1) ^8(" .. skillNameLabel .. " cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]),
+				localisation:Text("calc.offence.calc_combined_ancestral_boost.line", { speed = globalOutput.Speed }),
+				localisation:Text("calc.offence.calc_combined_ancestral_boost.line_3", { skill_name_label = skillNameLabel, value = ((uptimeOverride and 1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar .. "Cooldown"]) }),
 				"+",
-				s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-				s_format("/ %.2f, 1) ^8(" .. additionalSkillNameLabel .. " cooldown)", globalOutput[additionalSkillNameVar .. "Cooldown"]),
+				localisation:Text("calc.offence.calc_combined_ancestral_boost.line", { speed = globalOutput.Speed }),
+				localisation:Text("calc.offence.calc_combined_ancestral_boost.line_4", { additional_skill_name_label = additionalSkillNameLabel, value = globalOutput[additionalSkillNameVar .. "Cooldown"] }),
 				"capped at 100%",
 				s_format("= %d%%", globalOutput[skillNameVar .. "UptimeRatio"]),
 			}
@@ -3413,7 +3413,7 @@ function calcs.offence(env, actor, activeSkill)
 		globalOutput["Avg" .. skillNameVar .. "DamageEffect"] = 1 + globalOutput["Avg" .. skillNameVar .. "Damage"] * (globalOutput[skillNameVar .. "UptimeRatio"] / 100)
 		if globalBreakdown then
 			globalBreakdown["Avg" .. skillNameVar .. "DamageEffect"] = {
-				s_format("1 + (%.2f x %.2f) ^8(combined ancestral boost damage multiplier x uptime ratio)", globalOutput[skillNameVar .. "DamageMultiplier"], globalOutput[skillNameVar .. "UptimeRatio"] / 100),
+				localisation:Text("calc.offence.calc_combined_ancestral_boost.line_2", { value = globalOutput[skillNameVar .. "DamageMultiplier"], value_2 = globalOutput[skillNameVar .. "UptimeRatio"] / 100 }),
 				s_format("= %.2f", globalOutput["Avg" .. skillNameVar .. "DamageEffect"]),
 			}
 		end
@@ -3468,13 +3468,13 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.AncestralUpTimeRatio
 						if globalBreakdown then
 							globalBreakdown.AncestralUpTimeRatio = { }
-							t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.AncestralExertsCount))
-							t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+							t_insert(globalBreakdown.AncestralUpTimeRatio, localisation:Text("calc.offence.offence.line_80", { ancestral_exerts_count = globalOutput.AncestralExertsCount }))
+							t_insert(globalBreakdown.AncestralUpTimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 							if globalOutput.AncestralCryCastTime > 0 then
-								t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.AncestralCryCooldown))
-								t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.AncestralCryCastTime))
+								t_insert(globalBreakdown.AncestralUpTimeRatio, localisation:Text("calc.offence.offence.line_82", { ancestral_cry_cooldown = globalOutput.AncestralCryCooldown }))
+								t_insert(globalBreakdown.AncestralUpTimeRatio, localisation:Text("calc.offence.offence.line_83", { ancestral_cry_cast_time = globalOutput.AncestralCryCastTime }))
 							else
-								t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.AncestralCryCooldown))
+								t_insert(globalBreakdown.AncestralUpTimeRatio, localisation:Text("calc.offence.offence.line_84", { ancestral_cry_cooldown = globalOutput.AncestralCryCooldown }))
 							end
 							t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("= %d%%", globalOutput.AncestralUpTimeRatio))
 						end
@@ -3491,13 +3491,13 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.InfernalCryUptimeRatio
 						if globalBreakdown then
 							globalBreakdown.InfernalCryUptimeRatio = { }
-							t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("(%.2f ^8(number of empowered)", globalOutput.InfernalEmpoweredCount))
-							t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+							t_insert(globalBreakdown.InfernalCryUptimeRatio, localisation:Text("calc.offence.offence.line_85", { infernal_empowered_count = globalOutput.InfernalEmpoweredCount }))
+							t_insert(globalBreakdown.InfernalCryUptimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 							if globalOutput.InfernalCryCastTime > 0 then
-								t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.InfernalCryCooldown))
-								t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("+ %.2f) ^8(warcry cast time)", globalOutput.InfernalCryCastTime))
+								t_insert(globalBreakdown.InfernalCryUptimeRatio, localisation:Text("calc.offence.offence.line_86", { infernal_cry_cooldown = globalOutput.InfernalCryCooldown }))
+								t_insert(globalBreakdown.InfernalCryUptimeRatio, localisation:Text("calc.offence.offence.line_87", { infernal_cry_cast_time = globalOutput.InfernalCryCastTime }))
 							else
-								t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.InfernalCryCooldown))
+								t_insert(globalBreakdown.InfernalCryUptimeRatio, localisation:Text("calc.offence.offence.line_88", { infernal_cry_cooldown = globalOutput.InfernalCryCooldown }))
 							end
 							t_insert(globalBreakdown.InfernalCryUptimeRatio, s_format("= %d%%", globalOutput.InfernalCryUptimeRatio))
 						end
@@ -3519,13 +3519,13 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.IntimidatingUpTimeRatio
 						if globalBreakdown then
 							globalBreakdown.IntimidatingUpTimeRatio = { }
-							t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.IntimidatingExertsCount))
-							t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+							t_insert(globalBreakdown.IntimidatingUpTimeRatio, localisation:Text("calc.offence.offence.line_89", { intimidating_exerts_count = globalOutput.IntimidatingExertsCount }))
+							t_insert(globalBreakdown.IntimidatingUpTimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 							if 	globalOutput.IntimidatingCryCastTime > 0 then
-								t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.IntimidatingCryCooldown))
-								t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.IntimidatingCryCastTime))
+								t_insert(globalBreakdown.IntimidatingUpTimeRatio, localisation:Text("calc.offence.offence.line_90", { intimidating_cry_cooldown = globalOutput.IntimidatingCryCooldown }))
+								t_insert(globalBreakdown.IntimidatingUpTimeRatio, localisation:Text("calc.offence.offence.line_91", { intimidating_cry_cast_time = globalOutput.IntimidatingCryCastTime }))
 							else
-								t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.IntimidatingCryCooldown))
+								t_insert(globalBreakdown.IntimidatingUpTimeRatio, localisation:Text("calc.offence.offence.line_92", { intimidating_cry_cooldown = globalOutput.IntimidatingCryCooldown }))
 							end
 							t_insert(globalBreakdown.IntimidatingUpTimeRatio, s_format("= %d%%", globalOutput.IntimidatingUpTimeRatio))
 						end
@@ -3533,9 +3533,9 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.IntimidatingAvgDmg = 2 * (1 - ddChance / 100) -- 1
 						if globalBreakdown then
 							globalBreakdown.IntimidatingAvgDmg = {
-								"Average Intimidating Cry Damage:",
-								s_format("%.2f%% ^8(base double damage increase to hit 100%%)", (1 - ddChance / 100) * 100 ),
-								s_format("x %d ^8(double damage multiplier)", 2),
+								localisation:Text("calc.offence.intimidating_avg_dmg.line_3"),
+								localisation:Text("calc.offence.intimidating_avg_dmg.line", { value = (1 - ddChance / 100) * 100 }),
+								localisation:Text("calc.offence.intimidating_avg_dmg.line_2", { value = 2 }),
 								s_format("= %.2f", globalOutput.IntimidatingAvgDmg),
 							}
 						end
@@ -3543,8 +3543,8 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.IntimidatingMaxHitEffect = 1 + globalOutput.IntimidatingAvgDmg
 						if globalBreakdown then
 							globalBreakdown.IntimidatingHitEffect = {
-								s_format("1 + (%.2f ^8(average exerted damage)", globalOutput.IntimidatingAvgDmg),
-								s_format("x %.2f) ^8(uptime %%)", globalOutput.IntimidatingUpTimeRatio / 100),
+								localisation:Text("calc.offence.intimidating_hit_effect.line", { intimidating_avg_dmg = globalOutput.IntimidatingAvgDmg }),
+								localisation:Text("calc.offence.intimidating_hit_effect.line_2", { value = globalOutput.IntimidatingUpTimeRatio / 100 }),
 								s_format("= %.2f", globalOutput.IntimidatingHitEffect),
 							}
 						end
@@ -3564,22 +3564,22 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.RallyingUpTimeRatio
 						if globalBreakdown then
 							globalBreakdown.RallyingUpTimeRatio = { }
-							t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.RallyingExertsCount))
-							t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+							t_insert(globalBreakdown.RallyingUpTimeRatio, localisation:Text("calc.offence.offence.line_93", { rallying_exerts_count = globalOutput.RallyingExertsCount }))
+							t_insert(globalBreakdown.RallyingUpTimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 							if 	globalOutput.RallyingCryCastTime > 0 then
-								t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.RallyingCryCooldown))
-								t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.RallyingCryCastTime))
+								t_insert(globalBreakdown.RallyingUpTimeRatio, localisation:Text("calc.offence.offence.line_94", { rallying_cry_cooldown = globalOutput.RallyingCryCooldown }))
+								t_insert(globalBreakdown.RallyingUpTimeRatio, localisation:Text("calc.offence.offence.line_95", { rallying_cry_cast_time = globalOutput.RallyingCryCastTime }))
 							else
-								t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.RallyingCryCooldown))
+								t_insert(globalBreakdown.RallyingUpTimeRatio, localisation:Text("calc.offence.offence.line_96", { rallying_cry_cooldown = globalOutput.RallyingCryCooldown }))
 							end
 							t_insert(globalBreakdown.RallyingUpTimeRatio, s_format("= %d%%", globalOutput.RallyingUpTimeRatio))
 						end
 						globalOutput.RallyingAvgDmg = m_min(env.modDB:Sum("BASE", cfg, "Multiplier:NearbyAlly"), 5) * (env.modDB:Sum("BASE", nil, "RallyingExertMoreDamagePerAlly") / 100)
 						if globalBreakdown then
 							globalBreakdown.RallyingAvgDmg = {
-								"Average Rallying Cry Damage:",
-								s_format("%.2f ^8(average damage multiplier per ally)", env.modDB:Sum("BASE", nil, "RallyingExertMoreDamagePerAlly") / 100),
-								s_format("x %d ^8(number of nearby allies (max=5))", m_min(env.modDB:Sum("BASE", cfg, "Multiplier:NearbyAlly"), 5)),
+								localisation:Text("calc.offence.rallying_avg_dmg.line_3"),
+								localisation:Text("calc.offence.rallying_avg_dmg.line", { value = env.modDB:Sum("BASE", nil, "RallyingExertMoreDamagePerAlly") / 100 }),
+								localisation:Text("calc.offence.rallying_avg_dmg.line_2", { value = m_min(env.modDB:Sum("BASE", cfg, "Multiplier:NearbyAlly"), 5) }),
 								s_format("= %.2f", globalOutput.RallyingAvgDmg),
 							}
 						end
@@ -3587,8 +3587,8 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.RallyingMaxHitEffect = 1 + globalOutput.RallyingAvgDmg
 						if globalBreakdown then
 							globalBreakdown.RallyingHitEffect = {
-								s_format("1 + (%.2f ^8(average exerted damage)", globalOutput.RallyingAvgDmg),
-								s_format("x %.2f) ^8(uptime %%)", globalOutput.RallyingUpTimeRatio / 100),
+								localisation:Text("calc.offence.rallying_hit_effect.line", { rallying_avg_dmg = globalOutput.RallyingAvgDmg }),
+								localisation:Text("calc.offence.rallying_hit_effect.line_2", { value = globalOutput.RallyingUpTimeRatio / 100 }),
 								s_format("= %.2f", globalOutput.RallyingHitEffect),
 							}
 						end
@@ -3617,13 +3617,13 @@ function calcs.offence(env, actor, activeSkill)
 						calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
 						if globalBreakdown then
 							globalBreakdown.SeismicUpTimeRatio = { }
-							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.SeismicExertsCount))
-							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+							t_insert(globalBreakdown.SeismicUpTimeRatio, localisation:Text("calc.offence.offence.line_97", { seismic_exerts_count = globalOutput.SeismicExertsCount }))
+							t_insert(globalBreakdown.SeismicUpTimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 							if 	globalOutput.SeismicCryCastTime > 0 then
-								t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.SeismicCryCooldown))
-								t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.SeismicCryCastTime))
+								t_insert(globalBreakdown.SeismicUpTimeRatio, localisation:Text("calc.offence.offence.line_98", { seismic_cry_cooldown = globalOutput.SeismicCryCooldown }))
+								t_insert(globalBreakdown.SeismicUpTimeRatio, localisation:Text("calc.offence.offence.line_99", { seismic_cry_cast_time = globalOutput.SeismicCryCastTime }))
 							else
-								t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.SeismicCryCooldown))
+								t_insert(globalBreakdown.SeismicUpTimeRatio, localisation:Text("calc.offence.offence.line_100", { seismic_cry_cooldown = globalOutput.SeismicCryCooldown }))
 							end
 							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("= %d%%", globalOutput.SeismicUpTimeRatio))
 						end
@@ -3640,13 +3640,13 @@ function calcs.offence(env, actor, activeSkill)
 							globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.BattlemageUpTimeRatio
 							if globalBreakdown then
 								globalBreakdown.BattlemageUpTimeRatio = { }
-								t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.BattleCryExertsCount))
-								t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
+								t_insert(globalBreakdown.BattlemageUpTimeRatio, localisation:Text("calc.offence.offence.line_101", { battle_cry_exerts_count = globalOutput.BattleCryExertsCount }))
+								t_insert(globalBreakdown.BattlemageUpTimeRatio, localisation:Text("calc.offence.offence.line_81", { speed = globalOutput.Speed }))
 								if globalOutput.BattleMageCryCastTime > 0 then
-									t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.BattleMageCryCooldown))
-									t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.BattleMageCryCastTime))
+									t_insert(globalBreakdown.BattlemageUpTimeRatio, localisation:Text("calc.offence.offence.line_102", { battle_mage_cry_cooldown = globalOutput.BattleMageCryCooldown }))
+									t_insert(globalBreakdown.BattlemageUpTimeRatio, localisation:Text("calc.offence.offence.line_103", { battle_mage_cry_cast_time = globalOutput.BattleMageCryCastTime }))
 								else
-									t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("/ %.2f ^8(average warcry cooldown)", globalOutput.BattleMageCryCooldown))
+									t_insert(globalBreakdown.BattlemageUpTimeRatio, localisation:Text("calc.offence.offence.line_104", { battle_mage_cry_cooldown = globalOutput.BattleMageCryCooldown }))
 								end
 								t_insert(globalBreakdown.BattlemageUpTimeRatio, s_format("= %d%%", globalOutput.BattlemageUpTimeRatio))
 							end
@@ -3739,10 +3739,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if globalBreakdown then
 			globalBreakdown.ExertedAttackUptimeRatio = { }
-			t_insert(globalBreakdown.ExertedAttackUptimeRatio, s_format("Maximum of:"))
+			t_insert(globalBreakdown.ExertedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_105"))
 			for _, cryTimeRatio in ipairs(combinedList) do
 				if globalOutput[cryTimeRatio] then
-					t_insert(globalBreakdown.ExertedAttackUptimeRatio, s_format("%d%% ^8(%s Uptime)", maxEmpoweredUptimeRatio or globalOutput[cryTimeRatio] or 0, maxEmpoweredUptimeRatio and "Override" or cryTimeRatio:match("(.+)Up.*") or "Override"))
+					t_insert(globalBreakdown.ExertedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_106", { value = ((maxEmpoweredUptimeRatio or globalOutput[cryTimeRatio]) or 0), value_2 = (((maxEmpoweredUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or cryTimeRatio:match("(.+)Up.*")) or localisation:Ref("calc.offence.offence.line.parameter")) }))
 				end
 			end
 			t_insert(globalBreakdown.ExertedAttackUptimeRatio, s_format("= %d%%", globalOutput.ExertedAttackUptimeRatio))
@@ -3759,8 +3759,8 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput.ExertedAttackMaxHitEffect = globalOutput.ExertedAttackAvgDmg
 			if globalBreakdown then
 				globalBreakdown.ExertedAttackHitEffect = {
-					s_format("(%.2f ^8(average exerted damage)", globalOutput.ExertedAttackAvgDmg),
-					s_format("x %.2f) ^8(uptime %%)", globalOutput.ExertedAttackUptimeRatio / 100),
+					localisation:Text("calc.offence.exerted_attack_hit_effect.line", { exerted_attack_avg_dmg = globalOutput.ExertedAttackAvgDmg }),
+					localisation:Text("calc.offence.exerted_attack_hit_effect.line_2", { value = globalOutput.ExertedAttackUptimeRatio / 100 }),
 					s_format("= %.2f", globalOutput.ExertedAttackHitEffect),
 				}
 			end
@@ -3774,10 +3774,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if globalBreakdown then
 			globalBreakdown.BoostedAttackUptimeRatio = { }
-			t_insert(globalBreakdown.BoostedAttackUptimeRatio, s_format("Maximum of:"))
+			t_insert(globalBreakdown.BoostedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_105"))
 			for _, boostUptimeRatio in ipairs(ancestralBoostList) do
 				if globalOutput[boostUptimeRatio] then
-					t_insert(globalBreakdown.BoostedAttackUptimeRatio, s_format("%d%% ^8(%s Uptime)", maxBoostedUptimeRatio or globalOutput[boostUptimeRatio] or 0, maxBoostedUptimeRatio and "Override" or boostUptimeRatio:match("(.+)Up.*")))
+					t_insert(globalBreakdown.BoostedAttackUptimeRatio, localisation:Text("calc.offence.offence.line_107", { value = ((maxBoostedUptimeRatio or globalOutput[boostUptimeRatio]) or 0), value_2 = ((maxBoostedUptimeRatio and localisation:Ref("calc.offence.offence.line.parameter")) or boostUptimeRatio:match("(.+)Up.*")) }))
 				end
 			end
 			t_insert(globalBreakdown.BoostedAttackUptimeRatio, s_format("= %d%%", globalOutput.BoostedAttackUptimeRatio))
@@ -3799,8 +3799,8 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput.BoostedAttackMaxHitEffect = globalOutput.BoostedAttackAvgDmg
 			if globalBreakdown then
 				globalBreakdown.BoostedAttackHitEffect = {
-					s_format("(%.2f ^8(average Boosted damage)", globalOutput.BoostedAttackAvgDmg),
-					s_format("x %.2f) ^8(uptime %%)", globalOutput.BoostedAttackUptimeRatio / 100),
+					localisation:Text("calc.offence.boosted_attack_hit_effect.line", { boosted_attack_avg_dmg = globalOutput.BoostedAttackAvgDmg }),
+					localisation:Text("calc.offence.boosted_attack_hit_effect.line_2", { value = globalOutput.BoostedAttackUptimeRatio / 100 }),
 					s_format("= %.2f", globalOutput.BoostedAttackHitEffect),
 				}
 			end
@@ -3838,8 +3838,8 @@ function calcs.offence(env, actor, activeSkill)
 					if breakdown then
 						breakdown.CritChance = {
 							s_format("100%%"),
-							s_format("/ %d ^8(number of repeats)", output.Repeats),
-							s_format("= %.2f%% average critical strike chance", output.CritChance)
+							localisation:Text("calc.offence.crit_chance.line", { repeats = output.Repeats }),
+							localisation:Text("calc.offence.crit_chance.line_2", { crit_chance = output.CritChance })
 						}
 					end
 				else
@@ -3936,42 +3936,42 @@ function calcs.offence(env, actor, activeSkill)
 					breakdown.CritChance = { }
 					local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or baseCritFromParentMainHand and " from parent main weapon" or ""
 					if base ~= 0 then
-						t_insert(breakdown.CritChance, s_format("(%g + %g) ^8(base%s)", baseCrit, base, baseCritFromMainHandStr))
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_108", { base_crit = baseCrit, base = base, base_crit_from_main_hand_str = baseCritFromMainHandStr }))
 					else
-						t_insert(breakdown.CritChance, s_format("%g ^8(base%s)", baseCrit + base, baseCritFromMainHandStr))
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_109", { value = baseCrit + base, base_crit_from_main_hand_str = baseCritFromMainHandStr }))
 					end
 					if inc ~= 0 then
-						t_insert(breakdown.CritChance, s_format("x %.2f", 1 + inc/100).." ^8(increased/reduced)")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_110", { value = 1 + inc/100 }))
 					end
 					if more ~= 1 then
-						t_insert(breakdown.CritChance, s_format("x %.2f", more).." ^8(more/less)")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_3", { more = more }))
 					end
-					t_insert(breakdown.CritChance, s_format("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance))
+					t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_111", { pre_effective_crit_chance = output.PreEffectiveCritChance }))
 					if preCapCritChance > 100 then
 						local overCap = preCapCritChance - 100
-						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_112", { over_cap = overCap, value = overCap / more / (baseCrit + base) * 100 }))
 					end
 					breakdown.PreEffectiveCritChance = copyTable(breakdown.CritChance)
 					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "")
-						t_insert(breakdown.CritChance, "Crit confirmation roll:")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_113"))
 						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
-						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_114", { value = output.AccuracyHitChance / 100 }))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
 					end
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
-						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_115"))
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preBifurcateCritChance))
 					end
 					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
-						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_116"))
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preInevitableCritChance))
 					end
 					if inevitableCrits then
-						t_insert(breakdown.CritChance, "Inevitable Critical Hits:")
-						t_insert(breakdown.CritChance, "= 100% ^8(override)")
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_117"))
+						t_insert(breakdown.CritChance, localisation:Text("calc.offence.offence.line_118"))
 					end
 				end
 			end
@@ -4002,11 +4002,11 @@ function calcs.offence(env, actor, activeSkill)
 					local bifurcatedBonus = conditionalBifurcateChance * extraDamage
 					if breakdown then
 						breakdown.CritBifurcates = {
-							s_format("%.2f%% ^8(pre-bifurcate crit chance)", critChancePercentage),
+							localisation:Text("calc.offence.crit_bifurcates.line", { crit_chance_percentage = critChancePercentage }),
 							s_format("x %.2f%%", critChancePercentage),
-							s_format("= %.2f%% ^8(chance both crit rolls succeed)", bifurcateMultiChance),
-							s_format("/ %.2f%% ^8(chance at least one crit roll succeeds)", effectiveCritChance),
-							s_format("= %.2f ^8(crit Bifurcates effect)", 1 + conditionalBifurcateChance),
+							localisation:Text("calc.offence.crit_bifurcates.line_2", { bifurcate_multi_chance = bifurcateMultiChance }),
+							localisation:Text("calc.offence.crit_bifurcates.line_3", { effective_crit_chance = effectiveCritChance }),
+							localisation:Text("calc.offence.crit_bifurcates.line_4", { value = 1 + conditionalBifurcateChance }),
 						}
 					end
 					extraDamage = damageBonus + bifurcatedBonus
@@ -4019,9 +4019,9 @@ function calcs.offence(env, actor, activeSkill)
 					extraDamage = round(extraDamage * enemyInc, 2)
 					if breakdown and enemyInc ~= 1 then
 						breakdown.CritMultiplier = {
-							s_format("%d%% ^8(additional extra damage)", (enemyDB:Sum("BASE", nil, "SelfCritMultiplier") + skillModList:Sum("BASE", cfg, "CritMultiplier")) / 100),
-							s_format("x %.2f ^8(increased/reduced extra crit damage taken by enemy)", enemyInc),
-							s_format("= %d%% ^8(extra crit damage)", extraDamage * 100),
+							localisation:Text("calc.offence.crit_multiplier.line", { value = (enemyDB:Sum("BASE", nil, "SelfCritMultiplier") + skillModList:Sum("BASE", cfg, "CritMultiplier")) / 100 }),
+							localisation:Text("calc.offence.crit_multiplier.line_2", { enemy_inc = enemyInc }),
+							localisation:Text("calc.offence.crit_multiplier.line_3", { value = extraDamage * 100 }),
 						}
 					end
 				end
@@ -4032,8 +4032,8 @@ function calcs.offence(env, actor, activeSkill)
 			output.BonusCritDotMultiplier = (skillModList:Sum("BASE", cfg, "CritMultiplier") - 50) * skillModList:Sum("BASE", cfg, "CritMultiplierAppliesToDegen") / 10000
 			if breakdown and output.CritEffect ~= 1 then
 				breakdown.CritEffect = {
-					s_format("(1 - %.4f) ^8(portion of damage from non-crits)", critChancePercentage),
-					s_format("+ [ (%.4f x %g) ^8(portion of damage from crits)", critChancePercentage, output.CritMultiplier),
+					localisation:Text("calc.offence.crit_effect.line", { crit_chance_percentage = critChancePercentage }),
+					localisation:Text("calc.offence.crit_effect.line_2", { crit_chance_percentage = critChancePercentage, crit_multiplier = output.CritMultiplier }),
 					s_format("= %.3f", output.CritEffect),
 				}
 			end
@@ -4081,18 +4081,18 @@ function calcs.offence(env, actor, activeSkill)
 		if globalBreakdown and maxCullPercent > 0 then
 			globalBreakdown.CullingStrike = { }
 			if (skillModList:Override(cfg, "CullPercent") or 0) > 0 then
-				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull override)", regularCull))
+				t_insert(globalBreakdown.CullingStrike, localisation:Text("calc.offence.offence.line_119", { regular_cull = regularCull }))
 			else
-				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull against %s enemy)", regularCull, enemyRarity:lower()))
+				t_insert(globalBreakdown.CullingStrike, localisation:Text("calc.offence.offence.line_120", { regular_cull = regularCull, value = enemyRarity:lower() }))
 			end
 			if criticalCull > 0 then
 				if (skillModList:Override(cfg, "CriticalCullPercent") or 0) > 0 then
-					t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(critical cull override)", criticalCull))
+					t_insert(globalBreakdown.CullingStrike, localisation:Text("calc.offence.offence.line_121", { critical_cull = criticalCull }))
 				else
-					t_insert(globalBreakdown.CullingStrike, s_format("%d ^8(critical cull against %s enemy)", criticalCull, enemyRarity))
+					t_insert(globalBreakdown.CullingStrike, localisation:Text("calc.offence.offence.line_122", { critical_cull = criticalCull, enemy_rarity = enemyRarity }))
 				end
 			end
-			t_insert(globalBreakdown.CullingStrike, s_format("x %.2f ^8(increased cull threshold)", incCullPercent))
+			t_insert(globalBreakdown.CullingStrike, localisation:Text("calc.offence.offence.line_123", { inc_cull_percent = incCullPercent }))
 			t_insert(globalBreakdown.CullingStrike, s_format("= %.2f%%", maxCullPercent))
 		end
 
@@ -4139,19 +4139,19 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown[damageType] = { damageTypes = { } }
 				if baseMin ~= 0 or baseMax ~= 0 then
-					t_insert(breakdown[damageType], "Base damage:")
+					t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_124"))
 					local plus = ""
 					if (source[damageTypeMin] or 0) ~= 0 or (source[damageTypeMax] or 0) ~= 0 then
-						t_insert(breakdown[damageType], s_format("%d to %d ^8(damage from %s)", source[damageTypeMin], source[damageTypeMax], source.type and "weapon" or "skill"))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_125", { value = source[damageTypeMin], value_2 = source[damageTypeMax], value_3 = ((source.type and localisation:Ref("calc.offence.offence.line.parameter_2")) or localisation:Ref("calc.offence.offence.line.parameter_3")) }))
 					end
 					if addedMin ~= 0 or addedMax ~= 0 then
-						t_insert(breakdown[damageType], s_format("%s%d to %d ^8(added damage)", plus, addedMin, addedMax))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_126", { plus = plus, added_min = addedMin, added_max = addedMax }))
 						if addedMult ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(added damage multiplier)", addedMult))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_127", { added_mult = addedMult }))
 						end
 					end
 					if baseMultiplier ~= 1 then
-						t_insert(breakdown[damageType], s_format("x %.2f ^8(base damage multiplier)", baseMultiplier))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_128", { base_multiplier = baseMultiplier }))
 					end
 				end
 			end
@@ -4172,18 +4172,18 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				if (baseMin ~= 0 or baseMax ~= 0) then
 					if convMult ~= 1 then
-						t_insert(breakdown[damageType], s_format("x %g ^8(%g%% converted to other damage types)", convMult, (1-convMult)*100))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_129", { conv_mult = convMult, value = (1-convMult)*100 }))
 					end
 				else  -- this means base damage header wasn't applied in the previous section
-					t_insert(breakdown[damageType], "Base damage:")
+					t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_124"))
 				end
 				if convertedMin ~= 0 or convertedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", round(convertedMin), round(convertedMax)))
+					t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_130", { value = round(convertedMin), value_2 = round(convertedMax) }))
 				end
 				if gainedMin ~= 0 or gainedMax ~= 0 then
-					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", round(gainedMin), round(gainedMax)))
+					t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_131", { value = round(gainedMin), value_2 = round(gainedMax) }))
 				end
-				t_insert(breakdown[damageType], s_format("= %.1f to %.1f", summedMin, summedMax))
+				t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_132", { summed_min = summedMin, summed_max = summedMax }))
 			end
 
 			output[damageType.."StoredCombinedAvg"] = 0
@@ -4214,34 +4214,34 @@ function calcs.offence(env, actor, activeSkill)
 				if skillFlags.hit and canDeal[damageType] then
 					damageTypeHitMin, damageTypeHitMax = calcDamage(activeSkill, output, cfg, pass == 2 and breakdown and breakdown[damageType], damageType, 0)
 					if pass == 2 and breakdown then
-						t_insert(breakdown[damageType], "Hit damage:")
-						t_insert(breakdown[damageType], s_format("%d to %d ^8(total damage)", damageTypeHitMin, damageTypeHitMax))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_133"))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_134", { damage_type_hit_min = damageTypeHitMin, damage_type_hit_max = damageTypeHitMax }))
 						if output.DoubleDamageEffect ~= 0 then
 							if output.TripleDamageEffect ~= 0 then
-								t_insert(breakdown[damageType], s_format("x %.2f ^8(1 + %.2f + %.2f multiplier from %.1f%% chance to deal double damage and %d%% chance to deal triple damage)", 1 + output.DoubleDamageEffect + output.TripleDamageEffect, output.DoubleDamageEffect, output.TripleDamageEffect, output.DoubleDamageChance, output.TripleDamageChance))
+								t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_135", { value = 1 + output.DoubleDamageEffect + output.TripleDamageEffect, double_damage_effect = output.DoubleDamageEffect, triple_damage_effect = output.TripleDamageEffect, double_damage_chance = output.DoubleDamageChance, triple_damage_chance = output.TripleDamageChance }))
 							else
-								t_insert(breakdown[damageType], s_format("x %.2f ^8(multiplier from %d%% chance to deal double damage)", 1 + output.DoubleDamageEffect, output.DoubleDamageChance))
+								t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_136", { value = 1 + output.DoubleDamageEffect, double_damage_chance = output.DoubleDamageChance }))
 							end
 						elseif output.TripleDamageEffect ~= 0 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(multiplier from %d%% chance to deal triple damage)", 1 + output.TripleDamageEffect, output.TripleDamageChance))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_137", { value = 1 + output.TripleDamageEffect, triple_damage_chance = output.TripleDamageChance }))
 						end
 						if output.FistOfWarDamageEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(fist of war effect modifier)", output.FistOfWarDamageEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_138", { fist_of_war_damage_effect = output.FistOfWarDamageEffect }))
 						end
 						if output.AncestralCallDamageEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral call effect modifier)", output.AncestralCallDamageEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_139", { ancestral_call_damage_effect = output.AncestralCallDamageEffect }))
 						end
 						if output.AncestralEmpowermentDamageEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral empowerment effect modifier)", output.AncestralEmpowermentDamageEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_140", { ancestral_empowerment_damage_effect = output.AncestralEmpowermentDamageEffect }))
 						end
 						if output.AncestralEmpowermentCombinedDamageEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral empowerment combined effect modifier)", output.AncestralEmpowermentCombinedDamageEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_141", { ancestral_empowerment_combined_damage_effect = output.AncestralEmpowermentCombinedDamageEffect }))
 						end
 						if globalOutput.OffensiveWarcryEffect ~= 1  and not activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated warcry exerted effect modifier)", globalOutput.OffensiveWarcryEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_142", { offensive_warcry_effect = globalOutput.OffensiveWarcryEffect }))
 						end
 						if globalOutput.MaxOffensiveWarcryEffect ~= 1 and activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated max warcry exerted effect modifier)", globalOutput.MaxOffensiveWarcryEffect))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_143", { max_offensive_warcry_effect = globalOutput.MaxOffensiveWarcryEffect }))
 						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
@@ -4394,15 +4394,15 @@ function calcs.offence(env, actor, activeSkill)
 						end
 						local breakdownResist = invertChance > 0 and resist or normalHitResist
 						if pass == 2 and breakdown and (effMult ~= 1 or sourceRes ~= damageType or invertChance > 0) and cannotElePenIgnore then
-							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_144", { eff_mult = effMult }))
 							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, breakdownResist, 0, takenInc, effMult, takenMore, sourceRes, usesResistance, invertChance, minPen, effectiveResist, normalHitResist, invertedHitResist)
 						elseif pass == 2 and breakdown and (effMult ~= 1 or (resist - pen) < minPen or sourceRes ~= damageType or invertChance > 0) then
-							t_insert(breakdown[damageType], s_format("x %.3f ^8(effective DPS modifier)", effMult))
+							t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_144", { eff_mult = effMult }))
 							breakdown[damageType.."EffMult"] = breakdown.effMult(damageType, breakdownResist, pen, takenInc, effMult, takenMore, sourceRes, usesResistance, invertChance, minPen, effectiveResist, normalHitResist, invertedHitResist)
 						end
 					end
 					if pass == 2 and breakdown then
-						t_insert(breakdown[damageType], s_format("= %d to %d", damageTypeHitMin, damageTypeHitMax))
+						t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_145", { damage_type_hit_min = damageTypeHitMin, damage_type_hit_max = damageTypeHitMax }))
 					end
 
 					-- Beginning of Leech Calculation for this DamageType
@@ -4435,7 +4435,7 @@ function calcs.offence(env, actor, activeSkill)
 				else
 					if breakdown then
 						breakdown[damageType] = {
-							"You can't deal "..damageType.." damage"
+							localisation:Text("calc.offence.offence.line_239", { damage_type = localisation:TermRef("damage_type", damageType) })
 						}
 					end
 				end
@@ -4493,7 +4493,7 @@ function calcs.offence(env, actor, activeSkill)
 					highestType = damageType
 				end
 				if breakdown then
-					t_insert(breakdown[damageType], s_format("Portion of total damage: %d%%", portion))
+					t_insert(breakdown[damageType], localisation:Text("calc.offence.offence.line_146", { portion = portion }))
 				end
 			end
 		end
@@ -4578,43 +4578,43 @@ function calcs.offence(env, actor, activeSkill)
 			if output.CritEffect ~= 1 then
 				breakdown.AverageHit = { }
 				if skillModList:Flag(skillCfg, "LuckyHits") then
-					t_insert(breakdown.AverageHit, s_format("(1/3) x %d + (2/3) x %d = %.1f ^8(average from non-crits)", totalHitMin, totalHitMax, totalHitAvg))
+					t_insert(breakdown.AverageHit, localisation:Text("calc.offence.offence.line_147", { total_hit_min = totalHitMin, total_hit_max = totalHitMax, total_hit_avg = totalHitAvg }))
 				end
 				if skillModList:Flag(skillCfg, "CritLucky") or skillModList:Flag(skillCfg, "LuckyHits") then
-					t_insert(breakdown.AverageHit, s_format("(1/3) x %d + (2/3) x %d = %.1f ^8(average from crits)", totalCritMin, totalCritMax, totalCritAvg))
+					t_insert(breakdown.AverageHit, localisation:Text("calc.offence.offence.line_148", { total_crit_min = totalCritMin, total_crit_max = totalCritMax, total_crit_avg = totalCritAvg }))
 					t_insert(breakdown.AverageHit, "")
 				end
-				t_insert(breakdown.AverageHit, s_format("%.1f x (1 - %.4f) ^8(damage from non-crits)", totalHitAvg, output.CritChance / 100))
-				t_insert(breakdown.AverageHit, s_format("+ %.1f x %.4f ^8(damage from crits)", totalCritAvg, output.CritChance / 100))
+				t_insert(breakdown.AverageHit, localisation:Text("calc.offence.offence.line_149", { total_hit_avg = totalHitAvg, value = output.CritChance / 100 }))
+				t_insert(breakdown.AverageHit, localisation:Text("calc.offence.offence.line_150", { total_crit_avg = totalCritAvg, value = output.CritChance / 100 }))
 				t_insert(breakdown.AverageHit, s_format("= %.1f", output.AverageHit))
 			end
 			if output.HitChance < 100 then
 				breakdown.AverageDamage = { }
-				t_insert(breakdown.AverageDamage, s_format("%s:", pass.label))
-				t_insert(breakdown.AverageDamage, s_format("%.1f ^8(average hit)", output.AverageHit))
-				t_insert(breakdown.AverageDamage, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
+				t_insert(breakdown.AverageDamage, s_format("%s:", localisation:Term("attack_hand", pass.label)))
+				t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_151", { average_hit = output.AverageHit }))
+				t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_152", { value = output.HitChance / 100 }))
 				t_insert(breakdown.AverageDamage, s_format("= %.1f", output.AverageDamage))
 			end
 		end
 		if globalBreakdown and globalOutput.AverageBurstDamage > 0 then
 			globalBreakdown.AverageBurstDamage = { }
-			t_insert(globalBreakdown.AverageBurstDamage, s_format("%.1f ^8(average hit)", output.AverageHit))
+			t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_151", { average_hit = output.AverageHit }))
 			if output.HitChance < 100 then
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_152", { value = output.HitChance / 100 }))
 			end
 			if repeatPenalty < 1 then
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(number of repeats)", globalOutput.AverageBurstHits - 1))
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(repeat penalty)", repeatPenalty))
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("= %.1f ^8(repeat damage total)", globalOutput.AverageBurstDamage - output.AverageDamage))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_153", { value = globalOutput.AverageBurstHits - 1 }))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_154", { repeat_penalty = repeatPenalty }))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_155", { value = globalOutput.AverageBurstDamage - output.AverageDamage }))
 				t_insert(globalBreakdown.AverageBurstDamage, "")
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("+ %.1f ^8(first hit)", output.AverageHit))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_156", { average_hit = output.AverageHit }))
 				if output.HitChance < 100 then
-					t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
+					t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_152", { value = output.HitChance / 100 }))
 				end
 			else
-				t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(number of hits)", globalOutput.AverageBurstHits))
+				t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_157", { average_burst_hits = globalOutput.AverageBurstHits }))
 			end
-			t_insert(globalBreakdown.AverageBurstDamage, s_format("= %.1f ^8(total burst damage)", globalOutput.AverageBurstDamage))
+			t_insert(globalBreakdown.AverageBurstDamage, localisation:Text("calc.offence.offence.line_158", { average_burst_damage = globalOutput.AverageBurstDamage }))
 		end
 
 
@@ -4681,37 +4681,37 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.PvpAverageHit = { }
 				local percentBoth = (percentageNonElemental > 0) and (percentageElemental > 0)
-				t_insert(breakdown.PvpAverageHit, s_format("Pvp Formula is (D/(T*M))^E*T*%s, where D is the damage, T is the time taken,", percentBoth and "M*P" or "M" ))
-				t_insert(breakdown.PvpAverageHit, s_format(" M is the multiplier%s", percentBoth and ", E is the exponent and P is the percentage of that type (ele or non ele)" or " and E is the exponent" ))
+				t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_159", { value = ((percentBoth and "M*P") or "M") }))
+				t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_160", { value = ((percentBoth and localisation:Ref("calc.offence.offence.line.parameter_4")) or localisation:Ref("calc.offence.offence.line.parameter_5")) }))
 				if percentBoth then
-					t_insert(breakdown.PvpAverageHit, s_format("(M= %.1f for ele and %.1f for non-ele)(E= %.2f for ele and %.2f for non-ele)", PvpElemental2, PvpNonElemental2, PvpElemental1, PvpNonElemental1))
+					t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_161", { pvp_elemental2 = PvpElemental2, pvp_non_elemental2 = PvpNonElemental2, pvp_elemental1 = PvpElemental1, pvp_non_elemental1 = PvpNonElemental1 }))
 					t_insert(breakdown.PvpAverageHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f * %.2f = %.1f", output.AverageHit, PvpTvalue,  PvpNonElemental2, PvpNonElemental1, PvpTvalue, PvpNonElemental2, percentageNonElemental, portionNonElemental))
 					t_insert(breakdown.PvpAverageHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f * %.2f = %.1f", output.AverageHit, PvpTvalue,  PvpElemental2, PvpElemental1, PvpTvalue, PvpElemental2, percentageElemental, portionElemental))
-					t_insert(breakdown.PvpAverageHit, s_format("(portionNonElemental + portionElemental)%s", PvpMultiplier ~= 1 and " * PvP multiplier" or " "))
+					t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_162", { value = ((PvpMultiplier ~= 1 and localisation:Ref("calc.offence.offence.line.parameter_6")) or " ") }))
 					if PvpMultiplier ~= 1 then
 						t_insert(breakdown.PvpAverageHit, s_format("(%.1f + %.1f) * %g", portionNonElemental, portionElemental, PvpMultiplier))
 					else
 						t_insert(breakdown.PvpAverageHit, s_format("%.1f + %.1f", portionNonElemental, portionElemental))
 					end
 				elseif percentageElemental <= 0 then
-					t_insert(breakdown.PvpAverageHit, s_format("(M= %.1f for non-ele)(E= %.2f for non-ele)", PvpNonElemental2, PvpNonElemental1))
+					t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_163", { pvp_non_elemental2 = PvpNonElemental2, pvp_non_elemental1 = PvpNonElemental1 }))
 					t_insert(breakdown.PvpAverageHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f = %.1f", output.AverageHit, PvpTvalue,  PvpNonElemental2, PvpNonElemental1, PvpTvalue, PvpNonElemental2, portionNonElemental))
 					if PvpMultiplier ~= 1 then
-						t_insert(breakdown.PvpAverageHit, s_format("%.1f * %g ^8(portionNonElemental * PvP multiplier)", portionNonElemental, PvpMultiplier))
+						t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_164", { portion_non_elemental = portionNonElemental, pvp_multiplier = PvpMultiplier }))
 					end
 				elseif percentageNonElemental <= 0 then
-					t_insert(breakdown.PvpAverageHit, s_format("(M= %.1f for ele)(E= %.2f for ele)", PvpElemental2, PvpElemental1))
+					t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_165", { pvp_elemental2 = PvpElemental2, pvp_elemental1 = PvpElemental1 }))
 					t_insert(breakdown.PvpAverageHit, s_format("(%.1f / (%.2f * %.1f)) ^ %.2f * %.2f * %.1f = %.1f", output.AverageHit, PvpTvalue,  PvpElemental2, PvpElemental1, PvpTvalue, PvpElemental2, portionElemental))
 					if PvpMultiplier ~= 1 then
-						t_insert(breakdown.PvpAverageHit, s_format("%.1f * %g ^8(portionElemental * PvP multiplier)", portionElemental, PvpMultiplier))
+						t_insert(breakdown.PvpAverageHit, localisation:Text("calc.offence.offence.line_166", { portion_elemental = portionElemental, pvp_multiplier = PvpMultiplier }))
 					end
 				end
 				t_insert(breakdown.PvpAverageHit, s_format("= %.1f", output.PvpAverageHit))
 				if isAttack then
 					breakdown.PvpAverageDamage = { }
-					t_insert(breakdown.PvpAverageDamage, s_format("%s:", pass.label))
-					t_insert(breakdown.PvpAverageDamage, s_format("%.1f ^8(average pvp hit)", output.PvpAverageHit))
-					t_insert(breakdown.PvpAverageDamage, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
+					t_insert(breakdown.PvpAverageDamage, s_format("%s:", localisation:Term("attack_hand", pass.label)))
+					t_insert(breakdown.PvpAverageDamage, localisation:Text("calc.offence.offence.line_167", { pvp_average_hit = output.PvpAverageHit }))
+					t_insert(breakdown.PvpAverageDamage, localisation:Text("calc.offence.offence.line_152", { value = output.HitChance / 100 }))
 					t_insert(breakdown.PvpAverageDamage, s_format("= %.1f", output.PvpAverageDamage))
 				end
 			end
@@ -4774,17 +4774,17 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				if output.ChanceToNotConsumeAmmo then
 					breakdown.EffectiveBoltCount = { }
-					t_insert(breakdown.EffectiveBoltCount, s_format("%d ^8(bolt count)", output.BoltCount))
-					t_insert(breakdown.EffectiveBoltCount, s_format("/ (1 - %.2f) ^8(chance to not consume)", m_min(output.ChanceToNotConsumeAmmo / 100, 1)))
+					t_insert(breakdown.EffectiveBoltCount, localisation:Text("calc.offence.offence.line_168", { bolt_count = output.BoltCount }))
+					t_insert(breakdown.EffectiveBoltCount, localisation:Text("calc.offence.offence.line_169", { value = m_min(output.ChanceToNotConsumeAmmo / 100, 1) }))
 					t_insert(breakdown.EffectiveBoltCount, s_format("\n"))
-					t_insert(breakdown.EffectiveBoltCount, s_format("= %.2f ^8(effective bolt count)", output.EffectiveBoltCount or (1/0))) -- 1/0 is used as a stand-in for "infinite"
+					t_insert(breakdown.EffectiveBoltCount, localisation:Text("calc.offence.offence.line_170", { value = (output.EffectiveBoltCount or 1/0) })) -- 1/0 is used as a stand-in for "infinite"
 				end
 				if output.ChanceToReloadInstantly then
 					breakdown.EffectiveReloadTime = { }
-					t_insert(breakdown.EffectiveReloadTime, s_format("%.2f ^8(reload time)", output.ReloadTime))
-					t_insert(breakdown.EffectiveReloadTime, s_format("* (1 - %.2f) ^8(chance to reload instantly)", m_min(output.ChanceToReloadInstantly / 100, 1)))
+					t_insert(breakdown.EffectiveReloadTime, localisation:Text("calc.offence.offence.line_171", { reload_time = output.ReloadTime }))
+					t_insert(breakdown.EffectiveReloadTime, localisation:Text("calc.offence.offence.line_172", { value = m_min(output.ChanceToReloadInstantly / 100, 1) }))
 					t_insert(breakdown.EffectiveReloadTime, s_format("\n"))
-					t_insert(breakdown.EffectiveReloadTime, s_format("= %.2f ^8(effective reload time)", output.EffectiveReloadTime))
+					t_insert(breakdown.EffectiveReloadTime, localisation:Text("calc.offence.offence.line_173", { effective_reload_time = output.EffectiveReloadTime }))
 				end
 
 			end
@@ -4796,9 +4796,9 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			if skillFlags.bothWeaponAttack then
 				for _, critStat in ipairs({ "PreEffectiveCritChance", "CritChance" }) do
-					local combinedBreakdown = { "Both weapons:" }
+					local combinedBreakdown = { localisation:Text("calc.offence.offence.line_242") }
 					for _, pass in ipairs(passList) do
-						t_insert(combinedBreakdown, pass.label .. ":")
+						t_insert(combinedBreakdown, localisation:Term("attack_hand", pass.label) .. ":")
 						if pass.breakdown[critStat] then
 							for _, line in ipairs(pass.breakdown[critStat]) do
 								t_insert(combinedBreakdown, line)
@@ -4807,7 +4807,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(combinedBreakdown, s_format("%.2f%%", pass.output[critStat]))
 						end
 					end
-					t_insert(combinedBreakdown, s_format("= %.2f%% ^8(average)", output[critStat]))
+					t_insert(combinedBreakdown, localisation:Text("calc.offence.offence.line_174", { value = output[critStat] }))
 					breakdown[critStat] = combinedBreakdown
 				end
 			else
@@ -4826,22 +4826,22 @@ function calcs.offence(env, actor, activeSkill)
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
 				breakdown.AverageDamage = { }
-				t_insert(breakdown.AverageDamage, "Both weapons:")
+				t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_175"))
 				if skillData.combinesHitsWhenDualWielding then
-					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
+					t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_176", { average_damage = output.MainHand.AverageDamage, average_damage_2 = output.OffHand.AverageDamage }))
 				elseif skillData.doubleHitsWhenDualWielding then
-					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill hits once with each weapon)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
+					t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_177", { average_damage = output.MainHand.AverageDamage, average_damage_2 = output.OffHand.AverageDamage }))
 				else
-					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
+					t_insert(breakdown.AverageDamage, localisation:Text("calc.offence.offence.line_178", { average_damage = output.MainHand.AverageDamage, average_damage_2 = output.OffHand.AverageDamage }))
 				end
 				t_insert(breakdown.AverageDamage, s_format("= %.1f", output.AverageDamage))
 				if skillFlags.isPvP then
 					breakdown.PvpAverageDamage = { }
-					t_insert(breakdown.PvpAverageDamage, "Both weapons:")
+					t_insert(breakdown.PvpAverageDamage, localisation:Text("calc.offence.offence.line_175"))
 					if skillData.combinesHitsWhenDualWielding then
-						t_insert(breakdown.PvpAverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.PvpAverageDamage, output.OffHand.PvpAverageDamage))
+						t_insert(breakdown.PvpAverageDamage, localisation:Text("calc.offence.offence.line_179", { pvp_average_damage = output.MainHand.PvpAverageDamage, pvp_average_damage_2 = output.OffHand.PvpAverageDamage }))
 					else
-						t_insert(breakdown.PvpAverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.PvpAverageDamage, output.OffHand.PvpAverageDamage))
+						t_insert(breakdown.PvpAverageDamage, localisation:Text("calc.offence.offence.line_180", { pvp_average_damage = output.MainHand.PvpAverageDamage, pvp_average_damage_2 = output.OffHand.PvpAverageDamage }))
 					end
 					t_insert(breakdown.PvpAverageDamage, s_format("= %.1f", output.PvpAverageDamage))
 				end
@@ -4858,25 +4858,25 @@ function calcs.offence(env, actor, activeSkill)
 	if breakdown then
 		if isAttack then
 			breakdown.TotalDPS = {
-				s_format("%.1f ^8(average damage)", output.AverageDamage),
-				output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(attack rate)", output.Speed),
+				localisation:Text("calc.offence.total_dps.line", { average_damage = output.AverageDamage }),
+				output.HitSpeed and localisation:Text("calc.offence.total_dps.line_2", { hit_speed = output.HitSpeed }) or localisation:Text("calc.offence.total_dps.line_3", { speed = output.Speed }),
 			}
 		elseif skillData.triggered then
 			breakdown.TotalDPS = {
-				s_format("%.1f ^8(average damage)", output.AverageDamage),
-				output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(trigger rate)", output.Speed),
+				localisation:Text("calc.offence.total_dps.line", { average_damage = output.AverageDamage }),
+				output.HitSpeed and localisation:Text("calc.offence.total_dps.line_2", { hit_speed = output.HitSpeed }) or localisation:Text("calc.offence.total_dps.line_4", { speed = output.Speed }),
 			}
 		else
 			breakdown.TotalDPS = {
-				s_format("%.1f ^8(average hit)", output.AverageDamage),
-				output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(cast rate)", output.Speed),
+				localisation:Text("calc.offence.total_dps.line_5", { average_damage = output.AverageDamage }),
+				output.HitSpeed and localisation:Text("calc.offence.total_dps.line_2", { hit_speed = output.HitSpeed }) or localisation:Text("calc.offence.total_dps.line_6", { speed = output.Speed }),
 			}
 		end
 		if output.DpsMultiplier ~= 1 then
-			t_insert(breakdown.TotalDPS, s_format("x %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+			t_insert(breakdown.TotalDPS, localisation:Text("calc.offence.offence.line_181", { dps_multiplier = output.DpsMultiplier }))
 		end
 		if quantityMultiplier > 1 then
-			t_insert(breakdown.TotalDPS, s_format("x %g ^8(quantity multiplier for this skill)", quantityMultiplier))
+			t_insert(breakdown.TotalDPS, localisation:Text("calc.offence.offence.line_182", { quantity_multiplier = quantityMultiplier }))
 		end
 		t_insert(breakdown.TotalDPS, s_format("= %.1f", output.TotalDPS))
 		if skillFlags.isPvP then
@@ -4887,14 +4887,14 @@ function calcs.offence(env, actor, activeSkill)
 				rateType = "trigger"
 			end
 			breakdown.PvpTotalDPS = {
-				s_format("%.1f ^8(average pvp hit)", output.PvpAverageDamage),
-				output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(%s rate)", output.Speed, rateType),
+				localisation:Text("calc.offence.pvp_total_dps.line", { pvp_average_damage = output.PvpAverageDamage }),
+				output.HitSpeed and localisation:Text("calc.offence.pvp_total_dps.line_2", { hit_speed = output.HitSpeed }) or localisation:Text("calc.offence.pvp_total_dps.line_3", { speed = output.Speed, rate_type = rateType }),
 			}
 			if output.DpsMultiplier ~= 1 then
-				t_insert(breakdown.PvpTotalDPS, s_format("x %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+				t_insert(breakdown.PvpTotalDPS, localisation:Text("calc.offence.offence.line_181", { dps_multiplier = output.DpsMultiplier }))
 			end
 			if quantityMultiplier > 1 then
-				t_insert(breakdown.PvpTotalDPS, s_format("x %g ^8(quantity multiplier for this skill)", quantityMultiplier))
+				t_insert(breakdown.PvpTotalDPS, localisation:Text("calc.offence.offence.line_182", { quantity_multiplier = quantityMultiplier }))
 			end
 			t_insert(breakdown.PvpTotalDPS, s_format("= %.1f", output.PvpTotalDPS))
 		end
@@ -5127,14 +5127,14 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdownChance, "")
 				end
 				if isAttack then
-					t_insert(breakdownChance, pass.label..":")
+					t_insert(breakdownChance, localisation:Term("attack_hand", pass.label)..":")
 				end
-				t_insert(breakdownChance, s_format("Chance on Non-crit: %d%%", chanceOnHit))
-				t_insert(breakdownChance, s_format("Chance on Crit: %d%%", chanceOnCrit))
+				t_insert(breakdownChance, localisation:Text("calc.offence.calc_ailment_damage.line", { chance_on_hit = chanceOnHit }))
+				t_insert(breakdownChance, localisation:Text("calc.offence.calc_ailment_damage.line_2", { chance_on_crit = chanceOnCrit }))
 				if chanceOnHit ~= chanceOnCrit then
-					t_insert(breakdownChance, "Combined chance:")
-					t_insert(breakdownChance, s_format("%d x (1 - %.4f) ^8(chance from non-crits)", chanceOnHit, sourceCritChance/100))
-					t_insert(breakdownChance, s_format("+ %d x %.4f ^8(chance from crits)", chanceOnCrit, sourceCritChance/100))
+					t_insert(breakdownChance, localisation:Text("calc.offence.calc_ailment_damage.line_3"))
+					t_insert(breakdownChance, localisation:Text("calc.offence.calc_ailment_damage.line_4", { chance_on_hit = chanceOnHit, value = sourceCritChance/100 }))
+					t_insert(breakdownChance, localisation:Text("calc.offence.calc_ailment_damage.line_5", { chance_on_crit = chanceOnCrit, value = sourceCritChance/100 }))
 					local chancePerHit = chanceOnHit * (1 - sourceCritChance / 100) + chanceOnCrit * sourceCritChance / 100
 					t_insert(breakdownChance, s_format("= %.2f", chancePerHit))
 				end
@@ -5146,41 +5146,41 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdownDPS, "")
 				end
 				if isAttack then
-					t_insert(breakdownDPS, pass.label..":")
+					t_insert(breakdownDPS, localisation:Term("attack_hand", pass.label)..":")
 				end
 				if sourceHitDmg == sourceCritDmg or output.CritChance == 0 then
-					t_insert(breakdownDPS, "Total base DPS per " .. ailment .. ":")
-					t_insert(breakdownDPS, s_format("%.1f ^8(source damage)",sourceHitDmg))
+					t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_6", { ailment = localisation:TermRef("ailment", ailment) }))
+					t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_7", { source_hit_dmg = sourceHitDmg }))
 					if sourceMult > 1 then
-						t_insert(breakdownDPS, s_format("x %.2f ^8(inflicting as though dealing more damage)", sourceMult))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_8", { source_mult = sourceMult }))
 						t_insert(breakdownDPS, s_format("= %.1f", baseVal * sourceMult))
 					end
 				else
 					if baseFromHit > 0 then
-						t_insert(breakdownDPS, "Damage from Non-crits:")
-						t_insert(breakdownDPS, s_format("%.1f ^8(source damage from non-crits)", sourceHitDmg))
-						t_insert(breakdownDPS, s_format("x %.3f ^8(portion of instances created by non-crits)", chanceFromHit / (chanceFromHit + chanceFromCrit)))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_9"))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_10", { source_hit_dmg = sourceHitDmg }))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_11", { value = chanceFromHit / (chanceFromHit + chanceFromCrit) }))
 						if sourceMult == 1 or baseFromCrit ~= 0 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseFromHit))
 						end
 					end
 					if baseFromCrit > 0 then
-						t_insert(breakdownDPS, "Damage from Crits:")
-						t_insert(breakdownDPS, s_format("%.1f ^8(source damage from crits)", sourceCritDmg))
-						t_insert(breakdownDPS, s_format("x %.3f ^8(portion of instances created by crits)", chanceFromCrit / (chanceFromHit + chanceFromCrit)))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_12"))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_13", { source_crit_dmg = sourceCritDmg }))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_14", { value = chanceFromCrit / (chanceFromHit + chanceFromCrit) }))
 						if sourceMult == 1 or baseFromHit ~= 0 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseFromCrit))
 						end
 					end
 					if baseFromHit > 0 and baseFromCrit > 0 then
-						t_insert(breakdownDPS, "Total base DPS per " .. ailment .. ":")
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_6", { ailment = localisation:TermRef("ailment", ailment) }))
 						t_insert(breakdownDPS, s_format("%.1f + %.1f", baseFromHit, baseFromCrit))
 						if sourceMult == 1 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseVal))
 						end
 					end
 					if sourceMult > 1 then
-						t_insert(breakdownDPS, s_format("x %.2f ^8(inflicting as though dealing more damage)", sourceMult))
+						t_insert(breakdownDPS, localisation:Text("calc.offence.calc_ailment_damage.line_8", { source_mult = sourceMult }))
 						t_insert(breakdownDPS, s_format("= %.1f", baseVal * sourceMult))
 					end
 				end
@@ -5278,26 +5278,26 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput[ailment .. "StackPotentialPercent"] = globalOutput[ailment .. "StackPotential"] * 100
 			if globalBreakdown then
 				globalBreakdown[ailment .. "StackPotential"] = {
-					s_format(colorCodes.CUSTOM.."The percentage of your max stacks that are applied on average if you are attacking constantly"),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line", { custom = colorCodes.CUSTOM }),
 					s_format(""),
 				}
 				if configStacks > 0 then
-					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("%.2f ^8(ailment stacks config override)", configStacks))
+					t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_2", { config_stacks = configStacks }))
 				else
-					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("%.2f ^8(chance to hit)", output.HitChance / 100))
-					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* %.2f ^8(chance to apply)", ailmentChance))
+					t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_3", { value = output.HitChance / 100 }))
+					t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_4", { ailment_chance = ailmentChance }))
 					if skillData.triggeredOnDeath then
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* 1 ^8Cast on Death override"))
+						t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_5"))
 					elseif output.Cooldown then
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* (%.2f / max(%.2f, %.2f) ^8(Duration / max(Cooldown, Cast Time))", globalOutput[ailment .. "Duration"], output.Cooldown, (output.HitTime or output.Time)))
+						t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_6", { value = globalOutput[ailment .. "Duration"], cooldown = output.Cooldown, value_2 = (output.HitTime or output.Time) }))
 					elseif (globalOutput.HitSpeed or globalOutput.Speed) > 0 then
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* (%.2f / %.2f) ^8(Duration / Attack Time)", globalOutput[ailment .. "Duration"], (globalOutput.HitTime or output.Time)))
+						t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_7", { value = globalOutput[ailment .. "Duration"], value_2 = (globalOutput.HitTime or output.Time) }))
 					end
 					if output.DpsMultiplier ~= 1 then
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+						t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_8", { dps_multiplier = output.DpsMultiplier }))
 					end
 				end
-				t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("/ %d ^8(max number of stacks)", maxStacks))
+				t_insert(globalBreakdown[ailment .. "StackPotential"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_9", { max_stacks = maxStacks }))
 				t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %.2f", globalOutput[ailment .. "StackPotential"]))
 			end
 
@@ -5314,18 +5314,18 @@ function calcs.offence(env, actor, activeSkill)
 
 			if globalBreakdown then
 				globalBreakdown[ailment .. "RollAverage"] = {
-					s_format(colorCodes.CUSTOM.."This is the average roll of an ailment affecting the enemy if you are constantly attacking"),
-					s_format(colorCodes.CUSTOM.."Uses a weighted average formula when stack potential is over 100%%"),
-					s_format(colorCodes.CUSTOM.."If hitting constantly, your average strongest ailment currently achieves ^7%.2f%%"..colorCodes.CUSTOM.." of its max damage", ailmentRollAverage),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_10", { custom = colorCodes.CUSTOM }),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_11", { custom = colorCodes.CUSTOM }),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_12", { custom = colorCodes.CUSTOM, custom_2 = colorCodes.CUSTOM, ailment_roll_average = ailmentRollAverage }),
 					s_format(""),
-					s_format("Average Roll:"),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_13"),
 				}
 				if ailmentStacks >= maxStacks then
 					t_insert(globalBreakdown[ailment .. "RollAverage"], s_format("%.2f - (%.2f - 1)/2", ailmentStacks, maxStacks))
 					t_insert(globalBreakdown[ailment .. "RollAverage"], s_format("/ (%.2f + 1)", ailmentStacks))
 					t_insert(globalBreakdown[ailment .. "RollAverage"], s_format("= %.2f%%", ailmentRollAverage))
 				else
-					t_insert(globalBreakdown[ailment .. "RollAverage"], s_format("50%% (averaging <= %d applications)", maxStacks))
+					t_insert(globalBreakdown[ailment .. "RollAverage"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_14", { max_stacks = maxStacks }))
 				end
 			end
 
@@ -5334,9 +5334,9 @@ function calcs.offence(env, actor, activeSkill)
 			local critAvg = critMin + ((critMax - critMin) * ailmentRollAverage / 100)
 			if globalBreakdown then
 				globalBreakdown[ailment .. "DPS"] = {
-					s_format("Non-Crit Dmg Derivation:"),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_15"),
 					s_format("%.0f + (%.0f - %.0f) * %.2f%%", hitMin, hitMax, hitMin, ailmentRollAverage),
-					s_format("^8min combined sources + (max combined sources - min combined sources) * average roll"),
+					localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_16"),
 					s_format("= %.2f", hitAvg),
 				}
 				if hitAvg ~= critAvg or output.CritChance > 0 then
@@ -5414,10 +5414,10 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.BurningGroundFromIgnite = true
 						if globalBreakdown then
 							globalBreakdown.BurningGroundDPS = {
-								s_format("%.1f ^8(ignite damage per second)", baseVal * effectMod * rateMod),
-								s_format("* %.1f%% ^8(percent as Burning ground)", groundMult),
-								s_format("* %.3f ^8(effective DPS modifier)", effMult),
-								s_format("= %.1f ^8per second", globalOutput.BurningGroundDPS)
+								localisation:Text("calc.offence.burning_ground_dps.line", { value = baseVal * effectMod * rateMod }),
+								localisation:Text("calc.offence.burning_ground_dps.line_2", { ground_mult = groundMult }),
+								localisation:Text("calc.offence.burning_ground_dps.line_3", { eff_mult = effMult }),
+								localisation:Text("calc.offence.burning_ground_dps.line_4", { burning_ground_dps = globalOutput.BurningGroundDPS })
 							}
 						end
 					end
@@ -5430,10 +5430,10 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.CausticGroundFromPoison = true
 						if globalBreakdown then
 							globalBreakdown.CausticGroundDPS = {
-								s_format("%.1f ^8(single poison damage per second)", baseVal * effectMod * rateMod),
-								s_format("* %.1f%% ^8(percent as Caustic ground)", groundMult),
-								s_format("* %.3f ^8(effective DPS modifier)", effMult),
-								s_format("= %.1f ^8per second", globalOutput.CausticGroundDPS)
+								localisation:Text("calc.offence.caustic_ground_dps.line", { value = baseVal * effectMod * rateMod }),
+								localisation:Text("calc.offence.caustic_ground_dps.line_2", { ground_mult = groundMult }),
+								localisation:Text("calc.offence.caustic_ground_dps.line_3", { eff_mult = effMult }),
+								localisation:Text("calc.offence.caustic_ground_dps.line_4", { caustic_ground_dps = globalOutput.CausticGroundDPS })
 							}
 						end
 					end
@@ -5447,71 +5447,71 @@ function calcs.offence(env, actor, activeSkill)
 				end
 
 				if breakdown then
-					t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(ailment deals %d%% per second)", data.misc[ailment .. "PercentBase"], data.misc[ailment .. "PercentBase"] * 100))
-					t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(ailment magnitude effect)", globalOutput[ailment .. "MagnitudeEffect"]))
+					t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_17", { value = data.misc[ailment .. "PercentBase"], value_2 = data.misc[ailment .. "PercentBase"] * 100 }))
+					t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_18", { value = globalOutput[ailment .. "MagnitudeEffect"] }))
 					t_insert(breakdown[ailment .. "DPS"], s_format("= %.1f", baseVal, 1))
 					t_insert(breakdown[ailment .. "DPS"], "")
-					t_insert(breakdown[ailment .. "DPS"], "Average DPS for all " .. ailment .. "s:")
+					t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_19", { ailment = localisation:TermRef("ailment", ailment) }))
 					if baseVal ~= ailmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("%.1f ^8(base damage per second)", baseVal))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_20", { base_val = baseVal }))
 					end
 					if effectMod ~= 1 then
-						t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(ailment effect modifier)", effectMod))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_21", { effect_mod = effectMod }))
 					end
 					if rateMod ~= 1 then
-						t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(rate modifier)", rateMod))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_22", { rate_mod = rateMod }))
 					end
 					if activeAilments ~= 1 then
-						t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(avg ailment stacks)", activeAilments))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_23", { active_ailments = activeAilments }))
 					end
 					if effMult ~= 1 then
-						t_insert(breakdown[ailment .. "DPS"], s_format("x %.3f ^8(effective DPS modifier from enemy debuffs)", effMult))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_24", { eff_mult = effMult }))
 					end
 					if output[ailment .. "DPS"] ~= ailmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("= %.1f ^8(Uncapped raw ailment DPS)", ailmentDPSUncapped))
-						t_insert(breakdown[ailment .. "DPS"], s_format("^8(Raw ailment DPS is "..colorCodes.NEGATIVE.."overcapped ^8by^7 %.0f ^8:^7 %.1f%%^8)", ailmentDPSUncapped - ailmentDPSCapped, (ailmentDPSUncapped - ailmentDPSCapped) / ailmentDPSCapped * 100))
-						t_insert(breakdown[ailment .. "DPS"], s_format("= %d ^8(Capped ailment DPS)", ailmentDPSCapped))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_25", { ailment_dpsuncapped = ailmentDPSUncapped }))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_26", { negative = colorCodes.NEGATIVE, value = ailmentDPSUncapped - ailmentDPSCapped, value_2 = (ailmentDPSUncapped - ailmentDPSCapped) / ailmentDPSCapped * 100 }))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_27", { ailment_dpscapped = ailmentDPSCapped }))
 					else
-						t_insert(breakdown[ailment .. "DPS"], s_format("= %.1f ^8per second", output[ailment .. "DPS"]))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_28", { value = output[ailment .. "DPS"] }))
 					end
-					t_insert(breakdown[ailment .. "DPS"], s_format("%.2f%% of Maximum ailment DPS", output[ailment .. "DPS"] / maxAilmentDPSCapped * 100))
+					t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_29", { value = output[ailment .. "DPS"] / maxAilmentDPSCapped * 100 }))
 					t_insert(breakdown[ailment .. "DPS"], "")
-					t_insert(breakdown[ailment .. "DPS"], "DPS Range:")
+					t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_30"))
 					if maxAilmentDPSCapped == maxAilmentDPSUncapped and minAilmentDPSCapped == minAilmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("%.0f to %.0f ^8(ailment DPS Range)", minAilmentDPSUncapped, maxAilmentDPSUncapped))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_31", { min_ailment_dpsuncapped = minAilmentDPSUncapped, max_ailment_dpsuncapped = maxAilmentDPSUncapped }))
 					else
-						t_insert(breakdown[ailment .. "DPS"], s_format("%.0f to %.0f ^8(Uncapped ailment DPS Range)", minAilmentDPSUncapped, maxAilmentDPSUncapped))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_32", { min_ailment_dpsuncapped = minAilmentDPSUncapped, max_ailment_dpsuncapped = maxAilmentDPSUncapped }))
 					end
 					if minAilmentDPSCapped ~= minAilmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("^8(Raw Min ailment DPS is "..colorCodes.NEGATIVE.."overcapped ^8by^7 %.0f ^8:^7 %.1f%%^8)", minAilmentDPSUncapped - minAilmentDPSCapped, (minAilmentDPSUncapped - minAilmentDPSCapped) / minAilmentDPSCapped * 100))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_33", { negative = colorCodes.NEGATIVE, value = minAilmentDPSUncapped - minAilmentDPSCapped, value_2 = (minAilmentDPSUncapped - minAilmentDPSCapped) / minAilmentDPSCapped * 100 }))
 					end
 					if maxAilmentDPSCapped ~= maxAilmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("^8(Raw Max ailment DPS is "..colorCodes.NEGATIVE.."overcapped ^8by^7 %.0f ^8:^7 %.1f%%^8)", maxAilmentDPSUncapped - maxAilmentDPSCapped, (maxAilmentDPSUncapped - maxAilmentDPSCapped) / maxAilmentDPSCapped * 100))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_34", { negative = colorCodes.NEGATIVE, value = maxAilmentDPSUncapped - maxAilmentDPSCapped, value_2 = (maxAilmentDPSUncapped - maxAilmentDPSCapped) / maxAilmentDPSCapped * 100 }))
 					end
 					if maxAilmentDPSCapped ~= maxAilmentDPSUncapped or minAilmentDPSCapped ~= minAilmentDPSUncapped then
-						t_insert(breakdown[ailment .. "DPS"], s_format("%.0f to %.0f ^8(Capped ailment DPS Range)", minAilmentDPSCapped, maxAilmentDPSCapped))
+						t_insert(breakdown[ailment .. "DPS"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_35", { min_ailment_dpscapped = minAilmentDPSCapped, max_ailment_dpscapped = maxAilmentDPSCapped }))
 					end
 					if skillFlags[ailment:lower() .. "CanStack"] then
 						breakdown[ailment .. "Damage"] = { }
 						if isAttack then
-							t_insert(breakdown[ailment .. "Damage"], pass.label..":")
+							t_insert(breakdown[ailment .. "Damage"], localisation:Term("attack_hand", pass.label)..":")
 						end
-						t_insert(breakdown[ailment .. "Damage"], s_format("%.1f ^8(DPS of all stacks)", baseVal))
-						t_insert(breakdown[ailment .. "Damage"], s_format("x %.2fs ^8(ailment duration)", globalOutput[ailment .. "Duration"]))
-						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8total damage of all stacks", output[ailment .. "Damage"]))
+						t_insert(breakdown[ailment .. "Damage"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_36", { base_val = baseVal }))
+						t_insert(breakdown[ailment .. "Damage"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_37", { value = globalOutput[ailment .. "Duration"] }))
+						t_insert(breakdown[ailment .. "Damage"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_38", { value = output[ailment .. "Damage"] }))
 					end
 					if globalOutput[ailment .. "Duration"] ~= durationBase then
 						globalBreakdown[ailment .. "Duration"] = {
-							s_format("%.2fs ^8(base duration)", durationBase)
+							localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_39", { duration_base = durationBase })
 						}
 						if durationMod ~= 1 then
-							t_insert(globalBreakdown[ailment .. "Duration"], s_format("x %.2f ^8(duration modifier)", durationMod))
+							t_insert(globalBreakdown[ailment .. "Duration"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_40", { duration_mod = durationMod }))
 						end
 						if rateMod ~= 1 then
-							t_insert(globalBreakdown[ailment .. "Duration"], s_format("/ %.2f ^8(burn rate modifier)", rateMod))
+							t_insert(globalBreakdown[ailment .. "Duration"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_41", { rate_mod = rateMod }))
 						end
 						if debuffDurationMult ~= 1 then
-							t_insert(globalBreakdown[ailment .. "Duration"], s_format("/ %.2f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+							t_insert(globalBreakdown[ailment .. "Duration"], localisation:Text("calc.offence.calc_damaging_ailment_outputs.line_42", { value = 1 / debuffDurationMult }))
 						end
 						t_insert(globalBreakdown[ailment .. "Duration"], s_format("= %.2fs", globalOutput[ailment .. "Duration"]))
 					end
@@ -5589,22 +5589,22 @@ function calcs.offence(env, actor, activeSkill)
 
 			if breakdown then
 				globalBreakdown[ailment .. "Buildup"] = {
-					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
-					"Enemy poise: " .. enemyPoiseThreshold,
+					localisation:Text("calc.offence.offence.line_243", { enemy_level = env.enemyLevel, value = ((env.configInput.enemyLevel and localisation:Ref("calc.offence.offence.line.parameter_11")) or localisation:Ref("calc.offence.offence.line.parameter_12")) }),
+					localisation:Text("calc.offence.offence.line_244", { enemy_poise_threshold = enemyPoiseThreshold }),
 					"",
 				}
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Regular Hit "..ailment.." buildup"))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Min: %.1f%%", minHit))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Max: %.1f%%", maxHit))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Avg: %.1f%%", hitPoiseBuildup))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_245", { ailment = localisation:TermRef("ailment", ailment) }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_183", { min_hit = minHit }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_184", { max_hit = maxHit }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_185", { hit_poise_buildup = hitPoiseBuildup }))
 				t_insert(globalBreakdown[ailment .. "Buildup"], s_format(""))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit "..ailment.." buildup"))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Min: %.1f%%", minCrit))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Max: %.1f%%", maxCrit))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Avg: %.1f%%", critPoiseBuildup))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_246", { ailment = localisation:TermRef("ailment", ailment) }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_186", { min_crit = minCrit }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_187", { max_crit = maxCrit }))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_188", { crit_poise_buildup = critPoiseBuildup }))
 
 				t_insert(globalBreakdown[ailment .. "Buildup"], s_format(""))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Average "..ailment.." buildup"))
+				t_insert(globalBreakdown[ailment .. "Buildup"], localisation:Text("calc.offence.offence.line_247", { ailment = localisation:TermRef("ailment", ailment) }))
 				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("= %.1f%%", totalAvgPoiseBuildup))
 			end
 		end
@@ -5692,10 +5692,10 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.DotChill = { }
 				breakdown.multiChain(breakdown.DotChill, {
-					label = s_format("Effect of Chill: ^8(capped at %d%%)", skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max),
-					base = s_format("%d%% ^8(base)", ailmentData.Chill.default),
-					{ "%.2f ^8(increased/reduced effect of chill)", 1 + incChill / 100 },
-					{ "%.2f ^8(more/less effect of chill)", moreChill },
+					label = localisation:Text("calc.offence.offence.line_189", { value = (skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max) }),
+					base = localisation:Text("calc.offence.offence.line_190", { default = ailmentData.Chill.default }),
+					{ "%.2f ^8(increased/reduced effect of chill)", 1 + incChill / 100, formatKey = "calc.offence.offence.factor_40", formatParams = { value = 2 } },
+					{ "%.2f ^8(more/less effect of chill)", moreChill, formatKey = "calc.offence.offence.factor_41", formatParams = { more_chill = 2 } },
 					total = s_format("= %.0f%%", output.ChillSourceEffect)
 				})
 			end
@@ -5703,7 +5703,7 @@ function calcs.offence(env, actor, activeSkill)
 		if (output.FreezeChanceOnHit + output.FreezeChanceOnCrit) > 0 then
 			if globalBreakdown then
 				globalBreakdown.FreezeDurationMod = {
-					s_format("Ailment mode: %s ^8(can be changed in the Configuration tab)", ailmentMode == "CRIT" and "Crits Only" or "Average Damage")
+					localisation:Text("calc.offence.freeze_duration_mod.line", { value = ((ailmentMode == "CRIT" and localisation:Ref("calc.offence.freeze_duration_mod.line.parameter")) or localisation:Ref("calc.offence.freeze_duration_mod.line.parameter_2")) })
 				}
 			end
 			local baseVal = calcAilmentDamage("Freeze", output.CritChance, calcAverageUnmitigatedSourceDamage("Freeze", data.defaultAilmentDamageTypes["Freeze"]["ScalesFrom"])) * skillModList:More(cfg, "FreezeAsThoughDealing")
@@ -5711,7 +5711,7 @@ function calcs.offence(env, actor, activeSkill)
 				skillFlags.freeze = true
 				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration", "SelfElementalAilmentDuration", "SelfAilmentDuration", "HoarfrostFreezeDuration") / 100
 				if breakdown then
-					t_insert(breakdown.FreezeDPS, s_format("For freeze to apply for the minimum of 0.3 seconds, target must have no more than %.0f Ailment Threshold.", baseVal * 20 * output.FreezeDurationMod))
+					t_insert(breakdown.FreezeDPS, localisation:Text("calc.offence.offence.line_191", { value = baseVal * 20 * output.FreezeDurationMod }))
 				end
 			end
 		end
@@ -5719,7 +5719,7 @@ function calcs.offence(env, actor, activeSkill)
 			if (output[ailment.."ChanceOnHit"] + output[ailment.."ChanceOnCrit"]) > 0 then
 				if globalBreakdown then
 					globalBreakdown[ailment.."EffectMod"] = {
-						s_format("Ailment mode: %s ^8(can be changed in the Configuration tab)", ailmentMode == "CRIT" and "Crits Only" or "Average Damage")
+						localisation:Text("calc.offence.offence.line_192", { value = ((ailmentMode == "CRIT" and localisation:Ref("calc.offence.offence.line.parameter_7")) or localisation:Ref("calc.offence.offence.line.parameter_8")) })
 					}
 				end
 				local damage = calcAilmentDamage(ailment, output.CritChance, calcAverageUnmitigatedSourceDamage(ailment, data.defaultAilmentDamageTypes[ailment]["ScalesFrom"])) * skillModList:More(cfg, ailment.."AsThoughDealing")
@@ -5748,11 +5748,11 @@ function calcs.offence(env, actor, activeSkill)
 						if desired > 0 and not isValueInArray(val.effList, desired) and current == 0 then
 							t_insert(val.effList, desired)
 						end
-						breakdown[ailment.."DPS"].label = "Resulting ailment effect"..((current > 0 and val.ramping) and s_format(" ^8(with a ^7%s%% ^8%s on the enemy)^7", current, ailment) or "")
+						breakdown[ailment.."DPS"].label = localisation:Text((current > 0 and val.ramping) and "calc.ailment.result_ramping" or "calc.ailment.result", (current > 0 and val.ramping) and { ramping = localisation:Ref("calc.offence.label.line", { current = current, ailment = localisation:TermRef("ailment", ailment) }) } or nil)
 						breakdown[ailment.."DPS"].rowList = { }
 						breakdown[ailment.."DPS"].colList = {
-							{ label = "Ailment Threshold", key = "thresh" },
-							{ label = ailment.." Effect", key = "effect" },
+							{ label = "Ailment Threshold", labelKey = "ui.calc_offence.offence.thresh.label", key = "thresh" },
+							{ label = ailment.." Effect", labelKey = "calc.ailment.effect_column", labelParams = { ailment = localisation:TermRef("ailment", ailment) }, key = "effect" },
 						}
 						table.sort(val.effList)
 						for _, value in ipairs(val.effList) do
@@ -5765,16 +5765,16 @@ function calcs.offence(env, actor, activeSkill)
 							local labels = { }
 							if decCheck == 1 and value ~= 0 then
 								if value == current then
-									t_insert(labels, "current")
+									t_insert(labels, localisation:Text("calc.offence.offence.line_193"))
 								end
 								if value == desired then
-									t_insert(labels, "desired")
+									t_insert(labels, localisation:Text("calc.offence.offence.line_194"))
 								end
 								if value == maximum then
-									t_insert(labels, "maximum")
+									t_insert(labels, localisation:Text("calc.offence.offence.line_195"))
 								end
 								if value == ailmentData[ailment].min then
-									t_insert(labels, "minimum")
+									t_insert(labels, localisation:Text("calc.offence.offence.line_196"))
 								end
 							end
 							t_insert(breakdown[ailment.."DPS"].rowList, {
@@ -5786,17 +5786,17 @@ function calcs.offence(env, actor, activeSkill)
 					if breakdown and output[ailment.."Duration"] ~= ailmentData[ailment].duration then
 						breakdown[ailment.."Duration"] = { }
 						if isAttack then
-							t_insert(breakdown[ailment.."Duration"], pass.label..":")
+							t_insert(breakdown[ailment.."Duration"], localisation:Term("attack_hand", pass.label)..":")
 						end
-						t_insert(breakdown[ailment.."Duration"], s_format("%.2fs ^8(base duration)", ailmentData[ailment].duration))
+						t_insert(breakdown[ailment.."Duration"], localisation:Text("calc.offence.offence.line_197", { duration = ailmentData[ailment].duration }))
 						if incDur ~= 0 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(increased/reduced duration)", 1 + incDur / 100))
+							t_insert(breakdown[ailment.."Duration"], localisation:Text("calc.offence.offence.line_198", { value = 1 + incDur / 100 }))
 						end
 						if moreDur ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(more/less duration)", moreDur))
+							t_insert(breakdown[ailment.."Duration"], localisation:Text("calc.offence.offence.line_199", { more_dur = moreDur }))
 						end
 						if debuffDurationMult ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("/ %.2f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+							t_insert(breakdown[ailment.."Duration"], localisation:Text("calc.offence.offence.line_200", { value = 1 / debuffDurationMult }))
 						end
 						t_insert(breakdown[ailment.."Duration"], s_format("= %.2fs", output[ailment.."Duration"]))
 					end
@@ -5856,30 +5856,30 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			if output.EnemyStunDuration ~= base then
 				breakdown.EnemyStunDuration = {
-					s_format("%.2fs ^8(base duration)", base),
+					localisation:Text("calc.offence.enemy_stun_duration.line", { base = base }),
 				}
 				if incDur ~= 0 or (incDurCrit ~= 0 and output.CritChance ~= 0) then
-					t_insert(breakdown.EnemyStunDuration, s_format("x %.2f ^8(increased/reduced stun duration)", 1 + (incDur + incDurCrit * output.CritChance / 100) / 100))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_201", { value = 1 + (incDur + incDurCrit * output.CritChance / 100) / 100 }))
 				end
 				if moreDur ~= 1 then
-					t_insert(breakdown.EnemyStunDuration, s_format("x %.2f ^8(more/less stun duration)", moreDur))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_202", { more_dur = moreDur }))
 				end
 				if chanceToDouble ~= 0 then
-					t_insert(breakdown.EnemyStunDuration, s_format("x %.2f ^8(chance to double stun duration)", 1 + chanceToDouble / 100))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_203", { value = 1 + chanceToDouble / 100 }))
 				end
 				if incRecov ~= 0 then
-					t_insert(breakdown.EnemyStunDuration, s_format("/ %.2f ^8(increased/reduced enemy stun recovery)", 1 + incRecov / 100))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_204", { value = 1 + incRecov / 100 }))
 				end
 				t_insert(breakdown.EnemyStunDuration, s_format("= %.2fs", output.EnemyStunDuration))
 				if minimumStunDuration ~= maximumStunDuration then
-					t_insert(breakdown.EnemyStunDuration, s_format("(minimum: %.2fs, maximum: %.2fs)", minimumStunDuration, maximumStunDuration))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_205", { minimum_stun_duration = minimumStunDuration, maximum_stun_duration = maximumStunDuration }))
 				end
 				local enemyActionSpeed = calcs.actionSpeedMod(actor.enemy)
 				if enemyActionSpeed ~= 1 then
-					t_insert(breakdown.EnemyStunDuration, s_format("/ %.2f ^8(enemy action speed)", enemyActionSpeed))
-					t_insert(breakdown.EnemyStunDuration, s_format("= %.2fs (note that for effects that care about duration this is ignored)", output.EnemyStunDuration / enemyActionSpeed))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_206", { enemy_action_speed = enemyActionSpeed }))
+					t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_207", { value = output.EnemyStunDuration / enemyActionSpeed }))
 					if minimumStunDuration ~= maximumStunDuration then
-						t_insert(breakdown.EnemyStunDuration, s_format("(minimum: %.2fs, maximum: %.2fs)", minimumStunDuration / enemyActionSpeed, maximumStunDuration / enemyActionSpeed))
+						t_insert(breakdown.EnemyStunDuration, localisation:Text("calc.offence.offence.line_208", { value = minimumStunDuration / enemyActionSpeed, value_2 = maximumStunDuration / enemyActionSpeed }))
 					end
 				end
 			end
@@ -5922,19 +5922,19 @@ function calcs.offence(env, actor, activeSkill)
 
 			if breakdown then
 				breakdown.ImpaleStoredDamage = {}
-				t_insert(breakdown.ImpaleStoredDamage, "10% ^8(base value)")
-				t_insert(breakdown.ImpaleStoredDamage, s_format("x %.2f ^8(increased effectiveness)", storedExpectedDamageModifier))
+				t_insert(breakdown.ImpaleStoredDamage, localisation:Text("calc.offence.offence.line_209"))
+				t_insert(breakdown.ImpaleStoredDamage, localisation:Text("calc.offence.offence.line_210", { stored_expected_damage_modifier = storedExpectedDamageModifier }))
 				t_insert(breakdown.ImpaleStoredDamage, s_format("= %.1f%%", output.ImpaleStoredDamage))
 
 				breakdown.ImpaleModifier = {}
-				t_insert(breakdown.ImpaleModifier, s_format("%d ^8(number of stacks, can be overridden in the Configuration tab)", impaleStacks))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.3f ^8(stored damage)", impaleStoredDamage))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale chance)", impaleChance))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale enemy physical damage reduction)", (1 - impaleResist / 100)))
+				t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_211", { impale_stacks = impaleStacks }))
+				t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_212", { impale_stored_damage = impaleStoredDamage }))
+				t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_213", { impale_chance = impaleChance }))
+				t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_214", { value = 1 - impaleResist / 100 }))
 				if impaleTaken ~= 1 then
-					t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale enemy damage taken)", impaleTaken))
+					t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_215", { impale_taken = impaleTaken }))
 				end
-				t_insert(breakdown.ImpaleModifier, s_format("= %.3f ^8(impale damage multiplier)", impaleDMGModifier))
+				t_insert(breakdown.ImpaleModifier, localisation:Text("calc.offence.offence.line_216", { impale_dmgmodifier = impaleDMGModifier }))
 			end
 		end
 	end
@@ -5998,10 +5998,10 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.dot(breakdown.DecayDPS, skillData.decay, inc, more, mult, nil, nil, effMult, output.DecayDPS)
 			if output.DecayDuration ~= 8 then
 				breakdown.DecayDuration = {
-					s_format("%.2fs ^8(base duration)", 8)
+					localisation:Text("calc.offence.decay_duration.line", { value = 8 })
 				}
 				if debuffDurationMult ~= 1 then
-					t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+					t_insert(breakdown.DecayDuration, localisation:Text("calc.offence.offence.line_200", { value = 1 / debuffDurationMult }))
 				end
 				t_insert(breakdown.DecayDuration, s_format("= %.2fs", output.DecayDuration))
 			end
@@ -6140,15 +6140,15 @@ function calcs.offence(env, actor, activeSkill)
 		output.TotalDotCalcSection = output.TotalDot
 		if breakdown then
 			breakdown.TotalDot = {
-				s_format("%.1f ^8(Damage per Instance)", output.TotalDotInstance),
-				s_format("x %.2f ^8(hits per second)", speed),
-				s_format("x %.2f ^8(skill duration)", output.Duration),
+				localisation:Text("calc.offence.total_dot.line", { total_dot_instance = output.TotalDotInstance }),
+				localisation:Text("calc.offence.total_dot.line_2", { speed = speed }),
+				localisation:Text("calc.offence.total_dot.line_3", { duration = output.Duration }),
 			}
 			if output.DpsMultiplier ~= 1 then
-				t_insert(breakdown.TotalDot, s_format("x %g ^8(DPS multiplier for this skill)", output.DpsMultiplier))
+				t_insert(breakdown.TotalDot, localisation:Text("calc.offence.offence.line_181", { dps_multiplier = output.DpsMultiplier }))
 			end
 			if quantityMultiplier > 1 then
-				t_insert(breakdown.TotalDot, s_format("x %g ^8(quantity multiplier for this skill)", quantityMultiplier))
+				t_insert(breakdown.TotalDot, localisation:Text("calc.offence.offence.line_182", { quantity_multiplier = quantityMultiplier }))
 			end
 			t_insert(breakdown.TotalDot, s_format("= %.1f", output.TotalDot))
 		end
@@ -6198,19 +6198,19 @@ function calcs.offence(env, actor, activeSkill)
 				local preSpeed = output.TrapThrowingSpeed or output.MineLayingSpeed
 				local cooldown = output.TrapCooldown or output.Cooldown
 				useSpeed = (cooldown and cooldown > 0 and 1 / cooldown or preSpeed)
-				timeType = skillFlags.trap and "trap throwing" or "mine laying"
+				timeType = skillFlags.trap and localisation:Text("calc.action_time.trap") or localisation:Text("calc.action_time.mine")
 			elseif skillFlags.totem then
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.TotemPlacementSpeed > 0 and output.TotemPlacementSpeed or 1 / output.Cooldown) or output.TotemPlacementSpeed) / repeats
-				timeType = "totem placement"
+				timeType = localisation:Text("calc.action_time.totem")
 			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
-				timeType = "full unleash"
+				timeType = localisation:Text("calc.action_time.unleash")
 			elseif output.EffectiveReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)
 				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (output.TotalFiringTime + output.EffectiveReloadTime))
-				timeType = "effective reload"
+				timeType = localisation:Text("calc.action_time.reload")
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats
-				timeType = skillData.triggered and "trigger" or (skillFlags.totem and "totem placement" or skillFlags.attack and "attack" or "cast")
+				timeType = skillData.triggered and localisation:Text("calc.action_time.trigger") or (skillFlags.totem and localisation:Text("calc.action_time.totem") or skillFlags.attack and localisation:Text("calc.action_time.attack") or localisation:Text("calc.action_time.cast"))
 			end
 
 			output[usedResource.."PerSecondHasCost"] = true
@@ -6219,8 +6219,8 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown[usedResource.."PerSecondCost"] = copyTable(breakdown[resource.."Cost"])
 				t_remove(breakdown[usedResource.."PerSecondCost"])
-				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("x %.2f ^8("..timeType.." speed)", useSpeed))
-				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("= %.2f per second", output[usedResource.."PerSecondCost"]))
+				t_insert(breakdown[usedResource.."PerSecondCost"], localisation:Text("calc.offence.offence.line_248", { time_type = timeType, use_speed = useSpeed }))
+				t_insert(breakdown[usedResource.."PerSecondCost"], localisation:Text("calc.offence.offence.line_217", { value = output[usedResource.."PerSecondCost"] }))
 			end
 		end
 	end
@@ -6299,17 +6299,17 @@ function calcs.offence(env, actor, activeSkill)
 			local inc = skillModList:Sum("INC", skillCfg, "ParryDebuffMagnitude")
 			local more = skillModList:More(skillCfg, "ParryDebuffMagnitude") * calcLib.mod(skillModList, skillCfg, "DebuffEffect")
 			breakdown.ParryDebuffMagnitudeMod = {
-				s_format("Modifiers to Parry Debuff Magnitude:"),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line"),
 				s_format(""),
-				s_format("x %.2f ^8(increased magnitude)", 1 + inc / 100),
-				s_format("x %.2f ^8(more magnitude)", more + 1),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_2", { value = 1 + inc / 100 }),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_3", { value = more + 1 }),
 				s_format("= %.2f", parryDebuffMagnitudeMod),
 				s_format(""),
-				s_format("Resulting Parry Debuff Magnitude:"),
-				s_format("%.2f%% more damage taken ^8(base magnitude)", skillData.parryDebuffBaseMagnitude),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_4"),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_5", { parry_debuff_base_magnitude = skillData.parryDebuffBaseMagnitude }),
 				s_format("x %.2f", parryDebuffMagnitudeMod),
-				s_format("= %.2f%% more damage taken", skillData.parryDebuffBaseMagnitude * parryDebuffMagnitudeMod),
-				s_format("^8Note: Only the highest Parry Debuff magnitude will be counted"),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_6", { value = skillData.parryDebuffBaseMagnitude * parryDebuffMagnitudeMod }),
+				localisation:Text("calc.offence.parry_debuff_magnitude_mod.line_7"),
 			}
 		end
 	end
@@ -6319,13 +6319,13 @@ function calcs.offence(env, actor, activeSkill)
 		output.ParryDebuffDuration = skillData.parryDebuffDuration * calcLib.mod(skillModList, skillCfg, "ParryDebuffDuration") * (expirationMult or 0)
 		if breakdown then
 			breakdown.ParryDebuffDuration = {
-				s_format("Duration of parry debuff on enemy:\n"),
+				localisation:Text("calc.offence.parry_debuff_duration.line"),
 				s_format(""),
-				s_format("%.2fs ^8(base duration)", skillData.parryDebuffDuration),
-				s_format("x %.2f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryDebuffDuration")),
+				localisation:Text("calc.offence.parry_debuff_duration.line_2", { parry_debuff_duration = skillData.parryDebuffDuration }),
+				localisation:Text("calc.offence.parry_debuff_duration.line_3", { value = calcLib.mod(skillModList, skillCfg, "ParryDebuffDuration") }),
 			}
 			if expirationMult and expirationMult ~= 1 then
-				t_insert(breakdown.ParryDebuffDuration, s_format("x %.2f ^8(buff expiration multiplier)", expirationMult))
+				t_insert(breakdown.ParryDebuffDuration, localisation:Text("calc.offence.offence.line_218", { expiration_mult = expirationMult }))
 			end
 			t_insert(breakdown.ParryDebuffDuration, s_format("= %.2fs", output.ParryDebuffDuration))
 		end
@@ -6336,19 +6336,19 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			if output.ParryRangeNonProj > 0 then
 				breakdown.ParryRangeNonProj = {
-					s_format("Max Parry distance vs. non-projectiles:"),
+					localisation:Text("calc.offence.parry_range_non_proj.line"),
 					s_format(""),
-					s_format("%.1f m ^8(base parry range for non-projectiles)", skillData.parryRangeNonProj),
-					s_format("x %.1f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryRangeNonProj")),
+					localisation:Text("calc.offence.parry_range_non_proj.line_2", { parry_range_non_proj = skillData.parryRangeNonProj }),
+					localisation:Text("calc.offence.parry_range_non_proj.line_3", { value = calcLib.mod(skillModList, skillCfg, "ParryRangeNonProj") }),
 					s_format("= %.1f m", output.ParryRangeNonProj),
 				}
 			end
 			if output.ParryRangeProj > 0 then
 				breakdown.ParryRangeProj = {
-					s_format("Max Parry distance vs. projectiles:\n"),
+					localisation:Text("calc.offence.parry_range_proj.line"),
 					s_format(""),
-					s_format("%.1f m ^8(base parry range for projectiles)", skillData.parryRangeProj),
-					s_format("x %.1f ^8(modifier)", calcLib.mod(skillModList, skillCfg, "ParryRangeProj")),
+					localisation:Text("calc.offence.parry_range_proj.line_2", { parry_range_proj = skillData.parryRangeProj }),
+					localisation:Text("calc.offence.parry_range_proj.line_3", { value = calcLib.mod(skillModList, skillCfg, "ParryRangeProj") }),
 					s_format("= %.1f m", output.ParryRangeProj),
 				}
 			end
@@ -6379,31 +6379,31 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.ImpaleDPS = {}
 			if skillFlags.attack and skillData.combinesHitsWhenDualWielding and skillFlags.bothWeaponAttack then
-				t_insert(breakdown.ImpaleDPS, s_format("Main Hand:"))
-				t_insert(breakdown.ImpaleDPS, s_format("%.2f ^8(MH average physical hit before mitigation)", output.MainHand.impaleStoredHitAvg))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(MH chance to hit)", output.MainHand.HitChance / 100))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(MH impale damage multiplier)\n", ((output.MainHand.ImpaleModifier or 1) - 1)))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_219"))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_220", { impale_stored_hit_avg = output.MainHand.impaleStoredHitAvg }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_221", { value = output.MainHand.HitChance / 100 }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_222", { value = (output.MainHand.ImpaleModifier or 1) - 1 }))
 				t_insert(breakdown.ImpaleDPS, s_format("= %.2f", mainHandImpaleDPS))
-				t_insert(breakdown.ImpaleDPS, s_format("Off Hand:"))
-				t_insert(breakdown.ImpaleDPS, s_format("%.2f ^8(OH average physical hit before mitigation)", output.OffHand.impaleStoredHitAvg))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(OH chance to hit)", output.OffHand.HitChance / 100))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(OH impale damage multiplier)", ((output.OffHand.ImpaleModifier or 1) - 1)))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_223"))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_224", { impale_stored_hit_avg = output.OffHand.impaleStoredHitAvg }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_225", { value = output.OffHand.HitChance / 100 }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_226", { value = (output.OffHand.ImpaleModifier or 1) - 1 }))
 				t_insert(breakdown.ImpaleDPS, s_format("= %.2f", offHandImpaleDPS))
-				t_insert(breakdown.ImpaleDPS, s_format("Combined total:"))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_227"))
 				t_insert(breakdown.ImpaleDPS, s_format("%.2f + %.2f", mainHandImpaleDPS, offHandImpaleDPS))
 			else
-				t_insert(breakdown.ImpaleDPS, s_format("%.2f ^8(average physical hit before mitigation)", output.PhysicalStoredCombinedAvg))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
-				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(impale damage multiplier)", ((output.ImpaleModifier or 1) - 1)))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_228", { physical_stored_combined_avg = output.PhysicalStoredCombinedAvg }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_152", { value = output.HitChance / 100 }))
+				t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_229", { value = (output.ImpaleModifier or 1) - 1 }))
 			end
 		if skillFlags.notAverage then
-			t_insert(breakdown.ImpaleDPS, output.HitSpeed and s_format("x %.2f ^8(hit rate)", output.HitSpeed) or s_format("x %.2f ^8(%s rate)", output.Speed, skillFlags.attack and "attack" or "cast"))
+			t_insert(breakdown.ImpaleDPS, output.HitSpeed and localisation:Text("calc.offence.offence.line_230", { hit_speed = output.HitSpeed }) or localisation:Text("calc.offence.offence.line_231", { speed = output.Speed, value = ((skillFlags.attack and localisation:Ref("calc.offence.offence.line.parameter_9")) or localisation:Ref("calc.offence.offence.line.parameter_10")) }))
 		end
 		if output.DpsMultiplier ~= 1 then
-			t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(dps multiplier for this skill)", output.DpsMultiplier))
+			t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_232", { dps_multiplier = output.DpsMultiplier }))
 		end
 		if quantityMultiplier > 1 then
-			t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(quantity multiplier for this skill)", quantityMultiplier))
+			t_insert(breakdown.ImpaleDPS, localisation:Text("calc.offence.offence.line_182", { quantity_multiplier = quantityMultiplier }))
 		end
 		t_insert(breakdown.ImpaleDPS, s_format("= %.1f", output.ImpaleDPS))
 		end

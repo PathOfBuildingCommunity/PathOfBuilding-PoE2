@@ -1,37 +1,11 @@
 -- 读取现有 CSV 词库，提供双向精确匹配和带编号占位符的整行转换。
 local Dictionary = { }
 Dictionary.__index = Dictionary
+local CSV = dofile('Modules/Localisation/CSV.lua')
 
 -- 模板只能把字面文本作为 Lua 模式使用，不能执行词库中的模式片段。
 local function escape(text)
 	return (text:gsub("([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1"))
-end
-
--- 支持引号、双引号转义、逗号和引号内换行；CSV 没有必需的表头。
-local function parseCSV(text, callback)
-	text = text:gsub("^\239\187\191", "")
-	local row, field, pos = { }, { }, 1
-	local quoted = false
-	while pos <= #text do
-		local nextPos = text:find(quoted and '"' or '[,\r\n"]', pos)
-		if not nextPos then field[#field + 1] = text:sub(pos); break end
-		field[#field + 1] = text:sub(pos, nextPos - 1)
-		local char = text:sub(nextPos, nextPos)
-		pos = nextPos + 1
-		if char == '"' then
-			if quoted and text:sub(pos, pos) == '"' then
-				field[#field + 1] = '"'; pos = pos + 1
-			else quoted = not quoted end
-		elseif not quoted then
-			row[#row + 1] = table.concat(field); field = { }
-			if char ~= ',' then
-				if char == '\r' and text:sub(pos, pos) == '\n' then pos = pos + 1 end
-				callback(row); row = { }
-			end
-		end
-	end
-	assert(not quoted, "CSV 引号未闭合")
-	if #field > 0 or #row > 0 then row[#row + 1] = table.concat(field); callback(row) end
 end
 
 --- <summary>创建双向索引，冲突的反向词条不会静默选择其中一个。</summary>
@@ -89,7 +63,7 @@ end
 
 --- <summary>从一个 CSV 文本加载词条，便于在实际运行与测试中共用解析器。</summary>
 function Dictionary:LoadCSV(text)
-	parseCSV(text, function(row) if #row >= 2 then self:Add(row[1], row[2]) end end)
+	CSV.Read(text, function(row) if #row >= 2 then self:Add(row[1], row[2]) end end)
 end
 
 --- <summary>按语言包提供的文件清单加载词库。</summary>

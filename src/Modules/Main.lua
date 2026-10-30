@@ -111,6 +111,8 @@ function main:Init()
 	self.migrateAugments = true
 	self.notSupportedModTooltips = true
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
+	self.notSupportedTooltipTextKey = 'ui.main.init.not_supported_tooltip_text_key.message'
+	self.notSupportedTooltipTextPrefix = ' ^8'
 	--self.showPublicBuilds = true
 	self.showFlavourText = true
 	self.showAnimations = true
@@ -218,13 +220,13 @@ function main:Init()
 	self.anchorMain.y = function()
 		return self.screenH - 4
 	end
-	self.controls.options = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, 0, 68, 20 }, "Options", function()
+	self.controls.options = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, 0, 68, 20 }, localisation:Label("ui.main.init.options.label"), function()
 		self:OpenOptionsPopup()
 	end)
-	self.controls.about = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 72, 0, 68, 20 }, "About", function()
+	self.controls.about = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 72, 0, 68, 20 }, localisation:Label("ui.main.init.about.label"), function()
 		self:OpenAboutPopup()
 	end)
-	self.controls.applyUpdate = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, -24, 140, 20 }, "^x50E050Update Ready", function()
+	self.controls.applyUpdate = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, -24, 140, 20 }, localisation:Label("ui.main.init.apply_update.label"), function()
 		self:OpenUpdatePopup()
 	end)
 	self.controls.applyUpdate.shown = function()
@@ -237,24 +239,24 @@ function main:Init()
 		return not launch.devMode and (not launch.updateAvailable or launch.updateAvailable == "none")
 	end
 	self.controls.checkUpdate.label = function()
-		return launch.updateCheckRunning and launch.updateProgress or "Check for Update"
+		return launch.updateCheckRunning and launch.updateProgress or localisation:Text("ui.main.init.check_update_label.message")
 	end
 	self.controls.checkUpdate.enabled = function()
 		return not launch.updateCheckRunning
 	end
 	self.controls.forkLabel = new("LabelControl"):LabelControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 148, -26, 0, 16 }, "")
 	self.controls.forkLabel.label = function()
-		return "^8PoB Community Fork"
+		return localisation:Text("ui.main.init.fork_label_label.message")
 	end
 	self.controls.versionLabel = new("LabelControl"):LabelControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 148, -2, 0, 16 }, "")
 	self.controls.versionLabel.label = function()
-		return "^8Version: "..launch.versionNumber..(launch.versionBranch == "dev" and " (Dev)" or launch.versionBranch == "beta" and " (Beta)" or "")
+		return localisation:Text("ui.main.init.version_label_label.message_3", { version_number = launch.versionNumber, value = (((launch.versionBranch == "dev" and localisation:Ref("ui.main.init.version_label_label.message_2")) or (launch.versionBranch == "beta" and localisation:Ref("ui.main.init.version_label_label.message"))) or "") })
 	end
-	self.controls.devMode = new("LabelControl"):LabelControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, -26, 0, 20 }, colorCodes.NEGATIVE .. "Dev Mode")
+	self.controls.devMode = new("LabelControl"):LabelControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, -26, 0, 20 }, localisation:Label("ui.main.init.dev_mode.label", nil, colorCodes.NEGATIVE))
 	self.controls.devMode.shown = function()
 		return launch.devMode
 	end
-	self.controls.dismissToast = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, function() return -self.mainBarHeight + self.toastHeight end, 80, 20 }, "Dismiss", function()
+	self.controls.dismissToast = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self.anchorMain, "BOTTOMLEFT" }, { 0, function() return -self.mainBarHeight + self.toastHeight end, 80, 20 }, localisation:Label("ui.main.init.dismiss_toast.label"), function()
 		self.toastMode = "HIDING"
 		self.toastStart = GetTime()
 	end)
@@ -562,14 +564,14 @@ function main:LoadSettings(ignoreBuild)
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
-		launch:ShowErrMsg("^1Error parsing 'Settings.xml': 'PathOfBuilding2' root element missing")
+		launch:ShowErrMsg("%s", localisation:Text("ui.main.load_settings.error_2"))
 		return true
 	end
 	for _, node in ipairs(setXML[1]) do
 		if type(node) == "table" then
 			if not ignoreBuild and node.elem == "Mode" then
 				if not node.attrib.mode or not self.modes[node.attrib.mode] then
-					launch:ShowErrMsg("^1Error parsing 'Settings.xml': Invalid mode attribute in 'Mode' element")
+					launch:ShowErrMsg("%s", localisation:Text("ui.main.load_settings.error"))
 					return true
 				end
 				local args = { }
@@ -725,7 +727,7 @@ function main:LoadSharedItems()
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
-		launch:ShowErrMsg("^1Error parsing 'Settings.xml': 'PathOfBuilding2' root element missing")
+		launch:ShowErrMsg("%s", localisation:Text("ui.main.load_settings.error_2"))
 		return true
 	end
 	for _, node in ipairs(setXML[1]) do
@@ -783,7 +785,7 @@ function main:SaveSettings()
 
 	-- if setting save is attempted and mode is nil something has gone very wrong
 	if not mode.attrib.mode or not mode[1] then
-		launch:ShowErrMsg("^1Error saving 'Settings.xml': mode element is invalid")
+		launch:ShowErrMsg("%s", localisation:Text("ui.main.save_settings.error_2"))
 		return true
 	end
 	t_insert(setXML, mode)
@@ -840,7 +842,7 @@ function main:SaveSettings()
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
-		launch:ShowErrMsg("Error saving 'Settings.xml': %s", errMsg)
+		launch:ShowErrMsg("%s", localisation:Text("ui.main.save_settings.error", { err_msg = errMsg }))
 		return true
 	end
 end
@@ -850,11 +852,7 @@ function main:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 	local defaultLabelPlacementX = 8
 
 	controls.label = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, 20, 206, 16 }, function()
-		return "^7User settings path cannot be loaded: ".. errMsg ..
-		"\nCurrent Path: "..invalidPath:gsub("?", "^1?^7").."/Path of Building/"..
-		"\nIf this location is managed by OneDrive, navigate to that folder and manually try" ..
-		"\nto open Settings.xml in a text editor before re-opening Path of Building" ..
-		"\nOtherwise, specify a new location for your Settings.xml:"
+		return localisation:Text("ui.main.open_path_popup.label_2", { err_msg = errMsg, value = invalidPath:gsub("?", "^1?^7") })
 	end)
 	controls.userPath = new("EditControl"):EditControl({ "TOPLEFT", controls.label, "TOPLEFT" }, { 0, 60, 206, 20 }, invalidPath, nil, nil, nil, function(buf)
 		invalidPath = sanitiseText(buf)
@@ -864,20 +862,20 @@ function main:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 			controls.save.enabled = false
 		end
 	end)
-	controls.save = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls.userPath, "TOPLEFT" }, { 0, 26, 206, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl({ "TOPLEFT", controls.userPath, "TOPLEFT" }, { 0, 26, 206, 20 }, localisation:Label("ui.main.open_path_popup.save.label_3"), function()
 		local res, msg = MakeDir(controls.userPath.buf)
 		if not res and msg ~= "No error" then
-			self:OpenMessagePopup("Error", "Couldn't create '"..controls.userPath.buf.."' : "..msg)
+			self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.open_path_popup.save.label", { buf = controls.userPath.buf, msg = msg }))
 		else
 			self:ChangeUserPath(controls.userPath.buf, ignoreBuild)
 			self:ClosePopup()
 		end
 	end)
 	controls.save.enabled = false
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 0, 0, 0, 0 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 0, 0, 0, 0 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 		-- Do nothing, require user to enter a location
 	end)
-	self:OpenPopup(600, 150, "Change Settings Path", controls, "save", nil, "cancel")
+	self:OpenPopup(600, 150, localisation:Label("ui.main.open_path_popup.label"), controls, "save", nil, "cancel")
 end
 
 function main:ChangeUserPath(newUserPath, ignoreBuild)
@@ -950,45 +948,45 @@ function main:OpenOptionsPopup(savedState)
 	end
 
 	-- local func to make a new section header
-	local function drawSectionHeader(id, title, omitHorizontalLine)
+	local function drawSectionHeader(id, titleKey, omitHorizontalLine)
 		local headerBGColor ={ .6, .6, .6}
 		controls["section-" .. id .. "-bg"] = new("RectangleOutlineControl"):RectangleOutlineControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + scrollBarWidth + 8, currentY, columnWidth - (scrollBarWidth * 2) - 17, 26 }, headerBGColor, 1)
 		nextRow(.2)
-		controls["section-" .. id .. "-label"] = new("LabelControl"):LabelControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + columnWidth / 2 - 60, currentY, 0, 16 }, "^7" .. title)
+		controls["section-" .. id .. "-label"] = new("LabelControl"):LabelControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + columnWidth / 2 - 60, currentY, 0, 16 }, localisation:Label(titleKey, nil, "^7"))
 		nextRow(1.5)
 	end
 
 	local defaultLabelSpacingPx = -4
 	local defaultLabelPlacementX = columnWidth*0.45
 
-	drawSectionHeader("app", "Application options")
+	drawSectionHeader("app", "ui.main.open_options_popup.message")
 	local languageOptions = { }
 	for _, language in ipairs(localisation:LanguageList()) do
 		languageOptions[#languageOptions + 1] = { label = language.name, id = language.id }
 	end
 	controls.language = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 160, 18 }, languageOptions)
 	controls.language:SelByValue(localisation.language, "id")
-	controls.languageLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.language, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Language:")
+	controls.languageLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.language, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.language_label.label", nil, "^7"))
 	nextRow()
 
 	controls.connectionProtocol = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
-		{ label = "Auto", protocol = 0 },
-		{ label = "IPv4", protocol = 1 },
-		{ label = "IPv6", protocol = 2 },
+		{ label = "Auto", labelKey = "ui.main.open_options_popup.connection_protocol.label", protocol = 0 },
+		{ label = "IPv4", labelKey = "ui.main.open_options_popup.connection_protocol.label_2", protocol = 1 },
+		{ label = "IPv6", labelKey = "ui.main.open_options_popup.connection_protocol.label_3", protocol = 2 },
 	}, function(index, value)
 		self.connectionProtocol = value.protocol
 	end)
-	controls.connectionProtocolLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.connectionProtocol, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Connection Protocol:")
-	controls.connectionProtocol.tooltipText = "Changes which protocol is used when downloading updates and importing builds."
+	controls.connectionProtocolLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.connectionProtocol, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.connection_protocol_label.label"))
+	controls.connectionProtocol.tooltipText = localisation:Label("ui.main.open_options_popup.connection_protocol_tooltip_text.label")
 	controls.connectionProtocol:SelByValue(launch.connectionProtocol, "protocol")
 
 	nextRow()
 	controls.proxyType = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 18 }, {
-		{ label = "HTTP", scheme = "http" },
-		{ label = "SOCKS", scheme = "socks5" },
-		{ label = "SOCKS5H", scheme = "socks5h" },
+		{ label = "HTTP", labelKey = "ui.main.open_options_popup.proxy_type.label", scheme = "http" },
+		{ label = "SOCKS", labelKey = "ui.main.open_options_popup.proxy_type.label_2", scheme = "socks5" },
+		{ label = "SOCKS5H", labelKey = "ui.main.open_options_popup.proxy_type.label_3", scheme = "socks5h" },
 	})
-	controls.proxyLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.proxyType, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Proxy server:")
+	controls.proxyLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.proxyType, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.proxy_label.label"))
 	controls.proxyURL = new("EditControl"):EditControl({ "LEFT", controls.proxyType, "RIGHT" }, { 4, 0, 206, 18 })
 
 	if launch.proxyURL then
@@ -999,7 +997,7 @@ function main:OpenOptionsPopup(savedState)
 
 	nextRow()
 	controls.dpiScaleOverride = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 150, 18 }, {
-		{ label = "Use system default", percent = 0 },
+		{ label = "Use system default", labelKey = "ui.main.open_options_popup.dpi_scale_override.label", percent = 0 },
 		{ label = "100%", percent = 100 },
 		{ label = "125%", percent = 125 },
 		{ label = "150%", percent = 150 },
@@ -1014,28 +1012,28 @@ function main:OpenOptionsPopup(savedState)
 		self:ClosePopup()
 		self:OpenOptionsPopup(savedState)
 	end)
-	controls.dpiScaleOverrideLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
-	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
+	controls.dpiScaleOverrideLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.dpi_scale_override_label.label"))
+	controls.dpiScaleOverride.tooltipText = localisation:Label("ui.main.open_options_popup.dpi_scale_override_tooltip_text.label")
 	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
 	controls.buildPath = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 290, 18 })
-	controls.buildPathLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.buildPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Build save path:")
+	controls.buildPathLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.buildPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.build_path_label.label"))
 	if self.buildPath ~= self.defaultBuildPath then
 		controls.buildPath:SetText(self.buildPath)
 	end
-	controls.buildPath.tooltipText = "Overrides the default save location for builds.\nThe default location is: '"..self.defaultBuildPath.."'"
+	controls.buildPath.tooltipText = localisation:Label("ui.main.open_options_popup.build_path_tooltip_text.label", { default_build_path = self.defaultBuildPath })
 
 	nextRow()
 	controls.nodePowerTheme = new("DropDownControl"):DropDownControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
-		{ label = "Red & Blue", theme = "RED/BLUE" },
-		{ label = "Red & Green", theme = "RED/GREEN" },
-		{ label = "Green & Blue", theme = "GREEN/BLUE" },
+		{ label = "Red & Blue", labelKey = "ui.main.open_options_popup.node_power_theme.label_2", theme = "RED/BLUE" },
+		{ label = "Red & Green", labelKey = "ui.main.open_options_popup.node_power_theme.label_3", theme = "RED/GREEN" },
+		{ label = "Green & Blue", labelKey = "ui.main.open_options_popup.node_power_theme.label", theme = "GREEN/BLUE" },
 	}, function(index, value)
 		self.nodePowerTheme = value.theme
 	end)
-	controls.nodePowerThemeLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.nodePowerTheme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Node Power colours:")
-	controls.nodePowerTheme.tooltipText = "Changes the colour scheme used for the node power display on the passive tree."
+	controls.nodePowerThemeLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.nodePowerTheme, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.node_power_theme_label.label"))
+	controls.nodePowerTheme.tooltipText = localisation:Label("ui.main.open_options_popup.node_power_theme_tooltip_text.label")
 	controls.nodePowerTheme:SelByValue(self.nodePowerTheme, "theme")
 
 	nextRow()
@@ -1046,9 +1044,8 @@ function main:OpenOptionsPopup(savedState)
 			self.colorPositive = buf
 		end
 	end)
-	controls.colorPositiveLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorPositive, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for positive values:")
-	controls.colorPositive.tooltipText = "Overrides the default hex colour for positive values in breakdowns. \nExpected format is 0x000000. " ..
-		"The default value is " .. tostring(defaultColorCodes.POSITIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
+	controls.colorPositiveLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorPositive, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.color_positive_label.label"))
+	controls.colorPositive.tooltipText = localisation:Label("ui.main.open_options_popup.color_positive_tooltip_text.label", { value = tostring(defaultColorCodes.POSITIVE:gsub('^(^)', '0')) })
 
 	nextRow()
 	controls.colorNegative = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorNegative:gsub('^(^)', '0')), nil, nil, 8, function(buf)
@@ -1058,9 +1055,8 @@ function main:OpenOptionsPopup(savedState)
 			self.colorNegative = buf
 		end
 	end)
-	controls.colorNegativeLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorNegative, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for negative values:")
-	controls.colorNegative.tooltipText = "Overrides the default hex colour for negative values in breakdowns. \nExpected format is 0x000000. " ..
-		"The default value is " .. tostring(defaultColorCodes.NEGATIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
+	controls.colorNegativeLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorNegative, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.color_negative_label.label"))
+	controls.colorNegative.tooltipText = localisation:Label("ui.main.open_options_popup.color_negative_tooltip_text.label", { value = tostring(defaultColorCodes.NEGATIVE:gsub('^(^)', '0')) })
 
 	nextRow()
 
@@ -1071,42 +1067,41 @@ function main:OpenOptionsPopup(savedState)
 			self.colorHighlight = buf
 		end
 	end)
-	controls.colorHighlightLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorHighlight, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Hex colour for highlight nodes:")
-	controls.colorHighlight.tooltipText = "Overrides the default hex colour for highlighting nodes in passive tree search. \nExpected format is 0x000000. " ..
-		"The default value is " .. tostring(defaultColorCodes.HIGHLIGHT:gsub('^(^)', '0')) .."\nIf updating while inside a build, please re-load the build after saving."
+	controls.colorHighlightLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.colorHighlight, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.color_highlight_label.label"))
+	controls.colorHighlight.tooltipText = localisation:Label("ui.main.open_options_popup.color_highlight_tooltip_text.label", { value = tostring(defaultColorCodes.HIGHLIGHT:gsub('^(^)', '0')) })
 
 	nextRow()
-	controls.betaTest = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Opt-in to weekly beta test builds:", function(state)
+	controls.betaTest = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.beta_test.label"), function(state)
 		self.betaTest = state
 	end)
 
 	nextRow()
-	controls.edgeSearchHighlight = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show search circles at viewport edge", function(state)
+	controls.edgeSearchHighlight = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.edge_search_highlight.label"), function(state)
 		self.edgeSearchHighlight = state
 	end)
 
 	nextRow()
-	controls.showFlavourText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
+	controls.showFlavourText = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.show_flavour_text.label"), function(state)
 		self.showFlavourText = state
 	end)
-	controls.showFlavourText.tooltipText = "If updating while inside a build, please re-load the build after saving."
+	controls.showFlavourText.tooltipText = localisation:Label("ui.main.open_options_popup.show_flavour_text_tooltip_text.label")
 
 	nextRow()
-	controls.showAnimations = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
+	controls.showAnimations = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.show_animations.label"), function(state)
 		self.showAnimations = state
 	end)
 
 	nextRow()
-	controls.showAllItemAffixes = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show all item affixes sliders:", function(state)
+	controls.showAllItemAffixes = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.show_all_item_affixes.label"), function(state)
 		self.showAllItemAffixes = state
 	end)
-	controls.showAllItemAffixes.tooltipText = "Display all item affix slots as a stacked list instead of hiding them in dropdowns."
+	controls.showAllItemAffixes.tooltipText = localisation:Label("ui.main.open_options_popup.show_all_item_affixes_tooltip_text.label")
 
 	nextRow()
-	controls.disableScrollControlInteraction = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Disable control scroll interaction:", function(state)
+	controls.disableScrollControlInteraction = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.disable_scroll_control_interaction.label"), function(state)
 		self.disableScrollControlInteraction = state
 	end)
-	controls.disableScrollControlInteraction.tooltipText = "Disable changing the values in controls such as dropdowns or numeric inputs when using the scroll wheel."
+	controls.disableScrollControlInteraction.tooltipText = localisation:Label("ui.main.open_options_popup.disable_scroll_control_interaction_tooltip_text.label")
 
 	nextRow()
 
@@ -1119,9 +1114,9 @@ function main:OpenOptionsPopup(savedState)
 	end
 
 	-- Build-related Option Section starts
-	drawSectionHeader("build", "Build-related options")
+	drawSectionHeader("build", "ui.main.open_options_popup.message_2")
 
-	controls.showThousandsSeparators = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show thousands separators:", function(state)
+	controls.showThousandsSeparators = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.show_thousands_separators.label"), function(state)
 	self.showThousandsSeparators = state
 	end)
 	controls.showThousandsSeparators.state = self.showThousandsSeparators
@@ -1130,16 +1125,16 @@ function main:OpenOptionsPopup(savedState)
 	controls.thousandsSeparator = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 30, 20 }, self.thousandsSeparator, nil, "%w", 1, function(buf)
 		self.thousandsSeparator = buf
 	end)
-	controls.thousandsSeparatorLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.thousandsSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Thousands separator:")
+	controls.thousandsSeparatorLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.thousandsSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, localisation:Label("ui.main.open_options_popup.thousands_separator_label.label"))
 
 	nextRow()
 	controls.decimalSeparator = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 30, 20 }, self.decimalSeparator, nil, "%w", 1, function(buf)
 		self.decimalSeparator = buf
 	end)
-	controls.decimalSeparatorLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.decimalSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Decimal separator:")
+	controls.decimalSeparatorLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.decimalSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, localisation:Label("ui.main.open_options_popup.decimal_separator_label.label"))
 
 	nextRow()
-	controls.titlebarName = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show build name in window title:", function(state)
+	controls.titlebarName = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.titlebar_name.label"), function(state)
 		self.showTitlebarName = state
 	end)
 
@@ -1147,72 +1142,72 @@ function main:OpenOptionsPopup(savedState)
 	controls.defaultGemQuality = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultGemQuality, nil, "%D", 2, function(gemQuality)
 		self.defaultGemQuality = m_min(tonumber(gemQuality) or 0, 23)
 	end)
-	controls.defaultGemQuality.tooltipText = "Set the default quality that can be overwritten by build-related quality settings in the skill panel."
-	controls.defaultGemQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default gem quality:")
+	controls.defaultGemQuality.tooltipText = localisation:Label("ui.main.open_options_popup.default_gem_quality_tooltip_text.label")
+	controls.defaultGemQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.default_gem_quality_label.label"))
 
 	nextRow()
 	controls.defaultItemQuality = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
 		self.defaultItemQuality = m_min(tonumber(itemQuality) or 0, 20)
 	end)
-	controls.defaultItemQuality.tooltipText = "Set the default quality that will be applied to newly created or pasted items."
-	controls.defaultItemQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default item quality:")
+	controls.defaultItemQuality.tooltipText = localisation:Label("ui.main.open_options_popup.default_item_quality_tooltip_text.label")
+	controls.defaultItemQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.default_item_quality_label.label"))
 
 	nextRow()
 	controls.defaultCharLevel = new("EditControl"):EditControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
 		self.defaultCharLevel = m_min(m_max(tonumber(charLevel) or 1, 1), 100)
 	end)
-	controls.defaultCharLevel.tooltipText = "Set the default level of your builds. If this is higher than 1, manual level mode will be enabled by default in new builds."
-	controls.defaultCharLevelLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultCharLevel, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default character level:")
+	controls.defaultCharLevel.tooltipText = localisation:Label("ui.main.open_options_popup.default_char_level_tooltip_text.label")
+	controls.defaultCharLevelLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultCharLevel, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, localisation:Label("ui.main.open_options_popup.default_char_level_label.label"))
 
 	nextRow()
 	controls.defaultItemAffixQualitySlider = new("SliderControl"):SliderControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 200, 20 }, function(value)
 		self.defaultItemAffixQuality = round(value, 2)
 		controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 	end)
-	controls.defaultItemAffixQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultItemAffixQualitySlider, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Default item affix quality:")
+	controls.defaultItemAffixQualityLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.defaultItemAffixQualitySlider, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, localisation:Label("ui.main.open_options_popup.default_item_affix_quality_label.label"))
 	controls.defaultItemAffixQualityValue = new("LabelControl"):LabelControl({ "LEFT", controls.defaultItemAffixQualitySlider, "RIGHT" }, { -defaultLabelSpacingPx, 0, 92, 16 }, "50%")
 	controls.defaultItemAffixQualitySlider.val = self.defaultItemAffixQuality
 	controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 
 	nextRow()
-	controls.showWarnings = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show build warnings:", function(state)
+	controls.showWarnings = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.show_warnings.label"), function(state)
 		self.showWarnings = state
 	end)
 	controls.showWarnings.state = self.showWarnings
 
 	nextRow()
-	controls.slotOnlyTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show tooltips only for affected slots:", function(state)
+	controls.slotOnlyTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.slot_only_tooltips.label"), function(state)
 		self.slotOnlyTooltips = state
-	end, "Shows comparisons in tooltips only for the slot you are currently placing the item in, instead of all slots.")
+	end, localisation:Label("ui.main.check_box_control.tooltip"))
 	controls.slotOnlyTooltips.state = self.slotOnlyTooltips
 
 	nextRow()
-	controls.migrateAugments = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Copy augments onto display item:", function(state)
+	controls.migrateAugments = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.migrate_augments.label"), function(state)
 		self.migrateAugments = state
 	end)
-	controls.migrateAugments.tooltipText = "Apply augments and anoints from current gear when comparing new gear, given they are possible to add to the new item."
+	controls.migrateAugments.tooltipText = localisation:Label("ui.main.open_options_popup.migrate_augments_tooltip_text.label")
 	controls.migrateAugments.state = self.migrateAugments
 
 	nextRow()
-	controls.notSupportedModTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
+	controls.notSupportedModTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.not_supported_mod_tooltips.label"), function(state)
 		self.notSupportedModTooltips = state
 	end)
-	controls.notSupportedModTooltips.tooltipText = "Show ^8(Not supported in PoB yet) ^7next to unsupported mods\nRequires PoB to restart for it to take effect"
+	controls.notSupportedModTooltips.tooltipText = localisation:Label("ui.main.open_options_popup.not_supported_mod_tooltips_tooltip_text.label")
 	controls.notSupportedModTooltips.state = self.notSupportedModTooltips
 
 	nextRow()
-	controls.invertSliderScrollDirection = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
+	controls.invertSliderScrollDirection = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.invert_slider_scroll_direction.label"), function(state)
 		self.invertSliderScrollDirection = state
 	end)
-	controls.invertSliderScrollDirection.tooltipText = "Default scroll direction is:\nScroll Up = Move right\nScroll Down = Move left"
+	controls.invertSliderScrollDirection.tooltipText = localisation:Label("ui.main.open_options_popup.invert_slider_scroll_direction_tooltip_text.label")
 	controls.invertSliderScrollDirection.state = self.invertSliderScrollDirection
 
 	if launch.devMode then
 		nextRow()
-		controls.disableDevAutoSave = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Disable Dev AutoSave:", function(state)
+		controls.disableDevAutoSave = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, localisation:Label("ui.main.open_options_popup.disable_dev_auto_save.label"), function(state)
 			self.disableDevAutoSave = state
 		end)
-		controls.disableDevAutoSave.tooltipText = "Do not Autosave builds while on Dev branch"
+		controls.disableDevAutoSave.tooltipText = localisation:Label("ui.main.open_options_popup.disable_dev_auto_save_tooltip_text.label")
 		controls.disableDevAutoSave.state = self.disableDevAutoSave
 	end
 
@@ -1232,7 +1227,7 @@ function main:OpenOptionsPopup(savedState)
 	nextRow(1.5)
 
 	-- lock the Save/Cancel buttons to the bottom so they don't scroll away
-	controls.save = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { -45, -10, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { -45, -10, 80, 20 }, localisation:Label("ui.main.open_path_popup.save.label_3"), function()
 		launch.connectionProtocol = tonumber(self.connectionProtocol)
 		if controls.proxyURL.buf:match("%w") then
 			launch.proxyURL = controls.proxyType.list[controls.proxyType.selIndex].scheme .. "://" .. controls.proxyURL.buf
@@ -1258,7 +1253,7 @@ function main:OpenOptionsPopup(savedState)
 		main:ClosePopup()
 		main:SaveSettings()
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 45, -10, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl({ "BOTTOM", nil, "BOTTOM" }, { 45, -10, 80, 20 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 		self.nodePowerTheme = savedState.nodePowerTheme
 		self.colorPositive = savedState.colorPositive
 		updateColorCode("POSITIVE", self.colorPositive)
@@ -1305,7 +1300,7 @@ function main:OpenOptionsPopup(savedState)
 		end
 	end
 
-	local popup = self:OpenPopup(popupWidth, popupHeight, "Options", controls, "save", nil, "cancel", useScrollBar and scrollBarFunc or nil)
+	local popup = self:OpenPopup(popupWidth, popupHeight, localisation:Label("ui.main.open_options_popup.popup.label"), controls, "save", nil, "cancel", useScrollBar and scrollBarFunc or nil)
 
 	local originalDrawControls = popup.DrawControls
 
@@ -1390,17 +1385,17 @@ function main:OpenUpdatePopup()
 	end
 	local controls = { }
 	controls.changeLog = new("TextListControl"):TextListControl(nil, { 0, 20, 780, 542 }, nil, changeList)
-	controls.update = new("ButtonControl"):ButtonControl(nil, { -45, 570, 80, 20 }, "Update", function()
+	controls.update = new("ButtonControl"):ButtonControl(nil, { -45, 570, 80, 20 }, localisation:Label("ui.main.open_update_popup.update.label"), function()
 		self:ClosePopup()
 		local ret = self:CallMode("CanExit", "UPDATE")
 		if ret == nil or ret == true then
 			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 570, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 570, 80, 20 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 		self:ClosePopup()
 	end)
-	self:OpenPopup(800, 600, "Update Available", controls)
+	self:OpenPopup(800, 600, localisation:Label("ui.main.open_update_popup.label"), controls)
 end
 
 function main:OpenAboutPopup(helpSectionIndex)
@@ -1493,19 +1488,19 @@ function main:OpenAboutPopup(helpSectionIndex)
 		helpSectionIndex = newIndex
 	end
 	local controls = { }
-	controls.close = new("ButtonControl"):ButtonControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -10, 10, 50, 20 }, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -10, 10, 50, 20 }, localisation:Label("ui.main.open_about_popup.close.label"), function()
 		self:ClosePopup()
 	end)
-	controls.version = new("LabelControl"):LabelControl(nil, { 0, 18, 0, 18 }, "^7Path of Building Community Fork v" .. launch.versionNumber)
-	controls.forum = new("LabelControl"):LabelControl(nil, { 0, 36, 0, 18 }, "^7Based on Openarl's Path of Building")
-	controls.github = new("ButtonControl"):ButtonControl(nil, { 0, 62, 480, 18 }, "^7GitHub page: ^x4040FFhttps://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2", function(control)
+	controls.version = new("LabelControl"):LabelControl(nil, { 0, 18, 0, 18 }, localisation:Label("ui.main.open_about_popup.version.label", { version_number = launch.versionNumber }))
+	controls.forum = new("LabelControl"):LabelControl(nil, { 0, 36, 0, 18 }, localisation:Label("ui.main.open_about_popup.forum.label"))
+	controls.github = new("ButtonControl"):ButtonControl(nil, { 0, 62, 480, 18 }, localisation:Label("ui.main.open_about_popup.github.label"), function(control)
 		OpenURL("https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2")
 	end)
-	controls.verLabel = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 85, 100, 18 }, "^7Version history:", function()
+	controls.verLabel = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 10, 85, 100, 18 }, localisation:Label("ui.main.open_about_popup.ver_label.label"), function()
 		controls.changelog.list = changeList
 		controls.changelog.sectionHeights = changeVersionHeights
 	end)
-	controls.helpLabel = new("ButtonControl"):ButtonControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -10, 85, 40, 18 }, "^7Help:", function()
+	controls.helpLabel = new("ButtonControl"):ButtonControl({ "TOPRIGHT", nil, "TOPRIGHT" }, { -10, 85, 40, 18 }, localisation:Label("ui.main.open_about_popup.help_label.label"), function()
 		controls.changelog.list = helpList
 		controls.changelog.sectionHeights = helpSectionHeights
 	end)
@@ -1513,7 +1508,7 @@ function main:OpenAboutPopup(helpSectionIndex)
 	if helpSectionIndex then
 		controls.changelog.controls.scrollBar.offset = helpSections[helpSectionIndex].height * textSize
 	end
-	self:OpenPopup(popupWidth, 628, "About", controls)
+	self:OpenPopup(popupWidth, 628, localisation:Label("ui.main.open_about_popup.label"), controls)
 end
 
 function main:DrawBackground(viewPort)
@@ -1615,7 +1610,7 @@ function main:MoveFolder(name, srcPath, dstPath)
 	-- Create destination folder
 	local res, msg = MakeDir(dstPath..name)
 	if not res then
-		self:OpenMessagePopup("Error", "Couldn't move '"..name.."' to '"..dstPath.."' : "..msg)
+		self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.move_folder.message_2", { name = name, dst_path = dstPath, msg = msg }))
 		return
 	end
 
@@ -1636,7 +1631,7 @@ function main:MoveFolder(name, srcPath, dstPath)
 		local dstName = dstPath..name.."/"..fileName
 		local res, msg = os.rename(srcName, dstName)
 		if not res then
-			self:OpenMessagePopup("Error", "Couldn't move '"..srcName.."' to '"..dstName.."': "..msg)
+			self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.move_folder.message_3", { src_name = srcName, dst_name = dstName, msg = msg }))
 			return
 		end
 		if not handle:NextFile() then
@@ -1647,7 +1642,7 @@ function main:MoveFolder(name, srcPath, dstPath)
 	-- Remove source folder
 	local res, msg = RemoveDir(srcPath..name)
 	if not res then
-		self:OpenMessagePopup("Error", "Couldn't delete '"..dstPath..name.."' : "..msg)
+		self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.move_folder.message", { dst_path = dstPath, name = name, msg = msg }))
 		return
 	end
 end
@@ -1656,7 +1651,7 @@ function main:CopyFolder(srcName, dstName)
 	-- Create destination folder
 	local res, msg = MakeDir(dstName)
 	if not res then
-		self:OpenMessagePopup("Error", "Couldn't copy '"..srcName.."' to '"..dstName.."' : "..msg)
+		self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.copy_folder.message", { src_name = srcName, dst_name = dstName, msg = msg }))
 		return
 	end
 
@@ -1678,7 +1673,7 @@ function main:CopyFolder(srcName, dstName)
 		local dstName = dstName.."/"..fileName
 		local res, msg = copyFile(srcName, dstName)
 		if not res then
-			self:OpenMessagePopup("Error", "Couldn't copy '"..srcName.."' to '"..dstName.."': "..msg)
+			self:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.copy_folder.message_2", { src_name = srcName, dst_name = dstName, msg = msg }))
 			return
 		end
 		if not handle:NextFile() then
@@ -1704,7 +1699,7 @@ function main:OpenMessagePopup(title, msg)
 		t_insert(controls, new("LabelControl"):LabelControl(nil, { 0, 20 + numMsgLines * 16, 0, 16 }, line))
 		numMsgLines = numMsgLines + 1
 	end
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, 40 + numMsgLines * 16, 80, 20 }, "Ok", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 0, 40 + numMsgLines * 16, 80, 20 }, localisation:Label("ui.main.open_message_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 	return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
@@ -1750,7 +1745,7 @@ function main:OpenConfirmPopup(title, msg, confirmLabel, onConfirm, extraLabel, 
 			main:ClosePopup()
 			onConfirm()
 		end)
-		t_insert(controls, new("ButtonControl"):ButtonControl(nil, { 5 + m_ceil(confirmWidth / 2), 40 + numMsgLines * 16, confirmWidth, 20 }, "Cancel", function()
+		t_insert(controls, new("ButtonControl"):ButtonControl(nil, { 5 + m_ceil(confirmWidth / 2), 40 + numMsgLines * 16, confirmWidth, 20 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 			main:ClosePopup()
 		end))
 		return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "confirm")
@@ -1759,13 +1754,13 @@ end
 
 -- https://www.pathofexile.com/developer/docs/game#markup-Font
 local noteFontTags = {
-	{ tag = "r", label = "Regular" },
-	{ tag = "b", label = "Bold" },
-	{ tag = "i", label = "Italic" },
-	{ tag = "u", label = "Underline" },
-	{ tag = "s", label = "Small" },
-	{ tag = "m", label = "Medium" },
-	{ tag = "l", label = "Large" },
+	{ tag = "r", label = "Regular", labelKey = "ui.main.module.note_font_tags.label_5" },
+	{ tag = "b", label = "Bold", labelKey = "ui.main.module.note_font_tags.label" },
+	{ tag = "i", label = "Italic", labelKey = "ui.main.module.note_font_tags.label_2" },
+	{ tag = "u", label = "Underline", labelKey = "ui.main.module.note_font_tags.label_7" },
+	{ tag = "s", label = "Small", labelKey = "ui.main.module.note_font_tags.label_6" },
+	{ tag = "m", label = "Medium", labelKey = "ui.main.module.note_font_tags.label_4" },
+	{ tag = "l", label = "Large", labelKey = "ui.main.module.note_font_tags.label_3" },
 }
 
 -- A list of practical color code keys. These use the colorCodes table and rgb(r, g, b) tags
@@ -1789,11 +1784,11 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 		return edit
 	end
 
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Note shown on this entry in the exported .build (BuildPlanner) file.\nLeave blank to remove.\n^8Buttons below wrap the selected text in BuildPlanner markup.")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.main.open_note_edit_popup.label_2"))
 
 	local hoverText = "Click to insert tag, then type inside the curly braces."
 
-	controls.fontLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 72, 0, 16 }, "^7Font")
+	controls.fontLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 72, 0, 16 }, localisation:Label("ui.main.open_note_edit_popup.font_label.label"))
 	for index, style in ipairs(noteFontTags) do
 		controls["font" .. style.label] = new("ButtonControl"):ButtonControl(nil, { -258 + (index - 1) * 86, 90, 82, 18 }, "^7" .. style.label, function()
 			return insertMarkup("<" .. style.tag .. ">")
@@ -1802,7 +1797,7 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 		controls["font" .. style.label].forceTooltip = true
 	end
 
-	controls.colorLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 114, 0, 16 }, "^7Colour")
+	controls.colorLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 114, 0, 16 }, localisation:Label("ui.main.open_note_edit_popup.color_label.label"))
 	for index, code in ipairs(noteColorCodes) do
 		local col = (index - 1) % markupButtonsPerRow
 		local row = m_floor((index - 1) / markupButtonsPerRow)
@@ -1815,18 +1810,18 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 
 	local editY = generatedText and 222 or 198
 	if generatedText then
-		controls.addItemText = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 198, 120, 18 }, "Add Item Text", function()
+		controls.addItemText = new("ButtonControl"):ButtonControl({ "TOPLEFT", nil, "TOPLEFT" }, { 14, 198, 120, 18 }, localisation:Label("ui.main.open_note_edit_popup.add_item_text.label"), function()
 			controls.edit:Insert(generatedText)
 			return controls.edit
 		end)
-		controls.addItemText.tooltipText = "Insert the generated item text at the caret"
+		controls.addItemText.tooltipText = localisation:Label("ui.main.open_note_edit_popup.add_item_text_tooltip_text.label")
 		controls.addItemText.forceTooltip = true
 	end
 	controls.edit = new("EditControl"):EditControl(nil, { 0, editY, 598, 240 }, initial or "", nil, "^%C\t\n", nil, function(buf)
 		controls.save.enabled = true
 	end, 16)
 	local buttonY = editY + 250
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, buttonY, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, buttonY, 80, 20 }, localisation:Label("ui.main.open_path_popup.save.label_3"), function()
 		local buf = controls.edit.buf
 		if buf == "" then buf = nil end
 		onSave(buf)
@@ -1837,27 +1832,27 @@ function main:OpenNoteEditPopup(title, initial, onSave, generatedText)
 		if controls.edit.buf ~= "" then
 			tooltip:AddBuildPlannerNote(14, controls.edit.buf)
 		else
-			tooltip:AddLine(14, "Save an empty note to remove it.")
+			tooltip:AddLine(14, localisation:Text("ui.main.open_note_edit_popup.save_tooltip_func.tooltip"))
 		end
 	end
 	controls.save.forceTooltip = true
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, buttonY, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, buttonY, 80, 20 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 		main:ClosePopup()
 	end)
-	self:OpenPopup(624, buttonY + 40, title or "Edit Note", controls, "save", "edit", "cancel")
+	self:OpenPopup(624, buttonY + 40, title or localisation:Label("ui.main.open_note_edit_popup.label"), controls, "save", "edit", "cancel")
 end
 
 function main:OpenNewFolderPopup(path, onClose)
 	local controls = { }
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter folder name:")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.main.open_new_folder_popup.label"))
 	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 350, 20 }, nil, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		controls.create.enabled = buf:match("%S")
 	end)
-	controls.create = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, "Create", function()
+	controls.create = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, localisation:Label("ui.main.open_new_folder_popup.create.label_2"), function()
 		local newFolderName = controls.edit.buf
 		local res, msg = MakeDir(path..newFolderName)
 		if not res then
-			main:OpenMessagePopup("Error", "Couldn't create '"..newFolderName.."': "..msg)
+			main:OpenMessagePopup(localisation:Text("ui.main.open_path_popup.save.label_2"), localisation:Text("ui.main.open_new_folder_popup.create.label", { new_folder_name = newFolderName, msg = msg }))
 			return
 		end
 		if onClose then
@@ -1866,13 +1861,13 @@ function main:OpenNewFolderPopup(path, onClose)
 		main:ClosePopup()
 	end)
 	controls.create.enabled = false
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, localisation:Label("ui.main.open_path_popup.cancel.label"), function()
 		if onClose then
 			onClose()
 		end
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 100, "New Folder", controls, "create", "edit", "cancel")
+	main:OpenPopup(370, 100, localisation:Label("ui.main.open_new_folder_popup.label_2"), controls, "create", "edit", "cancel")
 end
 
 -- Show an error popup if a file cannot be read due to cloud provider unavailability.
@@ -1894,11 +1889,11 @@ function main:OpenCloudErrorPopup(fileName)
 		t_insert(controls, new("LabelControl"):LabelControl(nil, { 0, 20 + numMsgLines * 16, 0, 16 }, line))
 		numMsgLines = numMsgLines + 1
 	end
-	controls.help = new("ButtonControl"):ButtonControl(nil, { -55, 40 + numMsgLines * 16, 80, 20 }, "Help (web)", function()
+	controls.help = new("ButtonControl"):ButtonControl(nil, { -55, 40 + numMsgLines * 16, 80, 20 }, localisation:Label("ui.main.open_cloud_error_popup.help.label"), function()
 		OpenURL(url)
 	end)
 	controls.help.tooltipText = url
-	controls.close = new("ButtonControl"):ButtonControl(nil, { 55, 40 + numMsgLines * 16, 80, 20 }, "Ok", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { 55, 40 + numMsgLines * 16, 80, 20 }, localisation:Label("ui.main.open_message_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 	return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")

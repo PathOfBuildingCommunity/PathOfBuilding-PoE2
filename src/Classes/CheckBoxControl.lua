@@ -11,7 +11,7 @@ function CheckBoxClass:CheckBoxControl(anchor, rect, label, changeFunc, tooltipT
 	self:Control(anchor, rect)
 	self:TooltipHost(tooltipText)
 	self.label = label
-	self.labelWidth = DrawStringWidth(self.width - 4, "VAR", label or "") + 5
+	self.labelWidth = DrawStringWidth(self.width - 4, "VAR", self:GetProperty("label") or "") + 5
 	self.changeFunc = changeFunc
 	self.state = initialState
 	self.checkImage = nil
@@ -29,6 +29,8 @@ function CheckBoxClass:IsMouseOver()
 	-- move x left by label width, increase width by label width
 	local label = self:GetProperty("label")
 	if label then
+		-- key 属性在切换语言后重新求值，命中范围必须按当前译文测量。
+		self.labelWidth = DrawStringWidth(self.width - 4, "VAR", label) + 5
 		width = width + self.labelWidth
 		if not self.labelRight then
 			x = x - self.labelWidth

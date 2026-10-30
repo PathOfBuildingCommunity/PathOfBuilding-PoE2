@@ -105,7 +105,7 @@ Fallback Nodes,备选节点
 "Fallback node weights are only used when no matching entry exists in the desired nodes list, allowing you to override or disable specific automatic weights.","备选节点权重仅在所需节点列表中没有匹配条目时使用，允许你覆盖或禁用特定的自动权重。"
 Fallback node weights typically contain automatically generated stat weights based on your current build.,备选节点权重通常包含根据当前Build自动生成的属性权重。
 "Any manual changes made to your fallback nodes are lost when you click the generate button, as it completely replaces them.","在单击生成按钮时，对备选节点所做的任何手动更改都将丢失，因为新生成的将完全替换它们。"
-Error fetching league list, default league will be used,获取联赛列表错误，将使用默认联赛
+"Error fetching league list, default league will be used","获取联赛列表错误，将使用默认联赛"
 Copy Trade URL,复制交易URL
 Copy Next Trade URL,复制下一个交易URL
 Click to generate and copy a trade URL for searching for jewels in this list.,点击生成并复制一个交易URL，用于搜索此列表中的珠宝。

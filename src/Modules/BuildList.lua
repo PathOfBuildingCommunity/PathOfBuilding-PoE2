@@ -45,25 +45,25 @@ function listMode:Init(selBuildName, subPath)
 	self.subPath = subPath or ""
 	self.list = { }
 
-	self.controls.new = new("ButtonControl"):ButtonControl({ "TOP", self.anchor, "TOP" }, { -259, 0, 60, 20 }, "New", function()
+	self.controls.new = new("ButtonControl"):ButtonControl({ "TOP", self.anchor, "TOP" }, { -259, 0, 60, 20 }, localisation:Label("ui.build_list.init.new.label"), function()
 		main:SetMode("BUILD", false, "Unnamed build")
 	end)
-	self.controls.newFolder = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.new, "RIGHT" }, { 8, 0, 90, 20 }, "New Folder", function()
+	self.controls.newFolder = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.new, "RIGHT" }, { 8, 0, 90, 20 }, localisation:Label("ui.build_list.init.new_folder.label"), function()
 		self.controls.buildList:NewFolder()
 	end)
-	self.controls.open = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.newFolder, "RIGHT" }, { 8, 0, 60, 20 }, "Open", function()
+	self.controls.open = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.newFolder, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.build_list.init.open.label"), function()
 		self.controls.buildList:LoadBuild(self.controls.buildList.selValue)
 	end)
 	self.controls.open.enabled = function() return self.controls.buildList.selValue ~= nil end
-	self.controls.copy = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.open, "RIGHT" }, { 8, 0, 60, 20 }, "Copy", function()
+	self.controls.copy = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.open, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.build_list.init.copy.label"), function()
 		self.controls.buildList:RenameBuild(self.controls.buildList.selValue, true)
 	end)
 	self.controls.copy.enabled = function() return self.controls.buildList.selValue ~= nil end
-	self.controls.rename = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copy, "RIGHT" }, { 8, 0, 60, 20 }, "Rename", function()
+	self.controls.rename = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copy, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.build_list.init.rename.label"), function()
 		self.controls.buildList:RenameBuild(self.controls.buildList.selValue)
 	end)
 	self.controls.rename.enabled = function() return self.controls.buildList.selValue ~= nil end
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.rename, "RIGHT" }, { 8, 0, 60, 20 }, "Delete", function()
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.rename, "RIGHT" }, { 8, 0, 60, 20 }, localisation:Label("ui.build_list.init.delete.label"), function()
 		self.controls.buildList:DeleteBuild(self.controls.buildList.selValue)
 	end)
 	self.controls.delete.enabled = function() return self.controls.buildList.selValue ~= nil end
@@ -102,7 +102,7 @@ function listMode:Init(selBuildName, subPath)
 		self.controls.ExtBuildList = self:getPublicBuilds()
 	end
 
-	self.controls.searchText = new("EditControl"):EditControl({ "TOP", self.anchor, "TOP" }, { 0, 25, 640, 20 }, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
+	self.controls.searchText = new("EditControl"):EditControl({ "TOP", self.anchor, "TOP" }, { 0, 25, 640, 20 }, self.filterBuildList, localisation:Label("ui.build_list.init.search_text.label"), "%c%(%)", 100, function(buf)
 		main.filterBuildList = buf
 		self:FilterBuildList()
 	end, nil, nil, true)
@@ -149,7 +149,7 @@ function listMode:OnFrame(inputEvents)
 					local build = self.controls.buildList.copyBuild
 					if build.subPath ~= self.subPath then
 						if not buildListHelpers.CanMoveToSubPath(build, self.subPath) then
-							main:OpenMessagePopup("Error", "A folder cannot be copied into itself.")
+							main:OpenMessagePopup(localisation:Text("ui.build_list.on_frame.message_3"), localisation:Text("ui.build_list.on_frame.message"))
 						elseif build.folderName then
 							main:CopyFolder(build.fullFileName, main.buildPath..self.subPath..build.folderName)
 						else
@@ -164,7 +164,7 @@ function listMode:OnFrame(inputEvents)
 					local build = self.controls.buildList.cutBuild
 					if build.subPath ~= self.subPath then
 						if not buildListHelpers.CanMoveToSubPath(build, self.subPath) then
-							main:OpenMessagePopup("Error", "A folder cannot be moved into itself.")
+							main:OpenMessagePopup(localisation:Text("ui.build_list.on_frame.message_3"), localisation:Text("ui.build_list.on_frame.message_2"))
 						elseif build.folderName then
 							main:MoveFolder(build.folderName, main.buildPath..build.subPath, main.buildPath..self.subPath)
 						else

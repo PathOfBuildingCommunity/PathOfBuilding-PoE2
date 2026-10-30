@@ -512,17 +512,17 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 		-- Label
 		if not enabled then
 			local lx = isOverlay and drawX + 4 or drawX + 3
-			DrawString(lx, lineY + 3, "LEFT", 16, "VAR BOLD", "^8"..(subSec.label or ""))
+			DrawString(lx, lineY + 3, "LEFT", 16, "VAR BOLD", "^8"..(localisation:Field(subSec, "label") or ""))
 		else
 			local lx = isOverlay and drawX + 4 or drawX + 3
 			local textColor = "^7"
-			if not isOverlay and self.calcsTab:SearchMatch(subSec.label) then
+			if not isOverlay and self.calcsTab:SearchMatch(subSec.label, localisation:Field(subSec, "label")) then
 				textColor = colorCodes.HIGHLIGHT
 			end
-			DrawString(lx, lineY + 3, "LEFT", 16, "VAR BOLD", textColor..(subSec.label or "")..":")
+			DrawString(lx, lineY + 3, "LEFT", 16, "VAR BOLD", textColor..(localisation:Field(subSec, "label") or "")..":")
 			if subSec.data.extra then
-				local ex = lx + DrawStringWidth(16, "VAR BOLD", subSec.label) + (isOverlay and 12 or 10)
-				DrawString(ex, lineY + 3, "LEFT", 16, "VAR", "^7"..formatCalcStr(subSec.data.extra, actor))
+				local ex = lx + DrawStringWidth(16, "VAR BOLD", localisation:Field(subSec, "label")) + (isOverlay and 12 or 10)
+				DrawString(ex, lineY + 3, "LEFT", 16, "VAR", "^7"..formatCalcField(subSec.data, "extra", actor))
 			end
 		end
 
@@ -559,13 +559,13 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 						if rowData.label then
 							SetDrawColor(rowData.bgCol or "^0")
 							DrawImage(nil, drawX + 2, lineY + 2, 130, 18)
-							if self.calcsTab:SearchMatch(rowData.label) then
+							if self.calcsTab:SearchMatch(rowData.label, localisation:Field(rowData, "label")) then
 								textColor = colorCodes.HIGHLIGHT
 							end
-							DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label.."^7:")
+							DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..localisation:Field(rowData, "label").."^7:")
 						end
 					elseif rowData.label then
-						DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", "^7"..rowData.label.."^7:")
+						DrawString(drawX + 132, lineY + 2, "RIGHT_X", 16, "VAR", "^7"..localisation:Field(rowData, "label").."^7:")
 					end
 					for _, colData in ipairs(rowData) do
 						local cellX = isOverlay and (drawX + (colData.xOffset or 134)) or colData.x
@@ -598,7 +598,7 @@ function CalcSectionClass:DrawContent(drawX, startLineY, drawWidth, actor, viewP
 
 								local textSize = rowData.textSize or 14
 								SetViewport(cellX + 3, isOverlay and lineY + 2 or cellY, cellW - 4, 18)
-								DrawString(1, 9 - textSize / 2, "LEFT", textSize, "VAR", "^7"..formatCalcStr(colData.format, actor, colData))
+								DrawString(1, 9 - textSize / 2, "LEFT", textSize, "VAR", "^7"..formatCalcField(colData, "format", actor, colData))
 								SetViewport()
 							end
 						end

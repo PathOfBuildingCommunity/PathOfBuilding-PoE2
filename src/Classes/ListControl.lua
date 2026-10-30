@@ -108,6 +108,7 @@ function ListClass:SelectIndex(index)
 end
 
 function ListClass:GetColumnProperty(column, property)
+	if column[property .. 'Key'] then return localisation:Field(column, property) end
 	if type(column[property]) == "function" then
 		return column[property](self, column)
 	else

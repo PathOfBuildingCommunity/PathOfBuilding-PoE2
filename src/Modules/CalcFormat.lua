@@ -72,3 +72,11 @@ function formatCalcStr(str, actor, colData)
 	end)
 	return str
 end
+
+--- <summary>先按原计算 DSL 求命名参数，再由稳定 key 决定完整显示句子的语序。</summary>
+function formatCalcField(object, field, actor, colData)
+	if not object[field .. 'Key'] then return formatCalcStr(object[field], actor, colData) end
+	local parameters = { }
+	for name, token in pairs(object[field .. 'Tokens'] or { }) do parameters[name] = formatCalcStr(token, actor, colData) end
+	return localisation:Field(object, field, parameters)
+end

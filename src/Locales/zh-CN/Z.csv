@@ -32,8 +32,8 @@ Skills Reserve Life instead of Mana,技能保留生命而非魔力
 Skills that have dealt a Critical Strike in the past {0} seconds deal {1}% more Elemental Damage with Hits and Ailments,在过去 {0} 秒内造成暴击的技能造成的击中元素伤害、异常状态元素伤害总增 {1}%
 Take {0}% less Damage over Time if you've started taking Damage over Time in the past second,你在承受持续伤害的第一秒内承受的持续伤害总降 {0}%
 Explosion deals {0}% more Damage with Hits per Explosive Arrow on Target,击中造成的爆炸伤害按照目标身上每支爆炸箭矢总增 {0}%
-Consumes {0} Charge from {1} Life Flask, if possible,若可能则消耗 {1} 瓶生命药剂的 {0} 层充能
-Consumes {0} Charges from {1} Life Flask, if possible,若可能则消耗 {1} 瓶生命药剂的 {0} 层充能
+"Consumes {0} Charge from {1} Life Flask, if possible","若可能则消耗 {1} 瓶生命药剂的 {0} 层充能"
+"Consumes {0} Charges from {1} Life Flask, if possible","若可能则消耗 {1} 瓶生命药剂的 {0} 层充能"
 You have {0} Fortification,你有 {0} 层护体
 {0} to maximum Fortification,护体上限 {0}
 {0}% chance to Suppress Spell Damage per Fortification,法术伤害压制率按照每层护体 {0}%
@@ -128,7 +128,7 @@ Removes Elemental Ailments when you use a Flask,使用药剂时驱散元素异�
 (Maximum Rage is 50),(最大怒火为 50 层)
 (You lose 1 Rage every 0.5 seconds if you have not been Hit or gained Rage Recently),(如果你近期没有被击中或获得怒火，你每0.5秒失去1层怒火)
 (Intimidated enemies take 10% increased Attack Damage),（被威吓的敌人受到的攻击伤害提高10%）
-(Freeze lowers Enemy Action Speed to zero, preventing them from acting. Duration is based on the Cold Damage of the Hit),(冰冻将完全冻结敌人, 使其无法行动。冰冻的持续长度取决于命中时造成的冰霜伤害量)
-(Chill reduces Enemy Action Speed by up to 30%, depending on the amount of Cold Damage in the hit, for 2 seconds),(冰缓能至多使敌人行动速度降低30%并持续2秒，取决于击中造成的冰霜伤害量)
+"(Freeze lowers Enemy Action Speed to zero, preventing them from acting. Duration is based on the Cold Damage of the Hit)","(冰冻将完全冻结敌人, 使其无法行动。冰冻的持续长度取决于命中时造成的冰霜伤害量)"
+"(Chill reduces Enemy Action Speed by up to 30%, depending on the amount of Cold Damage in the hit, for 2 seconds)","(冰缓能至多使敌人行动速度降低30%并持续2秒，取决于击中造成的冰霜伤害量)"
 "(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second, and Curses have 50% reduced effect on them)","（友军在你产生的奉献地面上按照生命上限百分比每秒再生生命，并且他们身上的诅咒效果降低 50%）"
 "(Take 1% less Damage from Hits per Fortification. Maximum 20 Fortification. Fortification lasts 6 seconds)",（受到的击中伤害按照每层护体效果总降1%。最多20层护体。护体持续6秒）

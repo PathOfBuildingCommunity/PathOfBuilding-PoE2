@@ -71,7 +71,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		self.controls.activate.enabled = function()
 			return self.selItemId ~= 0
 		end
-		self.controls.activate.tooltipText = "Activate this flask."
+		self.controls.activate.tooltipText = localisation:Label("ui.item_slot_control.init.activate_tooltip_text.label_2")
 		self.labelOffset = -24
 	elseif slotName:match("Charm") then
 		self.controls.activate = new("CheckBoxControl"):CheckBoxControl({ "RIGHT", self, "LEFT" }, { -2, 0, 20 }, nil, function(state)
@@ -83,7 +83,7 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		self.controls.activate.enabled = function()
 			return self.selItemId ~= 0
 		end
-		self.controls.activate.tooltipText = "Activate this charm."
+		self.controls.activate.tooltipText = localisation:Label("ui.item_slot_control.init.activate_tooltip_text.label")
 		self.labelOffset = -24
 	else
 		self.labelOffset = -2
@@ -102,6 +102,12 @@ function ItemSlotClass:ItemSlotControl(anchor, x, y, itemsTab, slotName, slotLab
 		end
 	end
 	self.label = slotLabel or slotName
+	local label = self.label
+	if label:match('^Jewel #%d+$') then
+		self.labelDisplay = localisation:Label('equipment.slot.jewel_index', { index = tonumber(label:match('%d+')) })
+	else
+		self.labelDisplay = function() return localisation:Term('equipment.slot', label) end
+	end
 	self.nodeId = nodeId
 	return self
 end
@@ -126,6 +132,7 @@ function ItemSlotClass:Populate()
 	wipeTable(self.list)
 	self.items[1] = 0
 	self.list[1] = "None"
+	localisation:List(self.list, { [1] = 'equipment.slot.empty' })
 	self.selIndex = 1
 	for _, item in pairs(self.itemsTab.items) do
 		if self.itemsTab:IsItemValidForSlot(item, self.slotName) then
@@ -184,7 +191,7 @@ function ItemSlotClass:Draw(viewPort)
 	end
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
-	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..self.label..":")
+	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..localisation:Field(self, 'label')..":")
 	self.DropDownControl:Draw(viewPort)
 	self:DrawControls(viewPort)
 	if not main.popups[1] and self.nodeId and (self.dropped or (self:IsMouseOver() and (self.otherDragSource or not self.itemsTab.selControl))) then

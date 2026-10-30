@@ -6,6 +6,25 @@ return function(build, equal)
 	end
 	assert(item and item.base, '缺少神谕装备样本')
 	local raw, name, baseName = item.raw, item.name, item.baseName
+	local originalTranslate = localisation.Translate
+	localisation.Translate = function(self, text) return text end
+	local blockLine
+	for _, line in ipairs(item.explicitModLines) do if line.line:find('increased Block chance', 1, true) then blockLine = line; break end end
+	assert(blockLine and #blockLine.displayReferences > 0, '已知唯一装备词缀必须绑定显示引用')
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'en' }) do
+		localisation:SetLanguage(language)
+		local displayed = localisation:ModLine(blockLine, blockLine.line)
+		if language == 'en' then equal(displayed, blockLine.line, '装备词缀切回英文保留原范围')
+		else equal(displayed ~= blockLine.line, true, language .. ' 装备词缀不依赖绘制词典') end
+		local rolled = itemLib.applyRange(blockLine.line, 0.5)
+		local rendered = localisation:ModLine(blockLine, rolled)
+		equal(rendered:find(rolled:match('%d+'), 1, true) ~= nil, true, language .. ' 已绑定词缀保留实际范围数值')
+		equal(item.raw, raw, language .. ' 绑定显示引用不改写物品原文')
+	end
+	local unknown = { line = 'My custom unknown modifier 42' }
+	localisation:BindModLine(unknown)
+	equal(localisation:ModLine(unknown, unknown.line), unknown.line, '未知用户词缀保留原文')
+	localisation.Translate = originalTranslate
 	local originalFlavour, originalSupport = main.showFlavourText, main.notSupportedModTooltips
 	main.showFlavourText, main.notSupportedModTooltips = true, true
 	build.itemsTab:AddItem(item, true)
@@ -36,7 +55,7 @@ return function(build, equal)
 			equal(text:find(language == 'zh-CN' and '被格挡的伤害吸纳为魔力' or '格擋的傷害補償為魔力', 1, true) ~= nil, true, language .. ' 不支持附注的正文翻译')
 			equal(#tooltip.blocks, englishBlocks, language .. ' 比较提示框分块保持一致')
 			local remaining = text:gsub('PoB', ''):gsub('Shift', ''):gsub('Ctrl%+D', '')
-			equal(remaining:find('%a'), nil, language .. ' 神谕主提示框无未翻译英文')
+			equal(remaining:find('%a'), nil, language .. ' 神谕主提示框无未翻译英文：' .. remaining)
 		end
 		equal(StripEscapes(build.itemsTab.controls.uniqueDB:GetRowValue(1, 1, item)), expectedName, language .. ' 数据库列表显示名')
 		equal(StripEscapes(build.itemsTab.controls.sharedItemList:GetRowValue(1, 1, item)), expectedName, language .. ' 共享列表显示名')

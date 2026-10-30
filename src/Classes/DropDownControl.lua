@@ -27,16 +27,16 @@ function DropDownClass:DropDownControl(anchor, rect, list, selFunc, tooltipText,
 				return self.list
 			end,
 			-- value mapping function
-			function(listVal)
+			function(listVal, index)
 				if type(listVal) == "table" then
 					if listVal.searchFilter then
 						return StripEscapes(listVal.searchFilter)
 					end
 					if listVal.label then
-						return StripEscapes(listVal.label)
+						return StripEscapes(localisation:Field(listVal, "label")), StripEscapes(listVal.label)
 					end
 				end
-				return StripEscapes(listVal)
+				return StripEscapes(localisation:ListLabel(self.list, index)), StripEscapes(listVal)
 		end,
 		ignoreSearchOrder
 	)
@@ -216,6 +216,10 @@ function DropDownClass:IsMouseOver()
 end
 
 function DropDownClass:Draw(viewPort, noTooltip)
+	if self.searchLanguage ~= localisation.language then
+		self:UpdateSearch()
+		self.searchLanguage = localisation.language
+	end
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
 	local enabled = self:IsEnabled()
@@ -318,15 +322,15 @@ function DropDownClass:Draw(viewPort, noTooltip)
 	local selDetail = nil
 	local selStrikethrough = false
 	if self:IsSearchActive() then
-		selLabel = "Search: " .. self:GetSearchTermPretty()
+		selLabel = localisation:Text('ui.drop_down_control.draw.sel_label.message', { term = self:GetSearchTermPretty() })
 	else
 		local selItem = self.list[self.selIndex]
 		if type(selItem) == "table" then
-			selLabel = selItem.label
-			selDetail = selItem.detail
+			selLabel = localisation:Field(selItem, "label")
+			selDetail = localisation:Field(selItem, 'detail')
 			selStrikethrough = selItem.strikethrough
 		else
-			selLabel = selItem
+			selLabel = localisation:ListLabel(self.list, self.selIndex)
 		end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
@@ -389,10 +393,10 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				local label = nil
 				local detail = nil
 				if type(listVal) == "table" then
-					label = listVal.label
-					detail = listVal.detail
+					label = localisation:Field(listVal, "label")
+					detail = localisation:Field(listVal, 'detail')
 				else 
-					label = listVal
+					label = localisation:ListLabel(self.list, index)
 				end
 				DrawString(0, y, "LEFT", lineHeight, "VAR", label)
 				if type(listVal) == "table" and listVal.strikethrough then
@@ -404,7 +408,7 @@ function DropDownClass:Draw(viewPort, noTooltip)
 					end
 				end
 				if detail ~= nil then
-					local detail = listVal.detail
+					local detail = localisation:Field(listVal, 'detail')
 					dx = DrawStringWidth(lineHeight, "VAR", detail)
 					DrawString(width - dx - 4 - 22, y, "LEFT", lineHeight, "VAR", detail)
 				end
@@ -413,7 +417,7 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		end
 		SetDrawColor(1, 1, 1)
 		if self:IsSearchActive() and self:GetMatchCount() == 0 then
-			DrawString(0, 0 , "LEFT", lineHeight, "VAR", "<No matches>")
+			DrawString(0, 0 , "LEFT", lineHeight, "VAR", localisation:Text("ui.drop_down_control.draw.message"))
 		end
 		SetViewport()
 		SetDrawLayer(nil, 0)
@@ -541,15 +545,17 @@ function DropDownClass:CheckDroppedWidth(enable)
 
 		  -- do not be smaller than the created width
 		local dWidth = self.width
-		for _, line in ipairs(self.list) do
+		for index, line in ipairs(self.list) do
 			local detailWidth = 0
 			if type(line) == "table" then
 				if line.detail then
 					-- Reserve the same right padding used when drawing the detail,
 					-- plus spacing between it and the label.
-					detailWidth = DrawStringWidth(lineHeight, "VAR", line.detail) + 26
+					detailWidth = DrawStringWidth(lineHeight, "VAR", localisation:Field(line, 'detail')) + 26
 				end
-				line = line.label or ""
+				line = localisation:Field(line, "label") or ""
+			else
+				line = localisation:ListLabel(self.list, index)
 			end
 			  -- +10 to stop clipping
 			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line or "") + detailWidth + 10)
@@ -559,7 +565,9 @@ function DropDownClass:CheckDroppedWidth(enable)
 		if self.enableChangeBoxWidth then
 			local line = self.list[self.selIndex]
 			if type(line) == "table" then
-				line = line.label
+				line = localisation:Field(line, "label")
+			else
+				line = localisation:ListLabel(self.list, self.selIndex)
 			end
 			-- add 20 to account for the 'down arrow' in the box
 			local boxWidth

@@ -67,6 +67,8 @@ test-localisation.cmd
 
 ## 验证范围与限制
 
+2026-10-30 再次全仓复查的最新缺口与修复顺序见 [全仓本地化复查](docs/localisation-full-rescan.md)。已确认仍有中文基底解析失败、中文技能粘贴被忽略、格式匹配及坏 CSV/参数问题；下面的“已接入”仅表示入口存在，不代表全部数据和流程均已兼容。
+
 全量中文化尚未完成。全域数据与界面源码待核对候选见 `docs/localisation-runtime-audit.md`，可通过 `python tools/audit-localisation.py` 重新生成。三个 poe.ninja 构筑的装备字段扫描只覆盖样本中的装备，不代表技能、天赋和整个界面的翻译覆盖。
 
 实际构建、字体检查、Lua 测试和界面截图见 `docs/localisation-verification.md`。本次未验证在线角色数据的网络获取链路；角色数据转换通过离线结构和真实 PoB2 物品解析器验证。账号登录与鉴权不属于本地化功能验收范围。

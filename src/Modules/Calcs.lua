@@ -374,7 +374,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
 					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and skillEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
 						activeSkillCount = 1
-						activeSkill.infoMessage2 = "Skill Damage"
+						activeSkill.infoMessage2 = localisation:Text("ui.calcs.state.calc_full_dps.info_message2")
 					end
 				end
 
@@ -556,6 +556,8 @@ function calcs.buildOutput(build, mode)
 								end
 								output[costResource.."WarningList"] = output[costResource.."WarningList"] or {}
 								t_insert(output[costResource.."WarningList"], skill.activeEffect.grantedEffect.name)
+								output[costResource.."WarningListDisplay"] = output[costResource.."WarningListDisplay"] or { }
+								t_insert(output[costResource.."WarningListDisplay"], skill.activeEffect.grantedEffect)
 							end
 						end
 						output.EternalLifeWarning = output.EternalLifeWarning or env.modDB:Flag(nil, "EternalLife") and costResource == "LifeCost" and cachedCost > 0 and output.EnergyShieldRecoveryCap > 0
@@ -567,6 +569,8 @@ function calcs.buildOutput(build, mode)
 						if (output[pool] or 0) < cachedCost then
 							output[costResource.."PercentCostWarningList"] = output[costResource.."PercentCostWarningList"] or {}
 							t_insert(output[costResource.."PercentCostWarningList"], skill.activeEffect.grantedEffect.name)
+							output[costResource.."PercentCostWarningListDisplay"] = output[costResource.."PercentCostWarningListDisplay"] or { }
+							t_insert(output[costResource.."PercentCostWarningListDisplay"], skill.activeEffect.grantedEffect)
 						end
 					end
 				end

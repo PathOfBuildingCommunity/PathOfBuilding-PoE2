@@ -54,6 +54,8 @@ edit.placeholder = nil
 localisation:SetLanguage('zh-CN')
 
 dofile('Tests/LocalisationEquipment.lua')(build, equal)
+dofile('Tests/LocalisationKeyFields.lua')(build, equal)
+dofile('Tests/LocalisationKeyLists.lua')(build, equal)
 localisation:SetLanguage('zh-CN')
 
 local clipboard = Paste
@@ -157,9 +159,9 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 			if line.text then text[#text + 1] = StripEscapes(line.text) end
 		end
 		text = table.concat(text, '\n')
-		equal(text:find(localisation:Translate(node.dn), 1, true) ~= nil, true, language .. ' 天赋标题进入真实提示框')
+		equal(text:find(localisation:Field(node, 'dn'), 1, true) ~= nil, true, language .. ' 天赋标题进入真实提示框')
 		equal(text:find(node.dn, 1, true), nil, language .. ' 天赋标题未保留英文')
-		equal(text:find(localisation:Translate(node.sd[1]), 1, true) ~= nil, true, language .. ' 天赋属性进入真实提示框')
+		equal(text:find(localisation:Line(node, 'sd', 1), 1, true) ~= nil, true, language .. ' 天赋属性进入真实提示框')
 	end
 end
 

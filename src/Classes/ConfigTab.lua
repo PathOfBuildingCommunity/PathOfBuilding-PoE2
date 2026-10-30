@@ -33,7 +33,7 @@ function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, bloc
 		local customModsList = configTab.configSets[configTab.activeConfigSetId].customModsList
 		table.remove(customModsList, blockIndex)
 		if #customModsList == 0 then
-			table.insert(customModsList, { title = "Default", enabled = true, text = "" })
+			table.insert(customModsList, { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = "" })
 		end
 		configTab:UpdateCustomModsControls()
 		configTab:AddUndoState()
@@ -48,7 +48,7 @@ function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, bloc
 		configTab.build.buildFlag = true
 	end)
 
-	self.controls.addModBtn = new("ButtonControl"):ButtonControl({"LEFT", self.controls.titleEdit, "RIGHT"}, {6, 0, 58, 18}, "^7Add Mod", function()
+	self.controls.addModBtn = new("ButtonControl"):ButtonControl({"LEFT", self.controls.titleEdit, "RIGHT"}, {6, 0, 58, 18}, localisation:Label("ui.config_tab.custom_mod_block_control.add_mod_btn.label"), function()
 		configModBrowser.OpenAddModPopup(self.configTab, blockData)
 	end)
 
@@ -72,7 +72,7 @@ function CustomModBlockClass:CustomModBlockControl(anchor, rect, configTab, bloc
 					blockData.enabled = curState
 					configTab:BuildModList()
 					configTab.build.buildFlag = buildFlag
-					configTab.build:AddStatComparesToTooltip(tooltip, calcBase, output, curState and "^7Disabling this group will give you:" or "^7Enabling this group will give you:")
+					configTab.build:AddStatComparesToTooltip(tooltip, calcBase, output, curState and localisation:Text("ui.config_tab.custom_mod_block_control.enable_check_tooltip_func.message") or localisation:Text("ui.config_tab.custom_mod_block_control.enable_check_tooltip_func.message_2"))
 				end
 			end
 		end
@@ -172,17 +172,17 @@ function ConfigTabClass:ConfigTab(build)
 	self.controls.setSelect.enabled = function()
 		return #self.configSetOrderList > 1
 	end
-	self.controls.setLabel = new("LabelControl"):LabelControl({ "RIGHT", self.controls.setSelect, "LEFT" }, { -2, 0, 0, 16 }, "^7Config set:")
-	self.controls.setManage = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.setSelect, "RIGHT" }, { 4, 0, 90, 20 }, "Manage...", function()
+	self.controls.setLabel = new("LabelControl"):LabelControl({ "RIGHT", self.controls.setSelect, "LEFT" }, { -2, 0, 0, 16 }, localisation:Label("ui.config_tab.init.set_label.label"))
+	self.controls.setManage = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.setSelect, "RIGHT" }, { 4, 0, 90, 20 }, localisation:Label("ui.config_tab.init.set_manage.label"), function()
 		self:OpenConfigSetManagePopup()
 	end)
 
-	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self.controls.sectionAnchor, "TOPLEFT" }, { 8, 15, 360, 20 }, "", "Search", "%c", 100, function()
+	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self.controls.sectionAnchor, "TOPLEFT" }, { 8, 15, 360, 20 }, "", localisation:Label("ui.config_tab.init.search.label"), "%c", 100, function()
 		self:UpdateControls()
 	end, nil, nil, true)
 	self.controls.toggleConfigs = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.search, "RIGHT" }, { 10, 0, 200, 20 }, function()
 		-- dynamic text
-		return self.toggleConfigs and "Hide Ineligible Configurations" or "Show All Configurations"
+		return self.toggleConfigs and localisation:Text("ui.config_tab.init.toggle_configs.label") or localisation:Text("ui.config_tab.init.toggle_configs.label_2")
 	end, function()
 		self.toggleConfigs = not self.toggleConfigs
 	end)
@@ -194,7 +194,7 @@ function ConfigTabClass:ConfigTab(build)
 	local function searchMatch(varData)
 		local searchStr = self.controls.search.buf:lower():gsub("[%-%.%+%[%]%$%^%%%?%*]", "%%%0")
 		if searchStr and searchStr:match("%S") then
-			local label = StripEscapes(varData.label or ""):lower()
+			local label = StripEscapes((varData.label or "") .. "\n" .. (localisation:Field(varData, "label") or "")):lower()
 			local err, match = PCall(string.matchOrPattern, label, searchStr)
 			if not err and match then
 				return true
@@ -270,7 +270,7 @@ function ConfigTabClass:ConfigTab(build)
 	local lastSection
 	for _, varData in ipairs(varList) do
 		if varData.section then
-			lastSection = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.search, "BOTTOMLEFT" }, { 0, 0, 360, 0 }, varData.section)
+			lastSection = new("SectionControl"):SectionControl({ "TOPLEFT", self.controls.search, "BOTTOMLEFT" }, { 0, 0, 360, 0 }, function() return localisation:Field(varData, "section") end)
 			lastSection.varControlList = { }
 			lastSection.col = varData.col
 			lastSection.collapsed = false
@@ -305,7 +305,7 @@ function ConfigTabClass:ConfigTab(build)
 		else
 			local control
 			if varData.type == "check" then
-				control = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", lastSection, "TOPLEFT" }, { 234, 0, 18 }, varData.label, function(state)
+				control = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", lastSection, "TOPLEFT" }, { 234, 0, 18 }, function() return localisation:Field(varData, "label") end, function(state)
 					self.configSets[self.activeConfigSetId].input[varData.var] = state
 					self:AddUndoState()
 					self:BuildModList()
@@ -386,7 +386,7 @@ function ConfigTabClass:ConfigTab(build)
 			end
 
 			if varData.tooltip then
-				t_insert(tooltipFuncs, varData.tooltip)
+				t_insert(tooltipFuncs, type(varData.tooltip) == "function" and varData.tooltip or function() return localisation:Field(varData, "tooltip") end)
 			end
 
 			if varData.ifNode then
@@ -706,7 +706,7 @@ function ConfigTabClass:ConfigTab(build)
 			end
 			local labelControl = control
 			if varData.label and varData.type ~= "check" then
-				labelControl = new("LabelControl"):LabelControl({ "RIGHT", control, "LEFT" }, { -4, 0, 0, DrawStringWidth(14, "VAR", varData.label) > 228 and 12 or 14 }, "^7" .. varData.label)
+				labelControl = new("LabelControl"):LabelControl({ "RIGHT", control, "LEFT" }, { -4, 0, 0, function() return DrawStringWidth(14, "VAR", localisation:Field(varData, "label")) > 228 and 12 or 14 end }, function() return "^7" .. localisation:Field(varData, "label") end)
 				t_insert(self.controls, labelControl)
 			end
 			if varData.var then
@@ -760,13 +760,14 @@ function ConfigTabClass:ConfigTab(build)
 				end
 				local innerLabel = labelControl.label
 				labelControl.label = function()
+					local label = type(innerLabel) == "function" and innerLabel(labelControl) or innerLabel
 					local shown = type(innerShown) == "boolean" and innerShown or innerShown()
 					local cur = self.configSets[self.activeConfigSetId].input[varData.var]
 					local def = self:GetDefaultState(varData.var, type(cur))
 					if not shown and cur ~= nil and cur ~= def then
-						return colorCodes.NEGATIVE..StripEscapes(innerLabel)
+						return colorCodes.NEGATIVE..StripEscapes(label)
 					end
-					return innerLabel
+					return label
 				end
 				local outputCache = {}
 				local outputCacheRevision = nil
@@ -788,7 +789,7 @@ function ConfigTabClass:ConfigTab(build)
 					local cur = inputs[varData.var]
 					local def = self:GetDefaultState(varData.var, type(cur))
 					if not shown and cur ~= nil and cur ~= def then
-						tooltip:AddLine(14, colorCodes.NEGATIVE.."This config option is conditional with missing source and is invalid.")
+						tooltip:AddLine(14, colorCodes.NEGATIVE .. localisation:Text("ui.config_tab.init.control_tooltip_func.tooltip"))
 					else
 						-- avoid adding comparisons for number inputs as the
 						-- input gets applied as soon as the user types, which
@@ -827,7 +828,7 @@ function ConfigTabClass:ConfigTab(build)
 								-- hasn't actually clicked
 								self.build.buildFlag = buildFlag
 								local prefix = (varData.type == "check") and "^7Toggling this" or "^7Selecting this"
-								self.build:AddStatComparesToTooltip(tooltip, self.calcBase, outputCache[key], prefix .. " option will give you:")
+								self.build:AddStatComparesToTooltip(tooltip, self.calcBase, outputCache[key], localisation:Text("ui.config_tab.init.control_tooltip_func.message", { prefix = prefix }))
 								-- clear tooltip if it only has our separator
 								if #tooltip.lines == 1 then
 									tooltip:Clear()
@@ -853,7 +854,7 @@ function ConfigTabClass:ConfigTab(build)
 	end
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { 0, 0, 18, 0 }, 50, "VERTICAL", true)
 	if self.customSection then
-		self.controls.customModsAddBlock = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.customSection, "TOPLEFT" }, { 8, 0, 120, 20 }, "^7Add Mod Group", function()
+		self.controls.customModsAddBlock = new("ButtonControl"):ButtonControl({ "TOPLEFT", self.customSection, "TOPLEFT" }, { 8, 0, 120, 20 }, localisation:Label("ui.config_tab.init.custom_mods_add_block.label"), function()
 			local customModsList = self.configSets[self.activeConfigSetId].customModsList
 			t_insert(customModsList, { title = "Group " .. (#customModsList + 1), enabled = true, text = "" })
 			self:UpdateCustomModsControls()
@@ -883,7 +884,7 @@ function ConfigTabClass:Load(xml, fileName)
 	local function setInputAndPlaceholder(node, configSetId)
 		if node.elem == "Input" then
 			if not node.attrib.name then
-				launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing name attribute", fileName)
+				launch:ShowErrMsg("%s", localisation:Text("ui.config_tab.set_input_and_placeholder.error", { file_name = fileName }))
 				return true
 			end
 			if node.attrib.number then
@@ -901,12 +902,12 @@ function ConfigTabClass:Load(xml, fileName)
 			elseif node.attrib.boolean then
 				self.configSets[configSetId].input[node.attrib.name] = node.attrib.boolean == "true"
 			else
-				launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing number, string or boolean attribute", fileName)
+				launch:ShowErrMsg("%s", localisation:Text("ui.config_tab.set_input_and_placeholder.error_2", { file_name = fileName }))
 				return true
 			end
 		elseif node.elem == "Placeholder" then
 			if not node.attrib.name then
-				launch:ShowErrMsg("^1Error parsing '%s': 'Placeholder' element missing name attribute", fileName)
+				launch:ShowErrMsg("%s", localisation:Text("ui.config_tab.set_input_and_placeholder.error_3", { file_name = fileName }))
 				return true
 			end
 			if node.attrib.number then
@@ -914,7 +915,7 @@ function ConfigTabClass:Load(xml, fileName)
 			elseif node.attrib.string then
 				self.configSets[configSetId].input[node.attrib.name] = node.attrib.string
 			else
-				launch:ShowErrMsg("^1Error parsing '%s': 'Placeholder' element missing number", fileName)
+				launch:ShowErrMsg("%s", localisation:Text("ui.config_tab.set_input_and_placeholder.error_4", { file_name = fileName }))
 				return true
 			end
 		end
@@ -964,9 +965,9 @@ function ConfigTabClass:Load(xml, fileName)
 		local configSet = self.configSets[configSetId]
 		local legacyText = configSet.input and configSet.input.customMods or ""
 		if legacyText ~= "" and (not configSet.customModsList or #configSet.customModsList == 0 or (#configSet.customModsList == 1 and (configSet.customModsList[1].text or "") == "")) then
-			configSet.customModsList = { { title = "Default", enabled = true, text = legacyText } }
+			configSet.customModsList = { { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = legacyText } }
 		elseif not configSet.customModsList or #configSet.customModsList == 0 then
-			configSet.customModsList = { { title = "Default", enabled = true, text = "" } }
+			configSet.customModsList = { { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = "" } }
 		end
 		if configSet.input then
 			configSet.input.customMods = nil
@@ -1306,16 +1307,16 @@ function ConfigTabClass:RestoreUndoState(state)
 end
 
 function ConfigTabClass:OpenConfigSetManagePopup()
-	main:OpenPopup(370, 290, "Manage Config Sets", {
+	main:OpenPopup(370, 290, localisation:Label("ui.config_tab.open_config_set_manage_popup.label_2"), {
 		new("ConfigSetListControl"):ConfigSetListControl(nil, { 0, 50, 350, 200 }, self),
-		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, "Done", function()
+		new("ButtonControl"):ButtonControl(nil, { 0, 260, 90, 20 }, localisation:Label("ui.config_tab.open_config_set_manage_popup.label"), function()
 			main:ClosePopup()
 		end),
 	})
 end
 
 function ConfigTabClass:CreateConfigSet(configSetId, title)
-	local configSet = { id = configSetId, title = title, input = {}, placeholder = {}, customModsList = { { title = "Default", enabled = true, text = "" } } }
+	local configSet = { id = configSetId, title = title, input = {}, placeholder = {}, customModsList = { { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = "" } } }
 	if not configSetId then
 		configSet.id = #self.configSets + 1
 	end
@@ -1381,7 +1382,7 @@ function ConfigTabClass:UpdateCustomModsControls()
 		configSet.customModsList = {}
 	end
 	if #configSet.customModsList == 0 then
-		t_insert(configSet.customModsList, { title = "Default", enabled = true, text = configSet.input and configSet.input.customMods or "" })
+		t_insert(configSet.customModsList, { title = "Default", titleKey = "ui.config_tab.custom_mod_block_control.delete_btn.title", enabled = true, text = configSet.input and configSet.input.customMods or "" })
 	end
 
 	if self.customModsBlockControls then

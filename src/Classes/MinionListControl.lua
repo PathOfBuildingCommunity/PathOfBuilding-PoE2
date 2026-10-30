@@ -9,6 +9,12 @@ local t_remove = table.remove
 local s_format = string.format
 local m_max = math.max
 
+-- 出生区域以业务名称关联真实区域，界面只读取区域已经绑定的显示引用。
+local spawnAreas = { }
+for _, area in pairs(data.worldAreas) do
+	if #area.monsterVarieties > 0 and not spawnAreas[area.name] then spawnAreas[area.name] = area end
+end
+
 ---@class MinionListControl: ListControl
 local MinionListClass = newClass("MinionListControl", "ListControl")
 
@@ -19,16 +25,16 @@ function MinionListClass:MinionListControl(anchor, rect, data, list, dest, label
 	self.showCompanionStats = showCompanionStats
 	if dest then
 		self.dragTargetList = { dest }
-		self.label = label or "^7Available Spectres:"
-		self.controls.add = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Add", function()
+		self.label = label or localisation:Label("ui.minion_list_control.init.label")
+		self.controls.add = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, localisation:Label("ui.minion_list_control.init.add.label"), function()
 			self:AddSel()
 		end)
 		self.controls.add.enabled = function()
 			return self.selValue ~= nil and not isValueInArray(dest.list, self.selValue)
 		end
 	else
-		self.label = label or "^7Spectres in Build:"
-		self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Remove", function()
+		self.label = label or localisation:Label("ui.minion_list_control.init.label_2")
+		self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, localisation:Label("ui.minion_list_control.init.delete.label"), function()
 			self:OnSelDelete(self.selIndex, self.selValue)
 		end)
 		self.controls.delete.enabled = function()
@@ -47,7 +53,7 @@ end
 function MinionListClass:GetRowValue(column, index, minionId)
 	local minion = self.data.minions[minionId]
 	if column == 1 then
-		return minion.name
+		return localisation:Field(minion, "name")
 	end
 end
 
@@ -59,50 +65,46 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 		local lightningResist = self.showCompanionStats and minion.companionLightningResist or minion.lightningResist
 		local chaosResist = self.showCompanionStats and minion.companionChaosResist or minion.chaosResist
 		tooltip.center = true
-		tooltip:AddLine(20, "^7"..minion.name, "FONTIN SC")
+		tooltip:AddLine(20, "^7"..localisation:Field(minion, "name"), "FONTIN SC")
 		tooltip.center = false
 		tooltip:AddSeparator(10)
-		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
-		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
-		tooltip:AddLine(14, "^7Category: "..minion.monsterCategory)
-		tooltip:AddLine(14, s_format("^7Life Multiplier: x%.2f", minion.life))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_16", { spirit = colorCodes.SPIRIT, value = tostring(minion.spectreReservation) }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_9", { spirit = colorCodes.SPIRIT, value = tostring(minion.companionReservation) }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_8", { monster_category = localisation:Field(minion, "monsterCategory") }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_12", { life = minion.life }))
 		if minion.energyShield then
-			tooltip:AddLine(14, s_format("^7Energy Shield: %d%% of base Life", minion.energyShield * 100))
+			tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_10", { value = minion.energyShield * 100 }))
 		end
 		if minion.armour then
-			tooltip:AddLine(14, s_format("^7Armour Multiplier: x%.2f", 1 + minion.armour))
+			tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_2", { value = 1 + minion.armour }))
 		end
 		if minion.evasion then
-			tooltip:AddLine(14, s_format("^7Evasion Multiplier: x%.2f", 1 + minion.evasion))
+			tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_11", { value = 1 + minion.evasion }))
 		end
-		tooltip:AddLine(14, s_format("^7Resistances: %s%d ^7/ %s%d ^7/ %s%d ^7/ %s%d",
-			colorCodes.FIRE, fireResist,
-			colorCodes.COLD, coldResist,
-			colorCodes.LIGHTNING, lightningResist,
-			colorCodes.CHAOS, chaosResist
-		))
-		tooltip:AddLine(14, s_format("^7Base Damage: x%.2f", minion.damage))
-		tooltip:AddLine(14, s_format("^7Base Attack Speed: %.2f", 1 / minion.attackTime))
-		tooltip:AddLine(14, s_format("^7Base Movement Speed: %.2f", minion.baseMovementSpeed / 10))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_13", { fire = colorCodes.FIRE, fire_resist = fireResist, cold = colorCodes.COLD, cold_resist = coldResist, lightning = colorCodes.LIGHTNING, lightning_resist = lightningResist, chaos = colorCodes.CHAOS, chaos_resist = chaosResist }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_4", { damage = minion.damage }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_3", { value = 1 / minion.attackTime }))
+		tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_5", { value = minion.baseMovementSpeed / 10 }))
 		if #minion.skillList > 0 then
 			tooltip:AddSeparator(10)
 			for _, skillId in ipairs(minion.skillList) do
 				if self.data.skills[skillId] then
 					local color = data.skillColorMap[self.data.skills[skillId].color] or colorCodes.NORMAL
-					tooltip:AddLine(14, "^7Skill: " .. color .. self.data.skills[skillId].name)
+					tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_14", { color = color, name = localisation:Field(self.data.skills[skillId], "name") }))
 				end
 			end
 		end
 		tooltip:AddSeparator(10)
 		if #minion.spawnLocation > 0 then
 			local coloredLocations = {}
-			for _, location in ipairs(minion.spawnLocation) do -- Print (Map) or (Act 7) in white, and map name in green.
+			for index in ipairs(minion.spawnLocation) do
+				local location = localisation:Line(minion, 'spawnLocation', index)
 				local mainText, bracket = location:match("^(.-)%s*(%b())%s*$")
 				table.insert(coloredLocations, bracket and (colorCodes.RELIC .. mainText .. " " .. "^7" .. bracket) or (colorCodes.RELIC .. location))
 			end
 			for i, spawn in ipairs(coloredLocations) do
 				if i == 1 then
-					tooltip:AddLine(14, s_format("^7Spawn: %s", spawn))
+					tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_15", { spawn = spawn }))
 				else
 					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in tooltip
 				end
@@ -143,63 +145,61 @@ local SpawnListClass = newClass("SpawnListControl", "ListControl")
 function SpawnListClass:SpawnListControl(anchor, rect, data, list, label)
 	self:ListControl(anchor, rect, 16, "VERTICAL", false)
 	self.data = data
-	self.label = label or "^7Available Items:"
+	self.label = label or localisation:Label("ui.minion_list_control.spawn_list_control.label")
 	return self
 end
 
 function SpawnListClass:GetRowValue(column, index, spawnLocation)
-		return spawnLocation
+	local area = spawnAreas[spawnLocation]
+	if area then return localisation:Field(area, 'name') end
+	return spawnLocation == 'Found in Maps' and localisation:Text('ui.minion_list_control.get_row_value.message') or spawnLocation
 end
 function SpawnListClass:AddValueTooltip(tooltip, index, value)
 	if tooltip:CheckForUpdate(value) then
-		local foundArea = nil
-		for _, area in pairs(data.worldAreas) do
-			if area.name == value and #area .monsterVarieties > 0 then
-				foundArea = area
-				break
-			end
-		end
+		local foundArea = spawnAreas[value]
 		if foundArea then
-			tooltip:AddLine(18, foundArea.name)
+			tooltip:AddLine(18, localisation:Field(foundArea, 'name'))
 			if foundArea.description and foundArea.description ~= "" then
-				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description .. '"')
+				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. localisation:Field(foundArea, 'description') .. '"')
 			end
 			if foundArea.bossVarieties and #foundArea.bossVarieties > 0 then
-				tooltip:AddLine(14, colorCodes.UNIQUE.. "Bosses: ^7" .. table.concat(foundArea.bossVarieties, ", "))
+				local bosses = { }
+				for index in ipairs(foundArea.bossVarieties) do bosses[index] = localisation:Line(foundArea, 'bossVarieties', index) end
+				tooltip:AddLine(14, colorCodes.UNIQUE .. localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_7", { value = table.concat(bosses, ", ") }))
 			end
-			tooltip:AddLine(14, "^7Area Level: "..foundArea.level)
+			tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip", { level = foundArea.level }))
 			local biomeNameMap = {
-				water_biome = "Water",
-				mountain_biome = "Mountain",
-				grass_biome = "Grass",
-				forest_biome = "Forest",
-				swamp_biome = "Swamp",
-				desert_biome = "Desert",
-				faridun_city = "Faridun City",
-				ezomyte_city = "Ezomyte City",
-				vaal_city = "Vaal City",
+				water_biome = "world.biome.water",
+				mountain_biome = "world.biome.mountain",
+				grass_biome = "world.biome.grass",
+				forest_biome = "world.biome.forest",
+				swamp_biome = "world.biome.swamp",
+				desert_biome = "world.biome.desert",
+				faridun_city = "world.biome.faridun_city",
+				ezomyte_city = "world.biome.ezomyte_city",
+				vaal_city = "world.biome.vaal_city",
 			}
 			if #foundArea.tags > 0 then
 				local biomeNameList = {}
 				for _, tag in ipairs(foundArea.tags) do
 					local biomeName = biomeNameMap[tag]
 					if biomeName then
-						table.insert(biomeNameList, biomeName)
+						table.insert(biomeNameList, localisation:Text(biomeName))
 					end
 				end
 				if #biomeNameList > 0 then
-					tooltip:AddLine(14, "^7Biome: " .. table.concat(biomeNameList, ", "))
+					tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_6", { value = table.concat(biomeNameList, ", ") }))
 				end
 			end
 			tooltip:AddSeparator(10)
-			tooltip:AddLine(14, "^7Spectres:")
-			for _, monsterName in ipairs(foundArea.monsterVarieties) do
-				tooltip:AddLine(14, " - " .. monsterName)
+			tooltip:AddLine(14, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_17"))
+			for index in ipairs(foundArea.monsterVarieties) do
+				tooltip:AddLine(14, " - " .. localisation:Line(foundArea, 'monsterVarieties', index))
 			end
 		elseif value == "Found in Maps" then
 			-- no tooltip
 		else
-			tooltip:AddLine(18, "^7World area not found: " .. tostring(value))
+			tooltip:AddLine(18, localisation:Text("ui.minion_list_control.add_value_tooltip.tooltip_18", { value = tostring(value) }))
 		end
 	end
 end

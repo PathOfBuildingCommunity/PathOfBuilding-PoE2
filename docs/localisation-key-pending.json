@@ -1,0 +1,4231 @@
+{
+  "unmigratedExpressions": [
+    {
+      "file": "src/Classes/ButtonControl.lua",
+      "line": 93,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 104,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 106,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 118,
+      "context": "DrawStringWidth",
+      "expression": "col.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 118,
+      "context": "DrawStringWidth",
+      "expression": "row[col.key]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 120,
+      "context": "DrawStringWidth",
+      "expression": "col.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 120,
+      "context": "DrawStringWidth",
+      "expression": "row[col.key]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 134,
+      "context": "DrawStringWidth",
+      "expression": "section.footer",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 427,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 610,
+      "context": "DrawString",
+      "expression": "col.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcSectionControl.lua",
+      "line": 51,
+      "context": "ButtonControl",
+      "expression": "subSec.collapsed",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcSectionControl.lua",
+      "line": 524,
+      "context": "DrawStringWidth",
+      "expression": "subSec.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CheckBoxControl.lua",
+      "line": 33,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CheckBoxControl.lua",
+      "line": 103,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CheckBoxControl.lua",
+      "line": 105,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareBuySimilar.lua",
+      "line": 504,
+      "context": "LabelControl",
+      "expression": "displayText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 284,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 300,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 316,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 413,
+      "context": "DrawStringWidth",
+      "expression": "col.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 416,
+      "context": "DrawStringWidth",
+      "expression": "row[col.key]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 461,
+      "context": "DrawString",
+      "expression": "col.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareEntry.lua",
+      "line": 520,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareEntry.lua",
+      "line": 535,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ComparePowerReportListControl.lua",
+      "line": 69,
+      "context": "DrawString",
+      "expression": "self.statusText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 32,
+      "context": "DrawStringWidth",
+      "expression": "candidate",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 197,
+      "context": "ButtonControl",
+      "expression": "tabName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 978,
+      "context": "ButtonControl",
+      "expression": "self.configToggle",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 1218,
+      "context": "tooltipText",
+      "expression": "sourceControl.tooltipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 1533,
+      "context": "label",
+      "expression": "stateText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3192,
+      "context": "DrawStringWidth",
+      "expression": "primaryName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3193,
+      "context": "DrawStringWidth",
+      "expression": "compareName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3516,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3520,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3524,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3528,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3531,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3533,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3545,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3549,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3553,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3557,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3561,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3569,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3573,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3577,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3581,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3597,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3633,
+      "context": "DrawString",
+      "expression": "formatted",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3709,
+      "context": "DrawStringWidth",
+      "expression": "diffLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3968,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4257,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4892,
+      "context": "DrawStringWidth",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4898,
+      "context": "DrawString",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4914,
+      "context": "DrawStringWidth",
+      "expression": "labelStr",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 185,
+      "context": "ButtonControl",
+      "expression": "self.toggleConfigs",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 294,
+      "context": "ButtonControl",
+      "expression": "section.collapsed",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 308,
+      "context": "CheckBoxControl",
+      "expression": "varData.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 385,
+      "context": "tooltipText",
+      "expression": "out",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 709,
+      "context": "DrawStringWidth",
+      "expression": "varData.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 782,
+      "context": "Tooltip.AddLine",
+      "expression": "tooltipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DraggerControl.lua",
+      "line": 97,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 12,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 333,
+      "context": "DrawString",
+      "expression": "selLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 340,
+      "context": "DrawStringWidth",
+      "expression": "selDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 341,
+      "context": "DrawString",
+      "expression": "selDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 397,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 408,
+      "context": "DrawStringWidth",
+      "expression": "detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 409,
+      "context": "DrawString",
+      "expression": "detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 550,
+      "context": "DrawStringWidth",
+      "expression": "line.detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 555,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 566,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 303,
+      "context": "DrawString",
+      "expression": "self.displayPlaceholder",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 308,
+      "context": "DrawString",
+      "expression": "inactiveText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 312,
+      "context": "DrawString",
+      "expression": "self.buf",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 338,
+      "context": "DrawString",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 343,
+      "context": "DrawString",
+      "expression": "pre",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 358,
+      "context": "DrawString",
+      "expression": "sel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 368,
+      "context": "DrawString",
+      "expression": "post",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 389,
+      "context": "DrawString",
+      "expression": "pre",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 398,
+      "context": "DrawString",
+      "expression": "sel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 403,
+      "context": "DrawString",
+      "expression": "post",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 413,
+      "context": "DrawString",
+      "expression": "self.displayPlaceholder",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 420,
+      "context": "DrawString",
+      "expression": "pre",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/EditControl.lua",
+      "line": 426,
+      "context": "DrawString",
+      "expression": "post",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 35,
+      "context": "DrawStringWidth",
+      "expression": "provider.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 74,
+      "context": "DrawStringWidth",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 79,
+      "context": "ButtonControl",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 240,
+      "context": "DrawString",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 279,
+      "context": "DrawString",
+      "expression": "self.activeListProvider.statusMsg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 320,
+      "context": "DrawString",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 332,
+      "context": "DrawString",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 351,
+      "context": "DrawStringWidth",
+      "expression": "build.version",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 378,
+      "context": "DrawStringWidth",
+      "expression": "dpsText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 379,
+      "context": "DrawStringWidth",
+      "expression": "lifeText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 380,
+      "context": "DrawStringWidth",
+      "expression": "ehpText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 382,
+      "context": "DrawString",
+      "expression": "dpsText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 386,
+      "context": "DrawString",
+      "expression": "lifeText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ExtBuildListControl.lua",
+      "line": 391,
+      "context": "DrawString",
+      "expression": "ehpText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/GemSelectControl.lua",
+      "line": 567,
+      "context": "DrawString",
+      "expression": "gemText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/GemSelectControl.lua",
+      "line": 642,
+      "context": "Tooltip.AddLine",
+      "expression": "toolTipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/GemTooltip.lua",
+      "line": 36,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/GemTooltip.lua",
+      "line": 85,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/GemTooltip.lua",
+      "line": 88,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/GemTooltip.lua",
+      "line": 176,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ImportTab.lua",
+      "line": 310,
+      "context": "label",
+      "expression": "self.importCodeDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ImportTab.lua",
+      "line": 343,
+      "context": "label",
+      "expression": "self.importCodeFetching",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 451,
+      "context": "label",
+      "expression": "self.items[self.displayItem.id]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 976,
+      "context": "Tooltip.AddLine",
+      "expression": "maxLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1012,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1098,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2541,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2894,
+      "context": "ButtonControl",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3041,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3047,
+      "context": "ButtonControl",
+      "expression": "saveLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3230,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3243,
+      "context": "LabelControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3839,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3843,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3846,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3854,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3865,
+      "context": "Tooltip.AddLine",
+      "expression": "elemLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3866,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3870,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3874,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3940,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3958,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3990,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4035,
+      "context": "Tooltip.AddLine",
+      "expression": "extraTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4075,
+      "context": "Tooltip.AddLine",
+      "expression": "formattedModLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4383,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4418,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 192,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 231,
+      "context": "DrawStringWidth",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 235,
+      "context": "DrawStringWidth",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 286,
+      "context": "DrawString",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 289,
+      "context": "DrawString",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 308,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 314,
+      "context": "DrawString",
+      "expression": "self.defaultText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 163,
+      "context": "Tooltip.AddLine",
+      "expression": "foundArea.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/NotableDBControl.lua",
+      "line": 312,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/NotesTab.lua",
+      "line": 23,
+      "context": "LabelControl",
+      "expression": "notesDesc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PartyTab.lua",
+      "line": 68,
+      "context": "LabelControl",
+      "expression": "notesDesc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PartyTab.lua",
+      "line": 298,
+      "context": "label",
+      "expression": "self.importCodeDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveMasteryControl.lua",
+      "line": 30,
+      "context": "DrawStringWidth",
+      "expression": "list[j].label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1646,
+      "context": "Tooltip.AddLine",
+      "expression": "launch.devModeAlt",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1646,
+      "context": "Tooltip.AddLine",
+      "expression": "nodeName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1812,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2016,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2019,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2052,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2056,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PathControl.lua",
+      "line": 46,
+      "context": "DrawStringWidth",
+      "expression": "folder.label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PopupDialog.lua",
+      "line": 53,
+      "context": "DrawStringWidth",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PopupDialog.lua",
+      "line": 60,
+      "context": "DrawString",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PowerReportListControl.lua",
+      "line": 141,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ResizableEditControl.lua",
+      "line": 13,
+      "context": "EditControl.prompt",
+      "expression": "prompt",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SectionControl.lua",
+      "line": 26,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SectionControl.lua",
+      "line": 32,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 251,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 983,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TextListControl.lua",
+      "line": 51,
+      "context": "DrawString",
+      "expression": "lineInfo[colIndex]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TimelessJewelListControl.lua",
+      "line": 87,
+      "context": "Tooltip.AddLine",
+      "expression": "sortedNodeList",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 327,
+      "context": "DrawStringWidth",
+      "expression": "data.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 335,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 344,
+      "context": "DrawStringWidth",
+      "expression": "recipeNameShort",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 362,
+      "context": "DrawStringWidth",
+      "expression": "self.lines[1].text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 411,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 418,
+      "context": "DrawStringWidth",
+      "expression": "rn",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 428,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 479,
+      "context": "DrawStringWidth",
+      "expression": "data.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 559,
+      "context": "DrawStringWidth",
+      "expression": "self.lines[1].text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 781,
+      "context": "DrawStringWidth",
+      "expression": "line[6]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TooltipHost.lua",
+      "line": 11,
+      "context": "tooltipText",
+      "expression": "tooltipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TooltipHost.lua",
+      "line": 23,
+      "context": "Tooltip.AddLine",
+      "expression": "tooltipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 445,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 477,
+      "context": "DrawStringWidth",
+      "expression": "display",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 532,
+      "context": "DrawString",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 535,
+      "context": "DrawStringWidth",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 549,
+      "context": "DrawString",
+      "expression": "diffLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeHelpers.lua",
+      "line": 590,
+      "context": "EditControl.prompt",
+      "expression": "prompt",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 330,
+      "context": "ButtonControl",
+      "expression": "self.loginStatus",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1372,
+      "context": "ButtonControl",
+      "expression": "price",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1374,
+      "context": "ButtonControl",
+      "expression": "price",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1411,
+      "context": "Tooltip.AddLine",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQueryGenerator.lua",
+      "line": 1356,
+      "context": "tooltipText",
+      "expression": "controls.jewelSlot",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 269,
+      "context": "ButtonControl",
+      "expression": "self.controls.powerReportList.shown",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 296,
+      "context": "label",
+      "expression": "message",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 339,
+      "context": "ButtonControl",
+      "expression": "buildConvertButtonLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 342,
+      "context": "ButtonControl",
+      "expression": "buildConvertAllButtonLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 1573,
+      "context": "label",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 1617,
+      "context": "label",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 140,
+      "context": "DrawStringWidth",
+      "expression": "self.buildName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 162,
+      "context": "Tooltip.AddLine",
+      "expression": "self.buildName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 183,
+      "context": "DrawStringWidth",
+      "expression": "control.str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 193,
+      "context": "DrawString",
+      "expression": "control.str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 197,
+      "context": "Tooltip.AddLine",
+      "expression": "control.req",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 202,
+      "context": "ButtonControl",
+      "expression": "self.characterLevelAutoMode",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 204,
+      "context": "label",
+      "expression": "self.characterLevelAutoMode",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 241,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 497,
+      "context": "DrawStringWidth",
+      "expression": "control.str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 506,
+      "context": "DrawString",
+      "expression": "control.str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 510,
+      "context": "Tooltip.AddLine",
+      "expression": "v",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1887,
+      "context": "DrawString",
+      "expression": "self.labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1909,
+      "context": "DrawString",
+      "expression": "self.lifeValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1926,
+      "context": "DrawString",
+      "expression": "self.energyShieldValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1943,
+      "context": "DrawString",
+      "expression": "self.armourValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1960,
+      "context": "DrawString",
+      "expression": "self.evasionValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1977,
+      "context": "DrawString",
+      "expression": "self.blockValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1994,
+      "context": "DrawString",
+      "expression": "self.resistsValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2011,
+      "context": "DrawString",
+      "expression": "self.movementSpeedValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2597,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2617,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 240,
+      "context": "label",
+      "expression": "launch.updateCheckRunning",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 240,
+      "context": "label",
+      "expression": "launch.updateProgress",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 476,
+      "context": "DrawStringWidth",
+      "expression": "self.showDragText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 481,
+      "context": "DrawString",
+      "expression": "self.showDragText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1704,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1710,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1717,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1720,
+      "context": "DrawStringWidth",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1724,
+      "context": "DrawStringWidth",
+      "expression": "extraLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1732,
+      "context": "ButtonControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1746,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1749,
+      "context": "ButtonControl",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1756,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1801,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1812,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1894,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1900,
+      "context": "tooltipText",
+      "expression": "url",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1904,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1909,
+      "context": "SetWindowTitle",
+      "expression": "APP_NAME",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Launch.lua",
+      "line": 12,
+      "context": "SetWindowTitle",
+      "expression": "APP_NAME",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Launch.lua",
+      "line": 132,
+      "context": "DrawString",
+      "expression": "self.doRestart",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Launch.lua",
+      "line": 404,
+      "context": "DrawStringWidth",
+      "expression": "txt",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Launch.lua",
+      "line": 414,
+      "context": "DrawString",
+      "expression": "txt",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/BuildSetListControl.lua",
+      "line": 241,
+      "context": "OpenPopup.title",
+      "expression": "options.popupTitle",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareBuySimilar.lua",
+      "line": 538,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigSetListControl.lua",
+      "line": 90,
+      "context": "OpenPopup.title",
+      "expression": "specName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 783,
+      "context": "Tooltip.AddLine",
+      "expression": "tooltipText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 337,
+      "context": "DrawString",
+      "expression": "selLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 344,
+      "context": "DrawStringWidth",
+      "expression": "selDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 345,
+      "context": "DrawString",
+      "expression": "selDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 401,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 412,
+      "context": "DrawStringWidth",
+      "expression": "detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 413,
+      "context": "DrawString",
+      "expression": "detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 554,
+      "context": "DrawStringWidth",
+      "expression": "line.detail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 559,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 570,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ImportTab.lua",
+      "line": 180,
+      "context": "OpenMessagePopup.title",
+      "expression": "exportWebsite.id",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ImportTab.lua",
+      "line": 453,
+      "context": "OpenMessagePopup.message",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemSetListControl.lua",
+      "line": 90,
+      "context": "OpenPopup.title",
+      "expression": "setName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 440,
+      "context": "label",
+      "expression": "self.items[self.displayItem.id]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 965,
+      "context": "Tooltip.AddLine",
+      "expression": "maxLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1001,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1087,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2530,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2883,
+      "context": "ButtonControl",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2914,
+      "context": "OpenPopup.title",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3030,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3036,
+      "context": "ButtonControl",
+      "expression": "saveLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3219,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3232,
+      "context": "LabelControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3828,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3832,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3835,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3854,
+      "context": "Tooltip.AddLine",
+      "expression": "elemLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3855,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3859,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3863,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3920,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3935,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3967,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4012,
+      "context": "Tooltip.AddLine",
+      "expression": "extraTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4052,
+      "context": "Tooltip.AddLine",
+      "expression": "formattedModLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4358,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4393,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 158,
+      "context": "Tooltip.AddLine",
+      "expression": "foundArea.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveSpecListControl.lua",
+      "line": 74,
+      "context": "OpenPopup.title",
+      "expression": "popupTitle",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SharedItemSetListControl.lua",
+      "line": 48,
+      "context": "OpenPopup.title",
+      "expression": "sharedItemSet.title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillSetListControl.lua",
+      "line": 100,
+      "context": "OpenPopup.title",
+      "expression": "skillSetName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 245,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 977,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1354,
+      "context": "ButtonControl",
+      "expression": "price",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1356,
+      "context": "ButtonControl",
+      "expression": "price",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQuery.lua",
+      "line": 1393,
+      "context": "Tooltip.AddLine",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 915,
+      "context": "OpenPopup.title",
+      "expression": "node.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 1569,
+      "context": "label",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Classes/TreeTab.lua",
+      "line": 1615,
+      "context": "label",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1642,
+      "context": "OpenPopup.title",
+      "expression": "self.dbFileName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1877,
+      "context": "DrawString",
+      "expression": "self.labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1899,
+      "context": "DrawString",
+      "expression": "self.lifeValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1916,
+      "context": "DrawString",
+      "expression": "self.energyShieldValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1933,
+      "context": "DrawString",
+      "expression": "self.armourValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1950,
+      "context": "DrawString",
+      "expression": "self.evasionValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1967,
+      "context": "DrawString",
+      "expression": "self.blockValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1984,
+      "context": "DrawString",
+      "expression": "self.resistsValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2001,
+      "context": "DrawString",
+      "expression": "self.movementSpeedValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2587,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2607,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1684,
+      "context": "PopupDialog.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1697,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1703,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1703,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1710,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1713,
+      "context": "DrawStringWidth",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1717,
+      "context": "DrawStringWidth",
+      "expression": "extraLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1725,
+      "context": "ButtonControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1739,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1739,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1742,
+      "context": "ButtonControl",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1749,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1749,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1794,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1805,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1840,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1887,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1893,
+      "context": "tooltipText",
+      "expression": "url",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1897,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1897,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1902,
+      "context": "SetWindowTitle",
+      "expression": "APP_NAME",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ButtonControl.lua",
+      "line": 12,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CheckBoxControl.lua",
+      "line": 13,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareEntry.lua",
+      "line": 18,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ComparePowerReportListControl.lua",
+      "line": 70,
+      "context": "DrawString",
+      "expression": "self.statusText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3517,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3521,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3525,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3529,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3532,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3534,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3546,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3550,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3554,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3558,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3562,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3570,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3574,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3578,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3582,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3598,
+      "context": "DrawString",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3634,
+      "context": "DrawString",
+      "expression": "formatted",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3710,
+      "context": "DrawStringWidth",
+      "expression": "diffLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3969,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4258,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4893,
+      "context": "DrawStringWidth",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4899,
+      "context": "DrawString",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4915,
+      "context": "DrawStringWidth",
+      "expression": "labelStr",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DraggerControl.lua",
+      "line": 12,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemSlotControl.lua",
+      "line": 104,
+      "context": "label",
+      "expression": "slotLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemSlotControl.lua",
+      "line": 104,
+      "context": "label",
+      "expression": "slotName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/LabelControl.lua",
+      "line": 14,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 193,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 232,
+      "context": "DrawStringWidth",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 236,
+      "context": "DrawStringWidth",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 287,
+      "context": "DrawString",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 290,
+      "context": "DrawString",
+      "expression": "text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 309,
+      "context": "DrawString",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ListControl.lua",
+      "line": 315,
+      "context": "DrawString",
+      "expression": "self.defaultText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 22,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 30,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 141,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PowerReportListControl.lua",
+      "line": 49,
+      "context": "label",
+      "expression": "report",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PowerReportListControl.lua",
+      "line": 142,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SectionControl.lua",
+      "line": 12,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1644,
+      "context": "OpenPopup.title",
+      "expression": "self.dbFileName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1879,
+      "context": "DrawString",
+      "expression": "self.labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1901,
+      "context": "DrawString",
+      "expression": "self.lifeValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1918,
+      "context": "DrawString",
+      "expression": "self.energyShieldValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1935,
+      "context": "DrawString",
+      "expression": "self.armourValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1952,
+      "context": "DrawString",
+      "expression": "self.evasionValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1969,
+      "context": "DrawString",
+      "expression": "self.blockValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1986,
+      "context": "DrawString",
+      "expression": "self.resistsValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2003,
+      "context": "DrawString",
+      "expression": "self.movementSpeedValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2589,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2609,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 437,
+      "context": "label",
+      "expression": "self.items[self.displayItem.id]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 962,
+      "context": "Tooltip.AddLine",
+      "expression": "maxLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 999,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1085,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2528,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2881,
+      "context": "ButtonControl",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2912,
+      "context": "OpenPopup.title",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3028,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3034,
+      "context": "ButtonControl",
+      "expression": "saveLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3217,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3230,
+      "context": "LabelControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3852,
+      "context": "Tooltip.AddLine",
+      "expression": "elemLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3918,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3933,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3965,
+      "context": "Tooltip.AddLine",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4010,
+      "context": "Tooltip.AddLine",
+      "expression": "extraTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4050,
+      "context": "Tooltip.AddLine",
+      "expression": "formattedModLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4356,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4391,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/NotableDBControl.lua",
+      "line": 315,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1814,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2018,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2021,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2054,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 2058,
+      "context": "Tooltip.AddLine",
+      "expression": "colorCodes.TIP",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3967,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ConfigTab.lua",
+      "line": 75,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "curState",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2990,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4366,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4401,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4432,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1996,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "realloc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1996,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "node.alloc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1996,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "isGranted",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PassiveTreeView.lua",
+      "line": 1998,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "node.alloc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 209,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "self.displayGroup.enabled",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/SkillsTab.lua",
+      "line": 1050,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "self.displayGroup.gemList[index].enabled",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcBreakdown.lua",
+      "line": 40,
+      "context": "report.multiChain.line",
+      "expression": "chain.total",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcBreakdown.lua",
+      "line": 87,
+      "context": "report.slot.line",
+      "expression": "{\r\n\t\t\tbase = base,\r\n\t\t\tinc = (inc ~= 0) and s_format(\" x %.2f\", 1 + inc/100),\r\n\t\t\tmore = (more ~= 1) and s_format(\" x %.2f\", more),\r\n\t\t\ttotal = s_format(\"%.2f\", total or (base * (1 + inc / 100) * more)),\r\n\t\t\tsource = source,\r\n\t\t\tsourceName = sourceName,\r\n\t\t\titem = not sourceName and actor.itemList[source],\r\n\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcBreakdown.lua",
+      "line": 100,
+      "context": "report.area.line",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 301,
+      "context": "report.doActorLifeManaSpiritReservation.line",
+      "expression": "{\r\n\t\t\t\t\t\t\tskillName = activeSkill.activeEffect.grantedEffect.name,\r\n\t\t\t\t\t\t\tbase = values.baseFlat,\r\n\t\t\t\t\t\t\tmult = mult ~= 1 and (\"x \"..mult),\r\n\t\t\t\t\t\t\tmore = values.more ~= 1 and (\"x \"..values.more),\r\n\t\t\t\t\t\t\tinc = values.inc ~= 0 and (\"x \"..(1 + values.inc / 100)),\r\n\t\t\t\t\t\t\tefficiency = values.efficiency ~= 0 and (\"x \" .. round(100 / (100 + values.efficiency), 4)),\r\n\t\t\t\t\t\t\tefficiencyMore = values.efficiencyMore ~= 1 and (\"x \"..values.efficiencyMore),\r\n\t\t\t\t\t\t\tcount = values.count and (\"x \" ..values.count),\r\n\t\t\t\t\t\t\ttotal = values.reservedFlat,\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 319,
+      "context": "report.doActorLifeManaSpiritReservation.line",
+      "expression": "{\r\n\t\t\t\t\t\t\tskillName = activeSkill.activeEffect.grantedEffect.name,\r\n\t\t\t\t\t\t\tbase = values.basePercent .. \"%\",\r\n\t\t\t\t\t\t\tmult = mult ~= 1 and (\"x \"..mult),\r\n\t\t\t\t\t\t\tmore = values.more ~= 1 and (\"x \"..values.more),\r\n\t\t\t\t\t\t\tinc = values.inc ~= 0 and (\"x \"..(1 + values.inc / 100)),\r\n\t\t\t\t\t\t\tefficiency = values.efficiency ~= 0 and (\"x \" .. round(100 / (100 + values.efficiency), 4)),\r\n\t\t\t\t\t\t\tefficiencyMore = values.efficiencyMore ~= 1 and (\"x \"..values.efficiencyMore),\r\n\t\t\t\t\t\t\ttotal = values.reservedPercent .. \"%\",\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 1228,
+      "context": "report.defence.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\tbase = wardBase,\r\n\t\t\t\t\t\t\t\tinc = (inc ~= 0) and s_format(\" x %.2f\", 1 + inc/100),\r\n\t\t\t\t\t\t\t\tmore = (more ~= 1) and s_format(\" x %.2f\", more),\r\n\t\t\t\t\t\t\t\ttotal = s_format(\"%.2f\", wardBase * (1 + inc / 100) * more),\r\n\t\t\t\t\t\t\t\tsource = slot,\r\n\t\t\t\t\t\t\t\titem = actor.itemList[slot],\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 1253,
+      "context": "report.defence.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\tbase = energyShieldBase,\r\n\t\t\t\t\t\t\t\tmore = (more ~= 1) and s_format(\" x %.2f\", more),\r\n\t\t\t\t\t\t\t\ttotal = s_format(\"%.2f\", energyShieldBase * more),\r\n\t\t\t\t\t\t\t\tsource = slot,\r\n\t\t\t\t\t\t\t\titem = actor.itemList[slot],\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 1313,
+      "context": "report.defence.line",
+      "expression": "{\r\n\t\t\t\t\t\tbase = wardBase,\r\n\t\t\t\t\t\tinc = (inc ~= 0) and s_format(\" x %.2f\", 1 + inc/100),\r\n\t\t\t\t\t\tmore = (more ~= 1) and s_format(\" x %.2f\", more),\r\n\t\t\t\t\t\ttotal = s_format(\"%.2f\", wardBase * (1 + inc / 100) * more),\r\n\t\t\t\t\t\tsource = \"Global\",\r\n\t\t\t\t\t\titem = actor.itemList[\"Global\"],\r\n\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 1333,
+      "context": "report.defence.line",
+      "expression": "{\r\n\t\t\t\t\tbase = energyShieldBase,\r\n\t\t\t\t\tinc = (inc ~= 0) and s_format(\" x %.2f\", 1 + inc/100),\r\n\t\t\t\t\tmore = (more ~= 1) and s_format(\" x %.2f\", more),\r\n\t\t\t\t\ttotal = s_format(\"%.2f\", energyShieldBase * (1 + inc / 100) * more),\r\n\t\t\t\t\tsource = \"Global\",\r\n\t\t\t\t\titem = actor.itemList[\"Global\"],\r\n\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 1786,
+      "context": "report.defence.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 2375,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\tvalue = s_format(\"%d\", enemyDamage),\r\n\t\t\t\t\tmult = s_format(\"%.2f\", enemyDamageMult),\r\n\t\t\t\t\tcrit = s_format(\"%.2f\", output[\"EnemyCritEffect\"]),\r\n\t\t\t\t\tconvMult = s_format(\"%s%d\", conversionExtra > 0 and \"+\" or (conversionExtra < 0 and \"-\" or \"\"), conversionExtra >= 0 and conversionExtra or -conversionExtra),\r\n\t\t\t\t\tfinal = s_format(\"%d\", output[damageType..\"EnemyDamage\"]),\r\n\t\t\t\t\tfrom = s_format(\"%s\", sourceStr),\r\n\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 2422,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\tvalue = s_format(\"%d\", output[damageType..\"TakenDamage\"]),\r\n\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 2435,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\tvalue = s_format(\"%d\", damage),\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 2458,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\tvalue = s_format(\"%d\", output[damageType..\"TakenDamage\"]),\r\n\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3822,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\ttype = s_format(\"%d%% as %s\", conversion, takenType),\r\n\t\t\t\t\t\tpool = s_format(\"%d\", output[takenType ..\"TotalHitPool\"]),\r\n\t\t\t\t\t\tincoming = s_format(\"%.0f\", incoming),\r\n\t\t\t\t\t\tmulti = s_format(\"x%.3f\", nanToZero / incoming),\r\n\t\t\t\t\t\ttaken = s_format(\"%.0f\", nanToZero),\r\n\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3897,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\ttype = damageType,\r\n\t\t\t\t\t\t\t\ttype2 = damageConvertedType,\r\n\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3915,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\ttype = damageType,\r\n\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3986,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", lifeDegen),\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3990,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", manaDegen),\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3994,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", energyShieldDegen),\r\n\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4068,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\t\t\tsource = source,\r\n\t\t\t\t\t\t\t\t\t\ttype = damageType,\r\n\t\t\t\t\t\t\t\t\t\ttype2 = damageConvertedType,\r\n\t\t\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4088,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\t\t\tsource = source,\r\n\t\t\t\t\t\t\t\t\t\ttype = damageType,\r\n\t\t\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4137,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\t\t\tsource = source,\r\n\t\t\t\t\t\t\t\t\t\ttype = ailment.damageType,\r\n\t\t\t\t\t\t\t\t\t\ttype2 = damageConvertedType,\r\n\t\t\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4157,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\t\t\tsource = source,\r\n\t\t\t\t\t\t\t\t\t\ttype = ailment.damageType,\r\n\t\t\t\t\t\t\t\t\t\tbase = s_format(\"%.1f\", baseVal),\r\n\t\t\t\t\t\t\t\t\t\tconv = s_format(\"x %.2f%%\", convertPercent),\r\n\t\t\t\t\t\t\t\t\t\tmult = s_format(\"x %.2f\", output[damageConvertedType..\"TakenDotMult\"]),\r\n\t\t\t\t\t\t\t\t\t\ttotal = s_format(\"%.1f\", total),\r\n\t\t\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4231,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", lifeDegen),\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4235,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", manaDegen),\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4239,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\t\t\t\t\tdegen = s_format(\"%.2f\", energyShieldDegen),\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4290,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\tincoming = s_format(\"%.1f incoming damage\", output[damageType..\"TakenDamage\"]),\r\n\t\t\t\tmult = s_format(\"x %.3f damage mult\", output[damageType..\"TakenHitMult\"] ),\r\n\t\t\t\tvalue = s_format(\"%d\", m_ceil(output[damageType..\"TakenHit\"])),\r\n\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 192,
+      "context": "report.calcDamage.line",
+      "expression": "{\r\n\t\t\t\tsource = damageType,\r\n\t\t\t\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. \" to \" .. addMax),\r\n\t\t\t\ttotal = addMin .. \" to \" .. addMax,\r\n\t\t\t\tconvDst = convDst and s_format(\"%d%% to %s\", conversionTable[damageType][convDst] * 100, convDst),\r\n\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 210,
+      "context": "report.calcDamage.line",
+      "expression": "{\r\n\t\t\tsource = damageType,\r\n\t\t\tbase = summedMin .. \" to \" .. summedMax,\r\n\t\t\tinc = (inc ~= 1 and \"x \"..inc),\r\n\t\t\tmore = (more ~= 1 and \"x \"..more),\r\n\t\t\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. \" to \" .. addMax),\r\n\t\t\ttotal = (round(summedMin * inc * more) + addMin) .. \" to \" .. (round(summedMax * inc * more) + addMax),\r\n\t\t\tconvDst = convDst and conversionTable[damageType][convDst] > 0 and s_format(\"%d%% to %s\", conversionTable[damageType][convDst] * 100, convDst),\r\n\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 327,
+      "context": "report.setMoltenStrikeTertiaryRadiusBreakdown.line",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 357,
+      "context": "report.setMoltenStrikeTertiaryRadiusBreakdown.line",
+      "expression": "{ name = \"r\", value = s_format(\"%d\", deadzoneRadius), description = \"fixed deadzone radius\" }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 358,
+      "context": "report.setMoltenStrikeTertiaryRadiusBreakdown.line",
+      "expression": "{ name = \"R\", value = s_format(\"%d\", baseRadius), description = \"base outer radius\" }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 359,
+      "context": "report.setMoltenStrikeTertiaryRadiusBreakdown.line",
+      "expression": "{ name = \"a\", value = s_format(\"%.2f\", currentAreaMod), description = \"net AoE multiplier (scales area)\" }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 360,
+      "context": "report.setMoltenStrikeTertiaryRadiusBreakdown.line",
+      "expression": "{ name = \"s\", value = s_format(\"%.2f\", currentSpeedMod), description = \"net projectile speed multiplier (scales range)\" }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 641,
+      "context": "report.calcAreaOfEffect.line",
+      "expression": "skillData.radiusTertiaryLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 648,
+      "context": "report.calcAreaOfEffect.line",
+      "expression": "adjustedBaseRadius",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 1729,
+      "context": "report.IceCrystalLife.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 1732,
+      "context": "report.IceCrystalLife.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2360,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2366,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2375,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2381,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2384,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2387,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2392,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2794,
+      "context": "report.offence.line",
+      "expression": "{ distance = distance }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2796,
+      "context": "report.offence.line",
+      "expression": "{ distance = distance }",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 2954,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 3361,
+      "context": "report.calcAncestralBoost.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 3369,
+      "context": "report.calcAncestralBoost.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 3370,
+      "context": "report.calcAncestralBoost.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 3404,
+      "context": "report.calcCombinedAncestralBoost.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 3407,
+      "context": "report.calcCombinedAncestralBoost.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 4804,
+      "context": "report.offence.line",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5452,
+      "context": "report.calcDamagingAilmentOutputs.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5596,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5601,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5607,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5737,
+      "context": "report.offence.line",
+      "expression": "ailmentData[ailment].min",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5743,
+      "context": "report.offence.line",
+      "expression": "maximum",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5746,
+      "context": "report.offence.line",
+      "expression": "current",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5749,
+      "context": "report.offence.line",
+      "expression": "desired",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5780,
+      "context": "report.offence.line",
+      "expression": "{\r\n\t\t\t\t\t\t\t\teffect = s_format(valueFormat, value)..(next(labels) ~= nil and \" ^8(\"..table.concat(labels, \", \")..\")\" or \"\"),\r\n\t\t\t\t\t\t\t\tthresh = threshString,\r\n\t\t\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 5781,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 6222,
+      "context": "report.offence.line",
+      "reason": "动态格式串"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 6238,
+      "context": "report.offence.line",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 6253,
+      "context": "report.offence.line",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 6400,
+      "context": "report.offence.line",
+      "expression": "output.HitSpeed",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcPerform.lua",
+      "line": 1973,
+      "context": "report.perform.line",
+      "expression": "row",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 348,
+      "context": "report.CWCHandler.line",
+      "expression": "simBreakdown.extraSimInfo",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 362,
+      "context": "report.CWCHandler.line",
+      "expression": "str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 371,
+      "context": "report.CWCHandler.line",
+      "expression": "row",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 545,
+      "context": "report.defaultTriggerHandler.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 822,
+      "context": "report.defaultTriggerHandler.line",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 834,
+      "context": "report.defaultTriggerHandler.line",
+      "expression": "simBreakdown.extraSimInfo",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 848,
+      "context": "report.defaultTriggerHandler.line",
+      "expression": "str",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 857,
+      "context": "report.defaultTriggerHandler.line",
+      "expression": "row",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 859,
+      "context": "report.defaultTriggerHandler.line",
+      "reason": "格式参数或指令需复核"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 3822,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\t\t\ttype = localisation:Text(\"calc.defence.build_defence_estimations.line_140\", { conversion = conversion, taken_type = takenType }),\r\n\t\t\t\t\t\tpool = s_format(\"%d\", output[takenType ..\"TotalHitPool\"]),\r\n\t\t\t\t\t\tincoming = s_format(\"%.0f\", incoming),\r\n\t\t\t\t\t\tmulti = s_format(\"x%.3f\", nanToZero / incoming),\r\n\t\t\t\t\t\ttaken = s_format(\"%.0f\", nanToZero),\r\n\t\t\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcDefence.lua",
+      "line": 4290,
+      "context": "report.buildDefenceEstimations.line",
+      "expression": "{\r\n\t\t\t\ttype = s_format(\"%s\", damageType),\r\n\t\t\t\tincoming = localisation:Text(\"calc.defence.build_defence_estimations.line_160\", { value = output[damageType..\"TakenDamage\"] }),\r\n\t\t\t\tmult = localisation:Text(\"calc.defence.build_defence_estimations.line_161\", { value = output[damageType..\"TakenHitMult\"] }),\r\n\t\t\t\tvalue = s_format(\"%d\", m_ceil(output[damageType..\"TakenHit\"])),\r\n\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 192,
+      "context": "report.calcDamage.line",
+      "expression": "{\r\n\t\t\t\tsource = damageType,\r\n\t\t\t\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. \" to \" .. addMax),\r\n\t\t\t\ttotal = addMin .. \" to \" .. addMax,\r\n\t\t\t\tconvDst = convDst and localisation:Text(\"calc.offence.calc_damage.line\", { value = conversionTable[damageType][convDst] * 100, conv_dst = convDst }),\r\n\t\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "line": 210,
+      "context": "report.calcDamage.line",
+      "expression": "{\r\n\t\t\tsource = damageType,\r\n\t\t\tbase = summedMin .. \" to \" .. summedMax,\r\n\t\t\tinc = (inc ~= 1 and \"x \"..inc),\r\n\t\t\tmore = (more ~= 1 and \"x \"..more),\r\n\t\t\tconvSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. \" to \" .. addMax),\r\n\t\t\ttotal = (round(summedMin * inc * more) + addMin) .. \" to \" .. (round(summedMax * inc * more) + addMax),\r\n\t\t\tconvDst = convDst and conversionTable[damageType][convDst] > 0 and localisation:Text(\"calc.offence.calc_damage.line\", { value = conversionTable[damageType][convDst] * 100, conv_dst = convDst }),\r\n\t\t}",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2404,
+      "context": "sidebar.AddDisplayStatList",
+      "expression": "lhsString",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2455,
+      "context": "sidebar.AddDisplayStatList",
+      "expression": "formattedStat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2468,
+      "context": "warning.AddDisplayStatList",
+      "expression": "v",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2487,
+      "context": "warning.AddDisplayStatList",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2497,
+      "context": "warning.AddDisplayStatList",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2576,
+      "context": "sidebar.RefreshStatList",
+      "expression": "self.calcsTab.mainEnv.player.mainSkill.disableReason",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcActiveSkill.lua",
+      "line": 554,
+      "context": "state.buildActiveSkillModList.disableReason",
+      "expression": "activeSkill.disableReason",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcActiveSkill.lua",
+      "line": 562,
+      "context": "state.buildActiveSkillModList.disableReason",
+      "expression": "activeSkill.disableReason",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcActiveSkill.lua",
+      "line": 565,
+      "context": "state.buildActiveSkillModList.disableReason",
+      "expression": "activeSkill.disableReason",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcMirages.lua",
+      "line": 95,
+      "context": "state.preCalcFunc.infoMessage2",
+      "expression": "newSkill.activeEffect.grantedEffect.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcMirages.lua",
+      "line": 338,
+      "context": "state.preCalcFunc.infoMessage2",
+      "expression": "newSkill.activeEffect.grantedEffect.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 879,
+      "context": "state.defaultTriggerHandler.infoMessage",
+      "expression": "actor.mainSkill.triggeredBy",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/CalcTriggers.lua",
+      "line": 879,
+      "context": "state.defaultTriggerHandler.infoMessage",
+      "expression": "actor.mainSkill.triggeredBy.grantedEffect.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 492,
+      "context": "display.AddModSection.cond",
+      "expression": "tag.var",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 492,
+      "context": "display.AddModSection.cond",
+      "expression": "tag.varList",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 581,
+      "context": "format.FormatModValue",
+      "expression": "value",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 589,
+      "context": "format.FormatModValue",
+      "expression": "value",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareCalcsHelpers.lua",
+      "line": 31,
+      "context": "format.FormatCalcModValue",
+      "expression": "value",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4890,
+      "context": "display.DrawConfig.labelText",
+      "expression": "sec.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2394,
+      "context": "sidebar.AddDisplayStatList",
+      "expression": "lhsString",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2445,
+      "context": "sidebar.AddDisplayStatList",
+      "expression": "formattedStat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2458,
+      "context": "warning.AddDisplayStatList",
+      "expression": "v",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2477,
+      "context": "warning.AddDisplayStatList",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2566,
+      "context": "sidebar.RefreshStatList",
+      "expression": "self.calcsTab.mainEnv.player.mainSkill.disableReason",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 119,
+      "context": "DrawStringWidth",
+      "expression": "display",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 121,
+      "context": "DrawStringWidth",
+      "expression": "display",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 135,
+      "context": "DrawStringWidth",
+      "expression": "section.footer",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 428,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CalcBreakdownControl.lua",
+      "line": 764,
+      "context": "DrawString",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareEntry.lua",
+      "line": 522,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareEntry.lua",
+      "line": 537,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3635,
+      "context": "DrawString",
+      "expression": "formatted",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3711,
+      "context": "DrawStringWidth",
+      "expression": "diffLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3968,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 3970,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4259,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4894,
+      "context": "DrawStringWidth",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4900,
+      "context": "DrawString",
+      "expression": "labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/CompareTab.lua",
+      "line": 4916,
+      "context": "DrawStringWidth",
+      "expression": "labelStr",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 561,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/DropDownControl.lua",
+      "line": 574,
+      "context": "DrawStringWidth",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 444,
+      "context": "label",
+      "expression": "self.items[self.displayItem.id]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 1006,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2554,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2907,
+      "context": "ButtonControl",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 2938,
+      "context": "OpenPopup.title",
+      "expression": "self.displayItem",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3016,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3054,
+      "context": "DrawStringWidth",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3060,
+      "context": "ButtonControl",
+      "expression": "saveLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3243,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3256,
+      "context": "LabelControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3950,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 3965,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4041,
+      "context": "Tooltip.AddLine",
+      "expression": "extraTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4081,
+      "context": "Tooltip.AddLine",
+      "expression": "formattedModLine",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4384,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4394,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4419,
+      "context": "Tooltip.AddLine",
+      "expression": "stat",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4429,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/ItemsTab.lua",
+      "line": 4460,
+      "context": "AddStatComparesToTooltip.header",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 28,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 36,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/MinionListControl.lua",
+      "line": 148,
+      "context": "label",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/NotableDBControl.lua",
+      "line": 316,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/NotesTab.lua",
+      "line": 21,
+      "context": "LabelControl",
+      "expression": "notesDesc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PartyTab.lua",
+      "line": 65,
+      "context": "LabelControl",
+      "expression": "notesDesc",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PartyTab.lua",
+      "line": 296,
+      "context": "label",
+      "expression": "self.importCodeDetail",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PowerReportListControl.lua",
+      "line": 50,
+      "context": "label",
+      "expression": "report",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/PowerReportListControl.lua",
+      "line": 143,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 326,
+      "context": "DrawStringWidth",
+      "expression": "data.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 334,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 343,
+      "context": "DrawStringWidth",
+      "expression": "recipeNameShort",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 361,
+      "context": "DrawStringWidth",
+      "expression": "self.lines[1].text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 410,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 417,
+      "context": "DrawStringWidth",
+      "expression": "rn",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 427,
+      "context": "DrawStringWidth",
+      "expression": "title.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 478,
+      "context": "DrawStringWidth",
+      "expression": "data.text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 558,
+      "context": "DrawStringWidth",
+      "expression": "self.lines[1].text",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/Tooltip.lua",
+      "line": 780,
+      "context": "DrawStringWidth",
+      "expression": "line[6]",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQueryGenerator.lua",
+      "line": 1180,
+      "context": "DropDownControl.tooltip",
+      "expression": "augmentTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Classes/TradeQueryGenerator.lua",
+      "line": 1198,
+      "context": "DropDownControl.tooltip",
+      "expression": "augmentTooltip",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1640,
+      "context": "OpenPopup.title",
+      "expression": "self.dbFileName",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1835,
+      "context": "CheckBoxControl.tooltip",
+      "expression": "monsterType.name",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1875,
+      "context": "DrawString",
+      "expression": "self.labelText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1897,
+      "context": "DrawString",
+      "expression": "self.lifeValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1914,
+      "context": "DrawString",
+      "expression": "self.energyShieldValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1931,
+      "context": "DrawString",
+      "expression": "self.armourValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1948,
+      "context": "DrawString",
+      "expression": "self.evasionValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1965,
+      "context": "DrawString",
+      "expression": "self.blockValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1982,
+      "context": "DrawString",
+      "expression": "self.resistsValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 1999,
+      "context": "DrawString",
+      "expression": "self.movementSpeedValue",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2585,
+      "context": "Tooltip.AddLine",
+      "expression": "header",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Build.lua",
+      "line": 2605,
+      "context": "Tooltip.AddLine",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 242,
+      "context": "label",
+      "expression": "launch.updateCheckRunning",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 242,
+      "context": "label",
+      "expression": "launch.updateProgress",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 478,
+      "context": "DrawStringWidth",
+      "expression": "self.showDragText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 483,
+      "context": "DrawString",
+      "expression": "self.showDragText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1686,
+      "context": "PopupDialog.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1699,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1705,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1705,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1712,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1715,
+      "context": "DrawStringWidth",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1719,
+      "context": "DrawStringWidth",
+      "expression": "extraLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1727,
+      "context": "ButtonControl",
+      "expression": "label",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1741,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1741,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1744,
+      "context": "ButtonControl",
+      "expression": "confirmLabel",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1751,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1751,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1796,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1807,
+      "context": "tooltipText",
+      "expression": "hoverText",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1842,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1889,
+      "context": "LabelControl",
+      "expression": "line",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1895,
+      "context": "tooltipText",
+      "expression": "url",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1899,
+      "context": "OpenPopup.title",
+      "expression": "title",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1899,
+      "context": "DrawStringWidth",
+      "expression": "msg",
+      "reason": "变量或共享数据需要显式显示引用"
+    },
+    {
+      "file": "src/Modules/Main.lua",
+      "line": 1904,
+      "context": "SetWindowTitle",
+      "expression": "APP_NAME",
+      "reason": "变量或共享数据需要显式显示引用"
+    }
+  ],
+  "unparsedFiles": [
+    {
+      "file": "src/Modules/CalcOffence.lua",
+      "error": "[5191:36] <expression> expected near '|'"
+    }
+  ],
+  "rejectedTranslations": []
+}

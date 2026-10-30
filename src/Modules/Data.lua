@@ -129,58 +129,58 @@ end
 
 ---@type PowerStat[]
 data.powerStatList = {
-	{ stat=nil, label="Offence/Defence", combinedOffDef=true, ignoreForItems=true },
-	{ stat=nil, label="Name", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
-	{ stat="FullDPS", label="Full DPS" },
-	{ stat="CombinedDPS", label="Combined DPS" },
-	{ stat="TotalDPS", label="Hit DPS" },
-	{ stat="WithImpaleDPS", label="Impale + Hit DPS" },
-	{ stat="AverageDamage", label="Average Hit" },
-	{ stat="Speed", label="Attack/Cast Speed" },
-	{ stat="TotalDot", label="DoT DPS" },
-	{ stat="BleedDPS", label="Bleed DPS" },
-	{ stat="IgniteDPS", label="Ignite DPS" },
-	{ stat="PoisonDPS", label="Poison DPS" },
-	{ stat="Life", label="Life" },
-	{ stat="LifeRegen", label="Life regen" },
-	{ stat="LifeLeechRate", label="Life leech" },
-	{ stat="Armour", label="Armour" },
-	{ stat="Evasion", label="Evasion" },
-	{ stat="EnergyShield", label="Energy Shield" },
-	{ stat="EnergyShieldRecoveryCap", label="Recoverable ES" },
-	{ stat="EnergyShieldRegen", label="Energy Shield regen" },
-	{ stat="EnergyShieldLeechRate", label="Energy Shield leech" },
-	{ stat="Mana", label="Mana" },
-	{ stat="ManaRegen", label="Mana regen" },
-	{ stat="ManaLeechRate", label="Mana leech" },
-	{ stat="Ward", label="Runic Ward" },
-	{ stat="Spirit", label="Spirit" },
-	{ stat="Str", label="Strength" },
-	{ stat="Dex", label="Dexterity" },
-	{ stat="Int", label="Intelligence" },
-	{ stat="TotalAttr", label="Total Attributes" },
-	{ stat="MeleeAvoidChance", label="Melee avoid chance" },
-	{ stat="SpellAvoidChance", label="Spell avoid chance" },
-	{ stat="ProjectileAvoidChance", label="Projectile avoid chance" },
-	{ stat="TotalEHP", label="Effective Hit Pool" },
-	{ stat="SecondMinimalMaximumHitTaken", label="Eff. Maximum Hit Taken" },
-	{ stat="PhysicalTakenHit", label="Taken Phys dmg", transform=function(value) return -value end },
-	{ stat="LightningTakenHit", label="Taken Lightning dmg", transform=function(value) return -value end },
-	{ stat="ColdTakenHit", label="Taken Cold dmg", transform=function(value) return -value end },
-	{ stat="FireTakenHit", label="Taken Fire dmg", transform=function(value) return -value end },
-	{ stat="ChaosTakenHit", label="Taken Chaos dmg", transform=function(value) return -value end },
-	{ stat="CritChance", label="Crit Chance" },
-	{ stat="CritMultiplier", label="Crit Multiplier" },
-	{ stat="BleedChance", label="Bleed Chance" },
-	{ stat="FreezeChance", label="Freeze Chance" },
-	{ stat="IgniteChance", label="Ignite Chance" },
-	{ stat="ShockChance", label="Shock Chance" },
-	{ stat="EffectiveMovementSpeedMod", label="Move speed" },
-	{ stat="LightRadiusMod", label="Light Radius" },
-	{ stat="BlockChance", label="Block Chance" },
-	{ stat="SpellBlockChance", label="Spell Block Chance" },
-	{ stat="SpellSuppressionChance", label="Spell Suppression Chance" },
-	{ stat="EffectiveLootRarityMod", label="Rarity of Items found" },
+	{ stat=nil, label="Offence/Defence", labelKey = "ui.data.module.data_power_stat_list.label_2", combinedOffDef=true, ignoreForItems=true },
+	{ stat=nil, label="Name", labelKey = "ui.data.module.data_power_stat_list.label", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
+	{ stat="FullDPS", label="Full DPS", labelKey = "ui.data.module.full_dps.label" },
+	{ stat="CombinedDPS", label="Combined DPS", labelKey = "ui.data.module.combined_dps.label" },
+	{ stat="TotalDPS", label="Hit DPS", labelKey = "ui.data.module.total_dps.label" },
+	{ stat="WithImpaleDPS", label="Impale + Hit DPS", labelKey = "ui.data.module.with_impale_dps.label" },
+	{ stat="AverageDamage", label="Average Hit", labelKey = "ui.data.module.average_damage.label" },
+	{ stat="Speed", label="Attack/Cast Speed", labelKey = "ui.data.module.speed.label" },
+	{ stat="TotalDot", label="DoT DPS", labelKey = "ui.data.module.total_dot.label" },
+	{ stat="BleedDPS", label="Bleed DPS", labelKey = "ui.data.module.bleed_dps.label" },
+	{ stat="IgniteDPS", label="Ignite DPS", labelKey = "ui.data.module.ignite_dps.label" },
+	{ stat="PoisonDPS", label="Poison DPS", labelKey = "ui.data.module.poison_dps.label" },
+	{ stat="Life", label="Life", labelKey = "ui.data.module.life.label" },
+	{ stat="LifeRegen", label="Life regen", labelKey = "ui.data.module.life_regen.label" },
+	{ stat="LifeLeechRate", label="Life leech", labelKey = "ui.data.module.life_leech_rate.label" },
+	{ stat="Armour", label="Armour", labelKey = "ui.data.module.armour.label" },
+	{ stat="Evasion", label="Evasion", labelKey = "ui.data.module.evasion.label" },
+	{ stat="EnergyShield", label="Energy Shield", labelKey = "ui.data.module.energy_shield.label" },
+	{ stat="EnergyShieldRecoveryCap", label="Recoverable ES", labelKey = "ui.data.module.energy_shield_recovery_cap.label" },
+	{ stat="EnergyShieldRegen", label="Energy Shield regen", labelKey = "ui.data.module.energy_shield_regen.label" },
+	{ stat="EnergyShieldLeechRate", label="Energy Shield leech", labelKey = "ui.data.module.energy_shield_leech_rate.label" },
+	{ stat="Mana", label="Mana", labelKey = "ui.data.module.mana.label" },
+	{ stat="ManaRegen", label="Mana regen", labelKey = "ui.data.module.mana_regen.label" },
+	{ stat="ManaLeechRate", label="Mana leech", labelKey = "ui.data.module.mana_leech_rate.label" },
+	{ stat="Ward", label="Runic Ward", labelKey = "ui.data.module.ward.label" },
+	{ stat="Spirit", label="Spirit", labelKey = "ui.data.module.spirit.label" },
+	{ stat="Str", label="Strength", labelKey = "ui.data.module.str.label" },
+	{ stat="Dex", label="Dexterity", labelKey = "ui.data.module.dex.label" },
+	{ stat="Int", label="Intelligence", labelKey = "ui.data.module.int.label" },
+	{ stat="TotalAttr", label="Total Attributes", labelKey = "ui.data.module.total_attr.label" },
+	{ stat="MeleeAvoidChance", label="Melee avoid chance", labelKey = "ui.data.module.melee_avoid_chance.label" },
+	{ stat="SpellAvoidChance", label="Spell avoid chance", labelKey = "ui.data.module.spell_avoid_chance.label" },
+	{ stat="ProjectileAvoidChance", label="Projectile avoid chance", labelKey = "ui.data.module.projectile_avoid_chance.label" },
+	{ stat="TotalEHP", label="Effective Hit Pool", labelKey = "ui.data.module.total_ehp.label" },
+	{ stat="SecondMinimalMaximumHitTaken", label="Eff. Maximum Hit Taken", labelKey = "ui.data.module.second_minimal_maximum_hit_taken.label" },
+	{ stat="PhysicalTakenHit", label="Taken Phys dmg", labelKey = "ui.data.module.physical_taken_hit.label", transform=function(value) return -value end },
+	{ stat="LightningTakenHit", label="Taken Lightning dmg", labelKey = "ui.data.module.lightning_taken_hit.label", transform=function(value) return -value end },
+	{ stat="ColdTakenHit", label="Taken Cold dmg", labelKey = "ui.data.module.cold_taken_hit.label", transform=function(value) return -value end },
+	{ stat="FireTakenHit", label="Taken Fire dmg", labelKey = "ui.data.module.fire_taken_hit.label", transform=function(value) return -value end },
+	{ stat="ChaosTakenHit", label="Taken Chaos dmg", labelKey = "ui.data.module.chaos_taken_hit.label", transform=function(value) return -value end },
+	{ stat="CritChance", label="Crit Chance", labelKey = "ui.data.module.crit_chance.label" },
+	{ stat="CritMultiplier", label="Crit Multiplier", labelKey = "ui.data.module.crit_multiplier.label" },
+	{ stat="BleedChance", label="Bleed Chance", labelKey = "ui.data.module.bleed_chance.label" },
+	{ stat="FreezeChance", label="Freeze Chance", labelKey = "ui.data.module.freeze_chance.label" },
+	{ stat="IgniteChance", label="Ignite Chance", labelKey = "ui.data.module.ignite_chance.label" },
+	{ stat="ShockChance", label="Shock Chance", labelKey = "ui.data.module.shock_chance.label" },
+	{ stat="EffectiveMovementSpeedMod", label="Move speed", labelKey = "ui.data.module.effective_movement_speed_mod.label" },
+	{ stat="LightRadiusMod", label="Light Radius", labelKey = "ui.data.module.light_radius_mod.label" },
+	{ stat="BlockChance", label="Block Chance", labelKey = "ui.data.module.block_chance.label" },
+	{ stat="SpellBlockChance", label="Spell Block Chance", labelKey = "ui.data.module.spell_block_chance.label" },
+	{ stat="SpellSuppressionChance", label="Spell Suppression Chance", labelKey = "ui.data.module.spell_suppression_chance.label" },
+	{ stat="EffectiveLootRarityMod", label="Rarity of Items found", labelKey = "ui.data.module.effective_loot_rarity_mod.label" },
 }
 
 ---@param output any Calc output
@@ -233,6 +233,8 @@ for i = 1, #data.powerStatList do
 	local minionStat = copyTable(statEntry)
 	minionStat.stat = "Minion" .. minionStat.stat
 	minionStat.label = "Minion " .. minionStat.label
+	minionStat.labelKey = 'ui.data.module.minion_stat_label_key.message'
+	minionStat.labelParams = { stat = localisation:Ref(statEntry.labelKey, statEntry.labelParams) }
 	t_insert(data.powerStatList, minionStat)
 	::statContinue::
 end
@@ -610,13 +612,13 @@ data.weaponTypeInfo = {
 	["Dagger"] = { oneHand = true, melee = true, flag = "Dagger" },
 	["Spear"] = { oneHand = true, melee = true, flag = "Spear" },
 	["Flail"] = { oneHand = true, melee = true, flag = "Flail" },
-	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
+	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff", labelKey = "ui.data.module.data_weapon_type_info.label_2" },
 	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
 	["One Hand Axe"] = { oneHand = true, melee = true, flag = "Axe" },
 	["One Hand Mace"] = { oneHand = true, melee = true, flag = "Mace" },
 	["One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword" },
-	["Thrusting One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Hand Sword" },
+	["Thrusting One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Hand Sword", labelKey = "ui.data.module.data_weapon_type_info.label" },
 	["Fishing Rod"] = { oneHand = false, melee = true, flag = "Fishing" },
 	["Two Hand Axe"] = { oneHand = false, melee = true, flag = "Axe" },
 	["Two Hand Mace"] = { oneHand = false, melee = true, flag = "Mace" },
@@ -667,19 +669,19 @@ end
 
 data.jewelRadii = {
 	["0_1"] = {
-		{ inner = 0, outer = 1000, col = "^xBB6600", label = "Small" },
-		{ inner = 0, outer = 1150, col = "^x66FFCC", label = "Medium" },
-		{ inner = 0, outer = 1300, col = "^x2222CC", label = "Large" },
-		{ inner = 0, outer = 1500, col = "^xC100FF", label = "Very Large" },
+		{ inner = 0, outer = 1000, col = "^xBB6600", label = "Small", labelKey = "ui.data.module.data_jewel_radii.label_3" },
+		{ inner = 0, outer = 1150, col = "^x66FFCC", label = "Medium", labelKey = "ui.data.module.data_jewel_radii.label_2" },
+		{ inner = 0, outer = 1300, col = "^x2222CC", label = "Large", labelKey = "ui.data.module.data_jewel_radii.label" },
+		{ inner = 0, outer = 1500, col = "^xC100FF", label = "Very Large", labelKey = "ui.data.module.data_jewel_radii.label_5" },
 
-		{ inner = 650, outer = 950, col = "^xD35400", label = "Variable" },
-		{ inner = 800, outer = 1100, col = "^x66FFCC", label = "Variable" },
-		{ inner = 950, outer = 1250, col = "^x2222CC", label = "Variable" },
-		{ inner = 1100, outer = 1400, col = "^xC100FF", label = "Variable" },
-		{ inner = 1250, outer = 1550, col = "^x0B9300", label = "Variable" },
-		{ inner = 1400, outer = 1700, col = "^xFFCC00", label = "Variable" },
-		{ inner = 1650, outer = 1950, col = "^xFF6600", label = "Variable" },
-		{ inner = 1800, outer = 2100, col = "^x0099FF", label = "Variable" },
+		{ inner = 650, outer = 950, col = "^xD35400", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 800, outer = 1100, col = "^x66FFCC", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 950, outer = 1250, col = "^x2222CC", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 1100, outer = 1400, col = "^xC100FF", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 1250, outer = 1550, col = "^x0B9300", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 1400, outer = 1700, col = "^xFFCC00", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 1650, outer = 1950, col = "^xFF6600", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
+		{ inner = 1800, outer = 2100, col = "^x0099FF", label = "Variable", labelKey = "ui.data.module.data_jewel_radii.label_4" },
 	}
 }
 
@@ -878,33 +880,21 @@ do
 	local bossSkillData     = LoadModule("Data/BossSkills")
 	data.bossSkills         = bossSkillData.bossSkills
 	data.bossSkillsList     = bossSkillData.bossSkillsList
-	data.enemyIsBossTooltip = [[Bosses' damage is monster damage scaled to an average damage of their attacks
-This is divided by 4.40 to represent 4 damage types + some (40% as much) ^xD02090chaos
-^7Fill in the exact damage numbers if more precision is needed
-
-Bosses' armour and evasion multiplier are calculated using the average of the boss type
-
-Standard Boss adds the following modifiers:
-	+30% to enemy Elemental Resistances
-	^7]]..tostring(m_floor(data.misc.stdBossDPSMult * 100))..[[% of monster Damage of each type
-	]]..tostring(m_floor(data.misc.stdBossDPSMult * 4.4 * 100))..[[% of monster Damage total
-
-Guardian / Pinnacle Boss adds the following modifiers:
-	+50% to enemy Elemental Resistances
-	^7]]..tostring(m_floor(data.bossStats.PinnacleArmourMean))..[[% of monster Armour
-	]]..tostring(m_floor(data.bossStats.PinnacleEvasionMean))..[[% of monster ^x33FF77Evasion
-	^7]]..tostring(m_floor(data.misc.pinnacleBossDPSMult * 100))..[[% of monster Damage of each type
-	]]..tostring(m_floor(data.misc.pinnacleBossDPSMult * 4.4 * 100))..[[% of monster Damage total
-	]]..tostring(data.misc.pinnacleBossPen)..[[% penetration
-
-Uber Pinnacle Boss adds the following modifiers:
-	+50% to enemy Elemental Resistances
-	^7]]..tostring(m_floor(data.bossStats.UberArmourMean))..[[% of monster Armour
-	]]..tostring(m_floor(data.bossStats.UberEvasionMean))..[[% of monster ^x33FF77Evasion
-	^770% less to enemy Damage taken
-	]]..tostring(m_floor(data.misc.uberBossDPSMult * 100))..[[% of monster Damage of each type
-	]]..tostring(m_floor(data.misc.uberBossDPSMult * 4.25 * 100))..[[% of monster Damage total
-	]]..tostring(data.misc.uberBossPen)..[[% penetration]]
+	data.enemyIsBossTooltipKey = 'config.enemy.boss_modifiers_tooltip'
+	data.enemyIsBossTooltipParams = {
+		standard_damage = m_floor(data.misc.stdBossDPSMult * 100),
+		standard_total = m_floor(data.misc.stdBossDPSMult * 4.4 * 100),
+		pinnacle_armour = m_floor(data.bossStats.PinnacleArmourMean),
+		pinnacle_evasion = m_floor(data.bossStats.PinnacleEvasionMean),
+		pinnacle_damage = m_floor(data.misc.pinnacleBossDPSMult * 100),
+		pinnacle_total = m_floor(data.misc.pinnacleBossDPSMult * 4.4 * 100),
+		pinnacle_penetration = data.misc.pinnacleBossPen,
+		uber_armour = m_floor(data.bossStats.UberArmourMean),
+		uber_evasion = m_floor(data.bossStats.UberEvasionMean),
+		uber_damage = m_floor(data.misc.uberBossDPSMult * 100),
+		uber_total = m_floor(data.misc.uberBossDPSMult * 4.25 * 100),
+		uber_penetration = data.misc.uberBossPen,
+	}
 end
 
 -- Load skills
@@ -1172,3 +1162,47 @@ data.runeInfluences = {
 	caster = { "destruction" },
 	["body armour"] = { "soul" },
 }
+
+-- 显示引用跟随已有业务对象，原英文身份和计算内容保持独立。
+for id, gem in pairs(data.gems) do localisation:BindFields('gem', id, gem) end
+for id, skill in pairs(data.skills) do
+	localisation:BindFields('skill', id, skill)
+	for index, statSet in ipairs(skill.statSets or { }) do
+		localisation:BindFields('skill_stat_set', id .. ':' .. index, statSet)
+	end
+end
+for id, minion in pairs(data.minions) do
+	localisation:BindFields('minion', id, minion)
+	localisation:BindLines('minion', id, minion, 'spawnLocation')
+end
+for id, base in pairs(data.itemBases) do localisation:BindFields('equipment_base', id, base) end
+for _, list in pairs(data.itemBaseLists) do
+	for _, entry in ipairs(list) do entry.labelKey = entry.base.nameKey end
+end
+for id, skill in pairs(data.skills) do localisation:BindLines('skill', id, skill, 'flavourText') end
+for _, entry in pairs(data.flavourText) do
+	localisation:BindFields('equipment_flavour', entry.id, entry)
+	localisation:BindLines('equipment_flavour', entry.id, entry, 'text')
+end
+for kind, list in pairs(data.itemMods) do
+	for id, mod in pairs(list) do
+		if kind == 'Runes' then
+			for slot, rune in pairs(mod) do
+				localisation:BindModData('equipment_modifier', kind .. ':' .. id .. ':' .. slot, rune)
+				if rune.bonded then localisation:BindModData('equipment_modifier', kind .. ':' .. id .. ':' .. slot .. ':bonded', rune.bonded) end
+			end
+		else localisation:BindModData('equipment_modifier', kind .. ':' .. id, mod) end
+	end
+end
+for id, area in pairs(data.worldAreas) do
+	localisation:BindFields('world_area', id, area)
+	localisation:BindLines('world_area', id, area, 'monsterVarieties')
+	localisation:BindLines('world_area', id, area, 'bossVarieties')
+end
+for id, essence in pairs(data.essences) do localisation:BindFields('essence', id, essence) end
+for id, emotion in pairs(data.emotions) do localisation:BindFields('emotion', id, emotion) end
+for _, resource in ipairs(data.costs) do localisation:BindFields('skill_cost', resource.Resource, resource) end
+for _, quest in ipairs(data.questRewards) do
+	localisation:BindFields('quest_reward', 'quest' .. quest.Description .. quest.Area .. quest.Info, quest)
+end
+localisation:BindDataList('equipment_type', data.itemBaseTypeList, 'name')

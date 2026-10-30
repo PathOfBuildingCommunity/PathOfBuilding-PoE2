@@ -1,5 +1,6 @@
 """枚举源码文字与属性模板文件，交给实际 PoB2 语言层生成覆盖报告。"""
 from pathlib import Path
+import csv
 import json
 import re
 import subprocess
@@ -21,9 +22,33 @@ def main():
     run = source / "Tests" / "Run"
     run.mkdir(parents=True, exist_ok=True)
     literals = []
-    paths = sorted((source / "Classes").glob("*.lua"))
-    paths += sorted((source / "Modules").glob("*.lua"))
-    paths += [source / "Launch.lua"]
+    paths = sorted((source / "Classes").rglob("*.lua"))
+    paths += sorted((source / "Modules").rglob("*.lua"))
+    paths += sorted(source.glob("*.lua"))
+    # 全仓文件均入清单；数据/资源/开发工具不能冒充已经触发的产品界面。
+    tracked = subprocess.check_output(
+        ["git", "ls-files", "-z"], cwd=root
+    ).decode("utf-8").split("\0")
+    runtime_paths = {path.relative_to(root).as_posix() for path in paths}
+    with (root / "docs/localisation-repository-inventory.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as output:
+        writer = csv.writer(output)
+        writer.writerow(["path", "scope", "method"])
+        for name in sorted(filter(None, tracked)):
+            if name in runtime_paths:
+                scope, method = "runtime-source", "literal-candidates-and-display-probes"
+            elif name.startswith(("src/Data/", "src/TreeData/")) and name.endswith(".lua"):
+                scope, method = "game-data", "loaded-runtime-fields-current-version"
+            elif name.startswith("src/Locales/"):
+                scope, method = "locale-resource", "loaded-files-and-term-review"
+            elif name in ("help.txt", "changelog.txt"):
+                scope, method = "product-text-resource", "boundary-audit-line-translation"
+            elif name.startswith(("src/Export/", "tools/", "spec/", "tests/", "src/Tests/", ".github/")):
+                scope, method = "development", "inventory-only-not-product-text"
+            else:
+                scope, method = "support-or-binary", "inventory-only-native-text-not-extracted"
+            writer.writerow([name, scope, method])
     for path in paths:
         text = path.read_text(encoding="utf-8-sig")
         for match in TOKENS.finditer(text):
@@ -37,6 +62,7 @@ def main():
             })
     manifest = {
         "literals": literals,
+        "sourceFiles": [path.relative_to(source).as_posix() for path in paths],
         "statFiles": [
             path.relative_to(source).with_suffix("").as_posix()
             for path in sorted((source / "Data" / "StatDescriptions").rglob("*.lua"))

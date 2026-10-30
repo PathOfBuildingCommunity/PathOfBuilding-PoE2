@@ -12,23 +12,23 @@ local M = {}
 -- Format a modifier value with its type for display
 function M.FormatCalcModValue(value, modType)
 	if modType == "BASE" then
-		return s_format("%+g base", value)
+		return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value", { value = value })
 	elseif modType == "INC" then
 		if value >= 0 then
-			return value .. "% increased"
+			return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_2", { value = value })
 		else
-			return (-value) .. "% reduced"
+			return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_3", { value = -value })
 		end
 	elseif modType == "MORE" then
 		if value >= 0 then
-			return value .. "% more"
+			return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_4", { value = value })
 		else
-			return (-value) .. "% less"
+			return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_5", { value = -value })
 		end
 	elseif modType == "OVERRIDE" then
-		return "Override: " .. tostring(value)
+		return localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_6", { value = tostring(value) })
 	elseif modType == "FLAG" then
-		return value and "True" or "False"
+		return value and localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_7") or localisation:Text("ui.compare_calcs_helpers.format.format_calc_mod_value_8")
 	else
 		return tostring(value)
 	end
@@ -49,7 +49,7 @@ function M.ResolveSourceName(mod, build)
 		local itemId = mod.source:match("Item:(%d+):.+")
 		local item = build.itemsTab and build.itemsTab.items[tonumber(itemId)]
 		if item then
-			return colorCodes[item.rarity] .. item.name
+			return colorCodes[item.rarity] .. localisation:ItemName(item)
 		end
 	elseif sourceType == "Tree" then
 		local nodeId = mod.source:match("Tree:(%d+)")
@@ -59,13 +59,13 @@ function M.ResolveSourceName(mod, build)
 				or (build.spec and build.spec.tree and build.spec.tree.nodes[nodeIdNum])
 				or (build.latestTree and build.latestTree.nodes[nodeIdNum])
 			if node then
-				return node.dn or node.name or ""
+				return localisation:Field(node, "dn") or localisation:Field(node, "name") or ""
 			end
 		end
 	elseif sourceType == "Skill" then
 		local skillId = mod.source:match("Skill:(.+)")
 		if skillId and build.data and build.data.skills[skillId] then
-			return build.data.skills[skillId].name
+			return localisation:Field(build.data.skills[skillId], "name")
 		end
 	elseif sourceType == "Pantheon" then
 		return mod.source:match("Pantheon:(.+)") or ""
@@ -258,7 +258,7 @@ function M.DrawCalcsTooltip(tooltip, primaryBuild, primaryLabel, colData, rowLab
 					end
 
 					-- Sub-section header (e.g., "Sources", "Increased Life Regeneration Rate")
-					local sectionLabel = sectionData.label or "Player modifiers"
+					local sectionLabel = localisation:Field(sectionData, "label") or localisation:Text("comparison.modifier.player")
 					tooltip:AddLine(14, "^7" .. sectionLabel .. ":")
 
 					-- Common modifiers
@@ -270,7 +270,7 @@ function M.DrawCalcsTooltip(tooltip, primaryBuild, primaryLabel, colData, rowLab
 							end
 							return false
 						end)
-						tooltip:AddLine(12, "^x808080  Common:")
+						tooltip:AddLine(12, localisation:Text("ui.compare_calcs_helpers.draw_calcs_tooltip.tooltip"))
 						for _, pair in ipairs(common) do
 							local pVal, sourceType, sourceName, modName = M.FormatModRow(pair[1], sectionData, primaryBuild)
 							local cVal = M.FormatModRow(pair[2], sectionData, compareEntry)
@@ -293,7 +293,7 @@ function M.DrawCalcsTooltip(tooltip, primaryBuild, primaryLabel, colData, rowLab
 							end
 							return false
 						end)
-						tooltip:AddLine(12, colorCodes.POSITIVE .. "  " .. primaryLabel .. " only:")
+						tooltip:AddLine(12, colorCodes.POSITIVE .. "  " .. localisation:Text("ui.compare_calcs_helpers.draw_calcs_tooltip.tooltip_2", { primary_label = primaryLabel }))
 						for _, row in ipairs(pOnly) do
 							local displayValue, sourceType, sourceName, modName = M.FormatModRow(row, sectionData, primaryBuild)
 							local line = s_format("    ^7%-10s ^7%-6s ^7%s%s", displayValue, sourceType, sourceName, modName)
@@ -309,7 +309,7 @@ function M.DrawCalcsTooltip(tooltip, primaryBuild, primaryLabel, colData, rowLab
 							end
 							return false
 						end)
-						tooltip:AddLine(12, colorCodes.WARNING .. "  " .. compareLabel .. " only:")
+						tooltip:AddLine(12, colorCodes.WARNING .. "  " .. localisation:Text("ui.compare_calcs_helpers.draw_calcs_tooltip.tooltip_3", { compare_label = compareLabel }))
 						for _, row in ipairs(cOnly) do
 							local displayValue, sourceType, sourceName, modName = M.FormatModRow(row, sectionData, compareEntry)
 							local line = s_format("    ^7%-10s ^7%-6s ^7%s%s", displayValue, sourceType, sourceName, modName)
@@ -339,7 +339,7 @@ local function resolveModSource(mod, build)
 		local itemId = mod.source:match("Item:(%d+):.+")
 		local item = build.itemsTab and build.itemsTab.items[tonumber(itemId)]
 		if item then
-			sourceName = colorCodes[item.rarity] .. item.name
+			sourceName = colorCodes[item.rarity] .. localisation:ItemName(item)
 		end
 	elseif sourceType == "Tree" then
 		local nodeId = mod.source:match("Tree:(%d+)")
@@ -390,10 +390,10 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 
 	-- Process rows: compute display strings and measure column widths
 	local colDefs = {
-		{ label = "Value", key = "displayValue" },
-		{ label = "Stat", key = "name" },
-		{ label = "Source", key = "source" },
-		{ label = "Source Name", key = "sourceName" },
+		{ label = "Value", labelKey = "ui.compare_calcs_helpers.draw_skill_breakdown_panel.display_value.label", key = "displayValue" },
+		{ label = "Stat", labelKey = "ui.compare_calcs_helpers.draw_skill_breakdown_panel.name.label", key = "name" },
+		{ label = "Source", labelKey = "ui.compare_calcs_helpers.draw_skill_breakdown_panel.source.label", key = "source" },
+		{ label = "Source Name", labelKey = "ui.compare_calcs_helpers.draw_skill_breakdown_panel.source_name.label", key = "sourceName" },
 	}
 
 	local rows = {}
@@ -410,7 +410,7 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 
 	-- Measure column widths
 	for _, col in ipairs(colDefs) do
-		col.width = DrawStringWidth(16, "VAR", col.label) + 6
+		col.width = DrawStringWidth(16, "VAR", localisation:Field(col, "label")) + 6
 		for _, row in ipairs(rows) do
 			if row[col.key] then
 				col.width = math.max(col.width, DrawStringWidth(12, "VAR", row[col.key]) + 6)
@@ -458,7 +458,7 @@ function M.DrawSkillBreakdownPanel(build, breakdownKey, label, cellX, cellY, cel
 			DrawImage(nil, colX - 2, panelY + 2, 1, panelH - 4)
 		end
 		SetDrawColor(1, 1, 1)
-		DrawString(colX, panelY + 2, "LEFT", 16, "VAR", col.label)
+		DrawString(colX, panelY + 2, "LEFT", 16, "VAR", localisation:Field(col, "label"))
 		colX = colX + col.width
 	end
 

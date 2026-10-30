@@ -23,11 +23,11 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 		self:UpdateList()
 	end)
 	self.controls.loadoutFilter.enableDroppedWidth = true
-	self.controls.sort = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.loadoutFilter, "RIGHT" }, { 4, 0, 42, 18 }, "Sort", function()
+	self.controls.sort = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.loadoutFilter, "RIGHT" }, { 4, 0, 42, 18 }, localisation:Label("ui.item_list_control.init.sort.label"), function()
 		itemsTab:SortItemList()
 		self:UpdateList()
 	end)
-	self.controls.deleteUnused = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.sort, "RIGHT" }, { 4, 0, 84, 18 }, "Del Unused", function()
+	self.controls.deleteUnused = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.sort, "RIGHT" }, { 4, 0, 84, 18 }, localisation:Label("ui.item_list_control.init.delete_unused.label"), function()
 		local delList = {}
 		for _, itemId in ipairs(itemsTab.itemOrderList) do
 			if not itemsTab:GetEquippedSlotForItem(itemsTab.items[itemId]) and not self:FindEquippedItemSocket(itemId, false) and not self:FindSocketedJewel(itemId, false) then
@@ -50,8 +50,8 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 	self.controls.deleteUnused.enabled = function()
 		return #itemsTab.itemOrderList > 0
 	end
-	self.controls.deleteAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.deleteUnused, "RIGHT" }, { 4, 0, 58, 18 }, "Del All", function()
-		main:OpenConfirmPopup("Delete All", "Are you sure you want to delete all items in this build?", "Delete", function()
+	self.controls.deleteAll = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.deleteUnused, "RIGHT" }, { 4, 0, 58, 18 }, localisation:Label("ui.item_list_control.init.delete_all.label_2"), function()
+		main:OpenConfirmPopup(localisation:Text("ui.item_list_control.init.delete_all.label_4"), localisation:Text("ui.item_list_control.init.delete_all.label"), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 			for _, slot in pairs(itemsTab.slots) do
 				slot:SetSelItemId(0)
 			end
@@ -73,7 +73,7 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 	self.controls.deleteAll.enabled = function()
 		return #itemsTab.itemOrderList > 0
 	end
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.deleteAll, "RIGHT" }, { 4, 0, 50, 18 }, "Delete", function()
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.deleteAll, "RIGHT" }, { 4, 0, 50, 18 }, localisation:Label("ui.item_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)
 	self.controls.delete.enabled = function()
@@ -83,7 +83,7 @@ function ItemListClass:ItemListControl(anchor, rect, itemsTab, forceTooltip)
 end
 
 function ItemListClass:UpdateLoadoutList()
-	local list = { "Any Loadout", "Current Loadout", "Unused Items" }
+	local list = localisation:List({ "Any Loadout", "Current Loadout", "Unused Items" }, { [1] = "ui.item_list_control.update_loadout_list.list.message", [2] = "ui.item_list_control.update_loadout_list.list.message_2", [3] = "ui.item_list_control.update_loadout_list.list.message_3" })
 	local listValues = { ["Any Loadout"] = true, ["Current Loadout"] = true, ["Unused Items"] = true }
 	local build = self.itemsTab.build
 	if build and build.controls and build.controls.buildLoadouts then
@@ -252,14 +252,14 @@ function ItemListClass:GetRowValue(column, index, itemId)
 		if used == "" then
 			local slot, itemSet = self.itemsTab:GetEquippedSlotForItem(item)
 			if not slot then
-				used = "  ^9(Unused)"
+				used = "  ^9" .. localisation:Text('ui.item_list_control.get_row_value.used.message')
 			elseif itemSet then
-				used = "  ^9(Used in '" .. (itemSet.title or "Default") .. "')"
+				used = "  ^9" .. localisation:Text('ui.item_list_control.get_row_value.used.message_2', { set_name = itemSet.title or "Default" })
 			end
 		else
-			used = "  ^9(Used in '" .. used .. "')"
+			used = "  ^9" .. localisation:Text('ui.item_list_control.get_row_value.used.message_2', { set_name = used })
 		end
-		return colorCodes[item.rarity] .. localisation:ItemName(item) .. localisation:Translate(used)
+		return colorCodes[item.rarity] .. localisation:ItemName(item) .. used
 	end
 end
 
@@ -339,7 +339,7 @@ function ItemListClass:OnSelDelete(index, itemId)
 	local equipSlot, equipSet = self.itemsTab:GetEquippedSlotForItem(item)
 	if equipSlot then
 		local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
-		main:OpenConfirmPopup("Delete Item", item.name.." is currently equipped in "..equipSlot.label..inSet..".\nAre you sure you want to delete it?", "Delete", function()
+		main:OpenConfirmPopup(localisation:Text("ui.item_list_control.on_sel_delete.message"), localisation:Text("ui.item_list_control.on_sel_delete.message_3", { name = localisation:ItemName(item), label = localisation:Field(equipSlot, 'label'), in_set = inSet }), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 			self.itemsTab:DeleteItem(item)
 			self.selIndex = nil
 			self.selValue = nil
@@ -349,7 +349,7 @@ function ItemListClass:OnSelDelete(index, itemId)
 		local equipSet = self:FindEquippedItemSocket(itemId, true)
 		if equipSet then
 			local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
-			main:OpenConfirmPopup("Delete Item", item.name.." is currently equipped in a Socket"..inSet..".\nAre you sure you want to delete it?", "Delete", function()
+			main:OpenConfirmPopup(localisation:Text("ui.item_list_control.on_sel_delete.message"), localisation:Text("ui.item_list_control.on_sel_delete.message_2", { name = localisation:ItemName(item), in_set = inSet }), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 				self.itemsTab:DeleteItem(item)
 				self.selIndex = nil
 				self.selValue = nil
@@ -358,7 +358,7 @@ function ItemListClass:OnSelDelete(index, itemId)
 		else
 			local equipTree = self:FindSocketedJewel(itemId, true)
 			if equipTree then
-				main:OpenConfirmPopup("Delete Item", item.name.." is currently equipped in passive tree '"..equipTree.."'.\nAre you sure you want to delete it?", "Delete", function()
+				main:OpenConfirmPopup(localisation:Text("ui.item_list_control.on_sel_delete.message"), localisation:Text("ui.item_list_control.on_sel_delete.message_4", { name = localisation:ItemName(item), equip_tree = equipTree }), localisation:Text("ui.item_list_control.init.delete_all.label_3"), function()
 					self.itemsTab:DeleteItem(item)
 					self.selIndex = nil
 					self.selValue = nil

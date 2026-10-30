@@ -35,15 +35,15 @@ local SkillListClass = newClass("SkillListControl", "ListControl")
 function SkillListClass:SkillListControl(anchor, rect, skillsTab)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, skillsTab.socketGroupList)
 	self.skillsTab = skillsTab
-	self.label = "^7Socket Groups:"
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, "Delete", function()
+	self.label = localisation:Label("ui.skill_list_control.init.label")
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOPRIGHT" }, { 0, -2, 60, 18 }, localisation:Label("ui.skill_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)
 	self.controls.delete.enabled = function()
 		return self.selValue ~= nil and self.selValue.source == nil
 	end
-	self.controls.deleteAll = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.delete, "LEFT" }, { -4, 0, 70, 18 }, "Delete All", function()
-		main:OpenConfirmPopup("Delete All", "Are you sure you want to delete all socket groups in this build?", "Delete", function()
+	self.controls.deleteAll = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.delete, "LEFT" }, { -4, 0, 70, 18 }, localisation:Label("ui.skill_list_control.init.delete_all.label_3"), function()
+		main:OpenConfirmPopup(localisation:Text("ui.skill_list_control.init.delete_all.label_4"), localisation:Text("ui.skill_list_control.init.delete_all.label"), localisation:Text("ui.skill_list_control.init.delete_all.label_2"), function()
 			wipeTable(self.list)
 			skillsTab:SetDisplayGroup()
 			skillsTab:AddUndoState()
@@ -55,7 +55,7 @@ function SkillListClass:SkillListControl(anchor, rect, skillsTab)
 	self.controls.deleteAll.enabled = function()
 		return #self.list > 0 
 	end
-	self.controls.new = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.deleteAll, "LEFT" }, { -4, 0, 60, 18 }, "New", function()
+	self.controls.new = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.deleteAll, "LEFT" }, { -4, 0, 60, 18 }, localisation:Label("ui.skill_list_control.init.new.label"), function()
 		local newGroup = { 
 			label = "", 
 			enabled = true, 
@@ -148,7 +148,7 @@ function SkillListClass:OnSelDelete(index, socketGroup)
 		end
 	end
 	if socketGroup.source then
-		main:OpenMessagePopup("Delete Socket Group", "This socket group cannot be deleted as it is created by an equipped item.")
+		main:OpenMessagePopup(localisation:Text("ui.skill_list_control.on_sel_delete.message_2"), localisation:Text("ui.skill_list_control.on_sel_delete.message_4"))
 	elseif not socketGroup.gemList[1] then
 		t_remove(self.list, index)
 		if self.skillsTab.displayGroup == socketGroup then
@@ -159,7 +159,7 @@ function SkillListClass:OnSelDelete(index, socketGroup)
 		self.skillsTab.build.buildFlag = true
 		self.selValue = nil
 	else
-		main:OpenConfirmPopup("Delete Socket Group", "Are you sure you want to delete '"..socketGroup.displayLabel.."'?", "Delete", function()
+		main:OpenConfirmPopup(localisation:Text("ui.skill_list_control.on_sel_delete.message_3"), localisation:Text("ui.skill_list_control.on_sel_delete.message", { display_label = socketGroup.displayLabel }), localisation:Text("ui.skill_list_control.init.delete_all.label_2"), function()
 			t_remove(self.list, index)
 			if self.skillsTab.displayGroup == socketGroup then
 				self.skillsTab:SetDisplayGroup()

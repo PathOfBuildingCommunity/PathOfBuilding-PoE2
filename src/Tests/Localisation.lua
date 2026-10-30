@@ -14,6 +14,7 @@ local function equal(actual, expected, label)
 end
 
 local languageList = Languages.List()
+dofile('Tests/LocalisationMessages.lua')(equal)
 equal(#languageList, 3, '当前语言数量')
 equal(languageList[1].id, 'en', '英文语言顺序')
 equal(Languages.Default().id, 'zh-CN', '默认语言')

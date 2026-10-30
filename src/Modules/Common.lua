@@ -1006,7 +1006,7 @@ function urlDecode(str)
 	return str:gsub("%%(%x%x)", hexToChar)
 end
 
-function string:matchOrPattern(pattern)
+function string:matchOrPattern(pattern, raw)
 	local function generateOrPatterns(pattern)
 		local subGroups = {}
 		local index = 1
@@ -1042,7 +1042,7 @@ function string:matchOrPattern(pattern)
 
 	local orPatterns = generateOrPatterns(pattern)
 	for orPattern in pairs(orPatterns) do
-		if self:match(orPattern) or (localisation and localisation:Match(self, orPattern)) then
+		if self:match(orPattern) or (not raw and localisation and localisation:Match(self, orPattern)) then
 			return true
 		end
 	end
