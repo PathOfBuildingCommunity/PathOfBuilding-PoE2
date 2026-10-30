@@ -1,5 +1,7 @@
 # PoB2 全域本地化审计
 
+> 修复前快照：以下计数保留装备显示修复前的全域扫描结果。后续发现秒数模板会误匹配 Focus 等词，部分 latin-review 实际是错误译文；本表不能作为修复后的覆盖率。最新装备显示结果见 `localisation-item-display-audit.md`，词条来源见 `localisation-equipment-sources.md`。
+
 运行范围：当前 PoB2 运行时、4914 个天赋节点、全部装备/技能/召唤物数据、配置文案及 764 个属性描述文件。
 
 命令：在工程根目录运行 `build.cmd`，然后 `python tools/audit-localisation.py`。

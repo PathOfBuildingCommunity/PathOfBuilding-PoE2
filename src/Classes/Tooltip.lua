@@ -169,6 +169,8 @@ end
 
 function TooltipClass:AddLine(size, text, font, background, modLine)
 	if text then
+		-- 比较栏的分块标记来自英文源文，不能在翻译后丢失。
+		local compareHeader = text:match('^[^\n]*Equipping') or text:match('^[^\n]*Removing')
 		-- 在拆行与换行前翻译，保留词条边界并按译文计算布局。
 		text = localisation:Translate(text)
 		local fontToUse
@@ -178,12 +180,14 @@ function TooltipClass:AddLine(size, text, font, background, modLine)
 			fontToUse = "VAR"
 		end
 		local activeColour
+		local firstLine = true
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
-			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
+			if firstLine and compareHeader or line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
 				t_insert(self.blocks, { height = size + 2})
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
+			firstLine = false
 			if self.maxWidth then
 				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
 					if activeColour then wrappedLine = activeColour .. wrappedLine end

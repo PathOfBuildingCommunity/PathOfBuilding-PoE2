@@ -259,7 +259,7 @@ function ItemListClass:GetRowValue(column, index, itemId)
 		else
 			used = "  ^9(Used in '" .. used .. "')"
 		end
-		return colorCodes[item.rarity] .. item.name .. used
+		return colorCodes[item.rarity] .. localisation:ItemName(item) .. localisation:Translate(used)
 	end
 end
 

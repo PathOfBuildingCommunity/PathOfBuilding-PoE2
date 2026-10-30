@@ -65,5 +65,6 @@ return {
     "tree_rt.csv",
     "tree_sd.csv",
     "unused.csv",
+    "Equipment.csv",
     "Integrated.csv",
 }

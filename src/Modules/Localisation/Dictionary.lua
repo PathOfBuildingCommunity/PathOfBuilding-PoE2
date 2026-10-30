@@ -50,7 +50,8 @@ local function compile(source, target)
 	pattern[#pattern + 1] = escape(source:sub(pos)) .. '$'
 	-- 用首个字面片段筛选，避免每个字符串遍历整套数万条模式。
 	local prefix = source:match('^(.-){%d+}')
-	return { pattern = table.concat(pattern), order = order, target = target, prefix = prefix, length = #source }
+	local numeric = source:match('^{%d+}[%a%%]+$') or target:match('^{%d+}[%a%%]+$')
+	return { pattern = table.concat(pattern), order = order, target = target, prefix = prefix, length = #source, numeric = numeric }
 end
 
 --- <summary>加入一条翻译；同名词条以最后加载的内容为准。</summary>
@@ -118,6 +119,9 @@ function Dictionary:Translate(text, reverse)
 	-- 提示框换行后会追加颜色重置码，译文匹配不应包含这些显示标记。
 	local colourStart = text:match('()%^x%x%x%x%x%x%x$') or text:match('()%^%d$')
 	if colourStart then return self:Translate(text:sub(1, colourStart - 1), reverse) .. text:sub(colourStart) end
+	-- 显示片段常带缩进或分隔空格，保留布局但按完整词条查找。
+	local leading, trimmed, trailing = text:match('^(%s*)(.-)(%s*)$')
+	if trimmed ~= text then return leading .. self:Translate(trimmed, reverse) .. trailing end
 	local result
 	for _, template in ipairs(reverse and self.reverseTemplates or self.templates) do
 		if template.prefix == '' or text:sub(1, #template.prefix) == template.prefix then
@@ -126,6 +130,8 @@ function Dictionary:Translate(text, reverse)
 				local values, rawValues, valid = { }, { }, true
 				for i, key in ipairs(template.order) do
 					if rawValues[key] and rawValues[key] ~= captures[i] then valid = false end
+					-- 秒数等纯单位模板只接受数值，不能把 Requires 的末尾 s 当成秒。
+					if template.numeric and (not captures[i]:find('%d') or captures[i]:find('[^%d%+%-%.%,%(%)%s/]')) then valid = false end
 					rawValues[key] = captures[i]
 					-- 组合词条的动态片段也可能是技能名或属性名，先按独立词条转换。
 					values[key] = self:Translate(captures[i])
@@ -156,6 +162,26 @@ function Dictionary:Translate(text, reverse)
 				if prefixWithColon then return translatedPrefix:gsub('%s+$', '') .. ' ' .. suffix end
 				return translatedPrefix .. separator .. suffix
 			end
+		end
+	end
+	-- 整句优先；未命中时再按换行和内部颜色边界翻译，避免附注阻断正文匹配。
+	if not reverse and not result then
+		if text:find('\n', 1, true) then
+			return (text:gsub('[^\n]+', function(line) return self:Translate(line) end))
+		end
+		local parts, pos = { }, 1
+		while pos <= #text do
+			local first, last = text:find('%^x%x%x%x%x%x%x', pos)
+			local shortFirst, shortLast = text:find('%^%d', pos)
+			if shortFirst and (not first or shortFirst < first) then first, last = shortFirst, shortLast end
+			if not first then break end
+			parts[#parts + 1] = self:Translate(text:sub(pos, first - 1))
+			parts[#parts + 1] = text:sub(first, last)
+			pos = last + 1
+		end
+		if #parts > 0 then
+			parts[#parts + 1] = self:Translate(text:sub(pos))
+			return table.concat(parts)
 		end
 	end
 	return result or text

@@ -156,6 +156,9 @@ function ItemDBClass:DoesItemMatchFilters(item)
 		local mode = self.controls.searchMode.selIndex
 		if mode == 1 or mode == 2 then
 			local err, match = PCall(string.matchOrPattern, item.name:lower(), searchStr)
+			if not err and not match then
+				err, match = PCall(string.matchOrPattern, localisation:ItemName(item):lower(), searchStr)
+			end
 			if not err and match then
 				found = true
 			end
@@ -326,7 +329,7 @@ end
 
 function ItemDBClass:GetRowValue(column, index, item)
 	if item and column == 1 then
-		return colorCodes[item.rarity] .. item.name
+		return colorCodes[item.rarity] .. localisation:ItemName(item)
 	end
 end
 

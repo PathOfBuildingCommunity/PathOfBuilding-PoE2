@@ -219,7 +219,7 @@ function EditClass:UpdateScrollBars()
 		self.controls.scrollBarH:SetContentDimension(measure(self, textHeight, self.font, self.buf) + 2, width - 18)
 		self.controls.scrollBarV:SetContentDimension(newlineCount(self.buf.."\n") * textHeight, height - (self.controls.scrollBarH.enabled and 18 or 4))
 	else
-		self.controls.scrollBarH:SetContentDimension(measure(self, textHeight, self.font, self.buf) + 2, width - 4 - (self.prompt and measure(self, textHeight, self.font, self.prompt) + textHeight/2 or 0))
+		self.controls.scrollBarH:SetContentDimension(measure(self, textHeight, self.font, self.buf) + 2, width - 4 - (self.prompt and measure(self, textHeight, self.font, self.displayPrompt or self.prompt) + textHeight/2 or 0))
 	end
 end
 
@@ -279,11 +279,11 @@ function EditClass:Draw(viewPort, noTooltip)
 	local textHeight = self.lineHeight or (height - 4)
 	if self.prompt then
 		if not enabled then
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.disableCol..self.prompt)
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.disableCol..(self.displayPrompt or self.prompt))
 		else
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.textCol..self.prompt..":")
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.textCol..(self.displayPrompt or self.prompt)..":")
 		end
-		textX = textX + measure(self, textHeight, self.font, self.prompt) + textHeight/2
+		textX = textX + measure(self, textHeight, self.font, self.displayPrompt or self.prompt) + textHeight/2
 	end
 	if enabled and mOver and not noTooltip then
 		SetDrawLayer(nil, 100)
@@ -300,7 +300,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	if not enabled or not self.hasFocus then
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
-			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
+			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.displayPlaceholder)
 		else
 			SetDrawColor(self.inactiveCol)
 			if self.inactiveText then
@@ -410,7 +410,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	else
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.placeholder)
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.displayPlaceholder)
 		end
 		local pre = self.textCol .. self.buf:sub(1, self.caret - 1)
 		local post = self.buf:sub(self.caret)
@@ -504,7 +504,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 			local textY = y + 2
 			local textHeight = self.lineHeight or (height - 4)
 			if self.prompt then
-				textX = textX + measure(self, textHeight, self.font, self.prompt) + textHeight/2
+				textX = textX + measure(self, textHeight, self.font, self.displayPrompt or self.prompt) + textHeight/2
 			end
 			local cursorX, cursorY = GetCursorPos()
 			self.caret = DrawStringCursorIndex(textHeight, self.font, self.buf, cursorX - textX + self.controls.scrollBarH.offset, cursorY - textY + self.controls.scrollBarV.offset)
@@ -772,5 +772,8 @@ end
 -- 编辑区必须展示用户原文，测宽也使用同一原文；标题与标签仍由界面翻译。
 local drawEdit = EditClass.Draw
 function EditClass:Draw(...)
+	-- 标签属于界面文案；用户缓冲区仍按原文绘制和编辑。
+	self.displayPrompt = localisation:Translate(self.prompt)
+	self.displayPlaceholder = localisation:Translate(self.placeholder)
 	return localisation:DrawRaw(drawEdit, self, ...)
 end

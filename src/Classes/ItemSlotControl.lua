@@ -9,6 +9,12 @@ local m_min = math.min
 
 local itemSlotHelper = LoadModule("Modules/ItemSlotHelper")
 local BuildExportPoE2 = LoadModule("Modules/BuildExportPoE2")
+
+-- 下拉列表分别保存显示标签和检索词，中文名称仍可按英文原名搜索。
+local function itemEntry(item)
+	local label = colorCodes[item.rarity] .. localisation:ItemName(item)
+	return { label = label, searchFilter = StripEscapes(label) .. '\n' .. item.name }
+end
 ---@class ItemSlotControl: DropDownControl
 local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl")
 
@@ -115,6 +121,7 @@ function ItemSlotClass:SetSelItemId(selItemId)
 end
 
 function ItemSlotClass:Populate()
+	self.displayLanguage = localisation.language
 	wipeTable(self.items)
 	wipeTable(self.list)
 	self.items[1] = 0
@@ -123,7 +130,7 @@ function ItemSlotClass:Populate()
 	for _, item in pairs(self.itemsTab.items) do
 		if self.itemsTab:IsItemValidForSlot(item, self.slotName) then
 			t_insert(self.items, item.id)
-			t_insert(self.list, colorCodes[item.rarity]..item.name)
+			t_insert(self.list, itemEntry(item))
 			if item.id == self.selItemId then
 				self.selIndex = #self.list
 			end
@@ -166,6 +173,15 @@ function ItemSlotClass:ReceiveDrag(type, value, source)
 end
 
 function ItemSlotClass:Draw(viewPort)
+	-- 语言切换只刷新显示名称，不重新装备物品或重算插槽。
+	if self.displayLanguage ~= localisation.language then
+		for index, itemId in ipairs(self.items) do
+			local item = self.itemsTab.items[itemId]
+			self.list[index] = item and itemEntry(item) or "None"
+		end
+		self.displayLanguage = localisation.language
+		self:UpdateSearch()
+	end
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
 	DrawString(x + self.labelOffset, y + 2, "RIGHT_X", height - 4, "VAR", "^7"..self.label..":")

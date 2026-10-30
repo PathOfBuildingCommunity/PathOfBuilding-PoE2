@@ -3665,7 +3665,7 @@ function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
 		if not slot.nodeId then
 			local item = self.items[itemSet[slot.slotName].selItemId]
 			if item then
-				tooltip:AddLine(16, s_format("^7%s: %s%s", slot.slotName, colorCodes[item.rarity], item.name))
+				tooltip:AddLine(16, s_format("^7%s: %s%s", slot.slotName, colorCodes[item.rarity], localisation:ItemName(item)))
 			end
 		end
 	end
@@ -3828,7 +3828,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	-- Combine base type with origin if available
 	local typeStr = base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type
 	if itemOrigin then
-		typeStr = itemOrigin .. " " .. typeStr
+		typeStr = localisation:Translate(itemOrigin) .. " " .. localisation:Translate(typeStr)
 		if itemOrigin == "Vaal" then
 			item.mutated = true
 		end
@@ -4454,7 +4454,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 			else
 				header = string.format("^7Equipping this item in %s will give you:%s",
 					compareSlot.label or compareSlot.slotName,
-					selItem and "\n(replacing " .. colorCodes[selItem.rarity] .. selItem.name .. "^7)" or "")
+						selItem and "\n(replacing " .. colorCodes[selItem.rarity] .. localisation:ItemName(selItem) .. "^7)" or "")
 			end
 			self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
 		end

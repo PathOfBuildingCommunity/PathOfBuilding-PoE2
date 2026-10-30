@@ -53,6 +53,9 @@ end
 edit.placeholder = nil
 localisation:SetLanguage('zh-CN')
 
+dofile('Tests/LocalisationEquipment.lua')(build, equal)
+localisation:SetLanguage('zh-CN')
+
 local clipboard = Paste
 Paste = function() return 'Fireball 20/0 1' end
 build.skillsTab:PasteSocketGroup()
@@ -85,7 +88,9 @@ local cnBase = localisation:Translate('Lapis Amulet')
 assert(cnBase ~= 'Lapis Amulet', '测试物品基底缺少译名')
 local translatedTitle, translatedBase = localisation:ItemTitle({ title = 'Alkem Eira', baseName = 'Blazon Crest Shield' })
 equal(translatedTitle, '神谕', '物品唯一名称按字段翻译')
-equal(translatedBase, 'Blazon Crest Shield', '未知物品基底保留原文')
+equal(translatedBase, '饰印纹章盾', '新版物品基底翻译')
+local _, unknownBase = localisation:ItemTitle({ baseName = 'Unknown Localisation Test Base' })
+equal(unknownBase, 'Unknown Localisation Test Base', '未知物品基底保留原文')
 local raw = '稀有度: 普通\n' .. cnBase .. '\n--------\n物品等级: 80\n'
 build.itemsTab:CreateDisplayItemFromRaw(raw, true)
 assert(build.itemsTab.displayItem, '中文物品未被实际解析器识别')

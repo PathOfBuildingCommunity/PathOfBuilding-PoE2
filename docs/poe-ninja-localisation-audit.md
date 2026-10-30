@@ -30,7 +30,7 @@
 原始扫描输出保存在 `src/Tests/Run/poe-ninja-localisation-audit.txt`；可重复执行：
 
 ```cmd
-cd /d E:\PoE2\src
+cd /d E:\PathOfBuilding-PoE2\src
 ..\tools\LuaRunner.exe ..\tools\audit-poe-ninja.lua
 ```
 

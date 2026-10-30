@@ -31,7 +31,7 @@ end
 
 function SharedItemListClass:GetRowValue(column, index, item)
 	if column == 1 then
-		return colorCodes[item.rarity] .. item.name
+		return colorCodes[item.rarity] .. localisation:ItemName(item)
 	end
 end
 

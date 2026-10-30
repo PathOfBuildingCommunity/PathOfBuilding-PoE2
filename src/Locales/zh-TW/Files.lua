@@ -19,5 +19,6 @@ return {
     "stats_words_suffix.csv",
     "tree_dn.csv",
     "tree_sd.csv",
+    "Equipment.csv",
     "Integrated.csv",
 }

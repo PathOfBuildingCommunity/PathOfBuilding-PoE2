@@ -2,6 +2,8 @@
 
 此工程直接基于官方 PoB2，分支 `feature/integrated-localisation`。程序使用原有 PoB2 界面、计算逻辑和官方 SimpleGraphic 运行时。没有 PoeCharm 启动器、每日迷宫或原 DLL 注入依赖。
 
+后续开发和启动统一使用 `E:\PathOfBuilding-PoE2`。
+
 ## 运行
 
 在本目录双击 `start.cmd`。在左下角“选项”中选择 English、简体中文或繁體中文，点击保存即可切换。语言保存在 PoB2 的 `Settings.xml` 中。

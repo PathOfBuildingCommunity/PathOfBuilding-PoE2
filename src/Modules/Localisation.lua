@@ -104,6 +104,14 @@ function localisation:ItemTitle(item)
 	return nil, prefix .. self:Translate(baseName or item.baseName or '') .. suffix
 end
 
+--- <summary>列表和装备槽按字段生成名称，只改变显示，不写回物品数据。</summary>
+function localisation:ItemName(item)
+	if self.language == 'en' then return item.name end
+	if not item.baseName then return self:Translate(item.name or '') end
+	local title, baseName = self:ItemTitle(item)
+	return title and title .. ', ' .. baseName or baseName
+end
+
 --- <summary>编辑区显示内容始终来自用户原文；异常也必须恢复翻译开关。</summary>
 function localisation:DrawRaw(callback, object, ...)
 	self.rawDepth = self.rawDepth + 1
