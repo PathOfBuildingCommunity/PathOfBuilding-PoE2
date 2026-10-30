@@ -17,6 +17,7 @@ local function equal(actual, expected, label)
 	assert(actual == expected, label .. ': ' .. tostring(actual) .. ' ~= ' .. tostring(expected))
 end
 
+equal(localisation:SetLanguage(nil), 'en', '未指定语言回退默认语言')
 localisation:SetLanguage('zh-CN')
 local edit = new('EditControl'):EditControl(nil, {0, 0, 200, 20}, '')
 edit:Insert('中文A')
@@ -37,7 +38,7 @@ equal(edit.buf, '中文粘贴', '剪贴板保持 UTF-8')
 
 -- 配置页的默认占位值可能是数字，必须走真实编辑控件绘制回归。
 local viewPort = { x = 0, y = 0, width = 1920, height = 1080 }
-for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR' }) do
 	localisation:SetLanguage(language)
 	for _, value in ipairs({ 0, -5, 12.5 }) do
 		edit:SetText('')
@@ -56,6 +57,7 @@ localisation:SetLanguage('zh-CN')
 dofile('Tests/LocalisationEquipment.lua')(build, equal)
 dofile('Tests/LocalisationKeyFields.lua')(build, equal)
 dofile('Tests/LocalisationKeyLists.lua')(build, equal)
+dofile('Tests/LocalisationSkills.lua')(build, equal)
 localisation:SetLanguage('zh-CN')
 
 local clipboard = Paste
@@ -124,7 +126,7 @@ equal(character.skills[1].typeLine, '火球', '实际导入未改写原 JSON 数
 main:OpenOptionsPopup()
 local popup = main.popups[#main.popups]
 assert(popup.controls.language, '设置中缺少语言选项')
-equal(#popup.controls.language.list, 3, '设置使用注册表中的三种语言')
+equal(#popup.controls.language.list, 5, '设置使用注册表中的五种首发语言')
 popup.controls.language:SelByValue('en', 'id')
 popup.controls.save.onClick()
 equal(localisation.language, 'en', '保存设置后切换英文')
@@ -143,7 +145,7 @@ assert(twBase ~= 'Lapis Amulet', '繁体物品基底缺少译名')
 equal(localisation:ToEnglish(twBase), 'Lapis Amulet', '繁体物品反向转换')
 equal(localisation:ItemText('稀有度: 普通\n' .. twBase .. '\n物品等級: 80'), 'Rarity: Normal\nLapis Amulet\nItem Level: 80', '繁体物品输入边界')
 localisation:SetLanguage('missing-locale')
-equal(localisation.language, 'zh-CN', '无效语言回退默认语言')
+equal(localisation.language, 'en', '无效语言回退默认语言')
 equal(localisation.invalidLanguage, 'missing-locale', '记录无效语言配置')
 localisation:SetLanguage('zh-CN'); main:SaveSettings()
 
@@ -202,7 +204,7 @@ for _, fixture in ipairs(poeNinjaFixtures) do
 	assert(#build.itemsTab.items > 0, fixture.id .. ' 装备没有进入 PoB2')
 	assert(#build.skillsTab.socketGroupList > 0, fixture.id .. ' 技能没有进入 PoB2')
 	assert(#build.xmlSectionList > 0, fixture.id .. ' XML 段没有被 PoB2 保留')
-	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
+	for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR' }) do
 		localisation:SetLanguage(language)
 		local drawn, err = pcall(build.configTab.Draw, build.configTab, viewPort, { })
 		equal(drawn, true, fixture.id .. ' ' .. language .. ' 配置页绘制: ' .. tostring(err))

@@ -603,7 +603,7 @@ function main:LoadSettings(ignoreBuild)
 					end
 				end
 			elseif node.elem == "Misc" then
-				localisation:SetLanguage(node.attrib.language or 'zh-CN')
+				localisation:SetLanguage(node.attrib.language or 'en')
 				if node.attrib.buildSortMode then
 					self.buildSortMode = node.attrib.buildSortMode
 				end

@@ -2,6 +2,64 @@
 local Font = { }
 Font.__index = Font
 
+local function fileExists(path)
+	local file = io.open(path, "rb")
+	if file then file:close(); return true end
+	return false
+end
+
+local function shellQuote(value)
+	return '"' .. value:gsub('"', '\\"') .. '"'
+end
+
+local function resolveFontFile(spec)
+	local fontFile = spec.fontFileEnv and os.getenv(spec.fontFileEnv)
+	if not fontFile or fontFile == "" then fontFile = spec.fontFile end
+	if not fontFile or fontFile == "" then return nil end
+	if fileExists(fontFile) then return fontFile end
+	local scriptPath = GetScriptPath and GetScriptPath()
+	if scriptPath then
+		for _, prefix in ipairs({ scriptPath, scriptPath .. "/.." }) do
+			local candidate = prefix .. "/" .. fontFile
+			if fileExists(candidate) then return candidate end
+		end
+	end
+	return fontFile
+end
+
+local function findGenerator()
+	local candidates = { }
+	local scriptPath = GetScriptPath and GetScriptPath()
+	if scriptPath then
+		candidates[#candidates + 1] = scriptPath .. "/../tools/FontAtlas.exe"
+		candidates[#candidates + 1] = scriptPath .. "/tools/FontAtlas.exe"
+	end
+	local runtimePath = GetRuntimePath and GetRuntimePath()
+	if runtimePath then candidates[#candidates + 1] = runtimePath .. "/FontAtlas.exe" end
+	for _, path in ipairs(candidates) do
+		if fileExists(path) then return path end
+	end
+end
+
+local function ensureGenerated(folder, spec)
+	if folder and fileExists(folder .. "/Glyphs.lua") then return folder end
+	if not spec or not spec.cache or not spec.face then return nil end
+	local output = spec.cache
+	local userPath = GetUserPath and GetUserPath()
+	if userPath then output = userPath .. "/Path of Building (PoE2)/" .. output end
+	if fileExists(output .. "/Glyphs.lua") then return output end
+	local generator = findGenerator()
+	if not generator or not MakeDir then return nil end
+	local ok = pcall(function()
+		MakeDir(output)
+		local command = shellQuote(generator) .. " " .. shellQuote(output) .. " " .. shellQuote(spec.face)
+		local fontFile = resolveFontFile(spec)
+		if fontFile then command = command .. " " .. shellQuote(fontFile) end
+		os.execute(command)
+	end)
+	return ok and fileExists(output .. "/Glyphs.lua") and output or nil
+end
+
 -- 解析 UTF-8 单个码点；无效字节显示替代字形并保持字节位置可预测。
 local function codepoint(text, pos)
 	local first = text:byte(pos)
@@ -16,8 +74,10 @@ local function codepoint(text, pos)
 	return length == 1 and 63 or value, pos + length
 end
 
---- <summary>字形图集按需载入，英文界面无需上传中文纹理。</summary>
-function Font.New(folder)
+--- <summary>字形图集按需载入；缺失时为配置语言生成并缓存图集。</summary>
+function Font.New(folder, spec)
+	folder = ensureGenerated(folder, spec)
+	if not folder or not fileExists(folder .. "/Glyphs.lua") then return nil end
 	return setmetatable({ folder = folder, metrics = dofile(folder .. '/Glyphs.lua'), pages = { }, cache = { }, cacheSize = 0 }, Font)
 end
 

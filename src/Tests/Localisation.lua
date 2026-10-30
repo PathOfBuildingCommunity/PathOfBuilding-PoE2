@@ -15,11 +15,13 @@ end
 
 local languageList = Languages.List()
 dofile('Tests/LocalisationMessages.lua')(equal)
-equal(#languageList, 3, '当前语言数量')
+equal(#languageList, 5, '当前语言数量')
 equal(languageList[1].id, 'en', '英文语言顺序')
-equal(Languages.Default().id, 'zh-CN', '默认语言')
+equal(Languages.Default().id, 'en', '默认语言')
 assert(Languages.LoadResources('zh-CN').files[1], '简体语言包文件清单')
 assert(Languages.LoadResources('zh-TW').files[1], '繁体语言包文件清单')
+assert(Languages.Get('ja-JP').font.fontFile, '日文字体文件配置')
+assert(Languages.Get('ko-KR').font.fontFile, '韩文字体文件配置')
 
 local dictionary = Dictionary.New()
 dictionary:LoadCSV('\239\187\191"Hello, World","你好，世界"\r\n"A ""quote""","引用"\n"two\nlines","两行"\n{0} vs {1},{1} 对 {0}\n')

@@ -54,6 +54,7 @@ runtime/SimpleGraphic/Screenshots
 # 本地化工具编译产物；字体图集由 build.cmd 生成。
 tools/FontAtlas.exe
 tools/FontAtlas.obj
+runtime/FontAtlas.exe
 tools/LuaRunner.exe
 tools/LuaRunner.obj
 src/Locales/Fonts/

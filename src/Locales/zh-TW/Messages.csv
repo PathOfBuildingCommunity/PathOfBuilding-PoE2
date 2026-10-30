@@ -4096,45 +4096,45 @@ ui.folder_list_control.on_sel_delete.message_2,Delete Folder
 ui.folder_list_control.on_sel_delete.message_3,Error
 ui.folder_list_control.on_sel_delete.message_4,The folder is not empty.
 ui.gem_select_control.draw.message,^7選擇這個技能寶石會給你:
-ui.gem_select_control.draw.message_2,Sorting {sort_percentage}
-ui.gem_select_control.draw.tooltip,Only show Active gems
-ui.gem_select_control.draw.tooltip_2,Only show Support gems
-ui.gem_tooltip.add_gem_tooltip.tooltip,   Category: ^7{gem_family}
-ui.gem_tooltip.add_gem_tooltip.tooltip_2,   Gem only exists in Standard League
-ui.gem_tooltip.add_gem_tooltip.tooltip_3,   Legacy Gem
-ui.gem_tooltip.add_gem_tooltip.tooltip_4,Shift + Right-Click to add a build note (PoE2 .build export)
-ui.gem_tooltip.add_granted_effect_info.tooltip,   Additional Reservation: ^7{spirit_reservation_flat:d} Spirit
-ui.gem_tooltip.add_granted_effect_info.tooltip_10,   Cost Multiplier: ^7{value:d}%
-ui.gem_tooltip.add_granted_effect_info.tooltip_11,   Cost & Reservation Multiplier: ^7{value:d}%
+ui.gem_select_control.draw.message_2,排序中 {sort_percentage}
+ui.gem_select_control.draw.tooltip,僅顯示主動技能寶石
+ui.gem_select_control.draw.tooltip_2,僅顯示輔助寶石
+ui.gem_tooltip.add_gem_tooltip.tooltip,   類別：^7{gem_family}
+ui.gem_tooltip.add_gem_tooltip.tooltip_2,   此寶石僅存在于標準聯盟
+ui.gem_tooltip.add_gem_tooltip.tooltip_3,   遺產寶石
+ui.gem_tooltip.add_gem_tooltip.tooltip_4,Shift + 鼠標右鍵添加構筑備注（PoE2 .build 導出）
+ui.gem_tooltip.add_granted_effect_info.tooltip,   額外保留：^7{spirit_reservation_flat:d} 精魂
+ui.gem_tooltip.add_granted_effect_info.tooltip_10,   消耗倍率：^7{value:d}%
+ui.gem_tooltip.add_granted_effect_info.tooltip_11,   消耗與保留倍率：^7{value:d}%
 ui.gem_tooltip.add_granted_effect_info.tooltip_12,   暴擊機率: ^7{value:s}%
-ui.gem_tooltip.add_granted_effect_info.tooltip_13,   +{corrupt_level} Level from Corruption
-ui.gem_tooltip.add_granted_effect_info.tooltip_14,{corrupt_level} Level from Corruption
-ui.gem_tooltip.add_granted_effect_info.tooltip_15,{level} Levels from Gem{value}
-ui.gem_tooltip.add_granted_effect_info.tooltip_16,   +{total_global_levels} Levels from Global Modifiers
-ui.gem_tooltip.add_granted_effect_info.tooltip_17,   +{value} Levels from Supports
-ui.gem_tooltip.add_granted_effect_info.tooltip_18,   +{value} Levels from Supports
-ui.gem_tooltip.add_granted_effect_info.tooltip_19, (Max)
-ui.gem_tooltip.add_granted_effect_info.tooltip_2,   攻擊傷害: ^7{value:s}% of 基礎
+ui.gem_tooltip.add_granted_effect_info.tooltip_13,   來自腐化：+{corrupt_level} 級
+ui.gem_tooltip.add_granted_effect_info.tooltip_14,來自腐化：{corrupt_level} 級
+ui.gem_tooltip.add_granted_effect_info.tooltip_15,來自寶石：{level} 級{value}
+ui.gem_tooltip.add_granted_effect_info.tooltip_16,   來自全局修飾詞：+{total_global_levels} 級
+ui.gem_tooltip.add_granted_effect_info.tooltip_17,   來自輔助：+{value} 級
+ui.gem_tooltip.add_granted_effect_info.tooltip_18,   來自輔助：+{value} 級
+ui.gem_tooltip.add_granted_effect_info.tooltip_19,（最高）
+ui.gem_tooltip.add_granted_effect_info.tooltip_2,   攻擊傷害：^7基礎的 {value:s}%
 ui.gem_tooltip.add_granted_effect_info.tooltip_20,   等級：^7{level}{maximum}
 ui.gem_tooltip.add_granted_effect_info.tooltip_21,   品質: ^7{magic}+{gem_quality}%
-ui.gem_tooltip.add_granted_effect_info.tooltip_22,   +{total_global_quality}% Quality from Global Modifiers
-ui.gem_tooltip.add_granted_effect_info.tooltip_23,   +{support_quality}% Quality from Supports
+ui.gem_tooltip.add_granted_effect_info.tooltip_22,   來自全局修飾詞：+{total_global_quality}% 品質
+ui.gem_tooltip.add_granted_effect_info.tooltip_23,   來自輔助：+{support_quality}% 品質
 ui.gem_tooltip.add_granted_effect_info.tooltip_24,   ^x7F7F7F需求: ^7{weapon_requirements}
-ui.gem_tooltip.add_granted_effect_info.tooltip_25,   Reservation Multiplier: ^7{value:d}%
-ui.gem_tooltip.add_granted_effect_info.tooltip_26,   保留: ^7{value:s} Spirit
-ui.gem_tooltip.add_granted_effect_info.tooltip_27,   保留: ^7{value:s}% Spirit
-ui.gem_tooltip.add_granted_effect_info.tooltip_28,^x7F7F7FSoul Gain Prevention: ^7{value:s} sec
-ui.gem_tooltip.add_granted_effect_info.tooltip_29,   Tier: ^7{tier:d}
-ui.gem_tooltip.add_granted_effect_info.tooltip_3,   攻擊速度: ^7{value:s}% of 基礎
+ui.gem_tooltip.add_granted_effect_info.tooltip_25,   保留倍率：^7{value:d}%
+ui.gem_tooltip.add_granted_effect_info.tooltip_26,   保留：^7{value:s} 精魂
+ui.gem_tooltip.add_granted_effect_info.tooltip_27,   保留：^7{value:s}% 精魂
+ui.gem_tooltip.add_granted_effect_info.tooltip_28,^x7F7F7F靈魂獲取阻止時間：^7{value:s} 秒
+ui.gem_tooltip.add_granted_effect_info.tooltip_29,   階級：^7{tier:d}
+ui.gem_tooltip.add_granted_effect_info.tooltip_3,   攻擊速度：^7基礎的 {value:s}%
 ui.gem_tooltip.add_granted_effect_info.tooltip_30,   等級：^7{colour}{level}
-ui.gem_tooltip.add_granted_effect_info.tooltip_4,   攻擊時間: ^7{value:s} sec
-ui.gem_tooltip.add_granted_effect_info.tooltip_5,^x7F7F7FCan Store ^7{vaal_stored_uses:d} ^x7F7F7FUse ({value:d} Souls)
-ui.gem_tooltip.add_granted_effect_info.tooltip_6,   施放時間: ^7Instant
-ui.gem_tooltip.add_granted_effect_info.tooltip_7,   施放時間: ^7{cast_time:.2f} sec
+ui.gem_tooltip.add_granted_effect_info.tooltip_4,   攻擊用時：^7{value:s} 秒
+ui.gem_tooltip.add_granted_effect_info.tooltip_5,^x7F7F7F可儲存 ^7{vaal_stored_uses:d} ^x7F7F7F次使用（{value:d} 靈魂）
+ui.gem_tooltip.add_granted_effect_info.tooltip_6,   施法時間：^7瞬發
+ui.gem_tooltip.add_granted_effect_info.tooltip_7,   施法時間：^7{cast_time:.2f} 秒
 ui.gem_tooltip.add_granted_effect_info.tooltip_8,已汙染
-ui.gem_tooltip.add_granted_effect_info.tooltip_9,   Cost: ^7{cost}
+ui.gem_tooltip.add_granted_effect_info.tooltip_9,   消耗：^7{cost}
 ui.gem_tooltip.add_quality_range_info.tooltip,"
-^7Additional Effects From Quality:"
+^7品質的額外效果："
 ui.gem_tooltip.add_stat_set_info.tooltip,攻擊傷害: ^7{value:d}%
 ui.gem_tooltip.add_stat_set_info.tooltip_2,暴擊機率: ^7{crit_chance:.2f}%
 ui.import_tab.check_box_control.tooltip,匯入時刪除現有珠寶

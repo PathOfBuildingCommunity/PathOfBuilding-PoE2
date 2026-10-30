@@ -365,14 +365,20 @@ function localisation:DrawRaw(callback, object, ...)
 	return result
 end
 
--- 设置未存在时默认简体中文，已有英文构筑与数据不需要迁移。
-localisation:SetLanguage('zh-CN')
+-- 设置未存在时默认英文，已有显式语言选择继续生效。
+localisation:SetLanguage('en')
 local function activeFont()
 	local definition = Languages.Get(localisation.language)
-	local path = definition and definition.font
-	if not path then return nil end
-	if not localisation.fonts[path] then localisation.fonts[path] = Font.New(path) end
-	return localisation.fonts[path]
+	local config = definition and definition.font
+	if not config then return nil end
+	local folder = type(config) == "string" and config or config.folder
+	local key = type(config) == "string" and config or (config.folder .. "\0" .. (config.cache or ""))
+	if localisation.fonts[key] == false then return nil end
+	if not localisation.fonts[key] then
+		local font = Font.New(folder, type(config) == "table" and config or nil)
+		localisation.fonts[key] = font or false
+	end
+	return localisation.fonts[key] ~= false and localisation.fonts[key] or nil
 end
 local draw, width, cursor = DrawString, DrawStringWidth, DrawStringCursorIndex
 

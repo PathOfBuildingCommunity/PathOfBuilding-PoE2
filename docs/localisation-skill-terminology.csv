@@ -1,0 +1,94 @@
+language,key,previous_term,established_term,evidence
+zh-CN,game.gem.metadata_items_gems_skillgemmorrigansinsightsupport.name,莫瑞甘的洞见,莫丽根的洞察,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.gem.metadata_items_gems_skillgemoisinsoathsupport.name,欧辛的誓言,奥辛之誓,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.skill.supportmorrigansinsight.name,莫瑞甘的洞见,莫丽根的洞察,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.skill.supportoisinsoathplayer.name,欧辛的誓言,奥辛之誓,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.skill_stat_set.supportmorrigansinsight_1.label,莫瑞甘的洞见,莫丽根的洞察,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.skill_stat_set.supportoisinsoathplayer_1.label,欧辛的誓言,奥辛之誓,src/Locales/zh-CN/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-CN,game.gem.metadata_items_gems_skillgemuhtredaugurysupport.gem_family,卡古尔的乌崔德,卡古兰的乌崔德,src/Locales/zh-CN/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-CN,game.gem.metadata_items_gems_skillgemuhtredexodussupport.gem_family,卡古尔的乌崔德,卡古兰的乌崔德,src/Locales/zh-CN/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-CN,game.gem.metadata_items_gems_skillgemuhtredomensupport.gem_family,卡古尔的乌崔德,卡古兰的乌崔德,src/Locales/zh-CN/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-CN,game.skill.applytangmazuswarmauraplayer.description,鸟群,乌鸦群,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_msec_a_rare_or_unique_enemy_is_in_your_presence_divide_by_one_thousand_1_normal_variant_1.text
+zh-CN,game.skill.boneshatterbruteminion.description,强晕眩,重度晕眩,game.skill.boneshatterplayer.description（本次正文，术语另见既有数值词条）
+zh-CN,game.skill.chilledgroundoasisconvertwaterdjinn.description,纳薇拉的绿洲,纳薇拉之绿洲,game.skill.chilledgroundoasisconvertwaterdjinn.name
+zh-CN,game.skill.chilledgroundoasisconvertwaterdjinn.description,繁茂状态,过度生长状态,game.stat_description.briarpatch_skill_specific_stat_description_mode_normal_variant_1.text
+zh-CN,game.skill.crossbowrequiemplayer.description,安魂曲,镇魂曲,game.gem.metadata_items_gems_skillgemcrossbowrequiem.name
+zh-CN,game.skill.curseofrepulsionshockwaveplayer.description,脆弱程度,虚弱层数,game.stat_description.repulsion_curse_repulsion_applies_x_fragility_normal_variant_1.text
+zh-CN,game.skill.enrageskeletonreaverminion.description,骷髅掠夺者,魔侍掠夺者,game.gem.metadata_items_gems_skillgemskeletalreaver.name
+zh-CN,game.skill.greathuntpackleaderminion.description,阿兹莫里狼,阿兹莫里巨狼,game.gem.metadata_items_gems_skillgemazmerianwolf.name
+zh-CN,game.skill.highvelocityroundsplayer.description,碎裂护甲,撕裂护甲,game.stat_description.high_velocity_rounds_base_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.icearmourskeletonmageminion.description,骷髅寒霜法师,魔侍冰霜法师,game.gem.metadata_items_gems_skillgemskeletalfrostmage.name
+zh-CN,game.skill.icearmourskeletonmageminion.description,冰甲,冰霜护甲,game.skill.icearmourskeletonmageminion.name
+zh-CN,game.skill.icenovaplayer.description,寒冰新星,冰霜新星,game.gem.metadata_items_gems_skillgemicenova.name
+zh-CN,game.skill.magmabarrierplayer.description,熔岩溅射,岩浆溅射,game.skill.magmasprayplayer.name
+zh-CN,game.skill.scatteringcalamityplayer.description,井灵,魂井之灵,game.stat_description.scattering_calamity_statset_0_base_secondary_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.shatteringroarskeletalbruteminion.description,骷髅巨兽,魔侍蛮兵,game.gem.metadata_items_gems_skillgemskeletalbrute.name
+zh-CN,game.skill.smashtosmithereensplayer.description,强晕眩,重度晕眩,game.skill.boneshatterplayer.description（本次正文，术语另见既有数值词条）
+zh-CN,game.skill.supportboneshrapnelplayer.description,碎骨,钙质碎片,game.gem.metadata_items_gems_skillgemboneshrapnelsupport.name
+zh-CN,game.skill.supportboneshrapnelplayer.description,钉身,定身,game.stat_description.gem_stat_descriptions_trigger_bone_shrapnel_explosion_on_killing_pinned_enemy_normal_variant_1.text
+zh-CN,game.skill.supportburningrunesplayer.description,燃烧铭刻,燃烧铭文,game.gem.metadata_items_gems_skillgemburningrunessupport.name
+zh-CN,game.skill.supportburningrunesplayer.description,符文铭刻,符文铭文,game.stat_description.stat_descriptions_regenerate_of_curse_mana_cost_per_second_while_in_delay_normal_variant_1.text
+zh-CN,game.skill.supportburstingplagueplayer.description,毒爆发,灾难爆发,game.skill.plagueburstplayer.name
+zh-CN,game.skill.supportcorruptingcryplayerthree.description,腐化战吼,扭曲契约,game.skill.triggeredcorruptingcrythreeplayer.name
+zh-CN,game.skill.supportkhatalsrejuvenationplayer.description,卡塔尔的复苏,卡哈塔的复苏,game.gem.metadata_items_gems_skillgemkhatalsrejuvenationsupport.name
+zh-CN,game.skill.supporttrickstersshardplayer.description,破碎拟像,分裂拟态,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.supporttrickstersshardplayer.description,拟像,分裂拟态,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.tangmazumadflightminion.description,鸟群,乌鸦群,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_msec_a_rare_or_unique_enemy_is_in_your_presence_divide_by_one_thousand_1_normal_variant_1.text
+zh-CN,game.skill.triggeredabyssalapparitionplayer.description,深渊幻影,深渊幻象,game.gem.metadata_items_gems_skillgemtriggeredabyssalapparition.name
+zh-CN,game.skill.triggeredboneshrapnelplayer.description,钉身,定身,game.stat_description.gem_stat_descriptions_trigger_bone_shrapnel_explosion_on_killing_pinned_enemy_normal_variant_1.text
+zh-CN,game.skill.triggereddeadlycurrentplayer.description,湿透,浸湿,game.stat_description.thunderstorm_base_secondary_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.triggereddecayinghexplayer.description,腐化,腐蚀,src/Locales/zh-CN/CalcSections.csv：Decay
+zh-CN,game.skill.triggeredfracturedselfplayer.description,破碎拟像,分裂拟态,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.triggeredfracturedselfplayer.description,拟像,分裂拟态,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-CN,game.skill.triggeredmanifestruneplayer.description,维里西姆,维金,src/Locales/zh-CN/Gems_data.txt.csv：Powered by Verisium、Verisium Manifestations
+zh-CN,game.skill.triggeredmanifestruneplayer.description,维金具现体,维金化形,game.gem.metadata_items_gems_skillgemverisiummanifestation.name
+zh-CN,game.skill.triggeredskitteringstoneplayer.description,疾行石,飞掠石,game.skill.triggeredskitteringstoneplayer.name
+zh-CN,game.skill.triggeredskitteringstoneplayertwo.description,疾行石,飞掠石,game.skill.triggeredskitteringstoneplayer.name
+zh-CN,game.skill.triggeredstaticshocksplayer.description,静电冲击,静电脉冲,game.gem.metadata_items_gems_skillgemstaticshockssupport.name
+zh-CN,game.skill.wolfpouncemarkplayer.description,召唤狼,召唤恶狼,game.skill.wolfpouncesummonwolfplayer.name
+zh-CN,game.skill_stat_set.skyfallplayer_2.label,维里西姆,维金,src/Locales/zh-CN/Gems_data.txt.csv：Powered by Verisium、Verisium Manifestations
+zh-TW,game.gem.metadata_items_gems_skillgemmorrigansinsightsupport.name,莫瑞甘的洞見,莫里根的洞察,src/Locales/zh-TW/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-TW,game.skill.supportmorrigansinsight.name,莫瑞甘的洞見,莫里根的洞察,src/Locales/zh-TW/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-TW,game.skill_stat_set.supportmorrigansinsight_1.label,莫瑞甘的洞見,莫里根的洞察,src/Locales/zh-TW/Items_Gems.txt.csv（忽略英文重音符号后匹配同名技能）
+zh-TW,game.gem.metadata_items_gems_skillgemuhtredaugurysupport.gem_family,卡古爾的烏崔德,卡爾葛的烏特雷,src/Locales/zh-TW/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-TW,game.gem.metadata_items_gems_skillgemuhtredexodussupport.gem_family,卡古爾的烏崔德,卡爾葛的烏特雷,src/Locales/zh-TW/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-TW,game.gem.metadata_items_gems_skillgemuhtredomensupport.gem_family,卡古爾的烏崔德,卡爾葛的烏特雷,src/Locales/zh-TW/Items_Gems.txt.csv：Uhtred’s Exodus、Fist Of Kalguur
+zh-TW,game.skill.applytangmazuswarmauraplayer.description,鳥群,鴉群,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_msec_a_rare_or_unique_enemy_is_in_your_presence_divide_by_one_thousand_1_normal_variant_1.text
+zh-TW,game.skill.boneshatterbruteminion.description,強暈眩,沉重暈眩,game.skill.boneshatterplayer.description（本次正文，术语另见既有数值词条）
+zh-TW,game.skill.chilledgroundoasisconvertwaterdjinn.description,納維拉的綠洲,納維拉綠洲,game.skill.chilledgroundoasisconvertwaterdjinn.name
+zh-TW,game.skill.chilledgroundoasisconvertwaterdjinn.description,繁茂狀態,過度生長狀態,game.stat_description.briarpatch_skill_specific_stat_description_mode_normal_variant_1.text
+zh-TW,game.skill.curseofrepulsionshockwaveplayer.description,脆弱程度,易碎層數,game.stat_description.repulsion_curse_repulsion_applies_x_fragility_normal_variant_1.text
+zh-TW,game.skill.greathuntpackleaderminion.description,阿茲莫里狼,阿茲莫里巨狼,game.gem.metadata_items_gems_skillgemazmerianwolf.name
+zh-TW,game.skill.greathuntpackleaderminion.description,永恒狩獵,永恆狩獵,game.skill.greathuntpackleaderminion.name
+zh-TW,game.skill.hisfoulemergenceplayer.description,枯萎地面,凋零地面,game.stat_description.his_foul_emergence_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-TW,game.skill.icearmourskeletonmageminion.description,骷髏寒霜法師,骷髏霜寒法師,game.gem.metadata_items_gems_skillgemskeletalfrostmage.name
+zh-TW,game.skill.icearmourskeletonmageminion.description,冰甲,寒冰護甲,game.skill.icearmourskeletonmageminion.name
+zh-TW,game.skill.scatteringcalamityplayer.description,井靈,電湧之靈,game.stat_description.scattering_calamity_statset_0_base_secondary_skill_effect_duration_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-TW,game.skill.smashtosmithereensplayer.description,強暈眩,沉重暈眩,game.skill.boneshatterplayer.description（本次正文，术语另见既有数值词条）
+zh-TW,game.skill.spiritvesselplayer.description,魂靈容器,靈魂容器,game.gem.metadata_items_gems_skillgemspiritvessel.name
+zh-TW,game.skill.stormcallerarrowplayer.description,閃電彈,雷彈,game.gem.metadata_items_gems_skillgemlightningbolt.name
+zh-TW,game.skill.summonskeletalfrostmagesplayer.description,骷髏寒霜法師,骷髏霜寒法師,game.gem.metadata_items_gems_skillgemskeletalfrostmage.name
+zh-TW,game.skill.supportbloodfountainplayer.description,鮮血之泉,鮮血器皿,game.gem.metadata_items_gems_skillgembloodfountainsupport.name
+zh-TW,game.skill.supportboneshrapnelplayer.description,碎骨,骨片,game.gem.metadata_items_gems_skillgemboneshrapnelsupport.name
+zh-TW,game.skill.supportburningrunesplayer.description,燃燒銘刻,爆燃銘文,game.gem.metadata_items_gems_skillgemburningrunessupport.name
+zh-TW,game.skill.supportburningrunesplayer.description,符文銘刻,魔符銘文,game.stat_description.stat_descriptions_regenerate_of_curse_mana_cost_per_second_while_in_delay_normal_variant_1.text
+zh-TW,game.skill.supportcorruptingcryplayer.description,腐化戰吼,汙染戰吼,game.skill.triggeredcorruptingcryplayer.name
+zh-TW,game.skill.supportcorruptingcryplayertwo.description,腐化戰吼,汙染戰吼,game.skill.triggeredcorruptingcryplayer.name
+zh-TW,game.skill.supportkhatalsrejuvenationplayer.description,卡塔爾的回春,卡塔爾的恢復,game.gem.metadata_items_gems_skillgemkhatalsrejuvenationsupport.name
+zh-TW,game.skill.supportmanafountainplayer.description,魔力之泉,魔力器皿,game.gem.metadata_items_gems_skillgemmanafountainsupport.name
+zh-TW,game.skill.supportshockingriftplayer.description,電極裂隙,磁化電極,game.gem.metadata_items_gems_skillgemshockingriftsupport.name
+zh-TW,game.skill.tangmazumadflightminion.description,鳥群,鴉群,game.stat_description.summon_spiraling_conspiracy_tangmazu_raven_added_to_your_flock_every_x_msec_a_rare_or_unique_enemy_is_in_your_presence_divide_by_one_thousand_1_normal_variant_1.text
+zh-TW,game.skill.triggeredabyssalapparitionplayer.description,深淵幻影,深淵幻象,game.gem.metadata_items_gems_skillgemtriggeredabyssalapparition.name
+zh-TW,game.skill.triggeredfracturedselfplayer.description,破碎擬像,破碎複製體,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-TW,game.skill.triggeredfracturedselfplayer.description,擬像,破碎複製體,game.stat_description.triggered_fractured_self_base_skill_effect_duration_1000_1000_milliseconds_to_seconds_2dp_if_required_1_normal_variant_1.text
+zh-TW,game.skill.triggeredmanifestruneplayer.description,維里西姆具現體,維里西姆顯化,src/Locales/zh-TW/Gems_data.txt.csv：Powered by Verisium、Verisium Manifestations
+zh-TW,game.skill.triggeredskitteringstoneplayer.description,疾行石,飛掠之石,game.skill.triggeredskitteringstoneplayer.name
+zh-TW,game.skill.triggeredskitteringstoneplayertwo.description,疾行石,飛掠之石,game.skill.triggeredskitteringstoneplayer.name
+zh-TW,game.skill.triggeredstaticshocksplayer.description,靜電沖擊,靜電震盪,game.gem.metadata_items_gems_skillgemstaticshockssupport.name
+zh-TW,game.skill.thestarsanswerplayer.description,憑藉你強大的魔法力量駕馭群星，令維里西姆彗星從天空中墜落至你周圍。較大的彗星定期墜落，在短暫時間內留下冰冷地面。,憑藉你強大的魔法力量駕馭群星，反覆觸發星殞，瞄準你周圍區域內的敵人；若沒有可瞄準的敵人，則改為瞄準該區域內的隨機位置。,src/Locales/en/Game.csv 当前正文；game.skill.thestarsanswercometplayer.name
+zh-CN,game.skill.supportboneshrapnelplayer.description,钙质碎片爆炸,钙质碎片爆破,game.skill.triggeredboneshrapnelplayer.name（触发效果名称）
+zh-CN,game.skill.apocalypseplayer.description,天灾,天启,game.skill.apocalypseplayer.name
+zh-CN,game.skill.supporttrickstersshardplayer.description,触发“分裂拟态”,触发“破碎拟像”,game.skill.triggeredfracturedselfplayer.name（区别于生成的分裂拟态）
+zh-TW,game.skill.apocalypseplayer.description,災厄,天啟,game.skill.apocalypseplayer.name
+zh-TW,game.skill.thestarsanswerplayer.description,星殞,星墜,game.skill.thestarsanswercometplayer.name
+zh-TW,game.skill.summonskeletalbrutesplayer.description,骷髏蠻兵,骷髏巨獸,game.gem.metadata_items_gems_skillgemskeletalbrute.name

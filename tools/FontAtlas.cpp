@@ -1,4 +1,4 @@
-// 使用系统字体生成透明字形图集，供官方 SimpleGraphic 的图像接口直接绘制。
+// 使用指定字体生成透明字形图集，供官方 SimpleGraphic 的图像接口直接绘制。
 #define NOMINMAX
 #include <windows.h>
 #include <filesystem>
@@ -32,19 +32,38 @@ void SavePage(const fs::path& folder, int page, const std::vector<unsigned char>
 }
 }
 
-/// <summary>从 Windows 系统字体生成字形、布局指标和图集文件。</summary>
+/// <summary>从指定字体生成字形、布局指标和图集文件。</summary>
 int wmain(int argc, wchar_t** argv) {
-    if (argc != 2) { std::cerr << "Usage: FontAtlas <output-folder>\n"; return 1; }
+    if (argc < 2 || argc > 4) { std::cerr << "Usage: FontAtlas <output-folder> [font-face] [font-file]\n"; return 1; }
     try {
         fs::path folder(argv[1]); fs::create_directories(folder);
+        // 清理上一次生成后多余的图集页，避免旧字体页面混入发布包。
+        for (const auto& entry : fs::directory_iterator(folder)) {
+            if (entry.path().extension() == L".tga" && entry.path().filename().wstring().rfind(L"atlas-", 0) == 0) {
+                fs::remove(entry.path());
+            }
+        }
+        bool privateFont = false;
+        if (argc == 4) {
+            fs::path fontPath(argv[3]);
+            if (!fs::exists(fontPath) || !AddFontResourceExW(fontPath.c_str(), FR_PRIVATE, nullptr)) {
+                throw std::runtime_error("Unable to load font file");
+            }
+            privateFont = true;
+        }
+        const wchar_t* face = argc >= 3 ? argv[2] : L"Noto Sans SC";
         HDC dc = CreateCompatibleDC(nullptr);
         HFONT font = CreateFontW(-pixels, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
             DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY,
-            DEFAULT_PITCH, L"Microsoft YaHei");
+            DEFAULT_PITCH, face);
         if (!dc || !font) throw std::runtime_error("Unable to create system font");
         auto previous = SelectObject(dc, font);
+        wchar_t actualFace[LF_FACESIZE]{};
+        if (!GetTextFaceW(dc, LF_FACESIZE, actualFace) || wcscmp(actualFace, face) != 0) {
+            throw std::runtime_error("Requested font face is not available");
+        }
         std::ofstream metrics(folder / "Glyphs.lua", std::ios::binary);
-        metrics << "-- Windows 系统字体生成；重新运行 build.cmd 可重建。\nreturn { size=32, baseline=29, atlasSize=2048, glyphs={\n";
+		metrics << "-- 字体图集生成；重新运行 build.cmd 可重建。\nreturn { size=32, baseline=29, atlasSize=2048, glyphs={\n";
         std::vector<unsigned char> atlas(size * size * 4, 0);
         MAT2 matrix = {{0,1},{0,0},{0,0},{0,1}};
         int page = 1, slot = 0, count = 0;
@@ -78,6 +97,7 @@ int wmain(int argc, wchar_t** argv) {
         }
         SavePage(folder, page, atlas); metrics << "}}\n"; metrics.close();
         SelectObject(dc, previous); DeleteObject(font); DeleteDC(dc);
+        if (privateFont) RemoveFontResourceExW(argv[3], FR_PRIVATE, nullptr);
         if (!metrics) throw std::runtime_error("Unable to write font metrics");
         std::cout << "Generated " << count << " glyphs in " << page << " pages.\n";
         return 0;

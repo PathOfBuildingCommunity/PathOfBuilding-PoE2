@@ -2,11 +2,11 @@
 
 此工程直接基于官方 PoB2，分支 `feature/integrated-localisation`。程序使用原有 PoB2 界面、计算逻辑和官方 SimpleGraphic 运行时。没有 PoeCharm 启动器、每日迷宫或原 DLL 注入依赖。
 
-后续开发和启动统一使用 `E:\PathOfBuilding-PoE2`。
+后续开发和启动在本仓库根目录执行；以下命令均以仓库根目录为当前目录。
 
 ## 运行
 
-在本目录双击 `start.cmd`。在左下角“选项”中选择 English、简体中文或繁體中文，点击保存即可切换。语言保存在 PoB2 的 `Settings.xml` 中。
+在本目录双击 `start.cmd`。在左下角“选项”中选择 English、简体中文、繁體中文、日本語或 한국어，点击保存即可切换。语言保存在 PoB2 的 `Settings.xml` 中。
 
 首次从源码检出时，运行 `build.cmd` 编译工具并生成字形图集；`start.cmd` 在图集缺失时也会调用构建。需要 Windows 和 Visual Studio 2022 C++ 工具。默认支持 Community 安装位置，也可以从已配置好的 x64 开发者命令提示符运行。
 
@@ -38,7 +38,7 @@ start.cmd
 | `src/Modules/Localisation/Font.lua` | 官方图像 API 上的字形绘制和布局 |
 | `src/Modules/Localisation/Import.lua` | PoB2 角色结构和剪贴板转换 |
 | `src/Locales/Manifest.lua` | 可选语言、显示名称、词库目录和字体配置 |
-| `src/Locales/zh-CN`、`zh-TW` | 外部词库；`Integrated.csv` 用于本 fork 的补充词条 |
+| `src/Locales/zh-CN`、`zh-TW` | 外部词库；`Integrated.csv` 用于本 fork 的补充词条；日本語和 한국어 首发入口暂时回退 English |
 | `tools/FontAtlas.cpp` | 从 Windows 已安装字体生成图集 |
 | `src/Tests` | 词库与真实 PoB2 集成测试 |
 
@@ -46,14 +46,14 @@ start.cmd
 
 新增语言时，在 `src/Locales/Manifest.lua` 增加一条语言声明，创建对应目录和 `Files.lua`，再提供词库与字体图集配置。设置界面会从注册表自动生成选项；不需要在 PoB2 的计算、导入或控件业务模块中增加语言分支。
 
-图集从 Windows 系统的 Microsoft YaHei 生成，不复制或捆绑原字体文件。生成的图集和编译产物被 Git 忽略，可以用同一命令重新生成。
+当前图集生成器按语言使用项目内的 Noto Sans SC、Noto Sans JP 和 Noto Sans KR；字体文件本体保持原样，TGA 仅作为软件渲染用的嵌入图集，并附带各自的 OFL 版权声明。语言配置可以指定独立的字体目录和缓存目录：已有图集直接读取，缺失时首次使用该语言再生成到用户缓存，不要求把所有语言的图集预先放进安装包。中文字体仍可用 `NOTO_SANS_SC_FONT` 覆盖项目内默认文件；字体会在本次生成期间私有加载，不会安装或修改系统字体。生成的图集和编译产物被 Git 忽略，可以用同一命令重新生成。
 
 ## 来源和更新上游
 
 - 官方 PoB2 dev 基线：`bb52d6b368307457eb9c54bb13f1829993d390b1`。
-- CSV 来源：当前 `E:\PoECN\Data\Translate` 发布数据；保留原词库文件内容，新增词条独立保存。
+- CSV 来源、版本和获取记录见对应的来源表；保留原词库文件内容，新增词条独立保存。
 - 原 EXE 解压的 `translator.js` 留在上一级调查目录。本工程的输入转换采用可编辑 Lua 实现，没有直接调用旧结构的 JS。
-- 这是本地 fork，尚未创建或推送 GitHub fork。
+- 当前工作树的 `origin` 与 `upstream` 远程配置以 `git remote -v` 为准；对外贡献目标是官方仓库的 `dev` 分支。
 
 `upstream` 指向官方仓库。合并更新前先保存自己的改动，再执行：
 

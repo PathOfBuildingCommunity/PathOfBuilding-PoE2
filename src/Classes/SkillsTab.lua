@@ -864,6 +864,11 @@ function SkillsTabClass:CreateGemSlot(index)
 			self.build.buildFlag = true
 		end
 	end, true)
+	-- 已识别技能在未编辑时显示译名，编辑缓冲区与保存身份仍保留原文。
+	slot.nameSpec.inactiveText = function(buf)
+		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
+		return gemInstance and buf == gemInstance.nameSpec and localisation:SkillName(gemInstance) or buf
+	end
 	slot.nameSpec.enabled = function()
 		return not isGeneratedSourceGem(self.displayGroup, index)
 	end
