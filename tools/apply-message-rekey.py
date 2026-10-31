@@ -46,7 +46,7 @@ def main():
         writer.writerow(('key', 'text'))
         writer.writerows(sorted(entries.items()))
         edits[path] = output.getvalue().encode('utf-8')
-    report = root / 'docs/localisation-key-calls.csv'
+    report = root / 'src/Tests/Run/localisation-key-calls.csv'
     with report.open(encoding='utf-8', newline='') as source:
         rows = list(csv.reader(source))
     for row in rows[1:]:

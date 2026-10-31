@@ -8,7 +8,7 @@ dofile('HeadlessWrapper.lua')
 assert(build and not launch.promptMsg, 'PoB2 初始化失败')
 main.userPath = 'Tests/Run/'
 main.showFlavourText, main.notSupportedModTooltips = true, true
-local output = assert(io.open('../docs/localisation-visible-missing.csv', 'wb'))
+local output = assert(io.open('Tests/Run/localisation-visible-missing.csv', 'wb'))
 output:write('language,scope,origin,status,source,display\n')
 local scope, owner, seen, counts = 'startup', '', { }, { }
 local allowed = { PoB = true, PoE = true, PoE2 = true, DPS = true, ES = true, EHP = true, FPS = true, Ctrl = true, Shift = true, Alt = true, D = true, V = true, C = true, X = true }
@@ -183,7 +183,7 @@ for _, id in ipairs({ 'resurrectgodaura', 'goodnerfing', 'xxthewizardofosu' }) d
 end
 DrawString = draw
 output:close()
-local report = assert(io.open('../docs/localisation-visible-audit.md', 'wb'))
+local report = assert(io.open('Tests/Run/localisation-visible-audit.md', 'wb'))
 report:write('# 实际显示路径扫描\n\n生成日期：2026-10-31。命令：在 src 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-visible-localisation.lua`。\n\n执行 English、简体、繁体的九个构筑页面、选项页、递归控件提示文字、当前树的全部节点提示框（关闭属性比较，包含授予技能子提示框）和全部宝石的 20 级/20 品质提示框（自然最高等级不足 20 时使用自然最高等级）。另外绘制备注编辑器并扫描按钮提示；加载三份离线 poe.ninja 构筑，统一启用全 DPS，各语言绘制九页、递归控件提示，并展开当前构筑可用的属性详情。没有点击购买、更新或外部服务。用户编辑原文保留，不算漏译。\n\n批量提示框关闭自动换行，以完整句子统计翻译；缓存优化前后的两个保留换行版本曾对照 1,189 条简体非宝石残留记录，结果一致，另有 40 个缓存前后结果等价探针。这些对照不证明本次完整句子结果与换行片段逐行一致。K4 后不再启用旧显示词典或其缓存，记录调用点已解析的实际文案。代表样本换行路径有集成回归，不能据此宣称全节点/技能的换行布局通过。\n\n此扫描使用图形桩调用实际 Lua 绘制/提示框逻辑；不证明原生窗口布局、字体输入法、网络流程、隐藏弹窗和全部动态状态已验收。控件 tooltipFunc 没有强行用不完整参数调用；其字符串仍在全仓源码候选中。统计按语言/场景/源文/输出去重；fallback/partial 分别按纯英文/包含非 ASCII 字符粗分，不再用 source==display 推断资源回退；CSV 的 source 可能已经是 key 解析后的文本。allowed-only 只作常见缩写与按键的粗分，不保证语义正确。\n\n| 语言与场景 | 唯一文本/异常 | 纯英文复核 | 混合英文复核 | 仅保留项 | 调用异常 |\n|---|---:|---:|---:|---:|---:|\n')
 for key, count in pairsSortByKey(counts) do
 	report:write(string.format('| %s | %d | %d | %d | %d | %d |\n', key:gsub('%|', ' / '), count.texts, count.fallback, count.partial, count.allowed, count.errors))

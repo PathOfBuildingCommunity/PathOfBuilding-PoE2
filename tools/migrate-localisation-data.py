@@ -161,8 +161,8 @@ def main():
     for name in rule_files:
         rule_loader.append("for _, rule in ipairs(dofile('Locales/Keys/" + name + "')) do result[#result + 1] = rule end")
     (root / 'src/Locales/ModifierInputs.lua').write_text('\n'.join(rule_loader + ['return result']) + '\n', encoding='utf-8')
-    (root / 'docs/localisation-game-rejected.json').write_text(json.dumps(rejected, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    with (root / 'docs/localisation-game-fields.csv').open('w', encoding='utf-8', newline='') as output:
+    (root / 'src/Tests/Run/localisation-game-rejected.json').write_text(json.dumps(rejected, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    with (root / 'src/Tests/Run/localisation-game-fields.csv').open('w', encoding='utf-8', newline='') as output:
         writer = csv.writer(output, lineterminator='\n')
         writer.writerow(['domain', 'id', 'field', 'key'])
         for domain, objects in sorted(bindings.items()):

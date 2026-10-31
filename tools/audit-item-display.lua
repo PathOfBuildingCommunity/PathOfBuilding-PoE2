@@ -8,7 +8,7 @@ dofile('HeadlessWrapper.lua')
 main.userPath = 'Tests/Run/'
 main.showFlavourText, main.notSupportedModTooltips = true, true
 build.itemsTab.showStatDifferences = false
-local csv = assert(io.open('../docs/localisation-item-display-missing.csv', 'wb'))
+local csv = assert(io.open('Tests/Run/localisation-item-display-missing.csv', 'wb'))
 csv:write('language,domain,item,source,display\n')
 local domains = { }
 local function quote(text) return '"' .. tostring(text):gsub('"', '""') .. '"' end
@@ -70,7 +70,7 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	counts[language] = totals
 end
 csv:close()
-local report = assert(io.open('../docs/localisation-item-display-audit.md', 'wb'))
+local report = assert(io.open('Tests/Run/localisation-item-display-audit.md', 'wb'))
 report:write('# 装备实际显示审计\n\n生成日期：2026-10-31。命令：在 `src` 目录运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-item-display.lua`。\n\n使用真实 Item、ItemsTab:AddItemTooltip 和数据库 GetRowValue，启用风味文本及不支持附注。扫描当前默认变体；未遍历全部历史版本、分组变体、稀有词缀组合及 Shift 展开的技能子提示框。比较栏检查真实字段标签，数值拼接另外由集成测试覆盖。\n\n| 语言 | 基底数 | 原文回退基底 | 传奇样本 | 提示框行 | 含拉丁字母行 | 比较标签 | 原文回退标签 | 构建异常 |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n')
 for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	local c = counts[language]

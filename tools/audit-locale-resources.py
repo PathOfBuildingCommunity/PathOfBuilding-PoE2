@@ -60,6 +60,7 @@ def audit_messages(root, records):
 def main():
     """生成语言资源风险候选和汇总，保留未确认问题的复核状态。"""
     root = Path(__file__).resolve().parent.parent
+    (root / "src/Tests/Run").mkdir(parents=True, exist_ok=True)
     records, summaries = [], []
     glyph_file = root / "src/Locales/Fonts/Glyphs.lua"
     glyphs = set(map(int, re.findall(r"^\[(\d+)\]=", glyph_file.read_text(encoding="utf-8"), re.MULTILINE)))
@@ -126,7 +127,7 @@ def main():
         totals["loaded-files"], totals["effective-terms"] = len(files), len(effective)
         totals["missing-glyph-codepoints"] = len(missing_glyphs)
         summaries.append((language, totals))
-    with (root / "docs/localisation-resource-review.csv").open("w", encoding="utf-8", newline="") as output:
+    with (root / "src/Tests/Run/localisation-resource-review.csv").open("w", encoding="utf-8", newline="") as output:
         writer = csv.writer(output)
         writer.writerow(["language", "status", "origin", "source", "translation"])
         writer.writerows(records)
@@ -142,7 +143,7 @@ def main():
             lines.append(f"| {language} | {key} | {count} |")
         print(language, dict(totals))
     lines.extend(["", "完整定位见 `localisation-resource-review.csv`。没有执行自动词库替换，也没有把每个歧义项都判成运行错误。", ""])
-    (root / "docs/localisation-resource-audit.md").write_text("\n".join(lines), encoding="utf-8")
+    (root / "src/Tests/Run/localisation-resource-audit.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 if __name__ == "__main__":

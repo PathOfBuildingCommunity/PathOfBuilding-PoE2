@@ -31,7 +31,7 @@ def main():
         ["git", "ls-files", "-z"], cwd=root
     ).decode("utf-8").split("\0")
     runtime_paths = {path.relative_to(root).as_posix() for path in paths}
-    with (root / "docs/localisation-repository-inventory.csv").open(
+    with (root / "src/Tests/Run/localisation-repository-inventory.csv").open(
         "w", encoding="utf-8", newline=""
     ) as output:
         writer = csv.writer(output)

@@ -1,6 +1,6 @@
 -- 对照完整标签与运行时拼接格式，证明漏译来自缺词还是匹配边界。
 local Dictionary = dofile('Modules/Localisation/Dictionary.lua')
-local output = assert(io.open('../docs/localisation-matching-probes.csv', 'wb'))
+local output = assert(io.open('Tests/Run/localisation-matching-probes.csv', 'wb'))
 output:write('language,source,translation\n')
 for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	local dictionary = Dictionary.New()

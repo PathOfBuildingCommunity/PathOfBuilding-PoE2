@@ -88,7 +88,7 @@ def main():
             writer.writerows(sorted(entries.items()))
     for name, source in edits.items():
         (root / name).write_bytes(source)
-    report_path = root / "docs/localisation-key-calls.csv"
+    report_path = root / "src/Tests/Run/localisation-key-calls.csv"
     previous_calls = []
     if report_path.exists():
         with report_path.open(encoding="utf-8", newline="") as source:
@@ -101,7 +101,7 @@ def main():
         writer = csv.writer(output, lineterminator="\n")
         writer.writerow(["key", "file", "line", "context", "english", "parameters"])
         writer.writerows(calls.values())
-    pending_path = root / "docs/localisation-key-pending.json"
+    pending_path = root / "src/Tests/Run/localisation-key-pending.json"
     previous = json.loads(pending_path.read_text(encoding="utf-8")) if pending_path.exists() else {}
     pending = {}
     for category, entries in {"unmigratedExpressions": scan["pending"], "unparsedFiles": scan["errors"], "rejectedTranslations": rejected}.items():

@@ -8,6 +8,7 @@ from pathlib import Path
 def main():
     # 模板候选不能当作可达界面漏译总数；保留定位供运行时审计交叉核对。
     root = Path(__file__).resolve().parent.parent
+    (root / "src/Tests/Run").mkdir(parents=True, exist_ok=True)
     catalogs, origins = {}, {}
     for language in ('en', 'zh-CN', 'zh-TW'):
         catalogs[language], origins[language] = {}, {}
@@ -21,7 +22,7 @@ def main():
                     catalogs[language][key] = text
                     origins[language][key] = f'{path.relative_to(root).as_posix()}:{reader.line_num}'
     counts = Counter()
-    with (root / 'docs/localisation-key-review.csv').open('w', encoding='utf-8', newline='') as output:
+    with (root / 'src/Tests/Run/localisation-key-review.csv').open('w', encoding='utf-8', newline='') as output:
         writer = csv.writer(output)
         writer.writerow(['language', 'domain', 'status', 'key', 'origin', 'source', 'display'])
         for language in ('zh-CN', 'zh-TW'):
@@ -36,7 +37,7 @@ def main():
                 counts[language, domain, status] += 1
                 if status != 'no-Latin':
                     writer.writerow([language, domain, status, key, origins[language].get(key, origins['en'][key]), source, text])
-    with (root / 'docs/localisation-key-summary.csv').open('w', encoding='utf-8', newline='') as output:
+    with (root / 'src/Tests/Run/localisation-key-summary.csv').open('w', encoding='utf-8', newline='') as output:
         writer = csv.writer(output)
         writer.writerow(['language', 'domain', 'status', 'count'])
         for (language, domain, status), count in sorted(counts.items()):

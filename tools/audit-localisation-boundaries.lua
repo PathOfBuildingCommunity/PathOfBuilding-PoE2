@@ -7,7 +7,7 @@ io.read = function() error('审计禁止等待交互') end
 dofile('HeadlessWrapper.lua')
 assert(build and not launch.promptMsg, 'PoB2 初始化失败')
 main.userPath = 'Tests/Run/'
-local output = assert(io.open('../docs/localisation-boundary-review.csv', 'wb'))
+local output = assert(io.open('Tests/Run/localisation-boundary-review.csv', 'wb'))
 output:write('language,domain,origin,status,source,display,reverse\n')
 local counts = { }
 -- 从实际宝石对象取当前译名，不把英文名称拼成未经验证的技能 ID。
@@ -100,7 +100,7 @@ for _, language in ipairs({ 'zh-CN', 'zh-TW' }) do
 	print(language .. ' 显示/反向转换边界检查完成')
 end
 output:close()
-local report = assert(io.open('../docs/localisation-boundary-audit.md', 'wb'))
+local report = assert(io.open('Tests/Run/localisation-boundary-audit.md', 'wb'))
 report:write('# 中文使用边界审计\n\n生成日期：2026-10-31。命令：在 src 运行 `..\\tools\\LuaRunner.exe ..\\tools\\audit-localisation-boundaries.lua`。\n\n使用当前稳定资源 DataText/Field 取得基底与宝石显示名称，再以真实 ToEnglish 检查名称往返。unconverted 表示译名未转回英文；different-English 表示转成其他英文，须验证是否为兼容别名；不直接把此统计等同于角色导入失败数。名称往返不一致的基底同时交给真实 Item 解析器，与同名英文基线对照；parse-failed 是英文可以解析而中文失败。技能剪贴板使用真实 PasteSocketGroup，对照英文和当前中文技能名。静态名称往返通过也不代表中文真实物品完整格式已被解析。\n\n资源探针包含历史/未启用词条，只证明坏词库能够产生截断、残留参数或错误英文译文，不代表每条都在当前物品触发。help.txt/changelog.txt 逐行只统计原文，未接入产品稳定资源，文件中尚未被窗口滚动到的行不冒充已显示。标题探针拦截真实 SetWindowTitle 参数，不修改原生窗口或用户设置。\n\n| 语言/数据域/状态 | 次数 |\n|---|---:|\n')
 for key, count in pairsSortByKey(counts) do report:write('| ' .. key:gsub('%|', ' / ') .. ' | ' .. count .. ' |\n') end
 report:write('\n原文、实际输出及反向结果见 `localisation-boundary-review.csv`。\n')

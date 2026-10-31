@@ -49,7 +49,7 @@ for id, node in pairsSortByKey(build.spec.nodes) do
 		end
 	end
 end
-local output = assert(io.open('../docs/localisation-field-review.csv', 'wb'))
+local output = assert(io.open('Tests/Run/localisation-field-review.csv', 'wb'))
 output:write('language,domain,status,origin,key,source,display\n')
 local summaries = { }
 local function quote(value) return '"' .. tostring(value or ''):gsub('"', '""') .. '"' end
@@ -74,6 +74,6 @@ for _, language in ipairs({ 'en', 'zh-CN', 'zh-TW' }) do
 	print(language .. ' 已检查 ' .. #records .. ' 个显示字段引用')
 end
 output:close()
-local file = assert(io.open('../docs/localisation-field-summary.json', 'wb'))
+local file = assert(io.open('Tests/Run/localisation-field-summary.json', 'wb'))
 file:write(require('dkjson').encode(summaries, { indent = true })); file:close()
 for domain, counts in pairs(summaries) do assert(not counts.error, domain .. ' 字段解析异常，见审计 CSV') end
