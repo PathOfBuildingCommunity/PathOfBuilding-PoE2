@@ -1,5 +1,30 @@
 # How to release Path of Building Community
 
+## This fork: Windows multilingual portable prerelease
+
+From a clean, committed checkout on Windows with Python 3.10+ and Visual Studio
+2022 Community C++ build tools, run:
+
+```cmd
+python tools/package-portable.py --version 0.23.1-multilingual.1 --output dist/v0.23.1-multilingual.1
+```
+
+The script builds from a temporary Git snapshot, compiles the font tools, generates
+the Chinese atlas, and packages the runtime, application, bundled fonts and OFL
+notices. The player does not need development tools. The output directory must not
+already exist. Set `--repository owner/repo` if publishing to another fork.
+
+Test an extracted ZIP before creating a GitHub prerelease at the exact source
+commit. Upload the ZIP, `manifest.xml` and `SHA256SUMS.txt` before publishing.
+The updater checks this release's fixed manifest and can restore files from its
+ZIP; newer releases require downloading a new complete ZIP. It does not update
+from the upstream repository. The upstream private installer workflow is skipped
+in forks.
+
+Use the latest upstream stable version plus `-multilingual.N`. Document the
+actual source branch and language coverage in the release notes. Japanese and
+Korean currently have language/font entries with English text fallback.
+
 ## Prerequisites
 
 ## Choosing a new version number

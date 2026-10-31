@@ -19,10 +19,12 @@ template<class T> T Symbol(const char* name) {
 
 /// <summary>在官方 LuaJIT 中运行指定脚本并返回错误码。</summary>
 int main(int argc, char** argv) {
-    if (argc != 2) { std::cerr << "Usage: LuaRunner <script.lua>\n"; return 1; }
+    if (argc < 2 || argc > 3) { std::cerr << "Usage: LuaRunner <script.lua> [runtime-folder]\n"; return 1; }
     try {
         wchar_t exe[MAX_PATH]; GetModuleFileNameW(nullptr, exe, MAX_PATH);
         auto runtime = std::filesystem::path(exe).parent_path().parent_path() / L"runtime";
+        // 发布验收可显式载入解压包的运行库，避免误用开发目录中的 DLL。
+        if (argc == 3) runtime = std::filesystem::absolute(std::filesystem::path(argv[2]));
         SetDllDirectoryW(runtime.c_str());
         library = LoadLibraryW((runtime / L"lua51.dll").c_str());
         if (!library) throw std::runtime_error("Unable to load official runtime/lua51.dll");

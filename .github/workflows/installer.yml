@@ -11,11 +11,36 @@ on:
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
+  portable:
+    if: contains(github.event.release.tag_name || github.event.inputs.tag_name, '-multilingual.')
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || github.event.inputs.tag_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build and verify multilingual portable package
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.tag_name }}
+        run: python tools/package-portable.py --version "$($env:RELEASE_TAG.TrimStart('v'))" --repository "${{ github.repository }}" --output dist/portable
+      - uses: actions/upload-artifact@v4
+        with:
+          name: multilingual-portable
+          path: dist/portable
+      - name: Upload verified portable assets
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.tag_name }}
+        run: gh release upload "$env:RELEASE_TAG" (Get-ChildItem dist/portable -File).FullName -R "${{ github.repository }}"
   release:
+    if: github.repository == 'PathOfBuildingCommunity/PathOfBuilding-PoE2'
     runs-on: windows-latest
     steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
                 repository: 'PathOfBuildingCommunity/PathOfBuilding-Installer'
                 ref: 'master'
