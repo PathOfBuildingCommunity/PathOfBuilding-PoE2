@@ -137,8 +137,9 @@ resource. Do not assemble a translatable sentence from English fragments.
 
 Use the repository root as the working directory. Follow the normal
 [development installation instructions](../CONTRIBUTING.md) for PoB2 itself.
-The additional tools require Windows, Visual Studio 2022 C++ tools, Node.js/npm,
-and Python 3.10 or later for the Python audits.
+The additional Windows tools require Visual Studio 2022 x64 C++ tools. Tests
+require Node.js/npm and Python 3.10 or later; Linux headless tests also require
+LuaJIT and lua-utf8 (both are in the existing test container).
 
 ```cmd
 npm ci --prefix tools
@@ -148,9 +149,10 @@ start.cmd
 ```
 
 `build.cmd` compiles `FontAtlas.exe` and `LuaRunner.exe`, copies the font
-generator into `runtime`, and generates the default Chinese atlas. It recognises
-the usual VS2022 Community location or an already configured x64 developer
-command prompt. It does not rebuild the existing SimpleGraphic application.
+generator into `runtime`, and generates the default Chinese atlas from the
+bundled font. It discovers VS installations with `vswhere` or uses an already
+configured x64 developer command prompt. `build.cmd --all-fonts` also generates
+Japanese and Korean atlases. It does not rebuild SimpleGraphic.
 
 `start.cmd` invokes the build when the default `Glyphs.lua` is missing and then
 starts the runtime. Lua changes are read by the application; restart after
@@ -234,12 +236,32 @@ regional glyph form, or separate bold/italic styles. Lazy generation saves
 prepackaged atlas space but still incurs first use work and disk cache space.
 
 [manifest.cfg](../manifest.cfg) includes the three VF fonts and Noto OFL files.
-`build.cmd` supplies the generator for a local build. Release automation must
-also build and package that generator, or provide compatible prebuilt atlases;
-the separate installer pipeline is not established by the font manifest alone.
-Linux/macOS font generation is not implemented by this Windows tool. A complete
-release build from a clean environment still needs verification; checking the
-font manifest section alone does not establish release readiness.
+The update manifest and portable packager share its file selection rules;
+tests, reports, settings, builds and development tools are excluded. The portable
+ZIP includes `FontAtlas.exe` at its runtime root and a prebuilt Chinese atlas.
+Japanese and Korean atlases can be generated on first use from bundled fonts.
+Linux/macOS font generation is not implemented by this Windows tool.
+
+Build a portable prerelease from a clean, committed Windows checkout:
+
+```cmd
+python tools/package-portable.py --version 0.23.1-multilingual.1 --repository owner/repository --output dist/portable
+python tools/check-release.py dist/portable
+```
+
+The packager archives the committed Git source, compiles the tools, assembles
+the ZIP, extracts it, and loads its own LuaJIT DLL to check font paths and fresh
+Japanese/Korean atlas generation in a temporary cache. It checks atlas RLE,
+every manifest hash, attachment SHA-256, required fonts/OFL notices and forbidden
+development files. Outputs are the ZIP, `manifest.xml` and `SHA256SUMS.txt`.
+The portable updater is pinned to that release; see [RELEASE.md](../RELEASE.md).
+
+The manual [Windows check](../.github/workflows/localisation-windows.yml) builds
+and uploads these files as workflow artifacts. The [release workflow](../.github/workflows/installer.yml)
+also builds, checks and uploads portable assets for `*-multilingual.N` tags.
+Neither the local command nor the manual check publishes a release. The original
+NSIS installer still delegates packaging to a separate private repository;
+its font inclusion remains unverified. The portable pipeline does not depend on it.
 
 ## 7. Translation provenance and review inputs
 
@@ -285,12 +307,22 @@ python tools/audit-localisation-keys.py
 python tools/audit-localisation.py
 ```
 
-The main command runs the scanner, resource/input contracts, and real PoB2
-integration tests through the official LuaJIT DLL. Fixtures include three
+The main command defaults to deterministic headless font metrics. On Linux run
+`python3 tools/run-localisation-tests.py`; on Windows it uses the official LuaJIT
+DLL through LuaRunner. It runs the scanner, resource/input contracts, and real
+PoB2 integration tests. Fixtures include three
 offline poe.ninja exports; see the [fixture provenance](../src/Tests/Fixtures/poe-ninja/README.md).
 It checks language switches, controls, search, tooltips, calculation displays,
 original identities and XML export. It is not a live network authentication
 test or a substitute for visual inspection.
+
+Headless tests use versioned SC/JP/KR GDI metrics through a test-only resource
+adapter, retaining all existing assertions and the real layout/drawing code.
+They do not invoke FontAtlas or use local/user font caches. Provenance hashes
+are checked before running. See the [metric fixture guide](../src/Tests/Fixtures/fonts/README.md).
+For real Windows font resources run `build.cmd --all-fonts`,
+`test-localisation.cmd --native-fonts`, and `python tools/check-atlas.py --all`.
+These check native generation and atlas data, not window pixels or IME behavior.
 
 For additional runtime audits, run the following after the main command or
 `audit-localisation.py` has created `src/Tests/Run`:
@@ -338,17 +370,36 @@ ambiguous input with its domain context. Catalogue coverage and assertion
 counts do not establish translation accuracy or complete visual coverage.
 <!-- /verification-current -->
 
+Fresh CI/release checks on **2026-10-31** used a committed clean source snapshot:
+regression code at `12f777880`, portable packaging at `ab58fd1f3`.
+These results do not cover later/uncommitted catalogue changes.
+
+| Check | Direct result |
+| --- | --- |
+| Linux test container: `python3 tools/run-localisation-tests.py` | Exit 0; 311 reviewed occurrences, 218 contract and 423,612 integration assertions |
+| Clean Windows: `build.cmd --all-fonts`, native regression | Exit 0; 218 contract and 423,612 integration assertions; fresh metrics match fixtures |
+| `python tools/check-atlas.py --all` | Exit 0; SC/JP/KR 10/6/8 pages pass |
+| Release regression tests | Exit 0; six tests cover shared selection, missing fonts/OFL/support, private data, hashes and partial atlases |
+| Clean portable package and extracted font checks | Exit 0; 1,879 files; bundled LuaJIT/font paths, fresh JP/KR generation, all file hashes and attachment SHA-256 pass |
+| `actionlint` 1.7.12 | Exit 0 for the three CI/release workflows |
+
+The portable artifact is a local acceptance build, not a published release.
+Hosted Actions, the external NSIS installer, and fresh native window/IME checks
+have not been performed by this verification.
+
+
 Earlier native window checks covered English/Simplified/Traditional switching,
 DPS labels, notes controls, and all five native language names. Those are prior
 manual observations, not a fresh window or IME test performed for this
 documentation change. Existing missing tree node warnings remain. A reported
 tree search focus issue has no established root cause or verified fix here.
 
-The existing [CI workflow](../.github/workflows/test.yml) runs system specs and
-ModCache checks, and does **not** invoke this localisation suite. Linux headless
-localisation as a required check and optional Windows window/font checks remain
-integration work. No current CI or cross platform result is implied by a local
-Windows regression.
+The [CI workflow](../.github/workflows/test.yml) now runs Linux headless
+localisation and release regression tests on every configured push/PR/manual
+trigger, alongside the existing system specs and ModCache checks. The Windows
+font/package job is manual. Branch protection must select the new check if it
+is to block merging. Local container runs are evidence for the commands, not
+evidence of a hosted GitHub Actions run or a fresh native window inspection.
 
 ## 9. Upstream review and PR description
 
@@ -359,9 +410,10 @@ font build/release files; regression fixtures and tools. Large generated tables
 need their generation inputs and process reviewed alongside their output.
 
 Before submission, resolve the redistribution basis for external translations,
-complete release integration and Linux localisation CI, and attach
-representative window screenshots. These remain review items before calling
-the entire branch ready to merge.
+review the portable release scope and remaining private NSIS integration, and
+attach representative window screenshots. Hosted CI and window/IME acceptance
+remain separate from the local automated evidence. These are review items
+before calling the entire branch ready to merge.
 
 Suggested PR title: **Add key based localisation with Chinese resources and CJK font support**.
 Adapt the following to the final submitted scope and the repository PR template:
@@ -375,10 +427,11 @@ Adapt the following to the final submitted scope and the repository PR template:
 > English body text.
 >
 > **Steps taken to verify a working solution:**
-> Local Windows regression passes: 311 reviewed display occurrences, 216
-> contract assertions, and 423,612 integration assertions. Atlas integrity,
-> resource and field audits pass as described in section 8. These used existing
-> local tools; clean release builds and Linux localisation CI remain unverified.
+> Linux container and clean Windows regressions pass with 311 reviewed display
+> occurrences, 218 contract assertions and 423,612 integration assertions.
+> Clean portable packaging, font first-use generation and package integrity
+> checks pass locally. Section 8 distinguishes historical resource audits,
+> current automated evidence, hosted CI and pending visual acceptance.
 
 Fill issue references, a showcase build and before/after screenshots only when
 real evidence is available. Do not treat this suggested text as a published PR
