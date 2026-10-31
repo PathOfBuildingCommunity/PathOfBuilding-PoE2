@@ -95,7 +95,7 @@ local sentence = localisation:Text('calc.ailment.effect_column', {
 
 ## 4. 从源码构建与运行
 
-以下命令以仓库根目录为工作目录。PoB2 本身的安装遵循[开发环境说明](../CONTRIBUTING.md)。Windows 工具构建需要 Visual Studio 2022 x64 C++ 工具；测试需要 Node.js/npm 和 Python 3.10 或更新版本。Linux headless 测试还需要 LuaJIT、lua-utf8，既有测试容器已提供。
+以下命令以仓库根目录为工作目录。PoB2 本身的安装遵循[开发环境说明](../CONTRIBUTING.md)。新增工具需要 Windows、Visual Studio 2022 C++ 工具、Node.js/npm；Python 审计脚本使用 Python 3.10 或更新版本。
 
 ```cmd
 npm ci --prefix tools
@@ -104,7 +104,7 @@ test-localisation.cmd
 start.cmd
 ```
 
-`build.cmd` 编译 `FontAtlas.exe`、`LuaRunner.exe`，将字体生成器复制到 `runtime`，并从项目字体生成默认中文图集。脚本通过 `vswhere` 定位 VS，也可在已配置的 x64 开发者命令提示符中运行；`build.cmd --all-fonts` 还会生成日文、韩文图集。脚本不重新编译既有 SimpleGraphic 应用。
+`build.cmd` 编译 `FontAtlas.exe`、`LuaRunner.exe`，将字体生成器复制到 `runtime`，并生成默认中文图集。脚本支持常规 VS2022 Community 安装位置，也可在已配置的 x64 开发者命令提示符中运行；不重新编译既有 SimpleGraphic 应用。
 
 `start.cmd` 在默认 `Glyphs.lua` 缺失时调用构建，然后启动运行时。业务源码是 Lua；修改 CSV 资源后重新启动。生成的可执行文件、图集、个人设置以及 `src/Tests/Run` 内容不进入 Git。
 
@@ -145,18 +145,7 @@ auth.status.waiting,Logging in... ({value})
 
 生成器基于 Windows GDI，使用固定 32 px 字号，只生成 BMP 码点并排除代理区。这不等于覆盖所有 Unicode、所有地区字形，也不代表有独立粗体／斜体。延迟生成减少预打包图集，但仍有首次生成时间和磁盘缓存成本。
 
-[manifest.cfg](../manifest.cfg) 包含三个 VF 字体及 Noto OFL 文件。更新清单与便携包共用其文件筛选规则，排除测试、报告、设置、构筑和开发工具。便携 ZIP 在运行时根目录提供 `FontAtlas.exe`，并预生成中文图集；日文、韩文可首次使用时从随包字体生成。此 Windows 工具不提供 Linux/macOS 字体生成。
-
-从干净、已提交的 Windows 检出构建便携预发布包：
-
-```cmd
-python tools/package-portable.py --version 0.23.1-multilingual.1 --repository owner/repository --output dist/portable
-python tools/check-release.py dist/portable
-```
-
-打包器从已提交 Git 源码归档重新编译工具、组包，再实际解压 ZIP，加载包内 LuaJIT DLL，验证字体路径及独立临时缓存中的日／韩首次图集生成。校验包含图集 RLE、每个清单哈希、附件 SHA-256、必要字体／OFL 和禁止分发的开发文件。产物为 ZIP、`manifest.xml`、`SHA256SUMS.txt`。便携包更新源固定到该次发布，详见 [RELEASE.md](../RELEASE.md)。
-
-[Windows 手动检查](../.github/workflows/localisation-windows.yml) 构建并上传这些工作流附件；[发布工作流](../.github/workflows/installer.yml) 也会为 `*-multilingual.N` 标签构建、校验、上传便携发布附件。本地命令和手动检查都不会发布 Release。原 NSIS 安装器仍由独立私有仓库组包，其字体包含情况尚未验证；便携流程不依赖它。
+[manifest.cfg](../manifest.cfg) 已包含三个 VF 字体及 Noto OFL 文件。运行包还需包含 `FontAtlas.exe` 或兼容的预生成图集。官方组包沿用上游既有发布流程；本仓库独立 Release 在单独的发布分支维护，不属于多语言功能 PR。Windows 生成工具不提供 Linux/macOS 的字体生成实现。
 
 ## 7. 翻译来源与审查输入
 
@@ -187,9 +176,7 @@ python tools/audit-localisation-keys.py
 python tools/audit-localisation.py
 ```
 
-主命令默认使用确定的 headless 字体指标。Linux 运行 `python3 tools/run-localisation-tests.py`；Windows 通过 LuaRunner 使用官方 LuaJIT DLL。命令执行显示扫描、资源／输入契约和真实 PoB2 集成测试，使用三份离线 poe.ninja 导出构筑，[来源说明见 fixture 文档](../src/Tests/Fixtures/poe-ninja/README.md)。检查语言切换、控件、搜索、提示框、计算显示、原始身份及 XML 导出；不执行在线鉴权，也不能替代窗口视觉检查。
-
-Headless 测试通过仅测试使用的资源适配器载入版本化 SC／JP／KR GDI 指标，保留既有断言及真实布局／绘制代码，不调用 FontAtlas，也不读取开发机或用户字体缓存；运行前核对来源哈希。更新方式见[指标 fixture 说明](../src/Tests/Fixtures/fonts/README.md)。Windows 真实字体检查运行 `build.cmd --all-fonts`、`test-localisation.cmd --native-fonts`、`python tools/check-atlas.py --all`；它们验证原生生成和图集数据，不代表窗口像素或输入法已验收。
+主命令通过官方 LuaJIT DLL 执行显示扫描、资源／输入契约和真实 PoB2 集成测试，使用三份离线 poe.ninja 导出构筑，[来源说明见 fixture 文档](../src/Tests/Fixtures/poe-ninja/README.md)。检查语言切换、控件、搜索、提示框、计算显示、原始身份及 XML 导出；不执行在线鉴权，也不能替代窗口视觉检查。
 
 主命令或 `audit-localisation.py` 创建 `src/Tests/Run` 后，可进一步运行：
 
@@ -225,29 +212,15 @@ cd src
 旧输入词典另报告简／繁参数差异候选 395／612、反向冲突组 2,450／2,485，以及繁体一处历史码点不在当前 SC 图集中。这些输入词典问题不参与显示查找，也不能据此宣称全部导入路径兼容；同名歧义必须结合输入业务域审查。词库覆盖率和断言数量均不能代替译文准确性及完整视觉验收。
 <!-- /verification-current -->
 
-**2026-10-31 新增 CI／发布验证：**使用已提交的干净源码快照，回归代码为 `12f777880`，便携组包代码为 `ab58fd1f3`；结果不覆盖后续或未提交的词库改动。
-
-| 检查 | 直接结果 |
-| --- | --- |
-| Linux 测试容器：`python3 tools/run-localisation-tests.py` | 退出 0；311 个审阅入口、218 项契约、423,612 项集成断言 |
-| 干净 Windows：`build.cmd --all-fonts` 与原生字体回归 | 退出 0；218 项契约、423,612 项集成断言；新指标与 fixture 一致 |
-| `python tools/check-atlas.py --all` | 退出 0；SC／JP／KR 共 10／6／8 页通过 |
-| 发布回归 | 退出 0；六项测试覆盖共用筛选、缺字体／OFL／字体支持、个人数据、哈希错误及不完整图集 |
-| 干净便携包与解压后字体检查 | 退出 0；1,879 个文件；包内 LuaJIT／字体路径、日／韩空缓存生成、清单哈希和附件 SHA-256 均通过 |
-| `actionlint` 1.7.12 | 三个 CI／发布工作流检查退出 0 |
-
-便携产物是本地验收构建，尚未发布。本次没有运行托管 Actions、外部 NSIS 安装器或新执行窗口／输入法验收。
-
-
 此前的原生窗口检查涉及英文／简体／繁体往返切换、DPS 标签、备注控件及五个语言本名。这些是既往人工观察，不是本次文档整理新执行的窗口或输入法测试。既有天赋 missing-node 警告仍保留；此前报告过树搜索聚焦问题，本次没有据此声称已定位根因或修复。
 
-[CI 工作流](../.github/workflows/test.yml) 现已在配置的 push／PR／手动触发中必跑 Linux headless 本地化和发布回归，并保留系统测试及 ModCache 检查。Windows 字体／组包检查仅手动触发；若要阻止合并，仓库分支保护还需选中新增检查。本地容器实跑只证明相应命令，不等于 GitHub 托管 CI 已运行，也不等于新执行了窗口验收。
+本功能 PR 保留既有 [CI 工作流](../.github/workflows/test.yml)，提供上述本地多语言回归命令。本地 Windows 回归不代表 GitHub 托管 CI 或跨平台验证。
 
 ## 9. 上游审阅与 PR 说明
 
 根据 [CONTRIBUTING.md](../CONTRIBUTING.md)，PR 目标为 `dev`。建议依次审阅：文案契约与身份边界；界面／游戏调用点及显示缓存；英文和中文资源；字体构建与发布文件；回归 fixture 与工具。大型生成表应连同输入和生成过程一起审查。
 
-提交前应明确外部翻译资源的再分发依据，审阅便携发布范围及尚待外部接入的 NSIS 安装器，并附上代表性窗口截图。托管 CI、窗口及输入法验收与本地自动验证分开记录；这些仍是整条分支宣布可合并前的审阅事项。
+审阅外部翻译资源的再分发依据，并附上已有验证证据及代表性窗口截图。PR 范围为多语言功能及必要测试；本仓库独立 Release 的打包发布在单独分支维护。
 
 建议 PR 标题：**Add key based localisation with Chinese resources and CJK font support**。按最终实际提交范围和仓库 PR 模板调整以下内容；英文版本的同一章节提供可供上游审阅的英文措辞。
 
@@ -255,6 +228,6 @@ cd src
 > 为 PoB2 增加语言选择及显式语义 Key。界面文案和游戏显示字段通过语言资源解析，计算、解析和导出仍使用原始身份。提供简繁中文资源、按业务域处理的输入／搜索，以及 Noto CJK 字体。日语和韩语入口的正文目前回退英文。
 >
 > **验证方式：**
-> Linux 容器和干净 Windows 回归通过：311 个已审阅显示入口、218 项契约断言、423,612 项集成断言。干净便携组包、字体首次生成和包完整性校验在本地通过。第 8 节区分历史资源审计、当前自动证据、托管 CI 与待执行的视觉验收。
+> Windows 本地回归通过：311 个已审阅显示入口、216 项契约断言、423,612 项集成断言。图集完整性、资源和字段审计结果见第 8 节。以上为已有本地工具验证；本仓库独立 Release 不属于此 PR。
 
 只有拿到真实证据后再填写关联 issue、演示构筑和前后截图，不虚构链接。这是 PR 说明建议，不表示已经发布 PR 或上游已经接受方案。

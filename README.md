@@ -7,9 +7,7 @@
 </p>
 
 ## Download
-Download this fork's Windows portable ZIP from [Releases](https://github.com/isWxiang/PathOfBuilding-PoE2/releases). Extract the complete ZIP, then run `Path of Building-PoE2.exe`. Choose English, 简体中文 or 繁體中文 in Options and save your settings. Japanese and Korean currently fall back to English text.
-
-本仓库的 Windows 多语言便携包请从 [Releases](https://github.com/isWxiang/PathOfBuilding-PoE2/releases) 下载。完整解压后运行 `Path of Building-PoE2.exe`，在选项中选择语言并保存。升级前请备份解压目录中的 `Builds` 与 `Settings.xml`；预发布版固定检查本次发布的文件，获取新版请下载新的 ZIP。
+Head over to the [Releases](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/releases) page to download the install wizard or portable zip.
 
 ## Features
 * Comprehensive offence + defence calculations:

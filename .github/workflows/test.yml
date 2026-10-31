@@ -6,27 +6,6 @@ on:
     branches: [ dev ]
   workflow_dispatch:
 jobs:
-  localisation:
-    name: Localisation (Linux headless)
-    runs-on: ubuntu-latest
-    container: ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install localisation test dependencies
-        run: apk add --no-cache nodejs npm python3
-      - name: Install display scanner dependency
-        run: npm ci --prefix tools
-      - name: Run localisation regression
-        run: python3 tools/run-localisation-tests.py
-      - name: Check release file selection
-        run: python3 -m unittest discover -s tests -p 'test_release*.py'
-      - name: Upload failure reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: localisation-reports
-          path: src/Tests/Run
   run_tests:
     runs-on: ubuntu-latest
     container: ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest

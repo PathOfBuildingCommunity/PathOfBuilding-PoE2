@@ -45,31 +45,6 @@ def _alphanumeric(key: str) -> list[int | str]:
     ]
 
 
-def manifest_paths(base_path: pathlib.Path, config: configparser.ConfigParser):
-    """按发布配置枚举文件，供更新清单和便携包共同使用。"""
-    for section in config.sections():
-        include_files = _parse_list_option(config, section, "include-files")
-        include_dirs = _parse_list_option(config, section, "include-directories")
-        exclude_files = _parse_list_option(config, section, "exclude-files")
-        exclude_dirs = _parse_list_option(config, section, "exclude-directories")
-        source = pathlib.Path(config[section]["path"])
-        # 只有文件白名单而没有目录白名单时，只选择该分组根目录中的文件。
-        pattern = "*" if include_files and not include_dirs else "**/*"
-        for absolute in sorted((base_path / source).glob(pattern)):
-            if not absolute.is_file():
-                continue
-            path = absolute.relative_to(base_path)
-            if include_files and not _exclude_file(include_files, path):
-                continue
-            if include_dirs and not _exclude_directory(include_dirs, path):
-                continue
-            if exclude_files and _exclude_file(exclude_files, path):
-                continue
-            if exclude_dirs and _exclude_directory(exclude_dirs, path):
-                continue
-            yield section, path, path.relative_to(source)
-
-
 def create_manifest(version: str | None = None, replace: bool = False) -> None:
     """Generate new SHA1 hashes and version number for Path of Building's manifest file.
 
@@ -111,18 +86,33 @@ def create_manifest(version: str | None = None, replace: bool = False) -> None:
         parts.append(attributes)
 
     files: list[dict[str, str]] = []
-    for section, path, relative in manifest_paths(base_path, config):
-        data = (base_path / path).read_bytes()
-        # Normalize line endings for non-binary files in case they were accidentally mixed
-        if b"\0" not in data:
-            data = re.sub(rb"\r\n?|\n", b"\r\n", data)
-        sha1 = hashlib.sha1(data).hexdigest()
-        attributes = (
-            {"name": relative.as_posix(), "part": section, "runtime": "win32", "sha1": sha1}
-            if path.suffix in [".dll", ".exe"]
-            else {"name": relative.as_posix(), "part": section, "sha1": sha1}
-        )
-        files.append(attributes)
+    for section in config.sections():
+        include_files = _parse_list_option(config, section, "include-files")
+        include_dirs = _parse_list_option(config, section, "include-directories")
+        exclude_files = _parse_list_option(config, section, "exclude-files")
+        exclude_dirs = _parse_list_option(config, section, "exclude-directories")
+        source = pathlib.Path(config[section]["path"])
+        for path in source.glob("**/*.*"):
+            if include_files and not _exclude_file(include_files, path):
+                continue
+            if include_dirs and not _exclude_directory(include_dirs, path):
+                continue
+            if exclude_files and _exclude_file(exclude_files, path):
+                continue
+            if exclude_dirs and _exclude_directory(exclude_dirs, path):
+                continue
+            data = path.read_bytes()
+            # Normalize line endings for non-binary files in case they were accidentally mixed
+            if b"\0" not in data:
+                data = re.sub(rb"\r\n?|\n", b"\r\n", data)
+            sha1 = hashlib.sha1(data).hexdigest()
+            name = path.relative_to(config[section]["path"]).as_posix()
+            attributes = (
+                {"name": name, "part": section, "runtime": "win32", "sha1": sha1}
+                if path.suffix in [".dll", ".exe"]
+                else {"name": name, "part": section, "sha1": sha1}
+            )
+            files.append(attributes)
 
     files.sort(key=lambda attr: (attr["part"], _alphanumeric(attr["name"])))
 

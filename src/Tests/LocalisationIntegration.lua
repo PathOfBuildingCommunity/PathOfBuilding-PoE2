@@ -1,7 +1,6 @@
 -- 加载真实 PoB2 应用进行集成检查；不登录账号或请求角色 API。
-if package.config:sub(1, 1) == '\\' then package.cpath = '../runtime/?.dll;' .. package.cpath end
+package.cpath = '../runtime/?.dll;' .. package.cpath
 package.path = '../runtime/lua/?.lua;../runtime/lua/?/init.lua;' .. package.path
-dofile('Tests/LocalisationSetup.lua')
 arg = { }
 local read = io.read
 io.read = function() error('无界面启动失败，禁止等待交互') end

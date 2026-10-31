@@ -1,7 +1,6 @@
 -- 长期契约测试：词库解析、未知输入保护、实际角色结构、中文光标与图集。
-if package.config:sub(1, 1) == '\\' then package.cpath = '../runtime/?.dll;' .. package.cpath end
+package.cpath = '../runtime/?.dll;' .. package.cpath
 package.path = '../runtime/lua/?.lua;' .. package.path
-dofile('Tests/LocalisationSetup.lua')
 local Dictionary = dofile('Modules/Localisation/Dictionary.lua')
 local Font = dofile('Modules/Localisation/Font.lua')
 local Import = dofile('Modules/Localisation/Import.lua')

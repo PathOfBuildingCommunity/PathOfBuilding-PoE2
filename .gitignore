@@ -22,7 +22,6 @@ runtime/lua/debugger.lua
 
 # Release
 manifest-updated.xml
-dist/
 
 # GGPK Export
 src/Export/ggpk/metadata/
@@ -65,4 +64,3 @@ tools/*.pid
 src/Tests/*.log
 src/Tests/Run/
 tools/node_modules/
-__pycache__/
