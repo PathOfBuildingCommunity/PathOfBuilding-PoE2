@@ -459,7 +459,7 @@ function M.drawCopyButtons(cursorX, cursorY, btnStartX, btnY, slotMissing, copyB
 	if slotMissing then
 		-- Show "Missing slot" label instead of Equip button
 		SetDrawColor(1, 1, 1)
-		DrawString(btn2X + equipW / 2, btnY + 1, "CENTER_X", 14, "VAR", "^xBBBBBBMissing slot")
+		DrawString(btn2X + equipW / 2, btnY + 1, "CENTER_X", 14, "VAR", localisation:Text("ui.trade_helpers.draw_copy_buttons.message"))
 		b2Hover = false
 	else
 		-- "Equip" button

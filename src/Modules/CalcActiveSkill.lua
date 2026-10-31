@@ -500,7 +500,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
 		-- Skill requires a shield to be equipped
 		skillFlags.disable = true
-		activeSkill.disableReason = "This skill requires a Shield"
+		activeSkill.disableReason = localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason")
 	end
 
 	-- initialize weapon flags
@@ -543,7 +543,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		elseif (skillTypes[SkillType.DualWieldOnly] or skillTypes[SkillType.MainHandOnly] or skillFlags.forceMainHand or weapon1Info) and not activeSkill.summonSkill then
 			-- Skill requires a compatible main hand weapon
 			skillFlags.disable = true
-			activeSkill.disableReason = "Main Hand weapon is not usable with this skill"
+			activeSkill.disableReason = localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_2")
 		end
 		if not skillTypes[SkillType.MainHandOnly] and not skillFlags.forceMainHand then
 			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponTypes, gemTags)
@@ -551,7 +551,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				if skillTypes[SkillType.DualWieldRequiresDifferentTypes] and (activeSkill.actor.weaponData1.type == activeSkill.actor.weaponData2.type) then
 					-- Skill requires a different compatible off hand weapon to main hand weapon
 					skillFlags.disable = true
-					activeSkill.disableReason = activeSkill.disableReason or "Weapon Types Need to be Different"
+					activeSkill.disableReason = activeSkill.disableReason or localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_3")
 				elseif skillFlags.attack or skillFlags.dotFromAttack then
 					activeSkill.weapon2Flags = (skillFlags.unarmed and ModFlag.Unarmed) or weapon2Flags
 					skillFlags.weapon2Attack = true
@@ -559,10 +559,10 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			elseif (skillTypes[SkillType.DualWieldOnly] or weapon2Info) and not activeSkill.summonSkill then
 				-- Skill requires a compatible off hand weapon
 				skillFlags.disable = true
-				activeSkill.disableReason = activeSkill.disableReason or "Off Hand weapon is not usable with this skill"
+				activeSkill.disableReason = activeSkill.disableReason or localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_4")
 			elseif skillFlags.disable then
 				-- Neither weapon is compatible
-				activeSkill.disableReason = activeSkill.disableReason or "No usable weapon equipped"
+				activeSkill.disableReason = activeSkill.disableReason or localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_5")
 			end
 		end
 		if skillFlags.attack then
@@ -725,7 +725,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") and not skillModList:Flag(activeSkill.skillCfg, "EnableSkill") then
 		skillFlags.disable = true
-		activeSkill.disableReason = "Skills of this type are disabled"
+		activeSkill.disableReason = localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_6")
 	end
 
 	if skillFlags.disable then
@@ -766,7 +766,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if match and skillEffect.grantedEffect.isTrigger then
 				if activeSkill.triggeredBy then
 					skillFlags.disable = true
-					activeSkill.disableReason = "This skill is supported by more than one trigger"
+					activeSkill.disableReason = localisation:Text("ui.calc_active_skill.state.build_active_skill_mod_list.disable_reason_7")
 				else
 					activeSkill.triggeredBy = skillEffect
 				end

@@ -1,0 +1,51 @@
+"Character Import",角色导入
+"Character import status: Idle","角色导入状态: 空"
+"Character import status: Sign-in is required.","角色导入状态: 需要登陆。"
+"Character import status: Account profile is private.","角色导入状态: 帐号资料未公开"
+"Character import status: Account name is incorrect.","角色导入状态: 帐号名称不正确"
+"Character import status: Error processing character list, try again later","角色导入状态: 角色列表获取出错，请稍后重试"
+"Character import status: The account has no characters to import.","角色导入状态: 该账号没有可以导入的角色。"
+"Character import status: Failed to retrieve character list.","角色导入状态: 角色列表获取失败。"
+"Character import status: Retrieving character list...","角色导入状态: 获取角色列表..."
+"Character import status: Character list successfully retrieved.","角色导入状态: 角色列表获取成功"
+"Character import status: Retrieving character items...","角色导入状态: 获取角色物品..."
+"Character import status: Items and skills successfully imported.","角色导入状态: 物品和技能导入完成"
+"Character import status: Retrieving character passive tree...","角色导入状态: 获取角色天赋树..."
+"Character import status: Passive tree and jewels successfully imported.","角色导入状态: 天赋树和珠宝导入完成"
+"To start importing a character, enter the character's account name:","输入'角色帐号名'后点击'开始'以导入角色"
+Removes account from the dropdown list,从下拉列表中移除账号
+"Note: if the account name contains non-ASCII characters it must be pasted into the textbox,","注意:如果帐号名包含非'ASCII'字符,则必须粘贴入输入框，"
+"not typed manually.","不可手动输入。"
+
+Privacy Settings,隐私设置
+Choose character to import data from:,选择角色后导入数据:
+League:,联盟:
+Import:,导入:
+Passive Tree and Jewels,天赋树和珠宝
+Importing the passive tree will overwrite your current tree.,导入新的天赋树将覆盖你当前的天赋树
+Delete jewels:,删除珠宝:
+Delete all existing jewels when importing.,导入时删除现有珠宝
+Items and Skills,物品和技能
+Delete skills:,删除技能
+Delete all existing skills when importing.,导入时删除现有技能
+Delete equipment:,删除装备
+Delete all equipped items when importing.,导入时删除现有装备
+Ignore weapon swap:,忽略武器切换
+Ignore items and skills in weapon swap.,忽略另一套武器以及上面的技能
+"Tip: After you finish importing a character, make sure you update the bandit choice,",提示：在你完成角色导入后，确保你更新了盗贼选择，
+as it cannot be imported.,因为其无法被导入。
+Build Sharing,分享构筑
+Generate a code to share this build with other Path of Building users:,生成POB代码以分享给其他POE玩家:
+Export Support,导出支援
+"This is for party play, to export support character, it enables the exporting of auras, curses and modifiers to the enemy","用于团队游戏，导出支援角色，其可以输出光环，诅咒和修正给敌人"
+Code,代码
+Share,分享
+Creating link...,创建链接中……
+Note: this code can be very long; you can use 'Share' to shrink it.,注意:这个代码可能会很长;你可以用“分享”来缩短它。
+"To import a build, enter URL or code here:","要导入构筑，请在此处输入URL或代码:"
+Code is valid,代码有效
+Build Import,构筑导入
+Warning: Importing to the current build will erase ALL existing data for this build.,警告:^7向当前构筑导入将抹除当前构筑全部的现存数据。
+Import to this build,导入至当前构筑
+Import to a new build,导入至新构筑
+Retrieving paste..,从paste获取中……

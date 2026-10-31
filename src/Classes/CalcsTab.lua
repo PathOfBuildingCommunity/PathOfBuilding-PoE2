@@ -10,10 +10,10 @@ local m_max = math.max
 local m_floor = math.floor
 
 local buffModeDropList = {
-	{ label = "Unbuffed", buffMode = "UNBUFFED" },
-	{ label = "Buffed", buffMode = "BUFFED" },
-	{ label = "In Combat", buffMode = "COMBAT" },
-	{ label = "Effective DPS", buffMode = "EFFECTIVE" } 
+	{ label = "Unbuffed", labelKey = "ui.calcs_tab.module.buff_mode_drop_list.label_4", buffMode = "UNBUFFED" },
+	{ label = "Buffed", labelKey = "ui.calcs_tab.module.buff_mode_drop_list.label", buffMode = "BUFFED" },
+	{ label = "In Combat", labelKey = "ui.calcs_tab.module.buff_mode_drop_list.label_3", buffMode = "COMBAT" },
+	{ label = "Effective DPS", labelKey = "ui.calcs_tab.module.buff_mode_drop_list.label_2", buffMode = "EFFECTIVE" }
 }
 
 ---@class CalcsTab: UndoHandler, ControlHost, Control
@@ -34,12 +34,13 @@ function CalcsTabClass:CalcsTab(build)
 
 	self.colWidth = 230
 	self.sectionList = { }
+	local effectDisplay = LoadModule("Modules/CalcDisplay").New(build.data.skills)
 
-	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self, "TOPLEFT" }, { 4, 5, 260, 20 }, "", "Search", "%c", 100, nil, nil, nil, true)
+	self.controls.search = new("EditControl"):EditControl({ "TOPLEFT", self, "TOPLEFT" }, { 4, 5, 260, 20 }, "", localisation:Label("ui.calcs_tab.init.search.label"), "%c", 100, nil, nil, nil, true)
 	t_insert(self.controls, self.controls.search)
 
 	-- Special section for skill/mode selection
-	self.socketGroupRow = { label = "Socket Group: Both", { controlName = "mainSocketGroup",
+	self.socketGroupRow = { label = "Socket Group: Both", labelKey = "ui.calcs_tab.init.socket_group_row.label", { controlName = "mainSocketGroup",
 		control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
 			self.input.skill_number = index
 			self:AddUndoState()
@@ -53,16 +54,16 @@ function CalcsTabClass:CalcsTab(build)
 			end
 		}
 	} }
-	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
+	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", labelKey = "ui.calcs_tab.init.skill_select.label_13", data = {
 		self.socketGroupRow,
-		{ label = "Active Skill", { controlName = "mainSkill", 
+		{ label = "Active Skill", labelKey = "ui.calcs_tab.init.skill_select.label_2", { controlName = "mainSkill",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				mainSocketGroup.mainActiveSkillCalcs = index
 				self.build.buildFlag = true
 			end)
 		}, },
-		{ label = "Stat Set", { controlName = "statSet", 
+		{ label = "Stat Set", labelKey = "ui.calcs_tab.init.skill_select.label_12", { controlName = "statSet",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -72,7 +73,7 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		}, },
-		{ label = "Skill Part", playerFlag = "multiPart", { controlName = "mainSkillPart", 
+		{ label = "Skill Part", labelKey = "ui.calcs_tab.init.skill_select.label_9", playerFlag = "multiPart", { controlName = "mainSkillPart",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 250, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -80,7 +81,7 @@ function CalcsTabClass:CalcsTab(build)
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)
-		}, },{ label = "Skill Stages", playerFlag = "multiStage", { controlName = "mainSkillStageCount",
+		}, },{ label = "Skill Stages", labelKey = "ui.calcs_tab.init.skill_select.label_10", playerFlag = "multiStage", { controlName = "mainSkillStageCount",
 				control = new("EditControl"):EditControl(nil, { 0, 0, 52, 16 }, nil, nil, "%D", nil, function(buf)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -89,7 +90,7 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		}, },
-		{ label = "Active Mines", playerFlag = "mine", { controlName = "mainSkillMineCount",
+		{ label = "Active Mines", labelKey = "ui.calcs_tab.init.skill_select.label", playerFlag = "mine", { controlName = "mainSkillMineCount",
 					control = new("EditControl"):EditControl(nil, { 0, 0, 52, 16 }, nil, nil, "%D", nil, function(buf)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -98,13 +99,13 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		}, },
-		{ label = "Show Minion Stats", flag = "haveMinion", { controlName = "showMinion", 
+		{ label = "Show Minion Stats", labelKey = "ui.calcs_tab.init.skill_select.label_8", flag = "haveMinion", { controlName = "showMinion",
 					control = new("CheckBoxControl"):CheckBoxControl(nil, { 0, 0, 18 }, nil, function(state)
 				self.input.showMinion = state
 				self:AddUndoState()
-			end, "Show stats for the minion instead of the player.")
+			end, localisation:Label("ui.calcs_tab.check_box_control.tooltip"))
 		}, },
-		{ label = "Minion", flag = "minion", { controlName = "mainSkillMinion",
+		{ label = "Minion", labelKey = "ui.calcs_tab.init.skill_select.label_5", flag = "minion", { controlName = "mainSkillMinion",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 160, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -130,17 +131,17 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		} },
-		{ label = "Spectre Library", flag = "spectre", { controlName = "mainSkillMinionLibrary",
-					control = new("ButtonControl"):ButtonControl(nil, { 0, 0, 100, 16 }, "Manage Spectres...", function()
+		{ label = "Spectre Library", labelKey = "ui.calcs_tab.init.skill_select.label_11", flag = "spectre", { controlName = "mainSkillMinionLibrary",
+					control = new("ButtonControl"):ButtonControl(nil, { 0, 0, 100, 16 }, localisation:Label("ui.calcs_tab.init.main_skill_minion_library.label"), function()
 				self.build:OpenSpectreLibrary("spectre")
 			end)
 		} },
-		{ label = "Beast Library", flag = "summonBeast", { controlName = "mainSkillBeastLibrary",
-					control = new("ButtonControl"):ButtonControl(nil, { 0, 0, 100, 16 }, "Manage Beasts...", function()
+		{ label = "Beast Library", labelKey = "ui.calcs_tab.init.skill_select.label_3", flag = "summonBeast", { controlName = "mainSkillBeastLibrary",
+					control = new("ButtonControl"):ButtonControl(nil, { 0, 0, 100, 16 }, localisation:Label("ui.calcs_tab.init.main_skill_beast_library.label"), function()
 			self.build:OpenSpectreLibrary("beast")
 			end)
 		} },
-		{ label = "Minion Skill", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
+		{ label = "Minion Skill", labelKey = "ui.calcs_tab.init.skill_select.label_6", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 200, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -149,7 +150,7 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		} },
-		{ label = "Minion Skill Stat Set", flag = "minion", { controlName = "mainSkillMinionSkillStatSet",
+		{ label = "Minion Skill Stat Set", labelKey = "ui.calcs_tab.init.skill_select.label_7", flag = "minion", { controlName = "mainSkillMinionSkillStatSet",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 200, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -160,24 +161,17 @@ function CalcsTabClass:CalcsTab(build)
 				self.build.buildFlag = true
 			end)
 		} },
-		{ label = "Calculation Mode", { 
-			controlName = "mode", 
+		{ label = "Calculation Mode", labelKey = "ui.calcs_tab.init.skill_select.label_4", {
+			controlName = "mode",
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 100, 16 }, buffModeDropList, function(index, value)
-				self.input.misc_buffMode = value.buffMode 
+				self.input.misc_buffMode = value.buffMode
 				self:AddUndoState()
 				self.build.buildFlag = true
-			end, [[
-This controls the calculation of the stats shown in this tab.
-The stats in the sidebar are always shown in Effective DPS mode, regardless of this setting.
-
-Unbuffed: No auras, buffs, or other support skills or effects will apply. This is equivalent to standing in town.
-Buffed: Aura and buff skills apply. This is equivalent to standing in your hideout with auras and buffs turned on.
-In Combat: Charges and combat buffs such as Onslaught will also apply. This will show your character sheet stats in combat.
-Effective DPS: Curses and enemy properties (such as resistances and status conditions) will also apply. This estimates your true DPS.]]) 
+			end, localisation:Label("ui.calcs_tab.drop_down_control.tooltip"))
 		}, },
-		{ label = "Aura and Buff Skills", flag = "buffs", textSize = 12, { format = "{output:BuffList}", { breakdown = "SkillBuffs" } }, },
-		{ label = "Combat Buffs", flag = "combat", textSize = 12, { format = "{output:CombatList}" }, },
-		{ label = "Curses and Debuffs", flag = "effective", textSize = 12, { format = "{output:CurseList}", { breakdown = "SkillDebuffs" } }, },
+		{ label = "Aura and Buff Skills", labelKey = "ui.calcs_tab.init.buff_list.label", flag = "buffs", textSize = 12, { format = "{output:BuffList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "BuffList") end, { breakdown = "SkillBuffs" } }, },
+		{ label = "Combat Buffs", labelKey = "ui.calcs_tab.init.combat_list.label", flag = "combat", textSize = 12, { format = "{output:CombatList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "CombatList") end }, },
+		{ label = "Curses and Debuffs", labelKey = "ui.calcs_tab.init.curse_list.label", flag = "effective", textSize = 12, { format = "{output:CurseList}", formatDisplay = function(actor) return effectDisplay:EffectList(actor, "CurseList") end, { breakdown = "SkillDebuffs" } }, },
 	}}}, function(section)
 		self.build:RefreshSkillSelectControls(section.controls, self.input.skill_number, "Calcs")
 		section.controls.showMinion.state = self.input.showMinion
@@ -202,7 +196,7 @@ function CalcsTabClass:Load(xml, dbFileName)
 		if type(node) == "table" then
 			if node.elem == "Input" then
 				if not node.attrib.name then
-					launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing name attribute", fileName)
+					launch:ShowErrMsg("%s", localisation:Text("ui.calcs_tab.load.error", { file_name = fileName }))
 					return true
 				end
 				if node.attrib.number then
@@ -212,12 +206,12 @@ function CalcsTabClass:Load(xml, dbFileName)
 				elseif node.attrib.boolean then
 					self.input[node.attrib.name] = node.attrib.boolean == "true"
 				else
-					launch:ShowErrMsg("^1Error parsing '%s': 'Input' element missing number, string or boolean attribute", fileName)
+					launch:ShowErrMsg("%s", localisation:Text("ui.calcs_tab.load.error_2", { file_name = fileName }))
 					return true
 				end
 			elseif node.elem == "Section" then
 				if not node.attrib.id then
-					launch:ShowErrMsg("^1Error parsing '%s': 'Section' element missing id attribute", fileName)
+					launch:ShowErrMsg("%s", localisation:Text("ui.calcs_tab.load.error_3", { file_name = fileName }))
 					return true
 				end
 				for _, section in ipairs(self.sectionList) do
@@ -352,7 +346,7 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 			section:UpdatePos()
 		end
 	end
-	
+
 	self.controls.search.y = 4 - self.controls.scrollBar.offset
 
 	for _, event in ipairs(inputEvents) do
@@ -478,9 +472,9 @@ function CalcsTabClass:CheckFlag(obj, actor, player)
 	return true
 end
 
-function CalcsTabClass:SearchMatch(txt)
+function CalcsTabClass:SearchMatch(txt, display)
 	local searchStr = self.controls.search.buf:lower()
-	return string.len(searchStr) > 0 and txt:lower():find(searchStr)
+	return string.len(searchStr) > 0 and ((txt or ""):lower():find(searchStr) or display and display:lower():find(searchStr))
 end
 
 -- Build the calculation output tables
@@ -512,15 +506,17 @@ function CalcsTabClass:BuildOutput(validateWeaponSets)
 	self.calcsEnv = self.calcs.buildOutput(self.build, "CALCS")
 	self.calcsOutput = self.calcsEnv.player.output
 	if self.build.controls.mainSkillLabel then -- Comparison builds have no sidebar.
-		self.build.controls.mainSkillLabel.label = "^7Main Skill: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])
+		self.build.controls.mainSkillLabel.label = localisation:Label("ui.calcs_tab.build_output.build_controls_main_skill_label_label.label", { value = localisation:TermRef("equipment.weapon_set", self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])) })
 	end
 	self.socketGroupRow.label = "Socket Group: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.input.skill_number])
+	self.socketGroupRow.labelKey = "ui.calcs_tab.build_output.socket_group_row_label_key.message"
+	self.socketGroupRow.labelParams = { weapon_set = localisation:TermRef("equipment.weapon_set", self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.input.skill_number])) }
 
 	if self.displayData then
 		self.controls.breakdown:SetBreakdownData()
 		self.controls.breakdown:SetBreakdownData(self.displayData, self.displayPinned)
 	end
-	
+
 	-- Retrieve calculator functions
 	local miscCalcFunc, miscCalcBase = self.calcs.getMiscCalculator(self.build)
 	self.miscCalculator = { miscCalcFunc, miscCalcBase }
@@ -568,7 +564,7 @@ function CalcsTabClass:PowerBuilder()
 	if coroutine.running() then
 		coroutine.yield()
 	end
-	
+
 	local start = GetTime()
 	local nodeIndex = 0
 	local total = 0

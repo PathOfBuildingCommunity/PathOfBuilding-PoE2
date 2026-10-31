@@ -1,0 +1,69 @@
+Enemy Physical Damage reduction:,怪物的物理伤害减伤:
+'Armoured','装甲的'
+20% (Low tier),20%(低阶)
+30% (Mid tier),30%(中阶)
+40% (High tier),40%(高阶)
+"Enemy is Hexproof?",敌人是【无咒的】?
+'Hexproof','无咒的'
+Less effect of Curses on enemy:,对怪物的诅咒总效果总降:
+'Hexwarded','魔抗的'
+25% (Low tier),25%(低阶)
+40% (Mid tier),40%(中阶)
+60% (High tier),60%(高阶)
+Enemy has Elemental / Chaos Resist:,怪物的元素/^xD02090混沌^7抗性增加:
+'Resistant','抗性的'
+20% / 15% (Low tier),20%/15%(低阶)
+30% / 20% (Mid tier),30%/20%(中阶)
+40% / 25% (High tier),40%/25%(高阶)
+Player has Elemental Equilibrium?,玩家有【元素之相】?
+'of Balance','平衡之'
+Cannot Leech Life / Mana?,^xFFFFFF无法偷取怪物^xE05030生命^7和^x7070FF魔力^7?
+"'of Congealment'",'凝血之'
+"Gains reduced Flask Charges:",玩家获得的药剂充能降低:
+'of Drought','干枯之'
+30% (Low tier),30%(低阶)
+40% (Mid tier),40%(中阶)
+50% (High tier),50%(高阶)
+-X% maximum Resistances:,-X% 玩家的抗性上限:
+'of Exposure','曝露之'
+Mid tier: 5-8%,"中阶: 5-8%"
+High tier: 9-12%,"高阶: 9-12%"
+Less Area of Effect:,玩家的范围效果总降:
+'of Impotence','短程之'
+15% (Low tier),15%(低阶)
+20% (Mid tier),20%(中阶)
+25% (High tier),25%(高阶)
+Enemy avoid Elemental Ailments:,怪物几率免疫元素异常状态:
+'of Insulation','隔绝之'
+30% (Low tier),30%(低阶)
+50% (Mid tier),50%(中阶)
+70% (High tier),70%(高阶)
+Enemy avoid Poison and Bleed:,怪物几率免疫中毒/流血:
+'Impervious','避毒的'
+25% (Low tier),25%(低阶)
+35% (Mid tier),35%(中阶)
+65% (High tier),65%(高阶)
+Unlucky Dodge / Enemy has inc. Accuracy:,玩家在躲避时很不幸/怪物命中值提高:
+'of Miring','迟钝之'
+30% (Low tier),30%(低阶)
+40% (Mid tier),40%(中阶)
+50% (High tier),50%(高阶)
+Reduced Block Chance / less Armour:,玩家的格挡率降低/护甲总降:
+'of Rust','生锈之'
+20% / 20% (Low tier),20%/20%(低阶)
+30% / 25% (Mid tier),30%/25%(中阶)
+40% / 30% (High tier),40%/30%(高阶)
+"Player has Point Blank?",玩家拥有【零点射击】?
+'of Skirmishing','冲突之'
+Less Recovery Rate of Life and Energy Shield:,玩家的^xE05030生命^7和^x88FFFF能量护盾^7回复速率总降:
+'of Smothering','窒息之'
+20% (Low tier),20%(低阶)
+40% (Mid tier),40%(中阶)
+60% (High tier),60%(高阶)
+"Cannot Regen Life, Mana or ES?",^xFFFFFF玩家无法再生^xE05030生命^7，^x7070FF魔力^7和^x88FFFFES^7?
+'of Stasis','瘀血之'
+"Enemy takes red. Extra Crit Damage:",怪物受到的暴击额外伤害降低:
+'of Toughness','坚韧之'
+Low tier: 25-30%,低阶: 25-30%
+Mid tier: 31-35%,中阶: 31-35%
+High tier: 36-40%,高阶: 36-40%

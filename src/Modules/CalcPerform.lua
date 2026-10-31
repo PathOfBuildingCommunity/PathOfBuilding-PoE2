@@ -223,9 +223,9 @@ local function calcBuffRadius(actor, key)
 		actor.breakdown[radiusKey] = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
 		if baseRadius ~= scaledRadius then
 			actor.breakdown[modKey] = {}
-			t_insert(actor.breakdown[modKey], s_format("%.1fm ^8(base radius)", baseRadius / 10))
-			t_insert(actor.breakdown[modKey], s_format(" x %.2f  ^8(inc)", 1 + incRadius / 100))
-			t_insert(actor.breakdown[modKey], s_format(" x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown[modKey], localisation:Text("calc.perform.calc_buff_radius.line", { value = baseRadius / 10 }))
+			t_insert(actor.breakdown[modKey], localisation:Text("calc.perform.calc_buff_radius.line_2", { value = 1 + incRadius / 100 }))
+			t_insert(actor.breakdown[modKey], localisation:Text("calc.perform.calc_buff_radius.line_3", { more_radius = moreRadius }))
 			t_insert(actor.breakdown[modKey], s_format(" = %.1fm", scaledRadius / 10))
 		end
 	end
@@ -1361,7 +1361,7 @@ function calcs.perform(env, skipEHP)
 				local variantId = activeSkill.activeEffect.gemData.variantId
 				local buffValue = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "UmbralWellBuffValue")
 				if buffValue > 0 then
-					activeSkill.infoMessage = "Disabled by Umbral Well"
+					activeSkill.infoMessage = localisation:Text("ui.calc_perform.state.perform.info_message")
 					activeSkill.minion.modDB:NewMod("DealNoDamage", "FLAG", 1, "Umbral Well")
 
 					local count = calcs.getActiveSkillCount(activeSkill)
@@ -1437,7 +1437,7 @@ function calcs.perform(env, skipEHP)
 		end
 		-- The Saviour
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
-			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
+			activeSkill.infoMessage = localisation:Text("ui.calc_perform.state.perform.info_message_2")
 			activeSkill.infoTrigger = "Saviour"
 		end
 	end
@@ -1921,9 +1921,9 @@ function calcs.perform(env, skipEHP)
 					source = "",
 					rowList = { },
 					colList = {
-						{ label = attr, key = "req" },
-						{ label = "Source", key = "source" },
-						{ label = "Source Name", key = "sourceName" },
+						{ label = attr, labelKey = localisation:TermKey('attribute', attr), key = "req" },
+						{ label = "Source", labelKey = "ui.calc_perform.perform.source.label", key = "source" },
+						{ label = "Source Name", labelKey = "ui.calc_perform.perform.source_name.label", key = "sourceName" },
 					}
 				}
 			end
@@ -1958,17 +1958,21 @@ function calcs.perform(env, skipEHP)
 						local row = {
 							req = reqBool and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
-							source = reqSource.source,
+							source = reqSource.source, sourceKey = localisation:TermKey('calculation_source', reqSource.source),
 						}
 						if reqSource.source == "Item" then
 							local item = reqSource.sourceItem
 							row.sourceName = colorCodes[item.rarity] .. item.name
+							row.sourceNameDisplay = function() return colorCodes[item.rarity] .. localisation:ItemName(item) end
 							row.sourceNameTooltip = getSourceNameTooltipFunc(item, reqSource)
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
+							row.sourceNameDisplay = function() return s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, localisation:SkillName(reqSource.sourceGem), reqSource.sourceGem.level, reqSource.sourceGem.quality) end
 						elseif reqSource.source == "Support Gems" then
 							local attrName = ({Str="Strength",Dex="Dexterity",Int="Intelligence"})[attr]
 							row.sourceName = (reqSource[attr]/5).." "..colorCodes[string.upper(attrName)]..attrName.." Support Gems"
+							row.sourceNameKey = 'calc.requirements.support_gems'
+							row.sourceNameParams = { count = reqSource[attr]/5, colour = colorCodes[string.upper(attrName)], attribute = localisation:TermRef('attribute', attrName) }
 						end
 						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end
@@ -2215,8 +2219,8 @@ function calcs.perform(env, skipEHP)
 						end
 						if breakdown then
 							breakdown[warcryName.."EmpoweringWarcryCount"] = {
-								s_format("(%d / %d) ^8(Power / per = base)", m_min(warcryPower, powerCap), powerPer),
-								s_format("= ((%.2f + %.2f) x %.2f) ^8((base + extra) x more)", baseEmpowers, extraEmpowers, EmpowerMultiplier),
+								localisation:Text("calc.perform.perform.line", { value = m_min(warcryPower, powerCap), power_per = powerPer }),
+								localisation:Text("calc.perform.perform.line_2", { base_empowers = baseEmpowers, extra_empowers = extraEmpowers, empower_multiplier = EmpowerMultiplier }),
 								s_format("= %.2f", totalEmpowers),
 							}
 						end
@@ -3664,19 +3668,19 @@ function calcs.perform(env, skipEHP)
 
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
-				t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from gem)", baseLevel))
+				t_insert(env.player.breakdown.GemLevel, localisation:Text("calc.perform.perform.line_3", { base_level = baseLevel }))
 				-- support gems inherit levels from the parent gem, which means showing level modifiers is pointless
 				if not inheritsLevel then
 					if totalSupportLevel > 0 then
-						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from support)", totalSupportLevel))
+						t_insert(env.player.breakdown.GemLevel, localisation:Text("calc.perform.perform.line_4", { total_support_level = totalSupportLevel }))
 					end
 					if totalItemLevel > 0 then
-						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+						t_insert(env.player.breakdown.GemLevel, localisation:Text("calc.perform.perform.line_5", { total_item_level = totalItemLevel }))
 					end
 					if totalCorruptionLevel > 0 then
-						t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+						t_insert(env.player.breakdown.GemLevel, localisation:Text("calc.perform.perform.line_6", { total_corruption_level = totalCorruptionLevel }))
 					elseif totalCorruptionLevel < 0 then
-						t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
+						t_insert(env.player.breakdown.GemLevel, localisation:Text("calc.perform.perform.line_7", { total_corruption_level = totalCorruptionLevel }))
 					end
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
@@ -3690,12 +3694,12 @@ function calcs.perform(env, skipEHP)
 			output.GemQuality = baseQuality + totalSupportQuality + totalGlobalQuality
 			if env.player.breakdown then
 				env.player.breakdown.GemQuality = {}
-				t_insert(env.player.breakdown.GemQuality, s_format("%d ^8(quality from gem)", baseQuality))
+				t_insert(env.player.breakdown.GemQuality, localisation:Text("calc.perform.perform.line_8", { base_quality = baseQuality }))
 				if totalSupportQuality > 0 then
-					t_insert(env.player.breakdown.GemQuality, s_format("+ %d ^8(quality from supports)", totalSupportQuality))
+					t_insert(env.player.breakdown.GemQuality, localisation:Text("calc.perform.perform.line_9", { total_support_quality = totalSupportQuality }))
 				end
 				if totalGlobalQuality > 0 then
-					t_insert(env.player.breakdown.GemQuality, s_format("+ %d ^8(quality from global modifiers)", totalGlobalQuality))
+					t_insert(env.player.breakdown.GemQuality, localisation:Text("calc.perform.perform.line_10", { total_global_quality = totalGlobalQuality }))
 				end
 				t_insert(env.player.breakdown.GemQuality, s_format("= %d", output.GemQuality))
 			end

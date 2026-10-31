@@ -56,6 +56,9 @@ You can find the full version history [here](CHANGELOG.md).
 ## Contribute
 You can find instructions on how to contribute code and bug reports [here](CONTRIBUTING.md).
 
+For language support, font setup, and translation maintenance, see the
+[localisation guide](LOCALISATION.md) (English / 中文).
+
 ## Licence
 [MIT](https://opensource.org/licenses/MIT)
 

@@ -1,0 +1,39 @@
+Enemy physical damage reduction: {0}%,敌人物理減伤: {0}%
+(physical damage reduction),(物理減伤)
+Effective resistance:,有效抗性:
+(resistance),(抗性)
+(penetration),(抗性穿透)
+(resistance ignored),(无视抗性)
+Effective DPS modifier:,有效DPS修正:
+(increased/reduced damage taken),(承受伤害提高/减少)
+(more/less damage taken),(承受伤害总增/总降)
+(base damage per second),(每秒基础伤害)
+x {0} (increased/reduced),x {0} (提高/降低)
+x {0} (more/less),x {0} (总增/总降)
+(multiplier),(加成)
+(rate modifier),(生效速度修正)
+(aura effect modifier),(光环效果修正)
+{0} (effective DPS modifier),{0} (有效DPS修正)
+Contribution from Non-crits:,来自非暴击的贡献:
+(dot multiplier for non-crits),(非暴击持续伤害加成)
+"x {0} (portion of instances created by non-crits)","x {0} (非暴击实例部分)"
+Contribution from Crits:,来自暴击的贡献:
+(dot multiplier for crits),(暴击持续伤害加成)
+"x {0} (portion of instances created by crits)","x {0} (暴击实例部分)"
+Effective DoT Multiplier:,有效持续伤害加成:
+"Instant Leech: {0}","瞬间偷取: {0}"
+"Total leeched per instance:",每个实例总偷取:
+"{0} (size of leech destination pool)","{0} (偷取池大小)"
+"x {0} (base leech rate is {1}% per second)","x {0} (每秒偷取速率基础为{1}%)"
+(leech rate modifier),(偷取速率修正)
+"x {0} (instance duration)","x {0} (实例持续时间)"
+"Instant Leech per hit: {0}","每次击中瞬间偷取: {0}"
+"Instant Leech per second: {0}","每秒瞬间偷取: {0}"
+"Rate per instance:",每个实例速率:
+"Maximum leech rate against one target:",对单目标最大偷取速率:
+"x {0} (average instances)","x {0} (平均实例)"
+"Time to reach max: {0}","达到最大时间: {0}"
+"Leech rate cap: {0}","偷取速率上限: {0}"
+"Time to reach cap: {0}","达到上限时间: {0}"
+Condition,条件
+Low Life,低血

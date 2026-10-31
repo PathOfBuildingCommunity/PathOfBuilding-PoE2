@@ -6,6 +6,7 @@
 local t_insert = table.insert
 local m_floor = math.floor
 local dkjson = require "dkjson"
+local utf8 = require("lua-utf8")
 local tradeHelpers = LoadModule("Classes/TradeHelpers")
 local tradeStats = tradeHelpers.getTradeStats()
 
@@ -29,10 +30,10 @@ local REALM_API_IDS = {
 
 -- Listed status display names and their API option values
 local LISTED_STATUS_OPTIONS = {
-	{ label = "Instant Buyout", apiValue = "securable" },
-	{ label = "Instant Buyout & In Person", apiValue = "available" },
-	{ label = "In Person (Online)", apiValue = "online" },
-	{ label = "Any", apiValue = "any" },
+	{ label = "Instant Buyout", labelKey = "ui.compare_buy_similar.module.listed_status_options.label_3", apiValue = "securable" },
+	{ label = "Instant Buyout & In Person", labelKey = "ui.compare_buy_similar.module.listed_status_options.label_4", apiValue = "available" },
+	{ label = "In Person (Online)", labelKey = "ui.compare_buy_similar.module.listed_status_options.label_2", apiValue = "online" },
+	{ label = "Any", labelKey = "ui.compare_buy_similar.module.listed_status_options.label", apiValue = "any" },
 }
 local LISTED_STATUS_LABELS = { }
 for i, entry in ipairs(LISTED_STATUS_OPTIONS) do
@@ -311,10 +312,10 @@ function M.openPopup(item, slotName, primaryBuild)
 	local defenceEntries = {}
 	if not isUnique and item.armourData and item.base and item.base.armour then
 		local defences = {
-			{ key = "Armour", label = "Armour", tradeKey = "ar" },
-			{ key = "Evasion", label = "Evasion", tradeKey = "ev" },
-			{ key = "EnergyShield", label = "Energy Shield", tradeKey = "es" },
-			{ key = "Ward", label = "Runic Ward", tradeKey = "ward" },
+			{ key = "Armour", label = "Armour", labelKey = "ui.compare_buy_similar.open_popup.armour.label", tradeKey = "ar" },
+			{ key = "Evasion", label = "Evasion", labelKey = "ui.compare_buy_similar.open_popup.evasion.label", tradeKey = "ev" },
+			{ key = "EnergyShield", label = "Energy Shield", labelKey = "ui.compare_buy_similar.open_popup.energy_shield.label", tradeKey = "es" },
+			{ key = "Ward", label = "Runic Ward", labelKey = "ui.compare_buy_similar.open_popup.ward.label", tradeKey = "ward" },
 		}
 		for _, def in ipairs(defences) do
 			local val = item.armourData[def.key]
@@ -345,11 +346,11 @@ function M.openPopup(item, slotName, primaryBuild)
 	-- Helper to fetch and populate leagues for a given realm API id
 	local function fetchLeaguesForRealm(realmApiId)
 		local lastIdx = M.lastLeagueIdx
-		controls.leagueDrop:SetList({"Loading..."})
+		controls.leagueDrop:SetList(localisation:List({"Loading..."}, { [1] = "ui.compare_buy_similar.open_popup.league_drop.label" }))
 		controls.leagueDrop.selIndex = 1
 		tradeQueryRequests:FetchLeagues(realmApiId, function(leagues, errMsg)
 			if errMsg then
-				controls.leagueDrop:SetList({"Standard"})
+				controls.leagueDrop:SetList(localisation:List({"Standard"}, { [1] = "ui.compare_buy_similar.fetch_leagues_for_realm.message" }))
 				rebuildUrl()
 				return
 			end
@@ -383,8 +384,8 @@ function M.openPopup(item, slotName, primaryBuild)
 	end
 
 	-- Realm dropdown
-	controls.realmLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, "^7Realm:")
-	controls.realmDrop = new("DropDownControl"):DropDownControl({ "LEFT", controls.realmLabel, "RIGHT" }, { 4, 0, 80, 20 }, { "PoE2" }, function(index, value)
+	controls.realmLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.realm_label.label"))
+	controls.realmDrop = new("DropDownControl"):DropDownControl({ "LEFT", controls.realmLabel, "RIGHT" }, { 4, 0, 80, 20 }, localisation:List({ "PoE2" }, { [1] = "ui.compare_buy_similar.open_popup.realm_drop.label" }), function(index, value)
 		local realmApiId = REALM_API_IDS[value] or "poe2"
 		fetchLeaguesForRealm(realmApiId)
 		rebuildUrl()
@@ -396,8 +397,8 @@ function M.openPopup(item, slotName, primaryBuild)
 	controls.realmDrop.disabled = true
 
 	-- League dropdown
-	controls.leagueLabel = new("LabelControl"):LabelControl({ "LEFT", controls.realmDrop, "RIGHT" }, { 12, 0, 0, 16 }, "^7League:")
-	controls.leagueDrop = new("DropDownControl"):DropDownControl({ "LEFT", controls.leagueLabel, "RIGHT" }, { 4, 0, 160, 20 }, { "Loading..." }, function(index, value)
+	controls.leagueLabel = new("LabelControl"):LabelControl({ "LEFT", controls.realmDrop, "RIGHT" }, { 12, 0, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.league_label.label"))
+	controls.leagueDrop = new("DropDownControl"):DropDownControl({ "LEFT", controls.leagueLabel, "RIGHT" }, { 4, 0, 160, 20 }, localisation:List({ "Loading..." }, { [1] = "ui.compare_buy_similar.open_popup.league_drop.label" }), function(index, value)
 		M.lastLeagueIdx = index
 		rebuildUrl()
 	end)
@@ -411,7 +412,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	if M.lastListedIndex then
 		controls.listedDrop:SetSel(M.lastListedIndex, true)
 	end
-	controls.listedLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.listedDrop, "LEFT" }, { -4, 0, 0, 16 }, "^7Listed:")
+	controls.listedLabel = new("LabelControl"):LabelControl({ "RIGHT", controls.listedDrop, "LEFT" }, { -4, 0, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.listed_label.label"))
 
 	-- Fetch initial leagues for the selected realm
 	fetchLeaguesForRealm(REALM_API_IDS[controls.realmDrop:GetSelValue()] or "poe2")
@@ -420,24 +421,24 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	if isUnique then
 		-- Unique item name label
-		controls.nameLabel = new("LabelControl"):LabelControl(nil, { 0, ctrlY, 0, 16 }, "^x" .. (colorCodes[item.rarity] or "FFFFFF"):gsub("%^x", "") .. item.name)
+		controls.nameLabel = new("LabelControl"):LabelControl(nil, { 0, ctrlY, 0, 16 }, "^x" .. (colorCodes[item.rarity] or "FFFFFF"):gsub("%^x", "") .. localisation:ItemName(item))
 		ctrlY = ctrlY + rowHeight
 	else
 		-- Category label
 		local categoryLabel = tradeHelpers.getTradeCategoryLabel(slotName, item)
-		controls.categoryLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, "^7Category: " .. categoryLabel)
+		controls.categoryLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.category_label.label", { category_label = categoryLabel }))
 		ctrlY = ctrlY + rowHeight
 
 		-- Base type checkbox
 		controls.baseTypeCheck = new("CheckBoxControl"):CheckBoxControl(nil, { -popupWidth / 2 + leftMargin + checkboxSize / 2, ctrlY, checkboxSize }, "", rebuildUrl)
-		controls.baseTypeLabel = new("LabelControl"):LabelControl({ "LEFT", controls.baseTypeCheck, "RIGHT" }, { 4, 0, 0, 16 }, "^7Use specific base: " .. (item.baseName or "Unknown"))
+		controls.baseTypeLabel = new("LabelControl"):LabelControl({ "LEFT", controls.baseTypeCheck, "RIGHT" }, { 4, 0, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.base_type_label.label_2", { value = (item.baseName or localisation:Ref("ui.compare_buy_similar.open_popup.base_type_label.label")) }))
 		ctrlY = ctrlY + rowHeight
 
 		-- Item level
 		ctrlY = ctrlY + 4
-		controls.ilvlLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, "^7Item Level:")
-		controls.ilvlMin = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", "Min", 4, true, rebuildUrl)
-		controls.ilvlMax = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", "Max", 4, true, rebuildUrl)
+		controls.ilvlLabel = new("LabelControl"):LabelControl({ "TOPLEFT", nil, "TOPLEFT" }, { leftMargin, ctrlY, 0, 16 }, localisation:Label("ui.compare_buy_similar.open_popup.ilvl_label.label"))
+		controls.ilvlMin = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", localisation:Label("ui.compare_buy_similar.edit_control.prompt"), 4, true, rebuildUrl)
+		controls.ilvlMax = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", localisation:Label("ui.compare_buy_similar.edit_control.prompt_2"), 4, true, rebuildUrl)
 		ctrlY = ctrlY + rowHeight
 
 		-- Defence stat rows
@@ -445,8 +446,8 @@ function M.openPopup(item, slotName, primaryBuild)
 			local prefix = "def" .. i
 			controls[prefix .. "Check"] = new("CheckBoxControl"):CheckBoxControl(nil, { -popupWidth / 2 + leftMargin + checkboxSize / 2, ctrlY, checkboxSize }, "", rebuildUrl)
 			controls[prefix .. "Label"] = new("LabelControl"):LabelControl({ "LEFT", controls[prefix .. "Check"], "RIGHT" }, { 4, 0, 0, 16 }, "^7" .. def.label)
-			controls[prefix .. "Min"] = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, tostring(m_floor(def.value)), "Min", 6, true, rebuildUrl)
-			controls[prefix .. "Max"] = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", "Max", 6, true, rebuildUrl)
+			controls[prefix .. "Min"] = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, tostring(m_floor(def.value)), localisation:Label("ui.compare_buy_similar.edit_control.prompt"), 6, true, rebuildUrl)
+			controls[prefix .. "Max"] = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, ctrlY, fieldW, fieldH }, "", localisation:Label("ui.compare_buy_similar.edit_control.prompt_2"), 6, true, rebuildUrl)
 			ctrlY = ctrlY + rowHeight
 		end
 
@@ -489,8 +490,8 @@ function M.openPopup(item, slotName, primaryBuild)
 				-- strip color codes and replace with gray
 				displayText = "^8" .. displayText:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", "")
 			end
-			if #displayText > (#colorCodeLength + 62) then
-				displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
+			if utf8.len(displayText) > (#colorCodeLength + 62) then
+				displayText = utf8.sub(displayText, 1, #colorCodeLength + 54) .. "..."
 			end
 			displayTexts[index] = displayText
 		end
@@ -505,8 +506,8 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- when the trade site has a dropdown for the value, we opt to disable
 		-- the inputs as they are numeric
 		if not (entry.isOption or entry.needsExactValue) and entry.value then
-			controls[prefix .. "Min"] = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, controlYPos, fieldW, fieldH }, entry.value ~= 0 and tostring(entry.value) or "", "Min", 8, nil, rebuildUrl)
-			controls[prefix .. "Max"] = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, controlYPos, fieldW, fieldH }, "", "Max", 8, nil, rebuildUrl)
+			controls[prefix .. "Min"] = tradeHelpers.newPlainNumericEdit(nil, { minFieldX - popupWidth / 2, controlYPos, fieldW, fieldH }, entry.value ~= 0 and tostring(entry.value) or "", localisation:Label("ui.compare_buy_similar.edit_control.prompt"), 8, nil, rebuildUrl)
+			controls[prefix .. "Max"] = tradeHelpers.newPlainNumericEdit(nil, { maxFieldX - popupWidth / 2, controlYPos, fieldW, fieldH }, "", localisation:Label("ui.compare_buy_similar.edit_control.prompt_2"), 8, nil, rebuildUrl)
 			if not canSearch then
 				controls[prefix .. "Min"].enabled = function() return false end
 				controls[prefix .. "Max"].enabled = function() return false end
@@ -517,16 +518,16 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	-- Search button
 	ctrlY = ctrlY + 8
-	controls.search = new("ButtonControl"):ButtonControl(nil, { 0, ctrlY, 110, 20 }, "Open URL", function()
+	controls.search = new("ButtonControl"):ButtonControl(nil, { 0, ctrlY, 110, 20 }, localisation:Label("ui.compare_buy_similar.open_popup.search.label"), function()
 		Copy(uri)
 		OpenURL(uri)
 	end, nil)
-	controls.search.tooltipText = "The URL is also copied to the clipboard."
+	controls.search.tooltipText = localisation:Label("ui.compare_buy_similar.open_popup.search_tooltip_text.label")
 	controls.search.enabled = function()
 		return uri and uri ~= ""
 	end
 
-	controls.close = new("ButtonControl"):ButtonControl(nil, { popupWidth / 2 - 50, ctrlY, 60, 20 }, "Close", function()
+	controls.close = new("ButtonControl"):ButtonControl(nil, { popupWidth / 2 - 50, ctrlY, 60, 20 }, localisation:Label("ui.compare_buy_similar.open_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 
@@ -534,7 +535,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	local popupHeight = ctrlY + fieldH + 16
 	if popupHeight > 600 then popupHeight = 600 end
 
-	local title = "Buy Similar"
+	local title = localisation:Text("comparison.buy_similar.title")
 	main:OpenPopup(popupWidth, popupHeight, title, controls, "search", nil, "close")
 end
 

@@ -1,0 +1,85 @@
+"(When an Impaled enemy is hit, the Impale reflects 10% of the physical damage of the Impaling hit to that enemy. Impale lasts for 5 hits or 8 seconds)","（ 當被穿刺的敵人被擊中，穿刺會反射 10% 穿刺之擊所造成的物理傷害至敵人。穿刺持續 5 次擊中 ）"
+"(Onslaught grants 20% increased Attack, Cast, and Movement Speed)","( 猛攻增加你 20% 攻擊速度、施放速度，和移動速度 )"
+"(Bleeding deals Physical Damage over time, based on the base Physical Damage of the Skill. Damage is higher while moving)","( 流血造成持續性物理傷害，傷害取決於初始的物理傷害。移動時受到的流血傷害增加 )"
+"(Culling Strike means enemies that are on 10% or lower life after your Hit are Killed)","（ 對生命等於或少於 10% 最大生命的敵人可以造成撲殺，敵人將直接死亡 ）"
+"(Being Blinded causes 20% less Accuracy Rating and Evasion Rating, for 4 seconds)","（ 被致盲有20%更少命中率和閃避值，持續4秒 ）"
+"(Take 1% less Damage from Hits per Fortification. Maximum 20 Fortification. Fortification lasts 6 seconds)","（ 每 1 層護體承受 1% 更少擊中傷害。最大 20 層護體。護體持續 5 秒）"
+"(Enemies standing in Smoke Clouds are Blinded)","（ 站在迷霧中的敵人被致盲 ）"
+"(Allies on your Consecrated Ground Regenerate a percentage of their Maximum Life per second, and Curses have 50% reduced effect on them)","（ 站在奉獻地面上的友方每秒回復他們最大生命的百分比，且減少 50% 他們身上的詛咒效果 ）"
+"(Intimidated enemies take 10% increased Attack Damage)","（被威嚇的敵人增加 10% 承受的攻擊傷害）"
+"(Choose one of the three attached options)","（ 請在三個選項中擇一 ）"
+"(Recently refers to the past 4 seconds)","（ 近期內意指 4 秒內 ）"
+"(You can only take one of the three Marauder Ascendancy passives)","（ 你只能在野蠻人的三個昇華職業中選擇一個 ）"
+"(You can only take one of the three Ranger Ascendancy passives)","（ 你只能在遊俠的三個昇華職業中選擇一個 ）"
+"(You can only take one of the three Witch Ascendancy passives)","（ 你只能在女巫的三個昇華職業中選擇一個 ）"
+"(You can only take one of the three Duelist Ascendancy passives)","（ 你只能在決鬥者的三個昇華職業中選擇一個 ）"
+"(You can only take one of the three Templar Ascendancy passives)","（ 你只能在聖堂武僧的三個昇華職業中選擇一個 ）"
+"(You can only take one of the three Shadow Ascendancy passives)","（ 你只能在暗影刺客的三個昇華職業中選擇一個 ）"
+"(Ignoring Resistances means your Damage cannot be modified in any way by any Resistance stats)","（ 無視抗性表示你的傷害不被任和抗性所影響 ）"
+"(Enemies you Taunt can only target you, and deal 10% less damage to anyone else. Taunt lasts for 3 seconds)","（被你嘲諷敵人只能以你為目標，並對其他人造成 10% 較少傷害。嘲諷持續 3 秒）"
+"(These are consecutive)
+(Each Conflux means all damage causes that Ailment)","（此為連續效果）
+（特定匯流作用時，你所有擊中造成的傷害皆能造對應的異常狀態。）"
+"(Chill reduces Enemy Action Speed by up to 30%, depending on the amount of Cold Damage in the hit, for 2 seconds)",（冰緩依據擊中的冰冷傷害總量減少敵人行動速度，至多30%，持續2秒）
+"(Shock increases Damage taken by up to 50%, depending on the amount of Lightning Damage in the hit, for 2 seconds)",（感電根據擊中的閃電傷害總量，增加至多50%承受傷害，持續2秒）
+"(The Stun Threshold determines how much Damage can Stun something)",（造成暈眩所需的傷害量代表暈眩門檻）
+"(Freeze lowers Enemy Action Speed to zero, preventing them from acting. Duration is based on the Cold Damage of the Hit)","（冰凍使敵人行動速度降至 0，使他們無法行動。根據擊中的冰冷傷害決定持續時間）"
+"(Ignite deals Fire Damage over time, based on the base Fire Damage of the Skill, for 4 seconds)",（點燃根據技能的基礎火焰傷害，造成持續火焰傷害，持續4秒）
+"(Inherent effects from having Rage are:
+1% increased Attack Damage per 1 Rage
+1% increased Attack Speed per 2 Rage
+1% increased Movement Speed per 5 Rage)","( 固有的盛怒效果:
+每 1 層盛怒增加 1% 攻擊傷害
+每 2 層盛怒增加 1% 攻擊速度
+每 5 層盛怒增加 1% 移動速度 )"
+"(You lose 1 Rage every 0.5 seconds if you have not been Hit or gained Rage Recently)","( 若你近期沒有被擊中或獲得盛怒，每 0.5 秒失去 1 層盛怒 )"
+"(Maximum Rage is 50)","( 盛怒最大層數 50 )"
+"(Adrenaline grants 100% increased Damage, 25% increased Attack, Cast and Movement Speed and 10% additional Physical Damage Reduction. You cannot gain Adrenaline if you already have it)","（ 腎上腺素提供增加 100% 傷害，增加 25% 攻擊、施放和移動速度、和 10% 額外物理傷害減免。若已經有腎上腺素將不會再獲得一次 ）"
+"(Arcane Surge grants 10% more Spell Damage and 30% increased Mana Regeneration rate, for 4 seconds)","( 秘能波動提供 10% 更多法術傷害和增加 30% 魔力回復，持續 4 秒 )"
+"(Withered applies 6% increased Chaos Damage Taken, and can be inflicted up to 15 times)","（凋零增加 6% 承受混沌傷害，至多可以堆疊 15 次）"
+"(Crushed lowers Physical Damage Reduction by 15%)","（ 壓碎降低 15% 物理傷害減免 ）"
+"(Arcane Surge grants 10% increased Cast Speed and 30% increased Mana Regeneration rate, for 4 seconds)","( 秘能波動增加 10% 施放速度和增加 30% 魔力回復率，持續 4 秒 )"
+"(You can only take one of the three Warlock Power passives)","（ 你只能選擇一個術士之力天賦 ）"
+"(Characters inherently gain +12 Life per Level)","（ 角色每級 +12 生命）"
+"(Pacify curses all targets in an area, having no effect at first, but causing them to deal no damage once 60% of the curse's duration has expired)","（ 平靜詛咒區域內全部目標，初始沒有效果，但當詛咒的持續時間失效 60% 時，始他們不造成傷害 ）"
+"(Affliction permanently Afflicts any of your damageable minions in a targeted area, causing them to take physical damage over time, at an accelerating rate. Each such minion causes you to regenerate life at a rate based on the current damage of its Affliction debuff. Afflicted Minions explode if their life is lowered to a fifth of maximum)","（ 禁咒永久影響目標區域內，你任何可被傷害的召喚物，使他們承受物理持續傷害，且傷害速率倍增。每個此類召喚物，使你的生命回復根據當前禁咒效果傷害率。禁咒召喚物血量低於五分之一時會爆炸 ）"
+"(Penance Mark curses a single enemy, causing them to spawn multiple phantasms when hit. The phantasms will be allies of the marked enemy with the same monster level. They cast a projectile spell which deals physical damage, and are immune to curses. You can only have one Mark at a time)","（ 苦行印記詛咒單一敵人，使它們被擊中時產生多個幻影。幻影為印記敵人的有方且有著相同等級。它們施放造成物理傷害的投射物法術，且免疫詛咒。你同時只能印記 1 個敵人 ）"
+"(Adopt the power of the Viridian Wildwood, gradually covering your body in bark. Getting hit by enemy attacks causes bark to be removed. You have higher armour the more bark builds up, but higher chance to evade when less covered in bark)","( 適應翠綠荒林之力，你的身體逐漸被木質包覆。被敵人擊中使木質剝落。累積更多木質會使你有更多護甲，當被較少木質包覆時有更高的閃避率 )"
+"(Summon two Triggerbots which follow you around and run towards enemies. our Triggered Spells Trigger twice, once from each Triggerbot's location)","( 召喚 2 個觸發機械跟隨你，並朝敵人跑去。我們的觸發法術觸發 2 次，從每個觸發機械的位置觸發 1 次 )"
+"(Summons a Sentinel of Radiance which follows you and attacks enemies in melee, while burning enemies around it and taking a portion of damage from hits for you. You can only have one Sentinel of Radiance)","（ 召喚光輝護衛跟隨你並近戰攻擊敵人，燃燒它附近的敵人和替你承受部分擊中傷害。你只能有一個光輝護衛 ）"
+"(This skill is triggered when you use a Slam or Strike skill, and summons a Mirage Chieftain who will use that Slam or Strike skill once before dissipating)","（ 當你使用重擊或打擊技能時，觸發此技能，並召喚幻影酋長，並在消散前使用重擊或打擊技能一次 ）"
+"(Summons a Relic of a random element that stays near you. Depending on the element chosen, the relic minion will have an Anger, Hatred, or Wrath aura. These relics explode when they die, dealing elemental damage to enemies around them. If you already have a relic of the chosen element, its duration will be refreshed instead of summoning a new one)","（ 召喚隨機元素的聖物待在你身邊。根據所選擇元素，聖物召喚物有憤怒、憎恨或雷霆光環。當聖物死亡時會爆炸，對附近敵人造成元素傷害。若你已經有選擇元素的聖物，召喚時會刷新它的持續時間，而不是照換新的 ）"
+"(Primal Aegis calls forth a protective aegis which takes elemental damage from hits for you until depleted. The aegis will be restored to its full value after a short delay if you stop taking elemental damage from hits, or if depleted)","（ 始祖聖盾召喚 4 個保護聖盾，在消逝前替你承受擊中元素傷害。若你停止承受擊中元素傷害或聖盾消逝，聖盾會在一段時間回復全部 ）"
+"(Bone Armour applies a buff to you and each of your minions, which will take some of the damage from enemy hits before being depleted. The buff also grants immunity to bleeding. Shares a cooldown with other Guard skills)","( 骸骨鎧甲增益效果套用至你和你每個召喚物，在消逝前替你承受部分敵人擊中的傷害。此增益效果同時給予免疫流血。和其他守護技能共享冷卻時間 )"
+"(Ravenous consumes a targeted corpse, granting you a buff that causes you to deal more damage to, and take less damage from, enemies of the same Monster Category as the corpse)","（ 貪婪消耗 1 個指定屍體，增益使你對與相同怪物種類屍體的敵人，造成更多傷害、承受更少傷害 ）"
+"(Summon two Triggerbots which follow you around and run towards enemies. Your Triggered Spells Trigger twice, once from each Triggerbot's location)","（ 召喚 2 個觸發機械跟隨你，並朝敵人跑去。你的觸發法術觸發 2 次，從每個觸發機械的位置觸發 1 次 ）"
+"(Bleeding deals Physical Damage over time, based on the base Physical Damage of the Skill. Damage is 200% higher while moving)","（ 流血造成持續性物理傷害，傷害取決於初始的物理傷害。移動時受到的流血傷害增加 200% ）"
+"(Every Rage grants 1% more Attack Damage. Maximum Rage is 30. Lose 10 Rage per second if you have not been Hit or gained Rage in the last 2 seconds)","（每獲得 1 層盛怒使攻擊傷害提升 1%，上限為 30 層。若你在過去 2 秒內沒有被擊中或獲得盛怒，每秒失去 10 層盛怒）"
+"(You lose 10 Rage per second if you have not been Hit or gained Rage in the last 2 seconds)","（ 若你在過去 2 秒內沒有被擊中或獲得盛怒，每秒失去 10 層盛怒）"
+"(Base Maximum Rage is 30)","（ 基礎盛怒最大層數為 30 ）"
+"(Adopt the power of the forest, gradually covering your body in bark. Getting hit by enemy attacks causes bark to be removed. You take reduced damage from physical attack hits the more bark builds up, but higher chance to evade when less covered in bark)",（適應森林的力量，逐漸讓木質覆蓋你的身體。被敵人攻擊及中會使木直被移除。隨著累積越多木質，獲得越高的物理傷害減免，但當被少量木質覆蓋時會有更高的閃避率）
+"(Unbound Avatar requires 100 Unbound Fury to use and causes you to become Unbound for 10 seconds, which has no effects beyond those listed here)","（無縛化身需要 100 層無縛之怒才能使用，並會使你進入無縛狀態，持續 10 秒，除此處列舉的效果外無其他效果）"
+"(Arcane Surge grants 20% increased Cast Speed and 30% increased Mana Regeneration rate, for 4 seconds)","（秘能波動賦予增加 20% 施放速度和 30% 魔力回復速度的效果，持續 4 秒）"
+"(Choose one of the two attached options)","（ 請在兩個選項中擇一 ）"
+"(Summons an immortal chieftain minion of the Kitava tribe to fight alongside you for a duration. This minion grants you a buff which makes a percentage of your leech recover instantly)",（召喚一個奇塔弗部落的不朽酋長召喚物，在持續時間內與你並肩作戰。該召喚物會賦予你一種增益效果，使你一定百分比的偷取立即恢復）
+"(Summons an immortal chieftain minion of the Tasalio tribe to fight alongside you for a duration. This minion grants you a buff which prevents your action speed being lowered)",（召喚一個塔薩里奧部落的不朽酋長召喚物，在持續時間內與你並肩作戰。該召喚物會賦予你一種增益效果，使你的行動速度不會被減緩）
+"(Summons an immortal chieftain minion of the Valako tribe to fight alongside you for a duration. This minion grants you a buff which recovers life, mana and energy shield when you block)",（召喚一個瓦拉庫部落的不朽酋長召喚物，在持續時間內與你並肩作戰。該召喚物會賦予你一種增益效果，使你格擋時恢復生命、魔力和能量護盾）
+"(Summons an immortal chieftain minion of the Ngamahu tribe to fight alongside you for a duration. This minion grants you a buff which allows totems to take some damage from hits for you)",（召喚一個拿瑪乎部落的不朽酋長召喚物，在持續時間內與你並肩作戰。該召喚物會賦予你一種增益效果，使圖騰能為你承受部分的擊中傷害）
+"(Summons an immortal chieftain minion of the Rongokurai tribe to fight alongside you for a duration. This minion grants you a buff which lets a percentage of your armour protect against all damage types)",（召喚一個隆格庫萊部落的不朽酋長召喚物，在持續時間內與你並肩作戰。該召喚物會賦予你一種增益效果，使你一定百分比的護甲能防止所有傷害類型）
+"(Creates a Lesser Shrine, which will grant a bonus when touched. The Lesser Shrine will disappear after a short duration, or when used)",（創造一個低階神殿，在碰觸時賦予一種加成效果。低階神殿會在持續時間結束或被使用後消失）
+"(Summons a spectral wolf companion that attacks nearby enemies and dies after a duration. Each spectral wolf grants you a buff that adds damage to your attacks. If you have the maximum number of them, refreshes the duration and life of an existing one instead)",（召喚一頭幽靈狼夥伴攻擊附近的敵人，並在持續時間結束後死亡。每頭幽靈狼會賦予你一種增益效果，為你的攻擊增加傷害。如果你的幽靈狼數量達到上限，便會改為刷新現有幽靈狼的持續時間和生命）
+"(Summons an immortal Harbinger minion. The minion will occasionally create an aura on you that increases the Action Speed of you and all allies near you)",（召喚一個不朽的神諭召喚物。該召喚物偶爾會為你創造一個光環，使你和你附近友軍的行動速度增加。）
+"(Summons an immortal Harbinger minion. The minion has two buff spells it will cast on you: Arcane Surge, granting increased Cast Speed and Mana Regeneration, and a buff that grants Chance to Shock and Lightning Penetration)",（召喚一個不朽的神諭召喚物。該召喚物會對你施放兩種增益法術：能增加你的施放速度和魔力回復的秘能波動，以及一種賦予感電機率和閃電穿透的增益效果。）
+"(Summons an immortal Harbinger minion. While you are channelling, the minion will occasionally cast a buff on you that reduces the Damage you take, makes you avoid all Stuns and Elemental Ailments, and prevents Curses affecting you)",（召喚一個不朽的神諭召喚物。當你在引導時，該召喚物偶爾會對你施加一種增益效果，使你受到的傷害減少、免疫所有暈眩和元素異常狀態，並防止詛咒對你產生影響。）
+"(Makes you immune to physical damage, and harder for enemies to detect, for a duration)",（在持續時間內使你免疫物理傷害，且敵人更難偵測到你）
+"(While you run, this skill creates a small explosion with each step, dealing fire damage in an area around you)",（跑步時，你的每一步都會使該技能產生小型爆炸，對你的周圍造成火焰傷害。）
+"(Raise two spectral spiders from each nearby corpse that will attack your enemies with Viper Strike. Each raised spider grants you increased Attack Speed and increased Damage with Poison. Enemies will not engage the spiders directly, and they are immune to damage)",（周遭每具屍體召喚兩隻幽魂巨蛛，牠們會向你的敵人使用毒蛇打擊。每隻喚醒的蜘蛛增加你的攻擊速度和中毒傷害。敵人不會直接與蜘蛛交戰，且牠們免疫傷害。）
+"(Casts an aura that grants evasion to you and your allies)",（施放一個光環，使你與受光環影響友方獲得額外的閃避。）
+"(Casts an aura that adds chaos damage to the attacks and spells of you and your allies)",（施放一個光環，使你與受光環影響友方在攻擊和施放法術時額外附帶混沌傷害。）
+"(Casts an aura that grants additional energy shield and increased energy shield recharge rate to you and your allies)",（施放一個光環，使你與受光環影響友方獲得額外的能量護盾，並增加能量護盾充能率）
+"(Casts an aura that grants armour to you and your allies)",（施放一個光環，使你與受光環影響友方獲得額外的護甲。）
+"(While active, periodically applies a Spider's Web debuff to nearby Enemies, and Hinders them. Each Spider's Web on an Enemy increases the Damage they take. Hinder reduces their movement speed. You can only have one Aspect active at a time)",（啟動時，週期性地對附近敵人施加蛛網減益效果，並阻礙它們。敵人身上的每一個蛛網效果會增加其受到的傷害。阻礙會減少它們的移動速度。你同時只能啟動一種祝福）
+"(While active, grants the Cat's Stealth and Cat's Agility buffs in sequence. Cat's Stealth increases your critical strike chance, makes you harder to see, and gives you a chance to avoid damage for a short duration. Cat's Agility increases your attack and cast speed for a longer secondary duration. You can only have one Aspect active at a time)",（啟動時，照順序獲得傲貓隱身和傲貓姣捷增益效果。傲貓隱身會在短時間內增加你的暴擊率、使你更難被看見，並給予你避免傷害的機率。傲貓姣捷會在較長的第二段時間內增加你的攻擊和施放速度。你同時只能啟動一種祝福）
+"(While active, grants the Avian's Might and Avian's Flight buffs in sequence. Avian's Might grants you and your minions a chance to deal Double Damage with hits for a duration. Avian's Flight grants you and your minions increased Movement Speed for a secondary duration. You can only have one Aspect active at a time)",（啟動時，照順序獲得飛羽意志和飛羽飄翔增益效果。飛羽意志會在時間內賦予你和你召喚物造成雙倍擊中傷害的機率。飛羽飄翔會在第二段時間內增加你和你召喚物的移動速度。你同時只能啟動一種祝福）
+"(Curses a single enemy, making them more vulnerable to Critical Strikes. Killing the cursed enemy will grant life and mana, and a power charge. You can only have one Mark at a time)",（詛咒一名敵人，使其面對暴擊傷害時更加脆弱。擊殺被詛咒的敵人時會回復生命與魔力，並獲得一顆暴擊球。你同一時間只能施加一個印記。）
+"(Thirst for Blood reserves some of your life to cause bleeding you inflict to be stronger, and grant life regeneration based on the number bleeding enemies nearby)",（嗜血會保留你的一部分生命，並使你施加的流血更強大，並根據周遭流血的敵人獲得生命回復）

@@ -1,0 +1,77 @@
+"#% increased Spell Damage",法术伤害提高 #%
+"+# to maximum Mana",# 最大魔力
+"#% increased Physical Damage",物理伤害提高 #%
+"+# to Accuracy Rating",# 命中值
+"+# to Evasion Rating",# 闪避值
+"+# to Armour",# 护甲
+"#% increased Evasion and Energy Shield",该装备的闪避和能量护盾提高 #%
+"#% increased Stun and Block Recovery",眩晕恢复和格挡恢复提高 #%
+"Adds # to # Physical Damage",该装备附加 # - # 基础物理伤害
+"Adds # to # Fire Damage",该装备附加 # - # 基础火焰伤害
+"Adds # to # Cold Damage",该装备附加 # - # 基础冰霜伤害
+"Adds # to # Lightning Damage",该装备附加 # - # 基础闪电伤害
+"Adds # to # Fire Damage to Spells",法术附加 # - # 基础火焰伤害
+"Adds # to # Cold Damage to Spells",法术附加 # - # 基础冰霜伤害
+"Adds # to # Lightning Damage to Spells",法术附加 # - # 基础闪电伤害
+"#% increased Fire Damage",火焰伤害提高 #%
+"#% increased Cold Damage",冰霜伤害提高 #%
+"#% increased Lightning Damage",闪电伤害提高 #%
+"#% increased Elemental Damage with Attack Skills",攻击技能的元素伤害提高 #%
+"#% reduced Attribute Requirements",属性需求降低 #%
+"+#% chance to Suppress Spell Damage",法术伤害压制率 #%
+"#% increased Energy Shield",该装备的能量护盾提高 #%
+"#% increased Energy Shield Recharge Rate",能量护盾充能率提高 #%
+"+# to Strength",# 力量
+"+# to Dexterity",# 敏捷
+"+# to Intelligence",# 智慧
+"#% increased Movement Speed",移动速度提高 #%
+"+#% to Damage over Time Multiplier",持续伤害加成 #%
+"+#% to Physical Damage over Time Multiplier",物理持续伤害加成 #%
+"+#% to Fire Damage over Time Multiplier",火焰持续伤害加成 #%
+"+#% to Cold Damage over Time Multiplier",冰霜持续伤害加成 #%
+"+#% to Chaos Damage over Time Multiplier",混沌持续伤害加成 #%
+"#% increased Attack Speed",攻击速度提高 #%
+"#% increased Cast Speed",施法速度提高 #%
+"#% increased Global Accuracy Rating",命中值提高 #%
+"#% increased Light Radius",照亮范围扩大 #%
+"#% increased Critical Strike Chance for Spells",法术暴击率提高 #%
+"#% increased Critical Strike Chance",该装备的攻击暴击率提高 #%
+"+#% to Global Critical Strike Multiplier",攻击和法术暴击伤害加成 #%
+"#% increased Mana Regeneration Rate",魔力再生率提高 #%
+"+#% to Fire Resistance",#% 火焰抗性
+"+#% to Cold Resistance",#% 冰霜抗性
+"+#% to Lightning Resistance",#% 闪电抗性
+"+#% to Chaos Resistance",#% 混沌抗性
+"Grants # Life per Enemy Hit",每击中一名敌人获得 # 点生命
+"Gain # Life per Enemy Hit with Attacks",你的攻击击中每个敌人会回复 # 生命
+"Gain 2 Life per Enemy Hit with Attacks",你的攻击击中每个敌人会回复 # 生命
+"Gain # Life per Enemy Killed",每击败一名敌人获得#点生命
+"Gain # Mana per Enemy Killed",每击败一名敌人获得#点魔力
+"#% increased Projectile Speed",投射物速度提高 #%
+"#% increased Stun Duration on Enemies",敌人眩晕时间延长 #%
+"#% increased Burning Damage",燃烧伤害提高 #%
+"#% chance to Ignite",有 #% 的几率点燃
+"#% chance to Freeze",有 #% 的几率造成冻结状态
+"#% chance to Shock",闪电伤害击中时有 #% 的几率使敌人受到感电效果影响
+"Adds # to # Physical Damage to Attacks",攻击附加 # - # 基础物理伤害
+"Adds # to # Fire Damage to Attacks",攻击附加 # - # 基础火焰伤害
+"Adds # to # Cold Damage to Attacks",攻击附加 # - # 基础冰霜伤害
+"Adds # to # Lightning Damage to Attacks",攻击附加 # - # 基础闪电伤害
+"Reflects # Physical Damage to Melee Attackers",反射 # 物理伤害给近战攻击者
+"#% faster start of Energy Shield Recharge",能量护盾提早 #% 开始恢复
+"#% increased Armour and Energy Shield",该装备的护甲与能量护盾提高 #%
+"#% additional Physical Damage Reduction",#% 额外物理伤害减伤
+"#% increased Armour",护甲提高 #%
+"#% increased Evasion Rating",闪避值提高 #%
+"+# to maximum Energy Shield",# 最大能量护盾
+"#% increased maximum Energy Shield",能量护盾提高 #%
+"+# to maximum Life",# 最大生命
+"#% increased Rarity of Items found",物品稀有度提高 #%
+"#% of Physical Attack Damage Leeched as Life",物理攻击伤害的 #% 会转化为生命偷取
+"#% of Physical Attack Damage Leeched as Mana",物理攻击伤害的 #% 会转化为魔力偷取
+"+1 to Level of all Skill Gems",所有技能石等级 +1
+"+# to all Attributes",# 全属性
+"#% increased Global Critical Strike Chance",攻击和法术暴击率提高 #%
+"Regenerate # Life per second",生命每秒再生 #
+"+#% to all Elemental Resistances",#% 所有元素抗性
+"#% increased Life Regeneration rate",生命再生率提高 #%

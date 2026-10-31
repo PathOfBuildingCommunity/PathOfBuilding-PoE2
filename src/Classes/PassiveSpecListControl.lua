@@ -13,7 +13,7 @@ local PassiveSpecListClass = newClass("PassiveSpecListControl", "ListControl")
 function PassiveSpecListClass:PassiveSpecListControl(anchor, rect, treeTab)
 	self:ListControl(anchor, rect, 16, "VERTICAL", true, treeTab.specList)
 	self.treeTab = treeTab
-	self.controls.copy = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self, "TOP" }, { 2, -4, 60, 18 }, "Copy", function()
+	self.controls.copy = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", self, "TOP" }, { 2, -4, 60, 18 }, localisation:Label("ui.passive_spec_list_control.init.copy.label"), function()
 		local newSpec = new("PassiveSpec"):PassiveSpec(treeTab.build, self.selValue.treeVersion)
 		newSpec.title = self.selValue.title
 		newSpec.jewels = copyTable(self.selValue.jewels)
@@ -24,19 +24,19 @@ function PassiveSpecListClass:PassiveSpecListControl(anchor, rect, treeTab)
 	self.controls.copy.enabled = function()
 		return self.selValue ~= nil
 	end
-	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copy, "RIGHT" }, { 4, 0, 60, 18 }, "Delete", function()
+	self.controls.delete = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.copy, "RIGHT" }, { 4, 0, 60, 18 }, localisation:Label("ui.passive_spec_list_control.init.delete.label"), function()
 		self:OnSelDelete(self.selIndex, self.selValue)
 	end)
 	self.controls.delete.enabled = function()
 		return self.selValue ~= nil and #self.list > 1
 	end
-	self.controls.rename = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOP" }, { -2, -4, 60, 18 }, "Rename", function()
+	self.controls.rename = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", self, "TOP" }, { -2, -4, 60, 18 }, localisation:Label("ui.passive_spec_list_control.init.rename.label"), function()
 		self:RenameSpec(self.selValue, "Rename Tree")
 	end)
 	self.controls.rename.enabled = function()
 		return self.selValue ~= nil
 	end
-	self.controls.new = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.rename, "LEFT" }, { -4, 0, 60, 18 }, "New", function()
+	self.controls.new = new("ButtonControl"):ButtonControl({ "RIGHT", self.controls.rename, "LEFT" }, { -4, 0, 60, 18 }, localisation:Label("ui.passive_spec_list_control.init.new.label"), function()
 		local newSpec = new("PassiveSpec"):PassiveSpec(treeTab.build, latestTreeVersion)
 		newSpec.title = "New Tree"
 		newSpec:SelectClass(treeTab.build.spec.curClassId)
@@ -50,11 +50,11 @@ end
 
 function PassiveSpecListClass:RenameSpec(spec, popupTitle, addOnName)
 	local controls = { }
-	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, "^7Enter name for this passive tree:")
+	controls.label = new("LabelControl"):LabelControl(nil, { 0, 20, 0, 16 }, localisation:Label("ui.passive_spec_list_control.rename_spec.label"))
 	controls.edit = new("EditControl"):EditControl(nil, { 0, 40, 350, 20 }, spec.title or "Default", nil, nil, 100, function(buf)
 		controls.save.enabled = buf:match("%S")
 	end)
-	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, "Save", function()
+	controls.save = new("ButtonControl"):ButtonControl(nil, { -45, 70, 80, 20 }, localisation:Label("ui.passive_spec_list_control.rename_spec.save.label"), function()
 		spec.title = controls.edit.buf
 		self.treeTab.modFlag = true
 		if addOnName then
@@ -67,7 +67,7 @@ function PassiveSpecListClass:RenameSpec(spec, popupTitle, addOnName)
 		main:ClosePopup()
 	end)
 	controls.save.enabled = false
-	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, "Cancel", function()
+	controls.cancel = new("ButtonControl"):ButtonControl(nil, { 45, 70, 80, 20 }, localisation:Label("ui.passive_spec_list_control.rename_spec.cancel.label"), function()
 		main:ClosePopup()
 	end)
 	-- main:OpenPopup(370, 100, spec.title and "Rename" or "Set Name", controls, "save", "edit")
@@ -99,7 +99,7 @@ end
 
 function PassiveSpecListClass:OnSelDelete(index, spec)
 	if #self.list > 1 then
-		main:OpenConfirmPopup("Delete Tree", "Are you sure you want to delete '"..(spec.title or "Default").."'?", "Delete", function()
+		main:OpenConfirmPopup(localisation:Text("ui.passive_spec_list_control.on_sel_delete.message_4"), localisation:Text("ui.passive_spec_list_control.on_sel_delete.message", { value = (spec.title or localisation:Ref("ui.passive_spec_list_control.on_sel_delete.message_2")) }), localisation:Text("ui.passive_spec_list_control.on_sel_delete.message_3"), function()
 			t_remove(self.list, index)
 			self.selIndex = nil
 			self.selValue = nil

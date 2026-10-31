@@ -8,6 +8,10 @@ local m_min = math.min
 local m_floor = math.floor
 local protected_replace = "*"
 local utf8 = require('lua-utf8')
+-- 混排内容即使拆成纯英文片段，也必须使用完整缓冲区的字体度量。
+local function measure(control, height, font, text)
+	return localisation:MeasureRaw(height, font, text, control.buf)
+end
 
 local function lastLine(str)
 	local lastLineIndex = 1
@@ -212,10 +216,10 @@ function EditClass:UpdateScrollBars()
 	local width, height = self:GetSize()
 	local textHeight = self.lineHeight or (height - 4)
 	if self.lineHeight then
-		self.controls.scrollBarH:SetContentDimension(DrawStringWidth(textHeight, self.font, self.buf) + 2, width - 18)
+		self.controls.scrollBarH:SetContentDimension(measure(self, textHeight, self.font, self.buf) + 2, width - 18)
 		self.controls.scrollBarV:SetContentDimension(newlineCount(self.buf.."\n") * textHeight, height - (self.controls.scrollBarH.enabled and 18 or 4))
 	else
-		self.controls.scrollBarH:SetContentDimension(DrawStringWidth(textHeight, self.font, self.buf) + 2, width - 4 - (self.prompt and DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2 or 0))
+		self.controls.scrollBarH:SetContentDimension(measure(self, textHeight, self.font, self.buf) + 2, width - 4 - (self.prompt and measure(self, textHeight, self.font, self.displayPrompt or self:GetProperty("prompt")) + textHeight/2 or 0))
 	end
 end
 
@@ -223,7 +227,7 @@ function EditClass:ScrollCaretIntoView()
 	local width, height = self:GetSize()
 	local textHeight = self.lineHeight or (height - 4)
 	local pre = self.buf:sub(1, self.caret - 1)
-	local caretX = DrawStringWidth(textHeight, self.font, lastLine(pre))
+	local caretX = measure(self, textHeight, self.font, lastLine(pre))
 	self:UpdateScrollBars()
 	self.controls.scrollBarH:ScrollIntoView(caretX - textHeight, textHeight * 2)
 	if self.lineHeight then
@@ -234,7 +238,7 @@ end
 
 function EditClass:MoveCaretVertically(offset)
 	local pre = self.buf:sub(1, self.caret - 1)
-	local caretX = DrawStringWidth(self.lineHeight, self.font, lastLine(pre))
+	local caretX = measure(self, self.lineHeight, self.font, lastLine(pre))
 	local caretY = newlineCount(pre) * self.lineHeight
 	self.caret = DrawStringCursorIndex(self.lineHeight, self.font, self.buf, caretX + 1, caretY + self.lineHeight/2 + offset)
 	self.lastUndoState.caret = self.caret
@@ -275,11 +279,11 @@ function EditClass:Draw(viewPort, noTooltip)
 	local textHeight = self.lineHeight or (height - 4)
 	if self.prompt then
 		if not enabled then
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.disableCol..self.prompt)
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.disableCol..(self.displayPrompt or self:GetProperty("prompt")))
 		else
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.textCol..self.prompt..":")
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.textCol..(self.displayPrompt or self:GetProperty("prompt"))..":")
 		end
-		textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
+		textX = textX + measure(self, textHeight, self.font, self.displayPrompt or self:GetProperty("prompt")) + textHeight/2
 	end
 	if enabled and mOver and not noTooltip then
 		SetDrawLayer(nil, 100)
@@ -296,7 +300,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	if not enabled or not self.hasFocus then
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
-			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
+			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.displayPlaceholder)
 		else
 			SetDrawColor(self.inactiveCol)
 			if self.inactiveText then
@@ -337,7 +341,7 @@ function EditClass:Draw(viewPort, noTooltip)
 				if left > s then
 					local pre = line:sub(1, left - s)
 					DrawString(textX, textY, "LEFT", textHeight, self.font, pre)
-					textX = textX + DrawStringWidth(textHeight, self.font, pre)
+					textX = textX + measure(self, textHeight, self.font, pre)
 				end
 				if left >= s and left == self.caret then
 					caretX, caretY = textX, textY
@@ -348,7 +352,7 @@ function EditClass:Draw(viewPort, noTooltip)
 				if right >= e then
 					sel = sel .. "  "
 				end
-				local selWidth = DrawStringWidth(textHeight, self.font, sel)
+				local selWidth = measure(self, textHeight, self.font, sel)
 				SetDrawColor(self.selBGCol)
 				DrawImage(nil, textX, textY, selWidth, textHeight)
 				DrawString(textX, textY, "LEFT", textHeight, self.font, sel)
@@ -362,7 +366,7 @@ function EditClass:Draw(viewPort, noTooltip)
 				if right < e then
 					local post = line:sub(right - s + 1)
 					DrawString(textX, textY, "LEFT", textHeight, self.font, post)
-					textX = textX + DrawStringWidth(textHeight, self.font, post)
+					textX = textX + measure(self, textHeight, self.font, post)
 				end
 			end
 			textY = textY + textHeight
@@ -384,8 +388,8 @@ function EditClass:Draw(viewPort, noTooltip)
 		else
 			DrawString(textX, textY, "LEFT", textHeight, self.font, pre)
 		end
-		textX = textX + DrawStringWidth(textHeight, self.font, pre)
-		local selWidth = DrawStringWidth(textHeight, self.font, sel)
+		textX = textX + measure(self, textHeight, self.font, pre)
+		local selWidth = measure(self, textHeight, self.font, sel)
 		SetDrawColor(self.selBGCol)
 		DrawImage(nil, textX, textY, selWidth, textHeight)
 		if self.protected then
@@ -406,7 +410,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	else
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
-			DrawString(textX, textY, "LEFT", textHeight, self.font, self.placeholder)
+			DrawString(textX, textY, "LEFT", textHeight, self.font, self.displayPlaceholder)
 		end
 		local pre = self.textCol .. self.buf:sub(1, self.caret - 1)
 		local post = self.buf:sub(self.caret)
@@ -415,7 +419,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		else
 			DrawString(textX, textY, "LEFT", textHeight, self.font, pre)
 		end
-		textX = textX + DrawStringWidth(textHeight, self.font, pre)
+		textX = textX + measure(self, textHeight, self.font, pre)
 		if self.protected and #post > 0 then
 			DrawString(textX, textY, "LEFT", textHeight, self.font, string.rep(protected_replace, #post))
 		else
@@ -471,6 +475,10 @@ function EditClass:OnKeyDown(key, doubleClick)
 					while self.buf:sub(self.caret, self.caret):match("%w") do
 						self.caret = self.caret + 1
 					end
+				elseif caretChar:byte() and caretChar:byte() >= 128 then
+					-- 中文双击按完整码点选择，不能把一个 UTF-8 字符切成字节。
+					self.sel = self.caret
+					self.caret = utf8.next(self.buf, self.caret, 1) or #self.buf + 1
 				elseif caretChar:match("%S") then
 					self.sel = self.caret
 					while self.buf:sub(self.sel - 1, self.sel - 1) == caretChar do
@@ -496,7 +504,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 			local textY = y + 2
 			local textHeight = self.lineHeight or (height - 4)
 			if self.prompt then
-				textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
+				textX = textX + measure(self, textHeight, self.font, self.displayPrompt or self:GetProperty("prompt")) + textHeight/2
 			end
 			local cursorX, cursorY = GetCursorPos()
 			self.caret = DrawStringCursorIndex(textHeight, self.font, self.buf, cursorX - textX + self.controls.scrollBarH.offset, cursorY - textY + self.controls.scrollBarV.offset)
@@ -533,7 +541,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 			if self.pasteFilter then
 				text = self.pasteFilter(text)
 			end
-			text = text:gsub("[\128-\255]","?")
+			-- 中文原文留给搜索与物品输入处理，不逐字节替换为问号。
 			if self.sel and self.sel ~= self.caret then
 				self:ReplaceSel(text)
 			else
@@ -610,7 +618,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 		if self.sel and self.sel ~= self.caret then
 			self:ReplaceSel("")
 		elseif self.caret > 1 then
-			local len = 1
+			local len = self.caret - (utf8.next(self.buf, self.caret, -1) or 1)
 			if IsKeyDown("CTRL") then
 				while self.caret - len > 1 and self.buf:sub(self.caret - len, self.caret - len):match("%s") and not self.buf:sub(self.caret - len - 1, self.caret - len - 1):match("\n") do
 					len = len + 1
@@ -635,7 +643,7 @@ function EditClass:OnKeyDown(key, doubleClick)
 		if self.sel and self.sel ~= self.caret then
 			self:ReplaceSel("")
 		elseif self.caret <= #self.buf then
-			local len = 1
+			local len = (utf8.next(self.buf, self.caret, 1) or #self.buf + 1) - self.caret
 			if IsKeyDown("CTRL") then
 				while self.caret + len <= #self.buf and self.buf:sub(self.caret + len - 1, self.caret + len - 1):match("%s") and not self.buf:sub(self.caret + len, self.caret + len):match("\n") do
 					len = len + 1
@@ -759,4 +767,13 @@ function EditClass:RestoreUndoState(state)
 		self.changeFunc(self.buf)
 	end
 	self.lastUndoState = state
+end
+
+-- 编辑区展示用户原文，标题和占位文字通过独立资源属性解析。
+local drawEdit = EditClass.Draw
+function EditClass:Draw(...)
+	-- 标签属于界面文案；用户缓冲区仍按原文绘制和编辑。
+	self.displayPrompt = self:GetProperty("prompt")
+	self.displayPlaceholder = self:GetProperty("placeholder")
+	return localisation:DrawRaw(drawEdit, self, ...)
 end

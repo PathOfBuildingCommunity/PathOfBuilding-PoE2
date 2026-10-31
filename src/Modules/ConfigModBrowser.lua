@@ -259,7 +259,7 @@ function M.OpenAddModPopup(configTab, blockData)
 		end
 	end
 
-	controls.searchLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", nil, "TOPLEFT" }, { 65, 482, 0, 16 }, "^7Search:")
+	controls.searchLabel = new("LabelControl"):LabelControl({ "TOPRIGHT", nil, "TOPLEFT" }, { 65, 482, 0, 16 }, localisation:Label("ui.config_mod_browser.open_add_mod_popup.search_label.label"))
 	controls.search = new("EditControl"):EditControl({ "TOPLEFT", nil, "TOPLEFT" }, { 70, 482, 640, 18 }, "", nil, "%c", 100, function()
 		updateDisplayList(controls, displayList, supportedList)
 	end, nil, nil, true)
@@ -281,7 +281,7 @@ This menu is not a representation of what PoB can parse, and this is only a limi
 A mod being supported does not necessarily mean that it will be included in calculations, and only means that the mod parser accepts it.]],
 			16, 270), "\n")
 
-	controls.save = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", controls.whatDoesItDo, "TOP" }, { -2, -4, 80, 20 }, "Add", function()
+	controls.save = new("ButtonControl"):ButtonControl({ "BOTTOMRIGHT", controls.whatDoesItDo, "TOP" }, { -2, -4, 80, 20 }, localisation:Label("ui.config_mod_browser.open_add_mod_popup.save.label"), function()
 		local selIndex = controls.listControl.selIndex or 1
 		local selected = displayList[selIndex]
 		if selected and selected.text ~= NO_MATCH_TEXT then
@@ -303,13 +303,13 @@ A mod being supported does not necessarily mean that it will be included in calc
 	end
 
 
-	controls.close = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", controls.whatDoesItDo, "TOP" }, { 2, -4, 80, 20 }, "Cancel", function()
+	controls.close = new("ButtonControl"):ButtonControl({ "BOTTOMLEFT", controls.whatDoesItDo, "TOP" }, { 2, -4, 80, 20 }, localisation:Label("ui.config_mod_browser.open_add_mod_popup.close.label"), function()
 		main:ClosePopup()
 	end)
 
 	local popupHeight = controls.search.y + controls.search.height + helpSize - controls.whatDoesItDo.y - controls.close.y + controls.close.height + 8
 
-	main:OpenPopup(720, popupHeight, "Mod Browser", controls, "save", "search", "close")
+	main:OpenPopup(720, popupHeight, localisation:Label("ui.config_mod_browser.open_add_mod_popup.label"), controls, "save", "search", "close")
 end
 
 return M

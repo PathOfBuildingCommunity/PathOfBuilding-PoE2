@@ -39,8 +39,9 @@ local function wordsToCaselessPatterns(words)
 	return patterns
 end
 
-local function matchWords(searchWords, entry, valueAccessor, ignoreOrder)
-	local value = valueAccessor and valueAccessor(entry) or entry
+local function matchWords(searchWords, entry, valueAccessor, ignoreOrder, index)
+	local value, alternative
+	if valueAccessor then value, alternative = valueAccessor(entry, index) else value = entry end
 	local searchInfo = { ranges = {}, matches = true }
 	local lastMatchEnd = 0
 	for _, word in ipairs(searchWords) do
@@ -75,6 +76,11 @@ local function matchWords(searchWords, entry, valueAccessor, ignoreOrder)
 			end
 		end
 	end
+	-- 别名只决定是否匹配，不把英文的字节范围用于当前语言的高亮。
+	if not searchInfo.matches and alternative and alternative ~= value then
+		local alias = matchWords(searchWords, alternative, nil, ignoreOrder)
+		if alias.matches then return { ranges = {}, matches = true } end
+	end
 	return searchInfo
 end
 
@@ -86,7 +92,7 @@ local function matchTerm(searchTerm, list, valueAccessor, ignoreOrder)
 	local searchInfos = {}
 	local searchPatterns = wordsToCaselessPatterns(splitWords(searchTerm))
 	for idx, entry in ipairs(list) do
-		searchInfos[idx] = matchWords(searchPatterns, entry, valueAccessor, ignoreOrder)
+		searchInfos[idx] = matchWords(searchPatterns, entry, valueAccessor, ignoreOrder, idx)
 	end
 	return searchInfos
 end

@@ -66,6 +66,9 @@ function ControlClass:Control(anchor, rect)
 end
 
 function ControlClass:GetProperty(name)
+	if self[name .. 'Key'] then
+		return localisation:Field(self, name)
+	end
 	if type(self[name]) == "function" then
 		return self[name](self)
 	else

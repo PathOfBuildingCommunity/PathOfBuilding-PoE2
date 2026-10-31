@@ -108,6 +108,7 @@ function ListClass:SelectIndex(index)
 end
 
 function ListClass:GetColumnProperty(column, property)
+	if column[property .. 'Key'] then return localisation:Field(column, property) end
 	if type(column[property]) == "function" then
 		return column[property](self, column)
 	else
@@ -311,7 +312,7 @@ function ListClass:Draw(viewPort, noTooltip)
 	end
 	if #self.list == 0 and self.defaultText then
 		SetDrawColor(1, 1, 1)
-		DrawString(2, 2, "LEFT", 14, self.font, self.defaultText)
+		DrawString(2, 2, "LEFT", 14, self.font, localisation:Field(self, 'defaultText'))
 	end
 	if self.selDragIndex then
 		local lineY = rowHeight * (self.selDragIndex - 1) - scrollOffsetV

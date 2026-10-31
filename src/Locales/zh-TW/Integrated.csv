@@ -1,0 +1,14 @@
+Language:,介面語言:
+Application options,程式選項
+Build options,流派選項
+Item Class: Amulets,物品種類: 護身符
+Rarity: Normal,稀有度: 普通
+Rarity: Magic,稀有度: 魔法
+Rarity: Rare,稀有度: 稀有
+Rarity: Unique,稀有度: 傳奇
+Item Level: {0},物品等級: {0}
+Level: {0},等級: {0}
+Quality: {0},品質: {0}
+Requires Level {0},需求等級 {0}
+Corrupted,已汙染
+Unidentified,未鑑定

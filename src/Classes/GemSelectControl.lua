@@ -13,7 +13,6 @@ local m_floor = math.floor
 
 local gemTooltip = LoadModule("Classes/GemTooltip")
 
-local toolTipText = "Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area"
 
 ---@class GemSelectControl: EditControl
 local GemSelectClass = newClass("GemSelectControl", "EditControl")
@@ -25,7 +24,7 @@ local GemSelectClass = newClass("GemSelectControl", "EditControl")
 ---@param changeFunc fun(...)
 ---@param forceTooltip boolean
 function GemSelectClass:GemSelectControl(anchor, rect, skillsTab, index, changeFunc, forceTooltip)
-	self:EditControl(anchor, rect, nil, nil, "^ %a':-")
+	self:EditControl(anchor, rect, nil, nil, main.unicode and "%c" or "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl"):ScrollBarControl({ "TOPRIGHT", self, "TOPRIGHT" }, { -1, 0, 18, 0 }, (self.height - 4) * 4)
 	self.controls.scrollBar.y = function()
 		local width, height = self:GetSize()
@@ -160,13 +159,14 @@ function GemSelectClass:BuildList(buf)
 		for i, pattern in ipairs(patternList) do
 			local matchList = { }
 			for gemId, gemData in pairs(self.gems) do
-				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern)) then
+				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern) or (" "..localisation:Field(gemData, "name"):lower()):match(pattern)) then
 					addThisGem = true
 					if #tagsList > 0 then
 						for _, tag in ipairs(tagsList) do
 							local tagName = tag:gsub("%s+", ""):lower()
 							local negateTag = tagName:sub(1, 1) == "-"
 							if negateTag then tagName = tagName:sub(2) end
+							tagName = localisation:TagName(gemData.tags, tagName)
 							if tagName == "active" then
 								tagName = "grants_active_skill"
 							elseif tagName == "int" then
@@ -207,7 +207,7 @@ function GemSelectClass:BuildList(buf)
 					elseif searchTerm == "aoe" then
 						searchTerm = "area"
 					end
-					if self:FilterSupport(gemId, gemData) and not added[gemId] and gemData.tags[searchTerm:lower()] == true then
+					if self:FilterSupport(gemId, gemData) and not added[gemId] and gemData.tags[localisation:TagName(gemData.tags, searchTerm:lower())] == true then
 						t_insert(matchList, gemId)
 						added[gemId] = true
 					end
@@ -534,7 +534,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 		SetDrawLayer(nil, 5)
 		if self.dpsBuilder then
 			SetDrawColor(0.75, 0.75, 0.75)
-			DrawString(x + width - 4, y, "RIGHT_X", height - 2, "VAR", "Sorting " .. self.sortPercentage)
+			DrawString(x + width - 4, y, "RIGHT_X", height - 2, "VAR", localisation:Text("ui.gem_select_control.draw.message_2", { sort_percentage = self.sortPercentage }))
 		end
 		local cursorX, cursorY = GetCursorPos()
 		self.hoverSel = mOverComp == "DROP" and math.floor((cursorY - y - height + scrollBar.offset) / (height - 4)) + 1
@@ -562,7 +562,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 					SetDrawColor(colorCodes.INTELLIGENCE)
 				end
 			end
-			local gemText = gemData and gemData.name or "<No matches>"
+			local gemText = gemData and localisation:Field(gemData, "name") or localisation:Text("skill.search.no_matches")
 			DrawString(0, y, "LEFT", height - 4, "VAR", gemText)
 			if gemData then
 				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] and self.sortCache.dpsColor[gemId] ~= "" then
@@ -604,7 +604,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 						}
 					self:AddGemTooltip(gemInstance)
 					self.tooltip:AddSeparator(10)
-					self.skillsTab.build:AddStatComparesToTooltip(self.tooltip, calcBase, output, "^7Selecting this gem will give you:")
+					self.skillsTab.build:AddStatComparesToTooltip(self.tooltip, calcBase, output, localisation:Text("ui.gem_select_control.draw.message"))
 				end
 				self.tooltip:Draw(x, y + height + 2 + (self.hoverSel - 1) * (height - 4) - scrollBar.offset, width, height - 4, viewPort)
 			end
@@ -638,7 +638,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			if gemInstance and gemInstance.gemData then
 				self:AddGemTooltip(gemInstance, true)
 			else
-				self.tooltip:AddLine(16, toolTipText)
+				self.tooltip:AddLine(16, localisation:Text("skill.search.tag_help"))
 			end
 
 			colorS = 0.5
@@ -646,11 +646,11 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			if cursorX > (x + width - 18) then
 				colorS = 1
 				self.tooltip:Clear()
-				self.tooltip:AddLine(16, "Only show Support gems")
+				self.tooltip:AddLine(16, localisation:Text("ui.gem_select_control.draw.tooltip_2"))
 			elseif (cursorX > (x + width - 40) and cursorX < (cursorX + width - 20)) then
 				colorA = 1
 				self.tooltip:Clear()
-				self.tooltip:AddLine(16, "Only show Active gems")
+				self.tooltip:AddLine(16, localisation:Text("ui.gem_select_control.draw.tooltip"))
 			end
 
 			-- support shortcut

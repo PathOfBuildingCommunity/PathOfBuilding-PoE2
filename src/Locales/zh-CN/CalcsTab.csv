@@ -1,0 +1,26 @@
+Unbuffed,无增益效果
+Buffed,有增益效果
+In Combat,战斗状态
+Effective DPS,有效DPS
+View Skill Details:,查看技能详情:
+Socket Group:,插槽组:
+Active Skill:,启用技能:
+Skill Part:,技能部分:
+Skill Stages:,技能阶段:
+Active Mines:,启用地雷数
+Show Minion Stats:,显示召唤物数据:
+Show stats for the minion instead of the player.,显示召唤物的数据而不是玩家的。
+Minion:,召唤物:
+Spectre Library:,灵体库:
+Manage Spectres...,管理灵体...
+Minion Skill:,召唤物技能:
+Calculation Mode:,计算模式:
+This controls the calculation of the stats shown in this tab.,这控制了该选项卡中显示的统计数据的计算。
+"The stats in the sidebar are always shown in Effective DPS mode, regardless of this setting.",侧边栏中的统计数据总是以有效DPS模式显示，无论此设置如何。
+"Unbuffed: No auras, buffs, or other support skills or effects will apply. This is equivalent to standing in town.","无增益效果: 无光环丶增益效果丶其他辅助技能效果影响。等效于站在城镇地图中时的状态。"
+"Buffed: Aura and buff skills apply. This is equivalent to standing in your hideout with auras and buffs turned on.","有增益效果: 受到光环丶增益效果影响。等效于站在藏身处中时的状态。"
+"In Combat: Charges and combat buffs such as Onslaught will also apply. This will show your character sheet stats in combat.","战斗状态: 受到充能球和战斗BUFF如【猛攻】的影响。这将表现你的人物在战斗中的统计数据。"
+"Effective DPS: Curses and enemy properties (such as resistances and status conditions) will also apply. This estimates your true DPS.","有效 DPS: 受到诅咒和敌人属性(例如敌人的抗性和状态条件)影响。这表现了估算出的你的真实DPS。"
+Aura and Buff Skills:,光环和增益技能
+Combat Buffs:,战斗增益:
+Curses and Debuffs:,诅咒和减益效果:
